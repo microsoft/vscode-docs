@@ -19,9 +19,6 @@ This fixes many Windows integration issues and streamlines the update story.  In
 
 On Windows, you will likely see a two stage update as a result of the change to the new [Inno Setup](http://www.jrsoftware.org/isinfo.php) installer.  The first update to version 0.7.20 bootstraps the new installer and then the second, installs the 0.8.0 release.  The new installer will prompt you during installation.  Continue through the setup dialog to install VS Code 0.8.0.
 
-## 0.7.0 is not Working on Windows
-**FIXED:** There is an issue with the 0.7.0 setup on Windows where VS Code will not properly load if you have non-ASCII characters in your installation path, normally your user name. This issue has been resolved in 0.7.10 for Windows. If you were affected by this bug please refer to the [how to update](/Docs/supporting/howtoupdate) documentation to download and install 0.7.10.
-
 ## How do I update to the latest version?
 See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
 
@@ -57,7 +54,7 @@ Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead 
 >**Note:** When VS Code is installed via a Zip you will need to manually update it for each release.
 
 ## VS Code fails to start OmniSharp on OS X
-On OS X, VS Code can no longer start OmniSharp after updating VS Code to 0.7.0.
+On OS X, VS Code can no longer start OmniSharp after updating VS Code.
 
 To fix this issue, run these commands to update mono:
 

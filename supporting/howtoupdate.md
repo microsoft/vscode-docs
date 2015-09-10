@@ -26,8 +26,6 @@ You need to do this only if auto-update did not complete.
 
 ## Updating on Windows
 
-FIXED: There is an issue with the 0.7.0 setup on Windows where VS Code will not properly load if you have non-ASCII characters in your installation path, normally your user name. This issue has been resolved, please follow these instructions to manually update your installation.  
-
 You need to do this only if auto-update did not complete.
 
 **Important:** Close any running instances of VS Code before attempting to update (to avoid VS Code not being able to start after you update).
