@@ -35,7 +35,7 @@ The Debug view displays all information pertaining to debugging and has a top ba
 To debug your app in VS Code, you'll first need to setup your debugging launch configuration file - **launch.json**.
 Click on the Configure gear icon on the Debug view top bar and VS Code will generate a default launch.json.
 
-```json
+```
 {
 	"version": "0.1.0",
 	// List of configurations. Add new configurations or edit existing ones.
