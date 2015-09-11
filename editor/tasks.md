@@ -200,7 +200,6 @@ you are familiar with regular expressions.
 A matcher that captures the above warning (and errors) looks like:
 
 ```json
-{
 	// The problem is owned by the cpp language service.
 	"owner": "cpp",
 	// The file name for reported problems is relative to the opened folder.
@@ -220,7 +219,6 @@ A matcher that captures the above warning (and errors) looks like:
 		// The fifth match group matches the message.
 		"message": 5
 	}
-}
 ```
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
