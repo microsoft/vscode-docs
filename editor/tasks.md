@@ -146,11 +146,10 @@ Valid operating properties are **windows** for Windows, **linux** for Linux and 
 ```json
 {
 	"version": "0.1.0",
-	"showOutput": "never"
+	"showOutput": "never",
 	"windows": {
 		"showOutput": "always"
 	}
-	....
 }
 ```
 output from the executed task is never brought to front except for Windows where it is always shown.
@@ -163,16 +162,13 @@ Here is a example where output for the "deploy" task is always brought to front:
 ```json
 {
 	"version": "0.1.0",
-	"showOutput": "silent"
-	....
+	"showOutput": "silent",
 	"tasks": [
 		{
 			"taskName": "deploy",
 			"showOutput": "always",
-			...
 		},
 		{
-			...
 		}
 	]
 }
@@ -199,7 +195,7 @@ you are familiar with regular expressions.
 
 A matcher that captures the above warning (and errors) looks like:
 
-```json
+```
 {
 	// The problem is owned by the cpp language service.
 	"owner": "cpp",
@@ -272,19 +268,17 @@ Our problem matcher is line-based so we need to capture the file name (test.js) 
 
 To do this we use an array of problem patterns for the **pattern** property. This way you define a pattern per each line you want to match.
 
-The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue which we will resolve next:
+The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue which we will resolve next.  The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message and error code:
 
 ```json
 {
 	"owner": "javascript",
 	"fileLocation": ["relative", "${workspaceRoot}"],
 	"pattern": [
-		// The first regular expression to capture the file name
 		{
-			"regexp": "^([^\s].*)$",
+			"regexp": "^([^\\s].*)$",
 			"file": 1
 		},
-		// The second regular expression to capture line, column, severity, message and code.
 		{
 			"regexp": "^\\s+(\\d+):(\\d+)\\s+(error|warning|info)\\s+(.*)\\s\\s+(.*)$",
 			"line": 1,
@@ -323,12 +317,10 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 	"owner": "javascript",
 	"fileLocation": ["relative", "${workspaceRoot}"],
 	"pattern": [
-		// The first regular expression to capture the file name
 		{
-			"regexp": "^([^\s].*)$",
+			"regexp": "^([^\\s].*)$",
 			"file": 1
 		},
-		// The second regular expression to capture line, column, severity, message and code.
 		{
 			"regexp": "^\\s+(\\d+):(\\d+)\\s+(error|warning|info)\\s+(.*)\\s\\s+(.*)$",
 			"line": 1,
@@ -356,11 +348,9 @@ Below is an example of a configuration that passes the current opened file to th
 
 ```json
 {
-	...
 	"command": "tsc",
 
 	"args": ["${file}"],
-	...
 }
 ```
 
