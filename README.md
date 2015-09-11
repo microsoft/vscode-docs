@@ -14,7 +14,7 @@ If you landed here looking for other information about VS Code, head over to [ou
 
 To contribute new topics or make changes to existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md) for instructions and guidelines.
 
-If you want to give documentation feedback please use the feedback control located at the bottom of each documentation page. To enter doc bugs, please enter create a GitHub issue.
+If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page. To enter doc bugs, please create a GitHub issue.
 
 ## Editing
 
