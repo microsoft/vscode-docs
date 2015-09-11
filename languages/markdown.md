@@ -16,7 +16,7 @@ Open any Markdown file and press `kb(workbench.action.markdown.togglePreview)` i
 
 Here is an example with a very simple file.
 
-![Markdown Preview](images/markdown/preview.png)
+![Markdown Preview](images/Markdown/preview.png)
 
 >**Tip:** You can also click on the icon on the top right of the preview window to switch back and forth between code and preview mode.
 
@@ -171,7 +171,7 @@ To complete the tasks integration with VS Code, we will need to modify the task 
 ### Step 4: Run the Build Task
 Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (run Build Task).  But this time, we've set a watch so the status bar should indicate that on the left-hand side.
 
-![Task watching spinner](images/markdown/taskwatching.png)
+![Task watching spinner](images/Markdown/taskwatching.png)
 
 At this point, if you create and/or modify other Markdown files, you will see the respective HTML files generated and/or changes reflected on save.  You can also enable `Auto Save` to make things even more streamlined.
 
