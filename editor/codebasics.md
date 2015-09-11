@@ -28,7 +28,7 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout and opened files are preserved.
 
-![VS Code Layout](images/codebasics/Layout.png)
+![VS Code Layout](images/codebasics/layout.png)
 
 Instead of placing files in separate tabs, VS Code allows up to three visible editors at any one time, allowing you place up to three files together side by side.
 
@@ -105,7 +105,7 @@ You can also find this setting as an option on the `File` menu.
 ## Search Across Files
 VS Code allows you to quickly search over all the files in the open folder.  Simply type `kb(workbench.view.search)` and type in your search.  Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view in the editor.
 
-![A simple text search across files](images/codebasics/Search.png)
+![A simple text search across files](images/codebasics/search.png)
 
 >**Tip:** We support regular expression searching in the search box too.
 

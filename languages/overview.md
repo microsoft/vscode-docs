@@ -13,7 +13,7 @@ MetaDescription: In Visual Studio Code we have support for all common languages.
 ## What Languages are Supported
 In Visual Studio Code we have support for many languages. The richness of support varies across the different languages.
 
-![Languages](images/languages/LanguageCoverage.png)
+![Languages](images/languages/languagecoverage.png)
 
 The table below provides a brief description of Visual Studio Code's various languages features.  Click on any linked item to get an overview of how to use VS Code in the context of that language.
 
