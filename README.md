@@ -8,13 +8,13 @@ Topics submitted here will be published to the [Visual Studio Code](http://code.
 
 VS Code is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on your favorite platform - Linux, Mac OSX and Windows.
 
-If you landed here looking for other information about VS Code, try our [Connect](http://code.visualstudio.com/Home/Connect) page.
+If you landed here looking for other information about VS Code, head over to [our website](http://code.visualstudio.com) for additional information.
 
 ## Contributing documentation
 
-To contribute new topics or make changes to existing documentation, see [CONTRIBUTING](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md) for instructions and guidelines.
+To contribute new topics or make changes to existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md) for instructions and guidelines.
 
-If you want to give documentation feedback or enter doc bugs, please enter GitHub issues.
+If you want to give documentation feedback please use the feedback control located at the bottom of each documentation page. To enter doc bugs, please enter create a GitHub issue.
 
 ## Editing
 
