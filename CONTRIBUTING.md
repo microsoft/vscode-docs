@@ -61,9 +61,7 @@ In fact, VS Code itself is developed using VS Code and the core documentation is
 
 ## How to use Markdown to format your topic
 
-The topics in this repository use GitHub flavored Markdown.
-
-- [Markdown basics](https://help.github.com/articles/markdown-basics/)
+The topics in this repository use Markdown this is a pretty good overview [Markdown basics](https://help.github.com/articles/markdown-basics/)
 
 ## Topic Metadata
 
@@ -78,6 +76,11 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **MetaTags** - Further tags for this page again for search
 
 ## Formatting 
+
+**Headings & Right Nav**
+
+H2 headings `##` end up in the right hand jump list for a document (this happens in our compile script).  So it's a good idea to use these to help users get an overview of the docs and navigate to the major topics.
+
 
 **Links**
 
@@ -111,6 +114,8 @@ The VS Code portal is able to show the correct key bindings depending on the rea
 
 To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.  
 
+>For a list of keybingings and the relevant `Command Ids` review the [keybindings document](https://code.visualstudio.com/docs/editor/keybindings).
+
 If you are listing out multiple key bindings, you can use a table.
 
 >Shortcut|Key Strokes
@@ -123,21 +128,14 @@ If you are listing out multiple key bindings, you can use a table.
 
 For source code we use the fenced code block notation "```".
 
->**Note:** Currently we don't support code colorization.
+>**Note:** To get colorization add a language modifyer e.g. "```json" or "```javascript".
 
 Some JavaScript code...
 
-```
+```javascript
 function fancyAlert(arg) {
 	if(arg) {
 		$.facebox({div:foo})
 	}
 }
-```
-
-A few lines of C# code...
-
-```
-using System;
-using System.Text;
 ```
