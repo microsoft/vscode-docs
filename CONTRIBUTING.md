@@ -50,7 +50,7 @@ Within these folders you'll find the Markdown files used for the content. Each o
 We recommend that you create local working branches that target a specific scope of change (and then submit a pull request when your changes are ready). Each branch should be limited to a single concept/topic both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:
 
 * A new topic (and associated images).
-* Spelling and grammar edits on an topic.
+* Spelling and grammar edits on a topic.
 * Applying a single formatting change across a large set of topics.
 
 ## Authoring tools
@@ -61,7 +61,7 @@ In fact, VS Code itself is developed using VS Code and the core documentation is
 
 ## How to use Markdown to format your topic
 
-The topics in this repository use Markdown this is a pretty good overview [Markdown basics](https://help.github.com/articles/markdown-basics/)
+The topics in this repository use Markdown.  Here is a good overview of [Markdown basics](https://help.github.com/articles/markdown-basics/).
 
 ## Topic Metadata
 
@@ -79,8 +79,7 @@ Topic metadata enables certain functionalities for the topics such as table of c
 
 **Headings & Right Nav**
 
-H2 headings `##` end up in the right hand jump list for a document (this happens in our compile script).  So it's a good idea to use these to help users get an overview of the docs and navigate to the major topics.
-
+H2 subheadings `##` end up in the right hand jump list for the document (this happens in our compile script).  It's a good idea to include h2 subheadings to help users get an overview of the doc and quickly navigate to the major topics.
 
 **Links**
 
@@ -114,7 +113,7 @@ The VS Code portal is able to show the correct key bindings depending on the rea
 
 To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.  
 
->For a list of keybingings and the relevant `Command Ids` review the [keybindings document](https://code.visualstudio.com/docs/editor/keybindings).
+>For a list of key bindings and the relevant `Command Ids` review the [key bindings document](https://code.visualstudio.com/docs/editor/keybindings).
 
 If you are listing out multiple key bindings, you can use a table.
 
@@ -128,7 +127,7 @@ If you are listing out multiple key bindings, you can use a table.
 
 For source code we use the fenced code block notation "```".
 
->**Note:** To get colorization add a language modifyer e.g. "```json" or "```javascript".
+>**Note:** To get colorization, add a language modifier e.g. "```json" or "```javascript".
 
 Some JavaScript code...
 
