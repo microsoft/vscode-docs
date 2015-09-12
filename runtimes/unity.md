@@ -183,8 +183,10 @@ The Unity plug-in described above does the hard work (especially for configuring
           "name": "Unity",
           "type": "mono",
           "address": "localhost",
-          "port": 56943   // <-- Change this to the current port number
+          "port": 56943
        }
     ]
 }
 ```
+
+Change the `port` value to the current port number.
