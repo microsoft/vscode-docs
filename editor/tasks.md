@@ -133,7 +133,7 @@ Below is an example that uses the Node.js executable as a command and is treated
 {
     "version": "0.1.0",
 	"windows": {
-		"command": "C:\Program Files\nodejs\node.exe"
+		"command": "C:\\Program Files\\nodejs\\node.exe"
 	},
 	"linux": {
 		"command": "/usr/bin/node"
