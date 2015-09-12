@@ -62,7 +62,6 @@ The following excerpt from the User Settings shows how `bower.json` files are ma
 		],
 		"url": "http://json.schemastore.org/bower"
 	},
-	...
 ```
 
 ### Mapping a Schema in the Workspace
@@ -76,7 +75,6 @@ To map a schema that is located in the workspace, use a relative path. In this e
 		],
 		"url": "./myschema.json"
 	},
-	...
 ```
 
 ### Mapping a Schema in the Settings Files
@@ -99,7 +97,6 @@ To map a schema that is defined in the User or Workspace Settings, use the `sche
 				}
 			}
 		},
-		...
 ```
 
 ## Next Steps
