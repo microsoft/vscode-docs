@@ -90,7 +90,7 @@ If you pass an incorrect type to `createServer` VS Code will give you a warning.
 
 You can give even more hints to Visual Studio Code through a configuration file for the workspace (the root folder). Add a new file and name it `jsconfig.json` with the following contents:
 
-```
+```json
 {
 	"compilerOptions": {
 		"target": "ES5",
