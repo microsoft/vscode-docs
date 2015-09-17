@@ -89,17 +89,17 @@ Office Add-ins must be served via HTTPS; the Office application will not load a 
 
 ### Self-Hosted HTTPS Site
 
-One option is to use the [gulp-webserver](https://npmjs.com/package/gulp-webserver) plug-in. The Office generator will add this to the `gulpfile.js` as a task named `static-serve` for the project that's generated.
+One option is to use the [gulp-webserver](https://npmjs.com/package/gulp-webserver) plug-in. The Office generator will add this to the `gulpfile.js` as a task named `serve-static` for the project that's generated.
 
 Start the self-hosted webserver using the following statement:
 
 ```
-gulp static-serve
+gulp serve-static
 ```
 
 This will start a HTTPS server at **https://localhost:8443**.
 
->**Tip:** You can also run the task from within VS Code by pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed by `kbstyle(Enter)` which will list all available tasks. Selecting `static-serve` and pressing `kbstyle(Enter)` will execute the task.
+>**Tip:** You can also run the task from within VS Code by pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed by `kbstyle(Enter)` which will list all available tasks. Selecting `serve-static` and pressing `kbstyle(Enter)` will execute the task.
 
 
 ### Running the Add-in
