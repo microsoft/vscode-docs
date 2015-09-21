@@ -42,20 +42,20 @@ Go to the folder where you downloaded the plug-in source code and copy the `Plug
 
 >**Tip:** You may need to create a `Plugins` folder. Typically this should be stored under `Assets`.
 
-Next time you load your project in Unity, you will see a new set of options under the `Assets | VS Code` menu.
+To turn on the use of the provided integration you will need to go to the `Unity Preferences`, and select the newly created `VSCode` tab.
 
-![VS Code in Unity](images/unity/plugin.png)
+![VSCode Preferences](images/unity/plugin-preferences.png)
 
-Click on `Enable Integration`, this is all you need to do to get going.
+Toggle on `Enable Integration`, and you are ready to get going.
 
-Additionally, you can `Enable Logging` which will echo output to the Unity console e.g. whether the debug port was found.  This is useful for debugging any issues with the integration.
+Additionally, you can toggle `Output Messages To Console` which will echo output to the Unity console e.g. whether the debug port was found.  This is useful for debugging any issues with the integration.
 
-Clicking `Write Workspace Settings` will configure the workspace settings to filter out non-code assets created by Unity e.g. `.meta` files.
-
-`Force Sync Project` provides a fail-safe way to reset some of the above settings should you have problems.
+Clicking the `Write Workspace Settings` button will configure the workspace settings to filter out non-code assets created by Unity e.g. `.meta` files.
 
 ### Step 3: Open the Project
-`Open Project` opens VS code in the context of the root folder of your project.  This enables VS Code to find your Unity project's solution file.
+Now available in the `Assets` menu, is `Open C# Project In Code`. This will open the project in VS Code in the context of the root folder of your project.  This enables VS Code to find your Unity project's solution file.
+
+![VSCode Menu](images/unity/plugin-menu.png)
 
 >**Tip:**  You probably want to leave a VS Code window open with the project context established.  That way when you open a file from Unity it will have all the required context.
 
