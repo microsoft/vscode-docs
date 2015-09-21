@@ -220,7 +220,7 @@ Chords can be described by separating the two keypresses with a space. E.g.: `kb
 Now that you know about our Keybinding support, what's next...
 
 * [Customization](customization) - Configure Code the way you want - Themes, Settings
-* [Language Support](languages) - Our Good, Better, Best language grid to see what you can expect
+* [Language Support](/docs/languages/overview) - Our Good, Better, Best language grid to see what you can expect
 * [Debugging](debugging) - This is where VS Code really shines
 * [Node.js](/docs/runtimes/nodejs) - End to end Node.js scenario with a sample app
 

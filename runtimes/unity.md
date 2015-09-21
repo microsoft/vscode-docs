@@ -3,7 +3,7 @@ Order: 3
 Area: runtimes
 TOCTitle: Unity
 PageTitle: Visual Studio Code and Unity
-DateApproved: 9/10/2015
+DateApproved: 9/21/2015
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 
@@ -42,18 +42,18 @@ Go to the folder where you downloaded the plug-in source code and copy the `Plug
 
 >**Tip:** You may need to create a `Plugins` folder. Typically this should be stored under `Assets`.
 
-To turn on the use of the provided integration you will need to go to the `Unity Preferences`, and select the newly created `VSCode` tab.
+To turn on the use of the provided integration you will need to go to `Unity Preferences` and select the newly created `VSCode` tab.
 
 ![VSCode Preferences](images/unity/plugin-preferences.png)
 
-Toggle on `Enable Integration`, and you are ready to get going.
+Toggle on `Enable Integration` and you are ready to get going.
 
 Additionally, you can toggle `Output Messages To Console` which will echo output to the Unity console e.g. whether the debug port was found.  This is useful for debugging any issues with the integration.
 
 Clicking the `Write Workspace Settings` button will configure the workspace settings to filter out non-code assets created by Unity e.g. `.meta` files.
 
 ### Step 3: Open the Project
-Now available in the `Assets` menu, is `Open C# Project In Code`. This will open the project in VS Code in the context of the root folder of your project.  This enables VS Code to find your Unity project's solution file.
+Now available in the `Assets` menu is `Open C# Project In Code`. This will open the project in VS Code in the context of the root folder of your project.  This enables VS Code to find your Unity project's solution file.
 
 ![VSCode Menu](images/unity/plugin-menu.png)
 

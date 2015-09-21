@@ -45,7 +45,7 @@ The menu under `File`, `Preferences` provides entries to configure user and work
 
 Depending on your platform, this file is located here:
 * **Windows** `%APPDATA%\Code\User\settings.json`
-* **Mac** `$HOME/Library/Application Support/User/settings.json`
+* **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
 * **Linux** `$HOME/.config/Code/User/settings.json`
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
@@ -538,7 +538,7 @@ Below is a copy of the default `settings,json` file.
 OK, so now you know how to customize Visual Studio Code.  Whats next...
 
 * [Keybindings](keybindings) - review the keybindings in Code and learn how to update them
-* [Language Support](languages) - Our Good, Better, Best language grid to see what you can expect
+* [Language Support](/docs/languages/overview) - Our Good, Better, Best language grid to see what you can expect
 * [Debugging](debugging) - This is where VS Code really shines
 * [Node.js](/docs/runtimes/nodejs) - End to end Node scenario with a sample app with a sample app
 

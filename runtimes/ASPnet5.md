@@ -18,7 +18,7 @@ MetaTags:
 [ASP.NET 5/DNX](http://www.asp.net/vnext/overview/aspnet-vnext/aspnet-5-overview) is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
 
 ## Installing ASP.NET 5 and DNX
-Installation for each platform is slightly different, please refer to the following setup instructions based on on your operating system.
+Installation for each platform is slightly different, please refer to the following setup instructions based on your operating system.
 - [OS X](https://github.com/aspnet/home#os-x)
 - [Linux](https://github.com/aspnet/home#linux)
 - [Windows](https://github.com/aspnet/home#upgrading-dnvm-or-running-without-visual-studio)
@@ -67,7 +67,7 @@ Notice the project indication on the lower left corner. When the icon is flashin
 
 When the status bar shows the project information it’s a good time to get going. You can now leverage the full power of VS Code, author code and run your app.
 
-`Startup.cs` is the startup file for your newly scaffoled application. Find the Startup method and let's start writing code. As soon as you access the framework (or any class in your application) you will get a rich IntelliSense experience, including parameter tool tips and the ability to cycle through overloads.
+`Startup.cs` is the startup file for your newly scaffolded application. Find the Startup method and let's start writing code. As soon as you access the framework (or any class in your application) you will get a rich IntelliSense experience, including parameter tool tips and the ability to cycle through overloads.
 
 ![DNX commands in palette](images/ASPnet5/intellisense.png)
 

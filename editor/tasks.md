@@ -1,4 +1,4 @@
----
+﻿---
 Order: 9
 Area: editor
 TOCTitle: Tasks
@@ -216,7 +216,7 @@ A matcher that captures the above warning (and errors) looks like:
 		// The fifth match group matches the message.
 		"message": 5
 	}
-}	
+}
 ```
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
@@ -361,7 +361,7 @@ That was tasks - let's keep going...
 
 * [tasks.json Schema](tasks_appendix) - Still want more on tasks dig into the schema to see what else is possible
 * [Editing Evolved](editingevolved) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-* [Language Support](languages) - Our Good, Better, Best language grid to see what you can expect
+* [Language Support](/docs/languages/overview) - Our Good, Better, Best language grid to see what you can expect
 * [Debugging](debugging) - This is where VS Code really shines
 
 ## Common Questions
