@@ -17,7 +17,7 @@ Visual Studio Code uses the TypeScript language service to make authoring JavaSc
 
 
 ## JavaScript Projects (jsconfig.json)
-You can create a JavaScript project by dropping in a `jsconfig.json` file. It's a subset of [tsconfig.json](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json). The presence of a`jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript project. The file itself lists the files belonging to the project as well as compiler options.
+You can create a JavaScript project by dropping in a `jsconfig.json` file. It's a subset of [tsconfig.json](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json). The presence of a `jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript project. The file itself lists the files belonging to the project as well as compiler options.
 
 >**Tip:** Just as in `tsconfig.json`, if no "files" property is present, we default to including all files in the containing directory and subdirectories. When a "files" property is specified, only those files are included.
 
