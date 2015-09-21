@@ -8,8 +8,8 @@ Visual Studio Code has been tested on the following platforms.
 
 ### Additional Linux requirements
 
-* GLIBCXX version 3.4.14 or later
-* GLIBC version 2.14 or later
+* GLIBCXX version 3.4.15 or later
+* GLIBC version 2.15 or later
 
 If you find Visual Studio Code is successfully working on other platforms, email us at [vscodefeedback@microsoft.com](mailto:vscodefeedback@microsoft.com).
 
