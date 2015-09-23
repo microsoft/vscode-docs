@@ -134,7 +134,7 @@ To generate source maps for your TypeScript files, compile with the `--sourcemap
 In-lined source maps (a source map where the content is stored as a data url instead of a separate file) are also supported, although in-lined source is not yet supported.
 
 
-## Setting a different outDir for genarated files
+## Setting a different outDir for generated files
 If generated (transpiled) JavaScript files do not live next to their source, you can help the VS Code debugger locate them by specifying the outDir directory in the launch configuration. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source, and the associated source map, in the outDir directory.
 
 
