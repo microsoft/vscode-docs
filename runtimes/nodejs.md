@@ -12,7 +12,7 @@ MetaDescription: Visual Studio Code has great support for writing and debugging 
 
 To get started, [install Node.js for your platform](https://nodejs.org/download/). The Node Package Manager is included in the Node distribution.
 
-> **New!** You can use the [VS Code Yeoman Generator](https://github.com/Microsoft/generator-code) to quickly scaffold a Node.js/Express application in either JavaScript or TypeScript. Check out the [README](https://github.com/Microsoft/generator-code/blob/master/README.md) to get started.
+> **Tip!** You can download both the TypeScript and JavaScript versions of the sample application created in this walkthrough from the [vscode-samples](https://github.com/Microsoft/vscode-samples/archive/master.zip) repository.
 
 ## Express
 [Express](http://expressjs.com/) is a very popular application framework for building and running Node applications. You can scaffold a new Express application using the Express Generator tool, which is typically installed globally on your computer.
