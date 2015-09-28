@@ -127,7 +127,7 @@ VS Code offers JSDoc support for TypeScript. Besides syntax coloring, we help yo
 
 
 ## JavaScript Sourcemap Support
-TypeScript  debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the launch configuration. In addition, you can specify a TypeScript file with the `program` attribute.
+TypeScript  debugging supports JavaScript source maps. Enable this by setting the `sourceMap` attribute to `true` in the launch configuration. In addition, you can specify a TypeScript file with the `program` attribute.
 
 To generate source maps for your TypeScript files, compile with the `--sourcemap` option.
 
