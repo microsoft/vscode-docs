@@ -63,10 +63,6 @@ brew update
 brew reinstall mono
 ```
 
-## Windows 7 installation is failing
-We're heard reports about failures to install on Windows 7. If you are willing to help us diagnose the issue, please contact us at [vscodefeedback@microsoft.com](mailto:vscodefeedback@microsoft.com).
-
-
 ## Icons are missing
 I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
 
