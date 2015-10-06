@@ -8,15 +8,15 @@ MetaDescription: You can configure VS Code to work the way you like to work.  He
 
 # Customize Visual Studio Code
 You can configure VS Code to work the way you like to work.  Here is a quick primer on some of the most common ways to configure VS Code.
-* [User defined Snippets](snippets.md)
-* Customize [key bindings](keybindings.md)
-* Configuring [User and Workspace settings](userandworkspace.md)
+* Configuring [User and Workspace settings](/docs/customization/userandworkspace.md)
+* Customize [Key Bindings](/docs/customization/keybindings.md)
+* [User Defined Snippets](/docs/customization/userdefinedsnippets.md)
 
 You can also import pre-made customizations to VS Code:
-* Adding additional [Themes](themes.md)
-* Adding additional language [Colorizers and Bracket Matchers](colorizer.md)
+* Adding additional [Themes](/docs/customization/themes.md)
+* Adding additional language [Colorizers and Bracket Matchers](/docs/customization/colorizer.md)
  
-In addition to the customization described here, you can integrate VS Code into your workflow with [tasks](tasks.md) or create your own user-defined [snippets](userdefinedsnippets.md).
+In addition to the customization described here, you can integrate VS Code into your workflow with [tasks](/docs/editor/tasks.md).
 
 
 
