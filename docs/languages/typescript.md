@@ -41,7 +41,7 @@ Now when you create a `.ts` file as part of the project we will offer up rich ed
 
 
 ## Transpiling TypeScript into JavaScript
-VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks).  We can use this to transpile `.ts` files into `.js` files.  Lets walk through transpiling a simple TypeScript HelloWorld program.
+VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks).  We can use this to transpile `.ts` files into `.js` files.  Lets walk through transpiling a simple TypeScript Hello World program.
 
 
 ### Step 1: Create a simple TS file
@@ -91,12 +91,12 @@ The example TypeScript file did not have any compile problems, so by running the
 
 
 ### Step 4: Reviewing Build Issues
-Unfortunately most builds don't go that smoothly and the result is often some additional information.  For instance if there was a simple error in our TypeScript file we may get the following oputput form `tsc`:
+Unfortunately most builds don't go that smoothly and the result is often some additional information.  For instance if there was a simple error in our TypeScript file we may get the following output from `tsc`:
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
 This would show up in the output window (which can be opened using
-`kb(workbench.action.output.showOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highligth detected problems in the staus bar.
+`kb(workbench.action.output.showOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highlight detected problems in the status bar.
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 
@@ -131,7 +131,7 @@ TypeScript  debugging supports JavaScript source maps. Enable this by setting th
 
 To generate source maps for your TypeScript files, compile with the `--sourcemap` option.
 
-In-lined source maps (a source map where the content is stored as a data url instead of a separate file) are also supported, although in-lined source is not yet supported.
+In-lined source maps (a source map where the content is stored as a data URL instead of a separate file) are also supported, although in-lined source is not yet supported.
 
 
 ## Setting a different outDir for generated files

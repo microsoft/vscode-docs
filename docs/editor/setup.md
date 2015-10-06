@@ -48,8 +48,8 @@ Now, you can simply type `code .` in any folder to start editing files in that f
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
 - [ASP.NET 5](https://github.com/aspnet/home) - a lean and composable framework for building web and cloud applications, fully open source and available on GitHub
-- [Node.js (incudes NPM)](http://nodejs.org/) -  a platform for easily building fast, scalable network applications
-- [git](http://git-scm.com/download) - VS Code has built in support for source code control using git
+- [Node.js (includes NPM)](http://nodejs.org/) - a platform for easily building fast, scalable network applications
+- [git](http://git-scm.com/download) - VS Code has built-in support for source code control using git
 - [Yeoman](http://yeoman.io/) - an application scaffolding tool, you can think of this as `File | New Project` for VS Code
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - a yeoman generator for scaffolding ASP.NET 5 applications, run `npm install -g generator-aspnet` to install
 - [hottowel](https://github.com/johnpapa/generator-hottowel) - a yeoman generator for quickly creating AngularJS applications, run `npm install -g generator-hottowel` to install
@@ -72,7 +72,7 @@ Now you have installed and set up VS Code. Let's get going...
 
 ## Common Questions
 
-**Q: What are the system requirments for VS Code?**
+**Q: What are the system requirements for VS Code?**
 
 **A:** We have a list of [System Requirements](/docs/supporting/requirements).
 

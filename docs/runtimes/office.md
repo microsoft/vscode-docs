@@ -131,7 +131,7 @@ The Office generator will create a `jsconfig.json` file when it creates your pro
 
 ### JavaScript IntelliSense Support
 
-In addition, even if you are writing plain JavaScript, VS Code can use TypeScript type definition files (`*.d.ts`) to provide additional IntelliSense support. The Office generator adds a `tsd.json` file to the created files with references to all third party libraries used by the project type you selected.
+In addition, even if you are writing plain JavaScript, VS Code can use TypeScript type definition files (`*.d.ts`) to provide additional IntelliSense support. The Office generator adds a `tsd.json` file to the created files with references to all third-party libraries used by the project type you selected.
 
 All you have to do after creating the project using the Yeoman Office generator is run the following command to download the referenced type definition files:
 

@@ -113,7 +113,7 @@ Variables and expressions can also be evaluated and watched in the **Debug view*
 
 ## Debug console
 
-Expressions can be evaluated in the **Debug console**. To open the **Debug console** use the `Open Console` action at the top of the debug pane or using the command palette.
+Expressions can be evaluated in the **Debug console**. To open the **Debug console** use the `Open Console` action at the top of the debug pane or using the Command Palette.
 
 ![Debug Console](images/debugging/debugconsole.png)
 
@@ -283,7 +283,7 @@ Currently ASP.NET 5 debugging is not supported on any platform, including runnin
 
 **Q: What Node.js version is required for Node.js debugging?**
 
-**A:** Version 0.12.x is recommended, though most functionality is supported in 0.10.x as well (except break on uncaught exceptions).
+**A:** Version 0.12.x is recommended, though most functionality is supported in 0.10.x as well (except break on unhandled exceptions).
 
 **Q: Is Mono debugging supported on Windows?**
 
@@ -291,5 +291,5 @@ Currently ASP.NET 5 debugging is not supported on any platform, including runnin
 
 **Q: I get "Cannot start OpenDebug because Mono (or a Mono version >= 3.10.0) is required", what is wrong?**
 
-**A:** Make sure that you have [installed Mono](#_mono-debugging) and also that Mono is in your PATH.
+**A:** Make sure that you have [installed Mono](#_mono-debugging) and that Mono is in your PATH.
 

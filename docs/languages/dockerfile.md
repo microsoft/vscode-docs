@@ -30,16 +30,16 @@ In addition to snippets for authoring your `Dockerfile`, Visual Studio Code will
 
 ![Dockerfile IntelliSense](images/docker/dockerfiletooltip.png)
 
-For more information on Dockerfiles, check out [dockerfile best practices](
+For more information on Dockerfiles, check out [Dockerfile best practices](
 https://docs.docker.com/articles/dockerfile_best-practices/) on [docker.com](http://docker.com).
 
 ## Docker Compose
 
 [Docker Compose](https://docs.docker.com/compose/) lets you define and run multi-container applications with Docker. You define what the shape of these containers look like with a file called `docker-compose.yml`.
 
-Visual Studio Code's experience for authoring `docker-compose.yml` is also very rich, providing IntelliSense for valid docker compose directives and it will query Docker Hub for metadata on public Docker images.
+Visual Studio Code's experience for authoring `docker-compose.yml` is also very rich, providing IntelliSense for valid Docker compose directives and it will query Docker Hub for metadata on public Docker images.
 
-1. Create a new fle in your workspace called `docker-compose.yml`
+1. Create a new file in your workspace called `docker-compose.yml`
 2. Define a new service called `web:`
 3. On the second line, bring up IntelliSense by pressing `kb(editor.action.triggerSuggest)` to see a list of all valid compose directives.
 
@@ -49,6 +49,6 @@ Visual Studio Code's experience for authoring `docker-compose.yml` is also very 
 
  ![Dockerfile IntelliSense](images/docker/dockercomposeimageintellisense.png)
 
-VS Code will first show a list of popular images along with metadata such as the number of stars and description. If you continue typing VS Code will query the Docker Hub index for matching images, including searching public profiles. For example, searching for `microsoft` will show you all of the public Microsoft images.
+VS Code will first show a list of popular images along with metadata such as the number of stars and description. If you continue typing VS Code will query the Docker Hub index for matching images, including searching public profiles. For example, searching for `Microsoft` will show you all the public Microsoft images.
 
  ![Dockerfile IntelliSense](images/docker/dockercomposesearch.png)

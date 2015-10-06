@@ -12,7 +12,7 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 Working with Markdown in Visual Studio Code can be pretty fun and there are a number of Markdown specific features that will help you be more productive.
 
 ## Markdown Preview
-Open any Markdown file and press `kb(workbench.action.markdown.togglePreview)` in the editor to toggle between the code and a preview of the Markdown file. You can view the preview side-by-side with the file you are editing and see changes reflected in real time as you edit.
+Open any Markdown file and press `kb(workbench.action.markdown.togglePreview)` in the editor to toggle between the code and a preview of the Markdown file. You can view the preview side-by-side with the file you are editing and see changes reflected in real-time as you edit.
 
 Here is an example with a very simple file.
 
@@ -122,7 +122,7 @@ We will use [Gulp](http://gulpjs.com/) to create a task that will automate Markd
 npm install -g gulp gulp-markdown
 ```
 
-> **Note:** gulp-markdown is a Gulp plug-in for the `marked` module we were using before.  There are many other Gulp markdown plug-ins you can use, as well as plug-ins for Grunt.
+> **Note:** gulp-markdown is a Gulp plug-in for the `marked` module we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
 
 ### Step 2: Create a simple Gulp task
 Open VS Code on the same folder from before (contains `sample.md` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.  Place the following code in that file:
@@ -190,6 +190,6 @@ Read on to find out about:
 
 **A:** No but it's something that our extensibility story will enable soon.
 
-**Q: In the walkthrough above, I didn't find the `Configure Task Runner` command in the Command Pallete?**
+**Q: In the walkthrough above, I didn't find the `Configure Task Runner` command in the Command Palette?**
 
 **A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with `File | Open Folder...` or navigating to the folder and typing `code .` at the command line.

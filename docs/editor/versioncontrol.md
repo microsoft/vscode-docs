@@ -88,7 +88,7 @@ Our Git tooling supports viewing of Diffs within VS Code.
 
 ![A File Diff in VS Code](images/versioncontrol/diff.png)
 
->**Tip:** You can diff any two files by first right clicking on a file in the *Working Files* list and selecting `Set file to compare` and then right click on the file to compare with and select `Compare with 'file_name_you_chose'`.   Alternatively from the keyboard hit `kb(workbench.action.quickOpen)` and select *File: Compare Active File With...* and you will be presented with a list of recent files.
+>**Tip:** You can diff any two files by first right clicking on a file in the *Working Files* list and selecting `Set file to compare` and then right-click on the file to compare with and select `Compare with 'file_name_you_chose'`.   Alternatively from the keyboard hit `kb(workbench.action.quickOpen)` and select *File: Compare Active File With...* and you will be presented with a list of recent files.
 
 ## Git Output Window
 
@@ -105,7 +105,7 @@ To open the window follow the `View`, `Toggle Output` menu and select `Git` from
 
 ## Common Questions
 
-**Q: Hey, I initialized my repo but the actions in the `...` menu are all greyed out. What gives?**
+**Q: Hey, I initialized my repo but the actions in the `...` menu are all grayed out. What gives?**
 
 **A:** To **push, pull and sync** you need to have a git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you simply need to add it to the git settings by running a couple of command line actions. For example for Visual Studio Online:
 ```

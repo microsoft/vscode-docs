@@ -16,7 +16,7 @@ In addition, there are a number of unique features in the VS Code user interface
 ## Files, Folders & Projects
 VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
 
-On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more package.json, project.json, tsconfig.json, or ASP .Net v5 Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality such as rich IntelliSense in the editor.
+On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or ASP .Net v5 Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality such as rich IntelliSense in the editor.
 
 
 ## Basic Layout
@@ -65,7 +65,7 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 ![Explorer Menu](images/codebasics/explorer_menu.png)
 
-VS Code works very well with other tools that you might use, especially command line tools. If you want to run a command line tool in the context of the folder you currently have open in VS Code, right click the folder and select `Open in Console`.
+VS Code works very well with other tools that you might use, especially command line tools. If you want to run a command line tool in the context of the folder you currently have open in VS Code, right-click the folder and select `Open in Console`.
 
 You can also navigate to the location of a file or folder  in the native Explorer by right clicking on a file or folder and selecting `Reveal in Explorer` (or `Reveal in Finder` on the Mac).
 
@@ -92,12 +92,12 @@ Once you are done with your task, you can individually remove files from the wor
 >**Tip:** You can configure the appearance of working files in your settings. For example, you can set the maximum number of visible files before a scroll bar appears via `explorer.workingFiles.maxVisible`, and whether the working files section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
 
 
-## Save/AutoSave
+## Save/Auto Save
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
 However, it's easy to turn on `Auto Save` which will save your changes on idle. With this option turned on, there is no need to explicitly save the file. This can be a great feature but if you are using file watchers to automate tasks you may want to turn this behavior off so that you have greater control when tasks run in the background.
 
-To turn on autosave (or turn it off), simply open the Command Palette, `kb(workbench.action.showCommands)`, and type `auto` to filter the list and hit Enter.
+To turn on Auto Save (or turn it off), simply open the Command Palette, `kb(workbench.action.showCommands)`, and type `auto` to filter the list and hit Enter.
 
 You can also find this setting as an option on the `File` menu.
 
@@ -123,7 +123,7 @@ In the two input boxes below the search box you can include and exclude files. C
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: node_modules). Open settings to change these rules under the `files.exclude` and `search.exclude` section.
 
->**Tip:** From the Explorer you can right click on a folder and select `Find in Folder` to search inside a folder only
+>**Tip:** From the Explorer you can right-click on a folder and select `Find in Folder` to search inside a folder only.
 
 
 ## Command Palette

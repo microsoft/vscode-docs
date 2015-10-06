@@ -131,7 +131,7 @@ We will use [Gulp](http://gulpjs.com/) to create a task that will automate Sass/
 npm install -g gulp gulp-sass gulp-less
 ```
 
-> **Note:** gulp-sass and gulp-less are Gulp plug-ins for the `node-sass` and `lessc` modules we were using before.  There are many other Gulp markdown plug-ins you can use, as well as plug-ins for Grunt.
+> **Note:** gulp-sass and gulp-less are Gulp plug-ins for the `node-sass` and `lessc` modules we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
 
 ### Step 2: Create a simple Gulp task
 Open VS Code on the same folder from before (contains `styles.scss`/`styles.less` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.  Place the following code in that file:

@@ -10,9 +10,9 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 
 # Working with C&#35;
 
-The C# support in VS Code is optimized for cross platform .NET development (DNX) (see [working with ASP.NET 5 and VS Code](/docs/runtimes/ASPnet5) for another relevant article).  Our focus with VS Code is to be a great editor for cross platform C# development.  For instance many Unity game developers have been enjoying using VS Code in place of the MonoDevelop IDE.
+The C# support in VS Code is optimized for cross-platform .NET development (DNX) (see [working with ASP.NET 5 and VS Code](/docs/runtimes/ASPnet5) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance many Unity game developers have been enjoying using VS Code in place of the MonoDevelop IDE.  The will pick up errors as you type.
 
-We support debugging of C# apps cross platform via Mono (see [Mono Debugging](/Docs/editor/debugging#_mono-debugging)).
+We support debugging of C# apps cross-platform via Mono (see [Mono Debugging](/Docs/editor/debugging#_mono-debugging)).
 
 Due to this focus many standard C# project types are not recognized by VS Code.  An example of a non-supported project type is an ASP .NET MVC Application.  In these cases if you simply want to have a lightweight tool to edit a file - VS Code has you covered.  If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
@@ -80,16 +80,16 @@ You can click on the references of an object to find the locations of its use in
 
 
 ## Quick Fixes / Suggestions
-There are some basic quickfixes supported in VS Code.  You will see a lightbulb and clicking on it will provide you with a simple list of fixes/suggestions.
+There are some basic quick fixes supported in VS Code.  You will see a lightbulb and clicking on it will provide you with a simple list of fixes/suggestions.
 
-![Quickfix](images/csharp/lightbulb.png)
+![Quick fix](images/csharp/lightbulb.png)
 
 
 
 ## Next Steps
 Read on to find out about:
 
-* [ASP.NET 5 Development](/docs/runtimes/ASPnet5) - get up and running with cross platform .NET
+* [ASP.NET 5 Development](/docs/runtimes/ASPnet5) - get up and running with cross-platform .NET
 * [Editing Evolved](/docs/editor/editingevolved) - find out more about advanced editing features
 * [Tasks](/docs/editor/tasks) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging) - find out how to use the debugger with your project

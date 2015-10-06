@@ -37,7 +37,7 @@ VS Code also supports the global directive ```/*global varName*/``` to declare v
 
 
 ## IntelliSense Support
-VS Code provides IntelliSense for built-in symbols of browsers, Node.js, and virtually all other environments through the use of type definition ```d.ts```-files. [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are best managed using [TSD](http://definitelytyped.org/tsd/), the TypeScript Definition manager. IntelliSense is automatically provided for CommonJS and AMD modules inside your project folders.
+VS Code provides IntelliSense for built-in symbols of browsers, Node.js, and virtually all other environments through the use of type definition ```d.ts```-files. [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [TSD](http://definitelytyped.org/tsd/), the TypeScript Definition manager. IntelliSense is automatically provided for CommonJS and AMD modules inside your project folders.
 
 
 
@@ -56,7 +56,7 @@ Selecting the snippet with `tab` results in:
 ## ES6 Support
 VS Code supports ES6 (ECMAScript 6, the latest update of JavaScript) and understands the new ES6 syntax elements and their semantics. A good overview of the new ES6 features can be found here: <https://github.com/lukehoban/es6features>
 
->**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by settinging the `javescript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
+>**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by setting the `javescript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
 
 We have a sample on GitHub that shows off some of the ES6 love in VS Code:
 
@@ -93,7 +93,7 @@ Once you have added this you can start Babel with the `kb(workbench.action.tasks
 
 ## JavaScript Linters (ESLint, JSHint)
 
-VS Code provides support for [ESlint](http://eslint.org/) and [JSHint](http://jshint.com/). If enabled the Javascipt code is validated as you type and
+VS Code provides support for [ESLint](http://eslint.org/) and [JSHint](http://jshint.com/). If enabled the JavaScript code is validated as you type and
 reported problems can be navigated to and fixed inside VS Code.
 
 To enable one of the linters do the following:

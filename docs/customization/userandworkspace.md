@@ -1,40 +1,14 @@
 ---
-Order: 10
-Area: editor
-TOCTitle: Customization
-PageTitle: Customize Visual Studio Code
+Order: 2
+Area: customization
+TOCTitle: User and Workplace Settings
+PageTitle: Visual Studio Code User and Workplace Settings
 DateApproved: 9/10/2015
-MetaDescription: You can configure VS Code to work the way you like to work.  Here is a quick primer on some of the most common ways to configure VS Code.
+MetaDescription: How to modify VS Code User and Workplace Settings.
 ---
 
-# Customize Visual Studio Code
-You can configure VS Code to work the way you like to work.  Here is a quick primer on some of the most common ways to configure VS Code.
-
-In addition to the customization described here, you can integrate VS Code into your workflow with [tasks](tasks), create your own user-defined [snippets](editingevolved#_snippets-and-emmet-abbreviations), and of course it would not be a great editor if you could not customize [key bindings](keybindings).
-
-
-## Changing the Color Theme
-There are several out-of-the-box color themes for VS Code for you to try out.
-
-1. Open the Color Theme picker with `kb(workbench.action.selectTheme)`
-2. Use the cursor keys to preview the colors of the theme
-3. Select the theme you want and hit Enter
-
-![Themes in the Command Palette](images/customization/colorthemes.png)
-
-You can also find this on the menu under `File | Preferences | Color Theme`.
-
-
-## User Defined Snippets
-You can define your own snippets for specific languages: Open `User Snippets` under `File`, `Preferences` and select the language for which the snippets should appear.
-
-Each snippet defines a prefix under which it will appear in IntelliSense via (`kb(editor.action.triggerSuggest)`) as well as a body to be inserted when the snippet is selected. The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
-
-![User Snippets](images/customization/usersnippets.png)
-
-Once you have added a new snippet you can try it out right away, no restart is needed.
-
 ## User and Workspace Settings
+
 It's easy to configure VS Code the way you want by editing the various setting files where you will find a great number of settings to play with.
 
 VS Code provides two different scopes for settings:
@@ -50,11 +24,11 @@ Depending on your platform, this file is located here:
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
-![Settings](images/customization/settings.png)
+![Settings](images/userandworkspace/settings.png)
 
 The `settings.json` file is divided into these sections:
 
-- **Editor Configuration** - font, word wrapping, tabsize, line numbers, indentiation, ...
+- **Editor Configuration** - font, word wrapping, tab size, line numbers, indentation, ...
 - **Files Configuration** - exclude filters, default encoding, trim trailing whitespace
 - **HTTP Configuration** - Proxy settings
 - **File Explorer Configuration** - Working Files behavior
@@ -63,7 +37,7 @@ The `settings.json` file is divided into these sections:
 - **JavaScript Configuration** - Language specific settings
 - **JSON Configuration** - Schemas associated with certain JSON files
 - **Markdown Preview Configuration** - Add a custom CSS to the Markdown preview
-- **Less Configuration** - Control Linting for Less
+- **Less Configuration** - Control linting for Less
 - **Sass Configuration** - Control linting for Sass
 - **TypeScript Configuration** - Language specific settings
 
@@ -71,7 +45,7 @@ Below is a copy of the default `settings,json` file.
 
 >**Tip:** While in the `settings.json` file, press `kb(workbench.action.gotoSymbol)` to see an outline of all available settings and navigate through the file.
 
-```
+```json
 // Overwrite settings by placing them into your settings file.
 {
 
@@ -533,26 +507,9 @@ Below is a copy of the default `settings,json` file.
 ```
 
 
-## Next Steps
-
-OK, so now you know how to customize Visual Studio Code.  Whats next...
-
-* [Keybindings](keybindings) - review the keybindings in Code and learn how to update them
-* [Language Support](/docs/languages/overview) - Our Good, Better, Best language grid to see what you can expect
-* [Debugging](debugging) - This is where VS Code really shines
-* [Node.js](/docs/runtimes/nodejs) - End to end Node scenario with a sample app with a sample app
-
-
 ## Common Questions
-**Q: Will you allow us to make our own themes?**
-
-**A:** Yes, we would like to do this. Help us prioritize this work over in our [user voice](http://go.microsoft.com/fwlink/?LinkID=533482) site.
-
-**Q: What is the broader extensibility story?**
-
-**A:** Extensibility is something we definitely plan to add to VS Code.  Help push it up the list on our [user voice](http://go.microsoft.com/fwlink/?LinkID=533482) site.
-
 **Q: When does it make sense to use workspace settings?**
 
 **A:** If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.
+
 

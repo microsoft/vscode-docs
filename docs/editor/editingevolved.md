@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: editor
 TOCTitle: Editing Evolved
 PageTitle: Editing Evolved
@@ -39,7 +39,7 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type (we call it affectionately 24x7 IntelliSense). You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  Out of the box, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are accept triggers but you can also [customize these keybindings](keybindings).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type (we call it affectionately 24x7 IntelliSense). You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  Out of the box, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are accept triggers but you can also [customize these key bindings](keybindings).
 
 
 ![IntelliSense](images/editingevolved/intellisense.gif)

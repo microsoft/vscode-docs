@@ -25,7 +25,7 @@ To improve the formatting of your HTML code press `kb(editor.action.format)` and
 ## Emmet snippets
 We support Emmet snippet expansion, simply press `kb(editor.emmet.action.expandAbbreviation)`.
 
-![Emmet HTML support built in](images/html/emmetsnippet.gif)
+![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
