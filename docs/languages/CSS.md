@@ -18,7 +18,7 @@ Press `kb(editor.emmet.action.expandAbbreviation)` to expand the current abbrevi
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-We also support [User Defined Snippets](/docs/editor/customization#_user-defined-snippets).
+We also support [User Defined Snippets](/docs/customization/userdefinedsnippets).
 
 ## Syntax coloring & Color preview
 As you type we provide syntax highlighting as well as in context preview of colors.
@@ -210,7 +210,7 @@ If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` 
 ## Customizing CSS, Sass and Less Settings
 You can configure the following lint warnings as User or Workspace Settings.
 
->**Tip:** Head over to this topic to get an overview of [User and Workspace Settings](/docs/editor/customization#_user-and-workspace-settings).
+>**Tip:** Head over to this topic to get an overview of [User and Workspace Settings](/docs/customization/userandworkspace).
 
 To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `less.lint.` and `sass.lint.`.
 

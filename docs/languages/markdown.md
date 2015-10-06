@@ -50,7 +50,7 @@ This is the Workspace Settings update.
 
 There are several built-in Markdown snippets included in VS Code - simply press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown.  Take a look at [User Defined Snippets](/docs/editor/customization#_user-defined-snippets) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for Markdown.  Take a look at [User Defined Snippets](/docs/customization/userdefinedsnippets) to find out how.
 
 ## Compiling Markdown into HTML
 VS Code can integrate with Markdown compilers through our integrated [task runner](/docs/editor/tasks).  We can use this to compile `.md` files into `.html` files.  Lets walk through compiling a simple Markdown document.
@@ -180,7 +180,7 @@ If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` 
 ## Next Steps
 Read on to find out about:
 
-* [Customization](/docs/editor/customization) - Dig into additional settings such as word wrap and User Defined Snippets.
+* [Customization](/docs/customization/overview) - Dig into additional settings such as word wrap and User Defined Snippets.
 * [CSS, Less and Sass](css) - Want to edit your CSS? VS Code has great support for CSS, Less and Sass editing.
 
 

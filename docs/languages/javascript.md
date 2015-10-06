@@ -50,7 +50,7 @@ Selecting the snippet with `tab` results in:
 
 ![Try Result](images/javascript/tryresult.png)
 
->**Tip:** You can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/editor/customization#_user-defined-snippets) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/customization/userdefinedsnippets) to find out how.
 
 
 ## ES6 Support
@@ -107,7 +107,7 @@ To enable one of the linters do the following:
 
 ## JavaScript Validation Settings
 
-Validation is supported by a set of configuration rules. In addition to syntax checks, [User Settings](/docs/editor/customization#_user-and-workspace_settings) allow you to configure additional checks for JavaScript files. Such as:
+Validation is supported by a set of configuration rules. In addition to syntax checks, [User Settings](/docs/customization/userandworkspace) allow you to configure additional checks for JavaScript files. Such as:
 
 Id|Description|Default
 ---|------------|----

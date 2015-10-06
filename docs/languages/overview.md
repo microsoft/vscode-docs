@@ -35,7 +35,7 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 * [Editing Evolved](/docs/editor/editingevolved) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
 * [Debugging](/docs/editor/debugging) - This is where VS Code really shines
-* [Customization](/docs/editor/customization) - themes, settings and keyboard bindings
+* [Customization](/docs/customization/overview) - themes, settings and keyboard bindings
 
 ## Common Questions
 

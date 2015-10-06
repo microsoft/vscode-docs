@@ -29,7 +29,7 @@ We support Emmet snippet expansion, simply press `kb(editor.emmet.action.expandA
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-We also support [User Defined Snippets](/docs/editor/customization#_user-defined-snippets).
+We also support [User Defined Snippets](/docs/customization/userdefinedsnippets).
 
 ## Next Steps
 Read on to find out about:
