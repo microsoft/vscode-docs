@@ -108,7 +108,7 @@ We now ship with TypeScript 1.6.2.  You can learn more about the latest release 
 We simplified defining a task to run the TypeScript compiler in watch mode.
 You can now configure the `watch` property in the `tsconfig.json` and then define a task as follows:
 
-```json
+```
 {
 	"version": "0.1.0",
 	"command": "tsc",
