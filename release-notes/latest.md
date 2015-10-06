@@ -11,6 +11,8 @@ Hi,
 
 It’s that time again – our October update is ready for VS Code.
 
+![summary](images/0_9_0/summary.png)
+
 ## Persistent (update to update) location for Customizations
 Previously we did not have a location we respected across updates.  It's true that we did have a location for user settings but as we get closer to our final update story we added a new location.  In the future, we will (gracefully) move all user settings here.
 
@@ -23,7 +25,7 @@ Depending on your platform, this folder is located here:
 
 As this location is under your user directory, the content is persisted across VS Code updates.  This is just the start and we plan to use this location more in future updates.
 
-## Yo Code
+## Yo Code - Streamlined Customizations for VS Code
 We re-purposed the Yeoman generator we used for the VS Code Node.js sample `generator-code` and we are now using this to make creating common customizations easier.
 
 >**Tip:** If you still want access to the sample, you can find out how on the [Node.js](/docs/runtimes/nodejs.md) page.
@@ -44,9 +46,11 @@ Install and run the code Yeoman generator as follows:
 
 ![yo code](images/0_9_0/yocode.png)
 
-The Yeoman generator will walk you through creating your extension prompting for the required information.  Once the extension is created, copy the generator's output folder to a new folder under the .vscode/extensions folder and restart VS Code to use the new features. 
+The Yeoman generator will walk you through creating your extension prompting for the required information.  Once the extension is created, copy the generator's output folder to a new folder under the `.vscode/extensions` folder and restart VS Code to use the new features. 
 
 In the future you will be able to publish these extensions to an external gallery to share them with the community.
+
+>**Tip:** If you want to share your customization with others in the meantime, you can simply send them a copy of the output from the generator and ask them to add it under their `.vscode/extensions` folder.
 
 ## Customization - Adding Language Colorization & Bracket Matching
 Using the 'code' Yeoman generator you can add TextMate language specification files (.tmLanguage) to your VS Code installation to get syntax highlighting and bracket matching.
@@ -57,7 +61,7 @@ A good place to look for existing TextMate .tmLanguage files is on GitHub.  Sear
 
 The generator will prompt you for other information such an extension name (this should be unique to avoid clashing with other extensions) and the language name, aliases and file extensions. 
 
-When the generator is finished, copy the complete output folder to a new folder under .vscode\extensions.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
+When the generator is finished, copy the complete output folder to a new folder under `.vscode/extensions`.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
 ![ant language](images/0_9_0/antlanguage.png)
 
@@ -68,14 +72,13 @@ You can also add new TextMate theme files (.tmTheme) to your VS Code installatio
 
 ![yo code theme](images/0_9_0/yocodetheme.png)
 
-Copy the generated theme folder to a new folder under .vscode/extensions and restart VS Code.
+Copy the generated theme folder to a new folder under `.vscode/extensions` and restart VS Code.
 
-Open the Color Theme picker theme with `kb(workbench.action.selectTheme)`and you can see your theme in the dropdown.
+Open the Color Theme picker theme with `kb(workbench.action.selectTheme)`and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
 
 ![my theme](images/0_9_0/mytheme.png)
 
-##Editor - Performance
-The VS Code team contributed a [Pull Request](https://github.com/atom/node-oniguruma/pull/40) to [node-oniguruma](https://github.com/atom/node-oniguruma) that results in a nice performance improvement when colorizing/tokenizing. Both the Atom and VS Code IDEs profit from this improvement.
+While building this, the VS Code team contributed a [Pull Request](https://github.com/atom/node-oniguruma/pull/40) to [node-oniguruma](https://github.com/atom/node-oniguruma) that results in a nice performance improvement when colorizing/tokenizing. Both the Atom and VS Code IDEs profit from this improvement.
 
 ## Debugging - Performance
 We improved stepping performance by loading the scopes and variables of stack frames lazily. This improvement is based on a protocol change that affects all debug adapters.
@@ -95,7 +98,7 @@ We have made many improvements to the Debug Console:
 ![Debug Console](images/0_9_0/debugconsole.png)
 
 ## Languages - C&#35;
-The status of the OmniSharp server is now using a new language status indicator in the lower right corner.
+The status of the OmniSharp server is now using a new language status indicator in the lower right corner. This makes it much easier to see the context OmniSharp is running under and any issues.
 
 ![Language Status indicator](images/0_9_0/lang-status.png)
 
@@ -105,7 +108,7 @@ We now ship with TypeScript 1.6.2.  You can learn more about the latest release 
 We simplified defining a task to run the TypeScript compiler in watch mode.
 You can now configure the `watch` property in the `tsconfig.json` and then define a task as follows:
 
-```
+```json
 {
 	"version": "0.1.0",
 	"command": "tsc",
