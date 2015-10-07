@@ -150,9 +150,9 @@ As always we fixed many issues.
 
 Here are a few of the notable ones from the public bug tracker:
 
-* [18998](/Issues/Detail/18998): newly added files not honored by tsconfig.json
-* [18692](/Issues/Detail/18692): Changes to tsconfig.json not updated immediately
-* [19239](/Issues/Detail/19239): Detaching from Unity Results in a Unity Crash
+* [18998](https://code.visualstudio.com/Issues/Detail/18998): newly added files not honored by tsconfig.json
+* [18692](https://code.visualstudio.com/Issues/Detail/18692): Changes to tsconfig.json not updated immediately
+* [19239](https://code.visualstudio.com/Issues/Detail/19239): Detaching from Unity Results in a Unity Crash
 
 Other issues we've fixed:
 
