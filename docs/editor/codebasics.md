@@ -223,6 +223,16 @@ In other words, opening the folder containing the project effectively opens that
 
 ![Status Bar](images/codebasics/status.png)
 
+## Window Management
+VS Code has some options to control how windows should get opened or restored between sessions.
+
+The `window.openInNewWindow` setting controls if files should open in a new window instead of reusing an existing VS Code instance. By default, VS Code will
+open a new window, e.g. when you double-click on a file outside VS Code or open a file from the command line. Set this to `false` to reuse the last
+active instance of VS Code and open files in there.
+
+The `window.reopenFolders` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
+reopen the last opened folder you worked on (setting: `one`). Change this setting to `none` to never reopen any folders and always start with an
+empty VS Code instance. Change it to `all` to restore all folders you worked on. This will reopen all the windows with folders of your previous session.
 
 ## Next Steps
 OK, you got past the basic UI - there is a lot more to Code.  Read on to find out about:
