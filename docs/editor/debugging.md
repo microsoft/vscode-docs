@@ -39,12 +39,11 @@ Click on the Configure gear icon on the Debug view top bar and VS Code will gene
 {
 	"version": "0.1.0",
 	// List of configurations. Add new configurations or edit existing ones.
-	// ONLY "node" and "mono" are supported, change "type" to switch.
 	"configurations": [
 		{
 			// Name of configuration; appears in the launch configuration drop down menu.
 			"name": "Launch app.js",
-			// Type of configuration. Possible values: "node", "mono".
+			// Type of configuration.
 			"type": "node",
 			// Workspace relative or absolute path to the program.
 			"program": "app.js",
@@ -52,26 +51,20 @@ Click on the Configure gear icon on the Debug view top bar and VS Code will gene
 			"stopOnEntry": false,
 			// Command line arguments passed to the program.
 			"args": [],
-			// Workspace relative or absolute path to the working directory of the program
-			// being debugged. Default is the current workspace.
+			// Workspace relative or absolute path to the working directory of the program being debugged. Default is the current workspace.
 			"cwd": ".",
-			// Workspace relative or absolute path to the runtime executable to be used.
-			// Default is the runtime executable on the PATH.
+			// Workspace relative or absolute path to the runtime executable to be used. Default is the runtime executable on the PATH.
 			"runtimeExecutable": null,
 			// Optional arguments passed to the runtime executable.
-			"runtimeArgs": [],
+			"runtimeArgs": ["--nolazy"],
 			// Environment variables passed to the program.
-			"env": { },
+			"env": {
+				"NODE_ENV": "development"
+			},
 			// Use JavaScript source maps (if they exist).
 			"sourceMaps": false,
 			// If JavaScript source maps are enabled, the generated code is expected in this directory.
 			"outDir": null
-		},
-		{
-			"name": "Launch server on port",
-			"type": "node",
-			"program": "src/server/server.js",
-			"args": ["--port=8080"]
 		},
 		{
 			"name": "Attach",
