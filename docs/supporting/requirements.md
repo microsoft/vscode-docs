@@ -11,6 +11,4 @@ Visual Studio Code has been tested on the following platforms.
 * GLIBCXX version 3.4.15 or later
 * GLIBC version 2.15 or later
 
-If you find Visual Studio Code is successfully working on other platforms, email us at [vscodefeedback@microsoft.com](mailto:vscodefeedback@microsoft.com).
-
 For a list of currently known issues, see our [FAQ](faq).

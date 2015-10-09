@@ -19,6 +19,10 @@ This fixes many Windows integration issues and streamlines the update story.  In
 
 On Windows, you will likely see a two stage update as a result of the change to the new [Inno Setup](http://www.jrsoftware.org/isinfo.php) installer.  The first update to version 0.7.20 bootstraps the new installer and then the second, installs the 0.8.0 release.  The new installer will prompt you during installation.  Continue through the setup dialog to install VS Code 0.8.0.
 
+## Installation error on OS X El Capitan
+
+If you see the error **"Visual Studio Code.app" can't be opened because the identity of the developer cannot be confirmed**, this is due to tighten Gatekeeper signing constraints on later builds of El Capitan.  To work around this error, you can either selectively choose to open VS Code regardless of the signing warning or temporarily set `Allow apps downloaded from: Anywhere` in the `Security & Privacy` dialog.
+
 ## How do I update to the latest version?
 See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
 
@@ -63,10 +67,6 @@ brew update
 brew reinstall mono
 ```
 
-## Windows 7 installation is failing
-We're heard reports about failures to install on Windows 7. If you are willing to help us diagnose the issue, please contact us at [vscodefeedback@microsoft.com](mailto:vscodefeedback@microsoft.com).
-
-
 ## Icons are missing
 I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
 
@@ -101,7 +101,7 @@ sudo apt-get install gvfs-bin
 ```
 
 ## Linux error ENOSPC
-When you see this error happening, it indicates that VSCodes file watcher is running out of handles. To increase the limit open `/etc/sysctl.conf` and add this line to the end of the file:
+When you see this error, it indicates that the VS Code file watcher is running out of handles. To increase the limit open `/etc/sysctl.conf` and add this line to the end of the file:
 
 `fs.inotify.max_user_watches=16384`
 

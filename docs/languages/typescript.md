@@ -91,7 +91,7 @@ The example TypeScript file did not have any compile problems, so by running the
 
 
 ### Step 4: Reviewing Build Issues
-Unfortunately most builds don't go that smoothly and the result is often some additional information.  For instance if there was a simple error in our TypeScript file we may get the following output from `tsc`:
+Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file we may get the following output form `tsc`:
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
@@ -127,7 +127,7 @@ VS Code offers JSDoc support for TypeScript. Besides syntax coloring, we help yo
 
 
 ## JavaScript Sourcemap Support
-TypeScript  debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the launch configuration. In addition, you can specify a TypeScript file with the `program` attribute.
+TypeScript debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the project's launch configuration file `launch.json`. In addition, you can specify a TypeScript file with the `program` attribute.
 
 To generate source maps for your TypeScript files, compile with the `--sourcemap` option.
 
@@ -153,8 +153,8 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 OK, read on to find out about:
 
 * [JavaScript](javascript) - we have several JavaScript specific features in VS Code
-* [Tasks](/docs/editor/tasks) - we used tasks to Transpile your TS file find our what else you can do
-* [Editing Evolved](/docs/editor/editingevolved) - dig into mult-cursor, snippets and more
+* [Tasks](/docs/editor/tasks) - we used tasks to transpile your TS file. Read more to find out what else tasks can do
+* [Editing Evolved](/docs/editor/editingevolved) - dig into multi-cursor, snippets and more
 * [Debugging](/docs/editor/debugging) - we support debugging TypeScript Node.js apps
 
 ## Common Questions
