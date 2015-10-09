@@ -49,7 +49,7 @@ VS Code processes the output from a task with a problem matcher and we ship with
 ## Autodetecting Gulp, Grunt and Jake Tasks
 VS Code can autodetect tasks from within Gulp, Grunt and Jake files.  This adds their tasks to the task list without requiring additional configuration (unless you need to use a problem matcher, more on that in a moment).
 
-To help make this example more concrete let's use this simple Gulp file.  This defines two tasks; build and debug. The first compiles C# code using [Mono](http://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
+To help make this example more concrete, let's use this simple Gulp file.  This defines two tasks: build and debug. The first compiles C# code using [Mono](http://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
 
 ```javascript
 var gulp = require("gulp");
@@ -78,9 +78,9 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
-You need to configure the tasks in `tasks.json` if you want to do more than simply run the task.  For example you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)`.
+You need to configure the tasks in `tasks.json` if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)`.
 
-To do this we need to edit the `tasks.json` file to 'wrap' the build gulp task that was defined in the gulpfile. This is achieved with the following:
+To do this, we need to edit the `tasks.json` file to 'wrap' the build gulp task that was defined in the gulpfile.  This is achieved with the following:
 
 ```json
 {
@@ -101,10 +101,10 @@ To do this we need to edit the `tasks.json` file to 'wrap' the build gulp task t
 }
 ```
 
-In contrast to the `tasks.json` file in the TypeScript section, this file has
+In contrast to the `tasks.json` file in the TypeScript section, this file has:
 1. We want to run the gulp command in a shell (VS Code directly executing it) so we used **isShellCommand**
-1. We added an explicit **tasks** property which allowed us to *optionally* augment a task that was in the gulpfile.
-2. We defined a problem matcher **$msCompile** to process the output - since we are compiling C# using the Mono compiler, the built-in one works as *msc* adheres to the Microsoft compiler pattern.
+2. We added an explicit **tasks** property which allowed us to *optionally* augment a task that was in the gulpfile.
+3. We defined a problem matcher **$msCompile** to process the output - since we are compiling C# using the Mono compiler, the built-in one works as *msc* adheres to the Microsoft compiler pattern.
 
 
 ### Syntax for the Tasks Property
@@ -117,7 +117,7 @@ The tasks property is defined as an array of object literals where each literal 
 
 
 ## Output Window Behavior
-Sometimes you will want to control how the output window behaves when running tasks.  For instance you may always want to show output for the debug command.  The property **showOutput** controls this and the valid values are:
+Sometimes you will want to control how the output window behaves when running tasks. For instance, you may always want to show output for the debug command. The property **showOutput** controls this and the valid values are:
 
 - **silent**: the output window is brought to front only if no problem matchers fire for the task. This is the default.
 - **always**: the output window is always brought to front.
@@ -179,7 +179,7 @@ Here is a example where output for the "deploy" task is always brought to front:
 
 ## Defining a Problem Matcher
 
-VS Code ships some of the most common problem matchers out of the box.  However, there are lots of compilers and linting tools out there, all of which produce their own style of errors and warnings.  So lets talk about how to make your own problem matcher.
+VS Code ships some of the most common problem matchers out of the box.  However, there are lots of compilers and linting tools out there, all of which produce their own style of errors and warnings.  So let's talk about how to make your own problem matcher.
 
 We have a `helloWorld.c` program in which the developer mistyped **printf**
 as **prinft**. Compiling it with [gcc](https://gcc.gnu.org/) will produce the following warning:
@@ -211,7 +211,7 @@ A matcher that captures the above warning (and errors) looks like:
 		"line": 2,
 		// The third match group matches the column at which the problem occurred.
 		"column": 3,
-		// The forth match group matches the problem's severity. Can be ignore. Then all problems are captured as errors.
+		// The fourth match group matches the problem's severity. Can be ignored. Then all problems are captured as errors.
 		"severity": 4,
 		// The fifth match group matches the message.
 		"message": 5
@@ -255,8 +255,8 @@ There are a couple more properties that can be used inside a pattern. These are:
 >**Note:** A functional pattern must at least provide a match group for file, message and line or location.
 
 
-## Defining a Multi Line Problem Matcher
-Some tools spread problems found in a source file over several lines, especially if stylish reporters are used. An example is [ESLint](http://eslint.org/), in stylish mode it produces output like this:
+## Defining a Multi-Line Problem Matcher
+Some tools spread problems found in a source file over several lines, especially if stylish reporters are used. An example is [ESLint](http://eslint.org/); in stylish mode it produces output like this:
 
 ```
 test.js
@@ -291,7 +291,7 @@ The following problem pattern matches the output from ESLint in stylish mode - b
 }
 ```
 
-Of course it's never quite that simple and this pattern will not work if there is more than one problem on a resource. For instance imagine the following output from ESLint:
+Of course it's never quite that simple, and this pattern will not work if there is more than one problem on a resource. For instance, imagine the following output from ESLint:
 
 ```
 test.js
@@ -306,7 +306,7 @@ test.js
 
 The pattern's first regular expression will match "test.js", the second "1:0  error ...". The next line "1:9  error ..." is processed but not matched by the first regular expression and so no problem is captured.
 
-To make this work the last regular expression of a multi line pattern can specify the **loop** property. If set to **true**, it instructs the task system to apply the last pattern of a multi line matcher to the lines in the output as long as the regular expression matches.
+To make this work, the last regular expression of a multi-line pattern can specify the **loop** property. If set to **true**, it instructs the task system to apply the last pattern of a multi-line matcher to the lines in the ouput as long as the regular expression matches.
 
 The information captured by all previous patterns is combined with the information captured by the last pattern and turned into a problem inside VS Code.
 
