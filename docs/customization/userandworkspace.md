@@ -45,7 +45,7 @@ Below is a copy of the default `settings.json` file.
 
 >**Tip:** While in the `settings.json` file, press `kb(workbench.action.gotoSymbol)` to see an outline of all available settings and navigate through the file.
 
-```json
+```
 // Overwrite settings by placing them into your settings file.
 {
 
