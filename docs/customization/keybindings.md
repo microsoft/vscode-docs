@@ -1,13 +1,13 @@
 ---
 Order: 3
 Area: customization
-TOCTitle: Key bindings
-PageTitle: Visual Studio Code key bindings
+TOCTitle: Key Bindings
+PageTitle: Visual Studio Code Key Bindings
 DateApproved: 10/12/2015
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 ---
 
-# Key bindings for Visual Studio Code
+# Key Bindings for Visual Studio Code
 Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings and describes how you can update them.
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that OS.

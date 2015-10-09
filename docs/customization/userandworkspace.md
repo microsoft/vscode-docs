@@ -7,7 +7,7 @@ DateApproved: 10/12/2015
 MetaDescription: How to modify VS Code User and Workspace Settings.
 ---
 
-## User and Workspace Settings
+# User and Workspace Settings
 
 It's easy to configure VS Code the way you want by editing the various setting files where you will find a great number of settings to play with.
 

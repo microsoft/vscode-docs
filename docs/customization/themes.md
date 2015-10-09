@@ -7,7 +7,7 @@ DateApproved: 10/12/2015
 MetaDescription: How to add a new color theme
 ---
 
-## Changing the Color Theme
+# Changing the Color Theme
 There are several out-of-the-box color themes for VS Code for you to try out.
 
 1. Open the Color Theme picker with `kb(workbench.action.selectTheme)`

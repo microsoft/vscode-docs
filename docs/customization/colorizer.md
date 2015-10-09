@@ -7,7 +7,7 @@ DateApproved: 10/12/2015
 MetaDescription: How to add colorization and bracket matching.
 ---
 
-## Customization - Adding Language Colorization & Bracket Matching
+# Adding Language Colorization
 Using the 'code' Yeoman generator you can add TextMate language specification files (.tmLanguage) to your VS Code installation to get syntax highlighting and bracket matching.
 
 A good place to look for existing TextMate .tmLanguage files is on GitHub.  Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can handle either .tmLanguage or .plist files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. http://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage.
