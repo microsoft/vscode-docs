@@ -3,7 +3,7 @@ Order: 5
 Area: customization
 TOCTitle: Colorizer
 PageTitle: Visual Studio Code Colorizers
-DateApproved: 9/10/2015
+DateApproved: 10/12/2015
 MetaDescription: How to add colorization and bracket matching.
 ---
 

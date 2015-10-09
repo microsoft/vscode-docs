@@ -3,7 +3,7 @@ Order: 7
 Area: languages
 TOCTitle: TypeScript
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 9/10/2015
+DateApproved: 10/12/2015
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 ---
 
@@ -91,7 +91,7 @@ The example TypeScript file did not have any compile problems, so by running the
 
 
 ### Step 4: Reviewing Build Issues
-Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file we may get the following output form `tsc`:
+Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file we may get the following output from `tsc`:
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 

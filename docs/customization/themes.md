@@ -3,7 +3,7 @@ Order: 6
 Area: customization
 TOCTitle: Themes
 PageTitle: Visual Studio Code Themes
-DateApproved: 
+DateApproved: 10/12/2015
 MetaDescription: How to add a new color theme
 ---
 

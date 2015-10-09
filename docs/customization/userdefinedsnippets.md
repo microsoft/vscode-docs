@@ -3,7 +3,7 @@ Order: 4
 Area: customization
 TOCTitle: User Defined Snippets
 PageTitle: Visual Studio Code User Defined Snippets
-DateApproved: 9/10/2015
+DateApproved: 10/12/2015
 MetaDescription: How to add user defined snippets.
 ---
 

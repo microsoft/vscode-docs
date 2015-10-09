@@ -3,7 +3,7 @@ Order: 2
 Area: customization
 TOCTitle: User and Workspace Settings
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 9/10/2015
+DateApproved: 10/12/2015
 MetaDescription: How to modify VS Code User and Workspace Settings.
 ---
 

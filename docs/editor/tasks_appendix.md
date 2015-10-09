@@ -1,7 +1,7 @@
 ---
 TOCTitle: Tasks Appendix
 PageTitle: Tasks Appendix
-DateApproved: 9/10/2015
+DateApproved: 10/12/2015
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 MetaTags:
 ---

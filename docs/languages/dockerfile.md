@@ -3,7 +3,7 @@ Order: 9
 Area: languages
 TOCTitle: DockerFile
 PageTitle: Working with DockerFiles in Visual Studio Code
-DateApproved: 9/10/2015
+DateApproved: 10/12/2015
 MetaDescription: Find out how to get the best out of Visual Studio Code and Docker.
 ---
 

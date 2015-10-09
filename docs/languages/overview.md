@@ -3,7 +3,7 @@ Order: 1
 Area: languages
 TOCTitle: Overview
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 9/10/2015
+DateApproved: 10/12/2015
 MetaDescription: In Visual Studio Code we have support for all common languages.  We even support debugging for Node.js and ASP.NET 5.
 ---
 
@@ -43,6 +43,6 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **A:** Not yet but soon. Help us prioritize this in our [user voice](http://go.microsoft.com/fwlink/?LinkID=533482) site.
 
-**Q: Can I map additional extensions to a language?**
+**Q: Can I map additional file extensions to a language?**
 
 **A:** Currently this is not supported but it's on the way.

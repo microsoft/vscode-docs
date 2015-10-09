@@ -3,7 +3,7 @@ Order: 3
 Area: runtimes
 TOCTitle: Unity
 PageTitle: Visual Studio Code and Unity
-DateApproved: 9/21/2015
+DateApproved: 10/12/2015
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 
