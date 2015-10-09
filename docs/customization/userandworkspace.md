@@ -1,10 +1,10 @@
 ---
 Order: 2
 Area: customization
-TOCTitle: User and Workplace Settings
-PageTitle: Visual Studio Code User and Workplace Settings
+TOCTitle: User and Workspace Settings
+PageTitle: Visual Studio Code User and Workspace Settings
 DateApproved: 9/10/2015
-MetaDescription: How to modify VS Code User and Workplace Settings.
+MetaDescription: How to modify VS Code User and Workspace Settings.
 ---
 
 ## User and Workspace Settings
@@ -41,11 +41,11 @@ The `settings.json` file is divided into these sections:
 - **Sass Configuration** - Control linting for Sass
 - **TypeScript Configuration** - Language specific settings
 
-Below is a copy of the default `settings,json` file.
+Below is a copy of the default `settings.json` file.
 
 >**Tip:** While in the `settings.json` file, press `kb(workbench.action.gotoSymbol)` to see an outline of all available settings and navigate through the file.
 
-```
+```json
 // Overwrite settings by placing them into your settings file.
 {
 
@@ -118,6 +118,15 @@ Below is a copy of the default `settings,json` file.
 	"editor.referenceInfos": true,
 
 
+	//-------- Window configuration --------
+
+	// When enabled, will open files in a new window instead of reusing an existing instance.
+	"window.openInNewWindow": true,
+
+	// Controls how folders are being reopened after a restart. Select 'none' to never reopen a folder, 'one' to reopen the last folder you worked on or 'all' to reopen all folders of your last session.
+	"window.reopenFolders": "one",
+
+
 	//-------- Files configuration --------
 
 	// Configure glob patterns for excluding files and folders.
@@ -133,12 +142,6 @@ Below is a copy of the default `settings,json` file.
 	"files.trimTrailingWhitespace": false,
 
 
-	//-------- HTTP configuration --------
-
-	// The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
-	"http.proxy": "",
-
-
 	//-------- File Explorer configuration --------
 
 	// Maximum number of working files to show before scrollbars appear.
@@ -148,6 +151,12 @@ Below is a copy of the default `settings,json` file.
 	"explorer.workingFiles.dynamicHeight": true,
 
 
+	//-------- HTTP configuration --------
+
+	// The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
+	"http.proxy": "",
+
+
 	//-------- Search configuration --------
 
 	// Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the file.exclude setting.
@@ -155,6 +164,86 @@ Below is a copy of the default `settings,json` file.
 		"**/node_modules": true,
 		"**/bower_components": true
 	},
+
+
+	//-------- Git configuration --------
+
+	// Is git enabled
+	"git.enabled": true,
+
+	// Path to the git executable
+	"git.path": null,
+
+	// Whether auto fetching is enabled.
+	"git.autofetch": true,
+
+
+	//-------- JSON configuration --------
+
+	// Associate schemas to JSON files in the current project
+	"json.schemas": [
+		{
+			"fileMatch": [
+				"/bower.json",
+				"/.bower.json"
+			],
+			"url": "http://json.schemastore.org/bower"
+		},
+		{
+			"fileMatch": [
+				"/package.json"
+			],
+			"url": "http://json.schemastore.org/package"
+		},
+		{
+			"fileMatch": [
+				"/project.json"
+			],
+			"url": "http://json.schemastore.org/project"
+		},
+		{
+			"fileMatch": [
+				"*.schema.json"
+			],
+			"url": "http://json-schema.org/draft-04/schema#"
+		},
+		{
+			"fileMatch": [
+				"/global.json"
+			],
+			"url": "http://json.schemastore.org/global"
+		},
+		{
+			"fileMatch": [
+				"/tsconfig.json"
+			],
+			"url": "http://json.schemastore.org/tsconfig"
+		},
+		{
+			"fileMatch": [
+				"/jsconfig.json"
+			],
+			"url": "http://opentools.azurewebsites.net/jsconfig"
+		},
+		{
+			"fileMatch": [
+				"/.bowerrc"
+			],
+			"url": "http://json.schemastore.org/bowerrc"
+		},
+		{
+			"fileMatch": [
+				"/.jshintrc"
+			],
+			"url": "http://json.schemastore.org/jshintrc"
+		},
+		{
+			"fileMatch": [
+				"/.jscsrc"
+			],
+			"url": "http://json.schemastore.org/jscsrc"
+		}
+	],
 
 
 	//-------- CSS configuration --------
@@ -216,17 +305,26 @@ Below is a copy of the default `settings,json` file.
 	"css.lint.idSelector": "ignore",
 
 
+	//-------- Markdown preview configuration --------
+
+	// A list of URLs or local paths to CSS style sheets to use from the markdown preview.
+	"markdown.styles": [],
+
+
 	//-------- JavaScript configuration --------
 
 	// Controls how JavaScript IntelliSense works.
 
 	// Always include all words from the current document.
-	"javascript.suggest.alwaysAllWords": true,
+	"javascript.suggest.alwaysAllWords": false,
 
 	// Complete functions with their parameter signature.
 	"javascript.suggest.useCodeSnippetsOnMethodSuggest": false,
 
 	// Controls how JavaScript validation works.
+
+	// Controls VSCode's Javascript validation. If set to false both syntax and sematic validation is disabled
+	"javascript.validate.enable": true,
 
 	// Run linter checks for JavaScript files - overrides validate.lint.* settings.
 	"javascript.validate.semanticValidation": true,
@@ -282,7 +380,7 @@ Below is a copy of the default `settings,json` file.
 	"javascript.validate.lint.unknownProperty": "ignore",
 
 	// Don't require an unknown module.
-	"javascript.validate.lint.unknownModule": "warning",
+	"javascript.validate.lint.unknownModule": "ignore",
 
 	// Don't re-declare a variable type by an assignment.
 	"javascript.validate.lint.forcedTypeConversion": "warning",
@@ -297,84 +395,11 @@ Below is a copy of the default `settings,json` file.
 	"javascript.validate.lint.newOnReturningFunctions": "warning",
 
 
-	//-------- JSON configuration --------
+	//-------- Telemetry configuration --------
 
-	// Associate schemas to JSON files in the current project
-	"json.schemas": [
-		{
-			"fileMatch": [
-				"/bower.json",
-				"/.bower.json"
-			],
-			"url": "http://json.schemastore.org/bower"
-		},
-		{
-			"fileMatch": [
-				"/package.json"
-			],
-			"url": "http://json.schemastore.org/package"
-		},
-		{
-			"fileMatch": [
-				"/project.json"
-			],
-			"url": "http://json.schemastore.org/project"
-		},
-		{
-			"fileMatch": [
-				"*.schema.json"
-			],
-			"url": "http://json-schema.org/draft-04/schema#"
-		},
-		{
-			"fileMatch": [
-				"/global.json"
-			],
-			"url": "http://json.schemastore.org/global"
-		},
-		{
-			"fileMatch": [
-				"/ticino.plugin.json"
-			],
-			"url": "http://opentools.azurewebsites.net/ticino.plugin.json"
-		},
-		{
-			"fileMatch": [
-				"/tsconfig.json"
-			],
-			"url": "http://json.schemastore.org/tsconfig"
-		},
-		{
-			"fileMatch": [
-				"/jsconfig.json"
-			],
-			"url": "http://opentools.azurewebsites.net/jsconfig"
-		},
-		{
-			"fileMatch": [
-				"/.bowerrc"
-			],
-			"url": "http://json.schemastore.org/bowerrc"
-		},
-		{
-			"fileMatch": [
-				"/.jshintrc"
-			],
-			"url": "http://json.schemastore.org/jshintrc"
-		},
-		{
-			"fileMatch": [
-				"/.jscsrc"
-			],
-			"url": "http://json.schemastore.org/jscsrc"
-		}
-	],
-
-
-	//-------- Markdown preview configuration --------
-
-	// A list of URLs or local paths to CSS style sheets to use from the markdown preview.
-	"markdown.styles": [],
+	// Enable crash reports to be sent to Microsoft.
+	// This option requires restart of VSCode to take effect.
+	"telemetry.enableCrashReporter": true,
 
 
 	//-------- LESS configuration --------
@@ -501,7 +526,25 @@ Below is a copy of the default `settings,json` file.
 	"typescript.useCodeSnippetsOnMethodSuggest": false,
 
 	// Specifies the folder path containing the tsserver and lib*.d.ts files to use.
-	"typescript.tsdk": null
+	"typescript.tsdk": null,
+
+
+	//-------- JSHint configuration --------
+
+	// Control whether jshint is enabled for JavaScript files or not.
+	"jshint.enable": false,
+
+	// The jshint options object to provide args to the jshint command.
+	"jshint.options": {},
+
+
+	//-------- ESLint configuration --------
+
+	// Control whether eslint is enabled for JavaScript files or not.
+	"eslint.enable": false,
+
+	// The eslint options object to provide args to the eslint command.
+	"eslint.options": {}
 
 }
 ```

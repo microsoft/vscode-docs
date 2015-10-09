@@ -1,5 +1,5 @@
 ---
-Order: 60
+Order: 6
 Area: customization
 TOCTitle: Themes
 PageTitle: Visual Studio Code Themes
@@ -18,14 +18,23 @@ There are several out-of-the-box color themes for VS Code for you to try out.
 
 You can also find this on the menu under `File | Preferences | Color Theme`.
 
-
-
-
-
 ## Adding a Theme
-•	Walkthrough how to find a Colorizer
-	o	Go to ColorSublime
-	o	Grab the download link
-•	Screen shot of the Yo Generator
-•	Screenshot of a completed process i.e. bottom right selector enabled
-•	A description of what it does or at least mention in the coming releases we will provide more context
+You can also add new TextMate theme files (.tmTheme) to your VS Code installation.
+
+[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator e.g. http://colorsublime.com/theme/download/40781.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name as well as other information for the theme.
+
+![yo code theme](images/themes/yocodetheme.png)
+
+Copy the generated theme folder to a new folder under `.vscode/extensions` and restart VS Code.
+
+Open the Color Theme picker theme with `kb(workbench.action.selectTheme)`and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
+
+![my theme](images/themes/mytheme.png)
+
+## Next Steps
+Read on to find out about:  
+
+* [Customization](/docs/customization/overview) - Themes, settings and keyboard bindings
+* [Colorizers and Bracket Matchers](/docs/customization/colorizer) - Learn how to import TextMate colorizers
+
+

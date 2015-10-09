@@ -88,7 +88,7 @@ Read on to learn more about:
 
 * [Editing Evolved](/docs/editor/editingevolved) - find out more about the evolved editing features
 * [Debugging](/docs/editor/debugging) - how to use the debugger with your project
-* [C#](/docs/editor/debugging) - learn about the C# support in VS Code
+* [C#](/docs/languages/csharp) - learn about the C# support in VS Code
 
 
 ## Common Questions

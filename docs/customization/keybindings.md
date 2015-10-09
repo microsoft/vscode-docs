@@ -1,6 +1,6 @@
 ---
 Order: 3
-Area: Customization
+Area: customization
 TOCTitle: Key bindings
 PageTitle: Visual Studio Code key bindings
 DateApproved: 9/10/2015
