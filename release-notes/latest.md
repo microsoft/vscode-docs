@@ -46,9 +46,9 @@ Install and run the code Yeoman generator as follows:
 
 ![yo code](images/0_9_0/yocode.png)
 
-The Yeoman generator will walk you through creating your extension prompting for the required information.  Once the extension is created, copy the generator's output folder to a new folder under the `.vscode/extensions` folder and restart VS Code to use the new features. 
+The Yeoman generator will walk you through creating your customization prompting for the required information.  Once the generator is finished, copy the generator's output folder to a new folder under the `.vscode/extensions` folder and restart VS Code to use the new features. 
 
-In the future you will be able to publish these extensions to an external gallery to share them with the community.
+In the future you will be able to publish these customizations to an external gallery to share them with the community.
 
 >**Tip:** If you want to share your customization with others in the meantime, you can simply send them a copy of the output from the generator and ask them to add it under their `.vscode/extensions` folder.
 
@@ -59,7 +59,7 @@ A good place to look for existing TextMate .tmLanguage files is on GitHub.  Sear
 
 ![yo code language](images/0_9_0/yocodelanguage.png)
 
-The generator will prompt you for other information such an extension name (this should be unique to avoid clashing with other extensions) and the language name, aliases and file extensions. 
+The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other customizations) and the language name, aliases and file extensions. 
 
 When the generator is finished, copy the complete output folder to a new folder under `.vscode/extensions`.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
@@ -68,7 +68,7 @@ When the generator is finished, copy the complete output folder to a new folder 
 ## Customization - Adding Themes
 You can also add new TextMate theme files (.tmTheme) to your VS Code installation.
 
-[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator e.g. http://colorsublime.com/theme/download/40781.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the extension name as well as other information for the theme extension.
+[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator e.g. http://colorsublime.com/theme/download/40781.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name as well as other information for the theme.
 
 ![yo code theme](images/0_9_0/yocodetheme.png)
 
