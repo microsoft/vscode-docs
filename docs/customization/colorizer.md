@@ -84,3 +84,24 @@ Read on to find out about:
 **Q: What if I want to completely overide an existing colorizer?**
 
 **A:** Yes and no.  If the colorizer is implemented as a customization then yes but some of VS Code's built-in colorizers (e.g. markdown) are integrated differently and cannot be overridden.  You override the colorizer by using the `extensionDependencies` attribute as above and providing a new `grammars` element.
+
+```json
+{
+	"name": "override-xml",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": ">=0.9.0"
+	},
+	"publisher": "none",
+	"extensionDependencies": [
+		"xml"
+	],
+	"contributes": {
+		"grammars": [{
+			"language": "xml",
+			"scopeName": "text.xml.ant",
+			"path": "./syntaxes/ant.tmLanguage"
+		}]
+	}
+}
+```
