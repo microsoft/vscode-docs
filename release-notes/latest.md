@@ -11,6 +11,8 @@ Hi,
 
 It’s that time again – our October update is ready for VS Code.
 
+![summary](images/0_9_0/summary.png)
+
 ## Persistent (update to update) location for Customizations
 Previously we did not have a location we respected across updates.  It's true that we did have a location for user settings but as we get closer to our final update story we added a new location.  In the future, we will (gracefully) move all user settings here.
 
