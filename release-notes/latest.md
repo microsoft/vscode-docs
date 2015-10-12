@@ -72,7 +72,7 @@ You can also add new TextMate theme files (.tmTheme) to your VS Code installatio
 
 Copy the generated theme folder to a new folder under `.vscode/extensions` and restart VS Code.
 
-Open the Color Theme picker theme with `kb(workbench.action.selectTheme)`and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
+Open the Color Theme picker theme with `File | Preferences | Color Theme` and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
 
 ![my theme](images/0_9_0/mytheme.png)
 

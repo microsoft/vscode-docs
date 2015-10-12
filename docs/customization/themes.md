@@ -10,13 +10,11 @@ MetaDescription: How to add a new color theme
 # Changing the Color Theme
 There are several out-of-the-box color themes for VS Code for you to try out.
 
-1. Open the Color Theme picker with `kb(workbench.action.selectTheme)`
+1. Open the Color Theme picker with `File | Preferences | Color Theme`.
 2. Use the cursor keys to preview the colors of the theme
 3. Select the theme you want and hit Enter
 
 ![Themes in the Command Palette](images/themes/colorthemes.png)
-
-You can also find this on the menu under `File | Preferences | Color Theme`.
 
 ## Adding a Theme
 You can also add new TextMate theme files (.tmTheme) to your VS Code installation.
@@ -27,7 +25,7 @@ You can also add new TextMate theme files (.tmTheme) to your VS Code installatio
 
 Copy the generated theme folder to a new folder under `.vscode/extensions` and restart VS Code.
 
-Open the Color Theme picker theme with `kb(workbench.action.selectTheme)`and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
+Open the Color Theme picker theme with `File | Preferences | Color Theme` and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
 
 ![my theme](images/themes/mytheme.png)
 
