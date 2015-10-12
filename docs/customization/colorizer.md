@@ -45,7 +45,7 @@ Read on to find out about:
 		"languages": [{
 			"id": "asp",
 			"aliases": ["ASP", "asp"],
-			"extensions": [".asa", "asp"]
+			"extensions": [".asa", ".asp"]
 		}],
 		"grammars": [{
 			"language": "asp",
