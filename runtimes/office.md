@@ -20,7 +20,7 @@ Under the hood, an Office Add-in is simply a web app that you can host anywhere.
 ## Prerequisites
 To run the Yeoman Office Add-in generator, you need a few things:
 
-- [NPM](https://www.npmjs.com/) (*Visual Studio Code includes this*)
+- [NPM](https://www.npmjs.com/)
 - [Bower](http://bower.io)
 - [Yeoman](http://yeoman.io)
 - [Yeoman Office generator](https://www.npmjs.com/package/generator-office)
