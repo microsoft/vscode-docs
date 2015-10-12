@@ -85,7 +85,7 @@ To execute these commands you could run them from the terminal, but a faster way
 
 In this walkthrough we want to run the website, so the command we want to run is `dnx: kestrel`. VS Code understands the configured DNX runtime and will open a console window, and execute the command in there.
 
-Open you favorite browser and browse to `http://localhost:5001` to browse the site we created.
+Open you favorite browser and browse to `http://localhost:5000` to browse the site we created.
 
 Note: command execution from the Command Palette doesn’t work yet on Linux. To run commands manually on Linux, start a console and type: ```dnx . <command_name>```.
 
