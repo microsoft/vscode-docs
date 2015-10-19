@@ -21,7 +21,7 @@ On Windows, you will likely see a two stage update as a result of the change to 
 
 ## Installation error on OS X El Capitan
 
-If you see the error **"Visual Studio Code.app" can't be opened because the identity of the developer cannot be confirmed**, this is due to tighten Gatekeeper signing constraints on later builds of El Capitan.  To work around this error, you can either selectively choose to open VS Code regardless of the signing warning or temporarily set `Allow apps downloaded from: Anywhere` in the `Security & Privacy` dialog.
+If you see the error **"Visual Studio Code.app" can't be opened because the identity of the developer cannot be confirmed**, this is due to tightened Gatekeeper signing constraints on later builds of El Capitan.  To work around this error, you can either selectively choose to open VS Code regardless of the signing warning or temporarily set `Allow apps downloaded from: Anywhere` in the `Security & Privacy` dialog.
 
 ## How do I update to the latest version?
 See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
