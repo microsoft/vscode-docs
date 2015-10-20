@@ -167,8 +167,6 @@ Here is a example where output for the "deploy" task is always brought to front:
 		{
 			"taskName": "deploy",
 			"showOutput": "always",
-		},
-		{
 		}
 	]
 }
