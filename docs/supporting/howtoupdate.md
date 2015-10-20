@@ -5,7 +5,7 @@ PageTitle: How to update Visual Studio Code to the latest version
 MetaDescription: Find out how to update to the most recent version of Visual Studio Code – an evolved Code editing experience on Mac OS X, Linux and Windows.
 ---
 
-# How to update to the lastest release
+# How to update to the latest release
 
 The following shows you how to update to the latest release of Visual Studio Code.
 
