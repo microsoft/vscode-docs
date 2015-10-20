@@ -349,8 +349,7 @@ Below is an example of a configuration that passes the current opened file to th
 ```json
 {
 	"command": "tsc",
-
-	"args": ["${file}"],
+	"args": ["${file}"]
 }
 ```
 
