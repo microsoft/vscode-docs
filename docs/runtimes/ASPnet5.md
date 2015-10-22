@@ -34,9 +34,9 @@ dnvm upgrade
 ```
 
 ## Getting Started
-If you don't have an existing ASP.NET DNX application, we recommend using [yeoman](http://yeoman.io/) to scaffold a new one. Presuming you have Node.js installed, simply `npm install` yeoman and supporting tools such as the asp.net generator, grunt, gulp, and bower. This can be done in one command:
+If you don't have an existing ASP.NET DNX application, we recommend using [yeoman](http://yeoman.io/) to scaffold a new one. Presuming you have Node.js installed, simply `npm install` yeoman and supporting tools such as the asp.net generator, gulp, and bower. This can be done in one command:
 ```
-npm install -g yo gulp grunt-cli generator-aspnet bower
+npm install -g yo generator-aspnet gulp bower
 ```
 ## Scaffolding your first Application
 From the terminal, run `yo aspnet` to start the generator. Follow the prompts and pick the `Web Application`
