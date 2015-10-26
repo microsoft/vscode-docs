@@ -1,9 +1,13 @@
 ---
 Order: 1
 TOCTitle: Latest
-PageTitle: Visual Studio Code v0.9.1
-MetaDescription: See what is new in Visual Studio Code 0.9.1
+PageTitle: Visual Studio Code v0.9.2
+MetaDescription: See what is new in Visual Studio Code 0.9.2
 ---
+
+# VS Code v0.9.2
+
+> **FIXED:** There is an [issue](http://blogs.msdn.com/b/vscode/archive/2015/10/26/visual-studio-code-0-9-2-or-how-many-squares-do-you-see.aspx) with VS Code's TypeScript language diagnostics support in the 0.9.1 release. TypeScript users may see slow editor response while typing and erroneous diagnostic red and green squiggles. In some instances, VS Code may also hang or crash. This issue has been resolved in release 0.9.2. If you were affected by this bug, please refer to the [how to update](/Docs/supporting/howtoupdate) documentation to download and install 0.9.2.
 
 # VS Code v0.9.1 (October 2015)
 
