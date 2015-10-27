@@ -32,9 +32,8 @@ In the future, we'll add other options for rich customization of VS Code.
 If you have a TextMate color theme (.tmTheme) or a TextMate language specification (.tmLanguage), you can bring them into VS Code using the 'code' Yeoman generator.
 
 Install and run the code Yeoman generator as follows:
-1. `npm install -g yo`
-2. `npm install -g generator-code`
-3. `yo code`
+1. `npm install -g yo generator-code`
+2. `yo code`
 
 ![yo code](images/overview/yocode.png)
 
