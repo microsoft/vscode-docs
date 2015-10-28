@@ -96,7 +96,7 @@ Unfortunately, most builds don't go that smoothly and the result is often some a
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
 This would show up in the output window (which can be opened using
-`kb(workbench.action.output.showOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highlight detected problems in the status bar.
+`kb(workbench.action.output.toggleOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highlight detected problems in the status bar.
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 

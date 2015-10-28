@@ -116,7 +116,7 @@ Once a debug session starts, the **Debug actions pane** will appear on the top o
 
 ![Debug Actions](images/debugging/actions.png)
 
-* Continue / Pause `kb(workbench.action.debug.play)`
+* Continue / Pause `kb(workbench.action.debug.continue)`
 * Step Over `kb(workbench.action.debug.stepOver)`
 * Step Into `kb(workbench.action.debug.stepInto)`
 * Step Out `kb(workbench.action.debug.stepOut)`

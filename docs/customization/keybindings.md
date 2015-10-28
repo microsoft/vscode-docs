@@ -54,6 +54,7 @@ Key|Command|Command id
 Key|Command|Command id
 ---|-------|----------
 `kb(editor.action.triggerSuggest)`|Trigger Suggest|`editor.action.triggerSuggest`
+`kb(editor.action.triggerParameterHints)`|Trigger Parameter Hints|`editor.action.triggerParameterHints`
 `kb(editor.action.format)`|Format Code|`editor.action.format`
 `kb(editor.action.goToDeclaration)`|Go to Definition|`editor.action.goToDeclaration`
 `kb(editor.action.previewDeclaration)`|Peek Definition|`editor.action.previewDeclaration`
@@ -64,6 +65,8 @@ Key|Command|Command id
 `kb(editor.action.inPlaceReplace.up)`|Replace with Previous Value|`editor.action.inPlaceReplace.up`
 `kb(editor.action.smartSelect.grow)`|Expand AST Select|`editor.action.smartSelect.grow`
 `kb(editor.action.smartSelect.shrink)`|Shrink AST Select|`editor.action.smartSelect.shrink`
+`kb(editor.action.trimTrailingWhitespace)`|Trim Trailing Whitespace|`editor.action.trimTrailingWhitespace`
+`kb(workbench.action.editor.changeLanguageMode)`|Change Language Mode|`workbench.action.editor.changeLanguageMode`
 
 ## Navigation
 
@@ -88,6 +91,7 @@ Key|Command|Command id
 `kb(workbench.action.newWindow)`|New Window|`workbench.action.newWindow`
 `kb(workbench.action.closeWindow)`|Close Window|`workbench.action.closeWindow`
 `kb(workbench.action.closeActiveEditor)`|Close Editor|`workbench.action.closeActiveEditor`
+`kb(workbench.action.closeFolder)`|Close Folder|`workbench.action.closeFolder`
 `kb(workbench.action.cycleEditor)`|Cycle Between Opened Editors|`workbench.action.cycleEditor`
 `kb(workbench.action.splitEditor)`|Split Editor|`workbench.action.splitEditor`
 `kb(workbench.action.focusFirstEditor)`|Focus into Left Hand Editor|`workbench.action.focusFirstEditor`
@@ -95,6 +99,8 @@ Key|Command|Command id
 `kb(workbench.action.focusThirdEditor)`|Focus into Right Hand Editor|`workbench.action.focusThirdEditor`
 `kb(workbench.action.focusLeftEditor)`|Focus into Next Editor on the Left|`workbench.action.focusLeftEditor`
 `kb(workbench.action.focusRightEditor)`|Focus into Next Editor on the Right|`workbench.action.focusRightEditor`
+`kb(workbench.action.moveActiveEditorLeft)`|Move Active Editor Left|`workbench.action.moveActiveEditorLeft`
+`kb(workbench.action.moveActiveEditorRight)`|Move Active Editor Right|`workbench.action.moveActiveEditorRight`
 
 ## File Management
 
@@ -105,6 +111,14 @@ Key|Command|Command id
 `kb(workbench.action.files.save)`|Save|`workbench.action.files.save`
 `kb(workbench.action.files.saveAll)`|Save All|`workbench.action.files.saveAll`
 `kb(workbench.action.files.saveAs)`|Save As...|`workbench.action.files.saveAs`
+`kb(workbench.files.action.closeFile)`|Close File|`workbench.files.action.closeFile`
+`kb(workbench.files.action.closeAllFiles)`|Close All Files|`workbench.files.action.closeAllFiles`
+`kb(workbench.files.action.addToWorkingFiles)`|Add to Working Files|`workbench.files.action.addToWorkingFiles`
+`kb(workbench.files.action.openNextWorkingFile)`|Open Next Working File|`workbench.files.action.openNextWorkingFile`
+`kb(workbench.files.action.openPreviousWorkingFile)`|Open Previous Working File|`workbench.files.action.openPreviousWorkingFile`
+`kb(workbench.action.files.copyPathOfActiveFile)`|Copy Path of Active File|`workbench.action.files.copyPathOfActiveFile`
+`kb(workbench.action.files.revealActiveFileInWindows)`|Reveal Active File in Windows|`workbench.action.files.revealActiveFileInWindows`
+`kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
 
 ## Display
 
@@ -119,10 +133,10 @@ Key|Command|Command id
 `kb(workbench.view.search)`|Show Search|`workbench.view.search`
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
-`kb(workbench.action.output.showOutput)`|Show Output|`workbench.action.output.showOutput`
-`kb(omnisharp.show.generalLog)`|Show OmniSharp Log|`omnisharp.show.generalLog`
-`kb(omnisharp.show.generalLogOnSide)`|Show OmniSharp Log to the Side|`omnisharp.show.generalLogOnSide`
+`kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
+`kb(o.showOutput)`|Show OmniSharp Log|`o.showOutput`
 `kb(workbench.action.markdown.togglePreview)`|Toggle Markdown Preview|`workbench.action.markdown.togglePreview`
+`kb(workbench.action.markdown.openPreviewSideBySide)`|Open Preview to the Side|`workbench.action.markdown.openPreviewSideBySide`
 
 ## Preferences
 Key|Command|Command id
@@ -138,7 +152,7 @@ Key|Command|Command id
 Key|Command|Command id
 ---|-------|----------
 `kb(editor.debug.action.toggleBreakpoint)`|Toggle Breakpoint|`editor.debug.action.toggleBreakpoint`
-`kb(workbench.action.debug.play)`|Continue|`workbench.action.debug.play`
+`kb(workbench.action.debug.continue)`|Continue|`workbench.action.debug.continue`
 `kb(workbench.action.debug.start)`|Pause|`workbench.action.debug.start`
 `kb(workbench.action.debug.stepInto)`|Step Into|`workbench.action.debug.stepInto`
 `kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
@@ -168,7 +182,7 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 { "key": "shift+home", "when": "editorTextFocus", "command": "cursorHomeSelect" },
 
 // Keybindings that are complementary
-{ "key": "f5",         "when": "inDebugMode",     "command": "workbench.action.debug.play" },
+{ "key": "f5",         "when": "inDebugMode",     "command": "workbench.action.debug.continue" },
 { "key": "f5",         "when": "!inDebugMode",    "command": "workbench.action.debug.start" }
 
 // Global keybindings
@@ -177,8 +191,8 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 { "key": "alt+right",                             "command": "workbench.action.navigateForward" },
 
 // Global keybindings using chords
-{ "key": "ctrl+u l",                              "command": "omnisharp.show.generalLog" },
-{ "key": "ctrl+u ctrl+l",                         "command": "omnisharp.show.generalLogOnSide" },
+{ "key": "ctrl+l l",                              "command": "o.showOutput" },
+{ "key": "ctrl+l shift+r",                        "command": "o.execute" },
 ```
 
 Each rule consists of:

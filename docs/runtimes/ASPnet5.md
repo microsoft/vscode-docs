@@ -63,7 +63,7 @@ The ASP.NET 5/DNX project system is also file and folder based, so when VS Code 
 
 ![DNX commands in palette](images/ASPnet5/dnxprojects.png)
 
-Notice the project indication on the lower left corner. When the icon is flashing, OmniSharp (the brain behind VS Code’s C# support) is starting, loading your project.  If you see a red icon, it means something went wrong, you can find out by looking at the OmniSharp Output Log (`kb(omnisharp.show.generalLog)`).
+Notice the project indication on the lower left corner. When the icon is flashing, OmniSharp (the brain behind VS Code’s C# support) is starting, loading your project.  If you see a red icon, it means something went wrong, you can find out by looking at the OmniSharp Output Log (`kb(o.showOutput)`).
 
 When the status bar shows the project information it’s a good time to get going. You can now leverage the full power of VS Code, author code and run your app.
 
