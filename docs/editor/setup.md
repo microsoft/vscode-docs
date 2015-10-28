@@ -22,6 +22,15 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 ```bash
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 ```
+>for [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish) use this snippet
+
+```bash
+function code --description 'Open Visual Studio Code'  
+    set -x VSCODE_CWD $PWD
+    open -n -b "com.microsoft.VSCode" --args $argv
+end
+```
+
 Now, you can simply type `code .` in any folder to start editing files in that folder.
 
 ## Linux
