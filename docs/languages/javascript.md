@@ -23,7 +23,7 @@ You can create a JavaScript project by dropping in a `jsconfig.json` file. It's 
 
 ![jsonconfig.json](images/javascript/jsconfigjson.png)
 
->**Tip:** VS Code optionally supports multiple `jsconfig.json` files - this is good for instance when you wish to exclude sub-folders.
+>**Tip:** VS Code optionally supports multiple `jsconfig.json` files. This is good, for instance, when you wish to exclude subdirectories.
 
 ### /// References for .d.ts
 With the introduction of `jsconfig.json`, you no longer need to use `///` references in each file (these were required in the initial versions of VS Code). As the file set is defined in `jsconfig.json`, VS Code knows what files and symbols are part of your project.
@@ -31,13 +31,13 @@ With the introduction of `jsconfig.json`, you no longer need to use `///` refere
 As an example, you can just drop a new type definition `.d.ts` file into your project folder and VS Code will pick it up automatically.
 
 ### Defining Global Variables Outside .d.ts
-VS Code also supports the global directive ```/*global varName*/``` to declare variables. In comparison to ```.d.ts```-files, it’s a faster but less powerful way to define variables to be used inside source files.
+VS Code also supports the global directive ```/*global varName*/``` to declare variables. In comparison to ```.d.ts``` files, it’s a faster but less powerful way to define variables to be used inside source files.
 
 ![Global directive](images/javascript/jsglobalvariable.png)
 
 
 ## IntelliSense Support
-VS Code provides IntelliSense for built-in symbols of browsers, Node.js, and virtually all other environments through the use of type definition ```d.ts```-files. [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [TSD](http://definitelytyped.org/tsd/), the TypeScript Definition manager. IntelliSense is automatically provided for CommonJS and AMD modules inside your project folders.
+VS Code provides IntelliSense for built-in symbols of browsers, Node.js, and virtually all other environments through the use of type definition ```.d.ts``` files. [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [TSD](http://definitelytyped.org/tsd/), the TypeScript Definition manager. IntelliSense is automatically provided for CommonJS and AMD modules inside your project folders.
 
 
 
