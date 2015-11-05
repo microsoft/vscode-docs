@@ -100,7 +100,7 @@ To enable one of the linters do the following:
 
 * install the corresponding linter globally or inside the workspace folder that contains the JavaScript code to be validated.
   For example using `npm install eslint` or `npm install jshint`, respectively.
-* enable eslint or jshint via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
+* enable ESLint or JSHint via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
 * optionally disable VS Code's built-in JavaScript validation via the setting `"javascript.validate.enable": false`
 * use the .eslintrc or .jshintrc file to configure the linter.
 
