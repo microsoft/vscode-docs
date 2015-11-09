@@ -5,11 +5,11 @@ PageTitle: Visual Studio Code v0.10.0
 MetaDescription: See what is new in Visual Studio Code 0.10.0
 ---
 
-# VS Code v0.10.0 (November - Beta 2015)
+# VS Code v0.10.0 (November)
 
 Hi,
 
-With this release, we mark our official Beta milestone and we've been busy.
+With this release, we have a lot ot share.
 
 ## Debugging - Debug Console Improvements
 * Colored text output to highlight diagnostic errors and warnings
