@@ -58,7 +58,7 @@ There are two new settings to control the PHP linter:
 
 ## Languages - Workspace relative TypeScript version
 
-If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting now supports relative paths so you can test with a workspace isolated TypeScript installation (`npm install typescript@next`).
+If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting now supports relative paths so you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`).
 
 ## New Difference View Settings
 You can now set your diff view preferences with two new settings:
@@ -67,10 +67,12 @@ You can now set your diff view preferences with two new settings:
 
 ![inline-diff-view](images/0_10_0/inline-diff-view.png)
 
+Previously these options where available in the editor's title bar.
+
 ## Notable Bug Fixes
 
 As always we fixed many issues.
 
-Here are a few of the notable ones from the public bug tracker:
+Here are a few of the notable ones:
 
-* VS Code is slow with large (~30000) lists of possible suggestions
+* Editor code completion is slow with large completion lists, e.g. 30000 suggestions.
