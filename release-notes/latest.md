@@ -9,7 +9,7 @@ MetaDescription: See what is new in Visual Studio Code 0.10.0
 
 Hi,
 
-With this release, we have a lot ot share.
+With this release, we have a lot to share.
 
 ## Debugging - Debug Console Improvements
 * Colored text output to highlight diagnostic errors and warnings
