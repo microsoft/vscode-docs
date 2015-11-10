@@ -9,7 +9,21 @@ MetaDescription: See what is new in Visual Studio Code 0.10.0
 
 Hi,
 
-With this release, we have a lot to share.
+With this release, we have a lot to share and we are getting very close to plug-in support :)
+
+## Known Issues (important 0.10.0 issue)
+
+In our testing, we found an important regression to our `smart editing` support for a broad number of languages.  Smart Editing has four behaviors which are _disabled_ in this build:
+
+-	Add line comments and toggle block comments
+-	Automatic closing of brackets and quotes
+-	Indent after opening brackets, unindent before closing brackets
+-	Enhanced bracket matching (e.g. match tags in XML)
+
+Languages impacted include: Batch, CoffeeScript, C++, Dockerfile, F#, Go, INI, Jade, Java, Lua, Objective-C, PowerShell, Python, R, Ruby, SQL, Swift, VB, XML.
+
+We would still very much appreciate your help to review the new features in this build – however – if this regression impacts your productivity too much, please follow the steps outlined in ‘reverting back to the most recent stable build’ below.
+
 
 ## Debugging - Debug Console Improvements
 * Colored text output to highlight diagnostic errors and warnings
