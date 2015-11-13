@@ -57,7 +57,7 @@ The [ASP.NET 5 docs](http://docs.asp.net/en/latest/) do a great job describing h
 
 VS Code is file and folder based as compared to Visual Studio, which is project or solution based. You don't open a solution in VS Code, you simply open a folder and if a supported project exists we will load it.
 
-Open the `WebApplication` folder. If you set up a shortcut as described in [setup](/docs/editor/setup), you can simply run `code .` from the terminal.
+Open the `WebApplication` folder. If you set up a shortcut as described in [setup](/docs/editor/setup.md), you can simply run `code .` from the terminal.
 
 The ASP.NET 5/DNX project system is also file and folder based, so when VS Code sees the `project.json` it will load it. If you have multiple project.json files you can pick which one you want to use, looks down in the status bar.
 
@@ -94,6 +94,5 @@ Visual Studio Code and ASP.NET 5 are in preview and at this time debugging ASP.N
 
 ## Next Steps
 We hope this gets you started building ASP.NET 5 applications.  Try these things next:
-* [Editing Evolved](/docs/editor/editingevolved) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-app
-* [Tasks](/docs/editor/tasks) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
+* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more 
+* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings

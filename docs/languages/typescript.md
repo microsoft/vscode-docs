@@ -41,7 +41,7 @@ Now when you create a `.ts` file as part of the project we will offer up rich ed
 
 
 ## Transpiling TypeScript into JavaScript
-VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks).  We can use this to transpile `.ts` files into `.js` files.  Lets walk through transpiling a simple TypeScript Hello World program.
+VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Let's walk through transpiling a simple TypeScript Hello World program.
 
 
 ### Step 1: Create a simple TS file
@@ -83,20 +83,16 @@ Under the covers we interpret `tsc` as an external task runner exposing exactly 
 
 
 ### Step 3: Run the Build Task
-As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (run Build Task).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
+As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
 
 The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` file was created.
-
-
-
 
 ### Step 4: Reviewing Build Issues
 Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file we may get the following output from `tsc`:
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the output window (which can be opened using
-`kb(workbench.action.output.toggleOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highlight detected problems in the status bar.
+This would show up in the output window (which can be opened using `kb(workbench.action.output.toggleOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highlight detected problems in the status bar.
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 
@@ -106,14 +102,14 @@ You can click on that icon to get a list of the problems and navigate to them.
 
 You can also use the keyboard to open the list `kb(workbench.action.showErrorsWarnings)`.
 
->**Tip:** Tasks offer rich support for many actions. Check the [Tasks](/docs/editor/tasks) section for more information on how to configure them.
+>**Tip:** Tasks offer rich support for many actions. Check the [Tasks](/docs/editor/tasks.md) topic for more information on how to configure them.
 
 
 
 ## Goto Symbol & Show All Symbols
 `kb(workbench.action.gotoSymbol)`: lists all defined symbols of the current open TypeScript and lets you navigate in it.
 
-`kb(workbench.action.showAllSymbols)`: let's you search all symbols defined in the current project or file scope. You need to have a TypeScript file open in the active editor.
+`kb(workbench.action.showAllSymbols)`: lets you search all symbols defined in the current project or file scope. You need to have a TypeScript file open in the active editor.
 
 
 
@@ -123,10 +119,10 @@ You can also use the keyboard to open the list `kb(workbench.action.showErrorsWa
 
 
 ## JSDoc Support
-VS Code offers JSDoc support for TypeScript. Besides syntax coloring, we help you enter JSDoc comments. Simply type `/**` and it will auto insert the closing `*/`. Pressing `Enter` inside a JSDoc block will indent the next line and auto insert a `*`.
+VS Code offers JSDoc support for TypeScript. Besides syntax coloring, we help you enter JSDoc comments. Simply type `/**` and it will auto insert the closing `*/`. Pressing `kbstyle(Enter)` inside a JSDoc block will indent the next line and auto insert a `*`.
 
 
-## JavaScript Sourcemap Support
+## JavaScript Source Map Support
 TypeScript debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the project's launch configuration file `launch.json`. In addition, you can specify a TypeScript file with the `program` attribute.
 
 To generate source maps for your TypeScript files, compile with the `--sourcemap` option.
@@ -152,10 +148,10 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 ## Next Steps
 OK, read on to find out about:
 
-* [JavaScript](javascript) - we have several JavaScript specific features in VS Code
-* [Tasks](/docs/editor/tasks) - we used tasks to transpile your TS file. Read more to find out what else tasks can do
-* [Editing Evolved](/docs/editor/editingevolved) - dig into multi-cursor, snippets and more
-* [Debugging](/docs/editor/debugging) - we support debugging TypeScript Node.js apps
+* [JavaScript](/docs/languages/javascript.md) - we have several JavaScript specific features in VS Code
+* [Tasks](/docs/editor/tasks.md) - we used tasks to transpile your TS file. Read more to find out what else tasks can do
+* [Editing Evolved](/docs/editor/editingevolved.md) - dig into multi-cursor, snippets and more
+* [Debugging](/docs/editor/debugging.md) - we support debugging TypeScript Node.js apps
 
 ## Common Questions
 

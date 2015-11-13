@@ -29,11 +29,11 @@ We support Emmet snippet expansion, simply press `kb(editor.emmet.action.expandA
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-We also support [User Defined Snippets](/docs/customization/userdefinedsnippets).
+We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.md).
 
 ## Next Steps
 Read on to find out about:
 
-* [CSS, Less and Sass](css) - VS Code has first class support for CSS including Less and Sass.
+* [CSS, Less and Sass](/docs/languages/css.md) - VS Code has first class support for CSS including Less and Sass.
 
 

@@ -49,7 +49,7 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 
 - [ASP.NET 5](https://github.com/aspnet/home) - a lean and composable framework for building web and cloud applications, fully open source and available on GitHub
 - [Node.js (includes NPM)](http://nodejs.org/) - a platform for easily building fast, scalable network applications
-- [git](http://git-scm.com/download) - VS Code has built-in support for source code control using git
+- [Git](http://git-scm.com/download) - VS Code has built-in support for source code control using Git
 - [Yeoman](http://yeoman.io/) - an application scaffolding tool, you can think of this as `File | New Project` for VS Code
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - a yeoman generator for scaffolding ASP.NET 5 applications, run `npm install -g generator-aspnet` to install
 - [hottowel](https://github.com/johnpapa/generator-hottowel) - a yeoman generator for quickly creating AngularJS applications, run `npm install -g generator-hottowel` to install
@@ -64,9 +64,9 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 ## Next Steps
 Now you have installed and set up VS Code. Let's get going...
 
-* [The Basics](codebasics) - Basic orientation around VS Code
-* [Editing Evolved](editingevolved) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-* [Debugging](debugging) - This is where VS Code really shines
+* [The Basics](/docs/editor/codebasics.md) - Basic orientation around VS Code
+* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 
 
 
@@ -74,5 +74,5 @@ Now you have installed and set up VS Code. Let's get going...
 
 **Q: What are the system requirements for VS Code?**
 
-**A:** We have a list of [System Requirements](/docs/supporting/requirements).
+**A:** We have a list of [System Requirements](/docs/supporting/requirements.md).
 

@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: Colorizer
 PageTitle: Visual Studio Code Colorizers
 DateApproved: 10/12/2015
-MetaDescription: How to add colorization and bracket matching.
+MetaDescription: How to add colorization and bracket matching to Visual Studio Code.
 ---
 
 # Adding Language Colorization
@@ -24,8 +24,8 @@ at it does or at least mention in the coming releases we will provide more conte
 ## Next Steps
 Read on to find out about:  
 
-* [Customization](/docs/customization/overview) - Learn about all of VS Code's customization options.
-* [Custom themes](/docs/customization/themes) - Learn how to import existing TextMate themes.
+* [Customization](/docs/customization/overview.md) - Learn about all of VS Code's customization options.
+* [Custom themes](/docs/customization/themes.md) - Learn how to import existing TextMate themes.
 
 ## Common Questions
 
@@ -38,7 +38,7 @@ Read on to find out about:
 	"name": "asp",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": ">=0.9.0"
+		"vscode": "0.10.x"
 	},
 	"publisher": "none",
 	"contributes": {
@@ -65,7 +65,7 @@ Read on to find out about:
 	"name": "MyMarkdown",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": ">=0.9.0"
+		"vscode": "0.10.x"
 	},
 	"publisher": "none",
 	"extensionDependencies": [
@@ -81,7 +81,7 @@ Read on to find out about:
 }
 ```
 
-**Q: What if I want to completely overide an existing colorizer?**
+**Q: What if I want to completely override an existing colorizer?**
 
 **A:** Yes and no.  If the colorizer is implemented as a customization then yes but some of VS Code's built-in colorizers (e.g. markdown) are integrated differently and cannot be overridden.  You override the colorizer by using the `extensionDependencies` attribute as above and providing a new `grammars` element.
 
@@ -90,7 +90,7 @@ Read on to find out about:
 	"name": "override-xml",
 	"version": "0.0.1",
 	"engines": {
-		"vscode": ">=0.9.0"
+		"vscode": "0.10.x"
 	},
 	"publisher": "none",
 	"extensionDependencies": [

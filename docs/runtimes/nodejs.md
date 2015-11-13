@@ -40,7 +40,7 @@ The server will start and you can browse to `http://localhost:3000` to see the r
 ![Your first Node Express App](images/nodejs/express.png)
 
 ## Great Code Editing Experiences
-Close the browser and from a terminal in the `myExpressApp` folder, stop the Node.js server by pressing `CTRL+C`.  Now launch VS Code.
+Close the browser and from a terminal in the `myExpressApp` folder, stop the Node.js server by pressing `kbstyle(CTRL+C)`.  Now launch VS Code.
 ```
 code .
 ```
@@ -86,7 +86,7 @@ If you pass an incorrect type to `createServer` VS Code will give you a warning.
 
 ![Your first Node Express App](images/nodejs/warning.png)
 
->**Tip:** Press `F8` to navigate errors and warnings within a file.
+>**Tip:** Press `kb(editor.action.marker.next)` to navigate errors and warnings within a file.
 
 You can give even more hints to Visual Studio Code through a configuration file for the workspace (the root folder). Add a new file and name it `jsconfig.json` with the following contents:
 
@@ -121,8 +121,8 @@ Take the defaults for everything else. If you do not have Auto Save on, save the
 ## Next Steps
 There is much more to explore with Visual Studio Code, please try the following topics:
 
-* [Debugging](/docs/editor/debugging) - This is where VS Code really shines
-* [Editing Evolved](/docs/editor/editingevolved) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-* [ASP.NET 5](/docs/runtimes/ASPnet5) - End to end sample showing off our ASP.NET 5 and .NET 5 support with a sample app
-* [Tasks](/docs/editor/tasks) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
+* [ASP.NET 5](/docs/runtimes/ASPnet5.md) - End to end sample showing off our ASP.NET 5 and .NET 5 support with a sample app
+* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
 

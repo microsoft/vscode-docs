@@ -21,10 +21,10 @@ The table below provides a brief description of Visual Studio Code's various lan
 
 Features|Languages
 --------|-------------------------
-Syntax coloring, bracket matching |Batch, C++, Clojure, Coffee Script, [Dockerfile](/docs/languages/dockerfile), F#, Go, Jade, Java, HandleBars, Ini, Lua, Makefile, Objective-C, Perl, PowerShell, Python, R, Razor, Ruby, Rust, SQL, Visual Basic, XML
-+ Snippets| Groovy, [Markdown](/docs/languages/markdown), PHP, Swift
-+ IntelliSense, linting, outline|[CSS](/docs/languages/css), [HTML](/docs/languages/html), [JavaScript](/docs/languages/javascript), [JSON](/docs/languages/json), [Less](/docs/languages/css), [Sass](/docs/languages/css)
-+ Refactoring, find all references|[TypeScript](/docs/languages/typescript), [C&#35;](/docs/languages/csharp)
+Syntax coloring, bracket matching |Batch, C++, Clojure, Coffee Script, [Dockerfile](/docs/languages/dockerfile.md), F#, Go, Jade, Java, HandleBars, Ini, Lua, Makefile, Objective-C, Perl, PowerShell, Python, R, Razor, Ruby, Rust, SQL, Visual Basic, XML
++ Snippets| Groovy, [Markdown](/docs/languages/markdown.md), PHP, Swift
++ IntelliSense, linting, outline|[CSS](/docs/languages/css.md), [HTML](/docs/languages/html.md), [JavaScript](/docs/languages/javascript.md), [JSON](/docs/languages/json.md), [Less](/docs/languages/css.md), [Sass](/docs/languages/css.md)
++ Refactoring, find all references|[TypeScript](/docs/languages/typescript.md), [C&#35;](/docs/languages/csharp.md)
 
 ## Changing the Language for the Selected File
 
@@ -35,9 +35,9 @@ In VS Code, we default the language support for a file based on its filename ext
 ## Next Steps
 Now you know that VS Code has support for the languages you care about. Read on...
 
-* [Editing Evolved](/docs/editor/editingevolved) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-* [Debugging](/docs/editor/debugging) - This is where VS Code really shines
-* [Customization](/docs/customization/overview) - themes, settings and keyboard bindings
+* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+* [Customization](/docs/customization/overview.md) - themes, settings and keyboard bindings
 
 ## Common Questions
 

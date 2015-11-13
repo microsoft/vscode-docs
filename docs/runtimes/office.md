@@ -127,7 +127,7 @@ VS Code is a great tool to help you develop your custom Office Add-ins regardles
 
 The Office generator will create a `jsconfig.json` file when it creates your project.  This is the file that VS Code will use to infer all the JavaScript files within your project and save you from having to include the repetitive `/// <reference path="../App.js" />` code blocks.
 
-> Learn more about the `jsconfig.json` file on the [JavaScript language](/docs/languages/javascript#_javascript-projects-jsconfigjson) page.
+> Learn more about the `jsconfig.json` file on the [JavaScript language](/docs/languages/javascript.md#javascript-projects-jsconfigjson) page.
 
 ### JavaScript IntelliSense Support
 
@@ -139,19 +139,19 @@ All you have to do after creating the project using the Yeoman Office generator 
 tsd install
 ```
 
-> Learn more about the JavaScript IntelliSense support provided by VS Code with TypeScript on the [JavaScript language](/docs/languages/javascript#_intellisense-support) page.
+> Learn more about the JavaScript IntelliSense support provided by VS Code with TypeScript on the [JavaScript language](/docs/languages/javascript.md#intellisense-support) page.
 
 ### JavaScript Peek Definition
 
 You can also get details on objects, properties and methods you are referencing within your Office Add-in using VS Code capabilities like Peek Definition, Go to Definition and Find all References by simply right-clicking in any JavaScript file.
 
-> Learn more about the Rich Editing Support in VS Code on the [JavaScript language](/docs/languages/javascript#_rich-editing-support) page.
+> Learn more about the Rich Editing Support in VS Code on the [JavaScript language](/docs/languages/javascript.md#rich-editing-support) page.
 
 ### Debugging your Office Add-in
 
 VS Code does not currently support client-side debugging. To debug your client-side Add-in, you can use the Office web clients and open the browser's developer tools and debug the Add-in just like any other client-side JavaScript application.
 
-If you are using Node.js or ASP.NET 5 for server-side logic that supports your Office Add-in, refer to the [Debugging](/docs/editor/debugging) page to configure VS Code for debugging either of these runtimes.
+If you are using Node.js or ASP.NET 5 for server-side logic that supports your Office Add-in, refer to the [Debugging](/docs/editor/debugging.md) page to configure VS Code for debugging either of these runtimes.
 
 
 
@@ -213,10 +213,10 @@ Using the Office Add-ins dialog you can select Add-ins you've uploaded to your O
 ## Next Steps
 Check out the other pages on the VS Code site to find out how you can leverage more capabilities of the editor when creating custom Office Add-ins:
 
-- [Language Overview](/docs/languages/overview) - You can write Office Add-ins in many languages. Find out what VS Code has to offer.
-- [The Basics](/docs/editor/codebasics) - Just starting out with VS Code? This is worth reviewing.
-- [Editing Evolved](/docs/editor/editingevolved) - Review all the ways VS Code can help you in editing.
-- [Node.js](/docs/Runtimes/nodejs) - Find out more about our Node.js support.
+- [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what VS Code has to offer.
+- [The Basics](/docs/editor/codebasics.md) - Just starting out with VS Code? This is worth reviewing.
+- [Editing Evolved](/docs/editor/editingevolved.md) - Review all the ways VS Code can help you in editing.
+- [Node.js](/docs/Runtimes/nodejs.md) - Find out more about our Node.js support.
 
 
 
@@ -227,4 +227,4 @@ Check out the other pages on the VS Code site to find out how you can leverage m
 
 **Q: Can I use TypeScript to create my Office Add-in?**
 
-**A:** Absolutely and VS Code has great support for [TypeScript](/docs/languages/typescript)!
+**A:** Absolutely and VS Code has great support for [TypeScript](/docs/languages/typescript.md)!

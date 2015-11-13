@@ -31,13 +31,13 @@ With the introduction of `jsconfig.json`, you no longer need to use `///` refere
 As an example, you can just drop a new type definition `.d.ts` file into your project folder and VS Code will pick it up automatically.
 
 ### Defining Global Variables Outside .d.ts
-VS Code also supports the global directive ```/*global varName*/``` to declare variables. In comparison to ```.d.ts``` files, it’s a faster but less powerful way to define variables to be used inside source files.
+VS Code also supports the global directive `/*global varName*/` to declare variables. In comparison to `.d.ts` files, it’s a faster but less powerful way to define variables to be used inside source files.
 
 ![Global directive](images/javascript/jsglobalvariable.png)
 
 
 ## IntelliSense Support
-VS Code provides IntelliSense for built-in symbols of browsers, Node.js, and virtually all other environments through the use of type definition ```.d.ts``` files. [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [TSD](http://definitelytyped.org/tsd/), the TypeScript Definition manager. IntelliSense is automatically provided for CommonJS and AMD modules inside your project folders.
+VS Code provides IntelliSense for built-in symbols of browsers, Node.js, and virtually all other environments through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [TSD](http://definitelytyped.org/tsd/), the TypeScript Definition manager. IntelliSense is automatically provided for CommonJS and AMD modules inside your project folders.
 
 
 
@@ -50,7 +50,7 @@ Selecting the snippet with `tab` results in:
 
 ![Try Result](images/javascript/tryresult.png)
 
->**Tip:** You can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/customization/userdefinedsnippets) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
 
 
 ## ES6 Support
@@ -68,7 +68,7 @@ npm install
 
 
 ### Run Babel inside VS Code
-The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Maps.  You can easily integrate Babel into your workflow by adding this code to your `tasks.json` file. The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks).
+The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Maps.  You can easily integrate Babel into your workflow by adding this code to your `tasks.json` file. The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
 
 ```json
 {
@@ -88,7 +88,7 @@ The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Ma
 ```
 
 
-Once you have added this you can start Babel with the `kb(workbench.action.tasks.build)` gesture and it will compile all files from the `src-directory` into the `lib-directory`.
+Once you have added this you can start Babel with the `kb(workbench.action.tasks.build)` (Run Build Task) gesture and it will compile all files from the `src-directory` into the `lib-directory`.
 
 
 ## JavaScript Linters (ESLint, JSHint)
@@ -107,7 +107,7 @@ To enable one of the linters do the following:
 
 ## JavaScript Validation Settings
 
-Validation is supported by a set of configuration rules. In addition to syntax checks, [User Settings](/docs/customization/userandworkspace) allow you to configure additional checks for JavaScript files. Such as:
+Validation is supported by a set of configuration rules. In addition to syntax checks, [User Settings](/docs/customization/userandworkspace.md) allow you to configure additional checks for JavaScript files. Such as:
 
 Id|Description|Default
 ---|------------|----

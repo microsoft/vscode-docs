@@ -50,10 +50,10 @@ This is the Workspace Settings update.
 
 There are several built-in Markdown snippets included in VS Code - simply press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown.  Take a look at [User Defined Snippets](/docs/customization/userdefinedsnippets) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for Markdown.  Take a look at [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
 
 ## Compiling Markdown into HTML
-VS Code can integrate with Markdown compilers through our integrated [task runner](/docs/editor/tasks).  We can use this to compile `.md` files into `.html` files.  Lets walk through compiling a simple Markdown document.
+VS Code can integrate with Markdown compilers through our integrated [task runner](/docs/editor/tasks.md).  We can use this to compile `.md` files into `.html` files.  Let's walk through compiling a simple Markdown document.
 
 ### Step 1: Install a Markdown compiler
 For this walkthrough, let's use the popular [Node.js](https://nodejs.org) module, [marked](https://www.npmjs.com/package/marked).
@@ -62,7 +62,7 @@ For this walkthrough, let's use the popular [Node.js](https://nodejs.org) module
 npm install -g marked
 ```
 
-> **Note:** There are many Markdown compilers to choose from beyond marked, such as [markdown-it](https://www.npmjs.com/package/markdown-it).  Pick the one that best suits your needs and environment.
+> **Note:** There are many Markdown compilers to choose from beyond `marked`, such as [markdown-it](https://www.npmjs.com/package/markdown-it).  Pick the one that best suits your needs and environment.
 
 ### Step 2: Create a simple MD file
 Open VS Code on an empty folder and create a `sample.md` file.
@@ -80,7 +80,7 @@ This is a simple introduction to compiling Markdown in VS Code.
 Things you'll need:
 * [node](https://nodejs.org)
 * [marked](https://www.npmjs.com/package/marked)
-* [tasks.json](/docs/editor/tasks)
+* [tasks.json](/docs/editor/tasks.md)
 
 ## Section Title
 
@@ -108,12 +108,12 @@ The first example shows how to use configure tasks for TypeScript compilation.  
 Under the covers we interpret `marked` as an external task runner exposing exactly one task: the compiling of Markdown files into HTML files. The command we run is `marked sample.md -o sample.html`.
 
 ### Step 4: Run the Build Task
-As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (run Build Task).  At this point you will see an additional file show up in the file list `sample.html`.
+As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `sample.html`.
 
 The sample Markdown file did not have any compile problems, so by running the task all that happened was a corresponding `sample.html` file was created.
 
 ## Automating Markdown compilation
-Lets take things a little further and automate Markdown compilation with VS Code.  We can do so with the same task runner integration as before, but with a few modifications.
+Let's take things a little further and automate Markdown compilation with VS Code.  We can do so with the same task runner integration as before, but with a few modifications.
 
 ### Step 1: Install Gulp and some plug-ins
 We will use [Gulp](http://gulpjs.com/) to create a task that will automate Markdown compilation.  We will also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
@@ -169,7 +169,7 @@ To complete the tasks integration with VS Code, we will need to modify the task 
 ```
 
 ### Step 4: Run the Build Task
-Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (run Build Task).  But this time, we've set a watch so the status bar should indicate that on the left-hand side.
+Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  But this time, we've set a watch so the status bar should indicate that on the left-hand side.
 
 ![Task watching spinner](images/Markdown/taskwatching.png)
 
@@ -180,8 +180,8 @@ If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` 
 ## Next Steps
 Read on to find out about:
 
-* [Customization](/docs/customization/overview) - Dig into additional settings such as word wrap and User Defined Snippets.
-* [CSS, Less and Sass](css) - Want to edit your CSS? VS Code has great support for CSS, Less and Sass editing.
+* [Customization](/docs/customization/overview.md) - Dig into additional settings such as word wrap and User Defined Snippets.
+* [CSS, Less and Sass](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, Less and Sass editing.
 
 
 ## Common Questions

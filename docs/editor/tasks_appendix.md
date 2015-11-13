@@ -8,7 +8,7 @@ MetaTags:
 
 # Appendix
 
-This is additional information for [tasks](tasks).
+This is additional information for [tasks](/docs/editor/tasks.md).
 
 ## Schema for tasks.json
 
@@ -34,7 +34,7 @@ interface TaskConfiguration extends BaseTaskConfiguration {
 	osx?: BaseTaskConfiguration;
 
 	/**
-	 * Linux speciif task configuration
+	 * Linux specific task configuration
 	 */
 	linux?: BaseTaskConfiguration;
 }
@@ -92,7 +92,7 @@ interface BaseTaskConfiguration {
 	taskSelector?:string;
 
 	/**
-	 * The problem matcher to used if a global command is exucuted (e.g. no tasks
+	 * The problem matcher to be used if a global command is executed (e.g. no tasks
 	 * are defined). A tasks.json file can either contain a global problemMatcher
 	 * property or a tasks property but not both.
 	 */
@@ -238,7 +238,7 @@ export interface ProblemPattern {
 	/**
 	 * The match group index of the problems's location. Valid location
 	 * patterns are: (line), (line,column) and (startLine,startColumn,endLine,endColumn).
-	 * If omitted the line and colum properties are used.
+	 * If omitted the line and column properties are used.
 	 */
 	location?: number;
 

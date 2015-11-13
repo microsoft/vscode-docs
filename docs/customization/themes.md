@@ -8,11 +8,13 @@ MetaDescription: How to add a new color theme
 ---
 
 # Changing the Color Theme
-There are several out-of-the-box color themes for VS Code for you to try out.
+
+## Selecting the Color Theme
+There are several out-of-the-box color themes in VS Code for you to try out.
 
 1. Open the Color Theme picker with `File | Preferences | Color Theme`.
-2. Use the cursor keys to preview the colors of the theme
-3. Select the theme you want and hit Enter
+2. Use the cursor keys to preview the colors of the theme.
+3. Select the theme you want and hit `kbstyle(Enter)`.
 
 ![Themes in the Command Palette](images/themes/colorthemes.png)
 
@@ -32,7 +34,8 @@ Open the Color Theme picker theme with `File | Preferences | Color Theme` and yo
 ## Next Steps
 Read on to find out about:  
 
-* [Customization](/docs/customization/overview) - Themes, settings and keyboard bindings
-* [Colorizers and Bracket Matchers](/docs/customization/colorizer) - Learn how to import TextMate colorizers
+* [Customization](/docs/customization/overview.md) - Themes, settings and keyboard bindings
+* [Colorizers and Bracket Matchers](/docs/customization/colorizer.md) - Learn how to import TextMate colorizers
 
-
+## Common Questions
+  Nothing yet 

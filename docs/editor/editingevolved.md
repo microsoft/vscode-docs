@@ -39,7 +39,7 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type (we call it affectionately 24x7 IntelliSense). You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  Out of the box, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are accept triggers but you can also [customize these key bindings](keybindings).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type (we call it affectionately 24x7 IntelliSense). You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  Out of the box, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are accept triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
 
 
 ![IntelliSense](images/editingevolved/intellisense.gif)
@@ -62,12 +62,12 @@ We offer built-in snippets across languages as well as support for [Emmet abbrev
 
 (See the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet/) for syntax examples.)
 
-You can also define your own snippets: Open `User Snippets` under `File | Preferences` and select the language for which the snippets should appear. Find out more about this in the [customization section](customization#_user-defined-snippets) of our docs.
+You can also define your own snippets: Open `User Snippets` under `File | Preferences` and select the language for which the snippets should appear. Find out more about this in the [customization section](/docs/customization/userdefinedsnippets.md) of our docs.
 
 
 ## Go to Definition
 
-If a [language](/docs/languages/overview) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.goToDeclaration)`.
+If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.goToDeclaration)`.
 
 If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declaration will appear:
 
@@ -89,7 +89,7 @@ In C# and in TypeScript, you can jump to a symbol across files with `kb(workbenc
 
 ## Gutter indicators
 
-If you open a folder that is a git repository and begin making changes, VS Code will add useful annotations to the gutter and to the overview ruler.
+If you open a folder that is a Git repository and begin making changes, VS Code will add useful annotations to the gutter and to the overview ruler.
 * A red triangle indicates where lines have been deleted
 * A green bar indicates new added lines
 * A blue bar indicates modified lines
@@ -136,7 +136,7 @@ JavaScript and CSS support code actions. A lightbulb will appear if there is a c
 
 ## Errors & Warnings
 
-Warnings or Errors can be generated either via [configured tasks](tasks) or by the rich language services, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
+Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md) or by the rich language services, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
 * In the status line there is a summary of all errors and warnings counts.
 * You can click on the summary or press `kb(workbench.action.showErrorsWarnings)` to see a list of all current errors.
 * If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
@@ -150,8 +150,8 @@ Warnings or Errors can be generated either via [configured tasks](tasks) or by t
 ## Next Steps
 Now that you know how the editor works, time to try a few other things...
 
-* [Why VS Code](whyvscode) - Why we exist and where we think we can help
-* [The Basics](codebasics) - Basic orientation around VS Code
-* [Debugging](debugging) - This is where VS Code really shines
-* [Customization](customization) - Configure VS Code the way you want - Themes, Settings
+* [Why VS Code](/docs/editor/whyvscode.md) - Why we exist and where we think we can help
+* [The Basics](/docs/editor/codebasics.md) - Basic orientation around VS Code
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+* [Customization](/docs/customization/overview.md) - Configure VS Code the way you want - Themes, Settings
 

@@ -11,7 +11,7 @@ Thank you for your interest in VS Code documentation!
 * [Repository organization](#repository-organization)
 * [Branches](#branches)
 * [Authoring Tools](#authoring-tools)
-* [How to use markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
+* [How to use Markdown to format your topic](#how-to-use-markdown-to-format-your-topic)
 * [Topic Metadata](#topic-metadata)
 * [Formatting](#formatting)
 
@@ -83,19 +83,19 @@ H2 subheadings `##` end up in the right hand jump list for the document (this ha
 
 **Links**
 
-For links within our own documentation, use a site relative link like `/docs/editor/codebasics`.
+For links within our own documentation, use a site relative link like `/docs/editor/codebasics.md`.
 
->For example: `[Why VS Code](/docs/editor/whyvscode)` - links to the **Why Visual Studio Code** page
+>For example: `[Why VS Code](/docs/editor/whyvscode.md)` - links to the **Why Visual Studio Code** page
 
->**Caution:** Do not include the .md file extension.
+>**Correction:** For this repo to ease content development you should add the .md suffix.  We will parse these out for the website deployment.
 
 **Bookmarks**
 
-To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#_subheading-title)`.  
+To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page.md#subheading-title)`.
 
-Note the subheading title is lowercase and subheading title words are separated by '-' dashes.  The separator before the subheading name is an '_' underscore.  The page is unnecessary if the subheading is on the same page.
+Note the subheading title is lowercase and subheading title words are separated by '-' dashes.
 
->For example: `[More on documentation intent](#_documentation-intent)` - links to the **Documentation intent** subheading above.
+>For example: `[More on documentation intent](/docs/CONTRIBUTING.md#documentation-intent)` - links to the **Documentation intent** subheading above.
 
 **Images**
 

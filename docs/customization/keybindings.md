@@ -130,6 +130,7 @@ Key|Command|Command id
 `kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar Visibility|`workbench.action.toggleSidebarVisibility`
 `kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
 `kb(workbench.view.explorer)`|Show Explorer|`workbench.view.explorer`
+`kb(workbench.view.git)`|Show Git|`workbench.view.git` 
 `kb(workbench.view.search)`|Show Search|`workbench.view.search`
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`

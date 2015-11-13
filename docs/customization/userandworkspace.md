@@ -15,16 +15,24 @@ VS Code provides two different scopes for settings:
 * **User** these settings apply globally to any instance of VS Code you open
 * **Workspace** these settings are stored inside your workspace in a `.vscode` folder and only apply when the workspace is opened. Settings defined on this scope overwrite the user scope.
 
-The menu under `File`, `Preferences` provides entries to configure user and workspace settings. You are provided with a list of default settings. Copy any setting that you want to change to the related settings file.
+## Creating User and Workspace Settings
 
-Depending on your platform, this file is located here:
-* **Windows** `%APPDATA%\Code\User\settings.json`
-* **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
-* **Linux** `$HOME/.config/Code/User/settings.json`
+The menu under `File`, `Preferences` provides entries to configure user and workspace settings. You are provided with a list of default settings. Copy any setting that you want to change to the related settings file.
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
 ![Settings](images/userandworkspace/settings.png)
+
+## Settings File Locations
+ 
+Depending on your platform, the user settings file is located here:
+* **Windows** `%APPDATA%\Code\User\settings.json`
+* **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
+* **Linux** `$HOME/.config/Code/User/settings.json`
+
+The workspace settings file is located under the `.vscode` folder in your project.
+
+## Settings File Sections
 
 The `settings.json` file is divided into these sections:
 
@@ -40,6 +48,8 @@ The `settings.json` file is divided into these sections:
 - **Less Configuration** - Control linting for Less
 - **Sass Configuration** - Control linting for Sass
 - **TypeScript Configuration** - Language specific settings
+
+## Default Settings
 
 Below is a copy of the default `settings.json` file.
 

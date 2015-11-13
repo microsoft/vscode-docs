@@ -22,7 +22,7 @@ VS Code understands the structure of Dockerfiles as well as the available set of
 
  ![Dockerfile IntelliSense](images/docker/dockerfileintellisense.png)
 
-3. Press `Tab` to move between fields within the snippet. For example, with the `COPY` snippet you can fill in the `source` and then press `tab` to move to the `dest` field.
+3. Press `kbstyle(Tab)` to move between fields within the snippet. For example, with the `COPY` snippet you can fill in the `source` and then press `kbstyle(Tab)` to move to the `dest` field.
 
  ![Dockerfile IntelliSense](images/docker/dockerfiletemplate.png)
 

@@ -27,6 +27,6 @@ We are, of course, still very early with Visual Studio Code. If you prefer a cod
 ## Next Steps
 Read on to find out about:
 
-* [Visual Studio Code Basics](/docs/codebasics) - a quick orientation of VS Code
-* [Editing Evolved](/docs/editingevolved) - from code colorization & multi-cursor to IntelliSense
-* [Debugging](/docs/debugging) - OK time for the really fun stuff - break, step, watch
+* [Visual Studio Code Basics](/docs/editor/codebasics.md) - a quick orientation of VS Code
+* [Editing Evolved](/docs/editor/editingevolved.md) - from code colorization & multi-cursor to IntelliSense
+* [Debugging](/docs/editor/debugging.md) - OK time for the really fun stuff - break, step, watch

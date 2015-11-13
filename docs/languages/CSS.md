@@ -18,7 +18,7 @@ Press `kb(editor.emmet.action.expandAbbreviation)` to expand the current abbrevi
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-We also support [User Defined Snippets](/docs/customization/userdefinedsnippets).
+We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.md).
 
 ## Syntax coloring & Color preview
 As you type we provide syntax highlighting as well as in context preview of colors.
@@ -47,10 +47,10 @@ This is supported for keyframes and variables in the same file.
 
 
 ## Transpiling Sass and Less into CSS
-VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/editor/tasks).  We can use this to transpile `.scss` or `.less` files into `.css` files.  Let's walk through transpiling a simple Sass/Less file.
+VS Code can integrate with Sass and Less transpilers through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.scss` or `.less` files into `.css` files.  Let's walk through transpiling a simple Sass/Less file.
 
 ### Step 1: Install a Sass or Less transpiler
-For this walkthrough, lets use either the [node-sass](https://www.npmjs.com/package/node-sass) or [less](https://www.npmjs.com/package/less) Node.js module.
+For this walkthrough, let's use either the [node-sass](https://www.npmjs.com/package/node-sass) or [less](https://www.npmjs.com/package/less) Node.js module.
 
 ```
 npm install -g node-sass less
@@ -116,13 +116,13 @@ The first example shows how to use configure tasks for TypeScript compilation.  
 Under the covers we interpret `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss > styles.css` or `lessc styles.less > styles.css`.
 
 ### Step 4: Run the Build Task
-As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (run Build Task).  At this point you will see an additional file show up in the file list `style.css`.
+As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `style.css`.
 
 The sample Sass/Less file did not have any compile problems, so by running the task all that happened was a corresponding `styles.css` file was created.
 
 
 ## Automating Sass/Less compilation
-Lets take things a little further and automate Sass/Less compilation with VS Code.  We can do so with the same task runner integration as before, but with a few modifications.
+Let's take things a little further and automate Sass/Less compilation with VS Code.  We can do so with the same task runner integration as before, but with a few modifications.
 
 ### Step 1: Install Gulp and some plug-ins
 We will use [Gulp](http://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
@@ -198,7 +198,7 @@ To complete the tasks integration with VS Code, we will need to modify the task 
 ```
 
 ### Step 4: Run the Build Task
-Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (run Build Task).  But this time, we've set a watch so the status bar should indicate that on the left-hand side.
+Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  But this time, we've set a watch so the status bar should indicate that on the left-hand side.
 
 ![Task watching spinner](images/css/taskwatching.png)
 
@@ -210,7 +210,7 @@ If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` 
 ## Customizing CSS, Sass and Less Settings
 You can configure the following lint warnings as User or Workspace Settings.
 
->**Tip:** Head over to this topic to get an overview of [User and Workspace Settings](/docs/customization/userandworkspace).
+>**Tip:** Head over to this topic to get an overview of [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
 To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `less.lint.` and `sass.lint.`.
 
@@ -241,9 +241,9 @@ idSelector | Warn when using selectors for an id `#id` as selectors should not c
 ## Next Steps
 Read on to find out about:
 
-* [Configure Tasks](/docs/editor/tasks) - Dig into Tasks to help you transpile your Sass and Less to CSS.
-* [Editing Evolved](/docs/editor/editingevolved) - Find out about the rich set of features the editor offers for languages such as CSS.
-* [HTML](html) - CSS is just the start, HTML is also very well supported in VS Code.
+* [Configure Tasks](/docs/editor/tasks.md) - Dig into Tasks to help you transpile your Sass and Less to CSS.
+* [Editing Evolved](/docs/editor/editingevolved.md) - Find out about the rich set of features the editor offers for languages such as CSS.
+* [HTML](/docs/languages/html.md) - CSS is just the start, HTML is also very well supported in VS Code.
 
 ## Common Questions
 

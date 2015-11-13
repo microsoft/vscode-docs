@@ -20,17 +20,17 @@ These tools are mostly run from the command line and automate jobs outside the i
 The best way to highlight the power of Tasks is with a few examples of how VS Code can use Tasks to integrate external tools like linters and compilers.
 
 ### Transpiling TypeScript to JavaScript
-The [TypeScript topic](/docs/languages/typescript#_transpiling-typescript-into-javascript) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
+The [TypeScript topic](/docs/languages/typescript.md#transpiling-typescript-into-javascript) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
 
 ### Compiling Markdown to HTML
 The Markdown topic provides two examples for compiling Markdown to HTML:
-1. [Manually compiling with a Build task](/docs/languages/markdown#_compiling-markdown-into-html)
-2. [Automation of the compile step with a file watcher](/docs/languages/markdown#_automating-markdown-compilation)
+1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
+2. [Automation of the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
 
 ### Transpiling Less and Sass into CSS
 The CSS topic provides examples of how to use Tasks to generate CSS files.
-1. [Manually transpiling with a Build task](/docs/languages/css#_transpiling-sass-and-less-into-css)
-2. [Automation of the compile step with a file watcher](/docs/languages/css#_automating-sassless-compilation)
+1. [Manually transpiling with a Build task](/docs/languages/css.md#transpiling-sass-and-less-into-css)
+2. [Automation of the compile step with a file watcher](/docs/languages/css.md#automating-sassless-compilation)
 
 ## Processing Task Output with Problem Matchers
 VS Code processes the output from a task with a problem matcher and we ship with a number of them 'in the box', we'll talk about how to make your own ones soon:
@@ -78,7 +78,7 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
-You need to configure the tasks in `tasks.json` if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)`.
+You need to configure the tasks in `tasks.json` if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)` (Run Build Task).
 
 To do this, we need to edit the `tasks.json` file to 'wrap' the build gulp task that was defined in the gulpfile.  This is achieved with the following:
 
@@ -152,7 +152,7 @@ Valid operating properties are **windows** for Windows, **linux** for Linux and 
 	}
 }
 ```
-output from the executed task is never brought to front except for Windows where it is always shown.
+Output from the executed task is never brought to front except for Windows where it is always shown.
 
 ## Task Specific Properties
 The global properties **showOutput** and **suppressTaskName** can be redefined on a task by task basis. The **args** property can be augmented resulting in the additional values being appended to the global arguments.
@@ -174,6 +174,25 @@ Here is a example where output for the "deploy" task is always brought to front:
 
 >**Tip:** If a property is redefined per OS and per task, the one from the task wins.
 
+## Variables in tasks.json
+When authoring tasks it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the task.json file and has the following predefined variables:
+
+- **${workspaceRoot}** the path of the folder opened in VS Code
+- **${file}** the current opened file
+- **${fileBasename}** the current opened file's basename
+- **${fileDirname}** the current opened file's dirname
+- **${fileExtname}** the current opened file's extension
+- **${cwd}** the task runner's current working directory on startup
+
+Below is an example of a configuration that passes the current opened file to the TypeScript compiler.
+
+```json
+{
+	"command": "tsc",
+
+	"args": ["${file}"]
+}
+```
 
 ## Defining a Problem Matcher
 
@@ -332,34 +351,13 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 }
 ```
 
-## Variables in tasks.json
-When authoring tasks it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the task.json file and has the following predefined variables:
-
-- **${workspaceRoot}** the path of the folder opened in VS Code
-- **${file}** the current opened file
-- **${fileBasename}** the current opened file's basename
-- **${fileDirname}** the current opened file's dirname
-- **${fileExtname}** the current opened file's extension
-- **${cwd}** the task runner's current working directory on startup
-
-Below is an example of a configuration that passes the current opened file to the TypeScript compiler.
-
-```json
-{
-	"command": "tsc",
-	"args": ["${file}"]
-}
-```
-
-
-
 ## Next Steps
 That was tasks - let's keep going...
 
-* [tasks.json Schema](tasks_appendix) - Still want more on tasks dig into the schema to see what else is possible
-* [Editing Evolved](editingevolved) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-* [Language Support](/docs/languages/overview) - Our Good, Better, Best language grid to see what you can expect
-* [Debugging](debugging) - This is where VS Code really shines
+* [tasks.json Schema](/docs/editor/tasks_appendix.md) - Still want more on tasks dig into the schema to see what else is possible
+* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
+* [Language Support](/docs/languages/overview.md) - Our Good, Better, Best language grid to see what you can expect
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 
 ## Common Questions
 

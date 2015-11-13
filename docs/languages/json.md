@@ -46,7 +46,7 @@ To understand the structure of JSON files, we use [JSON schemas](http://spacetel
 
 The JSON language mode has a set of schema associations preconfigured. Users can extend or overwrite that list in the User or Workspace Settings (`File | Preferences | User Settings` or `Workspace Settings`) under the property `json.schemas`.
 
->**Tip:** For an overview see [User and Workspace Settings](/docs/customization/userandworkspace).
+>**Tip:** For an overview see [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
 JSON schemas are identified by an `http` or `https` location URL, servers like http://schemastore.org provide schemas for most of the common JSON based configuration files.
 
@@ -102,4 +102,4 @@ To map a schema that is defined in the User or Workspace Settings, use the `sche
 ## Next Steps
 Read on to find out about:
 
-* [Customization](/docs/customization/overview) - Customize VS Code to work the way you want
+* [Customization](/docs/customization/overview.md) - Customize VS Code to work the way you want

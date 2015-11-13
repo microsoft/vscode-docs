@@ -10,9 +10,9 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 
 # Working with C&#35;
 
-The C# support in VS Code is optimized for cross-platform .NET development (DNX) (see [working with ASP.NET 5 and VS Code](/docs/runtimes/ASPnet5) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance many Unity game developers have been enjoying using VS Code in place of the MonoDevelop IDE.  The will pick up errors as you type.
+The C# support in VS Code is optimized for cross-platform .NET development (DNX) (see [working with ASP.NET 5 and VS Code](/docs/runtimes/ASPnet5.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance many Unity game developers have been enjoying using VS Code in place of the MonoDevelop IDE.  The will pick up errors as you type.
 
-We support debugging of C# apps cross-platform via Mono (see [Mono Debugging](/Docs/editor/debugging#_mono-debugging)).
+We support debugging of C# apps cross-platform via Mono (see [Mono Debugging](/Docs/editor/debugging.md#mono-debugging)).
 
 Due to this focus many standard C# project types are not recognized by VS Code.  An example of a non-supported project type is an ASP.NET MVC Application.  In these cases if you simply want to have a lightweight tool to edit a file - VS Code has you covered.  If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
@@ -41,7 +41,7 @@ There is a lot to discover with C# and the editor, such as format on type, Intel
 
 ![Right Click Menu](images/csharp/editingevolved.png)
 
-For a full description of our editing features go to the [Editing Evolved](/docs/editor/editingevolved) documentation.
+For a full description of our editing features go to the [Editing Evolved](/docs/editor/editingevolved.md) documentation.
 
 Here are a few highlights...
 
@@ -55,7 +55,7 @@ We have several built-in snippets included in VS Code that will come up as you t
 
 ![Snippets](images/csharp/snippet.png)
 
->**Tip:** You can add in your own User Defined Snippets for C#.  Take a look at [User Defined Snippets](/docs/customization/userdefinedsnippets) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for C#.  Take a look at [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
 
 ## Search for Symbols
 There are also features outside the editor. One is the ability to search for symbols from wherever you are. Hit `kb(workbench.action.showAllSymbols)`, start typing, and see a list of matching C# symbols. Select one and you’ll be taken straight to its code location.
@@ -89,10 +89,10 @@ There are some basic quick fixes supported in VS Code.  You will see a lightbulb
 ## Next Steps
 Read on to find out about:
 
-* [ASP.NET 5 Development](/docs/runtimes/ASPnet5) - get up and running with cross-platform .NET
-* [Editing Evolved](/docs/editor/editingevolved) - find out more about advanced editing features
-* [Tasks](/docs/editor/tasks) - use tasks to build your project and more
-* [Debugging](/docs/editor/debugging) - find out how to use the debugger with your project
+* [ASP.NET 5 Development](/docs/runtimes/ASPnet5.md) - get up and running with cross-platform .NET
+* [Editing Evolved](/docs/editor/editingevolved.md) - find out more about advanced editing features
+* [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
+* [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
 
 
@@ -108,5 +108,5 @@ Read on to find out about:
 
 **Q: How do I build/run my project?**
 
-**A:** VS Code supports tasks for build and natively understand the output of MSBuild, CSC, XBuild.  Find out more in the [Tasks](/docs/editor/tasks) documentation.
+**A:** VS Code supports tasks for build and natively understand the output of MSBuild, CSC, XBuild.  Find out more in the [Tasks](/docs/editor/tasks.md) documentation.
 
