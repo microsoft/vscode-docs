@@ -73,17 +73,21 @@ When the status bar shows the project information it’s a good time to get goin
 
 ## Commands with Ease
 
-The `project.json` file allows you to define commands for your projects. Those commands are understood by Visual Studio Code and they will show up in the Command Palette.
+The `project.json` file allows you to define commands for your projects. Those commands are understood by Visual Studio Code, and they will show up in the Command Palette.
 
-In our application there are 4 commands defined:
+There are 2 commands defined in our application:
 
 ![DNX commands](images/ASPnet5/commands.png)
 
-To execute these commands you could run them from the terminal, but a faster way is to open the Command Palette (`kb(workbench.action.showCommands)`) in VS Code, start typing the name of the command you want to run, and hit Enter.
+To execute these commands you could run them from the terminal, but a faster way is to open the Command Palette (`kb(workbench.action.showCommands)`) in VS Code, type `dnx`, and select the `dnx: Run Command` option:
+
+![DNX run commands in Command Palette](images/ASPnet5/dnxruncommand.png)
+
+Next, select the option corresponding to the DNX command to be executed:
 
 ![DNX commands in palette](images/ASPnet5/dnxcommandpalette.png)
 
-In this walkthrough we want to run the website, so the command we want to run is `dnx: kestrel`. VS Code understands the configured DNX runtime and will open a console window, and execute the command in there.
+In this walkthrough we want to run the website, so the command we want to run is `dnx: web`. VS Code understands the configured DNX runtime and will open a console window, and execute the command in there.
 
 Open your favorite browser and browse to `http://localhost:5000` to browse the site we created.
 
