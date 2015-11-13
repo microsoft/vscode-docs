@@ -98,5 +98,5 @@ Visual Studio Code and ASP.NET 5 are in preview and at this time debugging ASP.N
 
 ## Next Steps
 We hope this gets you started building ASP.NET 5 applications.  Try these things next:
-* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more 
+* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
