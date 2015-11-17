@@ -34,7 +34,7 @@ interface TaskConfiguration extends BaseTaskConfiguration {
 	osx?: BaseTaskConfiguration;
 
 	/**
-	 * Linux speciif task configuration
+	 * Linux specific task configuration
 	 */
 	linux?: BaseTaskConfiguration;
 }
