@@ -103,8 +103,7 @@ With this setup you can now easily edit, transpile, and debug the mock debug and
 
 ## Implementing the VS Code Debug Protocol
 
-A debug adapter has to implement the *VS Code Debug Protocol*. You can find more details
-[here](https://github.com/Microsoft/vscode-extensionbuilders/blob/master/docs/extensionAPI/api-debugging.md).
+A debug adapter has to implement the *VS Code Debug Protocol*. You can find more details [here](/docs/extensionAPI/api-debugging.md).
 
 
 ## Anatomy of the Debug Adapter package.json

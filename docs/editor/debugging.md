@@ -261,7 +261,7 @@ To learn about VS Code's task running support, go to:
 
 To write your own debugger extension, visit:
 
-* [Debuggers](https://github.com/Microsoft/vscode-extensionbuilders/blob/master/docs/extensions/example-debuggers.md) - Steps to create a VS Code debug extension starting from a mock sample
+* [Debuggers](/docs/extensions/example-debuggers.md) - Steps to create a VS Code debug extension starting from a mock sample
 
 
 ## Common Questions
