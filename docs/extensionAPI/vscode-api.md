@@ -3680,7 +3680,7 @@ to the channel.</p>
 
 
 
-<div class="comment"><p>Represents different positions for rendering a decoration in an (overview ruler)[#DecorationRenderOptions.overviewRulerLane].
+<div class="comment"><p>Represents different positions for rendering a decoration in an <a href="#DecorationRenderOptions.overviewRulerLane">overview ruler</a>.
 The overview ruler supports three lanes.</p>
 </div>
 
