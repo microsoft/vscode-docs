@@ -2,12 +2,12 @@
 Order: 1
 Area: extensionapi
 TOCTitle: Overview
-PageTitle: Visual Studio Code Extensibility API
+PageTitle: Visual Studio Code Extensibility Reference
 DateApproved: 11/18/2015
 MetaDescription: Learn the details of Visual Studio Code's rich extensibility (plug-in) model.  This documentation describes the various extension points, activation rules and specific feature APIs (e.g. working with documents and editors).
 ---
 
-# Visual Studio Code Extensibility Reference
+# Extensibility Reference
 
 This section of our documentation goes into detail on the various features of VS Code extensibility.  It's worth reviewing the introduction on the [extensions](/docs/extensions/overview.md) as well as going through the ['Hello World'](/docs/extensions/example-hello-world.md) example before digging in too deeply here.
 
