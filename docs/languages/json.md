@@ -25,7 +25,7 @@ We also offer IntelliSense for specific value sets such as package and project d
 
 
 ## Quick Navigation
-JSON files can get pretty large and we support quick navigation to properties `kb(workbench.action.gotoSymbol)` (sometimes refered to as goto symbol) with the Command Palette.
+JSON files can get pretty large and we support quick navigation to properties `kb(workbench.action.gotoSymbol)` (sometimes referred to as goto symbol) with the Command Palette.
 
 ![Goto Symbol](images/json/gotosymbol.png)
 
