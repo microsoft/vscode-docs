@@ -3,7 +3,7 @@ Order: 6
 Area: editor
 TOCTitle: Debugging
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 10/12/2015
+DateApproved: 11/18/2015
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 ---
 
@@ -13,8 +13,7 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ![Debug](images/debugging/hero.png)
 
-Today we have good debugging support for **Node.js** (JavaScript and TypeScript) on all platforms and experimental support for **Mono** (C# and F#) on OS X and Linux.
-At //build we highlighted the support we are adding for ASP.NET 5 and we plan to add more.
+Today we have good debugging support for **Node.js** (JavaScript and TypeScript) on all platforms and experimental support for **Mono** (C# and F#) on OS X and Linux. For debugging other languages, please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
 
 It is helpful to first create a sample Node.js application before reading about debugging. Follow this guide to do a run-through with Node.js:
 
@@ -56,6 +55,7 @@ Here is the one generated for Node.js debugging:
 				"NODE_ENV": "development"
 			},
 			"externalConsole": false,
+			"preLaunchTask": "",
 			"sourceMaps": false,
 			"outDir": null
 		},
@@ -70,11 +70,11 @@ Here is the one generated for Node.js debugging:
 ```
 In VS Code we support launching your app in debug mode or attaching to an already running app. Depending on the request (attach or launch) different attributes are required and our launch.json validation and suggestions should help with that.
 
-Review the generated values and make sure that they make sense for your project and debugging environment.
+Review the generated values and make sure that they make sense for your project and debugging environment. You can add additional configurations to the launch.json (use hover and IntelliSense to help).
 
 Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
-You can add additional configurations to the launch.json (use hover and code assist to help).
+To launch a task before the start of each debug session, set the **preLaunchTask** to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md).
 
 ## Breakpoints
 
@@ -89,7 +89,7 @@ This is helpful if your debug environment is "lazy" and "misplaces" breakpoints 
 
 ## Data inspection
 
-Variables can be inspected in the **VARIABLES** section of the Debug view or by hovering over their source in the editor.
+Variables can be inspected in the **VARIABLES** section of the Debug view or by hovering over their source in the editor. Variables and expression evaluation is relative to the selected stack frame in the **CALL STACK** section.
 
 ![Debug Variables](images/debugging/variables.png)
 
@@ -259,14 +259,16 @@ To learn about VS Code's task running support, go to:
 
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
 
+To write your own debugger extension, visit:
+
+* [Debuggers](https://github.com/Microsoft/vscode-extensionbuilders/blob/master/docs/extensions/example-debuggers.md) - Steps to create a VS Code debug extension starting from a mock sample
+
 
 ## Common Questions
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X.
-
-Currently ASP.NET 5 debugging is not supported on any platform, including running ASP.NET 5 on Mono on OS X and Linux. ASP.NET 5 applications are compiled using the Roslyn compiler, not the Mono compiler, and no debug information is being emitted. We hope to provide support for this scenario in an upcoming release.
+**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. ASP.NET 5 applications are compiled using the Roslyn compiler, not the Mono compiler. ASP.NET 5 debugging will be available through a VS Code extension.
 
 **Q: Why can’t I remote debug my app?**
 

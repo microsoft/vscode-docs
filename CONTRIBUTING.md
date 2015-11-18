@@ -39,8 +39,12 @@ The content in this repository follows the organization of documentation at <htt
 This repository contains the following folders:
 
 * \editor
+* \customization
 * \languages
 * \runtimes
+* \extensions
+* \extensionAPI
+* \tools
 * \supporting
 
 Within these folders you'll find the Markdown files used for the content. Each of these folders also contains an \images folder that references the images (such as screenshots) used in the topics.
@@ -87,15 +91,16 @@ For links within our own documentation, use a site relative link like `/docs/edi
 
 >For example: `[Why VS Code](/docs/editor/whyvscode.md)` - links to the **Why Visual Studio Code** page
 
+<strike>>**Caution:** Do not include the .md file extension.</strike>
 >**Correction:** For this repo to ease content development you should add the .md suffix.  We will parse these out for the website deployment.
 
 **Bookmarks**
 
-To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page.md#subheading-title)`.
+To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.  
 
-Note the subheading title is lowercase and subheading title words are separated by '-' dashes.
+Note the subheading title is lowercase and subheading title words are separated by '-' dashes.  
 
->For example: `[More on documentation intent](/docs/CONTRIBUTING.md#documentation-intent)` - links to the **Documentation intent** subheading above.
+>For example: `[More on documentation intent](#documentation-intent)` - links to the **Documentation intent** subheading above.
 
 **Images**
 

@@ -1,14 +1,14 @@
 ---
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 10/12/2015
+DateApproved: 11/18/2015
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 
 # Visual Studio Code FAQ
 Our docs contain a **Common Questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
-If you don't see an answer to your question here, check our previously [reported issues](http://code.visualstudio.com/Issues) and our [Updates](http://code.visualstudio.com/Updates) notes.
+If you don't see an answer to your question here, check our previously [reported issues](http://github.com/microsoft/vscode/issues) and our [Updates](http://code.visualstudio.com/Updates) notes.
 
 ## How do I update to the latest version?
 See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
@@ -61,12 +61,6 @@ Do the following steps to modify the storage.json file used by VS Code. To modif
 5. Replace `"updateChannel": "stable"` with `"updateChannel": "insiders"`
 6. Save the file via `kbstyle(Esc ZZ)`. You’re now get insiders updates as they are available.
 
-## How to disable crash reporting
-From File | Preferences | User Settings, add the following option to disable crash reporting:
-```
-"telemetry.enableCrashReporter": false
-```
-**Important Notice**: This option requires a restart of VS Code to take effect.
 ## Windows - Trouble with the installer
 Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
 
@@ -143,3 +137,38 @@ this in the future but for now you can exclude folders from the explorer via set
 	"**/largeFolder": true
 }
 ```
+
+## How to disable crash reporting
+
+From File | Preferences | User Settings, add the following option to disable crash reporting:
+```
+"telemetry.enableCrashReporter": false
+```
+**Important Notice**: This option requires a restart of VS Code to take effect.
+
+## How to disable telemetry reporting 
+ 
+VS Code collects usage data and sends it to Microsoft to help improve our products and services.  Read our [privacy statement](http://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more. 
+ 
+If you don’t wish to send usage data to Microsoft, please follow the instructions below to disable its collection. 
+ 
+**Important Notice**: You will need to apply these changes after every update to disable collection of usage data.  These changes do not survive product updates. 
+ 
+### Windows 
+1. Close VS Code. 
+2. Open the command prompt. 
+3. Type `cd %ProgramFiles(x86)%\Visual Studio Code\resources\app`
+4. Type `notepad product.json`
+5. Replace `enableTelemetry=true` with `enableTelemetry=false`.
+6. Save the file via `CTRL+S` and exit Notepad. Collection of usage data should now be disabled. 
+ 
+### OS X / Linux 
+1. Close VS Code. 
+2. Open the terminal 
+3. For: 
+	- Mac Type `cd <PATH-TO-VSCode>/Visual\ Studio\ Code.app/Contents/Resources/app`
+	- Linux Type `cd <PATH-TO-VSCode>/Resources/app`
+5. Type `vi product.json`
+6. Replace `enableTelemetry=true` with `enableTelemetry=false` 
+7. Save the file via `Esc ZZ`. Collection of usage data should now be disabled. 
+ 

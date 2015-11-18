@@ -5,25 +5,65 @@ PageTitle: Visual Studio Code v0.10.0
 MetaDescription: See what is new in Visual Studio Code 0.10.0
 ---
 
-# VS Code v0.10.0 (November)
+# VS Code v0.10.1 (November - Beta 2015)
 
 Hi,
 
-With this release, we have a lot to share and we are getting very close to plug-in support :)
+With this release, we mark our official Beta milestone and the big news is that VS Code now supports extensions (plug-ins) and is open source!
 
-## Known Issues (important 0.10.0 issue)
+## VS Code Supports Extensions!
 
-In our testing, we found an important regression to our `smart editing` support for a broad number of languages.  Smart Editing has four behaviors which are _disabled_ in this build:
+VS Code has great features out of the box but now you and the community can extend VS Code to add new features and languages.  
 
--	Add line comments and toggle block comments
--	Automatic closing of brackets and quotes
--	Indent after opening brackets, unindent before closing brackets
--	Enhanced bracket matching (e.g. match tags in XML)
+![marketplace](images/0_10_0/marketplace.png)
 
-Languages impacted include: Batch, CoffeeScript, C++, Dockerfile, F#, Go, INI, Jade, Java, Lua, Objective-C, PowerShell, Python, R, Ruby, SQL, Swift, VB, XML.
+## Extension Gallery
 
-We would still very much appreciate your help to review the new features in this build – however – if this regression impacts your productivity too much, please follow the steps outlined in ‘reverting back to the most recent stable build’ below.
+Find and install cool extensions by searching VS Code's public [extension gallery](/docs/editor/extension-gallery.md).  There you'll find new themes, snippets, languages and tools.
 
+![extension language](images/0_10_0/extension-language.png)
+
+VS Code has two new `Extensions` commands (`kb(workbench.action.showCommands)` then `'ext inst'`) to let you find and install new extensions and manage (update, uninstall) your currently installed extensions.
+
+![extension commands](images/0_10_0/extension-commands.png)
+
+The VS Code also has a [Marketplace](https://marketplace.visualstudio.com/#VSCode) where you can browse and learn more about extensions.
+
+## Extensibility SDK
+
+If you don't find an existing extension that meets your development needs, you can create your own.  We've added extensive documentation on [how to extend VS Code](/docs/extensions/overview.md) and a full [extensibility API reference](/docs/extensionAPI/overview.md).  In addition, we provide the tools to you need to create and publish extensions.
+
+If you'd like to dive right in, you can start with our ["Hello World"](/docs/extensions/example-hello-world.md) walkthrough where you'll have a VS Code extension up and running in a matter of minutes.
+
+### Yo Code Extension Scaffolding
+
+We've updated the [`yo code` generator](/docs/tools/yocode.md) to create a basic extension project (TypeScript or JavaScript) which has all the metadata and source files necessary for a working extension. 
+
+![yo code](images/0_10_0/yo-code.png)
+
+### Extension Publishing
+
+The [`vsce` publishing tool](/docs/tools/vscecli.md) lets you easily package and publish your extension.  You can share your extension with colleagues by distributing a VS Code extension package or publish your extension for the community on the public gallery. 
+
+## Extension samples
+
+If you'd rather start your extension by modifying a working example, you can find [extension samples](/docs/tools/samples.md) as well as the source code for many extensions on GitHub ([Go Language Support](https://github.com/microsoft/vscode-go)).
+
+## VS Code is Open Source!
+
+You spoke and we listened.  With this release, VS Code development is now open source on [GitHub](http://github.com/microsoft/vscode).
+
+![hello code](images/0_10_0/hello-code.png)
+
+You can now contribute to VS Code:
+* Submit [bugs](http://github.com/microsoft/vscode/issues) and help us verify fixes as they are checked in.
+* Review the source code changes.
+* Contribute bug fixes through pull requests.
+* Update and add to the [documentation](http://github.com/microsoft/vscode-docs).
+
+## Add TextMate Snippets
+
+Another addition to the `yo code` generator is the option to add TextMate Snippets (.tmSnippets) to VS Code. Run `yo code`, select `New Code Snippets` and specify a folder containing TextMate snippet files. The generator will convert them to the VS Code snippet format and create a VS Code extension for your own use or to share on the gallery. The generator also supports Sublime snippets (.sublime-snippets). 
 
 ## Debugging - Debug Console Improvements
 * Colored text output to highlight diagnostic errors and warnings

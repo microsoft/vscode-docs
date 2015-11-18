@@ -3,12 +3,27 @@ Order: 5
 Area: customization
 TOCTitle: Colorizer
 PageTitle: Visual Studio Code Colorizers
-DateApproved: 10/12/2015
-MetaDescription: How to add colorization and bracket matching to Visual Studio Code.
+DateApproved: 11/18/2015
+MetaDescription: How to add colorization and bracket matching to Visual Studio Code.  TextMate .tmLanguage files are supported.
 ---
 
 # Adding Language Colorization
-Using the 'code' Yeoman generator you can add TextMate language specification files (.tmLanguage) to your VS Code installation to get syntax highlighting and bracket matching.
+
+VS Code includes support for [many languages](/docs/languages/overview.md) in the box giving great syntax highlighting (colorization), bracket matching and more. You and the community can also add new languages to VS Code.  This topic explains how to install new languages from the Extension Gallery as well as create your own. 
+
+## Adding Colorizers from the Gallery
+
+Many language colorizers have been uploaded to the VS Code [Extension Gallery](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new language will be available.
+
+> **Tip:** To search for language support for a specific langauge, type the language name in the `Extension: Install Extension` dropdown to filter the available extensions.
+
+![filter go language](images/colorizer/filter-go.png)
+
+You can also browse the [VS Code Marketplace](http://marketplace.visualstudio.com/vscode/Languages) to find available colorizers and language support. 
+
+## Adding a New Language
+
+Using the ['code' Yeoman generator](/docs/tools/yocode.md), you can add TextMate language specification files (.tmLanguage) to your VS Code installation to get syntax highlighting and bracket matching.
 
 A good place to look for existing TextMate .tmLanguage files is on GitHub.  Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can handle either .tmLanguage or .plist files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. http://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage.
 
@@ -16,16 +31,63 @@ A good place to look for existing TextMate .tmLanguage files is on GitHub.  Sear
 
 The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other customizations) and the language name, aliases and file extensions. 
 
-When the generator is finished, copy the complete output folder to a new folder under `.vscode/extensions`.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
+When the generator is finished, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
 ![ant language](images/colorizer/antlanguage.png)
 at it does or at least mention in the coming releases we will provide more context
 
-## Next Steps
-Read on to find out about:  
+## Publishing Language Support to the Extension Gallery
 
-* [Customization](/docs/customization/overview.md) - Learn about all of VS Code's customization options.
+If you'd like to share your new language with the community, you can publish it to the [Extension Gallery](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/tools/vscecli.md) to package your extension and publish it to the VS Code gallery.
+
+> **Tip:** To make it easy for users to find your language support, include the language name and words "language" or "language support" in the extension description and set the `Category` to `Languages` in your `package.json`.
+
+We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+
+## Add to your Language Support Extension
+
+When you're adding a new language to VS Code, it is also great to add language [snippets](/docs/customization/userdefinedsnippets.md) to support common editing actions. It is easy to [combine multiple extensions](/docs/extensionAPI/extension-manifest.md#combining-extension-contributions) like snippets and colorizers into the same extension. You can modify the colorizer extension manifest `package.json` to include a `snippets` contribution and the snippets.json.  
+
+```json
+{
+	"name": "language-latex",
+	"description": "LaTeX Language Support",
+	"version": "0.0.1",
+	"publisher": "someone",
+	"engines": {
+		"vscode": "0.10.x"
+	},
+	"categories": [
+		"Languages",
+		"Snippets"
+	],
+	"contributes": {
+		"languages": [{
+			"id": "latex",
+			"aliases": ["LaTeX", "latex"],
+			"extensions": [".tex"]
+		}],
+		"grammars": [{
+			"language": "latex",
+			"scopeName": "text.tex.latex",
+			"path": "./syntaxes/latex.tmLanguage"
+		}],
+		"snippets": [
+			{
+				"language": "latex",
+				"path": "./snippets/snippets.json"
+			}
+		]
+	}
+}
+```
+
+## Next Steps
+Colorizers are just one way to customize VS Code, If you'd like to learn more about VS Code extensibility, try these topics:
+
+* [Snippets](/docs/customization/userdefinedsnippets) - Learn how to also include snippets in your language extension.
 * [Custom themes](/docs/customization/themes.md) - Learn how to import existing TextMate themes.
+* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
 
 ## Common Questions
 

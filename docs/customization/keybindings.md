@@ -3,7 +3,7 @@ Order: 3
 Area: customization
 TOCTitle: Key Bindings
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 10/12/2015
+DateApproved: 11/18/2015
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 ---
 
@@ -167,7 +167,12 @@ Key|Command|Command id
 `kb(workbench.action.tasks.build)`|Run Build Task|`workbench.action.tasks.build`
 `kb(workbench.action.tasks.test)`|Run Test Task|`workbench.action.tasks.test`
 
+## Extensions
 
+Key|Command|Command id
+---|-------|----------
+`kb(workbench.extensions.action.listExtensions)`|List Extensions|`workbench.extensions.action.listExtensions`
+`kb(workbench.extensions.action.installExtension)`|Install Extension|`workbench.extensions.action.installExtension`
 
 ## Customizing Shortcuts
 All keyboard shortcuts in VS Code can be customized via the `User/keybindings.json` file.

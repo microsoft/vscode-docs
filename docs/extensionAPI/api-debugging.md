@@ -1,0 +1,111 @@
+---
+Order: 11
+Area: extensionapi
+TOCTitle: API debugging
+PageTitle: Visual Studio Code Debugging API
+DateApproved: 11/18/2015
+MetaDescription: Visual Studio Code extensions (plug-ins) Debugging API.
+---
+
+# Debugging API
+
+Since Visual Studio Code implements a language agnostic debug UI, it does not communicate directly with real debuggers
+but instead talks to so-called *debug adapters* through an abstract wire protocol, the *VS Code Debug Protocol* (or CDP for short).
+
+![Debugger Architecture](images/api-debugging/debug-arch.png)
+
+Extensibility of the debug component of VS Code is currently limited to adding new debug adapters.
+So it is not (yet) possible to extend the debugger UI in similar ways as for example the editor component of VS Code.
+
+## Debug Adapter
+
+A debug adapter is a standalone executable that talks to a real debugger and translates between the abstract
+CDP and the concrete protocol of the debugger. Since a debug adapter can be implemented in the language that is best suited
+for a given debugger backend, the wire protocol is more important than the API of a particular client library that implements
+that protocol.
+
+You can find the protocol specification expressed as a TypeScript definition file
+[here](https://github.com/Microsoft/vscode/blob/master/src/vs/workbench/parts/debug/common/debugProtocol.d.ts).
+It shows the detailed structure of the CDP protocol requests, responses and events.
+
+We have already implemented client libraries for CDP in TypeScript and C#, but they are not yet available as npm modules or NuGet packages.
+Instead they are part of these debug adapter projects:
+
+GitHub Project | Implementation Language
+--- | ---
+[Mock Debug](https://github.com/Microsoft/vscode-mock-debug.git) | TypeScript/JavaScript
+[Node Debug](https://github.com/Microsoft/vscode-node-debug) | TypeScript/JavaScript
+[Mono Debug](https://github.com/Microsoft/vscode-mono-debug.git) | C#
+
+
+## The VS Code Debug Protocol in a Nutshell
+
+In this section we will give a high-level overview of the interaction between VS Code and a debug adapter.
+This should help you in your implementation of a debug adapter based on CDP.
+
+When a debug sessions starts, VS Code launches the debug adapter executable and sends an **initialize** request to configure
+the adapter with information about the path format (native or URI) and whether line and column values are 0 or 1 based.
+If your adapter is derived from the TypeScript or C# default implementation `DebugSession`, you don't have to handle the initialize request yourself.
+
+Depending on the 'request' attribute used in the launch configuration created by the user, VS Code either sends a *launch* or an *attach* request.
+For **launch** the debug adapter has to launch a runtime or program so that it can be debugged.
+If the program can interact with the user through stdin/stdout, it is important that the debug adapter launches the program in an interactive terminal or console.
+For **attach** the debug adapter has to attach or connect to an already running program.
+
+Since arguments for both requests are highly dependent on a specific debug adapter implementation, the CDP does not prescribe
+any arguments. Instead VS Code passes all arguments from the user's launch configuration to the *launch* or *attach* requests.
+A schema for IntelliSense and hover information for these attributes can be contributed in the `package.json` of the debug adapter extension. This will guide the user when creating or editing launch configurations.
+
+The VS Code debug UI supports multiple threads (but you are probably not aware of this if you are only using the node.js debugger).
+After a successful *launch* or *attach* VS Code requests the baseline of currently existing threads with the **threads** request
+and then starts to listen for **thread** events to detect new or terminated threads.
+If not more than one thread is detected the VS Code UI stays in single thread mode.
+Even if your debug adapter does not support multiple threads, it must implement the *threads* request and return a dummy thread.
+The id of this thread must be used in all requests where a thread id is required, e.g. **stacktrace**, **pause**, **continue**, **next**, **stepIn**, and **stepOut**.
+
+Since VS Code persists breakpoints on behalf of the debug adapter, it has to register the breakpoints with the debug adapter when a session starts.
+Since VS Code does not know when is a good time for this, the debug adapter is expected to send an **initialize** event to VS Code
+to announce that it is ready to accept breakpoints.
+VS Code will then send all breakpoints by calling **setBreakpoints** and **setExceptionBreakpoints** in return.
+So don't forget to send the *initialize* event when you are ready to accept breakpoints.
+Otherwise persisted breakpoints are not restored.
+
+The *setBreakpoint* request sets all breakpoints that exist for a file (so it is not incremental).
+A simple implementation of this semantics in the debug adapter is to clear all breakpoints for a file and then set the breakpoints specified in the request.
+*setBreakpoints* is expected to return the 'actual' breakpoints and VS Code updates the UI dynamically if a breakpoint could not
+be set at the requested position and was moved by the debugger backend.
+
+Whenever the program stops (on program entry, because a breakpoint was hit, an exception occurred, or the user requested execution to be paused),
+the debug adapter has to send a **stopped** event with the appropriate reason and thread id.
+Upon receipt VS Code will request the **stacktrace** (a list of stack frames) for the given thread.
+If the user then drills into the stack frame, VS Code first requests the **scopes** for a stack frame, and then the **variables** for a scope.
+If a variable is itself structured, VS Code requests its properties through additional *variables* requests.
+This leads to the following hierarchy:
+
+```
+Threads
+	Stackframes
+		Scopes
+			Variables
+				...
+					Variables
+```
+
+VS Code terminates a debug session with the **disconnect** request.
+If the debug target was 'launched' *disconnect* is expected to terminate the target program (even forcefully if necessary).
+If the debug target has been 'attached' initially, *disconnect* should detach it from the target (so that it will continue to run).
+In both cases and in the case that the target terminated normally or crashed the debug adapter must fire a **terminated** event.
+After receiving a response from the *disconnect* request, VS Code will terminate the debug adapter.
+
+## Next Steps
+To learn more about VS Code extensibility model, try these topics:
+
+* [Example Debuggers](/docs/extensions/example-debuggers.md) - See a working 'mock' debugger example
+* [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
+* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
+* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+
+## Common Questions
+
+Nothing yet
+
