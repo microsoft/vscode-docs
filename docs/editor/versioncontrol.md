@@ -15,7 +15,7 @@ And don't forget that the command prompt is still your friend.
 >**Note:** VS Code will leverage your machine's Git installation, but you need
 to [install Git](http://git-scm.com/download) first before you get these features.
 
->**Tip:** VS Code will work with any Git repo - local or remote.  If you don't already have a private hosted Git provider, [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) is a great free option. [Click here to sign-up](http://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
+>**Tip:** VS Code will work with any Git repo - local or remote.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](http://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](http://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 ## Overview
 
@@ -106,7 +106,7 @@ To open the window follow the `View`, `Toggle Output` menu and select `Git` from
 
 **Q: Hey, I initialized my repo but the actions in the `...` menu are all grayed out. What gives?**
 
-**A:** To **push, pull and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you simply need to add it to the Git settings by running a couple of command line actions. For example for Visual Studio Online:
+**A:** To **push, pull and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you simply need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
 ```
 > git remote add origin https://<AccountName>.visualstudio.com/DefaultCollection/_git/<RepoName>
 > git push -u origin master

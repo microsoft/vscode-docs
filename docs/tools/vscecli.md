@@ -34,13 +34,13 @@ For a reference on all the available commands, run `vsce --help`.
 
 ## Publishing Extensions
 
-Visual Studio Code leverages [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) for its gallery services. This means that authentication, hosting and management of extensions is provided through that service.
+Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its gallery services. This means that authentication, hosting and management of extensions is provided through that service.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/en-us/news/2015-jul-7-vso.aspx). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First, login to or sign up for [Visual Studio Online](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online).
+First, login to or sign up for [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online).
 
 Then, from your account's home page `https://ACCOUNT.visualstudio.com`, go to the **My Profile** page:
 
