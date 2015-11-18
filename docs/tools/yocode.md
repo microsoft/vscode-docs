@@ -12,7 +12,7 @@ We have written a Yeoman generator to help get you started. We plan to add templ
 
 ## Install the Generator
 
-Install Yeoman and the VS Code Extension generator:
+Install Yeoman and the VS Code Extension generator from the command prompt:
 
 ```bash
 npm install -g yo generator-code
@@ -21,7 +21,7 @@ npm install -g yo generator-code
 ## Run Yo Code
 The Yeoman generator will walk you through the steps required to create your customization or extension prompting for the required information.  
 
-To launch the generator simply type:
+To launch the generator simply type the following in a command prompt:
 
 ```bash
 yo code
