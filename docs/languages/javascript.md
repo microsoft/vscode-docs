@@ -93,16 +93,16 @@ Once you have added this you can start Babel with the `kb(workbench.action.tasks
 
 ## JavaScript Linters (ESLint, JSHint)
 
-VS Code provides support for [ESLint](http://eslint.org/) and [JSHint](http://jshint.com/). If enabled the JavaScript code is validated as you type and
+VS Code provides support for [ESLint](http://eslint.org/) and [JSHint](http://jshint.com/) via extensions. If enabled, the JavaScript code is validated as you type and
 reported problems can be navigated to and fixed inside VS Code.
 
-To enable one of the linters do the following:
+To enable one of the linters, do the following:
 
-* install the corresponding linter globally or inside the workspace folder that contains the JavaScript code to be validated.
-  For example using `npm install eslint` or `npm install jshint`, respectively.
-* enable ESLint or JSHint via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
-* optionally disable VS Code's built-in JavaScript validation via the setting `"javascript.validate.enable": false`
-* use the .eslintrc or .jshintrc file to configure the linter.
+* Install the corresponding linter globally or inside the workspace folder that contains the JavaScript code to be validated.
+  For example, using `npm install eslint` or `npm install jshint`, respectively.
+* Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) or [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) extension. After restarting the editor, enable ESLint or JSHint via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
+* Optionally disable VS Code's built-in JavaScript validation via the setting `"javascript.validate.enable": false`
+* Use the .eslintrc or .jshintrc file to configure the linter.
 
 
 ## JavaScript Validation Settings
