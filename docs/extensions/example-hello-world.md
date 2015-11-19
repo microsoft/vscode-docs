@@ -20,7 +20,7 @@ You need [node.js](https://nodejs.org/en/) installed and available in your `$PAT
 
 ## Generate a New Extension
 
-The simplest way to add your own functionality to VS Code is through adding a command. A command is registers a callback function which can be invoked from the Command Palette or with a key binding.
+The simplest way to add your own functionality to VS Code is through adding a command. A command registers a callback function which can be invoked from the Command Palette or with a key binding.
 
 We have written a Yeoman generator to help get you started. Install Yeoman and the [Yeoman VS Code Extension generator](/docs/tools/yocode.md) and scaffold a new extension:
 
