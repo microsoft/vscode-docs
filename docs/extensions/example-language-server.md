@@ -7,7 +7,7 @@ DateApproved: 11/18/2015
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
 
-# Example - Using Language Servers
+# Example - Language Server
 
 Language servers allow you to add your own validation logic to files open in VS Code. Typically you just validate programming languages. However validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
 

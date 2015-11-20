@@ -5,7 +5,7 @@ PageTitle: Visual Studio Code v0.10.0
 MetaDescription: See what is new in Visual Studio Code 0.10.0
 ---
 
-# VS Code v0.10.1 (November - Beta 2015)
+# v0.10.1 (November - Beta 2015)
 
 Hi,
 

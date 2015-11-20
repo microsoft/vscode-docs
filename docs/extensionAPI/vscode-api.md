@@ -7,7 +7,7 @@ DateApproved: 11/18/2015
 MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.  
 ---
 
-# vscode namespace API Reference
+# vscode namespace API
 
 ## commands
 

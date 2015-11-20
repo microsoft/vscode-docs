@@ -7,7 +7,7 @@ DateApproved: 11/18/2015
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
 
-# Example - Integrating Debuggers
+# Example - Debuggers
 
 Since Visual Studio Code implements a generic (language agnostic) debug UI, it cannot talk to real debuggers but instead talks
 to so-called *debug adapters* through an abstract wire protocol. We call this protocol the *VS Code Debug Protocol* (or CDP for short).
@@ -31,7 +31,7 @@ This document will show you how to create a new debug extension.
 
 Since creating a debug adapter from scratch is a bit heavy for this tutorial, we will start with a simple debug adapter which we have created as an educational debug adapter 'starter kit'. It is called 'mock-debug' because it does not talk to a real debugger but it 'mocks' one. So mock-debug simulates a debugger adapter and supports step, continue, breakpoints, exceptions, and variable access but it is not connected to any real debugger.
 
-Before delving into the development setup for mock-debug, let's first install a [pre-built version](https://marketplace.visualstudio.com/items/isidor.mock-debug)
+Before delving into the development setup for mock-debug, let's first install a [pre-built version](https://marketplace.visualstudio.com/items/andreweinand.mock-debug)
 from the VS Code Marketplace and play with it:
 
 * use the Command Palette `Extensions: Install Extension` to find and install the mock-debug extension,
