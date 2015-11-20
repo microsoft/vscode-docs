@@ -29,12 +29,21 @@ Now, you can simply type `code .` in any folder to start editing files in that f
 2. Make a new folder and extract `VSCode-linux-x64.zip` inside that folder.
 3. Double click on `Code` to run Visual Studio Code.
 
->**Tip:** If you want to run VS Code from the terminal, create the following link substituting `/path/to/vscode/Code` with the absolute path to the `Code` executable
+>**Tip:** If you want to run VS Code from the terminal, run the following to setup a script in `/usr/local/bin` to run Visual Studio Code in the background and hide its output. Replace `/path/to/vscode/Code` with the actual path to the executable.
+
+```
+VSCODE_PATH=/path/to/vscode/Code
+echo 'nohup '$VSCODE_PATH' "$@" > ~/.vscode/nohup.out 2>&1 &' | sudo tee /usr/local/bin/code > /dev/null
+sudo chmod a+x /usr/local/bin/code
+```
+
+Now, you can simply type `code .` in any folder to start editing files in that folder.
+
+Alternatively you can create a symlink which will prevent usage of the terminal until Visual Studio Code has been closed.
 
 ```
 sudo ln -s /path/to/vscode/Code /usr/local/bin/code
 ```
-Now, you can simply type `code .` in any folder to start editing files in that folder.
 
 ## Windows
 1. [Download Visual Studio Code](http://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
