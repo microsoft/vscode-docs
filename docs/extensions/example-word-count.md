@@ -22,7 +22,7 @@ Whenever a `Markdown` file is edited, a status bar message is added.  The messag
 
 ## Overview
 
-This example has three sections which takes you through a set of related concepts:
+This example has three sections which will take you through a set of related concepts:
 
 1. [Update the Status Bar](/docs/extensions/example-word-count.md#update-the-status-bar) - display custom text in the VS Code `Status Bar`
 2. [Subscribing to Events](/docs/extensions/example-word-count.md#subscribing-to-events) - updating the `Status Bar` based on editor events
