@@ -56,7 +56,7 @@ Selecting the snippet with `tab` results in:
 ## ES6 Support
 VS Code supports ES6 (ECMAScript 6, the latest update of JavaScript) and understands the new ES6 syntax elements and their semantics. A good overview of the new ES6 features can be found here: <https://github.com/lukehoban/es6features>
 
->**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by setting the `javescript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
+>**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by setting the `javascript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
 
 We have a sample on GitHub that shows off some of the ES6 love in VS Code:
 
