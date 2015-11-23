@@ -190,6 +190,10 @@ Read on to find out about:
 
 **A:** No but it's something that our extensibility story will enable soon.
 
+**Q: Do you support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
+
+**A:** Yes.
+
 **Q: In the walkthrough above, I didn't find the `Configure Task Runner` command in the Command Palette?**
 
 **A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with `File | Open Folder...` or navigating to the folder and typing `code .` at the command line.
