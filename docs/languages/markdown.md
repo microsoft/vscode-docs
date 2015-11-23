@@ -186,11 +186,11 @@ Read on to find out about:
 
 ## Common Questions
 
-**Q: Do you support spell checking?**
+**Q: Is there spell checking?**
 
-**A:** No but it's something that our extensibility story will enable soon.
+**A:** Not in VS Code out of the box but there are [spell checking extensions](https://marketplace.visualstudio.com/items/seanmcbreen.Spell).  Be sure to check the [VS Code Marketplace](https://marketplace.visualstudio.com/#vscode) to look for useful extensions to help with your workflow.
 
-**Q: Do you support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
+**Q: Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
 
 **A:** Yes.
 
