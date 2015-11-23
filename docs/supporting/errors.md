@@ -20,7 +20,7 @@ If you intend to build ASP.NET 5 applications with VS Code, we recommend to firs
 that also supports debugging.
 
 If you just want to try debugging support of VS Code, you can either download the latest Mono version
-for Linux or OS X at <http://www.mono-project.com/download/>, or you can use your package manager:
+for Linux or OS X at the [Mono Project Site](http://www.mono-project.com/download/), or you can use your package manager:
 
 * On OS X: `brew install mono`
 * On Linux: `sudo apt-get install mono-complete`
