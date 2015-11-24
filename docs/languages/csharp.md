@@ -10,7 +10,7 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 
 # Working with C&#35;
 
-The C# support in VS Code is optimized for cross-platform .NET development (DNX) (see [working with ASP.NET 5 and VS Code](/docs/runtimes/ASPnet5.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance many Unity game developers have been enjoying using VS Code in place of the MonoDevelop IDE.
+The C# support in VS Code is optimized for cross-platform .NET development (DNX) (see [working with ASP.NET 5 and VS Code](/docs/runtimes/ASPnet5.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance, many Unity game developers have been enjoying using VS Code in place of the MonoDevelop IDE.
 
 We support debugging of C# apps cross-platform via Mono (see [Mono Debugging](/Docs/editor/debugging.md#mono-debugging)).
 
