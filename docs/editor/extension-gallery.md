@@ -62,6 +62,10 @@ Here are a few topics you may find interesting...
 
 ## Common Questions
 
+**Q: The `Extensions: Install Extension` command just hangs and never shows a dropdown listing available extensions?**
+
+**A:** This could be due to an incomplete uninstall of an extension which left some extension files under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder).  Navigate to `.vscode/extensions` and see if there is an extension folder (named for the publisher and extension as `publisher.extension`) for a recently deleted extension.  Delete that folder and restart VS Code.  
+
 **Q: Can VS Code read TextMate bundles directly?**
 
 **A**: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration.  The [Yo Code](/docs/tools/yocode.md) extension generator makes it easy to package these files for use in VS Code.
