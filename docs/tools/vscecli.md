@@ -54,6 +54,8 @@ Give the Personal Access Token a nice description, optionally extend its expirat
 
 ![3](images/vscecli/publishers3.png)
 
+**Note:** If you have access to multiple Visual Studio Team Services accounts please make sure that you set the "Accounts" field of the perosnal access token to "All accessible accounts" otherwise you will get the following error message when using ```vsce```: *Error: Failed Request: Unauthorized(401) -*
+
 The next screen will display your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
 ### Create a Publisher
