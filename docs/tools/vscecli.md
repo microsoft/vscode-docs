@@ -147,9 +147,9 @@ This will always invoke the [TypeScript](http://www.typescriptlang.org/) compile
 
 ## Common Questions
 
-**Q: I get 403 forbidden when I try to publish my extension?** 
+**Q: I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?** 
 
-**A:** One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accounts` as the account scope (instead selecting a specific token you have access to). You need to provide the `all accounts` scope for the publish to work.
+**A:** One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field dropdown (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
 
 **Q: I can't unpublish my extension through the `vsce` tool?**
 
