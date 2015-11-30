@@ -87,7 +87,7 @@ Next, select the option corresponding to the DNX command to be executed:
 
 ![DNX commands in palette](images/ASPnet5/dnxcommandpalette.png)
 
-In this walkthrough we want to run the website, so the command we want to run is `dnx: web`. VS Code understands the configured DNX runtime and will open a console window, and execute the command in there.
+In this walkthrough we want to run the website, so the command we want to run is `dnx web`. VS Code understands the configured DNX runtime and will open a console window, and execute the command in there.
 
 Open your favorite browser and browse to `http://localhost:5000` to browse the site we created.
 
