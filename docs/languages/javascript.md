@@ -88,7 +88,7 @@ The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Ma
 ```
 
 
-Once you have added this you can start Babel with the `kb(workbench.action.tasks.build)` (Run Build Task) gesture and it will compile all files from the `src-directory` into the `lib-directory`.
+Once you have added this, you can start Babel with the `kb(workbench.action.tasks.build)` (Run Build Task) gesture and it will compile all files from the `src` directory into the `lib` directory.
 
 
 ## JavaScript Linters (ESLint, JSHint)
