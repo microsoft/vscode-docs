@@ -60,10 +60,11 @@ npm install
 Open the project folder `vscode-mock-debug` in VS Code.
 
 What's in the package?
-* the mock-debug implementation lives in `src/mock/mockDebug.ts`. There you find the request handlers for the various requests of the CDP.
-* the folder `src/common` contains the code and definitions of all the node-based implementations of debug adapters most likely to be shared. We plan to make this available as a Node.js module.
+
+* the mock-debug implementation lives in `src/mockDebug.ts`. There you find the request handlers for the various requests of the CDP.
+* the folder `src/common` contains the code and definitions of all the node-based implementations of debug adapters most likely to be shared. We plan to make this available as a npm module.
   - the `debugProtocol.d.ts` contains a TypeScript specification of the CDP requests, responses, and events.
-  - the `debugSession.ts` is a default implementation for the CDP. `src/mock/mockDebug.ts` is a subclass of that.
+  - the `debugSession.ts` is a default implementation for the CDP. `src/mockDebug.ts` is a subclass of that.
 * the extensions folder contains the final mock-debug extension after it has been built. Initially it only contains the `package.json`, the manifest for the mock-debug extension.
 * a `gulpfile.js` with a `build` task that transpiles the TypeScript source into the `out` folder.
 
@@ -81,20 +82,22 @@ The solution for this problem is to run the debug adapter in server mode:
 * set a breakpoint at the beginning of method `launchRequest(...)` in file `mockDebug.ts`
 * open the test project with the `readme.md` in an additional VS Code window
 * in that project add a top-level `debugServer` attribute like this:
+
 ```json
 {
-	"version": "0.2.0",
-	"debugServer": 4711,
+    "version": "0.2.0",
+    "debugServer": 4711,
 
-	"configurations": [{
-		"name": "mock test",
-		"request": "launch",
-		"type": "mock",
-		"program": "readme.md",
-		"stopOnEntry": true
-	}]
+    "configurations": [{
+        "name": "mock test",
+        "request": "launch",
+        "type": "mock",
+        "program": "readme.md",
+        "stopOnEntry": true
+    }]
 }
 ```
+
 * if you now launch this debug configuration, VS Code does not launch a debug adapter as a separate process but directly connects to local port 4711.
 * you should hit the breakpoint in `launchRequest`.
 
@@ -115,7 +118,7 @@ and **version** of the extension. Use the **categories** field to make the exten
 ```json
 {
 	"name": "mock-debug",
-	"version": "0.1.5",
+	"version": "0.10.18",
 	"publisher": "vscode",
 	"description": "Starter extension for developing debug adapters for VS Code.",
 	"engines": { "vscode": "0.10.x" },
@@ -128,7 +131,7 @@ and **version** of the extension. Use the **categories** field to make the exten
 
 			"enableBreakpointsFor": { "languageIds": ["markdown"] },
 
-			"program": "./out/mock/mockDebug.js",
+			"program": "./out/mockDebug.js",
 			"runtime": "node",
 
 			"configurationAttributes": {
@@ -178,12 +181,9 @@ By convention we keep this applications inside a folder named `out` or `bin` but
 Since VS Code runs on different platforms, we have to make sure that the debug adapter program supports the different platforms as well.
 For this we have the following options:
 
-1. If the program is implemented in a platform independent way, e.g. as program that runs on a runtime that is available on all supported platforms,
-you can specify this runtime via the **runtime** attribute. As of today, VS Code supports 'node' and 'mono' runtimes. Our mock-debug adapter from above
-uses this approach.
+1. If the program is implemented in a platform independent way, e.g. as program that runs on a runtime that is available on all supported platforms, you can specify this runtime via the **runtime** attribute. As of today, VS Code supports 'node' and 'mono' runtimes. Our mock-debug adapter from above uses this approach.
 
-2. If your debug-adapter implementation needs different executables on different platforms, the **program** attribute can be qualified for
-specific platforms like this:
+2. If your debug-adapter implementation needs different executables on different platforms, the **program** attribute can be qualified for specific platforms like this:
 
 	```json
 	"debuggers": [{
@@ -199,6 +199,7 @@ specific platforms like this:
 		}
 	}]
 	```
+
 3. A combination of both approaches is possible too. The following example is from the mono-debug adapter which is implemented as a mono application that needs a runtime on OS X and Linux:
 
 	```json
