@@ -5,6 +5,10 @@ PageTitle: Visual Studio Code v0.10.0
 MetaDescription: See what is new in Visual Studio Code 0.10.0
 ---
 
+# v0.10.3 (November 2015)
+
+The 0.10.3 release includes a fix for a severe startup [performance regression](https://github.com/Microsoft/vscode/issues/335) introduced in v0.10.1.
+
 # v0.10.2 (November 2015)
 
 The 0.10.2 release includes some critical [fixes](http://github.com/Microsoft/vscode/issues?q=milestone%3A%22Nov+2015+-+end%22+is%3Aclosed) for the Beta release that have been reported by the community.
