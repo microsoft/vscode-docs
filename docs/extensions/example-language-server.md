@@ -131,7 +131,7 @@ The interesting section in the server's package.json file is:
 }
 ```
 
-This pulls in the vscode-laguageserver library. 
+This pulls in the vscode-languageserver library. 
 
 Below is a server implementation that uses the provided simple text document manager which synchronizes text documents by always sending the file's full content from VS Code to the server.
 
@@ -210,7 +210,7 @@ documents.onDidChangeContent((change) => {
 To test the language server do the following:
 
 * Go to the VS Code instance containing the server code (see above) and press `kb(workbench.action.tasks.build)` to start the build task. The task compiles the server code and installs (e.g. copies) it into the extension folder.
-* Go to the VS Code instance and press `kb(workbench.action.debug.start)` to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
+* Now go back to the VS Code instance with the extension (client) and press `kb(workbench.action.debug.start)` to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 * Create a test.txt file in the root folder and paste the following content:
 
 ```
@@ -229,7 +229,7 @@ Debugging the client code is as easy as debugging a normal extension. Simply set
 
 ![Debugging the server part](images/example-language-server/debugging-client.png)
 
-Since the server is started by the `LanguageClient` running the extension we need to attach a debugger to the running server. To do so switch to the VS Code instance containing the server code and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server. Use the normal Debug View to interact with the running server.
+Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the VS Code instance containing the server code and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server. Use the normal Debug View to interact with the running server.
 
 ![Debugging the server part](images/example-language-server/debugging-server.png)
 
@@ -428,6 +428,8 @@ To learn more about VS Code extensibility model, try these topic:
 
 ## Common Questions
 
-Nothing yet
+**Q: When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?**
+
+**A:** You will see this timeout error if the server isn't running when you try to attach the debugger.  The client starts the language server so make sure you have started the client in order to have a running server.
 
 
