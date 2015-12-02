@@ -73,7 +73,7 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 ![Ctrl Hover](images/editingevolved/ctrlhover.png)
 
-> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`.
+> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`. If you want go back previous editor window, just press `CTRL+ALT+-`.
 
 ## Goto Symbol
 
