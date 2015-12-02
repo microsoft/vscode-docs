@@ -104,6 +104,11 @@ brew update
 brew reinstall mono
 ```
 
+## OS X - ERROR:OmniSharp.Dnx.DnxPaths in OmniSharp Log
+
+Install DNX from homebrew, follow these instructions:
+https://github.com/aspnet/homebrew-dnx
+
 ## Linux - Azure VM Issues
 I getting a "Running without the SUID sandbox" error?
 
