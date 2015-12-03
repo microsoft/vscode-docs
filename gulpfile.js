@@ -64,5 +64,11 @@ gulp.task('sync', function(cb){
 				'compile-all', 
 				'commit',
 				'push');
+});
 				
+gulp.task('test', function(cb){
+	runSequence('compile',
+				'clone-vscode-website', 
+				'generate-api-doc', 
+				'compile-all'); 
 });
