@@ -126,6 +126,10 @@ This usually means there is no credential management configured in Git and you'r
 To get credential prompts any time VS Code needs to talk to your remotes, upgrade to VS Code 0.5.0. Even better, you should set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/)
 in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
 
+**Q: How can I sign into Git with my Team Services account which requires multi-factor authentication?**
+
+**A:** There are now [Git credential helpers](http://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credendial Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
+
 **Q: Using Visual Studio Code, I accidentally initialized a Git repo on a folder with a massive number of files, like my entire hard drive. Now VS Code is too slow to use or hangs. What do I do?**
 
 **A:** First, to get VS Code running again, exit VS Code, then open a command prompt and run
