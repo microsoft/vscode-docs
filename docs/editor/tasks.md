@@ -212,7 +212,7 @@ you are familiar with regular expressions.
 
 A matcher that captures the above warning (and errors) looks like:
 
-```
+```json
 {
 	// The problem is owned by the cpp language service.
 	"owner": "cpp",
