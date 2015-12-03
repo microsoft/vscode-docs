@@ -66,10 +66,3 @@ gulp.task('build-website', function(cb){
 gulp.task('sync', function(cb){
 	runSequence('commit','push');
 });
-				
-gulp.task('test', function(cb){
-	runSequence('compile',
-				'clone-vscode-website', 
-				'generate-api-doc', 
-				'compile-all'); 
-});
