@@ -112,7 +112,7 @@ Validation is supported by a set of configuration rules. In addition to syntax c
 Id|Description|Default
 ---|------------|----
 comparisonOperatorsNotStrict | Favors the use of ```!==``` and ```===``` over ```!=``` and ```==```. | ignore
-curlyBracketsMustNotBeOmitted | Even single-line block-statements should have curly brackets | ignore
+curlyBracketsMustNotBeOmitted | Even single-line block statements should have curly brackets | ignore
 emptyBlocksWithoutComment | An empty block should at least have a comment | ignore
 forcedTypeConversion | Don’t force a type conversion | ignore
 functionsInsideLoops | Function inside loops often don’t do what you think they do | ignore
@@ -121,13 +121,13 @@ mixedTypesArithmetics | Don’t force a conversion with arithmetic operations, l
 newOnLowercaseFunctions | Functions that are used as constructors should be upper-case | ignore
 newOnReturningFunctions | Functions that are used as constructors should not return something | ignore
 parametersDontMatchSignature | Invoking a function with wrong types or wrong number of parameters | ignore
-primitivesInInstanceOf | The ```instanceof```=operator cannot be used with primitive types | error
+primitivesInInstanceOf | The ```instanceof``` operator cannot be used with primitive types | error
 redeclaredVariables | Don’t redeclare a variable with a different type | warning
 semicolonsInsteadOfBlocks | Don’t replace a block with a semi-colon, as in ```while(true);{ break; }``` | warning
-tripleSlashReferenceAlike | A comment that looks like a ///-reference | warning
+tripleSlashReferenceAlike | A comment that looks like a `///` reference | warning
 undeclaredVariables | Use of an undeclared variable | warning
 unknownProperty | Use of an unknown property | ignore
-unknownTypeOfResults | The ```typeof```-operation has a fixed set of possible results | warning
+unknownTypeOfResults | The ```typeof``` operation has a fixed set of possible results | warning
 unusedFunctions | A function that isn’t used | warning
 unusedVariables | A variable that isn’t used | warning
 
