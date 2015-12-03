@@ -15,6 +15,7 @@ require('./scripts/gulpfile.releasenotes.js');
 require('./scripts/gulpfile.api.js');
 
 var BRANCH = process.env["branch"] ? process.env["branch"] : "master"; 
+var URL = process.env["token"] ? 'https://' + process.env["token"] + '@github.com/microsoft/vscode-website': 'https://github.com/microsoft/vscode-website';
 
 gulp.task('compile-all', ['compile-docs', 'compile-releasenotes']);
 
@@ -23,7 +24,7 @@ gulp.task('clean-out-folder', common.rimraf('out'));
 gulp.task('clone-vscode-website', ['clean-out-folder'], function(cb){
 	fs.mkdir('out');
 	process.chdir('./out');
-	git.clone('https://github.com/microsoft/vscode-website', function (err) {
+	git.clone(URL, function (err) {
 		if (err) {
 			console.log('could not clone vscode-website')
 			console.log(err);
@@ -33,7 +34,7 @@ gulp.task('clone-vscode-website', ['clean-out-folder'], function(cb){
 			git.checkout(BRANCH, function(error) {
 				console.log('checked out branch:', BRANCH);
 				process.chdir('../../');
-				cb(error); 
+				cb(error);
 			});
 		}
 	});
@@ -47,7 +48,7 @@ gulp.task('commit', function(){
 });
 
 gulp.task('push', function(cb){
-	git.push('origin', BRANCH, {args:"-f"}, function(error) {
+	git.push(URL, BRANCH, {args:"-f"}, function(error) {
 		if (!error) {
 			console.log('successfully pushed to branch:', BRANCH);
 		}
