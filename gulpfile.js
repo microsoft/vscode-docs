@@ -56,14 +56,15 @@ gulp.task('push', function(cb){
 	});
 });
 
+gulp.task('build-website', function(cb){
+	runSequence('compile',
+		        'clone-vscode-website', 
+				'generate-api-doc', 
+				'compile-all');
+});
 
 gulp.task('sync', function(cb){
-	runSequence('compile',
-				'clone-vscode-website', 
-				'generate-api-doc', 
-				'compile-all', 
-				'commit',
-				'push');
+	runSequence('commit','push');
 });
 				
 gulp.task('test', function(cb){
