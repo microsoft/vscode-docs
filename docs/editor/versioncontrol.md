@@ -12,7 +12,7 @@ Visual Studio Code has integrated [Git](http://git-scm.com/) support for the mos
 This makes it an excellent choice to manage your code commits while you develop.
 And don't forget that the command prompt is still your friend.
 
->**Note:** VS Code will leverage your machine's Git installation, but you need
+>**Note:** VS Code will leverage your machine's Git installation, so you need
 to [install Git](http://git-scm.com/download) first before you get these features.
 
 >**Tip:** VS Code will work with any Git repo - local or remote.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](http://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](http://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
