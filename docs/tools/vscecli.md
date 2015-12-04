@@ -63,7 +63,7 @@ A **publisher** is an identity who can publish extensions to the Visual Studio C
 Once you have a [Personal Access Token](/docs/tools/vscecli.md#get-a-personal-access-token), you can create a new publisher using `vsce`:
 
 ```
-vsce create-publisher <publisher>
+vsce create-publisher (publisher name)
 ```
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
@@ -73,7 +73,7 @@ vsce create-publisher <publisher>
 If you already created a publisher before and simply want to use it with `vsce`:
 
 ```
-vsce login <publisher>
+vsce login (publisher name)
 ```
 
 Similarly to the `create` command, `vsce` will ask you for the Personal Access Token and remember it for future commands.
