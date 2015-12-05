@@ -20,7 +20,7 @@ On top of this, VS Code can read and take advantage of a variety of project file
 
 
 ## Basic Layout
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into four areas
+VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into four areas:
 * **Editor** the main area to edit your files. You can open up to three editors side by side
 * **Side Bar** contains different views like the Explorer to assist you while working on your project
 * **Status Bar** indicates information about the opened project and files you edit
