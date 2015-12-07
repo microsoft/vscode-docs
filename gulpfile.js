@@ -43,7 +43,8 @@ gulp.task('clone-vscode-website', ['clean-out-folder'], function(cb){
 gulp.task('commit', function(){
 	process.chdir('./out/vscode-website');
 	return gulp.src(['./website/*' ], {buffer:false})
-    		   .pipe(git.commit('syncing with vscode-docs'))
+				.pipe(git.add())
+    			.pipe(git.commit('syncing with vscode-docs'))
 			   
 });
 
