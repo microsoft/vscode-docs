@@ -30,7 +30,7 @@ Depending on your platform, the user settings file is located here:
 * **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
 * **Linux** `$HOME/.config/Code/User/settings.json`
 
-The workspace settings file is located under the `.vscode` folder in your project.
+The workspace setting file is located under the `.vscode` folder in your project.
 
 ## Settings File Sections
 
