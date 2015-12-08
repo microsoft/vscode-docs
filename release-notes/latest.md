@@ -11,6 +11,8 @@ Hi,
 
 ## Some Feature
 
+## Some Other Feature
+
 ## Notable Bug Fixes
 
 As always we fixed many issues.
