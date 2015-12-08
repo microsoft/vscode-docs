@@ -9,7 +9,7 @@ MetaDescription: See what is new in Visual Studio Code 0.10.4
 
 Hi,
 
-## Some Feature
+## Some Feature Change
 
 ## Notable Bug Fixes
 
