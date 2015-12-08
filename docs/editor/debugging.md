@@ -251,7 +251,7 @@ The corresponding launch configuration looks like this:
 
 ## Next Steps
 
-In case, you didn't already read the Node.js section, take a look at:
+In case you didn't already read the Node.js section, take a look at:
 
 * [Node.js](/docs/runtimes/nodejs.md) - End to end Node scenario with a sample application
 
