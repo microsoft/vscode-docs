@@ -11,6 +11,10 @@ Hi,
 
 ## Some Feature Change
 
+## Insider's Build
+
+Now a setting
+
 ## Notable Bug Fixes
 
 As always we fixed many issues.
