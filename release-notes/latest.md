@@ -11,9 +11,9 @@ Hi,
 
 ## Some Feature Change
 
-## Insider's Build
+## Insider's Channel 
 
-Now a setting
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically.
 
 ## Notable Bug Fixes
 
