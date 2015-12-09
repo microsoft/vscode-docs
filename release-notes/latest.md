@@ -17,7 +17,7 @@ There is now a setting to subscribe to the Insider's channel to get prerelease V
 
  * Find/Replace improvements when in regex mode:
   * Can now search for `^`, `$` or `^$` due to [community contribution](https://github.com/Microsoft/vscode/pull/314)
-  * Can now replace with `\n` or `'t`
+  * Can now replace with `\n` or `\t`
  * New option to configure cursor blinking: `"editor.cursorBlinking"` with values `"blink"`, `"visible"` and `"hidden"` due to [community contribution](https://github.com/Microsoft/vscode/pull/500).
  * New select current line command (`Ctrl/Cmd+I`) due to [community contribution](https://github.com/Microsoft/vscode/pull/961)
 
