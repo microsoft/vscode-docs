@@ -11,7 +11,7 @@ Hi,
 
 ## Insider's Channel 
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically.
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable`.
 
 ## Editor
 
@@ -23,15 +23,38 @@ There is now a setting to subscribe to the Insider's channel to get prerelease V
 
 ## Key Bindings
  * Added a new widget that helps input the key binding rule when editing `keybindings.json`. This is especially helpful when using a non-US standard keyboard layout:
-![key binding widget](images/November/key-binding-widget.png)
+![key binding widget](images/December/key-binding-widget.png)
 
  * Created a new node module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings with the actual user keyboard layout:
   * e.g. `Split Editor` when using a French (France) keyboard layout is now rendered as `Ctrl+*`:
-  ![render key binding](images/November/render-key-binding.png)
+  ![render key binding](images/December/render-key-binding.png)
+
+## Extension Debugging
+
+We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition,
+the debugger will connect to your extension faster than before.
+
+## File Picker improvements and fuzzy search
+
+The file picker ("Quick Open") is now able to search on file paths when you include slash (Mac/Linux) or backslash (Windows) in the search term. This allows to list all files of a directory easily.
+
+![Path Search in File Picker](images/December/path-search.png)
+
+A new setting `search.fuzzyFilePicker` allows to enable fuzzy searching for the file picker. Once enabled, the search term will match on the full path of the file by default, without having to include path separators in the query. 
+In addition, a search term will match in a more fuzzy way on the path compared to the default. A search for `fb` will match a file `foobar` because this file contains `f` and `b`. We also added a new sorter for the picker once fuzzy
+searching is enabled that tries to put the most relevant results  to the top. We appreciate if people try this out and report feedback so that we can tweak this experience.
+
+## New Settings
+
+A new setting `window.zoomLevel` allows to change the zoom level of the window to be either smaller or larger. The effect is similar to the zoom actions from the `View` menu with the difference that it is persisted. The actions can still be used but are not persisted.
+
+The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old form but we ask you to update to the new value.
 
 ## Notable Bug Fixes
 
 As always we fixed many issues.
+
+ * we updated Electron to version 0.34.5 which includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays
 
 Here are a few of the notable ones:
 
