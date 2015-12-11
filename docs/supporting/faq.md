@@ -8,7 +8,7 @@ MetaDescription: Our docs contain a Common Questions section. Here are items tha
 # Visual Studio Code FAQ
 Our docs contain a **Common Questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
-If you don't see an answer to your question here, check our previously [reported issues](http://github.com/microsoft/vscode/issues) and our [Updates](http://code.visualstudio.com/Updates) notes.
+If you don't see an answer to your question here, check our previously [reported issues](http://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
 
 ## How do I update to the latest version?
 See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
