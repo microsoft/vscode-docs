@@ -31,6 +31,7 @@ Key|Command|Command id
 `kb(cursorUndo)`|Undo last cursor operation|`cursorUndo`
 `kb(editor.action.selectHighlights)`|Select all occurrences of current selection|`editor.action.selectHighlights`
 `kb(editor.action.changeAll)`|Select all occurrences of current word|`editor.action.changeAll`
+`kb(expandLineSelection)`|Select current line|`expandLineSelection`
 `kb(editor.action.insertCursorBelow)`|Insert Cursor Below|`editor.action.insertCursorBelow`
 `kb(editor.action.insertCursorAbove)`|Insert Cursor Above|`editor.action.insertCursorAbove`
 `kb(editor.action.jumpToBracket)`|Jump to matching bracket|`editor.action.jumpToBracket`
@@ -48,6 +49,9 @@ Key|Command|Command id
 `kb(editor.action.startFindReplaceAction)`|Replace|`editor.action.startFindReplaceAction`
 `kb(editor.action.nextMatchFindAction)`|Find Next|`editor.action.nextMatchFindAction`
 `kb(editor.action.previousMatchFindAction)`|Find Previous|`editor.action.previousMatchFindAction`
+`kb(toggleFindCaseSensitive)`|Toggle Find Case Sensitive|`toggleFindCaseSensitive`
+`kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
+`kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
 `kb(editor.action.toggleTabFocusMode)`|Toggle Use of Tab Key for Setting Focus|`editor.action.toggleTabFocusMode`
 
 ## Rich Languages Editing

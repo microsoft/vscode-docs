@@ -49,7 +49,7 @@ To uninstall an extension, bring up the `Extensions: Show Installed Extensions` 
 
 ## Update an Extension
 
-When a new version of an extension is available, it will be visible in the `Extensions: Install Extension` dropdown with an enabled update button in the lower right of the extension entry.  Simply click this button and after the update, you'll be prompted to restart VS Code.
+You can quickly look for extension updates by using the `Extensions: Show Outdated Extensions` dropdown.  This will display any available updates for your currently installed extensions. Simply click the Update Extension button in the lower right for the outdated extension and the update will be installed and you'll be prompted to restart VS Code.
 
 ## Next Steps
 Here are a few topics you may find interesting...

@@ -28,15 +28,17 @@ New option to configure cursor blinking: `editor.cursorBlinking` with values `bl
 
 ## Editor - Current Line Command
 
-New select current line command (`Ctrl/Cmd+I`) from a [community contribution](https://github.com/Microsoft/vscode/pull/961).
+New select current line command (`kb(expandLineSelection)`) from a [community contribution](https://github.com/Microsoft/vscode/pull/961).
 
 ## Key Bindings
 
-Added a new widget that helps input the key binding rule when editing `keybindings.json`. This is especially helpful when using a non-US standard keyboard layout:
+We added a new widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`.
+
+The widget is especially helpful when using a non-US standard keyboard layout:
 
 ![key binding widget](images/December/key-binding-widget.png)
 
-Created a new node module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings with the actual user keyboard layout.
+We also created a new node module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings with the actual user keyboard layout.
 
 For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `Ctrl+*`:
 
