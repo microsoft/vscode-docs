@@ -63,9 +63,13 @@ A new setting `window.zoomLevel` allows you to change and persist the zoom level
 
 The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old setting but we ask you to update to the new name.
 
+## Emmet
+
+Emmet is now supported in JSX and TSX files.
+
 ## Notable Bug Fixes
 
-As always we fixed many issues:
+Thanks to the great feedback from our users we have fixed [many issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+is%3Aclosed) for the December milestone. 
 
 * We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
 * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
