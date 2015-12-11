@@ -175,7 +175,7 @@ Here is a example where output for the "deploy" task is always brought to front:
 >**Tip:** If a property is redefined per OS and per task, the one from the task wins.
 
 ## Variables in tasks.json
-When authoring tasks it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the task.json file and has the following predefined variables:
+When authoring tasks it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the task.json and launch.json files and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
 - **${file}** the current opened file
