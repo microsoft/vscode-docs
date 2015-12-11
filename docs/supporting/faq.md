@@ -47,23 +47,11 @@ Want get an early peek at new VS Code features?  You can try prerelease versions
 
 >**Note:** You can always go back to latest release version of VS Code by switching back to the `stable` update channel.
 
-Do the following steps to modify the storage.json file used by VS Code. To modify storage.json, use a text editor other than VS Code, since VS Code modifies this file on shutdown.
+To modify the update channel, go to `File | Preferences | User Settings` and add the `update.channel` setting with the value `"insiders"`.
 
-### Windows
-1. Close VS Code if it is still running.
-2. Open a command prompt.
-3. Type `cd %APPDATA%\code`
-4. Type `notepad storage.json`
-5. Replace `"updateChannel": "stable"` with `"updateChannel": "insiders"`
-6. Save the file via `kbstyle(Ctrl+S)` and exit Notepad. You will now get insiders updates as they are available.
-
-### OS X
-1. Close VS Code if it is still running.
-2. Start the Terminal app.
-3. Type `cd ~/Library/"Application Support"/Code`
-4. Type `vi storage.json`
-5. Replace `"updateChannel": "stable"` with `"updateChannel": "insiders"`
-6. Save the file via `kbstyle(Esc ZZ)`. You’re now get insiders updates as they are available.
+```json
+    "update.channel": "insiders"
+```
 
 ## Windows - Trouble with the installer
 Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
