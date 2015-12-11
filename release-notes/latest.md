@@ -9,16 +9,18 @@ MetaDescription: See what is new in Visual Studio Code 0.10.4
 
 Hi,
 
+November was a big release for us (adding extensibility support and moving to Open Source) and we appreciate all the support we received leading up to and during the Connect(); event.  We've kept busy in December and we hope you like this release.
+
 ## Insider's Channel 
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable`.
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` to get install prerelease builds.
 
 ## Editor
 
  * Find/Replace improvements when in regex mode:
   * Can now search for `^`, `$` or `^$` due to [community contribution](https://github.com/Microsoft/vscode/pull/314)
   * Can now replace with `\n` or `\t`
- * New option to configure cursor blinking: `"editor.cursorBlinking"` with values `"blink"`, `"visible"` and `"hidden"` due to [community contribution](https://github.com/Microsoft/vscode/pull/500).
+ * New option to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` due to [community contribution](https://github.com/Microsoft/vscode/pull/500).
  * New select current line command (`Ctrl/Cmd+I`) due to [community contribution](https://github.com/Microsoft/vscode/pull/961)
 
 ## Key Bindings
@@ -31,8 +33,7 @@ There is now a setting to subscribe to the Insider's channel to get prerelease V
 
 ## Extension Debugging
 
-We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition,
-the debugger will connect to your extension faster than before.
+We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
 
 ## File Picker improvements and fuzzy search
 
@@ -44,19 +45,18 @@ A new setting `search.fuzzyFilePicker` allows to enable fuzzy searching for the 
 In addition, a search term will match in a more fuzzy way on the path compared to the default. A search for `fb` will match a file `foobar` because this file contains `f` and `b`. We also added a new sorter for the picker once fuzzy
 searching is enabled that tries to put the most relevant results  to the top. We appreciate if people try this out and report feedback so that we can tweak this experience.
 
-## New Settings
+## Persisted Zoom Level
 
-A new setting `window.zoomLevel` allows to change the zoom level of the window to be either smaller or larger. The effect is similar to the zoom actions from the `View` menu with the difference that it is persisted. The actions can still be used but are not persisted.
+A new setting `window.zoomLevel` allows you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the `View` menu `Zoom in` command.  Unlike the zoom level set with the `Zoom in`, `Zoom out` commands, the `window.zoomLevel` is a persisted setting. 
 
-The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old form but we ask you to update to the new value.
+## window.openFileInNewWindow
+
+The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old setting but we ask you to update to the new name.
 
 ## Notable Bug Fixes
 
-As always we fixed many issues.
+As always we fixed many issues:
 
- * we updated Electron to version 0.34.5 which includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays
-
-Here are a few of the notable ones:
-
+ * We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
  * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
  
