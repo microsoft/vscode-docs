@@ -37,6 +37,10 @@ If you opt out of auto-updates, your VS Code version will eventually be out of d
 5. Replace `"updateChannel": "stable"` with `"updateChannel": "none"`
 6. Save the file via `kbstyle(Esc ZZ)`. You’re now opted out of auto-updates.
 
+## Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
+
+Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+
 ## How can I test prerelease versions of VS Code?
 
 Want get an early peek at new VS Code features?  You can try prerelease versions of VS Code by using the `insiders` update channel.  
