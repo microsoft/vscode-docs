@@ -37,7 +37,7 @@ If you opt out of auto-updates, your VS Code version will eventually be out of d
 5. Replace `"updateChannel": "stable"` with `"updateChannel": "none"`
 6. Save the file via `kbstyle(Esc ZZ)`. You’re now opted out of auto-updates.
 
-## Why does Visual Studio Code have a different license than the `vscode` repository?
+## Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
 
 Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 

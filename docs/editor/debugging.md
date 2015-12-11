@@ -76,7 +76,7 @@ Select the configuration named `Launch` using the **Configuration dropdown** in 
 
 To launch a task before the start of each debug session, set the **preLaunchTask** to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md).
 
-VS Code supports variable substitution inside strings in launch.json same way as for [tasks.json](/docs/editor/tasks.md#_variables-in-tasksjson)
+VS Code supports variable substitution inside strings in launch.json the same way as for [tasks.json](/docs/editor/tasks.md#variables-in-tasksjson).
 
 ## Breakpoints
 
