@@ -337,5 +337,5 @@
 { "key": "shift+9",               "command": "^acceptSelectedSuggestion",
                                      "when": "editorTextFocus && suggestWidgetVisible && editorLangId == 'csharp' && suggestionSupportsAcceptOnKey" },
 { "key": ".",                     "command": "^acceptSelectedSuggestion",
-                                     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == 'csharp' && suggestionSupportsAcceptOnKey" },
+                                     "when": "editorTextFocus && suggestWidgetVisible && editorLangId == 'csharp' && suggestionSupportsAcceptOnKey" }
 ]
