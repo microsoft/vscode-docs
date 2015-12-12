@@ -1,4 +1,4 @@
-
+[
 { "key": "escape",                "command": "closeReferenceSearchEditor",
                                      "when": "editorFocus && inReferenceSearchEditor" },
 { "key": "escape",                "command": "cancelSelection",
