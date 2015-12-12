@@ -82,7 +82,7 @@ Below is the content of the corresponding extension.ts file:
 import * as path from 'path';
 
 import { workspace, Disposable, ExtensionContext } from 'vscode';
-import { LanguageClient, LanguageClientOptions, SettingMonitor, ServerOptions } from 'vscode-languageclient';
+import { LanguageClient, LanguageClientOptions, SettingMonitor, ServerOptions, DiagnosticSeverity } from 'vscode-languageclient';
 
 export function activate(context: ExtensionContext) {
 
