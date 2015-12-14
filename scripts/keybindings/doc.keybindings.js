@@ -57,6 +57,7 @@ var osx_replace = {
 	'shift+': '\u21E7',
 	'alt+': '\u2325',
 	'cmd+': '\u2318',
+	'cmd': '\u23',
 	'left': String.fromCharCode(8592),
 	'up': String.fromCharCode(8593),
 	'right': String.fromCharCode(8594),
