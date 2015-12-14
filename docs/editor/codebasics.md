@@ -42,7 +42,7 @@ This helps to reduce the overhead of managing tabs but does not restrict the num
 You can have up to three editors open side by side.
 
 If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
-* `kbstyle(Ctrl)` (Mac: `kbstyle(Cmd)`) click on a file in the Explorer
+* `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer
 * `kb(workbench.action.splitEditor)` to split the active editor into two
 * `Open to the Side` from the Explorer context menu on a file
 
@@ -50,7 +50,7 @@ If you already have one editor open, there are multiple ways of opening another 
 
 Whenever you open another file, the editor that is active will display the content of that file. So if you have two editors side by side and you want to open file 'foo.cs' into the right hand editor, make sure that editor is active (by clicking inside it) before opening file 'foo.cs'.
 
-When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (Mac: `kbstyle(Cmd)`) key and pressing `1`, `2`, or `3`.
+When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) key and pressing `1`, `2`, or `3`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
@@ -150,7 +150,7 @@ Type `?` into the input field to get a list of available commands you can execut
 ## Quick File Navigation
 The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
 
-Press `kb(workbench.action.openPreviousEditor)` to view a list of all files that have been opened since VS Code was launched. To open one of these files, hold the `kbstyle(Ctrl)` (Mac: `kbstyle(Cmd)`) key and press `kbstyle(Tab)` to pick the file you want to navigate to.
+Press `kb(workbench.action.openPreviousEditor)` to view a list of all files that have been opened since VS Code was launched. To open one of these files, hold the `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) key and press `kbstyle(Tab)` to pick the file you want to navigate to.
 
 ![Quick Navigation](images/codebasics/quicknav.png)
 
