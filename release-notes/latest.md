@@ -57,6 +57,8 @@ The file picker ("Quick Open") is now able to search on file paths when you incl
 A new setting `search.fuzzyFilePicker` allows to enable fuzzy searching for the file picker. Once enabled, the search term will match on the full path of the file by default, without having to include path separators in the query.
 In addition, a search term will match in a more fuzzy way on the path compared to the default. A search for `fb` will match a file `foobar` because this file contains `f` and `b`. We also added a new sorter for the picker once fuzzy searching is enabled that tries to put the most relevant results to the top. We would appreciate it if people would try out this option and give us feedback so that we can tune this experience.
 
+![Fuzzy Search in File Picker](images/December/fuzzy-search.png)
+
 ## Persisted Zoom Level
 
 A new setting `window.zoomLevel` allows you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the `View` menu `Zoom in` command.  Unlike the zoom level set with the `Zoom in`, `Zoom out` commands, the `window.zoomLevel` is a persisted setting.
