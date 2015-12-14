@@ -74,8 +74,8 @@ test/**
 
 ## Running tests automatically on Travis CI build machines
 
-With the December release of VS Code it is possible to run extension tests automatically on build machines like Travis CI. 
-In order to enable automated extension tests, the `vscode` npm module is providing a test command that will:
+You can run extension tests automatically on build machines like Travis CI. 
+In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
 * download and unzip VS Code
 * launch your extension tests inside VS Code
 * print the results to the console and return with an exit code according to test success or failure
@@ -86,7 +86,7 @@ To enable this test command, open your `package.json` and add the following entr
 "test": "node ./node_modules/vscode/bin/test"
 ```
 
-You can then enable Travis easily with a top level `.travis.yml` configuration like this:
+You can then enable Travis CI easily with a top-level `.travis.yml` configuration like this:
 
 ```yml
 sudo: false
@@ -110,12 +110,12 @@ script:
   - npm test --silent
 ```
 
-The script above will run the tests on both Linux and Mac OS X. Note that in order to run the tests on Linux you need to have
+The script above will run the tests on both Linux and Mac OS X. Note that in order to run the tests on Linux, you need to have
 a `before_install` configuration as above to enable Linux to start VS Code from the build.
 
-**Note:** Currently we do not support to run tests on a Windows OS (e.g. using Appveyor). 
+**Note:** Currently we do not support running tests on Windows (e.g. using AppVeyor). 
 
-There are some optional environment variables that allow to configure the test runner:
+There are some optional environment variables to configure the test runner:
 
 | Name        | Description       |
 | ------------|-------------------|
