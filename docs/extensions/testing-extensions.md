@@ -72,6 +72,56 @@ out/test/**
 test/**
 ```
 
+## Running tests automatically on Travis CI build machines
+
+With the December release of VS Code it is possible to run extension tests automatically on build machines like Travis CI. 
+In order to enable automated extension tests, the `vscode` npm module is providing a test command that will:
+* download and unzip VS Code
+* launch your extension tests inside VS Code
+* print the results to the console and return with an exit code according to test success or failure
+
+To enable this test command, open your `package.json` and add the following entry to the `scripts` section:
+
+```json
+"test": "node ./node_modules/vscode/bin/test"
+```
+
+You can then enable Travis easily with a top level `.travis.yml` configuration like this:
+
+```yml
+sudo: false
+
+os:
+  - osx
+  - linux
+    
+before_install:
+  - if [ $TRAVIS_OS_NAME == "linux" ]; then
+      export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
+      sh -e /etc/init.d/xvfb start;
+      sleep 3;
+    fi
+    
+install:
+  - npm install
+  - npm run vscode:prepublish
+    
+script:
+  - npm test --silent
+```
+
+The script above will run the tests on both Linux and Mac OS X. Note that in order to run the tests on Linux you need to have
+a `before_install` configuration as above to enable Linux to start VS Code from the build.
+
+There are some optional environment variables that allow to configure the test runner:
+
+| Name        | Description       |
+| ------------|-------------------|
+| `CODE_VERSION` | Version of VS Code to run the tests against |
+| `CODE_DOWNLOAD_URL` | Full URL of a VS Code drop to use for running tests against |
+| `CODE_TESTS_PATH` | Location of the tests to execute |
+| `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance |
+
 ## Next Steps
 
 * [Debugging your Extension](/docs/extensions/debugging-extensions.md) - Learn more about how to run and debug your extension
