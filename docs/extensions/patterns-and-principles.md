@@ -69,7 +69,6 @@ Visual Studio Code **will not** install your extension's dependencies when a use
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
-* [Working with the Editor](/docs/extensionAPI/documents-and-editors.md) - VS Code documents and editors API reference
 
 ## Common Questions
 
