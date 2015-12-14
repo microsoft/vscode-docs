@@ -50,6 +50,8 @@ cd WebApplication
 dnu restore
 ```
 
+>**Tip:** You can also run the command `dnx: Restore Packages` within VS Code from the Command Palette (`kb(workbench.action.showCommands)`).
+
 The [ASP.NET 5 docs](http://docs.asp.net/en/latest/) do a great job describing how to build next generation Cloud and Web applications so we won't do that here. Instead, we will focus on what Visual Studio Code can do.
 
 
