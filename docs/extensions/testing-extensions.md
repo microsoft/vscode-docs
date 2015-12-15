@@ -74,7 +74,8 @@ test/**
 
 ## Running tests automatically on Travis CI build machines
 
-You can run extension tests automatically on build machines like [Travis CI](http://travis-ci.org). 
+You can run extension tests automatically on build machines like [Travis CI](http://travis-ci.org).
+
 In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
 * download and unzip VS Code
 * launch your extension tests inside VS Code

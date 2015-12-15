@@ -19,6 +19,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`grammars`](/docs/extensionAPI/extension-points.md#contributesgrammars)
 * [`themes`](/docs/extensionAPI/extension-points.md#contributesthemes)
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
+* [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
 
 > **Tip:** If you want to contribute a language extension for a language that is already bundled with VS Code, you can do this by adding an `extensionDependency` to this language in your package.json. For example, to contribute to F# support:
 ```json
@@ -196,7 +197,6 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 ### Example
 
 ```json
-...
 "contributes": {
 	"themes": [{
 		"label": "Monokai",
@@ -204,7 +204,6 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 		"path": "./themes/Monokai.tmTheme"
 	}]
 }
-...
 ```
 
 ![themes extension point example](images/extension-points/themes.png)
@@ -213,12 +212,26 @@ See [Changing the Color Theme](/docs/customization/themes.md) for instructions o
 
 ## `contributes.snippets`
 
-```
+```json
 "contributes": {
 	"snippets": [{
 			"language": "go",
 			"path": "./snippets/go.json"
 	}]
+}
+```
+
+## `contributes.jsonValidation`
+
+Contributes a validation schema for a specific type of `json` file.  The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
+
+```json
+"contributes": {
+    "jsonValidation": [{ 
+ 		"fileMatch": ".jshintrc",
+ 		"url": "http://json.schemastore.org/jshintrc"
+	}]
+} 
 ```
 
 ## Next Steps

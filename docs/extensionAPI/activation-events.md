@@ -56,7 +56,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## `activationEvents.*`
 
-This activation event is emitted and interested extensions will be activated whenever VSCode starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
+This activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
 ```json
 ...
