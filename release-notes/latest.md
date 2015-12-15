@@ -54,7 +54,7 @@ The file picker ("Quick Open") is now able to search on file paths when you incl
 
 ![Path Search in File Picker](images/December/path-search.png)
 
-A new setting `search.fuzzyFilePicker` allows to enable fuzzy searching for the file picker. Once enabled, the search term will match on the full path of the file by default, without having to include path separators in the query.
+A new setting `filePicker.alternateFileNameMatching` allows to enable fuzzy searching for the file picker. Once enabled, the search term will match on the full path of the file by default, without having to include path separators in the query.
 In addition, a search term will match in a more fuzzy way on the path compared to the default. A search for `fb` will match a file `foobar` because this file contains `f` and `b`. We also added a new sorter for the picker once fuzzy searching is enabled that tries to put the most relevant results to the top. We would appreciate it if people would try out this option and give us feedback so that we can tune this experience.
 
 ![Fuzzy Search in File Picker](images/December/fuzzy-search.png)

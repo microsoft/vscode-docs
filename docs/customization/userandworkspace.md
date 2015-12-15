@@ -196,8 +196,8 @@ Below is a copy of the default `settings.json` file.
 		"**/bower_components": true
 	},
 
-	// Enable or disable fuzzy matching and sorting in the file picker.
-	"search.fuzzyFilePicker": false,
+	// Experimental support for fuzzy matching of file names in the file picker.
+	"filePicker.alternateFileNameMatching": false,
 
 
 	//-------- Git configuration --------
