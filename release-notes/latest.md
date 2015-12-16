@@ -7,7 +7,6 @@ MetaDescription: See what is new in Visual Studio Code 0.10.4
 
 # 0.10.4 (December 2015)
 
-
 Hi,
 
 November was a big release for us (adding extensibility support and moving to Open Source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
@@ -99,7 +98,7 @@ To improve the JavaScript and JSX support the plan is to adopt [Salsa](https://g
 * Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and [configure eslint](http://eslint.org/docs/user-guide/configuring.html) for JSX.
 * If you are using React constructs inside .js files then the built-in JavaScript validation can be disabled using the setting "javascript.validate.enable": false
 
-The grammars used to colorize JS and JSX are now aligned. 
+The grammars used to colorize JS and JSX are now aligned.
 
 ## Extension Debugging
 
@@ -174,9 +173,9 @@ We now wrap long text in the debug console.
 
 We now show breakpoints in a more intuitive way:
 
-* A blue circle represents an active breakpoint.
-* A gray circle represents a disabled breakpoint.
-* An empty gray circle represents a breakpoint which did not get verified during a debug session.
+* A blue filled circle represents an active breakpoint.
+* A gray filled circle represents a disabled breakpoint.
+* A gray hollow circle represents a breakpoint which could not be successfully registered with the debugger. For languages that are transpiled to JavaScript this could for example mean that source maps are missing or invalid.
 
 ![debug breakpoints](images/December/debug-breakpoints.png)
 
@@ -207,6 +206,13 @@ Alternatively, extensions can also give the path to a schema file in the extensi
 * Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change the both settings back to `"auto"`.
 * Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
 
+## Debug Adapter Development
+
+For node.js based debug adapter development we've made the VSCode Debug Protocol and an adapter default implementation available as npm modules:
+[vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol) and [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter).
+The source for these modules lives in the github repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node).
+Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debug](https://github.com/Microsoft/vscode-node-debug) have been updated to use the npm modules.
+
 ## Engineering
 
 VS Code supports continued integration for branches and pull requests:
@@ -215,11 +221,11 @@ VS Code supports continued integration for branches and pull requests:
 * [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
 
 During this first iteration in the open we have also tuned and documented more of our development workflows:
-- [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking) 
+- [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking)
 - [How we use the different feedback channels](https://github.com/Microsoft/vscode/wiki/Feedback-Channels)
 
 We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
- 
+
 ## Notable Bug Fixes
 
 * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
