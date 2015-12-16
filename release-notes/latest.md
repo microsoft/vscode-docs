@@ -17,6 +17,9 @@ Reviewed and updated:
 - [ ] Dirk
 - [ ] Erich
 - [ ] Martin
+- [ ] Chris
+- [ ] Sofian
+- [ ] Brad
 
 # 0.10.4 (December 2015)
 
@@ -25,9 +28,14 @@ Hi,
 
 November was a big release for us (adding extensibility support and moving to Open Source) and we appreciate all the support we received leading up to and during the Connect(); event.  We've kept busy in December and we hope you like this release.
 
+## Thanks
+A big thanks for the great contributions we have received. The community has filed <<<feature requests>>>, <<<bugs>>> and submitted <<<pull requests>>>. We have addressed many of these issues and merged the pull requests.
+
+Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue. 
+
 ## Insider's Channel
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` to get install prerelease builds.
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` to get install prerelease builds. For more details refer to 
 
 ## Editor - Find/Replace improvements
 
