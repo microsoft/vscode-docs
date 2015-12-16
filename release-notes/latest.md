@@ -10,7 +10,7 @@ Reviewed and updated:
 
 - [ ] Andre
 - [ ] Isidor
-- [ ] Joe
+- [x] Joe
 - [ ] Alex
 - [x] Ben
 - [ ] Joao
