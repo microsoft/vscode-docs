@@ -13,7 +13,7 @@ Reviewed and updated:
 - [x] Joe
 - [ ] Alex
 - [x] Ben
-- [ ] Joao
+- [x] Joao
 - [ ] Dirk
 - [ ] Erich
 - [ ] Martin
@@ -31,11 +31,11 @@ November was a big release for us (adding extensibility support and moving to Op
 ## Thanks
 A big thanks for the great contributions we have received. The community has filed <<<feature requests>>>, <<<bugs>>> and submitted <<<pull requests>>>. We have addressed many of these issues and merged the pull requests.
 
-Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue. 
+Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue.
 
 ## Insider's Channel
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart Code to get install prerelease builds. For more details refer to 
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart Code to get install prerelease builds. For more details refer to
 
 ## Editor - Find/Replace improvements
 
@@ -106,10 +106,38 @@ The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow
 
 Emmet is now supported in JSX and TSX files.
 
+## Scoped Git Services
+
+It is now possible to open a sub-directory of a git repository in Code.
+Code's git services will still work as usual, showing all changes within
+the repository, but the changes outside of the scoped directory will now
+be slightly faded out.
+
+## Git Status Bar Actions
+
+There is now a **Synchronize** action in the status bar, next to the branch
+indicator, when the current checked out branch has an upstream branch configured.
+
+![git status bar sync](images/December/git-status-bar-sync.png)
+
+If there is no upstream branch configured and the git repository has remotes set
+up, a new **Publish** action will be shown. This will let you publish the current
+branch to remote.
+
+![git status bar publish](images/December/git-status-bar-publish.png)
+
+## Engineering
+
+Enabled continued integration for branches and pull requests:
+- [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
+- [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
+
+
 ## Notable Bug Fixes
 
-Thanks to the great feedback from our users we have fixed [many issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+is%3Aclosed) for the December milestone. 
+Thanks to the great feedback from our users we have fixed [many issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+is%3Aclosed) for the December milestone.
 
 * We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
 * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
- 
+* [Proxy support for extension gallery](https://github.com/Microsoft/vscode/issues/69)
+
