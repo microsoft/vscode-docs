@@ -66,6 +66,10 @@ For example, `Split Editor` when using a French (France) keyboard layout is now 
 
 ![render key binding](images/December/render-key-binding.png)
 
+## ES6 is the new default
+
+We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable the new syntax and that be default you get suggestions for ES6 API-additions, like `Promise`, `Set`, `Map`, `String.startsWith` etc
+
 ## Extension API
 TBD
 
