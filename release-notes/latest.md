@@ -5,23 +5,6 @@ PageTitle: Visual Studio Code 0.10.4
 MetaDescription: See what is new in Visual Studio Code 0.10.4
 ---
 
-# Progress Tracking
-Reviewed and updated:
-
-- [ ] Andre
-- [x] Isidor
-- [x] Joe
-- [x] Alex
-- [x] Ben
-- [x] Joao
-- [x] Dirk
-- [x] Erich
-- [x] Martin
-- [ ] Chris
-- [ ] Sofian
-- [ ] Brad
-- [ ] Wade
-
 # 0.10.4 (December 2015)
 
 
@@ -37,7 +20,7 @@ Regarding fixes, if you want to find out when a fix to your issue is available i
 
 ## Insider's Channel
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to get install prerelease builds. For more details refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to get install prerelease builds. For more details refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code). **@Greg** this FAQ entry also needs to be updated
 
 ## Editor - Find/Replace improvements
 
@@ -98,7 +81,7 @@ Finally, we added a new widget that helps input the key binding rule when editin
 
 ## ES6 is the new default
 
-We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to @@felixrieseberg for this [contribution](https://github.com/Microsoft/vscode/pull/337).
+We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
 
 At the same time the grammar used to colorize JavaScript also got updated to support the ES6 syntax.
 
@@ -106,11 +89,15 @@ At the same time the grammar used to colorize JavaScript also got updated to sup
 
 We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
 
-## Extension Issues
+## Installed Extension Issues
 
 If VS Code identifies an issue with an installed extension, it will display an `issues` prompt on the Status Bar.  Click on the `issues` prompt to see the extension issue details and have the option to uninstall the extension.
 
 ![extension issues](images/December/extension-issues.png)
+
+## Gallery
+
+There is now [proxy support for the extension gallery](https://github.com/Microsoft/vscode/issues/69).
 
 ## Extension Deactivation
 
@@ -134,6 +121,10 @@ A new setting `window.zoomLevel` allows you to change and persist the zoom level
 ## window.openFileInNewWindow
 
 The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old setting but we ask you to update to the new name.
+
+## Themes
+
+Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0 and so we use a few major colors: blue for keywords, green for comments and red for strings.
 
 ## Emmet
 
@@ -200,6 +191,9 @@ Alternatively, extensions can also give the path to a schema file in the extensi
         }]
     }
 ```
+## Changed defaults and keybindings
+* Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change the both settings back to `"auto"`.
+* Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
 
 ## Engineering
 
@@ -212,16 +206,13 @@ During this first iteration in the open we have also tuned and documented more o
 - [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking) 
 - [How we use the different feedback channels](https://github.com/Microsoft/vscode/wiki/Feedback-Channels)
 
+We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
+ 
 ## Notable Bug Fixes
 
 Thanks to the great feedback from our users we have fixed [many issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+is%3Aclosed) for the December milestone.
 
-* We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
 * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
-* [Proxy support for extension gallery](https://github.com/Microsoft/vscode/issues/69)
-* Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0 and so we use a few major colors: blue for keywords, green for comments and red for strings.
-* Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change the both settings back to `"auto"`.
-* Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
 
 ## What's next
 
