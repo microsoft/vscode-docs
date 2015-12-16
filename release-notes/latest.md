@@ -35,7 +35,7 @@ Regarding fixes, if you want to find out when a fix to your issue is available i
 
 ## Insider's Channel
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` to get install prerelease builds. For more details refer to 
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart Code to get install prerelease builds. For more details refer to 
 
 ## Editor - Find/Replace improvements
 
