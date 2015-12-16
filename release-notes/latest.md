@@ -14,7 +14,7 @@ November was a big release for us (adding extensibility support and moving to Op
 
 ## Thanks
 
-A big thanks for the great contributions we have received. The community has filed **feature requests**, **bugs** and submitted **pull requests**. We have addressed many of these issues and merged the pull requests.
+A big thanks for the great contributions we have received. The community has filed ** 280 feature requests**, ** over 200 bugs** and submitted **70 pull requests**. We have addressed many of these issues and merged the pull requests.
 
 Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue.
 
