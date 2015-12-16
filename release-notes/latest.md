@@ -87,6 +87,18 @@ We have made ES6 the default for JavaScript files. That means you don't need to 
 
 At the same time the grammar used to colorize JavaScript also got updated to support the ES6 syntax.
 
+## TypeScript Update
+
+The TypeScript language service got updated to version 1.7.5.
+
+## JSX?
+
+To improve the JavaScript and JSX support the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa we can only offer a work around for using VS Code with JSX:
+* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and [configure eslint](http://eslint.org/docs/user-guide/configuring.html) for JSX.
+* If you are using React constructs inside .js files then the built-in JavaScript validation can be disabled using the setting "javascript.validate.enable": false
+
+The grammars used to colorize JS and JSX are now aligned. 
+
 ## Extension Debugging
 
 We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
@@ -145,18 +157,6 @@ There is now a **Synchronize** action in the Status Bar, next to the branch indi
 If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to remote.
 
 ![git status bar publish](images/December/git-status-bar-publish.png)
-
-## TypeScript Update
-
-The TypeScript language service got updated to version 1.7.5.
-
-## JSX?
-
-To improve the JavaScript and JSX support the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa we can only offer a work around for using VS Code with JSX:
-* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and [configure eslint](http://eslint.org/docs/user-guide/configuring.html) for JSX.
-* If you are using React constructs inside .js files then the built-in JavaScript validation can be disabled using the setting "javascript.validate.enable": false
-
-The grammars used to colorize JS and JSX are now aligned. 
 
 ## Language Server Extensions
 
