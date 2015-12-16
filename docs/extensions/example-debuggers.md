@@ -62,13 +62,10 @@ Open the project folder `vscode-mock-debug` in VS Code.
 What's in the package?
 
 * the mock-debug implementation lives in `src/mockDebug.ts`. There you find the request handlers for the various requests of the CDP.
-* the folder `src/common` contains the code and definitions of all the node-based implementations of debug adapters most likely to be shared. Don't modify any of the files in `common`since we plan to remove them from the debug adapters and make them available as an npm module.
-  - the `debugProtocol.d.ts` contains a TypeScript specification of the CDP requests, responses, and events.
-  - the `v8Protocol.ts` is the server side implementation of the JSON based communication protocol underlying the CDP.
-  - the `debugSession.ts` is a default implementation for the CDP. `src/mockDebug.ts` is a subclass of that.
-* `package.json`, the manifest for the mock-debug extension.
+* `package.json`, the manifest for the mock-debug extension:
   - lists the contributions of the mock-debug extension.
   - the `compile` and `watch` scripts are used to transpile the TypeScript source into the `out` folder and watch for subsequent source modifications.
+  - the two dependencies `vscode-debugprotocol` and `vscode-debugadapter` are NPM modules that simplify the development of node-based debug adapters.
 
 Now build and launch the debug adapter by selecting the `Launch Extension` configuration and hitting `F5`.
 Initially this will do a full transpile of the TypeScript sources into the `out` folder.
