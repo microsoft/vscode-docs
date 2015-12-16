@@ -154,7 +154,7 @@ To improve the JavaScript and JSX support the plan is to adopt [Salsa](https://g
 * Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and [configure eslint](http://eslint.org/docs/user-guide/configuring.html) for JSX.
 * If you are using React constructs inside .js files then the built-in JavaScript validation can be disabled using the setting "javascript.validate.enable": false
 
-The colorizers for JS and JSX are now aligned. 
+The grammars used to colorize JS and JSX are now aligned. 
 
 ## Language Server Extensions
 
