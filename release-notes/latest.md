@@ -27,28 +27,31 @@ Reviewed and updated:
 
 Hi,
 
-November was a big release for us (adding extensibility support and moving to Open Source) and we appreciate all the support we received leading up to and during the Connect(); event.  We've kept busy in December and we hope you like this release.
+November was a big release for us (adding extensibility support and moving to Open Source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
 
 ## Thanks
-A big thanks for the great contributions we have received. The community has filed <<<feature requests>>>, <<<bugs>>> and submitted <<<pull requests>>>. We have addressed many of these issues and merged the pull requests.
+
+A big thanks for the great contributions we have received. The community has filed **feature requests**, **bugs** and submitted **pull requests**. We have addressed many of these issues and merged the pull requests.
 
 Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue.
 
 ## Insider's Channel
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart Code to get install prerelease builds. For more details refer to
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to get install prerelease builds. For more details refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
 
 ## Editor - Find/Replace improvements
 
 In regex mode:
+
 * Can now search for `^`, `$` or `^$` thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/314).
 * Can now replace with `\n` or `\t`.
 
 Keyboard shortcuts:
-* new commands: toggle case sensitive (`kb(toggleFindCaseSensitive)`), toggle regex (`kb(toggleFindRegex)`) and toggle whole word (`kb(toggleFindWholeWord)`)
-* `kb(actions.find)` now always focuses the find input field
-* `kb(editor.action.startFindReplaceAction)` now always focuses the replace input field
-* when focus is in the find widget input fields, `kbstyle(Ctrl+Down)` now focuses the editor.
+
+* New Find settings commands: toggle case sensitive (`kb(toggleFindCaseSensitive)`), toggle regex (`kb(toggleFindRegex)`) and toggle whole word (`kb(toggleFindWholeWord)`)
+* `kb(actions.find)` puts focus in the Find input field.
+* `kb(editor.action.startFindReplaceAction)` puts focus in the Replace input field.
+* When focus is in the Find widget input fields, `kbstyle(Ctrl+Down)` put focus in the editor.
 
 ## Editor - Cursor Blinking Options
 
@@ -59,13 +62,16 @@ New option to configure cursor blinking: `editor.cursorBlinking` with values `bl
 New select current line command (`kb(expandLineSelection)`) thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/961).
 
 ## Editor - Scroll Viewport Commands
-* thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/1051).
-* scroll viewport by one line up (`kb(scrollLineUp)`) / down (`kb(scrollLineDown)`)
-* scroll viewport by one page up (`kb(scrollPageUp)`) / down (`kb(scrollPageDown)`)
 
-## Keybindings
+Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/1051), VS Code has improved editor scroll support:
+
+* Scroll by one line up (`kb(scrollLineUp)`) / down (`kb(scrollLineDown)`)
+* Scroll by one page up (`kb(scrollPageUp)`) / down (`kb(scrollPageDown)`)
+
+## Key Bindings for Numeric Keypad
 
 Added support for function keys `kbstyle(f13-f19)` and for numpad keys:
+
 * `kbstyle(numpad0-numpad9)`
 * `kbstyle(numpad_multiply)`
 * `kbstyle(numpad_add)`
@@ -81,7 +87,7 @@ VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft
 For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
 ![render key binding](images/December/render-key-binding.png)
 
-When editing `keybindings.json`, we now highlight misleading keybindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. Here is for example how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+When editing `keybindings.json`, we now highlight misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. Here is for example how the `Default keybindings` rules look like when using a French (France) keyboard layout:
 
 ![keybindings.json guidance](images/December/keybindings-json.png)
 
@@ -92,7 +98,7 @@ Finally, we added a new widget that helps input the key binding rule when editin
 
 ## ES6 is the new default
 
-We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to @felixrieseberg for this [contribution](https://github.com/Microsoft/vscode/pull/337).
+We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to @@felixrieseberg for this [contribution](https://github.com/Microsoft/vscode/pull/337).
 
 At the same time the grammar used to colorize JavaScript also got updated to support the ES6 syntax.
 
@@ -135,33 +141,25 @@ Emmet is now supported in JSX and TSX files.
 
 ## Scoped Git Services
 
-It is now possible to open a sub-directory of a git repository in Code.
-Code's git services will still work as usual, showing all changes within
-the repository, but the changes outside of the scoped directory will now
-be slightly faded out.
+It is now possible to open a sub-directory of a Git repository in VS Code. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
 ## Git Status Bar Actions
 
-There is now a **Synchronize** action in the status bar, next to the branch
-indicator, when the current checked out branch has an upstream branch configured.
+There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
 
 ![git status bar sync](images/December/git-status-bar-sync.png)
 
-If there is no upstream branch configured and the git repository has remotes set
-up, a new **Publish** action will be shown. This will let you publish the current
-branch to remote.
+If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to remote.
 
 ![git status bar publish](images/December/git-status-bar-publish.png)
 
-## TypeScript
+## TypeScript Update
 
 The TypeScript language service got updated to version 1.7.5.
 
-## Language Server
+## Language Server Extensions
 
-The language server protocol now supports all available language features. Please see the documentation
-[here](https://code.visualstudio.com/docs/extensions/example-language-server) for details on how to implement a
-language server.
+The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
 
 ## Debug Console Wraps Text
 
@@ -170,37 +168,45 @@ We now wrap long text in the debug console.
 ![debug console word wrap](images/December/debug-repl-wrap.png)
 
 ## Debug Breakpoints Polish
+
 We now show breakpoints in a more intuitive way:
-* blue circle represents an active breakpoint
-* gray circle represents a disabled breakpoint
-* empty gray circle represents a breakpoint which did not get verified during a debug session
+
+* A blue circle represents an active breakpoint.
+* A gray circle represents a disabled breakpoint.
+* An empty gray circle represents a breakpoint which did not get verified during a debug session.
 
 ![debug breakpoints](images/December/debug-breakpoints.png)
 
 ## JSON Schema Contributions
 
 Extensions can now contribute a JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
+
 ```json
     "contributes": {
         "jsonValidation": [{
             "fileMatch": ".jshintrc",
             "url": "http://json.schemastore.org/jshintrc"
         }]
+    }
 ```
 
-Alternativly, extensions can also give the path to a file io the extension folder:
+Alternatively, extensions can also give the path to a schema file in the extension folder:
+
 ```json
+    "contributes": {
         "jsonValidation": [{
             "fileMatch": ".htmlhintrc",
             "url": "./schemas/htmlhintrc.schema.json"
         }]
+    }
 ```
 
 ## Engineering
 
-Enabled continued integration for branches and pull requests:
-- [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
-- [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
+VS Code supports continued integration for branches and pull requests:
+
+* [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
+* [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
 
 During this first iteration in the open we have also tuned and documented more of our development workflows:
 - [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking) 
@@ -213,12 +219,10 @@ Thanks to the great feedback from our users we have fixed [many issues](https://
 * We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
 * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
 * [Proxy support for extension gallery](https://github.com/Microsoft/vscode/issues/69)
-* Various fixes to the default light and dark theme. Due to the move to textmate tokenizers in the last release there were changes in the appearance of the default light and dark theme: Some themes got far more colorful, in particular JavaScript, some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0: We stick to a few major colors: blue for keywords, green for comments and red for strings.
-* Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behaviour, you can change the settings back to `"auto"` and `"auto"`.
-* Changed the default keybindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
+* Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0 and so we use a few major colors: blue for keywords, green for comments and red for strings.
+* Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change the both settings back to `"auto"`.
+* Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
 
 ## What's next
 
-The development team will now take time off to spend time with friends and familiy. We will be back fully recharged on January the 4th.
- 
-
+The VS Code development team will now take time off to be with friends and familiy. We will be back fully recharged in January.
