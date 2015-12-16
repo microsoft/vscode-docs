@@ -16,7 +16,7 @@ Reviewed and updated:
 - [x] Joao
 - [x] Dirk
 - [ ] Erich
-- [ ] Martin
+- [x] Martin
 - [ ] Chris
 - [ ] Sofian
 - [ ] Brad
@@ -69,6 +69,8 @@ For example, `Split Editor` when using a French (France) keyboard layout is now 
 ## ES6 is the new default
 
 We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to @felixrieseberg for this [contribution](https://github.com/Microsoft/vscode/pull/337).
+
+At the same time the grammar used to colorize JavaScript also got updated to support the ES6 syntax. 
 
 ## Extension Debugging
 
@@ -138,6 +140,25 @@ language server.
 We now wrap long text in the debug console.
 ![debug console word wrap](images/December/debug-repl-wrap.png)
 
+## JSON Schema Contributions
+
+Extensions can now contribute a JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema. 
+```json
+    "contributes": {
+        "jsonValidation": [{
+            "fileMatch": ".jshintrc",
+            "url": "http://json.schemastore.org/jshintrc"
+        }]
+```
+
+Alternativly, extensions can also give the path to a file io the extension folder:
+```json
+        "jsonValidation": [{
+            "fileMatch": ".htmlhintrc",
+            "url": "./schemas/htmlhintrc.schema.json"
+        }]
+```
+
 ## Engineering
 
 Enabled continued integration for branches and pull requests:
@@ -152,4 +173,5 @@ Thanks to the great feedback from our users we have fixed [many issues](https://
 * We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
 * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
 * [Proxy support for extension gallery](https://github.com/Microsoft/vscode/issues/69)
+* Various fixes to the default light and dark theme. Due to the move to textmate tokenizers in the last release there were changes in the appearance of the default light and dark theme: Some themes got far more colorful, in particular JavaScript, some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0: We stick to a few major colors: blue for keywords, green for comments and red for strings.
 
