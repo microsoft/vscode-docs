@@ -129,9 +129,14 @@ The TypeScript language service got updated to version 1.7.5.
 
 ## Language Server
 
-The language server protocol now supports all available language features. Please see the documentation 
-[here](https://code.visualstudio.com/docs/extensions/example-language-server) for details on how to implement a 
-language server. 
+The language server protocol now supports all available language features. Please see the documentation
+[here](https://code.visualstudio.com/docs/extensions/example-language-server) for details on how to implement a
+language server.
+
+## Debug Console Wraps Text
+
+We now wrap long text in the debug console.
+![debug console word wrap](images/December/debug-repl-wrap.png)
 
 ## Engineering
 
