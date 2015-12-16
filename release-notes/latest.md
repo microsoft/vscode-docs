@@ -9,7 +9,7 @@ MetaDescription: See what is new in Visual Studio Code 0.10.4
 Reviewed and updated:
 
 - [ ] Andre
-- [ ] Isidor
+- [x] Isidor
 - [x] Joe
 - [ ] Alex
 - [x] Ben
@@ -138,7 +138,16 @@ language server.
 ## Debug Console Wraps Text
 
 We now wrap long text in the debug console.
+
 ![debug console word wrap](images/December/debug-repl-wrap.png)
+
+## Debug Breakpoints Polish
+We now show breakpoints in a more intuitive way:
+* blue circle represents an active breakpoint
+* gray circle represents a disabled breakpoint
+* empty gray circle represents a breakpoint which did not get verified during a debug session
+
+![debug breakpoints](images/December/debug-breakpoints.png)
 
 ## JSON Schema Contributions
 
@@ -158,14 +167,6 @@ Alternativly, extensions can also give the path to a file io the extension folde
             "url": "./schemas/htmlhintrc.schema.json"
         }]
 ```
-
-## Debug Breakpoints Polish
-We now show breakpoints in a more intuitive way:
-* blue circle represents an active breakpoint
-* gray circle represents a disabled breakpoint
-* empty gray circle represents a breakpoint which did not get verified during a debug session
-
-![debug breakpoints](images/December/debug-breakpoints.png)
 
 ## Engineering
 
