@@ -68,10 +68,7 @@ For example, `Split Editor` when using a French (France) keyboard layout is now 
 
 ## ES6 is the new default
 
-We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable the new syntax and that be default you get suggestions for ES6 API-additions, like `Promise`, `Set`, `Map`, `String.startsWith` etc
-
-## Extension API
-TBD
+We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to @felixrieseberg for this [contribution](https://github.com/Microsoft/vscode/pull/337).
 
 ## Extension Debugging
 
