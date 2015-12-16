@@ -12,7 +12,7 @@ Hi,
 
 November was a big release for us (adding extensibility support and moving to Open Source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
 
-These release notes only capture what new in the core of Visual Studio Code. Do not forget to checkout the [marketplace](https://marketplace.visualstudio.com/#VSCode) for extensions.
+These release notes only capture whats new in the core of Visual Studio Code. Do not forget to checkout the [marketplace](https://marketplace.visualstudio.com/#VSCode) for extensions.
 
 ## Thanks
 
