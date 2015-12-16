@@ -5,7 +5,21 @@ PageTitle: Visual Studio Code 0.10.4
 MetaDescription: See what is new in Visual Studio Code 0.10.4
 ---
 
+# Progress Tracking
+Reviewed and updated:
+
+- [ ] Andre
+- [ ] Isidor
+- [ ] Joe
+- [ ] Alex
+- [ ] Ben
+- [ ] Joao
+- [ ] Dirk
+- [ ] Erich
+- [ ] Martin
+
 # 0.10.4 (December 2015)
+
 
 Hi,
 
