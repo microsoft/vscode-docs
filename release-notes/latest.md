@@ -66,6 +66,9 @@ For example, `Split Editor` when using a French (France) keyboard layout is now 
 
 ![render key binding](images/December/render-key-binding.png)
 
+## Extension API
+TBD
+
 ## Extension Debugging
 
 We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
