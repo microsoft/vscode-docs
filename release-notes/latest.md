@@ -70,7 +70,7 @@ For example, `Split Editor` when using a French (France) keyboard layout is now 
 
 We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to @felixrieseberg for this [contribution](https://github.com/Microsoft/vscode/pull/337).
 
-At the same time the grammar used to colorize JavaScript also got updated to support the ES6 syntax. 
+At the same time the grammar used to colorize JavaScript also got updated to support the ES6 syntax.
 
 ## Extension Debugging
 
@@ -142,7 +142,7 @@ We now wrap long text in the debug console.
 
 ## JSON Schema Contributions
 
-Extensions can now contribute a JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema. 
+Extensions can now contribute a JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
 ```json
     "contributes": {
         "jsonValidation": [{
@@ -158,6 +158,14 @@ Alternativly, extensions can also give the path to a file io the extension folde
             "url": "./schemas/htmlhintrc.schema.json"
         }]
 ```
+
+## Debug Breakpoints Polish
+We now show breakpoints in a more intuitive way:
+* blue circle represents an active breakpoint
+* gray circle represents a disabled breakpoint
+* empty gray circle represents a breakpoint which did not get verified during a debug session
+
+![debug breakpoints](images/December/debug-breakpoints.png)
 
 ## Engineering
 
