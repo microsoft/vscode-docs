@@ -48,6 +48,12 @@ For example, `Split Editor` when using a French (France) keyboard layout is now 
 
 We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
 
+## Extension Issues
+
+If VS Code identifies an issue with an installed extension, it will display an `issues` prompt on the Status Bar.  Click on the `issues` prompt to see the extension issue details and have the option to uninstall the extension.
+
+![extension issues](images/December/extension-issues.png)
+
 ## File Picker improvements and fuzzy search
 
 The file picker ("Quick Open") is now able to search on file paths when you include slash (Mac/Linux) or backslash (Windows) in the search term. This allows you to list all the files of a directory easily.
