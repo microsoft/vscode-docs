@@ -16,7 +16,7 @@ November was a big release for us (adding extensibility support and moving to Op
 
 A big thanks for the great contributions we have received. The community has filed over 200 bugs, 280 feature requests, and submitted 70 pull requests. We have addressed many of these issues and merged most of the pull requests.
 
-These are the [closed bugs] bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Abug+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Afeature-request+is%3Aclosed) for the December milestone.
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Abug+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Afeature-request+is%3Aclosed) for the December milestone.
 
 Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue.
 
