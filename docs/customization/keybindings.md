@@ -41,6 +41,10 @@ Key|Command|Command id
 `kb(cursorEnd)`|Go to End of Line|`cursorEnd`
 `kb(cursorBottom)`|Go to End of File|`cursorBottom`
 `kb(cursorTop)`|Go to Beginning of File|`cursorTop`
+`kb(scrollLineDown)`|Scroll Line Down|`scrollLineDown`
+`kb(scrollLineUp)`|Scroll Line Up|`scrollLineUp`
+`kb(scrollPageDown)`|Scroll Page Down|`scrollPageDown`
+`kb(scrollPageUp)`|Scroll Page Up|`scrollPageUp`
 `kb(editor.action.addCommentLine)`|Add Line Comment|`editor.action.addCommentLine`
 `kb(editor.action.removeCommentLine)`|Remove Line Comment|`editor.action.removeCommentLine`
 `kb(editor.action.commentLine)`|Toggle Line Comment|`editor.action.commentLine`
