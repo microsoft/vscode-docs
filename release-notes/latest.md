@@ -12,6 +12,8 @@ Hi,
 
 November was a big release for us (adding extensibility support and moving to Open Source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
 
+These release notes only capture what new in the core of Visual Studio Code. Do not forget to checkout the [marketplace](https://marketplace.visualstudio.com/#VSCode) for extensions.
+
 ## Thanks
 
 A big thanks for the great contributions we have received. The community has filed over 200 bugs, 280 feature requests, and submitted 70 pull requests. We have addressed many of these issues and merged most of the pull requests.
