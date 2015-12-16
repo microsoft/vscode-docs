@@ -148,6 +148,14 @@ If there is no upstream branch configured and the Git repository has remotes set
 
 The TypeScript language service got updated to version 1.7.5.
 
+## JSX?
+
+To improve the JSX support the plan is adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa we can only offer a work around:
+* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and [configure eslint](http://eslint.org/docs/user-guide/configuring.html) for JSX.
+* If you are using React constructs inside .js files then the built-in JavaScript validation can be disabled using the setting "javascript.validate.enable": false
+
+The colorizers for JS and JSX are now aligned. 
+
 ## Language Server Extensions
 
 The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
