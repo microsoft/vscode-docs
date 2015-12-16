@@ -12,7 +12,7 @@ Reviewed and updated:
 - [ ] Isidor
 - [ ] Joe
 - [ ] Alex
-- [ ] Ben
+- [x] Ben
 - [ ] Joao
 - [ ] Dirk
 - [ ] Erich
