@@ -15,11 +15,12 @@ Reviewed and updated:
 - [x] Ben
 - [x] Joao
 - [x] Dirk
-- [ ] Erich
+- [x] Erich
 - [x] Martin
 - [ ] Chris
 - [ ] Sofian
 - [ ] Brad
+- [ ] Wade
 
 # 0.10.4 (December 2015)
 
@@ -201,6 +202,9 @@ Enabled continued integration for branches and pull requests:
 - [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
 - [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
 
+During this first iteration in the open we have also tuned and documented more of our development workflows:
+- [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking) 
+- [How we use the different feedback channels](https://github.com/Microsoft/vscode/wiki/Feedback-Channels)
 
 ## Notable Bug Fixes
 
@@ -212,3 +216,9 @@ Thanks to the great feedback from our users we have fixed [many issues](https://
 * Various fixes to the default light and dark theme. Due to the move to textmate tokenizers in the last release there were changes in the appearance of the default light and dark theme: Some themes got far more colorful, in particular JavaScript, some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0: We stick to a few major colors: blue for keywords, green for comments and red for strings.
 * Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behaviour, you can change the settings back to `"auto"` and `"auto"`.
 * Changed the default keybindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
+
+## What's next
+
+The development team will now take time off to spend time with friends and familiy. We will be back fully recharged on January the 4th.
+ 
+
