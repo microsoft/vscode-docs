@@ -14,7 +14,7 @@ Reviewed and updated:
 - [ ] Alex
 - [x] Ben
 - [x] Joao
-- [ ] Dirk
+- [x] Dirk
 - [ ] Erich
 - [ ] Martin
 - [ ] Chris
@@ -122,6 +122,16 @@ up, a new **Publish** action will be shown. This will let you publish the curren
 branch to remote.
 
 ![git status bar publish](images/December/git-status-bar-publish.png)
+
+## TypeScript
+
+The TypeScript language service got updated to version 1.7.5.
+
+## Language Server
+
+The language server protocol now supports all available language features. Please see the documentation 
+[here](https://code.visualstudio.com/docs/extensions/example-language-server) for details on how to implement a 
+language server. 
 
 ## Engineering
 
