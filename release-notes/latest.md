@@ -11,7 +11,7 @@ Reviewed and updated:
 - [ ] Andre
 - [x] Isidor
 - [x] Joe
-- [ ] Alex
+- [x] Alex
 - [x] Ben
 - [x] Joao
 - [x] Dirk
@@ -39,32 +39,55 @@ There is now a setting to subscribe to the Insider's channel to get prerelease V
 
 ## Editor - Find/Replace improvements
 
-Find/Replace improvements when in regex mode:
-
-* Can now search for `^`, `$` or `^$` due to [community contribution](https://github.com/Microsoft/vscode/pull/314).
+In regex mode:
+* Can now search for `^`, `$` or `^$` thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/314).
 * Can now replace with `\n` or `\t`.
+
+Keyboard shortcuts:
+* new commands: toggle case sensitive (`kb(toggleFindCaseSensitive)`), toggle regex (`kb(toggleFindRegex)`) and toggle whole word (`kb(toggleFindWholeWord)`)
+* `kb(actions.find)` now always focuses the find input field
+* `kb(editor.action.startFindReplaceAction)` now always focuses the replace input field
+* when focus is in the find widget input fields, `kbstyle(Ctrl+Down)` now focuses the editor.
 
 ## Editor - Cursor Blinking Options
 
-New option to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` due to [community contribution](https://github.com/Microsoft/vscode/pull/500).
+New option to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/Microsoft/vscode/pull/500).
 
-## Editor - Current Line Command
+## Editor - Select Current Line Command
 
-New select current line command (`kb(expandLineSelection)`) from a [community contribution](https://github.com/Microsoft/vscode/pull/961).
+New select current line command (`kb(expandLineSelection)`) thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/961).
 
-## Key Bindings
+## Editor - Scroll Viewport Commands
+* thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/1051).
+* scroll viewport by one line up (`kb(scrollLineUp)`) / down (`kb(scrollLineDown)`)
+* scroll viewport by one page up (`kb(scrollPageUp)`) / down (`kb(scrollPageDown)`)
 
-We added a new widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`.
+## Keybindings
 
-The widget is especially helpful when using a non-US standard keyboard layout:
+Added support for function keys `kbstyle(f13-f19)` and for numpad keys:
+* `kbstyle(numpad0-numpad9)`
+* `kbstyle(numpad_multiply)`
+* `kbstyle(numpad_add)`
+* `kbstyle(numpad_separator)`
+* `kbstyle(numpad_subtract)`
+* `kbstyle(numpad_decimal)`
+* `kbstyle(numpad_divide)`
+
+## Improvements for non US standard keyboard layouts
+
+VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85)). In `keybindings.json` and in all the UI we used to render the key codes with the produced characters under the US standard keyboard layout. We have received numerous feedback that this was very confusing, therefore we created a new node module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
+
+For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
+![render key binding](images/December/render-key-binding.png)
+
+When editing `keybindings.json`, we now highlight misleading keybindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. Here is for example how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+
+![keybindings.json guidance](images/December/keybindings-json.png)
+
+Finally, we added a new widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want you can press `kbstyle(Enter)` and a rule snippet will be inserted.
 
 ![key binding widget](images/December/key-binding-widget.png)
 
-We also created a new node module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings with the actual user keyboard layout.
-
-For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `Ctrl+*`:
-
-![render key binding](images/December/render-key-binding.png)
 
 ## ES6 is the new default
 
@@ -81,6 +104,10 @@ We improved Extension debugging with a better way of connecting the debugger to 
 If VS Code identifies an issue with an installed extension, it will display an `issues` prompt on the Status Bar.  Click on the `issues` prompt to see the extension issue details and have the option to uninstall the extension.
 
 ![extension issues](images/December/extension-issues.png)
+
+## Extension Deactivation
+
+If an extension exports a function named `deactivate()`, VS Code now calls it on shutdown.
 
 ## File Picker improvements and fuzzy search
 
@@ -183,4 +210,5 @@ Thanks to the great feedback from our users we have fixed [many issues](https://
 * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
 * [Proxy support for extension gallery](https://github.com/Microsoft/vscode/issues/69)
 * Various fixes to the default light and dark theme. Due to the move to textmate tokenizers in the last release there were changes in the appearance of the default light and dark theme: Some themes got far more colorful, in particular JavaScript, some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0: We stick to a few major colors: blue for keywords, green for comments and red for strings.
-
+* Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behaviour, you can change the settings back to `"auto"` and `"auto"`.
+* Changed the default keybindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
