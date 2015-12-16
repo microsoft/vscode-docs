@@ -210,7 +210,7 @@ We updated Electron to version 0.34.5.  This includes a bug fix for the issue on
  
 ## Notable Bug Fixes
 
-Thanks to the great feedback from our users we have fixed [many issues](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+is%3Aclosed) for the December milestone.
+Thanks to the great feedback from our users we have fixed [many bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Abug+is%3Aclosed) and [feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Afeature-request+is%3Aclosed) for the December milestone.
 
 * Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
 
