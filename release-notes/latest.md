@@ -174,7 +174,7 @@ We now wrap long text in the debug console.
 
 ![debug console word wrap](images/December/debug-repl-wrap.png)
 
-## Debug Breakpoints Polish
+## Debug Breakpoints Polish @@andre
 
 We now show breakpoints in a more intuitive way:
 
@@ -184,7 +184,7 @@ We now show breakpoints in a more intuitive way:
 
 ## JSON Schema Contributions
 
-Extensions can now contribute a JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
+Extensions can now contribute JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
 
 ```json
     "contributes": {
@@ -206,11 +206,11 @@ Alternatively, extensions can also give the path to a schema file in the extensi
     }
 ```
 
-## Language Server Extensions
+## Language Server Extensions @@dirk
 
 The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
 
-## Debug Adapter Development
+## Debug Adapter Development @@andre
 
 For Node.js based debug adapter development, we've made the VS Code Debug Protocol and an adapter default implementation available as npm modules:
 [vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol) and [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter).
