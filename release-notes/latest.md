@@ -25,7 +25,7 @@ Regarding fixes, if you want to find out when a fix to your issue is available i
 
 There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to get install prerelease builds. For more details refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
 
-## Editor - Find/Replace improvements
+## Editor - Find/Replace improvements @@Alex update Customization|keybindings
 
 In regex mode:
 
@@ -71,7 +71,7 @@ Added support for function keys `kbstyle(f13-f19)` and for numpad keys:
 * `kbstyle(numpad_decimal)`
 * `kbstyle(numpad_divide)`
 
-## Improvements for non US standard keyboard layouts
+## Improvements for non US standard keyboard layouts @@Alex mention this in the Editor|Customization
 
 VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85)). In `keybindings.json` and in all the UI we used to render the key codes with the produced characters under the US standard keyboard layout. We have received numerous feedback that this was very confusing, therefore we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
 
@@ -86,7 +86,7 @@ Finally, we added a new widget that helps input the key binding rule when editin
 
 ![key binding widget](images/December/key-binding-widget.png)
 
-## ES6 is the new default
+## ES6 is the new default @@Greg please update the Languages|JavaScript - review by Johannes
 
 We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
 
@@ -94,9 +94,9 @@ At the same time the grammar used to colorize JavaScript also got updated to sup
 
 ## TypeScript Update
 
-The TypeScript language service was updated to version 1.7.5.
+The TypeScript language service was updated to version [1.7.5](http://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
 
-## JSX Support
+## JSX Support @@Greg since it is only a work around we do not promote this to the docs
 
 To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX:
 
@@ -120,25 +120,25 @@ The grammars used to colorize JS and JSX are now aligned.
 
 We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
 
-## Extensions Show Outdated Extensions
+## Extensions Show Outdated Extensions @@Greg add to Editor|Extension Gallery|Update an Extension
 
 Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/517) there is now a `Show Outdated Extensions` command, that shows all the outdated extensions.
 
-## Installed Extension Issues
+## Installed Extension Issues @@Greg this is temporary and the design will evolve, no need to add to the doc yet
 
 If VS Code identifies an issue with an installed extension, it will display an `issues` prompt on the Status Bar.  Click on the `issues` prompt to see the extension issue details and have the option to uninstall the extension.
 
 ![extension issues](images/December/extension-issues.png)
 
-## Extension Gallery
+## Extension Gallery @@Greg the proxy support should be covered in the FAQ, review by Martin
 
 There is now [proxy support for the extension gallery](https://github.com/Microsoft/vscode/issues/69).
 
-## Extension Deactivation
+## Extension Deactivation @@Greg need to regenerate API doc
 
 If an extension exports a function named `deactivate()`, VS Code now calls it on shutdown.
 
-## File Picker improvements and fuzzy search
+## File Picker improvements and fuzzy search @@Greg this is experiemental not need to promote to Docs yet
 
 The file picker ("Quick Open") is now able to search on file paths when you include slash (Mac/Linux) or backslash (Windows) in the search term. This allows you to list all the files of a directory easily.
 
@@ -149,27 +149,27 @@ In addition, a search term will match in a more fuzzy way on the path compared t
 
 ![Fuzzy Search in File Picker](images/December/fuzzy-search.png)
 
-## Persisted Zoom Level
+## Persisted Zoom Level @@Greg update Customization|User and Workspace settings
 
 A new setting `window.zoomLevel` allows you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the `View` menu `Zoom in` command.  Unlike the zoom level set with the `Zoom in`, `Zoom out` commands, the `window.zoomLevel` is a persisted setting.
 
-## window.openFileInNewWindow
+## window.openFileInNewWindow @@Greg update Customization|User and Workspace settings
 
 The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old setting but we ask you to update to the new name.
 
-## Themes
+## Themes @@Greg these are just bug fixes
 
 Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0 and so we use a few major colors: blue for keywords, green for comments and red for strings.
 
-## Emmet
+## Emmet @@Greg no need to update the docs
 
 Emmet is now supported in JSX and TSX files.
 
-## Scoped Git Services
+## Scoped Git Services @@Greg suggest to add a Tip in Editor|Version Control at the top
 
 It is now possible to open a sub-directory of a Git repository in VS Code. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
-## Git Status Bar Actions
+## Git Status Bar Actions  @@Greg should add this to the Editor|Version control page
 
 There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
 
@@ -179,7 +179,7 @@ If there is no upstream branch configured and the Git repository has remotes set
 
 ![git status bar publish](images/December/git-status-bar-publish.png)
 
-## Debug Console Wraps Text
+## Debug Console Wraps Text @@Greg is a bugs fix, no need to mention in the docs
 
 We now wrap long text in the debug console.
 
@@ -193,7 +193,7 @@ We now show breakpoints in a more intuitive way:
 * A gray filled circle represents a disabled breakpoint.
 * A gray hollow circle represents a breakpoint which could not be successfully registered with the debugger. For languages that are transpiled to JavaScript, this could mean that source maps are missing or invalid.
 
-## JSON Schema Contributions
+## JSON Schema Contributions @@Greg add Extensibility|Contribution Points review by Martin
 
 Extensions can now contribute JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
 
@@ -228,7 +228,7 @@ For Node.js based debug adapter development, we've made the VS Code Debug Protoc
 The source for these modules lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node).
 Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debug](https://github.com/Microsoft/vscode-node-debug) have been updated to use the npm modules.
 
-## Engineering
+## Engineering @@Greg no need to mention in the docs
 
 VS Code supports continued integration for branches and pull requests:
 
