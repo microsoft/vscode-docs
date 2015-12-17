@@ -39,6 +39,11 @@ Keyboard shortcuts:
 * `kb(editor.action.startFindReplaceAction)` puts focus in the Replace input field.
 * When focus is in the Find widget input fields, `kbstyle(Ctrl+Down)` put focus in the editor.
 
+## Changed defaults and key bindings
+
+* Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change the both settings back to `"auto"`.
+* Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
+
 ## Editor - Cursor Blinking Options
 
 New option to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/Microsoft/vscode/pull/500).
@@ -80,7 +85,6 @@ When editing `keybindings.json`, we now highlight misleading key bindings - thos
 Finally, we added a new widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want you can press `kbstyle(Enter)` and a rule snippet will be inserted.
 
 ![key binding widget](images/December/key-binding-widget.png)
-
 
 ## ES6 is the new default
 
@@ -164,10 +168,6 @@ If there is no upstream branch configured and the Git repository has remotes set
 
 ![git status bar publish](images/December/git-status-bar-publish.png)
 
-## Language Server Extensions
-
-The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
-
 ## Debug Console Wraps Text
 
 We now wrap long text in the debug console.
@@ -206,10 +206,9 @@ Alternatively, extensions can also give the path to a schema file in the extensi
     }
 ```
 
-## Changed defaults and key bindings
+## Language Server Extensions
 
-* Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change the both settings back to `"auto"`.
-* Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
+The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
 
 ## Debug Adapter Development
 
