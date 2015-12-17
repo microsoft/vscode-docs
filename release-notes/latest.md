@@ -73,7 +73,7 @@ Added support for function keys `kbstyle(f13-f19)` and for numpad keys:
 
 ## Improvements for non US standard keyboard layouts @@Alex mention this in the Editor|Customization
 
-VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85)). In `keybindings.json` and in all the UI we used to render the key codes with the produced characters under the US standard keyboard layout. We have received numerous feedback that this was very confusing, therefore we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
+VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85). In `keybindings.json` and in all the UI, we used to render the key codes with the produced characters under the US standard keyboard layout. We received feedback that this was very confusing, therefore, we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
 
 For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
 ![render key binding](images/December/render-key-binding.png)
@@ -86,7 +86,7 @@ Finally, we added a new widget that helps input the key binding rule when editin
 
 ![key binding widget](images/December/key-binding-widget.png)
 
-## ES6 is the new default @@Greg please update the Languages|JavaScript - review by Johannes
+## ES6 is the new default
 
 We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
 
@@ -98,9 +98,9 @@ The TypeScript language service was updated to version [1.7.5](http://blogs.msdn
 
 ## JSX Support
 
-To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX:
+To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX.
 
-* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and [configure eslint](http://eslint.org/docs/user-guide/configuring.html) for JSX.
+
 ``` 
 {
     "ecmaFeatures": {
@@ -109,8 +109,8 @@ To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://
     }
     ...
 }
-
 ```
+
 * If you are using React constructs inside .js files then the built-in JavaScript validation can be disabled using the setting `"javascript.validate.enable": false` or 
 * You can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items/eg2.js-is-jsx) which changes the file mapping so that .js files are treated like .jsx files. **Notice** when installing this extension then you loose the existing language support for .js files. 
 
@@ -130,11 +130,11 @@ If VS Code identifies an issue with an installed extension, it will display an `
 
 ![extension issues](images/December/extension-issues.png)
 
-## Extension Gallery @@Greg the proxy support should be covered in the FAQ, review by Martin
+## Extension Gallery
 
 There is now [proxy support for the extension gallery](https://github.com/Microsoft/vscode/issues/69).
 
-## Extension Deactivation @@Greg need to regenerate API doc
+## Extension Deactivation
 
 If an extension exports a function named `deactivate()`, VS Code now calls it on shutdown.
 
@@ -165,11 +165,11 @@ Various fixes to the default light and dark theme. Due to the move to TextMate t
 
 Emmet is now supported in JSX and TSX files.
 
-## Scoped Git Services @@Greg suggest to add a Tip in Editor|Version Control at the top
+## Scoped Git Services
 
 It is now possible to open a sub-directory of a Git repository in VS Code. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
-## Git Status Bar Actions  @@Greg should add this to the Editor|Version control| in the paragraph before 'Commit'. @@Isi will update the screenshot
+## Git Status Bar Actions
 
 There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
 
@@ -185,7 +185,7 @@ We now wrap long text in the debug console.
 
 ![debug console word wrap](images/December/debug-repl-wrap.png)
 
-## Debug Breakpoints Polish @@andre
+## Debug Breakpoints Polish
 
 We now show breakpoints in a more intuitive way:
 
@@ -221,7 +221,7 @@ Alternatively, extensions can also give the path to a schema file in the extensi
 
 The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
 
-## Debug Adapter Development @@andre
+## Debug Adapter Development
 
 For Node.js based debug adapter development, we've made the VS Code Debug Protocol and an adapter default implementation available as npm modules:
 [vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol) and [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter).

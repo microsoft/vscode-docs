@@ -83,9 +83,9 @@ VS Code supports variable substitution inside strings in launch.json the same wa
 Breakpoints can be toggled by clicking on the **editor margin**.
 Finer breakpoint control (enable/disable/reapply) can be done in the Debug view **BREAKPOINTS** section.
 
-Breakpoints in the editor margin are normally shown as red filled circles.
-Disabled breakpoints have a filled grey circle.
-When a debugging sessions starts breakpoints that cannot be registered with the debugger flip to a grey hollow circle.
+* Breakpoints in the editor margin are normally shown as red filled circles.
+* Disabled breakpoints have a filled gray circle.
+* When a debugging sessions starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle.
 
 ![Debug Breakpoints](images/debugging/breakpoints.png)
 
@@ -158,11 +158,7 @@ to the requested locations with the Reapply button in the breakpoint section hea
 
 ### JavaScript Source Maps
 
-The Node.js debugger of VS Code supports JavaScript Source Maps which help debugging of transpiled languages,
-e.g. TypeScript or minified/uglified JavaScript.
-With source maps it is possible to single step through or set breakpoints in the original source.
-If no source map exists for the original source or if the source map is broken and cannot successfully map
-between the source and the generated JavaScript the breakpoints are shown as grey hollow circles.
+The Node.js debugger of VS Code supports JavaScript Source Maps which help debugging of transpiled languages, e.g. TypeScript or minified/uglified JavaScript. With source maps, it is possible to single step through or set breakpoints in the original source. If no source map exists for the original source or if the source map is broken and cannot successfully map between the source and the generated JavaScript, the breakpoints are shown as gray hollow circles.
 
 The source map feature is enabled by setting the **sourceMaps** attribute to `true` in the launch configuration.
 In addition, you can specify a source file (e.g. app.ts) with the **program** attribute.

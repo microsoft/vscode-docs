@@ -38,6 +38,18 @@ of VS Code: the **current branch**, **dirty indicators** and the number of
 You can **checkout** to any branch in your repository by clicking that status indicator
 and selecting the Git reference from the list.
 
+> **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
+
+## Git Status Bar Actions
+
+There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
+
+![git status bar sync](images/versioncontrol/git-status-bar-sync.png)
+
+If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to remote.
+
+![git status bar publish](images/versioncontrol/git-status-bar-publish.png)
+
 
 ## Commit
 **Staging** and **unstaging** can be done via contextual actions in the files or by drag-and-drop.
