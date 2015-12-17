@@ -96,7 +96,7 @@ At the same time the grammar used to colorize JavaScript also got updated to sup
 
 The TypeScript language service was updated to version [1.7.5](http://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
 
-## JSX Support @@Greg since it is only a work around we do not promote this to the docs
+## JSX Support
 
 To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX:
 
@@ -120,11 +120,11 @@ The grammars used to colorize JS and JSX are now aligned.
 
 We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
 
-## Extensions Show Outdated Extensions @@Greg add to Editor|Extension Gallery|Update an Extension
+## Extensions Show Outdated Extensions
 
 Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/517) there is now a `Show Outdated Extensions` command, that shows all the outdated extensions.
 
-## Installed Extension Issues @@Greg this is temporary and the design will evolve, no need to add to the doc yet
+## Installed Extension Issues
 
 If VS Code identifies an issue with an installed extension, it will display an `issues` prompt on the Status Bar.  Click on the `issues` prompt to see the extension issue details and have the option to uninstall the extension.
 
@@ -138,7 +138,7 @@ There is now [proxy support for the extension gallery](https://github.com/Micros
 
 If an extension exports a function named `deactivate()`, VS Code now calls it on shutdown.
 
-## File Picker improvements and fuzzy search @@Greg this is experiemental not need to promote to Docs yet
+## File Picker improvements and fuzzy search
 
 The file picker ("Quick Open") is now able to search on file paths when you include slash (Mac/Linux) or backslash (Windows) in the search term. This allows you to list all the files of a directory easily.
 
@@ -149,19 +149,19 @@ In addition, a search term will match in a more fuzzy way on the path compared t
 
 ![Fuzzy Search in File Picker](images/December/fuzzy-search.png)
 
-## Persisted Zoom Level @@Greg update Customization|User and Workspace settings
+## Persisted Zoom Level
 
 A new setting `window.zoomLevel` allows you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the `View` menu `Zoom in` command.  Unlike the zoom level set with the `Zoom in`, `Zoom out` commands, the `window.zoomLevel` is a persisted setting.
 
-## window.openFileInNewWindow @@Greg update Customization|User and Workspace settings
+## window.openFileInNewWindow
 
 The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old setting but we ask you to update to the new name.
 
-## Themes @@Greg these are just bug fixes
+## Themes
 
 Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0 and so we use a few major colors: blue for keywords, green for comments and red for strings.
 
-## Emmet @@Greg no need to update the docs
+## Emmet
 
 Emmet is now supported in JSX and TSX files.
 
@@ -179,7 +179,7 @@ If there is no upstream branch configured and the Git repository has remotes set
 
 ![git status bar publish](images/December/git-status-bar-publish.png)
 
-## Debug Console Wraps Text @@Greg is a bugs fix, no need to mention in the docs
+## Debug Console Wraps Text
 
 We now wrap long text in the debug console.
 
@@ -193,7 +193,7 @@ We now show breakpoints in a more intuitive way:
 * A gray filled circle represents a disabled breakpoint.
 * A gray hollow circle represents a breakpoint which could not be successfully registered with the debugger. For languages that are transpiled to JavaScript, this could mean that source maps are missing or invalid.
 
-## JSON Schema Contributions @@Greg add Extensibility|Contribution Points review by Martin
+## JSON Schema Contributions
 
 Extensions can now contribute JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
 
@@ -217,7 +217,7 @@ Alternatively, extensions can also give the path to a schema file in the extensi
     }
 ```
 
-## Language Server Extensions @@dirk
+## Language Server Extensions
 
 The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
 
@@ -228,7 +228,7 @@ For Node.js based debug adapter development, we've made the VS Code Debug Protoc
 The source for these modules lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node).
 Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debug](https://github.com/Microsoft/vscode-node-debug) have been updated to use the npm modules.
 
-## Engineering @@Greg no need to mention in the docs
+## Engineering
 
 VS Code supports continued integration for branches and pull requests:
 
