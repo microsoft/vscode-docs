@@ -1,11 +1,11 @@
 ---
 Order: 1
 TOCTitle: Latest
-PageTitle: Visual Studio Code 0.10.4
-MetaDescription: See what is new in Visual Studio Code 0.10.4
+PageTitle: Visual Studio Code December 0.10.5
+MetaDescription: See what is new in the Visual Studio Code December Release (0.10.5)
 ---
 
-# 0.10.4 (December 2015)
+# 0.10.5 (December 2015)
 
 Hi,
 
@@ -90,7 +90,7 @@ Finally, we added a new widget that helps input the key binding rule when editin
 
 We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
 
-At the same time the grammar used to colorize JavaScript also got updated to support the ES6 syntax.
+At the same time, the grammar used to colorize JavaScript was also updated to support the ES6 syntax.
 
 ## TypeScript Update
 
