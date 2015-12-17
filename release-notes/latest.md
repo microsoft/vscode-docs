@@ -169,7 +169,7 @@ Emmet is now supported in JSX and TSX files.
 
 It is now possible to open a sub-directory of a Git repository in VS Code. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
-## Git Status Bar Actions  @@Greg should add this to the Editor|Version control page
+## Git Status Bar Actions  @@Greg should add this to the Editor|Version control| in the paragraph before 'Commit'. @@Isi will update the screenshot
 
 There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
 
