@@ -98,10 +98,21 @@ The TypeScript language service was updated to version 1.7.5.
 
 ## JSX Support
 
-To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a workaround for using VS Code with JSX:
+To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX:
 
 * Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and [configure eslint](http://eslint.org/docs/user-guide/configuring.html) for JSX.
-* If you are using React constructs inside .js files then the built-in JavaScript validation can be disabled using the setting `"javascript.validate.enable": false`
+``` 
+{
+    "ecmaFeatures": {
+        "jsx": true,
+        ...
+    }
+    ...
+}
+
+```
+* If you are using React constructs inside .js files then the built-in JavaScript validation can be disabled using the setting `"javascript.validate.enable": false` or 
+* You can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items/eg2.js-is-jsx) which changes the file mapping so that .js files are treated like .jsx files. **Notice** when installing this extension then you loose the existing language support for .js files. 
 
 The grammars used to colorize JS and JSX are now aligned.
 
