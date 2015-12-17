@@ -105,13 +105,17 @@ The grammars used to colorize JS and JSX are now aligned.
 
 We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
 
+## Extensions Show Outdated Extensions
+
+Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/517) there is now a `Show Outdated Extensions` command, that shows all the outdated extensions.
+
 ## Installed Extension Issues
 
 If VS Code identifies an issue with an installed extension, it will display an `issues` prompt on the Status Bar.  Click on the `issues` prompt to see the extension issue details and have the option to uninstall the extension.
 
 ![extension issues](images/December/extension-issues.png)
 
-## Gallery
+## Extension Gallery
 
 There is now [proxy support for the extension gallery](https://github.com/Microsoft/vscode/issues/69).
 
