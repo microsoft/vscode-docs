@@ -178,11 +178,9 @@ We now wrap long text in the debug console.
 
 We now show breakpoints in a more intuitive way:
 
-* A blue filled circle represents an active breakpoint.
+* A red filled circle represents an active breakpoint.
 * A gray filled circle represents a disabled breakpoint.
 * A gray hollow circle represents a breakpoint which could not be successfully registered with the debugger. For languages that are transpiled to JavaScript, this could mean that source maps are missing or invalid.
-
-![debug breakpoints](images/December/debug-breakpoints.png)
 
 ## JSON Schema Contributions
 
