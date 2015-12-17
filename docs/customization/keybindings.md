@@ -3,7 +3,7 @@ Order: 3
 Area: customization
 TOCTitle: Key Bindings
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 ---
 

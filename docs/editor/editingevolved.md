@@ -3,7 +3,7 @@ Order: 4
 Area: editor
 TOCTitle: Editing Evolved
 PageTitle: Editing Evolved
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and Debugging.
 ---
 

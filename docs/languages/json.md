@@ -3,7 +3,7 @@ Order: 4
 Area: languages
 TOCTitle: JSON
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 

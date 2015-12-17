@@ -3,7 +3,7 @@ Order: 6
 Area: customization
 TOCTitle: Themes
 PageTitle: Visual Studio Code Themes
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 

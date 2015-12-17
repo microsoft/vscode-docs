@@ -3,7 +3,7 @@ Order: 3
 Area: editor
 TOCTitle: Extension Gallery
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Gallery.
 ---
 

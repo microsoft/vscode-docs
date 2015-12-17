@@ -3,7 +3,7 @@ Order: 10
 Area: extensions
 TOCTitle: Testing Extensions
 PageTitle: Testing Visual Studio Code Extensions
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
 

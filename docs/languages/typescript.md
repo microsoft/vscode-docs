@@ -3,7 +3,7 @@ Order: 7
 Area: languages
 TOCTitle: TypeScript
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 ---
 

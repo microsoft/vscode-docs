@@ -3,7 +3,7 @@ Order: 6
 Area: languages
 TOCTitle: Markdown
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 

@@ -3,7 +3,7 @@ Order: 6
 Area: editor
 TOCTitle: Debugging
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 ---
 

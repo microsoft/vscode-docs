@@ -3,7 +3,7 @@ Order: 2
 Area: extensions
 TOCTitle: Example-Hello World
 PageTitle: Your First Visual Studio Code Extension - Hello World
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Create your first Visual Studio extension (plug-in) with a simple Hello Word example.  This walkthrough will take you through the basics of VS Code extensibility.
 ---
 

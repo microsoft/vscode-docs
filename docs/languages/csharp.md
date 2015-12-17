@@ -3,7 +3,7 @@ Order: 3
 Area: languages
 TOCTitle: C#
 PageTitle: C# programming with Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 ---
 

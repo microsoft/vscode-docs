@@ -3,7 +3,7 @@ Order: 6
 Area: extensions
 TOCTitle: Example-Debuggers
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
 

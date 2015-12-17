@@ -3,7 +3,7 @@ Order: 4
 Area: runtimes
 TOCTitle: Office
 PageTitle: Office Add-ins with Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: This page walks you through how to scaffold out a project for VS Code that extends Office.  See how to use the features of VS Code and integrate your Add-in with Office/Office 365.
 ---
 

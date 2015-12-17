@@ -3,7 +3,7 @@ Order: 1
 Area: tools
 TOCTitle: Publishing Tool
 PageTitle: vsce Publishing Tool - Publishing your Visual Studio Code Extensions
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Find out how to publish an extension to the Visual Studio Code Extension Gallery.
 ---
 

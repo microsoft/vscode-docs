@@ -3,7 +3,7 @@ Order: 9
 Area: extensions
 TOCTitle: Installing Extensions
 PageTitle: Installing Visual Studio Code Extensions
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Learn how to install Visual Studio Code extensions (plug-ins) from the public gallery, shared with other developers or privately on your own machine.
 ---
 

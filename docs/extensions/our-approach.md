@@ -3,7 +3,7 @@ Order: 11
 Area: extensions
 TOCTitle: Our Approach
 PageTitle: Our Approach to Extensibility
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Learn about the choices we made in creating the Visual Studio Code extension (plug-in) model.
 ---
 
