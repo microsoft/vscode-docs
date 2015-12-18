@@ -120,6 +120,26 @@ We're working on a fix. In the meantime, open the application menu, then choose 
 
 `editor.fontFamily: "Droid Sans Mono, Droid Sans Fallback"`
 
+## Proxy Server Support
+
+If you work on a machine where internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
+
+*	Set the operating system environment variables ‘http.proxy’ and ‘https.proxy’
+
+```
+    SET http_proxy=http://10.203.0.1:5187/
+```
+
+*	Configure the ‘http.proxy’ setting in your user settings (File > Preferences > User Settings)
+
+```json
+    “http.proxy”: “http://10.203.0.1:5187/”
+```
+
+Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.
+
+>**Note:** VS Code supports http and https proxies, but not SOCKS proxies.
+
 ## VS Code gets unresponsive right after opening a folder
 When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution).
 If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve
