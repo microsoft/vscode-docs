@@ -25,7 +25,7 @@ Regarding fixes, if you want to find out when a fix to your issue is available i
 
 There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to get install prerelease builds. For more details refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
 
-## Editor - Find/Replace improvements @@Alex update Customization|keybindings
+## Editor - Find/Replace improvements
 
 In regex mode:
 
@@ -71,7 +71,7 @@ Added support for function keys `kbstyle(f13-f19)` and for numpad keys:
 * `kbstyle(numpad_decimal)`
 * `kbstyle(numpad_divide)`
 
-## Improvements for non US standard keyboard layouts @@Alex mention this in the Editor|Customization
+## Improvements for non US standard keyboard layouts
 
 VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85). In `keybindings.json` and in all the UI, we used to render the key codes with the produced characters under the US standard keyboard layout. We received feedback that this was very confusing, therefore, we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
 

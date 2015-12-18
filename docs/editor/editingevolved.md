@@ -23,7 +23,7 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 VS Code has support for multiple cursors. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. The most common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
-![Multi-cursor](images/editingevolved/multicursor.png)
+![Multi-cursor](images/editingevolved/multicursor.gif)
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.  `kb(editor.action.moveSelectionToNextFindMatch)` moves the last added cursor to next occurrence of the current selection.
 

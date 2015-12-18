@@ -13,6 +13,8 @@ Visual Studio Code lets you perform most tasks directly from the keyboard.  This
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that OS.
 
+>**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](#_keyboardlayouts).
+
 ## Basic Editing
 
 Key|Command|Command id
@@ -244,13 +246,50 @@ Linux|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(meta+)`
 
 The following keys are accepted:
 
-* `kbstyle(f1-f15)`, `kbstyle(a-z)`, `kbstyle(0-9)`
+* `kbstyle(f1-f19)`, `kbstyle(a-z)`, `kbstyle(0-9)`
 * ``kbstyle(`)``, `kbstyle(-)`, `kbstyle(=)`, `kbstyle([)`, `kbstyle(])`, `kbstyle(\)`, `kbstyle(;)`, `kbstyle(')`, `kbstyle(,)`, `kbstyle(.)`, `kbstyle(/)`
 * `kbstyle(left)`, `kbstyle(up)`, `kbstyle(right)`, `kbstyle(down)`, `kbstyle(pageup)`, `kbstyle(pagedown)`, `kbstyle(end)`, `kbstyle(home)`
 * `kbstyle(tab)`, `kbstyle(enter)`, `kbstyle(escape)`, `kbstyle(space)`, `kbstyle(backspace)`, `kbstyle(delete)`
 * `kbstyle(pausebreak)`, `kbstyle(capslock)`, `kbstyle(insert)`
+* `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(numpad_separator)`
+* `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
 Chords are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
+
+## Keyboard layouts
+
+>**Note:** This section relates only to key bindings, not to typing in the editor.
+
+The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
+* Reference: https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85)
+* `kbstyle(tab)` for `VK_TAB` (`0x09`)
+* `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
+* `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
+* `kbstyle(,)` for `VK_OEM_COMMA` (`0xBC`)
+* `kbstyle(-)` for `VK_OEM_MINUS` (`0xBD`)
+* `kbstyle(.)` for `VK_OEM_PERIOD` (`0xBE`)
+* `kbstyle(/)` for `VK_OEM_2` (`0xBF`)
+* ``kbstyle(`)`` for `VK_OEM_3` (`0xC0`)
+* `kbstyle([)` for `VK_OEM_4` (`0xDB`)
+* `kbstyle(\)` for `VK_OEM_5` (`0xDC`)
+* `kbstyle(])` for `VK_OEM_6` (`0xDD`)
+* `kbstyle(')` for `VK_OEM_7` (`0xDE`)
+* etc.
+
+Different keyboard layouts usually reposition the above virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, Visual Studio Code does the following:
+
+All the keybindings are rendered in the UI using the current system's keyboard layout. For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
+![render key binding](images/keybinding/render-key-binding.png)
+
+When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. Here is for example how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+
+![keybindings.json guidance](images/keybinding/keybindings-json.png)
+
+There is also a widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want you can press `kbstyle(Enter)` and a rule snippet will be inserted.
+
+![key binding widget](images/keybinding/key-binding-widget.png)
+
+>**Note:** Visual Studio Code detects your current keyboard layout on start-up and then caches this information. For a good experience, we recommend restarting VS Code if you change your keyboard layout.
 
 ## Next Steps
 
@@ -308,15 +347,3 @@ Now that you know about our Key binding support, what's next...
 
 **A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
 
-**Q: Why doesn't typing characters with the AltGr modifier key work for me?**
-
-**A**: Typing characters with AltGr does not work on all keyboard layouts. A fix is in the works. If this happens to you, go to `File`, `Preferences`, `Keyboard Shortcuts` and add the following to your keybindings.json file:
-
-```json
-[
-{ "key": "ctrl+alt+o" },
-{ "key": "ctrl+alt+s" },
-{ "key": "ctrl+alt+f" },
-{ "key": "ctrl+alt+]" }
-]
-```
