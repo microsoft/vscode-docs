@@ -248,4 +248,4 @@ We updated Electron to version 0.34.5.  This includes a bug fix for the issue on
 
 ## What's next
 
-The VS Code development team will now take time off to be with friends and familiy. We will be back fully recharged in January.
+The VS Code development team will now take time off to be with friends and family. We will be back fully recharged in January.
