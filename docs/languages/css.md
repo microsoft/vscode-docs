@@ -99,7 +99,7 @@ The first example shows how to use configure tasks for TypeScript compilation.  
     "version": "0.1.0",
     "command": "node-sass",
     "isShellCommand": true,
-    "args": ["styles.scss", ">", "styles.css"]
+    "args": ["styles.scss", "styles.css"]
 }
 ```
 
@@ -109,11 +109,11 @@ The first example shows how to use configure tasks for TypeScript compilation.  
     "version": "0.1.0",
     "command": "lessc",
     "isShellCommand": true,
-    "args": ["styles.less", ">", "styles.css"]
+    "args": ["styles.less", "styles.css"]
 }
 ```
 
-Under the covers we interpret `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss > styles.css` or `lessc styles.less > styles.css`.
+Under the covers we interpret `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss styles.css` or `lessc styles.less styles.css`.
 
 ### Step 4: Run the Build Task
 As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `style.css`.
