@@ -56,8 +56,6 @@ Selecting the snippet with `tab` results in:
 ## ES6 Support
 VS Code supports ES6 (ECMAScript 6, the latest update of JavaScript) and understands the new ES6 syntax elements and their semantics. By default, you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith`. A good overview of the new ES6 features can be found [here](http://github.com/lukehoban/es6features).
 
->**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by setting the `javascript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
-
 We have a sample on GitHub that shows off some of the ES6 love in VS Code:
 
 ```
@@ -66,6 +64,7 @@ cd es6-vscode-sample
 npm install
 ```
 
+>**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by setting the `javascript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
 
 ### Run Babel inside VS Code
 The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Maps.  You can easily integrate Babel into your workflow by adding this code to your `tasks.json` file. The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
