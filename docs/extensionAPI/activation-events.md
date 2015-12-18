@@ -66,6 +66,10 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
+> **Note:** An extension can listen to multiple activation events, and that is preferable to listening to `"*"`.
+
+> **Note:** An extension **must** export an `activate()` function from its main module that will be invoked **only once** by VS Code when any of the activation events the extension lists is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown.
+
 ## Next Steps
 To learn more about VS Code extensibility model, try these topic:
 

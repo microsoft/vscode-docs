@@ -18,7 +18,7 @@ Name | Required | Type | Details
 `name` | Y | `string` | The name of the extension - should be all lowercase with no spaces.
 `version` | Y | `string` | [Semver](http://semver.org/) compatible version.
 `publisher` | Y | `string` | The [publisher name](/docs/tools/vscecli.md#publishers-and-personal-access-tokens)
-`engines` | Y | `object` | An object containing at least the `vscode` key matching the versions of Code that the extension is compatible with.  Cannot be `*` as we will refuse to load, an example is `0.10.x`.
+`engines` | Y | `object` | An object containing at least the `vscode` key matching the versions of Code that the extension is compatible with.  Cannot be `*` as we will refuse to load, an example is `^0.10.5` that indicates compatibility with a minimum VS Code version of `0.10.5`.
 `displayName` | | `string`| The display name for the extension used in the Gallery.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Other]`
@@ -30,7 +30,7 @@ Name | Required | Type | Details
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
-`isAMD` | | `boolean` | Indicated whether Visual Studio Code should load your code as AMD or CommonJS. Default: `false`.
+`isAMD` | | `boolean` | Indicated whether Visual Studio Code should load your code as AMD or CommonJS. Default: `false`. Support for loading AMD code will be deprecated soon!
 `scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/tools/vscecli.md#pre-publish-step).
 `icon` | | `string` | The path to a 128x128 pixel icon.
 
