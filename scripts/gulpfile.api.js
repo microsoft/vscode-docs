@@ -17,7 +17,7 @@ var VSCODE_PATH = 'out/vscode.d.ts';
 var TEMPLATE = 'docs/extensionAPI/vscode-api.template';
 var DIST = 'docs/extensionAPI/vscode-api.md';
 
-var VSCODE_VERSION = process.env['vscode-lastest'] ? process.env['vscode-lastest'] : 'd194e65958fbd0ffa683d397e4ab87b5868112d4' /* 0.10.3 */; 
+var VSCODE_VERSION = process.env['vscode-lastest'] ? process.env['vscode-lastest'] : 'dfc08dc9edf6607483b193bf934d3badc3fa2e11' /* 0.10.5 */; 
 
 function getVSCodeDefFileURL() {
     if (VSCODE_VERSION === "latest") {
