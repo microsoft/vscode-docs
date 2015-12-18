@@ -13,7 +13,7 @@ Visual Studio Code lets you perform most tasks directly from the keyboard.  This
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that OS.
 
->**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](#_keyboardlayouts).
+>**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
 
 ## Basic Editing
 
@@ -261,6 +261,7 @@ Chords are described by separating the two keypresses with a space. E.g.: `kbsty
 >**Note:** This section relates only to key bindings, not to typing in the editor.
 
 The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
+
 * Reference: https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85)
 * `kbstyle(tab)` for `VK_TAB` (`0x09`)
 * `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
@@ -278,14 +279,15 @@ The keys above are string representations for virtual keys and do not necessaril
 
 Different keyboard layouts usually reposition the above virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, Visual Studio Code does the following:
 
-All the keybindings are rendered in the UI using the current system's keyboard layout. For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
+All the key bindings are rendered in the UI using the current system's keyboard layout. For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
+
 ![render key binding](images/keybinding/render-key-binding.png)
 
-When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. Here is for example how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
 
 ![keybindings.json guidance](images/keybinding/keybindings-json.png)
 
-There is also a widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want you can press `kbstyle(Enter)` and a rule snippet will be inserted.
+There is also a widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want, you can press `kbstyle(Enter)` and a rule snippet will be inserted.
 
 ![key binding widget](images/keybinding/key-binding-widget.png)
 
