@@ -9,7 +9,7 @@ MetaDescription: See what is new in the Visual Studio Code December Release (0.1
 
 Hi,
 
-November was a big release for us (adding extensibility support and moving to Open Source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
+November was a big release for us (adding extensibility support and moving to open source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
 
 These release notes only capture what's new in the core of Visual Studio Code. Do not forget to check out the [marketplace](https://marketplace.visualstudio.com/#VSCode) for new extensions.
 
@@ -23,7 +23,7 @@ Regarding fixes, if you want to find out when a fix to your issue is available i
 
 ## Insider's Channel
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The value is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to get install prerelease builds. For more details refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The setting is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to install prerelease builds. For more details, refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
 
 ## Editor - Find/Replace improvements
 
@@ -34,19 +34,19 @@ In regex mode:
 
 Keyboard shortcuts:
 
-* New Find settings commands: toggle case sensitive (`kb(toggleFindCaseSensitive)`), toggle regex (`kb(toggleFindRegex)`) and toggle whole word (`kb(toggleFindWholeWord)`)
+* New Find settings commands: toggle case-sensitive (`kb(toggleFindCaseSensitive)`), toggle regex (`kb(toggleFindRegex)`) and toggle whole word (`kb(toggleFindWholeWord)`)
 * `kb(actions.find)` puts focus in the Find input field.
 * `kb(editor.action.startFindReplaceAction)` puts focus in the Replace input field.
 * When focus is in the Find widget input fields, `kbstyle(Ctrl+Down)` put focus in the editor.
 
 ## Changed defaults and key bindings
 
-* Changed the defaults `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change the both settings back to `"auto"`.
+* Changed the defaults for `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change both settings back to `"auto"`.
 * Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
 
 ## Editor - Cursor Blinking Options
 
-New option to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/Microsoft/vscode/pull/500).
+New setting to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/Microsoft/vscode/pull/500).
 
 ## Editor - Select Current Line Command
 
@@ -61,7 +61,7 @@ Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/10
 
 ## Key Bindings for Numeric Keypad
 
-Added support for function keys `kbstyle(f13-f19)` and for numpad keys:
+Added support for function keys `kbstyle(f13-f19)` and for the numeric keypad keys:
 
 * `kbstyle(numpad0-numpad9)`
 * `kbstyle(numpad_multiply)`
@@ -78,7 +78,9 @@ VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft
 For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
 ![render key binding](images/December/render-key-binding.png)
 
-When editing `keybindings.json`, we now highlight misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. Here is for example how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+When editing `keybindings.json`, we now highlight misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. 
+
+For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
 
 ![keybindings.json guidance](images/December/keybindings-json.png)
 
@@ -88,7 +90,7 @@ Finally, we added a new widget that helps input the key binding rule when editin
 
 ## ES6 is the new default
 
-We have made ES6 the default for JavaScript files. That means you don't need to create `jsconfig.json` files to enable new syntax and that by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
+We have made ES6 the default for JavaScript files. This means you don't need to create `jsconfig.json` files to enable new syntax and by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
 
 At the same time, the grammar used to colorize JavaScript was also updated to support the ES6 syntax.
 
@@ -100,7 +102,7 @@ The TypeScript language service was updated to version [1.7.5](http://blogs.msdn
 
 To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX.
 
-* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and configure jsx support. This will provide you with validation in jsx files. 
+* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and configure JSX support. This will provide you with validation in JSX files. 
 
 ``` 
 {
@@ -112,17 +114,17 @@ To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://
 }
 ```
 
-* If you are using React constructs inside .js files then you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items/eg2.js-is-jsx) which changes the file mapping so that .js files are treated as .jsx files. **Notice** when installing this extension then you loose the existing language support for .js files. 
+* If you are using React constructs inside `.js` files then you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items/eg2.js-is-jsx) which changes the file mapping so that `.js` files are treated as `.jsx` files. **Be aware** that if you install this extension, you lose the existing language support for `.js` files. 
 
 The grammars used to colorize JS and JSX are now aligned.
 
 ## Extension Debugging
 
-We improved Extension debugging with a better way of connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the window with your extension. In addition, the debugger will connect to your extension faster than before.
+We improved extension debugging when connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the 'Extension Host`. In addition, the debugger will connect faster to your extension.
 
 ## Extensions Show Outdated Extensions
 
-Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/517) there is now a `Show Outdated Extensions` command, that shows all the outdated extensions.
+Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/517), there is now a `Show Outdated Extensions` command, that shows all outdated extensions and lets you quickly install their updates.
 
 ## Installed Extension Issues
 
@@ -144,14 +146,13 @@ The file picker ("Quick Open") is now able to search on file paths when you incl
 
 ![Path Search in File Picker](images/December/path-search.png)
 
-A new setting `filePicker.alternateFileNameMatching` allows to enable fuzzy searching for the file picker. Once enabled, the search term will match on the full path of the file by default, without having to include path separators in the query.
-In addition, a search term will match in a more fuzzy way on the path compared to the default. A search for `fb` will match a file `foobar` because this file contains `f` and `b`. We also added a new sorter for the picker once fuzzy searching is enabled that tries to put the most relevant results to the top. We would appreciate it if people would try out this option and give us feedback so that we can tune this experience.
+A new setting `filePicker.alternateFileNameMatching` enables fuzzy searching for the file picker. Once enabled, the search term will match on the full path of the file by default, without having to include path separators in the query. In addition, a search term will match in a more fuzzy way on the path compared to the default. For example, a search for `fb` will match a file `foobar` because the filename contains `f` and `b`. We also added a new sorter for the picker when fuzzy searching is enabled which tries to put the most relevant results to the top. Please try out this feature and give us feedback so that we can tune the experience.
 
 ![Fuzzy Search in File Picker](images/December/fuzzy-search.png)
 
 ## Persisted Zoom Level
 
-A new setting `window.zoomLevel` allows you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the `View` menu `Zoom in` command.  Unlike the zoom level set with the `Zoom in`, `Zoom out` commands, the `window.zoomLevel` is a persisted setting.
+A new setting `window.zoomLevel` allows you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the `View` menu `Zoom in` command.  Unlike the zoom level set with the `Zoom in` and `Zoom out` commands, the `window.zoomLevel` is a setting persisted across VS Code sessions.
 
 ## window.openFileInNewWindow
 
@@ -159,7 +160,7 @@ The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow
 
 ## Themes
 
-Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while some languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in 0.9.0 and so we use a few major colors: blue for keywords, green for comments and red for strings.
+Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while other languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in the 0.9.0 release so we use a few major colors: blue for keywords, green for comments and red for strings.
 
 ## Emmet
 
@@ -167,7 +168,7 @@ Emmet is now supported in JSX and TSX files.
 
 ## Scoped Git Services
 
-It is now possible to open a sub-directory of a Git repository in VS Code. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
+It is now possible to open a sub-directory of a Git repository in VS Code. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded and have a tool tip indicating the file is located outside the current workspace.
 
 ## Git Status Bar Actions
 
@@ -224,9 +225,11 @@ The language server protocol now supports all available language features. Pleas
 ## Debug Adapter Development
 
 For Node.js based debug adapter development, we've made the VS Code Debug Protocol and an adapter default implementation available as npm modules:
-[vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol) and [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter).
-The source for these modules lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node).
-Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debug](https://github.com/Microsoft/vscode-node-debug) have been updated to use the npm modules.
+
+* [vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol)
+* [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter)
+
+The source for these modules lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node). Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debug](https://github.com/Microsoft/vscode-node-debug) have been updated to use the npm modules.
 
 ## Engineering
 
@@ -235,7 +238,7 @@ The VS Code GitHub repository supports continued integration for branches and pu
 * [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
 * [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
 
-During this first iteration in the open, we have also tuned and documented more of our development workflows:
+During this first iteration of VS Code being open source, we tuned and documented more of our development workflows:
 
 * [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking)
 * [How we use the different feedback channels](https://github.com/Microsoft/vscode/wiki/Feedback-Channels)
