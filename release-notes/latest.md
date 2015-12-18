@@ -230,12 +230,12 @@ Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debu
 
 ## Engineering
 
-VS Code supports continued integration for branches and pull requests:
+The VS Code GitHub repository supports continued integration for branches and pull requests:
 
 * [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
 * [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
 
-During this first iteration in the open we have also tuned and documented more of our development workflows:
+During this first iteration in the open, we have also tuned and documented more of our development workflows:
 
 * [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking)
 * [How we use the different feedback channels](https://github.com/Microsoft/vscode/wiki/Feedback-Channels)

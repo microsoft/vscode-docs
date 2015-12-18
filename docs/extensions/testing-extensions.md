@@ -114,6 +114,8 @@ script:
 The script above will run the tests on both Linux and Mac OS X. Note that in order to run the tests on Linux, you need to have
 a `before_install` configuration as above to enable Linux to start VS Code from the build.
 
+**Note:** Currently we do not support running tests on Windows (e.g. using Appveyor). 
+
 There are some optional environment variables to configure the test runner:
 
 | Name        | Description       |
