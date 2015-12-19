@@ -53,6 +53,7 @@ To modify the update channel, go to `File | Preferences | User Settings` and add
     "update.channel": "insiders"
 ```
 
+
 ## Windows - Trouble with the installer
 Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
 
@@ -76,7 +77,18 @@ Using the Registry Editor:
 4. Set its `Content Type` Data value to `image/svg+xml`.
 5. Exit regedit.
 
+## Windows **7** - Error when deleting files from Explorer
+>**19 Dec 2015** 
+
+When deleting a file from the Explorer on Windows 7 using the 0.10.5 drop you may receive an error "Failed to move '*filename*' to the trash" with prompts to "Delete Permanently", "Retry", or "Cancel". 
+
+By default VS Code attempts to move the file to the Trash. In the 0.10.5 there is an [issue in the Electron Shell](https://github.com/atom/electron/issues/3656) preventing this from working correctly.
+
+You can choose to delete the file permanently or delete files using the Windows Explorer or the Comamnd Prompt, which will properly move the file to the Trash.
+
 ## OS X - After upgrading to 0.10.5 VS Code crashes on startup
+> **19 Dec 2015**
+
 On OS X the 0.10.5 release of VS Code may crash on startup when using a JIS (Japanese) keyboard layout. 
 
 We have a fix ready for [issue #1463](https://github.com/Microsoft/vscode/issues/1463) and will publish 0.10.6 as soon as possible. 
