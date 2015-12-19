@@ -72,6 +72,7 @@ Added support for function keys `kbstyle(f13-f19)` and for the numeric keypad ke
 * `kbstyle(numpad_divide)`
 
 ## Improvements for non US standard keyboard layouts
+> **19 Dec 2015:** On OS X the 0.10.5 release of VS Code may crash on startup when using a JIS (Japanese) keyboard layout. We have a fix ready for [issue #1463](https://github.com/Microsoft/vscode/issues/1463) and will publish 0.10.6 as soon as possible. To workaround the issue, start VS Code with an English-US keyboard layout and then change the keyboard layout back to JIS (Japanese). 
 
 VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85). In `keybindings.json` and in all the UI, we used to render the key codes with the produced characters under the US standard keyboard layout. We received feedback that this was very confusing, therefore, we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
 
