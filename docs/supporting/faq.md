@@ -1,7 +1,7 @@
 ---
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 12/18/2015
+DateApproved: 12/19/2015
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 
@@ -53,7 +53,6 @@ To modify the update channel, go to `File | Preferences | User Settings` and add
     "update.channel": "insiders"
 ```
 
-
 ## Windows - Trouble with the installer
 Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
 
@@ -77,7 +76,7 @@ Using the Registry Editor:
 4. Set its `Content Type` Data value to `image/svg+xml`.
 5. Exit regedit.
 
-## Windows **7** - Error when deleting files from Explorer
+## Windows 7 - Error when deleting files from Explorer
 >**19 Dec 2015 | version 0.10.5** 
 
 When deleting a file from the Explorer on **Windows 7** using the 0.10.5 drop you may receive an error "Failed to move '*filename*' to the trash" with prompts to "Delete Permanently", "Retry", or "Cancel". 
