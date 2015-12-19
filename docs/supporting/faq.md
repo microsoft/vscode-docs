@@ -78,16 +78,16 @@ Using the Registry Editor:
 5. Exit regedit.
 
 ## Windows **7** - Error when deleting files from Explorer
->**19 Dec 2015** 
+>**19 Dec 2015 | version 0.10.5** 
 
-When deleting a file from the Explorer on Windows 7 using the 0.10.5 drop you may receive an error "Failed to move '*filename*' to the trash" with prompts to "Delete Permanently", "Retry", or "Cancel". 
+When deleting a file from the Explorer on **Windows 7** using the 0.10.5 drop you may receive an error "Failed to move '*filename*' to the trash" with prompts to "Delete Permanently", "Retry", or "Cancel". 
 
-By default VS Code attempts to move the file to the Trash. In the 0.10.5 there is an [issue in the Electron Shell](https://github.com/atom/electron/issues/3656) preventing this from working correctly.
+By default VS Code attempts to move the file to the Trash. In the 0.10.5 there is an issue [3656](https://github.com/atom/electron/issues/3656) we are tracking in the Electron Shell preventing this from working correctly.
 
 You can choose to delete the file permanently or delete files using the Windows Explorer or the Comamnd Prompt, which will properly move the file to the Trash.
 
 ## OS X - After upgrading to 0.10.5 VS Code crashes on startup
-> **19 Dec 2015**
+> **19 Dec 2015 | version 0.10.5**
 
 On OS X the 0.10.5 release of VS Code may crash on startup when using a JIS (Japanese) keyboard layout. 
 
