@@ -76,6 +76,13 @@ Using the Registry Editor:
 4. Set its `Content Type` Data value to `image/svg+xml`.
 5. Exit regedit.
 
+## OS X - After upgrading to 0.10.5 VS Code crashes on startup
+On OS X the 0.10.5 release of VS Code may crash on startup when using a JIS (Japanese) keyboard layout. 
+
+We have a fix ready for [issue #1463](https://github.com/Microsoft/vscode/issues/1463) and will publish 0.10.6 as soon as possible. 
+
+To workaround the issue, start VS Code with an English-US keyboard layout and then change the keyboard layout back to JIS (Japanese). 
+
 ## OS X - VS Code fails to start OmniSharp
 On OS X, VS Code can no longer start OmniSharp after updating VS Code.
 
