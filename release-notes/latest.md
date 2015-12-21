@@ -5,6 +5,10 @@ PageTitle: Visual Studio Code December 0.10.5
 MetaDescription: See what is new in the Visual Studio Code December Release (0.10.5)
 ---
 
+# 0.10.6 (December 2015)
+
+The 0.10.6 release fixes a [crash on startup](https://github.com/Microsoft/vscode/issues/1463) that happens on OSX when using certain keyboard layouts. 
+
 # 0.10.5 (December 2015)
 
 Hi,
@@ -72,14 +76,13 @@ Added support for function keys `kbstyle(f13-f19)` and for the numeric keypad ke
 * `kbstyle(numpad_divide)`
 
 ## Improvements for non US standard keyboard layouts
-> **19 Dec 2015:** On OS X the 0.10.5 release of VS Code may crash on startup when using a JIS (Japanese) keyboard layout. We have a fix ready for [issue #1463](https://github.com/Microsoft/vscode/issues/1463) and will publish 0.10.6 as soon as possible. To workaround the issue, start VS Code with an English-US keyboard layout and then change the keyboard layout back to JIS (Japanese). 
 
 VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85). In `keybindings.json` and in all the UI, we used to render the key codes with the produced characters under the US standard keyboard layout. We received feedback that this was very confusing, therefore, we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
 
 For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
 ![render key binding](images/December/render-key-binding.png)
 
-When editing `keybindings.json`, we now highlight misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. 
+When editing `keybindings.json`, we now highlight misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout.
 
 For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
 
@@ -103,9 +106,9 @@ The TypeScript language service was updated to version [1.7.5](http://blogs.msdn
 
 To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX.
 
-* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and configure JSX support. This will provide you with validation in JSX files. 
+* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and configure JSX support. This will provide you with validation in JSX files.
 
-``` 
+```
 {
     "ecmaFeatures": {
         "jsx": true,
@@ -115,7 +118,7 @@ To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://
 }
 ```
 
-* If you are using React constructs inside `.js` files then you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items/eg2.js-is-jsx) which changes the file mapping so that `.js` files are treated as `.jsx` files. **Be aware** that if you install this extension, you lose the existing language support for `.js` files. 
+* If you are using React constructs inside `.js` files then you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items/eg2.js-is-jsx) which changes the file mapping so that `.js` files are treated as `.jsx` files. **Be aware** that if you install this extension, you lose the existing language support for `.js` files.
 
 The grammars used to colorize JS and JSX are now aligned.
 
