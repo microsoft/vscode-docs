@@ -85,15 +85,6 @@ By default VS Code attempts to move the file to the Trash. In the 0.10.5 there i
 
 You can choose to delete the file permanently or delete files using the Windows Explorer or the Comamnd Prompt, which will properly move the file to the Trash.
 
-## OS X - After upgrading to 0.10.5 VS Code crashes on startup
-> **19 Dec 2015 | version 0.10.5**
-
-On OS X the 0.10.5 release of VS Code may crash on startup when using a JIS (Japanese) keyboard layout. 
-
-We have a fix ready for [issue #1463](https://github.com/Microsoft/vscode/issues/1463) and will publish 0.10.6 as soon as possible. 
-
-To workaround the issue, start VS Code with an English-US keyboard layout and then change the keyboard layout back to JIS (Japanese). 
-
 ## OS X - VS Code fails to start OmniSharp
 On OS X, VS Code can no longer start OmniSharp after updating VS Code.
 
