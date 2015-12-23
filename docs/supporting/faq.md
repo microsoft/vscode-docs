@@ -58,6 +58,7 @@ Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead 
 
 >**Note:** When VS Code is installed via a Zip you will need to manually update it for each release.
 
+
 ## Windows - Icons are missing
 I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
 
