@@ -10,7 +10,7 @@ MetaDescription: Find out how to publish an extension to the Visual Studio Code 
 # vsce - Publishing Tool Reference
 
 [vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish
-extensions to the [Extension Gallery](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them view email or a UNC drive.
+extensions to the [Extension Gallery](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
 
 ## Installation
 
