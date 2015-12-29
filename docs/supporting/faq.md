@@ -78,13 +78,14 @@ Using the Registry Editor:
 5. Exit regedit.
 
 ## Windows 7 - Error when deleting files from Explorer
->**19 Dec 2015 | version 0.10.5** 
 
-When deleting a file from the Explorer on **Windows 7** using the 0.10.5 drop you may receive an error "Failed to move '*filename*' to the trash" with prompts to "Delete Permanently", "Retry", or "Cancel". 
+>**19 Dec 2015 | version 0.10.5**
 
-By default VS Code attempts to move the file to the Trash. In the 0.10.5 there is an issue [3656](https://github.com/atom/electron/issues/3656) we are tracking in the Electron Shell preventing this from working correctly.
+When deleting a file from the VS Code Explorer on **Windows 7** using the 0.10.5 release, you may receive an error "Failed to move '*filename*' to the trash" which prompts you to "Delete Permanently", "Retry", or "Cancel".
 
-You can choose to delete the file permanently or delete files using the Windows Explorer or the Comamnd Prompt, which will properly move the file to the Trash.
+By default, VS Code attempts to move the file to the Trash (Windows Recycle Bin). In the 0.10.5 release, there is an issue [3656](https://github.com/atom/electron/issues/3656) with the Electron Shell preventing this from working correctly.
+
+You can choose to delete the file permanently or delete the file using the Windows Explorer or Command Prompt, which will properly move the file to the Windows Recycle Bin.
 
 ## OS X - VS Code fails to start OmniSharp
 On OS X, VS Code can no longer start OmniSharp after updating VS Code.
