@@ -7,7 +7,7 @@ MetaDescription: See what is new in the Visual Studio Code December Release (0.1
 
 # 0.10.6 (December 2015)
 
-The 0.10.6 release fixes a [crash on startup](https://github.com/Microsoft/vscode/issues/1463) that happens on OSX when using certain keyboard layouts. 
+The 0.10.6 release fixes a [crash on startup](https://github.com/Microsoft/vscode/issues/1463) that happens on OS X when using certain keyboard layouts. 
 
 # 0.10.5 (December 2015)
 
