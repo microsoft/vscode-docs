@@ -24,7 +24,7 @@ If you want to load your extension or customization each time VS Code runs, copy
 ```
 
 ## Sharing Privately with Others (Side-loading)
-If you want to share your extension or customization with others privately, you can simply send them a copy of the output from the generator and ask them to add it under their `.vscode/extensions` folder.
+If you want to share your extension or customization with others privately, you can simply send them a copy of the output from the generator and ask them to add it under their `.vscode/extensions` folder. Alternatively, package your extension using the [vsce publishing tool](/docs/tools/vscecli.md) and send them the `.vsix` file. 
 
 ## Install a Packaged Extension (.vsix)
 
