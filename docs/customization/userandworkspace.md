@@ -88,7 +88,7 @@ Below is a copy of the default `settings.json` file.
 	// Controls if the editor will scroll beyond the last line
 	"editor.scrollBeyondLastLine": true,
 
-	// Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping
+	// Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping, setting to -1 disabled world wrap
 	"editor.wrappingColumn": 300,
 
 	// Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
