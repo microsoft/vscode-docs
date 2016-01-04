@@ -30,7 +30,6 @@ As you type we provide syntax highlighting as well as in context preview of colo
 We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 1.7.
 
 >**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace setting to false.
-
 >```json
 >    "css.validate": false
 >```
