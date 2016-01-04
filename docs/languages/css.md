@@ -27,8 +27,13 @@ As you type we provide syntax highlighting as well as in context preview of colo
 
 
 ## Syntax Verification & Linting
-We support CSS version <= 2.1, Scss version <= 3.2 and Less version <= 1.7.
+We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 1.7.
 
+>**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace setting to false.
+
+>```json
+>    "css.validate": false
+>```
 
 ## Goto symbol in file
 Simply press `kb(workbench.action.gotoSymbol)`.
