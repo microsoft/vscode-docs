@@ -9,31 +9,23 @@ MetaDescription: Find out how to discover, add, update, disable and uninstall Vi
 
 # VS Code Extension Gallery
 
-## Browse Extensions
+## Browse and Install Extensions in VS Code
 
-You can browse the VS Code Extension Gallery both from within VS Code and through the [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode).
-
-![marketplace](images/extension-gallery/marketplace.png) 
-
-## Browse the Gallery in VS Code
-
-Press `kb(workbench.action.showCommands)` and narrow down the list commands by typing `extension`:
+You can browse and install extensions from within VS Code. Press `kb(workbench.action.showCommands)` and narrow down the list commands by typing `extension`:
 
 ![F1 Extensions](images/extension-gallery/f1extensions.png)
 
 Pick `Extensions: Install Extension`.
 
-> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` and type `ext install ` with a trailing space.
+> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` and type `ext install ` with a trailing space. Not sure what to install? Visit [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode).
 
 ![ext install](images/extension-gallery/ext-install.png)
 
 You'll see a list of extensions on the gallery along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode) page where you can learn more.
 
-![marketplace readme](images/extension-gallery/marketplace-readme.png)
-
 ## Install an Extension
 
-Simply pick the extension from the list. After a while, you'll get the following notification:
+Simply pick the extension from the list. After a successful install, you'll get the following notification:
 
 ![installed](images/extension-gallery/installed.png)
 
@@ -50,6 +42,12 @@ To uninstall an extension, bring up the `Extensions: Show Installed Extensions` 
 ## Update an Extension
 
 You can quickly look for extension updates by using the `Extensions: Show Outdated Extensions` dropdown.  This will display any available updates for your currently installed extensions. Simply click the Update Extension button in the lower right for the outdated extension and the update will be installed and you'll be prompted to restart VS Code.
+
+## Browse Extensions
+
+Additionally, you can browse the VS Code Extension Gallery through the [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode).
+
+![marketplace](images/extension-gallery/marketplace.png) 
 
 ## Next Steps
 Here are a few topics you may find interesting...
