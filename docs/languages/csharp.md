@@ -80,7 +80,7 @@ You can click on the references of an object to find the locations of its use in
 
 
 ## Quick Fixes / Suggestions
-There are some basic quick fixes supported in VS Code.  You will see a lightbulb and clicking on it will provide you with a simple list of fixes/suggestions.
+There are some basic quick fixes supported in VS Code.  You will see a lightbulb and clicking on it, or pressing `kb(editor.action.quickFix)` will provide you with a simple list of fixes/suggestions.
 
 ![Quick fix](images/csharp/lightbulb.png)
 
