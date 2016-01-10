@@ -153,4 +153,4 @@ This will always invoke the [TypeScript](http://www.typescriptlang.org/) compile
 
 **Q: I can't unpublish my extension through the `vsce` tool?**
 
-**A:** You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](http://marketplace.visualstudio.com/manage).  You can update or unpublish your extension from your publisher manage page.
+**A:** You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage).  You can update or unpublish your extension from your publisher manage page.
