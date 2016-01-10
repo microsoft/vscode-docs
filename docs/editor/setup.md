@@ -12,7 +12,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac OS X, Linux or Win
 Getting up and running with VS Code is quick and easy.  Follow the platform specific guides below as well as the list of handy tools.
 
 ## Mac OS X
-1. [Download Visual Studio Code](http://go.microsoft.com/fwlink/?LinkID=534106) for Mac OS X.
+1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for Mac OS X.
 2. Double-click on `VSCode-osx.zip` to expand the contents.
 3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
 4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
@@ -25,7 +25,7 @@ function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
 Now, you can simply type `code .` in any folder to start editing files in that folder.
 
 ## Linux
-1. [Download Visual Studio Code](http://go.microsoft.com/fwlink/?LinkID=534108) for Linux.
+1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534108) for Linux.
 2. Make a new folder and extract `VSCode-linux-x64.zip` inside that folder.
 3. Double click on `Code` to run Visual Studio Code.
 
@@ -37,7 +37,7 @@ sudo ln -s /path/to/vscode/Code /usr/local/bin/code
 Now, you can simply type `code .` in any folder to start editing files in that folder.
 
 ## Windows
-1. [Download Visual Studio Code](http://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
+1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
 2. Double-click on `VSCodeSetup.exe` to launch the setup process. This will only take a minute.
 
 >**Tip:** Visual Studio Code will be added to your path, so from the console you can simply type `code .` to open VS Code on that folder!
@@ -48,7 +48,7 @@ Now, you can simply type `code .` in any folder to start editing files in that f
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
 - [ASP.NET 5](https://github.com/aspnet/home) - a lean and composable framework for building web and cloud applications, fully open source and available on GitHub
-- [Node.js (includes NPM)](http://nodejs.org/) - a platform for easily building fast, scalable network applications
+- [Node.js (includes NPM)](https://nodejs.org/) - a platform for easily building fast, scalable network applications
 - [Git](http://git-scm.com/download) - VS Code has built-in support for source code control using Git
 - [Yeoman](http://yeoman.io/) - an application scaffolding tool, you can think of this as `File | New Project` for VS Code
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - a yeoman generator for scaffolding ASP.NET 5 applications, run `npm install -g generator-aspnet` to install
