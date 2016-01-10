@@ -238,7 +238,7 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
 To learn more about VS Code extensibility model, try these topic:
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Activation Events](/docs/extensionAPI/extension-points.md) - VS Code activation events reference
+* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
 
 ## Common Questions
 
