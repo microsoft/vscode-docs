@@ -28,7 +28,7 @@ Many themes have been uploaded to the VS Code [Extension Gallery](/docs/editor/e
 
 ![filter theme](images/themes/filter-theme.png)
 
-You can also browse the [VS Code Marketplace](http://marketplace.visualstudio.com/vscode/Themes) to find available themes. 
+You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) to find available themes. 
 
 ## Adding a new Theme
 You can also add new TextMate theme files (.tmTheme) to your VS Code installation using the [yo code](/docs/tools/yocode.md) extension generator.  
