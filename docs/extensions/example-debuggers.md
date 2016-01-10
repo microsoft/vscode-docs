@@ -23,7 +23,7 @@ When the debug session ends, the adapter is stopped.
 
 Debug adapters are part of VS Code's extensible architecture: they are contributed as extensions. What sets them apart from other extensions is the fact that the debug adapter code is not running in the extension host, but as a separate standalone program. The reasons for this are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if the need arises.
 
-Visual Studio Code ships two debug extensions, one for Node.js and one for Mono. More are available from the [VS Code Marketplace](http://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debug extension yourself.
+Visual Studio Code ships two debug extensions, one for Node.js and one for Mono. More are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debug extension yourself.
 
 This document will show you how to create a new debug extension.
 
