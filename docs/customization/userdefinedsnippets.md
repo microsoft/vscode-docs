@@ -20,7 +20,7 @@ Many snippets have been uploaded to the VS Code [Extension Gallery](/docs/editor
 
 ![Add some snippets from the Gallery](images/userdefinedsnippets/snippetgallery.gif)
 
-You can also browse the [VS Code Marketplace](http://marketplace.visualstudio.com/vscode/Snippets) to find available snippets. 
+You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Snippets) to find available snippets. 
 
 ## Creating your Own Snippets
 You can define your own snippets for specific languages.  Snippets are defined in a JSON format.
