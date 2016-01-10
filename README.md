@@ -1,14 +1,14 @@
 # Visual Studio Code Documentation
 
-You've found the GitHub repository which contains the content for the [Visual Studio Code documentation](http://code.visualstudio.com/docs).
+You've found the GitHub repository which contains the content for the [Visual Studio Code documentation](https://code.visualstudio.com/docs).
 
-Topics submitted here will be published to the [Visual Studio Code](http://code.visualstudio.com) portal.
+Topics submitted here will be published to the [Visual Studio Code](https://code.visualstudio.com) portal.
 
 ## Visual Studio Code
 
 VS Code is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on your favorite platform - Linux, Mac OSX and Windows.
 
-If you landed here looking for other information about VS Code, head over to [our website](http://code.visualstudio.com) for additional information.
+If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 
 ## Contributing documentation
 
@@ -26,7 +26,7 @@ Clone a copy of the repo:
 git clone https://github.com/Microsoft/vscode-docs.git
 ```
 
-VS Code itself is great for reviewing and editing [Markdown](http://code.visualstudio.com/docs/languages/markdown) with nice preview support.
+VS Code itself is great for reviewing and editing [Markdown](https://code.visualstudio.com/docs/languages/markdown) with nice preview support.
 
 If you want to use VS Code, simply navigate to the `vscode-docs` directory and launch VS Code from there:
 
