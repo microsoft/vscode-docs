@@ -277,7 +277,7 @@ To write your own debugger extension, visit:
 
 **Q: Why can’t I remote debug my app?**
 
-**A:** Currently we support local debugging only. This is a known limitation. If that’s something you care about, please [let us know](http://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7872216-remote-debugging)!
+**A:** Currently we support local debugging only. This is a known limitation. If that’s something you care about, please [let us know](https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7872216-remote-debugging)!
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 
