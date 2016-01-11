@@ -102,7 +102,7 @@ var Builder = (function () {
                 if (!items || items.length === 0) {
                     continue;
                 }
-                this._h3(title);
+                this._h4(title);
                 for (var _e = 0; _e < items.length; _e++) {
                     var child = items[_e];
                     switch (child.kind) {
@@ -187,6 +187,9 @@ var Builder = (function () {
     };
     Builder.prototype._h3 = function (value) {
         this._builder.push('### ' + value + '\n\n');
+    };
+    Builder.prototype._h4 = function (value) {
+        this._builder.push('#### ' + value + '\n\n');
     };
     Builder.prototype._paragragh = function (value) {
         this._builder.push('\n\n' + value + '\n\n');

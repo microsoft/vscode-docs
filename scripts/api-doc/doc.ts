@@ -115,7 +115,7 @@ class Builder {
                     continue;
                 }
 
-                this._h3(title);
+                this._h4(title);
 
                 for (let child of items) {
                     switch (child.kind) {
@@ -206,6 +206,10 @@ class Builder {
 
     private _h3(value) {
         this._builder.push('### ' + value + '\n\n');
+    }
+    
+    private _h4(value) {
+        this._builder.push('#### ' + value + '\n\n');
     }
 
     private _paragragh(value: string) {
