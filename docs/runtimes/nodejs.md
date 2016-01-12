@@ -108,11 +108,11 @@ In order to run and debug your Node application from within VS Code, you need to
 
 ![Your first Node Express App](images/nodejs/debugicon.png)
 
-Click on the Configure gear icon at the top of the Debug view to create a default `launch.json` file. This configuration file lets you specify how to start the application, what arguments to pass in, the working directory, and more. When the file is first created VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `./bin/www`) for the `Launch ./bin/www` configuration. A second `Attach` configuration is also created to show you how to attach to a running Node application.
+Click on the Configure gear icon at the top of the Debug view to create a default `launch.json` file; and, select "Node.js" as the Debug Environment. This configuration file lets you specify how to start the application, what arguments to pass in, the working directory, and more. When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `./bin/www`) for the `Launch` configuration. A second `Attach` configuration is also created to show you how to attach to a running Node application.
 
 ![Your first Node Express App](images/nodejs/launchjson.png)
 
-Take the defaults for everything else. If you do not have Auto Save on, save the file by pressing `kb(workbench.action.files.save)`, and make sure `Launch ./bin/www` is selected in the configuration dropdown at the top of the Debug view. Open `app.js` and set a breakpoint on the line of code we wrote earlier `var msg = 'hello world';` by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
+Take the defaults for everything else. If you do not have Auto Save on, save the file by pressing `kb(workbench.action.files.save)`, and make sure `Launch` is selected in the configuration dropdown at the top of the Debug view. Open `app.js` and set a breakpoint on the line of code we wrote earlier `var msg = 'hello world';` by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
 
 ![Your first Node Express App](images/nodejs/debugsession.png)
 
