@@ -1,16 +1,19 @@
-@{
+<!--@{
     ViewBag.Page = "docs";
     ViewBag.Area = "{{ Area }}";
 	ViewBag.Section = "{{ Link }}";
 	ViewBag.Title = "{{ Title }}";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    
+    TODO Not sure what to do here... we need to pass it from the context creation logic in a controller. 
+}-->
 
 
 <div class="container body-content docs">
     <div class="row">
         <div class="col-md-2">
-			@Html.Partial("~/Views/Shared/_DocsNav.cshtml")
+            {{< docsNav}}
+			<!--@Html.Partial("~/Views/Shared/_DocsNav.cshtml")-->
 		</div>
 		<div class="col-sm-9 col-md-8 body">
 			<div class="edit-github pull-right">
@@ -48,11 +51,13 @@
         </div>
 	</div>
 </div>
-@section scripts {
+<!--@section scripts {-->
 <div id="fb-root"></div>
-@Scripts.Render("~/Content/docsjs")
-}
-@section MoreMetadata {
+<!--
+    This should already be included on the page. 
+    @Scripts.Render("~/Content/docsjs")-->
+<!--}
+@section MoreMetadata {-->
 	<meta name="description" content="{{ MetaDescription }}" />
 	<meta name="keywords" content="{{ MetaTags }}" />
-}
+<!--}-->

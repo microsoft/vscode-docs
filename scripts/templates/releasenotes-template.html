@@ -1,14 +1,16 @@
-@{
+<!--@{
     ViewBag.Page = "updates";
     ViewBag.Section = "{{ Link }}";
 	ViewBag.Title = "{{ Title }}";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+    
+    TODO not sure how to do this... handlebars docs say this needs to be done in the context creation (i.e. the controller)
+}-->
 
 <div class="container body-content docs releases">
     <div class="row">
         <div class="col-md-2">            
-			@Html.Partial("~/Views/Shared/_UpdatesNav.cshtml")
+			 {{< docsNav}}
 		</div>
 		<div class="col-sm-9 col-md-8 body">
 			{{ Content }}
@@ -36,11 +38,13 @@
         </div>
 	</div>
 </div>
-@section scripts {
+<!--@section scripts {-->
 <div id="fb-root"></div>
-@Scripts.Render("~/Content/docsjs")
+<!--
+    This should already be included. 
+    @Scripts.Render("~/Content/docsjs")
 }
-@section MoreMetadata {
+@section MoreMetadata {-->
 	<meta name="description" content="{{ MetaDescription }}" />
 	<meta name="keywords" content="{{ MetaTags }}" />
-}
+<!--}-->
