@@ -45,7 +45,7 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releas
 	});
 
 	return es.readArray([file])
-		.pipe(gulp.dest(DEST_ROOT + '/views/patrials'));
+		.pipe(gulp.dest(DEST_ROOT + '/views/partials'));
 });
 
 gulp.task('compile-releasenotes-markdown', function () {
