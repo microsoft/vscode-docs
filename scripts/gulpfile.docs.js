@@ -52,7 +52,7 @@ gulp.task('compile-docs', ['compile-docs-markdown', 'copy-images'], function () 
 	}
 
 	var file = new File({
-		path: 'docsNav.handlebars',
+		path: 'docNav.handlebars',
 		contents: new Buffer(tpl({ areas: areas }))
 	});
 

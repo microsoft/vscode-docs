@@ -14,7 +14,7 @@ require('./scripts/gulpfile.docs.js');
 require('./scripts/gulpfile.releasenotes.js');
 require('./scripts/gulpfile.api.js');
 
-var BRANCH = process.env["branch"] ? process.env["branch"] : "master"; 
+var BRANCH = process.env["branch"] ? process.env["branch"] : "node-migration"; 
 var URL = process.env["token"] ? 'https://' + process.env["token"] + '@github.com/microsoft/vscode-website': 'https://github.com/microsoft/vscode-website';
 
 gulp.task('compile-all', ['compile-docs', 'compile-releasenotes']);
