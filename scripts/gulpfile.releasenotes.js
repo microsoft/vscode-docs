@@ -78,6 +78,6 @@ gulp.task('compile-releasenotes-markdown', function () {
 
 			return file;
 		}))
-		.pipe(rename({ extname: '.cshtml' }))
+		.pipe(rename({ extname: '.handlebars' }))
 		.pipe(gulp.dest(DEST_ROOT + '/views/updates'));
 });
