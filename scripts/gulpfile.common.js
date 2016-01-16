@@ -23,7 +23,7 @@ exports.filterText = function(orig) {
 }
 
 exports.swigCompiler = function(templatePath) {
-	return swig.compileFile(templatePath, { autoescape: false });
+	return swig.compileFile(templatePath, { autoescape: false, varControls: ['{$', '$}'] });
 }
 
 exports.tableRendererRule = function(tokens, idx, options, env, self) {
