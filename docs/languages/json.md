@@ -3,7 +3,7 @@ Order: 4
 Area: languages
 TOCTitle: JSON
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 
@@ -25,7 +25,7 @@ We also offer IntelliSense for specific value sets such as package and project d
 
 
 ## Quick Navigation
-JSON files can get pretty large and we support quick navigation to properties `kb(workbench.action.gotoSymbol)` (sometimes refered to as goto symbol) with the Command Palette.
+JSON files can get pretty large and we support quick navigation to properties `kb(workbench.action.gotoSymbol)` (sometimes referred to as goto symbol) with the Command Palette.
 
 ![Goto Symbol](images/json/gotosymbol.png)
 
@@ -44,7 +44,7 @@ You can format your JSON document (or just a part of it) using `kb(editor.action
 ## JSON Schemas & Settings
 To understand the structure of JSON files, we use [JSON schemas](http://spacetelescope.github.io/understanding-json-schema/). JSON schemas describe the shape of the JSON file, as well as value sets, default values and descriptions.
 
-The JSON language mode has a set of schema associations preconfigured. Users can extend or overwrite that list in the User or Workspace Settings (`File | Preferences | User Settings` or `Workspace Settings`) under the property `json.schemas`.
+The JSON language mode has a set of schema associations preconfigured. Extensions can also contribute schema associations. Users can extend or overwrite that list in the User or Workspace Settings (`File | Preferences | User Settings` or `Workspace Settings`) under the property `json.schemas`.
 
 >**Tip:** For an overview see [User and Workspace Settings](/docs/customization/userandworkspace.md).
 

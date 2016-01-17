@@ -1,14 +1,14 @@
 ---
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 11/18/2015
+DateApproved: 12/19/2015
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 
 # Visual Studio Code FAQ
 Our docs contain a **Common Questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
-If you don't see an answer to your question here, check our previously [reported issues](http://github.com/microsoft/vscode/issues) and our [Updates](http://code.visualstudio.com/Updates) notes.
+If you don't see an answer to your question here, check our previously [reported issues](http://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
 
 ## How do I update to the latest version?
 See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
@@ -37,34 +37,27 @@ If you opt out of auto-updates, your VS Code version will eventually be out of d
 5. Replace `"updateChannel": "stable"` with `"updateChannel": "none"`
 6. Save the file via `kbstyle(Esc ZZ)`. You’re now opted out of auto-updates.
 
+## Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
+
+Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+
 ## How can I test prerelease versions of VS Code?
 
 Want get an early peek at new VS Code features?  You can try prerelease versions of VS Code by using the `insiders` update channel.  
 
 >**Note:** You can always go back to latest release version of VS Code by switching back to the `stable` update channel.
 
-Do the following steps to modify the storage.json file used by VS Code. To modify storage.json, use a text editor other than VS Code, since VS Code modifies this file on shutdown.
+To modify the update channel, go to `File | Preferences | User Settings` and add the `update.channel` setting with the value `"insiders"`.
 
-### Windows
-1. Close VS Code if it is still running.
-2. Open a command prompt.
-3. Type `cd %APPDATA%\code`
-4. Type `notepad storage.json`
-5. Replace `"updateChannel": "stable"` with `"updateChannel": "insiders"`
-6. Save the file via `kbstyle(Ctrl+S)` and exit Notepad. You will now get insiders updates as they are available.
-
-### OS X
-1. Close VS Code if it is still running.
-2. Start the Terminal app.
-3. Type `cd ~/Library/"Application Support"/Code`
-4. Type `vi storage.json`
-5. Replace `"updateChannel": "stable"` with `"updateChannel": "insiders"`
-6. Save the file via `kbstyle(Esc ZZ)`. You’re now get insiders updates as they are available.
+```json
+    "update.channel": "insiders"
+```
 
 ## Windows - Trouble with the installer
 Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
 
 >**Note:** When VS Code is installed via a Zip you will need to manually update it for each release.
+
 
 ## Windows - Icons are missing
 I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
@@ -83,6 +76,16 @@ Using the Registry Editor:
 3. Find the `.svg` key.
 4. Set its `Content Type` Data value to `image/svg+xml`.
 5. Exit regedit.
+
+## Windows 7 - Error when deleting files from Explorer
+
+>**19 Dec 2015 | version 0.10.5**
+
+When deleting a file from the VS Code Explorer on **Windows 7** using the 0.10.5 release, you may receive an error "Failed to move '*filename*' to the trash" which prompts you to "Delete Permanently", "Retry", or "Cancel".
+
+By default, VS Code attempts to move the file to the Trash (Windows Recycle Bin). In the 0.10.5 release, there is an issue [3656](https://github.com/atom/electron/issues/3656) with the Electron Shell preventing this from working correctly.
+
+You can choose to delete the file permanently or delete the file using the Windows Explorer or Command Prompt, which will properly move the file to the Windows Recycle Bin.
 
 ## OS X - VS Code fails to start OmniSharp
 On OS X, VS Code can no longer start OmniSharp after updating VS Code.
@@ -128,6 +131,26 @@ We're working on a fix. In the meantime, open the application menu, then choose 
 
 `editor.fontFamily: "Droid Sans Mono, Droid Sans Fallback"`
 
+## Proxy Server Support
+
+If you work on a machine where internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
+
+*	Set the operating system environment variables ‘http.proxy’ and ‘https.proxy’
+
+```
+    SET http_proxy=http://10.203.0.1:5187/
+```
+
+*	Configure the ‘http.proxy’ setting in your user settings (File > Preferences > User Settings)
+
+```json
+    “http.proxy”: “http://10.203.0.1:5187/”
+```
+
+Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.
+
+>**Note:** VS Code supports http and https proxies, but not SOCKS proxies.
+
 ## VS Code gets unresponsive right after opening a folder
 When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution).
 If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve
@@ -163,12 +186,14 @@ If you don’t wish to send usage data to Microsoft, please follow the instructi
 6. Save the file via `CTRL+S` and exit Notepad. Collection of usage data should now be disabled. 
  
 ### OS X / Linux 
+> **TIP:** For Mac, editing `product.json` may prevent you from opening VS Code for the first time depending on your security settings. A workaround is to open VS Code at least once before editing the file.
+
 1. Close VS Code. 
 2. Open the terminal 
 3. For: 
 	- Mac Type `cd <PATH-TO-VSCode>/Visual\ Studio\ Code.app/Contents/Resources/app`
 	- Linux Type `cd <PATH-TO-VSCode>/Resources/app`
-5. Type `vi product.json`
-6. Replace `enableTelemetry=true` with `enableTelemetry=false` 
-7. Save the file via `Esc ZZ`. Collection of usage data should now be disabled. 
+4. Type `vi product.json`
+5. Replace `enableTelemetry=true` with `enableTelemetry=false` 
+6. Save the file via `Esc ZZ`. Collection of usage data should now be disabled. 
  

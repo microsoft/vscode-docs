@@ -3,7 +3,7 @@ Order: 1
 Area: runtimes
 TOCTitle: Node.js
 PageTitle: Node.js and Visual Studio Code End to End
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications.  At the heart of VS Code is a Node server so we use these features day-in day-out.
 ---
 
@@ -15,7 +15,7 @@ To get started, [install Node.js for your platform](https://nodejs.org/download/
 > **Tip!** You can download both the TypeScript and JavaScript versions of the sample application created in this walkthrough from the [vscode-samples](https://github.com/Microsoft/vscode-samples/archive/master.zip) repository.
 
 ## Express
-[Express](http://expressjs.com/) is a very popular application framework for building and running Node applications. You can scaffold a new Express application using the Express Generator tool, which is typically installed globally on your computer.
+[Express](http://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold a new Express application using the Express Generator tool, which is typically installed globally on your computer.
 
 ```
 npm install -g express-generator
@@ -25,7 +25,7 @@ We can now scaffold a new Express application called `myExpressApp`.
 ```
 express myExpressApp
 ```
-This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the dependencies, cd into `myExpressApp` and run `npm install`.
+This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the dependencies, execute:
 ```
 cd myExpressApp
 npm install

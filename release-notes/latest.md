@@ -1,132 +1,258 @@
 ---
 Order: 1
 TOCTitle: Latest
-PageTitle: Visual Studio Code v0.10.0
-MetaDescription: See what is new in Visual Studio Code 0.10.0
+PageTitle: Visual Studio Code December 0.10.5
+MetaDescription: See what is new in the Visual Studio Code December Release (0.10.5)
 ---
 
-# VS Code v0.10.1 (November - Beta 2015)
+# 0.10.6 (December 2015)
+
+The 0.10.6 release fixes a [crash on startup](https://github.com/Microsoft/vscode/issues/1463) that happens on OS X when using certain keyboard layouts. 
+
+# 0.10.5 (December 2015)
 
 Hi,
 
-With this release, we mark our official Beta milestone and the big news is that VS Code now supports extensions (plug-ins) and is open source!
+November was a big release for us (adding extensibility support and moving to open source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
 
-## VS Code Supports Extensions!
+These release notes only capture what's new in the core of Visual Studio Code. Do not forget to check out the [marketplace](https://marketplace.visualstudio.com/#VSCode) for new extensions.
 
-VS Code has great features out of the box but now you and the community can extend VS Code to add new features and languages.  
+## Thanks
 
-![marketplace](images/0_10_0/marketplace.png)
+A big thanks for the great contributions we have received. The community has filed over 200 bugs, 280 feature requests, and submitted 70 pull requests. We have addressed many of these issues and merged most of the pull requests.
+
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Abug+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Afeature-request+is%3Aclosed) for the December milestone.
+
+Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue.
+
+## Insider's Channel
+
+There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The setting is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to install prerelease builds. For more details, refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
+
+## Editor - Find/Replace improvements
+
+In regex mode:
+
+* Can now search for `^`, `$` or `^$` thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/314).
+* Can now replace with `\n` or `\t`.
+
+Keyboard shortcuts:
+
+* New Find settings commands: toggle case-sensitive (`kb(toggleFindCaseSensitive)`), toggle regex (`kb(toggleFindRegex)`) and toggle whole word (`kb(toggleFindWholeWord)`)
+* `kb(actions.find)` puts focus in the Find input field.
+* `kb(editor.action.startFindReplaceAction)` puts focus in the Replace input field.
+* When focus is in the Find widget input fields, `kbstyle(Ctrl+Down)` put focus in the editor.
+
+## Changed defaults and key bindings
+
+* Changed the defaults for `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change both settings back to `"auto"`.
+* Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
+
+## Editor - Cursor Blinking Options
+
+New setting to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/Microsoft/vscode/pull/500).
+
+## Editor - Select Current Line Command
+
+New select current line command (`kb(expandLineSelection)`) thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/961).
+
+## Editor - Scroll Viewport Commands
+
+Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/1051), VS Code has improved editor scroll support:
+
+* Scroll by one line up (`kb(scrollLineUp)`) / down (`kb(scrollLineDown)`)
+* Scroll by one page up (`kb(scrollPageUp)`) / down (`kb(scrollPageDown)`)
+
+## Key Bindings for Numeric Keypad
+
+Added support for function keys `kbstyle(f13-f19)` and for the numeric keypad keys:
+
+* `kbstyle(numpad0-numpad9)`
+* `kbstyle(numpad_multiply)`
+* `kbstyle(numpad_add)`
+* `kbstyle(numpad_separator)`
+* `kbstyle(numpad_subtract)`
+* `kbstyle(numpad_decimal)`
+* `kbstyle(numpad_divide)`
+
+## Improvements for non US standard keyboard layouts
+
+VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85). In `keybindings.json` and in all the UI, we used to render the key codes with the produced characters under the US standard keyboard layout. We received feedback that this was very confusing, therefore, we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
+
+For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
+![render key binding](images/December/render-key-binding.png)
+
+When editing `keybindings.json`, we now highlight misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout.
+
+For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+
+![keybindings.json guidance](images/December/keybindings-json.png)
+
+Finally, we added a new widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want you can press `kbstyle(Enter)` and a rule snippet will be inserted.
+
+![key binding widget](images/December/key-binding-widget.png)
+
+## ES6 is the new default
+
+We have made ES6 the default for JavaScript files. This means you don't need to create `jsconfig.json` files to enable new syntax and by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
+
+At the same time, the grammar used to colorize JavaScript was also updated to support the ES6 syntax.
+
+## TypeScript Update
+
+The TypeScript language service was updated to version [1.7.5](http://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
+
+## JSX Support
+
+To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX.
+
+* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and configure JSX support. This will provide you with validation in JSX files.
+
+```
+{
+    "ecmaFeatures": {
+        "jsx": true,
+        ...
+    }
+    ...
+}
+```
+
+* If you are using React constructs inside `.js` files then you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items/eg2.js-is-jsx) which changes the file mapping so that `.js` files are treated as `.jsx` files. **Be aware** that if you install this extension, you lose the existing language support for `.js` files.
+
+The grammars used to colorize JS and JSX are now aligned.
+
+## Extension Debugging
+
+We improved extension debugging when connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the 'Extension Host`. In addition, the debugger will connect faster to your extension.
+
+## Extensions Show Outdated Extensions
+
+Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/517), there is now a `Show Outdated Extensions` command, that shows all outdated extensions and lets you quickly install their updates.
+
+## Installed Extension Issues
+
+If VS Code identifies an issue with an installed extension, it will display an `issues` prompt on the Status Bar.  Click on the `issues` prompt to see the extension issue details and have the option to uninstall the extension.
+
+![extension issues](images/December/extension-issues.png)
 
 ## Extension Gallery
 
-Find and install cool extensions by searching VS Code's public [extension gallery](/docs/editor/extension-gallery.md).  There you'll find new themes, snippets, languages and tools.
+There is now [proxy support for the extension gallery](https://github.com/Microsoft/vscode/issues/69).
 
-![extension language](images/0_10_0/extension-language.png)
+## Extension Deactivation
 
-VS Code has two new `Extensions` commands (`kb(workbench.action.showCommands)` then `'ext inst'`) to let you find and install new extensions and manage (update, uninstall) your currently installed extensions.
+If an extension exports a function named `deactivate()`, VS Code now calls it on shutdown.
 
-![extension commands](images/0_10_0/extension-commands.png)
+## File Picker improvements and fuzzy search
 
-The VS Code also has a [Marketplace](https://marketplace.visualstudio.com/#VSCode) where you can browse and learn more about extensions.
+The file picker ("Quick Open") is now able to search on file paths when you include slash (Mac/Linux) or backslash (Windows) in the search term. This allows you to list all the files of a directory easily.
 
-## Extensibility SDK
+![Path Search in File Picker](images/December/path-search.png)
 
-If you don't find an existing extension that meets your development needs, you can create your own.  We've added extensive documentation on [how to extend VS Code](/docs/extensions/overview.md) and a full [extensibility API reference](/docs/extensionAPI/overview.md).  In addition, we provide the tools to you need to create and publish extensions.
+A new setting `filePicker.alternateFileNameMatching` enables fuzzy searching for the file picker. Once enabled, the search term will match on the full path of the file by default, without having to include path separators in the query. In addition, a search term will match in a more fuzzy way on the path compared to the default. For example, a search for `fb` will match a file `foobar` because the filename contains `f` and `b`. We also added a new sorter for the picker when fuzzy searching is enabled which tries to put the most relevant results to the top. Please try out this feature and give us feedback so that we can tune the experience.
 
-If you'd like to dive right in, you can start with our ["Hello World"](/docs/extensions/example-hello-world.md) walkthrough where you'll have a VS Code extension up and running in a matter of minutes.
+![Fuzzy Search in File Picker](images/December/fuzzy-search.png)
 
-### Yo Code Extension Scaffolding
+## Persisted Zoom Level
 
-We've updated the [`yo code` generator](/docs/tools/yocode.md) to create a basic extension project (TypeScript or JavaScript) which has all the metadata and source files necessary for a working extension. 
+A new setting `window.zoomLevel` allows you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the `View` menu `Zoom in` command.  Unlike the zoom level set with the `Zoom in` and `Zoom out` commands, the `window.zoomLevel` is a setting persisted across VS Code sessions.
 
-![yo code](images/0_10_0/yo-code.png)
+## window.openFileInNewWindow
 
-### Extension Publishing
+The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old setting but we ask you to update to the new name.
 
-The [`vsce` publishing tool](/docs/tools/vscecli.md) lets you easily package and publish your extension.  You can share your extension with colleagues by distributing a VS Code extension package or publish your extension for the community on the public gallery. 
+## Themes
 
-## Extension samples
+Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while other languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in the 0.9.0 release so we use a few major colors: blue for keywords, green for comments and red for strings.
 
-If you'd rather start your extension by modifying a working example, you can find [extension samples](/docs/tools/samples.md) as well as the source code for many extensions on GitHub ([Go Language Support](https://github.com/microsoft/vscode-go)).
+## Emmet
 
-## VS Code is Open Source!
+Emmet is now supported in JSX and TSX files.
 
-You spoke and we listened.  With this release, VS Code development is now open source on [GitHub](http://github.com/microsoft/vscode).
+## Scoped Git Services
 
-![hello code](images/0_10_0/hello-code.png)
+It is now possible to open a sub-directory of a Git repository in VS Code. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded and have a tool tip indicating the file is located outside the current workspace.
 
-You can now contribute to VS Code:
-* Submit [bugs](http://github.com/microsoft/vscode/issues) and help us verify fixes as they are checked in.
-* Review the source code changes.
-* Contribute bug fixes through pull requests.
-* Update and add to the [documentation](http://github.com/microsoft/vscode-docs).
+## Git Status Bar Actions
 
-## Add TextMate Snippets
+There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
 
-Another addition to the `yo code` generator is the option to add TextMate Snippets (.tmSnippets) to VS Code. Run `yo code`, select `New Code Snippets` and specify a folder containing TextMate snippet files. The generator will convert them to the VS Code snippet format and create a VS Code extension for your own use or to share on the gallery. The generator also supports Sublime snippets (.sublime-snippets). 
+![git status bar sync](images/December/git-status-bar-sync.png)
 
-## Debugging - Debug Console Improvements
-* Colored text output to highlight diagnostic errors and warnings
-* Support file path links with line and column information for quick source code navigation.
+If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to remote.
 
-![Colored Output](images/0_10_0/colored-output.png)
+![git status bar publish](images/December/git-status-bar-publish.png)
 
-## Debugging - Easy Variable Selection
-Directly add selections to the Debug Console and Watch window with two new editor commands:
-* `Debug: Evaluate` - add the text selection to the Debug Console
-* `Debug: Add to Watch` - add the text selection to the Debug Watch window
+## Debug Console Wraps Text
 
-![add to watch](images/0_10_0/add-to-watch.png)
+We now wrap long text in the debug console.
 
-## Debugging - Debug environment configuration
-When you create your initial debug configuration (`launch.json`), VS Code now asks for your specific debug environment (Node.js, Mono) and creates a `launch.json` specific to that environment.  VS Code also detects the type of request ('launch' or 'attach').
+![debug console word wrap](images/December/debug-repl-wrap.png)
 
-![select debug env](images/0_10_0/select-debug-env.png)
+## Debug Breakpoints Polish
 
-## Debugging - Hover
-Debug hover behavior has been improved: it is now possible to hover over object properties or variables that are not in the top stack frame.
+We now show breakpoints in a more intuitive way:
 
-## Debugging - Node.js
-Starting with this release, we are now launching the Node.js debug target in the internal VS Code Debug Console. This eliminates the tedious management of external console windows and brings program output and the Node.js REPL closer together. Since the Debug Console does not support programs that need to read input from the console, the external console is still available and you can enable it by setting the attribute `externalConsole` to `true` in your launch configuration.
+* A red filled circle represents an active breakpoint.
+* A gray filled circle represents a disabled breakpoint.
+* A gray hollow circle represents a breakpoint which could not be successfully registered with the debugger. For languages that are transpiled to JavaScript, this could mean that source maps are missing or invalid.
 
-## Improved Syntax Highlighting
-We updated all our syntax highlighters to emit tokens which are compatible with TextMate themes. Custom color themes now work with all languages, including HTML and CSS.
+## JSON Schema Contributions
 
-ColorSublime Batman Theme in 0.9.1:
+Extensions can now contribute JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
 
-![theme-0-9-0](images/0_10_0/theme-0-9-0.png)
+```json
+    "contributes": {
+        "jsonValidation": [{
+            "fileMatch": ".jshintrc",
+            "url": "http://json.schemastore.org/jshintrc"
+        }]
+    }
+```
 
-ColorSublime Batman Theme in 0.10.0:
+Alternatively, extensions can also give the path to a schema file in the extension folder:
 
-![theme-0-10-0](images/0_10_0/theme-0-10-0.png)
+```json
+    "contributes": {
+        "jsonValidation": [{
+            "fileMatch": ".htmlhintrc",
+            "url": "./schemas/htmlhintrc.schema.json"
+        }]
+    }
+```
 
-## Environment Variable Substitution
-You can now reference environment variables directly in your `launch.json` and `task.json` files through `${env.Name}` (e.g. `${env.PATH}`).
+## Language Server Extensions
 
-## Language - PHP
-VS Code is now using the official PHP linter (`php -l`) for PHP language diagnostics. VS Code will now stay current with PHP linter improvements.
+The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
 
-There are two new settings to control the PHP linter:
-* _php.validate.executablePath_: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
-* _php.validate.run_: controls whether the validation is triggered on save (value: "onSave") or on type (value: "onType"). Default is on save.
+## Debug Adapter Development
 
-## Languages - Workspace relative TypeScript version
+For Node.js based debug adapter development, we've made the VS Code Debug Protocol and an adapter default implementation available as npm modules:
 
-If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting now supports relative paths so you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`).
+* [vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol)
+* [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter)
 
-## New Difference View Settings
-You can now set your diff view preferences with two new settings:
-* `diffEditor.renderSideBySide` - Control whether to show differences in a side by side or inline view.
-* `diffEditor.ignoreTrimWhitespace` - Ignore leading and trailing (trim) whitespace when showing differences.
+The source for these modules lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node). Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debug](https://github.com/Microsoft/vscode-node-debug) have been updated to use the npm modules.
 
-![inline-diff-view](images/0_10_0/inline-diff-view.png)
+## Engineering
 
-Previously these options where available in the editor's title bar.
+The VS Code GitHub repository supports continued integration for branches and pull requests:
+
+* [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
+* [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
+
+During this first iteration of VS Code being open source, we tuned and documented more of our development workflows:
+
+* [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking)
+* [How we use the different feedback channels](https://github.com/Microsoft/vscode/wiki/Feedback-Channels)
+
+We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
 
 ## Notable Bug Fixes
 
-As always we fixed many issues.
+* Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
 
-Here are a few of the notable ones:
+## What's next
 
-* Editor code completion is slow with large completion lists, e.g. 30000 suggestions.
+The VS Code development team will now take time off to be with friends and family. We will be back fully recharged in January.

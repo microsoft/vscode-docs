@@ -3,37 +3,29 @@ Order: 3
 Area: editor
 TOCTitle: Extension Gallery
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Gallery.
 ---
 
 # VS Code Extension Gallery
 
-## Browse Extensions
+## Browse and Install Extensions in VS Code
 
-You can browse the VS Code Extension Gallery both from within VS Code and through the [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode).
-
-![marketplace](images/extension-gallery/marketplace.png) 
-
-## Browse the Gallery in VS Code
-
-Press `kb(workbench.action.showCommands)` and narrow down the list commands by typing `extension`:
+You can browse and install extensions from within VS Code. Press `kb(workbench.action.showCommands)` and narrow down the list commands by typing `extension`:
 
 ![F1 Extensions](images/extension-gallery/f1extensions.png)
 
 Pick `Extensions: Install Extension`.
 
-> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` and type `ext install ` with a trailing space.
+> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` and type `ext install ` with a trailing space. Not sure what to install? Visit [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode).
 
 ![ext install](images/extension-gallery/ext-install.png)
 
 You'll see a list of extensions on the gallery along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode) page where you can learn more.
 
-![marketplace readme](images/extension-gallery/marketplace-readme.png)
-
 ## Install an Extension
 
-Simply pick the extension from the list. After a while, you'll get the following notification:
+Simply pick the extension from the list. After a successful install, you'll get the following notification:
 
 ![installed](images/extension-gallery/installed.png)
 
@@ -49,7 +41,13 @@ To uninstall an extension, bring up the `Extensions: Show Installed Extensions` 
 
 ## Update an Extension
 
-When a new version of an extension is available, it will be visible in the `Extensions: Install Extension` dropdown with an enabled update button in the lower right of the extension entry.  Simply click this button and after the update, you'll be prompted to restart VS Code.
+You can quickly look for extension updates by using the `Extensions: Show Outdated Extensions` dropdown.  This will display any available updates for your currently installed extensions. Simply click the Update Extension button in the lower right for the outdated extension and the update will be installed and you'll be prompted to restart VS Code.
+
+## Browse Extensions
+
+Additionally, you can browse the VS Code Extension Gallery through the [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode).
+
+![marketplace](images/extension-gallery/marketplace.png) 
 
 ## Next Steps
 Here are a few topics you may find interesting...
@@ -62,9 +60,13 @@ Here are a few topics you may find interesting...
 
 ## Common Questions
 
+**Q: The `Extensions: Install Extension` command just hangs and never shows a dropdown listing available extensions?**
+
+**A:** This could be due to an incomplete uninstall of an extension which left some extension files under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder).  Navigate to `.vscode/extensions` and see if there is an extension folder (named for the publisher and extension as `publisher.extension`) for a recently deleted extension.  Delete that folder and restart VS Code.  
+
 **Q: Can VS Code read TextMate bundles directly?**
 
-**A: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration.  The [Yo Code](/docs/tools/yocode.md) extension generator makes it easy to package these files for use in VS Code.
+**A**: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration.  The [Yo Code](/docs/tools/yocode.md) extension generator makes it easy to package these files for use in VS Code.
 
 **Q: Can I install Visual Studio Community extensions (shipped in .vsix) in Visual Studio Code?**
 

@@ -3,7 +3,7 @@ Order: 5
 Area: editor
 TOCTitle: Version Control
 PageTitle: Version Control
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Visual Studio Code has integrated Git support for the most common commands.
 ---
 
@@ -12,10 +12,10 @@ Visual Studio Code has integrated [Git](http://git-scm.com/) support for the mos
 This makes it an excellent choice to manage your code commits while you develop.
 And don't forget that the command prompt is still your friend.
 
->**Note:** VS Code will leverage your machine's Git installation, but you need
+>**Note:** VS Code will leverage your machine's Git installation, so you need
 to [install Git](http://git-scm.com/download) first before you get these features.
 
->**Tip:** VS Code will work with any Git repo - local or remote.  If you don't already have a private hosted Git provider, [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) is a great free option. [Click here to sign-up](http://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
+>**Tip:** VS Code will work with any Git repo - local or remote.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](http://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](http://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 ## Overview
 
@@ -37,6 +37,18 @@ of VS Code: the **current branch**, **dirty indicators** and the number of
 **incoming and outgoing commits** of the current branch.
 You can **checkout** to any branch in your repository by clicking that status indicator
 and selecting the Git reference from the list.
+
+> **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
+
+## Git Status Bar Actions
+
+There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
+
+![git status bar sync](images/versioncontrol/git-status-bar-sync.png)
+
+If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to remote.
+
+![git status bar publish](images/versioncontrol/git-status-bar-publish.png)
 
 
 ## Commit
@@ -106,7 +118,7 @@ To open the window follow the `View`, `Toggle Output` menu and select `Git` from
 
 **Q: Hey, I initialized my repo but the actions in the `...` menu are all grayed out. What gives?**
 
-**A:** To **push, pull and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you simply need to add it to the Git settings by running a couple of command line actions. For example for Visual Studio Online:
+**A:** To **push, pull and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you simply need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
 ```
 > git remote add origin https://<AccountName>.visualstudio.com/DefaultCollection/_git/<RepoName>
 > git push -u origin master
@@ -125,6 +137,10 @@ This usually means there is no credential management configured in Git and you'r
 
 To get credential prompts any time VS Code needs to talk to your remotes, upgrade to VS Code 0.5.0. Even better, you should set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/)
 in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
+
+**Q: How can I sign into Git with my Team Services account which requires multi-factor authentication?**
+
+**A:** There are now [Git credential helpers](http://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credendial Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
 
 **Q: Using Visual Studio Code, I accidentally initialized a Git repo on a folder with a massive number of files, like my entire hard drive. Now VS Code is too slow to use or hangs. What do I do?**
 

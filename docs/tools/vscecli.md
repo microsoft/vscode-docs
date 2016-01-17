@@ -3,14 +3,14 @@ Order: 1
 Area: tools
 TOCTitle: Publishing Tool
 PageTitle: vsce Publishing Tool - Publishing your Visual Studio Code Extensions
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Find out how to publish an extension to the Visual Studio Code Extension Gallery.
 ---
 
 # vsce - Publishing Tool Reference
 
 [vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish
-extensions to the [Extension Gallery](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them view email or a UNC drive.
+extensions to the [Extension Gallery](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
 
 ## Installation
 
@@ -34,13 +34,13 @@ For a reference on all the available commands, run `vsce --help`.
 
 ## Publishing Extensions
 
-Visual Studio Code leverages [Visual Studio Online](https://www.visualstudio.com/products/what-is-visual-studio-online-vs) for its gallery services. This means that authentication, hosting and management of extensions is provided through that service.
+Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its gallery services. This means that authentication, hosting and management of extensions is provided through that service.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/en-us/news/2015-jul-7-vso.aspx). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First, login to or sign up for [Visual Studio Online](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online).
+First, login to or sign up for [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online).
 
 Then, from your account's home page `https://ACCOUNT.visualstudio.com`, go to the **My Profile** page:
 
@@ -63,7 +63,7 @@ A **publisher** is an identity who can publish extensions to the Visual Studio C
 Once you have a [Personal Access Token](/docs/tools/vscecli.md#get-a-personal-access-token), you can create a new publisher using `vsce`:
 
 ```
-vsce create-publisher <publisher>
+vsce create-publisher (publisher name)
 ```
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
@@ -73,7 +73,7 @@ vsce create-publisher <publisher>
 If you already created a publisher before and simply want to use it with `vsce`:
 
 ```
-vsce login <publisher>
+vsce login (publisher name)
 ```
 
 Similarly to the `create` command, `vsce` will ask you for the Personal Access Token and remember it for future commands.
@@ -147,9 +147,9 @@ This will always invoke the [TypeScript](http://www.typescriptlang.org/) compile
 
 ## Common Questions
 
-**Q: I get 403 forbidden when I try to publish my extension?** 
+**Q: I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?** 
 
-**A:** One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accounts` as the account scope (instead selecting a specific token you have access to). You need to provide the `all accounts` scope for the publish to work.
+**A:** One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field dropdown (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
 
 **Q: I can't unpublish my extension through the `vsce` tool?**
 

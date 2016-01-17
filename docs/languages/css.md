@@ -3,7 +3,7 @@ Order: 8
 Area: languages
 TOCTitle: CSS, Sass and Less
 PageTitle: CSS, Sass and Less support in VS Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
 
@@ -27,8 +27,12 @@ As you type we provide syntax highlighting as well as in context preview of colo
 
 
 ## Syntax Verification & Linting
-We support CSS version <= 2.1, Scss version <= 3.2 and Less version <= 1.7.
+We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 1.7.
 
+>**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace setting to false.
+>```json
+>    "css.validate": false
+>```
 
 ## Goto symbol in file
 Simply press `kb(workbench.action.gotoSymbol)`.
@@ -99,7 +103,7 @@ The first example shows how to use configure tasks for TypeScript compilation.  
     "version": "0.1.0",
     "command": "node-sass",
     "isShellCommand": true,
-    "args": ["styles.scss", ">", "styles.css"]
+    "args": ["styles.scss", "styles.css"]
 }
 ```
 
@@ -109,11 +113,11 @@ The first example shows how to use configure tasks for TypeScript compilation.  
     "version": "0.1.0",
     "command": "lessc",
     "isShellCommand": true,
-    "args": ["styles.less", ">", "styles.css"]
+    "args": ["styles.less", "styles.css"]
 }
 ```
 
-Under the covers we interpret `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss > styles.css` or `lessc styles.less > styles.css`.
+Under the covers we interpret `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss styles.css` or `lessc styles.less styles.css`.
 
 ### Step 4: Run the Build Task
 As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `style.css`.

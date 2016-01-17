@@ -3,7 +3,7 @@ Order: 1
 Area: customization
 TOCTitle: Overview
 PageTitle: Customize Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: You can configure VS Code to work the way you like to work.  Here is a quick primer on some of the most common ways to configure VS Code.
 ---
 
@@ -43,7 +43,7 @@ Here are a few pointers to help you on your way...
 
 **Q: What are the valid fields in the `project.json` (extension Manifest) file?**
 
-**A:** We have extended the `package.json` to include the required fields for customisation and extension loading/distribution.  We have an overview of the optional and mandatory sections of the [extension manifest](/docs/extensions/extension-manifest.md) available.
+**A:** We have extended the `package.json` to include the required fields for customisation and extension loading/distribution.  We have an overview of the optional and mandatory sections of the [extension manifest](/docs/extensionAPI/extension-manifest.md) available.
 
 **Q: Can a `package.json` contribute more than one customization?**
 

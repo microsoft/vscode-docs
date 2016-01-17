@@ -3,7 +3,7 @@ Order: 6
 Area: languages
 TOCTitle: Markdown
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 
@@ -186,9 +186,13 @@ Read on to find out about:
 
 ## Common Questions
 
-**Q: Do you support spell checking?**
+**Q: Is there spell checking?**
 
-**A:** No but it's something that our extensibility story will enable soon.
+**A:** Not in VS Code out of the box but there are [spell checking extensions](https://marketplace.visualstudio.com/items/seanmcbreen.Spell).  Be sure to check the [VS Code Marketplace](https://marketplace.visualstudio.com/#vscode) to look for useful extensions to help with your workflow.
+
+**Q: Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
+
+**A:** Yes.
 
 **Q: In the walkthrough above, I didn't find the `Configure Task Runner` command in the Command Palette?**
 

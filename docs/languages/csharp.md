@@ -3,14 +3,14 @@ Order: 3
 Area: languages
 TOCTitle: C#
 PageTitle: C# programming with Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 ---
 
 
 # Working with C&#35;
 
-The C# support in VS Code is optimized for cross-platform .NET development (DNX) (see [working with ASP.NET 5 and VS Code](/docs/runtimes/ASPnet5.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance many Unity game developers have been enjoying using VS Code in place of the MonoDevelop IDE.  The will pick up errors as you type.
+The C# support in VS Code is optimized for cross-platform .NET development (DNX) (see [working with ASP.NET 5 and VS Code](/docs/runtimes/ASPnet5.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance, many Unity game developers have been enjoying using VS Code in place of the MonoDevelop IDE.
 
 We support debugging of C# apps cross-platform via Mono (see [Mono Debugging](/Docs/editor/debugging.md#mono-debugging)).
 
@@ -80,7 +80,7 @@ You can click on the references of an object to find the locations of its use in
 
 
 ## Quick Fixes / Suggestions
-There are some basic quick fixes supported in VS Code.  You will see a lightbulb and clicking on it will provide you with a simple list of fixes/suggestions.
+There are some basic quick fixes supported in VS Code.  You will see a lightbulb and clicking on it, or pressing `kb(editor.action.quickFix)` will provide you with a simple list of fixes/suggestions.
 
 ![Quick fix](images/csharp/lightbulb.png)
 

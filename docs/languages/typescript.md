@@ -3,7 +3,7 @@ Order: 7
 Area: languages
 TOCTitle: TypeScript
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 ---
 
@@ -21,7 +21,7 @@ VS Code's TypeScript support can operate in two different modes:
 >**Tip:** We recommend that you use explicit projects over file scope projects. Since explicit projects list the files belonging to a project language, features like `Find All References` `kb(editor.action.referenceSearch.trigger)` consider the project scope and not the file scope only.
 
 ## tsconfig.json
-Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file.  This defines the TypeScript project settings such as the compiler options and the files that should be includes.  To do this open up the folder where you want to store your source and add in a new file named `tsconfig.json`.  Once in this file IntelliSense will help you along the way.
+Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file.  This defines the TypeScript project settings such as the compiler options and the files that should be included.  To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`.  Once in this file IntelliSense will help you along the way.
 
 ![jsconfig.json IntelliSense](images/typescript/jsconfigintellisense.png)
 

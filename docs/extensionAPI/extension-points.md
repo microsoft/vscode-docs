@@ -3,7 +3,7 @@ Order: 3
 Area: extensionapi
 TOCTitle: Contribution Points
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 
@@ -19,6 +19,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`grammars`](/docs/extensionAPI/extension-points.md#contributesgrammars)
 * [`themes`](/docs/extensionAPI/extension-points.md#contributesthemes)
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
+* [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
 
 > **Tip:** If you want to contribute a language extension for a language that is already bundled with VS Code, you can do this by adding an `extensionDependency` to this language in your package.json. For example, to contribute to F# support:
 ```json
@@ -34,7 +35,7 @@ Contribute configuration keys that will be exposed to the user. The user will be
 
 When contributing configuration keys, a JSON schema describing these keys is actually contributed. This ensures the user gets great tooling support when authoring VS Code settings files.
 
-You can read these values from your extension using `vscode.extensions.getConfigurationMemento()`.
+You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
 
 ### Example
 
@@ -196,7 +197,6 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 ### Example
 
 ```json
-...
 "contributes": {
 	"themes": [{
 		"label": "Monokai",
@@ -204,7 +204,6 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 		"path": "./themes/Monokai.tmTheme"
 	}]
 }
-...
 ```
 
 ![themes extension point example](images/extension-points/themes.png)
@@ -213,19 +212,33 @@ See [Changing the Color Theme](/docs/customization/themes.md) for instructions o
 
 ## `contributes.snippets`
 
-```
+```json
 "contributes": {
 	"snippets": [{
 			"language": "go",
 			"path": "./snippets/go.json"
 	}]
+}
+```
+
+## `contributes.jsonValidation`
+
+Contributes a validation schema for a specific type of `json` file.  The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
+
+```json
+"contributes": {
+    "jsonValidation": [{ 
+ 		"fileMatch": ".jshintrc",
+ 		"url": "http://json.schemastore.org/jshintrc"
+	}]
+} 
 ```
 
 ## Next Steps
 To learn more about VS Code extensibility model, try these topic:
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Activation Events](/docs/extensionAPI/extension-points.md) - VS Code activation events reference
+* [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
 
 ## Common Questions
 

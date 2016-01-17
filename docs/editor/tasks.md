@@ -3,7 +3,7 @@ Order: 9
 Area: editor
 TOCTitle: Tasks
 PageTitle: Tasks in visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 
@@ -175,7 +175,7 @@ Here is a example where output for the "deploy" task is always brought to front:
 >**Tip:** If a property is redefined per OS and per task, the one from the task wins.
 
 ## Variables in tasks.json
-When authoring tasks it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the task.json file and has the following predefined variables:
+When authoring tasks it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the task.json and launch.json files and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
 - **${file}** the current opened file
@@ -212,7 +212,7 @@ you are familiar with regular expressions.
 
 A matcher that captures the above warning (and errors) looks like:
 
-```
+```json
 {
 	// The problem is owned by the cpp language service.
 	"owner": "cpp",

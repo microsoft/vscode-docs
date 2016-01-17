@@ -3,7 +3,7 @@ Order: 1
 Area: editor
 TOCTitle: Setup
 PageTitle: Setting up Visual Studio Code
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Get Visual Studio Code up and running on Mac OS X, Linux or Windows.
 ---
 
@@ -17,10 +17,10 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
 4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
 
->**Tip:** If you want to run VS Code from the terminal, append the following to your `~/.bash_profile` file (`~/.zshrc` in case you use `zsh`).
+>**Tip:** If you want to run VS Code from the terminal, append the following to your `~/.bash_profile` file (`~/.zshrc` in case you use `zsh`) and then either restart the terminal or type `source ~/.bash_profile`:
 
 ```bash
-code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 ```
 Now, you can simply type `code .` in any folder to start editing files in that folder.
 

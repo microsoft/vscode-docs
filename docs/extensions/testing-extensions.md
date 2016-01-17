@@ -3,7 +3,7 @@ Order: 10
 Area: extensions
 TOCTitle: Testing Extensions
 PageTitle: Testing Visual Studio Code Extensions
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
 
@@ -71,6 +71,59 @@ If you decide to share your extension, you may not want to include the tests in 
 out/test/**
 test/**
 ```
+
+## Running tests automatically on Travis CI build machines
+
+You can run extension tests automatically on build machines like [Travis CI](http://travis-ci.org).
+
+In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
+* download and unzip VS Code
+* launch your extension tests inside VS Code
+* print the results to the console and return with an exit code according to test success or failure
+
+To enable this test command, open your `package.json` and add the following entry to the `scripts` section:
+
+```json
+"test": "node ./node_modules/vscode/bin/test"
+```
+
+You can then enable Travis CI easily with a top-level `.travis.yml` configuration like this:
+
+```yml
+sudo: false
+
+os:
+  - osx
+  - linux
+    
+before_install:
+  - if [ $TRAVIS_OS_NAME == "linux" ]; then
+      export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
+      sh -e /etc/init.d/xvfb start;
+      sleep 3;
+    fi
+    
+install:
+  - npm install
+  - npm run vscode:prepublish
+    
+script:
+  - npm test --silent
+```
+
+The script above will run the tests on both Linux and Mac OS X. Note that in order to run the tests on Linux, you need to have
+a `before_install` configuration as above to enable Linux to start VS Code from the build.
+
+**Note:** Currently we do not support running tests on Windows (e.g. using Appveyor). 
+
+There are some optional environment variables to configure the test runner:
+
+| Name        | Description       |
+| ------------|-------------------|
+| `CODE_VERSION` | Version of VS Code to run the tests against |
+| `CODE_DOWNLOAD_URL` | Full URL of a VS Code drop to use for running tests against |
+| `CODE_TESTS_PATH` | Location of the tests to execute |
+| `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance |
 
 ## Next Steps
 

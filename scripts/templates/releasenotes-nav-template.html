@@ -1,0 +1,24 @@
+<nav id="docs-navbar" class="docs-nav updates-nav visible-md visible-lg">
+	<ul class="nav">
+		{% for article in articles %}
+			<li @(ViewBag.Section == "{{ article.Link }}" ? "class=active" : "")><a href="/updates/{{ article.Link }}">{{ article.NavTitle }}</a></li>
+		{% endfor %}
+	</ul>
+</nav>
+<nav id="small-nav" class="docs-nav updates-nav hidden-md hidden-lg">
+	<h4>Updates</h4>
+	<select id="small-nav-dropdown">
+		{% for article in articles %}
+			<option value="/updates/{{ article.Link }}" @(ViewBag.Section == "{{ article.Link }}" ? "selected" : "")>{{ article.NavTitle }}</option>
+		{% endfor %}
+	</select>
+	<div class="social-buttons">
+		<a class="twitter-share-button"
+		   data-text="Sharing this doc"
+           data-via="Code"
+		   href="https://twitter.com/share">
+		    Tweet
+		</a>
+		<div class="fb-like" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	</div>
+</nav>

@@ -3,7 +3,7 @@ Order: 7
 Area: extensions
 TOCTitle: Principles and Patterns
 PageTitle: Visual Studio Code Extensibility Patterns and Principles
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: The Visual Studio Code extensibility (plug-in) API is designed around a set of guiding patterns and principles to promote extension consistency, correctness and ease of development.
 ---
 
@@ -69,7 +69,6 @@ Visual Studio Code **will not** install your extension's dependencies when a use
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
-* [Working with the Editor](/docs/extensionAPI/documents-and-editors.md) - VS Code documents and editors API reference
 
 ## Common Questions
 

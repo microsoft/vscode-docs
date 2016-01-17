@@ -3,14 +3,17 @@ Order: 3
 Area: customization
 TOCTitle: Key Bindings
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 ---
 
 # Key Bindings for Visual Studio Code
+
 Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings and describes how you can update them.
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that OS.
+
+>**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
 
 ## Basic Editing
 
@@ -30,6 +33,7 @@ Key|Command|Command id
 `kb(cursorUndo)`|Undo last cursor operation|`cursorUndo`
 `kb(editor.action.selectHighlights)`|Select all occurrences of current selection|`editor.action.selectHighlights`
 `kb(editor.action.changeAll)`|Select all occurrences of current word|`editor.action.changeAll`
+`kb(expandLineSelection)`|Select current line|`expandLineSelection`
 `kb(editor.action.insertCursorBelow)`|Insert Cursor Below|`editor.action.insertCursorBelow`
 `kb(editor.action.insertCursorAbove)`|Insert Cursor Above|`editor.action.insertCursorAbove`
 `kb(editor.action.jumpToBracket)`|Jump to matching bracket|`editor.action.jumpToBracket`
@@ -39,6 +43,10 @@ Key|Command|Command id
 `kb(cursorEnd)`|Go to End of Line|`cursorEnd`
 `kb(cursorBottom)`|Go to End of File|`cursorBottom`
 `kb(cursorTop)`|Go to Beginning of File|`cursorTop`
+`kb(scrollLineDown)`|Scroll Line Down|`scrollLineDown`
+`kb(scrollLineUp)`|Scroll Line Up|`scrollLineUp`
+`kb(scrollPageDown)`|Scroll Page Down|`scrollPageDown`
+`kb(scrollPageUp)`|Scroll Page Up|`scrollPageUp`
 `kb(editor.action.addCommentLine)`|Add Line Comment|`editor.action.addCommentLine`
 `kb(editor.action.removeCommentLine)`|Remove Line Comment|`editor.action.removeCommentLine`
 `kb(editor.action.commentLine)`|Toggle Line Comment|`editor.action.commentLine`
@@ -47,6 +55,9 @@ Key|Command|Command id
 `kb(editor.action.startFindReplaceAction)`|Replace|`editor.action.startFindReplaceAction`
 `kb(editor.action.nextMatchFindAction)`|Find Next|`editor.action.nextMatchFindAction`
 `kb(editor.action.previousMatchFindAction)`|Find Previous|`editor.action.previousMatchFindAction`
+`kb(toggleFindCaseSensitive)`|Toggle Find Case Sensitive|`toggleFindCaseSensitive`
+`kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
+`kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
 `kb(editor.action.toggleTabFocusMode)`|Toggle Use of Tab Key for Setting Focus|`editor.action.toggleTabFocusMode`
 
 ## Rich Languages Editing
@@ -140,6 +151,7 @@ Key|Command|Command id
 `kb(workbench.action.markdown.openPreviewSideBySide)`|Open Preview to the Side|`workbench.action.markdown.openPreviewSideBySide`
 
 ## Preferences
+
 Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.openGlobalSettings)`|Open User Settings|`workbench.action.openGlobalSettings`
@@ -171,15 +183,19 @@ Key|Command|Command id
 
 Key|Command|Command id
 ---|-------|----------
-`kb(workbench.extensions.action.listExtensions)`|List Extensions|`workbench.extensions.action.listExtensions`
 `kb(workbench.extensions.action.installExtension)`|Install Extension|`workbench.extensions.action.installExtension`
+`kb(workbench.extensions.action.listExtensions)`|Show Installed Extensions|`workbench.extensions.action.listExtensions`
+`kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
 
 ## Customizing Shortcuts
+
 All keyboard shortcuts in VS Code can be customized via the `User/keybindings.json` file.
+
 * To configure keyboard shortcuts the way you want, go to the menu under `File , Preferences , Keyboard Shortcuts`.
 * This will open the Default Keyboard Shortcuts on the left and your `User/keybindings.json` file where you can overwrite the default bindings on the right.
 
 ## Keyboard Rules
+
 The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
 
 ```json
@@ -202,11 +218,13 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 ```
 
 Each rule consists of:
+
 * a **required** `key` that describes the pressed keys.
 * an **optional** `when` containing a boolean expression that will be evaluated depending on the current **context**.
 * an **optional** `command` containing the identifier of the command to execute.
 
 When a key is pressed:
+
 * the rules are evaluated from **bottom** to **top**.
 * the first rule that matches, both the `key` and in terms of `when`, is accepted.
 * no more rules are processed.
@@ -227,13 +245,53 @@ Windows|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(win+)`
 Linux|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(meta+)`
 
 The following keys are accepted:
-* `kbstyle(f1-f15)`, `kbstyle(a-z)`, `kbstyle(0-9)`
-* ``kbstyle(`)``, `kbstyle(-)`, `kbstyle(=)`, `kbstyle([)`, `kbstyle(])`, `kbstyle(;)`, `kbstyle(')`, `kbstyle(,)`, `kbstyle(.)`, `kbstyle(/)`
+
+* `kbstyle(f1-f19)`, `kbstyle(a-z)`, `kbstyle(0-9)`
+* ``kbstyle(`)``, `kbstyle(-)`, `kbstyle(=)`, `kbstyle([)`, `kbstyle(])`, `kbstyle(\)`, `kbstyle(;)`, `kbstyle(')`, `kbstyle(,)`, `kbstyle(.)`, `kbstyle(/)`
 * `kbstyle(left)`, `kbstyle(up)`, `kbstyle(right)`, `kbstyle(down)`, `kbstyle(pageup)`, `kbstyle(pagedown)`, `kbstyle(end)`, `kbstyle(home)`
 * `kbstyle(tab)`, `kbstyle(enter)`, `kbstyle(escape)`, `kbstyle(space)`, `kbstyle(backspace)`, `kbstyle(delete)`
 * `kbstyle(pausebreak)`, `kbstyle(capslock)`, `kbstyle(insert)`
+* `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(numpad_separator)`
+* `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
 Chords are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
+
+## Keyboard layouts
+
+>**Note:** This section relates only to key bindings, not to typing in the editor.
+
+The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
+
+* Reference: https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85)
+* `kbstyle(tab)` for `VK_TAB` (`0x09`)
+* `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
+* `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
+* `kbstyle(,)` for `VK_OEM_COMMA` (`0xBC`)
+* `kbstyle(-)` for `VK_OEM_MINUS` (`0xBD`)
+* `kbstyle(.)` for `VK_OEM_PERIOD` (`0xBE`)
+* `kbstyle(/)` for `VK_OEM_2` (`0xBF`)
+* ``kbstyle(`)`` for `VK_OEM_3` (`0xC0`)
+* `kbstyle([)` for `VK_OEM_4` (`0xDB`)
+* `kbstyle(\)` for `VK_OEM_5` (`0xDC`)
+* `kbstyle(])` for `VK_OEM_6` (`0xDD`)
+* `kbstyle(')` for `VK_OEM_7` (`0xDE`)
+* etc.
+
+Different keyboard layouts usually reposition the above virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, Visual Studio Code does the following:
+
+All the key bindings are rendered in the UI using the current system's keyboard layout. For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
+
+![render key binding](images/keybinding/render-key-binding.png)
+
+When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+
+![keybindings.json guidance](images/keybinding/keybindings-json.png)
+
+There is also a widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want, you can press `kbstyle(Enter)` and a rule snippet will be inserted.
+
+![key binding widget](images/keybinding/key-binding-widget.png)
+
+>**Note:** Visual Studio Code detects your current keyboard layout on start-up and then caches this information. For a good experience, we recommend restarting VS Code if you change your keyboard layout.
 
 ## Next Steps
 
@@ -246,6 +304,7 @@ Now that you know about our Key binding support, what's next...
 
 
 ## Common Questions
+
 **Q: How to find out what command is bound to a specific key?**
 
 **A:** In the Default Keyboard Shortcuts, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
@@ -255,6 +314,7 @@ Now that you know about our Key binding support, what's next...
 **Q: How to add a key binding to an action? E.g. Add Ctrl+D to Delete Lines**
 
 **A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `User/keybindings.json` file:
+
 ```json
 // Original, in Default Keyboard Shortcuts
 { "key": "ctrl+shift+k",          "command": "editor.action.deleteLines",
@@ -267,6 +327,7 @@ Now that you know about our Key binding support, what's next...
 **Q: How to remove a key binding from an action? E.g. Remove Ctrl+Shift+K from Delete Lines**
 
 **A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `User/keybindings.json` file:
+
 ```json
 // Original, in Default Keyboard Shortcuts
 { "key": "ctrl+shift+k",          "command": "editor.action.deleteLines",
@@ -278,6 +339,7 @@ Now that you know about our Key binding support, what's next...
 **Q: How can I add a key binding for only certain file types?**
 
 **A:** Use the `editorLangId` context key in your `when` clause:
+
 ```json
 { "key": "shift+alt+a",           "command": "editor.action.blockComment",
                                      "when": "editorTextFocus && editorLangId == 'csharp'" },
@@ -287,15 +349,3 @@ Now that you know about our Key binding support, what's next...
 
 **A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
 
-**Q: Why doesn't typing characters with the AltGr modifier key work for me?**
-
-**A**: Typing characters with AltGr does not work on all keyboard layouts. A fix is in the works. If this happens to you, go to `File`, `Preferences`, `Keyboard Shortcuts` and add the following to your keybindings.json file:
-
-```
-[
-{ "key": "ctrl+alt+o" },
-{ "key": "ctrl+alt+s" },
-{ "key": "ctrl+alt+f" },
-{ "key": "ctrl+alt+]" }
-]
-```

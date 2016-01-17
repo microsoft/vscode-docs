@@ -3,7 +3,7 @@ Order: 2
 Area: customization
 TOCTitle: User and Workspace Settings
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: How to modify VS Code User and Workspace Settings.
 ---
 
@@ -30,7 +30,7 @@ Depending on your platform, the user settings file is located here:
 * **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
 * **Linux** `$HOME/.config/Code/User/settings.json`
 
-The workspace settings file is located under the `.vscode` folder in your project.
+The workspace setting file is located under the `.vscode` folder in your project.
 
 ## Settings File Sections
 
@@ -55,7 +55,7 @@ Below is a copy of the default `settings.json` file.
 
 >**Tip:** While in the `settings.json` file, press `kb(workbench.action.gotoSymbol)` to see an outline of all available settings and navigate through the file.
 
-```
+```json
 // Overwrite settings by placing them into your settings file.
 {
 
@@ -77,10 +77,10 @@ Below is a copy of the default `settings.json` file.
 	"editor.glyphMargin": false,
 
 	// Controls the rendering size of tabs in characters. Accepted values: "auto", 2, 4, 6, etc. If set to "auto", the value will be guessed when a file is opened.
-	"editor.tabSize": "auto",
+	"editor.tabSize": 4,
 
 	// Controls if the editor will insert spaces for tabs. Accepted values:  "auto", true, false. If set to "auto", the value will be guessed when a file is opened.
-	"editor.insertSpaces": "auto",
+	"editor.insertSpaces": true,
 
 	// Controls if selections have rounded corners
 	"editor.roundedSelection": true,
@@ -118,6 +118,9 @@ Below is a copy of the default `settings.json` file.
 	// Controls the number of decorations that can show up at the same position in the overview ruler
 	"editor.overviewRulerLanes": 3,
 
+	// Controls the cursor blinking animation.
+	"editor.cursorBlinking": "blink",
+
 	// Controls if the cursor should be hidden in the overview ruler.
 	"editor.hideCursorInOverviewRuler": false,
 
@@ -127,14 +130,23 @@ Below is a copy of the default `settings.json` file.
 	// Controls if the editor shows reference information for the modes that support it
 	"editor.referenceInfos": true,
 
+	// Controls if the diff editor shows the diff side by side or inline
+	"diffEditor.renderSideBySide": true,
+
+	// Controls if the diff editor shows changes in leading or trailing whitespace as diffs
+	"diffEditor.ignoreTrimWhitespace": true,
+
 
 	//-------- Window configuration --------
 
 	// When enabled, will open files in a new window instead of reusing an existing instance.
-	"window.openInNewWindow": true,
+	"window.openFilesInNewWindow": true,
 
 	// Controls how folders are being reopened after a restart. Select 'none' to never reopen a folder, 'one' to reopen the last folder you worked on or 'all' to reopen all folders of your last session.
 	"window.reopenFolders": "one",
+
+	// Adjust the zoom level of the window. The original size is 0 and each increment above or below represents zooming 20% larger or smaller.
+	"window.zoomLevel": 0,
 
 
 	//-------- Files configuration --------
@@ -166,6 +178,15 @@ Below is a copy of the default `settings.json` file.
 	// The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
 	"http.proxy": "",
 
+	// Whether the proxy server certificate should be verified against the list of supplied CAs.
+	"http.proxyStrictSSL": true,
+
+
+	//-------- Update configuration --------
+
+	// Configure the update channel to receive updates from. Requires a restart after change.
+	"update.channel": "stable",
+
 
 	//-------- Search configuration --------
 
@@ -174,6 +195,9 @@ Below is a copy of the default `settings.json` file.
 		"**/node_modules": true,
 		"**/bower_components": true
 	},
+
+	// Experimental support for fuzzy matching of file names in the file picker.
+	"filePicker.alternateFileNameMatching": false,
 
 
 	//-------- Git configuration --------
@@ -188,77 +212,115 @@ Below is a copy of the default `settings.json` file.
 	"git.autofetch": true,
 
 
+	//-------- Telemetry configuration --------
+
+	// Enable crash reports to be sent to Microsoft.
+	// This option requires restart of VSCode to take effect.
+	"telemetry.enableCrashReporter": true,
+
+
 	//-------- JSON configuration --------
 
 	// Associate schemas to JSON files in the current project
-	"json.schemas": [
-		{
-			"fileMatch": [
-				"/bower.json",
-				"/.bower.json"
-			],
-			"url": "http://json.schemastore.org/bower"
-		},
-		{
-			"fileMatch": [
-				"/package.json"
-			],
-			"url": "http://json.schemastore.org/package"
-		},
-		{
-			"fileMatch": [
-				"/project.json"
-			],
-			"url": "http://json.schemastore.org/project"
-		},
-		{
-			"fileMatch": [
-				"*.schema.json"
-			],
-			"url": "http://json-schema.org/draft-04/schema#"
-		},
-		{
-			"fileMatch": [
-				"/global.json"
-			],
-			"url": "http://json.schemastore.org/global"
-		},
-		{
-			"fileMatch": [
-				"/tsconfig.json"
-			],
-			"url": "http://json.schemastore.org/tsconfig"
-		},
-		{
-			"fileMatch": [
-				"/jsconfig.json"
-			],
-			"url": "http://opentools.azurewebsites.net/jsconfig"
-		},
-		{
-			"fileMatch": [
-				"/.bowerrc"
-			],
-			"url": "http://json.schemastore.org/bowerrc"
-		},
-		{
-			"fileMatch": [
-				"/.jshintrc"
-			],
-			"url": "http://json.schemastore.org/jshintrc"
-		},
-		{
-			"fileMatch": [
-				"/.jscsrc"
-			],
-			"url": "http://json.schemastore.org/jscsrc"
-		}
-	],
+	"json.schemas": [],
+
+
+	//-------- JavaScript configuration --------
+
+	// Controls how JavaScript IntelliSense works.
+
+	// Always include all words from the current document.
+	"javascript.suggest.alwaysAllWords": false,
+
+	// Complete functions with their parameter signature.
+	"javascript.suggest.useCodeSnippetsOnMethodSuggest": false,
+
+	// Controls how JavaScript validation works.
+
+	// Controls VSCode's JavaScript validation. If set to false both syntax and semantic validation is disabled
+	"javascript.validate.enable": true,
+
+	// Run linter checks for JavaScript files - overrides validate.lint.* settings.
+	"javascript.validate.semanticValidation": true,
+
+	// Check JavaScript files for syntax errors.
+	"javascript.validate.syntaxValidation": true,
+
+	// Controls various aspects of validation.
+
+	// Don't spare curly brackets.
+	"javascript.validate.lint.curlyBracketsMustNotBeOmitted": "ignore",
+
+	// Empty block should have a comment.
+	"javascript.validate.lint.emptyBlocksWithoutComment": "ignore",
+
+	// Use '!==' and '===' instead of '!=' and '=='.
+	"javascript.validate.lint.comparisonOperatorsNotStrict": "ignore",
+
+	// Missing semicolon.
+	"javascript.validate.lint.missingSemicolon": "ignore",
+
+	// Unexpected output of the 'typeof' operator.
+	"javascript.validate.lint.unknownTypeOfResults": "warning",
+
+	// Semicolon instead of block.
+	"javascript.validate.lint.semicolonsInsteadOfBlocks": "ignore",
+
+	// Function inside loop.
+	"javascript.validate.lint.functionsInsideLoops": "ignore",
+
+	// Function with lowercase name used as constructor.
+	"javascript.validate.lint.newOnLowercaseFunctions": "warning",
+
+	// Looks for mistyped triple-slash references.
+	"javascript.validate.lint.tripleSlashReferenceAlike": "warning",
+
+	// Unused local variable.
+	"javascript.validate.lint.unusedVariables": "warning",
+
+	// Unused local function.
+	"javascript.validate.lint.unusedFunctions": "ignore",
+
+	// Parameters don't match a function signature
+	"javascript.validate.lint.parametersDontMatchSignature": "ignore",
+
+	// Don't re-declare a variable and change its type.
+	"javascript.validate.lint.redeclaredVariables": "warning",
+
+	// Don't use an undeclared variable.
+	"javascript.validate.lint.undeclaredVariables": "warning",
+
+	// Don't use an unknown property.
+	"javascript.validate.lint.unknownProperty": "ignore",
+
+	// Don't require an unknown module.
+	"javascript.validate.lint.unknownModule": "ignore",
+
+	// Don't re-declare a variable type by an assignment.
+	"javascript.validate.lint.forcedTypeConversion": "warning",
+
+	// Only use numbers for arithmetic operations.
+	"javascript.validate.lint.mixedTypesArithmetics": "warning",
+
+	// Don't use instanceof with primitive types.
+	"javascript.validate.lint.primitivesInInstanceOf": "error",
+
+	// Function with return statement used as constructor.
+	"javascript.validate.lint.newOnReturningFunctions": "warning",
+
+
+	//-------- Markdown preview configuration --------
+
+	// A list of URLs or local paths to CSS style sheets to use from the markdown preview.
+	"markdown.styles": [],
 
 
 	//-------- CSS configuration --------
 
-	// Controls problem severities used in the lint validation.
+	// Controls CSS validation and problem severities.
+
+	// Enables or disables all validations
+	"css.validate": true,
 
 	// When using a vendor-specific prefix make sure to also include all other vendor-specific properties
 	"css.lint.compatibleVendorPrefixes": "ignore",
@@ -315,106 +377,12 @@ Below is a copy of the default `settings.json` file.
 	"css.lint.idSelector": "ignore",
 
 
-	//-------- Markdown preview configuration --------
-
-	// A list of URLs or local paths to CSS style sheets to use from the markdown preview.
-	"markdown.styles": [],
-
-
-	//-------- JavaScript configuration --------
-
-	// Controls how JavaScript IntelliSense works.
-
-	// Always include all words from the current document.
-	"javascript.suggest.alwaysAllWords": false,
-
-	// Complete functions with their parameter signature.
-	"javascript.suggest.useCodeSnippetsOnMethodSuggest": false,
-
-	// Controls how JavaScript validation works.
-
-	// Controls VSCode's Javascript validation. If set to false both syntax and sematic validation is disabled
-	"javascript.validate.enable": true,
-
-	// Run linter checks for JavaScript files - overrides validate.lint.* settings.
-	"javascript.validate.semanticValidation": true,
-
-	// Check JavaScript files for syntax errors.
-	"javascript.validate.syntaxValidation": true,
-
-	// Controls various aspects of validation.
-
-	// Don't spare curly brackets.
-	"javascript.validate.lint.curlyBracketsMustNotBeOmitted": "ignore",
-
-	// Empty block should have a comment.
-	"javascript.validate.lint.emptyBlocksWithoutComment": "ignore",
-
-	// Use '!==' and '===' instead of '!=' and '=='.
-	"javascript.validate.lint.comparisonOperatorsNotStrict": "ignore",
-
-	// Missing semicolon.
-	"javascript.validate.lint.missingSemicolon": "ignore",
-
-	// Unexpected output of the 'typeof'-operator.
-	"javascript.validate.lint.unknownTypeOfResults": "warning",
-
-	// Semicolon instead of block.
-	"javascript.validate.lint.semicolonsInsteadOfBlocks": "ignore",
-
-	// Function inside loop.
-	"javascript.validate.lint.functionsInsideLoops": "ignore",
-
-	// Function with lowercase name used as constructor.
-	"javascript.validate.lint.newOnLowercaseFunctions": "warning",
-
-	// Looks for mistyped triple-slash references.
-	"javascript.validate.lint.tripleSlashReferenceAlike": "warning",
-
-	// Unused local variable.
-	"javascript.validate.lint.unusedVariables": "warning",
-
-	// Unused local function.
-	"javascript.validate.lint.unusedFunctions": "ignore",
-
-	// Parameter don't match a function signature
-	"javascript.validate.lint.parametersDontMatchSignature": "ignore",
-
-	// Don't re-declare a variable and change its type.
-	"javascript.validate.lint.redeclaredVariables": "warning",
-
-	// Don't use an undeclared variable.
-	"javascript.validate.lint.undeclaredVariables": "warning",
-
-	// Don't use an unknown property.
-	"javascript.validate.lint.unknownProperty": "ignore",
-
-	// Don't require an unknown module.
-	"javascript.validate.lint.unknownModule": "ignore",
-
-	// Don't re-declare a variable type by an assignment.
-	"javascript.validate.lint.forcedTypeConversion": "warning",
-
-	// Only use numbers for arthimetic operations.
-	"javascript.validate.lint.mixedTypesArithmetics": "warning",
-
-	// Don't use instanceof with primitive types.
-	"javascript.validate.lint.primitivesInInstanceOf": "error",
-
-	// Function with return-statement used as constructor.
-	"javascript.validate.lint.newOnReturningFunctions": "warning",
-
-
-	//-------- Telemetry configuration --------
-
-	// Enable crash reports to be sent to Microsoft.
-	// This option requires restart of VSCode to take effect.
-	"telemetry.enableCrashReporter": true,
-
-
 	//-------- LESS configuration --------
 
-	// Controls problem severities used in the LESS lint validation.
+	// Controls LESS validation and problem severities.
+
+	// Enables or disables all validations
+	"less.validate": true,
 
 	// When using a vendor-specific prefix make sure to also include all other vendor-specific properties
 	"less.lint.compatibleVendorPrefixes": "ignore",
@@ -473,7 +441,10 @@ Below is a copy of the default `settings.json` file.
 
 	//-------- Sass configuration --------
 
-	// Controls problem severities used in the Sass lint validation.
+	// Controls Sass validation and problem severities.
+
+	// Enables or disables all validations
+	"sass.validate": true,
 
 	// When using a vendor-specific prefix make sure to also include all other vendor-specific properties
 	"sass.lint.compatibleVendorPrefixes": "ignore",
@@ -539,22 +510,16 @@ Below is a copy of the default `settings.json` file.
 	"typescript.tsdk": null,
 
 
-	//-------- JSHint configuration --------
+	//-------- PHP Configuration options --------
 
-	// Control whether jshint is enabled for JavaScript files or not.
-	"jshint.enable": false,
+	// Whether php validation is enabled or not.
+	"php.validate.enable": true,
 
-	// The jshint options object to provide args to the jshint command.
-	"jshint.options": {},
+	// Points to the php executable.
+	"php.validate.executablePath": null,
 
-
-	//-------- ESLint configuration --------
-
-	// Control whether eslint is enabled for JavaScript files or not.
-	"eslint.enable": false,
-
-	// The eslint options object to provide args to the eslint command.
-	"eslint.options": {}
+	// Whether the linter is run on save or on type.
+	"php.validate.run": "onSave"
 
 }
 ```

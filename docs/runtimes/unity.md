@@ -3,7 +3,7 @@ Order: 3
 Area: runtimes
 TOCTitle: Unity
 PageTitle: Visual Studio Code and Unity
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 
@@ -121,7 +121,7 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 >**Note:** This option is only available in the Windows version of Unity.  For Mac users, the Unity plug-in described above handles setting up the command line arguments.
 
-To configure Unity to pass this data to VS Code, set the Editor Args to be `-r -g "$(File):$(Line)`.  You can see this step completed in the image above.
+To configure Unity to pass this data to VS Code, set the Editor Args to be `. -g "$(File):$(Line)"`.  You can see this step completed in the image above.
 
 
 

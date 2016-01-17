@@ -3,7 +3,7 @@ Order: 4
 Area: editor
 TOCTitle: Editing Evolved
 PageTitle: Editing Evolved
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and Debugging.
 ---
 
@@ -23,7 +23,9 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 VS Code has support for multiple cursors. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. The most common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
-![Multi-cursor](images/editingevolved/multicursor.png)
+> **Note:** Your graphics card provider might overwrite these default shortcuts.
+
+![Multi-cursor](images/editingevolved/multicursor.gif)
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.  `kb(editor.action.moveSelectionToNextFindMatch)` moves the last added cursor to next occurrence of the current selection.
 
@@ -39,7 +41,7 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type (we call it affectionately 24x7 IntelliSense). You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  Out of the box, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are accept triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type (we call it affectionately 24x7 IntelliSense). You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  Out of the box, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are accept triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
 
 
 ![IntelliSense](images/editingevolved/intellisense.gif)
@@ -73,7 +75,7 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 ![Ctrl Hover](images/editingevolved/ctrlhover.png)
 
-> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`.
+> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`. If you opened a new editor window, you can go back to the previous editor with `kb(workbench.action.focusLeftEditor)`.
 
 ## Goto Symbol
 

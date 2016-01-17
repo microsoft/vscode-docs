@@ -1,0 +1,11 @@
+---
+Order: 5
+Area: extensionapi
+TOCTitle: API vscode namespace
+PageTitle: Visual Studio Code API Reference
+DateApproved: 12/18/2015
+MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.  
+---
+
+# vscode namespace API
+{{ Content }}

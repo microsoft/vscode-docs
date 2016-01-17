@@ -3,7 +3,7 @@ Order: 4
 Area: extensionapi
 TOCTitle: Activation Events
 PageTitle: Visual Studio Code Activation Events - package.json
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events in the package.json extension manifest file. 
 ---
 
@@ -56,7 +56,7 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## `activationEvents.*`
 
-This activation event is emitted and interested extensions will be activated whenever VSCode starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
+This activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
 ```json
 ...
@@ -65,6 +65,10 @@ This activation event is emitted and interested extensions will be activated whe
 ]
 ...
 ```
+
+> **Note:** An extension can listen to multiple activation events, and that is preferable to listening to `"*"`.
+
+> **Note:** An extension **must** export an `activate()` function from its main module and it will be invoked **only once** by VS Code when any of the specified activation events is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown.
 
 ## Next Steps
 To learn more about VS Code extensibility model, try these topic:

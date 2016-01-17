@@ -3,7 +3,7 @@ Order: 2
 Area: runtimes
 TOCTitle: ASP.NET 5
 PageTitle: ASP.NET 5 and Visual Studio Code End to End
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Visual Studio Code has great support for writing and debugging ASP.NET applications running on Cross Platform CLR.
 MetaTags:
 - DNX
@@ -50,6 +50,8 @@ cd WebApplication
 dnu restore
 ```
 
+>**Tip:** You can also run the command `dnx: Restore Packages` within VS Code from the Command Palette (`kb(workbench.action.showCommands)`).
+
 The [ASP.NET 5 docs](http://docs.asp.net/en/latest/) do a great job describing how to build next generation Cloud and Web applications so we won't do that here. Instead, we will focus on what Visual Studio Code can do.
 
 
@@ -59,11 +61,11 @@ VS Code is file and folder based as compared to Visual Studio, which is project 
 
 Open the `WebApplication` folder. If you set up a shortcut as described in [setup](/docs/editor/setup.md), you can simply run `code .` from the terminal.
 
-The ASP.NET 5/DNX project system is also file and folder based, so when VS Code sees the `project.json` it will load it. If you have multiple project.json files you can pick which one you want to use, looks down in the status bar.
+The ASP.NET 5/DNX project system is also file and folder based, so when VS Code sees the `project.json` it will load it. If there are multiple `project.json` files, you can pick which one you want to use by clicking "Select project" in the status bar:
 
 ![DNX commands in palette](images/ASPnet5/dnxprojects.png)
 
-Notice the project indication on the lower left corner. When the icon is flashing, OmniSharp (the brain behind VS Code’s C# support) is starting, loading your project.  If you see a red icon, it means something went wrong, you can find out by looking at the OmniSharp Output Log (`kb(o.showOutput)`).
+After selecting a `project.json` file, the status bar text will change to "Starting...". This indicates that OmniSharp (the brain behind VS Code’s C# support) is now loading your project. If you see a red icon, it means something went wrong. The specifics of the problem can be found by looking at the OmniSharp Output Log (`kb(o.showOutput)`).
 
 When the status bar shows the project information it’s a good time to get going. You can now leverage the full power of VS Code, author code and run your app.
 
@@ -87,7 +89,7 @@ Next, select the option corresponding to the DNX command to be executed:
 
 ![DNX commands in palette](images/ASPnet5/dnxcommandpalette.png)
 
-In this walkthrough we want to run the website, so the command we want to run is `dnx: web`. VS Code understands the configured DNX runtime and will open a console window, and execute the command in there.
+In this walkthrough we want to run the website, so the command we want to run is `dnx web`. VS Code understands the configured DNX runtime and will open a console window, and execute the command in there.
 
 Open your favorite browser and browse to `http://localhost:5000` to browse the site we created.
 

@@ -3,7 +3,7 @@ Order: 2
 Area: extensions
 TOCTitle: Example-Hello World
 PageTitle: Your First Visual Studio Code Extension - Hello World
-DateApproved: 11/18/2015
+DateApproved: 12/18/2015
 MetaDescription: Create your first Visual Studio extension (plug-in) with a simple Hello Word example.  This walkthrough will take you through the basics of VS Code extensibility.
 ---
 
@@ -20,7 +20,7 @@ You need [node.js](https://nodejs.org/en/) installed and available in your `$PAT
 
 ## Generate a New Extension
 
-The simplest way to add your own functionality to VS Code is through adding a command. A command is registers a callback function which can be invoked from the Command Palette or with a key binding.
+The simplest way to add your own functionality to VS Code is through adding a command. A command registers a callback function which can be invoked from the Command Palette or with a key binding.
 
 We have written a Yeoman generator to help get you started. Install Yeoman and the [Yeoman VS Code Extension generator](/docs/tools/yocode.md) and scaffold a new extension:
 
@@ -165,6 +165,7 @@ export function activate(context: vscode.ExtensionContext) {
 ```
 
 * Each extension should export from its main file a function named `activate()`, which VS Code will invoke **only once** when any of the `activationEvents` described in the `package.json` file occur.
+* If an extension makes use of OS resources (e.g. spawns processes), the extension can export from its main file a function named `deactivate()` where it can do clean-up work and VS Code will invoke that function on shutdown.
 * This specific extension imports the `vscode` API and then registers a command, associating a function to be called when the command `"extension.sayHello"` gets invoked. The command's implementation displays a "Hello world" message in VS Code.
 
 > **Note:** The `contributes` section of the `package.json` adds an entry to the Command Palette.  The code in extension.ts/.js defines the implementation of `"extension.sayHello"`.
