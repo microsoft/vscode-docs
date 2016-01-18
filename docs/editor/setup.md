@@ -24,6 +24,15 @@ function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*
 ```
 Now, you can simply type `code .` in any folder to start editing files in that folder.
 
+>**Tip:** If you want to run VS Code from the Fish Shell, append the following to your `~/.config/fish/config.fish` file:
+
+```fish
+function code
+  set location "$PWD/$argv"
+  open -n -b "com.microsoft.VSCode" --args $location
+end
+```
+
 ## Linux
 1. [Download Visual Studio Code](http://go.microsoft.com/fwlink/?LinkID=534108) for Linux.
 2. Make a new folder and extract `VSCode-linux-x64.zip` inside that folder.
