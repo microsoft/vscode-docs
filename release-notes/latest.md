@@ -13,7 +13,7 @@ We're back from the holidays and have been busy.
 
 These release notes only capture what's new in the core of Visual Studio Code. Do not forget to check out the [marketplace](https://marketplace.visualstudio.com/#VSCode) for new extensions.
 
-## Feature
+## New Feature
 
 ## Notable Bug Fixes
 
