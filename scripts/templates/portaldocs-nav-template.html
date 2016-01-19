@@ -7,7 +7,7 @@
 					<a class="area" href="#{$ area.path.toLowerCase() $}-articles" data-parent="#main-nav" data-toggle="collapse">{$ area.title $}</a>
 					<ul id="{$ area.path.toLowerCase() $}-articles" class="collapse {{#ifCond area "{$ area.path.toLowerCase() $}"}}in{{/ifCond}}">
 					{% for article in area.articles %}
-						<li {{#ifCond section "{$ article.Link $}"}}class=active{{/ifCond}}")><a href="/docs/{{ article.Link }}">{$ article.NavTitle $}</a></li>
+						<li {{#ifCond section "{$ article.Link $}"}}class=active{{/ifCond}}")><a href="/docs/{$ article.Link $}">{$ article.NavTitle $}</a></li>
 					{% endfor %}
 					</ul>
 				</li>
