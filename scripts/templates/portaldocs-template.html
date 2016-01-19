@@ -1,18 +1,9 @@
-<!--@{
-    ViewBag.Page = "docs";
-    ViewBag.Area = "{$ Area $}";
-	ViewBag.Section = "{$ Link $}";
-	ViewBag.Title = "{$ Title $}";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    
-    TODO Not sure what to do here... we need to pass it from the context creation logic in a controller. 
-}-->
-
+{{#regObject page="docs" area="{$ Area $}" section="{$ Link $}" title="{$ Title $}"}}{{/regObject}}
 
 <div class="container body-content docs">
     <div class="row">
         <div class="col-md-2">
-            {{< docsNav}}
+            {{> docNav}}
 		</div>
 		<div class="col-sm-9 col-md-8 body">
 			<div class="edit-github pull-right">
