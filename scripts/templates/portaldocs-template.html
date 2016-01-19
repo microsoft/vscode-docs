@@ -39,13 +39,8 @@
         </div>
 	</div>
 </div>
-<!--@section scripts {-->
 <div id="fb-root"></div>
-<!--
-    This should already be included on the page. 
-    @Scripts.Render("~/Content/docsjs")-->
-<!--}
-@section MoreMetadata {-->
+{{#section 'meta'}}
 	<meta name="description" content="{$ MetaDescription $}" />
 	<meta name="keywords" content="{$ MetaTags $}" />
-<!--}-->
+{{/section}}

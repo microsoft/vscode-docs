@@ -1,4 +1,5 @@
 {{#regObject page="updates" section="{$ Link $}" title="{$ Title $}"}}{{/regObject}}
+{{#registerMetaData description="{$ MetaDescription $}" keywords="{$ MetaTags $}"}}{{/registerMetaData}}
 <div class="container body-content docs releases">
     <div class="row">
         <div class="col-md-2">            
@@ -31,5 +32,7 @@
 	</div>
 </div>
 <div id="fb-root"></div>
-<meta name="description" content="{$ MetaDescription $}" />
-<meta name="keywords" content="{$ MetaTags $}" />
+{{#section 'meta'}}
+	<meta name="description" content="{$ MetaDescription $}" />
+	<meta name="keywords" content="{$ MetaTags $}" />
+{{/section}}
