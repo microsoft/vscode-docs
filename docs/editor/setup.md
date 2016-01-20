@@ -19,7 +19,7 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
 
 >**Tip:** If you want to run VS Code from the terminal, append the following to your `~/.bash_profile` file (`~/.zshrc` in case you use `zsh`) and then either restart the terminal or type `source ~/.bash_profile`:
-
+>
 >```bash
 >function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
 >```
@@ -27,7 +27,7 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 Now, you can simply type `code .` in any folder to start editing files in that folder.
 
 >**Tip:** If you want to run VS Code from the [Fish Shell](http://fishshell.com), append the following to your `~/.config/fish/config.fish` file:
-
+>
 >```fish
 >function code
 >  set location "$PWD/$argv"
@@ -42,7 +42,7 @@ Now, you can simply type `code .` in any folder to start editing files in that f
 3. Double click on `Code` to run Visual Studio Code.
 
 >**Tip:** If you want to run VS Code from the terminal, create the following link substituting `/path/to/vscode/Code` with the absolute path to the `Code` executable
-
+>
 >```
 >sudo ln -s /path/to/vscode/Code /usr/local/bin/code
 >```
