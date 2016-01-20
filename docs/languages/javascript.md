@@ -21,9 +21,35 @@ You can create a JavaScript project by dropping in a `jsconfig.json` file. It's 
 
 >**Tip:** Just as in `tsconfig.json`, if no "files" property is present, we default to including all files in the containing directory and subdirectories. When a "files" property is specified, only those files are included.
 
-![jsonconfig.json](images/javascript/jsconfigjson.png)
+```json
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs"
+    },
+    "files": [
+        "app.js",
+        "model.js"
+    ]
+}
+```
 
->**Tip:** VS Code optionally supports multiple `jsconfig.json` files. This is good, for instance, when you wish to exclude subdirectories.
+>**Tip:** You can exclude folders from the JavaScript project using the `exclude` property. By default the Visual Studio Code excludes `.git`, `node_modules`, `bower_components`, `jspm_packages`, `tmp`, and `temp` folders.
+```json
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs"
+    },
+    "exclude": [
+        "excluded folder"
+    ]
+}
+```
+>**Tip:** If the application's JavaScript source code is contained inside an `app` or `src` folder, then define the `jsconfig.json` inside the corresponding folder and not at the top level of the workspace.
+
+>**Tip:** Tip if yor workspace contains folders with JavaScript files that belong to separate applications, e.g, a `client` and a `server`, then consider adding a separate `jsconfig.json` into the corresponding folders.
+
 
 ### /// References for .d.ts
 With the introduction of `jsconfig.json`, you no longer need to use `///` references in each file (these were required in the initial versions of VS Code). As the file set is defined in `jsconfig.json`, VS Code knows what files and symbols are part of your project.
