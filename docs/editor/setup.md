@@ -12,6 +12,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac OS X, Linux or Win
 Getting up and running with VS Code is quick and easy.  Follow the platform specific guides below as well as the list of handy tools.
 
 ## Mac OS X
+
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for Mac OS X.
 2. Double-click on `VSCode-osx.zip` to expand the contents.
 3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
@@ -19,33 +20,37 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 
 >**Tip:** If you want to run VS Code from the terminal, append the following to your `~/.bash_profile` file (`~/.zshrc` in case you use `zsh`) and then either restart the terminal or type `source ~/.bash_profile`:
 
-```bash
-function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
-```
+>```bash
+>function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+>```
+
 Now, you can simply type `code .` in any folder to start editing files in that folder.
 
->**Tip:** If you want to run VS Code from the Fish Shell, append the following to your `~/.config/fish/config.fish` file:
+>**Tip:** If you want to run VS Code from the [Fish Shell](http://fishshell.com), append the following to your `~/.config/fish/config.fish` file:
 
-```fish
-function code
-  set location "$PWD/$argv"
-  open -n -b "com.microsoft.VSCode" --args $location
-end
-```
+>```fish
+>function code
+>  set location "$PWD/$argv"
+>  open -n -b "com.microsoft.VSCode" --args $location
+>end
+>```
 
 ## Linux
+
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534108) for Linux.
 2. Make a new folder and extract `VSCode-linux-x64.zip` inside that folder.
 3. Double click on `Code` to run Visual Studio Code.
 
 >**Tip:** If you want to run VS Code from the terminal, create the following link substituting `/path/to/vscode/Code` with the absolute path to the `Code` executable
 
-```
-sudo ln -s /path/to/vscode/Code /usr/local/bin/code
-```
+>```
+>sudo ln -s /path/to/vscode/Code /usr/local/bin/code
+>```
+
 Now, you can simply type `code .` in any folder to start editing files in that folder.
 
 ## Windows
+
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
 2. Double-click on `VSCodeSetup.exe` to launch the setup process. This will only take a minute.
 
@@ -54,6 +59,7 @@ Now, you can simply type `code .` in any folder to start editing files in that f
 >**Tip:** You might need to log off after the installation for the change to the `PATH` environmental variable to take effect.
 
 ## Additional Tools
+
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
 - [ASP.NET Core](https://github.com/aspnet/home) - a lean and composable framework for building web and cloud applications, fully open source and available on GitHub
@@ -71,6 +77,7 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 
 
 ## Next Steps
+
 Now you have installed and set up VS Code. Let's get going...
 
 * [The Basics](/docs/editor/codebasics.md) - Basic orientation around VS Code
