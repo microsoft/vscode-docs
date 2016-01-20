@@ -17,11 +17,11 @@ You can browse and install extensions from within VS Code. Press `kb(workbench.a
 
 Pick `Extensions: Install Extension`.
 
-> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` and type `ext install ` with a trailing space. Not sure what to install? Visit [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode).
+> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` and type `ext install ` with a trailing space. Not sure what to install? Visit [VS Code Marketplace](https://marketplace.visualstudio.com/#VSCode).
 
 ![ext install](images/extension-gallery/ext-install.png)
 
-You'll see a list of extensions on the gallery along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode) page where you can learn more.
+You'll see a list of extensions on the gallery along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/#VSCode) page where you can learn more.
 
 ## Install an Extension
 
@@ -45,7 +45,7 @@ You can quickly look for extension updates by using the `Extensions: Show Outdat
 
 ## Browse Extensions
 
-Additionally, you can browse the VS Code Extension Gallery through the [VS Code Marketplace](http://marketplace.visualstudio.com/#VSCode).
+Additionally, you can browse the VS Code Extension Gallery through the [VS Code Marketplace](https://marketplace.visualstudio.com/#VSCode).
 
 ![marketplace](images/extension-gallery/marketplace.png) 
 

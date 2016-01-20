@@ -19,7 +19,7 @@ Many language colorizers have been uploaded to the VS Code [Extension Gallery](/
 
 ![filter go language](images/colorizer/filter-go.png)
 
-You can also browse the [VS Code Marketplace](http://marketplace.visualstudio.com/vscode/Languages) to find available colorizers and language support. 
+You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages) to find available colorizers and language support. 
 
 ## Adding a New Language
 

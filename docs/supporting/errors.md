@@ -9,7 +9,7 @@ MetaDescription: Several error conditions can easily be resolved by the user thi
 
 Some errors that happen in Visual Studio Code can be worked around or resolved by you.  This topic describes several of the most common error conditions, and what you can do to resolve them.
 
-If these steps don't help you, you probably hit a bug. You can check our [reported issues](http://github.com/microsoft/vscode/issues) list to see if others have had the same issue.
+If these steps don't help you, you probably hit a bug. You can check our [reported issues](https://github.com/microsoft/vscode/issues) list to see if others have had the same issue.
 
 ## 20001
 >**Error:** Cannot start OmniSharp because Mono version >=3.10.0 is required

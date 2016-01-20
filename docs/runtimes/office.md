@@ -8,7 +8,7 @@ MetaDescription: This page walks you through how to scaffold out a project for V
 ---
 
 # Office Add-ins with VS Code
-[Office Add-ins](http://dev.office.com/getting-started/addins) run inside an Office application and can interact with the contents of the Office document using the rich JavaScript API.
+[Office Add-ins](https://dev.office.com/getting-started/addins) run inside an Office application and can interact with the contents of the Office document using the rich JavaScript API.
 
 ![Office Add-in overview](images/office/officeaddinoverview.png)
 

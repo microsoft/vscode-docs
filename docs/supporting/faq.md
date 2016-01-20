@@ -8,7 +8,7 @@ MetaDescription: Our docs contain a Common Questions section. Here are items tha
 # Visual Studio Code FAQ
 Our docs contain a **Common Questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
-If you don't see an answer to your question here, check our previously [reported issues](http://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
+If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
 
 ## How do I update to the latest version?
 See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
@@ -54,7 +54,7 @@ To modify the update channel, go to `File | Preferences | User Settings` and add
 ```
 
 ## Windows - Trouble with the installer
-Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
+Try using the [zip file](https://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
 
 >**Note:** When VS Code is installed via a Zip you will need to manually update it for each release.
 
@@ -62,7 +62,7 @@ Try using the [zip file](http://go.microsoft.com/fwlink/?LinkID=615207) instead 
 ## Windows - Icons are missing
 I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
 
-VS Code uses [SVG](http://en.wikipedia.org/wiki/Scalable_Vector_Graphics) icons and we have found instances where the .SVG file extension is associated with something other than `image/svg+xml`. We're considering options to fix it, but for now here's a workaround:
+VS Code uses [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) icons and we have found instances where the .SVG file extension is associated with something other than `image/svg+xml`. We're considering options to fix it, but for now here's a workaround:
 
 Using the Command Prompt:
 
@@ -171,7 +171,7 @@ From File | Preferences | User Settings, add the following option to disable cra
 
 ## How to disable telemetry reporting 
  
-VS Code collects usage data and sends it to Microsoft to help improve our products and services.  Read our [privacy statement](http://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more. 
+VS Code collects usage data and sends it to Microsoft to help improve our products and services.  Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more. 
  
 If you don’t wish to send usage data to Microsoft, please follow the instructions below to disable its collection. 
  

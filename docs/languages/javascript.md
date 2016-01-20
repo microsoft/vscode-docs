@@ -54,7 +54,7 @@ Selecting the snippet with `tab` results in:
 
 
 ## ES6 Support
-VS Code supports ES6 (ECMAScript 6, the latest update of JavaScript) and understands the new ES6 syntax elements and their semantics. By default, you get suggestions for ES6 types, like `Promise`, `Set`, `Map`, `String.startsWith`. A good overview of the new ES6 features can be found [here](http://github.com/lukehoban/es6features).
+VS Code supports ES6 (ECMAScript 6, the latest update of JavaScript) and understands the new ES6 syntax elements and their semantics. By default, you get suggestions for ES6 types, like `Promise`, `Set`, `Map`, `String.startsWith`. A good overview of the new ES6 features can be found [here](https://github.com/lukehoban/es6features).
 
 We have a sample on GitHub that shows off some of the ES6 love in VS Code:
 

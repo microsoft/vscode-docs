@@ -11,7 +11,7 @@ MetaDescription: In Visual Studio Code we have support for all common languages.
 # Languages
 
 ## What Languages are Supported
-In Visual Studio Code, we have support for many languages out of the box and more through language extensions available on the [VS Code Marketplace](http://marketplace.visualstudio.com/vscode/Languages).
+In Visual Studio Code, we have support for many languages out of the box and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
 
 >**Tip:** You can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/customization/colorizer.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code.
 
@@ -51,7 +51,7 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **Q: Can I contribute my own language service?**
 
-**A:** Not yet but soon. Help us prioritize this in our [user voice](http://go.microsoft.com/fwlink/?LinkID=533482) site.
+**A:** Not yet but soon. Help us prioritize this in our [user voice](https://go.microsoft.com/fwlink/?LinkID=533482) site.
 
 **Q: Can I map additional file extensions to a language?**
 

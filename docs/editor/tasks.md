@@ -10,7 +10,7 @@ MetaDescription: Expand your development workflow with task integration in Visua
 # Integrate with External Tools via Tasks
 
 Lots of tools exist to automate tasks like building, packaging, testing or deploying software systems.
-Examples include [Make](http://en.wikipedia.org/wiki/Make_software), [Ant](http://ant.apache.org/), [Gulp](http://gulpjs.com/),
+Examples include [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](http://ant.apache.org/), [Gulp](http://gulpjs.com/),
 [Jake](http://jakejs.com/), [Rake](http://rake.rubyforge.org/) and [MSBuild](https://github.com/Microsoft/msbuild).
 
 These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code.
@@ -205,7 +205,7 @@ as **prinft**. Compiling it with [gcc](https://gcc.gnu.org/) will produce the fo
 helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’
 ```
 
-We want to produce a problem matcher that can capture the message in the output and show a corresponding problem in VS Code.  Problem matchers heavily rely on [regular expressions](http://en.wikipedia.org/wiki/Regular_expression). The section below assumes
+We want to produce a problem matcher that can capture the message in the output and show a corresponding problem in VS Code.  Problem matchers heavily rely on [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). The section below assumes
 you are familiar with regular expressions.
 
 >**Tip:** We have found the [RegEx101 playground](https://regex101.com/) a really good way to develop and test regular expressions.
