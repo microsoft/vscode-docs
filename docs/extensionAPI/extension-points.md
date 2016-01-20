@@ -120,10 +120,11 @@ Contribute the definition of a language. This will introduce a new language or e
 
 In this context, a language is basically a string identifier that is associated to a file (See `TextDocument.getLanguageId()`).
 
-VS Code uses three hints to determine the language a file will be associated with. Each "hint" can be enriched independently:
+VS Code uses four hints to determine the language a file will be associated with. Each "hint" can be enriched independently:
 1. the extension of the filename (`extensions` below)
 2. the filename (`filenames` below)
-3. the first line inside the file (`firstLine` below)
+3. glob patterns matching against the filename (`filenamePatterns` below)
+4. the first line inside the file (`firstLine` below)
 
 The last piece of information VS Code wants to know about a language is the `aliases` property, the first item in this list will be picked as the language label (as rendered in the status bar on the right).
 
@@ -139,6 +140,7 @@ When a file is opened by the user, these three rules are applied and a language 
 		"extensions": [ ".py" ],
 		"aliases": [ "Python", "py" ],
 		"filenames": [ ... ]
+        "filenamePatterns: [ ... ],
 		"firstLine": "^#!/.*\\bpython[0-9.-]*\\b"
 	}]
 }
@@ -146,7 +148,7 @@ When a file is opened by the user, these three rules are applied and a language 
 ## `contributes.debuggers`
 
 Contribute a 'debug adapter' to VS Code's debugger. A debug adapter integrates VS Code with a particular debug engine.
-It runs in a separate process and communicates with VS Code through a specific protocol. 
+It runs in a separate process and communicates with VS Code through a specific protocol.
 You must provide one (or more) executables that implement the debug adapter.
 
 ### Example
@@ -227,11 +229,11 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
 
 ```json
 "contributes": {
-    "jsonValidation": [{ 
+    "jsonValidation": [{
  		"fileMatch": ".jshintrc",
  		"url": "http://json.schemastore.org/jshintrc"
 	}]
-} 
+}
 ```
 
 ## Next Steps
