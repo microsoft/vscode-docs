@@ -14,7 +14,7 @@ var File = require('vinyl');
 var common = require('./gulpfile.common');
 
 var RN_SRC_ROOT = 'release-notes'; 
-var DEST_ROOT = 'out/vscode-website/app/src'; 
+var DEST_ROOT = 'out/vscode-website/src'; 
 
 var releaseNotes = [];
 

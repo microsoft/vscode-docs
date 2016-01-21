@@ -13,7 +13,7 @@ var File = require('vinyl');
 var common = require('./gulpfile.common');
 
 var DOCS_SRC_ROOT = 'docs'; 
-var DEST_ROOT = 'out/vscode-website/app/src'; 
+var DEST_ROOT = 'out/vscode-website/src'; 
 
 var areas = {
 	editor: { title: 'Editor', path: 'editor', include: true, articles: [] },
