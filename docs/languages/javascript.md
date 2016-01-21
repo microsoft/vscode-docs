@@ -34,7 +34,8 @@ You can create a JavaScript project by dropping in a `jsconfig.json` file. It's 
 }
 ```
 
->**Tip:** You can exclude folders from the JavaScript project using the `exclude` property. By default the Visual Studio Code excludes `.git`, `node_modules`, `bower_components`, `jspm_packages`, `tmp`, and `temp` folders.
+>**Tip:** You can exclude folders from the JavaScript project using the `exclude` property. By default, VS Code excludes `.git`, `node_modules`, `bower_components`, `jspm_packages`, `tmp`, and `temp` folders.
+
 ```json
 {
     "compilerOptions": {
@@ -46,17 +47,19 @@ You can create a JavaScript project by dropping in a `jsconfig.json` file. It's 
     ]
 }
 ```
+
 >**Tip:** If the application's JavaScript source code is contained inside an `app` or `src` folder, then define the `jsconfig.json` inside the corresponding folder and not at the top level of the workspace.
 
->**Tip:** Tip if yor workspace contains folders with JavaScript files that belong to separate applications, e.g, a `client` and a `server`, then consider adding a separate `jsconfig.json` into the corresponding folders.
-
+>**Tip:** If your workspace contains folders with JavaScript files that belong to separate applications, e.g, a `client` and a `server`, then consider adding a separate `jsconfig.json` into the corresponding folders.
 
 ### /// References for .d.ts
+
 With the introduction of `jsconfig.json`, you no longer need to use `///` references in each file (these were required in the initial versions of VS Code). As the file set is defined in `jsconfig.json`, VS Code knows what files and symbols are part of your project.
 
 As an example, you can just drop a new type definition `.d.ts` file into your project folder and VS Code will pick it up automatically.
 
 ### Defining Global Variables Outside .d.ts
+
 VS Code also supports the global directive `/*global varName*/` to declare variables. In comparison to `.d.ts` files, it’s a faster but less powerful way to define variables to be used inside source files.
 
 ![Global directive](images/javascript/jsglobalvariable.png)
