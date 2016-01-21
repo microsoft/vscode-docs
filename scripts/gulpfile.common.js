@@ -23,7 +23,7 @@ exports.filterText = function(orig) {
 }
 
 exports.swigCompiler = function(templatePath) {
-	return swig.compileFile(templatePath, { autoescape: false });
+	return swig.compileFile(templatePath, { autoescape: false, varControls: ['{$', '$}'] });
 }
 
 exports.tableRendererRule = function(tokens, idx, options, env, self) {
@@ -36,7 +36,7 @@ exports.tableRendererRule = function(tokens, idx, options, env, self) {
 exports.imageRendererRule = function(tokens, idx, options, env, self) {
 	var imageToken = tokens[idx];
 	var src = imageToken.attrs[imageToken.attrIndex('src')][1];
-	imageToken.attrs[imageToken.attrIndex('src')][1] = "~/Content/images/" + src.replace('images/', '').replace('/', '_');
+	imageToken.attrs[imageToken.attrIndex('src')][1] = "/images/" + src.replace('images/', '').replace('/', '_');
 
 	// DO NOT REMOVE - from original rule
 	imageToken.attrs[imageToken.attrIndex('alt')][1] = self.renderInlineAsText(imageToken.children, options, env);

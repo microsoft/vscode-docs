@@ -1,13 +1,13 @@
 <nav id="docs-navbar" class="docs-nav visible-md visible-lg">
 	<ul class="nav" id="main-nav">
-		<li @(ViewBag.Section == "Home" ? "class=active" : "")><a class="docs-home" href="/docs">Overview</a></li>
+		<li {{#ifCond section "Home"}}"class=active"{{/ifCond}}><a class="docs-home" href="/docs">Overview</a></li>
 		{% for area in areas %}
 			{% if area.include %}
-				<li class="panel @(ViewBag.Area == "{{ area.path.toLowerCase() }}" ? "active expanded" : "collapsed")">
-					<a class="area" href="#{{ area.path.toLowerCase() }}-articles" data-parent="#main-nav" data-toggle="collapse">{{ area.title }}</a>
-					<ul id="{{ area.path.toLowerCase() }}-articles" class="collapse @(ViewBag.Area == "{{ area.path.toLowerCase() }}" ? "in" : "")">
+				<li class="panel {{#ifCond area "{$ area.path.toLowerCase() $}"}}active expanded{{/ifCond}}{{#ifNotCond  area "{$ area.path.toLowerCase() $}"}}collapsed{{/ifNotCond}}">
+					<a class="area" href="#{$ area.path.toLowerCase() $}-articles" data-parent="#main-nav" data-toggle="collapse">{$ area.title $}</a>
+					<ul id="{$ area.path.toLowerCase() $}-articles" class="collapse {{#ifCond area "{$ area.path.toLowerCase() $}"}}in{{/ifCond}}">
 					{% for article in area.articles %}
-						<li @(ViewBag.Section == "{{ article.Link }}" ? "class=active" : "")><a href="/docs/{{ article.Link }}">{{ article.NavTitle }}</a></li>
+						<li {{#ifCond section "{$ article.Link $}"}}class=active{{/ifCond}}")><a href="/docs/{$ article.Link $}">{$ article.NavTitle $}</a></li>
 					{% endfor %}
 					</ul>
 				</li>
@@ -18,12 +18,12 @@
 <nav id="small-nav" class="docs-nav hidden-md hidden-lg">
 	<h4>Topics</h4>
 	<select id="small-nav-dropdown">
-		<option value="/docs" @(ViewBag.Section == "Home" ? "selected" : "")>Overview</option>
+		<option value="/docs" {{#ifCond section "Home"}}"selected"{{/ifCond}}>Overview</option>
 		{% for area in areas %}
 			{% if area.include %}
-				<optgroup label="{{ area.title }}">
+				<optgroup label="{$ area.title $}">
 				{% for article in area.articles %}
-					<option value="/docs/{{ article.Link }}" @(ViewBag.Section == "{{ article.Link }}" ? "selected" : "")>{{ article.NavTitle }}</option>
+					<option value="/docs/{$ article.Link $}" {{#ifCond section "{$ article.Link $}"}}"selected"{{/ifCond}}>{$ article.NavTitle $}</option>
 				{% endfor %}
 				</optgroup>
 			{% endif %}

@@ -13,7 +13,7 @@ var File = require('vinyl');
 var common = require('./gulpfile.common');
 
 var DOCS_SRC_ROOT = 'docs'; 
-var DEST_ROOT = 'out/vscode-website/website'; 
+var DEST_ROOT = 'out/vscode-website/src'; 
 
 var areas = {
 	editor: { title: 'Editor', path: 'editor', include: true, articles: [] },
@@ -37,7 +37,7 @@ gulp.task('copy-images', function () {
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
 		.pipe(rename({ dirname: '' }))
-		.pipe(gulp.dest(DEST_ROOT + '/Content/images'));
+		.pipe(gulp.dest(DEST_ROOT + '/public/images'));
 ;})
 
 gulp.task('compile-docs', ['compile-docs-markdown', 'copy-images'], function () {
@@ -52,12 +52,12 @@ gulp.task('compile-docs', ['compile-docs-markdown', 'copy-images'], function () 
 	}
 
 	var file = new File({
-		path: '_DocsNav.cshtml',
+		path: 'docNav.handlebars',
 		contents: new Buffer(tpl({ areas: areas }))
 	});
 
 	return es.readArray([file])
-		.pipe(gulp.dest(DEST_ROOT + '/Views/Shared'));
+		.pipe(gulp.dest(DEST_ROOT + '/views/partials'));
 });
 
 gulp.task('compile-docs-markdown', function () {
@@ -95,6 +95,6 @@ gulp.task('compile-docs-markdown', function () {
 
 			return file;
 		}))
-		.pipe(rename({ extname: '.cshtml' }))
-		.pipe(gulp.dest(DEST_ROOT + '/Views/Docs'));
+		.pipe(rename({ extname: '.handlebars' }))
+		.pipe(gulp.dest(DEST_ROOT + '/views/docs'));
 });
