@@ -10,9 +10,9 @@ MetaTags:
 - ASP.NET Core
 ---
 
-# ASP.NET Core Applications with VS Code
+# ASP.NET Core with VS Code
 
->**Note:** ASP.NET Core and DNX (the .NET Execution Environment) on OS X and Linux are in an early Beta/Preview state. This guide will help you get started but we recommend following the [aspnet Home project](https://github.com/aspnet/Home) on GitHub for the latest information.
+>**Note:** ASP.NET Core and DNX (the .NET Execution Environment) on OS X and Linux are in an early Beta/Preview state. This guide will help you get started but we recommend following the [ASP.NET Home project](https://github.com/aspnet/Home) on GitHub for the latest information.
 
 ## ASP.NET Core and DNX
 [ASP.NET Core/DNX](http://www.asp.net/vnext/overview/aspnet-vnext/aspnet-5-overview) is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
