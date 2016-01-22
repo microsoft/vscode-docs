@@ -21,14 +21,6 @@ This document covers the various contribution points that are defined in the [`p
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
 * [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
 
-> **Tip:** If you want to contribute a language extension for a language that is already bundled with VS Code, you can do this by adding an `extensionDependency` to this language in your package.json. For example, to contribute to F# support:
-```json
-    "extensionDependencies": [
-        "vscode.fsharp"
-    ],
-```
-This defines a dependency on the existing FSharp extension and this dependency ensures that the built-in extension is loaded first. Then you can overwrite its contributions as needed in your extension.
-
 ## `contributes.configuration`
 
 Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options either from User Settings or from the Workspace Settings.
