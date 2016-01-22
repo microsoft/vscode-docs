@@ -123,6 +123,6 @@ There is much more to explore with Visual Studio Code, please try the following 
 
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-* [ASP.NET 5](/docs/runtimes/ASPnet5.md) - End to end sample showing off our ASP.NET 5 and .NET 5 support with a sample app
+* [ASP.NET Core](/docs/runtimes/ASPnet5.md) - End to end sample showing off our ASP.NET Core and .NET Core support with a sample app
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
 

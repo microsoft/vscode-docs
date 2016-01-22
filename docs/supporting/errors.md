@@ -15,8 +15,8 @@ If these steps don't help you, you probably hit a bug. You can check our [report
 >**Error:** Cannot start OmniSharp because Mono version >=3.10.0 is required
 
 Currently, debugging support of VS Code on Linux or OS X requires Mono version 3.12 or later.
-If you intend to build ASP.NET 5 applications with VS Code, we recommend to first follow the steps
-**Installing ASP.NET 5 and DNX** in [ASP.NET 5 Applications](/docs/runtimes/ASPnet5.md), since this will install a version of Mono
+If you intend to build ASP.NET Core applications with VS Code, we recommend to first follow the steps
+**Installing ASP.NET Core and DNX** in [ASP.NET Core Applications](/docs/runtimes/ASPnet5.md), since this will install a version of Mono
 that also supports debugging.
 
 If you just want to try debugging support of VS Code, you can either download the latest Mono version
