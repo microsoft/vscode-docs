@@ -53,6 +53,8 @@ Possible variables are:
 	 
 To open up a snippet file for editing, open `User Snippets` under `File`, `Preferences` and select the language for which the snippets should appear.
 
+> In case your snippet should contain `{` or `}`, it is possible to escape them, in JSON as `\\{` and `\\}`
+
 Once you have added a new snippet, you can try it out right away, no restart needed.
 
 ## Using TextMate Snippets
