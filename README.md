@@ -6,15 +6,15 @@ Topics submitted here will be published to the [Visual Studio Code](https://code
 
 ## Visual Studio Code
 
-VS Code is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on your favorite platform - Linux, Mac OSX and Windows.
+[VS Code](https://code.visualstudio.com/) is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on your favorite platform - Linux, Mac OSX and Windows.
 
 If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 
 ## Contributing documentation
 
-To contribute new topics or make changes to existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md) for instructions and guidelines.
+To contribute with new topics/information or make changes to existing documentation, see [contributing](https://github.com/Microsoft/vscode-docs/blob/master/CONTRIBUTING.md) for instructions and guidelines.
 
-If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page. To enter doc bugs, please create a GitHub issue.
+If you want to give documentation feedback, please use the feedback control located at the bottom of each documentation page. To enter doc bugs, please create a [new GitHub issue](https://github.com/Microsoft/vscode-docs/issues) (try to check if there isn't a topic about your issue already).
 
 ## Editing
 
@@ -34,6 +34,6 @@ If you want to use VS Code, simply navigate to the `vscode-docs` directory and l
 cd vscode-docs
 code .
 ```
-You can now open any of the Markdown files and easily toggle between preview with the `Open Preview` button in the upper right of the editor.  
+You can now open any of the Markdown files and easily toggle between preview with the `Open Preview` button in the upper right of the editor. 
 
- 
+![Markdown Preview Button](images/MDPreviewButton.png)
