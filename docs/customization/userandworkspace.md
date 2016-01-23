@@ -182,12 +182,6 @@ Below is a copy of the default `settings.json` file.
 	"http.proxyStrictSSL": true,
 
 
-	//-------- Update configuration --------
-
-	// Configure the update channel to receive updates from. Requires a restart after change.
-	"update.channel": "stable",
-
-
 	//-------- Search configuration --------
 
 	// Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the file.exclude setting.
@@ -195,9 +189,6 @@ Below is a copy of the default `settings.json` file.
 		"**/node_modules": true,
 		"**/bower_components": true
 	},
-
-	// Experimental support for fuzzy matching of file names in the file picker.
-	"filePicker.alternateFileNameMatching": false,
 
 
 	//-------- Git configuration --------

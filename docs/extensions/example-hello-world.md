@@ -118,8 +118,8 @@ Let's go through the purpose of all these files and explain what they do:
 		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
 	},
 	"devDependencies": {
-		"typescript": "^1.6.2",
-		"vscode": "0.10.x"
+		"typescript": "^1.7.5",
+		"vscode": "^0.2.0"
 	}
 }
 ```
