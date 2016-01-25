@@ -192,7 +192,7 @@ Read on to find out about:
 
 **Q: Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
 
-**A:** Yes.
+**A:** We are using the [marked](https://github.com/chjj/marked) library with the `gfm` option set to [true](https://github.com/chjj/marked#gfm).
 
 **Q: In the walkthrough above, I didn't find the `Configure Task Runner` command in the Command Palette?**
 
