@@ -49,6 +49,8 @@ Some areas where you can now jump to using keyboard only:
 * actions in views and sections
 * actions for items in the tree
 
+This is just the beginning of your journey to become more keyboard accessible, expect more areas to follow in the future!
+
 ## Extension API Consumption
 
 When you write an extension for VS Code your are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file
