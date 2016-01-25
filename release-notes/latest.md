@@ -49,11 +49,11 @@ Some areas where you can now jump to using keyboard only:
 * actions in views and sections
 * actions for items in the tree
 
-This is just the beginning of your journey to become more keyboard accessible, expect more areas to follow in the future!
+This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
 
 ## Extension API Consumption
 
-When you write an extension for VS Code your are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file
+When you write an extension for VS Code you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file
 in our repository [here](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language
 service to provide you with nice validation and intellisense while you develop on your extension.
 
@@ -79,6 +79,25 @@ The process of installing a specific version of the API into your extension is s
 * type `npm install vscode` from the root of your extension
 * the `vscode` module will download the appropiate version of `vscode.d.ts` based on the `engine` field you declared
 * go back to VS Code and see how the API for the specific version you chose appears in Intellisense and validation
+
+## Horizontal panel
+We have introduced a horizontal panel in the workbench. To gain more horizontal space, output and debug console are now shown in the horizontal panel.
+TODO@Isidor insert picture
+
+## Debug: rich object hover
+We are now using a tree widget in the debug hover to allow better rich object inspection.
+
+![debug console hover](images/January/debug-hover.png)
+
+## Debug: conditional breakpoints
+We now support adding conditions to breakpoints such that they will be only hit if the specified condition is true.
+
+TODO@Isidor insert picture
+
+## Debug: changed variables indication
+We now indicate in the debug viewlet what variables have changed values between step events.
+
+TODO@Isidor insert picture
 
 ## Notable Bug Fixes
 
