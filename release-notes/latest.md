@@ -77,22 +77,23 @@ To avoid confusion here is a brief explanation of these two source map options. 
 * *inlined source maps:* the contents of the source map does not live in a file but is a data url at the end of the generated file
 * *inlined source:* the contents of the original source file does not live in a file but is included in the source map.
 
-The strategy in what situations VS Code will use "inlined source" is as follows:
-VS Code always tries to locate the source on disk first. If it cannot find the source (e.g. because there is none in the VS Code workspace or because the paths in the source maps are broken), VSCode will use the "inlined source" if available. If there is no inlined source, VSCode will fall back to get the file contents from node itself.
+The strategy in which situations VS Code will use "inlined source" is as follows:
+VS Code always tries to locate the source on disk first. If it cannot find the source (e.g. because there is none in the VS Code workspace or because the paths in the source maps are broken), VS Code will use the "inlined source" if available. If there is no inlined source, VS Code will fall back to get the file contents from node itself.
+
 Whenever the editor contents is not loaded from the file system but comes from the debugger backend, the editor will be in readonly mode and the "origin" of the editor contents is shown in the editor title like this:
 
 ![Editor showing inlined source](images/January/debug-inlined-source.png)
 
 ## Node Debugger: Remote Debugging
 
-The followings improvements enable VS Code to better support remote debugging (which includes debugging into a Docker container):
+The followings improvements enable VS Code to support remote debugging (which includes debugging into a Docker container):
 * The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) node folder. This works even locally on the same system or across different operating systems.
 * The `attach` launch configuration now supports an `address` attribute where a remote host can be specified. Please note that remote debugging is only supported on recent versions of node (>= 4.x).
 
 ## Mono debugger: Support for VS Code Debug Console
 
 For the VS Code mono debugging support we've added an `externalConsole` attribute, which controls whether the mono target application
-is launched in an external console or in the builtin debug console (default).
+is launched in an external console or in the built-in debug console (this is the default).
 Please note that the builtin debug console does not support keyboard input for your application.
 
 ## Extension API Consumption
