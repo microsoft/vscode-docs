@@ -22,7 +22,7 @@ We added a new action to hide the menu bar on Windows and Linux (`View | Toggle 
 VS Code always supported to automatically save dirty files after one second (`File | Auto Save`). We received lots of feedback that users want to have ore control over
 when Code should automatically save dirty files. The setting now moved into the `settings.json` configuration file and provides more options:
 
-* `files.autoSave`: can have the values `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when 
+* `files.autoSave`: can have the values `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when
 focus moves out of the editor of the dirty file
 * `files.autoSaveDelay`: configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`
 * since this setting can be configured via our official settings story, it is possible to enable auto save for selected workspaces only by configuring it via the
@@ -41,7 +41,7 @@ Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) in
 You will find that VS Code is already providing an exhaustive list of commands from the command palette (`kb(workbench.action.showCommands)`) so that you can operate VS Code without using the mouse.
 However, some parts of the UI could not be operated without using the mouse to click. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you
 can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI
-element once the element gains focus. 
+element once the element gains focus.
 
 Some areas where you can now jump to using keyboard only:
 * view switcher
@@ -70,7 +70,7 @@ Thus we made the following changes:
 * the value of the `engine` field in your extension is used to determine which version of `vscode.d.ts` to use
 * it is still very easy to update to a newer API via basic `npm` commands
 
-Since this is a somewhat breaking change for existing extensions, we decided to bump the `vscode` npm module version to `0.2.0`. We encourage all extension writers to 
+Since this is a somewhat breaking change for existing extensions, we decided to bump the `vscode` npm module version to `0.2.0`. We encourage all extension writers to
 update their dependency to `vscode` from the `package.json` to this version (`^0.2.0`) to benefit from future updates to tooling for extensions.
 
 The process of installing a specific version of the API into your extension is still very simple:
@@ -83,4 +83,5 @@ The process of installing a specific version of the API into your extension is s
 ## Notable Bug Fixes
 
 * [1485](https://github.com/Microsoft/vscode/issues/1485): Windows 7: Deleting always fails with error message
-
+* [1962](https://github.com/Microsoft/vscode/issues/1962): Debugger fails when offline
+* [1687](https://github.com/Microsoft/vscode/issues/1687): VSC 10.6 does not allow to attach debugger to running Electron app
