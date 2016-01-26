@@ -105,7 +105,7 @@ By default, VS Code requires an explicit action to save your changes to disk, `k
 
 However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file.
 
-To configure Auto Save, open **User Settings** or **Workspace Settings** and find the associated settings:
+To configure `Auto Save`, open **User Settings** or **Workspace Settings** and find the associated settings:
 
 * `files.autoSave`: Can have the values `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when focus moves out of the editor of the dirty file.
 * `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
