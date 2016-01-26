@@ -107,9 +107,8 @@ However, it's easy to turn on `Auto Save`, which will save your changes after a 
 
 To configure Auto Save, open **User Settings** or **Workspace Settings** and find the associated settings:
 
-* `files.autoSave`: can have the values `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when 
-focus moves out of the editor of the dirty file
-* `files.autoSaveDelay`: configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`
+* `files.autoSave`: Can have the values `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when focus moves out of the editor of the dirty file.
+* `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
 
 ## Search Across Files
 
