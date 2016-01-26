@@ -1,7 +1,7 @@
 <nav id="docs-navbar" class="docs-nav updates-nav visible-md visible-lg">
 	<ul class="nav">
 		{% for article in articles %}
-			<li {{#ifCond section "{$ article.Link $}"}}"class=active"{{/ifCond}}><a href="/updates/{$ article.Link $}">{$ article.NavTitle $}</a></li>
+			<li {{#ifCond section "{$ article.Link $}"}}class="active"{{/ifCond}}><a href="/updates/{$ article.Link $}">{$ article.NavTitle $}</a></li>
 		{% endfor %}
 	</ul>
 </nav>
