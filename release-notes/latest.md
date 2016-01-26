@@ -81,8 +81,8 @@ To avoid confusion, here is a brief explanation of these two source map options.
 
 The strategy for which situations VS Code will use "inlined source" is as follows:
 
-* VS Code always tries to locate the source on disk first. 
-* If it cannot find the source (e.g. because there is none in the VS Code workspace or because the paths in the source maps are broken), VS Code will use the "inlined source" if available. 
+* VS Code always tries to locate the source on disk first.
+* If it cannot find the source (e.g. because there is none in the VS Code workspace or because the paths in the source maps are broken), VS Code will use the "inlined source" if available.
 * If there is no inlined source, VS Code will fall back to get the file contents from Node.js itself.
 
 Whenever the editor contents is not loaded from the file system but comes from the debugger backend, the editor will be in read-only mode and the "origin" of the editor contents is shown in the editor title like this:
@@ -131,6 +131,12 @@ The process of installing a specific version of the API into your extension is s
 * Type `npm install vscode` from the root of your extension.
 * The `vscode` module will download the appropiate version of `vscode.d.ts` based on the `engine` field you declared.
 * Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
+
+## Debug Protocol Enhancements
+
+* Feature negotiation TODO@weinand
+* new requests `ConfigurationDoneRequest` TODO@weinand
+* `Source` type got an `origin` attribute TODO@weinand
 
 ## Extension Authoring: Test Suite for Debug Adapters
 
