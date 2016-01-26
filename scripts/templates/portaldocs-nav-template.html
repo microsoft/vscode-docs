@@ -1,6 +1,6 @@
 <nav id="docs-navbar" class="docs-nav visible-md visible-lg">
 	<ul class="nav" id="main-nav">
-		<li {{#ifCond section "Home"}}"class=active"{{/ifCond}}><a class="docs-home" href="/docs">Overview</a></li>
+		<li {{#ifCond section "Home"}}class="active"{{/ifCond}}><a class="docs-home" href="/docs">Overview</a></li>
 		{% for area in areas %}
 			{% if area.include %}
 				<li class="panel {{#ifCond area "{$ area.path.toLowerCase() $}"}}active expanded{{/ifCond}}{{#ifNotCond  area "{$ area.path.toLowerCase() $}"}}collapsed{{/ifNotCond}}">
