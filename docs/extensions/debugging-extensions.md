@@ -83,5 +83,5 @@ your changes. You have two options to do this:
 **Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
 
 **A:** If your extension is using API that was introduced in a newer release of VS Code, you have to declare this dependency from the
-`engines` field in the `package.json` file of the extension. After that, run `npm install vscode` from the root of your extension and
+`engines` field in the `package.json` file of the extension. After that, run `npm install` from the root of your extension and
 the related API file for the version specified will be downloaded and is ready to use for developing your extension.
