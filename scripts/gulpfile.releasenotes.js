@@ -73,7 +73,6 @@ gulp.task('compile-releasenotes-markdown', function () {
 			var tpl = common.swigCompiler('scripts/templates/releasenotes-template.html');
 			var result = tpl(rn);
 
-			result = common.prependUTF8(result);
 			file.contents = new Buffer(result, 'utf8');
 
 			return file;

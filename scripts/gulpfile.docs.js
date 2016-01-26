@@ -90,7 +90,6 @@ gulp.task('compile-docs-markdown', function () {
 			var tpl = common.swigCompiler('scripts/templates/portaldocs-template.html');
 			var result = tpl(doc);
 
-			result = common.prependUTF8(result);
 			file.contents = new Buffer(result, 'utf8');
 
 			return file;

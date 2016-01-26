@@ -117,15 +117,6 @@ exports.compileMarkdown = function(file, article) {
 	return article;
 }
 
-exports.prependUTF8= function(contents) {
-	// Prepend UTF-8 BOM
-	var __utf8_bom = 65279;
-	if (contents.length > 0 && contents.charCodeAt(0) !== __utf8_bom) {
-		contents = String.fromCharCode(__utf8_bom) + contents;
-	}
-	return contents;
-}
-
 exports.rimraf = function(dir) {
 	return function (cb) {
 		rimraf(dir, cb);
