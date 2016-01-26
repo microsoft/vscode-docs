@@ -30,8 +30,8 @@ Now, you can simply type `code .` in any folder to start editing files in that f
 >
 >```fish
 >function code
->  set location "$PWD/$argv"
->  open -n -b "com.microsoft.VSCode" --args $location
+>  set -lx VSCODE_CWD $PWD
+>  open -n -b "com.microsoft.VSCode" --args $argv
 >end
 >```
 
