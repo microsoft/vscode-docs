@@ -28,6 +28,8 @@ when VS Code should save dirty files. The setting is now in the `settings.json` 
 
 **Note:** If you had auto save enabled previously, we will migrate your setting into the `settings.json` file automatically.
 
+**Note:**: You will not see any dirty indicators in the UI if you configure auto save for 1s or below. In all other cases you will see the dirty indicators throughout the UI.
+
 ## File Picker
 
 Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) include:
@@ -171,6 +173,9 @@ test('should set a breakpoint and stop on it', () => {
 More examples can be found in these debug adapter projects on GitHub: [Microsoft/vscode-node-debug](https://github.com/Microsoft/vscode-node-debug), [Microsoft/vscode-mock-debug](https://github.com/Microsoft/vscode-mock-debug), and [Microsoft/vscode-mono-debug](https://github.com/Microsoft/vscode-mono-debug).
 
 The Promise-based API can be found in [DebugClient.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/DebugClient.ts) and an initial set of tests in [adapter.test.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
+
+## Electron
+We updated to Electron 0.35.6.
 
 ## Notable Bug Fixes
 
