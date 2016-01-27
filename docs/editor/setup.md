@@ -21,7 +21,7 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 >**Tip:** If you want to run VS Code from the terminal, append the following to your `~/.bash_profile` file (`~/.zshrc` in case you use `zsh`) and then either restart the terminal or type `source ~/.bash_profile`:
 >
 >```bash
->function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@"; }
+>function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@@"; }
 >```
 
 Now, you can simply type `code .` in any folder to start editing files in that folder.
