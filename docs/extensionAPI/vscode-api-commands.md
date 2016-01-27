@@ -1,13 +1,21 @@
+---
+Order: 6
+Area: extensionapi
+TOCTitle: API commands
+PageTitle: Visual Studio Code Commands API Reference
+DateApproved: 12/18/2015
+MetaDescription: Visual Studio Code extensions (plug-ins) Commands API Reference.  
+---
 
 # API Commands
 
-This document list a set of complex commands that we consider stable. They are called complex
-commands because they require parameters and often return a value. You can use those command in
-conjunction with the `executeCommand`-api. The following is a sample of how to preview a html-document
+This document lists a set of complex commands that we consider stable. They are called complex commands because they require parameters and often return a value. You can use the commands in conjunction with the `executeCommand` API.
+
+The following is a sample of how to preview a HTML document:
 
 ```javascript
 let uri = Uri.parse('file:///some/path/to/file.html');
-let success = await commands.executeCommand(uri);
+let success = await commands.executeCommand('vscode.previewHtml', uri);
 ```
 
 ## Commands
