@@ -13,11 +13,9 @@ We're back from the holidays and have been busy with a new update of Visual Stud
 
 These release notes only capture what's new in the core of Visual Studio Code. Do not forget to check out the [marketplace](https://marketplace.visualstudio.com/#VSCode) for new extensions.
 
-## Hide the Menu Bar (Windows, Linux)
+## Editor
 
-We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu pressing the `Alt` key.
-
-## Auto Save
+### Auto Save
 
 VS Code always supported automatically saving dirty files after one second (`File | Auto Save`). We received a lot of feedback that users want more control over
 when VS Code should save dirty files. The setting is now in the `settings.json` configuration file and provides more options:
@@ -30,14 +28,14 @@ when VS Code should save dirty files. The setting is now in the `settings.json` 
 
 **Note:**: You will not see any dirty indicators in the UI if you configure auto save for 1s or below. In all other cases you will see the dirty indicators throughout the UI.
 
-## File Picker
+### File Picker
 
 Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) include:
 
 * Fuzzy matching is now enabled by default and the previously introduced setting `filePicker.alternateFileNameMatching` is no longer needed.
 * You can open any file (including line/column pattern at the end) that exists on disk by typing the full path or full workspace relative path even if your exclude settings hide it otherwise.
 
-## Keyboard Accessibility
+### Keyboard Accessibility
 
 You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can operate VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
 
@@ -50,38 +48,33 @@ Some areas where you can now jump to using keyboard only:
 
 This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
 
-## Localization
+### Hide the Menu Bar (Windows, Linux)
 
-We also started work on localizing VSCode for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VSCode running under a German locale.
+We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu pressing the `Alt` key.
 
-![VSCode in German](images/January/german-vscode.png)
+## Debugging
 
-Please note that the translation effort for VSCode hasn't been completed yet. So it will still take a while until we ship VSCode for different languages than English.
-
-## Horizontal panel
-
-We have introduced a horizontal panel in the workbench. To gain more horizontal space, the output and debug consoles are now shown in the horizontal panel.
-TODO@Isidor insert picture
-
-## Debug: Rich Object Hover
+### Rich Object Hover
 
 We are now using a tree widget in the debug hover to allow better rich object inspection.
 
 ![debug console hover](images/January/debug-hover.png)
 
-## Debug: Conditional Breakpoints
+### Conditional Breakpoints
 
 We now support adding conditions to breakpoints such that they will be only hit if the specified condition is true.
 
 TODO@Isidor insert picture
 
-## Debug: Changed Variable Indication
+### Changed Variable Indication
 
 We now indicate in the debug view what variables have changed values between step events.
 
 TODO@Isidor insert picture
 
-## Node.js Debugger: Source Maps with Inlined Source
+## Node.js Debugging
+
+### Source Maps with Inlined Source
 
 Node.js debugging now supports source maps with "inlined source" (in addition to "inlined source maps" which were already supported).
 To avoid confusion, here is a brief explanation of these two source map options. "Inlined source" and "inlined source maps" are orthogonal features (and VS Code supports both either alone or in combination):
@@ -99,7 +92,7 @@ Whenever the editor contents is not loaded from the file system but comes from t
 
 ![Editor showing inlined source](images/January/debug-inlined-source.png)
 
-## Node.js Debugger: Remote Debugging
+### Remote Debugging
 
 The followings improvements enable VS Code to support remote debugging (which includes debugging into a Docker container):
 
@@ -107,15 +100,27 @@ The followings improvements enable VS Code to support remote debugging (which in
 * The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems.
 VS Code uses these paths in the following way: whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion the `localRoot` path is replaced by the `remoteRoot`.
 
-## Node.js Debugger: "--nolazy" option not automatically added
+### "--nolazy" option not automatically added
 
 In order to ensure that breakpoints are hit reliably, VS Code automatically adds the `--nolazy` option when launching Node.js. With the advent of Node.js alternatives that do not support this option (e.g. Chakra), we've removed this automatic behavior. So if you see that breakpoints are not hit reliably in Node.js, please verify that your launch config sets the `--nolazy` via the `runtimeArgs` attribute.
 
-## Mono debugger: Support for VS Code Debug Console
+## Mono debugging
+
+### Support for VS Code Debug Console
 
 For VS Code Mono debugging support, we've added an `externalConsole` attribute, which controls whether the Mono target application is launched in an external console or in the built-in Debug Console (this is the default). Please note that the built-in Debug Console does not support keyboard input for your application.
 
-## Extension API Consumption
+## Localization
+
+We also started work on localizing VS Code for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VS Code running under a German locale.
+
+![VSCode in German](images/January/german-vscode.png)
+
+Please note that the translation effort for VS Code haven't been completed yet and it will still take a while until we ship VS Code for languages other than English.
+
+## Extension Authoring
+
+### API Consumption
 
 When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file
 in our repository [here](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language
@@ -147,34 +152,39 @@ The process of installing a specific version of the API into your extension is s
 * The `vscode` module will download the appropiate version of `vscode.d.ts` based on the `engine` field you declared.
 * Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
 
-## Extension API additions
+### Extension API additions
 
-We added a few API additions that enable you to write even more awesome extensions. For once there are enhancement around quick pick and input.
-You can now validate user input, get called when an item is focused in quick pick, and quick pick now has room for additional details. Last but
-not least, quick pick now supports octicons like the status bar does.
+We added a few API additions that enable you to write even more awesome extensions.
 
-We have introduce the concept of virtual documents. Those are textual documents that don't have a representation on disk, but are for instance generated
-html from markdown or source code from debug symbols.
+Quick Pick and Input
+
+You can now validate user input, get called when an item is focused in Quick Pick, and Quick Pick now has room for additional details. Also Quick Pick now supports [GitHub Octicons](https://octicons.github.com) like the Status Bar.
+
+Virtual Documents
+
+We have introduced the concept of virtual documents. These are textual documents that don't have a representation on disk, but are generated at runtime.  For example, HTML generated from Markdown or source code from debug symbols.
 
 ![virtual document](images/January/api-virtual-documents.png)
 
-Combine virtual documents with the new `vscode.previewHtml` command and you have whole new set of toys to be creative with.
+Combine virtual documents with the new `vscode.previewHtml` command and you can come up with some creative solutions.
 
-Last, there is now also support to use glob-patterns when associating files with a language, there is API to access the column in
-which an editor is, and the `MarkedString` supports now all of markdown.
+New Extension APIs
 
+* There is now support for glob-patterns when associating files with a language.
+* You can determine the current editor `ViewColumn`.
+* There is a new `MarkedString` to display Markdown content in various UI elements.
 
-## Debug Protocol Enhancements
+### Debug Protocol Enhancements
 
 * Feature negotiation TODO@weinand
 * new requests `ConfigurationDoneRequest` TODO@weinand
 * `Source` type got an `origin` attribute TODO@weinand
 
-## Extension Authoring: Test Suite for Debug Adapters
+### Test Suite for Debug Adapters
 
 With the January release, we've started to simplify the process of writing automated tests for a debug adapter. The basic idea is to provide a toolkit with Promise-based building blocks for individual protocol requests (e.g. `stepInRequest`) and for common request sequences (e.g. `hitBreakpoint`). These building blocks can be easily configured for a specific adapter and combined to form complex scenarios.
 
-Here are three mocha tests:
+Here are three example Mocha tests:
 
 ```js
 var dc: DebugClient = ...;
@@ -200,12 +210,13 @@ test('should set a breakpoint and stop on it', () => {
 });
 ```
 
-More examples can be found in these debug adapter projects on GitHub: [Microsoft/vscode-node-debug](https://github.com/Microsoft/vscode-node-debug), [Microsoft/vscode-mock-debug](https://github.com/Microsoft/vscode-mock-debug), and [Microsoft/vscode-mono-debug](https://github.com/Microsoft/vscode-mono-debug).
+More examples can be found in these debug adapter projects on GitHub: 
 
-The Promise-based API can be found in [DebugClient.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/DebugClient.ts) and an initial set of tests in [adapter.test.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
+* [Microsoft/vscode-node-debug](https://github.com/Microsoft/vscode-node-debug)
+* [Microsoft/vscode-mock-debug](https://github.com/Microsoft/vscode-mock-debug)
+* [Microsoft/vscode-mono-debug](https://github.com/Microsoft/vscode-mono-debug)
 
-## Electron
-We updated to Electron 0.35.6.
+You can see the Promise-based API in [DebugClient.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/DebugClient.ts) and an initial set of tests in [adapter.test.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
 
 ## Notable Bug Fixes
 
