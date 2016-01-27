@@ -147,6 +147,23 @@ The process of installing a specific version of the API into your extension is s
 * The `vscode` module will download the appropiate version of `vscode.d.ts` based on the `engine` field you declared.
 * Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
 
+## Extension API additions
+
+We added a few API additions that enable you to write even more awesome extensions. For once there are enhancement around quick pick and input.
+You can now validate user input, get called when an item is focused in quick pick, and quick pick now has room for additional details. Last but
+not least, quick pick now supports octicons like the status bar does.
+
+We have introduce the concept of virtual documents. Those are textual documents that don't have a representation on disk, but are for instance generated
+html from markdown or source code from debug symbols.
+
+![virtual document](images/January/api-virtual-documents.png)
+
+Combine virtual documents with the new `vscode.previewHtml` command and you have whole new set of toys to be creative with.
+
+Last, there is now also support to use glob-patterns when associating files with a language, there is API to access the column in
+which an editor is, and the `MarkedString` supports now all of markdown.
+
+
 ## Debug Protocol Enhancements
 
 * Feature negotiation TODO@weinand
