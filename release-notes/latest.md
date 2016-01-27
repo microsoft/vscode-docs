@@ -109,7 +109,7 @@ VS Code uses these paths in the following way: whenever a code path needs to be 
 
 ## Node.js Debugger: "--nolazy" option not automatically added
 
-In order to ensure that breakpoints are hit reliably, VS Code automatically adds the `--nolazy` option when launching Node.js. With the advent of Node.js alternatives that do not support this options (e.g. Chakra), we've removed this automatic behavior. So if you see that breakpoints are not hit reliably in Node.js, please verify that your launch config sets the `--nolazy` via the `runtimeArgs` attribute.
+In order to ensure that breakpoints are hit reliably, VS Code automatically adds the `--nolazy` option when launching Node.js. With the advent of Node.js alternatives that do not support this option (e.g. Chakra), we've removed this automatic behavior. So if you see that breakpoints are not hit reliably in Node.js, please verify that your launch config sets the `--nolazy` via the `runtimeArgs` attribute.
 
 ## Mono debugger: Support for VS Code Debug Console
 
@@ -165,7 +165,7 @@ var dc: DebugClient = ...;
 test('should run program to the end', () => {
 	return Promise.all([
 		dc.configurationSequence(),
-		dc.launch({ program: PROGRAM }),
+		dc.launch({ program: "main.js" }),
 		dc.waitForEvent('terminated')
 	]);
 });
@@ -173,13 +173,13 @@ test('should run program to the end', () => {
 test('should stop on entry', () => {
 	return Promise.all([
 		dc.configurationSequence(),
-		dc.launch({ program: PROGRAM, stopOnEntry: true }),
+		dc.launch({ program: "main.js", stopOnEntry: true }),
 		dc.assertStoppedLocation('entry', 1)
 	]);
 });
 
 test('should set a breakpoint and stop on it', () => {
-	return dc.hitBreakpoint({ program: "test.js" }, "test.js", 15);
+	return dc.hitBreakpoint({ program: "main.js" }, "test.js", 15);
 });
 ```
 
