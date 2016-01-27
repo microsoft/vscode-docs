@@ -21,6 +21,7 @@ VS Code's TypeScript support can operate in two different modes:
 >**Tip:** We recommend that you use explicit projects over file scope projects. Since explicit projects list the files belonging to a project language, features like `Find All References` `kb(editor.action.referenceSearch.trigger)` consider the project scope and not the file scope only.
 
 ## tsconfig.json
+
 Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file.  This defines the TypeScript project settings such as the compiler options and the files that should be included.  To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`.  Once in this file IntelliSense will help you along the way.
 
 ![jsconfig.json IntelliSense](images/typescript/jsconfigintellisense.png)
@@ -39,12 +40,12 @@ A simple `tsconfig.json` looks like this for ES5, AMD modules and source maps:
 
 Now when you create a `.ts` file as part of the project we will offer up rich editing experiences and syntax validation.
 
-
 ## Transpiling TypeScript into JavaScript
+
 VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Let's walk through transpiling a simple TypeScript Hello World program.
 
-
 ### Step 1: Create a simple TS file
+
 Open VS Code on an empty folder and create a `HelloWorld.ts` file, place the following code in that file...
 
 ``` typescript
@@ -57,6 +58,7 @@ class Startup {
 ```
 
 ### Step 2: Create tasks.json
+
 The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it.
 
 This will create a sample `tasks.json` file in the `.vscode` folder.  The initial file has a large number of examples within it.
@@ -80,14 +82,14 @@ Under the covers we interpret `tsc` as an external task runner exposing exactly 
 
 >**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](http://www.typescriptlang.org/).
 
-
-
 ### Step 3: Run the Build Task
+
 As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
 
 The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` file was created.
 
 ### Step 4: Reviewing Build Issues
+
 Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file we may get the following output from `tsc`:
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
@@ -104,37 +106,34 @@ You can also use the keyboard to open the list `kb(workbench.action.showErrorsWa
 
 >**Tip:** Tasks offer rich support for many actions. Check the [Tasks](/docs/editor/tasks.md) topic for more information on how to configure them.
 
-
-
 ## Goto Symbol & Show All Symbols
+
 `kb(workbench.action.gotoSymbol)`: lists all defined symbols of the current open TypeScript and lets you navigate in it.
 
 `kb(workbench.action.showAllSymbols)`: lets you search all symbols defined in the current project or file scope. You need to have a TypeScript file open in the active editor.
 
-
-
 ## Format Code
+
 `kb(editor.action.format)`: formats the currently selected code, or the whole document if no code is selected.
 
-
-
 ## JSDoc Support
+
 VS Code offers JSDoc support for TypeScript. Besides syntax coloring, we help you enter JSDoc comments. Simply type `/**` and it will auto insert the closing `*/`. Pressing `kbstyle(Enter)` inside a JSDoc block will indent the next line and auto insert a `*`.
 
-
 ## JavaScript Source Map Support
+
 TypeScript debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the project's launch configuration file `launch.json`. In addition, you can specify a TypeScript file with the `program` attribute.
 
 To generate source maps for your TypeScript files, compile with the `--sourcemap` option.
 
 In-lined source maps (a source map where the content is stored as a data URL instead of a separate file) are also supported, although in-lined source is not yet supported.
 
-
 ## Setting a different outDir for generated files
+
 If generated (transpiled) JavaScript files do not live next to their source, you can help the VS Code debugger locate them by specifying the outDir directory in the launch configuration. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source, and the associated source map, in the outDir directory.
 
-
 ## Hiding Derived JavaScript Files
+
 When you are working with TypeScript you often don’t want to see the files in the explorer or include them in search results. VS Code offers filtering capabilities to help, you can easily set an expression to hide those derived files:
 
 `"**/*.js": { "when": "$(basename).ts"}`
@@ -143,9 +142,12 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 ![Hiding derived resources](images/typescript/hidingderivedresources.png)
 
+## Using Newer TypeScript Versions
 
+VS Code ships with a recent stable version of TypeScript in the box.  If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting supports relative paths so you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`). Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.
 
 ## Next Steps
+
 OK, read on to find out about:
 
 * [JavaScript](/docs/languages/javascript.md) - we have several JavaScript specific features in VS Code
