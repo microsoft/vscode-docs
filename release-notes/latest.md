@@ -50,6 +50,14 @@ Some areas where you can now jump to using keyboard only:
 
 This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
 
+## Localization
+
+We also started work on localizing VSCode for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VSCode running under a German locale.
+
+![VSCode in German](images/January/german-vscode.png)
+
+Please note that the translation effort for VSCode hasn't been completed yet. So it will still take a while until we ship VSCode for different languages than English.
+
 ## Horizontal panel
 
 We have introduced a horizontal panel in the workbench. To gain more horizontal space, the output and debug consoles are now shown in the horizontal panel.
