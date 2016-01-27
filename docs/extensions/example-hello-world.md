@@ -16,6 +16,7 @@ This document will take you through creating your first VS Code extension ("Hell
 In this walkthrough, you'll add a new command to VS Code which will display a simple "Hello World" message.  Later in the walkthrough, you'll interact with the VS Code editor and query for the user's currently selected text.
 
 ## Prerequisites
+
 You need [node.js](https://nodejs.org/en/) installed and available in your `$PATH`.
 
 ## Generate a New Extension
@@ -44,6 +45,7 @@ For the hello world extension, you can either create a **TypeScript** extension 
 ![Running VS Code with an extension](images/example-hello-world/running.png)
 
 ## The Structure of an Extension
+
 After running, the generated extension should have the following structure:
 
 ```
@@ -133,7 +135,7 @@ Let's go through the purpose of all these files and explain what they do:
 
 > **Note:** VS Code **does not** load the code of an extension eagerly at start-up. An extension must describe, through the [`activationEvents`](/docs/extensionAPI/activation-events.md) property under what conditions it should get activated (loaded).
 
-### Code
+### Generated Code
 
 The generated extension's code is in `extension.ts` (or `extension.js` in case of a JavaScript extension):
 
@@ -182,7 +184,7 @@ export function activate(context: vscode.ExtensionContext) {
 * `vsc-extension-quickstart.md` - A Quick Start guide for you.
 * `test/extension.test.ts` - you can put your extension unit tests in here and run your tests against the VS Code API (see [Testing Your Extension](/docs/extensions/testing-extensions.md))
 
-## Running your Extension
+## Extension Activation
 
 Now that the roles of the files included in the extension are clarified, here is how your extension gets activated:
 
