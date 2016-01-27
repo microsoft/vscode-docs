@@ -4,10 +4,10 @@ Area: extensionapi
 TOCTitle: API complex commands
 PageTitle: Visual Studio Code Commands API Reference
 DateApproved: 12/18/2015
-MetaDescription: Visual Studio Code extensions (plug-ins) Commands API Reference.  
+MetaDescription: Visual Studio Code extensions (plug-ins) complex commands API Reference.  
 ---
 
-# API Commands
+# Complex Commands API
 
 This document lists a set of complex commands that we consider stable. They are called complex commands because they require parameters and often return a value. You can use the commands in conjunction with the `executeCommand` API.
 
