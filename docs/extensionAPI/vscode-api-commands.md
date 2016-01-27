@@ -1,7 +1,7 @@
 ---
 Order: 6
 Area: extensionapi
-TOCTitle: API commands
+TOCTitle: API complex commands
 PageTitle: Visual Studio Code Commands API Reference
 DateApproved: 12/18/2015
 MetaDescription: Visual Studio Code extensions (plug-ins) Commands API Reference.  
