@@ -116,8 +116,10 @@ VS Code uses these paths in the following way: whenever a code path needs to be 
 
 ### launch.json relataive paths not automatically converted to absolute ones
 
-In order to achieve consistency across our configuration files, in `launch.json` we no longer automatically convert `program`, `cwd`, `outDir`, `runtimeExecutable` to absolute paths.
-Each of these paths that are relative should now have `${workspaceRoot}` as a prefix in order to be converted. For backwards compatibility we will automatically convert these paths for one more release, however in the future this support will be dropped.  
+In order to achieve consistency across our configuration files, we plan for the **February release** to no longer automatically convert certain paths from relative to absolute in `launch.json`.
+We recommend that for the `program`, `cwd`, `outDir`, and `runtimeExecutable` attributes you prefix your relative paths with the `${workspaceRoot}` variable as soon as possible.
+To make it easier for you to find the affected paths that need this treatment, we highlight them with a green squigglies for the January release.
+(Please note: since we continue to automatically convert paths for the January release, your launch configurations will continue to work).
 
 ### "--nolazy" option not automatically added
 
@@ -193,11 +195,15 @@ New Extension APIs
 * You can determine the current editor `ViewColumn`.
 * There is a new `MarkedString` to display Markdown content in various UI elements.
 
-### Debug Protocol Enhancements
+### Debug Protocol Changes
 
-* Feature negotiation TODO@weinand
-* new requests `ConfigurationDoneRequest` TODO@weinand
-* `Source` type got an `origin` attribute TODO@weinand
+We have changed the debug protocol in the following (backward compatible) ways:
+* *Feature negotiation*: the response of the `InitializeRequest` now returns information about the capabilities of the debug adapter. The VS Code debugger uses this information to enable or configure features which only exist for certain debug adapters.
+* *New request `ConfigurationDoneRequest`*: VS Code sends this request to indicate that the configuration (e.g. registering stored breakpoints and exception options) of the debug session has finished and that debugging is about to start. For backward compatibility VS Code will send this request only if the debug adapter returns the a value of `true` for the capability `supportsConfigurationDoneRequest`.
+* Additional attributes for `Source` type:
+  * an optional `origin` attribute to provide additional information about the source in the debug UI.
+  * an optional `adapterData` attribute that the VS Code debug UI will transparently persist for breakpoints.
+* *New type `SourceBreakpoint`*: an array of `SourceBreakpoint` is an alternate means to specify the individual breakpoints for the `SetBreakpointsRequest`. The `SourceBreakpoint` allows for specifying column and condition information for a breakpoint (in addition to the line).
 
 ### Test Suite for Debug Adapters
 
