@@ -149,13 +149,13 @@ To solve these issues, we made the following changes:
 * The value of the `engine` field in your extension is used to determine which version of `vscode.d.ts` to use.
 * It is still very easy to update to a newer API via basic `npm` commands.
 
-Since this is a breaking change for existing extensions, we increased the `vscode` npm module version to `0.2.0`. We encourage all extension writers to
-update their dependency to `vscode` in their `package.json` to this new version (`^0.2.0`) to benefit from future updates to tooling for extensions.
+Since this is a breaking change for existing extensions, we increased the `vscode` npm module version to `0.11.0`. We encourage all extension writers to
+update their dependency to `vscode` in their `package.json` to this new version (`^0.11.x`) to benefit from future updates to tooling for extensions.
 
 The process of installing a specific version of the API into your extension is still very simple:
 
 * Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
-* Make sure your dependency to the `vscode` module is at least `0.2.0`.
+* Make sure your dependency to the `vscode` module is at least `0.11.0`.
 * Type `npm install` from the root of your extension.
 * The `vscode` module will download the appropiate version of `vscode.d.ts` based on the `engine` field you declared.
 * Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
