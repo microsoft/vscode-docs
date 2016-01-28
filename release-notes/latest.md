@@ -15,6 +15,14 @@ These release notes only capture what's new in the core of Visual Studio Code. D
 
 ## Editor
 
+### Ligatures for Code
+
+VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used
+in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures`-setting and pick a font with programking ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
+
+![Ligatures for Code](images/January/editor-ligatures.png)
+
+
 ### Auto Save
 
 VS Code always supported automatically saving dirty files after one second (`File | Auto Save`). We received a lot of feedback that users want more control over
@@ -210,7 +218,7 @@ test('should set a breakpoint and stop on it', () => {
 });
 ```
 
-More examples can be found in these debug adapter projects on GitHub: 
+More examples can be found in these debug adapter projects on GitHub:
 
 * [Microsoft/vscode-node-debug](https://github.com/Microsoft/vscode-node-debug)
 * [Microsoft/vscode-mock-debug](https://github.com/Microsoft/vscode-mock-debug)
