@@ -9,7 +9,7 @@ MetaDescription: See what is new in the Visual Studio Code January Release (0.10
 
 Hi,
 
-We're back from the holidays and have been busy with a new update of Visual Studio Code.
+TO DO
 
 These release notes only capture what's new in the core of Visual Studio Code. Do not forget to check out the [marketplace](https://marketplace.visualstudio.com/#VSCode) for new extensions.
 
@@ -221,5 +221,6 @@ You can see the Promise-based API in [DebugClient.ts](https://github.com/Microso
 ## Notable Bug Fixes
 
 * [1485](https://github.com/Microsoft/vscode/issues/1485): Windows 7: Deleting always fails with error message
-* [1962](https://github.com/Microsoft/vscode/issues/1962): Debugger fails when offline
 * [1687](https://github.com/Microsoft/vscode/issues/1687): VSC 10.6 does not allow to attach debugger to running Electron app
+* [1923](https://github.com/Microsoft/vscode/issues/1923): IntelliSense filtering has become slow again in huge lists
+* [1962](https://github.com/Microsoft/vscode/issues/1962): Debugger fails when offline
