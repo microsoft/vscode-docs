@@ -60,25 +60,31 @@ This is just the beginning of our journey to become more keyboard accessible, ex
 
 We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu pressing the `Alt` key.
 
+## Workbench
+
+### Horizontal panel
+We have introduced a horizontal panel in the workbench. To gain more horizontal space, the output and debug consoles are now shown in the horizontal panel.
+![output](images/January/output.png)
+
 ## Debugging
 
 ### Rich Object Hover
 
 We are now using a tree widget in the debug hover to allow better rich object inspection.
 
-![debug console hover](images/January/debug-hover.png)
+![debug hover](images/January/debug-hover.png)
 
 ### Conditional Breakpoints
 
-We now support adding conditions to breakpoints such that they will be only hit if the specified condition is true.
+We now support adding conditions to breakpoints such that they will be only hit if the specified condition is true. In order for the condition to be taken into account the underlying debug adapter has to support conditional breakpoints (node does).
 
-TODO@Isidor insert picture
+![conditional breakpoints](images/January/conditional-breakpoints.png)
 
 ### Changed Variable Indication
 
-We now indicate in the debug view what variables have changed values between step events.
+We now indicate in the debug and watch view what variables have changed values between step events.
 
-TODO@Isidor insert picture
+![variables change](images/January/variables-change.png)
 
 ## Node.js Debugging
 
@@ -107,6 +113,11 @@ The followings improvements enable VS Code to support remote debugging (which in
 * The `attach` launch configuration now supports an `address` attribute where a remote host can be specified. Please note that remote debugging is only supported on recent versions of Node.js (>= 4.x).
 * The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems.
 VS Code uses these paths in the following way: whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion the `localRoot` path is replaced by the `remoteRoot`.
+
+### launch.json relataive paths not automatically converted to absolute ones
+
+In order to achieve consistency across our configuration files, in `launch.json` we no longer automatically convert `program`, `cwd`, `outDir`, `runtimeExecutable` to absolute paths.
+Each of these paths that are relative should now have `${workspaceRoot}` as a prefix in order to be converted. For backwards compatibility we will automatically convert these paths for one more release, however in the future this support will be dropped.  
 
 ### "--nolazy" option not automatically added
 
