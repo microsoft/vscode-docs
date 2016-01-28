@@ -13,53 +13,6 @@ TO DO
 
 These release notes only capture what's new in the core of Visual Studio Code. Do not forget to check out the [marketplace](https://marketplace.visualstudio.com/#VSCode) for new extensions.
 
-## Editor
-
-### Ligatures for Code
-
-VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used
-in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures`-setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
-
-![Ligatures for Code](images/January/editor-ligatures.png)
-
-
-### Auto Save
-
-VS Code always supported automatically saving dirty files after one second (`File | Auto Save`). We received a lot of feedback that users want more control over
-when VS Code should save dirty files. The setting is now in the `settings.json` configuration file and provides more options:
-
-* `files.autoSave`: Can be `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when focus moves out of the editor of the dirty file.
-* `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
-* This setting can be configured either globally for the user or per workspace through the workspace settings (`Preferences | Workspace Settings`).
-
-**Note:** If you had auto save enabled previously, we will migrate your setting into the `settings.json` file automatically.
-
-**Note:**: You will not see any dirty indicators in the UI if you configure auto save for 1s or below. In all other cases you will see the dirty indicators throughout the UI.
-
-### File Picker
-
-Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) include:
-
-* Fuzzy matching is now enabled by default and the previously introduced setting `filePicker.alternateFileNameMatching` is no longer needed.
-* You can open any file (including line/column pattern at the end) that exists on disk by typing the full path or full workspace relative path even if your exclude settings hide it otherwise.
-
-### Keyboard Accessibility
-
-You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can operate VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
-
-Some areas where you can now jump to using keyboard only:
-
-* View switcher
-* Header of collapsible sections in a view to expand/collapse
-* Actions in views and sections
-* Actions for items in the tree
-
-This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
-
-### Hide the Menu Bar (Windows, Linux)
-
-We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu pressing the `Alt` key.
-
 ## JavaScript - Salsa Preview
 
 The JavaScript language service in VS Code has always been powered by TypeScript. We are now
@@ -122,11 +75,58 @@ installation that you have configured.
 ![Salsa status failure](images/January/salsa-status-failure.png)
 
 
-### Tips/Known Issues
+### Tips 
 - When using `commonjs` always exclude the `node_modules` using the `exclude` property. 
 - To get Intellisense for React/JSX install the typings for `react-global` using `tsd install react-global`.
 - The final TypeScript 1.8 version will support JSX constructs inside .js. Until the final version is available, you can
 install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that .js files are treated as .jsx files.
+
+## Editor
+
+### Ligatures for Code
+
+VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used
+in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures`-setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
+
+![Ligatures for Code](images/January/editor-ligatures.png)
+
+
+### Auto Save
+
+VS Code always supported automatically saving dirty files after one second (`File | Auto Save`). We received a lot of feedback that users want more control over
+when VS Code should save dirty files. The setting is now in the `settings.json` configuration file and provides more options:
+
+* `files.autoSave`: Can be `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when focus moves out of the editor of the dirty file.
+* `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
+* This setting can be configured either globally for the user or per workspace through the workspace settings (`Preferences | Workspace Settings`).
+
+**Note:** If you had auto save enabled previously, we will migrate your setting into the `settings.json` file automatically.
+
+**Note:**: You will not see any dirty indicators in the UI if you configure auto save for 1s or below. In all other cases you will see the dirty indicators throughout the UI.
+
+### File Picker
+
+Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) include:
+
+* Fuzzy matching is now enabled by default and the previously introduced setting `filePicker.alternateFileNameMatching` is no longer needed.
+* You can open any file (including line/column pattern at the end) that exists on disk by typing the full path or full workspace relative path even if your exclude settings hide it otherwise.
+
+### Keyboard Accessibility
+
+You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can operate VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
+
+Some areas where you can now jump to using keyboard only:
+
+* View switcher
+* Header of collapsible sections in a view to expand/collapse
+* Actions in views and sections
+* Actions for items in the tree
+
+This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
+
+### Hide the Menu Bar (Windows, Linux)
+
+We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu pressing the `Alt` key.
 
 ## Workbench
 
