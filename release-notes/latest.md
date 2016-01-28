@@ -343,6 +343,7 @@ for more on the language server.
 
 ## Notable Bug Fixes
 
+* [1032](https://github.com/Microsoft/vscode/issues/1032): Please don't lock the tsconfig.json file
 * [1485](https://github.com/Microsoft/vscode/issues/1485): Windows 7: Deleting always fails with error message
 * [1687](https://github.com/Microsoft/vscode/issues/1687): VSC 10.6 does not allow to attach debugger to running Electron app
 * [1923](https://github.com/Microsoft/vscode/issues/1923): IntelliSense filtering has become slow again in huge lists
