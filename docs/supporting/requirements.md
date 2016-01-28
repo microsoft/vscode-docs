@@ -1,6 +1,12 @@
 # Requirements for Visual Studio Code
 
-Visual Studio Code has been tested on the following platforms.
+## Hardware
+
+Visual Studio Code is a small download (< 100 MB) and has a disk footprint of 200 MB. VS Code is lightweight and should easily run on today's hardware.
+
+## Platforms
+
+VS Code has been tested on the following platforms:
 
 * Ubuntu Desktop 14.04
 * OS X Yosemite

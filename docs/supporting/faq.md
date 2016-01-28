@@ -10,14 +10,20 @@ Our docs contain a **Common Questions** section as needed for specific topics. W
 
 If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
 
-## How do I update to the latest version?
-See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
+## What is the difference between Visual Studio Code and Visual Studio Community?
+VS Code is a streamlined code editor with support for development operations like debugging, task running and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs. For more details about the goals of VS Code, see [Why VS Code](/docs/editor/whyvscode.md).
 
 ## Which OS's are supported
 VS Code runs on Mac, Linux, and Windows. See [Requirements](requirements) for the supported versions.
 
 ## Is VS Code free?
 Yes, VS Code is a free, [open source](https://github.com/microsoft/vscode) editor.
+
+## How big is VS Code?
+VS Code is a small download (< 100 MB) and has a disk footprint of less than 200 MB, so you can quickly install VS Code and try it out.
+
+## How do I update to the latest version?
+See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
 
 ## How do I opt out of VS Code auto-updates?
 By default, VS Code is set up to auto-update for OS X and Windows users when we release new updates. (Auto-update of VS Code is not supported for Linux.) If you do not want to get automatic updates, take the following steps to modify the storage.json file used by VS Code. To modify storage.json, use a text editor other than VS Code, since VS Code modifies this file on shutdown.
