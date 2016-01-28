@@ -119,7 +119,7 @@ Let's go through the purpose of all these files and explain what they do:
 	},
 	"devDependencies": {
 		"typescript": "^1.7.5",
-		"vscode": "^0.2.0"
+		"vscode": "^0.11.x"
 	}
 }
 ```

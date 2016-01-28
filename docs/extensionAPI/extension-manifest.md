@@ -94,7 +94,7 @@ Here is a complete `package.json`
 		"teacher": "^0.0.1"
 	},
 	"devDependencies": {
-		"vscode": "^0.2.0"
+		"vscode": "^0.11.x"
 	}
 }
 ```
