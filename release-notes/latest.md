@@ -312,6 +312,36 @@ More examples can be found in these debug adapter projects on GitHub:
 
 You can see the Promise-based API in [DebugClient.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/DebugClient.ts) and an initial set of tests in [adapter.test.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
 
+### New Default Themes
+The light and dark themes have been in the center of attention recently due to colors being added and removed again.
+
+More colors became visible due to the switch to Textmate tokenizers in November. In December we decided to remove
+some of the newly added colors again, in order to stay compatible with the classic Visual Studio Dark and Light themes.
+From reactions in [1270](https://github.com/Microsoft/vscode/issues/1270) and [1470](https://github.com/Microsoft/vscode/issues/1470)
+ and other issues, we learned that we have fans of both the classic Visual Studio dark and light themes as well as the more colorful version.
+So for the January release, we decided to bring the colors back in two new, additional, default themes: 'Dark+' and 'Light+'.
+The new themes are built-in. If you installed the theme preview as extension, you can now uninstall these again.
+
+In addition to 4 major colors in the Visual Studio themes (comments, strings, numbers and keywords)
+the 'plus' tnemes add colors for
+ - control flow keywords
+ - type names
+ - function names
+ - variable and parameter names
+
+![Light+ theme](images/January/light_plus_theme.png)
+![Dark+ theme](images/January/dark_plus_theme.png)
+
+
+### JSON mode is now an extension
+From a user's perspective nothing really has changed when editing JSON, but under the hood, the JSON
+language support has been refactored. The JSON language support drives the smartness when editing JSON files,
+from valdiation based on schemes to code completion and formatting.
+JSON is now a regular extension, using the same [VS Code extension APIs](https://code.visualstudio.com/docs/extensionAPI/overview)
+as everyone else. The implementation is based on the language server infrastructure, which
+makes it easy to run in a separate process. Read [here](https://code.visualstudio.com/docs/extensions/example-language-server)
+for more on the language server.
+
 ## Notable Bug Fixes
 
 * [1485](https://github.com/Microsoft/vscode/issues/1485): Windows 7: Deleting always fails with error message
