@@ -18,7 +18,7 @@ These release notes only capture what's new in the core of Visual Studio Code. D
 ### Ligatures for Code
 
 VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used
-in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures`-setting and pick a font with programking ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
+in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures`-setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
 
 ![Ligatures for Code](images/January/editor-ligatures.png)
 
