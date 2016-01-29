@@ -13,7 +13,7 @@ Lots of tools exist to automate tasks like building, packaging, testing or deplo
 Examples include [Make](http://en.wikipedia.org/wiki/Make_software), [Ant](http://ant.apache.org/), [Gulp](http://gulpjs.com/),
 [Jake](http://jakejs.com/), [Rake](http://rake.rubyforge.org/) and [MSBuild](https://github.com/Microsoft/msbuild).
 
-These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code. Please note that he task support is only available when working on a workspace folder. It is not available when editing single files.
+These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code. Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
 
 
 ## Examples of Tasks in Action

@@ -15,54 +15,44 @@ These release notes only capture what's new in the core of Visual Studio Code. D
 
 ## JavaScript - Salsa Preview
 
-The JavaScript language service in VS Code has always been powered by TypeScript. We are now
-migrating to a new JavaScript language service implementation with the code name [Salsa](https://github.com/Microsoft/TypeScript/issues/4789).
-Salsa will become available with TypeScript 1.8.
-For the January update we provide a preview option of VS Code using Salsa.
-We hope that you will enable the option, give Salsa a try and provide feedback.
+The JavaScript language service in VS Code has always been powered by TypeScript. We are now migrating to a new JavaScript language service implementation with the code name [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). Salsa will become available with TypeScript 1.8. For the January update, we provide a preview option of VS Code using Salsa. We hope that you will enable the option, give Salsa a try and provide feedback.
 
 ### Salsa Improvements
+
 Salsa provides several improvements over the existing JavaScript language service.
 
-The JsDoc comment format is now understood and used to improve Intellisense proposals, paramter hints/signature help:
+The JsDoc comment format is now understood and used to improve IntelliSense proposals, parameter hints, and signature help:
 
 ![JsDoc comment format](images/January/jsdoc.png)
 
-You now get Intellisense proposals for properties in 'ECMAScript 3 style classes':
+You now get IntelliSense proposals for properties in 'ECMAScript 3 style classes':
 
 ![ES3 style classes](images/January/es3-classes.png)
 
-IntelliSense offers both inferred proposals and the global identifiers of the project. The inferred symbols are presented first,
-followed by the global identifiers (with the document icon), see the image above. 
+IntelliSense offers both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image above.
 
 There is now support for JSX:
 
 ![JSX Support](images/January/jsx-salsa.png)
 
-It is now possible to have mixed TypeScript and JavaScript projects. To enable a JavaScript inside a TypeScript project you can set the `allowJs` property to `true` in the `tsconfig.json`.
+It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
 The TypeScript compiler `tsc` can downlevel compile JavaScript files from ES6 to another language level.
 
-### Changes from the existing JavaScript support
+### Changes from the existing JavaScript support:
 
-- The language level is always ES6. In the existing JavaScript language service the default
-level was ES6 but there was support to define a lower level using the `target` attribute inside the `jsconfig.json`. This support has been removed
-and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a
-lower ECMAScript version.
-- The existing JavaScript language service implicitly excluded some folders from the project, see the [doc](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson). This
-is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file. 
-- Salsa flags syntax errors but the JavaScript linting options `javascript.validate.lint.*` defined in the user settings are no longer supported. To get these linting options back we recommend that you use a linter
-combined with a VSCode linter extension like [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
-- Salsa doesn't support the `AMD` module system, `commonjs` is supported.
+* The language level is always ES6. In the existing JavaScript language service, the default level was ES6 but there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
+* The existing JavaScript language service implicitly excluded some folders from the project, see the [doc](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson). This is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file.
+* Salsa flags syntax errors but the JavaScript linting options `javascript.validate.lint.*` defined in the user settings are no longer supported. To get these linting options back, we recommend that you use a linter combined with a VS Code linter extension like [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
+* Salsa doesn't support the `AMD` module system, however `commonjs` is supported.
 
 ### Enabling Salsa
+
 To enable Salsa for your workspace:
-- Set the environment variable `CODE_TSJS`. On OS X it is recommended to change this in the `.bash_profile` using `export CODE_TSJS=1`, then the 
-environment variable isn't "lost".
-- Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore you need to install the nightly TypeScript build either locally
-`npm install typescript@next` or globally `npm install -g typescript@next`. 
-- Define the `typescript.tsdk` setting with the path to the `lib` folder containing the `tsserver.js` file of the installed typescript module. An an alternative you 
-can install the Typescript module locally inside the workspace, then the `typescript.sdk` setting is not needed and VS Code uses this TypeScript version.
+
+* Set the environment variable `CODE_TSJS`. On OS X, it is recommended you change this in your `.bash_profile` using `export CODE_TSJS=1`. This way the environment variable is persisted.
+* Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build either locally `npm install typescript@next` or globally `npm install -g typescript@next`.
+* Define the `typescript.tsdk` setting with the path to the `lib` folder containing the `tsserver.js` file of the installed typescript module. As an alternative, you can install the Typescript module locally inside the workspace, then the `typescript.sdk` setting is not needed and VS Code uses this TypeScript version.
 
 You can verify that you have Salsa enabled and you have a TypeScript version installed that supports Salsa by checking the status indicator in the status bar. 
 This shows that all is OK.
