@@ -133,9 +133,30 @@ We changed the way in which we do input handling in the editor. These changes wi
 
 We added a new editor option `editor.cursorStyle` that can now be set to `"block"`. Special thanks to [@markrendle](https://github.com/markrendle) for his pull request.
 
+### Keyboard Accessibility
+
+You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can operate VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
+
+Some areas where you can now jump to using keyboard only:
+
+* View switcher
+* Header of collapsible sections in a view to expand/collapse
+* Actions in views and sections
+* Actions for items in the tree
+
+This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
+
 ### Experimental screen reader support in the editor
 
 We have added an experimental toggle that can be enabled with the `editor.experimentalScreenReader` key in the settings or for the current session with `kbstyle(Ctrl-Shift-R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with NVDA on Windows and have uncovered some serious performance issues and some glitches caused by Chromium. We have also added `kbstyle(Alt-F1)` that presents a tooltip explaining how to toggle this mode on. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl-M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
+
+## Localization
+
+We also started work on localizing VS Code for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VS Code running under a German locale.
+
+![VSCode in German](images/January/german-vscode.png)
+
+Please note that the translation effort for VS Code haven't been completed yet and it will still take a while until we ship VS Code for languages other than English.
 
 ### Auto Save
 
@@ -156,19 +177,6 @@ Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) in
 
 * Fuzzy matching is now enabled by default and the previously introduced setting `filePicker.alternateFileNameMatching` is no longer needed.
 * You can open any file (including line/column pattern at the end) that exists on disk by typing the full path or full workspace relative path even if your exclude settings hide it otherwise.
-
-### Keyboard Accessibility
-
-You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can operate VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
-
-Some areas where you can now jump to using keyboard only:
-
-* View switcher
-* Header of collapsible sections in a view to expand/collapse
-* Actions in views and sections
-* Actions for items in the tree
-
-This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
 
 ### Full Intellisense Documentation
 
@@ -258,14 +266,6 @@ In order to ensure that breakpoints are hit reliably, VS Code automatically adds
 ### Support for VS Code Debug Console
 
 For VS Code Mono debugging support, we've added an `externalConsole` attribute, which controls whether the Mono target application is launched in an external console or in the built-in Debug Console (this is the default). Please note that the built-in Debug Console does not support keyboard input for your application.
-
-## Localization
-
-We also started work on localizing VS Code for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VS Code running under a German locale.
-
-![VSCode in German](images/January/german-vscode.png)
-
-Please note that the translation effort for VS Code haven't been completed yet and it will still take a while until we ship VS Code for languages other than English.
 
 ## Extension Authoring
 
