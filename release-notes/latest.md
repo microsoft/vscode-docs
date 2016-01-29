@@ -37,7 +37,7 @@ There is now support for JSX:
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
-The TypeScript compiler `tsc` can downlevel compile JavaScript files from ES6 to another language level.
+The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
 ### Changes from the existing JavaScript support:
 
@@ -52,34 +52,47 @@ To enable Salsa for your workspace:
 
 * Set the environment variable `CODE_TSJS`. On OS X, it is recommended you change this in your `.bash_profile` using `export CODE_TSJS=1`. This way the environment variable is persisted.
 * Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build either locally `npm install typescript@next` or globally `npm install -g typescript@next`.
-* Define the `typescript.tsdk` setting with the path to the `lib` folder containing the `tsserver.js` file of the installed typescript module. As an alternative, you can install the Typescript module locally inside the workspace, then the `typescript.sdk` setting is not needed and VS Code uses this TypeScript version.
+* Define the `typescript.tsdk` setting with the path to the `lib` folder containing the `tsserver.js` file of the installed TypeScript module. As an alternative, you can install the TypeScript module locally inside the workspace so that the `typescript.sdk` setting is not needed and VS Code uses this TypeScript version.
 
-You can verify that you have Salsa enabled and you have a TypeScript version installed that supports Salsa by checking the status indicator in the status bar. 
+You can verify that you have Salsa enabled and you have a TypeScript version installed that supports Salsa by checking the status indicator in the Status Bar. 
 This shows that all is OK.
 
 ![Salsa status](images/January/salsa-status.png)
 
-When the TypeScript version doesn't support Salsa then you see the indicator below. When you hover over the status indicator you see the path to the TypeScript 
-installation that you have configured.
+When the TypeScript version doesn't support Salsa then you see the indicator below. When you hover over the status indicator, you will see the path to the TypeScript installation that you have configured.
 
 ![Salsa status failure](images/January/salsa-status-failure.png)
 
+### Tips
 
-### Tips 
-- When using `commonjs` always exclude the `node_modules` using the `exclude` property. 
-- To get Intellisense for React/JSX install the typings for `react-global` using `tsd install react-global`.
-- The final TypeScript 1.8 version will support JSX constructs inside .js. Until the final version is available, you can
-install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that .js files are treated as .jsx files.
+* When using `commonjs`, always exclude the `node_modules` using the `exclude` property.
+* To get IntelliSense for React/JSX, install the typings for `react-global` using `tsd install react-global`.
+* The final TypeScript 1.8 version will support JSX constructs inside `.js` files. Until the final version is available, you can install the `js-is-jsx`[extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` files.
 
 ## Editor
 
+### New Default Themes
+
+The Light and Dark themes have been in the center of attention recently as colors were added and removed again. More colors became visible with the switch to TextMate tokenizers in November. In December, we decided to remove some of the newly added colors again in order to stay compatible with the classic Visual Studio Light and Dark themes.
+
+From the feedback in [1270](https://github.com/Microsoft/vscode/issues/1270), [1470](https://github.com/Microsoft/vscode/issues/1470), and other issues, we learned that there are fans of both the classic Visual Studio Light and Dark themes as well as the more colorful versions. So for the January release, we decided to bring the colors back with two new additional built-in themes: 'Dark+' and 'Light+'. If you installed the theme preview as an extension, you can now uninstall these again.
+
+In addition to the 4 major colors in the Visual Studio themes (comments, strings, numbers and keywords), the 'plus' themes add colors for:
+
+* control flow keywords
+* type names
+* function names
+* variable and parameter names
+
+![Light+ theme](images/January/light_plus_theme.png)
+
+![Dark+ theme](images/January/dark_plus_theme.png)
+
 ### Ligatures for Code
 
-VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used
-in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures`-setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
+VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures` setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
 
 ![Ligatures for Code](images/January/editor-ligatures.png)
-
 
 ### Auto Save
 
@@ -114,14 +127,16 @@ Some areas where you can now jump to using keyboard only:
 
 This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
 
+## Workbench
+
 ### Hide the Menu Bar (Windows, Linux)
 
 We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu pressing the `Alt` key.
 
-## Workbench
-
 ### Horizontal panel
+
 We have introduced a horizontal panel in the workbench. To gain more horizontal space, the output and debug consoles are now shown in the horizontal panel.
+
 ![output](images/January/output.png)
 
 ## Debugging
@@ -172,12 +187,9 @@ The followings improvements enable VS Code to support remote debugging (which in
 * The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems.
 VS Code uses these paths in the following way: whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion the `localRoot` path is replaced by the `remoteRoot`.
 
-### launch.json relataive paths not automatically converted to absolute ones
+### launch.json relative paths not automatically converted to absolute ones
 
-In order to achieve consistency across our configuration files, we plan for the **February release** to no longer automatically convert certain paths from relative to absolute in `launch.json`.
-We recommend that for the `program`, `cwd`, `outDir`, and `runtimeExecutable` attributes you prefix your relative paths with the `${workspaceRoot}` variable as soon as possible.
-To make it easier for you to find the affected paths that need this treatment, we highlight them with a green squigglies for the January release.
-(Please note: since we continue to automatically convert paths for the January release, your launch configurations will continue to work).
+In order to achieve consistency across our configuration files, we plan for the **February release** to no longer automatically convert certain paths from relative to absolute in `launch.json`. We recommend that for the `program`, `cwd`, `outDir`, and `runtimeExecutable` attributes, you prefix your relative paths with the `${workspaceRoot}` variable as soon as possible. To make it easier for you to find the affected paths that need this treatment, we highlight them with a green squigglies for the January release. (Please note: since we continue to automatically convert paths for the January release, your launch configurations will continue to work).
 
 ### "--nolazy" option not automatically added
 
@@ -201,13 +213,9 @@ Please note that the translation effort for VS Code haven't been completed yet a
 
 ### API Consumption
 
-When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file
-in our repository [here](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language
-service to provide you with nice validation and IntelliSense while you develop your extension.
+When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file in our repository [here](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language service to provide you with nice validation and IntelliSense while you develop your extension.
 
-As we make changes to the VS Code API between versions, `vscode.d.ts` changes and is updated and tagged from release to release. Previously, we stored the `vscode.d.ts`
-file within the `vscode` npm module that all extensions automatically depend on. So in order to update to our latest API, you would just install a newer version of
-the `vscode` npm module in your extension by typing `npm update vscode`.
+As we make changes to the VS Code API between versions, `vscode.d.ts` changes and is updated and tagged from release to release. Previously, we stored the `vscode.d.ts` file within the `vscode` npm module that all extensions automatically depend on. So in order to update to our latest API, you would just install a newer version of the `vscode` npm module in your extension by typing `npm update vscode`.
 
 We found that this approach has many issues:
 
@@ -256,8 +264,9 @@ New Extension APIs
 ### Debug Protocol Changes
 
 We have changed the debug protocol in the following (backward compatible) ways:
+
 * *Feature negotiation*: the response of the `InitializeRequest` now returns information about the capabilities of the debug adapter. The VS Code debugger uses this information to enable or configure features which only exist for certain debug adapters.
-* *New request `ConfigurationDoneRequest`*: VS Code sends this request to indicate that the configuration (e.g. registering stored breakpoints and exception options) of the debug session has finished and that debugging is about to start. For backward compatibility VS Code will send this request only if the debug adapter returns the a value of `true` for the capability `supportsConfigurationDoneRequest`.
+* *New request `ConfigurationDoneRequest`*: VS Code sends this request to indicate that the configuration (e.g. registering stored breakpoints and exception options) of the debug session has finished and that debugging is about to start. For backward compatibility, VS Code will send this request only if the debug adapter returns a value of `true` for the `supportsConfigurationDoneRequest` capability.
 * Additional attributes for `Source` type:
   * an optional `origin` attribute to provide additional information about the source in the debug UI.
   * an optional `adapterData` attribute that the VS Code debug UI will transparently persist for breakpoints.
@@ -301,35 +310,9 @@ More examples can be found in these debug adapter projects on GitHub:
 
 You can see the Promise-based API in [DebugClient.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/DebugClient.ts) and an initial set of tests in [adapter.test.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
 
-### New Default Themes
-The light and dark themes have been in the center of attention recently due to colors being added and removed again.
-
-More colors became visible due to the switch to Textmate tokenizers in November. In December we decided to remove
-some of the newly added colors again, in order to stay compatible with the classic Visual Studio Dark and Light themes.
-From reactions in [1270](https://github.com/Microsoft/vscode/issues/1270) and [1470](https://github.com/Microsoft/vscode/issues/1470)
- and other issues, we learned that we have fans of both the classic Visual Studio dark and light themes as well as the more colorful version.
-So for the January release, we decided to bring the colors back in two new, additional, default themes: 'Dark+' and 'Light+'.
-The new themes are built-in. If you installed the theme preview as extension, you can now uninstall these again.
-
-In addition to 4 major colors in the Visual Studio themes (comments, strings, numbers and keywords)
-the 'plus' tnemes add colors for
- - control flow keywords
- - type names
- - function names
- - variable and parameter names
-
-![Light+ theme](images/January/light_plus_theme.png)
-![Dark+ theme](images/January/dark_plus_theme.png)
-
-
 ### JSON mode is now an extension
-From a user's perspective nothing really has changed when editing JSON, but under the hood, the JSON
-language support has been refactored. The JSON language support drives the smartness when editing JSON files,
-from valdiation based on schemes to code completion and formatting.
-JSON is now a regular extension, using the same [VS Code extension APIs](https://code.visualstudio.com/docs/extensionAPI/overview)
-as everyone else. The implementation is based on the language server infrastructure, which
-makes it easy to run in a separate process. Read [here](https://code.visualstudio.com/docs/extensions/example-language-server)
-for more on the language server.
+
+From a user's perspective, nothing has really changed when editing JSON, but under the hood, the JSON language support has been refactored. JSON language support drives the smartness when editing JSON files, from validation based on schemes to code completion and formatting. JSON is now a regular extension, using the same [VS Code extension APIs](https://code.visualstudio.com/docs/extensionAPI/overview) as everyone else. The implementation is based on the language server infrastructure, which makes it easy to run in a separate process. Read [here]9https://code.visualstudio.com/docs/extensions/example-language-server) for more on the language server.
 
 ## Notable Bug Fixes
 
