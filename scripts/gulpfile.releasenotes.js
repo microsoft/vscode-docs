@@ -28,7 +28,7 @@ gulp.task('copy-releasenotes-images', function () {
 
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
-		.pipe(gulp.dest(DEST_ROOT + '/public'));
+		.pipe(gulp.dest(DEST_ROOT + '/dist'));
 ;})
 
 gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releasenotes-images'], function () {
