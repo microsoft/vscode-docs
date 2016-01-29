@@ -117,6 +117,10 @@ We changed the way in which we do input handling in the editor. These changes wi
 
 We added a new editor option `editor.cursorStyle` that can now be set to `"block"`. Special thanks to [@markrendle](https://github.com/markrendle) for his pull request.
 
+### Experimental screen reader support in the editor
+
+We have added an experimental toggle that can be enabled with the `editor.experimentalScreenReader` key in the settings or for the current session with `kbstyle(Ctrl-Shift-R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with NVDA on Windows and have uncovered some serious performance issues and some glitches caused by Chromium. We have also added `kbstyle(Alt-F1)` that presents a tooltip explaining how to toggle this mode on. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl-M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
+
 ### Auto Save
 
 VS Code always supported automatically saving dirty files after one second (`File | Auto Save`). We received a lot of feedback that users want more control over
