@@ -67,7 +67,7 @@ When the TypeScript version doesn't support Salsa then you see the indicator bel
 
 * When using `commonjs`, always exclude the `node_modules` using the `exclude` property.
 * To get IntelliSense for React/JSX, install the typings for `react-global` using `tsd install react-global`.
-* The final TypeScript 1.8 version will support JSX constructs inside `.js` files. Until the final version is available, you can install the `js-is-jsx`[extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` files.
+* The final TypeScript 1.8 version will support JSX constructs inside `.js` files. Until the final version is available, you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` files.
 
 ## Editor
 
@@ -75,7 +75,7 @@ When the TypeScript version doesn't support Salsa then you see the indicator bel
 
 The Light and Dark themes have been in the center of attention recently as colors were added and removed again. More colors became visible with the switch to TextMate tokenizers in November. In December, we decided to remove some of the newly added colors again in order to stay compatible with the classic Visual Studio Light and Dark themes.
 
-From the feedback in [1270](https://github.com/Microsoft/vscode/issues/1270), [1470](https://github.com/Microsoft/vscode/issues/1470), and other issues, we learned that there are fans of both the classic Visual Studio Light and Dark themes as well as the more colorful versions. So for the January release, we decided to bring the colors back with two new additional built-in themes: 'Dark+' and 'Light+'. If you installed the theme preview as an extension, you can now uninstall these again.
+From the feedback in GitHub issues [1270](https://github.com/Microsoft/vscode/issues/1270), [1470](https://github.com/Microsoft/vscode/issues/1470), and others, we learned that there are fans of both the classic Visual Studio Light and Dark themes as well as the more colorful versions. So for the January release, we decided to bring the colors back with two new additional built-in themes: 'Light+' and 'Dark+'. If you installed the theme preview as an extension, you can now uninstall these again.
 
 In addition to the 4 major colors in the Visual Studio themes (comments, strings, numbers and keywords), the 'plus' themes add colors for:
 
@@ -88,7 +88,7 @@ In addition to the 4 major colors in the Visual Studio themes (comments, strings
 
 ![Dark+ theme](images/January/dark_plus_theme.png)
 
-### Ligatures for Code
+### Ligatures for VS Code
 
 VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures` setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
 
