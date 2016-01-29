@@ -10,11 +10,14 @@ MetaDescription: See what is new in the Visual Studio Code January Release (0.10
 Hi,
 
 We are back from the holidays and are rolling again. We are starting to target our next important milestone for VS Code, the Build 2016 conference,
-which takes place at end of March in San Francisco. The biggest item in this release is the *Salsa* preview. Salsa is a new JavaScript language service. Please enable the preview, give it a try, and let us know how it goes.
+which takes place at end of March in San Francisco. The biggest item in this release is the "Salsa" preview. Salsa is a new JavaScript language service. Please enable Salas, give it a try, and let us know how it goes.
 
 ## Thank You
 
-We have received many Pull Requests from our community that helped to make  VS Code better, a big thank you:
+We received many contributions from the community that helped to make VS Code better.
+
+A big Thank You goes out to:
+
 * [mattbladgen](https://github.com/mattblagden): Render ligatures [1510](https://github.com/Microsoft/vscode/pull/1510).
 * [ivanixgames](https://github.com/ivanixgames): `kb(editor.action.toggleWordWrap)` for toggling word wrapping [1653](https://github.com/Microsoft/vscode/pull/1653).
 * [krizzdewizz](https://github.com/krizzdewizz): Windows - honor comspec env variable when spawning a shell [743](https://github.com/Microsoft/vscode/pull/743).
@@ -56,7 +59,7 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
-### Changes from the existing Code JavaScript support
+### Changes from the existing VS Code JavaScript support
 
 * When using Salsa the language level is always ECMAScript 6. In the existing JavaScript language service, the default level was ES6 but there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
 * The existing JavaScript language service implicitly excluded some folders from the project, see the [doc](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson). This is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file.
@@ -125,9 +128,9 @@ This is just the beginning of our journey to become more keyboard accessible, ex
 
 ### Experimental screen reader support in the editor
 
-We have added an experimental toggle that can be enabled with the `editor.experimentalScreenReader` key in the settings or for the current session with `kbstyle(Ctrl-Shift-R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with NVDA on Windows and have uncovered some serious performance issues and some glitches caused by Chromium. We have also added `kbstyle(Alt-F1)` that presents a tooltip explaining how to toggle this mode on. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl-M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
+We have added an experimental mode that can be enabled with the `editor.experimentalScreenReader` key in settings or for the current session with `kbstyle(Ctrl-Shift-R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with the [NVDA screen reader](http://www.nvaccess.org) on Windows and have uncovered some serious performance issues and glitches caused by Chromium. We have also added `kbstyle(Alt-F1)` that presents a tooltip explaining how to toggle this mode on and off. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read-only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl-M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
 
-## Localization
+### Localization
 
 We also started work on localizing VS Code for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VS Code running under a German locale.
 
@@ -141,23 +144,23 @@ VS Code now supports fonts with programming ligatures, like [Hasklig](https://gi
 
 ![Ligatures for Code](images/January/editor-ligatures.png)
 
-### Find widget improvements
+### Find Widget Improvements
 
-The find widget got a large rehaul under the hood, making all its functions work regardless of the number of results. In other words, it is now possible to Find next, Replace, etc. well beyond the first 1000 find matches. For performance reasons, the find widget still only highlights for now the first 1000 matches. We have also improved the tab order in the widget.
+The find widget was updated to make all of its functions work regardless of the number of results. It is now possible to Find, Replace, etc. well beyond the first 1000 find matches. For performance reasons, the Find widget still only highlights the first 1000 matches. We have also improved the tab order in the widget.
 
-The refactorings allowed us to introduce the "X of Y" indication, such that now you can tell in a glimpse how many results there are and where you are in that list.
+The refactoring allowed us to introduce the "X of Y" indication, such that now you can tell in a glance how many results there are and where you are in that list.
 
-We also added two new actions "Find Next Selection" (`kb(editor.action.nextSelectionMatchFindAction)`) and "Find Previous Selection" (`kb(editor.action.previousSelectionMatchFindAction)`) that allow you to jump to the next or previous matches without losing editor focus. Thanks to [@ajkerrigan](https://github.com/ajkerrigan) there are now keybindings for the "Replace" and "Replace all" actions.
+We also added two new actions, "Find Next Selection" (`kb(editor.action.nextSelectionMatchFindAction)`) and "Find Previous Selection" (`kb(editor.action.previousSelectionMatchFindAction)`), that allow you to jump to the next or previous matches without losing editor focus. Thanks to [@ajkerrigan](https://github.com/ajkerrigan), there are now key bindings for the "Replace" and "Replace all" actions.
 
 ![Find widget counters](images/January/find-widget-counts.png)
 
-### Input handling
+### Input Handling
 
-We changed the way in which we do input handling in the editor. These changes will allow software such as UniKey (used for Vietnamese input) or AutoHotKey (used for keyboard automation) to work with VS Code.
+We changed input handling in the editor to allow software such as [UniKey](http://www.unikey.org) (used for Vietnamese input) or [AutoHotKey](https://www.autohotkey.com) (used for keyboard automation) to work with VS Code.
 
-### Configurable cursor style
+### Configurable Cursor Style
 
-We added a new editor option `editor.cursorStyle` that can now be set to `"block"`. Special thanks to [@markrendle](https://github.com/markrendle) for his pull request.
+We added a new editor option `editor.cursorStyle` that can be set to `"block"`. Special thanks to [@markrendle](https://github.com/markrendle) for his pull request.
 
 ### Auto Save
 
@@ -179,17 +182,15 @@ Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) in
 * Fuzzy matching is now enabled by default and the previously introduced setting `filePicker.alternateFileNameMatching` is no longer needed.
 * You can open any file (including line/column pattern at the end) that exists on disk by typing the full path or full workspace relative path even if your exclude settings hide it otherwise.
 
-### Full Intellisense Documentation
+### Full IntelliSense Documentation
 
-We improved the interaction and rendering of those suggestions provided
-by Intellisense which have a more complete documentation.
+We improved the interaction and rendering of those IntelliSense suggestions which have a more complete documentation.
 
 A blue icon will appear on the right of the suggestion's documentation.
 
 ![intellisense-1](images/January/intellisense-1.png)
 
-Clicking it will display the full documentation for that suggestion. It's
-also possible trigger Intellisense a second time to enter this mode
+Clicking it will display the full documentation for that suggestion. It's also possible trigger IntelliSense a second time to enter this mode
 (`kb(editor.action.triggerSuggest)`).
 
 ![intellisense-2](images/January/intellisense-2.png)
