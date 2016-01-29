@@ -109,29 +109,6 @@ In addition to the 4 major colors in the Visual Studio themes (comments, strings
 
 ![Dark+ theme](images/January/dark_plus_theme.png)
 
-### Ligatures for VS Code
-
-VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures` setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
-
-![Ligatures for Code](images/January/editor-ligatures.png)
-
-### Find widget improvements
-
-The find widget got a large rehaul under the hood, making all its functions work regardless of the number of results. In other words, it is now possible to Find next, Replace, etc. well beyond the first 1000 find matches. For performance reasons, the find widget still only highlights for now the first 1000 matches. We have also improved the tab order in the widget.
-
-The refactorings allowed us to introduce the "X of Y" indication, such that now you can tell in a glimpse how many results there are and where you are in that list.
-
-We also added two new actions "Find Next Selection" (`kb(editor.action.nextSelectionMatchFindAction)`) and "Find Previous Selection" (`kb(editor.action.previousSelectionMatchFindAction)`) that allow you to jump to the next or previous matches without losing editor focus. Thanks to [@ajkerrigan](https://github.com/ajkerrigan) there are now keybindings for the "Replace" and "Replace all" actions.
-
-![Find widget counters](images/January/find-widget-counts.png)
-
-### Input handling
-
-We changed the way in which we do input handling in the editor. These changes will allow software such as UniKey (used for Vietnamese input) or AutoHotKey (used for keyboard automation) to work with VS Code.
-
-### Configurable cursor style
-
-We added a new editor option `editor.cursorStyle` that can now be set to `"block"`. Special thanks to [@markrendle](https://github.com/markrendle) for his pull request.
 
 ### Keyboard Accessibility
 
@@ -157,6 +134,30 @@ We also started work on localizing VS Code for different locales. We put tooling
 ![VSCode in German](images/January/german-vscode.png)
 
 Please note that the translation effort for VS Code haven't been completed yet and it will still take a while until we ship VS Code for languages other than English.
+
+### Ligatures for VS Code
+
+VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures` setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
+
+![Ligatures for Code](images/January/editor-ligatures.png)
+
+### Find widget improvements
+
+The find widget got a large rehaul under the hood, making all its functions work regardless of the number of results. In other words, it is now possible to Find next, Replace, etc. well beyond the first 1000 find matches. For performance reasons, the find widget still only highlights for now the first 1000 matches. We have also improved the tab order in the widget.
+
+The refactorings allowed us to introduce the "X of Y" indication, such that now you can tell in a glimpse how many results there are and where you are in that list.
+
+We also added two new actions "Find Next Selection" (`kb(editor.action.nextSelectionMatchFindAction)`) and "Find Previous Selection" (`kb(editor.action.previousSelectionMatchFindAction)`) that allow you to jump to the next or previous matches without losing editor focus. Thanks to [@ajkerrigan](https://github.com/ajkerrigan) there are now keybindings for the "Replace" and "Replace all" actions.
+
+![Find widget counters](images/January/find-widget-counts.png)
+
+### Input handling
+
+We changed the way in which we do input handling in the editor. These changes will allow software such as UniKey (used for Vietnamese input) or AutoHotKey (used for keyboard automation) to work with VS Code.
+
+### Configurable cursor style
+
+We added a new editor option `editor.cursorStyle` that can now be set to `"block"`. Special thanks to [@markrendle](https://github.com/markrendle) for his pull request.
 
 ### Auto Save
 
