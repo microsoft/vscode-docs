@@ -67,7 +67,7 @@ When the TypeScript version doesn't support Salsa then you see the indicator bel
 
 * When using `commonjs`, always exclude the `node_modules` using the `exclude` property.
 * To get IntelliSense for React/JSX, install the typings for `react-global` using `tsd install react-global`.
-* The final TypeScript 1.8 version will support JSX constructs inside `.js` files. Until the final version is available, you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` files.
+* The final TypeScript 1.8 version will support JSX constructs inside `.js` files to support React Native development. Until the final version is available, you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` files and you get the JSX support inside `.js` files.
 
 ## Editor
 
