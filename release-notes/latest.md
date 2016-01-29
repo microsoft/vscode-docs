@@ -56,7 +56,7 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
-### Changes
+### Changes from the existing Code JavaScript support
 
 * When using Salsa the language level is always ECMAScript 6. In the existing JavaScript language service, the default level was ES6 but there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
 * The existing JavaScript language service implicitly excluded some folders from the project, see the [doc](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson). This is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file.
