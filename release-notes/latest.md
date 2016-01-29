@@ -9,11 +9,11 @@ MetaDescription: See what is new in the Visual Studio Code January Release (0.10
 
 Hi,
 
-We are back from the holidays and are rolling again. We are starting to target our next important milestone for Code, the Build 2016 conference, 
+We are back from the holidays and are rolling again. We are starting to target our next important milestone for Code, the Build 2016 conference,
 which takes place at end of March in San Francisco. The biggest item in this release is the new JavaScript language service **preview**. Please enable it, give it a try,
-and let us how it goes. 
+and let us how it goes.
 
-These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22Jan+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Jan+2016%22+is%3Aclosed+label%3Afeature-request) for the January update. 
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22Jan+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Jan+2016%22+is%3Aclosed+label%3Afeature-request) for the January update.
 
 With the great support from the community there are many other interesting new features. We hope you like this release.
 
@@ -54,12 +54,12 @@ The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 t
 
 To enable Salsa for your workspace:
 
-* Set the environment variable `CODE_TSJS`. On OS X, it is recommended you change this in your `.bash_profile` using `export CODE_TSJS=1`. This way the environment variable is persisted.
-* Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build either locally `npm install typescript@next` or globally `npm install -g typescript@next`. The typescript nightly is
-a moving target and there can be issues. If there are issues try to install `typescript@1.9.0-dev.20160128`, this is the version we have used for our testing.
+* Set the environment variable `VSCODE_TSJS`. On OS X, it is recommended you change this in your `.bash_profile` using `export VSCODE_TSJS=1`. This way the environment variable is persisted.
+* Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build either locally with `npm install typescript@next` or globally with `npm install -g typescript@next`. The typescript nightly is
+a moving target and there can be issues. During our testing we have been happily using `typescript@1.9.0-dev.20160128`.
 * Define the `typescript.tsdk` setting with the path to the `lib` folder containing the `tsserver.js` file of the installed TypeScript module. As an alternative, you can install the TypeScript module locally inside the workspace so that the `typescript.sdk` setting is not needed and VS Code uses this TypeScript version.
 
-You can verify that you have Salsa enabled and you have a TypeScript version installed that supports Salsa by checking the status indicator in the Status Bar. 
+You can verify that you have Salsa enabled and you have a TypeScript version installed that supports Salsa by checking the status indicator in the Status Bar.
 This shows that all is OK.
 
 ![Salsa status](images/January/salsa-status.png)
