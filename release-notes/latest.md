@@ -25,7 +25,7 @@ The JavaScript language service in VS Code has always been powered by TypeScript
 
 Salsa provides several improvements over the existing JavaScript language service.
 
-The JsDoc comment format is now understood and used to improve IntelliSense proposals, parameter hints, and signature help:
+The JsDoc comment format is now understood and used to improve IntelliSense proposals and parameter hints:
 
 ![JsDoc comment format](images/January/jsdoc.png)
 
