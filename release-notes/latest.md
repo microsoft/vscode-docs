@@ -99,6 +99,24 @@ VS Code now supports fonts with programming ligatures, like [Hasklig](https://gi
 
 ![Ligatures for Code](images/January/editor-ligatures.png)
 
+### Find widget improvements
+
+The find widget got a large rehaul under the hood, making all its functions work regardless of the number of results. In other words, it is now possible to Find next, Replace, etc. well beyond the first 1000 find matches. For performance reasons, the find widget still only highlights for now the first 1000 matches. We have also improved the tab order in the widget.
+
+The refactorings allowed us to introduce the "X of Y" indication, such that now you can tell in a glimpse how many results there are and where you are in that list.
+
+We also added two new actions "Find Next Selection" (`kb(editor.action.nextSelectionMatchFindAction)`) and "Find Previous Selection" (`kb(editor.action.previousSelectionMatchFindAction)`) that allow you to jump to the next or previous matches without losing editor focus. Thanks to [@ajkerrigan](https://github.com/ajkerrigan) there are now keybindings for the "Replace" and "Replace all" actions.
+
+![Find widget counters](images/January/find-widget-counts.png)
+
+### Input handling
+
+We changed the way in which we do input handling in the editor. These changes will allow software such as UniKey (used for Vietnamese input) or AutoHotKey (used for keyboard automation) to work with VS Code.
+
+### Configurable cursor style
+
+We added a new editor option `editor.cursorStyle` that can now be set to `"block"`. Special thanks to [@markrendle](https://github.com/markrendle) for his pull request.
+
 ### Auto Save
 
 VS Code always supported automatically saving dirty files after one second (`File | Auto Save`). We received a lot of feedback that users want more control over
@@ -342,3 +360,9 @@ From a user's perspective, nothing has really changed when editing JSON, but und
 * [1687](https://github.com/Microsoft/vscode/issues/1687): VSC 10.6 does not allow to attach debugger to running Electron app
 * [1923](https://github.com/Microsoft/vscode/issues/1923): IntelliSense filtering has become slow again in huge lists
 * [1962](https://github.com/Microsoft/vscode/issues/1962): Debugger fails when offline
+
+## Notable Pull Requests
+
+* [1653](https://github.com/Microsoft/vscode/pull/1653): [@ivanixgames](https://github.com/ivanixgames) added `kb(editor.action.toggleWordWrap)` for toggling word wrapping
+* [2071](https://github.com/Microsoft/vscode/pull/2071): [@jkrems](https://github.com/jkrems) fixed navigation around non-basic multilingual plain characters
+* [1479](https://github.com/Microsoft/vscode/pull/1479): [@Bigous](https://github.com/Bigous) added `kb(editor.action.insertCursorAtEndOfEachLineSelected)` for adding a cursor at the end of each selected line
