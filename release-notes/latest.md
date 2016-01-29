@@ -10,14 +10,13 @@ MetaDescription: See what is new in the Visual Studio Code January Release (0.10
 Hi,
 
 We are back from the holidays and are rolling again. We are starting to target our next important milestone for VS Code, the Build 2016 conference,
-which takes place at end of March in San Francisco. The biggest item in this release is the new JavaScript language service **preview**. Please enable the preview, give it a try,
-and let us know how it goes.
+which takes place at end of March in San Francisco. The biggest item in this release is the *Salsa* preview. Salsa is a new JavaScript language service. Please enable the preview, give it a try, and let us know how it goes.
 
 ## Thank You
 
 We have received many Pull Requests from our community that helped to make  VS Code better, a big thank you:
-* [@mattbladgen](https://github.com/mattblagden): Render ligatures [1510](https://github.com/Microsoft/vscode/pull/1510).
-* [@ivanixgames](https://github.com/ivanixgames): `kb(editor.action.toggleWordWrap)` for toggling word wrapping [1653](https://github.com/Microsoft/vscode/pull/1653).
+* [mattbladgen](https://github.com/mattblagden): Render ligatures [1510](https://github.com/Microsoft/vscode/pull/1510).
+* [ivanixgames](https://github.com/ivanixgames): `kb(editor.action.toggleWordWrap)` for toggling word wrapping [1653](https://github.com/Microsoft/vscode/pull/1653).
 * [krizzdewizz](https://github.com/krizzdewizz): Windows - honor comspec env variable when spawning a shell [743](https://github.com/Microsoft/vscode/pull/743).
 * [EgorMatirov](https://github.com/EgorMatirov): Support Building binary on Linux ARM [1072](https://github.com/Microsoft/vscode/pull/1072).
 * [mohsen1](https://github.com/mohsen1): Implement AddSelectionToAllFindMatchAction command class [1202](https://github.com/Microsoft/vscode/pull/1202).
@@ -29,7 +28,7 @@ We have received many Pull Requests from our community that helped to make  VS C
 * [markrendle](https://github.com/markrendle) and [glen-84](https://github.com/glen-84) Implement configurable cursor style [1586](https://github.com/Microsoft/vscode/pull/1586).
 * [dpodder](https://github.com/dpodder): [bat] Fix batch tmGrammar [1678](https://github.com/Microsoft/vscode/pull/1678).
 * [f111fei](https://github.com/f111fei) Fix 'scripts\npm install' bugs in windows7 [2118](https://github.com/Microsoft/vscode/pull/2118).
-* [@jkrems](https://github.com/jkrems) fixed navigation around non-basic multilingual plain characters [2071](https://github.com/Microsoft/vscode/pull/2071)
+* [jkrems](https://github.com/jkrems) fixed navigation around non-basic multilingual plain characters [2071](https://github.com/Microsoft/vscode/pull/2071)
 
 ## JavaScript - Salsa Preview
 
@@ -69,9 +68,11 @@ The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 t
 To enable Salsa for your workspace:
 
 * Set the environment variable `VSCODE_TSJS`. On OS X, it is recommended you change this in your `.bash_profile` using `export VSCODE_TSJS=1`. This way the environment variable is persisted.
-* Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build either locally with `npm install typescript@next` or globally with `npm install -g typescript@next`. The typescript nightly is
-a moving target and there can be issues. During our testing we have been happily using `typescript@1.9.0-dev.20160128`.
-* Define the `typescript.tsdk` setting with the path to the `lib` folder containing the `tsserver.js` file of the installed TypeScript module. As an alternative, you can install the TypeScript module locally inside the workspace so that the `typescript.sdk` setting is not needed and VS Code uses this TypeScript version.
+* Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build. You have two options:
+  - install typescript locally into your workspace using `npm install typescript@next`. Code will then pick up the TypeScript version from there.
+  - install typescript globally, then you can share the installation across workspaces. In this case you install it using `npm install -g typescript@next`. Then you have to tell VS Code about the install location using the `typescript.sdk` setting. Define the value of the `typescript.tsdk` setting with the path to the `lib` folder containing the `tsserver.js` file of the installed TypeScript module. 
+ 
+The typescript nightly is a moving target and there can be issues. During our testing we have been happily using `typescript@1.9.0-dev.20160128`.
 
 You can verify that you have Salsa enabled and you have a TypeScript version installed that supports Salsa by checking the status indicator in the Status Bar.
 This shows that all is OK.
@@ -84,9 +85,10 @@ When the TypeScript version doesn't support Salsa then you see the indicator bel
 
 ### Tips
 
-* When using `commonjs`, always exclude the `node_modules` using the `exclude` property.
+* When using `commonjs`, always exclude the `node_modules` using the `exclude` property. This is due to this issue [6673](https://github.com/Microsoft/TypeScript/issues/6673).
 * To get IntelliSense for React/JSX, install the typings for `react-global` using `tsd install react-global`.
 * The final TypeScript 1.8 version will support JSX constructs inside `.js` files to support React Native development. Until the final version is available, you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` files and you get the JSX support inside `.js` files.
+* `tsc` doesn't support `jsconfig.json` and you can tell `tsc` to use the `jsconfig.json` using `tsc -p jsconfig.json`.
 
 ## Editor
 
