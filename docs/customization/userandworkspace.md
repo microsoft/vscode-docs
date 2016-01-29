@@ -59,7 +59,7 @@ Below is a copy of the default `settings.json` file.
 // Overwrite settings by placing them into your settings file.
 {
 
-	//-------- Editor configuration --------
+//-------- Editor configuration --------
 
 	// Controls the font family.
 	"editor.fontFamily": "",
@@ -118,8 +118,14 @@ Below is a copy of the default `settings.json` file.
 	// Controls the number of decorations that can show up at the same position in the overview ruler
 	"editor.overviewRulerLanes": 3,
 
-	// Controls the cursor blinking animation.
+	// Controls the cursor blinking animation, accepted values are 'blink', 'visible', and 'hidden'
 	"editor.cursorBlinking": "blink",
+
+	// Controls the cursor style, accepted values are 'block' and 'line'
+	"editor.cursorStyle": "line",
+
+	// Enables font ligatures
+	"editor.fontLigatures": false,
 
 	// Controls if the cursor should be hidden in the overview ruler.
 	"editor.hideCursorInOverviewRuler": false,
@@ -163,6 +169,12 @@ Below is a copy of the default `settings.json` file.
 	// When enabled, will trim trailing whitespace when you save a file.
 	"files.trimTrailingWhitespace": false,
 
+	// Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange". If set to "afterDelay" you can configure the delay in "files.autoSaveDelay".
+	"files.autoSave": "off",
+
+	// Controls the delay in ms after which a dirty file is saved automatically. Only applies when "files.autoSave" is set to "afterDelay"
+	"files.autoSaveDelay": 1000,
+
 
 	//-------- File Explorer configuration --------
 
@@ -203,11 +215,23 @@ Below is a copy of the default `settings.json` file.
 	"git.autofetch": true,
 
 
+	//-------- Update configuration --------
+
+	// Configure the update channel to receive updates from. Requires a restart after change.
+	"update.channel": "default",
+
+
 	//-------- Telemetry configuration --------
 
 	// Enable crash reports to be sent to Microsoft.
 	// This option requires restart of VSCode to take effect.
 	"telemetry.enableCrashReporter": true,
+
+
+	//-------- Markdown preview configuration --------
+
+	// A list of URLs or local paths to CSS style sheets to use from the markdown preview.
+	"markdown.styles": [],
 
 
 	//-------- JSON configuration --------
@@ -300,12 +324,6 @@ Below is a copy of the default `settings.json` file.
 	"javascript.validate.lint.newOnReturningFunctions": "warning",
 
 
-	//-------- Markdown preview configuration --------
-
-	// A list of URLs or local paths to CSS style sheets to use from the markdown preview.
-	"markdown.styles": [],
-
-
 	//-------- CSS configuration --------
 
 	// Controls CSS validation and problem severities.
@@ -337,7 +355,7 @@ Below is a copy of the default `settings.json` file.
 	// No unit for zero needed
 	"css.lint.zeroUnits": "ignore",
 
-	// @@font-face rule must define 'src' and 'font-family' properties
+	// @font-face rule must define 'src' and 'font-family' properties
 	"css.lint.fontFaceProperties": "warning",
 
 	// Hex colors must consist of three or six hex numbers
@@ -399,7 +417,7 @@ Below is a copy of the default `settings.json` file.
 	// No unit for zero needed
 	"less.lint.zeroUnits": "ignore",
 
-	// @@font-face rule must define 'src' and 'font-family' properties
+	// @font-face rule must define 'src' and 'font-family' properties
 	"less.lint.fontFaceProperties": "warning",
 
 	// Hex colors must consist of three or six hex numbers
@@ -461,7 +479,7 @@ Below is a copy of the default `settings.json` file.
 	// No unit for zero needed
 	"sass.lint.zeroUnits": "ignore",
 
-	// @@font-face rule must define 'src' and 'font-family' properties
+	// @font-face rule must define 'src' and 'font-family' properties
 	"sass.lint.fontFaceProperties": "warning",
 
 	// Hex colors must consist of three or six hex numbers
