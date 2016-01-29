@@ -11,7 +11,11 @@ Hi,
 
 We are back from the holidays and are rolling again. We are starting to target our next important milestone for Code, the Build 2016 conference, 
 which takes place at end of March in San Francisco. The biggest item in this release is the new JavaScript language service **preview**. Please enable it, give it a try,
-and let us how it goes. With the support from the community there are many other interesting new features. We hope you like this release.
+and let us how it goes. 
+
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22Jan+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Jan+2016%22+is%3Aclosed+label%3Afeature-request) for the January update. 
+
+With the great support from the community there are many other interesting new features. We hope you like this release.
 
 ## JavaScript - Salsa Preview
 
@@ -313,7 +317,7 @@ You can see the Promise-based API in [DebugClient.ts](https://github.com/Microso
 
 ### JSON mode is now an extension
 
-From a user's perspective, nothing has really changed when editing JSON, but under the hood, the JSON language support has been refactored. JSON language support drives the smartness when editing JSON files, from validation based on schemes to code completion and formatting. JSON is now a regular extension, using the same [VS Code extension APIs](https://code.visualstudio.com/docs/extensionAPI/overview) as everyone else. The implementation is based on the language server infrastructure, which makes it easy to run in a separate process. Read [here]9https://code.visualstudio.com/docs/extensions/example-language-server) for more on the language server.
+From a user's perspective, nothing has really changed when editing JSON, but under the hood, the JSON language support has been refactored. JSON language support drives the smartness when editing JSON files, from validation based on schemes to code completion and formatting. JSON is now a regular extension, using the same [VS Code extension APIs](https://code.visualstudio.com/docs/extensionAPI/overview) as everyone else. The implementation is based on the language server infrastructure, which makes it easy to run in a separate process. Read [here](https://code.visualstudio.com/docs/extensions/example-language-server) for more on the language server.
 
 ## Notable Bug Fixes
 
