@@ -132,6 +132,21 @@ Some areas where you can now jump to using keyboard only:
 
 This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
 
+### Full Intellisense Documentation
+
+We improved the interaction and rendering of those suggestions provided
+by Intellisense which have a more complete documentation.
+
+A blue icon will appear on the right of the suggestion's documentation.
+
+![intellisense-1](images/January/intellisense-1.png)
+
+Clicking it will display the full documentation for that suggestion. It's
+also possible trigger Intellisense a second time to enter this mode
+(`kb(editor.action.triggerSuggest)`).
+
+![intellisense-2](images/January/intellisense-2.png)
+
 ## Workbench
 
 ### Hide the Menu Bar (Windows, Linux)
