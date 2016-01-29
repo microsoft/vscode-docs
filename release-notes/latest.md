@@ -17,18 +17,19 @@ and let us know how it goes.
 
 We have received many Pull Requests from our community that helped to make  VS Code better, a big thank you:
 * [@mattbladgen](https://github.com/mattblagden): Render ligatures [1510](https://github.com/Microsoft/vscode/pull/1510).
-* [@ivanixgames](https://github.com/ivanixgames): Toggle word wrap command [1653](https://github.com/Microsoft/vscode/pull/1653).
+* [@ivanixgames](https://github.com/ivanixgames): `kb(editor.action.toggleWordWrap)` for toggling word wrapping [1653](https://github.com/Microsoft/vscode/pull/1653).
 * [krizzdewizz](https://github.com/krizzdewizz): Windows - honor comspec env variable when spawning a shell [743](https://github.com/Microsoft/vscode/pull/743).
 * [EgorMatirov](https://github.com/EgorMatirov): Support Building binary on Linux ARM [1072](https://github.com/Microsoft/vscode/pull/1072).
 * [mohsen1](https://github.com/mohsen1): Implement AddSelectionToAllFindMatchAction command class [1202](https://github.com/Microsoft/vscode/pull/1202).
 * [dstorey](https://github.com/dstorey): Update css intellisense and css.plist [1217](https://github.com/Microsoft/vscode/pull/1217).
 * [takumif](https://github.com/takumif): Add a keyboard shortcut to focus on the working files pane in the sidebar[1433](https://github.com/Microsoft/vscode/pull/1433).
 * [xaverh](https://github.com/xaverh): [c++] keyword "noexcept" added [1457](https://github.com/Microsoft/vscode/pull/1457).
-* [Bigous](https://github.com/Bigous): Add editor.action.insertCursorAtEndOfEachSelectedLine [1479](https://github.com/Microsoft/vscode/pull/1479).
+* [Bigous](https://github.com/Bigous): Add `kb(editor.action.insertCursorAtEndOfEachLineSelected)` for adding a cursor at the end of each selected line [1479](https://github.com/Microsoft/vscode/pull/1479).
 * [bgse](https://github.com/bgse): [html] typos of angularjs attributes(directives) [1543](https://github.com/Microsoft/vscode/pull/1543).
 * [markrendle](https://github.com/markrendle) and [glen-84](https://github.com/glen-84) Implement configurable cursor style [1586](https://github.com/Microsoft/vscode/pull/1586).
 * [dpodder](https://github.com/dpodder): [bat] Fix batch tmGrammar [1678](https://github.com/Microsoft/vscode/pull/1678).
 * [f111fei](https://github.com/f111fei) Fix 'scripts\npm install' bugs in windows7 [2118](https://github.com/Microsoft/vscode/pull/2118).
+* [@jkrems](https://github.com/jkrems) fixed navigation around non-basic multilingual plain characters [2071](https://github.com/Microsoft/vscode/pull/2071)
 
 ## JavaScript - Salsa Preview
 
@@ -378,12 +379,5 @@ From a user's perspective, nothing has really changed when editing JSON, but und
 * [1923](https://github.com/Microsoft/vscode/issues/1923): IntelliSense filtering has become slow again in huge lists
 * [1962](https://github.com/Microsoft/vscode/issues/1962): Debugger fails when offline
 
-<<<<<<< ba5f43029ec68d5ddd90494951b827b0d76de67a
-## Notable Pull Requests
-
-* [1653](https://github.com/Microsoft/vscode/pull/1653): [@ivanixgames](https://github.com/ivanixgames) added `kb(editor.action.toggleWordWrap)` for toggling word wrapping
-* [2071](https://github.com/Microsoft/vscode/pull/2071): [@jkrems](https://github.com/jkrems) fixed navigation around non-basic multilingual plain characters
-* [1479](https://github.com/Microsoft/vscode/pull/1479): [@Bigous](https://github.com/Bigous) added `kb(editor.action.insertCursorAtEndOfEachLineSelected)` for adding a cursor at the end of each selected line
-=======
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22Jan+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Jan+2016%22+is%3Aclosed+label%3Afeature-request) for the January update.
->>>>>>> added thank you section
+
