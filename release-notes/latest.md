@@ -39,7 +39,7 @@ The JavaScript language service in VS Code has always been powered by TypeScript
 
 ### Salsa Improvements
 
-Salsa provides several improvements over the existing JavaScript language service.
+Salsa provides important improvements over the existing JavaScript language service.
 
 The JsDoc comment format is now understood and used to improve IntelliSense proposals and parameter hints:
 
@@ -51,13 +51,24 @@ You now get IntelliSense proposals for properties in 'ECMAScript 3 style classes
 
 IntelliSense offers both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image above.
 
+The `commonjs` support has been improved:
+
+![commonjs](images/January/salsa-commonjs.png)
+
+>**Tip:** When using `commonjs`, exclude the `node_modules` using the `exclude` property in the `jsconfig.json`. This is due to this issue [6673](https://github.com/Microsoft/TypeScript/issues/6673).
+
 There is now support for JSX:
 
 ![JSX Support](images/January/jsx-salsa.png)
 
+>**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` using `tsd install react-global`.
+
+Salsa also understands JSX constructs inside `.js` files to support React Native development. We haven't updated the grammar for `.js` files yet. You can enable JSX syntax coloring for JS using the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` so that the JSX syntax coloring is used.
+
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
+>**Tip:** The `tsc` complier does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsonfig.json`.
 
 ### Changes from the existing VS Code JavaScript support
 
@@ -74,7 +85,7 @@ To enable Salsa for your workspace:
 * Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build. You have two options:
   - Install TypeScript locally into your workspace using `npm install typescript@next`. VS Code will then pick up the TypeScript version from there.
   - Install TypeScript globally to share the installation across workspaces. In this case, you install it using `npm install -g typescript@next`. You then have to tell VS Code the install location using the `typescript.sdk` setting. Set `typescript.tsdk` to the path of the `lib` folder containing the `tsserver.js` file of the installed TypeScript module.
- 
+
 The TypeScript nightly is a moving target and there can be issues. During our testing, we have been happily using `typescript@1.9.0-dev.20160128`.
 
 You can verify that you have Salsa enabled and you have an installed TypeScript version that supports Salsa by checking the status indicator in the Status Bar.
@@ -86,13 +97,6 @@ This shows that all is OK:
 When the TypeScript version doesn't support Salsa, you will see the indicator below. If you hover over the status indicator, you will see the path to the TypeScript installation that you have configured.
 
 ![Salsa status failure](images/January/salsa-status-failure.png)
-
-### Tips
-
-* When using `commonjs`, always exclude the `node_modules` using the `exclude` property. This is due to this issue [6673](https://github.com/Microsoft/TypeScript/issues/6673).
-* To get IntelliSense for React/JSX, install the typings for `react-global` using `tsd install react-global`.
-* The final TypeScript 1.8 version will support JSX constructs inside `.js` files to support React Native development. Until the final version is available, you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` files and you get the JSX support inside `.js` files.
-* `tsc` doesn't support `jsconfig.json` and you can tell `tsc` to use the `jsconfig.json` using `tsc -p jsconfig.json`.
 
 ## Editor
 
