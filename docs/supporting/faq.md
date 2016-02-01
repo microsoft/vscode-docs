@@ -153,7 +153,7 @@ If you work on a machine where internet traffic needs to go through a proxy serv
 *	Configure the ‘http.proxy’ setting in your user settings (File > Preferences > User Settings)
 
 ```json
-    “http.proxy”: “http://10.203.0.1:5187/”
+    "http.proxy": "http://10.203.0.1:5187/"
 ```
 
 Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.
