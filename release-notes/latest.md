@@ -55,7 +55,7 @@ The `commonjs` support has been improved:
 
 ![commonjs](images/January/salsa-commonjs.png)
 
->**Tip:** When using `commonjs`, exclude the `node_modules` using the `exclude` property in the `jsconfig.json`. This is due to this issue [6673](https://github.com/Microsoft/TypeScript/issues/6673).
+>**Tip:** When using `commonjs`, exclude the `node_modules` using the `exclude` property in the `jsconfig.json`. This is due to this issue [6673](https://github.com/Microsoft/TypeScript/issues/6673) (this issue has been fixed in the meantime, but isn't yet in `typescript@next`.
 
 There is now support for JSX:
 
@@ -75,7 +75,7 @@ The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 t
 * When using Salsa, the language level is always ECMAScript 6. In the existing JavaScript language service, the default level was ES6 but there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
 * The existing JavaScript language service implicitly excluded some folders from the project, see the [JavaScript topic](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson). This is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file.
 * Salsa flags syntax errors but the JavaScript linting options `javascript.validate.lint.*` defined in the user settings are no longer supported. To get these linting options back, we recommend that you use a linter combined with a VS Code linter extension like [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
-* Salsa doesn't support the `AMD` module system, however `commonjs` is supported.
+* Salsa doesn't support the `AMD` module system.
 
 ### Enabling Salsa
 
