@@ -349,6 +349,8 @@
 { "key": "f1",                    "command": "workbench.action.showCommands" },
 { "key": "shift+cmd+m",           "command": "workbench.action.showErrorsWarnings" },
 { "key": "cmd+\\",                "command": "workbench.action.splitEditor" },
+{ "key": "shift+cmd+b",           "command": "workbench.action.tasks.build" },
+{ "key": "shift+cmd+t",           "command": "workbench.action.tasks.test" },
 { "key": "shift+cmd+c",           "command": "workbench.action.terminal.openNativeConsole" },
 { "key": "ctrl+cmd+f",            "command": "workbench.action.toggleFullScreen" },
 { "key": "cmd+j",                 "command": "workbench.action.togglePanel" },

@@ -30,11 +30,11 @@ A simple `tsconfig.json` looks like this for ES5, AMD modules and source maps:
 
 ```json
 {
-	"compilerOptions": {
-		"target": "ES5",
-		"module": "amd",
-		"sourceMap": true
-	}
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "amd",
+        "sourceMap": true
+    }
 }
 ```
 
@@ -89,6 +89,12 @@ Under the covers we interpret `tsc` as an external task runner exposing exactly 
 As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
 
 The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` file was created.
+
+If you have [Node.js](https://nodejs.org) installed, you can run your simple Hello World example by opening up a terminal and running:
+
+```
+node HelloWorld.js
+```
 
 ### Step 4: Reviewing Build Issues
 
