@@ -3,7 +3,7 @@ Order: 3
 Area: extensions
 TOCTitle: Example-Word Count
 PageTitle: Visual Studio Code Example - Word Count Extension
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
 

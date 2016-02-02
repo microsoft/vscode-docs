@@ -3,7 +3,7 @@ Order: 3
 Area: tools
 TOCTitle: Samples
 PageTitle: Visual Studio Code Extension Samples
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Learn from existing extension samples.
 ---
 

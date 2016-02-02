@@ -3,7 +3,7 @@ Order: 2
 Area: languages
 TOCTitle: JavaScript
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 

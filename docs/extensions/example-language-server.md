@@ -3,7 +3,7 @@ Order: 5
 Area: extensions
 TOCTitle: Example-Language Server
 PageTitle: Creating Language Servers for Visual Studio Code
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
 

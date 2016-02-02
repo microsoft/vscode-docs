@@ -3,7 +3,7 @@ Order: 1
 Area: runtimes
 TOCTitle: Node.js
 PageTitle: Node.js and Visual Studio Code End to End
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications.  At the heart of VS Code is a Node server so we use these features day-in day-out.
 ---
 
