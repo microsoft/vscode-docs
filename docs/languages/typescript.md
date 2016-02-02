@@ -55,6 +55,8 @@ class Startup {
         return 0;
     }
 }
+
+Startup.main();
 ```
 
 ### Step 2: Create tasks.json
@@ -134,11 +136,11 @@ If generated (transpiled) JavaScript files do not live next to their source, you
 
 ## Hiding Derived JavaScript Files
 
-When you are working with TypeScript you often don’t want to see the files in the explorer or include them in search results. VS Code offers filtering capabilities to help, you can easily set an expression to hide those derived files:
+When you are working with TypeScript, you often don’t want to see generated JavaScript files in the explorer or in search results. VS Code offers filtering capabilities with a `files.exclude` option and you can easily create an expression to hide those derived files:
 
 `"**/*.js": { "when": "$(basename).ts"}`
 
-This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The result being that the file explorer will no longer show derived resources for JavaScript if they are compiled to the same location. All you have to do is configure this in the `files.exclude` setting.
+This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The file explorer will no longer show derived resources for JavaScript if they are compiled to the same location. Configure this with the `files.exclude` setting in your workspace settings (`File | Preferences | Workspace Settings`).
 
 ![Hiding derived resources](images/typescript/hidingderivedresources.png)
 
