@@ -31,8 +31,6 @@ IntelliSense offers both *inferred* proposals and the global identifiers of the 
 
 The `commonjs` support has been improved as well:
 
-*@egamma HOW??*
-
 ![commonjs](images/January/salsa-commonjs.png)
 
 >**Tip:** When using `commonjs`, exclude the `node_modules` folder using the `exclude` property in `jsconfig.json`. This is due to [issue 6673](https://github.com/Microsoft/TypeScript/issues/6673) which is fixed but not yet in `typescript@next`.
