@@ -9,7 +9,7 @@ MetaDescription: See what is new in the Visual Studio Code January Release (0.10
 
 Hi,
 
-We are back from the holidays and are rolling again, looking forward to the [Build 2016 conference](http://build.microsoft.com/). For //Build we're focused on making VS Code Accessible, available in additional lanugages, and stabilizing on a 1.0 API. Outside of these fundamentals, perhaps the most impactful work item in the January release is the enablement of the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in VS Code. Read more below, give it a try, and let us know what you think.
+We are back from the holidays and are rolling again, looking forward to the [Build 2016 conference](http://build.microsoft.com/). For //build, we're focused on making VS Code accessible, available in additional languages, and stabilizing on a 1.0 API. Outside of these fundamentals, perhaps the most impactful work item in the January release is enabling the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in VS Code. Read more below, give it a try, and let us know what you think.
 
 ## JavaScript - Salsa Preview
 
@@ -39,7 +39,7 @@ There is now support for JSX:
 
 ![JSX Support](images/January/jsx-salsa.png)
 
->**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` run `tsd install react-global` from the terminal. 
+>**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` from the terminal.
 
 Salsa also understands JSX constructs inside JavaScript (`.js`) files to support React Native development. We haven't updated the grammar for `.js` files yet but you can enable JSX syntax coloring for JS using the [`js-is-jsx` extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension tell VS Code to treat `.js` files as `.jsx` files so that the JSX syntax coloring is used.
 
@@ -51,7 +51,7 @@ Finally, the TypeScript compiler `tsc` can down-level compile JavaScript files f
 
 ### Changes from the existing VS Code JavaScript support
 
-Salsa will undoubtedly provide a much better experience writing JavaScript applications in VS Code. By moving to this new service we give up a few features previously available with our custom JavaScript language service.
+Salsa will undoubtedly provide a much better experience writing JavaScript applications in VS Code. By moving to this new service, we give up a few features previously available with our custom JavaScript language service.
 
 * When using Salsa, the language level is always ECMAScript 6. In the existing JavaScript language service, the default level was ES6 but there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
 * The existing JavaScript language service implicitly excluded some folders from the project, see the [JavaScript topic](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson). This is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file.
@@ -62,7 +62,7 @@ Salsa will undoubtedly provide a much better experience writing JavaScript appli
 
 To enable Salsa for your workspace:
 
-* Set the environment variable `VSCODE_TSJS`. On OS X, it is recommended you change this in your `.bash_profile` using `export VSCODE_TSJS=1`. That way the environment variable is persisted.
+* Set the environment variable `VSCODE_TSJS`. On OS X, it is recommended that you change this in your `.bash_profile` using `export VSCODE_TSJS=1`. That way the environment variable is persisted.
 * Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build. You have two options:
   - Install TypeScript locally into your *workspace* using `npm install typescript@next`. VS Code will pick up the TypeScript version from there.
   - Install TypeScript globally to share the installation *across workspaces*. In this case, you install it using `npm install -g typescript@next`. You then have to tell VS Code the install location using the `typescript.sdk` setting. Set `typescript.tsdk` to the path of the `lib` folder containing the `tsserver.js` file of the installed TypeScript module.
@@ -154,7 +154,7 @@ VS Code always supported automatically saving dirty files after one second (`Fil
 * `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
 * This setting can be configured either globally for the user or per workspace through the workspace settings (`Preferences | Workspace Settings`).
 
-**Note:** If you had auto save enabled previously, we will migrate your setting into the `settings.json` file automatically. You will not see any dirty indicators in the UI if you configure auto save for 1s or below. In all other cases you will see the dirty indicators throughout the UI.
+**Note:** If you had `Auto Save` enabled previously, we will migrate your setting into the `settings.json` file automatically. You will not see any dirty indicators in the UI if you configure auto save for 1 second or below. In all other cases, you will see the dirty indicators throughout the UI.
 
 ### File Picker
 
@@ -196,13 +196,13 @@ We are now using a tree in the debug hover to allow better rich object inspectio
 
 ### Conditional Breakpoints
 
-We now support setting conditional breakpoints that are hit only when the specified condition is `true`. Please note, the  underlying debug target, such as Node.js, must support support conditional breakpoints for this feature to work.
+We now support setting conditional breakpoints that are hit only when the specified condition is `true`. Please note, the  underlying debug target, such as Node.js, must support conditional breakpoints for this feature to work.
 
 ![conditional breakpoints](images/January/conditional-breakpoints.png)
 
 ### Changed Variable Indication
 
-We now indicate in the Debug viewlet which variables have changed values between step events.
+We now indicate in the Debug and Watch views which variables have changed values between step events.
 
 ![variables change](images/January/variables-change.png)
 
@@ -210,8 +210,7 @@ We now indicate in the Debug viewlet which variables have changed values between
 
 ### Source Maps with Inlined Source
 
-Node.js debugging now supports source maps with "inlined source" in addition to "inlined source maps" which were already supported. 
-To avoid confusion, here is a brief explanation of these two source map options. "Inlined source" and "inlined source maps" are orthogonal features and VS Code supports both either alone or in combination:
+Node.js debugging now supports source maps with "inlined source" in addition to "inlined source maps" which were already supported. To avoid confusion, here is a brief explanation of these two source map options. "Inlined source" and "inlined source maps" are orthogonal features and VS Code supports both either alone or in combination:
 
 * *Inlined source maps:* The contents of the source map does not live in a file but is a data URL at the end of the generated file.
 * *Inlined source:* The contents of the original source file does not live in a file but is included in the source map.
@@ -231,7 +230,7 @@ Whenever the editor contents is not loaded from the file system but comes from t
 The followings improvements enable VS Code to support remote debugging, includes debugging into a Docker container:
 
 * The `attach` launch configuration now supports an `address` attribute where a remote host can be specified. Please note that remote debugging is only supported on recent versions of Node.js (>= 4.x).
-* The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion the `localRoot` path is replaced by the `remoteRoot`.
+* The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
 ### launch.json relative paths not automatically converted to absolute ones
 
@@ -239,7 +238,7 @@ In order to achieve consistency across our configuration files, we plan for the 
 
 ### "--nolazy" option not automatically added
 
-In order to ensure that breakpoints are hit reliably, VS Code automatically adds the `--nolazy` option when launching Node.js. With the advent of Node.js alternatives that do not support this option (e.g. Chakra), we've removed this automatic behavior. So if you see that breakpoints are not hit reliably in Node.js, please verify that your launch config sets the `--nolazy` via the `runtimeArgs` attribute.
+In order to ensure that breakpoints are hit reliably, VS Code automatically added the `--nolazy` option when launching Node.js. With the advent of Node.js alternatives that do not support this option (e.g. Chakra), we've removed this automatic behavior. If you see that breakpoints are not hit reliably in Node.js applications, please verify that your launch configuration sets the `--nolazy` option explicitly via the `runtimeArgs` attribute.
 
 ## Mono debugging
 
@@ -274,7 +273,7 @@ The process of installing a specific version of the API into your extension is s
 * Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
 * Make sure your dependency to the `vscode` module is at least `0.11.0`.
 * Type `npm install` from the root of your extension.
-* The `vscode` module will download the appropiate version of `vscode.d.ts` based on the `engine` field you declared.
+* The `vscode` module will download the appropriate version of `vscode.d.ts` based on the `engine` field you declared.
 * Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
 
 ### Extension API additions
@@ -320,23 +319,23 @@ Here are three example Mocha tests:
 var dc: DebugClient = ...;
 
 test('should run program to the end', () => {
-	return Promise.all([
-		dc.configurationSequence(),
-		dc.launch({ program: "main.js" }),
-		dc.waitForEvent('terminated')
-	]);
+    return Promise.all([
+        dc.configurationSequence(),
+        dc.launch({ program: "main.js" }),
+        dc.waitForEvent('terminated')
+    ]);
 });
 
 test('should stop on entry', () => {
-	return Promise.all([
-		dc.configurationSequence(),
-		dc.launch({ program: "main.js", stopOnEntry: true }),
-		dc.assertStoppedLocation('entry', 1)
-	]);
+    return Promise.all([
+        dc.configurationSequence(),
+        dc.launch({ program: "main.js", stopOnEntry: true }),
+        dc.assertStoppedLocation('entry', 1)
+    ]);
 });
 
 test('should set a breakpoint and stop on it', () => {
-	return dc.hitBreakpoint({ program: "main.js" }, "test.js", 15);
+    return dc.hitBreakpoint({ program: "main.js" }, "test.js", 15);
 });
 ```
 
@@ -381,6 +380,4 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [dpodder](https://github.com/dpodder): [bat] Fix batch tmGrammar [1678](https://github.com/Microsoft/vscode/pull/1678).
 * [f111fei](https://github.com/f111fei) Fix 'scripts\npm install' bugs in windows7 [2118](https://github.com/Microsoft/vscode/pull/2118).
 * [jkrems](https://github.com/jkrems) fixed navigation around non-basic multilingual plain characters [2071](https://github.com/Microsoft/vscode/pull/2071)
-
-
 
