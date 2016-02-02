@@ -51,13 +51,15 @@ Want get an early peek at new VS Code features?  You can try prerelease versions
 
 To install the Insiders build, go to the Insiders [download page](/insiders).
 
-## Windows - Trouble with the installer
+## Windows FAQ
+
+### Trouble with the installer
 
 Try using the [zip file](https://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
 
 >**Note:** When VS Code is installed via a Zip you will need to manually update it for each release.
 
-## Windows - Icons are missing
+### Icons are missing
 
 I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
 
@@ -76,7 +78,7 @@ Using the Registry Editor:
 4. Set its `Content Type` Data value to `image/svg+xml`.
 5. Exit regedit.
 
-## Windows 7 - Error when deleting files from Explorer
+### Windows 7 - Error when deleting files from Explorer
 
 >**19 Dec 2015 | version 0.10.5**
 
@@ -86,7 +88,9 @@ By default, VS Code attempts to move the file to the Trash (Windows Recycle Bin)
 
 You can choose to delete the file permanently or delete the file using the Windows Explorer or Command Prompt, which will properly move the file to the Windows Recycle Bin.
 
-## OS X - VS Code fails to start OmniSharp
+## OS X FAQ
+
+### VS Code fails to start OmniSharp
 
 On OS X, VS Code can no longer start OmniSharp after updating VS Code.
 
@@ -97,7 +101,7 @@ brew update
 brew reinstall mono
 ```
 
-## OS X - Mono and El Capitan
+### Mono and El Capitan
 
 Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
 
@@ -108,13 +112,15 @@ brew update
 brew reinstall mono
 ```
 
-## Linux - Azure VM Issues
+## Linux FAQ
+
+### Azure VM Issues
 
 I getting a "Running without the SUID sandbox" error?
 
 Unfortunately, this is a known issue that we're still investigating.
 
-## Linux - Debian and Moving Files to Trash
+### Debian and Moving Files to Trash
 
 In case you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
 
@@ -124,13 +130,13 @@ Run these commands to solve this issue:
 sudo apt-get install gvfs-bin
 ```
 
-## Linux - error ENOSPC
+### error ENOSPC
 
 When you see this error, it indicates that the VS Code file watcher is running out of handles. To increase the limit open `/etc/sysctl.conf` and add this line to the end of the file:
 
 `fs.inotify.max_user_watches=16384`
 
-## Linux - I can't see Chinese characters in Ubuntu
+### I can't see Chinese characters in Ubuntu
 
 We're working on a fix. In the meantime, open the application menu, then choose `File`, `Preferences`, `User Settings`. Then set `editor.fontFamily` as shown:
 
