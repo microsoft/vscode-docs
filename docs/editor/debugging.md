@@ -220,8 +220,8 @@ The corresponding launch configuration looks like this:
 ## Mono Debugging
 
 On Linux or OS X the Mono debugging support of VS Code requires Mono version 3.12 or later.
-If you intend to build ASP.NET 5 applications with Visual Studio Code, we recommend you first follow the steps
-**Installing ASP.NET 5 and DNX** in [ASP.NET 5 Applications](/docs/runtimes/ASPnet5.md) which will install a version of Mono
+If you intend to build ASP.NET Core applications with Visual Studio Code, we recommend you first follow the steps
+**Installing ASP.NET Core and DNX** in [ASP.NET Core Applications](/docs/runtimes/ASPnet5.md) which will install a version of Mono
 that supports debugging.
 
 If you just want to try VS Code Mono debugging, you can either download the latest Mono version
@@ -273,7 +273,7 @@ To write your own debugger extension, visit:
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. ASP.NET 5 applications are compiled using the Roslyn compiler, not the Mono compiler. ASP.NET 5 debugging will be available through a VS Code extension.
+**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. ASP.NET Core applications are compiled using the Roslyn compiler, not the Mono compiler. ASP.NET Core debugging will be available through a VS Code extension.
 
 **Q: Why can’t I remote debug my app?**
 

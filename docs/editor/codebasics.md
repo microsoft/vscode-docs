@@ -18,7 +18,7 @@ In addition, there are a number of unique features in the VS Code user interface
 
 VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
 
-On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or ASP.NET 5 Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
+On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or ASP.NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
 
 
 ## Basic Layout
@@ -103,11 +103,12 @@ Once you are done with your task, you can individually remove files from the wor
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
-However, it's easy to turn on `Auto Save`, which will save your changes on idle. With this option turned on, there is no need to explicitly save the file. This can be a great feature, but if you are using file watchers to automate tasks, you may want to turn this behavior off so that you have greater control when tasks run in the background.
+However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file.
 
-To turn on Auto Save (or turn it off), simply open the Command Palette, `kb(workbench.action.showCommands)`, and type `auto` to filter the list and hit `kbstyle(Enter)`.
+To configure `Auto Save`, open **User Settings** or **Workspace Settings** and find the associated settings:
 
-You can also find this setting as an option on the `File` menu.
+* `files.autoSave`: Can have the values `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when focus moves out of the editor of the dirty file.
+* `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
 
 ## Search Across Files
 

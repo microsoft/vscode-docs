@@ -1,258 +1,392 @@
 ---
 Order: 1
 TOCTitle: Latest
-PageTitle: Visual Studio Code December 0.10.5
-MetaDescription: See what is new in the Visual Studio Code December Release (0.10.5)
+PageTitle: Visual Studio Code January 0.10.7
+MetaDescription: See what is new in the Visual Studio Code January Release (0.10.7)
 ---
 
-# 0.10.6 (December 2015)
-
-The 0.10.6 release fixes a [crash on startup](https://github.com/Microsoft/vscode/issues/1463) that happens on OS X when using certain keyboard layouts. 
-
-# 0.10.5 (December 2015)
+# 0.10.7 (January 2016)
 
 Hi,
 
-November was a big release for us (adding extensibility support and moving to open source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
+We are back from the holidays and are rolling again. We are starting to target our next important milestone for VS Code, the Build 2016 conference,
+which takes place at end of March in San Francisco. The biggest item in this release is the "Salsa" preview. Salsa is a new JavaScript language service. Please enable Salas, give it a try, and let us know how it goes.
 
-These release notes only capture what's new in the core of Visual Studio Code. Do not forget to check out the [marketplace](https://marketplace.visualstudio.com/#VSCode) for new extensions.
+## Thank You
 
-## Thanks
+We received many contributions from the community that helped to make VS Code better.
 
-A big thanks for the great contributions we have received. The community has filed over 200 bugs, 280 feature requests, and submitted 70 pull requests. We have addressed many of these issues and merged most of the pull requests.
+A big Thank You goes out to:
 
-These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Abug+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Dec+2015%22+label%3Afeature-request+is%3Aclosed) for the December milestone.
+* [mattbladgen](https://github.com/mattblagden): Render ligatures [1510](https://github.com/Microsoft/vscode/pull/1510).
+* [ivanixgames](https://github.com/ivanixgames): `kb(editor.action.toggleWordWrap)` for toggling word wrapping [1653](https://github.com/Microsoft/vscode/pull/1653).
+* [krizzdewizz](https://github.com/krizzdewizz): Windows - honor comspec env variable when spawning a shell [743](https://github.com/Microsoft/vscode/pull/743).
+* [EgorMatirov](https://github.com/EgorMatirov): Support Building binary on Linux ARM [1072](https://github.com/Microsoft/vscode/pull/1072).
+* [mohsen1](https://github.com/mohsen1): Implement AddSelectionToAllFindMatchAction command class [1202](https://github.com/Microsoft/vscode/pull/1202).
+* [dstorey](https://github.com/dstorey): Update css intellisense and css.plist [1217](https://github.com/Microsoft/vscode/pull/1217).
+* [takumif](https://github.com/takumif): Add a keyboard shortcut to focus on the working files pane in the sidebar[1433](https://github.com/Microsoft/vscode/pull/1433).
+* [xaverh](https://github.com/xaverh): [c++] keyword "noexcept" added [1457](https://github.com/Microsoft/vscode/pull/1457).
+* [Bigous](https://github.com/Bigous): Add `kb(editor.action.insertCursorAtEndOfEachLineSelected)` for adding a cursor at the end of each selected line [1479](https://github.com/Microsoft/vscode/pull/1479).
+* [bgse](https://github.com/bgse): [html] typos of angularjs attributes(directives) [1543](https://github.com/Microsoft/vscode/pull/1543).
+* [markrendle](https://github.com/markrendle) and [glen-84](https://github.com/glen-84) Implement configurable cursor style [1586](https://github.com/Microsoft/vscode/pull/1586).
+* [dpodder](https://github.com/dpodder): [bat] Fix batch tmGrammar [1678](https://github.com/Microsoft/vscode/pull/1678).
+* [f111fei](https://github.com/f111fei) Fix 'scripts\npm install' bugs in windows7 [2118](https://github.com/Microsoft/vscode/pull/2118).
+* [jkrems](https://github.com/jkrems) fixed navigation around non-basic multilingual plain characters [2071](https://github.com/Microsoft/vscode/pull/2071)
 
-Regarding fixes, if you want to find out when a fix to your issue is available in a VS Code update, please check the **milestone** assigned to the issue.
+## JavaScript - Salsa Preview
 
-## Insider's Channel
+The JavaScript language service in VS Code has always been powered by TypeScript. We are now migrating to a new JavaScript language service implementation with the code name [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). Salsa will become available with TypeScript 1.8. For the January update, we provide a preview option of VS Code using Salsa.
 
-There is now a setting to subscribe to the Insider's channel to get prerelease VS Code builds automatically. The setting is `update.channel` and it defaults to `stable` which is the current release build.  Change the value to `insiders` and restart VS Code to install prerelease builds. For more details, refer to [How can I test prerelease versions of VS Code?](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code).
+### Salsa Improvements
 
-## Editor - Find/Replace improvements
+Salsa provides important improvements over the existing JavaScript language service.
 
-In regex mode:
+The JsDoc comment format is now understood and used to improve IntelliSense proposals and parameter hints:
 
-* Can now search for `^`, `$` or `^$` thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/314).
-* Can now replace with `\n` or `\t`.
+![JsDoc comment format](images/January/jsdoc.png)
 
-Keyboard shortcuts:
+You now get IntelliSense proposals for properties in 'ECMAScript 3 style classes':
 
-* New Find settings commands: toggle case-sensitive (`kb(toggleFindCaseSensitive)`), toggle regex (`kb(toggleFindRegex)`) and toggle whole word (`kb(toggleFindWholeWord)`)
-* `kb(actions.find)` puts focus in the Find input field.
-* `kb(editor.action.startFindReplaceAction)` puts focus in the Replace input field.
-* When focus is in the Find widget input fields, `kbstyle(Ctrl+Down)` put focus in the editor.
+![ES3 style classes](images/January/es3-classes.png)
 
-## Changed defaults and key bindings
+IntelliSense offers both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image above.
 
-* Changed the defaults for `editor.insertSpaces` to `true` and `editor.tabSize` to `4`. To get the previous behavior, you can change both settings back to `"auto"`.
-* Changed the default key bindings on Linux for Insert Cursor Below (`kb(editor.action.insertCursorBelow)`), Insert Cursor Above (`kb(editor.action.insertCursorAbove)`), Move Line Down (`kb(editor.action.moveLinesDownAction)`) and Move Line Up (`kb(editor.action.moveLinesUpAction)`)
+The `commonjs` support has been improved:
 
-## Editor - Cursor Blinking Options
+![commonjs](images/January/salsa-commonjs.png)
 
-New setting to configure cursor blinking: `editor.cursorBlinking` with values `blink`, `visible` and `hidden` thanks to [community contribution](https://github.com/Microsoft/vscode/pull/500).
+>**Tip:** When using `commonjs`, exclude the `node_modules` using the `exclude` property in the `jsconfig.json`. This is due to this issue [6673](https://github.com/Microsoft/TypeScript/issues/6673) (this issue has been fixed in the meantime, but isn't yet in `typescript@next`.
 
-## Editor - Select Current Line Command
+There is now support for JSX:
 
-New select current line command (`kb(expandLineSelection)`) thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/961).
+![JSX Support](images/January/jsx-salsa.png)
 
-## Editor - Scroll Viewport Commands
+>**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` using `tsd install react-global`.
 
-Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/1051), VS Code has improved editor scroll support:
+Salsa also understands JSX constructs inside `.js` files to support React Native development. We haven't updated the grammar for `.js` files yet. You can enable JSX syntax coloring for JS using the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension defines that `.js` files are treated like `.jsx` so that the JSX syntax coloring is used.
 
-* Scroll by one line up (`kb(scrollLineUp)`) / down (`kb(scrollLineDown)`)
-* Scroll by one page up (`kb(scrollPageUp)`) / down (`kb(scrollPageDown)`)
+It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
-## Key Bindings for Numeric Keypad
+The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
+>**Tip:** The `tsc` complier does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsonfig.json`.
 
-Added support for function keys `kbstyle(f13-f19)` and for the numeric keypad keys:
+### Changes from the existing VS Code JavaScript support
 
-* `kbstyle(numpad0-numpad9)`
-* `kbstyle(numpad_multiply)`
-* `kbstyle(numpad_add)`
-* `kbstyle(numpad_separator)`
-* `kbstyle(numpad_subtract)`
-* `kbstyle(numpad_decimal)`
-* `kbstyle(numpad_divide)`
+* When using Salsa, the language level is always ECMAScript 6. In the existing JavaScript language service, the default level was ES6 but there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
+* The existing JavaScript language service implicitly excluded some folders from the project, see the [JavaScript topic](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson). This is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file.
+* Salsa flags syntax errors but the JavaScript linting options `javascript.validate.lint.*` defined in the user settings are no longer supported. To get these linting options back, we recommend that you use a linter combined with a VS Code linter extension like [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
+* Salsa doesn't support the `AMD` module system.
 
-## Improvements for non US standard keyboard layouts
+### Enabling Salsa
 
-VS Code dispatches key bindings based on [keyboard codes](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85). In `keybindings.json` and in all the UI, we used to render the key codes with the produced characters under the US standard keyboard layout. We received feedback that this was very confusing, therefore, we created a new Node.js module [`native-keymap`](https://www.npmjs.com/package/native-keymap) that is used in VS Code to render the key bindings using the system's current keyboard layout.
+To enable Salsa for your workspace:
 
-For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
-![render key binding](images/December/render-key-binding.png)
+* Set the environment variable `VSCODE_TSJS`. On OS X, it is recommended you change this in your `.bash_profile` using `export VSCODE_TSJS=1`. That way the environment variable is persisted.
+* Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build. You have two options:
+  - Install TypeScript locally into your workspace using `npm install typescript@next`. VS Code will then pick up the TypeScript version from there.
+  - Install TypeScript globally to share the installation across workspaces. In this case, you install it using `npm install -g typescript@next`. You then have to tell VS Code the install location using the `typescript.sdk` setting. Set `typescript.tsdk` to the path of the `lib` folder containing the `tsserver.js` file of the installed TypeScript module.
 
-When editing `keybindings.json`, we now highlight misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout.
+The TypeScript nightly is a moving target and there can be issues. During our testing, we have been happily using `typescript@1.9.0-dev.20160128`.
 
-For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+You can verify that you have Salsa enabled and you have an installed TypeScript version that supports Salsa by checking the status indicator in the Status Bar.
 
-![keybindings.json guidance](images/December/keybindings-json.png)
+This shows that all is OK:
 
-Finally, we added a new widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want you can press `kbstyle(Enter)` and a rule snippet will be inserted.
+![Salsa status](images/January/salsa-status.png)
 
-![key binding widget](images/December/key-binding-widget.png)
+When the TypeScript version doesn't support Salsa, you will see the indicator below. If you hover over the status indicator, you will see the path to the TypeScript installation that you have configured.
 
-## ES6 is the new default
+![Salsa status failure](images/January/salsa-status-failure.png)
 
-We have made ES6 the default for JavaScript files. This means you don't need to create `jsconfig.json` files to enable new syntax and by default you get suggestions for ES6-types, like `Promise`, `Set`, `Map`, `String.startsWith` and much more. Thanks to a community [contribution](https://github.com/Microsoft/vscode/pull/337).
+## Editor
 
-At the same time, the grammar used to colorize JavaScript was also updated to support the ES6 syntax.
+### New Default Themes
 
-## TypeScript Update
+The Light and Dark themes have been in the center of attention recently as colors were added and removed again. More colors became visible with the switch to TextMate tokenizers in November. In December, we decided to remove some of the newly added colors again in order to stay compatible with the classic Visual Studio Light and Dark themes.
 
-The TypeScript language service was updated to version [1.7.5](http://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
+From the feedback in GitHub issues [1270](https://github.com/Microsoft/vscode/issues/1270), [1470](https://github.com/Microsoft/vscode/issues/1470), and others, we learned that there are fans of both the classic Visual Studio Light and Dark themes as well as the more colorful versions. So for the January release, we decided to bring the colors back with two new additional built-in themes: 'Light+' and 'Dark+'. If you installed the theme preview as an extension, you can now uninstall these again.
 
-## JSX Support
+In addition to the 4 major colors in the Visual Studio themes (comments, strings, numbers and keywords), the 'plus' themes add colors for:
 
-To improve the JavaScript and JSX support, the plan is to adopt [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). There is good progress on the Salsa project, but until VS Code has switched over to Salsa, we can only offer a **workaround** for using VS Code with JSX.
+* control flow keywords
+* type names
+* function names
+* variable and parameter names
 
-* Install the [vscode-eslint extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) and configure JSX support. This will provide you with validation in JSX files.
+![Light+ theme](images/January/light_plus_theme.png)
 
+![Dark+ theme](images/January/dark_plus_theme.png)
+
+
+### Keyboard Accessibility
+
+You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can operate VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
+
+Some areas where you can now jump to using keyboard only:
+
+* View switcher
+* Header of collapsible sections in a view to expand/collapse
+* Actions in views and sections
+* Actions for items in the tree
+
+This is just the beginning of our journey to become more keyboard accessible, expect more areas to follow in the future!
+
+### Experimental screen reader support in the editor
+
+We have added an experimental mode that can be enabled with the `editor.experimentalScreenReader` key in settings or for the current session with `kbstyle(Ctrl-Shift-R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with the [NVDA screen reader](http://www.nvaccess.org) on Windows and have uncovered some serious performance issues and glitches caused by Chromium. We have also added `kbstyle(Alt-F1)` that presents a tooltip explaining how to toggle this mode on and off. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read-only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl-M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
+
+### Localization
+
+We also started work on localizing VS Code for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VS Code running under a German locale.
+
+![VSCode in German](images/January/german-vscode.png)
+
+Please note that the translation effort for VS Code haven't been completed yet and it will still take a while until we ship VS Code for languages other than English.
+
+### Ligatures for VS Code
+
+VS Code now supports fonts with programming ligatures, like [Hasklig](https://github.com/i-tu/Hasklig) and [Fira Code](https://github.com/tonsky/FiraCode). Those fonts provide compositions for character sequences commonly used in programming, as `=>`, `>=`, `!=` etc. Enable ligatures with new `editor.fontLigatures` setting and pick a font with programming ligatures. Special thanks to [@mattblagden](https://github.com/mattblagden) for initiating this.
+
+![Ligatures for Code](images/January/editor-ligatures.png)
+
+### Find Widget Improvements
+
+The find widget was updated to make all of its functions work regardless of the number of results. It is now possible to Find, Replace, etc. well beyond the first 1000 find matches. For performance reasons, the Find widget still only highlights the first 1000 matches. We have also improved the tab order in the widget.
+
+The refactoring allowed us to introduce the "X of Y" indication, such that now you can tell in a glance how many results there are and where you are in that list.
+
+We also added two new actions, "Find Next Selection" (`kb(editor.action.nextSelectionMatchFindAction)`) and "Find Previous Selection" (`kb(editor.action.previousSelectionMatchFindAction)`), that allow you to jump to the next or previous matches without losing editor focus. Thanks to [@ajkerrigan](https://github.com/ajkerrigan), there are now key bindings for the "Replace" and "Replace all" actions.
+
+![Find widget counters](images/January/find-widget-counts.png)
+
+### Input Handling
+
+We changed input handling in the editor to allow software such as [UniKey](http://www.unikey.org) (used for Vietnamese input) or [AutoHotKey](https://www.autohotkey.com) (used for keyboard automation) to work with VS Code.
+
+### Configurable Cursor Style
+
+We added a new editor option `editor.cursorStyle` that can be set to `"block"`. Special thanks to [@markrendle](https://github.com/markrendle) for his pull request.
+
+### Auto Save
+
+VS Code always supported automatically saving dirty files after one second (`File | Auto Save`). We received a lot of feedback that users want more control over
+when VS Code should save dirty files. The setting is now in the `settings.json` configuration file and provides more options:
+
+* `files.autoSave`: Can be `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when focus moves out of the editor of the dirty file.
+* `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
+* This setting can be configured either globally for the user or per workspace through the workspace settings (`Preferences | Workspace Settings`).
+
+**Note:** If you had auto save enabled previously, we will migrate your setting into the `settings.json` file automatically.
+
+**Note:**: You will not see any dirty indicators in the UI if you configure auto save for 1s or below. In all other cases you will see the dirty indicators throughout the UI.
+
+### File Picker
+
+Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) include:
+
+* Fuzzy matching is now enabled by default and the previously introduced setting `filePicker.alternateFileNameMatching` is no longer needed.
+* You can open any file (including line/column pattern at the end) that exists on disk by typing the full path or full workspace relative path even if your exclude settings hide it otherwise.
+
+### Full IntelliSense Documentation
+
+We improved the interaction and rendering of those IntelliSense suggestions which have a more complete documentation.
+
+A blue icon will appear on the right of the suggestion's documentation.
+
+![intellisense-1](images/January/intellisense-1.png)
+
+Clicking it will display the full documentation for that suggestion. It's also possible trigger IntelliSense a second time to enter this mode
+(`kb(editor.action.triggerSuggest)`).
+
+![intellisense-2](images/January/intellisense-2.png)
+
+## Workbench
+
+### Hide the Menu Bar (Windows, Linux)
+
+We added a new action to hide the menu bar on Windows and Linux (`View | Toggle Menu Bar`). You can still access the menu pressing the `Alt` key.
+
+### Horizontal panel
+
+We have introduced a horizontal panel in the workbench. To gain more horizontal space, the output and debug consoles are now shown in the horizontal panel.
+
+![output](images/January/output.png)
+
+## Debugging
+
+### Rich Object Hover
+
+We are now using a tree widget in the debug hover to allow better rich object inspection.
+
+![debug hover](images/January/debug-hover.png)
+
+### Conditional Breakpoints
+
+We now support adding conditions to breakpoints such that they will be only hit if the specified condition is true. In order for the condition to be taken into account the underlying debug adapter has to support conditional breakpoints (node does).
+
+![conditional breakpoints](images/January/conditional-breakpoints.png)
+
+### Changed Variable Indication
+
+We now indicate in the debug and watch view what variables have changed values between step events.
+
+![variables change](images/January/variables-change.png)
+
+## Node.js Debugging
+
+### Source Maps with Inlined Source
+
+Node.js debugging now supports source maps with "inlined source" (in addition to "inlined source maps" which were already supported).
+To avoid confusion, here is a brief explanation of these two source map options. "Inlined source" and "inlined source maps" are orthogonal features (and VS Code supports both either alone or in combination):
+
+* *inlined source maps:* The contents of the source map does not live in a file but is a data URL at the end of the generated file.
+* *inlined source:* The contents of the original source file does not live in a file but is included in the source map.
+
+The strategy for which situations VS Code will use "inlined source" is as follows:
+
+* VS Code always tries to locate the source on disk first.
+* If it cannot find the source (e.g. because there is none in the VS Code workspace or because the paths in the source maps are broken), VS Code will use the "inlined source" if available.
+* If there is no inlined source, VS Code will fall back to get the file contents from Node.js itself.
+
+Whenever the editor contents is not loaded from the file system but comes from the debugger backend, the editor will be in read-only mode and the "origin" of the editor contents is shown in the editor title like this:
+
+![Editor showing inlined source](images/January/debug-inlined-source.png)
+
+### Remote Debugging
+
+The followings improvements enable VS Code to support remote debugging (which includes debugging into a Docker container):
+
+* The `attach` launch configuration now supports an `address` attribute where a remote host can be specified. Please note that remote debugging is only supported on recent versions of Node.js (>= 4.x).
+* The `attach` launch configuration now supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems.
+VS Code uses these paths in the following way: whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion the `localRoot` path is replaced by the `remoteRoot`.
+
+### launch.json relative paths not automatically converted to absolute ones
+
+In order to achieve consistency across our configuration files, we plan for the **February release** to no longer automatically convert certain paths from relative to absolute in `launch.json`. We recommend that for the `program`, `cwd`, `outDir`, and `runtimeExecutable` attributes, you prefix your relative paths with the `${workspaceRoot}` variable as soon as possible. To make it easier for you to find the affected paths that need this treatment, we highlight them with a green squigglies for the January release. (Please note: since we continue to automatically convert paths for the January release, your launch configurations will continue to work).
+
+### "--nolazy" option not automatically added
+
+In order to ensure that breakpoints are hit reliably, VS Code automatically adds the `--nolazy` option when launching Node.js. With the advent of Node.js alternatives that do not support this option (e.g. Chakra), we've removed this automatic behavior. So if you see that breakpoints are not hit reliably in Node.js, please verify that your launch config sets the `--nolazy` via the `runtimeArgs` attribute.
+
+## Mono debugging
+
+### Support for VS Code Debug Console
+
+For VS Code Mono debugging support, we've added an `externalConsole` attribute, which controls whether the Mono target application is launched in an external console or in the built-in Debug Console (this is the default). Please note that the built-in Debug Console does not support keyboard input for your application.
+
+## Extension Authoring
+
+### API Consumption
+
+When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file in our repository [here](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language service to provide you with nice validation and IntelliSense while you develop your extension.
+
+As we make changes to the VS Code API between versions, `vscode.d.ts` changes and is updated and tagged from release to release. Previously, we stored the `vscode.d.ts` file within the `vscode` npm module that all extensions automatically depend on. So in order to update to our latest API, you would just install a newer version of the `vscode` npm module in your extension by typing `npm update vscode`.
+
+We found that this approach has many issues:
+
+* The `vscode` npm module needs to be updated and versioned independent from VS Code versions because it contains API unrelated code (e.g. for test running)
+* The `engine` field of the `package.json` in your extension should be the only place that drives the decision which API to develop against.
+
+To solve these issues, we made the following changes:
+
+* The `vscode.d.ts` is no longer shipping within the `vscode` npm module.
+* The value of the `engine` field in your extension is used to determine which version of `vscode.d.ts` to use.
+* It is still very easy to update to a newer API via basic `npm` commands.
+
+Since this is a breaking change for existing extensions, we increased the `vscode` npm module version to `0.11.0`. We encourage all extension writers to
+update their dependency to `vscode` in their `package.json` to this new version (`^0.11.x`) to benefit from future updates to tooling for extensions.
+
+The process of installing a specific version of the API into your extension is still very simple:
+
+* Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
+* Make sure your dependency to the `vscode` module is at least `0.11.0`.
+* Type `npm install` from the root of your extension.
+* The `vscode` module will download the appropiate version of `vscode.d.ts` based on the `engine` field you declared.
+* Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
+
+### Extension API additions
+
+We added a few API additions that enable you to write even more awesome extensions.
+
+Quick Pick and Input
+
+You can now validate user input, get called when an item is focused in Quick Pick, and Quick Pick now has room for additional details. Also Quick Pick now supports [GitHub Octicons](https://octicons.github.com) like the Status Bar.
+
+Virtual Documents
+
+We have introduced the concept of virtual documents. These are textual documents that don't have a representation on disk, but are generated at runtime.  For example, HTML generated from Markdown or source code from debug symbols.
+
+![virtual document](images/January/api-virtual-documents.png)
+
+Combine virtual documents with the new `vscode.previewHtml` command and you can come up with some creative solutions.
+
+New Extension APIs
+
+* There is now support for glob-patterns when associating files with a language.
+* You can determine the current editor `ViewColumn`.
+* There is a new `MarkedString` to display Markdown content in various UI elements.
+
+### Debug Protocol Changes
+
+We have changed the debug protocol in the following (backward compatible) ways:
+
+* *Feature negotiation*: the response of the `InitializeRequest` now returns information about the capabilities of the debug adapter. The VS Code debugger uses this information to enable or configure features which only exist for certain debug adapters.
+* *New request `ConfigurationDoneRequest`*: VS Code sends this request to indicate that the configuration (e.g. registering stored breakpoints and exception options) of the debug session has finished and that debugging is about to start. For backward compatibility, VS Code will send this request only if the debug adapter returns a value of `true` for the `supportsConfigurationDoneRequest` capability.
+* Additional attributes for `Source` type:
+  * an optional `origin` attribute to provide additional information about the source in the debug UI.
+  * an optional `adapterData` attribute that the VS Code debug UI will transparently persist for breakpoints.
+* *New type `SourceBreakpoint`*: an array of `SourceBreakpoint` is an alternate means to specify the individual breakpoints for the `SetBreakpointsRequest`. The `SourceBreakpoint` allows for specifying column and condition information for a breakpoint (in addition to the line).
+
+### Test Suite for Debug Adapters
+
+With the January release, we've started to simplify the process of writing automated tests for a debug adapter. The basic idea is to provide a toolkit with Promise-based building blocks for individual protocol requests (e.g. `stepInRequest`) and for common request sequences (e.g. `hitBreakpoint`). These building blocks can be easily configured for a specific adapter and combined to form complex scenarios.
+
+Here are three example Mocha tests:
+
+```js
+var dc: DebugClient = ...;
+
+test('should run program to the end', () => {
+	return Promise.all([
+		dc.configurationSequence(),
+		dc.launch({ program: "main.js" }),
+		dc.waitForEvent('terminated')
+	]);
+});
+
+test('should stop on entry', () => {
+	return Promise.all([
+		dc.configurationSequence(),
+		dc.launch({ program: "main.js", stopOnEntry: true }),
+		dc.assertStoppedLocation('entry', 1)
+	]);
+});
+
+test('should set a breakpoint and stop on it', () => {
+	return dc.hitBreakpoint({ program: "main.js" }, "test.js", 15);
+});
 ```
-{
-    "ecmaFeatures": {
-        "jsx": true,
-        ...
-    }
-    ...
-}
-```
 
-* If you are using React constructs inside `.js` files then you can install the `js-is-jsx` [extension](https://marketplace.visualstudio.com/items/eg2.js-is-jsx) which changes the file mapping so that `.js` files are treated as `.jsx` files. **Be aware** that if you install this extension, you lose the existing language support for `.js` files.
+More examples can be found in these debug adapter projects on GitHub:
 
-The grammars used to colorize JS and JSX are now aligned.
+* [Microsoft/vscode-node-debug](https://github.com/Microsoft/vscode-node-debug)
+* [Microsoft/vscode-mock-debug](https://github.com/Microsoft/vscode-mock-debug)
+* [Microsoft/vscode-mono-debug](https://github.com/Microsoft/vscode-mono-debug)
 
-## Extension Debugging
+You can see the Promise-based API in [DebugClient.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/DebugClient.ts) and an initial set of tests in [adapter.test.ts](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts). We plan to make this API available as an npm module in February.
 
-We improved extension debugging when connecting the debugger to the extension. The debugger will no longer try to reconnect to the extension when you close the 'Extension Host`. In addition, the debugger will connect faster to your extension.
+### JSON mode is now an extension
 
-## Extensions Show Outdated Extensions
-
-Thanks to a [community contribution](https://github.com/Microsoft/vscode/pull/517), there is now a `Show Outdated Extensions` command, that shows all outdated extensions and lets you quickly install their updates.
-
-## Installed Extension Issues
-
-If VS Code identifies an issue with an installed extension, it will display an `issues` prompt on the Status Bar.  Click on the `issues` prompt to see the extension issue details and have the option to uninstall the extension.
-
-![extension issues](images/December/extension-issues.png)
-
-## Extension Gallery
-
-There is now [proxy support for the extension gallery](https://github.com/Microsoft/vscode/issues/69).
-
-## Extension Deactivation
-
-If an extension exports a function named `deactivate()`, VS Code now calls it on shutdown.
-
-## File Picker improvements and fuzzy search
-
-The file picker ("Quick Open") is now able to search on file paths when you include slash (Mac/Linux) or backslash (Windows) in the search term. This allows you to list all the files of a directory easily.
-
-![Path Search in File Picker](images/December/path-search.png)
-
-A new setting `filePicker.alternateFileNameMatching` enables fuzzy searching for the file picker. Once enabled, the search term will match on the full path of the file by default, without having to include path separators in the query. In addition, a search term will match in a more fuzzy way on the path compared to the default. For example, a search for `fb` will match a file `foobar` because the filename contains `f` and `b`. We also added a new sorter for the picker when fuzzy searching is enabled which tries to put the most relevant results to the top. Please try out this feature and give us feedback so that we can tune the experience.
-
-![Fuzzy Search in File Picker](images/December/fuzzy-search.png)
-
-## Persisted Zoom Level
-
-A new setting `window.zoomLevel` allows you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the `View` menu `Zoom in` command.  Unlike the zoom level set with the `Zoom in` and `Zoom out` commands, the `window.zoomLevel` is a setting persisted across VS Code sessions.
-
-## window.openFileInNewWindow
-
-The setting `window.openInNewWindow` was renamed to `window.openFilesInNewWindow` to clarify its purpose. You can still use the old setting but we ask you to update to the new name.
-
-## Themes
-
-Various fixes to the default light and dark theme. Due to the move to TextMate tokenizers in the last release, there were changes in the appearance of the default light and dark theme. Some themes got far more colorful, in particular JavaScript, while other languages lost colors, e.g. Jade and XML. The goal was to stay as close as possible to what we had in the 0.9.0 release so we use a few major colors: blue for keywords, green for comments and red for strings.
-
-## Emmet
-
-Emmet is now supported in JSX and TSX files.
-
-## Scoped Git Services
-
-It is now possible to open a sub-directory of a Git repository in VS Code. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded and have a tool tip indicating the file is located outside the current workspace.
-
-## Git Status Bar Actions
-
-There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
-
-![git status bar sync](images/December/git-status-bar-sync.png)
-
-If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to remote.
-
-![git status bar publish](images/December/git-status-bar-publish.png)
-
-## Debug Console Wraps Text
-
-We now wrap long text in the debug console.
-
-![debug console word wrap](images/December/debug-repl-wrap.png)
-
-## Debug Breakpoints Polish
-
-We now show breakpoints in a more intuitive way:
-
-* A red filled circle represents an active breakpoint.
-* A gray filled circle represents a disabled breakpoint.
-* A gray hollow circle represents a breakpoint which could not be successfully registered with the debugger. For languages that are transpiled to JavaScript, this could mean that source maps are missing or invalid.
-
-## JSON Schema Contributions
-
-Extensions can now contribute JSON schema associations. The `jsonValidation` contribution point takes a file pattern and the URL of the JSON schema.
-
-```json
-    "contributes": {
-        "jsonValidation": [{
-            "fileMatch": ".jshintrc",
-            "url": "http://json.schemastore.org/jshintrc"
-        }]
-    }
-```
-
-Alternatively, extensions can also give the path to a schema file in the extension folder:
-
-```json
-    "contributes": {
-        "jsonValidation": [{
-            "fileMatch": ".htmlhintrc",
-            "url": "./schemas/htmlhintrc.schema.json"
-        }]
-    }
-```
-
-## Language Server Extensions
-
-The language server protocol now supports all available language features. Please see the [Language Server example](/docs/extensions/example-language-server.md) for details on how to implement a language server.
-
-## Debug Adapter Development
-
-For Node.js based debug adapter development, we've made the VS Code Debug Protocol and an adapter default implementation available as npm modules:
-
-* [vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol)
-* [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter)
-
-The source for these modules lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node). Both [mock-debug](https://github.com/Microsoft/vscode-mock-debug) and [node-debug](https://github.com/Microsoft/vscode-node-debug) have been updated to use the npm modules.
-
-## Engineering
-
-The VS Code GitHub repository supports continued integration for branches and pull requests:
-
-* [Travis CI](https://travis-ci.org/Microsoft/vscode/) - Linux and OS X
-* [AppVeyor](https://ci.appveyor.com/project/VSCode/vscode) - Windows
-
-During this first iteration of VS Code being open source, we tuned and documented more of our development workflows:
-
-* [How we do issue tracking](https://github.com/Microsoft/vscode/wiki/Issue-Tracking)
-* [How we use the different feedback channels](https://github.com/Microsoft/vscode/wiki/Feedback-Channels)
-
-We updated Electron to version 0.34.5.  This includes a bug fix for the issue on Linux where the editor font was showing blurry on certain high DPI displays.
+From a user's perspective, nothing has really changed when editing JSON, but under the hood, the JSON language support has been refactored. JSON language support drives the smartness when editing JSON files, from validation based on schemes to code completion and formatting. JSON is now a regular extension, using the same [VS Code extension APIs](https://code.visualstudio.com/docs/extensionAPI/overview) as everyone else. The implementation is based on the language server infrastructure, which makes it easy to run in a separate process. Read [here](https://code.visualstudio.com/docs/extensions/example-language-server) for more on the language server.
 
 ## Notable Bug Fixes
 
-* Submitted [pull request](https://github.com/atom/node-oniguruma/pull/46) to `atom/node-oniguruma` in order to [improve performance](https://github.com/Microsoft/vscode/issues/94) when colorizing long lines with multi-byte characters.
+* [69](https://github.com/Microsoft/vscode/issues/69): Proxy support for extension gallery
+* [1032](https://github.com/Microsoft/vscode/issues/1032): Please don't lock the tsconfig.json file
+* [1485](https://github.com/Microsoft/vscode/issues/1485): Windows 7: Deleting always fails with error message
+* [1687](https://github.com/Microsoft/vscode/issues/1687): VSC 10.6 does not allow to attach debugger to running Electron app
+* [1923](https://github.com/Microsoft/vscode/issues/1923): IntelliSense filtering has become slow again in huge lists
+* [1962](https://github.com/Microsoft/vscode/issues/1962): Debugger fails when offline
 
-## What's next
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22Jan+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Jan+2016%22+is%3Aclosed+label%3Afeature-request) for the January update.
 
-The VS Code development team will now take time off to be with friends and family. We will be back fully recharged in January.

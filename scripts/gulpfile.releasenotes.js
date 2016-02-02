@@ -14,7 +14,7 @@ var File = require('vinyl');
 var common = require('./gulpfile.common');
 
 var RN_SRC_ROOT = 'release-notes'; 
-var DEST_ROOT = 'out/vscode-website/website'; 
+var DEST_ROOT = 'out/vscode-website/src'; 
 
 var releaseNotes = [];
 
@@ -28,7 +28,7 @@ gulp.task('copy-releasenotes-images', function () {
 
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
-		.pipe(gulp.dest(DEST_ROOT + '/Content'));
+		.pipe(gulp.dest(DEST_ROOT + '/dist'));
 ;})
 
 gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releasenotes-images'], function () {
@@ -40,12 +40,12 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releas
 	});
 
 	var file = new File({
-		path: '_UpdatesNav.cshtml',
+		path: 'updateNav.handlebars',
 		contents: new Buffer(tpl({ articles: releaseNotes }))
 	});
 
 	return es.readArray([file])
-		.pipe(gulp.dest(DEST_ROOT + '/Views/Shared'));
+		.pipe(gulp.dest(DEST_ROOT + '/views/partials'));
 });
 
 gulp.task('compile-releasenotes-markdown', function () {
@@ -73,11 +73,10 @@ gulp.task('compile-releasenotes-markdown', function () {
 			var tpl = common.swigCompiler('scripts/templates/releasenotes-template.html');
 			var result = tpl(rn);
 
-			result = common.prependUTF8(result);
 			file.contents = new Buffer(result, 'utf8');
 
 			return file;
 		}))
-		.pipe(rename({ extname: '.cshtml' }))
-		.pipe(gulp.dest(DEST_ROOT + '/Views/Updates'));
+		.pipe(rename({ extname: '.handlebars' }))
+		.pipe(gulp.dest(DEST_ROOT + '/views/updates'));
 });

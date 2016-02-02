@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 7
 Area: extensionapi
 TOCTitle: API debugging
 PageTitle: Visual Studio Code Debugging API

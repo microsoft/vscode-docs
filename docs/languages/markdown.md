@@ -173,7 +173,7 @@ Again, as this is the only task in the file you can execute it by simply pressin
 
 ![Task watching spinner](images/Markdown/taskwatching.png)
 
-At this point, if you create and/or modify other Markdown files, you will see the respective HTML files generated and/or changes reflected on save.  You can also enable `Auto Save` to make things even more streamlined.
+At this point, if you create and/or modify other Markdown files, you will see the respective HTML files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
 If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` again and click `Terminate Running Task` in the message box. Or you can use the Command Palette with `kb(workbench.action.showCommands)` and find the terminate command there.
 

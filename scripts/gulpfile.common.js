@@ -23,7 +23,7 @@ exports.filterText = function(orig) {
 }
 
 exports.swigCompiler = function(templatePath) {
-	return swig.compileFile(templatePath, { autoescape: false });
+	return swig.compileFile(templatePath, { autoescape: false, varControls: ['{$', '$}'] });
 }
 
 exports.tableRendererRule = function(tokens, idx, options, env, self) {
@@ -36,7 +36,7 @@ exports.tableRendererRule = function(tokens, idx, options, env, self) {
 exports.imageRendererRule = function(tokens, idx, options, env, self) {
 	var imageToken = tokens[idx];
 	var src = imageToken.attrs[imageToken.attrIndex('src')][1];
-	imageToken.attrs[imageToken.attrIndex('src')][1] = "~/Content/images/" + src.replace('images/', '').replace('/', '_');
+	imageToken.attrs[imageToken.attrIndex('src')][1] = "/images/" + src.replace('images/', '').replace('/', '_');
 
 	// DO NOT REMOVE - from original rule
 	imageToken.attrs[imageToken.attrIndex('alt')][1] = self.renderInlineAsText(imageToken.children, options, env);
@@ -115,15 +115,6 @@ exports.compileMarkdown = function(file, article) {
 	// Keybindings post-process
 	article.Content = keybindings.postProcessFile(article.Content);
 	return article;
-}
-
-exports.prependUTF8= function(contents) {
-	// Prepend UTF-8 BOM
-	var __utf8_bom = 65279;
-	if (contents.length > 0 && contents.charCodeAt(0) !== __utf8_bom) {
-		contents = String.fromCharCode(__utf8_bom) + contents;
-	}
-	return contents;
 }
 
 exports.rimraf = function(dir) {

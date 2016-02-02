@@ -1,23 +1,23 @@
 ---
 Order: 2
 Area: runtimes
-TOCTitle: ASP.NET 5
-PageTitle: ASP.NET 5 and Visual Studio Code End to End
+TOCTitle: ASP.NET Core
+PageTitle: ASP.NET Core and Visual Studio Code End to End
 DateApproved: 12/18/2015
 MetaDescription: Visual Studio Code has great support for writing and debugging ASP.NET applications running on Cross Platform CLR.
 MetaTags:
 - DNX
-- ASP.NET 5
+- ASP.NET Core
 ---
 
-# ASP.NET 5 Applications with VS Code
+# ASP.NET Core with VS Code
 
->**Note:** ASP.NET 5 and DNX (the .NET Execution Environment) on OS X and Linux are in an early Beta/Preview state. This guide will help you get started but we recommend following the [aspnet Home project](https://github.com/aspnet/Home) on GitHub for the latest information.
+>**Note:** ASP.NET Core and DNX (the .NET Execution Environment) on OS X and Linux are in an early Beta/Preview state. This guide will help you get started but we recommend following the [ASP.NET Home project](https://github.com/aspnet/Home) on GitHub for the latest information.
 
-## ASP.NET 5 and DNX
-[ASP.NET 5/DNX](http://www.asp.net/vnext/overview/aspnet-vnext/aspnet-5-overview) is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
+## ASP.NET Core and DNX
+[ASP.NET Core/DNX](http://www.asp.net/vnext/overview/aspnet-vnext/aspnet-5-overview) is a lean .NET stack for building modern cloud and web apps that run on OS X, Linux, and Windows. It has been built from the ground up to provide an optimized development framework for apps that are either deployed to the cloud or run on-premises. It consists of modular components with minimal overhead, so you retain flexibility while constructing your solutions.
 
-## Installing ASP.NET 5 and DNX
+## Installing ASP.NET Core and DNX
 Installation for each platform is slightly different, please refer to the following setup instructions based on your operating system.
 - [OS X](https://github.com/aspnet/home#os-x)
 - [Linux](https://github.com/aspnet/home#linux)
@@ -41,7 +41,7 @@ npm install -g yo generator-aspnet gulp bower
 ## Scaffolding your first Application
 From the terminal, run `yo aspnet` to start the generator. Follow the prompts and pick the `Web Application`
 
-![Scaffold a new ASP.NET 5 Application](images/ASPnet5/yoaspnet.png)
+![Scaffold a new ASP.NET Core Application](images/ASPnet5/yoaspnet.png)
 
 Follow the instructions provided by the generator, go to the `WebApplication` folder and run `dnu restore` to install of the necessary NuGet packages to run the application.
 
@@ -52,7 +52,7 @@ dnu restore
 
 >**Tip:** You can also run the command `dnx: Restore Packages` within VS Code from the Command Palette (`kb(workbench.action.showCommands)`).
 
-The [ASP.NET 5 docs](http://docs.asp.net/en/latest/) do a great job describing how to build next generation Cloud and Web applications so we won't do that here. Instead, we will focus on what Visual Studio Code can do.
+The [ASP.NET Core docs](http://docs.asp.net/en/latest/) do a great job describing how to build next generation Cloud and Web applications so we won't do that here. Instead, we will focus on what Visual Studio Code can do.
 
 
 ## Projects and Project Selection
@@ -61,7 +61,7 @@ VS Code is file and folder based as compared to Visual Studio, which is project 
 
 Open the `WebApplication` folder. If you set up a shortcut as described in [setup](/docs/editor/setup.md), you can simply run `code .` from the terminal.
 
-The ASP.NET 5/DNX project system is also file and folder based, so when VS Code sees the `project.json` it will load it. If there are multiple `project.json` files, you can pick which one you want to use by clicking "Select project" in the status bar:
+The ASP.NET Core/DNX project system is also file and folder based, so when VS Code sees the `project.json` it will load it. If there are multiple `project.json` files, you can pick which one you want to use by clicking "Select project" in the status bar:
 
 ![DNX commands in palette](images/ASPnet5/dnxprojects.png)
 
@@ -96,9 +96,9 @@ Open your favorite browser and browse to `http://localhost:5000` to browse the s
 Note: command execution from the Command Palette doesn’t work yet on Linux. To run commands manually on Linux, start a console and type: ```dnx <command_name>```.
 
 ## Debugging
-Visual Studio Code and ASP.NET 5 are in preview and at this time debugging ASP.NET 5 is not supported in Visual Studio Code (on any platform). Rest assured, we are working hard to bring these experiences to you in the near future.
+Visual Studio Code and ASP.NET Core are in preview and at this time debugging ASP.NET Core is not supported in Visual Studio Code (on any platform). Rest assured, we are working hard to bring these experiences to you in the near future.
 
 ## Next Steps
-We hope this gets you started building ASP.NET 5 applications.  Try these things next:
+We hope this gets you started building ASP.NET Core applications.  Try these things next:
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
