@@ -96,6 +96,7 @@ In addition to the 4 major colors in the Visual Studio themes (comments, strings
 
 ![Dark+ theme](images/January/dark_plus_theme.png)
 
+New installations will get the new Dark+ theme as the default. Existing installations using the previous Light or Dark themes can switch to the new Dark+ or Light+ theme using `Color Theme` command.
 
 ### Keyboard Accessibility
 
