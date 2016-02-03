@@ -93,7 +93,7 @@ You can give even more hints to Visual Studio Code through a configuration file 
 ```json
 {
 	"compilerOptions": {
-		"target": "ES5",
+		"target": "es5",
 		"module": "commonjs"
 	}
 }
