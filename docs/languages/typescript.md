@@ -31,7 +31,7 @@ A simple `tsconfig.json` looks like this for ES5, AMD modules and source maps:
 ```json
 {
     "compilerOptions": {
-        "target": "ES5",
+        "target": "es5",
         "module": "amd",
         "sourceMap": true
     }
