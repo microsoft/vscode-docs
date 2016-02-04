@@ -19,9 +19,9 @@ The JavaScript language service in VS Code has always been powered by TypeScript
 
 Salsa provides important improvements over the existing JavaScript language service.
 
-The JsDoc comment format is now understood and used to improve IntelliSense proposals and parameter hints:
+The JSDoc comment format is now understood and used to improve IntelliSense proposals and parameter hints:
 
-![JsDoc comment format](images/January/jsdoc.png)
+![JSDoc comment format](images/January/jsdoc.png)
 
 You now get IntelliSense proposals for properties in 'ECMAScript 3 style classes':
 
@@ -45,7 +45,7 @@ Salsa also understands JSX constructs inside JavaScript (`.js`) files to support
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
->**Tip:** The `tsc` complier does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsonfig.json`.
+>**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsonfig.json`.
 
 Finally, the TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
@@ -55,7 +55,7 @@ Salsa will undoubtedly provide a much better experience writing JavaScript appli
 
 * When using Salsa, the language level is always ECMAScript 6. In the existing JavaScript language service, the default level was ES6 but there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
 * The existing JavaScript language service implicitly excluded some folders from the project, see the [JavaScript topic](https://code.visualstudio.com/docs/languages/javascript#_javascript-projects-jsconfigjson). This is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file.
-* Salsa flags syntax errors but the JavaScript linting options `javascript.validate.lint.*` defined in the user settings are no longer supported. To get these linting options back, we recommend that you use a linter combined with a VS Code linter extension like [eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
+* Salsa flags syntax errors but the JavaScript linting options `javascript.validate.lint.*` defined in the user settings are no longer supported. To get these linting options back, we recommend that you use a linter combined with a VS Code linter extension like [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
 * Salsa doesn't support the `AMD` module system.
 
 ### Enabling Salsa
@@ -119,7 +119,7 @@ We have added an experimental mode that can be enabled with the `editor.experime
 
 We also started work on localizing VS Code for different locales. We put tooling in place to externalize strings and to create language bundles. The screen shot below shows VS Code running under a German locale.
 
-![VSCode in German](images/January/german-vscode.png)
+![VS Code in German](images/January/german-vscode.png)
 
 Please note that the translation effort for VS Code has not been completed yet and it will still take a while until we ship VS Code for languages other than English.
 
@@ -168,12 +168,12 @@ Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) in
 
 We improved the interaction and rendering of IntelliSense suggestions which have more complete documentation. A blue icon will appear on the right of the suggestion's documentation:
 
-![intellisense-1](images/January/intellisense-1.png)
+![IntelliSense 1](images/January/intellisense-1.png)
 
 Clicking it will display the full documentation for that suggestion. It's also possible trigger IntelliSense a second time to enter this mode
 (`kb(editor.action.triggerSuggest)`):
 
-![intellisense-2](images/January/intellisense-2.png)
+![IntelliSense 2](images/January/intellisense-2.png)
 
 ## Workbench
 
@@ -350,7 +350,7 @@ You can see the Promise-based API in [DebugClient.ts](https://github.com/Microso
 
 ### JSON mode is now an extension
 
-From a user's perspective, nothing has really changed when editing JSON, but under the hood, the JSON language support has been refactored. JSON language support drives the smartness when editing JSON files, from validation based on schemes to code completion and formatting. JSON is now a regular extension, using the same [VS Code extension APIs](https://code.visualstudio.com/docs/extensionAPI/overview) as everyone else. The implementation is based on the language server infrastructure, which makes it easy to run in a separate process. Read [here](https://code.visualstudio.com/docs/extensions/example-language-server) for more on the language server.
+From a user's perspective, nothing has really changed when editing JSON, but under the hood, the JSON language support has been refactored. JSON language support drives the smartness when editing JSON files, from validation based on schemes to code completion and formatting. JSON is now a regular extension, using the same [VS Code extension APIs](/docs/extensionAPI/overview.md) as everyone else. The implementation is based on the language server infrastructure, which makes it easy to run in a separate process. Read [here](https://code.visualstudio.com/docs/extensions/example-language-server) for more on the language server.
 
 ## Notable Bug Fixes
 
