@@ -100,7 +100,7 @@ New installations will get the new Dark+ theme as the default. Existing installa
 
 ### Keyboard Accessibility
 
-You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
+You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `kbstyle(Tab)` key to jump between UI controls that you can interact with. Using `kbstyle(Tab)` or `kbstyle(Shift+Tab)` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
 
 Some areas where you can now jump to using keyboard only:
 
@@ -113,7 +113,7 @@ This is just the beginning of our journey to become more keyboard accessible, ex
 
 ### Experimental screen reader support in the editor
 
-We have added an experimental mode that can be enabled with the `editor.experimentalScreenReader` key in settings or for the current session with `kbstyle(Ctrl-Shift-R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with the [NVDA screen reader](http://www.nvaccess.org) on Windows and have uncovered some serious performance issues and glitches caused by Chromium which we continue to work on. We have also added `kbstyle(Alt-F1)` that presents a tooltip explaining how to toggle this mode on and off. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read-only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl-M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
+We have added an experimental mode that can be enabled with the `editor.experimentalScreenReader` key in settings or for the current session with `kbstyle(Ctrl+Shift+R)`. This causes the editor to place all the current text in the opened file inside the `<textarea>` we use for user input. We have done our initial testing with the [NVDA screen reader](http://www.nvaccess.org) on Windows and have uncovered some serious performance issues and glitches caused by Chromium which we continue to work on. We have also added `kbstyle(Alt+F1)` that presents a tooltip explaining how to toggle this mode on and off. We have also improved keyboard navigation around `kbstyle(Tab)`, specifically all read-only editors no longer trap the `kbstyle(Tab)` key. Also, `kbstyle(Ctrl+M)` continues to act as a toggle for trapping `kbstyle(Tab)`.
 
 ### Localization
 
