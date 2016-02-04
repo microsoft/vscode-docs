@@ -45,7 +45,7 @@ Salsa also understands JSX constructs inside JavaScript (`.js`) files to support
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
->**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsonfig.json`.
+>**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
 
 Finally, the TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
@@ -65,7 +65,7 @@ To enable Salsa for your workspace:
 * Set the environment variable `VSCODE_TSJS`. On OS X, it is recommended that you change this in your `.bash_profile` using `export VSCODE_TSJS=1`. That way the environment variable is persisted.
 * Salsa requires TypeScript 1.8 but the final 1.8 release isn't available yet. Therefore, you need to install the nightly TypeScript build. You have two options:
   - Install TypeScript locally into your *workspace* using `npm install typescript@next`. VS Code will pick up the TypeScript version from there.
-  - Install TypeScript globally to share the installation *across workspaces*. In this case, you install it using `npm install -g typescript@next`. You then have to tell VS Code the install location using the `typescript.sdk` setting. Set `typescript.tsdk` to the path of the `lib` folder containing the `tsserver.js` file of the installed TypeScript module.
+  - Install TypeScript globally to share the installation *across workspaces*. In this case, you install it using `npm install -g typescript@next`. You then have to tell VS Code the install location using the `typescript.tsdk` setting. Set `typescript.tsdk` to the path of the `lib` folder containing the `tsserver.js` file of the installed TypeScript module.
 
 Please note, the TypeScript nightly is continually being updated. During our testing, we have been very successful using `typescript@1.9.0-dev.20160128`.
 
@@ -81,9 +81,9 @@ When the TypeScript version doesn't support Salsa, you will see the indicator be
 
 ### New Default Themes
 
-The Light and Dark themes have been in the center of attention recently as colors were added and removed again. More colors became visible with the switch to TextMate tokenizers in November. In December, we decided to remove some of the newly added colors again in order to stay compatible with the classic Visual Studio Light and Dark themes.
+The Light and Dark themes have been in the center of attention recently as colors were added and removed again. More colors became visible with the switch to TextMate tokenizers in November. In December, we decided to remove some of the newly added colors again to stay compatible with the classic Visual Studio Light and Dark themes.
 
-From the feedback in GitHub issues [1270](https://github.com/Microsoft/vscode/issues/1270), [1470](https://github.com/Microsoft/vscode/issues/1470), and others, we learned that there are fans of both the classic Visual Studio Light and Dark themes as well as the more colorful versions. So for the January release, we decided to bring the colors back with two new additional built-in themes: 'Light+' and 'Dark+'. If you installed the theme preview as an extension, you can now uninstall it.
+From the feedback in GitHub issues [1270](https://github.com/Microsoft/vscode/issues/1270), [1470](https://github.com/Microsoft/vscode/issues/1470), and others, we learned that there are fans of both the classic Visual Studio Light and Dark themes as well as the more colorful versions. So for the January release, we decided to bring the colors back with two new built-in themes: 'Light+' and 'Dark+'. If you installed the theme preview as an extension, you can now uninstall it.
 
 In addition to the 4 major colors in the Visual Studio themes (comments, strings, numbers and keywords), the 'plus' themes add colors for:
 
@@ -100,7 +100,7 @@ New installations will get the new Dark+ theme as the default. Existing installa
 
 ### Keyboard Accessibility
 
-You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can operate VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
+You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse. However, some parts of the UI could not be operated without using the mouse. We made a pass over these locations and added support to use the `Tab` key to jump between UI controls that you can interact with. Using `Tab` or `Shift-Tab` to jump between elements with actions in the UI is a very common pattern for keyboard accessibility. In addition to that, we now also draw an indicator around the UI element once the element gains focus.
 
 Some areas where you can now jump to using keyboard only:
 
@@ -133,7 +133,7 @@ VS Code now supports fonts with programming ligatures, like [Hasklig](https://gi
 
 The Find widget was updated to make all of its functions work regardless of the number of results. It is now possible to Find, Replace, etc. well beyond the first 1000 find matches. For performance reasons, the Find widget still only highlights the first 1000 matches. We have also improved the tab order in the widget.
 
-The refactoring allowed us to introduce the "X of Y" indication, such that now you can tell in a glance how many results there are and where you are in that list.
+The refactoring allowed us to introduce the "X of Y" display, such that now you can tell in a glance how many results and where you are in that list.
 
 We also added two new actions, "Find Next Selection" (`kb(editor.action.nextSelectionMatchFindAction)`) and "Find Previous Selection" (`kb(editor.action.previousSelectionMatchFindAction)`), that allow you to jump to the next or previous matches without losing editor focus. Thanks to [@ajkerrigan](https://github.com/ajkerrigan), there are now key bindings for the "Replace" and "Replace all" actions.
 
@@ -239,7 +239,7 @@ In order to achieve consistency across our configuration files, we plan for the 
 
 ### "--nolazy" option not automatically added
 
-In order to ensure that breakpoints are hit reliably, VS Code automatically added the `--nolazy` option when launching Node.js. With the advent of Node.js alternatives that do not support this option (e.g. Chakra), we've removed this automatic behavior. If you see that breakpoints are not hit reliably in Node.js applications, please verify that your launch configuration sets the `--nolazy` option explicitly via the `runtimeArgs` attribute.
+In order to make sure that breakpoints are hit reliably, VS Code automatically added the `--nolazy` option when launching Node.js. With the advent of Node.js alternatives that do not support this option (e.g. Chakra), we've removed this automatic behavior. If you see that breakpoints are not hit reliably in Node.js applications, please verify that your launch configuration sets the `--nolazy` option explicitly via the `runtimeArgs` attribute.
 
 ## Mono debugging
 
@@ -253,7 +253,7 @@ For VS Code Mono debugging support, we've added an `externalConsole` attribute, 
 
 When you write an extension for VS Code, you are developing it against a set of APIs that we define through a file called `vscode.d.ts`. You can see this file in our repository [here](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts). This file is picked up from our TypeScript and JavaScript language service to provide you with rich validation and IntelliSense while you develop your extension.
 
-As we make changes to the VS Code API between versions, `vscode.d.ts` changes and is updated and tagged from release to release. Previously, we stored the `vscode.d.ts` file within the `vscode` npm module that all extensions automatically depend on. So in order to update to our latest API, you would just install a newer version of the `vscode` npm module in your extension by typing `npm update vscode`.
+As we make changes to the VS Code API between versions, `vscode.d.ts` changes and is updated and tagged from release to release. Previously, we stored the `vscode.d.ts` file within the `vscode` npm module that all extensions automatically depend on. So to update to our latest API, you would just install a newer version of the `vscode` npm module in your extension by typing `npm update vscode`.
 
 We found that this approach has many issues:
 
