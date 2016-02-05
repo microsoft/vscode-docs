@@ -36,7 +36,10 @@ exports.tableRendererRule = function(tokens, idx, options, env, self) {
 exports.imageRendererRule = function(tokens, idx, options, env, self) {
 	var imageToken = tokens[idx];
 	var src = imageToken.attrs[imageToken.attrIndex('src')][1];
-	imageToken.attrs[imageToken.attrIndex('src')][1] = "/images/" + src.replace('images/', '').replace('/', '_');
+    
+    if (src.charAt('images/') > -1) {
+        imageToken.attrs[imageToken.attrIndex('src')][1] = "/images/" + src.replace('images/', '').replace('/', '_');
+    }
 
 	// DO NOT REMOVE - from original rule
 	imageToken.attrs[imageToken.attrIndex('alt')][1] = self.renderInlineAsText(imageToken.children, options, env);
@@ -75,6 +78,7 @@ exports.compileMarkdown = function(file, article) {
 			};
 			article.Sections.push(section);
 			headerToken.attrPush(['id', anchor]);
+            headerToken.attrPush(['data-needslink', anchor]);
 			tokens[idx] = headerToken;
 		}
 
