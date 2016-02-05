@@ -37,7 +37,7 @@ exports.imageRendererRule = function(tokens, idx, options, env, self) {
 	var imageToken = tokens[idx];
 	var src = imageToken.attrs[imageToken.attrIndex('src')][1];
     
-    if (src.charAt('images/') > -1) {
+    if (src.charAt('http://') == -1) {
         imageToken.attrs[imageToken.attrIndex('src')][1] = "/images/" + src.replace('images/', '').replace('/', '_');
     }
 
