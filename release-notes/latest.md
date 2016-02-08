@@ -1,11 +1,11 @@
 ---
 Order: 1
 TOCTitle: Latest
-PageTitle: Visual Studio Code January 0.10.7
-MetaDescription: See what is new in the Visual Studio Code January Release (0.10.7)
+PageTitle: Visual Studio Code January 0.10.8
+MetaDescription: See what is new in the Visual Studio Code January Release (0.10.8)
 ---
 
-# 0.10.7 (January 2016)
+# 0.10.8 (January 2016)
 
 Hi,
 
