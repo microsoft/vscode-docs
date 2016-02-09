@@ -99,6 +99,9 @@ To map a schema that is defined in the User or Workspace Settings, use the `sche
 ```
 
 
+### Mapping a Schema in an Extension
+Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point] (/docs/extensionAPI/extension-points#_contributesjsonvalidation).
+
 ## Next Steps
 Read on to find out about:
 
