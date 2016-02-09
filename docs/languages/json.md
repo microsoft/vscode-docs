@@ -78,7 +78,7 @@ To map a schema that is located in the workspace, use a relative path. In this e
 ```
 
 ### Mapping a Schema in the Settings Files
-To map a schema that is defined in the User or Workspace Settings, use the `schema` property. In this example a schema is defined that will be used for all files named `.myconfig`. Note that a URL is always required as an identifier (the URL doesn't need to be resolvable).
+To map a schema that is defined in the User or Workspace Settings, use the `schema` property. In this example a schema is defined that will be used for all files named `.myconfig`.
 
 ```json
 	"json.schemas": [
@@ -86,7 +86,6 @@ To map a schema that is defined in the User or Workspace Settings, use the `sche
 			"fileMatch": [
 				"/.myconfig"
 			],
-			"url": "http://myserver/myschema",
 			"schema": {
 				"type": "object",
 				"properties": {
@@ -98,6 +97,7 @@ To map a schema that is defined in the User or Workspace Settings, use the `sche
 			}
 		},
 ```
+
 
 ## Next Steps
 Read on to find out about:
