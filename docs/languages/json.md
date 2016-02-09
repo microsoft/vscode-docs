@@ -44,13 +44,23 @@ You can format your JSON document (or just a part of it) using `kb(editor.action
 ## JSON Schemas & Settings
 To understand the structure of JSON files, we use [JSON schemas](http://spacetelescope.github.io/understanding-json-schema/). JSON schemas describe the shape of the JSON file, as well as value sets, default values and descriptions.
 
-The JSON language mode has a set of schema associations preconfigured. Extensions can also contribute schema associations. Users can extend or overwrite that list in the User or Workspace Settings (`File | Preferences | User Settings` or `Workspace Settings`) under the property `json.schemas`.
+Servers like http://schemastore.org provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
->**Tip:** For an overview see [User and Workspace Settings](/docs/customization/userandworkspace.md).
+The association of a JSON file to a schema can be done either in the JSON file itself using the '$scheme' attribute, or in the User or Workspace Settings (`File | Preferences | User Settings` or `Workspace Settings`) under the property `json.schemas`.
 
-JSON schemas are identified by an `http` or `https` location URL, servers like http://schemastore.org provide schemas for most of the common JSON based configuration files.
+>**Tip:** For an overview on settings see [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
->**Tip:** Schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
+### Mapping in the JSON
+
+In the following example, the JSON file specifies that it's contents follow the coffeelint schema.
+```json
+{
+   "$schema": "http://json.schemastore.org/coffeelint",
+   "line_endings": "unix"
+}
+```
+
+### Mapping in the User Settings
 
 The following excerpt from the User Settings shows how `bower.json` files are mapped to the bower JSON schema located on http://json.schemastore.org/bower.
 ```json
@@ -64,7 +74,7 @@ The following excerpt from the User Settings shows how `bower.json` files are ma
 	},
 ```
 
-### Mapping a Schema in the Workspace
+### Mapping to a Schema in the Workspace
 To map a schema that is located in the workspace, use a relative path. In this example a file in the workspace root called `myschema.json` will be used as schema for all files ending with `.foo.json`.
 
 ```json
@@ -77,7 +87,7 @@ To map a schema that is located in the workspace, use a relative path. In this e
 	},
 ```
 
-### Mapping a Schema in the Settings Files
+### Mapping to a Schema in the Settings Files
 To map a schema that is defined in the User or Workspace Settings, use the `schema` property. In this example a schema is defined that will be used for all files named `.myconfig`.
 
 ```json
