@@ -10,6 +10,7 @@ MetaDescription: It is easy to debug and test your Visual Studio Code extension 
 # Running and Debugging Your Extension
 
 You can use VS Code to develop an extension for VS Code and VS Code provides several tools that simplify extension development:
+
 * Yeoman generators to scaffold an extension
 * IntelliSense, hover, and code navigation for the extension API
 * Compiling TypeScript (when implementing an extension in TypeScript)
@@ -31,6 +32,7 @@ Let's peek at what is going on behind the scenes. If you are writing your extens
 ## Compiling TypeScript
 
 The TypeScript compilation is setup as follows in the generated extension:
+
 * A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
 * A TypeScript compiler with the proper version is included inside the node_modules folder.
 * A `typings/vscode-typings.d.ts`: instructs the TypeScript compiler to include the `vscode` API definition.
@@ -54,6 +56,7 @@ other locations it should look for extensions, e.g.,
 Once the Extension Host is launched, VS Code attaches the debugger to it and starts the debug session.
 
 This is what happens when pressing `F5`:
+
  1. `.vscode/launch.json` instructs to first run a task named `npm`.
  2. `.vscode/tasks.json` defines the task `npm` as a shell command to `npm run compile`.
  3. `package.json` defines the script `compile` as `node ./node_modules/vscode/bin/compile -watch -p ./`
@@ -82,17 +85,21 @@ your changes. You have two options to do this:
 
 **Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
 
-**A:** If your extension is using API that was introduced in a newer release of VS Code, you have to declare this dependency from the
-`engines` field in the `package.json` file of the extension. Here are the steps:
+**A:** If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the
+`engines` field of the `package.json` file of the extension. 
+
+Here are the steps:
 
 * Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
-* Make sure your devDependency to the `vscode` module is at least `0.11.0`.
-* Make sure you setup a `postinstall` script to your `package.json` like this:
-```
+* Make sure your devDependency for the `vscode` module is at least `0.11.0`.
+* Add a `postinstall` script to your `package.json` like this:
+
+```json
 "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install"
 }
 ```
+
 * Type `npm install` from the root of your extension.
 * The `vscode` module will download the appropriate version of `vscode.d.ts` based on the `engine` field you declared.
 * Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
