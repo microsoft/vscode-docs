@@ -83,5 +83,16 @@ your changes. You have two options to do this:
 **Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
 
 **A:** If your extension is using API that was introduced in a newer release of VS Code, you have to declare this dependency from the
-`engines` field in the `package.json` file of the extension. After that, run `npm install` from the root of your extension and
-the related API file for the version specified will be downloaded and is ready to use for developing your extension.
+`engines` field in the `package.json` file of the extension. Here are the steps:
+
+* Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
+* Make sure your devDependency to the `vscode` module is at least `0.11.0`.
+* Make sure you setup a `postinstall` script to your `package.json` like this:
+```
+"scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install"
+}
+```
+* Type `npm install` from the root of your extension.
+* The `vscode` module will download the appropriate version of `vscode.d.ts` based on the `engine` field you declared.
+* Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
