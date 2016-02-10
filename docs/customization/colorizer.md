@@ -15,7 +15,7 @@ VS Code includes support for [many languages](/docs/languages/overview.md) in th
 
 Many language colorizers have been uploaded to the VS Code [Extension Gallery](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new language will be available.
 
-> **Tip:** To search for language support for a specific langauge, type the language name in the `Extension: Install Extension` dropdown to filter the available extensions.
+> **Tip:** To search for language support for a specific language, type the language name in the `Extension: Install Extension` dropdown to filter the available extensions.
 
 ![filter go language](images/colorizer/filter-go.png)
 
@@ -29,12 +29,11 @@ A good place to look for existing TextMate .tmLanguage files is on GitHub.  Sear
 
 ![yo code language](images/colorizer/yocodelanguage.png)
 
-The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other customizations) and the language name, aliases and file extensions. 
+The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other customizations) and the language name, aliases and file extensions.
 
 When the generator is finished, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
 ![ant language](images/colorizer/antlanguage.png)
-at it does or at least mention in the coming releases we will provide more context
 
 ## Publishing Language Support to the Extension Gallery
 
@@ -83,6 +82,7 @@ When you're adding a new language to VS Code, it is also great to add language [
 ```
 
 ## Next Steps
+
 Colorizers are just one way to customize VS Code, If you'd like to learn more about VS Code extensibility, try these topics:
 
 * [Snippets](/docs/customization/userdefinedsnippets) - Learn how to also include snippets in your language extension.
