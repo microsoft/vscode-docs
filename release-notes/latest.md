@@ -273,6 +273,12 @@ The process of installing a specific version of the API into your extension is s
 
 * Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
 * Make sure your devDependency to the `vscode` module is at least `0.11.0`.
+* Make sure you setup a `postinstall` script to your `package.json` like this:
+```
+"scripts": {
+  "postinstall": "node ./node_modules/vscode/bin/install"
+}
+```
 * Type `npm install` from the root of your extension.
 * The `vscode` module will download the appropriate version of `vscode.d.ts` based on the `engine` field you declared.
 * Go back to VS Code and see how the API for the specific version you chose appears in IntelliSense and validation.
