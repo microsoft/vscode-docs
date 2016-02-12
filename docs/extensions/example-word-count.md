@@ -15,7 +15,7 @@ Word Count is an end to end tutorial to show you how to create an extension to a
 
 Whenever a `Markdown` file is edited, a status bar message is added.  The message includes the current word count and updates as you type and move from file to file:
 
-![Status](images/example-word-count/wordcountevent2.gif)
+![Word Count on Status Bar](images/example-word-count/wordcountevent2.gif)
 
 > **Tip:** The finished sample is available from [this GitHub repository](https://github.com/microsoft/vscode-wordcount) should you have any issues.
 
@@ -35,13 +35,13 @@ npm install -g yo generator-code
 yo code
 ```
 
-This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, simply fill in the fields the same way you see them completed in the image below (putting in your own name as the publisher).
+This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, simply fill in the fields the same way you see them completed in the image below (using 'WordCount' as the extension name and your own name as the publisher).
 
-![Yo Code](images/example-word-count/yo1.png)
+![Yo Code Word Count Example Output](images/example-word-count/yo1.png)
 
 You can now open VS Code as described in the generator output:
 
-```
+```bash
 cd WordCount
 code .
 ```
@@ -87,46 +87,46 @@ class WordCounter {
 
     public updateWordCount() {
 
-        // Create as needed 
-        if (!this._statusBarItem) { 
-            this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left); 
-        }  
- 
-        // Get the current text editor 
-        let editor = window.activeTextEditor; 
-        if (!editor) { 
-            this._statusBarItem.hide(); 
-            return; 
-        } 
- 
-         let doc = editor.document; 
- 
-        // Only update status if an MarkDown file 
-        if (doc.languageId === "markdown") { 
-            let wordCount = this._getWordCount(doc); 
- 
-            // Update the status bar 
-            this._statusBarItem.text = wordCount !== 1 ? `${wordCount} Words` : '1 Word'; 
-            this._statusBarItem.show(); 
+        // Create as needed
+        if (!this._statusBarItem) {
+            this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
+        }
+
+        // Get the current text editor
+        let editor = window.activeTextEditor;
+        if (!editor) {
+            this._statusBarItem.hide();
+            return;
+        }
+
+         let doc = editor.document;
+
+        // Only update status if an MarkDown file
+        if (doc.languageId === "markdown") {
+            let wordCount = this._getWordCount(doc);
+
+            // Update the status bar
+            this._statusBarItem.text = wordCount !== 1 ? `${wordCount} Words` : '1 Word';
+            this._statusBarItem.show();
         } else { 
-            this._statusBarItem.hide(); 
-        } 
-    } 
+            this._statusBarItem.hide();
+        }
+    }
 
-    public _getWordCount(doc: TextDocument): number { 
+    public _getWordCount(doc: TextDocument): number {
 
-        let docContent = doc.getText(); 
- 
-        // Parse out unwanted whitespace so the split is accurate 
-        docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' '); 
-        docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); 
-        let wordCount = 0; 
-        if (docContent != "") { 
-            wordCount = docContent.split(" ").length; 
-        } 
-          
-        return wordCount; 
-    } 
+        let docContent = doc.getText();
+
+        // Parse out unwanted whitespace so the split is accurate
+        docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
+        docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+        let wordCount = 0;
+        if (docContent != "") {
+            wordCount = docContent.split(" ").length;
+        }
+
+        return wordCount;
+    }
 
     dispose() {
         this._statusBarItem.dispose();
@@ -138,13 +138,14 @@ Now let's try our updates to the extension.
 
 We have the compilation of the TypeScript file set on a watch (in the extension's .vscode\tasks.json file) so there is no need to re-build.  Simply hit `kbstyle(Ctrl+R)` in the **[Extension Development Host]** window where your code is running and the extension will reload (you can also just `kb(workbench.action.debug.start)` from your primary development window).  We still need to activate the code in the same way as before with the "Hello World" command.  Assuming you are in a Markdown file, your Status Bar will display the word count.
 
-![BOOM Word Count](images/example-word-count/wordcount2.png)
+![Working Word Count](images/example-word-count/wordcount2.png)
 
 This is a good start but it would be cooler if the count updated as your file changed.
 
 ## Subscribing to Events
 
 Let's hook your helper class up to a set of events.
+
 * `onDidChangeTextEditorSelection` - Event is raised as the cursor position changes
 * `onDidChangeActiveTextEditor` - Event is raised as the active editor changes.
 
@@ -166,7 +167,7 @@ class WordCounterController {
         let subscriptions: Disposable[] = [];
         window.onDidChangeTextEditorSelection(this._onEvent, this, subscriptions);
         window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
-        
+
         // update the counter for the current file
         this._wordCounter.updateWordCount();
 
@@ -205,22 +206,22 @@ context.subscriptions.push(wordCounter);
 Second, we must make sure the extension is activated upon the opening of a `Markdown` file.  To do this, we'll need to modify the `project.json` file.  Previously the extension was activated via the `extension.sayHello` command which we no longer need and so we can delete the entire `contributes` attribute from `package.json`:
 
 ```json
-	"contributes": {
-		"commands":
-			[{
-				"onCommand": "extension.sayHello",
-				"title": "Hello World"
-			}
-		]
-	},
+    "contributes": {
+        "commands":
+            [{
+                "onCommand": "extension.sayHello",
+                "title": "Hello World"
+            }
+        ]
+    },
 ```
 
 Now change your extension so that it is activated upon the opening of a *Markdown* file by updating the `activationEvents` attribute to this:
 
 ```json
-	"activationEvents": [
-		"onLanguage:markdown"
-	]
+    "activationEvents": [
+        "onLanguage:markdown"
+    ]
 ```
 
 The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) event takes the language id, in this case "markdown", and will be raised whenever a file of that language is opened.
@@ -235,23 +236,23 @@ If you set a breakpoint on the `activate` function, you'll notice that it is onl
 
 We've seen how you can display formatted text on the Status Bar.  VS Code allows you to customize your Status Bar additions even further with color, icons, tooltips and more.  Using IntelliSense, you can see the various `StartBarItem` fields.  Another great resource for learning about the VS Code extensibility APIs is the `vscode.d.ts` typings file included in your generated Extension project.  Open `node_modules\vscode\vscode.d.ts` in the editor, you'll see the complete VS Code extensibility API with comments.
 
-![vscode-d-ts](images/example-word-count/vscode-d-ts.png)
+![vscode-d-ts file](images/example-word-count/vscode-d-ts.png)
 
 Replace the StatusBarItem update code with:
 
 ```javascript
-            // Update the status bar 
-            this._statusBarItem.text = wordCount !== 1 ? `$(pencil) ${wordCount} Words` : '$(pencil) 1 Word'; 
-            this._statusBarItem.show(); 
+    // Update the status bar
+    this._statusBarItem.text = wordCount !== 1 ? `$(pencil) ${wordCount} Words` : '$(pencil) 1 Word';
+    this._statusBarItem.show();
 ```
 
 to display a [GitHub Octicon](https://octicons.github.com) `pencil` icon to the left of the calculated word count.
 
-![word count pencil](images/example-word-count/wordcount-pencil.png) 
+![Word Count with pencil icon](images/example-word-count/wordcount-pencil.png)
 
 ## Disposing Extension Resources
 
-Now we'll take a deeper look at how extensions should handle VS Code resources through [Disposables](/docs/extensions/patterns-and-principles.md#disposables).  
+Now we'll take a deeper look at how extensions should handle VS Code resources through [Disposables](/docs/extensions/patterns-and-principles.md#disposables).
 
 When an extension is activated, it is passed an `ExtensionContext` object which has a `subscriptions` collection of Disposables. Extensions can add their Disposable objects to this collection and VS Code will dispose of those objects when the extension is deactivated.
 
@@ -260,13 +261,13 @@ Many VS Code APIs which create workspace or UI objects (e.g. `registerCommand`) 
 Events are another example where `onDid*` event subscriber methods return a Disposable.  Extensions unsubscribe to an event by disposing the event's Disposable.  In our example, `WordCountController` handles the event subscription Disposables directly by keeping its own Disposable collection which it cleans up on deactivation.
 
 ```javascript
-        // subscribe to selection change and editor activation events
-        let subscriptions: Disposable[] = [];
-        window.onDidChangeTextEditorSelection(this._onEvent, this, subscriptions);
-        window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
+    // subscribe to selection change and editor activation events
+    let subscriptions: Disposable[] = [];
+    window.onDidChangeTextEditorSelection(this._onEvent, this, subscriptions);
+    window.onDidChangeActiveTextEditor(this._onEvent, this, subscriptions);
 
-        // create a combined disposable from both event subscriptions
-        this._disposable = Disposable.from(...subscriptions);
+    // create a combined disposable from both event subscriptions
+    this._disposable = Disposable.from(...subscriptions);
 ```
 
 ## Installing your Extension Locally
@@ -278,6 +279,7 @@ So far, the extension you have written only runs in a special instance of VS Cod
 Read about how to [Share an Extension](/docs/tools/vscecli.md).
 
 ## Next Steps
+
 Read on to find out about:
 
 * [Yo Code](/docs/tools/yocode.md) - learn about other options in Yo Code
