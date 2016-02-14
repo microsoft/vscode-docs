@@ -76,7 +76,7 @@ If you already created a publisher before and simply want to use it with `vsce`:
 vsce login (publisher name)
 ```
 
-Similarly to the `create` command, `vsce` will ask you for the Personal Access Token and remember it for future commands.
+Similarly to the `create-publisher` command, `vsce` will ask you for the Personal Access Token and remember it for future commands.
 
 ## Packaging Extensions
 
