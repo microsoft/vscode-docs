@@ -118,6 +118,17 @@ Take the defaults for everything else. If you do not have [Auto Save](/docs/edit
 
 >**Note:** VS Code only supports local debugging at this time, we are constantly working to improve our debugging support.
 
+## Extensions
+
+The community is continually developing more and more valuable extensions for Node.js. Here are some popular extensions you might find useful. 
+
+* [View Node Package](https://marketplace.visualstudio.com/items?itemName=dkundel.vscode-npm-source) - Open a Node package repository / documentation straight from VS Code.
+* [Javascript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Code snippets for Javascript in ES6 syntax. 
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint into VS Code.
+* [JShint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint) - Integrates jshint into VS Code.
+* [Add js comments](https://marketplace.visualstudio.com/items?itemName=stevencl.addDocComments) - Adds jsdoc @param and @return tags for selected function signatures in JS and TS.
+* [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json) - Prettify ugly JSON inside VSCode.
+
 ## Next Steps
 There is much more to explore with Visual Studio Code, please try the following topics:
 
