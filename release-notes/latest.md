@@ -1,9 +1,13 @@
 ---
 Order: 1
 TOCTitle: Latest
-PageTitle: Visual Studio Code January 0.10.8
-MetaDescription: See what is new in the Visual Studio Code January Release (0.10.8)
+PageTitle: Visual Studio Code January
+MetaDescription: See what is new in the Visual Studio Code January Release (0.10.9)
 ---
+
+# 0.10.9 (January 2016)
+
+The 0.10.9 release addresses an [issue](https://github.com/Microsoft/vscode/issues/2829) with indentation and the `kbstyle(Tab)` key on OS X.
 
 # 0.10.8 (January 2016)
 
