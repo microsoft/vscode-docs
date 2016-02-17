@@ -44,15 +44,15 @@ First, login to or sign up for [Visual Studio Team Services](https://www.visuals
 
 Then, from your account's home page `https://ACCOUNT.visualstudio.com`, go to the **My Profile** page:
 
-![1](images/vscecli/publishers1.png)
+![My Profile page](images/vscecli/publishers1.png)
 
 Switch to the **Security** tab and **Add** a new Personal Access Token:
 
-![2](images/vscecli/publishers2.png)
+![Add personal access token](images/vscecli/publishers2.png)
 
 Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year and make it access every account:
 
-![3](images/vscecli/publishers3.png)
+![Personal access token details](images/vscecli/publishers3.png)
 
 The next screen will display your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
@@ -92,7 +92,7 @@ This will package your extension into a `.vsix` file and place it in the current
 
 ### Marketplace Integration
 
-You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/lukehoban.Go) for an example. 
+You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/lukehoban.Go) for an example.
 
 Here are some tips for making your extension look great on the Marketplace:
 
@@ -106,7 +106,7 @@ Also see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.m
 
 ### `.vscodeignore`
 
-You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line. 
+You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. This file is a collection of [glob](https://github.com/isaacs/minimatch) patterns, one per line.
 
 For example:
 
@@ -126,15 +126,15 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 
 ```json
 {
-	"name": "uuid",
-	"version": "0.0.1",
-	"publisher": "joaomoreno",
-	"engines": {
-		"vscode": "0.10.x"
-	},
-	"scripts": {
-		"vscode:prepublish": "tsc"
-	}
+    "name": "uuid",
+    "version": "0.0.1",
+    "publisher": "joaomoreno",
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "scripts": {
+        "vscode:prepublish": "tsc"
+    }
 }
 ```
 
@@ -147,7 +147,7 @@ This will always invoke the [TypeScript](http://www.typescriptlang.org/) compile
 
 ## Common Questions
 
-**Q: I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?** 
+**Q: I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?**
 
 **A:** One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field dropdown (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
 

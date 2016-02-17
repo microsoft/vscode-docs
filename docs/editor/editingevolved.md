@@ -60,7 +60,7 @@ In JavaScript, TypeScript or C#, parameter hints will pop up as you're typing a 
 
 We offer built-in snippets across languages as well as support for [Emmet abbreviations](http://docs.emmet.io/). You can expand Emmet abbreviations in HTML, Razor, CSS, Less, Sass, XML or Jade with `kbstyle(Tab)`.
 
-![Emmet](images/editingevolved/emmetsnippet.gif)
+![Emmet snippets](images/editingevolved/emmetsnippet.gif)
 
 (See the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet/) for syntax examples.)
 
@@ -134,7 +134,7 @@ TypeScript and C# support rename symbol across files. Simply press `kb(editor.ac
 
 JavaScript and CSS support code actions. A lightbulb will appear if there is a code action for the problem under the cursor. In this JavaScript example, due to the usage of `__dirname`, which is a Node.js built-in variable, the code action will propose to download and add a reference to `node.d.ts`, which contains all Node.js definitions.
 
-![Rename](images/editingevolved/quickfix.png)
+![Quick fix code action lightbulb](images/editingevolved/quickfix.png)
 
 ## Errors & Warnings
 
@@ -143,11 +143,11 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 * You can click on the summary or press `kb(workbench.action.showErrorsWarnings)` to see a list of all current errors.
 * If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
 
-![Warnings and Errors](images/editingevolved/errors.png)
+![Show Errors and Warnings](images/editingevolved/errors.png)
 
 > **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.next)` or `kb(editor.action.marker.prev)` which will show an inline zone detailing the problem and possible code actions (if available):
 
-![Warnings and Errors](images/editingevolved/errorsinline.png)
+![Errors and Warnings Inline](images/editingevolved/errorsinline.png)
 
 ## Next Steps
 Now that you know how the editor works, time to try a few other things...

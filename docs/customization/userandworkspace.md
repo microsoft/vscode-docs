@@ -21,10 +21,10 @@ The menu under `File`, `Preferences` provides entries to configure user and work
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
-![Settings](images/userandworkspace/settings.png)
+![Example Settings](images/userandworkspace/settings.png)
 
 ## Settings File Locations
- 
+
 Depending on your platform, the user settings file is located here:
 * **Windows** `%APPDATA%\Code\User\settings.json`
 * **Mac** `$HOME/Library/Application Support/Code/User/settings.json`

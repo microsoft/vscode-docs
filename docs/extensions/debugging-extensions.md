@@ -25,7 +25,7 @@ We suggest you start your extension by scaffolding out the basic files. You can 
 
 You can easily run your extension under the debugger by pressing `F5`. This opens a new VS Code window with your extension loaded. Output from your extension shows up in the `Debug Console`. You can set break points, step through your code, and inspect variables either in the `Debug` view or the `Debug Console`.
 
-![Debug](images/debugging-extensions/debug.png)
+![Debugging extensions](images/debugging-extensions/debug.png)
 
 Let's peek at what is going on behind the scenes. If you are writing your extension in TypeScript then your code must first be compiled to JavaScript.
 

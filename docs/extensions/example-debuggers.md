@@ -45,7 +45,7 @@ To try it:
 
 If you now start the launch configuration, you can 'step through' the target file, set and hit breakpoints, and run into exceptions (if the word `exception` appears in a line).
 
-![Mock Debug](images/example-debuggers/mock-debug.gif)
+![Mock Debugger running](images/example-debuggers/mock-debug.gif)
 
 ## Development Setup for mock-debug
 

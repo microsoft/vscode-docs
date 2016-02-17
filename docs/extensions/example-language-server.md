@@ -225,13 +225,13 @@ The `Extension Development Host` instance will then look like this:
 
 ## Debugging both Client and Server
 
-Debugging the client code is as easy as debugging a normal extension. Simply set a breakpoint in the VS Code instance that contains the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Running and Debugging Your Extension](/docs/extensions/debugging-extensions.md). 
+Debugging the client code is as easy as debugging a normal extension. Simply set a breakpoint in the VS Code instance that contains the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Running and Debugging Your Extension](/docs/extensions/debugging-extensions.md).
 
-![Debugging the server part](images/example-language-server/debugging-client.png)
+![Debugging the client](images/example-language-server/debugging-client.png)
 
 Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the VS Code instance containing the server code and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server. Use the normal Debug View to interact with the running server.
 
-![Debugging the server part](images/example-language-server/debugging-server.png)
+![Debugging the server](images/example-language-server/debugging-server.png)
 
 ## Using Configuration Settings in the Server
 
@@ -239,10 +239,10 @@ When writing the client part of the extension we already defined a setting to co
 
 ```typescript
 synchronize: {
-	// Synchronize the setting section 'languageClientExample' to the server
-	configurationSection: 'languageServerExample',
-	// Notify the server about file changes to '.clientrc files contain in the workspace
-	fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+    // Synchronize the setting section 'languageClientExample' to the server
+    configurationSection: 'languageServerExample',
+    // Notify the server about file changes to '.clientrc files contain in the workspace
+    fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
 }
 ```
 
@@ -298,9 +298,9 @@ connection.onDidChangeConfiguration((change) => {
 });
 ```
 
-Starting the client again and changing the setting to maximal report  1 problem results in the following validation:
+Starting the client again and changing the setting to maximum report 1 problem results in the following validation:
 
-![Maximal One Problem](images/example-language-server/validationOneProblem.png)
+![Maximum One Problem](images/example-language-server/validationOneProblem.png)
 
 ## Adding additional Language Features
 
@@ -342,7 +342,7 @@ connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 
 The `data` fields is used to uniquely identify a completion item in the resolve handler. The data property is transparent for the protocol. Since the underlying message passing protocol is JSON based the data field should only hold data that is serializable to and from JSON.
 
-All that is missing is to tell VS Code that the server support code completion requests. To do so flag the corresponding capability in the intialize handler:
+All that is missing is to tell VS Code that the server support code completion requests. To do so, flag the corresponding capability in the intialize handler:
 
 ```typescript
 connection.onInitialize((params): InitializeResult => {
@@ -359,7 +359,7 @@ connection.onInitialize((params): InitializeResult => {
 });
 ```
 
-The screen shot below shows code complete in the plan text file:
+The screen shot below shows the completed code running on a plain text file:
 
 ![Code Complete](images/example-language-server/codeComplete.png)
 
