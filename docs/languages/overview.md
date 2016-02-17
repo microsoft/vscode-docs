@@ -7,10 +7,10 @@ DateApproved: 2/3/2016
 MetaDescription: In Visual Studio Code we have support for all common languages.  We even support debugging for Node.js and ASP.NET Core.
 ---
 
-
 # Languages
 
 ## What Languages are Supported
+
 In Visual Studio Code, we have support for many languages out of the box and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
 
 >**Tip:** You can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/customization/colorizer.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code.
@@ -30,7 +30,7 @@ Syntax coloring, bracket matching |Batch, C++, Clojure, Coffee Script, [Dockerfi
 
 The community is providing VS Code language support for nearly any modern programming language.  To see if there are extensions for the language you're interested in, simply bring up the extension gallery and filter on the language name.  Type `kb(workbench.action.showCommands)`, `'ext inst '` to bring up the extension gallery dropdown and then type the language name to filter the results.
 
-![filter go](images/overview/filter-go.png)
+![filter go extensions](images/overview/filter-go.png)
 
 You can also browse the VS Code Marketplace directly to look for [supported languages](https://marketplace.visualstudio.com/vscode/Languages).
 
@@ -41,6 +41,7 @@ In VS Code, we default the language support for a file based on its filename ext
 ![Language Selector](images/overview/languageselect.png)
 
 ## Next Steps
+
 Now you know that VS Code has support for the languages you care about. Read on...
 
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more

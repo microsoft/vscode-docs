@@ -35,7 +35,7 @@ IntelliSense offers both *inferred* proposals and the global identifiers of the 
 
 The `commonjs` support has been improved as well:
 
-![commonjs](images/January/salsa-commonjs.png)
+![commonjs support](images/January/salsa-commonjs.png)
 
 >**Tip:** When using `commonjs`, exclude the `node_modules` folder using the `exclude` property in `jsconfig.json`. This is due to [issue 6673](https://github.com/Microsoft/TypeScript/issues/6673) which is fixed but not yet in `typescript@next`.
 
@@ -172,12 +172,12 @@ Some useful changes around the file picker (`kb(workbench.action.quickOpen)`) in
 
 We improved the interaction and rendering of IntelliSense suggestions which have more complete documentation. A blue icon will appear on the right of the suggestion's documentation:
 
-![IntelliSense 1](images/January/intellisense-1.png)
+![IntelliSense full documentation icon](images/January/intellisense-1.png)
 
 Clicking it will display the full documentation for that suggestion. It's also possible trigger IntelliSense a second time to enter this mode
 (`kb(editor.action.triggerSuggest)`):
 
-![IntelliSense 2](images/January/intellisense-2.png)
+![Show IntelliSense full documentation](images/January/intellisense-2.png)
 
 ## Workbench
 
@@ -189,7 +189,7 @@ We added a new action to hide the menu bar on Windows and Linux (`View | Toggle 
 
 We now show the output and debug consoles horizontally:
 
-![output](images/January/output.png)
+![Horizontal output panel](images/January/output.png)
 
 ## Debugging
 
@@ -209,7 +209,7 @@ We now support setting conditional breakpoints that are hit only when the specif
 
 We now indicate in the Debug and Watch views which variables have changed values between step events.
 
-![variables change](images/January/variables-change.png)
+![variables changed](images/January/variables-change.png)
 
 ## Node.js Debugging
 
@@ -275,12 +275,14 @@ update their devDependency to `vscode` in their `package.json` to this new versi
 
 The process of installing a specific version of the API into your extension is still very simple:
 
-* Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`. For example, when you want to upgrade to the `0.10.8` version of the VS Code API then define 
+* Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`. For example, when you want to upgrade to the `0.10.8` version of the VS Code API then define
+
 ```json
     "engines": {
         "vscode": "^0.10.7"
     }
 ```
+
 * Make sure your devDependency for the `vscode` module is at least `0.11.0`.
 * Add a `postinstall` script to your `package.json` like this:
 

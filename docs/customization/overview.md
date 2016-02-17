@@ -51,8 +51,8 @@ Here are a few pointers to help you on your way...
 
 **Q: I created a new customization but I don't see it displayed in VS Code?**
 
-**A:** Make sure you have copied all of the generator's output files to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) (e.g. ".vscode/extensions/cooltheme") and that you have restarted VS Code after installing the customization.  
+**A:** Make sure you have copied all of the generator's output files to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) (e.g. ".vscode/extensions/cooltheme") and that you have restarted VS Code after installing the customization.
 
 On startup, if VS Code detects an issue with a customization, you will see an error message which can aid in debugging your customization.
 
-![package.json error](images/overview/error.png)
+![customization error](images/overview/error.png)

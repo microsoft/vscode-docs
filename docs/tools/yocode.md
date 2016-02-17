@@ -19,7 +19,8 @@ npm install -g yo generator-code
 ```
 
 ## Run Yo Code
-The Yeoman generator will walk you through the steps required to create your customization or extension prompting for the required information.  
+
+The Yeoman generator will walk you through the steps required to create your customization or extension prompting for the required information.
 
 To launch the generator simply type the following in a command prompt:
 
@@ -27,12 +28,11 @@ To launch the generator simply type the following in a command prompt:
 yo code
 ```
 
-![The command generator](images/yocode/yocode.png)
+![yo code output](images/yocode/yocode.png)
 
 ## Generator Options
 
 The generator can either create an extension skeleton for a new extension or create a ready-to-use extension for languages, themes or snippets based on existing TextMate definition files.
-
 
 ### New Extension in TypeScript
 
@@ -41,23 +41,22 @@ Creates an extension skeleton implementing a 'hello world' command. Use this as 
 * Prompts for the extension identifier and will create a folder of that name in the current directory
 * Creates a base folder structure with a source, test and output folder
 * Templates out a `package.json` file and an extension main file
-* Sets-up `launch.json` and `tasks.json` so that F5 will compile and run your extension and attaches the debugger
+* Sets-up `launch.json` and `tasks.json` so that F5 will compile and run your extension and attach the debugger
 * Optionally sets up a Git repository
 
 Once created, open VS Code on the created folder. The folder contains a file `vsc-extension-quickstart.md` as a quick guide with the next steps
- 
+
 ### New Extension in JavaScript
 
 Does the same as `New Extension (TypeScript)`, but for JavaScript.
 
 ### New Color Theme
 
-Creates an extension that contributes a new color theme based on an existing TextMate color theme. 
+Creates an extension that contributes a new color theme based on an existing TextMate color theme.
 
 * Prompts for the location (URL or file path) of the existing TextMate color theme (.tmTheme). This file will be imported into the new extension.
 * Prompts for the color theme name as well as the color base theme (light or dark)
 * Prompts for the extension identifier and will create a folder of that name in the current directory
-
 
 Once created, open VS Code on the created folder and run the extension to test the new theme.
 Check out `vsc-extension-quickstart.md`. It's a quick guide with the next steps.
@@ -81,8 +80,8 @@ Creates an extension that contributes new code snippets.
 
 Once created, open VS Code on the created folder and run the extension to test the snippets. Check out `vsc-extension-quickstart.md` for the next steps.
 
-
 ## Loading an Extension
+
 To load an extension, you need to copy the files to your VS Code extensions folder. We cover this in detail here: [Installing Extensions](/docs/extensions/install-extension.md#your-extensions-folder).
 
 ## Next Steps
