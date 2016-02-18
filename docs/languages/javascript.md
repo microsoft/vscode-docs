@@ -10,13 +10,14 @@ MetaDescription: Get the best out of Visual Studio Code for JavaScript developme
 # JavaScript
 
 ## Rich Editing Support
+
 Visual Studio Code uses the TypeScript language service to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as
  Peek, Go to Definition, Find all References, and Rename Symbol just by right clicking in any JavaScript file.
 
-![Right Click](images/javascript/rightclick.png)
-
+![Right Click context menu](images/javascript/rightclick.png)
 
 ## JavaScript Projects (jsconfig.json)
+
 You can create a JavaScript project by dropping in a `jsconfig.json` file. It's a subset of [tsconfig.json](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json). The presence of a `jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript project. The file itself lists the files belonging to the project as well as compiler options.
 
 >**Tip:** Just as in `tsconfig.json`, if no "files" property is present, we default to including all files in the containing directory and subdirectories. When a "files" property is specified, only those files are included.
@@ -48,7 +49,7 @@ You can create a JavaScript project by dropping in a `jsconfig.json` file. It's 
 }
 ```
 
->**Tip:** If the application's JavaScript source code is contained inside an `app` or `src` folder, then define the `jsconfig.json` inside the corresponding folder and not at the top level of the workspace.
+>**Tip:** If the application's JavaScript source code is contained inside an `app` or `src` folder, then define the `jsconfig.json` inside the corresponding folder and not at the top-level of the workspace.
 
 >**Tip:** If your workspace contains folders with JavaScript files that belong to separate applications, e.g, a `client` and a `server`, then consider adding a separate `jsconfig.json` into the corresponding folders.
 
@@ -64,13 +65,12 @@ VS Code also supports the global directive `/*global varName*/` to declare varia
 
 ![Global directive](images/javascript/jsglobalvariable.png)
 
-
 ## IntelliSense Support
+
 VS Code provides IntelliSense for built-in symbols of browsers, Node.js, and virtually all other environments through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/borisyankov/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [TSD](http://definitelytyped.org/tsd/), the TypeScript Definition manager. IntelliSense is automatically provided for CommonJS and AMD modules inside your project folders.
 
-
-
 ## Snippets for JavaScript
+
 VS Code has several built-in snippets that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you will see a context specific list of suggestions.
 
 ![Try Suggestions](images/javascript/trysnippet.png)
@@ -81,8 +81,8 @@ Selecting the snippet with `tab` results in:
 
 >**Tip:** You can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
 
-
 ## ES6 Support
+
 VS Code supports ES6 (ECMAScript 6, the latest update of JavaScript) and understands the new ES6 syntax elements and their semantics. By default, you get suggestions for ES6 types, like `Promise`, `Set`, `Map`, `String.startsWith`. A good overview of the new ES6 features can be found [here](https://github.com/lukehoban/es6features).
 
 We have a sample on GitHub that shows off some of the ES6 love in VS Code:
@@ -96,28 +96,27 @@ npm install
 >**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by setting the `javascript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
 
 ### Run Babel inside VS Code
+
 The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Maps.  You can easily integrate Babel into your workflow by adding this code to your `tasks.json` file. The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
 
 ```json
 {
-	"version": "0.1.0",
-	"command": "${workspaceRoot}/node_modules/.bin/babel",
-	"isShellCommand": true,
-	"tasks": [
-		{
-			"args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
-			"taskName": "watch",
-			"suppressTaskName": true,
-			"isBuildCommand": true,
-			"isWatching": true
-		}
-	]
+    "version": "0.1.0",
+    "command": "${workspaceRoot}/node_modules/.bin/babel",
+    "isShellCommand": true,
+    "tasks": [
+        {
+            "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
+            "taskName": "watch",
+            "suppressTaskName": true,
+            "isBuildCommand": true,
+            "isWatching": true
+        }
+    ]
 }
 ```
 
-
 Once you have added this, you can start Babel with the `kb(workbench.action.tasks.build)` (Run Build Task) gesture and it will compile all files from the `src` directory into the `lib` directory.
-
 
 ## JavaScript Linters (ESLint, JSHint)
 
@@ -159,18 +158,14 @@ unknownTypeOfResults | The ```typeof``` operation has a fixed set of possible re
 unusedFunctions | A function that isn’t used | warning
 unusedVariables | A variable that isn’t used | warning
 
-
-
-
-
-
 ## Next Steps
-OK, read on to find out about:
+
+Read on to find out about:
 
 * [TypeScript](typescript) - VS Code has great support for TypeScript which brings structure and strong typing to your JavaScript code, without compromising the good parts
 
 ## Common Questions
 
-**Q: Can you Debug minified/uglified JavaScript?**
+**Q: Can I debug minified/uglified JavaScript?**
 
-**A:** Yes, you can. :)
+**A:** Yes, you can.
