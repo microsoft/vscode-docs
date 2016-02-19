@@ -99,6 +99,10 @@ Support has been added to localize package.json files for extensions and CommonJ
 
 ## Extension Authoring
 
+### Opt out for telemetry
+
+User's now have the option of optting out of usage telemetry, for more information <LINK TO THE DOCS>.
+
 ### Item
 
 bla
