@@ -93,6 +93,16 @@ bla
 
 bla
 
+## Tasks Support
+
+The tasks.json editor has now snippet support to insert common tasks commands. As a result starting with a fresh tasks.json now results in an empty file with IntelliSense poplucated. No more uncommenting and commenting of sections.
+
+![tasks.json](images/February/tasks-json.png)
+
+## Localization
+
+Support has been added to localize package.json files for extensions and commonJS code. For localizing commonJS code we publish a new npm module `vscode-nls` which helps you with externalizing strings.
+
 ## Extension Authoring
 
 ### Item
