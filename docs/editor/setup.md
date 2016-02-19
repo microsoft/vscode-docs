@@ -3,7 +3,7 @@ Order: 1
 Area: editor
 TOCTitle: Setup
 PageTitle: Setting up Visual Studio Code
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Get Visual Studio Code up and running on Mac OS X, Linux or Windows.
 ---
 
@@ -22,6 +22,11 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 >
 >```bash
 >function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+>```
+>If you are using the prerelease [Insiders](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code) build, you would use:
+>
+>```bash
+>function code-insiders () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCodeInsiders" --args $*; }
 >```
 
 Now, you can simply type `code .` in any folder to start editing files in that folder.

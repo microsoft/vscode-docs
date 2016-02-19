@@ -3,7 +3,7 @@ Order: 5
 Area: customization
 TOCTitle: Colorizer
 PageTitle: Visual Studio Code Colorizers
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: How to add colorization and bracket matching to Visual Studio Code.  TextMate .tmLanguage files are supported.
 ---
 
@@ -15,11 +15,11 @@ VS Code includes support for [many languages](/docs/languages/overview.md) in th
 
 Many language colorizers have been uploaded to the VS Code [Extension Gallery](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new language will be available.
 
-> **Tip:** To search for language support for a specific langauge, type the language name in the `Extension: Install Extension` dropdown to filter the available extensions.
+> **Tip:** To search for language support for a specific language, type the language name in the `Extension: Install Extension` dropdown to filter the available extensions.
 
 ![filter go language](images/colorizer/filter-go.png)
 
-You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages) to find available colorizers and language support. 
+You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages) to find available colorizers and language support.
 
 ## Adding a New Language
 
@@ -27,14 +27,13 @@ Using the ['code' Yeoman generator](/docs/tools/yocode.md), you can add TextMate
 
 A good place to look for existing TextMate .tmLanguage files is on GitHub.  Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can handle either .tmLanguage or .plist files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. http://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage.
 
-![yo code language](images/colorizer/yocodelanguage.png)
+![yo code language support](images/colorizer/yocodelanguage.png)
 
-The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other customizations) and the language name, aliases and file extensions. 
+The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other customizations) and the language name, aliases and file extensions.
 
 When the generator is finished, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
-![ant language](images/colorizer/antlanguage.png)
-at it does or at least mention in the coming releases we will provide more context
+![select ant language](images/colorizer/antlanguage.png)
 
 ## Publishing Language Support to the Extension Gallery
 
@@ -50,39 +49,40 @@ When you're adding a new language to VS Code, it is also great to add language [
 
 ```json
 {
-	"name": "language-latex",
-	"description": "LaTeX Language Support",
-	"version": "0.0.1",
-	"publisher": "someone",
-	"engines": {
-		"vscode": "0.10.x"
-	},
-	"categories": [
-		"Languages",
-		"Snippets"
-	],
-	"contributes": {
-		"languages": [{
-			"id": "latex",
-			"aliases": ["LaTeX", "latex"],
-			"extensions": [".tex"]
-		}],
-		"grammars": [{
-			"language": "latex",
-			"scopeName": "text.tex.latex",
-			"path": "./syntaxes/latex.tmLanguage"
-		}],
-		"snippets": [
-			{
-				"language": "latex",
-				"path": "./snippets/snippets.json"
-			}
-		]
-	}
+    "name": "language-latex",
+    "description": "LaTeX Language Support",
+    "version": "0.0.1",
+    "publisher": "someone",
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "categories": [
+        "Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "latex",
+            "aliases": ["LaTeX", "latex"],
+            "extensions": [".tex"]
+        }],
+        "grammars": [{
+            "language": "latex",
+            "scopeName": "text.tex.latex",
+            "path": "./syntaxes/latex.tmLanguage"
+        }],
+        "snippets": [
+            {
+                "language": "latex",
+                "path": "./snippets/snippets.json"
+            }
+        ]
+    }
 }
 ```
 
 ## Next Steps
+
 Colorizers are just one way to customize VS Code, If you'd like to learn more about VS Code extensibility, try these topics:
 
 * [Snippets](/docs/customization/userdefinedsnippets) - Learn how to also include snippets in your language extension.
@@ -97,24 +97,24 @@ Colorizers are just one way to customize VS Code, If you'd like to learn more ab
 
 ```json
 {
-	"name": "asp",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "0.10.x"
-	},
-	"publisher": "none",
-	"contributes": {
-		"languages": [{
-			"id": "asp",
-			"aliases": ["ASP", "asp"],
-			"extensions": [".asa", ".asp"]
-		}],
-		"grammars": [{
-			"language": "asp",
-			"scopeName": "source.asp",
-			"path": "./syntaxes/asp.tmLanguage"
-		}]
-	}
+    "name": "asp",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "publisher": "none",
+    "contributes": {
+        "languages": [{
+            "id": "asp",
+            "aliases": ["ASP", "asp"],
+            "extensions": [".asa", ".asp"]
+        }],
+        "grammars": [{
+            "language": "asp",
+            "scopeName": "source.asp",
+            "path": "./syntaxes/asp.tmLanguage"
+        }]
+    }
 }
 ```
 
@@ -124,46 +124,46 @@ Colorizers are just one way to customize VS Code, If you'd like to learn more ab
 
 ```json
 {
-	"name": "MyMarkdown",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "0.10.x"
-	},
-	"publisher": "none",
-	"extensionDependencies": [
-                     "markdown"
-                ],
-	"contributes": {
-		"languages": [{
-			"id": "markdown",
-			"aliases": ["mmd"],
-			"extensions": [".mmd"]
-		}]
-	}
+    "name": "MyMarkdown",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "publisher": "none",
+    "extensionDependencies": [
+        "markdown"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "markdown",
+            "aliases": ["mmd"],
+            "extensions": [".mmd"]
+        }]
+    }
 }
 ```
 
 **Q: What if I want to completely override an existing colorizer?**
 
-**A:** Yes and no.  If the colorizer is implemented as a customization then yes but some of VS Code's built-in colorizers (e.g. markdown) are integrated differently and cannot be overridden.  You override the colorizer by using the `extensionDependencies` attribute as above and providing a new `grammars` element.
+**A:** Yes and no.  If the colorizer is implemented as a customization then yes but some of VS Code's built-in colorizers (e.g. Markdown) are integrated differently and cannot be overridden.  You override the colorizer by using the `extensionDependencies` attribute as above and providing a new `grammars` element.
 
 ```json
 {
-	"name": "override-xml",
-	"version": "0.0.1",
-	"engines": {
-		"vscode": "0.10.x"
-	},
-	"publisher": "none",
-	"extensionDependencies": [
-		"xml"
-	],
-	"contributes": {
-		"grammars": [{
-			"language": "xml",
-			"scopeName": "text.xml.ant",
-			"path": "./syntaxes/ant.tmLanguage"
-		}]
-	}
+    "name": "override-xml",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "publisher": "none",
+    "extensionDependencies": [
+        "xml"
+    ],
+    "contributes": {
+        "grammars": [{
+            "language": "xml",
+            "scopeName": "text.xml.ant",
+            "path": "./syntaxes/ant.tmLanguage"
+        }]
+    }
 }
 ```

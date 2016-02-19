@@ -315,6 +315,8 @@
 { "key": "f1",                    "command": "workbench.action.showCommands" },
 { "key": "ctrl+shift+m",          "command": "workbench.action.showErrorsWarnings" },
 { "key": "ctrl+\\",               "command": "workbench.action.splitEditor" },
+{ "key": "ctrl+shift+b",          "command": "workbench.action.tasks.build" },
+{ "key": "ctrl+shift+t",          "command": "workbench.action.tasks.test" },
 { "key": "ctrl+shift+c",          "command": "workbench.action.terminal.openNativeConsole" },
 { "key": "f11",                   "command": "workbench.action.toggleFullScreen" },
 { "key": "ctrl+j",                "command": "workbench.action.togglePanel" },

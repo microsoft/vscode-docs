@@ -3,7 +3,7 @@ Order: 6
 Area: extensions
 TOCTitle: Example-Debuggers
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
 
@@ -45,7 +45,7 @@ To try it:
 
 If you now start the launch configuration, you can 'step through' the target file, set and hit breakpoints, and run into exceptions (if the word `exception` appears in a line).
 
-![Mock Debug](images/example-debuggers/mock-debug.gif)
+![Mock Debugger running](images/example-debuggers/mock-debug.gif)
 
 ## Development Setup for mock-debug
 

@@ -3,7 +3,7 @@ Order: 6
 Area: editor
 TOCTitle: Debugging
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 ---
 
@@ -11,7 +11,7 @@ MetaDescription: One of the great things in Visual Studio Code is debugging supp
 
 One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile and debug loop.
 
-![Debug](images/debugging/hero.png)
+![Debugging](images/debugging/hero.png)
 
 Today we have good debugging support for **Node.js** (JavaScript and TypeScript) on all platforms and experimental support for **Mono** (C# and F#) on OS X and Linux. For debugging other languages, please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
 

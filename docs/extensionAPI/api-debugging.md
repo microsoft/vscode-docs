@@ -3,7 +3,7 @@ Order: 7
 Area: extensionapi
 TOCTitle: API debugging
 PageTitle: Visual Studio Code Debugging API
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Visual Studio Code extensions (plug-ins) Debugging API.
 ---
 

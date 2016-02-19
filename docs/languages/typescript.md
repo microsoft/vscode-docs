@@ -3,7 +3,7 @@ Order: 7
 Area: languages
 TOCTitle: TypeScript
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 ---
 
@@ -30,11 +30,11 @@ A simple `tsconfig.json` looks like this for ES5, AMD modules and source maps:
 
 ```json
 {
-	"compilerOptions": {
-		"target": "ES5",
-		"module": "amd",
-		"sourceMap": true
-	}
+    "compilerOptions": {
+        "target": "es5",
+        "module": "amd",
+        "sourceMap": true
+    }
 }
 ```
 
@@ -55,6 +55,8 @@ class Startup {
         return 0;
     }
 }
+
+Startup.main();
 ```
 
 ### Step 2: Create tasks.json
@@ -87,6 +89,12 @@ Under the covers we interpret `tsc` as an external task runner exposing exactly 
 As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
 
 The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` file was created.
+
+If you have [Node.js](https://nodejs.org) installed, you can run your simple Hello World example by opening up a terminal and running:
+
+```
+node HelloWorld.js
+```
 
 ### Step 4: Reviewing Build Issues
 
@@ -134,17 +142,17 @@ If generated (transpiled) JavaScript files do not live next to their source, you
 
 ## Hiding Derived JavaScript Files
 
-When you are working with TypeScript you often don’t want to see the files in the explorer or include them in search results. VS Code offers filtering capabilities to help, you can easily set an expression to hide those derived files:
+When you are working with TypeScript, you often don’t want to see generated JavaScript files in the explorer or in search results. VS Code offers filtering capabilities with a `files.exclude` option and you can easily create an expression to hide those derived files:
 
 `"**/*.js": { "when": "$(basename).ts"}`
 
-This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The result being that the file explorer will no longer show derived resources for JavaScript if they are compiled to the same location. All you have to do is configure this in the `files.exclude` setting.
+This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The file explorer will no longer show derived resources for JavaScript if they are compiled to the same location. Configure this with the `files.exclude` setting in your workspace settings (`File | Preferences | Workspace Settings`).
 
 ![Hiding derived resources](images/typescript/hidingderivedresources.png)
 
 ## Using Newer TypeScript Versions
 
-VS Code ships with a recent stable version of TypeScript in the box.  If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting supports relative paths so you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`). Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.
+VS Code ships with a recent stable version of TypeScript in the box.  If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting (`File | Preferences | User/Workspace Settings`) pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting supports relative paths so you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`). Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.
 
 ## Next Steps
 

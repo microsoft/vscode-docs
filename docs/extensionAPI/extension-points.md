@@ -3,7 +3,7 @@ Order: 3
 Area: extensionapi
 TOCTitle: Contribution Points
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 

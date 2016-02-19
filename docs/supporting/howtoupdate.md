@@ -14,10 +14,12 @@ The following shows you how to update to the latest release of Visual Studio Cod
 Auto-updates are not supported for Linux.
 
 ## Updating on Linux
+
 * Download the VS Code zip file: [64-bit](https://go.microsoft.com/fwlink/?LinkID=534108) or [32-bit](https://go.microsoft.com/fwlink/?LinkID=615206).
 * Open the zip and run **Code**
 
 ## Updating on OS X
+
 You need to do this only if auto-update did not complete.
 
 * Download the VS Code zip file from [here](https://go.microsoft.com/fwlink/?LinkID=534106).

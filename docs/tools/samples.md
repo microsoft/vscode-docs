@@ -3,7 +3,7 @@ Order: 3
 Area: tools
 TOCTitle: Samples
 PageTitle: Visual Studio Code Extension Samples
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Learn from existing extension samples.
 ---
 
@@ -22,6 +22,7 @@ Sample|Description|Type|InGallery
 **[Word Count](https://github.com/Microsoft/vscode-wordcount)**|Adds a word count to the status bar for Markdown files that updates on editing events.  We have a [walkthrough on how this was created](/docs/extensions/example-word-count.md).|[Extension](/docs/extensions/example-hello-world.md)|Y
 **[MDTools](https://github.com/Microsoft/vscode-MDTools)**|Work with selections and update based on common text processing e.g. ToUpper, HTMLEncode, ...|[Extension](/docs/extensions/example-hello-world.md)|Y
 **[Decorator](https://github.com/Microsoft/vscode-extension-samples/tree/master/decorator-sample)**|Shows how to decorate editor text with a border, colors, and a custom cursor as well as add an overview ruler highlight.|[Extension](/docs/extensions/example-hello-world.md)|N
+**[TextDocumentProvider](https://github.com/Microsoft/vscode-extension-samples/tree/master/textdocumentprovider-sample)**|Shows how to create virtual documents and preview them.|[Extension](/docs/extensions/example-hello-world.md)|N
 **[TSLint](https://github.com/Microsoft/vscode-tslint)**|Lint your TypeScript files based on TSLint|[Language Server](/docs/extensions/example-language-server.md)|Y
 **[Spelling and Grammar Checker](https://github.com/Microsoft/vscode-spell-check)**|Configurable Markdown spelling and grammar checker.  Calls an external web service for checking and supports activation, add to dictionary, error mapping.  Watches for config file changes in real time.|[Extension](/docs/extensions/example-hello-world.md)|Y
 **[Mock Debugger](https://github.com/Microsoft/vscode-mock-debug)**|Helps you build and test a debugger.|[Debuggers](/docs/extensions/example-debuggers.md)|Y

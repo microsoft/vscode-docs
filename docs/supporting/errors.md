@@ -12,7 +12,8 @@ Some errors that happen in Visual Studio Code can be worked around or resolved b
 If these steps don't help you, you probably hit a bug. You can check our [reported issues](https://github.com/microsoft/vscode/issues) list to see if others have had the same issue.
 
 ## 20001
->**Error:** Cannot start OmniSharp because Mono version >=3.10.0 is required
+
+>**Error:** Cannot start OmniSharp because Mono version >=3.10.0 is required.
 
 Currently, debugging support of VS Code on Linux or OS X requires Mono version 3.12 or later.
 If you intend to build ASP.NET Core applications with VS Code, we recommend to first follow the steps
@@ -26,6 +27,7 @@ for Linux or OS X at the [Mono Project Site](http://www.mono-project.com/downloa
 * On Linux: `sudo apt-get install mono-complete`
 
 ## 20002
+
 >**Error:** Cannot find '/usr/bin/gnome-terminal' for launching your Node.js program
 
 On Linux the VS Code Node.js debugger requires the **gnome-terminal** for launching the Node.js program.

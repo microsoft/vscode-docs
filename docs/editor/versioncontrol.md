@@ -3,7 +3,7 @@ Order: 5
 Area: editor
 TOCTitle: Version Control
 PageTitle: Version Control
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Visual Studio Code has integrated Git support for the most common commands.
 ---
 
@@ -19,7 +19,7 @@ to [install Git](http://git-scm.com/download) first before you get these feature
 
 ## Overview
 
-![git](images/versioncontrol/overview.png)
+![git overview](images/versioncontrol/overview.png)
 
 The Git icon on the left will always indicate
 an **overview of how many changes** you currently have in your repository.

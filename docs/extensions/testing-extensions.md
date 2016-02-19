@@ -3,13 +3,13 @@ Order: 10
 Area: extensions
 TOCTitle: Testing Extensions
 PageTitle: Testing Visual Studio Code Extensions
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
 
 # Testing Your Extension
 
-VS Code supports running and debugging tests for your extension that require the VS Code API. These tests will run inside an special instance of VS Code, the `Extension Development Host`, and have access to the full APIs. We refer to these tests as integration tests, because they go beyond unit tests that can run in isolattion from a VS Code window. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](http://mochajs.org/) or [Jasmine](http://jasmine.github.io/). 
+VS Code supports running and debugging tests for your extension that require the VS Code API. These tests will run inside a special instance of VS Code, the `Extension Development Host`, and have access to the full APIs. We refer to these tests as integration tests, because they go beyond unit tests that can run in isolation from a VS Code window. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](http://mochajs.org/) or [Jasmine](http://jasmine.github.io/).
 
 ## Yo Code Test Scaffolding
 
@@ -25,7 +25,7 @@ With this configuration chosen, when you run `Debug: Start` (`kb(workbench.actio
 
 The generated test uses the [Mocha test framework](http://mochajs.org/) for its test runner and library.
 
-The extension project comes with a `test` folder that includes an `index.ts` file which defines the Mocha testrunner configuration and an `extension.test.ts` which has the example `Something 1` test. You can typically leave `index.ts` untouched, but you can modify it to adjust the configuration of Mocha.
+The extension project comes with a `test` folder that includes an `index.ts` file which defines the Mocha test runner configuration and an `extension.test.ts` which has the example `Something 1` test. You can typically leave `index.ts` untouched, but you can modify it to adjust the configuration of Mocha.
 
 ```
 ├── test
@@ -41,15 +41,15 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
 
 ```json
 {
-	"name": "Launch Tests",
-	"type": "extensionHost",
-	"request": "launch",
-	"runtimeExecutable": "${execPath}",
-	"args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
-	"stopOnEntry": false,
-	"sourceMaps": true,
-	"outDir": "out",
-	"preLaunchTask": "npm"
+    "name": "Launch Tests",
+    "type": "extensionHost",
+    "request": "launch",
+    "runtimeExecutable": "${execPath}",
+    "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
+    "stopOnEntry": false,
+    "sourceMaps": true,
+    "outDir": "out",
+    "preLaunchTask": "npm"
 }
 ```
 
@@ -59,7 +59,7 @@ You can set the file or folder that the test instance should open by appending t
 
 ```json
 "args": ["file or folder name", "--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
-```	
+```
 
 This way you can run your tests with predictable content and folder structure.
 
@@ -77,6 +77,7 @@ test/**
 You can run extension tests automatically on build machines like [Travis CI](http://travis-ci.org).
 
 In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
+
 * download and unzip VS Code
 * launch your extension tests inside VS Code
 * print the results to the console and return with an exit code according to test success or failure
@@ -95,18 +96,18 @@ sudo: false
 os:
   - osx
   - linux
-    
+
 before_install:
   - if [ $TRAVIS_OS_NAME == "linux" ]; then
       export CXX="g++-4.9" CC="gcc-4.9" DISPLAY=:99.0;
       sh -e /etc/init.d/xvfb start;
       sleep 3;
     fi
-    
+
 install:
   - npm install
   - npm run vscode:prepublish
-    
+
 script:
   - npm test --silent
 ```
@@ -114,7 +115,7 @@ script:
 The script above will run the tests on both Linux and Mac OS X. Note that in order to run the tests on Linux, you need to have
 a `before_install` configuration as above to enable Linux to start VS Code from the build.
 
-**Note:** Currently we do not support running tests on Windows (e.g. using Appveyor). 
+**Note:** Currently we do not support running tests on Windows (e.g. using Appveyor).
 
 There are some optional environment variables to configure the test runner:
 

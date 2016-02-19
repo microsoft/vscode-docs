@@ -3,7 +3,7 @@ Order: 2
 Area: extensions
 TOCTitle: Example-Hello World
 PageTitle: Your First Visual Studio Code Extension - Hello World
-DateApproved: 12/18/2015
+DateApproved: 2/3/2016
 MetaDescription: Create your first Visual Studio extension (plug-in) with a simple Hello Word example.  This walkthrough will take you through the basics of VS Code extensibility.
 ---
 
@@ -206,7 +206,7 @@ Now that the roles of the files included in the extension are clarified, here is
 
 Simply set a breakpoint, for example inside the registered command and run the `"Hello world"` command in the Extension Development VS Code instance.
 
-![Debug Extension](images/example-hello-world/hitbp.png)
+![Debugging the extension](images/example-hello-world/hitbp.png)
 
 > **Note:** For TypeScript extensions, even though VS Code loads and executes `out/src/extension.js`, you are actually able to debug the original TypeScript code due to the generated source map `out/src/extension.js.map` and VS Code's debugger support for source maps.
 
