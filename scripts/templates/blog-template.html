@@ -1,0 +1,30 @@
+{{#regObject page="blog" section="{$ Link $}" title="{$ Title $}"}}{{/regObject}}
+
+<div class="container body-content docs blog">
+    <div class="row">
+        <div class="col-md-2">            
+			{{> blogNavigation}}
+		</div>
+		<div class="col-sm-9 col-md-8 body">
+			{$ Content $}
+		</div>
+        <div class="hidden-xs col-sm-3 col-md-2">
+            <nav id="docs-subnavbar">
+                {% if Sections.length %}
+				    <h4>In this blog</h4>
+                {% endif %}
+                <ul class="nav">
+                	{% for section in Sections %}
+                		<li><a href="#{$ section.Anchor $}">{$ section.Title $}</a></li>
+                	{% endfor %}
+                </ul>
+                <div class="connect-widget"></div>
+			</nav>
+        </div>
+	</div>
+</div>
+<div id="fb-root"></div>
+{{#section 'meta'}}
+	<meta name="description" content="{$ MetaDescription $}" />
+	<meta name="keywords" content="{$ MetaTags $}" />
+{{/section}}
