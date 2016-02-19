@@ -1,11 +1,11 @@
 ---
 Order: 1
-TOCTitle: Introducing Insiders Build
-PageTitle: Introducing Insiders Build
+TOCTitle: The Insiders Build
+PageTitle: Introducing the Insiders Build
 MetaDescription: insiders build
 ---
 
-# Introducing Insiders Build
+# Introducing the Insiders Build
 
 VS Code has its roots in the web (built using TypeScript and Node.js) and one thing we love about cloud based applications is that they are always up to date. Update the service and all of your users are instantly on the latest fixes and features, with no user interaction.
 
