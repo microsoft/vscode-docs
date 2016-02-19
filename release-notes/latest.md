@@ -9,14 +9,6 @@ MetaDescription: See what is new in the Visual Studio Code February Release (0.1
 
 ** TO DO **
 
-## Thank You
-
-We received many contributions from the community that helped to make VS Code better.
-
-A big Thank You goes out to:
-
-**TO DO**
-
 ## JavaScript - Salsa
 
 The JavaScript language service in VS Code has always been powered by TypeScript. We are now migrating to a new JavaScript language service implementation called [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). Salsa will become available with TypeScript 1.8 but for the January update, we are providing way to preview Salsa in VS Code.
@@ -75,7 +67,7 @@ bla
 
 ### Item
 
-bla 
+bla
 
 ## Debugging
 
@@ -97,13 +89,13 @@ bla
 
 ## Tasks Support
 
-The tasks.json editor has now snippet support to insert common tasks commands. As a result starting with a fresh tasks.json now results in an empty file with IntelliSense poplucated. No more uncommenting and commenting of sections.
+The `tasks.json` editor now has snippet support to insert common tasks commands. As a result, a fresh `tasks.json` is an empty file with IntelliSense populated. No longer will you need to comment and uncomment prefilled of sections.
 
 ![tasks.json](images/February/tasks-json.png)
 
 ## Localization
 
-Support has been added to localize package.json files for extensions and commonJS code. For localizing commonJS code we publish a new npm module `vscode-nls` which helps you with externalizing strings.
+Support has been added to localize package.json files for extensions and CommonJS code. For localizing CommonJS code, we publish a new npm module `vscode-nls` which helps you create external localized strings.
 
 ## Extension Authoring
 
@@ -115,3 +107,10 @@ bla
 
 * [999](https://github.com/Microsoft/vscode/issues/999): Issue Title
 
+## Thank You
+
+We received many contributions from the community that helped to make VS Code better.
+
+A big Thank You goes out to:
+
+**TO DO**
