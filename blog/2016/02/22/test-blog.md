@@ -1,11 +1,13 @@
 ---
-Order: 2
+Order: 3
 TOCTitle: Test Blog Post
 PageTitle: Testing Blog Post Creating
 MetaDescription: test blog post
 ---
 
 # Our second blog post
+
+![test blog image](test-blog_test-blog.png)
 
 On the VS Code team we like to [eat our own dog food](https://www.wikiwand.com/en/Eating_your_own_dog_food).
 
