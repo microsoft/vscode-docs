@@ -97,6 +97,14 @@ The `tasks.json` editor now has snippet support to insert common tasks commands.
 
 Support has been added to localize package.json files for extensions and CommonJS code. For localizing CommonJS code, we publish a new npm module `vscode-nls` which helps you create external localized strings.
 
+## Linux Debian Package
+
+A .deb package is now provided for easier installation on Debian-based distributions. To install simply download the .deb package from the [home page](code.visualstudio.com) and either double click to install through a GUI or install it via the command line with:
+
+```bash
+sudo dpkg -i vscode-amb64.deb
+```
+
 ## Extension Authoring
 
 ### Opt out for telemetry
