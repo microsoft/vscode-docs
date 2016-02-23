@@ -52,7 +52,7 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **Q: Can I contribute my own language service?**
 
-**A:** Not yet but soon. Help us prioritize this in our [user voice](https://go.microsoft.com/fwlink/?LinkID=533482) site.
+**A:** Yes you can! Check out the [example language server](https://code.visualstudio.com/docs/extensions/example-language-server) in the [Extending Visual Studio Code](https://code.visualstudio.com/docs/extensions/overview) documentation. 
 
 **Q: Can I map additional file extensions to a language?**
 
