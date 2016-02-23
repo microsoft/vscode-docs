@@ -25,7 +25,7 @@ We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.
 
 ## Syntax coloring & Color preview
 
-As you type we provide syntax highlighting as well as in context preview of colors.
+As you type, we provide syntax highlighting as well as in context preview of colors.
 
 ![Syntax and color](images/css/color.png)
 
@@ -90,7 +90,7 @@ nav {
 }
 ```
 
-For the Less version of the above file, just change `$padding` to `@@padding`.
+For the Less version of the above file, just change `$padding` to `@padding`.
 
 >**Note:** This is a very simple example, which is why the code is almost identical between both file types.  In more advanced scenarios, the syntaxes and constructs will be much different.
 
@@ -243,7 +243,7 @@ importStatement | Warn about using an `import` statement as import statements ar
 boxModel | Do not use `width` or `height` when using `padding` or `border` | ignore
 universalSelector | Warn when using the universal selector `*` as it is known to be slow and should be avoided | ignore
 zeroUnits | Warn when having zero with a unit e.g. `0em` as zero does not need a unit.  | ignore
-fontFaceProperties | Warn when using `@@font-face` rule without defining a `src` and `font-family` property | warning
+fontFaceProperties | Warn when using `@font-face` rule without defining a `src` and `font-family` property | warning
 hexColorLength | Warn when using hex numbers that don't consist of three or six hex numbers | error
 argumentsInColorFunction | Warn when an invalid number of parameters in color functions e.g. `rgb` | error
 unknownProperties | Warn when using an unknown property | warning
@@ -270,4 +270,4 @@ Read on to find out about:
 
 **Q: Do you support the indentation based Sass syntax (.sass) ?**
 
-**A:** No, this is currently not supported.
+**A:** No, not yet.
