@@ -23,9 +23,9 @@ In the above example we are showing an [AngularJS](http://github.com/auchenberg/
 For now, Chrome needs to be started with remote debugging enabled, and only supports one concurrent connection. This means if you open up DevTools inside Chrome, the connection to Visual Studio Code will get terminated by Chrome. This is slightly annoying, and we hope this [issue](https://code.google.com/p/chromium/issues/detail?id=129539) will be fixed sometime soon.
 
 ## To get started
-To get started to you simply open the command palette inside Visual Studio Code and type `ext install chrome` to install the debugger, followed by creating a launch-configuration file which we have explained in detail [right here](https://github.com/Microsoft/vscode-chrome-debug/blob/master/README.md).
+To get started to you simply open the command palette inside Visual Studio Code and type `ext install chrome` to install the debugger, followed by creating a launch-configuration file which we have explained in detail [right here](https://github.com/Microsoft/vscode-chrome-debug).
 
-You can either setup Visual Studio Code to connect to an already running Chrome instance or simply start a new one with remote debugging enabled, but read more about that in our [README](https://github.com/Microsoft/vscode-chrome-debug/blob/master/README.md).
+You can either setup Visual Studio Code to connect to an already running Chrome instance or simply start a new one with remote debugging enabled, but read more about that in our [README](https://github.com/Microsoft/vscode-chrome-debug).
 
 ## Supported features
 In this first release we support the following features:
