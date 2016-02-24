@@ -22,11 +22,13 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 >
 >```bash
 >function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+>export -f code
 >```
 >If you are using the prerelease [Insiders](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code) build, you would use:
 >
 >```bash
 >function code-insiders () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCodeInsiders" --args $*; }
+>export -f code-insiders
 >```
 
 Now, you can simply type `code .` in any folder to start editing files in that folder.
@@ -62,6 +64,11 @@ Now, you can simply type `code .` in any folder to start editing files in that f
 >**Tip:** Visual Studio Code will be added to your path, so from the console you can simply type `code .` to open VS Code on that folder!
 
 >**Tip:** You might need to log off after the installation for the change to the `PATH` environmental variable to take effect.
+
+## Note for nvm users
+Set default alias in nvm, i.e. `nvm alias default 0.10.32`. 
+Take a look at this [issue](https://github.com/Microsoft/vscode/issues/1895). 
+
 
 ## Additional Tools
 
