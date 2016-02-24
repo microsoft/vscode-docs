@@ -11,11 +11,12 @@ Since the first release of Visual Studio Code, one of our focuses has been to si
 
 Our Chrome Debugger allows front-end developers to debug their client-side JavaScript code running inside Google Chrome directly from Visual Studio Code.
 
+<br />
 ![Demo](2016_02_23_chrome-debugger-demo.gif)
 
 ## How does it work?
 
-Our debugger works by connecting to Chrome over it’s [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol), where we map files loaded in the browser to the files open in Visual Studio Code. This means developers now can set breakpoints directly from their source code, set up variables to watch and see the full call stack when debugging — all without leaving the editor.
+Our debugger works by connecting to Chrome over its [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol), where we map files loaded in the browser to the files open in Visual Studio Code. This means developers now can set breakpoints directly from their source code, set up variables to watch and see the full call stack when debugging — all without leaving the editor.
 
 In the above example, we are showing an [AngularJS](http://github.com/auchenberg/timey) app bundled and minified via [Browserify](http://browserify.org/) being debugged from VS Code. This works because our debugger understands [JavaScript Source Maps](http://www.html5rocks.com/en/tutorials/developertools/sourcemaps/), which we’ll use to enable developers to debug straight from their original source, and not the transpiled result that the browser sees. Supporting source maps also enables debugging of [TypeScript](http://www.typescriptlang.org/) straight from VS Code.
 
@@ -42,7 +43,7 @@ In this first release, we support the following features:
 
 ## Going forward
 
-We believe there’s much to be done for front-end developers, as building for the web in the recent years has become incredibly complex. With our Chrome debugger, we are taking the first step towards a simpler web development workflow, where tooling from different vendors are able to work together, and building for the web feels more integrated.
+We believe there’s much to be done for front-end developers, as building for the web in the recent years has become incredibly complex. With our Chrome debugger, we are taking the first step towards a simpler web development workflow, where browsers and tooling from different vendors are able to work together, and building for the web feels more integrated.
 
 We’ve released this extension on [GitHub](https://github.com/Microsoft/vscode-chrome-debug) as an MIT licensed open source project. It’s a work in progress, so see our issues page for known bugs – for example, we have a few issues around supporting all flavors of generated source maps.
 
