@@ -50,7 +50,7 @@ We’ve released this extension on [GitHub](https://github.com/Microsoft/vscode-
 
 For now we are supporting Google Chrome, and depending on your feedback, we might add support for [Microsoft Edge](https://www.microsoft.com/en-us/windows/microsoft-edge) and other browsers too, so we really want your feedback and help to build an even better debugging experience.
 
-If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/EdgeDevTools) or [GitHub](https://github.com/Microsoft/vscode-chrome-debug/).
+If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/code) or [GitHub](https://github.com/Microsoft/vscode-chrome-debug/).
 
 –
 
