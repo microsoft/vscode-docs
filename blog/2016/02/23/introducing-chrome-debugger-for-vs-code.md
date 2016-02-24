@@ -47,7 +47,7 @@ We believe there’s much to be done for front-end developers, as building for t
 
 We’ve released this extension on [GitHub](https://github.com/Microsoft/vscode-chrome-debug) as an MIT licensed open source project. It’s a work in progress, so see our issues page for known bugs – for example, we have a few issues around supporting all flavors of generated source maps.
 
-We really want to your feedback and help to build an even better debugging experience, so if you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/EdgeDevTools) or [GitHub](https://github.com/Microsoft/vscode-chrome-debug/).
+We really want your feedback and help to build an even better debugging experience, so if you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/EdgeDevTools) or [GitHub](https://github.com/Microsoft/vscode-chrome-debug/).
 
 –
 
