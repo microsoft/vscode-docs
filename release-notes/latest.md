@@ -107,9 +107,15 @@ In VS Code create an 'attach' launch config:
 
 ## Mono debugging
 
-### Item
+### Mono Debugging is now an Optional Install
 
-bla
+Since C# support in VS Code has been turned into an optional install, we have done the same with the Mono debugger.
+The Mono debugger has now become ['Mono Debug'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) on the Visual Studio Marketplace.
+
+You can either install Mono Debug with the VS Code 'Install Extension' command or if you already have a Mono based project with a mono launch configuration simply by starting a debug session. VS Code will then suggest to download and install Mono Debug automatically:
+
+![install-mono-debug-help](images/February/mono-debug-install.png)
+
 
 ## Tasks Support
 
