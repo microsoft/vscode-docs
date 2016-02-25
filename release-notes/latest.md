@@ -7,15 +7,63 @@ MetaDescription: See what is new in the Visual Studio Code February Release (0.1
 
 # 0.10.10 (February 2016)
 
-** TO DO **
+February is our last full iteration before we start the end game for the Build 2016 milestone at the end of March. It comes with many improvements:
+- Salsa is now the default JavaScript language service.
+- Folding, the most requested feature, is now available.
+- There is support for localization and accessiblity.
 
-## JavaScript - Salsa
+In addition, we continued to listen to your issues and feature requests.
 
-The JavaScript language service in VS Code has always been powered by TypeScript. We are now migrating to a new JavaScript language service implementation called [Salsa](https://github.com/Microsoft/TypeScript/issues/4789). Salsa will become available with TypeScript 1.8 but for the January update, we are providing way to preview Salsa in VS Code.
+## Languages - JavaScript
+
+The [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) JavaScript language service was available as preview in January and it is now the default language service for JavaScript in the February update. 
+
+### Changes
+These are the changes that you must be aware of and that you should review and act accordingly.
+
+#### Install and configure a linter
+The existing JavaScript language support provided some linting options that could be enabled by the `javascript.validate.lint.*` settings. With `jshint` and `eslint` there are powerful linters for JavaScript available. Also, there are now extensions for VS Code available that integrate these linters. Therefore, we have decided to deprecate the built-in linter and Salsa now reports **syntax errors only**. We therefore strongly recommend that you install and configure a JavaScript linter if your project hasn't done so already. 
+
+In particular, the existing JavaScript infrastructure provided an implicit 'lint rule' which warned about undeclared variables unless they are mentioned in a /\*global\*/ comment block. This implicit 'lint rule' is no longer active and needs to be configured in your linter of choice. 
+
+Here are the steps to setup `eslint`:
+- `npm install -g eslint`
+- install the VS Code [eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
+- `eslint --init` created an initial eslint configuration. 
+
+**Tip** If you use JSON as the format of the eslint config file, then VS Code can provide you with Intellisense when you edit the file.
+
+Notice, if you answer `yes` to "Do you use React", then the setting `experimentalObjectRestSpread` is enabled. Support for ObjectRestSpread is not yet provided by Salsa (see [#2103](https://github.com/Microsoft/TypeScript/issues/2103)).
+
+Finally, this [.eslintrc.json](https://gist.github.com/egamma/65c0e2a832393e3b625a) corresponds roughly to the lint settings of the old JavaScript infrastructure.
+
+#### Review and update the `exclude` lists in the `jsconfig.json`
+The existing JavaScript language service had a built-in list for folders that should be excluded from the project context. This list included the folders: `node_modules`, `bower_components`, `jspm_packages`, `tmp`, and `temp`. This implicit behaviour has been changed in favor of an explicit list defined by the user. Therefore if you use...
+- `node` exclude the `node_modules` folder
+- `bower` exclude the `bower_components` folder
+- `ember` exclude the `tmp` and `temp` folder
+- `jspm` exclude the `jspm_packages` folder
+- `webpack` then exclude the output folder, e.g., `dist`.
+
+*Tip* After editing the `jsconfig.json` do not forget to run the `Reload JavaScript` command to ensure that everything is up to date. 
+
+#### Changed default values in `jsconfig.json`
+If you do not have a `jsconfig.json` defined in your workspace then the following defaults are used:
+- the `module` attribute is `commonjs`
+- the `exclude` list includes the `node_modules` folder and the folder defined by the `out` attribute.
+
+#### Uninstall the `js-is-jsx` extension
+If you have installed the `js-is-jsx` extension to get syntax coloring for JSX constructs inside JavaScript files, then please uninstall this extension. It is no longer needed and you get coloring for JSX constructs inside `.js` files out of the box.
+
+#### No longer supported
+Salsa undoubtedly provides a much better experience writing JavaScript applications in VS Code. By moving to Salsa, we give up a few features previously available with our old JavaScript language service:
+- the source language level is now always ECMAScript 6. Previously there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
+- The existing JavaScript infrastructure attempted to resolve references for `AMD` modules. This hasn't worked in all cases and support for `AMD` to resolve references across files is currently no longer supported.
+- There is no longer support for Intellisense in `script` sections inside HTML documents.
+- The `javascript.validate.*` settings are no longer supported and are ignored (see above).
 
 ### Salsa Improvements
-
-Salsa provides important improvements over the existing JavaScript language service.
+These are the great improvements you get from Salsa.
 
 The JSDoc comment format is now understood and used to improve IntelliSense proposals and parameter hints:
 
@@ -31,15 +79,18 @@ The `commonjs` support has been improved as well:
 
 ![commonjs support](images/January/salsa-commonjs.png)
 
->**Tip:** When using `commonjs`, exclude the `node_modules` folder using the `exclude` property in `jsconfig.json`. This is due to [issue 6673](https://github.com/Microsoft/TypeScript/issues/6673) which is fixed but not yet in `typescript@next`.
+There is now support for JSX/React:
 
-There is now support for JSX:
+![React/JSX Support](images/January/jsx-salsa.png)
 
-![JSX Support](images/January/jsx-salsa.png)
+>**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` or `typings install --ambient react-global` from the terminal.
 
->**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` from the terminal.
+There is now support for ReactNative:
 
-Salsa also understands JSX constructs inside JavaScript (`.js`) files to support React Native development. We haven't updated the grammar for `.js` files yet but you can enable JSX syntax coloring for JS using the [`js-is-jsx` extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension tell VS Code to treat `.js` files as `.jsx` files so that the JSX syntax coloring is used.
+![React/JSX Support](images/February/react-native.png)
+
+>**Tip:** To get IntelliSense for ReactNative, install the typings for `react-native` by running `tsd install react-native` or `typings install --ambient react-native` from the terminal. Or even better... or if you also want 
+debugging support then install the preview of the [ReactNative extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
@@ -47,15 +98,8 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 Finally, the TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level.
 
-### Changes from the existing VS Code JavaScript support
-
-Salsa will undoubtedly provide a much better experience writing JavaScript applications in VS Code. By moving to this new service, we give up a few features previously available with our custom JavaScript language service.
-
-* When using Salsa, the language level is always ECMAScript 6. In the existing JavaScript language service, the default level was ES6 but there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
-* The existing JavaScript language service implicitly excluded some folders from the project, see the [JavaScript topic](/docs/languages/javascript.md#javascript-projects-jsconfigjson). This is no longer the case and you must exclude these folders explicitly in your `jsconfig.json` file.
-* Salsa flags syntax errors but the JavaScript linting options `javascript.validate.lint.*` defined in the user settings are no longer supported. To get these linting options back, we recommend that you use a linter combined with a VS Code linter extension like [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) or [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint).
-* Salsa doesn't support the `AMD` module system.
-
+## Languages - TypeScript
+Code now ships with the latest TypeScript 1.8.2 version.
 
 ## Editor
 
@@ -135,9 +179,6 @@ You can either install Mono Debug with the VS Code 'Install Extension' command o
 
 ## Tasks Support
 
-The `tasks.json` editor now has snippet support to insert common tasks commands. As a result, a fresh `tasks.json` is an empty file with IntelliSense populated. No longer will you need to comment and uncomment prefilled of sections.
-
-![tasks.json](images/February/tasks-json.png)
 
 ## Localization
 
