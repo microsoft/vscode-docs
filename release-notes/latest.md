@@ -77,9 +77,33 @@ bla
 
 ## Node.js Debugging
 
-### Item
+### Support for 'nodemon' Development Setup
 
-bla
+The VS Code node debugger now supports an automatic restart mode for the 'attach' launch configuration.
+This feature is useful if you use `nodemon` to restart node.js on file changes.
+Setting the launch config attribute `restart` to `true` makes node-debug automatically try to re-attach to node.js after a debug session has ended.
+
+On the command line start your node program `server.js`:
+
+```shell
+nodemon --debug server.js
+```
+
+In VS Code create an 'attach' launch config:
+
+```json
+{
+    "name": "Attach",
+    "type": "node",
+    "request": "attach",
+    "port": 5858,
+    "restart": true
+}
+```
+
+>**Tip:** Pressing the Stop button stops the debug session and disconnects from node, but nodemon (and node) will continue to run. So to stop nodemon you will have to kill it from the command line.
+
+>**Tip:** In case of (temporary) syntax errors, nodemon will not be able to start node.js successfully until the error has been fixed. In this case VS Code will continue trying to attach to node.js but eventually give up (after 10 seconds). To avoid this you can increase the timeout by adding a `timeout` attribute with a larger value (in milli seconds).
 
 ## Mono debugging
 
