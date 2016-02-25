@@ -71,9 +71,16 @@ bla
 
 ## Debugging
 
-### Item
+### VS Code no longer 'fixes' Relative Paths in Launch Configurations
 
-bla
+In the January milestone we've deprectated the use of relative paths in launch configurations (but still continued to convert relative in absolute paths).
+With this milestone we've dropped this 'automagical' fixing in favor of a more transparent strategy: VS Code does not modify launch configuration paths in any way when sending them to the debug adapter. This is now in line with treatment of paths in task configurations.
+
+If you haven't already fixed your launch configuration paths for the January release, then you will now see this (or similar) errors when starting a debug session:
+
+![install-mono-debug-help](images/February/relative-path-error.png)
+
+Just prefixing the relative path with a `${workspaceRoot}/` should fix the problem.
 
 ## Node.js Debugging
 
