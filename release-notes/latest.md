@@ -59,9 +59,8 @@ Salsa will undoubtedly provide a much better experience writing JavaScript appli
 
 ## Editor
 
-### Item
-
-bla
+### Indentation
+TODO@Isidor
 
 ## Workbench
 
@@ -81,6 +80,16 @@ If you haven't already fixed your launch configuration paths for the January rel
 ![install-mono-debug-help](images/February/relative-path-error.png)
 
 Just prefixing the relative path with a `${workspaceRoot}/` should fix the problem.
+
+### Function Breakpoints
+TODO@Isidor
+
+### Improved Accessibility
+TODO@Isidor
+
+### Pre Launch Task Improvements
+TODO@Isidor
+
 
 ## Node.js Debugging
 
