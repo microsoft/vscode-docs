@@ -29,7 +29,7 @@ In particular, the existing JavaScript infrastructure provided an implicit 'lint
 Here are the steps to setup `eslint`:
 - `npm install -g eslint`
 - install the VS Code [eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
-- `eslint --init` created an initial eslint configuration. 
+- use `eslint --init` to create an initial eslint configuration by answering questions or by picking a popular configuration. 
 
 **Tip** If you use JSON as the format of the eslint config file, then VS Code can provide you with Intellisense when you edit the file.
 
