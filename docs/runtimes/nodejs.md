@@ -77,24 +77,24 @@ Also notice that VS Code knows that `msg` is a string based on the initializatio
 
 ![string IntelliSense](images/nodejs/stringintellisense.png)
 
-VS Code can use TypeScript definition files (for example [`node.d.ts`](https://github.com/borisyankov/DefinitelyTyped/blob/master/node/node.d.ts)) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide not only a rich IntelliSense experience, but also warnings when an API is being used incorrectly.
+VS Code can use TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide not only a rich IntelliSense experience, but also warnings when an API is being used incorrectly.
 
-The [TypeScript Definition Manager (TSD)](http://definitelytyped.org/tsd/) makes it easy to search for and install TypeScript definition files into your workspace. This tool will download the requested definition from the [DefinitelyTyped repository](https://github.com/borisyankov/DefinitelyTyped). As we did with the express generator, we will install TSD globally using NPM so that you can use the tool in any application you create.
+[Typings](https://github.com/typings/typings), the type definition manager for TypeScript, makes it easy to search for and install TypeScript definition files into your workspace. This tool can download the requested definitions from a variety of sources, including the [DefinitelyTyped repository](https://github.com/DefinitelyType/DefinitelyTyped). As we did with the express generator, we will install Typings globally using NPM so that you can use the tool in any application you create.
 
 ```bash
-npm install -g tsd
+npm install -g typings
 ```
 
->**Tip:** TSD has a number of options for configuring where and how definition files are downloaded, from the terminal run `tsd --help` for more information.
+>**Tip:** Typings has a number of options for configuring where and how definition files are downloaded, from the terminal run `typings --help` for more information.
 
 Now you can pull down the Node and Express definitions.
 
 ```bash
-tsd query node --action install
-tsd query express --action install
+typings install node --ambient
+typings install express --ambient
 ```
 
->**Tip:** You can download multiple definition files by combining them on the command line, for example `tsd query node express --action install`.
+>**Tip:** You can download multiple definition files by combining them on the command line, for example `typings install node express --ambient`.
 
 Open `app.js` and notice how the warnings no longer appear for`__dirname`. This is because VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 

@@ -78,7 +78,7 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 - [mocha](http://mochajs.org/) - a JavaScript test framework that runs on Node.js
 - [bower](http://bower.io/) - a client side package manager
 - [TypeScript](http://typescriptlang.org) - brings structure and strong typing to your JavaScript code, without compromising the good parts
-- [TypeScript definition manager](http://definitelytyped.org/tsd/) - search and download 100's of TypeScript definition files for popular JavaScript frameworks, providing great IntelliSense in VS Code
+- [Typings](https://github.com/typings/typings) - TypeScript definition manager to search and download 100's of TypeScript definition files for popular JavaScript frameworks, providing great IntelliSense in VS Code
 
 
 ## Next Steps
