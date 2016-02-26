@@ -111,11 +111,11 @@ Salsa undoubtedly provides a much better experience writing JavaScript applicati
 
 ## Languages - TypeScript
 
-Code now ships with the latest TypeScript 1.8.2 version.
+VS Code now ships with the latest TypeScript 1.8.2 version.
 
 ## Languages - C#
 
-C# unbundling **TODO@chris**
+C# language support is now an optional install. **TODO@chris**
 
 ## Editor
 
@@ -142,9 +142,21 @@ The folding regions are evaluated solely based on the indentation of each line. 
 
 **TODO@alex**
 
+### Screen reading
+
+**TODO@alex**
+
 ## Workbench
 
-### Item
+### Open definition to the side
+
+**TODO@joao**
+
+### Close all but this
+
+**TODO@joao**
+
+### Support to switch to a working file from the quick box
 
 **TODO@joao**
 
@@ -239,7 +251,7 @@ The command line interface for code has been unified across platforms and now su
 
 ## Opt out for telemetry
 
-User's now have the option of opting out of usage telemetry, for more information <LINK TO THE DOCS>.
+User's now have the option of opting out of usage telemetry, for more information see [here](**TODO**).
 
 
 ## Extension Authoring
@@ -247,6 +259,10 @@ User's now have the option of opting out of usage telemetry, for more informatio
 ### Always install a compatible version of the extension if possible
 
 **TODO@joao**
+
+### Experimental support for recommending extensions based on usage/setup
+
+**TODO**
 
 ### Debug Adapter
 
