@@ -192,6 +192,10 @@ A .deb package is now provided for easier installation on Debian-based distribut
 sudo dpkg -i vscode-amb64.deb
 ```
 
+## CLI is now properly documented
+
+The command line interface for code has been unified across platforms and now supports `--help` and `--version` arguments.
+
 ## Extension Authoring
 
 ### Opt out for telemetry
@@ -204,7 +208,7 @@ bla
 
 ## Notable Bug Fixes
 
-* [999](https://github.com/Microsoft/vscode/issues/999): Issue Title
+* [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
 
 ## Thank You
 
