@@ -210,6 +210,12 @@ The performance of the in-product extension gallery (via `ext install `) has bee
 
 Accessibility has been a constant theme over the past milestones and in February VS Code has been improved across the feature space.
 
+### High Contrast Theme
+
+As a part of the accessibility work, the High Contrast theme, which was only available for Windows users, is now enabled for all 3 platforms.
+
+![High Contrast Theme](images/February/high-contrast.png)
+
 ## Debugging
 
 ### VS Code no longer 'fixes' Relative Paths in Launch Configurations
