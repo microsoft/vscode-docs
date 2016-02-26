@@ -303,10 +303,9 @@ A .deb package is now provided for easier installation on Debian-based distribut
 sudo dpkg -i vscode-amb64.deb
 ```
 
-## Opt out for telemetry
+## Telemetry Opt Out
 
-User's now have the option of opting out of usage telemetry, for more information see [here](**TODO**).
-
+Users now have the option of opting out of usage telemetry via the `telemetry.enableTelemetry` setting.
 
 ## Extension Authoring
 
