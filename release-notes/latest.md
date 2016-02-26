@@ -206,6 +206,10 @@ Clicking it will open the list of suggested extensions. You can also reach this 
 
 The performance of the in-product extension gallery (via `ext install `) has been greatly improved. We introduced a server-side cache which speeds up the request considerably.
 
+### Improved Accessibility
+
+Accessibility has been a constant theme over the past milestones and in February VS Code has been improved across the feature space.
+
 ## Debugging
 
 ### VS Code no longer 'fixes' Relative Paths in Launch Configurations
