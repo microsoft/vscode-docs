@@ -113,15 +113,19 @@ Salsa undoubtedly provides a much better experience writing JavaScript applicati
 
 VS Code now ships with the latest TypeScript 1.8.2 version.
 
-## Languages - C#
+## Languages - C&#35;
 
-C# language support is now an optional install. **TODO@chris**
+C# language support is now an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). You can install it from within VS Code by searching for 'C#':
+
+![Installing C# extension](images/February/ext-csharp.png)
+
+or if you already have a project with C# files, VS Code will offer you to install as soon as you open a C# file.
 
 ## Editor
 
 ### Folding
 
-The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (File > Preferences > User Settings or Workspace Settings). Once enabled, you you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
+The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (File > Preferences > User Settings or Workspace Settings). Once enabled, you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
 
 ![Code Folding](images/February/folding.png)
 
@@ -140,7 +144,7 @@ The intellisense widget underwent a full widget rewrite to address some performa
 
 ### Indentation
 
-Inititated by [user reqeusts](https://github.com/Microsoft/vscode/issues/1228), we have introduced an indentation status in the editor to help with tabs to spaces conversion and vice versa.
+Inititated by user request [#1228](https://github.com/Microsoft/vscode/issues/1228), we have introduced an indentation status in the editor to help with 'tabs to spaces' conversion and vice versa.
 
 ![indentation status](images/february/indentation-2.png)
 
@@ -149,7 +153,7 @@ Inititated by [user reqeusts](https://github.com/Microsoft/vscode/issues/1228), 
 
 ### Ruler Settings
 
-There is a new setting available, `editor.rulers`. For example, setting it to `[80, 120]` will render two vertical rulers, one after the 80th character and one after the 120th character.
+There is a new setting `editor.rulers` available. For example, setting it to `[80, 120]` will render two vertical rulers, one after the 80th character and one after the 120th character.
 
 ### Default End of Line Sequence
 
@@ -175,7 +179,7 @@ With the adoption of the Salsa Javascript language service as the default, we co
 
 ### Open Definition to the Side
 
-There is now an action to open a definition to the side in the Command Pallette.
+There is now an action to open a definition to the side in the Command Palette.
 
 ![close other files](images/February/open-definition-to-side.png)
 
@@ -232,19 +236,19 @@ Just prefixing the relative path with a `${workspaceRoot}/` should fix the probl
 ### Improved Accessibility
 
 Based on [user feedback](https://github.com/Microsoft/vscode/issues/2108#issuecomment-183373356) we have improved debug accessibility:
-* changes in debug state are read out (started, breakpoint hit, terminated...)
-* all debug actions are keyboard accessibile
-* focus intuitively moves inside debug viewlet and repl
-* debug hover is keyboard accessible
+* changes in debug state are read out (e.g. 'started', 'breakpoint hit', 'terminated', ...),
+* all debug actions are keyboard accessibile,
+* focus intuitively moves inside debug viewlet and debug console,
+* debug hover is keyboard accessible.
 
 ### Pre Launch Task Improvements
 
 We have improved the `preLaunchTask` based on user feedback and feature requests:
-* If `preLaunchTask` produces an error debugging does not start and an appropriate message with an option to debug despite the error is shown.
-* If a `preLaunchTask` is a watching task debugging does not start before the watching task becomes inactive
-* If a `tasks.json` is missing and a `preLaunchTask` is set we offer the user to create a `tasks.json`
+* If `preLaunchTask` produces an error debugging does not start and a message with an option 'debug despite the error' is shown.
+* If a `preLaunchTask` is a watching task debugging does not start before the watching task becomes inactive.
+* If a `tasks.json` is missing and a `preLaunchTask` is set we offer the user to create a `tasks.json`:
 
-![pre-launch-task-error](images/February/pre-launch-task-error.png)
+  ![pre-launch-task-error](images/February/pre-launch-task-error.png)
 
 ## Node.js Debugging
 
@@ -274,21 +278,21 @@ In VS Code create an 'attach' launch config:
 
 >**Tip:** Pressing the Stop button stops the debug session and disconnects from node, but nodemon (and node) will continue to run. So to stop nodemon you will have to kill it from the command line.
 
->**Tip:** In case of (temporary) syntax errors, nodemon will not be able to start node.js successfully until the error has been fixed. In this case VS Code will continue trying to attach to node.js but eventually give up (after 10 seconds). To avoid this you can increase the timeout by adding a `timeout` attribute with a larger value (in milli seconds).
+>**Tip:** In case of syntax errors, nodemon will not be able to start node.js successfully until the error has been fixed. In this case VS Code will continue trying to attach to node.js but eventually give up (after 10 seconds). To avoid this you can increase the timeout by adding a `timeout` attribute with a larger value (in milli seconds).
 
 ### Function Breakpoints
 
 Instead of placing breakpoints directly in the code, the VS Code node debugger now supports to create breakpoints by specifying a function name.
-This is useful in situations where source is not available but a function is known.
+This is useful in situations where source is not available but a function name is known.
 
-A so called 'function breakpoints' is created by pressing the '+' button in the breakpoints viewlet header:
+A so called 'function breakpoint' is created by pressing the '+' button in the breakpoints viewlet header:
 
 ![function-breakpoint](images/February/function-breakpoint.gif)
 
-**Please note**: Node.js function breakpoints are somewhat limited because:
+**Please note**: Node.js dupport for function breakpoints isfunction breakpoints limited because:
 
-- they only work for global, non-native functions and
-- they can only be created if the function has been defined (seen by node.js).
+- function breakpoints only work for global, non-native functions and
+- function breakpoints can only be created if the function has been defined (seen by node.js).
 
 ## Mono debugging
 
@@ -325,7 +329,7 @@ sudo dpkg -i vscode-amb64.deb
 
 ## Telemetry Opt Out
 
-Users now have the option of opting out of usage telemetry via the `telemetry.enableTelemetry` setting.
+Users now can opt out of usage telemetry via the `telemetry.enableTelemetry` setting.
 
 ## Extension Authoring
 
@@ -333,13 +337,21 @@ Users now have the option of opting out of usage telemetry via the `telemetry.en
 
 Code will now fallback to installing the latest compatible version of an extension with its own version, in case the latest extension version isn't compatible. This prevents users from installing extensions that could fail to activate.
 
-### Experimental support for recommending extensions based on usage/setup
-
-**TODO**
-
 ### Debug Adapter
 
-Initiated by a [request from the Powershell debug adapter team](https://github.com/Microsoft/vscode/issues/1696) we now support more runtime options: adapters can now specify `winx86` in their `package.json` to specify 32-bit specific options.
+We now support more OS types for the `debuggers` contribution point (see [#1696](https://github.com/Microsoft/vscode/issues/1696) for details). In addition to `win`, `linux`, and `osx`, adapters can now use `winx86` in their `package.json` to specify options specific to a 32-bit Windows:
+
+```json
+"debuggers": [{
+    "type": "gdb",
+    "win": {
+        "program": "./bin/gdbDebug.exe",
+    },
+    "winx86": {
+        "program": "./bin/gdbDebug_x86.exe",
+    }
+}
+```
 
 ### Debug Protocol Changes
 
@@ -351,9 +363,9 @@ We have changed the debug protocol in the following (backward compatible) ways:
 
     ![breakpoint-with-exclamation-mark](images/February/breakpoint-exclam.png)
 
-  - A boolean `supportsFunctionBreakpoints` in `Capabilities` indicates whether the debug adapter implements function breakpoints. VS Code will only use the function breakpoint part of the debug protocol if this feature is enabled.
+  - A boolean `supportsFunctionBreakpoints` in `Capabilities` indicates whether the debug adapter implements function breakpoints. VS Code will only use the new function breakpoint request of the debug protocol if this feature is enabled.
 
-  - A boolean `supportEvaluateForHovers` indicates whether the debug adapter supports a side effect free `EvaluateRequest`. If this feature is enabled, VS Code will use the `evaluate` request to populate the hover with information about the object under the mouse pointer. If it is disabled, VS Code tries to find informaton about the object under the mouse pointer in the Variables viewlet.
+  - A boolean `supportEvaluateForHovers` indicates whether the debug adapter supports a side effect free `EvaluateRequest`. If this feature is enabled, VS Code will use the `evaluate` request to populate the hover with information about the object under the mouse pointer. If it is disabled, VS Code uses the information from the Variables viewlet.
 
   - An optional `exceptionBreakpointFilters` capability that lists the filters available for the `setExceptionBreakpoints` request. With this a debug adapter can contribute the options shown in the breakpoint viewlet:
 
@@ -365,10 +377,10 @@ We have changed the debug protocol in the following (backward compatible) ways:
 
 ## Notable Bug Fixes
 
-- [439](https://github.com/Microsoft/vscode/issues/439): `ext install` is slow
-- [2490](https://github.com/Microsoft/vscode/issues/2490): Improve Intellisense perf
-- [1228](https://github.com/Microsoft/vscode/issues/1228): Add option to convert tabs to spaces
 - [105](https://github.com/Microsoft/vscode/issues/105): Add option to convert tabs to spaces
+- [439](https://github.com/Microsoft/vscode/issues/439): `ext install` is slow
+- [1228](https://github.com/Microsoft/vscode/issues/1228): Add option to convert tabs to spaces
+- [2490](https://github.com/Microsoft/vscode/issues/2490): Improve Intellisense perf
 - [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
 
 
@@ -380,5 +392,9 @@ Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aiss
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-* [SamVerschueren](https://github.com/SamVerschueren): fix TextEditorOptions declaration [2935](https://github.com/Microsoft/vscode/pull/2935).
 * [sparecycles](https://github.com/sparecycles): fix replacing end of line with newline [2587](https://github.com/Microsoft/vscode/pull/2587).
+* [SamVerschueren](https://github.com/SamVerschueren): fix TextEditorOptions declaration [2935](https://github.com/Microsoft/vscode/pull/2935).
+* [Alexis Aubry](https://github.com/alexaubry): Updated Swift Autocompletion Syntax [3198](https://github.com/Microsoft/vscode/pull/3198).
+* [Xaver Hellauer](https://github.com/xaverh): Fixes to C++ and C syntax [2649](https://github.com/Microsoft/vscode/pull/2649).
+* [mkosieradzki](https://github.com/mkosieradzki): Add support for jsonSchema integer type in Intellisense [2844](https://github.com/Microsoft/vscode/pull/2844).
+
