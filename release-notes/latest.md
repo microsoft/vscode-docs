@@ -150,7 +150,9 @@ The folding regions are evaluated solely based on the indentation of each line. 
 
 ### Open definition to the side
 
-**TODO@joao**
+There is now an action to open a definition to the side in the Command Pallette.
+
+![close other files](images/0_10_0/open-definition-to-side.png)
 
 ### Close Other Files
 
