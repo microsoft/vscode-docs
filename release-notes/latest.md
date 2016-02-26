@@ -192,6 +192,16 @@ prefixing it with `~`.
 
 ![close other files](images/0_10_0/quick-open-working-files.png)
 
+### Extension Tips
+
+There is a new status bar indication for suggesting extensions based on your use of Code.
+
+![extension tips](images/0_10_0/extension-tips.png)
+
+Clicking it will open the list of suggested extensions. You can also reach this by typing `ext tips ` in the quick box.
+
+![extension tips](images/0_10_0/extension-tips-2.png)
+
 ## Debugging
 
 ### VS Code no longer 'fixes' Relative Paths in Launch Configurations
