@@ -355,7 +355,12 @@ We have changed the debug protocol in the following (backward compatible) ways:
 
 ## Notable Bug Fixes
 
+- [439](https://github.com/Microsoft/vscode/issues/439): `ext install` is slow
+- [2490](https://github.com/Microsoft/vscode/issues/2490): Improve Intellisense perf
+- [1228](https://github.com/Microsoft/vscode/issues/1228): Add option to convert tabs to spaces
+- [105](https://github.com/Microsoft/vscode/issues/105): Add option to convert tabs to spaces
 - [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
+
 
 Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22Feb+2016%22+is%3Aclosed) and the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Feb+2016%22+is%3Aclosed+label%3Afeature-request) for the February update.
 
