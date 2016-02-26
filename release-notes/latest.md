@@ -144,11 +144,27 @@ The intellisense widget underwent a full widget rewrite to address some performa
 
 ### Ruler Settings
 
-**TODO@alex**
+There is a new setting available, `editor.rulers`. For example, setting it to `[80, 120]` will render two vertical rulers, one after the 80th character and one after the 120th character.
+
+### Default End of Line Sequence
+
+A new setting `files.eol` controls the default new line character when creating new files. It defaults to `\r\n` on Windows and to `\n` on Linux and OS X.
 
 ### Screen reading
 
-**TODO@alex**
+We have turned on by default a new strategy for screen readers in the editor, one that is based on paging the text. From our testing, this is the best option in terms of trade-off between good screen reader support and performance when dealing with very large files.
+
+The Go to Next/Previous Error or Warning actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) now allow screen readers to announce the error or warning messages.
+
+We have added a keyboard shortcut for showing the hover (`kb(editor.action.showHover)`).
+
+### Word navigation and word separators
+
+Word navigation and word deletion commands have been refurbished and now honour a new setting, `editor.wordSeparators` when deciding what is a word, regardless of the current language of the file.
+
+### Improved usage of web workers
+
+With the adoption of the Salsa Javascript language service as the default, we could streamline our usage of web workers and we now have a dedicated web worker that is language agnostic, which we use for diff computation, link detection or simple textual completions. This reduces the latency of these computations and is memory friendly, as it automatically shuts down when not needed.
 
 ## Workbench
 
@@ -313,3 +329,5 @@ Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aiss
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
+* [SamVerschueren](https://github.com/SamVerschueren): fix TextEditorOptions declaration [2935](https://github.com/Microsoft/vscode/pull/2935).
+* [sparecycles](https://github.com/sparecycles): fix replacing end of line with newline [2587](https://github.com/Microsoft/vscode/pull/2587).
