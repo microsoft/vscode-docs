@@ -229,10 +229,6 @@ If you haven't already fixed your launch configuration paths for the January rel
 
 Just prefixing the relative path with a `${workspaceRoot}/` should fix the problem.
 
-### Function Breakpoints
-
-**TODO@andre**
-
 ### Improved Accessibility
 
 Based on [user feedback](https://github.com/Microsoft/vscode/issues/2108#issuecomment-183373356) we have improved debug accessibility:
@@ -279,6 +275,20 @@ In VS Code create an 'attach' launch config:
 >**Tip:** Pressing the Stop button stops the debug session and disconnects from node, but nodemon (and node) will continue to run. So to stop nodemon you will have to kill it from the command line.
 
 >**Tip:** In case of (temporary) syntax errors, nodemon will not be able to start node.js successfully until the error has been fixed. In this case VS Code will continue trying to attach to node.js but eventually give up (after 10 seconds). To avoid this you can increase the timeout by adding a `timeout` attribute with a larger value (in milli seconds).
+
+### Function Breakpoints
+
+Instead of placing breakpoints directly in the code, the VS Code node debugger now supports to create breakpoints by specifying a function name.
+This is useful in situations where source is not available but a function is known.
+
+A so called 'function breakpoints' is created by pressing the '+' button in the breakpoints viewlet header:
+
+![function-breakpoint](images/February/function-breakpoint.gif)
+
+**Please note**: Node.js function breakpoints are somewhat limited because:
+
+- they only work for global, non-native functions and
+- they can only be created if the function has been defined (seen by node.js).
 
 ## Mono debugging
 
