@@ -299,7 +299,7 @@ User's now have the option of opting out of usage telemetry, for more informatio
 
 ### Always install a compatible version of the extension if possible
 
-**TODO@joao**
+Code will now fallback to installing the latest compatible version of an extension with its own version, in case the latest extension version isn't compatible. This prevents users from installing extensions that could fail to activate.
 
 ### Experimental support for recommending extensions based on usage/setup
 
