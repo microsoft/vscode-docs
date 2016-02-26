@@ -140,7 +140,12 @@ The intellisense widget underwent a full widget rewrite to address some performa
 
 ### Indentation
 
-**TODO@Isidor**
+Inititated by [user reqeusts](https://github.com/Microsoft/vscode/issues/1228), we have introduced an indentation status in the editor to help with tabs to spaces conversion and vice versa.
+
+![indentation status](images/february/indentation-2.png)
+
+![indentation actions](images/february/indentation-1.png)
+
 
 ### Ruler Settings
 
@@ -206,11 +211,20 @@ Just prefixing the relative path with a `${workspaceRoot}/` should fix the probl
 
 ### Improved Accessibility
 
-**TODO@Isidor**
+Based on [user feedback](https://github.com/Microsoft/vscode/issues/2108#issuecomment-183373356) we have improved debug accessibility:
+* changes in debug state are read out (started, breakpoint hit, terminated...)
+* all debug actions are keyboard accessibile
+* focus intuitively moves inside debug viewlet and repl
+* debug hover is keyboard accessible
 
 ### Pre Launch Task Improvements
 
-**TODO@Isidor**
+We have improved the `preLaunchTask` based on user feedback and feature requests:
+* If `preLaunchTask` produces an error debugging does not start and an appropriate message with an option to debug despite the error is shown.
+* If a `preLaunchTask` is a watching task debugging does not start before the watching task becomes inactive
+* If a `tasks.json` is missing and a `preLaunchTask` is set we offer the user to create a `tasks.json`
+
+![pre-launch-task-error](images/February/pre-launch-task-error.png)
 
 ## Node.js Debugging
 
@@ -293,7 +307,7 @@ User's now have the option of opting out of usage telemetry, for more informatio
 
 ### Debug Adapter
 
-- more runtime options: 32-bit or 64-bit debug host **TODO@Isidor**
+Initiated by a [request from the Powershell debug adapter team](https://github.com/Microsoft/vscode/issues/1696) we now support more runtime options: adapters can now specify `winx86` in their `package.json` to specify 32-bit specific options.
 
 ### Debug Protocol Changes
 
