@@ -8,6 +8,7 @@ MetaDescription: See what is new in the Visual Studio Code February Release (0.1
 # 0.10.10 (February 2016)
 
 February is our last full iteration before we start the end game for the Build 2016 milestone at the end of March. It comes with many improvements:
+
 - Salsa is now the default JavaScript language service.
 - Folding, the most requested feature, is now available.
 - There is support for localization and accessiblity.
@@ -63,6 +64,7 @@ The existing JavaScript language support provided some linting options that coul
 In particular, the existing JavaScript infrastructure provided an implicit *lint rule* which warned about undeclared variables unless they are mentioned in a /\*global\*/ comment block. This rule is no longer active and needs to be configured in your linter of choice.
 
 Here are the steps to setup `eslint`:
+
 - `npm install -g eslint`
 - install the VS Code [eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 - use `eslint --init` to create an initial eslint configuration by answering questions or by picking a popular configuration.
@@ -76,7 +78,9 @@ Finally, this [.eslintrc.json](https://gist.github.com/egamma/65c0e2a832393e3b62
 ### Changes in `jsconfig.json`
 
 #### `exclude` lists
+
 The existing JavaScript language service had a built-in list for folders that should be excluded from the project context. This list included the folders: `node_modules`, `bower_components`, `jspm_packages`, `tmp`, and `temp`. This implicit behaviour has been changed in favor of an explicit list defined by the user. Therefore if you use...
+
 - `node` exclude the `node_modules` folder
 - `bower` exclude the `bower_components` folder
 - `ember` exclude the `tmp` and `temp` folder
@@ -86,40 +90,48 @@ The existing JavaScript language service had a built-in list for folders that sh
 **Tip:** After editing the `jsconfig.json` do not forget to run the `Reload JavaScript` command to ensure that everything is up to date.
 
 #### Defaults
+
 If you do not have a `jsconfig.json` in your workspace then the following defaults are used:
+
 - the `module` attribute is `commonjs`
 - the `exclude` list includes the `node_modules` folder and the folder defined by the `out` attribute.
 
 ### `js-is-jsx` extension deprecation
+
 The `js-is-jsx` extension is no longer needed since Salsa gives you coloring for JSX constructs inside `.js` files out of the box. We **recommend** to uninstall this extension.
 
 ### No longer supported
+
 Salsa undoubtedly provides a much better experience writing JavaScript applications in VS Code. By moving to Salsa, we give up a few features previously available with our old JavaScript language service:
+
 - The source language level is now always ECMAScript 6. Previously there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
 - The existing JavaScript infrastructure attempted to resolve references for `AMD` modules. This hasn't worked in all cases and support for `AMD` to resolve references across files is currently no longer supported.
 - There is no longer support for Intellisense in `script` sections inside HTML documents.
 - The `javascript.validate.*` settings are no longer supported and are ignored (see above).
 
 ## Languages - TypeScript
+
 Code now ships with the latest TypeScript 1.8.2 version.
 
 ## Editor
 
 ### Folding
 
-The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (File > Preferences > User Settings or Workspace Settings). Once enabled, you you can collapse and expand code regions using the folding icons next to the line numbers. Regions thatcan be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
+The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (File > Preferences > User Settings or Workspace Settings). Once enabled, you you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
 
 ![Code Folding](images/February/folding.png)
 
 Additionally you can use the following commands from the commands menu (F1) or with keyboard shortcuts:
- - Fold (`Ctrl+ Shift + [`) folds the innermost uncollapsed region at the cursor
- - Unfold (`Ctrl+ Shift + ]`) unfolds the collapsed region at the cursor
- - Fold All (`Ctrl+ Shift + Alt + [`) folds all region in the editor
- - Unfold All (`Ctrl+ Shift + Alt + ]`) unfolds all regions in the editor
+
+- Fold (`Ctrl+ Shift + [`) folds the innermost uncollapsed region at the cursor
+- Unfold (`Ctrl+ Shift + ]`) unfolds the collapsed region at the cursor
+- Fold All (`Ctrl+ Shift + Alt + [`) folds all region in the editor
+- Unfold All (`Ctrl+ Shift + Alt + ]`) unfolds all regions in the editor
 
 The folding regions are evaluated solely based on the indentation of each line. This first version does not yet support language agnostic folding regions, or folding markers. This is in discussion for an upcoming release. The issue for this is [#3422](https://github.com/Microsoft/vscode/issues/3422).
 
 ### Indentation
+
 TODO@Isidor
 
 ## Workbench
@@ -142,12 +154,15 @@ If you haven't already fixed your launch configuration paths for the January rel
 Just prefixing the relative path with a `${workspaceRoot}/` should fix the problem.
 
 ### Function Breakpoints
+
 TODO@Isidor
 
 ### Improved Accessibility
+
 TODO@Isidor
 
 ### Pre Launch Task Improvements
+
 TODO@Isidor
 
 
@@ -216,7 +231,7 @@ The command line interface for code has been unified across platforms and now su
 
 ### Opt out for telemetry
 
-User's now have the option of optting out of usage telemetry, for more information <LINK TO THE DOCS>.
+User's now have the option of opting out of usage telemetry, for more information <LINK TO THE DOCS>.
 
 ### Item
 
@@ -226,23 +241,24 @@ bla
 
 We have changed the debug protocol in the following (backward compatible) ways:
 
-* *Feature negotiation*:
-  * A boolean `supportsConditionalBreakpoints` in `Capabilities` indicates whether the debug adapter supports conditional breakpoints. If a debug adpter does not support conditional breakpoints, a breakpoint which has a condition set is shown with an exclamation mark:
+- *Feature negotiation*:
+
+  - A boolean `supportsConditionalBreakpoints` in `Capabilities` indicates whether the debug adapter supports conditional breakpoints. If a debug adpter does not support conditional breakpoints, a breakpoint which has a condition set is shown with an exclamation mark:
 
     ![breakpoint-with-exclamation-mark](images/February/breakpoint-exclam.png)
 
-  * A boolean `supportsFunctionBreakpoints` in `Capabilities` indicates whether the debug adapter implements function breakpoints.
-  * An optional `exceptionBreakpointFilters` capability that lists the filters available for the `setExceptionBreakpoints` request. With this a debug adapter can contribute the options shown in the breakpoint viewlet:
+  - A boolean `supportsFunctionBreakpoints` in `Capabilities` indicates whether the debug adapter implements function breakpoints.
+  - An optional `exceptionBreakpointFilters` capability that lists the filters available for the `setExceptionBreakpoints` request. With this a debug adapter can contribute the options shown in the breakpoint viewlet:
 
     ![breakpoint-options](images/February/breakpoint-options.png)
 
 
-* An optional `restart` attribute has been added to the `TerminatedEvent` which a debug adapter can use to request a session restart.
+- An optional `restart` attribute has been added to the `TerminatedEvent` which a debug adapter can use to request a session restart.
 
 
 ## Notable Bug Fixes
 
-* [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
+- [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
 
 ## Thank You
 
