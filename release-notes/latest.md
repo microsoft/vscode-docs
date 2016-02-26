@@ -133,7 +133,7 @@ bla
 ### VS Code no longer 'fixes' Relative Paths in Launch Configurations
 
 In the January milestone we've deprectated the use of relative paths in launch configurations (but still continued to convert relative in absolute paths).
-With this milestone we've dropped this 'automagical' fixing in favor of a more transparent strategy: VS Code does not modify launch configuration paths in any way when sending them to the debug adapter. This is now in line with treatment of paths in task configurations.
+With this milestone we've dropped this 'automagical' fixing in favor of a more transparent strategy: VS Code no longer modifies launch configuration paths in any way when sending them to the debug adapter. This is now in line with treatment of paths in task configurations.
 
 If you haven't already fixed your launch configuration paths for the January release, then you will now see this (or similar) errors when starting a debug session:
 
@@ -221,6 +221,24 @@ User's now have the option of optting out of usage telemetry, for more informati
 ### Item
 
 bla
+
+### Debug Protocol Changes
+
+We have changed the debug protocol in the following (backward compatible) ways:
+
+* *Feature negotiation*:
+  * A boolean `supportsConditionalBreakpoints` in `Capabilities` indicates whether the debug adapter supports conditional breakpoints. If a debug adpter does not support conditional breakpoints, a breakpoint which has a condition set is shown with an exclamation mark:
+
+    ![breakpoint-with-exclamation-mark](images/February/breakpoint-exclam.png)
+
+  * A boolean `supportsFunctionBreakpoints` in `Capabilities` indicates whether the debug adapter implements function breakpoints.
+  * An optional `exceptionBreakpointFilters` capability that lists the filters available for the `setExceptionBreakpoints` request. With this a debug adapter can contribute the options shown in the breakpoint viewlet:
+
+    ![breakpoint-options](images/February/breakpoint-options.png)
+
+
+* An optional `restart` attribute has been added to the `TerminatedEvent` which a debug adapter can use to request a session restart.
+
 
 ## Notable Bug Fixes
 
