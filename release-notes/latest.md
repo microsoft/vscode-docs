@@ -277,11 +277,15 @@ You can either install Mono Debug with the VS Code 'Install Extension' command o
 
 ![install-mono-debug-help](images/February/mono-debug-install.png)
 
+## Improved Command Line Interaction
 
-## Tasks Support
+The command line interface for code has been unified across all platforms and now supports a few arguments such as `--help` and `--version`.
 
-is there anything new here?, or did we revert Dirk's change? **TODO**
+### OS X Shell Command
 
+In OS X, two new commands were added to install the Code shell command in the `$PATH`. This makes the previous alias in `~/.bash_profile` deprecated and we **recommend you to remove it** and use this command instead.
+
+![Shell Command](images/0_10_0/shell-command.png)
 
 ## Localization
 
@@ -294,11 +298,6 @@ A .deb package is now provided for easier installation on Debian-based distribut
 ```bash
 sudo dpkg -i vscode-amb64.deb
 ```
-
-## CLI is now properly documented
-
-The command line interface for code has been unified across platforms and now supports `--help` and `--version` arguments.
-
 
 ## Opt out for telemetry
 
