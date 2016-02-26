@@ -105,6 +105,20 @@ Code now ships with the latest TypeScript 1.8.2 version.
 
 ## Editor
 
+### Folding
+
+The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (File > Preferences > User Settings or Workspace Settings). Once enabled, you you can collapse and expand code regions using the folding icons next to the line numbers. Regions thatcan be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
+
+![Code Folding](images/February/folding.png)
+
+Additionally you can use the following commands from the commands menu (F1) or with keyboard shortcuts:
+ - Fold (`Ctrl+ Shift + [`) folds the innermost uncollapsed region at the cursor
+ - Unfold (`Ctrl+ Shift + ]`) unfolds the collapsed region at the cursor
+ - Fold All (`Ctrl+ Shift + Alt + [`) folds all region in the editor
+ - Unfold All (`Ctrl+ Shift + Alt + ]`) unfolds all regions in the editor
+
+The folding regions are evaluated solely based on the indentation of each line. This first version does not yet support language agnostic folding regions, or folding markers. This is in discussion for an upcoming release. The issue for this is [#3422](https://github.com/Microsoft/vscode/issues/3422).
+
 ### Indentation
 TODO@Isidor
 
