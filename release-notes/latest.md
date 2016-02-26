@@ -279,8 +279,6 @@ User's now have the option of opting out of usage telemetry, for more informatio
 
 - more runtime options: 32-bit or 64-bit debug host **TODO@Isidor**
 
-- eval based hover **TODO@andre**
-
 ### Debug Protocol Changes
 
 We have changed the debug protocol in the following (backward compatible) ways:
@@ -291,7 +289,10 @@ We have changed the debug protocol in the following (backward compatible) ways:
 
     ![breakpoint-with-exclamation-mark](images/February/breakpoint-exclam.png)
 
-  - A boolean `supportsFunctionBreakpoints` in `Capabilities` indicates whether the debug adapter implements function breakpoints.
+  - A boolean `supportsFunctionBreakpoints` in `Capabilities` indicates whether the debug adapter implements function breakpoints. VS Code will only use the function breakpoint part of the debug protocol if this feature is enabled.
+
+  - A boolean `supportEvaluateForHovers` indicates whether the debug adapter supports a side effect free `EvaluateRequest`. If this feature is enabled, VS Code will use the `evaluate` request to populate the hover with information about the object under the mouse pointer. If it is disabled, VS Code tries to find informaton about the object under the mouse pointer in the Variables viewlet.
+
   - An optional `exceptionBreakpointFilters` capability that lists the filters available for the `setExceptionBreakpoints` request. With this a debug adapter can contribute the options shown in the breakpoint viewlet:
 
     ![breakpoint-options](images/February/breakpoint-options.png)
