@@ -134,6 +134,10 @@ Additionally you can use the following commands from the commands menu (F1) or w
 
 The folding regions are evaluated solely based on the indentation of each line. This first version does not yet support language agnostic folding regions, or folding markers. This is in discussion for an upcoming release. The issue for this is [#3422](https://github.com/Microsoft/vscode/issues/3422).
 
+### Intellisense Performance
+
+The intellisense widget underwent a full widget rewrite to address some performance problems head on. It now handles lists of 20.000 extensions in milliseconds, compared to the previous ~10 seconds of lag.
+
 ### Indentation
 
 **TODO@Isidor**
