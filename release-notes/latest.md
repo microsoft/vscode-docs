@@ -43,7 +43,7 @@ There is now support for JSX:
 
 ![JSX Support](images/January/jsx-salsa.png)
 
->**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `typings install react-global` from the terminal.
+>**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `typings install react-global --ambient` from the terminal.
 
 Salsa also understands JSX constructs inside JavaScript (`.js`) files to support React Native development. We haven't updated the grammar for `.js` files yet but you can enable JSX syntax coloring for JS using the [`js-is-jsx` extension](https://marketplace.visualstudio.com/items?itemName=eg2.js-is-jsx). This extension tell VS Code to treat `.js` files as `.jsx` files so that the JSX syntax coloring is used.
 
