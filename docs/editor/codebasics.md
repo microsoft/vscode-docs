@@ -14,6 +14,17 @@ At its heart, Visual Studio Code is a code editor. Like many other code editors,
 In addition, there are a number of unique features in the VS Code user interface. This topic describes these features.
 
 
+## Changing Settings
+
+VS Code settings can be changed by editing either of two files:
+
+Select **Files->Preferences->User Settings** (or press `F1`, type `user` and press `Enter`) and edit the user settings.json file to change settings for all your VS Code projects (workspaces).
+
+Select **Files->Preferences->Workspace Settings** (or press `F1`, type `worksp` and press `Enter`) and edit the workspace settings.json file to change the settings for the current workspace.
+
+Type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
+
+
 ## Files, Folders & Projects
 
 VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
@@ -73,9 +84,9 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 ![Explorer Menu](images/codebasics/explorer_menu.png)
 
-VS Code works very well with other tools that you might use, especially command line tools. If you want to run a command line tool in the context of the folder you currently have open in VS Code, right-click the folder and select `Open in Console`.
+VS Code works very well with other tools that you might use, especially command line tools. If you want to run a command line tool in the context of the folder you currently have open in VS Code, right-click the folder and select `Open in Terminal`.
 
-You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting `Reveal in Explorer` (or `Reveal in Finder` on the Mac).
+You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting `Open Containing Folder` (or `Reveal in Finder` on the Mac).
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` to quickly search and open a file by its name.
 
