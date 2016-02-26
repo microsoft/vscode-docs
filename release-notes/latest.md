@@ -152,9 +152,11 @@ The folding regions are evaluated solely based on the indentation of each line. 
 
 **TODO@joao**
 
-### Close all but this
+### Close Other Files
 
-**TODO@joao**
+There is now an action to close all other files, in the Working Files' context menu.
+
+![close other files](images/0_10_0/close-other-files.png)
 
 ### Support to switch to a working file from the quick box
 
