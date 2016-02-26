@@ -113,6 +113,10 @@ Salsa undoubtedly provides a much better experience writing JavaScript applicati
 
 Code now ships with the latest TypeScript 1.8.2 version.
 
+## Languages - C#
+
+C# unbundling **TODO@chris**
+
 ## Editor
 
 ### Folding
@@ -132,13 +136,17 @@ The folding regions are evaluated solely based on the indentation of each line. 
 
 ### Indentation
 
-TODO@Isidor
+**TODO@Isidor**
+
+### Ruler Settings
+
+**TODO@alex**
 
 ## Workbench
 
 ### Item
 
-bla
+**TODO@joao**
 
 ## Debugging
 
@@ -155,16 +163,15 @@ Just prefixing the relative path with a `${workspaceRoot}/` should fix the probl
 
 ### Function Breakpoints
 
-TODO@Isidor
+**TODO@andre**
 
 ### Improved Accessibility
 
-TODO@Isidor
+**TODO@Isidor**
 
 ### Pre Launch Task Improvements
 
-TODO@Isidor
-
+**TODO@Isidor**
 
 ## Node.js Debugging
 
@@ -210,10 +217,12 @@ You can either install Mono Debug with the VS Code 'Install Extension' command o
 
 ## Tasks Support
 
+is there anything new here?, or did we revert Dirk's change? **TODO**
+
 
 ## Localization
 
-Support has been added to localize package.json files for extensions and CommonJS code. For localizing CommonJS code, we publish a new npm module `vscode-nls` which helps you create external localized strings.
+Support has been added to localize `package.json` files for extensions and CommonJS code. For localizing CommonJS code, we've published a new npm module [`vscode-nls`](https://www.npmjs.com/package/vscode-nls) which helps you with localizing strings in your VS Code extension.
 
 ## Linux Debian Package
 
@@ -227,15 +236,23 @@ sudo dpkg -i vscode-amb64.deb
 
 The command line interface for code has been unified across platforms and now supports `--help` and `--version` arguments.
 
-## Extension Authoring
 
-### Opt out for telemetry
+## Opt out for telemetry
 
 User's now have the option of opting out of usage telemetry, for more information <LINK TO THE DOCS>.
 
-### Item
 
-bla
+## Extension Authoring
+
+### Always install a compatible version of the extension if possible
+
+**TODO@joao**
+
+### Debug Adapter
+
+- more runtime options: 32-bit or 64-bit debug host **TODO@Isidor**
+
+- eval based hover **TODO@andre**
 
 ### Debug Protocol Changes
 
