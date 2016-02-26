@@ -293,10 +293,10 @@ We have changed the debug protocol in the following (backward compatible) ways:
 
 - [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
 
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22Feb+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Feb+2016%22+is%3Aclosed+label%3Afeature-request) for the January update.
+
+
 ## Thank You
 
-We received many contributions from the community that helped to make VS Code better.
+Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-A big Thank You goes out to:
-
-**TO DO**
