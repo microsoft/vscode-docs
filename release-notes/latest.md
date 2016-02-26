@@ -202,6 +202,10 @@ Clicking it will open the list of suggested extensions. You can also reach this 
 
 ![extension tips](images/February/extension-tips-2.png)
 
+### Extension Gallery Performance Improvement
+
+The performance of the in-product extension gallery (via `ext install `) has been greatly improved. We introduced a server-side cache which speeds up the request considerably.
+
 ## Debugging
 
 ### VS Code no longer 'fixes' Relative Paths in Launch Configurations
