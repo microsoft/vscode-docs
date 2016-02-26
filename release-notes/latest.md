@@ -162,7 +162,10 @@ There is now an action to close all other files, in the Working Files' context m
 
 ### Support to switch to a working file from the quick box
 
-**TODO@joao**
+It's now possible to open a file in the working files list from the quick box by
+prefixing it with `~`.
+
+![close other files](images/0_10_0/quick-open-working-files.png)
 
 ## Debugging
 
