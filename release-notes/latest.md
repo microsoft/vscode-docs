@@ -177,30 +177,30 @@ With the adoption of the Salsa Javascript language service as the default, we co
 
 There is now an action to open a definition to the side in the Command Pallette.
 
-![close other files](images/0_10_0/open-definition-to-side.png)
+![close other files](images/February/open-definition-to-side.png)
 
 ### Close Other Files
 
 There is now an action to close all other files, in the Working Files' context menu.
 
-![close other files](images/0_10_0/close-other-files.png)
+![close other files](images/February/close-other-files.png)
 
 ### Support to switch to a working file from the quick box
 
 It's now possible to open a file in the working files list from the quick box by
 prefixing it with `~`.
 
-![close other files](images/0_10_0/quick-open-working-files.png)
+![close other files](images/February/quick-open-working-files.png)
 
 ### Extension Tips
 
 There is a new status bar indication for suggesting extensions based on your use of Code.
 
-![extension tips](images/0_10_0/extension-tips.png)
+![extension tips](images/February/extension-tips.png)
 
 Clicking it will open the list of suggested extensions. You can also reach this by typing `ext tips ` in the quick box.
 
-![extension tips](images/0_10_0/extension-tips-2.png)
+![extension tips](images/February/extension-tips-2.png)
 
 ## Debugging
 
@@ -285,7 +285,7 @@ The command line interface for code has been unified across all platforms and no
 
 In OS X, two new commands were added to install the Code shell command in the `$PATH`. This makes the previous alias in `~/.bash_profile` deprecated and we **recommend you to remove it** and use this command instead.
 
-![Shell Command](images/0_10_0/shell-command.png)
+![Shell Command](images/February/shell-command.png)
 
 ## Localization
 
