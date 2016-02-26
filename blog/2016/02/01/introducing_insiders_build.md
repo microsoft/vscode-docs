@@ -3,6 +3,9 @@ Order: 1
 TOCTitle: The Insiders Build
 PageTitle: Introducing the Insiders Build
 MetaDescription: insiders build
+Date: 2016-02-01
+ShortDescription: Introduction to the Insiders Build
+Author: Chris Dias
 ---
 
 # Introducing the Insiders Build

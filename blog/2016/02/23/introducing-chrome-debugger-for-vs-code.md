@@ -3,6 +3,9 @@ Order: 2
 TOCTitle: Introducing Chrome Debugging
 PageTitle: Introducing Chrome Debugging for VS Code
 MetaDescription: Chrome debugger extension for Visual Studio Code
+Date: 2016-02-23
+ShortDescription: Introduction to Chrome Debugging Extension in VS Code
+Author: Andy Sterland
 ---
 
 # Introducing Chrome Debugging for VS Code
