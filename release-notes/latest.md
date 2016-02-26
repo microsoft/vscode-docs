@@ -148,7 +148,7 @@ The folding regions are evaluated solely based on the indentation of each line. 
 
 ## Workbench
 
-### Open definition to the side
+### Open Definition to the Side
 
 There is now an action to open a definition to the side in the Command Pallette.
 
