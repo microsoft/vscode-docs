@@ -41,16 +41,15 @@ There is now support for JSX/React:
 
 >**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` or `typings install --ambient react-global` from the terminal.
 
->**Tip:** When you use eslint for linting (see below) and you used `eslint --init` to create an eslint configuration and you answered  `yes` to "Do you use React", then the setting `experimentalObjectRestSpread` is enabled. Support for ObjectRestSpread is not yet provided by Salsa but it is on the roadmap (see [#2103](https://github.com/Microsoft/TypeScript/issues/2103)).
+>**Tip:** When you use eslint for linting (see below) and you used `eslint --init` to create an eslint configuration and you answered  `yes` to "Do you use React?", then the setting `experimentalObjectRestSpread` is enabled. Support for ObjectRestSpread is not yet provided by Salsa but it is on the roadmap (see [#2103](https://github.com/Microsoft/TypeScript/issues/2103)).
 
 There is now support for React Native:
 
 ![React Native Support](images/February/react-native.png)
 
->**Tip:** To get IntelliSense for React Native, install the typings for `react-native` by running `tsd install react-native` or `typings install --ambient react-native` from the terminal. Or even better... if you also want
-debugging support then install the preview of the [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
+>**Tip:** To get IntelliSense for React Native, install the typings for `react-native` by running `tsd install react-native` or `typings install --ambient react-native` from the terminal. Or even better... if you also want debugging support then install the preview of the [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
->**Tip:** There is a known issue in that Salsa Doesn't Provide Intellisense When Using Import Statements (Issue [#61](https://github.com/Microsoft/vscode-react-native/issues/61)).
+>**Tip:** There is a known issue in that [Salsa Doesn't Provide IntelliSense When Using Import Statements](https://github.com/Microsoft/vscode-react-native/issues/61).
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
@@ -395,3 +394,6 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [Xaver Hellauer](https://github.com/xaverh): Fixes to C++ and C syntax [2649](https://github.com/Microsoft/vscode/pull/2649).
 * [mkosieradzki](https://github.com/mkosieradzki): Add support for jsonSchema integer type in IntelliSense [2844](https://github.com/Microsoft/vscode/pull/2844).
 
+## VS Code Blog now on code.visualstudio.com
+
+You might not have noticed but we've moved the [VS Code blog](/blogs) to our website.  We hope you find this more convenient and easier to search across all of our documentation. Check out the recent post about the [Chrome Debugger extension](/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code)!
