@@ -20,7 +20,7 @@ To get started, [install Node.js for your platform](https://nodejs.org/download/
 [Express](http://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold a new Express application using the Express Generator tool, which is typically installed globally on your computer.
 
 ```bash
-npm install -g express-generator
+sudo npm install -g express-generator
 ```
 
 We can now scaffold a new Express application called `myExpressApp`.
