@@ -146,7 +146,6 @@ Key|Command|Command id
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
-`kb(o.showOutput)`|Show OmniSharp Log|`o.showOutput`
 `kb(workbench.action.markdown.togglePreview)`|Toggle Markdown Preview|`workbench.action.markdown.togglePreview`
 `kb(workbench.action.markdown.openPreviewSideBySide)`|Open Preview to the Side|`workbench.action.markdown.openPreviewSideBySide`
 
@@ -213,8 +212,8 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 { "key": "alt+right",                             "command": "workbench.action.navigateForward" },
 
 // Global keybindings using chords
-{ "key": "ctrl+l l",                              "command": "o.showOutput" },
-{ "key": "ctrl+l shift+r",                        "command": "o.execute" },
+{ "key": "ctrl+k enter",                          "command": "workbench.files.action.addToWorkingFiles" },
+{ "key": "ctrl+k ctrl+w",                         "command": "workbench.files.action.closeAllFiles" },
 ```
 
 Each rule consists of:

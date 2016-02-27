@@ -120,7 +120,7 @@ C# language support is now an optional [install from the Marketplace](https://ma
 
 ![Installing C# extension](images/February/ext-csharp.png)
 
-or if you already have a project with C# files, VS Code will prompt youu to install the extension as soon as you open a C# file.
+or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
 
 ## Editor
 
@@ -132,10 +132,10 @@ The editor now contains a first implementation of code folding. You can turn the
 
 Additionally you can use the following commands from the commands menu (F1) or with keyboard shortcuts:
 
-- Fold (`Ctrl+ Shift + [`) folds the innermost uncollapsed region at the cursor
-- Unfold (`Ctrl+ Shift + ]`) unfolds the collapsed region at the cursor
-- Fold All (`Ctrl+ Shift + Alt + [`) folds all region in the editor
-- Unfold All (`Ctrl+ Shift + Alt + ]`) unfolds all regions in the editor
+- Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
+- Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
+- Fold All (`kb(editor.foldAll)`) folds all region in the editor
+- Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
 
 The folding regions are evaluated solely based on the indentation of each line. This first version does not yet support language agnostic folding regions, or folding markers. This is in discussion for an upcoming release (see issue [#3422](https://github.com/Microsoft/vscode/issues/3422)).
 
@@ -171,13 +171,13 @@ With the adoption of the Salsa JavaScript language service as the default, we co
 
 ### Open Definition to the Side
 
-There is now an action to open a definition to the side in the Command Palette.
+There is now an action to open a definition to the side in the Command Palette (`kb(editor.action.openDeclarationToTheSide)`).
 
 ![open definition to the side](images/February/open-definition-to-side.png)
 
 ### Close Other Files
 
-There is now an action to close all other files, in the Working Files' context menu.
+There is now an action to close all other files, in the Working Files' context menu (`kb(workbench.files.action.closeOtherFiles)`).
 
 ![close other files](images/February/close-other-files.png)
 
@@ -206,7 +206,7 @@ The performance of the in-product Extension Gallery (via the `Extensions: Instal
 ### VS Code no longer 'fixes' Relative Paths in Launch Configurations
 
 In the January milestone, we deprecated the use of relative paths in launch configurations (but still continued to convert relative in absolute paths).
-With this milestone, we've dropped this automatic fixing in favor of a more transparent strategy: VS Code no longer modifies launch configuration paths in any way when sending them to the debug adapter. This is now done as a runtime treatment of paths in task configurations.
+With this milestone, we've dropped this automatic fixing in favor of a more transparent strategy: VS Code no longer modifies launch configuration paths when sending them to the debug adapter. This is now the same treatment of paths as for task configurations.
 
 If you haven't already fixed your launch configuration paths for the January release, then you will now see this (or similar) errors when starting a debug session:
 
@@ -218,11 +218,12 @@ Just prefixing the relative path with a `${workspaceRoot}/` should fix the probl
 
 We have improved the `preLaunchTask` based on user feedback and feature requests:
 
-* If `preLaunchTask` produces an erro, debugging does not start and a message with an option 'debug despite the error' is shown.
-* If a `preLaunchTask` is a watching task, debugging does not start before the watching task becomes inactive.
-* If a `tasks.json` is missing and a `preLaunchTask` is set, we offer the user to create a `tasks.json`:
+* If `preLaunchTask` produces an error, debugging does not start and a message with an option to continue debugging despite the error is shown.
 
   ![pre-launch-task-error](images/February/pre-launch-task-error.png)
+
+* If a `preLaunchTask` is a watching task, debugging does not start before the watching task becomes inactive.
+* If a `tasks.json` is missing and a `preLaunchTask` is set, we offer to create a `tasks.json` for the user.
 
 ### Support for Node.js 'nodemon' Development Setup
 
@@ -315,8 +316,6 @@ We have turned on by default a new strategy for screen readers in the editor, on
 
 The Go to Next/Previous Error or Warning actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) now allow screen readers to announce the error or warning messages.
 
-We have added a keyboard shortcut for showing the hover (`kb(editor.action.showHover)`).
-
 ### Improved Debugger Accessibility
 
 Based on [user feedback](https://github.com/Microsoft/vscode/issues/2108#issuecomment-183373356), we have improved debugger accessibility:
@@ -324,7 +323,7 @@ Based on [user feedback](https://github.com/Microsoft/vscode/issues/2108#issueco
 * Changes in debug state are read out (e.g. 'started', 'breakpoint hit', 'terminated', ...)
 * All debug actions are keyboard accessible
 * Focus intuitively moves inside the Debug View and Debug Console
-* Debug hover is keyboard accessible
+* Debug hover is keyboard accessible (`kb(editor.action.showHover)`)
 
 ## Localization
 
