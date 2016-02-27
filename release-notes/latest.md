@@ -41,6 +41,8 @@ There is now support for JSX/React:
 
 >**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` or `typings install --ambient react-global` from the terminal.
 
+>**Tip:** When you use eslint for linting (see below) and you used `eslint --init` to create an eslint configuration and you answered  `yes` to "Do you use React", then the setting `experimentalObjectRestSpread` is enabled. Support for ObjectRestSpread is not yet provided by Salsa but it is on the roadmap (see [#2103](https://github.com/Microsoft/TypeScript/issues/2103)).
+
 There is now support for React Native:
 
 ![React Native Support](images/February/react-native.png)
@@ -70,11 +72,9 @@ Here are the steps to set up `eslint`:
 - install the VS Code [eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 - use `eslint --init` to create an initial eslint configuration by answering questions or by picking a popular configuration.
 
-**Tip** If you use JSON as the format of the eslint configuration file, then VS Code can provide you with IntelliSense when you edit the file.
+**Tip** If you use JSON as the format of the eslint configuration file, then VS Code can provide you with IntelliSense when you edit the `.eslintrs.json` file.
 
-Notice, if you answer `yes` to "Do you use React", then the setting `experimentalObjectRestSpread` is enabled. Support for ObjectRestSpread is not yet provided by Salsa (see [#2103](https://github.com/Microsoft/TypeScript/issues/2103)).
-
-Finally, this [.eslintrc.json](https://gist.github.com/egamma/65c0e2a832393e3b625a) corresponds roughly to the lint settings of the old JavaScript infrastructure.
+This [.eslintrc.json](https://gist.github.com/egamma/65c0e2a832393e3b625a) corresponds roughly to the lint settings of the old JavaScript infrastructure.
 
 ### Changes in `jsconfig.json`
 
@@ -96,6 +96,8 @@ If you do not have a `jsconfig.json` in your workspace then the following defaul
 
 - the `module` attribute is `commonjs`
 - the `exclude` list includes the `node_modules` folder and the folder defined by the `out` attribute.
+
+What has not changed, but what you should be aware of is that if you have **no `jsconfig.json` defined** to mark the root of your project, then each JavaScript file is considered an island by Salsa. If the project is a `commonjs` project then the `import` or `require` statements are used to relate the JS files together. If the project isn't a `commonjs` then you can use `/// references (`/// <reference path="SomeJsFile.js" />`) to relate files.
 
 ### `js-is-jsx` extension deprecation
 
