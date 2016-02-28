@@ -81,7 +81,7 @@ You can also navigate to the location of a file or folder in the native Explorer
 
 By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` setting to configure rules for hiding files and folders from the explorer.
 
-**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`
+**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
 ## Working Files
 
