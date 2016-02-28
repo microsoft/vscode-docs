@@ -79,7 +79,7 @@ You can also navigate to the location of a file or folder in the native Explorer
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` to quickly search and open a file by its name.
 
-By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` setting to configure rules for hiding files and folders from the explorer.
+By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/customization/userandworkspace.md) to configure rules for hiding files and folders from the explorer.
 
 **Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`
 
@@ -97,7 +97,7 @@ Think of the working files section as similar to Tabs that you may be familiar w
 
 Once you are done with your task, you can individually remove files from the working files section, or you can remove all files from the working files section by using the `Close All Files` action.
 
->**Tip:** You can configure the appearance of working files in your settings. For example, you can set the maximum number of visible files before a scroll bar appears via `explorer.workingFiles.maxVisible` and whether the working files section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
+>**Tip:** You can configure the appearance of working files in your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.workingFiles.maxVisible` setting and whether the working files section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
 
 ## Save/Auto Save
 

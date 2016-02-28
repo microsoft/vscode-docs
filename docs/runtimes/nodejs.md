@@ -11,7 +11,7 @@ MetaDescription: Visual Studio Code has great support for writing and debugging 
 
 [Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [NPM](https://www.npmjs.com/) is the Package Manager for Node.js modules.
 
-To get started, [install Node.js for your platform](https://nodejs.org/download/). The Node Package Manager is included in the Node distribution.
+To get started, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node distribution.
 
 > **Tip!** You can download both the TypeScript and JavaScript versions of the sample application created in this walkthrough from the [vscode-samples](https://github.com/Microsoft/vscode-samples/archive/master.zip) repository.
 
