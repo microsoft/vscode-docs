@@ -150,9 +150,9 @@ The IntelliSense widget underwent a full rewrite to address some performance pro
 
 Initiated by user request [#1228](https://github.com/Microsoft/vscode/issues/1228), we have introduced indentation status in the editor to help with 'tabs to spaces' conversion and vice versa.
 
-![indentation status](images/february/indentation-2.png)
+![indentation status](images/February/indentation-2.png)
 
-![indentation actions](images/february/indentation-1.png)
+![indentation actions](images/February/indentation-1.png)
 
 ### Ruler Settings
 
