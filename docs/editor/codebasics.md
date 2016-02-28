@@ -192,15 +192,23 @@ Then choose an encoding.
 You can launch VS Code from the command line to quickly open a file, folder, or project. Typically, you open VS Code within the context of a folder. We find the best way to do this is to simply type:
 
 ```
-code .
+code . &
 ```
 
+The `&` at the end is optional but it allows you to continue using your terminal window for executing other commands.
+
 >**Tip:** We have instructions for Mac and Linux users in our [Setup](/docs/editor/setup.md) topic that enable you to start VS Code from within a terminal.  We add Code to the PATH environment variable in Windows automatically.
+
+If you don't supply _any_ folder argument, Code will resume its last editing session, even if that session was in a different folder from the folder in which the `code` command is invoked.
+
+```
+code &
+```
 
 Sometimes you will want to open or create a file. If a file does not exist, we will create it for you:
 
 ```
-code index.html style.css readme.md
+code index.html style.css readme.md &
 ```
 
 >**Tip:** You can have as many file names as you want separated by spaces.
@@ -231,9 +239,9 @@ VS Code does not distinguish between opening a folder and opening a project. Ins
 
 To open the project contained in the folder `C:\src\WebApp`:
 
-````
-code C:\src\webapp
-````
+```
+code C:\src\webapp &
+```
 
 
 In other words, opening the folder containing the project effectively opens that project:
