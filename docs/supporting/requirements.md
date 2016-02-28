@@ -10,7 +10,7 @@ VS Code has been tested on the following platforms:
 
 * Ubuntu Desktop 14.04
 * OS X Yosemite
-* Windows 7, 8.0, 8.1 and 10 (x86 and x64)
+* Windows 7, 8.0, 8.1 and 10 (32-bit and 64-bit)
 
 ### Additional Linux requirements
 

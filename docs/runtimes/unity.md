@@ -19,7 +19,7 @@ Read on to find out how to configure Unity and your project to get the best poss
 
 ## Connecting Unity and VS Code
 
-The easiest way to get going is to leverage a [Unity plug-in](https://github.com/dotBunny/VSCode/) maintained by [@@Reapazor](https://twitter.com/reapazor).  This plug-in streamlines the integration process significantly by performing the following tasks:
+The easiest way to get going is to leverage a [Unity plug-in](https://github.com/dotBunny/VSCode/) maintained by [@Reapazor](https://twitter.com/reapazor).  This plug-in streamlines the integration process significantly by performing the following tasks:
 
 1. Sets VS Code as the default editor - opening a script now opens it in VS Code
 2. Configures Unity to pass file and line numbers and reuse the existing window - so VS Code opens in the correct context

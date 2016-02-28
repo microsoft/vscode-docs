@@ -21,12 +21,12 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 >**Tip:** If you want to run VS Code from the terminal, append the following to your `~/.bash_profile` file (`~/.zshrc` in case you use `zsh`) and then either restart the terminal or type `source ~/.bash_profile`:
 >
 >```bash
->function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $*; }
+>function code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args "$@"; }
 >```
 >If you are using the prerelease [Insiders](/docs/supporting/FAQ.md#how-can-i-test-prerelease-versions-of-vs-code) build, you would use:
 >
 >```bash
->function code-insiders () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCodeInsiders" --args $*; }
+>function code-insiders () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCodeInsiders" --args "$@"; }
 >```
 
 Now, you can simply type `code .` in any folder to start editing files in that folder.
@@ -42,8 +42,8 @@ Now, you can simply type `code .` in any folder to start editing files in that f
 
 ## Linux
 
-1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534108) for Linux.
-2. Make a new folder and extract `VSCode-linux-x64.zip` inside that folder.
+1. Download Visual Studio Code [64-bit](https://go.microsoft.com/fwlink/?LinkID=534108) or [32-bit](https://go.microsoft.com/fwlink/?LinkID=615206) for Linux.
+2. Make a new folder and extract `VSCode-linux-x64.zip` or `VSCode-linux-x32.zip` inside that folder.
 3. Double click on `Code` to run Visual Studio Code.
 
 >**Tip:** If you want to run VS Code from the terminal, create the following link substituting `/path/to/vscode/Code` with the absolute path to the `Code` executable
@@ -78,7 +78,7 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 - [mocha](http://mochajs.org/) - a JavaScript test framework that runs on Node.js
 - [bower](http://bower.io/) - a client side package manager
 - [TypeScript](http://typescriptlang.org) - brings structure and strong typing to your JavaScript code, without compromising the good parts
-- [TypeScript definition manager](http://definitelytyped.org/tsd/) - search and download 100's of TypeScript definition files for popular JavaScript frameworks, providing great IntelliSense in VS Code
+- [Typings](https://github.com/typings/typings) - TypeScript definition manager to search and download 100's of TypeScript definition files for popular JavaScript frameworks, providing great IntelliSense in VS Code
 
 
 ## Next Steps
