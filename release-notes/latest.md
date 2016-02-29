@@ -401,4 +401,4 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 
 ## VS Code Blog
 
-You might not have noticed but we've moved the [VS Code blog](/blogs) to our website.  We hope you find this more convenient and easier to search across all of our documentation. Check out the recent post about the [Chrome Debugger extension](/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code)!
+You might not have noticed but we've moved the [VS Code blog](http://code.visualstudio.com/blogs) to our website.  We hope you find this more convenient and easier to search across all of our documentation. Check out the recent post about the [Chrome Debugger extension](/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code)!
