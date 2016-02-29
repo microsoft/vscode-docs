@@ -9,7 +9,7 @@ MetaDescription: This topic helps you get acquainted with the Visual Studio Code
 
 # The Basics of Visual Studio Code
 
-At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common UI and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
+At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 
 In addition, there are a number of unique features in the VS Code user interface. This topic describes these features.
 
@@ -37,7 +37,6 @@ Each time you start VS Code, it opens up in the same state it was in when you la
 Instead of placing files in separate tabs, VS Code allows up to three visible editors at any one time, allowing you place up to three files together side by side.
 
 This helps to reduce the overhead of managing tabs but does not restrict the number of files you can work with. The Explorer view maintains a list of working files allowing you quick access to the files you need.
-
 
 >**Tip:** You can move the Side Bar to the right hand side (`View, Move Sidebar`) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
@@ -73,15 +72,15 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 ![Explorer Menu](images/codebasics/explorer_menu.png)
 
-VS Code works very well with other tools that you might use, especially command line tools. If you want to run a command line tool in the context of the folder you currently have open in VS Code, right-click the folder and select `Open in Console`.
+VS Code works very well with other tools that you might use, especially command line tools. If you want to run a command line tool in the context of the folder you currently have open in VS Code, right-click the folder and select `Open in Terminal` (or `Open in Command Prompt` on Windows).
 
-You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting `Reveal in Explorer` (or `Reveal in Finder` on the Mac).
+You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting `Reveal in Explorer` (or `Reveal in Finder` on the Mac or `Open Containing Folder` on Linux).
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` to quickly search and open a file by its name.
 
-By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` setting to configure rules for hiding files and folders from the explorer.
+By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/customization/userandworkspace.md) to configure rules for hiding files and folders from the explorer.
 
-**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`
+**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
 ## Working Files
 
@@ -97,7 +96,17 @@ Think of the working files section as similar to Tabs that you may be familiar w
 
 Once you are done with your task, you can individually remove files from the working files section, or you can remove all files from the working files section by using the `Close All Files` action.
 
->**Tip:** You can configure the appearance of working files in your settings. For example, you can set the maximum number of visible files before a scroll bar appears via `explorer.workingFiles.maxVisible` and whether the working files section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
+## Configuring the Editor
+
+VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/customization/userandworkspace.md#settings-file-locations).
+ 
+* Select `Files | Preferences | User Settings` (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
+ 
+* Select `Files | Preferences | Workspace Settings` (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
+
+You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from Default Settings.
+
+After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
 
 ## Save/Auto Save
 
@@ -140,7 +149,7 @@ VS Code is equally accessible from the keyboard. The most important key combinat
 
 ![Command Palette](images/codebasics/commands.png)
 
-The Command Palette UI provides access to many commands. You can execute editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
+The Command Palette provides access to many commands. You can execute editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
 
 * `kb(workbench.action.quickOpen)` will let you navigate to any file or symbol by simply typing its name
 * `kb(workbench.action.openPreviousEditor)` will cycle you through the last set of files opened
@@ -251,8 +260,9 @@ reopen the last opened folder you worked on (setting: `one`). Change this settin
 
 ## Next Steps
 
-OK, you got past the basic UI - there is a lot more to Code.  Read on to find out about:
+You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
 
+* [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition, and more
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Customization](/docs/customization/overview.md) - Themes, settings, and keyboard bindings
@@ -262,3 +272,15 @@ OK, you got past the basic UI - there is a lot more to Code.  Read on to find ou
 **Q: Is it possible to globally search and replace?**
 
 **A:** This feature is not yet implemented, but you can expect it to come in the future!
+
+**Q: How do I turn on word wrap?**
+
+**A:** You can control word wrap through the `editor.wrappingColumn` [setting](/docs/customization/userandworkspace.md).  By default `editor.wrapperingColumn` is set to 300 characters.  You can adjust the column width or set the value to zero to wrap on the editor viewport width:
+
+```json
+    "editor.wrappingColumn": 0
+```
+
+**Q: How can I show more files in the Working Files section?**
+
+**A:** You can configure the appearance of working files through your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.workingFiles.maxVisible` setting and whether the working files section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
