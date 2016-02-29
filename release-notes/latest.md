@@ -370,7 +370,7 @@ We have changed the debug protocol in the following (backward compatible) ways:
 
   - A boolean `supportsFunctionBreakpoints` in `Capabilities` indicates whether the debug adapter implements function breakpoints. VS Code will only use the new function breakpoint request of the debug protocol if this feature is enabled.
 
-  - A boolean `supportEvaluateForHovers` indicates whether the debug adapter supports a side effect free `EvaluateRequest`. If this feature is enabled, VS Code will use the `evaluate` request to populate the hover with information about the object under the mouse pointer. If it is disabled, VS Code uses the information from the Variables viewlet.
+  - A boolean `supportsEvaluateForHovers` indicates whether the debug adapter supports a side effect free `EvaluateRequest`. If this feature is enabled, VS Code will use the `evaluate` request to populate the hover with information about the object under the mouse pointer. If it is disabled, VS Code uses the information from the Variables viewlet.
 
   - An optional `exceptionBreakpointFilters` capability that lists the filters available for the `setExceptionBreakpoints` request. With this, a debug adapter can contribute the options shown in the breakpoint viewlet:
 
