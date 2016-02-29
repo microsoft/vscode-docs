@@ -95,10 +95,9 @@ The existing JavaScript language service had a built-in list for folders that sh
 
 If you do not have a `jsconfig.json` in your workspace then the following defaults are used:
 
-- the `module` attribute is `commonjs`
 - the `exclude` list includes the `node_modules` folder and the folder defined by the `out` attribute.
 
-What has not changed, but what you should be aware of is that if you have **no `jsconfig.json` defined** to mark the root of your project, then each JavaScript file is considered an island by Salsa. If the project is a `commonjs` project then the `import` or `require` statements are used to relate the JS files together. If the project isn't a `commonjs` then you can use `/// references (` for example `/// <reference path="SomeJsFile.js" />`) to relate files.
+What has not changed, but what you should be aware of is that if you have **no `jsconfig.json` defined** to mark the root of your project, then each JavaScript file is considered an island by Salsa.
 
 ### `js-is-jsx` extension deprecation
 
