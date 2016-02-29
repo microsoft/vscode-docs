@@ -405,6 +405,7 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [Alexis Aubry](https://github.com/alexaubry): Updated Swift Autocompletion Syntax [3198](https://github.com/Microsoft/vscode/pull/3198).
 * [Xaver Hellauer](https://github.com/xaverh): Fixes to C++ and C syntax [2649](https://github.com/Microsoft/vscode/pull/2649).
 * [mkosieradzki](https://github.com/mkosieradzki): Add support for jsonSchema integer type in IntelliSense [2844](https://github.com/Microsoft/vscode/pull/2844).
+* [SrTobi](https://github.com/SrTobi): Misc fixes in [vsce](https://github.com/Microsoft/vscode-vsce): [65](https://github.com/Microsoft/vscode-vsce/pull/65) [71](https://github.com/Microsoft/vscode-vsce/pull/71) [73](https://github.com/Microsoft/vscode-vsce/pull/73)
 
 ## VS Code Blog
 
