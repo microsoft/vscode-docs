@@ -188,27 +188,9 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 
 If you don’t wish to send usage data to Microsoft, please follow the instructions below to disable its collection. 
 
-**Important Notice**: You will need to apply these changes after every update to disable collection of usage data.  These changes do not survive product updates.
+From File | Preferences | User Settings, add the following option to disable telemetry reporting:
 
-### Windows
-
-1. Close VS Code.
-2. Open the command prompt.
-3. Type `cd %ProgramFiles(x86)%\Visual Studio Code\resources\app`.
-4. Type `notepad product.json`.
-5. Replace `enableTelemetry=true` with `enableTelemetry=false`.
-6. Save the file via `CTRL+S` and exit Notepad. Collection of usage data should now be disabled.
-
-### OS X / Linux
-
-> **TIP:** For Mac, editing `product.json` may prevent you from opening VS Code for the first time depending on your security settings. A workaround is to open VS Code at least once before editing the file.
-
-1. Close VS Code.
-2. Open the terminal .
-3. For:
-	- Mac Type `cd <PATH-TO-VSCode>/Visual\ Studio\ Code.app/Contents/Resources/app`
-	- Linux Type `cd <PATH-TO-VSCode>/Resources/app`
-4. Type `vi product.json`
-5. Replace `enableTelemetry=true` with `enableTelemetry=false`
-6. Save the file via `Esc ZZ`. Collection of usage data should now be disabled.
+```
+"telemetry.enableTelemetry": false
+```
 
