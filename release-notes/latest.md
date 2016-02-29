@@ -299,14 +299,6 @@ In OS X, two new commands were added to install the VS Code shell command in the
 
 ![OS X Shell Commands](images/February/shell-command.png)
 
-### Linux Debian Package
-
-A .deb package is now provided for easier installation on Debian-based distributions. To install, simply download the .deb package from the [home page](code.visualstudio.com) and either double-click to install through a GUI or install it via the command line with:
-
-```bash
-sudo dpkg -i vscode-amb64.deb
-```
-
 ### Telemetry Opt Out
 
 Users now can opt out of usage telemetry via the `telemetry.enableTelemetry` setting.
