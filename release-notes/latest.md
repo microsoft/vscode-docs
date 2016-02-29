@@ -63,9 +63,9 @@ The following sections describe a few of VS Code's features that have changed wi
 
 ### Linters
 
-The existing JavaScript language support provided some linting options enabled by the `javascript.validate.lint.*` settings. With `jshint` and `eslint`, there are powerful linters for JavaScript available. Also, there are now extensions for VS Code available that integrate these linters. Therefore, we have decided to deprecate the built-in linter and Salsa now reports **syntax errors only**. We **strongly recommend that you install and configure a JavaScript linter if your project hasn't done so already**.
+Previously the JavaScript language support provided some linting options enabled by the `javascript.validate.lint.*` settings. With `jshint` and `eslint`, there are powerful linters for JavaScript available. Also, there are now extensions for VS Code available that integrate these linters. Therefore, we have decided to deprecate the built-in linter and Salsa now reports **syntax errors only**. We **strongly recommend that you install and configure a JavaScript linter if your project hasn't done so already**.
 
-In particular, the existing JavaScript infrastructure provided an implicit *lint rule* which warned about undeclared variables unless they are mentioned in a /\*global\*/ comment block. This rule is no longer active and needs to be configured in your linter of choice.
+In particular, the previous JavaScript infrastructure provided an implicit *lint rule* which warned about undeclared variables unless they are mentioned in a /\*global\*/ comment block. This rule is no longer active and needs to be configured in your linter of choice.
 
 Here are the steps to set up `eslint`:
 
@@ -81,7 +81,7 @@ This [.eslintrc.json](https://gist.github.com/egamma/65c0e2a832393e3b625a) corre
 
 #### `exclude` lists
 
-The existing JavaScript language service had a built-in list for folders that should be excluded from the project context. This list included the folders: `node_modules`, `bower_components`, `jspm_packages`, `tmp`, and `temp`. This implicit behavior has been changed in favor of an explicit list defined by the user. Therefore if you use...
+The previous JavaScript language service had a built-in list for folders that should be excluded from the project context. This list included the folders: `node_modules`, `bower_components`, `jspm_packages`, `tmp`, and `temp`. This implicit behavior has changed in favor of an explicit list defined by the user. Therefore if you use...
 
 - `node` exclude the `node_modules` folder
 - `bower` exclude the `bower_components` folder
@@ -108,10 +108,10 @@ The `js-is-jsx` extension is no longer needed since Salsa gives you coloring for
 Salsa undoubtedly provides a much better experience writing JavaScript applications in VS Code. By moving to Salsa, we give up a few features previously available with our old JavaScript language service:
 
 - The source language level is now always ECMAScript 6. Previously, there was support to define a lower level using the `target` attribute inside `jsconfig.json`. This support has been removed and the `target` attribute is now only used by `tsc` to define the target version when a JavaScript file is compiled to a lower ECMAScript version.
-- The existing JavaScript infrastructure attempted to resolve references for `AMD` modules. This hasn't worked in all cases and support for `AMD` to resolve references across files is currently no longer supported.
+- The previous JavaScript infrastructure attempted to resolve references for `AMD` modules. This hasn't worked in all cases and support for `AMD` to resolve references across files is currently no longer supported.
 - There is no longer support for IntelliSense in `script` sections inside HTML documents.
 - The `javascript.validate.*` settings are no longer supported and are ignored (see above).
-- The existing JavaScript infrastructure provided quick fixes to add an undefined variable as a global and to fetch a type definition from definitely typed. These quick fixes are no longer available.
+- The previous JavaScript infrastructure provided quick fixes to add an undefined variable as a global and to fetch a type definition from definitely typed. These quick fixes are no longer available.
 - A file without a .js suffix that VS Code identifies as a JavaScript file is now treated as a .ts file and you get unexpected type errors ([#issue 7291](https://github.com/Microsoft/TypeScript/issues/7291)).
 
 ## Languages - TypeScript
@@ -286,8 +286,8 @@ The `eslint-stylish` problem matcher got changed to use absolute file pathes by 
 
 ```json
 "problemMatcher": {
-	"base": "$eslint-stylish",
-	"fileLocation": "relative"
+    "base": "$eslint-stylish",
+    "fileLocation": "relative"
 }
 ```
 

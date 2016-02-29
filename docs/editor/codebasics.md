@@ -212,6 +212,8 @@ Here are optional command line arguments you can use when starting VS Code at th
 
 Argument|Description
 ------------------|-----------
+`-h` or `--help` | Print usage
+`-v` or `--version` | Print VS Code version (e.g. 0.10.10)
 `-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session.
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.

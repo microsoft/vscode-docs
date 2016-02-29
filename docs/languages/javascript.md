@@ -93,8 +93,6 @@ cd es6-vscode-sample
 npm install
 ```
 
->**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by setting the `javascript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
-
 ### Run Babel inside VS Code
 
 The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Maps.  You can easily integrate Babel into your workflow by adding this code to your `tasks.json` file. The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
@@ -128,35 +126,7 @@ To enable one of the linters, do the following:
 * Install the corresponding linter globally or inside the workspace folder that contains the JavaScript code to be validated.
   For example, using `npm install eslint` or `npm install jshint`, respectively.
 * Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) or [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) extension. After restarting the editor, enable ESLint or JSHint via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
-* Optionally disable VS Code's built-in JavaScript validation via the setting `"javascript.validate.enable": false`
 * Use the .eslintrc or .jshintrc file to configure the linter.
-
-
-## JavaScript Validation Settings
-
-Validation is supported by a set of configuration rules. In addition to syntax checks, [User Settings](/docs/customization/userandworkspace.md) allow you to configure additional checks for JavaScript files. Such as:
-
-Id|Description|Default
----|------------|----
-comparisonOperatorsNotStrict | Favors the use of ```!==``` and ```===``` over ```!=``` and ```==```. | ignore
-curlyBracketsMustNotBeOmitted | Even single-line block statements should have curly brackets | ignore
-emptyBlocksWithoutComment | An empty block should at least have a comment | ignore
-forcedTypeConversion | Don’t force a type conversion | ignore
-functionsInsideLoops | Function inside loops often don’t do what you think they do | ignore
-missingSemicolon | Statements should be terminated with a semi-colon | ignore
-mixedTypesArithmetics | Don’t force a conversion with arithmetic operations, like ```”C” + 0 + “de”``` | ignore
-newOnLowercaseFunctions | Functions that are used as constructors should be upper-case | ignore
-newOnReturningFunctions | Functions that are used as constructors should not return something | ignore
-parametersDontMatchSignature | Invoking a function with wrong types or wrong number of parameters | ignore
-primitivesInInstanceOf | The ```instanceof``` operator cannot be used with primitive types | error
-redeclaredVariables | Don’t redeclare a variable with a different type | warning
-semicolonsInsteadOfBlocks | Don’t replace a block with a semi-colon, as in ```while(true);{ break; }``` | warning
-tripleSlashReferenceAlike | A comment that looks like a `///` reference | warning
-undeclaredVariables | Use of an undeclared variable | warning
-unknownProperty | Use of an unknown property | ignore
-unknownTypeOfResults | The ```typeof``` operation has a fixed set of possible results | warning
-unusedFunctions | A function that isn’t used | warning
-unusedVariables | A variable that isn’t used | warning
 
 ## Next Steps
 
