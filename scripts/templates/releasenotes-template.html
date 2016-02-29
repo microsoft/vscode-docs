@@ -17,6 +17,7 @@
                 		<li><a href="#{$ section.Anchor $}">{$ section.Title $}</a></li>
                 	{% endfor %}
                 </ul>
+                {% include "./connector-widget.html" %}
 				<a class="twitter-share-button"
 				   href="https://twitter.com/share"
 				   data-text="Sharing this doc"
@@ -25,13 +26,10 @@
 				   data-count="vertical">
 				    Tweet
 				</a>
-				
-				<div class="fb-like" data-href="{% if Link == '' %}https://code.visualstudio.com/Updates{% else %}https://code.visualstudio.com/Updates/{$ Link $}{% endif %}" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
 			</nav>
         </div>
 	</div>
 </div>
-<div id="fb-root"></div>
 {{#section 'meta'}}
 	<meta name="description" content="{$ MetaDescription $}" />
 	<meta name="keywords" content="{$ MetaTags $}" />
