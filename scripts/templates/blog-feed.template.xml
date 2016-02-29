@@ -13,7 +13,7 @@
     <link href="http://code.visualstudio.com/{$ article.Link $}"/>
     <updated>{$ article.Date $}</updated>
     <id>http://code.visualstudio.com/blogs/{$ post.Link $}</id>
-    <content type="html">&lt;p&gt;{$ article.ShortDescription $}&lt;/p&gt;&lt;p&gt;&lt;a href="http://code.visualstudio.com/blogs/{$ article.Link $}"&gt;Read the full article&lt;/&gt;&lt;/p&gt;
+    <content type="html">&lt;p&gt;{$ article.ShortDescription $}&lt;/p&gt;&lt;p&gt;&lt;a href="http://code.visualstudio.com/blogs/{$ article.Link $}"&gt;Read the full article&lt;/a&gt;&lt;/p&gt;
     </content>
     <author>
         <name>{$ article.Author $}</name>
