@@ -112,6 +112,8 @@ Salsa undoubtedly provides a much better experience writing JavaScript applicati
 - The existing JavaScript infrastructure attempted to resolve references for `AMD` modules. This hasn't worked in all cases and support for `AMD` to resolve references across files is currently no longer supported.
 - There is no longer support for IntelliSense in `script` sections inside HTML documents.
 - The `javascript.validate.*` settings are no longer supported and are ignored (see above).
+- The existing JavaScript infrastructure provided quick fixes to add an undefined variable as a global and to fetch a type definition from definitely typed. These quick fixes are no longer available.
+- A file without a .js suffix that VS Code identifies as a JavaScript file is now treated as a .ts file and you get unexpected type errors ([#issue 7291](https://github.com/Microsoft/TypeScript/issues/7291)).
 
 ## Languages - TypeScript
 
