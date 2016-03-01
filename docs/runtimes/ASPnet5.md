@@ -26,14 +26,14 @@ Installation for each platform is slightly different, please refer to the follow
 - [Linux](https://github.com/aspnet/home#linux)
 - [Windows](https://github.com/aspnet/home#upgrading-dnvm-or-running-without-visual-studio)
 
-> **Tip:** Add the following to your `.bash_profile` and restart the Terminal. The first line will ensure that you can always run the `dnvm` and `dnu` commands. The second line works around a known bug in Mono where you may see the IOException `FileSystemWatcher has reached the maximum number of files to watch` when running your application.
+> **Tip:** Add the following to your `.bash_profile` or `.zprofile` and execute `source ~/.bash_profile` or `source ~/.zprofile` if you are running the z shell. The first line will ensure that you can always run the `dnvm` and `dnu` commands. The second line works around a known bug in Mono where you may see the IOException `FileSystemWatcher has reached the maximum number of files to watch` when running your application.
 
 ```bash
 source dnvm.sh
 export MONO_MANAGED_WATCHER=disabled
 ```
 
-After you edit `.bash_profile`, make sure that you then run the following command:
+After you edit `.bash_profile` or `.zprofile`, make sure that you then run the following command:
 
 ```bash
 dnvm upgrade
