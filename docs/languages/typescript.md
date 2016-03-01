@@ -146,7 +146,7 @@ When you are working with TypeScript, you often don’t want to see generated Ja
 
 `"**/*.js": { "when": "$(basename).ts"}`
 
-This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The file explorer will no longer show derived resources for JavaScript if they are compiled to the same location. Configure this with the `files.exclude` setting in your workspace settings (`File | Preferences | Workspace Settings`).
+This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The file explorer will no longer show derived resources for JavaScript if they are compiled to the same location. Configure this with the `files.exclude` setting in your workspace settings (**File** > **Preferences** > **Workspace Settings**).
 
 ![Hiding derived resources](images/typescript/hidingderivedresources.png)
 
@@ -158,7 +158,7 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 ## Using Newer TypeScript Versions
 
-VS Code ships with a recent stable version of TypeScript in the box.  If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting (`File | Preferences | User/Workspace Settings`) pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting supports relative paths so you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`). Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.
+VS Code ships with a recent stable version of TypeScript in the box.  If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting (**File** > **Preferences** > **User/Workspace Settings**) pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting supports relative paths so you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`). Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.
 
 ## Next Steps
 

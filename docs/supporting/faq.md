@@ -35,7 +35,7 @@ See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64
 
 By default, VS Code is set up to auto-update for OS X and Windows users when we release new updates. (Auto-update of VS Code is not supported for Linux.) If you do not want to get automatic updates, you can set the `update.channel` setting from the default `stable` to `none`.
 
-To modify the update channel, go to `File | Preferences | User Settings` and add the `update.channel` setting with the value `"none"`.
+To modify the update channel, go to **File** > **Preferences** > **User Settings** and add the `update.channel` setting with the value `"none"`.
 
 ```json
     "update.channel": "none"
@@ -138,7 +138,7 @@ When you see this error, it indicates that the VS Code file watcher is running o
 
 ### I can't see Chinese characters in Ubuntu
 
-We're working on a fix. In the meantime, open the application menu, then choose `File | Preferences | User Settings`. Then set `editor.fontFamily` as shown:
+We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **User Settings**. Then set `editor.fontFamily` as shown:
 
 `editor.fontFamily: "Droid Sans Mono, Droid Sans Fallback"`
 
@@ -152,7 +152,7 @@ If you work on a machine where internet traffic needs to go through a proxy serv
     SET http_proxy=http://10.203.0.1:5187/
 ```
 
-* Configure the ‘http.proxy’ setting in your user settings (`File | Preferences | User Settings`)
+* Configure the ‘http.proxy’ setting in your user settings (**File** > **Preferences** > **User Settings**)
 
 ```json
     "http.proxy": "http://10.203.0.1:5187/"
@@ -174,7 +174,7 @@ When you open a folder, VS Code will search for typical project files to offer y
 
 ## How to disable crash reporting
 
-From File | Preferences | User Settings, add the following option to disable crash reporting:
+From **File** > **Preferences** > **User Settings**, add the following option to disable crash reporting:
 
 ```
 "telemetry.enableCrashReporter": false
@@ -186,9 +186,9 @@ From File | Preferences | User Settings, add the following option to disable cra
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services.  Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
 
-If you don’t wish to send usage data to Microsoft, please follow the instructions below to disable its collection. 
+If you don’t wish to send usage data to Microsoft, please follow the instructions below to disable its collection.
 
-From File | Preferences | User Settings, add the following option to disable telemetry reporting:
+From **File** > **Preferences** > **User Settings**, add the following option to disable telemetry reporting:
 
 ```
 "telemetry.enableTelemetry": false

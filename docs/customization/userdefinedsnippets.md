@@ -55,7 +55,7 @@ Possible variables are:
 * Variables with the same id are connected.
 * `description` is the description used in the IntelliSense drop down
 
-To open up a snippet file for editing, open `User Snippets` under `File | Preferences` and select the language for which the snippets should appear.
+To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear.
 
 > In case your snippet should contain `{` or `}`, it is possible to escape them, in JSON as `\\{` and `\\}`
 

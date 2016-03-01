@@ -67,7 +67,7 @@ npm install -g marked
 ### Step 2: Create a simple MD file
 Open VS Code on an empty folder and create a `sample.md` file.
 
-> **Note:** You can open a folder with VS Code by either selecting the folder with `File | Open Folder...` or navigating to the folder and typing `code .` at the command line.
+> **Note:** You can open a folder with VS Code by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.
 
 Place the following code in that file:
 
@@ -196,4 +196,4 @@ Read on to find out about:
 
 **Q: In the walkthrough above, I didn't find the `Configure Task Runner` command in the Command Palette?**
 
-**A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with `File | Open Folder...` or navigating to the folder and typing `code .` at the command line.
+**A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.

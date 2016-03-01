@@ -15,7 +15,7 @@ Color themes let you modify VS Code's background, text and language syntax color
 
 There are several out-of-the-box color themes in VS Code for you to try.
 
-1. Open the Color Theme picker with `File | Preferences | Color Theme`.
+1. Open the Color Theme picker with **File** > **Preferences** > **Color Theme**.
 2. Use the cursor keys to preview the colors of the theme.
 3. Select the theme you want and hit `kbstyle(Enter)`.
 
@@ -41,7 +41,7 @@ You can also add new TextMate theme files (.tmTheme) to your VS Code installatio
 
 Copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.
 
-Open the Color Theme picker theme with `File | Preferences | Color Theme` and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
+Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
 
 ![select my theme](images/themes/mytheme.png)
 
