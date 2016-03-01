@@ -29,6 +29,7 @@
     "run-sequence": "^1.1.5",
     "rimraf": "^2.4.4",
     "marked": "^0.3.5",
-    "gulp-tsb": "1.8.0"
+    "gulp-tsb": "1.8.0",
+    "node.extend": "^1.1.5"
   }
 }

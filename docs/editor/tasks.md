@@ -127,7 +127,7 @@ Sometimes you will want to control how the output window behaves when running ta
 
 - **silent**: the output window is brought to front only if no problem matchers fire for the task. This is the default.
 - **always**: the output window is always brought to front.
-- **never**: The user must explicitly bring the output window to the using the View menu or the short cut `kb(workbench.action.output.toggleOutput)`.
+- **never**: The user must explicitly bring the output window to the front using the View menu or the short cut `kb(workbench.action.output.toggleOutput)`.
 
 ## Operating System Specific Properties
 

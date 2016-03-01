@@ -30,7 +30,9 @@ function mapFileToBlogArticle(file) {
 		Sections: [],
 		Order: file.data.Order,
 		Content: "",
-        File: null
+        File: null,
+        Date: file.data.Date,
+        Author: file.data.Author
 	};
 }
 
@@ -106,7 +108,24 @@ gulp.task('compile-blog', ['compile-blog-markdown', 'copy-blog-images'], functio
 		path: 'blogNavigation.handlebars',
 		contents: new Buffer(template({ articles: blogs }))
 	});
+    
+    compileAtomFeed();
 
 	return es.readArray([file])
         .pipe(gulp.dest(DEST_ROOT + '/views/partials'));
 });
+
+function compileAtomFeed() {
+    console.log('Creating atom feed...');
+    var feed = common.swigCompiler('scripts/templates/blog-feed.template.xml');
+    
+    var FEED_LIMIT = 20;
+    
+    var feedXml = new File({
+        path: 'feed.xml',
+        contents: new Buffer(feed({articles: blogs.slice(0, FEED_LIMIT), latest: blogs[0]}))
+    })
+    
+    es.readArray([feedXml])
+        .pipe(gulp.dest(DEST_ROOT + '/public'));
+};
