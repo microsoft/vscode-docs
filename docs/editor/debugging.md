@@ -13,7 +13,7 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ![Debugging](images/debugging/hero.png)
 
-Today we have good debugging support for **Node.js** (JavaScript and TypeScript) on all platforms and experimental support for **Mono** (C# and F#) on OS X and Linux. For debugging other languages, please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
+Today we have good debugging support for Node.js (JavaScript and TypeScript) on all platforms and experimental support for Mono (C# and F#) on OS X and Linux. For debugging other languages, please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
 
 It is helpful to first create a sample Node.js application before reading about debugging. Follow this guide to do a run-through with Node.js:
 
@@ -31,7 +31,7 @@ The Debug view displays all information pertaining to debugging and has a top ba
 
 ## Launch Configurations
 
-To debug your app in VS Code, you'll first need to setup your debugging launch configuration file - **launch.json**.
+To debug your app in VS Code, you'll first need to setup your debugging launch configuration file - `launch.json`.
 Click on the Configure gear icon on the Debug view top bar, choose your debug environment and VS Code will generate a launch.json.
 Here is the one generated for Node.js debugging:
 
@@ -74,7 +74,7 @@ Review the generated values and make sure that they make sense for your project 
 
 Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
-To launch a task before the start of each debug session, set the **preLaunchTask** to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md).
+To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md).
 
 VS Code supports variable substitution inside strings in launch.json the same way as for [tasks.json](/docs/editor/tasks.md#variables-in-tasksjson).
 
@@ -128,7 +128,7 @@ Once a debug session starts, the **Debug actions pane** will appear on the top o
 
 By default node debug sessions launch the target in the internal VS Code Debug Console.
 Since the Debug Console does not support programs that need to read input from the console,
-you can enable an external, native console by setting the attribute **externalConsole** to `true` in your launch configuration.
+you can enable an external, native console by setting the attribute `externalConsole` to `true` in your launch configuration.
 
 ### Breakpoint Validation
 
@@ -139,7 +139,7 @@ Since this behavior is not ideal for debugging, VS Code passes the `--nolazy` op
 This prevents the delayed parsing and ensures that breakpoints can be validated before running the code (so they no longer "jump").
 
 Since the `--nolazy` option might increase the start-up time of the debug target significantly, you can easily opt out
-by passing a `--lazy` as a **runtimeArgs** attribute.
+by passing a `--lazy` as a `runtimeArgs` attribute.
 
 When doing so you will find that some of your breakpoints don't "stick" to the line requested but instead "jump"
 for the next possible line in already-parsed code. To avoid confusion, VS Code always shows
@@ -160,18 +160,21 @@ to the requested locations with the Reapply button in the breakpoint section hea
 
 The Node.js debugger of VS Code supports JavaScript Source Maps which help debugging of transpiled languages, e.g. TypeScript or minified/uglified JavaScript. With source maps, it is possible to single step through or set breakpoints in the original source. If no source map exists for the original source or if the source map is broken and cannot successfully map between the source and the generated JavaScript, the breakpoints are shown as gray hollow circles.
 
-The source map feature is enabled by setting the **sourceMaps** attribute to `true` in the launch configuration.
-In addition, you can specify a source file (e.g. app.ts) with the **program** attribute.
+The source map feature is enabled by setting the `sourceMaps` attribute to `true` in the launch configuration.
+In addition, you can specify a source file (e.g. app.ts) with the `program` attribute.
 If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory,
-you can help the VS Code debugger locate them by setting the **outDir** attribute.
+you can help the VS Code debugger locate them by setting the `outDir` attribute.
 Whenever you set a breakpoint in the original source, VS Code tries to find the generated source,
-and the associated source map, in the **outDir** directory.
+and the associated source map, in the `outDir` directory.
 
 Since source maps are not automatically created, you must configure the TypeScript compiler to create them:
+
 ```
 tsc --sourceMap --outDir bin app.ts
 ```
+
 This is the corresponding launch configuration for a TypeScript program:
+
 ```json
 {
 	"version": "0.2.0",
@@ -187,6 +190,7 @@ This is the corresponding launch configuration for a TypeScript program:
 	]
 }
 ```
+
 Source maps can be generated with two kinds of inlining:
 
 * **Inlined source maps**: the generated JavaScript file contains the source map as a data URI at the end (instead of referencing the source map through a file URI).
@@ -197,12 +201,15 @@ VS Code supports **inlined source maps** but not **inlined source**.
 ### Attaching VS Code to Node
 
 If you want to attach the VS Code debugger to a Node.js program, launch Node.js as follows:
+
 ```
 node --debug program.js
 node --debug-brk program.js
 ```
-With the **--debug-brk** option Node.js stops on the first line of the program.
+
+With the `--debug-brk` option Node.js stops on the first line of the program.
 The corresponding launch configuration looks like this:
+
 ```json
 {
 	"version": "0.2.0",
@@ -219,26 +226,39 @@ The corresponding launch configuration looks like this:
 
 ## Mono Debugging
 
-On Linux or OS X the Mono debugging support of VS Code requires Mono version 3.12 or later.
+On Linux or OS X, the Mono debugging support of VS Code requires Mono version 3.12 or later.
 If you intend to build ASP.NET Core applications with Visual Studio Code, we recommend you first follow the steps
 **Installing ASP.NET Core and DNX** in [ASP.NET Core Applications](/docs/runtimes/ASPnet5.md) which will install a version of Mono
 that supports debugging.
 
 If you just want to try VS Code Mono debugging, you can either download the latest Mono version
-for Linux or OS X at http://www.mono-project.com/download/ or you can use your package manager.
+for Linux or OS X at [Mono project](http://www.mono-project.com/download/) or you can use your package manager.
 
 * On OS X: `brew install mono`
 * On Linux: `sudo apt-get install mono-complete`
 
-To enable debugging of Mono based C# (and F#) programs, you have to pass the **-debug** option to the compiler:
+### Installing Mono debugging support
+
+VS Code Mono debugging integration comes from the ['Mono Debug'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) extension on the Visual Studio Marketplace.
+
+You can either install the **Mono Debug** extension with the VS Code **Extensions: Install Extension** command or if you already have a Mono based project with a `mono` launch configuration, simply by starting a debug session. VS Code will then prompt you to download and install **Mono Debug**.
+
+### Enable Mono debugging
+
+To enable debugging of Mono based C# (and F#) programs, you have to pass the `-debug` option to the compiler:
+
 ```
 mcs -debug Program.cs
 ```
+
 If you want to attach the VS Code debugger to a Mono program, pass these additional arguments to the Mono runtime:
+
 ```
 mono --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555 Program.exe
 ```
+
 The corresponding launch configuration looks like this:
+
 ```json
 {
 	"version": "0.2.0",

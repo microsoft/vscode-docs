@@ -97,7 +97,7 @@ If you do not have a `jsconfig.json` in your workspace then the following defaul
 
 - the `exclude` list includes the `node_modules` folder and the folder defined by the `out` attribute.
 
-What has not changed, but that you should be aware of, is that if you have **no `jsconfig.json` defined** to mark the root of your project, then each JavaScript file is considered an island by Salsa.
+What has not changed, but that you should be aware of, is that if you have no `jsconfig.json` defined to mark the root of your project, then each JavaScript file is considered an island by Salsa.
 
 ### `js-is-jsx` extension deprecation
 
@@ -278,7 +278,7 @@ A 'function breakpoint' is created by pressing the '+' button in the Breakpoints
 Since C# support in VS Code has been turned into an optional install, we have done the same with the Mono debugger.
 The Mono debugger has now become ['Mono Debug'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) on the Visual Studio Marketplace.
 
-You can either install Mono Debug with the VS Code **Extensions: Install Extension** command or if you already have a Mono based project with a mono launch configuration simply by starting a debug session. VS Code will then suggest to download and install Mono Debug automatically:
+You can either install the **Mono Debug** extension with the VS Code **Extensions: Install Extension** command or if you already have a Mono based project with a `mono` launch configuration, simply by starting a debug session. VS Code will then suggest to download and install **Mono Debug** automatically:
 
 ![install-mono-debug-help](images/February/mono-debug-install.png)
 
@@ -315,7 +315,7 @@ Accessibility has been a constant theme over the past milestones and in February
 
 ### High Contrast Theme
 
-As a part of the accessibility work, the High Contrast theme, which was only available for Windows users, is now enabled for all 3 platforms.
+As a part of the accessibility work, the **High Contrast** theme, which was only available for Windows users, is now enabled for all 3 platforms.
 
 ![High Contrast Theme](images/February/high-contrast.png)
 
@@ -323,7 +323,7 @@ As a part of the accessibility work, the High Contrast theme, which was only ava
 
 We have turned on by default a new strategy for screen readers in the editor, one that is based on paging the text. From our testing, this is the best option in terms of trade-off between good screen reader support and performance when dealing with very large files.
 
-The Go to Next/Previous Error or Warning actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) now allow screen readers to announce the error or warning messages.
+The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) now allow screen readers to announce the error or warning messages.
 
 ### Improved Debugger Accessibility
 
