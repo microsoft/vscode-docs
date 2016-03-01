@@ -149,9 +149,11 @@ The IntelliSense widget underwent a full rewrite to address some performance pro
 
 ### Indentation
 
-Initiated by user request [#1228](https://github.com/Microsoft/vscode/issues/1228), we have introduced indentation status in the editor to help with 'tabs to spaces' conversion and vice versa.
+Initiated by user request [#1228](https://github.com/Microsoft/vscode/issues/1228), we have added indentation status in the editor to help with 'tabs to spaces' conversion and vice versa.  The Status Bar shows whether the Tab key will insert spaces or tabs and the current indentation size in characters.
 
 ![indentation status](images/February/indentation-2.png)
+
+You can adjust the indentation size and toggle between tabs and spaces with three new actions:
 
 ![indentation actions](images/February/indentation-1.png)
 
