@@ -89,7 +89,7 @@ The previous JavaScript language service had a built-in list for folders that sh
 - `jspm` exclude the `jspm_packages` folder
 - `webpack` then exclude the output folder, e.g., `dist`.
 
-**Tip:** After editing the `jsconfig.json`, do not forget to run the `Reload JavaScript` command to ensure that everything is up to date.
+**Tip:** After editing the `jsconfig.json`, do not forget to run the **Reload JavaScript** command to ensure that everything is up to date.
 
 #### Defaults
 
@@ -130,7 +130,7 @@ or if you already have a project with C# files, VS Code will prompt you to insta
 
 ### Source Code Folding
 
-The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (`File | Preferences | User Settings` or `Workspace Settings`). Once enabled, you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
+The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (**File | Preferences | User Settings** or **Workspace Settings**). Once enabled, you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
 
 ![Source Code Folding](images/February/folding.png)
 
@@ -177,19 +177,19 @@ With the adoption of the Salsa JavaScript language service as the default, we co
 
 ### Open Definition to the Side
 
-There is now an action to open a definition to the side in the Command Palette (`kb(editor.action.openDeclarationToTheSide)`).
+There is now an action to open a definition to the side in the **Command Palette** (`kb(editor.action.openDeclarationToTheSide)`).
 
 ![open definition to the side](images/February/open-definition-to-side.png)
 
 ### Close Other Files
 
-There is now an action to close all other files, in the Working Files' context menu (`kb(workbench.files.action.closeOtherFiles)`).
+There is now an action to close all other files, in the **Working Files**' context menu (`kb(workbench.files.action.closeOtherFiles)`).
 
 ![close other files](images/February/close-other-files.png)
 
 ### Switch to a working file from Quick Open
 
-It's now possible to open a file in the working files list from the Quick Open box by prefixing it with `~`.
+It's now possible to open a file in the **Working Files** list from the **Quick Open** box by prefixing it with `~`.
 
 ![quick open working files](images/February/quick-open-working-files.png)
 
@@ -199,13 +199,13 @@ There is a new Status Bar display for suggesting extensions based on your use of
 
 ![extension tips status bar display](images/February/extension-tips.png)
 
-Clicking the Status Bar display will open the list of suggested extensions. You can also reach this by typing `ext tips ` (trailing space) in the Quick Open box.
+Clicking the Status Bar display will open the list of suggested extensions. You can also reach this by typing `ext tips ` (trailing space) in the **Quick Open** box.
 
 ![show extension tips(images/February/extension-tips-2.png)
 
 ### Extension Gallery Performance Improvement
 
-The performance of the in-product Extension Gallery (via the `Extensions: Install Extensions` command) has been greatly improved. We introduced a server-side cache which speeds up the request considerably.
+The performance of the in-product Extension Gallery (via the **Extensions: Install Extension** command) has been greatly improved. We introduced a server-side cache which speeds up the request considerably.
 
 ## Debugging
 
@@ -255,7 +255,7 @@ In VS Code, create an 'attach' launch configuration:
 }
 ```
 
->**Tip:** Pressing the Stop button stops the debug session and disconnects from Node.js, but nodemon (and Node.js) will continue to run. So to stop nodemon you will have to kill it from the command line.
+>**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but nodemon (and Node.js) will continue to run. So to stop nodemon you will have to kill it from the command line.
 
 >**Tip:** In case of syntax errors, nodemon will not be able to start Node.js successfully until the error has been fixed. In this case VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
 
@@ -278,7 +278,7 @@ A 'function breakpoint' is created by pressing the '+' button in the Breakpoints
 Since C# support in VS Code has been turned into an optional install, we have done the same with the Mono debugger.
 The Mono debugger has now become ['Mono Debug'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) on the Visual Studio Marketplace.
 
-You can either install Mono Debug with the VS Code 'Install Extension' command or if you already have a Mono based project with a mono launch configuration simply by starting a debug session. VS Code will then suggest to download and install Mono Debug automatically:
+You can either install Mono Debug with the VS Code **Extensions: Install Extension** command or if you already have a Mono based project with a mono launch configuration simply by starting a debug session. VS Code will then suggest to download and install Mono Debug automatically:
 
 ![install-mono-debug-help](images/February/mono-debug-install.png)
 
