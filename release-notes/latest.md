@@ -130,7 +130,7 @@ or if you already have a project with C# files, VS Code will prompt you to insta
 
 ### Source Code Folding
 
-The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (File > Preferences > User Settings or Workspace Settings). Once enabled, you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
+The editor now contains a first implementation of code folding. You can turn the feature on and off with the `editor.folding` configuration setting (`File | Preferences | User Settings` or `Workspace Settings`). Once enabled, you can collapse and expand code regions using the folding icons next to the line numbers. Regions that can be folded are shown with a `-` icon, regions that are already folded with the `+` icon. The `-` icon only shows when the mouse is over the gutter.
 
 ![Source Code Folding](images/February/folding.png)
 

@@ -138,7 +138,7 @@ When you see this error, it indicates that the VS Code file watcher is running o
 
 ### I can't see Chinese characters in Ubuntu
 
-We're working on a fix. In the meantime, open the application menu, then choose `File`, `Preferences`, `User Settings`. Then set `editor.fontFamily` as shown:
+We're working on a fix. In the meantime, open the application menu, then choose `File | Preferences | User Settings`. Then set `editor.fontFamily` as shown:
 
 `editor.fontFamily: "Droid Sans Mono, Droid Sans Fallback"`
 
@@ -152,7 +152,7 @@ If you work on a machine where internet traffic needs to go through a proxy serv
     SET http_proxy=http://10.203.0.1:5187/
 ```
 
-* Configure the ‘http.proxy’ setting in your user settings (File > Preferences > User Settings)
+* Configure the ‘http.proxy’ setting in your user settings (`File | Preferences | User Settings`)
 
 ```json
     "http.proxy": "http://10.203.0.1:5187/"
