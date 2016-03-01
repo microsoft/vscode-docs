@@ -150,6 +150,12 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 ![Hiding derived resources](images/typescript/hidingderivedresources.png)
 
+## Mixed TypeScript and JavaScript projects
+
+It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
+
+>**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
+
 ## Using Newer TypeScript Versions
 
 VS Code ships with a recent stable version of TypeScript in the box.  If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting (`File | Preferences | User/Workspace Settings`) pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. This setting supports relative paths so you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`). Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.

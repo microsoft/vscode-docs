@@ -73,7 +73,7 @@ Here are the steps to set up `eslint`:
 - install the VS Code [eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 - use `eslint --init` to create an initial eslint configuration by answering questions or by picking a popular configuration.
 
-**Tip** If you use JSON as the format of the eslint configuration file, then VS Code can provide you with IntelliSense when you edit the `.eslintrc.json` file.
+**Tip:** If you use JSON as the format of the eslint configuration file, then VS Code can provide you with IntelliSense when you edit the `.eslintrc.json` file.
 
 This [.eslintrc.json](https://gist.github.com/egamma/65c0e2a832393e3b625a) corresponds roughly to the lint settings of the old JavaScript infrastructure.
 
@@ -97,7 +97,7 @@ If you do not have a `jsconfig.json` in your workspace then the following defaul
 
 - the `exclude` list includes the `node_modules` folder and the folder defined by the `out` attribute.
 
-What has not changed, but what you should be aware of is that if you have **no `jsconfig.json` defined** to mark the root of your project, then each JavaScript file is considered an island by Salsa.
+What has not changed, but that you should be aware of, is that if you have **no `jsconfig.json` defined** to mark the root of your project, then each JavaScript file is considered an island by Salsa.
 
 ### `js-is-jsx` extension deprecation
 
