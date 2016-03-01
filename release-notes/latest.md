@@ -282,7 +282,7 @@ You can either install Mono Debug with the VS Code 'Install Extension' command o
 
 ## Tasks
 
-The `eslint-stylish` problem matcher got changed to use absolute file pathes by default. We made this breaking change because the stylish reporter integrated into eslint and used by default reports absolute file pathes. If you still use an older version of eslint with the external stylish reporter that reports relative file pathes you can tweak the `problemMatcher` in a tasks.json file in the following way to make this combination work:
+The `eslint-stylish` problem matcher changed to use absolute file paths by default. We made this breaking change because the stylish reporter integrated into `eslint` reports absolute paths by default. If you are using an older version of `eslint` with the external stylish reporter that reports relative file paths, you can tweak the `problemMatcher` in a tasks.json file as below to make this combination work:
 
 ```json
 "problemMatcher": {
