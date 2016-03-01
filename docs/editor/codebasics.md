@@ -283,6 +283,10 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
     "editor.wrappingColumn": 0
 ```
 
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.  Restarting VS Code will pick up the persisted `editor.wrappingColumn` value.
+
+You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
+
 **Q: How can I show more files in the Working Files section?**
 
 **A:** You can configure the appearance of working files through your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.workingFiles.maxVisible` setting and whether the working files section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
