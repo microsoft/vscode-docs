@@ -16,7 +16,7 @@ extensions to the [Extension Gallery](/docs/editor/extension-gallery.md).  You c
 
 Make sure you have [node.js](https://nodejs.org/) installed. Then simply run:
 
-```
+```bash
 npm install -g vsce
 ```
 
@@ -24,7 +24,7 @@ npm install -g vsce
 
 You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension:
 
-```
+```bash
 $ vsce publish
 Publishing uuid@0.0.1...
 Successfully published uuid@0.0.1!
@@ -62,7 +62,7 @@ A **publisher** is an identity who can publish extensions to the Visual Studio C
 
 Once you have a [Personal Access Token](/docs/tools/vscecli.md#get-a-personal-access-token), you can create a new publisher using `vsce`:
 
-```
+```bash
 vsce create-publisher (publisher name)
 ```
 
@@ -72,17 +72,41 @@ vsce create-publisher (publisher name)
 
 If you already created a publisher before and simply want to use it with `vsce`:
 
-```
+```bash
 vsce login (publisher name)
 ```
 
 Similarly to the `create-publisher` command, `vsce` will ask you for the Personal Access Token and remember it for future commands.
 
+You can also enter your Personal Access Token as you publish with an optional parameter `-p <token>`.
+
+```bash
+vsce publish -p <token>
+```
+
+## Auto-incrementing the Extension Version
+
+You can auto-increment an extension's version number when you publish by specifying the [SemVer](http://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
+
+For example, if you want to update an extension's version from 1.0.0 to 1.1.0, you would specify `minor`:
+
+```bash
+vsce publish minor
+```
+
+This will modify the extension's `package.json` [version](/docs/extensionAPI/extension-manifest.md#fields) attribute before publishing the extension.
+
+You can also specify a complete SemVer compatible version on the command line:
+
+```bash
+vsce publish 2.0.1
+``` 
+
 ## Packaging Extensions
 
 You may want to simply package extensions without publishing them to the store. Extensions will always be packaged into a `.vsix` file. Here's how:
 
-```
+```bash
 vsce package
 ```
 
