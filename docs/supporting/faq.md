@@ -96,7 +96,7 @@ On OS X, VS Code can no longer start OmniSharp after updating VS Code.
 
 To fix this issue, run these commands to update mono:
 
-```
+```bash
 brew update
 brew reinstall mono
 ```
@@ -107,7 +107,7 @@ Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capit
 
 Run these commands:
 
-```
+```bash
 brew update
 brew reinstall mono
 ```
@@ -116,17 +116,17 @@ brew reinstall mono
 
 ### Azure VM Issues
 
-I getting a "Running without the SUID sandbox" error?
+I'm getting a "Running without the SUID sandbox" error?
 
 Unfortunately, this is a known issue that we're still investigating.
 
 ### Debian and Moving Files to Trash
 
-In case you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
+If you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
 
 Run these commands to solve this issue:
 
-```
+```bash
 sudo apt-get install gvfs-bin
 ```
 
@@ -134,21 +134,25 @@ sudo apt-get install gvfs-bin
 
 When you see this error, it indicates that the VS Code file watcher is running out of handles. To increase the limit open `/etc/sysctl.conf` and add this line to the end of the file:
 
+```
 `fs.inotify.max_user_watches=16384`
+```
 
 ### I can't see Chinese characters in Ubuntu
 
 We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **User Settings**. Then set `editor.fontFamily` as shown:
 
-`editor.fontFamily: "Droid Sans Mono, Droid Sans Fallback"`
+```json
+    "editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"
+```
 
 ## Proxy Server Support
 
-If you work on a machine where internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
+If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
 
 * Set the operating system environment variables ‘http.proxy’ and ‘https.proxy’
 
-```
+```bash
     SET http_proxy=http://10.203.0.1:5187/
 ```
 
@@ -166,18 +170,18 @@ Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a sel
 
 When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via settings and they will not be searched for project files:
 
-```
-"files.exclude": {
-    "**/largeFolder": true
-}
+```json
+    "files.exclude": {
+        "**/largeFolder": true
+    }
 ```
 
 ## How to disable crash reporting
 
 From **File** > **Preferences** > **User Settings**, add the following option to disable crash reporting:
 
-```
-"telemetry.enableCrashReporter": false
+```json
+    "telemetry.enableCrashReporter": false
 ```
 
 **Important Notice**: This option requires a restart of VS Code to take effect.
@@ -186,11 +190,11 @@ From **File** > **Preferences** > **User Settings**, add the following option to
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services.  Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
 
-If you don’t wish to send usage data to Microsoft, please follow the instructions below to disable its collection.
+If you don’t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
 From **File** > **Preferences** > **User Settings**, add the following option to disable telemetry reporting:
 
-```
-"telemetry.enableTelemetry": false
+```json
+    "telemetry.enableTelemetry": false
 ```
 
