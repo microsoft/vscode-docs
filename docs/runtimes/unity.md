@@ -25,7 +25,7 @@ The easiest way to get going is to leverage a [Unity plug-in](https://github.com
 2. Configures Unity to pass file and line numbers and reuse the existing window - so VS Code opens in the correct context
 3. Scrubs the Unity project file to ensure that OmniSharp can work with it - to get the best editing experience
 4. Configures VS Code to ignore certain Unity file types - removing clutter from the VS Code file explorer
-5. Configures a `launch.json` file with the correct debug port - to enable debugging. However, installing the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) is recommend to get debugging support.
+5. Configures a `launch.json` file with the correct debug port - to enable debugging. However, installing the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) is recommended to get debugging support.
 
 ### Step 1: Download the plug-in code
 
