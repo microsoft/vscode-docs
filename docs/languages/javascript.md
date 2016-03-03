@@ -35,7 +35,15 @@ You can create a JavaScript project by dropping in a `jsconfig.json` file. It's 
 }
 ```
 
->**Tip:** You can exclude folders from the JavaScript project using the `exclude` property. If you do not have a `jsconfig.json` in your workspace, VS Code will by default exclude the `node_modules` folder and the folder defined by the `out` attribute.
+After editing the `jsconfig.json`, do not forget to run the `Reload JavaScript` command to ensure that everything is up to date.
+
+>**Tip:** If the application's JavaScript source code is contained inside an `app` or `src` folder, then define the `jsconfig.json` inside the corresponding folder and not at the top-level of the workspace.
+
+>**Tip:** If your workspace contains folders with JavaScript files that belong to separate applications, e.g, a `client` and a `server`, then consider adding a separate `jsconfig.json` into the corresponding folders.
+
+### exclude property
+
+You can exclude folders from the JavaScript project using the `exclude` property. 
 
 Here is an example `jsconfig.json` excluding "bower_components":
 
@@ -51,11 +59,17 @@ Here is an example `jsconfig.json` excluding "bower_components":
 }
 ```
 
-After editing the `jsconfig.json`, do not forget to run the `Reload JavaScript` command to ensure that everything is up to date.
+>**Note:** If you do not have a `jsconfig.json` in your workspace, VS Code will by default exclude the `node_modules` folder and the folder defined by the `out` attribute.
 
->**Tip:** If the application's JavaScript source code is contained inside an `app` or `src` folder, then define the `jsconfig.json` inside the corresponding folder and not at the top-level of the workspace.
+Below is a table mapping common project components to their installation folders to exclude:
 
->**Tip:** If your workspace contains folders with JavaScript files that belong to separate applications, e.g, a `client` and a `server`, then consider adding a separate `jsconfig.json` into the corresponding folders.
+Component | folder to exclude
+----------|-----------
+`node` | exclude the `node_modules` folder
+`bower` | exclude the `bower_components` folder
+`ember` | exclude the `tmp` and `temp` folders
+`jspm` | exclude the `jspm_packages` folder
+`webpack` | exclude the output folder, e.g., `dist`.
 
 ### /// References for .d.ts
 
