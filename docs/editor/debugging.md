@@ -74,7 +74,7 @@ Review the generated values and make sure that they make sense for your project 
 
 Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
-To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md).
+To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
 
 VS Code supports variable substitution inside strings in launch.json the same way as for [tasks.json](/docs/editor/tasks.md#variables-in-tasksjson).
 

@@ -32,7 +32,8 @@ function mapFileToBlogArticle(file) {
 		Content: "",
         File: null,
         Date: file.data.Date,
-        Author: file.data.Author
+        Author: file.data.Author,
+        ShortDescription: file.data.ShortDescription
 	};
 }
 

@@ -4,7 +4,7 @@ TOCTitle: Introducing Chrome Debugging
 PageTitle: Introducing Chrome Debugging for VS Code
 MetaDescription: Chrome debugger extension for Visual Studio Code
 Date: 2016-02-23
-ShortDescription: Introduction to Chrome Debugging Extension in VS Code
+ShortDescription: Since the first release of Visual Studio Code, one of our focuses has been to simplify the daily workflow for developers by enabling them to debug their code directly from the editor. We started out with .NET and Node.js debugging, and today we are taking the next step by introducing our Chrome Debugger for Visual Studio Code.
 Author: Andy Sterland
 ---
 
