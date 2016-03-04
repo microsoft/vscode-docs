@@ -1,3 +1,10 @@
+---
+Order:
+TOCTitle:
+PageTitle: Requirements for Visual Studio Code
+MetaDescription: 
+---
+
 # Requirements for Visual Studio Code
 
 ## Hardware
