@@ -3,7 +3,7 @@ Order: 2
 Area: runtimes
 TOCTitle: ASP.NET Core
 PageTitle: ASP.NET Core and Visual Studio Code End to End
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging ASP.NET applications running on Cross Platform CLR.
 MetaTags:
 - DNX

@@ -3,7 +3,7 @@ Order: 5
 Area: extensionapi
 TOCTitle: API vscode namespace
 PageTitle: Visual Studio Code API Reference
-DateApproved: 12/18/2015
+DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.  
 ---
 

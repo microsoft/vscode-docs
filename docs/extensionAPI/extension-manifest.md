@@ -3,7 +3,7 @@ Order: 2
 Area: extensionapi
 TOCTitle: Extension Manifest
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.  
 ---
 

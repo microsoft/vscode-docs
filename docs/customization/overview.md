@@ -3,7 +3,7 @@ Order: 1
 Area: customization
 TOCTitle: Overview
 PageTitle: Customize Visual Studio Code
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: You can configure VS Code to work the way you like to work.  Here is a quick primer on some of the most common ways to configure VS Code.
 ---
 

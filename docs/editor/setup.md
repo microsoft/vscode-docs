@@ -3,7 +3,7 @@ Order: 1
 Area: editor
 TOCTitle: Setup
 PageTitle: Setting up Visual Studio Code
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Get Visual Studio Code up and running on Mac OS X, Linux or Windows.
 ---
 

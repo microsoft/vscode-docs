@@ -3,7 +3,7 @@ Order: 4
 Area: customization
 TOCTitle: Snippets
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Gallery. TextMate .tmSnippets files are supported.
 ---
 
