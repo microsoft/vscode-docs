@@ -1,3 +1,10 @@
+---
+Order:
+TOCTitle:
+PageTitle: Requirements for Visual Studio Code
+MetaDescription: Visual Studio Code hardware and platform (operating system) requirements.
+---
+
 # Requirements for Visual Studio Code
 
 ## Hardware
