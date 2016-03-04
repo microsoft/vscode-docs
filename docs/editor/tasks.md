@@ -9,9 +9,7 @@ MetaDescription: Expand your development workflow with task integration in Visua
 
 # Integrate with External Tools via Tasks
 
-Lots of tools exist to automate tasks like building, packaging, testing or deploying software systems.
-Examples include [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](http://ant.apache.org/), [Gulp](http://gulpjs.com/),
-[Jake](http://jakejs.com/), [Rake](http://rake.rubyforge.org/) and [MSBuild](https://github.com/Microsoft/msbuild).
+Lots of tools exist to automate tasks like building, packaging, testing or deploying software systems. Examples include [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](http://ant.apache.org/), [Gulp](http://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](http://rake.rubyforge.org/) and [MSBuild](https://github.com/Microsoft/msbuild).
 
 These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code. Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
 
@@ -80,10 +78,11 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 >**Tip:** Gulp, Grunt and Jake are autodetected only if the corresponding files are present in the root of the opened folder.
 
-
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
 
-You need to configure the tasks in `tasks.json` if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)` (Run Build Task).
+You need to configure the tasks in `tasks.json` (`.vscode\tasks.json`) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)` (Run Build Task).
+
+>**Note:** If you don't already have a `tasks.json` under your workspace's `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will create one for you with several default examples.
 
 To do this, we need to edit the `tasks.json` file to 'wrap' the build gulp task that was defined in the gulpfile.  This is achieved with the following:
 
@@ -184,7 +183,7 @@ Here is an example where output for the "deploy" task is always brought to front
 
 ## Variable substitution
 
-When authoring tasks and launch configurations it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the task.json and launch.json files and has the following predefined variables:
+When authoring tasks and launch configurations it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the tasks.json and launch.json files and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
 - **${file}** the current opened file

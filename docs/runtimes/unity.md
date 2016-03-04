@@ -25,9 +25,7 @@ The easiest way to get going is to leverage a [Unity plug-in](https://github.com
 2. Configures Unity to pass file and line numbers and reuse the existing window - so VS Code opens in the correct context
 3. Scrubs the Unity project file to ensure that OmniSharp can work with it - to get the best editing experience
 4. Configures VS Code to ignore certain Unity file types - removing clutter from the VS Code file explorer
-5. Configures a `launch.json` file with the correct debug port - to enable debugging
-
->**Note:** Debugging support is only offered on OS X today.  Windows does not support debugging via Mono.  We have also not done any significant testing of the plug-in with the Linux Unity build.
+5. Configures a `launch.json` file with the correct debug port - to enable debugging. However, installing the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) is recommended to get debugging support.
 
 ### Step 1: Download the plug-in code
 
@@ -157,24 +155,4 @@ Before|After
 
 **Q: How can I debug Unity?**
 
-**A:** To get [debugging](/docs/editor/debugging.md) to work, you need to configure VS Code to use the Mono debugger.
-
->**Note:** Debugging is only supported via Mono.  As a result, this section only applies to Mac OS X (the Linux version of Unity should also work but is not tested).
-
-The Unity plug-in described above does the hard work (especially for configuring the port).  However, if you want to know the typical `launch.json` file entry, here you go...
-
-```json
-{
-   "version": "0.1.0",
-   "configurations": [
-        {
-          "name": "Unity",
-          "type": "mono",
-          "address": "localhost",
-          "port": 56943
-       }
-    ]
-}
-```
-
-Change the `port` value to the current port number.
+**A:** Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension.

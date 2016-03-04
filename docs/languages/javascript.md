@@ -97,7 +97,7 @@ npm install
 
 ### Run Babel inside VS Code
 
-The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Maps.  You can easily integrate Babel into your workflow by adding this code to your `tasks.json` file. The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
+The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate Babel into your workflow by adding this code to your `tasks.json` file (located under the workspace's `.vscode` folder). The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
 
 ```json
 {
