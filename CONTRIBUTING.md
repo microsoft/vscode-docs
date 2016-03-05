@@ -94,7 +94,7 @@ Use bold for VS Code commands and UI elements.
 
 Limit the use of bold for emphasis unless it is crucial to get the user's attention.
 
-Use Markdown highlight (`blah`) for settings, filename and JSON attributes.
+Use Markdown highlight for settings, filename and JSON attributes.
 
     `files.exclude`
     `tasks.json`
