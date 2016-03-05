@@ -15,7 +15,7 @@ Visual Studio Code has many features to help make the editor accessible to all u
 
 You can increase the Zoom level in VS Code with the **View** > **Zoom In** command (`kb(workbench.action.zoomIn)`).  The zoom level increases by 20% each time the command is executed. The **View** > **Zoom Out** (`kb(workbench.action.zoomOut)`) command lets you decrease the Zoom level.
 
-![Zoomed in editor](/images/accessibility/zoomed-in.png)
+![Zoomed in editor](images/accessibility/zoomed-in.png)
 
 ## Persisted Zoom Level
 
@@ -25,7 +25,7 @@ With the  `window.zoomLevel` [setting](/docs/customization/userandworkspace.md) 
 
 We support a High Contrast color theme on all platforms.  Use **File** > **Preferences** > **Color Theme** to display the **Select Color Theme** dropdown and select the **High Contrast** theme.
 
-![High Contrast Theme](/images/accessibility/high-contrast.png)
+![High Contrast Theme](images/accessibility/high-contrast.png)
 
 ## Keyboard Navigation
 
@@ -33,7 +33,7 @@ You will find that VS Code provides an exhaustive list of commands in the Comman
 
 VS Code also has many preset keyboard shortcuts for commands. These are displayed to the right of the command in the Command Palette.
 
-![Keyboard shortcuts in Command Palette](/images/accessibility/keyboard-shortcuts.png)
+![Keyboard shortcuts in Command Palette](images/accessibility/keyboard-shortcuts.png)
 
 You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** brings up the Default Keyboard Shortcuts in the left pane and your customizable `keybindings.json` on the right.  See [Key Bindings](/docs/customization/keybindings.com) for more details on customizing or adding your own keyboard shortcuts.
 
@@ -52,7 +52,7 @@ Some areas that support Tab navigation are:
 
 By default, pressing the `kbstyle(Tab)` within a source code file inserts the Tab character (or spaces depending on your Indentation setting) and does not leave the open file. You can toggle the trapping of `kbstyle(Tab)` with `kbstyle(Ctrl+M)` and subsequent `kbstyle(Tab)` keys will move focus out of the file.  When default `kbstyle(Tab)` trapping is off, you will see an indicator in the Status Bar.
 
-![tab moves focus](/images/accessibility/tab-moves-focus.png)
+![tab moves focus](images/accessibility/tab-moves-focus.png)
 
 Read-only files never trap the `kbstyle(Tab)` key.
 
