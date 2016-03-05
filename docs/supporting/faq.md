@@ -45,6 +45,11 @@ To modify the update channel, go to `File | Preferences | User Settings` and add
 
 Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 
+## Why does Visual Studio Code have an expiration date of 31-Dec-2016?
+
+Great question! Please see [this StackOverflow question](http://stackoverflow.com/questions/35744049/visual-studio-code-vscode-license-expires/35816955#35816955) for a detailed explanation.
+
+
 ## How can I test prerelease versions of VS Code?
 
 Want get an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build will automatically update when we release new builds, towards the end of each month or whenever there is new functionality we'd like to get into the hands of developers early.
