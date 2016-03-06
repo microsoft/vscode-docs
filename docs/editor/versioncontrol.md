@@ -21,7 +21,7 @@ Visual Studio Code has integrated [Git](http://git-scm.com/) support for the mos
 
 The Git icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the detail of your current repository changes: **unstaged**, **staged** and **unresolved merge** changes.
 
-Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still let's you edit the file: feel free to use it!
+Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
 
 >**Tip:** Read on for a little more on diffs in Visual Studio Code.
 
