@@ -87,7 +87,9 @@ npm install -g typings
 
 >**Tip:** Typings has a number of options for configuring where and how definition files are downloaded, from the terminal run `typings --help` for more information.
 
-Now you can pull down the Node and Express definitions.
+Start Visual Studio Code, open `app.js` and notice the wavy green warning lines under occurrences of `__dirname`. If you hover over `__dirname`, you will see a message "Cannot find name '__dirname'.any."
+
+Now, pull down the Node and Express definitions.
 
 ```bash
 typings install node --ambient
@@ -96,7 +98,7 @@ typings install express --ambient
 
 >**Tip:** You can download multiple definition files by combining them on the command line, for example `typings install node express --ambient`.
 
-Open `app.js` and notice how the warnings no longer appear for`__dirname`. This is because VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
+Notice how the warnings no longer appear for`__dirname`. This is because VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
