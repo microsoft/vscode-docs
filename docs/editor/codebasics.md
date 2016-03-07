@@ -3,7 +3,7 @@ Order: 2
 Area: editor
 TOCTitle: The Basics
 PageTitle: The Basics of Visual Studio Code
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.
 ---
 
@@ -100,9 +100,9 @@ Once you are done with your task, you can individually remove files from the wor
 
 VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/customization/userandworkspace.md#settings-file-locations).
  
-* Select `Files | Preferences | User Settings` (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
+* Select **Files** > **Preferences** > **User Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
  
-* Select `Files | Preferences | Workspace Settings` (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
+* Select **Files** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
 
 You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from Default Settings.
 
@@ -221,6 +221,8 @@ Here are optional command line arguments you can use when starting VS Code at th
 
 Argument|Description
 ------------------|-----------
+`-h` or `--help` | Print usage
+`-v` or `--version` | Print VS Code version (e.g. 0.10.10)
 `-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session.
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
@@ -280,6 +282,10 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 ```json
     "editor.wrappingColumn": 0
 ```
+
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.  Restarting VS Code will pick up the persisted `editor.wrappingColumn` value.
+
+You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
 
 **Q: How can I show more files in the Working Files section?**
 

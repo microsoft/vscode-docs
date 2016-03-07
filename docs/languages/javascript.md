@@ -3,7 +3,7 @@ Order: 2
 Area: languages
 TOCTitle: JavaScript
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -35,7 +35,17 @@ You can create a JavaScript project by dropping in a `jsconfig.json` file. It's 
 }
 ```
 
->**Tip:** You can exclude folders from the JavaScript project using the `exclude` property. By default, VS Code excludes `.git`, `node_modules`, `bower_components`, `jspm_packages`, `tmp`, and `temp` folders.
+After editing the `jsconfig.json`, do not forget to run the `Reload JavaScript` command to ensure that everything is up to date.
+
+>**Tip:** If the application's JavaScript source code is contained inside an `app` or `src` folder, then define the `jsconfig.json` inside the corresponding folder and not at the top-level of the workspace.
+
+>**Tip:** If your workspace contains folders with JavaScript files that belong to separate applications, e.g, a `client` and a `server`, then consider adding a separate `jsconfig.json` into the corresponding folders.
+
+### exclude property
+
+You can exclude folders from the JavaScript project using the `exclude` property. 
+
+Here is an example `jsconfig.json` excluding "bower_components":
 
 ```json
 {
@@ -44,26 +54,40 @@ You can create a JavaScript project by dropping in a `jsconfig.json` file. It's 
         "module": "commonjs"
     },
     "exclude": [
-        "excluded folder"
+        "bower_components"
     ]
 }
 ```
 
->**Tip:** If the application's JavaScript source code is contained inside an `app` or `src` folder, then define the `jsconfig.json` inside the corresponding folder and not at the top-level of the workspace.
+>**Note:** If you do not have a `jsconfig.json` in your workspace, VS Code will by default exclude the `node_modules` folder and the folder defined by the `out` attribute.
 
->**Tip:** If your workspace contains folders with JavaScript files that belong to separate applications, e.g, a `client` and a `server`, then consider adding a separate `jsconfig.json` into the corresponding folders.
+Below is a table mapping common project components to their installation folders to exclude:
+
+Component | folder to exclude
+----------|-----------
+`node` | exclude the `node_modules` folder
+`bower` | exclude the `bower_components` folder
+`ember` | exclude the `tmp` and `temp` folders
+`jspm` | exclude the `jspm_packages` folder
+`webpack` | exclude the output folder, e.g., `dist`.
 
 ### /// References for .d.ts
 
-With the introduction of `jsconfig.json`, you no longer need to use `///` references in each file (these were required in the initial versions of VS Code). As the file set is defined in `jsconfig.json`, VS Code knows what files and symbols are part of your project.
+With the introduction of `jsconfig.json`, you no longer need to use `///` references in each file. As the file set is defined in `jsconfig.json`, VS Code knows what files and symbols are part of your project.
 
 As an example, you can just drop a new type definition `.d.ts` file into your project folder and VS Code will pick it up automatically.
 
 ### Defining Global Variables Outside .d.ts
 
-VS Code also supports the global directive `/*global varName*/` to declare variables. In comparison to `.d.ts` files, it’s a faster but less powerful way to define variables to be used inside source files.
+VS Code also supports the global directive `/*global varName*/` to declare variables. In comparison to `.d.ts` files, it’s a faster but less powerful way to define variables used inside source files.
 
-![Global directive](images/javascript/jsglobalvariable.png)
+```javascript
+/* global someVariable */
+
+console.log(someVariable);
+
+console.log(anotherVariable);
+```
 
 ## IntelliSense Support
 
@@ -92,8 +116,6 @@ git clone https://github.com/jrieken/es6-vscode-sample
 cd es6-vscode-sample
 npm install
 ```
-
->**Note:** Super-references in deriving object-literals is still on our plate; currently if you try this in VS Code you'll receive a faulty compiler error, which you can suppress by setting the `javascript.validate._surpressSuperWithoutSuperTypeError: [true|false]` option.
 
 ### Run Babel inside VS Code
 
@@ -126,37 +148,10 @@ reported problems can be navigated to and fixed inside VS Code.
 To enable one of the linters, do the following:
 
 * Install the corresponding linter globally or inside the workspace folder that contains the JavaScript code to be validated.
-  For example, using `npm install eslint` or `npm install jshint`, respectively.
+  For example, using `npm install-g eslint` or `npm install -g jshint`, respectively.
 * Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) or [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) extension. After restarting the editor, enable ESLint or JSHint via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
-* Optionally disable VS Code's built-in JavaScript validation via the setting `"javascript.validate.enable": false`
+
 * Use the .eslintrc or .jshintrc file to configure the linter.
-
-
-## JavaScript Validation Settings
-
-Validation is supported by a set of configuration rules. In addition to syntax checks, [User Settings](/docs/customization/userandworkspace.md) allow you to configure additional checks for JavaScript files. Such as:
-
-Id|Description|Default
----|------------|----
-comparisonOperatorsNotStrict | Favors the use of ```!==``` and ```===``` over ```!=``` and ```==```. | ignore
-curlyBracketsMustNotBeOmitted | Even single-line block statements should have curly brackets | ignore
-emptyBlocksWithoutComment | An empty block should at least have a comment | ignore
-forcedTypeConversion | Don’t force a type conversion | ignore
-functionsInsideLoops | Function inside loops often don’t do what you think they do | ignore
-missingSemicolon | Statements should be terminated with a semi-colon | ignore
-mixedTypesArithmetics | Don’t force a conversion with arithmetic operations, like ```”C” + 0 + “de”``` | ignore
-newOnLowercaseFunctions | Functions that are used as constructors should be upper-case | ignore
-newOnReturningFunctions | Functions that are used as constructors should not return something | ignore
-parametersDontMatchSignature | Invoking a function with wrong types or wrong number of parameters | ignore
-primitivesInInstanceOf | The ```instanceof``` operator cannot be used with primitive types | error
-redeclaredVariables | Don’t redeclare a variable with a different type | warning
-semicolonsInsteadOfBlocks | Don’t replace a block with a semi-colon, as in ```while(true);{ break; }``` | warning
-tripleSlashReferenceAlike | A comment that looks like a `///` reference | warning
-undeclaredVariables | Use of an undeclared variable | warning
-unknownProperty | Use of an unknown property | ignore
-unknownTypeOfResults | The ```typeof``` operation has a fixed set of possible results | warning
-unusedFunctions | A function that isn’t used | warning
-unusedVariables | A variable that isn’t used | warning
 
 ## Next Steps
 

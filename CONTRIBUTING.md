@@ -81,11 +81,31 @@ Topic metadata enables certain functionalities for the topics such as table of c
 
 ## Formatting 
 
-**Headings & Right Nav**
+### Headings & Right Nav
 
 H2 subheadings `##` end up in the right hand jump list for the document (this happens in our compile script).  It's a good idea to include h2 subheadings to help users get an overview of the doc and quickly navigate to the major topics.
 
-**Links**
+### Text formatting
+
+Use bold for VS Code commands and UI elements.
+
+    **Extensions: Install Extension**
+    **Debug Console**
+
+Limit the use of bold for emphasis unless it is crucial to get the user's attention.
+
+Use Markdown highlight for settings, filename and JSON attributes.
+
+    `files.exclude`
+    `tasks.json`
+    `preLaunchTask`
+
+Use '>' to show menu sequence.
+
+    **File** > **Preferences** > **User Settings**
+    **View** > **Command Palette**
+
+### Links
 
 For links within our own documentation, use a site relative link like `/docs/editor/codebasics.md`.
 
@@ -94,7 +114,7 @@ For links within our own documentation, use a site relative link like `/docs/edi
 <strike>>**Caution:** Do not include the .md file extension.</strike>
 >**Correction:** For this repo to ease content development you should add the .md suffix.  We will parse these out for the website deployment.
 
-**Bookmarks**
+### Bookmarks
 
 To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.  
 
@@ -102,7 +122,7 @@ Note the subheading title is lowercase and subheading title words are separated 
 
 >For example: `[More on documentation intent](#documentation-intent)` - links to the **Documentation intent** subheading above.
 
-**Images**
+### Images
 
 Images are important to bring the product to life - even if people can't try the product these really help them see what they are missing.
 
@@ -112,7 +132,7 @@ When you link to an image, the path and filename are case-sensitive.  The conven
 
 >For example: `![Debug Breakpoints](images/debugging/breakpoints.png)`
 
-**Key bindings**
+### Key bindings
 
 The VS Code portal is able to show the correct key bindings depending on the reader's operating system (Mac, Windows or Linux).  
 
@@ -128,7 +148,7 @@ If you are listing out multiple key bindings, you can use a table.
 >Copy|`kb(editor.action.clipboardCopyAction)`
 >Paste|`kb(editor.action.clipboardPasteActionn)`
 
-**Source Code**
+### Source Code
 
 For source code we use the fenced code block notation "```".
 

@@ -3,7 +3,7 @@ Order: 7
 Area: extensions
 TOCTitle: Principles and Patterns
 PageTitle: Visual Studio Code Extensibility Patterns and Principles
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: The Visual Studio Code extensibility (plug-in) API is designed around a set of guiding patterns and principles to promote extension consistency, correctness and ease of development.
 ---
 

@@ -3,7 +3,7 @@ Order: 3
 Area: languages
 TOCTitle: C#
 PageTitle: C# programming with Visual Studio Code
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 ---
 
@@ -14,6 +14,10 @@ The C# support in VS Code is optimized for cross-platform .NET development (DNX)
 We support debugging of C# apps cross-platform via Mono (see [Mono Debugging](/Docs/editor/debugging.md#mono-debugging)).
 
 Due to this focus many standard C# project types are not recognized by VS Code.  An example of a non-supported project type is an ASP.NET MVC Application.  In these cases if you simply want to have a lightweight tool to edit a file - VS Code has you covered.  If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
+
+## Installing C&#35; support
+
+C# language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). You can install it from within VS Code by searching for 'C#' in the **Extensions: Install Extension** dropdown (`kb(workbench.action.showCommands)` and type `ext install`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
 
 ## Roslyn and OmniSharp
 

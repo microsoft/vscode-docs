@@ -14,7 +14,7 @@ var File = require('vinyl');
 var common = require('./gulpfile.common');
 var slash = require('gulp-slash');
 
-var BLOG_ROOT = 'blog'; 
+var BLOG_ROOT = 'blogs'; 
 var DEST_ROOT = 'out/vscode-website/src'; 
 
 var blogs = [];

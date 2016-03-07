@@ -3,7 +3,7 @@ Order: 3
 Area: runtimes
 TOCTitle: Unity
 PageTitle: Visual Studio Code and Unity
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
 
@@ -100,7 +100,7 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 **Q: How can I manually configure Editor Settings?**
 
-**A:**  To set VS Code as the External Editor for Unity go to the `Edit | Preferences...` menu.  From there move to the `External Tools` tab where you should see a screen like the following:
+**A:**  To set VS Code as the External Editor for Unity go to the **Edit** > **Preferences...** menu.  From there move to the **External Tools** tab where you should see a screen like the following:
 
 ![External Editor settings](images/unity/editorsettings.png)
 

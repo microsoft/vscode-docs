@@ -3,7 +3,7 @@ Order: 6
 Area: extensionapi
 TOCTitle: API complex commands
 PageTitle: Visual Studio Code Commands API Reference
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands API Reference.  
 ---
 
@@ -22,7 +22,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 `vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol provider.
 
-* _query_
+* _query_ Search string
 * _(returns)_ A promise that resolves to an array of SymbolInformation-instances.
 
 
@@ -33,7 +33,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of Location-instances.
 
 
-`vscode.executeHoverProvider` - Execute all definition provider.
+`vscode.executeHoverProvider` - Execute all hover provider.
 
 * _uri_ Uri of a text document
 * _position_ Position of a symbol

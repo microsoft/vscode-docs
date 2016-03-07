@@ -3,7 +3,7 @@ Order: 2
 Area: extensionapi
 TOCTitle: Extension Manifest
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.  
 ---
 
@@ -16,9 +16,10 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 Name | Required | Type | Details
 ---- |:--------:| ---- | -------
 `name` | Y | `string` | The name of the extension - should be all lowercase with no spaces.
-`version` | Y | `string` | [Semver](http://semver.org/) compatible version.
+`version` | Y | `string` | [SemVer](http://semver.org/) compatible version.
 `publisher` | Y | `string` | The [publisher name](/docs/tools/vscecli.md#publishers-and-personal-access-tokens)
 `engines` | Y | `object` | An object containing at least the `vscode` key matching the versions of VS Code that the extension is compatible with.  Cannot be `*`. For example: `^0.10.5` indicates compatibility with a minimum VS Code version of `0.10.5`.
+`license` | | `string` | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`
 `displayName` | | `string`| The display name for the extension used in the Gallery.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Other]`

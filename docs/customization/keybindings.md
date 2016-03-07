@@ -3,7 +3,7 @@ Order: 3
 Area: customization
 TOCTitle: Key Bindings
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 ---
 
@@ -47,6 +47,10 @@ Key|Command|Command id
 `kb(scrollLineUp)`|Scroll Line Up|`scrollLineUp`
 `kb(scrollPageDown)`|Scroll Page Down|`scrollPageDown`
 `kb(scrollPageUp)`|Scroll Page Up|`scrollPageUp`
+`kb(editor.fold)`|Fold (collapse) region|`editor.fold`
+`kb(editor.unfold)`|Unfold (uncollapse) region|`editor.unfold`
+`kb(editor.foldAll)`|Fold (collapse) all regions|`editor.foldAll`
+`kb(editor.unfoldAll)`|Unfold (uncollapse) all regions|`editor.unfoldAll`
 `kb(editor.action.addCommentLine)`|Add Line Comment|`editor.action.addCommentLine`
 `kb(editor.action.removeCommentLine)`|Remove Line Comment|`editor.action.removeCommentLine`
 `kb(editor.action.commentLine)`|Toggle Line Comment|`editor.action.commentLine`
@@ -69,6 +73,7 @@ Key|Command|Command id
 `kb(editor.action.format)`|Format Code|`editor.action.format`
 `kb(editor.action.goToDeclaration)`|Go to Definition|`editor.action.goToDeclaration`
 `kb(editor.action.previewDeclaration)`|Peek Definition|`editor.action.previewDeclaration`
+`kb(editor.action.openDeclarationToTheSide)`|Open Definition to the Side|`editor.action.openDeclarationToTheSide`
 `kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
 `kb(editor.action.referenceSearch.trigger)`|Show References|`editor.action.referenceSearch.trigger`
 `kb(editor.action.rename)`|Rename Symbol|`editor.action.rename`
@@ -124,6 +129,7 @@ Key|Command|Command id
 `kb(workbench.action.files.saveAs)`|Save As...|`workbench.action.files.saveAs`
 `kb(workbench.files.action.closeFile)`|Close File|`workbench.files.action.closeFile`
 `kb(workbench.files.action.closeAllFiles)`|Close All Files|`workbench.files.action.closeAllFiles`
+`kb(workbench.files.action.closeOtherFiles)`|Close Other Files|`workbench.files.action.closeOtherFiles`
 `kb(workbench.files.action.addToWorkingFiles)`|Add to Working Files|`workbench.files.action.addToWorkingFiles`
 `kb(workbench.files.action.openNextWorkingFile)`|Open Next Working File|`workbench.files.action.openNextWorkingFile`
 `kb(workbench.files.action.openPreviousWorkingFile)`|Open Previous Working File|`workbench.files.action.openPreviousWorkingFile`
@@ -146,7 +152,6 @@ Key|Command|Command id
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
-`kb(o.showOutput)`|Show OmniSharp Log|`o.showOutput`
 `kb(workbench.action.markdown.togglePreview)`|Toggle Markdown Preview|`workbench.action.markdown.togglePreview`
 `kb(workbench.action.markdown.openPreviewSideBySide)`|Open Preview to the Side|`workbench.action.markdown.openPreviewSideBySide`
 
@@ -171,6 +176,7 @@ Key|Command|Command id
 `kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
 `kb(workbench.action.debug.stepOver)`|Step Over|`workbench.action.debug.stepOver`
 `kb(workbench.action.debug.stop)`|Stop|`workbench.action.debug.stop`
+`kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
 
 ## Tasks
 
@@ -186,12 +192,13 @@ Key|Command|Command id
 `kb(workbench.extensions.action.installExtension)`|Install Extension|`workbench.extensions.action.installExtension`
 `kb(workbench.extensions.action.listExtensions)`|Show Installed Extensions|`workbench.extensions.action.listExtensions`
 `kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
+`kb(workbench.extensions.action.listSuggestedExtensions)`|Show Suggested Extensions|`workbench.extensions.action.listSuggestedExtensions`
 
 ## Customizing Shortcuts
 
 All keyboard shortcuts in VS Code can be customized via the `User/keybindings.json` file.
 
-* To configure keyboard shortcuts the way you want, go to the menu under `File , Preferences , Keyboard Shortcuts`.
+* To configure keyboard shortcuts the way you want, go to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**.
 * This will open the Default Keyboard Shortcuts on the left and your `User/keybindings.json` file where you can overwrite the default bindings on the right.
 
 ## Keyboard Rules
@@ -213,8 +220,8 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 { "key": "alt+right",                             "command": "workbench.action.navigateForward" },
 
 // Global keybindings using chords
-{ "key": "ctrl+l l",                              "command": "o.showOutput" },
-{ "key": "ctrl+l shift+r",                        "command": "o.execute" },
+{ "key": "ctrl+k enter",                          "command": "workbench.files.action.addToWorkingFiles" },
+{ "key": "ctrl+k ctrl+w",                         "command": "workbench.files.action.closeAllFiles" },
 ```
 
 Each rule consists of:
