@@ -378,7 +378,7 @@ We have changed the debug protocol in the following (backward compatible) ways:
 
 ## Notable Bug Fixes
 
-- [105](https://github.com/Microsoft/vscode/issues/105): Add option to convert tabs to spaces
+- [105](https://github.com/Microsoft/vscode/issues/105): Enable code folding and collapsing
 - [439](https://github.com/Microsoft/vscode/issues/439): `ext install` is slow
 - [1228](https://github.com/Microsoft/vscode/issues/1228): Add option to convert tabs to spaces
 - [2490](https://github.com/Microsoft/vscode/issues/2490): Improve IntelliSense perf
