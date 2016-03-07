@@ -2,13 +2,13 @@
 Order: 3
 TOCTitle: February 2016 Release
 PageTitle: Visual Studio February 2016 Release
-MetaDescription: Visual Studio Code February 2016 Release
+MetaDescription: Announcing the Visual Studio Code February 2016 Release
 Date: 2016-03-07
 ShortDescription: Announcing the February 2016 Release of VS Code
 Author: Chris Dias
 ---
 
-# Feb 2016 Release
+# February 2016 Release
 
 Today we are releasing the February 2016 build of Visual Studio Code. This release brings many improvements to your development experience, including:
 
@@ -22,4 +22,5 @@ And much, much more. Please see our [Release Notes](http://go.microsoft.com/fwli
 If you have automatic updates turned on (OS X and Windows) then you'll get prompted soon. Otherwise, [download VS Code today](https://code.visualstudio.com)!
 
 Happy Coding!!
+
 The VS Code Team
