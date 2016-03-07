@@ -3,7 +3,7 @@ Order: 6
 Area: languages
 TOCTitle: Markdown
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 
@@ -74,7 +74,7 @@ npm install -g marked
 
 Open VS Code on an empty folder and create a `sample.md` file.
 
-> **Note:** You can open a folder with VS Code by either selecting the folder with `File | Open Folder...` or navigating to the folder and typing `code .` at the command line.
+> **Note:** You can open a folder with VS Code by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.
 
 Place the following code in that file:
 
@@ -212,4 +212,4 @@ Read on to find out about:
 
 **Q: In the walkthrough above, I didn't find the `Configure Task Runner` command in the Command Palette?**
 
-**A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with `File | Open Folder...` or navigating to the folder and typing `code .` at the command line.
+**A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.

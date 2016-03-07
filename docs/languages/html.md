@@ -3,7 +3,7 @@ Order: 5
 Area: languages
 TOCTitle: HTML
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Get the best out of Visaul Studio Code for HTML development
 ---
 

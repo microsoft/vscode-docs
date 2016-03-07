@@ -1,13 +1,14 @@
 ---
-Order: 11
+Order: 12
 Area: editor
 TOCTitle: Why VS Code
 PageTitle: Why Visual Studio Code?
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code provides developers with a new choice of developer tool that combines the simplicity and streamlined experience of a code editor with the best of what developers need for their core code-edit-debug cycle. Visual Studio Code is the first code editor and first cross-platform development tool supporting OS X, Linux, and Windows.
 ---
 
 # Why Visual Studio Code?
+
 Visual Studio Code provides developers with a new choice of developer tool that combines the simplicity and streamlined experience of a code editor with the best of what developers need for their core code-build-debug cycle. Visual Studio Code is the first code editor, and first cross-platform development tool - supporting OS X, Linux, and Windows - in the Visual Studio family.
 
 ![Visual Studio Code runs on Max OS X, Linux and Windows](images/whyvscode/macwinlinux2.png)
@@ -23,6 +24,7 @@ Architecturally, Visual Studio Code combines the best of web, native, and langua
 If you prefer a code editor-centric development tool or are building cross-platform web and cloud applications, we invite you to try out the Visual Studio Code Beta and let us know what you think!
 
 ## Next Steps
+
 Read on to find out about:
 
 * [Visual Studio Code Basics](/docs/editor/codebasics.md) - a quick orientation of VS Code

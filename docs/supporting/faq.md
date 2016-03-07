@@ -1,7 +1,7 @@
 ---
 TOCTitle: FAQ
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 
@@ -35,7 +35,7 @@ See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64
 
 By default, VS Code is set up to auto-update for OS X and Windows users when we release new updates. (Auto-update of VS Code is not supported for Linux.) If you do not want to get automatic updates, you can set the `update.channel` setting from the default `stable` to `none`.
 
-To modify the update channel, go to `File | Preferences | User Settings` and add the `update.channel` setting with the value `"none"`.
+To modify the update channel, go to **File** > **Preferences** > **User Settings** and add the `update.channel` setting with the value `"none"`.
 
 ```json
     "update.channel": "none"
@@ -44,6 +44,11 @@ To modify the update channel, go to `File | Preferences | User Settings` and add
 ## Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
 
 Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+
+## Why does Visual Studio Code have an expiration date of 31-Dec-2016?
+
+Great question! Please see [this StackOverflow question](http://stackoverflow.com/questions/35744049/visual-studio-code-vscode-license-expires/35816955#35816955) for a detailed explanation.
+
 
 ## How can I test prerelease versions of VS Code?
 
@@ -96,7 +101,7 @@ On OS X, VS Code can no longer start OmniSharp after updating VS Code.
 
 To fix this issue, run these commands to update mono:
 
-```
+```bash
 brew update
 brew reinstall mono
 ```
@@ -107,7 +112,7 @@ Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capit
 
 Run these commands:
 
-```
+```bash
 brew update
 brew reinstall mono
 ```
@@ -116,17 +121,17 @@ brew reinstall mono
 
 ### Azure VM Issues
 
-I getting a "Running without the SUID sandbox" error?
+I'm getting a "Running without the SUID sandbox" error?
 
 Unfortunately, this is a known issue that we're still investigating.
 
 ### Debian and Moving Files to Trash
 
-In case you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
+If you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
 
 Run these commands to solve this issue:
 
-```
+```bash
 sudo apt-get install gvfs-bin
 ```
 
@@ -134,25 +139,29 @@ sudo apt-get install gvfs-bin
 
 When you see this error, it indicates that the VS Code file watcher is running out of handles. To increase the limit open `/etc/sysctl.conf` and add this line to the end of the file:
 
+```
 `fs.inotify.max_user_watches=16384`
+```
 
 ### I can't see Chinese characters in Ubuntu
 
-We're working on a fix. In the meantime, open the application menu, then choose `File`, `Preferences`, `User Settings`. Then set `editor.fontFamily` as shown:
+We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **User Settings**. Then set `editor.fontFamily` as shown:
 
-`editor.fontFamily: "Droid Sans Mono, Droid Sans Fallback"`
+```json
+    "editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"
+```
 
 ## Proxy Server Support
 
-If you work on a machine where internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
+If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
 
 * Set the operating system environment variables ‘http.proxy’ and ‘https.proxy’
 
-```
+```bash
     SET http_proxy=http://10.203.0.1:5187/
 ```
 
-* Configure the ‘http.proxy’ setting in your user settings (File > Preferences > User Settings)
+* Configure the ‘http.proxy’ setting in your user settings (**File** > **Preferences** > **User Settings**)
 
 ```json
     "http.proxy": "http://10.203.0.1:5187/"
@@ -166,18 +175,18 @@ Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a sel
 
 When you open a folder, VS Code will search for typical project files to offer you additional tooling (e.g. the solution picker in the status bar to open a solution). If you open a folder with lots of files, the search can take a large amount of time and CPU resources during which VS Code might be slow to respond. We plan to improve this in the future but for now you can exclude folders from the explorer via settings and they will not be searched for project files:
 
-```
-"files.exclude": {
-    "**/largeFolder": true
-}
+```json
+    "files.exclude": {
+        "**/largeFolder": true
+    }
 ```
 
 ## How to disable crash reporting
 
-From File | Preferences | User Settings, add the following option to disable crash reporting:
+From **File** > **Preferences** > **User Settings**, add the following option to disable crash reporting:
 
-```
-"telemetry.enableCrashReporter": false
+```json
+    "telemetry.enableCrashReporter": false
 ```
 
 **Important Notice**: This option requires a restart of VS Code to take effect.
@@ -186,29 +195,11 @@ From File | Preferences | User Settings, add the following option to disable cra
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services.  Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
 
-If you don’t wish to send usage data to Microsoft, please follow the instructions below to disable its collection. 
+If you don’t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
-**Important Notice**: You will need to apply these changes after every update to disable collection of usage data.  These changes do not survive product updates.
+From **File** > **Preferences** > **User Settings**, add the following option to disable telemetry reporting:
 
-### Windows
-
-1. Close VS Code.
-2. Open the command prompt.
-3. Type `cd %ProgramFiles(x86)%\Visual Studio Code\resources\app`.
-4. Type `notepad product.json`.
-5. Replace `enableTelemetry=true` with `enableTelemetry=false`.
-6. Save the file via `CTRL+S` and exit Notepad. Collection of usage data should now be disabled.
-
-### OS X / Linux
-
-> **TIP:** For Mac, editing `product.json` may prevent you from opening VS Code for the first time depending on your security settings. A workaround is to open VS Code at least once before editing the file.
-
-1. Close VS Code.
-2. Open the terminal .
-3. For:
-	- Mac Type `cd <PATH-TO-VSCode>/Visual\ Studio\ Code.app/Contents/Resources/app`
-	- Linux Type `cd <PATH-TO-VSCode>/Resources/app`
-4. Type `vi product.json`
-5. Replace `enableTelemetry=true` with `enableTelemetry=false`
-6. Save the file via `Esc ZZ`. Collection of usage data should now be disabled.
+```json
+    "telemetry.enableTelemetry": false
+```
 

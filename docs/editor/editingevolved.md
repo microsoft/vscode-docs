@@ -3,7 +3,7 @@ Order: 4
 Area: editor
 TOCTitle: Editing Evolved
 PageTitle: Editing Evolved
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and Debugging.
 ---
 
@@ -64,7 +64,7 @@ We offer built-in snippets across languages as well as support for [Emmet abbrev
 
 (See the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet/) for syntax examples.)
 
-You can also define your own snippets: Open `User Snippets` under `File | Preferences` and select the language for which the snippets should appear. Find out more about this in the [customization section](/docs/customization/userdefinedsnippets.md) of our docs.
+You can also define your own snippets: Open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear. Find out more about this in the [customization section](/docs/customization/userdefinedsnippets.md) of our docs.
 
 
 ## Go to Definition

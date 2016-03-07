@@ -3,7 +3,7 @@ Order: 2
 Area: runtimes
 TOCTitle: ASP.NET Core
 PageTitle: ASP.NET Core and Visual Studio Code End to End
-DateApproved: 2/3/2016
+DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging ASP.NET applications running on Cross Platform CLR.
 MetaTags:
 - DNX
@@ -75,7 +75,7 @@ The ASP.NET Core/DNX project system is also file and folder based, so when VS Co
 
 ![Select project](images/ASPnet5/dnxprojects.png)
 
-After selecting a `project.json` file, the status bar text will change to "Starting...". This indicates that OmniSharp (the brain behind VS Code’s C# support) is now loading your project. If you see a red icon, it means something went wrong. The specifics of the problem can be found by looking at the OmniSharp Output Log (`kb(o.showOutput)`).
+After selecting a `project.json` file, the status bar text will change to "Starting...". This indicates that OmniSharp (the brain behind VS Code’s C# support) is now loading your project. If you see a red icon, it means something went wrong. The specifics of the problem can be found by looking at the OmniSharp Output Log.
 
 When the status bar shows the project information it’s a good time to get going. You can now leverage the full power of VS Code, author code and run your app.
 

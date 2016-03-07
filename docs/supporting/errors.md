@@ -37,3 +37,16 @@ There are two options for solving this problem:
 
 * Install the gnome-terminal by running the command `sudo apt-get install gnome-terminal` (or the equivalent of your Linux distribution)
 * Manually launch your program in debug mode by passing a `--debug` or `--debug-brk` option to Node.js and then attach the VS Code debugger to port 5858 on 'localhost'.
+
+## 20003
+
+>**Error:** Attribute 'program' is not absolute; consider adding '${workspaceRoot}/' as a prefix to make it absolute.
+
+Before VS Code release 0.10.11, it was possible to use relative paths in launch configurations. VS Code would silently convert them to absolute paths.
+
+There were two problems with this:
+
+- VS Code would only fix paths for some well-known attributes like `program`, `cwd`, or `outDir`. Relative paths passed as an argument or set as an environment variable would not be fixed and this behavior was not transparent.
+- VS Code would only fix paths in the `launch.json` configuration file. It would not touch paths in `tasks.json` and this inconsistency was difficult to understand.
+
+Starting with release 0.10.11, VS Code no longer modifies launch configuration paths.  If you are using relative paths in your launch configurations, you'll need to fix them by prefixing the relative path with `${workspaceRoot}/`.
