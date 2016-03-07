@@ -776,7 +776,7 @@ has changed.</p>
 
 <a name="window.onDidChangeTextEditorViewColumn"></a><span class="ts" id=924 data-target="#details-924" data-toggle="collapse"><span class="ident">onDidChangeTextEditorViewColumn</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorViewColumnChangeEvent">TextEditorViewColumnChangeEvent</a>&gt;</span>
 <div class="details collapse" id="details-924">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the view column of an editor das changed.</p>
+<div class="comment"><p>An <a href="#Event">event</a> which fires when the view column of an editor has changed.</p>
 </div>
 </div>
 
