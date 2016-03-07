@@ -15,7 +15,7 @@ Today we are releasing the February 2016 build of Visual Studio Code. This relea
 * **JavaScript**: [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) is now the default JavaScript/TypeScript language service, bringing support for React and React Native to VS Code.
 * **Code Folding**: The most requested feature in [User Voice](https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7752321-add-code-folding-support) is now on by default.
 * **Extensions**: VS Code can make recommendations for extensions based on the files you've opened in the tool (Press `kb(workbench.action.showCommands)`, search for "recommend").
-* **Accessiblity**: Screen reader support in the Editor is now on by default.
+* **Accessibility**: Screen reader support in the Editor is now on by default.
 
 And much, much more. Please see our [Release Notes](http://go.microsoft.com/fwlink/?LinkID=533483) for more information.
 
