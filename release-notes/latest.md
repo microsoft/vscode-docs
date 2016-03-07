@@ -193,15 +193,11 @@ It's now possible to open a file in the **Working Files** list from the **Quick 
 
 ![quick open working files](images/February/quick-open-working-files.png)
 
-### Extension Tips
+### Extension Recommendations
 
-There is a new Status Bar display for suggesting extensions based on your use of VS Code.
+There is a new command **Extensions: Show Extension Recommendations** for displaying suggested extensions based on your use of VS Code. You can reach this by typing `ext recommend ` (trailing space) in the **Quick Open** box.
 
-![extension tips status bar display](images/February/extension-tips.png)
-
-Clicking the Status Bar display will open the list of suggested extensions. You can also reach this by typing `ext tips ` (trailing space) in the **Quick Open** box.
-
-![show extension tips(images/February/extension-tips-2.png)
+![show extension recommendations](images/February/extension-tips-2.png)
 
 ### Extension Gallery Performance Improvement
 
