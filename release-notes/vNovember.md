@@ -35,7 +35,7 @@ VS Code has two new `Extensions` commands (`kb(workbench.action.showCommands)` t
 
 ![extension commands](images/0_10_0/extension-commands.png)
 
-The VS Code also has a [Marketplace](https://marketplace.visualstudio.com/#VSCode) where you can browse and learn more about extensions.
+The VS Code also has a [Marketplace](https://marketplace.visualstudio.com/VSCode) where you can browse and learn more about extensions.
 
 ## Extensibility SDK
 

@@ -100,7 +100,7 @@ Here is a complete `package.json`
 
 ## Marketplace Presentation Tips
 
-Here are some tips and recommendations to make your extension look great when displayed on the [VS Code Marketplace](https://marketplace.visualstudio.com/#VSCode).
+Here are some tips and recommendations to make your extension look great when displayed on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 Always use the latest `vsce` so `npm install -g vsce` to make sure you have it.
 
