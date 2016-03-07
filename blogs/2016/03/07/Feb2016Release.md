@@ -1,5 +1,5 @@
 ---
-Order: 1
+Order: 3
 TOCTitle: February 2016 Release
 PageTitle: Visual Studio February 2016 Release
 MetaDescription: Visual Studio Code February 2016 Release
