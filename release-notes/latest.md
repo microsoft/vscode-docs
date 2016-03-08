@@ -69,7 +69,7 @@ In particular, the previous JavaScript infrastructure provided an implicit *lint
 
 Here are the steps to set up `eslint`:
 
-- `npm install -g eslint`
+- `npm install eslint` to install `eslint` into your workspace or `npm install -g eslint` to install it globally.
 - install the VS Code [eslint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 - use `eslint --init` to create an initial eslint configuration by answering questions or by picking a popular configuration.
 
