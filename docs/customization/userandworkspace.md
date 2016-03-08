@@ -468,9 +468,6 @@ Below is a copy of the default `settings.json` file.
     // Whether the linter is run on save or on type.
     "php.validate.run": "onSave",
 
-    // Suggest extensions based on changed and open files.
-    "extensions.showTips": true
-
 }
 ```
 

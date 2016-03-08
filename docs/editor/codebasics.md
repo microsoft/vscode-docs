@@ -38,7 +38,7 @@ Instead of placing files in separate tabs, VS Code allows up to three visible ed
 
 This helps to reduce the overhead of managing tabs but does not restrict the number of files you can work with. The Explorer view maintains a list of working files allowing you quick access to the files you need.
 
->**Tip:** You can move the Side Bar to the right hand side (`View, Move Sidebar`) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+>**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
 ## Side by Side Editing
 
@@ -48,13 +48,13 @@ If you already have one editor open, there are multiple ways of opening another 
 
 * `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer
 * `kb(workbench.action.splitEditor)` to split the active editor into two
-* `Open to the Side` from the Explorer context menu on a file
+* **Open to the Side** from the Explorer context menu on a file
 
 ![Side by Side editing](images/codebasics/sidebyside.png)
 
 Whenever you open another file, the editor that is active will display the content of that file. So if you have two editors side by side and you want to open file 'foo.cs' into the right hand editor, make sure that editor is active (by clicking inside it) before opening file 'foo.cs'.
 
-When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) key and pressing `1`, `2`, or `3`.
+When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
@@ -72,9 +72,9 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 ![Explorer Menu](images/codebasics/explorer_menu.png)
 
-VS Code works very well with other tools that you might use, especially command line tools. If you want to run a command line tool in the context of the folder you currently have open in VS Code, right-click the folder and select `Open in Terminal` (or `Open in Command Prompt` on Windows).
+VS Code works very well with other tools that you might use, especially command line tools. If you want to run a command line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on OS X or Linux).
 
-You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting `Reveal in Explorer` (or `Reveal in Finder` on the Mac or `Open Containing Folder` on Linux).
+You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the Mac or **Open Containing Folder** on Linux).
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` to quickly search and open a file by its name.
 
@@ -84,7 +84,7 @@ By default, VS Code excludes some folders from the explorer (for example. `.git`
 
 ## Working Files
 
-At the top of the Explorer is a section labeled `Working Files`. This is a list of active files. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the working files section if you:
+At the top of the Explorer is a section labeled **WORKING FILES**. This is a list of active files. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the working files section if you:
 
 * make a change to a file
 * double-click a file in the Explorer
@@ -92,9 +92,9 @@ At the top of the Explorer is a section labeled `Working Files`. This is a list 
 
 ![Working Files Section](images/codebasics/workingfiles.png)
 
-Think of the working files section as similar to Tabs that you may be familiar with in other code editors or IDEs. Just click a file in the working files section, and it becomes active in VS Code.
+Think of the **WORKING FILES** section as similar to Tabs that you may be familiar with in other code editors or IDEs. Just click a file in the working files section, and it becomes active in VS Code.
 
-Once you are done with your task, you can individually remove files from the working files section, or you can remove all files from the working files section by using the `Close All Files` action.
+Once you are done with your task, you can individually remove files from the working files section, or you can remove all files from the working files section by using the **Close All Files** action.
 
 ## Configuring the Editor
 
@@ -141,11 +141,11 @@ In the two input boxes below the search box, you can include and exclude files. 
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open settings to change these rules under the `files.exclude` and `search.exclude` section.
 
->**Tip:** From the Explorer you can right-click on a folder and select `Find in Folder` to search inside a folder only.
+>**Tip:** From the Explorer you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
 ## Command Palette
 
-VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the Command Palette. From here, you have access to all of the functionality of VS Code, including keyboard shortcuts for the most common operations.
+VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all of the functionality of VS Code, including keyboard shortcuts for the most common operations.
 
 ![Command Palette](images/codebasics/commands.png)
 
@@ -184,17 +184,13 @@ You can view the file encoding in the status bar.
 
 ![Encoding in status bar](images/codebasics/fileencoding.png)
 
-
 Click on the encoding in the status bar to reopen or save the active file with a different encoding.
 
 ![Reopen or save with a different encoding](images/codebasics/encodingclicked.png)
 
-
 Then choose an encoding.
 
 ![Select an encoding](images/codebasics/encodingselection.png)
-
-
 
 ## Launching from the Command Line
 
@@ -204,7 +200,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
->**Tip:** We have instructions for Mac and Linux users in our [Setup](/docs/editor/setup.md) topic that enable you to start VS Code from within a terminal.  We add Code to the PATH environment variable in Windows automatically.
+>**Tip:** We have instructions for Mac and Linux users in our [Setup](/docs/editor/setup.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows automatically.
 
 Sometimes you will want to open or create a file. If a file does not exist, we will create it for you:
 
@@ -235,7 +231,6 @@ For both files and folders, you can use absolute or relative paths. Relative pat
 
 If you specify more than one file or folder at the command line, VS Code will open only a single instance.
 
-
 ## Opening a Project
 
 VS Code does not distinguish between opening a folder and opening a project. Instead, if the folder you open contains any project files, VS Code will read those files and indicate the project context in the status bar. From there, you can switch between projects if more than one project is found.
@@ -245,7 +240,6 @@ To open the project contained in the folder `C:\src\WebApp`:
 ````
 code C:\src\webapp
 ````
-
 
 In other words, opening the folder containing the project effectively opens that project:
 
@@ -287,6 +281,6 @@ You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWo
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
 
-**Q: How can I show more files in the Working Files section?**
+**Q: How can I show more files in the WORKING FILES section?**
 
-**A:** You can configure the appearance of working files through your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.workingFiles.maxVisible` setting and whether the working files section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
+**A:** You can configure the appearance of **WORKING FILES** through your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.workingFiles.maxVisible` setting and whether the **WORKING FILES** section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
