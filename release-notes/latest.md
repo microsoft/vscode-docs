@@ -7,6 +7,9 @@ MetaDescription: See what is new in the Visual Studio Code February Release (0.1
 
 # 0.10.10 (February 2016)
 
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-darwin-stable.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-linux-x64-stable.zip)
+
 February is our last full iteration before we start the end game for the [Build 2016 conference](http://build.microsoft.com/) milestone at the end of March. It comes with many improvements:
 
 - Salsa is now the default JavaScript language service.

@@ -7,9 +7,14 @@ MetaDescription: See what is new in the Visual Studio Code January Release (0.10
 
 # 0.10.9 (January 2016)
 
+Download: [OS X](https://az764295.vo.msecnd.net/stable/45d69357c9eb068dd8e624f5b0fe461cd2078d88/VSCode-darwin.zip)
+
 The 0.10.9 release addresses an [issue](https://github.com/Microsoft/vscode/issues/2829) with indentation and the `kbstyle(Tab)` key on OS X.
 
 # 0.10.8 (January 2016)
+
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/db71ac615ddf9f33b133ff2536f5d33a77d4774e/VSCodeSetup-stable.exe) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/db71ac615ddf9f33b133ff2536f5d33a77d4774e/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/db71ac615ddf9f33b133ff2536f5d33a77d4774e/VSCode-linux-x64-stable.zip)
+
 
 Hi,
 

@@ -7,6 +7,8 @@ MetaDescription: See what is new in the Visual Studio Code December Release (0.1
 
 # 0.10.6 (December 2015)
 
+Downloads: [Windows](https://az764295.vo.msecnd.net/public/0.10.6/VSCodeSetup.exe) | [OS X](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-darwin.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-linux32.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-linux64.zip)
+
 The 0.10.6 release fixes a [crash on startup](https://github.com/Microsoft/vscode/issues/1463) that happens on OS X when using certain keyboard layouts.
 
 # 0.10.5 (December 2015)
