@@ -41,6 +41,8 @@ To modify the update channel, go to **File** > **Preferences** > **User Settings
     "update.channel": "none"
 ```
 
+You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/Updates).
+
 ## Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
 
 Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
