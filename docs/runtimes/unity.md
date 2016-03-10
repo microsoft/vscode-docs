@@ -78,6 +78,13 @@ Two topics that will help you are [Editing Evolved](/docs/editor/editingevolved.
 
 ![editing evolved example](images/unity/peekreferences.png)
 
+## Extensions
+
+The community is continually developing more and more valuable extensions for Unity. Here are some popular extensions that you might find useful. You can find more extensions in the [marketplace](https://marketplace.visualstudio.com/VSCode). 
+
+* [Debugger for Unity](https://marketplace.visualstudio.com/items?itemName=Unity.unity-debug) - Debug your unity projects in VS Code. 
+* [Unity Tools](https://marketplace.visualstudio.com/items?itemName=Tobiah.unity-tools) - The goal of this extention is to add miscellaneous functionality to Visual Studio Code for Unity developers.
+
 ## Next Steps
 
 Read on to learn more about:
