@@ -100,7 +100,7 @@ typings install express --ambient
 
 >**Tip:** You can download multiple definition files by combining them on the command line, for example `typings install node express --ambient`.
 
->**Important:** With the recent move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for typings to be picked up.
+>**Important:** With the recent move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for the typings files to be picked up.
 >
 >Jump to the section below on [Adding a jsconfig.json Configuration File](/docs/runtimes/nodejs.md#adding-a-jsconfigjson-configuration-file) and then return to this part of the walkthrough.  This will be fixed in a later version of TypeScript.
 

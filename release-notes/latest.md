@@ -133,6 +133,7 @@ If you don't already have a `jsconfig.json` file in your workspace, add a `jscon
         "module": "commonjs"
     }
 }
+```
 
 ## Languages - C&#35;
 
