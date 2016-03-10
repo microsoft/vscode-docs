@@ -89,7 +89,7 @@ npm install -g typings
 
 >**Tip:** Typings has a number of options for configuring where and how definition files are downloaded, from the terminal run `typings --help` for more information.
 
-Start Visual Studio Code, open `app.js` and notice that if you over the Node.js global objext `__dirname`, VS Code does not know the type and you see `any`.
+Start Visual Studio Code, open `app.js` and notice that if you hover over the Node.js global object `__dirname`, VS Code does not know the type and displays `any`.
 
 Now, pull down the Node and Express definitions.
 

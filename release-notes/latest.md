@@ -125,7 +125,7 @@ VS Code now ships with the latest [TypeScript 1.8.2](https://blogs.msdn.microsof
 
 >**Note:** With the move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to be picked up.  This will be fixed in a later version of TypeScript.
 
-If you don't already have a `jsconfig.json` file in your workspace, add a `jsconfig.json` file to the root with the `CompilerOptions:module` attribute set:
+If you don't already have a `jsconfig.json` file in your workspace, add a `jsconfig.json` file to the root with the `compilerOptions:module` attribute set:
 
 ```json
 {
