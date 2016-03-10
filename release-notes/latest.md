@@ -121,6 +121,19 @@ Salsa undoubtedly provides a much better experience writing JavaScript applicati
 
 VS Code now ships with the latest [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/) version.
 
+### Migration Notes 
+
+>**Note:** With the move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to be picked up.  This will be fixed in a later version of TypeScript.
+
+If you don't already have a `jsconfig.json` file in your workspace, add a `jsconfig.json` file to the root with the `CompilerOptions:module` attribute set:
+
+```json
+{
+    "compilerOptions": {
+        "module": "commonjs"
+    }
+}
+
 ## Languages - C&#35;
 
 C# language support is now an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). You can install it from within VS Code by searching for 'C#':
