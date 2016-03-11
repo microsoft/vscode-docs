@@ -4,6 +4,15 @@ TOCTitle: Latest
 PageTitle: Visual Studio Code February 0.10.10
 MetaDescription: See what is new in the Visual Studio Code February Release (0.10.10)
 ---
+# 0.10.11 (February 2016)
+
+The 0.10.11 release addresses the following issues:
+- [3936](https://github.com/Microsoft/vscode/issues/3936): Intellisense for nodejs doesn't work without a jsconfig.json after 0.10.10 
+- [3903](https://github.com/Microsoft/vscode/issues/3903): [js] syntax highlight for 'var' and 'function' not working in Default VS theme
+- [3894](https://github.com/Microsoft/vscode/issues/3894): [Handlebars] Curly braces edit issuess
+
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-darwin-stable.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-linux-x64-stable.zip)
 
 # 0.10.10 (February 2016)
 
