@@ -17,15 +17,15 @@ We're excited for the next release of Visual Studio Code at the [Build 2016 conf
 
 ## Editor
 
-### File to language association TODO@Ben
+#### File to language association TODO@Ben
 
-### UTF-8 BOM support TODO@Ben
+#### UTF-8 BOM support TODO@Ben
 
-### Wait support and git/patch/diff mode TODO@Ben
+#### Wait support and git/patch/diff mode TODO@Ben
 
 ## Workbench
 
-### New setting to exclude files from watching TODO@Ben
+#### New setting to exclude files from watching TODO@Ben
 
 ## Debugging
 
