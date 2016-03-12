@@ -49,7 +49,7 @@ To understand the structure of JSON files, we use [JSON schemas](http://spacetel
 
 Servers like http://schemastore.org provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
-The association of a JSON file to a schema can be done either in the JSON file itself using the `$scheme` attribute, or in the User or Workspace Settings (**File** > **Preferences** > **User Settings** or **Workspace Settings**) under the property `json.schemas`.
+The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace Settings (**File** > **Preferences** > **User Settings** or **Workspace Settings**) under the property `json.schemas`.
 
 >**Tip:** For an overview on settings, see [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
