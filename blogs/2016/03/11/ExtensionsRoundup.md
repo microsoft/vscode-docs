@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 TOCTitle: Extensions Roundup
 PageTitle: Visual Studio Code Extensions
 MetaDescription: New, useful, and interesting extensions in Visual Studio Code. 
