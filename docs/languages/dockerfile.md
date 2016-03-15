@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: languages
 TOCTitle: Dockerfile
 PageTitle: Working with Dockerfiles in Visual Studio Code

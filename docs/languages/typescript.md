@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: languages
 TOCTitle: TypeScript
 PageTitle: TypeScript Programming with Visual Studio Code
