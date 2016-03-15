@@ -17,7 +17,7 @@ If we find critical issues after a major update, we do what we call a "recovery"
 - [3509](https://github.com/Microsoft/vscode/issues/3509): Smoke Test: Don't get cross file IntelliSense in JS
 - [3894](https://github.com/Microsoft/vscode/issues/3894): [Handlebars] Curly braces edit issues
 
-The latest version is `0.10.11` and if you have automatic updates turned on (OS X and Windows), you'll soon be prompted to install. Otherwise, please [download now](https://code.visualstudio.com).
+The latest version is now `0.10.11` and if you have automatic updates turned on (OS X and Windows), you'll soon be prompted to install. Otherwise, please [download now](https://code.visualstudio.com).
 
 Thanks to everyone who submitted these issues.
 
