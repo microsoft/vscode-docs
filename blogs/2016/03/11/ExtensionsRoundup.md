@@ -73,7 +73,7 @@ Change the case of the currently selected word or selection. Implemented as a wr
 ![change-case demo](2016_03_11_change-case_demo.gif)
 
 Subscribe to the RSS feed to get more updates on extensions. If you have an extension you 
-really like and want to see it featured here, send us a [Tmweet](https://twitter.com/code). 
+really like and want to see it featured here, send us a [Tweet](https://twitter.com/code). 
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
