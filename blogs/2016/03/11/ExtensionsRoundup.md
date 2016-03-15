@@ -3,7 +3,7 @@ Order: 5
 TOCTitle: Extensions Roundup
 PageTitle: Visual Studio Code Extensions
 MetaDescription: New, useful, and interesting extensions in Visual Studio Code. 
-Date: 2016-03-15
+Date: 2016-03-17
 ShortDescription: New, useful, and interesting extensions in Visual Studio Code.
 Author: Wade Anderson
 ---
