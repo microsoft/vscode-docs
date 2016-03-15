@@ -4,6 +4,16 @@ TOCTitle: February
 PageTitle: Visual Studio Code February 0.10.10
 MetaDescription: See what is new in the Visual Studio Code February Release (0.10.10)
 ---
+# 0.10.11 (February 2016)
+
+The 0.10.11 release addresses the following issues:
+- [3894](https://github.com/Microsoft/vscode/issues/3894): [Handlebars] Curly braces edit issuess
+- [3899](https://github.com/Microsoft/vscode/issues/3899): [folding] sections are still folded when disabled in preferences 
+- [3903](https://github.com/Microsoft/vscode/issues/3903): [js] syntax highlight for 'var' and 'function' not working in Default VS theme
+- [3509](https://github.com/Microsoft/vscode/issues/3509): Smoke Test: Don't get cross file intellisense in JS
+
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-darwin-stable.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-linux-x64-stable.zip)
 
 # 0.10.10 (February 2016)
 
@@ -14,6 +24,9 @@ February is our last full iteration before we start the end game for the [Build 
 - There is support for localization and accessibility.
 
 In addition, we continued to listen to your issues and feature requests.
+
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-darwin-stable.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-linux-x64-stable.zip)
 
 ## Languages - JavaScript
 
@@ -97,7 +110,7 @@ If you do not have a `jsconfig.json` in your workspace then the following defaul
 
 - the `exclude` list includes the `node_modules` folder and the folder defined by the `out` attribute.
 
-What has not changed, but that you should be aware of, is that if you have no `jsconfig.json` defined to mark the root of your project, then each JavaScript file is considered an island by Salsa.
+Be aware that if you have no `jsconfig.json` defined to mark the root of your project, then each JavaScript file is considered an island by Salsa. Without a `jsconfig.json` file, cross-file and Typings file IntelliSense will not work.
 
 ### `js-is-jsx` extension deprecation
 
@@ -117,6 +130,20 @@ Salsa undoubtedly provides a much better experience writing JavaScript applicati
 ## Languages - TypeScript
 
 VS Code now ships with the latest [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/) version.
+
+### Migration Notes
+
+>**Note:** With the move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to be picked up.
+
+If you don't already have a `jsconfig.json` file in your workspace, add a `jsconfig.json` file to the root with the `compilerOptions:module` attribute set:
+
+```json
+{
+    "compilerOptions": {
+        "module": "commonjs"
+    }
+}
+```
 
 ## Languages - C&#35;
 
