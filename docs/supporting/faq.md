@@ -205,3 +205,4 @@ From **File** > **Preferences** > **User Settings**, add the following option to
     "telemetry.enableTelemetry": false
 ```
 
+>**Note:** VS Code gives you the option to install Microsoft and third party extensions.  These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting.  Consult the specific extension’s documentation to learn about its telemetry reporting.

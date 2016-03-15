@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: languages
 TOCTitle: Markdown
 PageTitle: Markdown editing with Visual Studio Code
