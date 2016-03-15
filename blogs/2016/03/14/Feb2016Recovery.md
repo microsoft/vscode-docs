@@ -22,8 +22,6 @@ If we find critical issues after a major update we do what we call a "recovery" 
 
 The latest version is `0.10.11` and if you have automatic updates turned on (OS X and Windows) you'll soon be prompted to install. Otherwise, please [download now](https://code.visualstudio.com). 
 
-The [Insiders Build](https://code.visualstudio.com/insiders) will be updated in the next couple of days with these fixes plus the work we've done so far in the month of March. Watch [twitter](https://twitter.com/code) and [this blog](https://code.visualstudio.com/blogs) for more information.
-
 Thanks to everyone who submitted these issues.
 
 The VS Code Team
