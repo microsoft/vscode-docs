@@ -77,6 +77,8 @@ Also notice that VS Code knows that `msg` is a string based on the initializatio
 
 ![string IntelliSense](images/nodejs/stringintellisense.png)
 
+## Typings
+
 VS Code can use TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide not only a rich IntelliSense experience, but also warnings when an API is being used incorrectly.
 
 [Typings](https://github.com/typings/typings), the type definition manager for TypeScript, makes it easy to search for and install TypeScript definition files into your workspace. This tool can download the requested definitions from a variety of sources, including the [DefinitelyTyped repository](https://github.com/DefinitelyTyped/DefinitelyTyped). As we did with the express generator, we will install Typings globally using NPM so that you can use the tool in any application you create.
@@ -87,7 +89,7 @@ npm install -g typings
 
 >**Tip:** Typings has a number of options for configuring where and how definition files are downloaded, from the terminal run `typings --help` for more information.
 
-Start Visual Studio Code, open `app.js` and notice the wavy green warning lines under occurrences of `__dirname`. If you hover over `__dirname`, you will see a message "Cannot find name '__dirname'.any."
+Start Visual Studio Code, open `app.js` and notice that if you hover over the Node.js global object `__dirname`, VS Code does not know the type and displays `any`.
 
 Now, pull down the Node and Express definitions.
 
@@ -98,7 +100,11 @@ typings install express --ambient
 
 >**Tip:** You can download multiple definition files by combining them on the command line, for example `typings install node express --ambient`.
 
-Notice how the warnings no longer appear for`__dirname`. This is because VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
+>**Important:** With the recent move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for the typings files to be picked up.
+>
+>Jump to the section below on [Adding a jsconfig.json Configuration File](/docs/runtimes/nodejs.md#adding-a-jsconfigjson-configuration-file) and then return to this part of the walkthrough.
+
+Notice how VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
@@ -107,6 +113,8 @@ If you pass an incorrect type to `createServer` VS Code will give you a warning.
 ![incorrect parameter warning](images/nodejs/warning.png)
 
 >**Tip:** Press `kb(editor.action.marker.next)` to navigate errors and warnings within a file.
+
+## Adding a jsconfig.json Configuration File
 
 You can give even more hints to Visual Studio Code through a configuration file for the workspace (the root folder). Add a new file and name it `jsconfig.json` with the following contents:
 
@@ -149,6 +157,7 @@ The community is continually developing more and more valuable extensions for No
 * [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint) - Integrates JSHint into VS Code.
 * [Add JSDoc comments](https://marketplace.visualstudio.com/items?itemName=stevencl.addDocComments) - Adds JSDoc @param and @return tags for selected function signatures in JS and TS.
 * [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json) - Prettify ugly JSON inside VS Code.
+* [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify) - This extension enables running [js-beautify](http://jsbeautifier.org/) in VS Code.
 
 ## Next Steps
 
