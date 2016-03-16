@@ -66,6 +66,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
+* _triggerCharacter_ Trigger signature help when the user types the character, like `,` or `(`
 * _(returns)_ A promise that resolves to SignatureHelp.
 
 
@@ -79,6 +80,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
+* _triggerCharacter_ Trigger completion when the user types the character, like `,` or `(`
 * _(returns)_ A promise that resolves to a CompletionList-instance.
 
 
