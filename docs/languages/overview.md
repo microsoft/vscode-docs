@@ -2,6 +2,7 @@
 Order: 1
 Area: languages
 TOCTitle: Overview
+ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
 DateApproved: 3/7/2016
 MetaDescription: In Visual Studio Code we have support for all common languages.  We even support debugging for Node.js and ASP.NET Core.

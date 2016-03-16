@@ -2,6 +2,7 @@
 Order: 2
 Area: runtimes
 TOCTitle: ASP.NET Core
+ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: ASP.NET Core and Visual Studio Code End to End
 DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging ASP.NET applications running on Cross Platform CLR.

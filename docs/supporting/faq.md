@@ -1,5 +1,6 @@
 ---
 TOCTitle: FAQ
+ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
 DateApproved: 3/7/2016
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
