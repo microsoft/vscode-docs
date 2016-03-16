@@ -9,7 +9,7 @@ MetaDescription: See what is new in the Visual Studio Code March Release (0.10.1
 
 ## Insiders Release
 
-If you are looking for information on new features and fixes coming with the 0.10.12 Insiders release, you can review our [March Iteration Plan](https://github.com/Microsoft/vscode/issues/3555) on GitHub.  There you will find brief feature descriptions and links to the feature Test Plans.
+Preliminary information on the new features and fixes coming with the 0.10.12 Insiders release can be found in our [March Iteration Plan](https://github.com/Microsoft/vscode/issues/3555) on GitHub.  There you will find brief feature descriptions and links to the feature test plans. As the milestone matures we'll expand upon the documentation here.
 
 ## Next Release
 
