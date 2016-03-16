@@ -88,13 +88,13 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 * _uri_ Uri of a text document
 * _range_ Range in a text document
-* _(returns)_ A promise that resolves to an array of CompletionItem-instances.
+* _(returns)_ A promise that resolves to an array of Command-instances.
 
 
 `vscode.executeCodeLensProvider` - Execute completion item provider.
 
 * _uri_ Uri of a text document
-* _(returns)_ A promise that resolves to an array of Commands.
+* _(returns)_ A promise that resolves to an array of CodeLens-instances.
 
 
 `vscode.executeFormatDocumentProvider` - Execute document format provider.
