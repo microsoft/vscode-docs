@@ -49,13 +49,13 @@ Create a `launch.json` file in `.vscode` folder and add the following:
 
 ### Write Code and Debug
 
-Below is an example session debugging a simple Hello World Ruby script. You can see setting a breakpoint, starting the debugger and hitting the breakpoint. You can also see single stepping through the code and using the VS Code Debug Console.
+Below is an example session debugging a simple Hello World Ruby script. You can see setting a breakpoint, starting the debugger, hitting the breakpoint, and single stepping through the code.
 
 ![Ruby Debugging](2016_03_11_ruby_debugging.gif)
 
 ## yo by Sam Verschueren
 
-This extension lets you use the [Yeoman](http://yeoman.io) scaffolding tool from within VS Code in the Command Palette. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
+This extension lets you use the [Yeoman](http://yeoman.io) scaffolding tool from within VS Code in the Command Palette. Your installed Yeoman generators are displayed in a drop down and you answer the Yeoman terminal prompts right from within VS Code. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
 
 ![Yo Demo](2016_03_11_yo_demo.gif)
 
