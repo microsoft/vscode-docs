@@ -13,7 +13,7 @@ Our docs contain a **Common Questions** section as needed for specific topics. W
 If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
 
 ## What is the difference between VS Code and VS Community?
-
+ar
 Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs. For more details about the goals of VS Code, see [Why VS Code](/docs/editor/whyvscode.md).
 
 ## Which OS's are supported?
@@ -152,7 +152,7 @@ The limit can be increased to its maximum by editing `/etc/sysctl.conf` and addi
 fs.inotify.max_user_watches=524288
 ```
 
-The new value can then be loaded in by running `sudo sysctl -p`. Note that ArchLinux works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
+The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
 
 While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](http://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upperbound of around 256MB (32-bit) or 512MB (64-bit).
 
