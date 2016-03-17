@@ -152,6 +152,8 @@ The limit can be increased to its maximum by editing `/etc/sysctl.conf` and add 
 fs.inotify.max_user_watches=524288
 ```
 
+The new value can then be loaded in by running `sudo sysctl -p`.
+
 While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](http://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upperbound of around 256MB (32-bit) or 512MB (64-bit).
 
 ### I can't see Chinese characters in Ubuntu
