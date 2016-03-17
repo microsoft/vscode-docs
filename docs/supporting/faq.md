@@ -140,11 +140,21 @@ sudo apt-get install gvfs-bin
 
 ### error ENOSPC
 
-When you see this error, it indicates that the VS Code file watcher is running out of handles. To increase the limit open `/etc/sysctl.conf` and add this line to the end of the file:
+When you see this error, it indicates that the VS Code file watcher is running out of handles. The current limit can be viewed by running:
+
+```bash
+cat /proc/sys/fs/inotify/max_user_watches
+```
+
+The limit can be increased to its maximum by editing `/etc/sysctl.conf` and adding this line to the end of the file:
 
 ```
-`fs.inotify.max_user_watches=16384`
+fs.inotify.max_user_watches=524288
 ```
+
+The new value can then be loaded in by running `sudo sysctl -p`. Note that ArchLinux works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
+
+While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](http://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upperbound of around 256MB (32-bit) or 512MB (64-bit).
 
 ### I can't see Chinese characters in Ubuntu
 
