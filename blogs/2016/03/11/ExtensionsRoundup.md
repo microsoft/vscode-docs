@@ -18,15 +18,12 @@ In the spirit of a great [curated extensions list](https://github.com/viatsko/aw
 
 ## Ruby by Peng Lv
 
-This [extension]((https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) provides Ruby language and debugging support.
-
 Ruby language support is a popular request on [User Voice](https://visualstudio.uservoice.com/forums/293070-visual-studio-code?query=ruby), with a handful of extensions
-in the [Marketplace](https://marketplace.visualstudio.com/search?term=ruby&target=VSCode&sortBy=UpdatedDate). We've enjoyed playing with one of the latest
-Ruby extensions that provides debugging support. The setup is simple and is contained in the extension's [README](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby).
+in the [Marketplace](https://marketplace.visualstudio.com/search?term=ruby&target=VSCode&sortBy=UpdatedDate). We've enjoyed playing with this [Ruby extension](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) that provides language and debugging support. The setup is simple and is contained in the extension's [README](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby).
 
 ### Install Ruby Dependencies
 
-Instructions for various Ruby versions. I am using Ruby v2.0.x.
+Here are the instructions for various Ruby versions. I am using Ruby v2.0.x.
 
 1. In the terminal, type `gem install ruby-debug-ide -v 0.4.32`.
 2. In the terminal, type `gem install debase -v 0.2.1`.
@@ -52,25 +49,27 @@ Create a `launch.json` file in `.vscode` folder and add the following:
 
 ### Write Code and Debug
 
-Below is an example debugging a simple Hello World Ruby script. You can see setting a breakpoint, starting the debugger and hitting the breakpoint. You can see single stepping through the code and using the Debug Console.
+Below is an example session debugging a simple Hello World Ruby script. You can see setting a breakpoint, starting the debugger and hitting the breakpoint. You can also see single stepping through the code and using the VS Code Debug Console.
 
 ![Ruby Debugging](2016_03_11_ruby_debugging.gif)
 
 ## yo by Sam Verschueren
 
-This extension lets you use the Yeoman scaffolding tool from within VS Code in the Command Palette. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
+This extension lets you use the [Yeoman](http://yeoman.io) scaffolding tool from within VS Code in the Command Palette. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
 
 ![Yo Demo](2016_03_11_yo_demo.gif)
 
 ## change-case by wmaurer
 
-You can change the case of the currently selected word or selection. This [extension]((https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case) is implemented as a wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case).
+Change the case of the currently selected word or selection. This [extension](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case) is implemented as a wrapper around the [node-change-case](https://github.com/blakeembrey/node-change-case)npm module.
 
 ![change-case demo](2016_03_11_change-case_demo.gif)
 
 ## Subscribe
 
-Subscribe to the VS Code [RSS feed](feed.xml) to get more updates on extensions. And if you have an extension you really like and want to see it featured here, send us a [Tweet](https://twitter.com/code).
+Subscribe to the VS Code [RSS feed](feed.xml) to get more updates on extensions.
+
+And if you have an extension you really like and want to see it featured here, send us a [Tweet](https://twitter.com/code).
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
