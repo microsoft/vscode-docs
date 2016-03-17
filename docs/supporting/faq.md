@@ -143,7 +143,7 @@ sudo apt-get install gvfs-bin
 When you see this error, it indicates that the VS Code file watcher is running out of handles. To increase the limit open `/etc/sysctl.conf` and add this line to the end of the file:
 
 ```
-`fs.inotify.max_user_watches=16384`
+fs.inotify.max_user_watches=16384
 ```
 
 ### I can't see Chinese characters in Ubuntu
