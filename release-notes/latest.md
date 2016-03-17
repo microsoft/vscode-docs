@@ -26,6 +26,11 @@ Downloads: [Windows](TBD) |
 
 ## Editor
 
+### Indentation
+
+We have improved our indentation handling in the editor. By default, the editor will now auto detect indentation based on file content. We have also added additional actions to the indentation status.
+![indentation](images/March/indentation.png)
+
 #### File to language association TODO@Ben
 
 #### UTF-8 BOM support TODO@Ben
@@ -36,13 +41,22 @@ Downloads: [Windows](TBD) |
 
 #### New setting to exclude files from watching TODO@Ben
 
+#### Output handling improvements
+Large amounts of output were the cause of multiple user issues, we have now addressed this and are handling large amounts of output in a more efficient way.
+
 ## Debugging
+
+#### Improved thread handling
+Thanks to this [PR](https://github.com/Microsoft/vscode/pull/3990) call stack for each thread is now requested lazily. This improves performance of debugging multi-threaded programs.
 
 ## Tasks
 
 ## Setup
 
 ## Accessibility
+
+#### Parameter hints
+Parameter hints are now read out to the user.
 
 ## Localization
 
