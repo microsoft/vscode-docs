@@ -10,7 +10,7 @@ Author: Wade Anderson
 
 # VS Code Extensions
 
-In November 2015, we open sourced VS Code and introduced the [extensions API](http://code.visualstudio.com/docs/extensionAPI/vscode-api). The VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, PHP, Python) and frameworks (Apache Cordova, React Native) are now supported.
+In November 2015, we open sourced Visual Studio Code and introduced the [extensions API](http://code.visualstudio.com/docs/extensionAPI/vscode-api). The VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, PHP, Python) and frameworks (Apache Cordova, React Native) are now supported.
 
 We will continue to iterate on improving the API and we would love your [feedback](https://github.com/Microsoft/vscode/issues). If you are new to VS Code extensions, check out the [docs](http://code.visualstudio.com/docs/editor/extension-gallery) for instructions on finding and installing new extensions. We are invested in empowering the community to make VS Code the world's greatest code editor.
 
@@ -61,7 +61,7 @@ This extension lets you use the [Yeoman](http://yeoman.io) scaffolding tool from
 
 ## change-case by wmaurer
 
-Change the case of the currently selected word or selection. This [extension](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case) is implemented as a wrapper around the [node-change-case](https://github.com/blakeembrey/node-change-case)npm module.
+Change the case of the currently selected word or selection. This [extension](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case) is implemented as a wrapper around the [node-change-case](https://github.com/blakeembrey/node-change-case) npm module.
 
 ![change-case demo](2016_03_11_change-case_demo.gif)
 
