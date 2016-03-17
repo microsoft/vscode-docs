@@ -45,7 +45,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 				"description": "Complete functions with their parameter signature."
 			},
 			"typescript.tsdk": {
-				"type": "string",
+				"type": ["string", "null"],
 				"default": null,
 				"description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
 			}
