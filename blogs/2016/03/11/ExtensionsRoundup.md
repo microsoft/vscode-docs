@@ -10,31 +10,28 @@ Author: Wade Anderson
 
 # VS Code Extensions
 
-In November 2015 we open sourced VS Code and introduced the [extensions API](http://code.visualstudio.com/docs/extensionAPI/vscode-api). 
-The VS Code [extensions Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, Python) and frameworks (Apache Cordova, Chrome browser) are now supported.
+In November 2015, we open sourced VS Code and introduced the [extensions API](http://code.visualstudio.com/docs/extensionAPI/vscode-api). The VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, PHP, Python) and frameworks (Apache Cordova, React Native) are now supported.
 
-We will continue to iterate on improving the API and we would love your [feedback](https://github.com/Microsoft/vscode/issues). If extensions are new to 
-you, check out the [docs](http://code.visualstudio.com/docs/editor/extension-gallery) for instructions on finding and installing new extensions. We are invested
-in empowering the community to make VS Code the world's greatest code editor.
+We will continue to iterate on improving the API and we would love your [feedback](https://github.com/Microsoft/vscode/issues). If you are new to VS Code extensions, check out the [docs](http://code.visualstudio.com/docs/editor/extension-gallery) for instructions on finding and installing new extensions. We are invested in empowering the community to make VS Code the world's greatest code editor.
 
-In the spirit of a great [curated extensions list](https://github.com/viatsko/awesome-vscode), we wanted to give you regular updates on what is happening in the VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode). 
+In the spirit of a great [curated extensions list](https://github.com/viatsko/awesome-vscode), we wanted to give you regular updates on what is happening in the VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
-## Ruby - Provides Ruby language and debugging support
+## Ruby by Peng Lv
 
-[Extension details in Marketplace](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby). 
+This [extension]((https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) provides Ruby language and debugging support.
 
 Ruby language support is a popular request on [User Voice](https://visualstudio.uservoice.com/forums/293070-visual-studio-code?query=ruby), with a handful of extensions
 in the [Marketplace](https://marketplace.visualstudio.com/search?term=ruby&target=VSCode&sortBy=UpdatedDate). We've enjoyed playing with one of the latest
-Ruby extensions that provides debugging support. The setup is simple and is contained
-in the extension's [README](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby). 
+Ruby extensions that provides debugging support. The setup is simple and is contained in the extension's [README](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby).
 
-**Install Ruby Dependencies**
+### Install Ruby Dependencies
 
 Instructions for various Ruby versions. I am using Ruby v2.0.x.
-1. In the terminal type `gem install ruby-debug-ide -v 0.4.32`
-2. In the terminal type `gem install debase -v 0.2.1`
 
-**Configure Launch.json in VS Code**
+1. In the terminal, type `gem install ruby-debug-ide -v 0.4.32`.
+2. In the terminal, type `gem install debase -v 0.2.1`.
+
+### Configure Launch.json in VS Code
 
 Create a `launch.json` file in `.vscode` folder and add the following:
 
@@ -53,27 +50,27 @@ Create a `launch.json` file in `.vscode` folder and add the following:
 }
 ```
 
-**Write Code and Debug**
+### Write Code and Debug
 
 Below is an example debugging a simple Hello World Ruby script. You can see setting a breakpoint, starting the debugger and hitting the breakpoint. You can see single stepping through the code and using the Debug Console.
 
 ![Ruby Debugging](2016_03_11_ruby_debugging.gif)
 
-## yo - Scaffold projects using Yeoman
+## yo by Sam Verschueren
 
-This extension lets you use the Yeoman scaffolding tool from within VS Code in the Command Palette. [See more details in Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo). 
+This extension lets you use the Yeoman scaffolding tool from within VS Code in the Command Palette. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
 
 ![Yo Demo](2016_03_11_yo_demo.gif)
 
-## change-case - Quickly change the case of the current selection
+## change-case by wmaurer
 
-Change the case of the currently selected word or selection. Implemented as a wrapper around
-[node-change-case](https://github.com/blakeembrey/node-change-case). [See more details in Marketplace](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case). 
+You can change the case of the currently selected word or selection. This [extension]((https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case) is implemented as a wrapper around [node-change-case](https://github.com/blakeembrey/node-change-case).
 
 ![change-case demo](2016_03_11_change-case_demo.gif)
 
-Subscribe to the RSS feed to get more updates on extensions. If you have an extension you 
-really like and want to see it featured here, send us a [Tweet](https://twitter.com/code). 
+## Subscribe
+
+Subscribe to the VS Code [RSS feed](feed.xml) to get more updates on extensions. And if you have an extension you really like and want to see it featured here, send us a [Tweet](https://twitter.com/code).
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
