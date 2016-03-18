@@ -20,9 +20,34 @@ Downloads: [Windows](TBD) |
 
 ## Languages - JavaScript
 
-### Disable Syntax Validation
+**Please note**: If you have tested the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in the past and have configured the `typescript.tsdk`, then please make sure to remove the setting. Otherwise you might use an old TypeScript version. When you have `typescript.tsdk` set, then the TS version is shown in the bottom right of the status bar.
 
-New `javascript.validate.enable` setting
+### Disable Syntax Validation when using ES7 constructs
+Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are be flagged as errors. For users that still want to use Code and use these ES7 features, we have revived the`javascript.validate.enable` setting. It allows you to disable all the built-in syntax checking. If you do this then you should really use a linter like `eslint` to validate your code. Since the JavaScript support doesn't understand these constructs, features like IntelliSense might not be fully accurate.
+
+### Guidance to create a jsconfig.json file
+The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json` each JavaScript file is treated as an island. Only the file itself and JavaScript files it references are considered for features like Intellisense. By adding a `jsconfig.json` file you can the define the root of your project, the folders to exclude etc. For this reason we now provide a hint to create a `jsonfing.json` file. 
+
+![jsconfig-hint](images/March/jsconfig-hint.png)
+
+The hint creates a template for a `jsconfig.json`, with an exclusion list for you to edit:
+
+![jsconfig-template](images/March/jsconfig-template.png)
+
+Similarly when your JavaScript project is growing too large we invite you to edit the `excludes` list.
+
+### Go To Symbol is back
+During the transition to Salsa the support for `Go to Symbol` has been lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. This feature is now back. 
+
+### No more "Reload JavaScript Project"
+Previously you often that to run the `Reload JavaScript Project` command to ensure that the JavaScript information is up to date. This is no longer the case and the information is up to date as you edit the jsonfig.json or when you add a typings (`.d.ts`) file.
+
+### Source for Diagnostics
+To support that diagnostics from external linters and the built-in syntax validation can be easily distinguished, errors and warnings from the built-validator are now prefixed with `[JS]`.
+
+## Languages - TypeScript
+
+Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/).
 
 ## Languages - formatting options
 
