@@ -20,13 +20,15 @@ Downloads: [Windows](TBD) |
 
 ## Languages - JavaScript
 
-**Please note**: If you have tested the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in the past and have configured the `typescript.tsdk`, then please make sure to remove the setting. Otherwise you might use an old TypeScript version. When you have `typescript.tsdk` set, then the TS version is shown in the bottom right of the status bar.
+**Please note**: If you have tested the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in the past and have configured the `typescript.tsdk` setting, then please make sure to remove it. Otherwise you might use an old TypeScript version. When you have `typescript.tsdk` set, then the TypeScript version is shown in the bottom right of the Status Bar.
 
 ### Disable Syntax Validation when using ES7 constructs
-Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are be flagged as errors. For users that still want to use Code and use these ES7 features, we have revived the`javascript.validate.enable` setting. It allows you to disable all the built-in syntax checking. If you do this then you should really use a linter like `eslint` to validate your code. Since the JavaScript support doesn't understand these constructs, features like IntelliSense might not be fully accurate.
 
-### Guidance to create a jsconfig.json file
-The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json` each JavaScript file is treated as an island. Only the file itself and JavaScript files it references are considered for features like Intellisense. By adding a `jsconfig.json` file you can the define the root of your project, the folders to exclude etc. For this reason we now provide a hint to create a `jsonfing.json` file.
+Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are flagged as errors. For users who still want to use these ES7 features, we have revived the `javascript.validate.enable` setting to disable all built-in syntax checking. If you do this, we recommend that you use a linter like `eslint` to validate your code. Since the JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+
+### Guidance in creating a jsconfig.json file
+
+The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json`, each JavaScript file is treated as an island. Only the file itself and the JavaScript files it references are considered for features like IntelliSense. By adding a `jsconfig.json` file, you can the define the root of your project, the folders to exclude, etc. For this reason we now provide a hint to create a `jsonfing.json` file.
 
 ![jsconfig-hint](images/March/jsconfig-hint.png)
 
@@ -34,20 +36,23 @@ The hint creates a template for a `jsconfig.json`, with an exclusion list for yo
 
 ![jsconfig-template](images/March/jsconfig-template.png)
 
-Similarly when your JavaScript project is growing too large we invite you to edit the `excludes` list.
+Similarly when your JavaScript project is growing too large, we invite you to edit the `exclude` list.
 
 ### Go To Symbol is back
-During the transition to Salsa the support for `Go to Symbol` has been lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. This feature is now back.
+
+During the transition to Salsa, the support for **Go to Symbol** was lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. This feature is now back.
 
 ### No more "Reload JavaScript Project"
-Previously you often that to run the `Reload JavaScript Project` command to ensure that the JavaScript information is up to date. This is no longer the case and the information is up to date as you edit the jsconfig.json or when you add a typings (`.d.ts`) file.
+
+Previously you often had to run the **Reload JavaScript Project** command to ensure that the JavaScript information was up to date. Now VS Code keeps the information up to date as you edit the `jsconfig.json` file or when you add a typings (`.d.ts`) file.
 
 ### Source for Diagnostics
-To support that diagnostics from external linters and the built-in syntax validation can be easily distinguished, errors and warnings from the built-validator are now prefixed with `[JS]`.
+
+To make it easy to distinguish between diagnostics from external linters and the built-in syntax validation, errors and warnings from the built-in validator are now prefixed with `[JS]`.
 
 ## Languages - TypeScript
 
-Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/).
+VS Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/).
 
 ## Languages - formatting options
 
@@ -55,15 +60,15 @@ Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript
 
 New `typescript.format` settings
 
-The HTML formatter is based on the beautifyjs library. The formatting options offered by that library are now surfaced in the VS Code settings:
- * `html.format.wrapLineLength`: Maximum amount of characters per line.
- * `html.format.unformatted`: List of tags that shouldn't be reformatted.
- * `html.format.extraLiners`: List of tags that should have an extra newline before them.
- * `html.format.preserveNewLines`: Whether existing line breaks before elements should be preserved.
- * `html.format.maxPreserveNewLines`: Maximum number of line breaks to be preserved in one chunk.
- * `html.format.endWithNewline`: End with a newline.
- * `html.format.indentInnerHtml`: Indent `<head>` and `<body>` sections.  
+The HTML formatter is based on the **beautifyjs** library. The formatting options offered by that library are now surfaced in the VS Code settings:
 
+* `html.format.wrapLineLength`: Maximum amount of characters per line.
+* `html.format.unformatted`: List of tags that shouldn't be reformatted.
+* `html.format.extraLiners`: List of tags that should have an extra newline before them.
+* `html.format.preserveNewLines`: Whether existing line breaks before elements should be preserved.
+* `html.format.maxPreserveNewLines`: Maximum number of line breaks to be preserved in one chunk.
+* `html.format.endWithNewline`: End with a newline.
+* `html.format.indentInnerHtml`: Indent `<head>` and `<body>` sections.
 
 ## Languages - C&#35;
 
@@ -73,13 +78,14 @@ The HTML formatter is based on the beautifyjs library. The formatting options of
 
 TDODgif
 
-### Code Folding Shortcuts
+### Source Code Folding Shortcuts
 
-New folding actions have been added to fold regions based on their folding level, except for the region the cursor is in.
+There are new folding actions to collapse source code regions based on their folding level.
 
-There are actions to fold level 1 (`Ctrl + K, Ctrl + 1`) to level 5 (`Ctrl + K, Ctrl + 5`).
-To unfold, use Unfold All (`Ctrl + K, Ctrl + J`).
+There are actions to fold level 1 (`kbstyle(Ctrl + K, Ctrl + 1)`) to level 5 (`kbstyle(Ctrl + K, Ctrl + 5)`).
+To unfold, use **Unfold All** ('kb(editor.unfoldAdd)`).
 
+The level folding actions do not apply to region containing the current cursor.
 
 ### Indentation
 
@@ -108,42 +114,42 @@ You can also configure full file paths to languages if needed. The following exa
 }
 ```
 
-Note that the pattern is a glob pattern that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
+Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
 
 ### Toggle Whitespace
 
 ### UTF-8 BOM support
 
-Some environments explicitly ask to include a BOM (Byte Order Mark) for UTF-8 files. There is now a way to save files with UTF-8 BOM as well as to convert existing files with or without BOM.
+Some environments explicitly ask to include a BOM (Byte Order Mark) for UTF-8 encoded files. You can now save files with UTF-8 BOM encoding as well as convert existing files with or without BOM.
 
-To enable that all new files are saved with the UTF-8 BOM, configure the `files.encoding` setting to this:
+To save all new files with the UTF-8 BOM encoding, configure the `files.encoding` setting to this:
 
 ```json
 "files.encoding": "utf8bom"
 ```
 
-The status bar now distinguishes between files with UTF-8 and UTF-8 with BOM. You can convert the encoding from there.
+The Status Bar now distinguishes between files with UTF-8 and UTF-8 with BOM. You can convert the encoding from there.
 
 ![jsconfig-hint](images/March/statusbar_bom.png)
 
-
 ### Wait support and git/patch/diff mode
 
-When you run Code from the command line there is a new argument you can pass over to make the command wait until you closed the window that opens. This can be used for applications that allow to configure an external editor for file changes.
+When you run VS Code from the command line, there is a new argument you can pass to make the command wait until you have closed the current VS Code instance. This can be used with applications that can configure an external editor for file changes.
 
-Git is a very typical example to configure with an external editor, and here are the steps to do so:
-1. make sure you can run `code --help` from the command line and you get help
+For example, Git allows you to configure an external editor and here are the steps to do so:
+
+1. Make sure you can run `code --help` from the command line and you get help.
     * if you do not see help, please follow these steps:
-        * Mac: Select `Shell Command: Install 'Code' command in path` from the command palette
-        * Windows: make sure you installed Code with the installer
-        * Linux: make sure you installed Code from the RPM or DEB package
-2. from the command line run `git config --global core.editor "code --wait"`
+        * Mac: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
+        * Windows: Make sure you selected **Add to PATH** during the installation.
+        * Linux: Make sure you selected **Add to PATH** during the installation.
+2. From the command line, run `git config --global core.editor "code --wait"`
 
-Now you can run `git config --global -e` and use Code as editor for configuring git.
+Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
 
 ![jsconfig-hint](images/March/gitconfig.png)
 
-Add the following to enable support for using Code as diff tool:
+Add the following to enable support for using VS Code as diff tool:
 
 ```bash
 [diff]
@@ -152,14 +158,14 @@ Add the following to enable support for using Code as diff tool:
     cmd = code --wait --diff $LOCAL $REMOTE
 ```
 
-This leverages the new `--diff` option you can pass to Code to compare 2 files side by side.
+This leverages the new `--diff` option you can pass to VS Code to compare 2 files side by side.
 
-To summarize here are some examples of where you can use Code as editor for git:
-* `git config --global -e` allows you to edit git config with Code
-* `git rebase HEAD~3 -i` allows to interactive rebase using Code
-* `git commit` allows to use Code for the commit message
+To summarize here are some examples of where you can use with VS Code:
+
+* `git rebase HEAD~3 -i` allows to interactive rebase using VS Code
+* `git commit` allows to use VS Code for the commit message
 * `git add -p` followed by <kbd>E</kbd> for interactive add
-* `git difftool <commit>^ <commit>` allows to use Code as diff editor for changes
+* `git difftool <commit>^ <commit>` allows to use VS Code as diff editor for changes
 
 ## Workbench
 
@@ -169,9 +175,11 @@ There is now an Extensions icon in the bottom left corner of the workbench. This
 
 ![extension-widget](images/March/extension-widget.png)
 
-### New setting to exclude files from watching
+### Exclude files from watching
 
-When you open Code on a folder, it installs a file watcher service on the folder and every file and folder contained within to be notified when something changes. If the folder is very large, this can consume quite some resources right on startup. A new setting `files.watcherExclude` now allows to explicitly exclude large directories from file watching. This setting has the following defaults:
+When you open VS Code on a folder, it installs a file watcher service on the folder and every file and folder contained within to be notified when something changes. If the folder is very large, this can consume many resources right at startup. A new setting, `files.watcherExclude`, now allows to explicitly exclude large directories from file watching.
+
+This setting has the following defaults:
 
 ```json
 "files.watcherExclude": {
@@ -180,11 +188,11 @@ When you open Code on a folder, it installs a file watcher service on the folder
 }
 ```
 
-We suggest to only exclude more folders if you see that Code is using lots of CPU after opening a folder. Typically you would not have to make any changes to this setting.
+We suggest you only exclude more folders if you see that VS Code is using lots of CPU when opening a folder. Typically you would not have to make any changes to this setting.
 
 ### Output handling improvements
 
-Large amounts of output were the cause of multiple user issues, we have now addressed this and are handling large amounts of output in a more efficient way.
+Large amounts of output were the cause of multiple user issues. We have now addressed this and are handling large amounts of output in a more efficient way.
 
 ## Debugging
 
@@ -192,7 +200,7 @@ Large amounts of output were the cause of multiple user issues, we have now addr
 
 ### Improved thread handling
 
-Thanks to this [PR](https://github.com/Microsoft/vscode/pull/3990) call stack for each thread is now requested lazily. This improves performance of debugging multi-threaded programs.
+Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), the call stack for each thread is now requested lazily. This improves performance of debugging multi-threaded programs.
 
 ## Tasks
 
