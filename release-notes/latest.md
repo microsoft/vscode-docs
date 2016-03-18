@@ -104,7 +104,18 @@ Brings up **Extensions:** commands
 Install animation
 Update available notification
 
-### New setting to exclude files from watching TODO@Ben
+### New setting to exclude files from watching
+
+When you open Code on a folder, it installs a file watcher service on the folder and every file and folder contained within to be notified when something changes. If the folder is very large, this can consume quite some resources right on startup. A new setting `files.watcherExclude` now allows to explicitly exclude large directories from file watching. This setting has the following defaults:
+
+```json
+"files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
+}
+```
+
+We suggest to only exclude more folders if you see that Code is using lots of CPU after opening a folder. Typically you would not have to make any changes to this setting. 
 
 ### Output handling improvements
 
