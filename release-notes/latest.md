@@ -204,6 +204,26 @@ TODOimage
 
 ## Setup
 
+### Linux packages
+
+.deb and .rpm packages are now being offered as the primary way to install and start using Code on Linux. The packages will install the program, a desktop entry, a bin command as well as integrating Code into the [Debian alternatives system](https://wiki.debian.org/DebianAlternatives).
+
+Installing can be done through a package manager GUI by running the file through the file explorer or through the command line:
+
+```bash
+# For .deb
+sudo dpkg -i <file>.deb
+
+# For .rpm
+sudo yum localinstall <file>.rpm
+```
+
+If you experience issues with your paricular distribution, [please file an issue](https://github.com/Microsoft/vscode/issues/new).
+
+### Linux CLI
+
+The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line args available for use.
+
 ## Accessibility
 
 ### Parameter hints
