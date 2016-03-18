@@ -26,7 +26,7 @@ Downloads: [Windows](TBD) |
 Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are be flagged as errors. For users that still want to use Code and use these ES7 features, we have revived the`javascript.validate.enable` setting. It allows you to disable all the built-in syntax checking. If you do this then you should really use a linter like `eslint` to validate your code. Since the JavaScript support doesn't understand these constructs, features like IntelliSense might not be fully accurate.
 
 ### Guidance to create a jsconfig.json file
-The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json` each JavaScript file is treated as an island. Only the file itself and JavaScript files it references are considered for features like Intellisense. By adding a `jsconfig.json` file you can the define the root of your project, the folders to exclude etc. For this reason we now provide a hint to create a `jsonfing.json` file. 
+The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json` each JavaScript file is treated as an island. Only the file itself and JavaScript files it references are considered for features like Intellisense. By adding a `jsconfig.json` file you can the define the root of your project, the folders to exclude etc. For this reason we now provide a hint to create a `jsonfing.json` file.
 
 ![jsconfig-hint](images/March/jsconfig-hint.png)
 
@@ -37,7 +37,7 @@ The hint creates a template for a `jsconfig.json`, with an exclusion list for yo
 Similarly when your JavaScript project is growing too large we invite you to edit the `excludes` list.
 
 ### Go To Symbol is back
-During the transition to Salsa the support for `Go to Symbol` has been lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. This feature is now back. 
+During the transition to Salsa the support for `Go to Symbol` has been lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. This feature is now back.
 
 ### No more "Reload JavaScript Project"
 Previously you often that to run the `Reload JavaScript Project` command to ensure that the JavaScript information is up to date. This is no longer the case and the information is up to date as you edit the jsonfig.json or when you add a typings (`.d.ts`) file.
@@ -127,7 +127,7 @@ Git is a very typical example to configure with an external editor, and here are
         * Linux: make sure you installed Code from the RPM or DEB package
 2. from the command line run `git config --global core.editor "code --wait"`
 
-Now you can run `git config --global -e` and use Code as editor for configuring git. 
+Now you can run `git config --global -e` and use Code as editor for configuring git.
 
 ![jsconfig-hint](images/March/gitconfig.png)
 
@@ -140,7 +140,7 @@ Add the following to enable support for using Code as diff tool:
     cmd = code --wait --diff $LOCAL $REMOTE
 ```
 
-This leverages the new `--diff` option you can pass to Code to compare 2 files side by side. 
+This leverages the new `--diff` option you can pass to Code to compare 2 files side by side.
 
 To summarize here are some examples of where you can use Code as editor for git:
 * `git config --global -e` allows you to edit git config with Code
@@ -151,11 +151,11 @@ To summarize here are some examples of where you can use Code as editor for git:
 
 ## Workbench
 
-### Extension display in Status Bar
+### Extensions in Status Bar
 
-Brings up **Extensions:** commands
-Install animation
-Update available notification
+There is now an Extensions icon in the bottom left corner of the workbench. This is not only a shortcut to reach into extension related actions but also the place for extension error and update notifications. It is also used to report progress during an extension's installation.
+
+![extension-widget](images/March/extension-widget.png)
 
 ### New setting to exclude files from watching
 
@@ -168,7 +168,7 @@ When you open Code on a folder, it installs a file watcher service on the folder
 }
 ```
 
-We suggest to only exclude more folders if you see that Code is using lots of CPU after opening a folder. Typically you would not have to make any changes to this setting. 
+We suggest to only exclude more folders if you see that Code is using lots of CPU after opening a folder. Typically you would not have to make any changes to this setting.
 
 ### Output handling improvements
 
