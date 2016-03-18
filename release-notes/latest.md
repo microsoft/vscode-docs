@@ -40,7 +40,7 @@ Similarly when your JavaScript project is growing too large we invite you to edi
 During the transition to Salsa the support for `Go to Symbol` has been lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. This feature is now back.
 
 ### No more "Reload JavaScript Project"
-Previously you often that to run the `Reload JavaScript Project` command to ensure that the JavaScript information is up to date. This is no longer the case and the information is up to date as you edit the jsonfig.json or when you add a typings (`.d.ts`) file.
+Previously you often that to run the `Reload JavaScript Project` command to ensure that the JavaScript information is up to date. This is no longer the case and the information is up to date as you edit the jsconfig.json or when you add a typings (`.d.ts`) file.
 
 ### Source for Diagnostics
 To support that diagnostics from external linters and the built-in syntax validation can be easily distinguished, errors and warnings from the built-validator are now prefixed with `[JS]`.
@@ -55,6 +55,16 @@ Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript
 
 New `typescript.format` settings
 
+The HTML formatter is based on the beautifyjs library. The formatting options offered by that library are now surfaced in the VS Code settings:
+ * `html.format.wrapLineLength`: Maximum amount of characters per line.
+ * `html.format.unformatted`: List of tags that shouldn't be reformatted.
+ * `html.format.extraLiners`: List of tags that should have an extra newline before them.
+ * `html.format.preserveNewLines`: Whether existing line breaks before elements should be preserved.
+ * `html.format.maxPreserveNewLines`: Maximum number of line breaks to be preserved in one chunk.
+ * `html.format.endWithNewline`: End with a newline.
+ * `html.format.indentInnerHtml`: Indent `<head>` and `<body>` sections.  
+
+
 ## Languages - C&#35;
 
 ## Editor
@@ -65,9 +75,11 @@ TDODgif
 
 ### Code Folding Shortcuts
 
-Ctrl+K Ctrl+(level) to code fold a specific level
+New folding actions have been added to fold regions based on their folding level, except for the region the cursor is in.
 
-TODOgif
+There are actions to fold level 1 (`Ctrl + K, Ctrl + 1`) to level 5 (`Ctrl + K, Ctrl + 5`).
+To unfold, use Unfold All (`Ctrl + K, Ctrl + J`).
+
 
 ### Indentation
 
