@@ -75,9 +75,28 @@ We have improved our indentation handling in the editor. By default, the editor 
 
 ![indentation](images/March/indentation.png)
 
-### File to language association TODO@Ben
+### File to language association
 
-New `files.associations` array setting
+A very common request was having a configurable way to associate file names and paths to languages. We are happy to provide the new `files.associations` setting that allows you to make this association either globally or per workspace.
+
+Here is an example that will associate more extensions to the PHP language:
+
+```json
+"files.associations": {
+    "*.php4": "php",
+    "*.php5": "php"
+}
+```
+
+You can also configure full file paths to languages if needed. The following example associates all files in a folder `somefolder` to PHP:
+
+```json
+"files.associations": {
+    "**/somefolder/*.*": "php"
+}
+```
+
+Note that the pattern is a glob pattern that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
 
 ### Toggle Whitespace
 
