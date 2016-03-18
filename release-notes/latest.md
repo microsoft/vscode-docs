@@ -115,18 +115,39 @@ The status bar now distinguishes between files with UTF-8 and UTF-8 with BOM. Yo
 ![jsconfig-hint](images/March/statusbar_bom.png)
 
 
-### Wait support and git/patch/diff mode TODO@Ben
+### Wait support and git/patch/diff mode
 
-```bash
-git config --global core.editor "code --wait"
-```
+When you run Code from the command line there is a new argument you can pass over to make the command wait until you closed the window that opens. This can be used for applications that allow to configure an external editor for file changes.
+
+Git is a very typical example to configure with an external editor, and here are the steps to do so:
+1. make sure you can run `code --help` from the command line and you get help
+    * if you do not see help, please follow these steps:
+        * Mac: Select `Shell Command: Install 'Code' command in path` from the command palette
+        * Windows: make sure you installed Code with the installer
+        * Linux: make sure you installed Code from the RPM or DEB package
+2. from the command line run `git config --global core.editor "code --wait"`
+
+Now you can run `git config --global -e` and use Code as editor for configuring git. 
+
+![jsconfig-hint](images/March/gitconfig.png)
+
+Add the following to enable support for using Code as diff tool:
 
 ```bash
 [diff]
     tool = default-difftool
 [difftool "default-difftool"]
-    cmd = code-alpha --wait --diff $LOCAL $REMOTE
+    cmd = code --wait --diff $LOCAL $REMOTE
 ```
+
+This leverages the new `--diff` option you can pass to Code to compare 2 files side by side. 
+
+To summarize here are some examples of where you can use Code as editor for git:
+* `git config --global -e` allows you to edit git config with Code
+* `git rebase HEAD~3 -i` allows to interactive rebase using Code
+* `git commit` allows to use Code for the commit message
+* `git add -p` followed by <kbd>E</kbd> for interactive add
+* `git difftool <commit>^ <commit>` allows to use Code as diff editor for changes
 
 ## Workbench
 
