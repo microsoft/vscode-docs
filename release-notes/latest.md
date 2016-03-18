@@ -100,7 +100,20 @@ Note that the pattern is a glob pattern that will match on the full path of the 
 
 ### Toggle Whitespace
 
-### UTF-8 BOM support TODO@Ben
+### UTF-8 BOM support
+
+Some environments explicitly ask to include a BOM (Byte Order Mark) for UTF-8 files. There is now a way to save files with UTF-8 BOM as well as to convert existing files with or without BOM.
+
+To enable that all new files are saved with the UTF-8 BOM, configure the `files.encoding` setting to this:
+
+```json
+"files.encoding": "utf8bom"
+```
+
+The status bar now distinguishes between files with UTF-8 and UTF-8 with BOM. You can convert the encoding from there.
+
+![jsconfig-hint](images/March/statusbar_bom.png)
+
 
 ### Wait support and git/patch/diff mode TODO@Ben
 
