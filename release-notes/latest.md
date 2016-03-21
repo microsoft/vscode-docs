@@ -150,7 +150,27 @@ The HTML formatter is based on the **beautifyjs** library. The formatting option
 
 ### Column Selection
 
-TDODgif
+Column selection can be obtained by pressing `kbstyle(Shift+Alt)` and clicking or dragging the mouse:
+
+![indentation](images/March/column-select-mouse.gif)
+
+We have also added new keyboard commands for column selection, that are bound on Windows and on OSX, but not on Linux, as we could not find any free default keybindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish to. E.g:
+
+```json
+{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
+                                  "when": "editorTextFocus" }
+```
+
 
 ### Source Code Folding Shortcuts
 
@@ -167,9 +187,28 @@ We have added an option to accept IntelliSense proposals only on Tab and not on 
 
 ### Indentation
 
-We have improved our indentation handling in the editor. By default, the editor will now auto detect indentation based on file content. We have also added additional actions to the indentation status.
+We have improved our indentation handling in the editor. We have added a new setting, `editor.detectIndentation` that is `true` by default. When this setting is true and when the file contains sufficient hints (e.g. the file has content, it has lines with indentation), the editor will determine dynamically, for each file, the values of `editor.insertSpaces` and `editor.tabSize`.
+
+> If you were using `editor.insertSpaces: "auto"` or `editor.tabSize: "auto"`, please start using the new `editor.detectIndentation` setting.
+
+The indentation status shows the current file's settings. We have also added additional actions to the indentation status.
 
 ![indentation](images/March/indentation.png)
+
+### Visual Studio style word navigation and word deletion
+
+Visual Studio Code stops by default at the beginning of words when using `kbstyle(Ctrl+Left)` and at the end of words when using `kbstyle(Ctrl+Right)`. The same is true when deleting words. If you are accustomed to the Visual Studio style, you can change your `keybindings.json` to use the new commands we have added. E.g.:
+
+```json
+{ "key": "ctrl+right",       "command": "cursorWordStartRight",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+shift+right", "command": "cursorWordStartRightSelect",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+backspace",   "command": "deleteWordStartLeft",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+delete",      "command": "deleteWordStartRight",
+                                "when": "editorTextFocus" }
+```
 
 ### File to language association
 
@@ -195,6 +234,8 @@ You can also configure full file paths to languages if needed. The following exa
 Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
 
 ### Toggle Whitespace
+
+There is a new action under `View > Toggle Render Whitespace` that quickly toggles the rendering of whitespace for the current opened file.
 
 ### UTF-8 BOM support
 
@@ -315,11 +356,19 @@ sudo dnf install <file>.rpm
 
 The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line args available for use.
 
-## Accessibility
+## Extension API additions
 
-### Parameter hints
+* Added `setEndOfLine` on the `TextEditorEdit` builder interface that allows to change the line ending sequence of a file from an extension.
+* Added `cursorStyle` to `TextEditorOptions` that allows to set the cursor style to a vertical line, a block or a horizontal under line for a specific editor.
+* Added a `setContext` command that can be invoked with two arguments, a key and a value. This allows to customize keybinding rules.
+* Now dispatching all typing in an editor through a `type` command that can be overwritten by an extension to implement vim emulation mode, for example.
+* Added a [vim emulation sample](https://github.com/alexandrudima/vscode-vim) that shows how a vim emulation extension could use VS Code API to give a great experience.
 
-Parameter hints are now read out to the user.
+## Accessibility improvements
+
+We have added accessibility improvements to the suggestion widget, parameter hints widget and to the quick fix widget (lightbulb), which now announce each suggestion, as they are selected, to screen readers.
+
+> Tip: If you use NVDA it is possible to navigate suggestions using `kbstyle(Alt+Up)` and `kbstyle(Alt+Down)`, to dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
 ## Localization
 
@@ -341,4 +390,5 @@ Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=mileston
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
+* [Joe Martella](https://github.com/martellaj): Adds sort lines (ascending and descending) command [2796](https://github.com/Microsoft/vscode/pull/2796).
 - [todo](https://github.com/todo): TODO fixed something [todo](https://github.com/Microsoft/vscode/pull/todo).
