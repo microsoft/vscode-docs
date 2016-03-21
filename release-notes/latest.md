@@ -220,7 +220,10 @@ Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), VS
 
 ### Tasks.json Creation
 
-Tasks.json creation with dropdown
+Configuring the task runner now offers you a list of templates to choose from. Tasks defined for Gulp and Grunt are still auto detected.
+
+![task-templates](images/March/tasks.png)
+
 
 TODOimage
 
@@ -251,6 +254,10 @@ The new bin command installed with the package files brings Linux in line with t
 Parameter hints are now read out to the user.
 
 ## Localization
+
+VSCode is now translated to the following 9 languages: Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish. By default VSCode picks up the operation system's language. If you want to configure a special language you can either use the command line switch --locale to specify a locale or use the Configure Locale action to specify a locale setting used whenever VSCode is started. Examples are `de` for German or `zh-TW` for Traditional Chinese.
+
+![task-templates](images/March/locale.png)
 
 ## Extension Authoring
 
