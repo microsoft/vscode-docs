@@ -50,7 +50,42 @@ Previously you often had to run the **Reload JavaScript Project** command to ens
 
 To make it easy to distinguish between diagnostics from external linters and the built-in syntax validation, errors and warnings from the built-in validator are now prefixed with `[JS]`.
 
+### Validation
+
+VSCode's Javascript validation can now be disabled using the setting `javascript.validate.enable`.
+ 
 ### Formatting options for JavaScript
+
+The following formatter settings are now available for JavaScript:
+
+```typescript
+// Defines space handling after a comma delimiter
+"javascript.format.insertSpaceAfterCommaDelimiter": boolean,
+
+// Defines space handling after a semicolon in a for statement
+"javascript.format.insertSpaceAfterSemicolonInForStatements": boolean,
+
+// Defines space handling after a binary operator
+"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": boolean,
+
+// Defines space handling after keywords in control flow statement
+"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": boolean,
+
+// Defines space handling after function keyword for anonymous functions
+"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": boolean,
+
+// Defines space handling after opening and before closing non empty parenthesis
+"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": boolean,
+
+// Defines space handling after opening and before closing non empty brackets
+"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": boolean,
+
+// Defines whether an open brace is put onto a new line for functions or not
+"javascript.format.placeOpenBraceOnNewLineForFunctions": boolean,
+
+// Defines whether an open brace is put onto a new line for control blocks or not
+"javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
+```
 
 New `javascript.format` settings
 
@@ -60,9 +95,42 @@ New `javascript.format` settings
 
 VS Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/).
 
+### Validation
+
+VSCode's Javascript validation can now be disabled using the setting `typescript.validate.enable`.
+
 ### Formatting options for TypeScript
 
-New `typescript.format` settings
+The following formatter settings are now available for TypeScript:
+
+```typescript
+// Defines space handling after a comma delimiter
+"typescript.format.insertSpaceAfterCommaDelimiter": boolean,
+
+// Defines space handling after a semicolon in a for statement
+"typescript.format.insertSpaceAfterSemicolonInForStatements": boolean,
+
+// Defines space handling after a binary operator
+"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": boolean,
+
+// Defines space handling after keywords in control flow statement
+"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": boolean,
+
+// Defines space handling after function keyword for anonymous functions
+"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": boolean,
+
+// Defines space handling after opening and before closing non empty parenthesis
+"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": boolean,
+
+// Defines space handling after opening and before closing non empty brackets
+"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": boolean,
+
+// Defines whether an open brace is put onto a new line for functions or not
+"typescript.format.placeOpenBraceOnNewLineForFunctions": boolean,
+
+// Defines whether an open brace is put onto a new line for control blocks or not
+"typescript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
+```
 
 ## Languages - HTML
 
