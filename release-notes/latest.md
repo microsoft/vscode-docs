@@ -240,8 +240,6 @@ sudo dpkg -i <file>.deb
 sudo yum localinstall <file>.rpm
 ```
 
-If you experience issues with your paricular distribution, [please file an issue](https://github.com/Microsoft/vscode/issues/new).
-
 ### Linux CLI
 
 The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line args available for use.
