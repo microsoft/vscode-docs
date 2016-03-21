@@ -237,7 +237,7 @@ Installing can be done through a package manager GUI by running the file through
 sudo dpkg -i <file>.deb
 
 # For .rpm
-sudo yum localinstall <file>.rpm
+sudo dnf install <file>.rpm
 ```
 
 ### Linux CLI
