@@ -12,7 +12,7 @@ MetaDescription: Visual Studio Code has great support for writing and debugging 
 
 [Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [NPM](https://www.npmjs.com/) is the Package Manager for Node.js modules.
 
-To get started, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node distribution.
+To get started, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for `npm` to be on your PATH.
 
 > **Tip!** You can download both the TypeScript and JavaScript versions of the sample application created in this walkthrough from the [vscode-samples](https://github.com/Microsoft/vscode-samples/archive/master.zip) repository.
 
@@ -30,22 +30,22 @@ We can now scaffold a new Express application called `myExpressApp`.
 express myExpressApp
 ```
 
-This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the dependencies, execute:
+This creates a new folder called `myExpressApp` with the contents of your application.  To install all of the application's dependencies, go to the new folder and execute `npm install`:
 
 ```bash
 cd myExpressApp
 npm install
 ```
 
-At this point we should test that our application runs. `package.json` includes a `start` script which runs `node ./bin/www`.
+At this point, we should test that our application runs. The generated Express application has a `package.json` file which includes a `start` script to run `node ./bin/www`.  This will start the Node.js application running.
 
-From a terminal run:
+From a terminal in the Express application folder, run:
 
 ```bash
 npm start
 ```
 
-The server will start and you can browse to `http://localhost:3000` to see the running application.
+The Node.js web server will start and you can browse to `http://localhost:3000` to see the running application.
 
 ![Your first Node Express App](images/nodejs/express.png)
 
@@ -78,43 +78,6 @@ Also notice that VS Code knows that `msg` is a string based on the initializatio
 
 ![string IntelliSense](images/nodejs/stringintellisense.png)
 
-## Typings
-
-VS Code can use TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide not only a rich IntelliSense experience, but also warnings when an API is being used incorrectly.
-
-[Typings](https://github.com/typings/typings), the type definition manager for TypeScript, makes it easy to search for and install TypeScript definition files into your workspace. This tool can download the requested definitions from a variety of sources, including the [DefinitelyTyped repository](https://github.com/DefinitelyTyped/DefinitelyTyped). As we did with the express generator, we will install Typings globally using NPM so that you can use the tool in any application you create.
-
-```bash
-npm install -g typings
-```
-
->**Tip:** Typings has a number of options for configuring where and how definition files are downloaded, from the terminal run `typings --help` for more information.
-
-Start Visual Studio Code, open `app.js` and notice that if you hover over the Node.js global object `__dirname`, VS Code does not know the type and displays `any`.
-
-Now, pull down the Node and Express definitions.
-
-```bash
-typings install node --ambient
-typings install express --ambient
-```
-
->**Tip:** You can download multiple definition files by combining them on the command line, for example `typings install node express --ambient`.
-
->**Important:** With the recent move to TypeScript 1.8.2, you will need to have a `jsconfig.json` in your workspace for the typings files to be picked up.
->
->Jump to the section below on [Adding a jsconfig.json Configuration File](/docs/runtimes/nodejs.md#adding-a-jsconfigjson-configuration-file) and then return to this part of the walkthrough.
-
-Notice how VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
-
-![http IntelliSense](images/nodejs/intellisense.png)
-
-If you pass an incorrect type to `createServer` VS Code will give you a warning.
-
-![incorrect parameter warning](images/nodejs/warning.png)
-
->**Tip:** Press `kb(editor.action.marker.next)` to navigate errors and warnings within a file.
-
 ## Adding a jsconfig.json Configuration File
 
 You can give even more hints to Visual Studio Code through a configuration file for the workspace (the root folder). Add a new file and name it `jsconfig.json` with the following contents:
@@ -128,7 +91,38 @@ You can give even more hints to Visual Studio Code through a configuration file 
 }
 ```
 
-This file tells VS Code you are writing ES5 compliant code and the module system you want to use is the `commonjs` framework. With these options set, you can start to write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
+Restart VS Code for the new jsconfig.json to be read by VS Code. 
+
+The presence of this file lets VS Code know that it should treat all the files under this root as part of the same project.  The specific `compilerOptions` tells VS Code you are writing ES5 compliant code and the module system you want to use is the `commonjs` framework.
+
+## Typings
+
+VS Code can use TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide not only a rich IntelliSense experience, but also warnings when an API is being used incorrectly.
+
+[Typings](https://github.com/typings/typings), the type definition manager for TypeScript, makes it easy to search for and install TypeScript definition files into your workspace. This tool can download the requested definitions from a variety of sources, including the [DefinitelyTyped repository](https://github.com/DefinitelyTyped/DefinitelyTyped). As we did with the express generator, we will install Typings globally using NPM so that you can use the tool in any application you create.
+
+```bash
+npm install -g typings
+```
+
+>**Tip:** Typings has a number of options for configuring where and how definition files are downloaded, from the terminal run `typings --help` for more information.
+
+Go back to the file `app.js` and notice that if you hover over the Node.js global object `__dirname`, VS Code does not know the type and displays `any`.
+
+Now, using the Typings command line, pull down the Node and Express definition files.
+
+```bash
+typings install node --ambient
+typings install express serve-static express-serve-static-core --ambient
+```
+
+>**Tip:** You can download multiple definition files by combining them on the command line, as you can see from the Express typings above.  We need to install the typings for Express and also it's references.
+
+Notice how VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
+
+![http IntelliSense](images/nodejs/intellisense.png)
+
+You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
 
 ![Express.Router IntelliSense](images/nodejs/moduleintellisense.png)
 
