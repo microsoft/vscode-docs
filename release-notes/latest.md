@@ -7,13 +7,7 @@ MetaDescription: See what is new in the Visual Studio Code March Release (0.10.1
 
 # 0.10.12 (March 2016)
 
-## Insiders Release
-
-Preliminary information on the new features and fixes coming with the 0.10.12 Insiders release can be found in our [March Iteration Plan](https://github.com/Microsoft/vscode/issues/3555) on GitHub.  There you will find brief feature descriptions and links to the feature test plans. As the milestone matures we'll expand upon the documentation here.
-
-## Next Release
-
-We're excited for the next release of Visual Studio Code at the [Build 2016 conference](http://build.microsoft.com/).
+## March 2016 Release
 
 Downloads: [Windows](TBD) |
 [OS X](TBD) | [Linux 32-bit](TBD) | [Linux 64-bit](TBD)
