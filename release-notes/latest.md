@@ -36,7 +36,7 @@ The hint creates a template for a `jsconfig.json`, with an exclusion list for yo
 
 ![jsconfig-template](images/March/jsconfig-template.png)
 
-Similarly when your JavaScript project is growing too large, we invite you to edit the `exclude` list.
+Similarly when your JavaScript project is growing too large, esp. because of library folders like _node_modules_ et al, we ask you to edit the `exclude` list.
 
 ### Go To Symbol is back
 
@@ -86,6 +86,10 @@ There are actions to fold level 1 (`kbstyle(Ctrl + K, Ctrl + 1)`) to level 5 (`k
 To unfold, use **Unfold All** ('kb(editor.unfoldAdd)`).
 
 The level folding actions do not apply to region containing the current cursor.
+
+### IntelliSense on Tab only
+
+We have added an option to accept IntelliSense proposals only on Tab and not on Enter. Set the configuration option `editor.acceptSuggestionOnEnter` to `false` and avoid ambiguity when hitting `kbstyle(Enter)` while completions are shown.
 
 ### Indentation
 
@@ -250,6 +254,7 @@ Parameter hints are now read out to the user.
 
 - [2116](https://github.com/Microsoft/vscode/issues/2116): Inconsistent de-indentation behavior while closing html tags using Autocomplete
 - [2808](https://github.com/Microsoft/vscode/issues/2808): Make it easier to add more file extensions to an existing colorizer/language
+- [2912](https://github.com/Microsoft/vscode/issues/2912) Html code returned from a TextDocumentContentProvider can now embed JavaScript code.
 
 Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=milestone%3A%22March+2016%22+is%3Aclosed) and the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22March+2016%22+is%3Aclosed+label%3Afeature-request) for the March update.
 
