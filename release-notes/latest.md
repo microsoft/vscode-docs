@@ -50,15 +50,21 @@ Previously you often had to run the **Reload JavaScript Project** command to ens
 
 To make it easy to distinguish between diagnostics from external linters and the built-in syntax validation, errors and warnings from the built-in validator are now prefixed with `[JS]`.
 
+### Formatting options for JavaScript
+
+New `javascript.format` settings
+
 ## Languages - TypeScript
+
+### TypeScript Update
 
 VS Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/).
 
-## Languages - formatting options
-
-### Formatting options for JavaScript, TypeScript and HTML
+### Formatting options for TypeScript
 
 New `typescript.format` settings
+
+## Languages - HTML
 
 The HTML formatter is based on the **beautifyjs** library. The formatting options offered by that library are now surfaced in the VS Code settings:
 
