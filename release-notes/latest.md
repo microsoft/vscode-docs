@@ -196,11 +196,15 @@ Large amounts of output were the cause of multiple user issues. We have now addr
 
 ## Debugging
 
-### Run command
+### Run action
+
+With this release VS Code supports to 'Run' a program (in addition to 'Debug'). The **Run** action is triggered with `kbstyle(Ctrl + F5)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode too. VS Code maintains a debug session while the program is running and pressing the 'Stop' button terminates the program.
+
+Please note: The 'Run' action is always available, but a debug extension has to 'opt-in' in order to support 'Run'. If a debug extension has not been updated, 'Run' will fall back to 'Debug' (the built-in Node Debug and [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) already support 'Run').
 
 ### Improved thread handling
 
-Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), the call stack for each thread is now requested lazily. This improves performance of debugging multi-threaded programs.
+Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), VS Code debugger UI now supports multiple stopped threads and the call stack for each thread is now requested lazily. This improves the debugger's stepping performance in multi-threaded programs.
 
 ## Tasks
 
@@ -245,7 +249,7 @@ Parameter hints are now read out to the user.
 ## Notable Bug Fixes
 
 - [2116](https://github.com/Microsoft/vscode/issues/2116): Inconsistent de-indentation behavior while closing html tags using Autocomplete
-- [2808](https://github.com/Microsoft/vscode/issues/2808): Make it easier to add more file extensions to an existing colorizer/language 
+- [2808](https://github.com/Microsoft/vscode/issues/2808): Make it easier to add more file extensions to an existing colorizer/language
 
 Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=milestone%3A%22March+2016%22+is%3Aclosed) and the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22March+2016%22+is%3Aclosed+label%3Afeature-request) for the March update.
 
