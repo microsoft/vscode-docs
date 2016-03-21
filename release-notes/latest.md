@@ -385,4 +385,9 @@ Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=mileston
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
 * [Joe Martella](https://github.com/martellaj): Adds sort lines (ascending and descending) command [2796](https://github.com/Microsoft/vscode/pull/2796).
-- [todo](https://github.com/todo): TODO fixed something [todo](https://github.com/Microsoft/vscode/pull/todo).
+* [Ivan Enderlin (@hywan)](https://github.com/Hywan): Improved PHP support [4323](https://github.com/Microsoft/vscode/pull/4323) [4322](https://github.com/Microsoft/vscode/pull/4322).
+- [Sanders Lauture (@golf1052)](https://github.com/golf1052): Fix markdown highlighting for C# [4225](https://github.com/Microsoft/vscode/pull/4225).
+- [Phillip Johnsen (@phillipj)](https://github.com/phillipj): Multiple script enhancements  [3691](https://github.com/Microsoft/vscode/pull/3691) [3649](https://github.com/Microsoft/vscode/pull/3649) [3636](https://github.com/Microsoft/vscode/pull/3636).
+- [Ed Muñoz (@edumunoz)](https://github.com/edumunoz): Support stop-all-threads mode debugging for multi-threaded debuggers [3990](https://github.com/Microsoft/vscode/pull/3990).
+- [Pierson Lee (@pieandcakes)](https://github.com/pieandcakes): Added telemetry for debugging scenarios [3687](https://github.com/Microsoft/vscode/pull/3687).
+- [Guillaume Jenkins (@guillaumejenkins)](https://github.com/guillaumejenkins): Adding descriptions of Ionic HTML tags [3734](https://github.com/Microsoft/vscode/pull/3734).
