@@ -248,9 +248,13 @@ The Status Bar now distinguishes between files with UTF-8 and UTF-8 with BOM. Yo
 
 ### Extension Display in the Status Bar
 
-There is now an Extensions icon in the bottom left corner of the workbench. This is not only a shortcut to reach into extension related actions but also the place for extension error and update notifications. It is also used to report progress during an extension's installation.
+There is now an Extensions icon in the bottom left corner of the workbench. This is not only a shortcut to reach into extension related actions but also the place for notifying extension errors. It is also used to report progress during an extension's installation.
 
 ![extension-widget](images/March/extension-widget.png)
+
+Update notifications will also be notified in this widget:
+
+![extension-widget](images/March/extension-widget-notification.png)
 
 ### Exclude files from watching
 
