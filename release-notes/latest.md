@@ -34,7 +34,7 @@ Similarly when your JavaScript project is growing too large, often because of li
 
 ### Go To Symbol is back
 
-During the transition to Salsa, the support for **Go to Symbol** was lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. Thanks to the TypeScript ream this feature is now back.
+During the transition to Salsa, the support for **Go to Symbol** was lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. Thanks to the TypeScript team this feature is now back.
 
 ### No more "Reload JavaScript Project"
 
@@ -44,18 +44,13 @@ Previously you often had to run the **Reload JavaScript Project** command to ens
 
 To make it easy to distinguish between diagnostics from external linters and the built-in syntax validation, errors and warnings from the built-in validator are now prefixed with `[JS]`.
 
-### Validation
+### Intellisense when using ES6 import statements in ReactNative
 
-VS Code's JavaScript validation can now be disabled using the `javascript.validate.enable` setting.
+Previously you did not get Intellisense when using ES6 style import statements in ReactNative as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start). In the snippet below you get no Intellisense for `React`:
 
-### Intellisense when using ES6 import statements
-
-Previously you did not get Intellisense when using ES6 style import statements (see [vscode-react-native#61](https://github.com/Microsoft/vscode-react-native/issues/61)) as example. In the snippet below you did not get Intellisense for `React` or `AppRegistry`. 
-
-```json
-import React, { AppRegistry } from 'react-native';
+```js
+import React from 'react-native';
 ```
-
 The issue is that the `react-native` typings do not define a `default` export. By adding the new [compiler option](https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#allow-captured-letconst-in-loops) `allowSyntheticDefaultImports` 
 to the `jsconfig.json` you tell the compiler to create synthetic default members and you get Intellisense.
 
@@ -67,6 +62,11 @@ to the `jsconfig.json` you tell the compiler to create synthetic default members
     }
 }
 ``` 
+This works since ReactNative is using `Babel` to create the proper run-time code with default members.
+
+### Support for mix & match of ES6 and CommonJS import/export
+
+Thanks to fix [microsoft/TypeScript#7249](https://github.com/Microsoft/TypeScript/pull/7249) mixing & matching of ES6 and CommonJS import/export syntax across files is now supported. 
 
 ### Formatting options 
 
