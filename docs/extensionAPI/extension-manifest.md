@@ -24,6 +24,7 @@ Name | Required | Type | Details
 `displayName` | | `string`| The display name for the extension used in the Gallery.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Other]`
+`keywords` | | `array` | An array of **keywords** or **tags** to make it easier to find the extension.
 `galleryBanner` | | `object` | Helps format the gallery header to match your icon.  See details below.
 `main` | | `string` | The entry point to your extension.
 [`contributes`](/docs/extensionAPI/extension-points.md) | | `object` | An object describing the extension's [contributions](/docs/extensionAPI/extension-points.md).
@@ -128,7 +129,7 @@ An Icon and a contrasting banner color looks great on the Marketplace page heade
 	},
 ```
 
-There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed in the 'resources' section of the Marketplace.
+There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed under the **Resources** section of the Marketplace.
 ```json
 	"license": "SEE LICENSE IN LICENSE.md",
 	"bugs": {
@@ -140,6 +141,13 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 		"url": "https://github.com/Microsoft/vscode-spell-check.git"
 	}
 ```
+
+Marketplace Resources link | package.json attribute
+-----------------|-----------------------
+Support | `bugs:url`
+Get Started | `repository:url`
+Learn | `homepage`
+License | `license`
 
 Set a `category` for your extension.  Extensions in the same `category` are grouped together on the gallery which improves filtering and discovery.
 
