@@ -47,8 +47,29 @@ To make it easy to distinguish between diagnostics from external linters and the
 ### Validation
 
 VS Code's JavaScript validation can now be disabled using the `javascript.validate.enable` setting.
+
+### Intellisense when using ES6 import statements
+
+Previously you did not get Intellisense when using ES6 style import statements (see [vscode-react-native#61](https://github.com/Microsoft/vscode-react-native/issues/61)) as example. In the snippet below you did not get Intellisense for `React` or `AppRegistry`. 
+
+```json
+import React, { AppRegistry } from 'react-native';
+```
+
+The issue is that the `react-native` typings do not define a `default` export. By adding the new [compiler option](https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#allow-captured-letconst-in-loops) `allowSyntheticDefaultImports` 
+to the `jsconfig.json` you tell the compiler to create synthetic default members and you get Intellisense.
+
+`jsconfig.json`
+```json
+ {
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true
+    }
+}
+``` 
+
  
-### Formatting options for JavaScript
+### Formatting options 
 
 The following formatter settings are now available for JavaScript:
 
@@ -87,11 +108,7 @@ The following formatter settings are now available for JavaScript:
 
 VS Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScript 1.8.2](https://blogs.msdn.microsoft.com/typescript/2016/02/22/announcing-typescript-1-8-2/).
 
-### Validation
-
-VS Code's JavaScript validation can now be disabled using the `typescript.validate.enable` setting.
-
-### Formatting options for TypeScript
+### Formatting options
 
 The following formatter settings are now available for TypeScript:
 
