@@ -34,7 +34,7 @@ Similarly when your JavaScript project is growing too large, often because of li
 
 ### Go To Symbol is back
 
-During the transition to Salsa, the support for **Go to Symbol** was lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. This feature is now back.
+During the transition to Salsa, the support for **Go to Symbol** was lost [Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134) for some JavaScript coding patterns. Thanks to the TypeScript ream this feature is now back.
 
 ### No more "Reload JavaScript Project"
 
@@ -68,7 +68,6 @@ to the `jsconfig.json` you tell the compiler to create synthetic default members
 }
 ``` 
 
- 
 ### Formatting options 
 
 The following formatter settings are now available for JavaScript:
