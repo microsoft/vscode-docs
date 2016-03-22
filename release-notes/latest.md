@@ -14,11 +14,11 @@ Downloads: [Windows](TBD) |
 
 ## Languages - JavaScript
 
-**Please note**: If you have tested the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in the past and have configured the `typescript.tsdk` setting, then please make sure to remove it. Otherwise you might use an old TypeScript version. When you have `typescript.tsdk` set, then the TypeScript version is shown in the bottom right of the Status Bar.
+**Please note**: If you have tested the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in the past and have configured the `typescript.tsdk` setting, then please make sure to remove it. Otherwise you might be using an older version of TypeScript. When you have `typescript.tsdk` set, then the TypeScript version is shown in the bottom right of the Status Bar.
 
 ### Disable Syntax Validation when using ES7 constructs
 
-Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are flagged as errors. For users who still want to use these ES7 features, we have revived the `javascript.validate.enable` setting to disable all built-in syntax checking. If you do this, we recommend that you use a linter like `eslint` to validate your code. Since the JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+Some users want to use syntax constructs like the proposed **ES7 Object Rest/Spread Properties**. However, these are currently not supported by Salsa and are flagged as errors. For users who still want to use these **ES7** features, we have revived the `javascript.validate.enable` setting to disable all built-in syntax checking. If you do this, we recommend that you use a linter like **ESLint** to validate your code. Since the JavaScript support doesn't understand **ES7** constructs, features like IntelliSense might not be fully accurate.
 
 ### Guidance in creating a jsconfig.json file
 
@@ -30,7 +30,7 @@ The hint creates a template for a `jsconfig.json`, with an exclusion list for yo
 
 ![jsconfig-template](images/March/jsconfig-template.png)
 
-Similarly when your JavaScript project is growing too large, esp. because of library folders like _node_modules_ et al, we ask you to edit the `exclude` list.
+Similarly when your JavaScript project is growing too large, often because of library folders like _node_modules_, we will prompt you to edit the `exclude` list.
 
 ### Go To Symbol is back
 
@@ -46,7 +46,7 @@ To make it easy to distinguish between diagnostics from external linters and the
 
 ### Validation
 
-VSCode's Javascript validation can now be disabled using the setting `javascript.validate.enable`.
+VS Code's JavaScript validation can now be disabled using the `javascript.validate.enable` setting.
  
 ### Formatting options for JavaScript
 
@@ -81,8 +81,6 @@ The following formatter settings are now available for JavaScript:
 "javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
 ```
 
-New `javascript.format` settings
-
 ## Languages - TypeScript
 
 ### TypeScript Update
@@ -91,7 +89,7 @@ VS Code now ships with TypeScript 1.8.9, which includes some fixes over [TypeScr
 
 ### Validation
 
-VSCode's Javascript validation can now be disabled using the setting `typescript.validate.enable`.
+VS Code's JavaScript validation can now be disabled using the `typescript.validate.enable` setting.
 
 ### Formatting options for TypeScript
 
@@ -138,71 +136,7 @@ The HTML formatter is based on the **beautifyjs** library. The formatting option
 * `html.format.endWithNewline`: End with a newline.
 * `html.format.indentInnerHtml`: Indent `<head>` and `<body>` sections.
 
-## Languages - C&#35;
-
 ## Editor
-
-### Column Selection
-
-Column selection can be obtained by pressing `kbstyle(Shift+Alt)` and clicking or dragging the mouse:
-
-![indentation](images/March/column-select-mouse.gif)
-
-We have also added new keyboard commands for column selection, that are bound on Windows and on OSX, but not on Linux, as we could not find any free default keybindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish to. E.g:
-
-```json
-{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
-                                  "when": "editorTextFocus" }
-```
-
-
-### Source Code Folding Shortcuts
-
-There are new folding actions to collapse source code regions based on their folding level.
-
-There are actions to fold level 1 (`kbstyle(Ctrl + K, Ctrl + 1)`) to level 5 (`kbstyle(Ctrl + K, Ctrl + 5)`).
-To unfold, use **Unfold All** ('kb(editor.unfoldAdd)`).
-
-The level folding actions do not apply to region containing the current cursor.
-
-### IntelliSense on Tab only
-
-We have added an option to accept IntelliSense proposals only on Tab and not on Enter. Set the configuration option `editor.acceptSuggestionOnEnter` to `false` and avoid ambiguity when hitting `kbstyle(Enter)` while completions are shown.
-
-### Indentation
-
-We have improved our indentation handling in the editor. We have added a new setting, `editor.detectIndentation` that is `true` by default. When this setting is true and when the file contains sufficient hints (e.g. the file has content, it has lines with indentation), the editor will determine dynamically, for each file, the values of `editor.insertSpaces` and `editor.tabSize`.
-
-> If you were using `editor.insertSpaces: "auto"` or `editor.tabSize: "auto"`, please start using the new `editor.detectIndentation` setting.
-
-The indentation status shows the current file's settings. We have also added additional actions to the indentation status.
-
-![indentation](images/March/indentation.png)
-
-### Visual Studio style word navigation and word deletion
-
-Visual Studio Code stops by default at the beginning of words when using `kbstyle(Ctrl+Left)` and at the end of words when using `kbstyle(Ctrl+Right)`. The same is true when deleting words. If you are accustomed to the Visual Studio style, you can change your `keybindings.json` to use the new commands we have added. E.g.:
-
-```json
-{ "key": "ctrl+right",       "command": "cursorWordStartRight",
-                                "when": "editorTextFocus" },
-{ "key": "ctrl+shift+right", "command": "cursorWordStartRightSelect",
-                                "when": "editorTextFocus" },
-{ "key": "ctrl+backspace",   "command": "deleteWordStartLeft",
-                                "when": "editorTextFocus" },
-{ "key": "ctrl+delete",      "command": "deleteWordStartRight",
-                                "when": "editorTextFocus" }
-```
 
 ### File to language association
 
@@ -227,9 +161,74 @@ You can also configure full file paths to languages if needed. The following exa
 
 Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
 
+### Column Selection
+
+You can now select columns of text by pressing `kbstyle(Shift+Alt)` and clicking or dragging the mouse:
+
+![indentation](images/March/column-select-mouse.gif)
+
+We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish. 
+
+For example:
+
+```json
+{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
+                                  "when": "editorTextFocus" }
+```
+
+### Source Code Folding Shortcuts
+
+There are new folding actions to collapse source code regions based on their folding level.
+
+There are actions to fold level 1 (`kbstyle(Ctrl + K, Ctrl + 1)`) to level 5 (`kbstyle(Ctrl + K, Ctrl + 5)`).
+To unfold, use **Unfold All** ('kb(editor.unfoldAdd)`).
+
+The level folding actions do not apply to region containing the current cursor.
+
+### IntelliSense on Tab only
+
+We have added an option to accept IntelliSense proposals only on `kbstyle(Tab)` and not on `kbstyle(Enter)`. Set the `editor.acceptSuggestionOnEnter` setting to `false` to prevent accepting suggestions when you press `kbstyle(Enter)` to start a new line.
+
+### Indentation
+
+We have improved our indentation handling in the editor. We have added a new setting, `editor.detectIndentation`, that is `true` by default. When this setting is true and when the file contains sufficient hints (e.g. the file has content, it has lines with indentation), the editor will determine dynamically, for each file, the values of `editor.insertSpaces` and `editor.tabSize`.
+
+> If you were using `editor.insertSpaces: "auto"` or `editor.tabSize: "auto"`, please start using the new `editor.detectIndentation` setting.
+
+The indentation status shows the current file's settings. We have also added additional actions to the indentation status.
+
+![indentation](images/March/indentation.png)
+
+### Visual Studio style word navigation and word deletion
+
+Visual Studio Code stops by default at the beginning of words when using `kbstyle(Ctrl+Left)` and at the end of words when using `kbstyle(Ctrl+Right)`. The same is true when deleting words. If you are accustomed to the Visual Studio style, you can change your `keybindings.json` to use the new commands we have added. 
+
+For example:
+
+```json
+{ "key": "ctrl+right",       "command": "cursorWordStartRight",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+shift+right", "command": "cursorWordStartRightSelect",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+backspace",   "command": "deleteWordStartLeft",
+                                "when": "editorTextFocus" },
+{ "key": "ctrl+delete",      "command": "deleteWordStartRight",
+                                "when": "editorTextFocus" }
+```
+
 ### Toggle Whitespace
 
-There is a new action under `View > Toggle Render Whitespace` that quickly toggles the rendering of whitespace for the current opened file.
+There is a new action under **View** > **Toggle Render Whitespace** that quickly toggles the rendering of whitespace for the current opened file.
 
 ### UTF-8 BOM support
 
@@ -244,6 +243,73 @@ To save all new files with the UTF-8 BOM encoding, configure the `files.encoding
 The Status Bar now distinguishes between files with UTF-8 and UTF-8 with BOM. You can convert the encoding from there.
 
 ![jsconfig-hint](images/March/statusbar_bom.png)
+
+## Workbench
+
+### Extension Display in the Status Bar
+
+There is now an Extensions icon in the bottom left corner of the workbench. This is not only a shortcut to reach into extension related actions but also the place for extension error and update notifications. It is also used to report progress during an extension's installation.
+
+![extension-widget](images/March/extension-widget.png)
+
+### Exclude files from watching
+
+When you open VS Code on a folder, it installs a file watcher service on the folder and every file and folder contained within to be notified when something changes. If the folder is very large, this can consume many resources right at startup. A new setting, `files.watcherExclude`, now allows to explicitly exclude large directories from file watching.
+
+This setting has the following defaults:
+
+```json
+"files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
+}
+```
+
+We suggest you only exclude more folders if you see that VS Code is using lots of CPU when opening a folder. Typically you would not have to make any changes to this setting.
+
+### Output handling improvements
+
+Large amounts of output were the cause of multiple user issues. We have now addressed this and are handling large amounts of output in a more efficient way.
+
+## Debugging
+
+### Run action
+
+With this release, VS Code now supports 'Run' (in addition to 'Debug') of a program. The **Run** action is triggered with `kbstyle(Ctrl + F5)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the 'Stop' button terminates the program.
+
+Please note: The 'Run' action is always available, but a debugger extension has to 'opt-in' in order to support 'Run'. If a debugger extension has not been updated, 'Run' will fall back to 'Debug' (the built-in Node Debug and [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) already support 'Run').
+
+### Improved thread handling
+
+Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), VS Code debugger UI now supports multiple stopped threads and the call stack for each thread is now requested lazily. This improves the debugger's stepping performance in multi-threaded programs.
+
+## Tasks
+
+### Tasks.json Creation
+
+Configuring the task runner now offers you a list of templates to choose from. Tasks defined for Gulp and Grunt are still auto detected.
+
+![task-templates](images/March/tasks.png)
+
+## Setup
+
+### Linux packages
+
+.deb and .rpm packages are now being offered as the primary way to install and start using VS Code on Linux. The packages will install the program, a desktop entry, a bin command as well as integrating VS Code into the [Debian alternatives system](https://wiki.debian.org/DebianAlternatives).
+
+Installing can be done through a package manager GUI by running the file through the file explorer or through the command line:
+
+```bash
+# For .deb
+sudo dpkg -i <file>.deb
+
+# For .rpm
+sudo dnf install <file>.rpm
+```
+
+### Linux CLI
+
+The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line args available for use.
 
 ### Wait support and git/patch/diff mode
 
@@ -280,97 +346,27 @@ To summarize here are some examples of where you can use with VS Code:
 * `git add -p` followed by <kbd>E</kbd> for interactive add
 * `git difftool <commit>^ <commit>` allows to use VS Code as diff editor for changes
 
-## Workbench
-
-### Extensions in Status Bar
-
-There is now an Extensions icon in the bottom left corner of the workbench. This is not only a shortcut to reach into extension related actions but also the place for extension error and update notifications. It is also used to report progress during an extension's installation.
-
-![extension-widget](images/March/extension-widget.png)
-
-### Exclude files from watching
-
-When you open VS Code on a folder, it installs a file watcher service on the folder and every file and folder contained within to be notified when something changes. If the folder is very large, this can consume many resources right at startup. A new setting, `files.watcherExclude`, now allows to explicitly exclude large directories from file watching.
-
-This setting has the following defaults:
-
-```json
-"files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/node_modules/**": true
-}
-```
-
-We suggest you only exclude more folders if you see that VS Code is using lots of CPU when opening a folder. Typically you would not have to make any changes to this setting.
-
-### Output handling improvements
-
-Large amounts of output were the cause of multiple user issues. We have now addressed this and are handling large amounts of output in a more efficient way.
-
-## Debugging
-
-### Run action
-
-With this release VS Code supports to 'Run' a program (in addition to 'Debug'). The **Run** action is triggered with `kbstyle(Ctrl + F5)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode too. VS Code maintains a debug session while the program is running and pressing the 'Stop' button terminates the program.
-
-Please note: The 'Run' action is always available, but a debug extension has to 'opt-in' in order to support 'Run'. If a debug extension has not been updated, 'Run' will fall back to 'Debug' (the built-in Node Debug and [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) already support 'Run').
-
-### Improved thread handling
-
-Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), VS Code debugger UI now supports multiple stopped threads and the call stack for each thread is now requested lazily. This improves the debugger's stepping performance in multi-threaded programs.
-
-## Tasks
-
-### Tasks.json Creation
-
-Configuring the task runner now offers you a list of templates to choose from. Tasks defined for Gulp and Grunt are still auto detected.
-
-![task-templates](images/March/tasks.png)
-
-
-TODOimage
-
-## Setup
-
-### Linux packages
-
-.deb and .rpm packages are now being offered as the primary way to install and start using Code on Linux. The packages will install the program, a desktop entry, a bin command as well as integrating Code into the [Debian alternatives system](https://wiki.debian.org/DebianAlternatives).
-
-Installing can be done through a package manager GUI by running the file through the file explorer or through the command line:
-
-```bash
-# For .deb
-sudo dpkg -i <file>.deb
-
-# For .rpm
-sudo dnf install <file>.rpm
-```
-
-### Linux CLI
-
-The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line args available for use.
-
-## Extension API additions
-
-* Added `setEndOfLine` on the `TextEditorEdit` builder interface that allows to change the line ending sequence of a file from an extension.
-* Added `cursorStyle` to `TextEditorOptions` that allows to set the cursor style to a vertical line, a block or a horizontal under line for a specific editor.
-* Added a `setContext` command that can be invoked with two arguments, a key and a value. This allows to customize keybinding rules.
-* Now dispatching all typing in an editor through a `type` command that can be overwritten by an extension to implement vim emulation mode, for example.
-* Added a [vim emulation sample](https://github.com/alexandrudima/vscode-vim) that shows how a vim emulation extension could use VS Code API to give a great experience.
-
-## Accessibility improvements
+## Accessibility
 
 We have added accessibility improvements to the suggestion widget, parameter hints widget and to the quick fix widget (lightbulb), which now announce each suggestion, as they are selected, to screen readers.
 
-> Tip: If you use NVDA it is possible to navigate suggestions using `kbstyle(Alt+Up)` and `kbstyle(Alt+Down)`, to dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
+> Tip: If you use the [NVDA screen reader](http://www.nvaccess.org), it is possible to navigate suggestions using `kbstyle(Alt+Up)` and `kbstyle(Alt+Down)`, to dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
 ## Localization
 
-VSCode is now translated to the following 9 languages: Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish. By default VSCode picks up the operation system's language. If you want to configure a special language you can either use the command line switch --locale to specify a locale or use the Configure Locale action to specify a locale setting used whenever VSCode is started. Examples are `de` for German or `zh-TW` for Traditional Chinese.
+VS Code is now translated to the following 9 languages: Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish. By default VS Code picks up the operation system's language. If you want to configure a special language, you can either use the command line switch `--locale` to specify a locale or use the **Configure Locale** action to specify a locale setting to use whenever VS Code is started. Examples are `de` for German or `zh-TW` for Traditional Chinese.
 
-![task-templates](images/March/locale.png)
+![Configure Locale](images/March/locale.png)
 
 ## Extension Authoring
+
+### Extension API additions
+
+* Added `setEndOfLine` on the `TextEditorEdit` builder interface to allow changing the line ending sequence of a file from an extension.
+* Added `cursorStyle` to `TextEditorOptions` to set the cursor style (vertical line, block or underline) for a specific editor.
+* Added a `setContext` command for customizing key binding rules.  This command takes two arguments, a key and a value.
+* All typing in an editor now goes through a `type` command that can be overwritten by an extension to implement different editor emulation modes such as **Vim** emulation mode.
+* Added a [**Vim** emulation sample](https://github.com/alexandrudima/vscode-vim) that shows how a **Vim** emulation extension can use the VS Code API.
 
 ## Notable Bug Fixes
 
@@ -384,8 +380,8 @@ Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=mileston
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-* [Joe Martella](https://github.com/martellaj): Adds sort lines (ascending and descending) command [2796](https://github.com/Microsoft/vscode/pull/2796).
-* [Ivan Enderlin (@hywan)](https://github.com/Hywan): Improved PHP support [4323](https://github.com/Microsoft/vscode/pull/4323) [4322](https://github.com/Microsoft/vscode/pull/4322).
+* [Joe Martella (@martellaj)](https://github.com/martellaj): Adds sort lines (ascending and descending) command [2796](https://github.com/Microsoft/vscode/pull/2796).
+* [Ivan Enderlin (@Hywan)](https://github.com/Hywan): Improved PHP support [4323](https://github.com/Microsoft/vscode/pull/4323) [4322](https://github.com/Microsoft/vscode/pull/4322).
 - [Sanders Lauture (@golf1052)](https://github.com/golf1052): Fix markdown highlighting for C# [4225](https://github.com/Microsoft/vscode/pull/4225).
 - [Phillip Johnsen (@phillipj)](https://github.com/phillipj): Multiple script enhancements  [3691](https://github.com/Microsoft/vscode/pull/3691) [3649](https://github.com/Microsoft/vscode/pull/3649) [3636](https://github.com/Microsoft/vscode/pull/3636).
 - [Ed Muñoz (@edumunoz)](https://github.com/edumunoz): Support stop-all-threads mode debugging for multi-threaded debuggers [3990](https://github.com/Microsoft/vscode/pull/3990).
