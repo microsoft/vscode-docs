@@ -51,6 +51,7 @@ exports.mapFileToArticle = function(file) {
 		Link: slash(file.relative.substr(0, file.relative.lastIndexOf('.'))),
 		Title: file.data.PageTitle,
 		NavTitle: file.data.TOCTitle,
+        ContentId: file.data.ContentId,
 		DateApproved: file.data.DateApproved,
 		MetaDescription: file.data.MetaDescription,
 		MetaTags: !file.data.MetaTags ? [] : (file.data.MetaTags).join(','),

@@ -1,7 +1,9 @@
 ---
 Order:
-TOCTitle:
+TOCTitle: How to Update
+ContentId: EB6E82F3-7A9E-4B88-998D-4A55AE477A49
 PageTitle: How to update Visual Studio Code to the latest version
+DateApproved: 3/7/2016
 MetaDescription: Find out how to update to the most recent version of Visual Studio Code – an evolved Code editing experience on Mac OS X, Linux and Windows.
 ---
 
@@ -9,7 +11,7 @@ MetaDescription: Find out how to update to the most recent version of Visual Stu
 
 The following shows you how to update to the latest release of Visual Studio Code.
 
->**Note:** For Mac and Windows users, we have enabled the auto-update channel. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits).
+>**Note:** For Mac and Windows users, we have enabled the auto-update channel. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits). If you'd rather control VS Code updates manually, see [How do I opt out of auto-updates](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates).
 
 Auto-updates are not supported for Linux.
 

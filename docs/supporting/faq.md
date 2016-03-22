@@ -1,5 +1,6 @@
 ---
 TOCTitle: FAQ
+ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
 DateApproved: 3/7/2016
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
@@ -12,7 +13,7 @@ Our docs contain a **Common Questions** section as needed for specific topics. W
 If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
 
 ## What is the difference between VS Code and VS Community?
-
+ar
 Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs. For more details about the goals of VS Code, see [Why VS Code](/docs/editor/whyvscode.md).
 
 ## Which OS's are supported?
@@ -139,11 +140,21 @@ sudo apt-get install gvfs-bin
 
 ### error ENOSPC
 
-When you see this error, it indicates that the VS Code file watcher is running out of handles. To increase the limit open `/etc/sysctl.conf` and add this line to the end of the file:
+When you see this error, it indicates that the VS Code file watcher is running out of handles. The current limit can be viewed by running:
+
+```bash
+cat /proc/sys/fs/inotify/max_user_watches
+```
+
+The limit can be increased to its maximum by editing `/etc/sysctl.conf` and adding this line to the end of the file:
 
 ```
-`fs.inotify.max_user_watches=16384`
+fs.inotify.max_user_watches=524288
 ```
+
+The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
+
+While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](http://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upperbound of around 256MB (32-bit) or 512MB (64-bit).
 
 ### I can't see Chinese characters in Ubuntu
 
@@ -205,3 +216,4 @@ From **File** > **Preferences** > **User Settings**, add the following option to
     "telemetry.enableTelemetry": false
 ```
 
+>**Note:** VS Code gives you the option to install Microsoft and third party extensions.  These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting.  Consult the specific extension’s documentation to learn about its telemetry reporting.

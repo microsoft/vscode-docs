@@ -2,6 +2,7 @@
 Order: 2
 Area: editor
 TOCTitle: The Basics
+ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: The Basics of Visual Studio Code
 DateApproved: 3/7/2016
 MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.

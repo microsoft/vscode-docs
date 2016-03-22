@@ -2,6 +2,7 @@
 Order: 5
 Area: extensionapi
 TOCTitle: API vscode namespace
+ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
 PageTitle: Visual Studio Code API Reference
 DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.  
@@ -49,8 +50,8 @@ register a command handler with the identfier <code>extension.sayHello</code>.</
 
 
 
-<a name="commands.executeCommand"></a><span class="ts" id=911 data-target="#details-911" data-toggle="collapse"><span class="ident">executeCommand</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
-<div class="details collapse" id="details-911">
+<a name="commands.executeCommand"></a><span class="ts" id=905 data-target="#details-905" data-toggle="collapse"><span class="ident">executeCommand</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<div class="details collapse" id="details-905">
 <div class="comment"><p>Executes the command denoted by the given command identifier.</p>
 <p>When executing an editor command not all types are allowed to
 be passed as arguments. Allowed are the primitive types <code>string</code>, <code>boolean</code>,
@@ -61,9 +62,9 @@ by extensions.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="command"></a><span class="ts" id=913 data-target="#details-913" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Identifier of the command to execute.</p>
+<tr><td><a name="command"></a><span class="ts" id=907 data-target="#details-907" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Identifier of the command to execute.</p>
 </div></td></tr>
-<tr><td><a name="rest"></a><span class="ts" id=914 data-target="#details-914" data-toggle="collapse"><span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]</span></td><td><div class="comment"><p>Parameters passed to the command function.</p>
+<tr><td><a name="rest"></a><span class="ts" id=908 data-target="#details-908" data-toggle="collapse"><span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]</span></td><td><div class="comment"><p>Parameters passed to the command function.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the returned value of the given command. <code>undefined</code> when
@@ -75,15 +76,15 @@ the command handler function doesn&#39;t return anything.</p>
 
 
 
-<a name="commands.getCommands"></a><span class="ts" id=916 data-target="#details-916" data-toggle="collapse"><span class="ident">getCommands</span><span>(</span><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
-<div class="details collapse" id="details-916">
+<a name="commands.getCommands"></a><span class="ts" id=910 data-target="#details-910" data-toggle="collapse"><span class="ident">getCommands</span><span>(</span><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
+<div class="details collapse" id="details-910">
 <div class="comment"><p>Retrieve the list of all available commands. Commands starting an underscore are
 treated as internal commands.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="filterInternal"></a><span class="ts" id=917 data-target="#details-917" data-toggle="collapse"><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Set <code>true</code> to not see internal commands (starting with an underscore)</p>
+<tr><td><a name="filterInternal"></a><span class="ts" id=911 data-target="#details-911" data-toggle="collapse"><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Set <code>true</code> to not see internal commands (starting with an underscore)</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>Thenable that resolves to a list of command ids.</p>
@@ -94,8 +95,8 @@ treated as internal commands.</p>
 
 
 
-<a name="commands.registerCommand"></a><span class="ts" id=894 data-target="#details-894" data-toggle="collapse"><span class="ident">registerCommand</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a>, <span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-894">
+<a name="commands.registerCommand"></a><span class="ts" id=888 data-target="#details-888" data-toggle="collapse"><span class="ident">registerCommand</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a>, <span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-888">
 <div class="comment"><p>Registers a command that can be invoked via a keyboard shortcut,
 a menu item, an action, or directly.</p>
 <p>Registering a command with an existing command identifier twice
@@ -104,11 +105,11 @@ will cause an error.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="command"></a><span class="ts" id=895 data-target="#details-895" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A unique identifier for the command.</p>
+<tr><td><a name="command"></a><span class="ts" id=889 data-target="#details-889" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A unique identifier for the command.</p>
 </div></td></tr>
-<tr><td><a name="callback"></a><span class="ts" id=896 data-target="#details-896" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>A command handler function.</p>
+<tr><td><a name="callback"></a><span class="ts" id=890 data-target="#details-890" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(args: <a class="type-instrinct">any</a>[]) =&gt; <a class="type-instrinct">any</a></span></td><td><div class="comment"><p>A command handler function.</p>
 </div></td></tr>
-<tr><td><a name="thisArg"></a><span class="ts" id=900 data-target="#details-900" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>The <code>this</code> context used when invoking the handler function.</p>
+<tr><td><a name="thisArg"></a><span class="ts" id=894 data-target="#details-894" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>The <code>this</code> context used when invoking the handler function.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>Disposable which unregisters this command on disposal.</p>
@@ -119,8 +120,8 @@ will cause an error.</p>
 
 
 
-<a name="commands.registerTextEditorCommand"></a><span class="ts" id=902 data-target="#details-902" data-toggle="collapse"><span class="ident">registerTextEditorCommand</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a>, <span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-902">
+<a name="commands.registerTextEditorCommand"></a><span class="ts" id=896 data-target="#details-896" data-toggle="collapse"><span class="ident">registerTextEditorCommand</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a>, <span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-896">
 <div class="comment"><p>Registers a text editor command that can be invoked via a keyboard shortcut,
 a menu item, an action, or directly.</p>
 <p>Text editor commands are different from ordinary <a href="#commands.registerCommand">commands</a> as
@@ -131,11 +132,11 @@ command handler of an editor command has access to the active editor and to an
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="command"></a><span class="ts" id=903 data-target="#details-903" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A unique identifier for the command.</p>
+<tr><td><a name="command"></a><span class="ts" id=897 data-target="#details-897" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A unique identifier for the command.</p>
 </div></td></tr>
-<tr><td><a name="callback"></a><span class="ts" id=904 data-target="#details-904" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a></span></td><td><div class="comment"><p>A command handler function with access to an <a href="#TextEditor">editor</a> and an <a href="#TextEditorEdit">edit</a>.</p>
+<tr><td><a name="callback"></a><span class="ts" id=898 data-target="#details-898" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(textEditor: <a class="type-ref" href="#TextEditor">TextEditor</a>, edit: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a></span></td><td><div class="comment"><p>A command handler function with access to an <a href="#TextEditor">editor</a> and an <a href="#TextEditorEdit">edit</a>.</p>
 </div></td></tr>
-<tr><td><a name="thisArg"></a><span class="ts" id=909 data-target="#details-909" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>The <code>this</code> context used when invoking the handler function.</p>
+<tr><td><a name="thisArg"></a><span class="ts" id=903 data-target="#details-903" data-toggle="collapse"><span class="ident">thisArg</span><span>?</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>The <code>this</code> context used when invoking the handler function.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>Disposable which unregisters this command on disposal.</p>
@@ -155,8 +156,8 @@ command handler of an editor command has access to the active editor and to an
 
 
 
-<a name="env.language"></a><span class="ts" id=889 data-target="#details-889" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-889">
+<a name="env.language"></a><span class="ts" id=883 data-target="#details-883" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-883">
 <div class="comment"><p>Represents the preferred user-language, like <code>de-CH</code>, <code>fr</code>, or <code>en-US</code>.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -166,8 +167,8 @@ command handler of an editor command has access to the active editor and to an
 
 
 
-<a name="env.machineId"></a><span class="ts" id=890 data-target="#details-890" data-toggle="collapse"><span class="ident">machineId</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-890">
+<a name="env.machineId"></a><span class="ts" id=884 data-target="#details-884" data-toggle="collapse"><span class="ident">machineId</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-884">
 <div class="comment"><p>A unique identifier for the computer.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -177,8 +178,8 @@ command handler of an editor command has access to the active editor and to an
 
 
 
-<a name="env.sessionId"></a><span class="ts" id=891 data-target="#details-891" data-toggle="collapse"><span class="ident">sessionId</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-891">
+<a name="env.sessionId"></a><span class="ts" id=885 data-target="#details-885" data-toggle="collapse"><span class="ident">sessionId</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-885">
 <div class="comment"><p>A unique identifier for the current session.
 Changes each time the editor is started.</p>
 <ul>
@@ -224,8 +225,8 @@ and the <a href="#Extension.exports">exports</a>-property, like below:</p>
 
 
 
-<a name="extensions.all"></a><span class="ts" id=1105 data-target="#details-1105" data-toggle="collapse"><span class="ident">all</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt;[]</span>
-<div class="details collapse" id="details-1105">
+<a name="extensions.all"></a><span class="ts" id=1099 data-target="#details-1099" data-toggle="collapse"><span class="ident">all</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt;[]</span>
+<div class="details collapse" id="details-1099">
 <div class="comment"><p>All extensions currently known to the system.</p>
 </div>
 </div>
@@ -234,14 +235,14 @@ and the <a href="#Extension.exports">exports</a>-property, like below:</p>
 
 
 
-<a name="extensions.getExtension"></a><span class="ts" id=1100 data-target="#details-1100" data-toggle="collapse"><span class="ident">getExtension</span><span>(</span><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt;</span>
-<div class="details collapse" id="details-1100">
+<a name="extensions.getExtension"></a><span class="ts" id=1094 data-target="#details-1094" data-toggle="collapse"><span class="ident">getExtension</span><span>(</span><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt;</span>
+<div class="details collapse" id="details-1094">
 <div class="comment"><p>Get an extension by its full identifier in the form of: <code>publisher.name</code>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="extensionId"></a><span class="ts" id=1101 data-target="#details-1101" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>An extension identifier.</p>
+<tr><td><a name="extensionId"></a><span class="ts" id=1095 data-target="#details-1095" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>An extension identifier.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"><p>An extension or <code>undefined</code>.</p>
@@ -252,14 +253,14 @@ and the <a href="#Extension.exports">exports</a>-property, like below:</p>
 
 
 
-<a name="extensions.getExtension"></a><span class="ts" id=1102 data-target="#details-1102" data-toggle="collapse"><span class="ident">getExtension</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
-<div class="details collapse" id="details-1102">
+<a name="extensions.getExtension"></a><span class="ts" id=1096 data-target="#details-1096" data-toggle="collapse"><span class="ident">getExtension</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<div class="details collapse" id="details-1096">
 <div class="comment"><p>Get an extension its full identifier in the form of: <code>publisher.name</code>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="extensionId"></a><span class="ts" id=1104 data-target="#details-1104" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>An extension identifier.</p>
+<tr><td><a name="extensionId"></a><span class="ts" id=1098 data-target="#details-1098" data-toggle="collapse"><span class="ident">extensionId</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>An extension identifier.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Extension">Extension</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>An extension or <code>undefined</code>.</p>
@@ -300,14 +301,14 @@ score is used for determining the order in which providers are asked to particip
 
 
 
-<a name="languages.createDiagnosticCollection"></a><span class="ts" id=1033 data-target="#details-1033" data-toggle="collapse"><span class="ident">createDiagnosticCollection</span><span>(</span><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a></span>
-<div class="details collapse" id="details-1033">
+<a name="languages.createDiagnosticCollection"></a><span class="ts" id=1027 data-target="#details-1027" data-toggle="collapse"><span class="ident">createDiagnosticCollection</span><span>(</span><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a></span>
+<div class="details collapse" id="details-1027">
 <div class="comment"><p>Create a diagnostics collection.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=1034 data-target="#details-1034" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The <a href="#DiagnosticCollection.name">name</a> of the collection.</p>
+<tr><td><a name="name"></a><span class="ts" id=1028 data-target="#details-1028" data-toggle="collapse"><span class="ident">name</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The <a href="#DiagnosticCollection.name">name</a> of the collection.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#DiagnosticCollection">DiagnosticCollection</a></span></td><td><div class="comment"><p>A new diagnostic collection.</p>
@@ -318,8 +319,8 @@ score is used for determining the order in which providers are asked to particip
 
 
 
-<a name="languages.getLanguages"></a><span class="ts" id=1027 data-target="#details-1027" data-toggle="collapse"><span class="ident">getLanguages</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
-<div class="details collapse" id="details-1027">
+<a name="languages.getLanguages"></a><span class="ts" id=1021 data-target="#details-1021" data-toggle="collapse"><span class="ident">getLanguages</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
+<div class="details collapse" id="details-1021">
 <div class="comment"><p>Return the identifiers of all known languages.</p>
 </div>
 <div class="signature">
@@ -333,8 +334,8 @@ score is used for determining the order in which providers are asked to particip
 
 
 
-<a name="languages.match"></a><span class="ts" id=1029 data-target="#details-1029" data-toggle="collapse"><span class="ident">match</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a><span>)</span><span>: </span><a class="type-instrinct">number</a></span>
-<div class="details collapse" id="details-1029">
+<a name="languages.match"></a><span class="ts" id=1023 data-target="#details-1023" data-toggle="collapse"><span class="ident">match</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a><span>)</span><span>: </span><a class="type-instrinct">number</a></span>
+<div class="details collapse" id="details-1023">
 <div class="comment"><p>Compute the match between a document <a href="#DocumentSelector">selector</a> and a document. Values
 greater than zero mean the selector matches the document. The more individual matches a selector
 and a document have, the higher the score is. These are the abstract rules given a <code>selector</code>:</p>
@@ -355,9 +356,9 @@ and a document have, the higher the score is. These are the abstract rules given
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1030 data-target="#details-1030" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A document selector.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1024 data-target="#details-1024" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A document selector.</p>
 </div></td></tr>
-<tr><td><a name="document"></a><span class="ts" id=1031 data-target="#details-1031" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document.</p>
+<tr><td><a name="document"></a><span class="ts" id=1025 data-target="#details-1025" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>A number <code>&gt;0</code> when the selector matches and <code>0</code> when the selector does not match.</p>
@@ -368,8 +369,8 @@ and a document have, the higher the score is. These are the abstract rules given
 
 
 
-<a name="languages.registerCodeActionsProvider"></a><span class="ts" id=1041 data-target="#details-1041" data-toggle="collapse"><span class="ident">registerCodeActionsProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeActionProvider">CodeActionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1041">
+<a name="languages.registerCodeActionsProvider"></a><span class="ts" id=1035 data-target="#details-1035" data-toggle="collapse"><span class="ident">registerCodeActionsProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeActionProvider">CodeActionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1035">
 <div class="comment"><p>Register a code action provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are asked in
 parallel and the results are merged. A failing provider (rejected promise or exception) will
@@ -378,9 +379,9 @@ not cause a failure of the whole operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1042 data-target="#details-1042" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1036 data-target="#details-1036" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1043 data-target="#details-1043" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeActionProvider">CodeActionProvider</a></span></td><td><div class="comment"><p>A code action provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1037 data-target="#details-1037" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeActionProvider">CodeActionProvider</a></span></td><td><div class="comment"><p>A code action provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -391,8 +392,8 @@ not cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.registerCodeLensProvider"></a><span class="ts" id=1045 data-target="#details-1045" data-toggle="collapse"><span class="ident">registerCodeLensProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1045">
+<a name="languages.registerCodeLensProvider"></a><span class="ts" id=1039 data-target="#details-1039" data-toggle="collapse"><span class="ident">registerCodeLensProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1039">
 <div class="comment"><p>Register a code lens provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are asked in
 parallel and the results are merged. A failing provider (rejected promise or exception) will
@@ -401,9 +402,9 @@ not cause a failure of the whole operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1046 data-target="#details-1046" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1040 data-target="#details-1040" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1047 data-target="#details-1047" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a></span></td><td><div class="comment"><p>A code lens provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1041 data-target="#details-1041" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CodeLensProvider">CodeLensProvider</a></span></td><td><div class="comment"><p>A code lens provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -414,8 +415,8 @@ not cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.registerCompletionItemProvider"></a><span class="ts" id=1036 data-target="#details-1036" data-toggle="collapse"><span class="ident">registerCompletionItemProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a>, <span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1036">
+<a name="languages.registerCompletionItemProvider"></a><span class="ts" id=1030 data-target="#details-1030" data-toggle="collapse"><span class="ident">registerCompletionItemProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a>, <span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1030">
 <div class="comment"><p>Register a completion provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
 by their <a href="#languages.match">score</a> and groups of equal score are sequentially asked for
@@ -426,11 +427,11 @@ operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1037 data-target="#details-1037" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1031 data-target="#details-1031" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1038 data-target="#details-1038" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a></span></td><td><div class="comment"><p>A completion provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1032 data-target="#details-1032" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#CompletionItemProvider">CompletionItemProvider</a></span></td><td><div class="comment"><p>A completion provider.</p>
 </div></td></tr>
-<tr><td><a name="triggerCharacters"></a><span class="ts" id=1039 data-target="#details-1039" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>Trigger completion when the user types one of the characters, like <code>.</code> or <code>:</code>.</p>
+<tr><td><a name="triggerCharacters"></a><span class="ts" id=1033 data-target="#details-1033" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>Trigger completion when the user types one of the characters, like <code>.</code> or <code>:</code>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -441,8 +442,8 @@ operation.</p>
 
 
 
-<a name="languages.registerDefinitionProvider"></a><span class="ts" id=1049 data-target="#details-1049" data-toggle="collapse"><span class="ident">registerDefinitionProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1049">
+<a name="languages.registerDefinitionProvider"></a><span class="ts" id=1043 data-target="#details-1043" data-toggle="collapse"><span class="ident">registerDefinitionProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1043">
 <div class="comment"><p>Register a definition provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are asked in
 parallel and the results are merged. A failing provider (rejected promise or exception) will
@@ -451,9 +452,9 @@ not cause a failure of the whole operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1050 data-target="#details-1050" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1044 data-target="#details-1044" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1051 data-target="#details-1051" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a></span></td><td><div class="comment"><p>A definition provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1045 data-target="#details-1045" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DefinitionProvider">DefinitionProvider</a></span></td><td><div class="comment"><p>A definition provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -464,8 +465,8 @@ not cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.registerDocumentFormattingEditProvider"></a><span class="ts" id=1076 data-target="#details-1076" data-toggle="collapse"><span class="ident">registerDocumentFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1076">
+<a name="languages.registerDocumentFormattingEditProvider"></a><span class="ts" id=1070 data-target="#details-1070" data-toggle="collapse"><span class="ident">registerDocumentFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1070">
 <div class="comment"><p>Register a formatting provider for a document.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
 by their <a href="#languages.match">score</a> and the result of best-matching provider is used. Failure
@@ -474,9 +475,9 @@ of the selected provider will cause a failure of the whole operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1077 data-target="#details-1077" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1071 data-target="#details-1071" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1078 data-target="#details-1078" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a></span></td><td><div class="comment"><p>A document formatting edit provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1072 data-target="#details-1072" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentFormattingEditProvider">DocumentFormattingEditProvider</a></span></td><td><div class="comment"><p>A document formatting edit provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -487,8 +488,8 @@ of the selected provider will cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.registerDocumentHighlightProvider"></a><span class="ts" id=1057 data-target="#details-1057" data-toggle="collapse"><span class="ident">registerDocumentHighlightProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1057">
+<a name="languages.registerDocumentHighlightProvider"></a><span class="ts" id=1051 data-target="#details-1051" data-toggle="collapse"><span class="ident">registerDocumentHighlightProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1051">
 <div class="comment"><p>Register a document highlight provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
 by their <a href="#languages.match">score</a> and groups sequentially asked for document highlights.
@@ -497,9 +498,9 @@ The process stops when a provider returns a <code>non-falsy</code> or <code>non-
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1058 data-target="#details-1058" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1052 data-target="#details-1052" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1059 data-target="#details-1059" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a></span></td><td><div class="comment"><p>A document highlight provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1053 data-target="#details-1053" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentHighlightProvider">DocumentHighlightProvider</a></span></td><td><div class="comment"><p>A document highlight provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -510,8 +511,8 @@ The process stops when a provider returns a <code>non-falsy</code> or <code>non-
 
 
 
-<a name="languages.registerDocumentRangeFormattingEditProvider"></a><span class="ts" id=1080 data-target="#details-1080" data-toggle="collapse"><span class="ident">registerDocumentRangeFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1080">
+<a name="languages.registerDocumentRangeFormattingEditProvider"></a><span class="ts" id=1074 data-target="#details-1074" data-toggle="collapse"><span class="ident">registerDocumentRangeFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1074">
 <div class="comment"><p>Register a formatting provider for a document range.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
 by their <a href="#languages.match">score</a> and the result of best-matching provider is used. Failure
@@ -520,9 +521,9 @@ of the selected provider will cause a failure of the whole operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1081 data-target="#details-1081" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1075 data-target="#details-1075" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1082 data-target="#details-1082" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a></span></td><td><div class="comment"><p>A document range formatting edit provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1076 data-target="#details-1076" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentRangeFormattingEditProvider">DocumentRangeFormattingEditProvider</a></span></td><td><div class="comment"><p>A document range formatting edit provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -533,8 +534,8 @@ of the selected provider will cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.registerDocumentSymbolProvider"></a><span class="ts" id=1061 data-target="#details-1061" data-toggle="collapse"><span class="ident">registerDocumentSymbolProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1061">
+<a name="languages.registerDocumentSymbolProvider"></a><span class="ts" id=1055 data-target="#details-1055" data-toggle="collapse"><span class="ident">registerDocumentSymbolProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1055">
 <div class="comment"><p>Register a document symbol provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are asked in
 parallel and the results are merged. A failing provider (rejected promise or exception) will
@@ -543,9 +544,9 @@ not cause a failure of the whole operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1062 data-target="#details-1062" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1056 data-target="#details-1056" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1063 data-target="#details-1063" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a></span></td><td><div class="comment"><p>A document symbol provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1057 data-target="#details-1057" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#DocumentSymbolProvider">DocumentSymbolProvider</a></span></td><td><div class="comment"><p>A document symbol provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -556,8 +557,8 @@ not cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.registerHoverProvider"></a><span class="ts" id=1053 data-target="#details-1053" data-toggle="collapse"><span class="ident">registerHoverProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1053">
+<a name="languages.registerHoverProvider"></a><span class="ts" id=1047 data-target="#details-1047" data-toggle="collapse"><span class="ident">registerHoverProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1047">
 <div class="comment"><p>Register a hover provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are asked in
 parallel and the results are merged. A failing provider (rejected promise or exception) will
@@ -566,9 +567,9 @@ not cause a failure of the whole operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1054 data-target="#details-1054" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+<tr><td><a name="selector"></a><span class="ts" id=1048 data-target="#details-1048" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1055 data-target="#details-1055" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a></span></td><td><div class="comment"><p>A hover provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1049 data-target="#details-1049" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#HoverProvider">HoverProvider</a></span></td><td><div class="comment"><p>A hover provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -579,9 +580,82 @@ not cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.registerOnTypeFormattingEditProvider"></a><span class="ts" id=1084 data-target="#details-1084" data-toggle="collapse"><span class="ident">registerOnTypeFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a>, <span class="ident">firstTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<a name="languages.registerOnTypeFormattingEditProvider"></a><span class="ts" id=1078 data-target="#details-1078" data-toggle="collapse"><span class="ident">registerOnTypeFormattingEditProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a>, <span class="ident">firstTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1078">
+<div class="comment"><p>Register a formatting provider that works on type. The provider is active when the user enables the setting <code>editor.formatOnType</code>.</p>
+<p>Multiple providers can be registered for a language. In that case providers are sorted
+by their <a href="#languages.match">score</a> and the result of best-matching provider is used. Failure
+of the selected provider will cause a failure of the whole operation.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1079 data-target="#details-1079" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1080 data-target="#details-1080" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a></span></td><td><div class="comment"><p>An on type formatting edit provider.</p>
+</div></td></tr>
+<tr><td><a name="firstTriggerCharacter"></a><span class="ts" id=1081 data-target="#details-1081" data-toggle="collapse"><span class="ident">firstTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A character on which formatting should be triggered, like <code>}</code>.</p>
+</div></td></tr>
+<tr><td><a name="moreTriggerCharacter"></a><span class="ts" id=1082 data-target="#details-1082" data-toggle="collapse"><span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>More trigger characters.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="languages.registerReferenceProvider"></a><span class="ts" id=1062 data-target="#details-1062" data-toggle="collapse"><span class="ident">registerReferenceProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1062">
+<div class="comment"><p>Register a reference provider.</p>
+<p>Multiple providers can be registered for a language. In that case providers are asked in
+parallel and the results are merged. A failing provider (rejected promise or exception) will
+not cause a failure of the whole operation.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1063 data-target="#details-1063" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1064 data-target="#details-1064" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a></span></td><td><div class="comment"><p>A reference provider.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="languages.registerRenameProvider"></a><span class="ts" id=1066 data-target="#details-1066" data-toggle="collapse"><span class="ident">registerRenameProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1066">
+<div class="comment"><p>Register a reference provider.</p>
+<p>Multiple providers can be registered for a language. In that case providers are sorted
+by their <a href="#languages.match">score</a> and the result of best-matching provider is used. Failure
+of the selected provider will cause a failure of the whole operation.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="selector"></a><span class="ts" id=1067 data-target="#details-1067" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
+</div></td></tr>
+<tr><td><a name="provider"></a><span class="ts" id=1068 data-target="#details-1068" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a></span></td><td><div class="comment"><p>A rename provider.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="languages.registerSignatureHelpProvider"></a><span class="ts" id=1084 data-target="#details-1084" data-toggle="collapse"><span class="ident">registerSignatureHelpProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a>, <span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-1084">
-<div class="comment"><p>Register a formatting provider that works on type.</p>
+<div class="comment"><p>Register a signature help provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are sorted
 by their <a href="#languages.match">score</a> and the result of best-matching provider is used. Failure
 of the selected provider will cause a failure of the whole operation.</p>
@@ -591,11 +665,9 @@ of the selected provider will cause a failure of the whole operation.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="selector"></a><span class="ts" id=1085 data-target="#details-1085" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1086 data-target="#details-1086" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#OnTypeFormattingEditProvider">OnTypeFormattingEditProvider</a></span></td><td><div class="comment"><p>An on type formatting edit provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1086 data-target="#details-1086" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a></span></td><td><div class="comment"><p>A signature help provider.</p>
 </div></td></tr>
-<tr><td><a name="firstTriggerCharacter"></a><span class="ts" id=1087 data-target="#details-1087" data-toggle="collapse"><span class="ident">firstTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A character on which formatting should be triggered, like <code>}</code>.</p>
-</div></td></tr>
-<tr><td><a name="moreTriggerCharacter"></a><span class="ts" id=1088 data-target="#details-1088" data-toggle="collapse"><span>...</span><span class="ident">moreTriggerCharacter</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>More trigger characters.</p>
+<tr><td><a name="triggerCharacters"></a><span class="ts" id=1087 data-target="#details-1087" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>Trigger signature help when the user types one of the characters, like <code>,</code> or <code>(</code>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -606,79 +678,8 @@ of the selected provider will cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.registerReferenceProvider"></a><span class="ts" id=1068 data-target="#details-1068" data-toggle="collapse"><span class="ident">registerReferenceProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1068">
-<div class="comment"><p>Register a reference provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are asked in
-parallel and the results are merged. A failing provider (rejected promise or exception) will
-not cause a failure of the whole operation.</p>
-</div>
-<div class="signature">
-<table class="table table-bordered">
-<tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1069 data-target="#details-1069" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1070 data-target="#details-1070" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#ReferenceProvider">ReferenceProvider</a></span></td><td><div class="comment"><p>A reference provider.</p>
-</div></td></tr>
-<tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
-</div></td></tr>
-</table>
-</div>
-</div>
-
-
-
-<a name="languages.registerRenameProvider"></a><span class="ts" id=1072 data-target="#details-1072" data-toggle="collapse"><span class="ident">registerRenameProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1072">
-<div class="comment"><p>Register a reference provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the result of best-matching provider is used. Failure
-of the selected provider will cause a failure of the whole operation.</p>
-</div>
-<div class="signature">
-<table class="table table-bordered">
-<tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1073 data-target="#details-1073" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1074 data-target="#details-1074" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#RenameProvider">RenameProvider</a></span></td><td><div class="comment"><p>A rename provider.</p>
-</div></td></tr>
-<tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
-</div></td></tr>
-</table>
-</div>
-</div>
-
-
-
-<a name="languages.registerSignatureHelpProvider"></a><span class="ts" id=1090 data-target="#details-1090" data-toggle="collapse"><span class="ident">registerSignatureHelpProvider</span><span>(</span><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a>, <span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1090">
-<div class="comment"><p>Register a signature help provider.</p>
-<p>Multiple providers can be registered for a language. In that case providers are sorted
-by their <a href="#languages.match">score</a> and the result of best-matching provider is used. Failure
-of the selected provider will cause a failure of the whole operation.</p>
-</div>
-<div class="signature">
-<table class="table table-bordered">
-<tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="selector"></a><span class="ts" id=1091 data-target="#details-1091" data-toggle="collapse"><span class="ident">selector</span><span>: </span><a class="type-ref" href="#DocumentSelector">DocumentSelector</a></span></td><td><div class="comment"><p>A selector that defines the documents this provider is applicable to.</p>
-</div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1092 data-target="#details-1092" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#SignatureHelpProvider">SignatureHelpProvider</a></span></td><td><div class="comment"><p>A signature help provider.</p>
-</div></td></tr>
-<tr><td><a name="triggerCharacters"></a><span class="ts" id=1093 data-target="#details-1093" data-toggle="collapse"><span>...</span><span class="ident">triggerCharacters</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>Trigger signature help when the user types one of the characters, like <code>,</code> or <code>(</code>.</p>
-</div></td></tr>
-<tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
-</div></td></tr>
-</table>
-</div>
-</div>
-
-
-
-<a name="languages.registerWorkspaceSymbolProvider"></a><span class="ts" id=1065 data-target="#details-1065" data-toggle="collapse"><span class="ident">registerWorkspaceSymbolProvider</span><span>(</span><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1065">
+<a name="languages.registerWorkspaceSymbolProvider"></a><span class="ts" id=1059 data-target="#details-1059" data-toggle="collapse"><span class="ident">registerWorkspaceSymbolProvider</span><span>(</span><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1059">
 <div class="comment"><p>Register a workspace symbol provider.</p>
 <p>Multiple providers can be registered for a language. In that case providers are asked in
 parallel and the results are merged. A failing provider (rejected promise or exception) will
@@ -687,7 +688,7 @@ not cause a failure of the whole operation.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1066 data-target="#details-1066" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a></span></td><td><div class="comment"><p>A workspace symbol provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1060 data-target="#details-1060" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#WorkspaceSymbolProvider">WorkspaceSymbolProvider</a></span></td><td><div class="comment"><p>A workspace symbol provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -698,16 +699,16 @@ not cause a failure of the whole operation.</p>
 
 
 
-<a name="languages.setLanguageConfiguration"></a><span class="ts" id=1095 data-target="#details-1095" data-toggle="collapse"><span class="ident">setLanguageConfiguration</span><span>(</span><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1095">
+<a name="languages.setLanguageConfiguration"></a><span class="ts" id=1089 data-target="#details-1089" data-toggle="collapse"><span class="ident">setLanguageConfiguration</span><span>(</span><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1089">
 <div class="comment"><p>Set a <a href="#LanguageConfiguration">language configuration</a> for a language.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="language"></a><span class="ts" id=1096 data-target="#details-1096" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A language identifier like <code>typescript</code>.</p>
+<tr><td><a name="language"></a><span class="ts" id=1090 data-target="#details-1090" data-toggle="collapse"><span class="ident">language</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A language identifier like <code>typescript</code>.</p>
 </div></td></tr>
-<tr><td><a name="configuration"></a><span class="ts" id=1097 data-target="#details-1097" data-toggle="collapse"><span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a></span></td><td><div class="comment"><p>Language configuration.</p>
+<tr><td><a name="configuration"></a><span class="ts" id=1091 data-target="#details-1091" data-toggle="collapse"><span class="ident">configuration</span><span>: </span><a class="type-ref" href="#LanguageConfiguration">LanguageConfiguration</a></span></td><td><div class="comment"><p>Language configuration.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unsets this configuration.</p>
@@ -729,8 +730,8 @@ asking for user input.</p>
 
 
 
-<a name="window.activeTextEditor"></a><span class="ts" id=919 data-target="#details-919" data-toggle="collapse"><span class="ident">activeTextEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
-<div class="details collapse" id="details-919">
+<a name="window.activeTextEditor"></a><span class="ts" id=913 data-target="#details-913" data-toggle="collapse"><span class="ident">activeTextEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
+<div class="details collapse" id="details-913">
 <div class="comment"><p>The currently active editor or undefined. The active editor is the one
 that currently has focus or, when none has focus, the one that has changed
 input most recently.</p>
@@ -739,8 +740,8 @@ input most recently.</p>
 
 
 
-<a name="window.visibleTextEditors"></a><span class="ts" id=920 data-target="#details-920" data-toggle="collapse"><span class="ident">visibleTextEditors</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a>[]</span>
-<div class="details collapse" id="details-920">
+<a name="window.visibleTextEditors"></a><span class="ts" id=914 data-target="#details-914" data-toggle="collapse"><span class="ident">visibleTextEditors</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a>[]</span>
+<div class="details collapse" id="details-914">
 <div class="comment"><p>The currently visible editors or an empty array.</p>
 </div>
 </div>
@@ -749,8 +750,8 @@ input most recently.</p>
 
 
 
-<a name="window.onDidChangeActiveTextEditor"></a><span class="ts" id=921 data-target="#details-921" data-toggle="collapse"><span class="ident">onDidChangeActiveTextEditor</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
-<div class="details collapse" id="details-921">
+<a name="window.onDidChangeActiveTextEditor"></a><span class="ts" id=915 data-target="#details-915" data-toggle="collapse"><span class="ident">onDidChangeActiveTextEditor</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
+<div class="details collapse" id="details-915">
 <div class="comment"><p>An <a href="#Event">event</a> which fires when the <a href="#window.activeTextEditor">active editor</a>
 has changed.</p>
 </div>
@@ -758,25 +759,25 @@ has changed.</p>
 
 
 
-<a name="window.onDidChangeTextEditorOptions"></a><span class="ts" id=923 data-target="#details-923" data-toggle="collapse"><span class="ident">onDidChangeTextEditorOptions</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorOptionsChangeEvent">TextEditorOptionsChangeEvent</a>&gt;</span>
-<div class="details collapse" id="details-923">
+<a name="window.onDidChangeTextEditorOptions"></a><span class="ts" id=917 data-target="#details-917" data-toggle="collapse"><span class="ident">onDidChangeTextEditorOptions</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorOptionsChangeEvent">TextEditorOptionsChangeEvent</a>&gt;</span>
+<div class="details collapse" id="details-917">
 <div class="comment"><p>An <a href="#Event">event</a> which fires when the options of an editor have changed.</p>
 </div>
 </div>
 
 
 
-<a name="window.onDidChangeTextEditorSelection"></a><span class="ts" id=922 data-target="#details-922" data-toggle="collapse"><span class="ident">onDidChangeTextEditorSelection</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorSelectionChangeEvent">TextEditorSelectionChangeEvent</a>&gt;</span>
-<div class="details collapse" id="details-922">
+<a name="window.onDidChangeTextEditorSelection"></a><span class="ts" id=916 data-target="#details-916" data-toggle="collapse"><span class="ident">onDidChangeTextEditorSelection</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorSelectionChangeEvent">TextEditorSelectionChangeEvent</a>&gt;</span>
+<div class="details collapse" id="details-916">
 <div class="comment"><p>An <a href="#Event">event</a> which fires when the selection in an editor has changed.</p>
 </div>
 </div>
 
 
 
-<a name="window.onDidChangeTextEditorViewColumn"></a><span class="ts" id=924 data-target="#details-924" data-toggle="collapse"><span class="ident">onDidChangeTextEditorViewColumn</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorViewColumnChangeEvent">TextEditorViewColumnChangeEvent</a>&gt;</span>
-<div class="details collapse" id="details-924">
-<div class="comment"><p>An <a href="#Event">event</a> which fires when the view column of an editor has changed.</p>
+<a name="window.onDidChangeTextEditorViewColumn"></a><span class="ts" id=918 data-target="#details-918" data-toggle="collapse"><span class="ident">onDidChangeTextEditorViewColumn</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextEditorViewColumnChangeEvent">TextEditorViewColumnChangeEvent</a>&gt;</span>
+<div class="details collapse" id="details-918">
+<div class="comment"><p>An <a href="#Event">event</a> which fires when the view column of an editor das changed.</p>
 </div>
 </div>
 
@@ -784,14 +785,14 @@ has changed.</p>
 
 
 
-<a name="window.createOutputChannel"></a><span class="ts" id=969 data-target="#details-969" data-toggle="collapse"><span class="ident">createOutputChannel</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#OutputChannel">OutputChannel</a></span>
-<div class="details collapse" id="details-969">
+<a name="window.createOutputChannel"></a><span class="ts" id=963 data-target="#details-963" data-toggle="collapse"><span class="ident">createOutputChannel</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#OutputChannel">OutputChannel</a></span>
+<div class="details collapse" id="details-963">
 <div class="comment"><p>Create a new <a href="#OutputChannel">output channel</a> with the given name.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="name"></a><span class="ts" id=970 data-target="#details-970" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Human-readable string which will be used to represent the channel in the UI.</p>
+<tr><td><a name="name"></a><span class="ts" id=964 data-target="#details-964" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Human-readable string which will be used to represent the channel in the UI.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#OutputChannel">OutputChannel</a></span></td><td><div class="comment"></div></td></tr>
@@ -801,16 +802,16 @@ has changed.</p>
 
 
 
-<a name="window.createStatusBarItem"></a><span class="ts" id=981 data-target="#details-981" data-toggle="collapse"><span class="ident">createStatusBarItem</span><span>(</span><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a>, <span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span>
-<div class="details collapse" id="details-981">
+<a name="window.createStatusBarItem"></a><span class="ts" id=975 data-target="#details-975" data-toggle="collapse"><span class="ident">createStatusBarItem</span><span>(</span><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a>, <span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span>
+<div class="details collapse" id="details-975">
 <div class="comment"><p>Creates a status bar <a href="#StatusBarItem">item</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="alignment"></a><span class="ts" id=982 data-target="#details-982" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span></td><td><div class="comment"><p>The alignment of the item.</p>
+<tr><td><a name="alignment"></a><span class="ts" id=976 data-target="#details-976" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span></td><td><div class="comment"><p>The alignment of the item.</p>
 </div></td></tr>
-<tr><td><a name="priority"></a><span class="ts" id=983 data-target="#details-983" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>The priority of the item. Higher values mean the item should be shown more to the left.</p>
+<tr><td><a name="priority"></a><span class="ts" id=977 data-target="#details-977" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>The priority of the item. Higher values mean the item should be shown more to the left.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span></td><td><div class="comment"><p>A new status bar item.</p>
@@ -821,14 +822,14 @@ has changed.</p>
 
 
 
-<a name="window.createTextEditorDecorationType"></a><span class="ts" id=931 data-target="#details-931" data-toggle="collapse"><span class="ident">createTextEditorDecorationType</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a><span>)</span><span>: </span><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span>
-<div class="details collapse" id="details-931">
+<a name="window.createTextEditorDecorationType"></a><span class="ts" id=925 data-target="#details-925" data-toggle="collapse"><span class="ident">createTextEditorDecorationType</span><span>(</span><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a><span>)</span><span>: </span><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span>
+<div class="details collapse" id="details-925">
 <div class="comment"><p>Create a TextEditorDecorationType that can be used to add decorations to text editors.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=932 data-target="#details-932" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a></span></td><td><div class="comment"><p>Rendering options for the decoration type.</p>
+<tr><td><a name="options"></a><span class="ts" id=926 data-target="#details-926" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#DecorationRenderOptions">DecorationRenderOptions</a></span></td><td><div class="comment"><p>Rendering options for the decoration type.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEditorDecorationType">TextEditorDecorationType</a></span></td><td><div class="comment"><p>A new decoration type instance.</p>
@@ -839,15 +840,15 @@ has changed.</p>
 
 
 
-<a name="window.setStatusBarMessage"></a><span class="ts" id=972 data-target="#details-972" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-972">
+<a name="window.setStatusBarMessage"></a><span class="ts" id=966 data-target="#details-966" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-966">
 <div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
 status bar <a href="#window.createStatusBarItem">items</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=973 data-target="#details-973" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, support icon subtitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
+<tr><td><a name="text"></a><span class="ts" id=967 data-target="#details-967" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, support icon subtitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which hides the status bar message.</p>
@@ -858,17 +859,17 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.setStatusBarMessage"></a><span class="ts" id=974 data-target="#details-974" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-974">
+<a name="window.setStatusBarMessage"></a><span class="ts" id=968 data-target="#details-968" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-968">
 <div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
 status bar <a href="#window.createStatusBarItem">items</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=975 data-target="#details-975" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, support icon subtitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
+<tr><td><a name="text"></a><span class="ts" id=969 data-target="#details-969" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, support icon subtitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
 </div></td></tr>
-<tr><td><a name="hideAfterTimeout"></a><span class="ts" id=976 data-target="#details-976" data-toggle="collapse"><span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>Timeout in milliseconds after which the message will be disposed.</p>
+<tr><td><a name="hideAfterTimeout"></a><span class="ts" id=970 data-target="#details-970" data-toggle="collapse"><span class="ident">hideAfterTimeout</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>Timeout in milliseconds after which the message will be disposed.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which hides the status bar message.</p>
@@ -879,17 +880,17 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.setStatusBarMessage"></a><span class="ts" id=977 data-target="#details-977" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-977">
+<a name="window.setStatusBarMessage"></a><span class="ts" id=971 data-target="#details-971" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-971">
 <div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
 status bar <a href="#window.createStatusBarItem">items</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="text"></a><span class="ts" id=978 data-target="#details-978" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, support icon subtitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
+<tr><td><a name="text"></a><span class="ts" id=972 data-target="#details-972" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, support icon subtitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
 </div></td></tr>
-<tr><td><a name="hideWhenDone"></a><span class="ts" id=979 data-target="#details-979" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"><p>Thenable on which completion (resolve or reject) the message will be disposed.</p>
+<tr><td><a name="hideWhenDone"></a><span class="ts" id=973 data-target="#details-973" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"><p>Thenable on which completion (resolve or reject) the message will be disposed.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which hides the status bar message.</p>
@@ -900,8 +901,8 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.showErrorMessage"></a><span class="ts" id=950 data-target="#details-950" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
-<div class="details collapse" id="details-950">
+<a name="window.showErrorMessage"></a><span class="ts" id=944 data-target="#details-944" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<div class="details collapse" id="details-944">
 <div class="comment"><p>Show an error message.</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
@@ -910,9 +911,9 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=951 data-target="#details-951" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
+<tr><td><a name="message"></a><span class="ts" id=945 data-target="#details-945" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
 </div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=952 data-target="#details-952" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
+<tr><td><a name="items"></a><span class="ts" id=946 data-target="#details-946" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
@@ -923,8 +924,8 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.showErrorMessage"></a><span class="ts" id=953 data-target="#details-953" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
-<div class="details collapse" id="details-953">
+<a name="window.showErrorMessage"></a><span class="ts" id=947 data-target="#details-947" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<div class="details collapse" id="details-947">
 <div class="comment"><p>Show an error message.</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
@@ -933,9 +934,9 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=955 data-target="#details-955" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
+<tr><td><a name="message"></a><span class="ts" id=949 data-target="#details-949" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
 </div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=956 data-target="#details-956" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
+<tr><td><a name="items"></a><span class="ts" id=950 data-target="#details-950" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
@@ -946,17 +947,17 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.showInformationMessage"></a><span class="ts" id=934 data-target="#details-934" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
-<div class="details collapse" id="details-934">
+<a name="window.showInformationMessage"></a><span class="ts" id=928 data-target="#details-928" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<div class="details collapse" id="details-928">
 <div class="comment"><p>Show an information message to users. Optionally provide an array of items which will be presented as
 clickable buttons.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=935 data-target="#details-935" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
+<tr><td><a name="message"></a><span class="ts" id=929 data-target="#details-929" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
 </div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=936 data-target="#details-936" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
+<tr><td><a name="items"></a><span class="ts" id=930 data-target="#details-930" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
@@ -967,8 +968,8 @@ clickable buttons.</p>
 
 
 
-<a name="window.showInformationMessage"></a><span class="ts" id=937 data-target="#details-937" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
-<div class="details collapse" id="details-937">
+<a name="window.showInformationMessage"></a><span class="ts" id=931 data-target="#details-931" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<div class="details collapse" id="details-931">
 <div class="comment"><p>Show an information message.</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
@@ -977,9 +978,9 @@ clickable buttons.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=939 data-target="#details-939" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
+<tr><td><a name="message"></a><span class="ts" id=933 data-target="#details-933" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
 </div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=940 data-target="#details-940" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
+<tr><td><a name="items"></a><span class="ts" id=934 data-target="#details-934" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
@@ -990,8 +991,8 @@ clickable buttons.</p>
 
 
 
-<a name="window.showInputBox"></a><span class="ts" id=966 data-target="#details-966" data-toggle="collapse"><span class="ident">showInputBox</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
-<div class="details collapse" id="details-966">
+<a name="window.showInputBox"></a><span class="ts" id=960 data-target="#details-960" data-toggle="collapse"><span class="ident">showInputBox</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<div class="details collapse" id="details-960">
 <div class="comment"><p>Opens an input box to ask the user for input.</p>
 <p>The returned value will be undefined if the input box was canceled (e.g. pressing ESC). Otherwise the
 returned value will be the string typed by the user or an empty string if the user did not type
@@ -1000,7 +1001,7 @@ anything but dismissed the input box with OK.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="options"></a><span class="ts" id=967 data-target="#details-967" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the input box.</p>
+<tr><td><a name="options"></a><span class="ts" id=961 data-target="#details-961" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the input box.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a string the user provided or to <code>undefined</code> in case of dismissal.</p>
@@ -1011,16 +1012,16 @@ anything but dismissed the input box with OK.</p>
 
 
 
-<a name="window.showQuickPick"></a><span class="ts" id=958 data-target="#details-958" data-toggle="collapse"><span class="ident">showQuickPick</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
-<div class="details collapse" id="details-958">
+<a name="window.showQuickPick"></a><span class="ts" id=952 data-target="#details-952" data-toggle="collapse"><span class="ident">showQuickPick</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<div class="details collapse" id="details-952">
 <div class="comment"><p>Shows a selection list.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=959 data-target="#details-959" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>An array of strings, or a promise that resolves to an array of strings.</p>
+<tr><td><a name="items"></a><span class="ts" id=953 data-target="#details-953" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>An array of strings, or a promise that resolves to an array of strings.</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=960 data-target="#details-960" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the selection list.</p>
+<tr><td><a name="options"></a><span class="ts" id=954 data-target="#details-954" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the selection list.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the selection or undefined.</p>
@@ -1031,16 +1032,16 @@ anything but dismissed the input box with OK.</p>
 
 
 
-<a name="window.showQuickPick"></a><span class="ts" id=961 data-target="#details-961" data-toggle="collapse"><span class="ident">showQuickPick</span><span>&lt;</span>T extends <a class="type-ref" href="#QuickPickItem">QuickPickItem</a><span>&gt;</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
-<div class="details collapse" id="details-961">
+<a name="window.showQuickPick"></a><span class="ts" id=955 data-target="#details-955" data-toggle="collapse"><span class="ident">showQuickPick</span><span>&lt;</span>T extends <a class="type-ref" href="#QuickPickItem">QuickPickItem</a><span>&gt;</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<div class="details collapse" id="details-955">
 <div class="comment"><p>Shows a selection list.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=963 data-target="#details-963" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;</span></td><td><div class="comment"><p>An array of items, or a promise that resolves to an array of items.</p>
+<tr><td><a name="items"></a><span class="ts" id=957 data-target="#details-957" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;</span></td><td><div class="comment"><p>An array of items, or a promise that resolves to an array of items.</p>
 </div></td></tr>
-<tr><td><a name="options"></a><span class="ts" id=964 data-target="#details-964" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the selection list.</p>
+<tr><td><a name="options"></a><span class="ts" id=958 data-target="#details-958" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the selection list.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the selected item or undefined.</p>
@@ -1051,20 +1052,20 @@ anything but dismissed the input box with OK.</p>
 
 
 
-<a name="window.showTextDocument"></a><span class="ts" id=926 data-target="#details-926" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
-<div class="details collapse" id="details-926">
+<a name="window.showTextDocument"></a><span class="ts" id=920 data-target="#details-920" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
+<div class="details collapse" id="details-920">
 <div class="comment"><p>Show the given document in a text editor. A <a href="#ViewColumn">column</a> can be provided
 to control where the editor is being shown. Might change the <a href="#window.activeTextEditor">active editor</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="document"></a><span class="ts" id=927 data-target="#details-927" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document to be shown.</p>
+<tr><td><a name="document"></a><span class="ts" id=921 data-target="#details-921" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document to be shown.</p>
 </div></td></tr>
-<tr><td><a name="column"></a><span class="ts" id=928 data-target="#details-928" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>A view column in which the editor should be shown. The default is the <a href="#ViewColumn.One">one</a>, other values
+<tr><td><a name="column"></a><span class="ts" id=922 data-target="#details-922" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>A view column in which the editor should be shown. The default is the <a href="#ViewColumn.One">one</a>, other values
 are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 </div></td></tr>
-<tr><td><a name="preserveFocus"></a><span class="ts" id=929 data-target="#details-929" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the editor will not take focus.</p>
+<tr><td><a name="preserveFocus"></a><span class="ts" id=923 data-target="#details-923" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the editor will not take focus.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
@@ -1075,8 +1076,8 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 
 
 
-<a name="window.showWarningMessage"></a><span class="ts" id=942 data-target="#details-942" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
-<div class="details collapse" id="details-942">
+<a name="window.showWarningMessage"></a><span class="ts" id=936 data-target="#details-936" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<div class="details collapse" id="details-936">
 <div class="comment"><p>Show a warning message.</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
@@ -1085,9 +1086,9 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=943 data-target="#details-943" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
+<tr><td><a name="message"></a><span class="ts" id=937 data-target="#details-937" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
 </div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=944 data-target="#details-944" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
+<tr><td><a name="items"></a><span class="ts" id=938 data-target="#details-938" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
@@ -1098,8 +1099,8 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 
 
 
-<a name="window.showWarningMessage"></a><span class="ts" id=945 data-target="#details-945" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
-<div class="details collapse" id="details-945">
+<a name="window.showWarningMessage"></a><span class="ts" id=939 data-target="#details-939" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<div class="details collapse" id="details-939">
 <div class="comment"><p>Show a warning message.</p>
 <ul>
 <li><em>see</em> - <a href="#window.showInformationMessage">showInformationMessage</a></li>
@@ -1108,9 +1109,9 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="message"></a><span class="ts" id=947 data-target="#details-947" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
+<tr><td><a name="message"></a><span class="ts" id=941 data-target="#details-941" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show.</p>
 </div></td></tr>
-<tr><td><a name="items"></a><span class="ts" id=948 data-target="#details-948" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
+<tr><td><a name="items"></a><span class="ts" id=942 data-target="#details-942" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
@@ -1135,17 +1136,20 @@ the editor-process so that they should be always used instead of nodejs-equivale
 
 
 
-<a name="workspace.rootPath"></a><span class="ts" id=991 data-target="#details-991" data-toggle="collapse"><span class="ident">rootPath</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-991">
+<a name="workspace.rootPath"></a><span class="ts" id=985 data-target="#details-985" data-toggle="collapse"><span class="ident">rootPath</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-985">
 <div class="comment"><p>The folder that is open in VS Code. <code>undefined</code> when no folder
 has been opened.</p>
+<ul>
+<li><em>readonly</em></li>
+</ul>
 </div>
 </div>
 
 
 
-<a name="workspace.textDocuments"></a><span class="ts" id=1007 data-target="#details-1007" data-toggle="collapse"><span class="ident">textDocuments</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>[]</span>
-<div class="details collapse" id="details-1007">
+<a name="workspace.textDocuments"></a><span class="ts" id=1001 data-target="#details-1001" data-toggle="collapse"><span class="ident">textDocuments</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>[]</span>
+<div class="details collapse" id="details-1001">
 <div class="comment"><p>All text documents currently known to the system.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -1157,40 +1161,40 @@ has been opened.</p>
 
 
 
-<a name="workspace.onDidChangeConfiguration"></a><span class="ts" id=1024 data-target="#details-1024" data-toggle="collapse"><span class="ident">onDidChangeConfiguration</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
-<div class="details collapse" id="details-1024">
+<a name="workspace.onDidChangeConfiguration"></a><span class="ts" id=1018 data-target="#details-1018" data-toggle="collapse"><span class="ident">onDidChangeConfiguration</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
+<div class="details collapse" id="details-1018">
 <div class="comment"><p>An event that is emitted when the <a href="#WorkspaceConfiguration">configuration</a> changed.</p>
 </div>
 </div>
 
 
 
-<a name="workspace.onDidChangeTextDocument"></a><span class="ts" id=1019 data-target="#details-1019" data-toggle="collapse"><span class="ident">onDidChangeTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocumentChangeEvent">TextDocumentChangeEvent</a>&gt;</span>
-<div class="details collapse" id="details-1019">
+<a name="workspace.onDidChangeTextDocument"></a><span class="ts" id=1013 data-target="#details-1013" data-toggle="collapse"><span class="ident">onDidChangeTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocumentChangeEvent">TextDocumentChangeEvent</a>&gt;</span>
+<div class="details collapse" id="details-1013">
 <div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is changed.</p>
 </div>
 </div>
 
 
 
-<a name="workspace.onDidCloseTextDocument"></a><span class="ts" id=1018 data-target="#details-1018" data-toggle="collapse"><span class="ident">onDidCloseTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
-<div class="details collapse" id="details-1018">
+<a name="workspace.onDidCloseTextDocument"></a><span class="ts" id=1012 data-target="#details-1012" data-toggle="collapse"><span class="ident">onDidCloseTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
+<div class="details collapse" id="details-1012">
 <div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is disposed.</p>
 </div>
 </div>
 
 
 
-<a name="workspace.onDidOpenTextDocument"></a><span class="ts" id=1017 data-target="#details-1017" data-toggle="collapse"><span class="ident">onDidOpenTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
-<div class="details collapse" id="details-1017">
+<a name="workspace.onDidOpenTextDocument"></a><span class="ts" id=1011 data-target="#details-1011" data-toggle="collapse"><span class="ident">onDidOpenTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
+<div class="details collapse" id="details-1011">
 <div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is opened.</p>
 </div>
 </div>
 
 
 
-<a name="workspace.onDidSaveTextDocument"></a><span class="ts" id=1020 data-target="#details-1020" data-toggle="collapse"><span class="ident">onDidSaveTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
-<div class="details collapse" id="details-1020">
+<a name="workspace.onDidSaveTextDocument"></a><span class="ts" id=1014 data-target="#details-1014" data-toggle="collapse"><span class="ident">onDidSaveTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
+<div class="details collapse" id="details-1014">
 <div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is saved to disk.</p>
 </div>
 </div>
@@ -1199,8 +1203,8 @@ has been opened.</p>
 
 
 
-<a name="workspace.applyEdit"></a><span class="ts" id=1005 data-target="#details-1005" data-toggle="collapse"><span class="ident">applyEdit</span><span>(</span><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
-<div class="details collapse" id="details-1005">
+<a name="workspace.applyEdit"></a><span class="ts" id=999 data-target="#details-999" data-toggle="collapse"><span class="ident">applyEdit</span><span>(</span><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
+<div class="details collapse" id="details-999">
 <div class="comment"><p>Make changes to one or many resources as defined by the given
 <a href="#WorkspaceEdit">workspace edit</a>.</p>
 <p>When applying a workspace edit, the editor implements an &#39;all-or-nothing&#39;-strategy,
@@ -1210,7 +1214,7 @@ the edit to be rejected.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="edit"></a><span class="ts" id=1006 data-target="#details-1006" data-toggle="collapse"><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a></span></td><td><div class="comment"><p>A workspace edit.</p>
+<tr><td><a name="edit"></a><span class="ts" id=1000 data-target="#details-1000" data-toggle="collapse"><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a></span></td><td><div class="comment"><p>A workspace edit.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when the edit could be applied.</p>
@@ -1221,8 +1225,8 @@ the edit to be rejected.</p>
 
 
 
-<a name="workspace.asRelativePath"></a><span class="ts" id=993 data-target="#details-993" data-toggle="collapse"><span class="ident">asRelativePath</span><span>(</span><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-993">
+<a name="workspace.asRelativePath"></a><span class="ts" id=987 data-target="#details-987" data-toggle="collapse"><span class="ident">asRelativePath</span><span>(</span><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-987">
 <div class="comment"><p>Returns a path that is relative to the workspace root.</p>
 <p>When there is no <a href="#workspace.rootPath">workspace root</a> or when the path
 is not a child of that folder, the input is returned.</p>
@@ -1230,7 +1234,7 @@ is not a child of that folder, the input is returned.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="pathOrUri"></a><span class="ts" id=994 data-target="#details-994" data-toggle="collapse"><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A path or uri. When a uri is given its <a href="#Uri.fsPath">fsPath</a> is used.</p>
+<tr><td><a name="pathOrUri"></a><span class="ts" id=988 data-target="#details-988" data-toggle="collapse"><span class="ident">pathOrUri</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A path or uri. When a uri is given its <a href="#Uri.fsPath">fsPath</a> is used.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A path relative to the root or the input.</p>
@@ -1241,8 +1245,8 @@ is not a child of that folder, the input is returned.</p>
 
 
 
-<a name="workspace.createFileSystemWatcher"></a><span class="ts" id=986 data-target="#details-986" data-toggle="collapse"><span class="ident">createFileSystemWatcher</span><span>(</span><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a>, <span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a>, <span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span>
-<div class="details collapse" id="details-986">
+<a name="workspace.createFileSystemWatcher"></a><span class="ts" id=980 data-target="#details-980" data-toggle="collapse"><span class="ident">createFileSystemWatcher</span><span>(</span><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a>, <span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a>, <span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span>
+<div class="details collapse" id="details-980">
 <div class="comment"><p>Creates a file system watcher.</p>
 <p>A glob pattern that filters the file events must be provided. Optionally, flags to ignore certain
 kinds of events can be provided. To stop listening to events the watcher must be disposed.</p>
@@ -1250,13 +1254,13 @@ kinds of events can be provided. To stop listening to events the watcher must be
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="globPattern"></a><span class="ts" id=987 data-target="#details-987" data-toggle="collapse"><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that is applied to the names of created, changed, and deleted files.</p>
+<tr><td><a name="globPattern"></a><span class="ts" id=981 data-target="#details-981" data-toggle="collapse"><span class="ident">globPattern</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that is applied to the names of created, changed, and deleted files.</p>
 </div></td></tr>
-<tr><td><a name="ignoreCreateEvents"></a><span class="ts" id=988 data-target="#details-988" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been created.</p>
+<tr><td><a name="ignoreCreateEvents"></a><span class="ts" id=982 data-target="#details-982" data-toggle="collapse"><span class="ident">ignoreCreateEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been created.</p>
 </div></td></tr>
-<tr><td><a name="ignoreChangeEvents"></a><span class="ts" id=989 data-target="#details-989" data-toggle="collapse"><span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been changed.</p>
+<tr><td><a name="ignoreChangeEvents"></a><span class="ts" id=983 data-target="#details-983" data-toggle="collapse"><span class="ident">ignoreChangeEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been changed.</p>
 </div></td></tr>
-<tr><td><a name="ignoreDeleteEvents"></a><span class="ts" id=990 data-target="#details-990" data-toggle="collapse"><span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been deleted.</p>
+<tr><td><a name="ignoreDeleteEvents"></a><span class="ts" id=984 data-target="#details-984" data-toggle="collapse"><span class="ident">ignoreDeleteEvents</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Ignore when files have been deleted.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#FileSystemWatcher">FileSystemWatcher</a></span></td><td><div class="comment"><p>A new file system watcher instance.</p>
@@ -1267,8 +1271,8 @@ kinds of events can be provided. To stop listening to events the watcher must be
 
 
 
-<a name="workspace.findFiles"></a><span class="ts" id=996 data-target="#details-996" data-toggle="collapse"><span class="ident">findFiles</span><span>(</span><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">exclude</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span>
-<div class="details collapse" id="details-996">
+<a name="workspace.findFiles"></a><span class="ts" id=990 data-target="#details-990" data-toggle="collapse"><span class="ident">findFiles</span><span>(</span><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">exclude</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span>
+<div class="details collapse" id="details-990">
 <div class="comment"><p>Find files in the workspace.</p>
 <ul>
 <li><em>sample</em> - <code>findFiles(&#39;**∕*.js&#39;, &#39;**∕node_modules∕**&#39;, 10)</code></li>
@@ -1277,13 +1281,13 @@ kinds of events can be provided. To stop listening to events the watcher must be
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="include"></a><span class="ts" id=997 data-target="#details-997" data-toggle="collapse"><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that defines the files to search for.</p>
+<tr><td><a name="include"></a><span class="ts" id=991 data-target="#details-991" data-toggle="collapse"><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that defines the files to search for.</p>
 </div></td></tr>
-<tr><td><a name="exclude"></a><span class="ts" id=998 data-target="#details-998" data-toggle="collapse"><span class="ident">exclude</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that defines files and folders to exclude.</p>
+<tr><td><a name="exclude"></a><span class="ts" id=992 data-target="#details-992" data-toggle="collapse"><span class="ident">exclude</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A glob pattern that defines files and folders to exclude.</p>
 </div></td></tr>
-<tr><td><a name="maxResults"></a><span class="ts" id=999 data-target="#details-999" data-toggle="collapse"><span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>An upper-bound for the result.</p>
+<tr><td><a name="maxResults"></a><span class="ts" id=993 data-target="#details-993" data-toggle="collapse"><span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a></span></td><td><div class="comment"><p>An upper-bound for the result.</p>
 </div></td></tr>
-<tr><td><a name="token"></a><span class="ts" id=1000 data-target="#details-1000" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A token that can be used to signal cancellation to the underlying search engine.</p>
+<tr><td><a name="token"></a><span class="ts" id=994 data-target="#details-994" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A token that can be used to signal cancellation to the underlying search engine.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span></td><td><div class="comment"><p>A thenable that resolves to an array of resource identifiers.</p>
@@ -1294,8 +1298,8 @@ kinds of events can be provided. To stop listening to events the watcher must be
 
 
 
-<a name="workspace.getConfiguration"></a><span class="ts" id=1022 data-target="#details-1022" data-toggle="collapse"><span class="ident">getConfiguration</span><span>(</span><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#WorkspaceConfiguration">WorkspaceConfiguration</a></span>
-<div class="details collapse" id="details-1022">
+<a name="workspace.getConfiguration"></a><span class="ts" id=1016 data-target="#details-1016" data-toggle="collapse"><span class="ident">getConfiguration</span><span>(</span><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#WorkspaceConfiguration">WorkspaceConfiguration</a></span>
+<div class="details collapse" id="details-1016">
 <div class="comment"><p>Get a configuration object.</p>
 <p>When a section-identifier is provided only that part of the configuration
 is returned. Dots in the section-identifier are interpreted as child-access,
@@ -1304,7 +1308,7 @@ like <code>{ myExt: { setting: { doIt: true }}}</code> and <code>getConfiguratio
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=1023 data-target="#details-1023" data-toggle="collapse"><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A dot-separated identifier.</p>
+<tr><td><a name="section"></a><span class="ts" id=1017 data-target="#details-1017" data-toggle="collapse"><span class="ident">section</span><span>?</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A dot-separated identifier.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#WorkspaceConfiguration">WorkspaceConfiguration</a></span></td><td><div class="comment"><p>The full workspace configuration or a subset.</p>
@@ -1315,8 +1319,8 @@ like <code>{ myExt: { setting: { doIt: true }}}</code> and <code>getConfiguratio
 
 
 
-<a name="workspace.openTextDocument"></a><span class="ts" id=1009 data-target="#details-1009" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
-<div class="details collapse" id="details-1009">
+<a name="workspace.openTextDocument"></a><span class="ts" id=1003 data-target="#details-1003" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
+<div class="details collapse" id="details-1003">
 <div class="comment"><p>Opens the denoted document from disk. Will return early if the
 document is already open, otherwise the document is loaded and the
 <a href="#workspace.onDidOpenTextDocument">open document</a>-event fires.
@@ -1328,7 +1332,7 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=1010 data-target="#details-1010" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>Identifies the resource to open.</p>
+<tr><td><a name="uri"></a><span class="ts" id=1004 data-target="#details-1004" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>Identifies the resource to open.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
@@ -1339,8 +1343,8 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 
 
 
-<a name="workspace.openTextDocument"></a><span class="ts" id=1011 data-target="#details-1011" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
-<div class="details collapse" id="details-1011">
+<a name="workspace.openTextDocument"></a><span class="ts" id=1005 data-target="#details-1005" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
+<div class="details collapse" id="details-1005">
 <div class="comment"><p>A short-hand for <code>openTextDocument(Uri.file(fileName))</code>.</p>
 <ul>
 <li><em>see</em> - <a href="#openTextDocument">openTextDocument</a></li>
@@ -1349,7 +1353,7 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="fileName"></a><span class="ts" id=1012 data-target="#details-1012" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A name of a file on disk.</p>
+<tr><td><a name="fileName"></a><span class="ts" id=1006 data-target="#details-1006" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A name of a file on disk.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
@@ -1360,17 +1364,17 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 
 
 
-<a name="workspace.registerTextDocumentContentProvider"></a><span class="ts" id=1014 data-target="#details-1014" data-toggle="collapse"><span class="ident">registerTextDocumentContentProvider</span><span>(</span><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
-<div class="details collapse" id="details-1014">
+<a name="workspace.registerTextDocumentContentProvider"></a><span class="ts" id=1008 data-target="#details-1008" data-toggle="collapse"><span class="ident">registerTextDocumentContentProvider</span><span>(</span><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a><span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<div class="details collapse" id="details-1008">
 <div class="comment"><p>Register a text document content provider.</p>
 <p>Only one provider can be registered per scheme.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="scheme"></a><span class="ts" id=1015 data-target="#details-1015" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The uri-scheme to register for.</p>
+<tr><td><a name="scheme"></a><span class="ts" id=1009 data-target="#details-1009" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The uri-scheme to register for.</p>
 </div></td></tr>
-<tr><td><a name="provider"></a><span class="ts" id=1016 data-target="#details-1016" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a></span></td><td><div class="comment"><p>A content provider.</p>
+<tr><td><a name="provider"></a><span class="ts" id=1010 data-target="#details-1010" data-toggle="collapse"><span class="ident">provider</span><span>: </span><a class="type-ref" href="#TextDocumentContentProvider">TextDocumentContentProvider</a></span></td><td><div class="comment"><p>A content provider.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A <a href="#Disposable">disposable</a> that unregisters this provider when being disposed.</p>
@@ -1381,14 +1385,14 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 
 
 
-<a name="workspace.saveAll"></a><span class="ts" id=1002 data-target="#details-1002" data-toggle="collapse"><span class="ident">saveAll</span><span>(</span><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
-<div class="details collapse" id="details-1002">
+<a name="workspace.saveAll"></a><span class="ts" id=996 data-target="#details-996" data-toggle="collapse"><span class="ident">saveAll</span><span>(</span><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
+<div class="details collapse" id="details-996">
 <div class="comment"><p>Save all dirty files.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="includeUntitled"></a><span class="ts" id=1003 data-target="#details-1003" data-toggle="collapse"><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Also save files that have been created during this session.</p>
+<tr><td><a name="includeUntitled"></a><span class="ts" id=997 data-target="#details-997" data-toggle="collapse"><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Also save files that have been created during this session.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when the files have been saved.</p>
@@ -1473,7 +1477,7 @@ for completion items because the user continued to type.</p>
 </div>
 </div>
 
-### <a name="CharacterPair"></a><span class="code-item" id=887>CharacterPair</span>
+### <a name="CharacterPair"></a><span class="code-item" id=881>CharacterPair</span>
 
 
 
@@ -1483,7 +1487,7 @@ opening and closing brackets.</p>
 
 
 
-<a name="CharacterPair"></a><span class="ts" id=887 data-target="#details-887" data-toggle="collapse"><span class="ident">CharacterPair</span><span>: </span>[<a class="type-instrinct">string</a>, <a class="type-instrinct">string</a>]</span>
+<a name="CharacterPair"></a><span class="ts" id=881 data-target="#details-881" data-toggle="collapse"><span class="ident">CharacterPair</span><span>: </span>[<a class="type-instrinct">string</a>, <a class="type-instrinct">string</a>]</span>
 
 ### <a name="CodeActionContext"></a><span class="code-item" id=439>CodeActionContext</span>
 
@@ -2253,7 +2257,7 @@ Defaults to <code>false</code>.</p>
 </div>
 </div>
 
-### <a name="Definition"></a><span class="code-item" id=882>Definition</span>
+### <a name="Definition"></a><span class="code-item" id=876>Definition</span>
 
 
 
@@ -2264,7 +2268,7 @@ defined.</p>
 
 
 
-<a name="Definition"></a><span class="ts" id=882 data-target="#details-882" data-toggle="collapse"><span class="ident">Definition</span><span>: </span><a class="type-ref" href="#Location">Location</a> &#124; <a class="type-ref" href="#Location">Location</a>[]</span>
+<a name="Definition"></a><span class="ts" id=876 data-target="#details-876" data-toggle="collapse"><span class="ident">Definition</span><span>: </span><a class="type-ref" href="#Location">Location</a> &#124; <a class="type-ref" href="#Location">Location</a>[]</span>
 
 ### <a name="DefinitionProvider"></a><span class="code-item" id=465>DefinitionProvider</span>
 
@@ -2300,7 +2304,7 @@ signaled by returning <code>undefined</code> or <code>null</code>.</p>
 </div>
 </div>
 
-### <a name="Diagnostic"></a><span class="code-item" id=777>Diagnostic</span>
+### <a name="Diagnostic"></a><span class="code-item" id=771>Diagnostic</span>
 
 
 
@@ -2312,18 +2316,18 @@ are only valid in the scope of a file.</p>
 
 
 
-<a name="Diagnostic.new Diagnostic"></a><span class="ts" id=784 data-target="#details-784" data-toggle="collapse"><span class="ident">new Diagnostic</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">severity</span><span>?</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a><span>)</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a></span>
-<div class="details collapse" id="details-784">
+<a name="Diagnostic.new Diagnostic"></a><span class="ts" id=778 data-target="#details-778" data-toggle="collapse"><span class="ident">new Diagnostic</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">severity</span><span>?</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a><span>)</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a></span>
+<div class="details collapse" id="details-778">
 <div class="comment"><p>Creates a new diagnostic object.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="range"></a><span class="ts" id=785 data-target="#details-785" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>The range to which this diagnostic applies.</p>
+<tr><td><a name="range"></a><span class="ts" id=779 data-target="#details-779" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>The range to which this diagnostic applies.</p>
 </div></td></tr>
-<tr><td><a name="message"></a><span class="ts" id=786 data-target="#details-786" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The human-readable message.</p>
+<tr><td><a name="message"></a><span class="ts" id=780 data-target="#details-780" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The human-readable message.</p>
 </div></td></tr>
-<tr><td><a name="severity"></a><span class="ts" id=787 data-target="#details-787" data-toggle="collapse"><span class="ident">severity</span><span>?</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span></td><td><div class="comment"><p>The severity, default is <a href="#DiagnosticSeverity.Error">error</a>.</p>
+<tr><td><a name="severity"></a><span class="ts" id=781 data-target="#details-781" data-toggle="collapse"><span class="ident">severity</span><span>?</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span></td><td><div class="comment"><p>The severity, default is <a href="#DiagnosticSeverity.Error">error</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Diagnostic">Diagnostic</a></span></td><td><div class="comment"></div></td></tr>
@@ -2335,8 +2339,8 @@ are only valid in the scope of a file.</p>
 
 
 
-<a name="Diagnostic.code"></a><span class="ts" id=782 data-target="#details-782" data-toggle="collapse"><span class="ident">code</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">number</a></span>
-<div class="details collapse" id="details-782">
+<a name="Diagnostic.code"></a><span class="ts" id=776 data-target="#details-776" data-toggle="collapse"><span class="ident">code</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-instrinct">number</a></span>
+<div class="details collapse" id="details-776">
 <div class="comment"><p>A code or identifier for this diagnostics. Will not be surfaced
 to the user, but should be used for later processing, e.g. when
 providing <a href="#CodeActionContext">code actions</a>.</p>
@@ -2345,38 +2349,38 @@ providing <a href="#CodeActionContext">code actions</a>.</p>
 
 
 
-<a name="Diagnostic.message"></a><span class="ts" id=779 data-target="#details-779" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-779">
+<a name="Diagnostic.message"></a><span class="ts" id=773 data-target="#details-773" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-773">
 <div class="comment"><p>The human-readable message.</p>
 </div>
 </div>
 
 
 
-<a name="Diagnostic.range"></a><span class="ts" id=778 data-target="#details-778" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
-<div class="details collapse" id="details-778">
+<a name="Diagnostic.range"></a><span class="ts" id=772 data-target="#details-772" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
+<div class="details collapse" id="details-772">
 <div class="comment"><p>The range to which this diagnostic applies.</p>
 </div>
 </div>
 
 
 
-<a name="Diagnostic.severity"></a><span class="ts" id=781 data-target="#details-781" data-toggle="collapse"><span class="ident">severity</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span>
-<div class="details collapse" id="details-781">
+<a name="Diagnostic.severity"></a><span class="ts" id=775 data-target="#details-775" data-toggle="collapse"><span class="ident">severity</span><span>: </span><a class="type-ref" href="#DiagnosticSeverity">DiagnosticSeverity</a></span>
+<div class="details collapse" id="details-775">
 <div class="comment"><p>The severity, default is <a href="#DiagnosticSeverity.Error">error</a>.</p>
 </div>
 </div>
 
 
 
-<a name="Diagnostic.source"></a><span class="ts" id=780 data-target="#details-780" data-toggle="collapse"><span class="ident">source</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-780">
+<a name="Diagnostic.source"></a><span class="ts" id=774 data-target="#details-774" data-toggle="collapse"><span class="ident">source</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-774">
 <div class="comment"><p>A human-readable string describing the source of this
 diagnostic, e.g. &#39;typescript&#39; or &#39;super lint&#39;.</p>
 </div>
 </div>
 
-### <a name="DiagnosticCollection"></a><span class="code-item" id=788>DiagnosticCollection</span>
+### <a name="DiagnosticCollection"></a><span class="code-item" id=782>DiagnosticCollection</span>
 
 
 
@@ -2391,8 +2395,8 @@ a diagnostics collection and a resource.</p>
 
 
 
-<a name="DiagnosticCollection.name"></a><span class="ts" id=789 data-target="#details-789" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-789">
+<a name="DiagnosticCollection.name"></a><span class="ts" id=783 data-target="#details-783" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-783">
 <div class="comment"><p>The name of this diagnostic collection, for instance <code>typescript</code>. Every diagnostic
 from this collection will be associated with this name. Also, the task framework uses this
 name when defining <a href="https://code.visualstudio.com/docs/editor/tasks#_defining-a-problem-matcher">problem matchers</a>.</p>
@@ -2403,8 +2407,8 @@ name when defining <a href="https://code.visualstudio.com/docs/editor/tasks#_def
 
 
 
-<a name="DiagnosticCollection.clear"></a><span class="ts" id=800 data-target="#details-800" data-toggle="collapse"><span class="ident">clear</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-800">
+<a name="DiagnosticCollection.clear"></a><span class="ts" id=794 data-target="#details-794" data-toggle="collapse"><span class="ident">clear</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-794">
 <div class="comment"><p>Remove all diagnostics from this collection. The same
 as calling <code>#set(undefined)</code>;</p>
 </div>
@@ -2418,15 +2422,15 @@ as calling <code>#set(undefined)</code>;</p>
 
 
 
-<a name="DiagnosticCollection.delete"></a><span class="ts" id=795 data-target="#details-795" data-toggle="collapse"><span class="ident">delete</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-795">
+<a name="DiagnosticCollection.delete"></a><span class="ts" id=789 data-target="#details-789" data-toggle="collapse"><span class="ident">delete</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-789">
 <div class="comment"><p>Remove all diagnostics from this collection that belong
 to the provided <code>uri</code>. The same as <code>#set(uri, undefined)</code>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=796 data-target="#details-796" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
+<tr><td><a name="uri"></a><span class="ts" id=790 data-target="#details-790" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -2436,8 +2440,8 @@ to the provided <code>uri</code>. The same as <code>#set(uri, undefined)</code>.
 
 
 
-<a name="DiagnosticCollection.dispose"></a><span class="ts" id=802 data-target="#details-802" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-802">
+<a name="DiagnosticCollection.dispose"></a><span class="ts" id=796 data-target="#details-796" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-796">
 <div class="comment"><p>Dispose and free associated resources. Calls
 <a href="#DiagnosticCollection.clear">clear</a>.</p>
 </div>
@@ -2451,17 +2455,17 @@ to the provided <code>uri</code>. The same as <code>#set(uri, undefined)</code>.
 
 
 
-<a name="DiagnosticCollection.set"></a><span class="ts" id=791 data-target="#details-791" data-toggle="collapse"><span class="ident">set</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">diagnostics</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[]<span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-791">
+<a name="DiagnosticCollection.set"></a><span class="ts" id=785 data-target="#details-785" data-toggle="collapse"><span class="ident">set</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">diagnostics</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[]<span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-785">
 <div class="comment"><p>Assign diagnostics for given resource. Will replace
 existing diagnostics for that resource.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=792 data-target="#details-792" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
+<tr><td><a name="uri"></a><span class="ts" id=786 data-target="#details-786" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
 </div></td></tr>
-<tr><td><a name="diagnostics"></a><span class="ts" id=793 data-target="#details-793" data-toggle="collapse"><span class="ident">diagnostics</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[]</span></td><td><div class="comment"><p>Array of diagnostics or <code>undefined</code></p>
+<tr><td><a name="diagnostics"></a><span class="ts" id=787 data-target="#details-787" data-toggle="collapse"><span class="ident">diagnostics</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a>[]</span></td><td><div class="comment"><p>Array of diagnostics or <code>undefined</code></p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -2471,14 +2475,14 @@ existing diagnostics for that resource.</p>
 
 
 
-<a name="DiagnosticCollection.set"></a><span class="ts" id=797 data-target="#details-797" data-toggle="collapse"><span class="ident">set</span><span>(</span><span class="ident">entries</span><span>: </span>[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#Diagnostic">Diagnostic</a>[]][]<span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-797">
+<a name="DiagnosticCollection.set"></a><span class="ts" id=791 data-target="#details-791" data-toggle="collapse"><span class="ident">set</span><span>(</span><span class="ident">entries</span><span>: </span>[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#Diagnostic">Diagnostic</a>[]][]<span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-791">
 <div class="comment"><p>Replace all entries in this collection.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="entries"></a><span class="ts" id=798 data-target="#details-798" data-toggle="collapse"><span class="ident">entries</span><span>: </span>[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#Diagnostic">Diagnostic</a>[]][]</span></td><td><div class="comment"><p>An array of tuples, like <code>[[file1, [d1, d2]], [file2, [d3, d4, d5]]]</code>, or <code>undefined</code>.</p>
+<tr><td><a name="entries"></a><span class="ts" id=792 data-target="#details-792" data-toggle="collapse"><span class="ident">entries</span><span>: </span>[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#Diagnostic">Diagnostic</a>[]][]</span></td><td><div class="comment"><p>An array of tuples, like <code>[[file1, [d1, d2]], [file2, [d3, d4, d5]]]</code>, or <code>undefined</code>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -2486,7 +2490,7 @@ existing diagnostics for that resource.</p>
 </div>
 </div>
 
-### <a name="DiagnosticSeverity"></a><span class="code-item" id=772>DiagnosticSeverity</span>
+### <a name="DiagnosticSeverity"></a><span class="code-item" id=766>DiagnosticSeverity</span>
 
 
 
@@ -2497,29 +2501,29 @@ existing diagnostics for that resource.</p>
 
 
 
-<a name="DiagnosticSeverity.Error"></a><span class="ts" id=773 data-target="#details-773" data-toggle="collapse"><span class="ident">Error</span></span>
-<div class="details collapse" id="details-773">
+<a name="DiagnosticSeverity.Error"></a><span class="ts" id=767 data-target="#details-767" data-toggle="collapse"><span class="ident">Error</span></span>
+<div class="details collapse" id="details-767">
 <em>0</em>
 </div>
 
 
 
-<a name="DiagnosticSeverity.Hint"></a><span class="ts" id=776 data-target="#details-776" data-toggle="collapse"><span class="ident">Hint</span></span>
-<div class="details collapse" id="details-776">
+<a name="DiagnosticSeverity.Hint"></a><span class="ts" id=770 data-target="#details-770" data-toggle="collapse"><span class="ident">Hint</span></span>
+<div class="details collapse" id="details-770">
 <em>3</em>
 </div>
 
 
 
-<a name="DiagnosticSeverity.Information"></a><span class="ts" id=775 data-target="#details-775" data-toggle="collapse"><span class="ident">Information</span></span>
-<div class="details collapse" id="details-775">
+<a name="DiagnosticSeverity.Information"></a><span class="ts" id=769 data-target="#details-769" data-toggle="collapse"><span class="ident">Information</span></span>
+<div class="details collapse" id="details-769">
 <em>2</em>
 </div>
 
 
 
-<a name="DiagnosticSeverity.Warning"></a><span class="ts" id=774 data-target="#details-774" data-toggle="collapse"><span class="ident">Warning</span></span>
-<div class="details collapse" id="details-774">
+<a name="DiagnosticSeverity.Warning"></a><span class="ts" id=768 data-target="#details-768" data-toggle="collapse"><span class="ident">Warning</span></span>
+<div class="details collapse" id="details-768">
 <em>1</em>
 </div>
 
@@ -2811,7 +2815,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 </div>
 </div>
 
-### <a name="DocumentSelector"></a><span class="code-item" id=881>DocumentSelector</span>
+### <a name="DocumentSelector"></a><span class="code-item" id=875>DocumentSelector</span>
 
 
 
@@ -2827,7 +2831,7 @@ and <a href="#LanguageFilter">language filters</a>.</p>
 
 
 
-<a name="DocumentSelector"></a><span class="ts" id=881 data-target="#details-881" data-toggle="collapse"><span class="ident">DocumentSelector</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#DocumentFilter">DocumentFilter</a> &#124; <a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#DocumentFilter">DocumentFilter</a>[]</span>
+<a name="DocumentSelector"></a><span class="ts" id=875 data-target="#details-875" data-toggle="collapse"><span class="ident">DocumentSelector</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#DocumentFilter">DocumentFilter</a> &#124; <a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#DocumentFilter">DocumentFilter</a>[]</span>
 
 ### <a name="DocumentSymbolProvider"></a><span class="code-item" id=535>DocumentSymbolProvider</span>
 
@@ -2985,7 +2989,7 @@ of one or more listener will not fail this function call.</p>
 </div>
 </div>
 
-### <a name="Extension"></a><span class="code-item" id=843>Extension&lt;T&gt;</span>
+### <a name="Extension"></a><span class="code-item" id=837>Extension&lt;T&gt;</span>
 
 
 
@@ -2997,8 +3001,8 @@ of one or more listener will not fail this function call.</p>
 
 
 
-<a name="Extension.exports"></a><span class="ts" id=849 data-target="#details-849" data-toggle="collapse"><span class="ident">exports</span><span>: </span><a class="type-instrinct">T</a></span>
-<div class="details collapse" id="details-849">
+<a name="Extension.exports"></a><span class="ts" id=843 data-target="#details-843" data-toggle="collapse"><span class="ident">exports</span><span>: </span><a class="type-instrinct">T</a></span>
+<div class="details collapse" id="details-843">
 <div class="comment"><p>The public API exported by this extension. It is an invalid action
 to access this field before this extension has been activated.</p>
 <ul>
@@ -3009,8 +3013,8 @@ to access this field before this extension has been activated.</p>
 
 
 
-<a name="Extension.extensionPath"></a><span class="ts" id=846 data-target="#details-846" data-toggle="collapse"><span class="ident">extensionPath</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-846">
+<a name="Extension.extensionPath"></a><span class="ts" id=840 data-target="#details-840" data-toggle="collapse"><span class="ident">extensionPath</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-840">
 <div class="comment"><p>The absolute file path of the directory containing this extension.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -3020,8 +3024,8 @@ to access this field before this extension has been activated.</p>
 
 
 
-<a name="Extension.id"></a><span class="ts" id=845 data-target="#details-845" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-845">
+<a name="Extension.id"></a><span class="ts" id=839 data-target="#details-839" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-839">
 <div class="comment"><p>The canonical extension identifier in the form of: <code>publisher.name</code>.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -3031,8 +3035,8 @@ to access this field before this extension has been activated.</p>
 
 
 
-<a name="Extension.isActive"></a><span class="ts" id=847 data-target="#details-847" data-toggle="collapse"><span class="ident">isActive</span><span>: </span><a class="type-instrinct">boolean</a></span>
-<div class="details collapse" id="details-847">
+<a name="Extension.isActive"></a><span class="ts" id=841 data-target="#details-841" data-toggle="collapse"><span class="ident">isActive</span><span>: </span><a class="type-instrinct">boolean</a></span>
+<div class="details collapse" id="details-841">
 <div class="comment"><p><code>true</code> if the extension has been activated.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -3042,8 +3046,8 @@ to access this field before this extension has been activated.</p>
 
 
 
-<a name="Extension.packageJSON"></a><span class="ts" id=848 data-target="#details-848" data-toggle="collapse"><span class="ident">packageJSON</span><span>: </span><a class="type-instrinct">any</a></span>
-<div class="details collapse" id="details-848">
+<a name="Extension.packageJSON"></a><span class="ts" id=842 data-target="#details-842" data-toggle="collapse"><span class="ident">packageJSON</span><span>: </span><a class="type-instrinct">any</a></span>
+<div class="details collapse" id="details-842">
 <div class="comment"><p>The parsed contents of the extension&#39;s package.json.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -3055,8 +3059,8 @@ to access this field before this extension has been activated.</p>
 
 
 
-<a name="Extension.activate"></a><span class="ts" id=851 data-target="#details-851" data-toggle="collapse"><span class="ident">activate</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
-<div class="details collapse" id="details-851">
+<a name="Extension.activate"></a><span class="ts" id=845 data-target="#details-845" data-toggle="collapse"><span class="ident">activate</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<div class="details collapse" id="details-845">
 <div class="comment"><p>Activates this extension and returns its public API.</p>
 </div>
 <div class="signature">
@@ -3068,7 +3072,7 @@ to access this field before this extension has been activated.</p>
 </div>
 </div>
 
-### <a name="ExtensionContext"></a><span class="code-item" id=852>ExtensionContext</span>
+### <a name="ExtensionContext"></a><span class="code-item" id=846>ExtensionContext</span>
 
 
 
@@ -3082,16 +3086,16 @@ parameter to the <code>activate</code>-call of an extension.</p>
 
 
 
-<a name="ExtensionContext.extensionPath"></a><span class="ts" id=859 data-target="#details-859" data-toggle="collapse"><span class="ident">extensionPath</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-859">
+<a name="ExtensionContext.extensionPath"></a><span class="ts" id=853 data-target="#details-853" data-toggle="collapse"><span class="ident">extensionPath</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-853">
 <div class="comment"><p>The absolute file path of the directory containing the extension.</p>
 </div>
 </div>
 
 
 
-<a name="ExtensionContext.globalState"></a><span class="ts" id=858 data-target="#details-858" data-toggle="collapse"><span class="ident">globalState</span><span>: </span><a class="type-ref" href="#Memento">Memento</a></span>
-<div class="details collapse" id="details-858">
+<a name="ExtensionContext.globalState"></a><span class="ts" id=852 data-target="#details-852" data-toggle="collapse"><span class="ident">globalState</span><span>: </span><a class="type-ref" href="#Memento">Memento</a></span>
+<div class="details collapse" id="details-852">
 <div class="comment"><p>A memento object that stores state independent
 of the current opened <a href="#workspace.path">workspace</a>.</p>
 </div>
@@ -3099,8 +3103,8 @@ of the current opened <a href="#workspace.path">workspace</a>.</p>
 
 
 
-<a name="ExtensionContext.subscriptions"></a><span class="ts" id=853 data-target="#details-853" data-toggle="collapse"><span class="ident">subscriptions</span><span>: </span>{dispose}[]</span>
-<div class="details collapse" id="details-853">
+<a name="ExtensionContext.subscriptions"></a><span class="ts" id=847 data-target="#details-847" data-toggle="collapse"><span class="ident">subscriptions</span><span>: </span>{dispose}[]</span>
+<div class="details collapse" id="details-847">
 <div class="comment"><p>An array to which disposables can be added. When this
 extension is deactivated the disposables will be disposed.</p>
 </div>
@@ -3108,8 +3112,8 @@ extension is deactivated the disposables will be disposed.</p>
 
 
 
-<a name="ExtensionContext.workspaceState"></a><span class="ts" id=857 data-target="#details-857" data-toggle="collapse"><span class="ident">workspaceState</span><span>: </span><a class="type-ref" href="#Memento">Memento</a></span>
-<div class="details collapse" id="details-857">
+<a name="ExtensionContext.workspaceState"></a><span class="ts" id=851 data-target="#details-851" data-toggle="collapse"><span class="ident">workspaceState</span><span>: </span><a class="type-ref" href="#Memento">Memento</a></span>
+<div class="details collapse" id="details-851">
 <div class="comment"><p>A memento object that stores state in the context
 of the currently opened <a href="#workspace.path">workspace</a>.</p>
 </div>
@@ -3119,14 +3123,14 @@ of the currently opened <a href="#workspace.path">workspace</a>.</p>
 
 
 
-<a name="ExtensionContext.asAbsolutePath"></a><span class="ts" id=861 data-target="#details-861" data-toggle="collapse"><span class="ident">asAbsolutePath</span><span>(</span><span class="ident">relativePath</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-861">
+<a name="ExtensionContext.asAbsolutePath"></a><span class="ts" id=855 data-target="#details-855" data-toggle="collapse"><span class="ident">asAbsolutePath</span><span>(</span><span class="ident">relativePath</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-855">
 <div class="comment"><p>Get the absolute path of a resource contained in the extension.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="relativePath"></a><span class="ts" id=862 data-target="#details-862" data-toggle="collapse"><span class="ident">relativePath</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A relative path to a resource contained in the extension.</p>
+<tr><td><a name="relativePath"></a><span class="ts" id=856 data-target="#details-856" data-toggle="collapse"><span class="ident">relativePath</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A relative path to a resource contained in the extension.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The absolute path of the resource.</p>
@@ -3511,8 +3515,8 @@ and various editor features, like automatic bracket insertion, automatic indenta
 
 
 
-<a name="LanguageConfiguration.___characterPairSupport"></a><span class="ts" id=747 data-target="#details-747" data-toggle="collapse"><span class="ident">___characterPairSupport</span><span>?</span><span>: </span>{autoClosingPairs: {close: <a class="type-instrinct">string</a>, notIn: <a class="type-instrinct">string</a>[], open: <a class="type-instrinct">string</a>}[]}</span>
-<div class="details collapse" id="details-747">
+<a name="LanguageConfiguration.___characterPairSupport"></a><span class="ts" id=741 data-target="#details-741" data-toggle="collapse"><span class="ident">___characterPairSupport</span><span>?</span><span>: </span>{autoClosingPairs: {close: <a class="type-instrinct">string</a>, notIn: <a class="type-instrinct">string</a>[], open: <a class="type-instrinct">string</a>}[]}</span>
+<div class="details collapse" id="details-741">
 <div class="comment"><p><strong>Deprecated</strong> Do not use.</p>
 <ul>
 <li><em>deprecated</em> - Will be replaced by a better API soon.</li>
@@ -3522,7 +3526,7 @@ and various editor features, like automatic bracket insertion, automatic indenta
 
 
 
-<a name="LanguageConfiguration.___electricCharacterSupport"></a><span class="ts" id=733 data-target="#details-733" data-toggle="collapse"><span class="ident">___electricCharacterSupport</span><span>?</span><span>: </span>{brackets: {close: <a class="type-instrinct">string</a>, isElectric: <a class="type-instrinct">boolean</a>, open: <a class="type-instrinct">string</a>, tokenType: <a class="type-instrinct">string</a>}[], docComment: {close: <a class="type-instrinct">string</a>, lineStart: <a class="type-instrinct">string</a>, open: <a class="type-instrinct">string</a>, scope: <a class="type-instrinct">string</a>}}</span>
+<a name="LanguageConfiguration.___electricCharacterSupport"></a><span class="ts" id=733 data-target="#details-733" data-toggle="collapse"><span class="ident">___electricCharacterSupport</span><span>?</span><span>: </span>{docComment: {close: <a class="type-instrinct">string</a>, lineStart: <a class="type-instrinct">string</a>, open: <a class="type-instrinct">string</a>, scope: <a class="type-instrinct">string</a>}}</span>
 <div class="details collapse" id="details-733">
 <div class="comment"><p><strong>Deprecated</strong> Do not use.</p>
 <ul>
@@ -3576,7 +3580,7 @@ e.g.: A regex that matches anything except known separators (and dot is allowed 
 </div>
 </div>
 
-### <a name="Location"></a><span class="code-item" id=765>Location</span>
+### <a name="Location"></a><span class="code-item" id=759>Location</span>
 
 
 
@@ -3588,16 +3592,16 @@ inside a text file.</p>
 
 
 
-<a name="Location.new Location"></a><span class="ts" id=769 data-target="#details-769" data-toggle="collapse"><span class="ident">new Location</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">rangeOrPosition</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-ref" href="#Location">Location</a></span>
-<div class="details collapse" id="details-769">
+<a name="Location.new Location"></a><span class="ts" id=763 data-target="#details-763" data-toggle="collapse"><span class="ident">new Location</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">rangeOrPosition</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a><span>)</span><span>: </span><a class="type-ref" href="#Location">Location</a></span>
+<div class="details collapse" id="details-763">
 <div class="comment"><p>Creates a new location object.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="uri"></a><span class="ts" id=770 data-target="#details-770" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>The resource identifier.</p>
+<tr><td><a name="uri"></a><span class="ts" id=764 data-target="#details-764" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>The resource identifier.</p>
 </div></td></tr>
-<tr><td><a name="rangeOrPosition"></a><span class="ts" id=771 data-target="#details-771" data-toggle="collapse"><span class="ident">rangeOrPosition</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>The range or position. Positions will be converted to an empty range.</p>
+<tr><td><a name="rangeOrPosition"></a><span class="ts" id=765 data-target="#details-765" data-toggle="collapse"><span class="ident">rangeOrPosition</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>The range or position. Positions will be converted to an empty range.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Location">Location</a></span></td><td><div class="comment"></div></td></tr>
@@ -3609,21 +3613,21 @@ inside a text file.</p>
 
 
 
-<a name="Location.range"></a><span class="ts" id=767 data-target="#details-767" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
-<div class="details collapse" id="details-767">
+<a name="Location.range"></a><span class="ts" id=761 data-target="#details-761" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
+<div class="details collapse" id="details-761">
 <div class="comment"><p>The document range of this locations.</p>
 </div>
 </div>
 
 
 
-<a name="Location.uri"></a><span class="ts" id=766 data-target="#details-766" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
-<div class="details collapse" id="details-766">
+<a name="Location.uri"></a><span class="ts" id=760 data-target="#details-760" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
+<div class="details collapse" id="details-760">
 <div class="comment"><p>The resource identifier of this location.</p>
 </div>
 </div>
 
-### <a name="MarkedString"></a><span class="code-item" id=883>MarkedString</span>
+### <a name="MarkedString"></a><span class="code-item" id=877>MarkedString</span>
 
 
 
@@ -3634,9 +3638,9 @@ markdown strings will be sanitized - that means html will be escaped.</p>
 
 
 
-<a name="MarkedString"></a><span class="ts" id=883 data-target="#details-883" data-toggle="collapse"><span class="ident">MarkedString</span><span>: </span><a class="type-instrinct">string</a> &#124; {language: <a class="type-instrinct">string</a>, value: <a class="type-instrinct">string</a>}</span>
+<a name="MarkedString"></a><span class="ts" id=877 data-target="#details-877" data-toggle="collapse"><span class="ident">MarkedString</span><span>: </span><a class="type-instrinct">string</a> &#124; {language: <a class="type-instrinct">string</a>, value: <a class="type-instrinct">string</a>}</span>
 
-### <a name="Memento"></a><span class="code-item" id=863>Memento</span>
+### <a name="Memento"></a><span class="code-item" id=857>Memento</span>
 
 
 
@@ -3648,16 +3652,16 @@ values.</p>
 
 
 
-<a name="Memento.get"></a><span class="ts" id=865 data-target="#details-865" data-toggle="collapse"><span class="ident">get</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">defaultValue</span><span>?</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-instrinct">T</a></span>
-<div class="details collapse" id="details-865">
+<a name="Memento.get"></a><span class="ts" id=859 data-target="#details-859" data-toggle="collapse"><span class="ident">get</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">defaultValue</span><span>?</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-instrinct">T</a></span>
+<div class="details collapse" id="details-859">
 <div class="comment"><p>Return a value.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="key"></a><span class="ts" id=867 data-target="#details-867" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A string.</p>
+<tr><td><a name="key"></a><span class="ts" id=861 data-target="#details-861" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A string.</p>
 </div></td></tr>
-<tr><td><a name="defaultValue"></a><span class="ts" id=868 data-target="#details-868" data-toggle="collapse"><span class="ident">defaultValue</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>A value that should be returned when there is no
+<tr><td><a name="defaultValue"></a><span class="ts" id=862 data-target="#details-862" data-toggle="collapse"><span class="ident">defaultValue</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>A value that should be returned when there is no
 value (<code>undefined</code>) with the given key.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -3669,16 +3673,16 @@ value (<code>undefined</code>) with the given key.</p>
 
 
 
-<a name="Memento.update"></a><span class="ts" id=870 data-target="#details-870" data-toggle="collapse"><span class="ident">update</span><span>(</span><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">value</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
-<div class="details collapse" id="details-870">
+<a name="Memento.update"></a><span class="ts" id=864 data-target="#details-864" data-toggle="collapse"><span class="ident">update</span><span>(</span><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">value</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
+<div class="details collapse" id="details-864">
 <div class="comment"><p>Store a value. The value must be JSON-stringifyable.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="key"></a><span class="ts" id=871 data-target="#details-871" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A string.</p>
+<tr><td><a name="key"></a><span class="ts" id=865 data-target="#details-865" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A string.</p>
 </div></td></tr>
-<tr><td><a name="value"></a><span class="ts" id=872 data-target="#details-872" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>A value. MUST not contain cyclic references.</p>
+<tr><td><a name="value"></a><span class="ts" id=866 data-target="#details-866" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>A value. MUST not contain cyclic references.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span></td><td><div class="comment"></div></td></tr>
@@ -3786,7 +3790,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 </div>
 </div>
 
-### <a name="OutputChannel"></a><span class="code-item" id=807>OutputChannel</span>
+### <a name="OutputChannel"></a><span class="code-item" id=801>OutputChannel</span>
 
 
 
@@ -3799,8 +3803,8 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 
 
-<a name="OutputChannel.name"></a><span class="ts" id=808 data-target="#details-808" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-808">
+<a name="OutputChannel.name"></a><span class="ts" id=802 data-target="#details-802" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-802">
 <div class="comment"><p>The human-readable name of this output channel.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -3812,14 +3816,14 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 
 
-<a name="OutputChannel.append"></a><span class="ts" id=810 data-target="#details-810" data-toggle="collapse"><span class="ident">append</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-810">
+<a name="OutputChannel.append"></a><span class="ts" id=804 data-target="#details-804" data-toggle="collapse"><span class="ident">append</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-804">
 <div class="comment"><p>Append the given value to the channel.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="value"></a><span class="ts" id=811 data-target="#details-811" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A string, falsy values will not be printed.</p>
+<tr><td><a name="value"></a><span class="ts" id=805 data-target="#details-805" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A string, falsy values will not be printed.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -3829,15 +3833,15 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 
 
-<a name="OutputChannel.appendLine"></a><span class="ts" id=813 data-target="#details-813" data-toggle="collapse"><span class="ident">appendLine</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-813">
+<a name="OutputChannel.appendLine"></a><span class="ts" id=807 data-target="#details-807" data-toggle="collapse"><span class="ident">appendLine</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-807">
 <div class="comment"><p>Append the given value and a line feed character
 to the channel.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="value"></a><span class="ts" id=814 data-target="#details-814" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A string, falsy values will be printed.</p>
+<tr><td><a name="value"></a><span class="ts" id=808 data-target="#details-808" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A string, falsy values will be printed.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -3847,8 +3851,8 @@ to the channel.</p>
 
 
 
-<a name="OutputChannel.clear"></a><span class="ts" id=816 data-target="#details-816" data-toggle="collapse"><span class="ident">clear</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-816">
+<a name="OutputChannel.clear"></a><span class="ts" id=810 data-target="#details-810" data-toggle="collapse"><span class="ident">clear</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-810">
 <div class="comment"><p>Removes all output from the channel.</p>
 </div>
 <div class="signature">
@@ -3861,8 +3865,8 @@ to the channel.</p>
 
 
 
-<a name="OutputChannel.dispose"></a><span class="ts" id=826 data-target="#details-826" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-826">
+<a name="OutputChannel.dispose"></a><span class="ts" id=820 data-target="#details-820" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-820">
 <div class="comment"><p>Dispose and free associated resources.</p>
 </div>
 <div class="signature">
@@ -3875,8 +3879,8 @@ to the channel.</p>
 
 
 
-<a name="OutputChannel.hide"></a><span class="ts" id=824 data-target="#details-824" data-toggle="collapse"><span class="ident">hide</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-824">
+<a name="OutputChannel.hide"></a><span class="ts" id=818 data-target="#details-818" data-toggle="collapse"><span class="ident">hide</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-818">
 <div class="comment"><p>Hide this channel from the UI.</p>
 </div>
 <div class="signature">
@@ -3889,8 +3893,8 @@ to the channel.</p>
 
 
 
-<a name="OutputChannel.show"></a><span class="ts" id=818 data-target="#details-818" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-818">
+<a name="OutputChannel.show"></a><span class="ts" id=812 data-target="#details-812" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-812">
 <div class="comment"><p>Reveal this channel in the UI.</p>
 <ul>
 <li><em>deprecated</em> - <strong>This method is deprecated.</strong></li>
@@ -3899,9 +3903,9 @@ to the channel.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="column"></a><span class="ts" id=819 data-target="#details-819" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>The column in which to show the channel, default in <a href="#ViewColumn.One">one</a>.</p>
+<tr><td><a name="column"></a><span class="ts" id=813 data-target="#details-813" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>The column in which to show the channel, default in <a href="#ViewColumn.One">one</a>.</p>
 </div></td></tr>
-<tr><td><a name="preserveFocus"></a><span class="ts" id=820 data-target="#details-820" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the channel will not take focus.</p>
+<tr><td><a name="preserveFocus"></a><span class="ts" id=814 data-target="#details-814" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the channel will not take focus.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -3911,14 +3915,14 @@ to the channel.</p>
 
 
 
-<a name="OutputChannel.show"></a><span class="ts" id=821 data-target="#details-821" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">preservceFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-821">
+<a name="OutputChannel.show"></a><span class="ts" id=815 data-target="#details-815" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">preservceFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-815">
 <div class="comment"><p>Reveal this channel in the UI.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="preservceFocus"></a><span class="ts" id=822 data-target="#details-822" data-toggle="collapse"><span class="ident">preservceFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="preservceFocus"></a><span class="ts" id=816 data-target="#details-816" data-toggle="collapse"><span class="ident">preservceFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"></div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">void</a></span></td><td><div class="comment"></div></td></tr>
 </table>
@@ -4928,7 +4932,7 @@ the UI.</p>
 </div>
 </div>
 
-### <a name="StatusBarAlignment"></a><span class="code-item" id=827>StatusBarAlignment</span>
+### <a name="StatusBarAlignment"></a><span class="code-item" id=821>StatusBarAlignment</span>
 
 
 
@@ -4939,17 +4943,17 @@ the UI.</p>
 
 
 
-<a name="StatusBarAlignment.Left"></a><span class="ts" id=828 data-target="#details-828" data-toggle="collapse"><span class="ident">Left</span></span>
-<div class="details collapse" id="details-828">
+<a name="StatusBarAlignment.Left"></a><span class="ts" id=822 data-target="#details-822" data-toggle="collapse"><span class="ident">Left</span></span>
+<div class="details collapse" id="details-822">
 </div>
 
 
 
-<a name="StatusBarAlignment.Right"></a><span class="ts" id=829 data-target="#details-829" data-toggle="collapse"><span class="ident">Right</span></span>
-<div class="details collapse" id="details-829">
+<a name="StatusBarAlignment.Right"></a><span class="ts" id=823 data-target="#details-823" data-toggle="collapse"><span class="ident">Right</span></span>
+<div class="details collapse" id="details-823">
 </div>
 
-### <a name="StatusBarItem"></a><span class="code-item" id=830>StatusBarItem</span>
+### <a name="StatusBarItem"></a><span class="code-item" id=824>StatusBarItem</span>
 
 
 
@@ -4961,8 +4965,8 @@ show text and icons and run a command on click.</p>
 
 
 
-<a name="StatusBarItem.alignment"></a><span class="ts" id=831 data-target="#details-831" data-toggle="collapse"><span class="ident">alignment</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span>
-<div class="details collapse" id="details-831">
+<a name="StatusBarItem.alignment"></a><span class="ts" id=825 data-target="#details-825" data-toggle="collapse"><span class="ident">alignment</span><span>: </span><a class="type-ref" href="#StatusBarAlignment">StatusBarAlignment</a></span>
+<div class="details collapse" id="details-825">
 <div class="comment"><p>The alignment of this item.</p>
 <ul>
 <li><em>readonly</em></li>
@@ -4972,16 +4976,16 @@ show text and icons and run a command on click.</p>
 
 
 
-<a name="StatusBarItem.color"></a><span class="ts" id=835 data-target="#details-835" data-toggle="collapse"><span class="ident">color</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-835">
+<a name="StatusBarItem.color"></a><span class="ts" id=829 data-target="#details-829" data-toggle="collapse"><span class="ident">color</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-829">
 <div class="comment"><p>The foreground color for this entry.</p>
 </div>
 </div>
 
 
 
-<a name="StatusBarItem.command"></a><span class="ts" id=836 data-target="#details-836" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-836">
+<a name="StatusBarItem.command"></a><span class="ts" id=830 data-target="#details-830" data-toggle="collapse"><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-830">
 <div class="comment"><p>The identifier of a command to run on click. The command must be
 <a href="#commands.getCommands">known</a>.</p>
 </div>
@@ -4989,8 +4993,8 @@ show text and icons and run a command on click.</p>
 
 
 
-<a name="StatusBarItem.priority"></a><span class="ts" id=832 data-target="#details-832" data-toggle="collapse"><span class="ident">priority</span><span>: </span><a class="type-instrinct">number</a></span>
-<div class="details collapse" id="details-832">
+<a name="StatusBarItem.priority"></a><span class="ts" id=826 data-target="#details-826" data-toggle="collapse"><span class="ident">priority</span><span>: </span><a class="type-instrinct">number</a></span>
+<div class="details collapse" id="details-826">
 <div class="comment"><p>The priority of this item. Higher value means the item should
 be shown more to the left.</p>
 <ul>
@@ -5001,8 +5005,8 @@ be shown more to the left.</p>
 
 
 
-<a name="StatusBarItem.text"></a><span class="ts" id=833 data-target="#details-833" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-833">
+<a name="StatusBarItem.text"></a><span class="ts" id=827 data-target="#details-827" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-827">
 <div class="comment"><p>The text to show for the entry. You can embed icons in the text by leveraging the syntax:</p>
 <p><code>My text $(icon-name) contains icons like $(icon&#39;name) this one.</code></p>
 <p>Where the icon-name is taken from the <a href="https://octicons.github.com">octicon</a> icon set, e.g.
@@ -5012,8 +5016,8 @@ be shown more to the left.</p>
 
 
 
-<a name="StatusBarItem.tooltip"></a><span class="ts" id=834 data-target="#details-834" data-toggle="collapse"><span class="ident">tooltip</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-834">
+<a name="StatusBarItem.tooltip"></a><span class="ts" id=828 data-target="#details-828" data-toggle="collapse"><span class="ident">tooltip</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-828">
 <div class="comment"><p>The tooltip text when you hover over this entry.</p>
 </div>
 </div>
@@ -5022,8 +5026,8 @@ be shown more to the left.</p>
 
 
 
-<a name="StatusBarItem.dispose"></a><span class="ts" id=842 data-target="#details-842" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-842">
+<a name="StatusBarItem.dispose"></a><span class="ts" id=836 data-target="#details-836" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-836">
 <div class="comment"><p>Dispose and free associated resources. Call
 <a href="#StatusBarItem.hide">hide</a>.</p>
 </div>
@@ -5037,8 +5041,8 @@ be shown more to the left.</p>
 
 
 
-<a name="StatusBarItem.hide"></a><span class="ts" id=840 data-target="#details-840" data-toggle="collapse"><span class="ident">hide</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-840">
+<a name="StatusBarItem.hide"></a><span class="ts" id=834 data-target="#details-834" data-toggle="collapse"><span class="ident">hide</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-834">
 <div class="comment"><p>Hide the entry in the status bar.</p>
 </div>
 <div class="signature">
@@ -5051,8 +5055,8 @@ be shown more to the left.</p>
 
 
 
-<a name="StatusBarItem.show"></a><span class="ts" id=838 data-target="#details-838" data-toggle="collapse"><span class="ident">show</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
-<div class="details collapse" id="details-838">
+<a name="StatusBarItem.show"></a><span class="ts" id=832 data-target="#details-832" data-toggle="collapse"><span class="ident">show</span><span>(</span><span>)</span><span>: </span><a class="type-instrinct">void</a></span>
+<div class="details collapse" id="details-832">
 <div class="comment"><p>Shows the entry in the status bar.</p>
 </div>
 <div class="signature">
@@ -5533,7 +5537,7 @@ has been saved.</p>
 </div>
 </div>
 
-### <a name="TextDocumentChangeEvent"></a><span class="code-item" id=877>TextDocumentChangeEvent</span>
+### <a name="TextDocumentChangeEvent"></a><span class="code-item" id=871>TextDocumentChangeEvent</span>
 
 
 
@@ -5544,21 +5548,21 @@ has been saved.</p>
 
 
 
-<a name="TextDocumentChangeEvent.contentChanges"></a><span class="ts" id=879 data-target="#details-879" data-toggle="collapse"><span class="ident">contentChanges</span><span>: </span><a class="type-ref" href="#TextDocumentContentChangeEvent">TextDocumentContentChangeEvent</a>[]</span>
-<div class="details collapse" id="details-879">
+<a name="TextDocumentChangeEvent.contentChanges"></a><span class="ts" id=873 data-target="#details-873" data-toggle="collapse"><span class="ident">contentChanges</span><span>: </span><a class="type-ref" href="#TextDocumentContentChangeEvent">TextDocumentContentChangeEvent</a>[]</span>
+<div class="details collapse" id="details-873">
 <div class="comment"><p>An array of content changes.</p>
 </div>
 </div>
 
 
 
-<a name="TextDocumentChangeEvent.document"></a><span class="ts" id=878 data-target="#details-878" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span>
-<div class="details collapse" id="details-878">
+<a name="TextDocumentChangeEvent.document"></a><span class="ts" id=872 data-target="#details-872" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span>
+<div class="details collapse" id="details-872">
 <div class="comment"><p>The affected document.</p>
 </div>
 </div>
 
-### <a name="TextDocumentContentChangeEvent"></a><span class="code-item" id=873>TextDocumentContentChangeEvent</span>
+### <a name="TextDocumentContentChangeEvent"></a><span class="code-item" id=867>TextDocumentContentChangeEvent</span>
 
 
 
@@ -5569,24 +5573,24 @@ has been saved.</p>
 
 
 
-<a name="TextDocumentContentChangeEvent.range"></a><span class="ts" id=874 data-target="#details-874" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
-<div class="details collapse" id="details-874">
+<a name="TextDocumentContentChangeEvent.range"></a><span class="ts" id=868 data-target="#details-868" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
+<div class="details collapse" id="details-868">
 <div class="comment"><p>The range that got replaced.</p>
 </div>
 </div>
 
 
 
-<a name="TextDocumentContentChangeEvent.rangeLength"></a><span class="ts" id=875 data-target="#details-875" data-toggle="collapse"><span class="ident">rangeLength</span><span>: </span><a class="type-instrinct">number</a></span>
-<div class="details collapse" id="details-875">
+<a name="TextDocumentContentChangeEvent.rangeLength"></a><span class="ts" id=869 data-target="#details-869" data-toggle="collapse"><span class="ident">rangeLength</span><span>: </span><a class="type-instrinct">number</a></span>
+<div class="details collapse" id="details-869">
 <div class="comment"><p>The length of the range that got replaced.</p>
 </div>
 </div>
 
 
 
-<a name="TextDocumentContentChangeEvent.text"></a><span class="ts" id=876 data-target="#details-876" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span>
-<div class="details collapse" id="details-876">
+<a name="TextDocumentContentChangeEvent.text"></a><span class="ts" id=870 data-target="#details-870" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span>
+<div class="details collapse" id="details-870">
 <div class="comment"><p>The new text for the range.</p>
 </div>
 </div>
@@ -6018,20 +6022,24 @@ You can use \r\n or \n in <code>value</code> and they will be normalized to the 
 
 
 
-<a name="TextEditorOptions.insertSpaces"></a><span class="ts" id=240 data-target="#details-240" data-toggle="collapse"><span class="ident">insertSpaces</span><span>: </span><a class="type-instrinct">boolean</a></span>
+<a name="TextEditorOptions.insertSpaces"></a><span class="ts" id=240 data-target="#details-240" data-toggle="collapse"><span class="ident">insertSpaces</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a> &#124; <a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-240">
-<div class="comment"><p>When pressing Tab insert <a href="#TextEditorOptions.tabSize">n</a> spaces.</p>
+<div class="comment"><p>When pressing Tab insert <a href="#TextEditorOptions.tabSize">n</a> spaces.
+When getting a text editor&#39;s options, this property will always be a boolean (resolved).
+When setting a text editor&#39;s options, this property is optional and it can be a boolean or <code>&quot;auto&quot;</code>.</p>
 </div>
 </div>
 
 
 
-<a name="TextEditorOptions.tabSize"></a><span class="ts" id=239 data-target="#details-239" data-toggle="collapse"><span class="ident">tabSize</span><span>: </span><a class="type-instrinct">number</a></span>
+<a name="TextEditorOptions.tabSize"></a><span class="ts" id=239 data-target="#details-239" data-toggle="collapse"><span class="ident">tabSize</span><span>?</span><span>: </span><a class="type-instrinct">number</a> &#124; <a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-239">
 <div class="comment"><p>The size in spaces a tab takes. This is used for two purposes:</p>
 <ul>
 <li>the rendering width of a tab character;</li>
-<li>the number of spaces to insert when <a href="#TextEditorOptions.insertSpaces">insertSpaces</a> is true.</li>
+<li>the number of spaces to insert when <a href="#TextEditorOptions.insertSpaces">insertSpaces</a> is true.
+When getting a text editor&#39;s options, this property will always be a number (resolved).
+When setting a text editor&#39;s options, this property is optional and it can be a number or <code>&quot;auto&quot;</code>.</li>
 </ul>
 </div>
 </div>
@@ -6482,7 +6490,7 @@ of a URI depends on the scheme.</p>
 </div>
 </div>
 
-### <a name="ViewColumn"></a><span class="code-item" id=803>ViewColumn</span>
+### <a name="ViewColumn"></a><span class="code-item" id=797>ViewColumn</span>
 
 
 
@@ -6494,26 +6502,26 @@ used to show editors side by side.</p>
 
 
 
-<a name="ViewColumn.One"></a><span class="ts" id=804 data-target="#details-804" data-toggle="collapse"><span class="ident">One</span></span>
-<div class="details collapse" id="details-804">
+<a name="ViewColumn.One"></a><span class="ts" id=798 data-target="#details-798" data-toggle="collapse"><span class="ident">One</span></span>
+<div class="details collapse" id="details-798">
 <em>1</em>
 </div>
 
 
 
-<a name="ViewColumn.Three"></a><span class="ts" id=806 data-target="#details-806" data-toggle="collapse"><span class="ident">Three</span></span>
-<div class="details collapse" id="details-806">
+<a name="ViewColumn.Three"></a><span class="ts" id=800 data-target="#details-800" data-toggle="collapse"><span class="ident">Three</span></span>
+<div class="details collapse" id="details-800">
 <em>3</em>
 </div>
 
 
 
-<a name="ViewColumn.Two"></a><span class="ts" id=805 data-target="#details-805" data-toggle="collapse"><span class="ident">Two</span></span>
-<div class="details collapse" id="details-805">
+<a name="ViewColumn.Two"></a><span class="ts" id=799 data-target="#details-799" data-toggle="collapse"><span class="ident">Two</span></span>
+<div class="details collapse" id="details-799">
 <em>2</em>
 </div>
 
-### <a name="WorkspaceConfiguration"></a><span class="code-item" id=754>WorkspaceConfiguration</span>
+### <a name="WorkspaceConfiguration"></a><span class="code-item" id=748>WorkspaceConfiguration</span>
 
 
 
@@ -6526,16 +6534,16 @@ and the installation-wide configuration.</p>
 
 
 
-<a name="WorkspaceConfiguration.get"></a><span class="ts" id=756 data-target="#details-756" data-toggle="collapse"><span class="ident">get</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">defaultValue</span><span>?</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-instrinct">T</a></span>
-<div class="details collapse" id="details-756">
+<a name="WorkspaceConfiguration.get"></a><span class="ts" id=750 data-target="#details-750" data-toggle="collapse"><span class="ident">get</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">defaultValue</span><span>?</span><span>: </span><a class="type-instrinct">T</a><span>)</span><span>: </span><a class="type-instrinct">T</a></span>
+<div class="details collapse" id="details-750">
 <div class="comment"><p>Return a value from this configuration.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=758 data-target="#details-758" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Configuration name, supports <em>dotted</em> names.</p>
+<tr><td><a name="section"></a><span class="ts" id=752 data-target="#details-752" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>Configuration name, supports <em>dotted</em> names.</p>
 </div></td></tr>
-<tr><td><a name="defaultValue"></a><span class="ts" id=759 data-target="#details-759" data-toggle="collapse"><span class="ident">defaultValue</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>A value should be returned when no value could be found, is <code>undefined</code>.</p>
+<tr><td><a name="defaultValue"></a><span class="ts" id=753 data-target="#details-753" data-toggle="collapse"><span class="ident">defaultValue</span><span>?</span><span>: </span><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>A value should be returned when no value could be found, is <code>undefined</code>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">T</a></span></td><td><div class="comment"><p>The value <code>section</code> denotes or the default.</p>
@@ -6546,14 +6554,14 @@ and the installation-wide configuration.</p>
 
 
 
-<a name="WorkspaceConfiguration.has"></a><span class="ts" id=761 data-target="#details-761" data-toggle="collapse"><span class="ident">has</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">boolean</a></span>
-<div class="details collapse" id="details-761">
+<a name="WorkspaceConfiguration.has"></a><span class="ts" id=755 data-target="#details-755" data-toggle="collapse"><span class="ident">has</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-instrinct">boolean</a></span>
+<div class="details collapse" id="details-755">
 <div class="comment"><p>Check if this configuration has a certain value.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="section"></a><span class="ts" id=762 data-target="#details-762" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>configuration name, supports <em>dotted</em> names.</p>
+<tr><td><a name="section"></a><span class="ts" id=756 data-target="#details-756" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>configuration name, supports <em>dotted</em> names.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p><code>true</code> iff the section doesn&#39;t resolve to <code>undefined</code>.</p>

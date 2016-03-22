@@ -2,6 +2,7 @@
 Order: 2
 Area: extensionapi
 TOCTitle: Extension Manifest
+ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
 DateApproved: 3/7/2016
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.  
@@ -23,6 +24,7 @@ Name | Required | Type | Details
 `displayName` | | `string`| The display name for the extension used in the Gallery.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Other]`
+`keywords` | | `array` | An array of **keywords** or **tags** to make it easier to find the extension.
 `galleryBanner` | | `object` | Helps format the gallery header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension as a Preview Extension in the Marketplace.
 `main` | | `string` | The entry point to your extension.
@@ -128,7 +130,7 @@ An Icon and a contrasting banner color looks great on the Marketplace page heade
 	},
 ```
 
-There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed in the 'resources' section of the Marketplace.
+There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed under the **Resources** section of the Marketplace.
 ```json
 	"license": "SEE LICENSE IN LICENSE.md",
 	"bugs": {
@@ -140,6 +142,13 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 		"url": "https://github.com/Microsoft/vscode-spell-check.git"
 	}
 ```
+
+Marketplace Resources link | package.json attribute
+-----------------|-----------------------
+Support | `bugs:url`
+Get Started | `repository:url`
+Learn | `homepage`
+License | `license`
 
 Set a `category` for your extension.  Extensions in the same `category` are grouped together on the gallery which improves filtering and discovery.
 

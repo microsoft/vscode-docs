@@ -2,6 +2,7 @@
 Order: 9
 Area: editor
 TOCTitle: Tasks
+ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in visual Studio Code
 DateApproved: 3/7/2016
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
