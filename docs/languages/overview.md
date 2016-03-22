@@ -56,4 +56,24 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **Q: Can I map additional file extensions to a language?**
 
-**A:** Currently this is not supported but it's on the way.
+**A:** Yes with the `files.associations` [setting](/docs/customization/userandworkspace.md) you can map file extensions to an existing language either globally or per workspace.
+
+Here is an example that will associate more file extensions to the PHP language:
+
+```json
+"files.associations": {
+    "*.php4": "php",
+    "*.php5": "php"
+}
+```
+
+You can also configure full file paths to languages if needed. The following example associates all files in a folder `somefolder` to PHP:
+
+```json
+"files.associations": {
+    "**/somefolder/*.*": "php"
+}
+```
+
+Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
+
