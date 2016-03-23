@@ -35,7 +35,7 @@ The Debug view displays all information pertaining to debugging and has a top ba
 
 ## Launch Configurations
 
-To debug your app in VS Code, you'll first need to setup your debugging launch configuration file - `launch.json`.
+To debug your app in VS Code, you'll first need to setup your launch configuration file - `launch.json`.
 Click on the Configure gear icon on the Debug view top bar, choose your debug environment and VS Code will generate a launch.json.
 Here is the one generated for Node.js debugging:
 
@@ -72,7 +72,7 @@ Here is the one generated for Node.js debugging:
 	]
 }
 ```
-Please note that the attributes available in these launch configurations vary from debugger to debugger. You can use Intellisense to find out what attributes exist for a specific debugger. In addition hover help is available for all attributes. If you see green squigglies in your launch configuration hover over them to learn what the problem is and try to fix it before launching a debug session.
+Please note that the attributes available in these launch configurations vary from debugger to debugger. You can use Intellisense to find out what attributes exist for a specific debugger. In addition hover help is available for all attributes. If you see green squigglies in your launch configuration hover over them to learn what the problem is and try to fix them before launching a debug session.
 
 In VS Code we support launching your app in debug mode or attaching to an already running app. Depending on the request (attach or launch) different attributes are required and our launch.json validation and suggestions should help with that.
 
@@ -91,7 +91,7 @@ Please note: The 'Run' action is always available, but a debugger extension has 
 ## Breakpoints
 
 Breakpoints can be toggled by clicking on the **editor margin**.
-Finer breakpoint control (enable/disable/reapply) can be done in the Debug view **BREAKPOINTS** section.
+Finer breakpoint control (enable/disable/reapply) can be done in the Debug view's **BREAKPOINTS** section.
 
 * Breakpoints in the editor margin are normally shown as red filled circles.
 * Disabled breakpoints have a filled gray circle.
@@ -133,6 +133,8 @@ Once a debug session starts, the **Debug actions pane** will appear on the top o
 * Stop `kb(workbench.action.debug.stop)`
 
 ## Node Debugging
+
+The following sections are specific to the Node.js debugger.
 
 ### Node Console
 
@@ -185,7 +187,7 @@ A 'function breakpoint' is created by pressing the '+' button in the Breakpoints
 The Node.js debugger of VS Code supports JavaScript Source Maps which help debugging of transpiled languages, e.g. TypeScript or minified/uglified JavaScript. With source maps, it is possible to single step through or set breakpoints in the original source. If no source map exists for the original source or if the source map is broken and cannot successfully map between the source and the generated JavaScript, the breakpoints are shown as gray hollow circles.
 
 The source map feature is enabled by setting the `sourceMaps` attribute to `true` in the launch configuration.
-In addition, you can specify a source file (e.g. app.ts) with the `program` attribute.
+With that you can now specify a source file (e.g. app.ts) with the `program` attribute.
 If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory,
 you can help the VS Code debugger locate them by setting the `outDir` attribute.
 Whenever you set a breakpoint in the original source, VS Code tries to find the generated source,
