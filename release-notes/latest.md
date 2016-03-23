@@ -345,7 +345,7 @@ For example, Git allows you to configure an external editor and here are the ste
     * if you do not see help, please follow these steps:
         * Mac: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
         * Windows: Make sure you selected **Add to PATH** during the installation.
-        * Linux: Make sure you selected **Add to PATH** during the installation.
+        * Linux: Make sure you installed Code via our new .deb or .rpm packages.
 2. From the command line, run `git config --global core.editor "code --wait"`
 
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
