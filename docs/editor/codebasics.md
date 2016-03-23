@@ -97,6 +97,8 @@ Think of the **WORKING FILES** section as similar to Tabs that you may be famili
 
 Once you are done with your task, you can individually remove files from the working files section, or you can remove all files from the working files section by using the **Close All Files** action.
 
+>**Tip:** You can type `kb(workbench.files.action.workingFilesPicker)` to navigate the list of working files from quick open without having the explorer visible.
+
 ## Configuring the Editor
 
 VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/customization/userandworkspace.md#settings-file-locations).
@@ -220,12 +222,13 @@ Argument|Description
 ------------------|-----------
 `-h` or `--help` | Print usage
 `-v` or `--version` | Print VS Code version (e.g. 0.10.10)
-`-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session.
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
+`-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
 *file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
 *file:line:column?* | Name of a file to open at the specified line and optional column position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line:column?* specifier.
 *folder* | Name of a folder to open. You can specify multiple folders.
+`-d` or `--diff` | Open a diff editor. Requires to pass two file paths as arguments.
 `--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es` 
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
 
@@ -251,7 +254,7 @@ In other words, opening the folder containing the project effectively opens that
 
 VS Code has some options to control how windows should be opened or restored between sessions.
 
-The `window.openInNewWindow` setting controls if files should open in a new window instead of reusing an existing VS Code instance. By default, VS Code will open a new window when you double-click on a file outside VS Code or open a file from the command line. Set this to `false` to reuse the last active instance of VS Code and open files in there.
+The `window.openFilesInNewWindow` setting controls if files should open in a new window instead of reusing an existing VS Code instance. By default, VS Code will open a new window when you double-click on a file outside VS Code or open a file from the command line. Set this to `false` to reuse the last active instance of VS Code and open files in there.
 
 The `window.reopenFolders` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
 reopen the last opened folder you worked on (setting: `one`). Change this setting to `none` to never reopen any folders and always start with an empty VS Code instance. Change it to `all` to restore all folders you worked on during your previous session.
