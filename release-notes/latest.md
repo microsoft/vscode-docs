@@ -66,7 +66,7 @@ to the `jsconfig.json` you tell the compiler to create synthetic default members
     }
 }
 ``` 
-This works since ReactNative is using `Babel` to create the proper run-time code with default members.
+This works since ReactNative is using `Babel` to create the run-time code with default members.
 
 ### Support for mix & match of ES6 and CommonJS import/export
 
