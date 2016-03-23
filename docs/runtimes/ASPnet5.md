@@ -111,9 +111,6 @@ Open your favorite browser and browse to `http://localhost:5000` to browse the s
 
 Note: command execution from the Command Palette doesn’t work yet on Linux. To run commands manually on Linux, start a console and type: ```dnx <command_name>```.
 
-## Debugging
-
-Visual Studio Code and ASP.NET Core are in preview and at this time debugging ASP.NET Core is not supported in Visual Studio Code (on any platform). Rest assured, we are working hard to bring these experiences to you in the near future.
 
 ## Next Steps
 
