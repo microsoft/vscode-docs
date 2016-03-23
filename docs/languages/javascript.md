@@ -73,24 +73,26 @@ When your JavaScript project is growing too large, often because of library fold
 
 ## IntelliSense Support
 
-IntelliSense is automatically provided for CommonJS modules inside your project folders (AMD is currently not supported). In addition, to Intellisense for your code you can also get Intellisense for libraries through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [Typings](https://github.com/typings/typings), the TypeScript Definition manager. 
+IntelliSense is automatically provided for CommonJS modules inside your project folders (AMD is currently not supported). In addition, to IntelliSense for your code you can also get IntelliSense for libraries through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [Typings](https://github.com/typings/typings), the TypeScript Definition manager. 
 
-For example `typings install --ambient node` installs all the typings for the built-in node modules. If your project has a `jsconfig.json` file, then all you need is that the `typings` folder is contained in the project to get Intellisense. If you have no `jsconfig.json` then you need to manually add a `/// reference` to the `.d.ts` from each file. 
+For example `typings install --ambient node` installs all the typings for the built-in node modules. If your project has a `jsconfig.json` file, then all you need is that the `typings` folder is contained in the project to get IntelliSense. If you have no `jsconfig.json` then you need to manually add a `/// reference` to the `.d.ts` from each file. 
 
 VS Code understands **JSDoc comments** and uses it to improve the IntelliSense proposals and parameter hints.
 
-IntelliSense offers both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image above.
+IntelliSense offers both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image below.
 
-![Intellisense](images/javascript/es3-classes.png)
+![IntelliSense](images/javascript/es3-classes.png)
 
 ## Disable Syntax Validation when using ES7 constructs
 
 Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are flagged as errors. For users who still want to use these ES7 features, we have revived the javascript.validate.enable setting to disable all built-in syntax checking. If you do this, we recommend that you use a linter like ESLint to validate your code. Since the JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
 
 ## Mixed TypeScript and JavaScript projects
+
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json.`
 
 ## Down level compiling
+
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Use the –p argument to make tsc use your jsconfig.json file, e.g. tsc -p jsconfig.json.
 
 ## JavaScript Formatting
@@ -123,7 +125,7 @@ npm install
 
 ### Run Babel inside VS Code
 
-The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate Babel into your workflow by adding this code to your `tasks.json` file (located under the workspace's `.vscode` folder). The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
+The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding this code to your `tasks.json` file (located under the workspace's `.vscode` folder). The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
 
 ```json
 {
@@ -142,15 +144,15 @@ The Babel transpiler turns ES6 files into readable ES5 JavaScript with Source Ma
 }
 ```
 
-Once you have added this, you can start Babel with the `kb(workbench.action.tasks.build)` (Run Build Task) gesture and it will compile all files from the `src` directory into the `lib` directory.
+Once you have added this, you can start **Babel** with the `kb(workbench.action.tasks.build)` (Run Build Task) gesture and it will compile all files from the `src` directory into the `lib` directory.
 
-## JSX and ReactNative
+## JSX and React Native
 
-VS Code supports JSX and ReactNative. To get IntelliSense for React/JSX, install the typings for `react-global` by running `typings install --ambient react-global` from the terminal. To get IntellSense for ReactNative run `typings install --ambient react-native.`
+VS Code supports JSX and **React Native**. To get IntelliSense for React/JSX, install the typings for `react-global` by running `typings install --ambient react-global` from the terminal. To get IntelliSense for **React Native** run `typings install --ambient react-native.`
 
-ReactNative examples often use the experimental Object Rest/Spread operator. This is not yet support by VS Code. If you want to use it is recommended that you disable the built-in syntax checking (see above). 
+**React Native** examples often use the experimental Object Rest/Spread operator. This is not yet support by VS Code. If you want to use it is recommended that you disable the built-in syntax checking (see above).
 
-To enable ES6 import statements for ReactNative you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get Intellisense. ReactNative uses `Babel` behind the scenes to create the proper run-time code with default members. If you also want to do debugging of ReactNative code then you can install the [ReactNative Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
+To enable ES6 import statements for **React Native** you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get IntelliSense. **React Native** uses **Babel** behind the scenes to create the proper run-time code with default members. If you also want to do debugging of **React Native** code then you can install the [React Native Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
 ## JavaScript Linters (ESLint, JSHint)
 

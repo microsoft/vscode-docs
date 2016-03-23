@@ -9,7 +9,7 @@ MetaDescription: See what is new in the Visual Studio Code March Release (0.10.1
 
 ## March 2016 Release
 
-March was our end game for the Build 2016 milestone. During the endgame the focus was on problems, performance, polish. 
+March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish. 
 
 Downloads: [Windows](TBD) |
 [OS X](TBD) | [Linux 32-bit](TBD) | [Linux 64-bit](TBD)
@@ -26,17 +26,17 @@ Some users want to use syntax constructs like the proposed **ES7 Object Rest/Spr
 
 The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json`, each JavaScript file is treated as an island. Only the file itself and the JavaScript files it references are considered for features like IntelliSense. By adding a `jsconfig.json` file, you can the define the root of your project, the folders to exclude, etc. For this reason we now provide a hint to create a `jsconfig.json` file.
 
-![jsconfig-hint](images/March/jsconfig-hint.png)
+![jsconfig hint](images/March/jsconfig-hint.png)
 
 The hint creates a template for a `jsconfig.json`, with an exclusion list for you to edit:
 
-![jsconfig-template](images/March/jsconfig-template.png)
+![jsconfig template](images/March/jsconfig-template.png)
 
 Similarly when your JavaScript project is growing too large, often because of library folders like _node_modules_, we will prompt you to edit the `exclude` list.
 
 ### Go To Symbol is back
 
-During the transition to Salsa, the support for **Go to Symbol** was lost ([Typescript#7134](https://github.com/Microsoft/TypeScript/issues/7134)) for some JavaScript coding patterns. Thanks to the TypeScript team this feature is now back.
+During the transition to Salsa, the support for **Go to Symbol** was lost ([TypeScript #7134](https://github.com/Microsoft/TypeScript/issues/7134)) for some JavaScript coding patterns. Thanks to the TypeScript team this feature is now back.
 
 ### No more "Reload JavaScript Project"
 
@@ -44,28 +44,30 @@ Previously you often had to run the **Reload JavaScript Project** command to ens
 
 ### Source for Diagnostics
 
-To make it easy to distinguish between diagnostics from external linters and the built-in syntax validation, errors and warnings from the built-in validator are now prefixed with `[JS]`.
+To make it easy to distinguish between diagnostics from external linters and the built-in syntax validation, errors and warnings from the built-in validator are now prefixed with `[js]`.
 
-![diagnostics](images/March/diagnostics.png)
+![diagnostics prefix](images/March/diagnostics.png)
 
-### Intellisense when using ES6 import statements in ReactNative
+### IntelliSense when using ES6 import statements in React Native
 
-Previously you did not get Intellisense when using ES6 style import statements in ReactNative as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start). In the snippet below you get no Intellisense for `React`:
+Previously you did not get IntelliSense when using ES6 style import statements in **React Native** as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start). In the snippet below you get no IntelliSense for `React`:
 
 ```js
 import React from 'react-native';
 ```
-The issue is that the `react-native` typings do not define a `default` export. By adding the new [compiler option](https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#allow-captured-letconst-in-loops) `allowSyntheticDefaultImports` 
-to the `jsconfig.json` you tell the compiler to create synthetic default members and you get Intellisense.
 
-`jsconfig.json`
+The issue is that the `react-native` typings do not define a `default` export. By adding the new [compiler option](https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#allow-captured-letconst-in-loops) `allowSyntheticDefaultImports` to the `jsconfig.json`, you tell the compiler to create synthetic default members and you get IntelliSense.
+
+In `jsconfig.json`:
+
 ```json
  {
     "compilerOptions": {
         "allowSyntheticDefaultImports": true
     }
 }
-``` 
+```
+
 This works since ReactNative is using `Babel` to create the run-time code with default members.
 
 ### Support for mix & match of ES6 and CommonJS import/export
@@ -185,7 +187,7 @@ Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28
 
 You can now select columns of text by pressing `kbstyle(Shift+Alt)` and clicking or dragging the mouse:
 
-![indentation](images/March/column-select-mouse.gif)
+![mouse column selection](images/March/column-select-mouse.gif)
 
 We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish. 
 
@@ -227,7 +229,7 @@ We have improved our indentation handling in the editor. We have added a new set
 
 The indentation status shows the current file's settings. We have also added additional actions to the indentation status.
 
-![indentation](images/March/indentation.png)
+![indentation actions](images/March/indentation.png)
 
 ### Visual Studio style word navigation and word deletion
 
@@ -262,7 +264,7 @@ To save all new files with the UTF-8 BOM encoding, configure the `files.encoding
 
 The Status Bar now distinguishes between files with UTF-8 and UTF-8 with BOM. You can convert the encoding from there.
 
-![jsconfig-hint](images/March/statusbar_bom.png)
+![file encoding on the status bar](images/March/statusbar_bom.png)
 
 ## Workbench
 
@@ -270,11 +272,11 @@ The Status Bar now distinguishes between files with UTF-8 and UTF-8 with BOM. Yo
 
 There is now an Extensions icon in the bottom left corner of the workbench. This is not only a shortcut to reach into extension related actions but also the place for notifying extension errors. It is also used to report progress during an extension's installation.
 
-![extension-widget](images/March/extension-widget.png)
+![extension widget](images/March/extension-widget.png)
 
 Update notifications will also be notified in this widget:
 
-![extension-widget](images/March/extension-widget-notification.png)
+![extension widget with notification](images/March/extension-widget-notification.png)
 
 ### Exclude files from watching
 
@@ -313,8 +315,8 @@ Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), VS
 
 Configuring the task runner now offers you a list of templates to choose from. Tasks defined for Gulp and Grunt are still auto detected.
 
-![task-templates](images/March/tasks.png)
-
+![task runner templates](images/March/tasks.png)
+ 
 ## Setup
 
 ### Linux packages
@@ -350,7 +352,7 @@ For example, Git allows you to configure an external editor and here are the ste
 
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
 
-![jsconfig-hint](images/March/gitconfig.png)
+![git config in VS Code](images/March/gitconfig.png)
 
 Add the following to enable support for using VS Code as diff tool:
 

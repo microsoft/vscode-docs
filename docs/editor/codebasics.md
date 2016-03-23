@@ -228,7 +228,7 @@ Argument|Description
 *file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
 *file:line:column?* | Name of a file to open at the specified line and optional column position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line:column?* specifier.
 *folder* | Name of a folder to open. You can specify multiple folders.
-`-d` or `--diff` | Open a diff editor. Requires to pass two file paths as arguments.
+`-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
 `--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es` 
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
 
