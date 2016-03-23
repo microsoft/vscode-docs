@@ -14,7 +14,10 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ![Debugging](images/debugging/hero.png)
 
-Today we have good debugging support for Node.js (JavaScript and TypeScript) on all platforms and experimental support for Mono (C# and F#) on OS X and Linux. For debugging other languages, please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
+VS Code has built-in debugging support for Node.js (JavaScript, TypeScript, and any other language that gets transpiled to JavaScript).
+For debugging other languages (including C# on Mono), please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
+
+The following documentation is based on the built-in Node.js debugger, but many of the concepts and features are applicable to other debuggers as well.
 
 It is helpful to first create a sample Node.js application before reading about debugging. Follow this guide to do a run-through with Node.js:
 
@@ -285,7 +288,7 @@ for Linux or OS X at [Mono project](http://www.mono-project.com/download/) or yo
 * On OS X: `brew install mono`
 * On Linux: `sudo apt-get install mono-complete`
 
-### Installing Mono debugging support
+### Installing the Mono Debug Extension
 
 VS Code Mono debugging integration comes from the ['Mono Debug'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) extension on the Visual Studio Marketplace.
 
