@@ -44,6 +44,8 @@ Previously you often had to run the **Reload JavaScript Project** command to ens
 
 To make it easy to distinguish between diagnostics from external linters and the built-in syntax validation, errors and warnings from the built-in validator are now prefixed with `[JS]`.
 
+![diagnostics](images/March/diagnostics.png)
+
 ### Intellisense when using ES6 import statements in ReactNative
 
 Previously you did not get Intellisense when using ES6 style import statements in ReactNative as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start). In the snippet below you get no Intellisense for `React`:
