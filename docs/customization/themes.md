@@ -36,7 +36,7 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 You can also add new TextMate theme files (.tmTheme) to your VS Code installation using the [yo code](/docs/tools/yocode.md) extension generator.
 
-[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator e.g. http://colorsublime.com/theme/download/42472.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name as well as other information for the theme.
+[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator e.g. https://raw.githubusercontent.com/spacekat/Baby-The-Code-Shines-Bright/master/Baby%2C%20The%20Code%20Shines%20Bright.tmTheme.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name as well as other information for the theme.
 
 ![yo code theme](images/themes/yocodetheme.png)
 
