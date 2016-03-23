@@ -12,32 +12,30 @@ MetaDescription: Visual Studio Code has integrated Git support for the most comm
 
 Visual Studio Code has integrated [Git](http://git-scm.com/) support for the most common commands. This makes it an excellent choice to manage your code commits while you develop. And don't forget that the command prompt is still your friend.
 
->**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](http://git-scm.com/download) first before you get these features.
+>**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](http://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
->**Tip:** VS Code will work with any Git repo - local or remote.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
+>**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 ## Overview
 
 ![git overview](images/versioncontrol/overview.png)
 
-The Git icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the detail of your current repository changes: **unstaged**, **staged** and **unresolved merge** changes.
+The Git icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the detail of your current repository changes: **unstaged**, **staged** and **unresolved conflicting merge** changes.
 
 Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
 
->**Tip:** Read on for a little more on diffs in Visual Studio Code.
-
-You can also find indicators of the **status of your repository** in the bottom left corner of VS Code: the **current branch**, **dirty indicators** and the number of **incoming and outgoing commits** of the current branch. You can **checkout** to any branch in your repository by clicking that status indicator
+You can also find indicators of the **status of your repository** in the bottom left corner of VS Code: the **current branch**, **dirty indicators** and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator
 and selecting the Git reference from the list.
 
 > **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
 ## Git Status Bar Actions
 
-There is now a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
+There is a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
 
 ![git status bar sync](images/versioncontrol/git-status-bar-sync.png)
 
-If there is no upstream branch configured and the Git repository has remotes set up, a new **Publish** action is enabled. This will let you publish the current branch to remote.
+If there is no upstream branch configured and the Git repository has remotes set up, the **Publish** action is enabled. This will let you publish the current branch to a remote.
 
 ![git status bar publish](images/versioncontrol/git-status-bar-publish.png)
 
@@ -53,11 +51,11 @@ More specific **commit actions** can be found in the `...` menu on the top of th
 
 ## Branches and Tags
 
-You can create and checkout branches directly within VS code through the Command Palette. Press `kb(workbench.action.quickOpen)`, type `git` and then press `Space`. You should see the following:
+You can create and checkout branches directly within VS code through the Command Palette. Press `kb(workbench.action.quickOpen)`, type `git` and then press `kbstyle(Space)`. You should see the following:
 
 ![Git commands](images/versioncontrol/gitcommands.png)
 
-If you type `checkout` and press `Space` again, you will see a dropdown containing all of the branches or tags in the current repository.
+If you type `checkout` and press `kbstyle(Space)` again, you will see a dropdown containing all of the branches or tags in the current repository.
 
 ![Git checkout](images/versioncontrol/gitbranches.png)
 
@@ -67,28 +65,31 @@ The `git branch` command lets you quickly create a new branch.  Just provide the
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](http://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull** and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the `...` menu.
 
->**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider `Disabling Autofetch` in the `...` menu to reduce the number of prompts you get.
+>**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` configuration setting to reduce the number of prompts you get.
 
 ## Merge Conflicts
 
 ![Git merge](images/versioncontrol/merge.png)
 
-Merge conflicts are recognized by VS Code; we try to provide useful coloring markers to help you with resolving them. Once resolved, stage the conflicting file
-so you can commit.
+Merge conflicts are recognized by VS Code; we try to provide useful coloring markers to help you with resolving them. Once resolved, stage the conflicting file so you can commit those changes.
 
 ## Viewing Diffs
 
-Our Git tooling supports viewing of Diffs within VS Code.
+Our Git tooling supports viewing of diffs within VS Code.
 
 ![A File Diff in VS Code](images/versioncontrol/diff.png)
 
->**Tip:** You can diff any two files by first right clicking on a file in the *Working Files* list and selecting `Set file to compare` and then right-click on the file to compare with and select `Compare with 'file_name_you_chose'`.   Alternatively from the keyboard hit `kb(workbench.action.quickOpen)` and select *File: Compare Active File With...* and you will be presented with a list of recent files.
+>**Tip:** You can diff any two files by first right clicking on a file in the *Working Files* list and selecting `Set file to compare` and then right-click on the file to compare with and select `Compare with 'file_name_you_chose'`.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select *File: Compare Active File With...* and you will be presented with a list of recent files.
 
 ## Git Output Window
 
-You can always peek under the hood to see the commands we are using.  This is helpful if something strange is happening or if you simply get curious :)
+☺︎ile_name_you_chose'`.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select *File: Compare Active File With...* and you will be presented with a list of recent files.
 
-To open the window follow the `View`, `Toggle Output` menu and select `Git` from the dropdown.
+## Git Output Window
+
+You can always peek under the hood to see the commands we are using.  This is helpful if something strange is happening or if you simply get curious. :)
+
+To open the window follow the `View > Toggle Output` menu and select `Git` from the dropdown.
 
 ## Next Steps
 
@@ -117,9 +118,9 @@ To open the window follow the `View`, `Toggle Output` menu and select `Git` from
 
 **Q: Why do the Pull, Push and Sync actions never finish?**
 
-This usually means there is no credential management configured in Git and you're not getting credential prompts.
+This usually means there is no credential management configured in Git and you're not getting credential prompts for some reason.
 
-To get credential prompts any time VS Code needs to talk to your remotes, upgrade to VS Code 0.5.0. Even better, you should set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
+You can always set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
 
 **Q: How can I sign into Git with my Team Services account which requires multi-factor authentication?**
 
@@ -149,6 +150,3 @@ You can either:
 On a **GitHub Desktop** Windows installation, `git.exe` is usually under `C:\Users\USERNAME\AppData\Local\GitHub\PortableGit_COMMITID\ming32\bin`.  Searching for `git.exe` under AppData\Local\GitHub should find the binary.
 
 You can also install Git from [git-scm](http://git-scm.com/) and this will not interfere with **GitHub Desktop**.
-
-
-
