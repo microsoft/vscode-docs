@@ -222,11 +222,28 @@ The corresponding launch configuration looks like this:
 			"type": "node",
 			"request": "attach",
 			"address": "localhost",
-			"port": 5858
+			"port": 5858,
+			"restart": false
 		}
 	]
 }
 ```
+
+The `restart` attribute controls whether the Node.js debugger automatically restarts after the debug session has ended.
+This feature is useful if you use `nodemon` to restart Node.js on file changes.
+Setting the launch configuration attribute `restart` to `true` makes node-debug automatically try to re-attach to Node.js after Node.js has terminated.
+
+On the command line, start your Node.js program `server.js` with nodemon:
+
+```shell
+nodemon --debug server.js
+```
+
+In VS Code, set the `restart` attribute to `true` in the 'attach' launch configuration.
+
+>**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but nodemon (and Node.js) will continue to run. So to stop nodemon you will have to kill it from the command line.
+
+>**Tip:** In case of syntax errors, nodemon will not be able to start Node.js successfully until the error has been fixed. In this case VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
 
 ### Remote Debugging Node.js
 
