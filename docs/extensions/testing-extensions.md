@@ -58,7 +58,7 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
 
 ## Passing Arguments to the Extension Development Host
 
-You can set the file or folder that the test instance should open by appending the path to the arguments list for the launch configuration.
+You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
 
 ```json
 "args": ["file or folder name", "--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
