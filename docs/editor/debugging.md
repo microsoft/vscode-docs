@@ -159,6 +159,20 @@ to the requested locations with the Reapply button in the breakpoint section hea
 
 ![Breakpoint Actions](images/debugging/breakpointstoolbar.png)
 
+### Function Breakpoints
+
+Instead of placing breakpoints directly in the code, the Node.js debugger now supports creating breakpoints by specifying a function name.
+This is useful in situations where source is not available but a function name is known.
+
+A 'function breakpoint' is created by pressing the '+' button in the Breakpoints view header:
+
+![function breakpoint](images/debugging/function-breakpoint.gif)
+
+**Please note**: Node.js support for function breakpoints is limited because:
+
+- function breakpoints only work for global, non-native functions and
+- function breakpoints can only be created if the function has been defined (seen by Node.js).
+
 ### JavaScript Source Maps
 
 The Node.js debugger of VS Code supports JavaScript Source Maps which help debugging of transpiled languages, e.g. TypeScript or minified/uglified JavaScript. With source maps, it is possible to single step through or set breakpoints in the original source. If no source map exists for the original source or if the source map is broken and cannot successfully map between the source and the generated JavaScript, the breakpoints are shown as gray hollow circles.
