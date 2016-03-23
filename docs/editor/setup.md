@@ -31,16 +31,20 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
 ## Linux
 
-1. Download Visual Studio Code [64-bit](https://go.microsoft.com/fwlink/?LinkID=534108) or [32-bit](https://go.microsoft.com/fwlink/?LinkID=615206) for Linux.
-2. Make a new folder and extract `VSCode-linux-x64.zip` or `VSCode-linux-x32.zip` inside that folder.
-3. Double click on `Code` to run Visual Studio Code.
+1. Download Visual Studio Code for your distribution, [.deb](http://go.microsoft.com/fwlink/?LinkID=760868) for Debian-based distributions such as Ubuntu or [.rpm](http://go.microsoft.com/fwlink/?LinkID=760867) for Red Hat-based distributions such as Fedora or CentOS. 32-bit downloads are also available from the [download page](/Download).
+2. Install the package through a GUI package manager by double clicking on the package file, or through the command line:
 
->**Tip:** If you want to run VS Code from the terminal, create the following link substituting `/path/to/vscode/Code` with the absolute path to the `Code` executable:
+ ```
+ # For .deb
+ sudo dpkg -i <file>.deb
 
->```bash
->sudo ln -s /path/to/vscode/Code /usr/local/bin/code
->```
->Now, you can simply type `code .` in any folder to start editing files in that folder.
+ # For .rpm
+ sudo dnf install <file>.rpm
+ ```
+
+3. VS Code should not be available to run through the launcher and the command line.
+
+>**Tip:** Run `code <path>` to open &lt;path&gt; in VS Code, for example `code .` to open the terminal's current working directory.
 
 ## Windows
 
