@@ -217,7 +217,7 @@ Source maps can be generated with two kinds of inlining:
 * **Inlined source maps**: the generated JavaScript file contains the source map as a data URI at the end (instead of referencing the source map through a file URI).
 * **Inlined source**: the source map contains the original source (instead of referencing the source through a path).
 
-VS Code supports **inlined source maps** but not **inlined source**.
+VS Code supports both the **inlined source maps** and the **inlined source**.
 
 ### Attaching VS Code to Node
 
