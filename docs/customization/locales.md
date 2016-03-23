@@ -12,20 +12,20 @@ Visual Studio Code ships with 10 available display languages (locales): English 
 
 By default, VS Code picks up the operation system's display language, falling back to English (US) if the locale is not supported.
 
-## Available locales
+## Available Locales
 
 Display Language | Locale
 -----------------|-------
-English (US) |`en-US`
-Simplified Chinese|`zh-CN`
-Traditional Chinese|`zh-TW`
-French|`fr`
-German|`de`
-Italian|`it`
-Japanese|`ja`
-Korean|`ko`
-Russian|`ru`
-Spanish|`es`
+English (US) | `en-US`
+Simplified Chinese | `zh-CN`
+Traditional Chinese | `zh-TW`
+French | `fr`
+German | `de`
+Italian | `it`
+Japanese | `ja`
+Korean | `ko`
+Russian | `ru`
+Spanish | `es`
 
 ## Setting the Locale
 
@@ -38,7 +38,7 @@ The example below sets VS Code to display Traditional Chinese `zh-TW`:
 ```json
 {
     // Defines VS Code's display language.
-    "locale":"zh-TW
+    "locale":"zh-TW"
 }
 ```
 
