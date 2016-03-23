@@ -238,7 +238,7 @@ If you specify more than one file or folder at the command line, VS Code will op
 
 ## Opening a Project
 
-VS Code does not distinguish between opening a folder and opening a project. Instead, if the folder you open contains any project files, VS Code will read those files and indicate the project context in the status bar. From there, you can switch between projects if more than one project is found.
+VS Code does not distinguish between opening a folder and opening a project. Instead, VS Code will indicate project context for files you open that belong to a project from the status bar. If more than one project is found, you can switch projects from here as well. 
 
 To open the project contained in the folder `C:\src\WebApp`:
 
@@ -246,7 +246,7 @@ To open the project contained in the folder `C:\src\WebApp`:
 code C:\src\webapp
 ````
 
-In other words, opening the folder containing the project effectively opens that project:
+After VS Code opens, just open C# files and use the status bar to switch the active project as needed.
 
 ![Status Bar](images/codebasics/status.png)
 
