@@ -36,7 +36,7 @@ If you want to configure a specific language, you can either use the command lin
 The example below sets VS Code to display Traditional Chinese:
 
 ```json
-    "locale":"zh-tw"
+"locale":"zh-tw"
 ```
 
 Changing the `locale` value requires a restart of VS Code.
