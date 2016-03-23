@@ -9,6 +9,8 @@ MetaDescription: See what is new in the Visual Studio Code March Release (0.10.1
 
 ## March 2016 Release
 
+March was our end game for the Build 2016 milestone. During the endgame the focus was on problems, performance, polish. 
+
 Downloads: [Windows](TBD) |
 [OS X](TBD) | [Linux 32-bit](TBD) | [Linux 64-bit](TBD)
 
