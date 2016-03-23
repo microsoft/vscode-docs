@@ -69,6 +69,8 @@ Here is the one generated for Node.js debugging:
 	]
 }
 ```
+Please note that the attributes available in these launch configurations vary from debugger to debugger. You can use Intellisense to find out what attributes exist for a specific debugger. In addition hover help is available for all attributes. If you see green squigglies in your launch configuration hover over them to learn what the problem is and try to fix it before launching a debug session.
+
 In VS Code we support launching your app in debug mode or attaching to an already running app. Depending on the request (attach or launch) different attributes are required and our launch.json validation and suggestions should help with that.
 
 Review the generated values and make sure that they make sense for your project and debugging environment. You can add additional configurations to the launch.json (use hover and IntelliSense to help).
