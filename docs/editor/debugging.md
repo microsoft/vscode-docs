@@ -81,6 +81,10 @@ To launch a task before the start of each debug session, set the `preLaunchTask`
 
 VS Code supports variable substitution inside strings in launch.json the same way as for [tasks.json](/docs/editor/tasks.md#variables-in-tasksjson).
 
+In addition to debugging a program VS Code supports running the program. The **Run** action is triggered with `kbstyle(Ctrl + F5)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the 'Stop' button terminates the program.
+
+Please note: The 'Run' action is always available, but a debugger extension has to 'opt-in' in order to support 'Run'. If a debugger extension has not been updated, 'Run' will fall back to 'Debug' (the built-in Node Debug and [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) already support 'Run').
+
 ## Breakpoints
 
 Breakpoints can be toggled by clicking on the **editor margin**.
