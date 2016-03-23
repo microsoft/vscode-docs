@@ -163,7 +163,7 @@ shown with an arrow between requested and actual line number:
 This breakpoint validation occurs when a session starts and the breakpoints are registered with Node.js, or when a
 session is already running and a new breakpoint is set. In this case, the breakpoint may "jump" to a different
 location. After Node.js has parsed all the code (e.g. by running through it), breakpoints can be easily re-applied
-to the requested locations with the Reapply button in the breakpoint section header. This should make the breakpoints
+to the requested locations with the **Reapply** button in the breakpoint section header. This should make the breakpoints
 "jump back" to the requested location.
 
 ![Breakpoint Actions](images/debugging/breakpointstoolbar.png)
