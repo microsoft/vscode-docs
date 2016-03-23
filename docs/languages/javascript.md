@@ -98,6 +98,34 @@ The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 t
 ## JavaScript Formatting
 
 VS Code provides several formatting settings for JavaScript. They can all be found in the `javascript.format` settings name space.
+```typescript
+// Defines space handling after a comma delimiter
+"javascript.format.insertSpaceAfterCommaDelimiter": boolean,
+
+// Defines space handling after a semicolon in a for statement
+"javascript.format.insertSpaceAfterSemicolonInForStatements": boolean,
+
+// Defines space handling after a binary operator
+"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": boolean,
+
+// Defines space handling after keywords in control flow statement
+"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": boolean,
+
+// Defines space handling after function keyword for anonymous functions
+"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": boolean,
+
+// Defines space handling after opening and before closing non empty parenthesis
+"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": boolean,
+
+// Defines space handling after opening and before closing non empty brackets
+"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": boolean,
+
+// Defines whether an open brace is put onto a new line for functions or not
+"javascript.format.placeOpenBraceOnNewLineForFunctions": boolean,
+
+// Defines whether an open brace is put onto a new line for control blocks or not
+"javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
+```
 
 ## Snippets for JavaScript
 
