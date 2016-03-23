@@ -44,6 +44,8 @@ To uninstall an extension, bring up the `Extensions: Show Installed Extensions` 
 
 You can quickly look for extension updates by using the `Extensions: Show Outdated Extensions` dropdown.  This will display any available updates for your currently installed extensions. Simply click the Update Extension button in the lower right for the outdated extension and the update will be installed and you'll be prompted to restart VS Code.
 
+> **Tip:** Code will also notify you of available updates in the extension icon at the bottom left corner of its window.
+
 ## Browse Extensions
 
 Additionally, you can browse the VS Code Extension Gallery through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
@@ -73,5 +75,3 @@ Here are a few topics you may find interesting...
 **Q: Can I install Visual Studio Community extensions (shipped in .vsix) in Visual Studio Code?**
 
 **A:** No, Visual Studio Code's extensibility points are different from Visual Studio Community.  The two use different extension Galleries and the Visual Studio Community extension installer will not recognize Visual Studio Code.
-
-
