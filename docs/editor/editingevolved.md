@@ -68,20 +68,6 @@ We offer built-in snippets across languages as well as support for [Emmet abbrev
 
 You can also define your own snippets: Open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear. Find out more about this in the [customization section](/docs/customization/userdefinedsnippets.md) of our docs.
 
-## Folding
-You can fold regions of code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions.
-The folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
-
-You can also use the following actions:
-
-Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
-Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
-Fold All (`kb(editor.foldAll)`) folds all region in the editor
-Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
-Fold Level X (`kb(editor.foldLevel2)`) unfolds all regions of level X, except the region at the current cursor position
-
-![Folding](images/editingevolved/folding.png)
-
 ## Go to Definition
 
 If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.goToDeclaration)`.
