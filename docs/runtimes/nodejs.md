@@ -91,7 +91,7 @@ You can give even more hints to Visual Studio Code through a configuration file 
 }
 ```
 
-Restart VS Code for the new jsconfig.json to be read by VS Code. 
+Restart VS Code for the new jsconfig.json to be read by VS Code.
 
 The presence of this file lets VS Code know that it should treat all the files under this root as part of the same project.  The specific `compilerOptions` tells VS Code you are writing ES5 compliant code and the module system you want to use is the `commonjs` framework.
 
@@ -139,8 +139,6 @@ Click on the Configure gear icon at the top of the Debug view to create a defaul
 Take the defaults for everything else. If you do not have [Auto Save](/docs/editor/codebasics.md#saveauto-save) on, save the file by pressing `kb(workbench.action.files.save)`, and make sure `Launch` is selected in the configuration dropdown at the top of the Debug view. Open `app.js` and set a breakpoint on the line of code we wrote earlier `var msg = 'hello world';` by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
 
 ![Debug session](images/nodejs/debugsession.png)
-
->**Note:** VS Code only supports local debugging at this time, we are constantly working to improve our debugging support.
 
 ## Extensions
 
