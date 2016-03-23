@@ -221,11 +221,21 @@ The corresponding launch configuration looks like this:
 			"name": "Attach to Node",
 			"type": "node",
 			"request": "attach",
+			"address": "localhost",
 			"port": 5858
 		}
 	]
 }
 ```
+
+### Remote Debugging Node.js
+
+The Node.js debugger supports remote debugging for recent versions of Node.js (>= 4.x). Specify a remote host via the `address` attribute.
+
+By default VS Code will stream the debugged source from the remote Node.js to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it.
+If you want to help VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations.
+The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
+
 
 ## Mono Debugging
 
@@ -297,10 +307,6 @@ To write your own debugger extension, visit:
 **Q: What are the supported debugging scenarios?**
 
 **A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. ASP.NET Core applications are compiled using the Roslyn compiler, not the Mono compiler. ASP.NET Core debugging will be available through a VS Code extension.
-
-**Q: Why can’t I remote debug my app?**
-
-**A:** Currently we support local debugging only. This is a known limitation. If that’s something you care about, please [let us know](https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7872216-remote-debugging)!
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 
