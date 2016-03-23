@@ -10,14 +10,13 @@ MetaDescription: Find out how to publish an extension to the Visual Studio Code 
 
 # vsce - Publishing Tool Reference
 
-[vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish
-extensions to the [Extension Gallery](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
+[vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish extensions to the [Extension Gallery](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
 
 ## Installation
 
 Make sure you have [node.js](https://nodejs.org/) installed. Then simply run:
 
-```bash
+```
 npm install -g vsce
 ```
 
@@ -25,7 +24,7 @@ npm install -g vsce
 
 You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension:
 
-```bash
+```
 $ vsce publish
 Publishing uuid@0.0.1...
 Successfully published uuid@0.0.1!
@@ -101,7 +100,7 @@ You can also specify a complete SemVer compatible version on the command line:
 
 ```bash
 vsce publish 2.0.1
-``` 
+```
 
 ## Packaging Extensions
 
@@ -122,8 +121,9 @@ You can customize how your extension looks in the Visual Studio Marketplace. See
 Here are some tips for making your extension look great on the Marketplace:
 
 - Any `README.md` file at the root of your extension will be used to populate the extension's gallery page's contents. **Note:** since the gallery doesn't serve images yet, you may find images and/or links to be broken in the extension's gallery page. `vsce` can fix this for you in two different ways:
+- Likewise, any `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
 - If you add a `repository` field to your `package.json` and if it is a public GitHub repository, `vsce` will automatically detect it and adjust the links accordingly.
-- You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`. 
+- You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`.
 - You can set the banner background color by setting `galleryBanner.color` to the intended hex value in `package.json`.
 - You can set an icon by setting `icon` to a relative path to a squared `128px` PNG file included in your extension, in `package.json`.
 
