@@ -16,6 +16,8 @@ VS Code supports running and debugging tests for your extension that require the
 
 The basic [yo code generator](/docs/tools/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
 
+**Note**: Below documentation assumes you have created an extension in TypeScript but the same also applies when you create a JavaScript extension. Some file names can be different in that case though.
+
 After you've created a new extension and opened the project in VS Code, you can select the `Launch Tests` configuration from the dropdown at the top of the Debug View.
 
 ![launch tests](images/testing-extensions/launch-tests.png)
@@ -49,7 +51,7 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
     "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
     "stopOnEntry": false,
     "sourceMaps": true,
-    "outDir": "out",
+    "outDir": "${workspaceRoot}/out/test",
     "preLaunchTask": "npm"
 }
 ```
@@ -122,7 +124,7 @@ There are some optional environment variables to configure the test runner:
 
 | Name        | Description       |
 | ------------|-------------------|
-| `CODE_VERSION` | Version of VS Code to run the tests against |
+| `CODE_VERSION` | Version of VS Code to run the tests against (e.g. `0.10.10`) |
 | `CODE_DOWNLOAD_URL` | Full URL of a VS Code drop to use for running tests against |
 | `CODE_TESTS_PATH` | Location of the tests to execute |
 | `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance |
