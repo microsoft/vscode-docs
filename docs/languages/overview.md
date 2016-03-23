@@ -41,6 +41,14 @@ In VS Code, we default the language support for a file based on its filename ext
 
 ![Language Selector](images/overview/languageselect.png)
 
+>**Tip:** You can control file associations from the `files.associations` [setting](/docs/customization/userandworkspace.md). For example:
+
+```json
+    "files.associations": {
+        "*.myphp": "php"   
+    }
+```
+
 ## Next Steps
 
 Now you know that VS Code has support for the languages you care about. Read on...
