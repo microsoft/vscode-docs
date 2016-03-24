@@ -41,6 +41,7 @@ The CSS topic provides examples of how to use Tasks to generate CSS files.
 VS Code processes the output from a task with a problem matcher and we ship with a number of them 'in the box', we'll talk about how to make your own ones soon:
 
 - **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
+- **TypeScript Watch**: `$tsc-watch` matches problems reporter from the tsc compiler when executed in watch mode.
 - **JSHint**: `$jshint` assumes that file names are reported as an absolute path.
 - **JSHint Stylish**: `$jshint-stylish` assumes that file names are reported as an absolute path.
 - **ESLint Compact**: `$eslint-compact` assumes that file names in the output are relative to the opened folder.
@@ -83,27 +84,40 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 You need to configure the tasks in `tasks.json` (`.vscode\tasks.json`) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)` (Run Build Task).
 
->**Note:** If you don't already have a `tasks.json` under your workspace's `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will create one for you with several default examples.
+If you don't already have a `tasks.json` under your workspace's `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from. For this example select Gulp from the list. This will generate a tasks.json file like this:
 
-To do this, we need to edit the `tasks.json` file to 'wrap' the build gulp task that was defined in the gulpfile.  This is achieved with the following:
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "gulp",
-    "isShellCommand": true,
-    "args": [
-        "--no-color"
-    ],
-    "tasks": [
-        {
-            "taskName": "build",
-            "args": [],
-            "isBuildCommand": true,
-            "problemMatcher": "$msCompile"
-        }
-    ]
-}
+	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"command": "gulp",
+	"isShellCommand": true,
+	"args": [
+		"--no-color"
+	],
+	"tasks": [
+		{
+			"taskName": "build",
+			"args": [],
+			"isBuildCommand": true,
+			"isWatching": false,
+			"problemMatcher": [
+				"$lessCompile",
+				"$tsc",
+				"$jshint"
+			]
+		}
+	]
+}```
+
+Since we execute the Mono compiler to complile C# files we use the $msCompile problem matcher to detect any problems reported by the compiler. The `problemMatcher` property will then be:
+
+```json
+			"problemMatcher": [
+				"$msCompile"
+			]
 ```
 
 In contrast to the `tasks.json` file in the TypeScript section, this file has:
