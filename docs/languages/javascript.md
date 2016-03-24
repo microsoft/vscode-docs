@@ -217,10 +217,6 @@ Option  | Description
 `target`| Specifies which default library (lib.d.ts) to use. The values are "ES3", "ES5", "ES6".
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just typechecking.
-`allowUnusedLabels`|Do not report errors on unused labels.
-`noFallthroughCasesInSwitch`|Report errors for fallthrough cases in switch statement.
-`allowUnreachableCode`|Do not report errors on unreachable code.
-
 
 The following options apply when `tsc` is used for down level compiling of ES6 JavaScript to an older version:
 
