@@ -24,7 +24,7 @@ For properties and values (`kb(editor.action.triggerSuggest)`), both for JSON da
 
 ### Package and Project Dependencies
 
-We also offer IntelliSense for specific value sets such as package and project dependencies in `package.json`, `project.json`, `bower.json`, ...
+We also offer IntelliSense for specific value sets such as package and project dependencies in `package.json`, `project.json` and `bower.json`
 
 ## Quick Navigation
 
@@ -32,13 +32,12 @@ JSON files can get pretty large and we support quick navigation to properties `k
 
 ![Goto Symbol](images/json/gotosymbol.png)
 
-## Hovers & Toggle Value
+## Hovers
 
 When you hover over properties and values for JSON data with or without schema, we will provide additional context.
 
-![Hover and Toggle](images/json/hoverandtoggle.png)
+![Hover](images/json/hoverandtoggle.png)
 
-We also support toggling for allowed values by pressing `kb(editor.action.inPlaceReplace.down)` or `kb(editor.action.inPlaceReplace.up)` on a value.  In the image above, this would switch between `true` and `false`.
 
 ## Formatting
 
@@ -52,7 +51,8 @@ Servers like http://schemastore.org provide schemas for most of the common JSON 
 
 The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace Settings (**File** > **Preferences** > **User Settings** or **Workspace Settings**) under the property `json.schemas`.
 
->**Tip:** For an overview on settings, see [User and Workspace Settings](/docs/customization/userandworkspace.md).
+VS Code extensions can also define schemas and schema mapping. That's why VS Code already knows about the schema of some well known JSON files such as `package.json`, `bower.json` and `tsconfig.json`.
+
 
 ### Mapping in the JSON
 
@@ -67,18 +67,21 @@ In the following example, the JSON file specifies that its contents follow the C
 
 ### Mapping in the User Settings
 
-The following excerpt from the User Settings shows how `bower.json` files are mapped to the bower JSON schema located on http://json.schemastore.org/bower.
+The following excerpt from the User Settings shows how `.babelrc` files are mapped to the babelrc schema located on http://json.schemastore.org/babelrc.
 
 ```json
 "json.schemas": [
     {
         "fileMatch": [
-            "/bower.json",
-            "/.bower.json"
+            "/.babelrc"
         ],
-        "url": "http://json.schemastore.org/bower"
+        "url": "http://json.schemastore.org/babelrc
     },
 ```
+
+>**Tip:** Additionally to defining a schema for .babelrc, also make sure that .babelrc is associated to the JSON mode. This is also done in the settings, under `files.association`.
+
+>**Tip:** For an overview on settings, see [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
 ### Mapping to a Schema in the Workspace
 
