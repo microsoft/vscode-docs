@@ -87,13 +87,14 @@ The solution for this problem is to run the debug adapter in server mode:
 ```json
 {
     "version": "0.2.0",
+
     "debugServer": 4711,
 
     "configurations": [{
         "name": "mock test",
         "request": "launch",
         "type": "mock",
-        "program": "readme.md",
+        "program": "${workspaceRoot}/readme.md",
         "stopOnEntry": true
     }]
 }
@@ -142,7 +143,7 @@ and **version** of the extension. Use the **categories** field to make the exten
 						"program": {
 							"type": "string",
 							"description": "Workspace relative path to a text file.",
-							"default": "readme.md"
+							"default": "${workspaceRoot}/readme.md"
 						},
 						"stopOnEntry": {
 							"type": "boolean",
