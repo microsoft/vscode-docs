@@ -47,10 +47,11 @@ Here is the one generated for Node.js debugging:
 			"name": "Launch",
 			"type": "node",
 			"request": "launch",
-			"program": "app.js",
+			"program": "${workspaceRoot}/app.js",
 			"stopOnEntry": false,
 			"args": [],
-			"cwd": ".",
+			"cwd": "${workspaceRoot}",
+			"preLaunchTask": null,
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -59,7 +60,6 @@ Here is the one generated for Node.js debugging:
 				"NODE_ENV": "development"
 			},
 			"externalConsole": false,
-			"preLaunchTask": "",
 			"sourceMaps": false,
 			"outDir": null
 		},
@@ -67,7 +67,13 @@ Here is the one generated for Node.js debugging:
 			"name": "Attach",
 			"type": "node",
 			"request": "attach",
-			"port": 5858
+			"port": 5858,
+			"address": "localhost",
+			"restart": false,
+			"sourceMaps": false,
+			"outDir": null,
+			"localRoot": "${workspaceRoot}",
+			"remoteRoot": null
 		}
 	]
 }
