@@ -27,13 +27,13 @@ Typically the first step in any new TypeScript project is to add in a `tsconfig.
 
 ![jsconfig.json IntelliSense](images/typescript/jsconfigintellisense.png)
 
-A simple `tsconfig.json` looks like this for ES5, AMD modules and source maps:
+A simple `tsconfig.json` looks like this for ES5, CommonJS modules and source maps:
 
 ```json
 {
     "compilerOptions": {
         "target": "es5",
-        "module": "amd",
+        "module": "commonjs",
         "sourceMap": true
     }
 }
@@ -62,26 +62,28 @@ Startup.main();
 
 ### Step 2: Create tasks.json
 
-The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it.
+The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it. This shows a selection box with templates you can choose from:
 
-This will create a sample `tasks.json` file in the `.vscode` folder.  The initial file has a large number of examples within it.
+![Task Runner Selection](images/typescript/taskSelection.png)
 
-> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
-
-The first TypeScript example uses `tsc` (the TypeScript compiler) as the command to be executed.  The task we are working with looks something like this:
+Select TypeScript - tsconfig.json. This will create a `tasks.json` file in the `.vscode` folder. The content of the tasks.json file looks like this:
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "tsc",
-    "isShellCommand": true,
-    "showOutput": "silent",
-    "args": ["HelloWorld.ts"],
-    "problemMatcher": "$tsc"
+	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"command": "tsc",
+	"isShellCommand": true,
+	"args": ["-p", "."],
+	"showOutput": "silent",
+	"problemMatcher": "$tsc"
 }
 ```
 
-Under the covers we interpret `tsc` as an external task runner exposing exactly one task: the compiling of TypeScript files into JavaScript files. The command we run is `tsc HelloWorld.ts`.
+> **Tip:** While the template is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
+
+Under the covers we interpret `tsc` as an external task runner exposing exactly one task: the compiling of TypeScript files into JavaScript files. The command we run is: `tsc -p .`
 
 >**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](http://www.typescriptlang.org/).
 
@@ -89,13 +91,15 @@ Under the covers we interpret `tsc` as an external task runner exposing exactly 
 
 As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
 
-The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` file was created.
+The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` and `HelloWorld.js.map` file was created.
 
 If you have [Node.js](https://nodejs.org) installed, you can run your simple Hello World example by opening up a terminal and running:
 
 ```
 node HelloWorld.js
 ```
+
+> **Tip:** You can also run the program using VSCode's Run/Debug feature. Details about running and debugging node apps in VSCode can be found [here](/docs/runtimes/nodejs#_debugging-your-node-application)
 
 ### Step 4: Reviewing Build Issues
 
@@ -133,7 +137,7 @@ VS Code offers JSDoc support for TypeScript. Besides syntax coloring, we help yo
 
 TypeScript debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the project's launch configuration file `launch.json`. In addition, you can specify a TypeScript file with the `program` attribute.
 
-To generate source maps for your TypeScript files, compile with the `--sourcemap` option.
+To generate source maps for your TypeScript files, compile with the `--sourcemap` option or set the `sourceMap` property in the `tsconfig.json` file to `true`.
 
 In-lined source maps (a source map where the content is stored as a data URL instead of a separate file) are also supported, although in-lined source is not yet supported.
 
@@ -149,7 +153,7 @@ When you are working with TypeScript, you often don’t want to see generated Ja
 
 This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The file explorer will no longer show derived resources for JavaScript if they are compiled to the same location. Configure this with the `files.exclude` setting in your workspace settings (**File** > **Preferences** > **Workspace Settings**).
 
-![Hiding derived resources](images/typescript/hidingderivedresources.png)
+![Hiding derived resources](images/typescript/hidingDerivedBefore.png) ![Hiding derived resources](images/typescript/hidingDerivedAfter.png)
 
 ## Mixed TypeScript and JavaScript projects
 
