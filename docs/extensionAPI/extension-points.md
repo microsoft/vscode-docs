@@ -149,9 +149,16 @@ You must provide one (or more) executables that implement the debug adapter.
 "contributes": {
 	"debuggers": [{
         	"type": "node",
-        	"program": "./debugger/out/node/nodeDebug.js",
+		"label": "Node Debug",
+		"program": "./out/node/nodeDebug.js",
         	"runtime": "node",
-        	"enableBreakpointsFor": { "languageIds": ["javascript", "typescript", "coffeescript"] }
+		"enableBreakpointsFor": { "languageIds": ["javascript", "javascriptreact"] },
+		"initialConfigurations": [{
+			...
+		}],
+		"configurationAttributes": {
+			...
+		}
         }]
 }
 ...
