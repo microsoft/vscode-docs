@@ -16,6 +16,11 @@ Visual Studio Code has built-in support for editing style sheets in CSS `.css`, 
 
 We have support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
 
+![IntelliSense in CSS](images/css/intellisense.png)
+
+Proposals contain extensive documentation, including a list of browsers that support the property.
+To see the full description text of the selected entry, use `kb(toggleSuggestionDetails)`.
+
 ## Emmet snippets
 
 Press `kb(editor.emmet.action.expandAbbreviation)` to expand the current abbreviation.
@@ -51,7 +56,7 @@ Hovering over a selector or property will provide an HTML snippet that is matche
 
 ## Goto Declaration and Find References
 
-This is supported for keyframes and variables in the same file.
+This is supported for Sass and Less variables in the same file.
 
 >**Note:** Cross file references ('imports') are not resolved.
 
@@ -97,13 +102,10 @@ For the Less version of the above file, just change `$padding` to `@padding`.
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it.
+The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it. In the selection dialog that shows up, select `Others`.
 
-This will create a sample `tasks.json` file in the `.vscode` folder.  The initial file has a large number of examples within it.
-
-> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
-
-The first example shows how to use configure tasks for TypeScript compilation.  We will simply modify that configuration for transpiling Less/Sass instead:
+This will create a sample `tasks.json` file in the `.vscode` folder.  The initial file has a sample of
+running an arbitary command. We will simply modify that configuration for transpiling Less/Sass instead:
 
 ```json
 // Sass configuration
@@ -230,12 +232,22 @@ You can configure the following lint warnings as User or Workspace Settings.
 
 >**Tip:** Head over to this topic to get an overview of [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
+The validate setting allows you turn off the built-in validation. You would do this if you rather use a different linter. 
+
+Id|Description|Default
+---|------------|----
+css.validate | Enables or disables all css validations | true
+less.validate | Enables or disables all less validations | true
+sass.validate | Enables or disables all sass validations | true
+
+
 To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `less.lint.` and `sass.lint.`.
 
 Set a setting to `warning` or `error` if you want to enable lint checking, use `ignore` to disable it. Lint checks are performed as you type.
 
 Id|Description|Default
 ---|------------|----
+validate | Enables or disables all validations | true
 compatibleVendorPrefixes | When using a property with a vendor-specific prefix (for example `-webkit-transition`), make sure to also include all other vendor-specific properties eg. `-moz-transition`, `-ms-transition` and `-o-transition` | ignore
 vendorPrefix | When using a property with a vendor-specific prefix for example `-webkit-transition`, make sure to also include the standard property if it exists eg. `transition` | warning
 duplicateProperties | Warn about duplicate properties in the same ruleset | ignore
