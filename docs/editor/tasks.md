@@ -84,7 +84,7 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 You need to configure the tasks in `tasks.json` (`.vscode\tasks.json`) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)` (Run Build Task).
 
-If you don't already have a `tasks.json` under your workspace's `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from. For this example select Gulp from the list. This will generate a tasks.json file like this:
+If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from. For this example, select Gulp from the list. This will generate a tasks.json file like this:
 
 
 ```json
@@ -112,7 +112,7 @@ If you don't already have a `tasks.json` under your workspace's `.vscode` folder
 	]
 }```
 
-Since we execute the Mono compiler to complile C# files we use the $msCompile problem matcher to detect any problems reported by the compiler. The `problemMatcher` property will then be:
+Since we execute the Mono compiler to compile C# files, we use the `$msCompile` problem matcher to detect any problems reported by the compiler. The `problemMatcher` property will then be:
 
 ```json
 			"problemMatcher": [
@@ -161,7 +161,9 @@ Below is an example that uses the Node.js executable as a command and is treated
 }
 ```
 
-Valid operating properties are **windows** for Windows, **linux** for Linux and **osx** for Mac OS X. Properties defined in an operating system specific scope override properties defined in the global scope. In the example below:
+Valid operating properties are `windows` for Windows, `linux` for Linux and `osx` for Mac OS X. Properties defined in an operating system specific scope override properties defined in the global scope.
+
+In the example below:
 
 ```json
 {
@@ -177,7 +179,7 @@ Output from the executed task is never brought to front except for Windows where
 
 ## Task Specific Properties
 
-The global properties **showOutput** and **suppressTaskName** can be redefined on a task by task basis. The **args** property can be augmented resulting in the additional values being appended to the global arguments.
+The global properties `showOutput` and `suppressTaskName` can be redefined on a task by task basis. The `args` property can be augmented resulting in the additional values being appended to the global arguments.
 
 Here is an example where output for the "deploy" task is always brought to front:
 
@@ -388,7 +390,7 @@ That was tasks - let's keep going...
 
 ## Common Questions
 
-**Q: Some task runners require [node](https://nodejs.org/) for execution. Does VS Code require executing a task runner under a special node version?**
+**Q: Some task runners require [Node.js](https://nodejs.org/) for execution. Does VS Code require executing a task runner under a special Node.js version?**
 
-**A:** We recommend that you use Node.js version 0.12.x. This is due to the fact that Node.js 0.10.x doesn't flush stdio on exit (see this [issue](https://github.com/joyent/node/issues/8329) for details)
+**A:** We recommend that you use Node.js version 0.12.x. This is due to the fact that Node.js 0.10.x doesn't flush stdio on exit (see this [issue](https://github.com/joyent/node/issues/8329) for details).
 
