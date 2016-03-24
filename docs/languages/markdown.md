@@ -99,20 +99,35 @@ Things you'll need:
 
 The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it.
 
-This will create a sample `tasks.json` file in the `.vscode` folder.  The initial file has a large number of examples within it.
-
-> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
-
-The first example shows how to use configure tasks for TypeScript compilation.  We will simply modify that configuration for compiling Markdown instead:
+It will present a list of possible tasks.json templates to choose from. Select Others since we want to run an external command. This generates the fillowing content:
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "marked",
-    "isShellCommand": true,
-    "args": ["sample.md", "-o", "sample.html"]
+	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"command": "echo",
+	"isShellCommand": true,
+	"args": ["Hello World"],
+	"showOutput": "always"
 }
 ```
+
+Since we want to use marked to compile the Markdown file we change the content as follows:
+
+```json
+{
+	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"command": "marked",
+	"isShellCommand": true,
+	"args": ["sample.md", "-o", "sample.html"],
+	"showOutput": "always"
+}
+```
+
+> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
 
 Under the covers we interpret `marked` as an external task runner exposing exactly one task: the compiling of Markdown files into HTML files. The command we run is `marked sample.md -o sample.html`.
 
