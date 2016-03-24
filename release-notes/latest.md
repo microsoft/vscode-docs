@@ -50,7 +50,9 @@ To make it easy to distinguish between diagnostics from external linters and the
 
 ### IntelliSense when using ES6 import statements in React Native
 
-Previously you did not get IntelliSense when using ES6 style import statements in **React Native** as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start). In the snippet below you get no IntelliSense for `React`:
+Previously you did not get IntelliSense when using ES6 style import statements in **React Native** as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start). 
+
+In the snippet, below you get no IntelliSense for `React`:
 
 ```js
 import React from 'react-native';
@@ -68,7 +70,7 @@ In `jsconfig.json`:
 }
 ```
 
-This works since ReactNative is using `Babel` to create the run-time code with default members.
+This works since **React Native** is using `Babel` to create the run-time code with default members.
 
 ### Support for mix & match of ES6 and CommonJS import/export
 

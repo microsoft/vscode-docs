@@ -30,9 +30,9 @@ A good place to look for existing TextMate .tmLanguage files is on GitHub.  Sear
 
 ![yo code language support](images/colorizer/yocodelanguage.png)
 
-The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other customizations) and the language name, aliases and file extensions.
+The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other extensions) and the language name, aliases and file extensions.
 
-When the generator is finished, open the created folder in Visual Studio Code. Have a look at the generated `<languageid>.configuration.json` file: It contains more language settings such as the tokens used for comments and brackets.  Make sure the configurations are accurrate. The generated `vsc-extension-quickstart.md` file also contains more information on how to run and debug your extension.
+When the generator is finished, open the created folder in Visual Studio Code. Have a look at the generated `<languageid>.configuration.json` file: It contains more language settings such as the tokens used for comments and brackets.  Make sure the configurations are accurate. The generated `vsc-extension-quickstart.md` file also contains more information on how to run and debug your extension.
 
 To use your extension in your stable VS Code installation, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
