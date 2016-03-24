@@ -333,6 +333,9 @@ The corresponding launch configuration looks like this:
 }
 ```
 
+## Debugging Other Languages
+Debugging many other languages is supported by [VSCode extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads). These include Go, Powershell, Python, Php...
+
 ## Next Steps
 
 In case you didn't already read the Node.js section, take a look at:
@@ -352,7 +355,7 @@ To write your own debugger extension, visit:
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. ASP.NET Core applications are compiled using the Roslyn compiler, not the Mono compiler. ASP.NET Core debugging will be available through a VS Code extension.
+**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. ASP.NET Core applications are compiled using the Roslyn compiler, not the Mono compiler. ASP.NET Core debugging will be available through a VS Code extension. Many other scenarios are supported by [VSCode extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads).
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 
