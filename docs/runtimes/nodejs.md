@@ -132,7 +132,7 @@ In order to run and debug your Node application from within VS Code, you need to
 
 ![Debug icon](images/nodejs/debugicon.png)
 
-Click on the Configure gear icon at the top of the Debug view to create a default `launch.json` file; and, select "Node.js" as the Debug Environment. This configuration file lets you specify how to start the application, what arguments to pass in, the working directory, and more. When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `./bin/www`) for the `Launch` configuration. A second `Attach` configuration is also created to show you how to attach to a running Node application.
+Click on the Configure gear icon at the top of the Debug view to create a default `launch.json` file; and, select "Node.js" as the Debug Environment. This configuration file lets you specify how to start the application, what arguments to pass in, the working directory, and more. When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the `Launch` configuration. A second `Attach` configuration is also created to show you how to attach to a running Node application.
 
 ![launch.json configuration file](images/nodejs/launchjson.png)
 
