@@ -131,7 +131,7 @@ When a file is opened by the user, these three rules are applied and a language 
 		"id": "python",
 		"extensions": [ ".py" ],
 		"aliases": [ "Python", "py" ],
-		"filenames": [ ... ]
+		"filenames": [ ... ],
 		"firstLine": "^#!/.*\\bpython[0-9.-]*\\b"
 	}]
 }
