@@ -22,7 +22,7 @@ VS Code's JavaScript support can operate in two different modes:
 
 * **Explicit Project - with jsconfig.json**: A JavaScript project is defined via a `jsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a JavaScript project. The file itself can optionally list the files belonging to the project, the files to be excluded from the project, as well as compiler options (see below).
 
-The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. For this reason, we provide a hint to create a `jsconfig.json` file when you open a JavaScript file in a fresh workspace. The `jsconfig.json` file corresponds to the [tsconfig.json](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json) file with the attribute `allowJS` implicitly set to `true`. If no `files` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `files" attribute is specified, only those files are included.
+The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. For this reason, we provide a hint to create a `jsconfig.json` file when you open a JavaScript file in a fresh workspace. The `jsconfig.json` file corresponds to a TypeScript project [tsconfig.json](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json) file with the attribute `allowJS` implicitly set to `true`. If no `files` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `files" attribute is specified, only those files are included.
 
 Make sure that you place the `jsconfig.json` at the root of your JavaScript project and not just at the root of your workspace. Below is a `jsconfig.json` file which defines the JavaScript `target` to be `ES6` and the `exclude` attribute excludes the `node_modules` folder.
 
@@ -143,9 +143,11 @@ Selecting the snippet with `kbstyle(Tab)` results in:
 
 VS Code supports ES6 (ECMAScript 6, the latest update of JavaScript) and understands the new ES6 syntax elements and their semantics. If you set the `target` in `jsconfig.json` to `ES6` then you get suggestions for ES6 types, like `Promise`, `Set`, `Map`, `String.startsWith`.
 
-We have a sample on GitHub that shows off some of the ES6 love in VS Code:
+We have an [ES6 sample](https://github.com/jrieken/es6-vscode-sample) on GitHub that shows off ES6 support in VS Code.
 
-```
+To install it, run the following:
+
+```bash
 git clone https://github.com/jrieken/es6-vscode-sample
 cd es6-vscode-sample
 npm install
@@ -176,7 +178,7 @@ Once you have added this, you can start **Babel** with the `kb(workbench.action.
 
 ## JSX and React Native
 
-VS Code supports JSX and **React Native**. To get IntelliSense for React/JSX, install the typings for `react-global` by running `typings install --ambient react-global` from the terminal. To get IntelliSense for **React Native**, run `typings install --ambient react-native.`
+VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/JSX**, install the typings for `react-global` by running `typings install --ambient react-global` from the terminal. To get IntelliSense for **React Native**, run `typings install --ambient react-native.`
 
 **React Native** examples often use the experimental **Object Rest/Spread** operator. This is not yet supported by VS Code. If you want to use it, it is recommended that you disable the built-in syntax checking (see above).
 
@@ -197,11 +199,11 @@ To enable one of the linters, do the following:
 
 ### Files
 
-If no 'files' property is present in a jsconfig.json, the language service defaults to including all files the containing directory and subdirectories. When a 'files' property is specified, only those files are included.
+If no `files` attribute is present in a jsconfig.json, the language service defaults to including all files the containing directory and subdirectories. When a `files` attribute is specified, only those files are included.
 
 ### Exclude
 
-List files and folders that should not be included. This property is not honored when the 'files' property is present.
+List files and folders that should not be included. This property is not honored when the `files` attribute is present.
 
 ### Compiler Options
 
