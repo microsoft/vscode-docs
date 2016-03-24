@@ -30,8 +30,32 @@ VS Code has support for multiple cursors. You can add secondary cursors (rendere
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.  `kb(editor.action.moveSelectionToNextFindMatch)` moves the last added cursor to next occurrence of the current selection.
 
+![Multi-cursor-next-word](images/editingevolved/multicursor-word.gif)
 
 > **Tip:** You can add more cursors also with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
+
+### Column selection
+
+Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column selection:
+
+![Column-select](images/editingevolved/column-select.gif)
+
+There are also default keybindings for column selection on OSX and Windows, but not on Linux. You can edit your `keybindings.json` to bind them to something more familiar if you wish. For example:
+
+```json
+{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
+                                  "when": "editorTextFocus" }
+```
 
 ### Shrink/expand selection
 
