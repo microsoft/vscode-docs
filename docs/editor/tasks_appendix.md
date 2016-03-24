@@ -16,103 +16,57 @@ The following interfaces define the schema of the tasks.json file.
 
 ```typescript
 
-interface TaskConfiguration extends BaseTaskConfiguration {
+/**
+ * Describes the settings of a task runner
+ */
+export interface TaskRunnerConfiguration extends BaseTaskRunnerConfiguration {
 
 	/**
-	 * The configuration's version number
+	 * The command to execute. Not optional.
 	 */
-	version: string;
-
-	/**
-	 * Windows specific task configuration
-	 */
-	windows?: BaseTaskConfiguration;
-
-	/**
-	 * Mac specific task configuration
-	 */
-	osx?: BaseTaskConfiguration;
-
-	/**
-	 * Linux specific task configuration
-	 */
-	linux?: BaseTaskConfiguration;
+	command:string;
 }
 
-interface BaseTaskConfiguration {
+
+/**
+ * Describs the settings of a task runner
+ */
+export interface BaseTaskRunnerConfiguration {
 
 	/**
-	 * The command to be executed. Can be an external program or a shell
-	 * command.
+	 * The command to execute
 	 */
-	command: string;
+	command?:string;
 
 	/**
-	 * Specifies whether the command is a shell command and therefore must
-	 * be executed in a shell interpreter (e.g. cmd.exe, bash, ...).
-	 *
-	 * Defaults to false if omitted.
+	 * Whether the task is a shell command or not
 	 */
-	isShellCommand?: boolean;
+	isShellCommand?:boolean;
 
 	/**
-	 * The command options used when the command is executed. Can be omitted.
+	 * Additional command options
 	 */
 	options?: CommandOptions;
 
 	/**
-	 * The arguments passed to the command. Can be omitted.
+	 * General args
 	 */
-	args?: string[];
+	args?:string[];
 
 	/**
-	 * Controls whether the output view of the running tasks is brought to front or not.
-	 *
-	 * Valid values are:
-	 *   "always": bring the output window always to front when a task is executed.
-	 *   "silent": only bring it to front if no problem matcher is defined for the task executed.
-	 *   "never": never bring the output window to front.
-	 *
-	 * If omitted "always" is used.
+	 * The configured tasks
 	 */
-	showOutput?: string;
-
-	/**
-	 * If set to false the task name is added as an additional argument to the
-	 * command when executed. If set to true the task name is suppressed. If
-	 * omitted false is used.
-	 */
-	suppressTaskName?: boolean;
-
-	/**
-	 * Some commands require that the task argument is highlighted with a special
-	 * prefix (e.g. /t: for msbuild). This property can be used to control such
-	 * a prefix.
-	 */
-	taskSelector?:string;
-
-	/**
-	 * The problem matcher to be used if a global command is executed (e.g. no tasks
-	 * are defined). A tasks.json file can either contain a global problemMatcher
-	 * property or a tasks property but not both.
-	 */
-	problemMatcher?: string | ProblemMatcher | (string | ProblemMatcher)[];
-
-	/**
-	 * The configuration of the available tasks. A tasks.json file can either
-	 * contain a global problemMatcher property or a tasks property but not both.
-	 */
-	tasks?: TaskDescription[];
+	tasks?: { [id:string]: TaskDescription; };
 }
+
 
 /**
  * Options to be passed to the external program or shell
  */
 export interface CommandOptions {
-
 	/**
 	 * The current working directory of the executed program or shell.
-	 * If omitted Ticino's current workspace root is used.
+	 * If omitted VSCode's current workspace root is used.
 	 */
 	cwd?: string;
 
@@ -120,8 +74,9 @@ export interface CommandOptions {
 	 * The environment of the executed program or shell. If omitted
 	 * the parent process' environment is used.
 	 */
-	env?: { [key:string]:string; };
+	env?: { [key:string]: string; };
 }
+
 
 /**
  * The description of a task.
@@ -140,6 +95,16 @@ export interface TaskDescription {
 	args?: string[];
 
 	/**
+	 * Whether the executed command is kept alive and is watching the file system.
+	 */
+	isWatching?:boolean;
+
+	/**
+	 * Whether the task should prompt on close for confirmation if running.
+	 */
+	promptOnClose?: boolean;
+
+	/**
 	 * Whether this task maps to the default build command.
 	 */
 	isBuildCommand?:boolean;
@@ -151,12 +116,17 @@ export interface TaskDescription {
 
 	/**
 	 * Controls whether the output view of the running tasks is brought to front or not.
-	 * See BaseTaskConfiguration#showOutput for details.
+	 * See BaseTaskRunnerConfiguration#showOutput for details.
 	 */
 	showOutput?: string;
 
 	/**
-	 * See BaseTaskConfiguration#suppressTaskName for details.
+	 * Controls whether the executed command is printed to the output windows as well.
+	 */
+	echoCommand?: boolean;
+
+	/**
+	 * See BaseTaskRunnerConfiguration#suppressTaskName for details.
 	 */
 	suppressTaskName?: boolean;
 
@@ -164,7 +134,7 @@ export interface TaskDescription {
 	 * The problem matcher(s) to use to capture problems in the tasks
 	 * output.
 	 */
-	problemMatcher?: string | ProblemMatcher | (string | ProblemMatcher)[];
+	problemMatcher?: ProblemMatcherConfig.ProblemMatcherType;
 }
 
 /**
