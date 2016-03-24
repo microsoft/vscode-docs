@@ -139,20 +139,6 @@ Selecting the snippet with `kbstyle(Tab)` results in:
 
 >**Tip:** You can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
 
-## ES6
-
-VS Code supports ES6 (ECMAScript 6, the latest update of JavaScript) and understands the new ES6 syntax elements and their semantics. If you set the `target` in `jsconfig.json` to `ES6` then you get suggestions for ES6 types, like `Promise`, `Set`, `Map`, `String.startsWith`.
-
-We have an [ES6 sample](https://github.com/jrieken/es6-vscode-sample) on GitHub that shows off ES6 support in VS Code.
-
-To install it, run the following:
-
-```bash
-git clone https://github.com/jrieken/es6-vscode-sample
-cd es6-vscode-sample
-npm install
-```
-
 ### Run Babel inside VS Code
 
 The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding this code to your `tasks.json` file (located under the workspace's `.vscode` folder). The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
