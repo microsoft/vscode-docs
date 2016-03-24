@@ -29,15 +29,15 @@ Korean | `ko`
 Russian | `ru`
 Spanish | `es`
 
-## Setting the Locale
+## Setting the Language
 
-If you want to configure a specific language, you can either use the command line switch `--locale` to specify a locale when you launch a VS Code session or use the **Configure Locale** command to persist the display language to use when VS Code is started.
+If you want to configure a specific language, you can either use the command line switch `--locale` to specify a locale when you launch a VS Code session or use the **Configure Language** command to persist the display language to use when VS Code is started.
 
 ```bash
 code . --locale=fr
 ```
 
-The **Configure Locale** command (available in the **Command Palette** `kb(workbench.action.showCommands)`) creates a `locale.json` file in your user VS Code folder.  Set the `locale` attribute to your preferred locale.
+The **Configure Language** command (available in the **Command Palette** `kb(workbench.action.showCommands)`) creates a `locale.json` file in your user VS Code folder.  Set the `locale` attribute to your preferred locale.
 
 The example below sets VS Code to display Traditional Chinese `zh-TW`:
 
