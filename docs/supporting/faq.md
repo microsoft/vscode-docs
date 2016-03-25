@@ -44,14 +44,19 @@ To modify the update channel, go to **File** > **Preferences** > **User Settings
 
 You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/Updates).
 
-## Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
+## Licensing
+
+### Location
+
+You can find the VS Code licenses, third party notices and [Chromium](https://www.chromium.org) Open Source credit list under your VS Code installation location `resources\app` folder. VS Code's `ThirdPartyNotices.txt` and Chromium's `Credits_*.html` are available under `resources\app` and VS Code's `LICENSE.txt` (including localized versions by Language ID) are under `resources\app\licenses`.
+
+### Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
 
 Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 
-## Why does Visual Studio Code have an expiration date of 31-Dec-2016?
+### Why does Visual Studio Code have an expiration date of 31-Dec-2016?
 
 Great question! Please see [this StackOverflow question](http://stackoverflow.com/questions/35744049/visual-studio-code-vscode-license-expires/35816955#35816955) for a detailed explanation.
-
 
 ## How can I test prerelease versions of VS Code?
 
