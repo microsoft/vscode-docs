@@ -36,9 +36,7 @@ Make sure that you place the `jsconfig.json` at the root of your JavaScript proj
     ]
 }
 ```
-
 Here is an example with an explicit `files` attribute.
-
 ```json
 {
     "compilerOptions": {
@@ -52,7 +50,11 @@ Here is an example with an explicit `files` attribute.
 
 The `files` attribute cannot be used in conjunction with the `exclude` attribute. If both are specified, the `files` attribute takes precedence.
 
-In more complex projects, you may have more than one `jsconfig.json` file defined per workspace. 
+In more complex projects, you may have more than one `jsconfig.json` file defined inside a workspace, as illustrated in below for a project with a `client` and `server` folder, that are a separate project context:
+
+![multiple jsconfigs](images/javascript/client-server.png)
+
+### Excludes 
 
 Whenever possible, you should exclude folders with JavaScript files that are not part of the source code for your project.
 
@@ -70,33 +72,51 @@ Component | folder to exclude
 
 When your JavaScript project is growing too large, it is often because of library folders like `node_modules`, we will prompt you to edit the `exclude` list in such cases.
 
-## IntelliSense Support
+>**Tip:** Sometimes changes to configuration, such as adding or editing a  jsconfig.json  file, are not picked up correctly. Running the `Reload Java Script` command should reload the project and pick up the changes.
 
-IntelliSense is automatically provided for **CommonJS** modules inside your project folders (**AMD** is currently not supported). In addition to IntelliSense for your code, you can also get IntelliSense for libraries through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [Typings](https://github.com/typings/typings), the TypeScript Definition manager.
+## IntelliSense 
 
-For example `typings install --ambient node` installs all the typings for the built-in Node.js modules. If your project has a `jsconfig.json` file, then all you need is that the `typings` folder is a sibling or child of the `jsconfig.json` file to get IntelliSense. If you have no `jsconfig.json` then you need to manually add a `/// reference` to the `.d.ts` from each file.
+The JavaScript Support uses different strategies to provide IntelliSense.
 
-The following image illustrates a setup for a project with separate client and server folders that each have a folder for their `typings` and each have a `jsconfig.json` file.
+### Intellisense based on type inference
 
-![Folder Layout](images/javascript/client-server.png)
+JavaScript uses the same inference as TypeScript to determine the type of a value. 
 
-VS Code understands **JSDoc comments** and uses it to improve the IntelliSense proposals and parameter hints.
+The following patterns are also recognized:
+- **"ES3-style"** classes, specified using a constructor function and assignments to the prototype property.
+- **CommonJS**-style module patterns, specified as property assignments on the  exports  object, or assignments to the  module.exports  property.
+
+The **AMD** module pattern is currently not supported.
 
 IntelliSense offers both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image below.
 
 ![IntelliSense](images/javascript/es3-classes.png)
 
-## Disable Syntax Validation when using ES7 constructs
+### JsDoc annotations
 
-Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are flagged as errors. For users who still want to use these ES7 features, we have revived the `javascript.validate.enable` [setting](/docs/customization/userandworkspace.md) to disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](http://eslint.org) to validate your code. Since the JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+Where type inference does not provide the desired type information, (or just for documentation purposes), type information may be provided explicitly via **JsDoc** annotations.
+
+This [document](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) describes the JsDoc annotations currently supported.
+
+### TypeScript definition file
+
+ You can also get IntelliSense for libraries through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [Typings](https://github.com/typings/typings), the TypeScript Definition manager.
+
+For example `typings install --ambient node` installs all the typings for the built-in Node.js modules. If your project has a `jsconfig.json` file, then all you need is that the `typings` folder is a sibling or child of the `jsconfig.json` file to get IntelliSense. If you have no `jsconfig.json` then you need to manually add a `/// reference` to the `.d.ts` from each file.
 
 ## Mixed TypeScript and JavaScript projects
 
-It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the TypeScript project's `tsconfig.json` file.
+It is now possible to have mixed TypeScript and JavaScript projects.
+Existing JavaScript code using the CommonJS module format, may be imported and consumed by TypeScript code using the ECMAScript 2015 module syntax. Conversely, TypeScript code written to provide a well-defined API contract for a service, may be referenced by JavaScript code that is written to call that service, thus providing rich intellisense at design time.
 
-## Down level compiling
+To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the TypeScript project's `tsconfig.json` file.
 
-The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
+## Compiling JavaScript down-level
+
+One of the key features TypeScript provides is the ability to use the latest JavaScript language features, and emit code that can execute in JavaScript runtimes that don't yet understand those newer features. With JavaScript using the same language service, it too can now take advantage of this same feature.
+
+The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Configure the `jsconfig.json` with the desired options and then 
+use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json` to down-level compile.
 
 ## JavaScript Formatting
 
@@ -174,6 +194,10 @@ VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/J
 
 To enable ES6 import statements for **React Native**, you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get IntelliSense. **React Native** uses **Babel** behind the scenes to create the proper run-time code with default members. If you also want to do debugging of **React Native** code then you can install the [React Native Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
+## Disable Syntax Validation when using ES7 constructs
+
+Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are flagged as errors. For users who still want to use these ES7 features, we have revived the `javascript.validate.enable` [setting](/docs/customization/userandworkspace.md) to disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](http://eslint.org) to validate your code. Since the JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+
 ## JavaScript Linters (ESLint, JSHint)
 
 VS Code provides support for [ESLint](http://eslint.org/) and [JSHint](http://jshint.com/) via extensions. If enabled, the JavaScript code is validated as you type and reported problems can be navigated to and fixed inside VS Code. 
@@ -248,7 +272,6 @@ Option | Description
 `watch`|Watch input files.
 `emitDecoratorMetadata`|Emit design-type metadata for decorated declarations in source.
 `noImplicitUseStrict`|Do not emit "use strict" directives in module output.
-
 
 ## Next Steps
 
