@@ -1,7 +1,8 @@
 ---
-Order: 6
+Order: 7
 Area: languages
 TOCTitle: Markdown
+ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
 DateApproved: 3/7/2016
 MetaDescription: Get the best out of Visual Studio Code for Markdown
@@ -204,7 +205,7 @@ Read on to find out about:
 
 **Q: Is there spell checking?**
 
-**A:** Not in VS Code out of the box but there are [spell checking extensions](https://marketplace.visualstudio.com/items/seanmcbreen.Spell).  Be sure to check the [VS Code Marketplace](https://marketplace.visualstudio.com/#vscode) to look for useful extensions to help with your workflow.
+**A:** Not in VS Code out of the box but there are [spell checking extensions](https://marketplace.visualstudio.com/items/seanmcbreen.Spell).  Be sure to check the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
 
 **Q: Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
 

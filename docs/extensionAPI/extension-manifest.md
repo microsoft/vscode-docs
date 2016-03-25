@@ -2,6 +2,7 @@
 Order: 2
 Area: extensionapi
 TOCTitle: Extension Manifest
+ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
 DateApproved: 3/7/2016
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.  
@@ -23,6 +24,7 @@ Name | Required | Type | Details
 `displayName` | | `string`| The display name for the extension used in the Gallery.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Other]`
+`keywords` | | `array` | An array of **keywords** or **tags** to make it easier to find the extension.
 `galleryBanner` | | `object` | Helps format the gallery header to match your icon.  See details below.
 `main` | | `string` | The entry point to your extension.
 [`contributes`](/docs/extensionAPI/extension-points.md) | | `object` | An object describing the extension's [contributions](/docs/extensionAPI/extension-points.md).
@@ -30,7 +32,6 @@ Name | Required | Type | Details
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
-`isAMD` | | `boolean` | Indicates whether Visual Studio Code should load your code as AMD or CommonJS. Default: `false`. Support for loading AMD code will be deprecated soon!
 `scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/tools/vscecli.md#pre-publish-step).
 `icon` | | `string` | The path to a 128x128 pixel icon.
 
@@ -101,7 +102,7 @@ Here is a complete `package.json`
 
 ## Marketplace Presentation Tips
 
-Here are some tips and recommendations to make your extension look great when displayed on the [VS Code Marketplace](https://marketplace.visualstudio.com/#VSCode).
+Here are some tips and recommendations to make your extension look great when displayed on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 Always use the latest `vsce` so `npm install -g vsce` to make sure you have it.
 
@@ -128,7 +129,7 @@ An Icon and a contrasting banner color looks great on the Marketplace page heade
 	},
 ```
 
-There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed in the 'resources' section of the Marketplace.
+There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed under the **Resources** section of the Marketplace.
 ```json
 	"license": "SEE LICENSE IN LICENSE.md",
 	"bugs": {
@@ -140,6 +141,13 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 		"url": "https://github.com/Microsoft/vscode-spell-check.git"
 	}
 ```
+
+Marketplace Resources link | package.json attribute
+-----------------|-----------------------
+Support | `bugs:url`
+Get Started | `repository:url`
+Learn | `homepage`
+License | `license`
 
 Set a `category` for your extension.  Extensions in the same `category` are grouped together on the gallery which improves filtering and discovery.
 

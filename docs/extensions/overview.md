@@ -2,6 +2,7 @@
 Order: 1
 Area: extensions
 TOCTitle: Overview
+ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
 PageTitle: Extending Visual Studio Code
 DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code has a rich extensibility model for interacting with and adding to the tool.  Learn how to create your own extensions (plug-ins) for Visual Studio Code.
@@ -11,7 +12,7 @@ MetaDescription: Visual Studio Code has a rich extensibility model for interacti
 
 If you are interested in extending VS Code, you are in the right place.  Below is an outline of the VS Code extensibility documentation and how to quickly build your first VS Code extension.  If you're curious about our design approach to extensibility for VS Code, you can read about it [here](/docs/extensions/our-approach.md).
 
-![marketplace](images/overview/marketplace.png)
+If you want to install existing extensions, see the [Extension Gallery](/docs/editor/extension-gallery.md) topic where we show you how to find and install extensions from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 >**Tip:** Don't forget there are several ways to [customize](/docs/customization/overview.md) VS Code without writing an extension.  This includes adding [Themes](/docs/customization/themes.md), [basic Language Support](/docs/customization/colorizer.md), and [Snippets](/docs/customization/userdefinedsnippets.md) without writing a single line of code.
 

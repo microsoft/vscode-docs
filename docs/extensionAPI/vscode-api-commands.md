@@ -2,6 +2,7 @@
 Order: 6
 Area: extensionapi
 TOCTitle: API complex commands
+ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Commands API Reference
 DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands API Reference.  

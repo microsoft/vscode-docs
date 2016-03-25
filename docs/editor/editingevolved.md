@@ -2,6 +2,7 @@
 Order: 4
 Area: editor
 TOCTitle: Editing Evolved
+ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Editing Evolved
 DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and Debugging.
@@ -33,6 +34,7 @@ VS Code has support for multiple cursors. You can add secondary cursors (rendere
 > **Tip:** You can add more cursors also with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
 
 ### Shrink/expand selection
+
 Quickly shrink or expand the current selection (applies to all languages). Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
 
 Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
@@ -66,7 +68,6 @@ We offer built-in snippets across languages as well as support for [Emmet abbrev
 
 You can also define your own snippets: Open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear. Find out more about this in the [customization section](/docs/customization/userdefinedsnippets.md) of our docs.
 
-
 ## Go to Definition
 
 If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.goToDeclaration)`.
@@ -92,6 +93,7 @@ In C# and in TypeScript, you can jump to a symbol across files with `kb(workbenc
 ## Gutter indicators
 
 If you open a folder that is a Git repository and begin making changes, VS Code will add useful annotations to the gutter and to the overview ruler.
+
 * A red triangle indicates where lines have been deleted
 * A green bar indicates new added lines
 * A blue bar indicates modified lines
@@ -130,15 +132,10 @@ TypeScript and C# support rename symbol across files. Simply press `kb(editor.ac
 
 ![Rename](images/editingevolved/rename.png)
 
-## Code action
-
-JavaScript and CSS support code actions. A lightbulb will appear if there is a code action for the problem under the cursor. In this JavaScript example, due to the usage of `__dirname`, which is a Node.js built-in variable, the code action will propose to download and add a reference to `node.d.ts`, which contains all Node.js definitions.
-
-![Quick fix code action lightbulb](images/editingevolved/quickfix.png)
-
 ## Errors & Warnings
 
 Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md) or by the rich language services, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
+
 * In the status line there is a summary of all errors and warnings counts.
 * You can click on the summary or press `kb(workbench.action.showErrorsWarnings)` to see a list of all current errors.
 * If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
@@ -150,6 +147,7 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 ![Errors and Warnings Inline](images/editingevolved/errorsinline.png)
 
 ## Next Steps
+
 Now that you know how the editor works, time to try a few other things...
 
 * [Why VS Code](/docs/editor/whyvscode.md) - Why we exist and where we think we can help

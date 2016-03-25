@@ -2,6 +2,7 @@
 Order: 3
 Area: extensionapi
 TOCTitle: Contribution Points
+ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
 DateApproved: 3/7/2016
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
@@ -44,7 +45,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 				"description": "Complete functions with their parameter signature."
 			},
 			"typescript.tsdk": {
-				"type": "string",
+				"type": ["string", "null"],
 				"default": null,
 				"description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
 			}

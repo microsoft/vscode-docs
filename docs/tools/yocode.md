@@ -2,6 +2,7 @@
 Order: 2
 Area: tools
 TOCTitle: Extension Generator
+ContentId: C733425A-3F06-4DB9-90A0-472EF1DB58D3
 PageTitle: The Yo Code Visual Studio Code Extension Generator
 DateApproved: 3/7/2016
 MetaDescription: Easily create VS Code extensions and customizations with the Yo Code generator.

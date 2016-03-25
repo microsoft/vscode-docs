@@ -9,6 +9,8 @@ MetaDescription: See what is new in Visual Studio Code November v0.10.3
 
 The 0.10.3 release includes a fix for a severe startup [performance regression](https://github.com/Microsoft/vscode/issues/335) introduced in v0.10.1.
 
+Downloads: [Windows](https://az764295.vo.msecnd.net/public/0.10.3/VSCodeSetup.exe) | [OS X](https://az764295.vo.msecnd.net/public/0.10.3/VSCode-darwin.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/public/0.10.3/VSCode-linux32.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/public/0.10.3/VSCode-linux64.zip)
+
 # v0.10.2 (November 2015)
 
 The 0.10.2 release includes some critical [fixes](http://github.com/Microsoft/vscode/issues?q=milestone%3A%22Nov+2015+-+end%22+is%3Aclosed) for the Beta release that have been reported by the community.
@@ -35,7 +37,7 @@ VS Code has two new `Extensions` commands (`kb(workbench.action.showCommands)` t
 
 ![extension commands](images/0_10_0/extension-commands.png)
 
-The VS Code also has a [Marketplace](https://marketplace.visualstudio.com/#VSCode) where you can browse and learn more about extensions.
+The VS Code also has a [Marketplace](https://marketplace.visualstudio.com/VSCode) where you can browse and learn more about extensions.
 
 ## Extensibility SDK
 
