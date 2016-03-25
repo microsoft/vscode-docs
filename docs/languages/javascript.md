@@ -52,7 +52,7 @@ Here is an example with an explicit `files` attribute.
 
 The `files` attribute cannot be used in conjunction with the `exclude` attribute. If both are specified, the `files` attribute takes precedence.
 
-In more complex projects, you may have more than one `jsconfig.json` file defined per workspace.
+In more complex projects, you may have more than one `jsconfig.json` file defined per workspace. 
 
 Whenever possible, you should exclude folders with JavaScript files that are not part of the source code for your project.
 
@@ -63,10 +63,10 @@ Below is a table mapping common project components to their installation folders
 Component | folder to exclude
 ----------|-----------
 `node` | exclude the `node_modules` folder
+`webpack`, `webpack-dev-server` | exclude the content folder, e.g., `dist`.
 `bower` | exclude the `bower_components` folder
 `ember` | exclude the `tmp` and `temp` folders
 `jspm` | exclude the `jspm_packages` folder
-`webpack` | exclude the output folder, e.g., `dist`.
 
 When your JavaScript project is growing too large, it is often because of library folders like `node_modules`, we will prompt you to edit the `exclude` list in such cases.
 
@@ -74,7 +74,11 @@ When your JavaScript project is growing too large, it is often because of librar
 
 IntelliSense is automatically provided for **CommonJS** modules inside your project folders (**AMD** is currently not supported). In addition to IntelliSense for your code, you can also get IntelliSense for libraries through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [Typings](https://github.com/typings/typings), the TypeScript Definition manager.
 
-For example `typings install --ambient node` installs all the typings for the built-in Node.js modules. If your project has a `jsconfig.json` file, then all you need is that the `typings` folder is contained in the project to get IntelliSense. If you have no `jsconfig.json` then you need to manually add a `/// reference` to the `.d.ts` from each file.
+For example `typings install --ambient node` installs all the typings for the built-in Node.js modules. If your project has a `jsconfig.json` file, then all you need is that the `typings` folder is a sibling or child of the `jsconfig.json` file to get IntelliSense. If you have no `jsconfig.json` then you need to manually add a `/// reference` to the `.d.ts` from each file.
+
+The following image illustrates a setup for a project with separate client and server folders that each have a folder for their `typings` and each have a `jsconfig.json` file.
+
+![Folder Layout](images/javascript/client-server.png)
 
 VS Code understands **JSDoc comments** and uses it to improve the IntelliSense proposals and parameter hints.
 
@@ -92,7 +96,7 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 ## Down level compiling
 
-The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. tsc -p jsconfig.json.
+The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
 
 ## JavaScript Formatting
 
@@ -139,7 +143,7 @@ Selecting the snippet with `kbstyle(Tab)` results in:
 
 >**Tip:** You can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
 
-### Run Babel inside VS Code
+## Run Babel inside VS Code
 
 The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding this code to your `tasks.json` file (located under the workspace's `.vscode` folder). The `isBuildCommand` switch makes this task the `Task: Run Build Task` gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more go to [Tasks](/docs/editor/tasks.md).
 
@@ -172,14 +176,28 @@ To enable ES6 import statements for **React Native**, you need to set the `allow
 
 ## JavaScript Linters (ESLint, JSHint)
 
-VS Code provides support for [ESLint](http://eslint.org/) and [JSHint](http://jshint.com/) via extensions. If enabled, the JavaScript code is validated as you type and
-reported problems can be navigated to and fixed inside VS Code.
+VS Code provides support for [ESLint](http://eslint.org/) and [JSHint](http://jshint.com/) via extensions. If enabled, the JavaScript code is validated as you type and reported problems can be navigated to and fixed inside VS Code. 
 
 To enable one of the linters, do the following:
 
 * Install the corresponding linter globally or inside the workspace folder that contains the JavaScript code to be validated. For example, using `npm install-g eslint` or `npm install -g jshint`, respectively.
-* Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) or [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) extension. The linter is enabled after installation. You can disable a linter  via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
-* Use the .eslintrc.json or .jshintrc file to configure the linter.
+* Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) or [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) extension. The linter is enabled after installation. You can disable a linter via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
+* Use the `.eslintrc.json` or `.jshintrc` file to configure the linter. You can use `eslint --init` to create an initial version of the `.eslintrc.json` file.
+
+>**Tip**: You get IntelliSense and hovering inside the `.eslintrc.json` and the `.jshintrc` files.
+
+It is recommended to enable the rules that warn about undefined and unused variables. 
+
+In JSHint:
+```json 
+"undef": true, 
+"unused": true,
+```
+In ESLint:
+```json
+"no-undef": 1, 
+"no-unused-vars": 1,
+```
 
 ## jsconfig options
 
