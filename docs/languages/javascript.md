@@ -74,6 +74,17 @@ When your JavaScript project is growing too large, it is often because of librar
 
 >**Tip:** Sometimes changes to configuration, such as adding or editing a  jsconfig.json  file, are not picked up correctly. Running the `Reload Java Script` command should reload the project and pick up the changes.
 
+### jsconfig Options
+
+Below are jsconfig options to configure the JavaScript language support.
+
+Option  | Description
+----------------|-----
+`noLib` | Do not include the default library file (lib.d.ts)
+`target`| Specifies which default library (lib.d.ts) to use. The values are "ES3", "ES5", "ES6".
+`experimentalDecorators`|Enables experimental support for proposed ES decorators.
+`allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just typechecking.
+
 ## IntelliSense 
 
 The JavaScript Support uses different strategies to provide IntelliSense.
@@ -117,6 +128,34 @@ One of the key features TypeScript provides is the ability to use the latest Jav
 
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Configure the `jsconfig.json` with the desired options and then 
 use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json` to down-level compile.
+
+The following compiler options in `jsconfig.json` apply when `tsc` is used for down level compiling of ES6 JavaScript to an older version:
+
+Option | Description
+----------|------|-----
+`module`|Specify module code generation. The values are "commonjs", "system", "umd", "amd", "es6", "es2015"
+`diagnostics`|Show diagnostic information.
+`emitBOM`|Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files.
+`inlineSourceMap`|Emit a single file with source maps instead of having a separate file.
+`inlineSources`|Emit the source alongside the sourcemaps within a single file; requires --inlineSourceMap to be set.
+`jsx`|Specify JSX code generation: "preserve" or "react".
+`reactNamespace`|Specifies the object invoked for createElement and __spread when targeting 'react' JSX emit.
+`mapRoot`|Specifies the location as an uri in a string where debugger should locate map files instead of generated locations.
+`noEmit`|Do not emit output.
+`noEmitHelpers`|Do not generate custom helper functions like __extends in compiled output.
+`noEmitOnError`|Do not emit outputs if any type checking errors were reported.
+`noResolve`|Do not resolve triple-slash references or module import targets to the input files.
+`outFile`|Concatenate and emit output to single file.
+`outDir`|Redirect output structure to the directory.
+`removeComments`|Do not emit comments to output.
+`rootDir`|Specifies the root directory of input files. Use to control the output directory structure with --outDir.
+`sourceMap`| Generates corresponding '.map' file.
+`sourceRoot`| Specifies the location where debugger should locate JavaScript files instead of source locations.
+`stripInternal`|`do not emit declarations for code that has an '@internal' annotation.
+`watch`|Watch input files.
+`emitDecoratorMetadata`|Emit design-type metadata for decorated declarations in source.
+`noImplicitUseStrict`|Do not emit "use strict" directives in module output.
+
 
 ## JavaScript Formatting
 
@@ -222,56 +261,6 @@ In ESLint:
 "no-undef": 1, 
 "no-unused-vars": 1,
 ```
-
-## jsconfig options
-
-### Files
-
-If no `files` attribute is present in a jsconfig.json, the language service defaults to including all files the containing directory and subdirectories. When a `files` attribute is specified, only those files are included.
-
-### Exclude
-
-List files and folders that should not be included. This property is not honored when the `files` attribute is present.
-
-### Compiler Options
-
-The compiler option instructs both the JavaScript language service on how to analyze a file and the compiler on how to down level compile a JavaScript file.
-
-The following options apply to the JavaScript language service:
-
-Option  | Description
-----------------|-----
-`noLib` | Do not include the default library file (lib.d.ts)
-`target`| Specifies which default library (lib.d.ts) to use. The values are "ES3", "ES5", "ES6".
-`experimentalDecorators`|Enables experimental support for proposed ES decorators.
-`allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just typechecking.
-
-The following options apply when `tsc` is used for down level compiling of ES6 JavaScript to an older version:
-
-Option | Description
-----------|------|-----
-`module`|Specify module code generation. The values are "commonjs", "system", "umd", "amd", "es6", "es2015"
-`diagnostics`|Show diagnostic information.
-`emitBOM`|Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files.
-`inlineSourceMap`|Emit a single file with source maps instead of having a separate file.
-`inlineSources`|Emit the source alongside the sourcemaps within a single file; requires --inlineSourceMap to be set.
-`jsx`|Specify JSX code generation: "preserve" or "react".
-`reactNamespace`|Specifies the object invoked for createElement and __spread when targeting 'react' JSX emit.
-`mapRoot`|Specifies the location as an uri in a string where debugger should locate map files instead of generated locations.
-`noEmit`|Do not emit output.
-`noEmitHelpers`|Do not generate custom helper functions like __extends in compiled output.
-`noEmitOnError`|Do not emit outputs if any type checking errors were reported.
-`noResolve`|Do not resolve triple-slash references or module import targets to the input files.
-`outFile`|Concatenate and emit output to single file.
-`outDir`|Redirect output structure to the directory.
-`removeComments`|Do not emit comments to output.
-`rootDir`|Specifies the root directory of input files. Use to control the output directory structure with --outDir.
-`sourceMap`| Generates corresponding '.map' file.
-`sourceRoot`| Specifies the location where debugger should locate JavaScript files instead of source locations.
-`stripInternal`|`do not emit declarations for code that has an '@internal' annotation.
-`watch`|Watch input files.
-`emitDecoratorMetadata`|Emit design-type metadata for decorated declarations in source.
-`noImplicitUseStrict`|Do not emit "use strict" directives in module output.
 
 ## Next Steps
 
