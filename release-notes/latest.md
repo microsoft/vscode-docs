@@ -20,7 +20,7 @@ Downloads: [Windows](TBD) |
 
 ### Documentation
 
-We mad a pass over the [JavaScript documentation](../languages/javascript.md) and added more information about the `jsconfig.json` and its attributes.
+We mad a pass over the [JavaScript documentation](/docs/languages/javascript.md) and added more information about the `jsconfig.json` and its attributes.
 
 ### Disable Syntax Validation when using ES7 constructs
 
