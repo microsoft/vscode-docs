@@ -10,7 +10,7 @@ MetaDescription: Visual Studio Code has integrated Git support for the most comm
 
 # Version Control
 
-Visual Studio Code has integrated [Git](http://git-scm.com/) support for the most common commands. This makes it an excellent choice to manage your code commits while you develop. And don't forget that the command prompt is still your friend.
+Visual Studio Code has integrated [Git](http://git-scm.com/) support for the most common commands. This makes it an excellent choice to manage your code commits while you develop.
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](http://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
@@ -20,12 +20,11 @@ Visual Studio Code has integrated [Git](http://git-scm.com/) support for the mos
 
 ![git overview](images/versioncontrol/overview.png)
 
-The Git icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the detail of your current repository changes: **unstaged**, **staged** and **unresolved conflicting merge** changes.
+The Git icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **unstaged**, **staged** and **unresolved conflicting merge** changes.
 
 Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
 
-You can also find indicators of the **status of your repository** in the bottom left corner of VS Code: the **current branch**, **dirty indicators** and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator
-and selecting the Git reference from the list.
+You can also find indicators of the **status of your repository** in the bottom left corner of VS Code: the **current branch**, **dirty indicators** and the number of **incoming and outgoing commits** of the current branch. You can **checkout** any branch in your repository by clicking that status indicator and selecting the Git reference from the list.
 
 > **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
@@ -65,7 +64,7 @@ The `git branch` command lets you quickly create a new branch.  Just provide the
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](http://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull** and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the `...` menu.
 
->**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` configuration setting to reduce the number of prompts you get.
+>**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/customization/userandworkspace.md) to reduce the number of prompts you get.
 
 ## Merge Conflicts
 
@@ -79,17 +78,56 @@ Our Git tooling supports viewing of diffs within VS Code.
 
 ![A File Diff in VS Code](images/versioncontrol/diff.png)
 
->**Tip:** You can diff any two files by first right clicking on a file in the *Working Files* list and selecting `Set file to compare` and then right-click on the file to compare with and select `Compare with 'file_name_you_chose'`.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select *File: Compare Active File With...* and you will be presented with a list of recent files.
+>**Tip:** You can diff any two files by first right clicking on a file in the **WORKING FILES** list and selecting **Select for Compare** and then right-click on the second file to compare with and select **Compare with 'file_name_you_chose'**.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select **File: Compare Active File With...** and you will be presented with a list of recent files.
 
 ## Git Output Window
 
-☺︎ile_name_you_chose'`.   Alternatively from the keyboard hit `kb(workbench.action.showCommands)` and select *File: Compare Active File With...* and you will be presented with a list of recent files.
+You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you simply get curious. :)
 
-## Git Output Window
+To open the Git output window, run **View** > **Toggle Output** and select `Git` from the dropdown.
 
-You can always peek under the hood to see the commands we are using.  This is helpful if something strange is happening or if you simply get curious. :)
+## Initialize a Repository
 
-To open the window follow the `View > Toggle Output` menu and select `Git` from the dropdown.
+If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialise git repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **This workspace isn't yet under git source control.** message in the Git View and the **Initialize git repository** command will be available.
+
+![Git initialize repository](images/versioncontrol/git-initialize.png)
+
+Running **Initialize git repository** will create the necessary Git repository metadata files and show your workspace files as unstaged changes.
+
+## Git patch/diff mode
+
+When you run VS Code from the command line, you can pass the `--wait` argument to make the command wait until you have closed the current VS Code instance. This can be used to configure VS Code as your Git external editor.
+
+Here are the steps to do so:
+
+1. Make sure you can run `code --help` from the command line and you get help.
+    * if you do not see help, please follow these steps:
+        * Mac: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
+        * Windows: Make sure you selected **Add to PATH** during the installation.
+        * Linux: Make sure you installed Code via our new .deb or .rpm packages.
+2. From the command line, run `git config --global core.editor "code --wait"`
+
+Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
+
+![git config in VS Code](images/versioncontrol/gitconfig.png)
+
+Add the following to your Git configurations to use VS Code as the diff tool:
+
+```bash
+[diff]
+    tool = default-difftool
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
+```
+
+This leverages the `--diff` option you can pass to VS Code to compare 2 files side by side.
+
+To summarize, here are some examples of where you can use VS Code as the editor:
+
+* `git rebase HEAD~3 -i` do interactive rebase using VS Code
+* `git commit` use VS Code for the commit message
+* `git add -p` followed by `kbstyle(e)` for interactive add
+* `git difftool <commit>^ <commit>` use VS Code as the diff editor for changes
 
 ## Next Steps
 

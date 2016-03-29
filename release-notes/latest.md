@@ -165,6 +165,12 @@ The HTML formatter is based on the **beautifyjs** library. The formatting option
 * `html.format.endWithNewline`: End with a newline.
 * `html.format.indentInnerHtml`: Indent `<head>` and `<body>` sections.
 
+## Localization
+
+VS Code is now translated to the following 9 languages: Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish. By default, VS Code picks up the operation system's language. If you want to configure a specific language, you can either use the command line switch `--locale` to specify a locale when you launch VS Code or use the **Configure Language** action to specify a locale setting to use whenever VS Code is started. Examples are `de` for German or `zh-TW` for Traditional Chinese.
+
+![Configure Language](images/March/language.png)
+
 ## Editor
 
 ### File to language association
@@ -220,7 +226,7 @@ For example:
 There are new folding actions to collapse source code regions based on their folding level.
 
 There are actions to fold level 1 (`kbstyle(Ctrl + K, Ctrl + 1)`) to level 5 (`kbstyle(Ctrl + K, Ctrl + 5)`).
-To unfold, use **Unfold All** ('kb(editor.unfoldAdd)`).
+To unfold, use **Unfold All** (`kb(editor.unfoldAdd)`).
 
 The level folding actions do not apply to region containing the current cursor.
 
@@ -228,7 +234,7 @@ The level folding actions do not apply to region containing the current cursor.
 
 We have added an option to accept IntelliSense proposals only on `kbstyle(Tab)` and not on `kbstyle(Enter)`. Set the `editor.acceptSuggestionOnEnter` setting to `false` to prevent accepting suggestions when you press `kbstyle(Enter)` to start a new line.
 
-### Indentation
+### Tab and Space Indentation
 
 We have improved our indentation handling in the editor. We have added a new setting, `editor.detectIndentation`, that is `true` by default. When this setting is true and when the file contains sufficient hints (e.g. the file has content, it has lines with indentation), the editor will determine dynamically, for each file, the values of `editor.insertSpaces` and `editor.tabSize`.
 
@@ -308,9 +314,9 @@ Large amounts of output were the cause of multiple user issues. We have now addr
 
 ### Run action
 
-With this release, VS Code now supports 'Run' (in addition to 'Debug') of a program. The **Run** action is triggered with `kbstyle(Ctrl + F5)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the 'Stop' button terminates the program.
+With this release, VS Code now supports 'Run' (in addition to 'Debug') of a program. The **Run** action is triggered with `kbstyle(Ctrl + F5)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
 
-Please note: The 'Run' action is always available, but a debugger extension has to 'opt-in' in order to support 'Run'. If a debugger extension has not been updated, 'Run' will fall back to 'Debug' (the built-in Node Debug and [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) already support 'Run').
+Please note: The **Run** action is always available, but a debugger extension has to 'opt-in' in order to support 'Run'. If a debugger extension has not been updated, 'Run' will fall back to 'Debug' (the built-in Node Debug and [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) already support 'Run').
 
 ### Improved thread handling
 
@@ -323,7 +329,7 @@ Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), VS
 Configuring the task runner now offers you a list of templates to choose from. Tasks defined for Gulp and Grunt are still auto detected.
 
 ![task runner templates](images/March/tasks.png)
- 
+
 ## Setup
 
 ### Linux packages
@@ -344,7 +350,7 @@ sudo dnf install <file>.rpm
 
 The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line args available for use.
 
-### Wait support and git/patch/diff mode
+### Wait support and Git patch/diff mode
 
 When you run VS Code from the command line, there is a new argument you can pass to make the command wait until you have closed the current VS Code instance. This can be used with applications that can configure an external editor for file changes.
 
@@ -384,12 +390,6 @@ To summarize, here are some examples of where you can use Git with VS Code:
 We have added accessibility improvements to the suggestion widget, parameter hints widget and to the quick fix widget (lightbulb), which now announce each suggestion, as they are selected, to screen readers.
 
 > Tip: If you use the [NVDA screen reader](http://www.nvaccess.org), it is possible to navigate suggestions using `kbstyle(Alt+Up)` and `kbstyle(Alt+Down)`, to dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
-
-## Localization
-
-VS Code is now translated to the following 9 languages: Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish. By default, VS Code picks up the operation system's language. If you want to configure a specific language, you can either use the command line switch `--locale` to specify a locale when you launch VS Code or use the **Configure Language** action to specify a locale setting to use whenever VS Code is started. Examples are `de` for German or `zh-TW` for Traditional Chinese.
-
-![Configure Language](images/March/language.png)
 
 ## Extension Authoring
 
