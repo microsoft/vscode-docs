@@ -235,7 +235,7 @@ To enable ES6 import statements for **React Native**, you need to set the `allow
 
 ## Disable Syntax Validation when using ES7 constructs
 
-Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by Salsa and are flagged as errors. For users who still want to use these ES7 features, we have revived the `javascript.validate.enable` [setting](/docs/customization/userandworkspace.md) to disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](http://eslint.org) to validate your code. Since the JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+Some users want to use syntax constructs like the proposed ES7 Object Rest/Spread Properties. However, these are currently not supported by VS Code's JavaScript support and are flagged as errors. For users who still want to use these ES7 features, we have revived the `javascript.validate.enable` [setting](/docs/customization/userandworkspace.md) to disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](http://eslint.org) to validate your code. Since the JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
 
 ## JavaScript Linters (ESLint, JSHint)
 
