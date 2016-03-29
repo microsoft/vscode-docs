@@ -99,7 +99,7 @@ The following patterns are also recognized:
 - **"ES3-style"** classes, specified using a constructor function and assignments to the prototype property.
 - **CommonJS**-style module patterns, specified as property assignments on the exports object, or assignments to the `module.exports` property.
 
-The **AMD** module pattern is currently not supported.
+The **AMD** (Asynchronous Module Definition) module pattern is currently not supported.
 
 IntelliSense offers both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image below.
 
@@ -109,7 +109,7 @@ IntelliSense offers both inferred proposals and the global identifiers of the pr
 
 Where type inference does not provide the desired type information, (or just for documentation purposes), type information may be provided explicitly via **JSDoc** annotations.
 
-This [document](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) describes the JSDoc annotations currently supported.
+This [document](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) describes the **JSDoc** annotations currently supported.
 
 ### TypeScript definition file
 
@@ -132,7 +132,7 @@ The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 t
 The following compiler options in `jsconfig.json` apply when `tsc` is used for down level compiling of ES6 JavaScript to an older version:
 
 Option | Description
-----------|------|-----
+----------|----------
 `module`|Specify module code generation. The values are "commonjs", "system", "umd", "amd", "es6", "es2015"
 `diagnostics`|Show diagnostic information.
 `emitBOM`|Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files.

@@ -131,7 +131,7 @@ You can also use the keyboard to open the list `kb(workbench.action.showErrorsWa
 
 ## JSDoc Support
 
-VS Code offers JSDoc support for TypeScript. Besides syntax coloring, we help you enter JSDoc comments. Simply type `/**` and it will auto insert the closing `*/`. Pressing `kbstyle(Enter)` inside a JSDoc block will indent the next line and auto insert a `*`.
+VS Code offers **JSDoc** support for TypeScript. Besides syntax coloring, we help you enter **JSDoc** comments. Simply type `/**` and it will auto insert the closing `*/`. Pressing `kbstyle(Enter)` inside a **JSDoc** block will indent the next line and auto insert a `*`.
 
 ## JavaScript Source Map Support
 
