@@ -18,6 +18,10 @@ Downloads: [Windows](TBD) |
 
 **Please note**: If you have tested the [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) preview in the past and have configured the `typescript.tsdk` setting, then please make sure to remove it. Otherwise you might be using an older version of TypeScript. When you have `typescript.tsdk` set, then the TypeScript version is shown in the bottom right of the Status Bar.
 
+### Documentation
+
+We mad a pass over the [JavaScript documentation](../languages/javascript.md) and added more information about the `jsconfig.json` and its attributes.
+
 ### Disable Syntax Validation when using ES7 constructs
 
 Some users want to use syntax constructs like the proposed **ES7 Object Rest/Spread Properties**. However, these are currently not supported by Salsa and are flagged as errors. For users who still want to use these **ES7** features, we have revived the `javascript.validate.enable` setting to disable all built-in syntax checking. If you do this, we recommend that you use a linter like **ESLint** to validate your code. Since the JavaScript support doesn't understand **ES7** constructs, features like IntelliSense might not be fully accurate.
