@@ -1,18 +1,15 @@
 ---
 Order: 1
 TOCTitle: Latest
-PageTitle: Visual Studio Code March 0.10.12
-MetaDescription: See what is new in the Visual Studio Code March Release (0.10.12)
+PageTitle: Visual Studio Code March 0.10.13
+MetaDescription: See what is new in the Visual Studio Code March Release (0.10.13)
 ---
 
-# 0.10.12 (March 2016)
+# 0.10.13 (March 2016)
 
 ## March 2016 Release
 
-March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish. 
-
-Downloads: [Windows](TBD) |
-[OS X](TBD) | [Linux 32-bit](TBD) | [Linux 64-bit](TBD)
+March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish.  Visit this page to [get the insiders build](http://code.visualstudio.com/Download#insiders).
 
 ## Languages - JavaScript
 
