@@ -67,7 +67,7 @@ The last part adds a dependency to the `vscode-languageclient` library:
 
 ```json
 "dependencies": {
-    "vscode-languageclient": "0.10.x"
+    "vscode-languageclient": "^1.4.2"
 }
 ```
 
@@ -130,7 +130,7 @@ The interesting section in the server's package.json file is:
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "0.10.x"
+    "vscode-languageserver": "^1.4.1"
 }
 ```
 
@@ -198,7 +198,8 @@ documents.onDidChangeContent((change) => {
                     start: { line: i, character: index},
                     end: { line: i, character: index + 10 }
                 },
-                message: `${line.substr(index, 10)} should be spelled TypeScript`
+                message: `${line.substr(index, 10)} should be spelled TypeScript`,
+                source: 'ex'
             });
         }
     })
@@ -289,7 +290,7 @@ interface Settings {
 // These are the example settings we defined in the client's package.json
 // file
 interface ExampleSettings {
-maxNumberOfProblems: number;
+    maxNumberOfProblems: number;
 }
 
 // hold the maxNumberOfProblems setting
