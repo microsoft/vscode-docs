@@ -9,7 +9,9 @@ MetaDescription: See what is new in the Visual Studio Code March Release (0.10.1
 
 ## March 2016 Release
 
-March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish.  Visit this page to [get the insiders build](http://code.visualstudio.com/Download#insiders).
+March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish.  Visit this page to [get the insiders build](http://code.visualstudio.com/Download#insiders).  There is a lot to be excited about in this release here is a quick summary:
+
+Read on to get into the details...
 
 ## Languages - JavaScript
 
