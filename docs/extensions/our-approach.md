@@ -37,7 +37,7 @@ As the `extension host` is a Node.js process, you can use the Node API in your e
 See the [package.json contribution points reference](/docs/extensionAPI/extension-points.md) for more details.
 
 ## Extensibility API 
-The approach to run the extensions isolated in a separate process allows VS Code to strictly control the API exposed to extenders. Initially VS Code provides a small API surface. In the future, we will expand the API based on requests from extenders.  See the [Extensibility API Overview](/docs/extensionAPI/overview.md) for details on the current API.
+The approach to run the extensions isolated in a separate process allows VS Code to strictly control the API exposed to extenders. See the [Extensibility API Overview](/docs/extensionAPI/overview.md) for details on the current API.
 
 VS Code is implemented using web technologies (HTML, CSS) and web technologies are very powerful when it comes to modifying and styling UI. You can easily add nodes to the DOM and implement a custom appearance using CSS. However, this power is not without its problems when it comes to evolving a complex application like VS Code. The structure can change and extensions that are tightly coupled to the UI would break. For this reason, VS Code took the defensive approach to not expose the DOM to extenders.
 
