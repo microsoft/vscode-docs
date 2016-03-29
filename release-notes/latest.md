@@ -74,9 +74,9 @@ This works since **React Native** is using `Babel` to create the run-time code w
 
 ### Support for mix & match of ES6 and CommonJS import/export
 
-Thanks to fix [microsoft/TypeScript#7249](https://github.com/Microsoft/TypeScript/pull/7249) mixing & matching of ES6 and CommonJS import/export syntax across files is now supported. 
+Thanks to fix [microsoft/TypeScript#7249](https://github.com/Microsoft/TypeScript/pull/7249) mixing & matching of ES6 and **CommonJS** import/export syntax across files is now supported.
 
-### Formatting options 
+### Formatting options
 
 The following formatter settings are now available for JavaScript:
 
@@ -367,11 +367,11 @@ Add the following to enable support for using VS Code as diff tool:
 
 This leverages the new `--diff` option you can pass to VS Code to compare 2 files side by side.
 
-To summarize here are some examples of where you can use with VS Code:
+To summarize, here are some examples of where you can use Git with VS Code:
 
 * `git rebase HEAD~3 -i` allows to interactive rebase using VS Code
 * `git commit` allows to use VS Code for the commit message
-* `git add -p` followed by <kbd>E</kbd> for interactive add
+* `git add -p` followed by `kbstyle(e)` for interactive add
 * `git difftool <commit>^ <commit>` allows to use VS Code as diff editor for changes
 
 ## Accessibility

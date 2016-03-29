@@ -93,7 +93,7 @@ You can give even more hints to Visual Studio Code through a configuration file 
 
 Restart VS Code for the new jsconfig.json to be read by VS Code.
 
-The presence of this file lets VS Code know that it should treat all the files under this root as part of the same project.  The specific `compilerOptions` tells VS Code you are writing ES5 compliant code and the module system you want to use is the **CommonJS** framework.
+The presence of this file lets VS Code know that it should treat all the files under this root as part of the same project.  The specific `compilerOptions` tells VS Code you are writing ES5 compliant code and you want to use the **CommonJS** [module system](http://www.commonjs.org/specs/modules/1.0).
 
 ## Typings
 

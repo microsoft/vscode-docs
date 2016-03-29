@@ -44,7 +44,7 @@ You now get IntelliSense proposals for properties in 'ECMAScript 3 style classes
 
 IntelliSense offers both *inferred* proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (with the document icon), as you can see in the image above.
 
-The `commonjs` support has been improved as well:
+The **CommonJS** module support has been improved as well:
 
 ![commonjs support](images/January/salsa-commonjs.png)
 

@@ -15,7 +15,7 @@ It offers classes, modules, and interfaces to help you build robust components. 
 
 VS Code's TypeScript support can operate in two different modes:
 
-* **File Scope**: in this mode TypeScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.ts` doesn't reference a file `b.ts` explicitly (either using /// references or external modules) there is no common project context between the two files.
+* **File Scope**: in this mode TypeScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.ts` doesn't reference a file `b.ts` explicitly (either using [/// reference directives](http://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or external modules) there is no common project context between the two files.
 
 * **Explicit Project**: a TypeScript project is defined via a `tsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a TypeScript project. The file itself lists the files belonging to the project as well as compiler options. Details about the `tsconfig.json` file can be found [here](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json).
 
@@ -27,7 +27,7 @@ Typically the first step in any new TypeScript project is to add in a `tsconfig.
 
 ![jsconfig.json IntelliSense](images/typescript/jsconfigintellisense.png)
 
-A simple `tsconfig.json` looks like this for ES5, CommonJS modules and source maps:
+A simple `tsconfig.json` looks like this for ES5, **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0) and source maps:
 
 ```json
 {
