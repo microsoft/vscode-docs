@@ -59,9 +59,11 @@ Read-only files never trap the `kbstyle(Tab)` key.
 
 ## Screen Readers
 
-VS Code supports screen readers in the editor using a strategy based on paging the text. From our testing with the [NVDA screen reader](http://www.nvaccess.org), this is the best option in terms of trade-offs between good screen reader support and performance when dealing with very large files.
+VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](http://www.nvaccess.org), but we expect all screen readers to benefit from our changes, as we didn't do any NVDA specific changes.
 
 The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) allow screen readers to announce the error or warning messages.
+
+When the suggestions pop up, they will get announced to screen readers. It is possible to navigate the suggestions using `kbstyle(Alt+Up)` and `kbstyle(Alt+Down)`, you can dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
 ## Debugger Accessibility
 
