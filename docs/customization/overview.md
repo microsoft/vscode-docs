@@ -25,6 +25,7 @@ You can customize VS Code to work the way you like to work.  Here is a quick pri
 [Themes](/docs/customization/themes.md)| Add additional color themes to VS Code.|Yes 
 [Basic Language Support](/docs/customization/colorizer.md)| Add additional basic language support (colorization and bracket matching) to VS Code via a TextMate bundle.  You can also associate more file extensions with an existing language.|Yes
 [Snippets](/docs/customization/userdefinedsnippets.md)|Add additional snippets to your favorite language|Yes
+[Language](/docs/customization/locales.md)|Configure the display language|No
 
 
 ## Next Steps
