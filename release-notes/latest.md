@@ -9,9 +9,9 @@ MetaDescription: See what is new in the Visual Studio Code March Release (0.10.1
 
 ## March 2016 Release
 
-March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish.  Visit this page to [get the insiders build](http://code.visualstudio.com/Download#insiders).  There is a lot to be excited about in this release here is a quick summary:
+March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish.  Visit this page to [get the insiders build](http://code.visualstudio.com/Download#insiders).  There is a lot to be excited about in this release, here is a quick summary:
 
-![March Summary](images/March/Mar Summary.png)
+![March Summary](images/March/summary.png)
 
 Read on to get into the details...
 
@@ -21,7 +21,7 @@ Read on to get into the details...
 
 ### Documentation
 
-We mad a pass over the [JavaScript documentation](/docs/languages/javascript.md) and added more information about the `jsconfig.json` and its attributes.
+We made a pass over the [JavaScript documentation](/docs/languages/javascript.md) and added more information about the `jsconfig.json` and its attributes.
 
 ### Disable Syntax Validation when using ES7 constructs
 
