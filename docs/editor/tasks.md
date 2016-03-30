@@ -78,14 +78,15 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 ![Task list](images/tasks/gulpautodetect.png)
 
->**Tip:** Gulp, Grunt and Jake are autodetected only if the corresponding files are present in the root of the opened folder.
+>**Note:** Gulp, Grunt and Jake are autodetected only if the corresponding files (for example `gulp.js`) are present in the root of the opened folder.
 
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
 
-You need to configure the tasks in `tasks.json` (`.vscode\tasks.json`) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)` (Run Build Task).
+You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the ** Run Build Task** command (`kb(workbench.action.tasks.build)`).
 
-If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from. For this example, select Gulp from the list. This will generate a tasks.json file like this:
+If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from. 
 
+For this example, select `Gulp` from the list. This will generate a `tasks.json` file like this:
 
 ```json
 {
@@ -110,7 +111,8 @@ If you don't already have a `tasks.json` under your workspace `.vscode` folder, 
 			]
 		}
 	]
-}```
+}
+```
 
 Since we execute the Mono compiler to compile C# files, we use the `$msCompile` problem matcher to detect any problems reported by the compiler. The `problemMatcher` property will then be:
 
@@ -128,24 +130,24 @@ In contrast to the `tasks.json` file in the TypeScript section, this file has:
 
 ### Syntax for the Tasks Property
 
-The tasks property is defined as an array of object literals where each literal has the following properties:
+The `tasks` property is defined as an array of object literals where each literal has the following properties:
 
-- **taskName** this is the task's name in the Gulp or Jake file.
-- **args** a string array of additional arguments to be passed to the task.
-- **isBuildCommand** if this property is set to true, `kb(workbench.action.tasks.build)` will trigger this task.
-- **problemMatcher** a string or array of strings based on the pre-defined problem matchers.
+- **taskName** - The task's name in the Gulp or Jake file.
+- **args** - A string array of additional arguments to be passed to the task.
+- **isBuildCommand** - If this property is set to true, `kb(workbench.action.tasks.build)` will trigger this task.
+- **problemMatcher** A string or array of strings based on the pre-defined problem matchers.
 
 ## Output Window Behavior
 
 Sometimes you will want to control how the output window behaves when running tasks. For instance, you may always want to show output for the debug command. The property **showOutput** controls this and the valid values are:
 
-- **silent**: the output window is brought to front only if no problem matchers fire for the task. This is the default.
-- **always**: the output window is always brought to front.
-- **never**: The user must explicitly bring the output window to the front using the View menu or the short cut `kb(workbench.action.output.toggleOutput)`.
+- **silent** - The output window is brought to front only if no problem matchers fire for the task. This is the default.
+- **always** - The output window is always brought to front.
+- **never** - The user must explicitly bring the output window to the front using the **View** > **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`).
 
 ## Operating System Specific Properties
 
-The task system supports defining values (for example the command to be executed) specific to an operating system. To do so, simply put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
+The task system supports defining values (for example, the command to be executed) specific to an operating system. To do so, simply put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
 
 Below is an example that uses the Node.js executable as a command and is treated differently on Windows and Linux:
 
@@ -200,7 +202,7 @@ Here is an example where output for the "deploy" task is always brought to front
 
 ## Variable substitution
 
-When authoring tasks and launch configurations it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the tasks.json and launch.json files and has the following predefined variables:
+When authoring tasks and launch configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` and `launch.json` files and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
 - **${file}** the current opened file
@@ -209,7 +211,7 @@ When authoring tasks and launch configurations it is often useful to have a set 
 - **${fileExtname}** the current opened file's extension
 - **${cwd}** the task runner's current working directory on startup
 
-You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}).
+You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `env.Path` on Windows.
 
 Below is an example of a configuration that passes the current opened file to the TypeScript compiler.
 
