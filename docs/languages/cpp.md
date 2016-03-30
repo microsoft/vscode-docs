@@ -18,9 +18,9 @@ Because we're still shaping the C++ experience in VS Code, now is a great time t
 
 ## Installing C++ support
 
-C++ language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). Or, just install it from VS Code by launching the Command Pallete (`kb(workbench.action.quickOpen)`) and then entering the command **ext install cpptools**.
+C++ language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). Or, just install it from VS Code by launching the __Command Palette__ (`kb(workbench.action.quickOpen)`) and then entering the command **ext install cpptools**.
 
-On Linux there's an additional step that installs dependencies necessary for debugging support. When VS Code restarts after installing the extension, a script installs the [dotnet cli](http://dotnet.github.io/) dependency. Because elevated permisions are needed to install this package you'll be promted for your password in the terminal where the script is running. If you'd rather perform these last steps yourself you can close the terminal now, then enter the commands yourself (these steps must be completed to enable debugging support.) For more information on these commands, see Manual Installation for the C++ Debugger extension in the [readme](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+On Linux there's an additional step that installs dependencies necessary for debugging support. When VS Code restarts after installing the extension, a script installs the [dotnet cli](http://dotnet.github.io/) dependency. Because elevated permissions are needed to install this package, you'll be prompted for your password in the terminal where the script is running. If you'd rather perform these last steps yourself, you can close the terminal now, then enter the commands yourself (these steps must be completed to enable debugging support.) For more information on these commands, see Manual Installation for the C++ Debugger extension in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
 ## Debugging
 
@@ -28,13 +28,13 @@ Debugging is supported on Linux (Ubuntu 14.04 64-bit) and OS X.
 
 ### Preparing your launch.json file for debugging
 
-Before you can debug your app you'll need to set a few things up. Navigate to the Debug View (click the debug icon in the toolbar on the left-hand side of the VS Code window) then in the __Debug Panel__, click the __Settings__ icon and select *C++ Launch (GDB)*. This opens the ```launch.json``` file for editing.
+Before you can debug your app you'll need to set a few things up. Navigate to the Debug View (click the debug icon in the toolbar on the left-hand side of the VS Code window) then in the __Debug Panel__, click the __Settings__ icon and select `C++ Launch (GDB)`. This opens the ```launch.json``` file for editing.
 
 ![launch.json](images/cpp/launchjson.png)
 
 This file, ```launch.json```, contains configurations that tell the debugger how to interact with your app. Two configurations are included by default -- one that defines the properties for launching your app under GDB from VS Code, and another that defines the properties for attaching GDB to a process that's already running. Note that launching your app under GDB is not currently supported on OS X, for now you have to use Attach to debug OS X apps.
 
-At the minimum, you'll need to update the 'program' property to contain the program name and path, but you can modify other properties as well. You can view a tooltip that describes each property and its possible values by placing your cursor over a property. For more incormation about the properties inside the launch.json file and how to use them, see the VS Code [debugging documentation](/docs/editor/debugging.md).
+At the minimum, you'll need to update the 'program' property to contain the program name and path, but you can modify other properties as well. You can view a tooltip that describes each property and its possible values by placing your cursor over a property. For more information about the properties inside the launch.json file and how to use them, see the VS Code [debugging documentation](/docs/editor/debugging.md).
 
 After your launch.json file is configured you're ready to start debugging, but remember that VS Code won't rebuild your program when you make changes to it between debugging sessions unless you also create a task.json file to invoke the build and set it as the preLaunchTask property in the launch.json file
 
@@ -66,7 +66,7 @@ The C/C++ extension for VS Code also has the ability to debug using a memory dum
 
 ### GDB and MI commands
 
-You can execute GDB or MI commands directly through the debug console with the `-exec` command, but be careful -- executing GDB commands directly in the debug console is untested and might crash VS Code in some cases. For more information on debugging with VS Code, see this introduction to debugging in VS Code.
+You can execute GDB or MI commands directly through the debug console with the `-exec` command, but be careful -- executing GDB commands directly in the debug console is untested and might crash VS Code in some cases. For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
 
 ### Other Debugging Features
 * Unconditional breakpoints
@@ -86,7 +86,7 @@ To search for a symbol in the current workspace, start by pressing `kb(workbench
 
 ![Searching in your workspace](images/cpp/workspacesearch.png)
 
-Alternatively, you can search for symbols by accessing these commands through the Command Pallete if you prefer. Open the __Command Pallete__ (`kb(workbench.action.quickOpen)`) then enter the '@' command to search the current file, or the '#' command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are just shortcuts for the '@' and '#' commands, respectively, so everything works the same.
+Alternatively, you can search for symbols by accessing these commands through the __Command Palette__ if you prefer. Open the __Command Palette__ (`kb(workbench.action.quickOpen)`) then enter the '@' command to search the current file, or the '#' command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are just shortcuts for the '@' and '#' commands, respectively, so everything works the same.
 
 ## Peek Definition / Go to Definition
 
@@ -104,20 +104,26 @@ With the peek window open, you browse the list of competing definitions to find 
 
 You can also quickly navigate to where a symbol is defined by using the Go to Definition feature.
 
-To go to a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press 'kb(editor.action.goToDeclaration)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
+To go to a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press `kb(editor.action.goToDeclaration)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
 
-## Known limitations:
+## Known limitations
 
-Symbols and Code Navigation:
-* All platforms
- * Because the extension doesn't parse function bodies, Peek Definition and Go to Definition don't work for symbols defined inside the body of a function. 
+### Symbols and Code Navigation
 
-Debugging:
-* Linux
- * GDB needs elevated permisions in order to attach to a process. When using *attach to process*, you need to provide your password before the debugging session can begin. 
-* OS X
- * *Launch process* is not currently supported on OS X.
- * No additional terminal is provided for programs that already display a terminal, and the GDB shell is not available for those applications.
+All platforms:
+
+* Because the extension doesn't parse function bodies, Peek Definition and Go to Definition don't work for symbols defined inside the body of a function. 
+
+### Debugging
+
+Linux:
+
+* GDB needs elevated permissions in order to attach to a process. When using *attach to process*, you need to provide your password before the debugging session can begin. 
+
+OS X:
+
+* *Launch process* is not currently supported on OS X.
+* No additional terminal is provided for programs that already display a terminal, and the GDB shell is not available for those applications.
 
 ## Next Steps
 
@@ -131,19 +137,19 @@ Read on to find out about:
 
 **Q: Which versions of Linux support debugging?**
 
-**A:** In this release our linux install script targets Ubuntu 14.04 64-bit, therfore its the only version of Linux that officially supports debugging. Other versions of Linux might work if you perform the steps found in the script, but you might need to modify them for your version of Linux. For more information on these steps, see Manual Installation for the C++ Debugger extension in the [readme](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+**A:** In this release our Linux install script targets Ubuntu 14.04 64-bit, therefore its the only version of Linux that officially supports debugging. Other versions of Linux might work if you perform the steps found in the script, but you might need to modify them for your version of Linux. For more information on these steps, see Manual Installation for the C++ Debugger extension in the [readme](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
 **Q: Why do I need provide my password to complete installation of the extension on Linux?**
 
-**A:** VS Code takes a dependency on [dotnet cli](http://dotnet.github.io/) to enable debugging support on Linux. Root access is required to install the dotnet cli package. Normally these steps are performed by a script we've provided, but you can perform the steps manually if you prefer not to run the script with elevated permisions. 
+**A:** VS Code takes a dependency on [dotnet cli](http://dotnet.github.io/) to enable debugging support on Linux. Root access is required to install the dotnet cli package. Normally these steps are performed by a script we've provided, but you can perform the steps manually if you prefer not to run the script with elevated permissions. 
 
-**Q: My Project won't load.**
+**Q: My project won't load.**
 
 **A:** VS Code doesn't currently support C++ project files, instead it considers a directory of your choosing to be the workspace of your project. Source code files inside that directory and its sub-directories are part of the workspace.
 
 **Q: IntelliSense isn't working.**
 
-**A:** In this release intellisense isn't supported. We plan to enable this and other features in future releases.
+**A:** In this release, IntelliSense isn't supported. We plan to enable this and other features in future releases.
 
 **Q: How do I build/run my project?**
 
