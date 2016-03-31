@@ -50,9 +50,9 @@ You can install a previous release of VS Code by uninstalling your current versi
 
 You can find the VS Code licenses, third party notices and [Chromium](https://www.chromium.org) Open Source credit list under your VS Code installation location `resources\app` folder. VS Code's `ThirdPartyNotices.txt` and Chromium's `Credits_*.html` are available under `resources\app` and VS Code's `LICENSE.txt` (including localized versions by Language ID) are under `resources\app\licenses`.
 
-### Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
+### Why does Visual Studio Code have a different license than the vscode GitHub repository?
 
-Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 
 ### Why does Visual Studio Code have an expiration date of 31-Dec-2016?
 
@@ -68,7 +68,7 @@ To install the Insiders build, go to the Insiders [download page](/insiders).
 
 ### Trouble with the installer
 
-Try using the [zip file](https://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
+Try using the [zip file](https://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this, unzip VS Code in your **Program Files** folder.
 
 >**Note:** When VS Code is installed via a Zip you will need to manually update it for each release.
 
