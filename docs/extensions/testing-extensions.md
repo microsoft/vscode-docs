@@ -16,7 +16,7 @@ VS Code supports running and debugging tests for your extension that require the
 
 The basic [yo code generator](/docs/tools/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
 
-**Note**: Below documentation assumes you have created an extension in TypeScript but the same also applies when you create a JavaScript extension. Some file names can be different in that case though.
+**Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
 
 After you've created a new extension and opened the project in VS Code, you can select the `Launch Tests` configuration from the dropdown at the top of the Debug View.
 

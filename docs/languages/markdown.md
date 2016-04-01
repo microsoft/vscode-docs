@@ -14,13 +14,13 @@ Working with Markdown in Visual Studio Code can be pretty fun and there are a nu
 
 ## Markdown Preview
 
-Open any Markdown file and press `kb(workbench.action.markdown.togglePreview)` or `kb(workbench.action.markdown.openPreviewSideBySide)` in the editor to toggle between the code and a preview of the Markdown file. You can view the preview side-by-side with the file you are editing and see changes reflected in real-time as you edit.
+Open any Markdown file and press `kb(workbench.action.markdown.togglePreview)` in the editor to toggle between the code and a preview of the Markdown file. You can view the preview side-by-side (`kb(workbench.action.markdown.openPreviewSideBySide)`) with the file you are editing and see changes reflected in real-time as you edit.
 
 Here is an example with a very simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also click on the icon on the top right of the preview window to switch back and forth between code and preview mode.
+>**Tip:** You can also click on the icon on the top right of the preview window to switch back and forth between source and preview mode.
 
 ## Using your own CSS
 

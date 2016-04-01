@@ -97,7 +97,7 @@ Think of the **WORKING FILES** section as similar to Tabs that you may be famili
 
 Once you are done with your task, you can individually remove files from the working files section, or you can remove all files from the working files section by using the **Close All Files** action.
 
->**Tip:** You can type `kb(workbench.files.action.workingFilesPicker)` to navigate the list of working files from quick open without having the explorer visible.
+>**Tip:** You can type `kb(workbench.files.action.workingFilesPicker)` to navigate the list of working files from file picker without having the explorer visible.
 
 ## Configuring the Editor
 
@@ -238,15 +238,15 @@ If you specify more than one file or folder at the command line, VS Code will op
 
 ## Opening a Project
 
-VS Code does not distinguish between opening a folder and opening a project. Instead, VS Code will indicate project context for files you open that belong to a project from the status bar. If more than one project is found, you can switch projects from here as well. 
+VS Code does not distinguish between opening a folder and opening a project. If VS Code detects a project in the folder you opened (for example, a C# project), that project context will be displayed on the Status Bar. If more than one project is found, you can switch projects from there as well.
 
-To open the project contained in the folder `C:\src\WebApp`:
+To open a project contained in the folder `C:\src\WebApp`, you would start VS Code like this:
 
 ````
 code C:\src\webapp
 ````
 
-After VS Code opens, just open C# files and use the status bar to switch the active project as needed.
+After VS Code opens, just open source files and use the Status Bar to switch the active project as needed.
 
 ![Status Bar](images/codebasics/status.png)
 

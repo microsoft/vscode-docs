@@ -43,11 +43,11 @@ The `settings.json` file is divided into these sections:
 
 - **Editor Configuration** - font, word wrapping, tab size, line numbers, indentation, ...
 - **Window Configuration** - restore folders, zoom level, ...
-- **Files Configuration** - exclude filters, default encoding, trim trailing whitespace, ...
-- **File Explorer Configuration** - encoding, working files behavior, ...
+- **Files Configuration** - excluded file filters, default encoding, trim trailing whitespace, ...
+- **File Explorer Configuration** - encoding, **WORKING FILES** behavior, ...
 - **HTTP Configuration** - proxy settings
 - **Search Configuration** - file exclude filters
-- **Git Configuration** - disable git, auto fetch behavior
+- **Git Configuration** - disable Git integration, auto fetch behavior
 - **Telemetry Configuration** - disable telemetry reporting, crash reporting
 - **HTML Configuration** - HTML format configuration
 - **CSS Configuration** - CSS linting configuration
@@ -57,6 +57,7 @@ The `settings.json` file is divided into these sections:
 - **Less Configuration** - Control linting for Less
 - **Sass Configuration** - Control linting for Sass
 - **TypeScript Configuration** - Language specific settings
+- **PHP Configuration** - PHP linter configuration
 
 ## Default Settings
 
