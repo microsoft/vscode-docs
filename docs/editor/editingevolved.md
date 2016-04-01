@@ -40,7 +40,9 @@ Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column selection:
 
 ![Column-select](images/editingevolved/column-select.gif)
 
-There are also default keybindings for column selection on OSX and Windows, but not on Linux. You can edit your `keybindings.json` to bind them to something more familiar if you wish. For example:
+There are also default keybindings for column selection on OSX and Windows, but not on Linux. You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish. 
+
+For example:
 
 ```json
 { "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
@@ -69,12 +71,11 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type (we call it affectionately 24x7 IntelliSense). You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  Out of the box, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are accept triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
 
-
 ![IntelliSense](images/editingevolved/intellisense.gif)
 
 > **Tip:** The suggestions filtering supports CamelCase so you can type the upper case letters of a method name to limit the suggestions. For example, "wl" will quickly bring up WriteLine.
 
-> **Tip:** The 24x7 IntelliSense can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` settings.
+> **Tip:** The 24x7 IntelliSense can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/customization/userandworkspace.md).
 
 ## Parameter Hints
 

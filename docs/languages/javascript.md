@@ -159,7 +159,7 @@ Option | Description
 
 ## JavaScript Formatting
 
-VS Code provides several formatting settings for JavaScript. They can all be found in the `javascript.format` settings name space.
+VS Code provides several formatting settings for JavaScript. They can all be found in the `javascript.format` [settings](/docs/customization/userandworkspace.md) name space.
 
 ```typescript
 // Defines space handling after a comma delimiter

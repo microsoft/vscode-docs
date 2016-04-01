@@ -77,7 +77,7 @@ Another cool feature is the ability to see the number of references to a method 
 
 ![Code Lens](images/csharp/codelens.png)
 
->**Tip:** You can turn off references information in the __User Settings__ under the property `editor.referenceInfos`.
+>**Tip:** You can turn off references information with the `editor.referenceInfos` [setting](/docs/customization/userandworkspace.md).
 
 ## Find References/Peek Definition
 
