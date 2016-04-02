@@ -24,11 +24,11 @@ For properties and values (`kb(editor.action.triggerSuggest)`), both for JSON da
 
 ### Package and Project Dependencies
 
-We also offer IntelliSense for specific value sets such as package and project dependencies in `package.json`, `project.json` and `bower.json`
+We also offer IntelliSense for specific value sets such as package and project dependencies in `package.json`, `project.json` and `bower.json`.
 
 ## Quick Navigation
 
-JSON files can get pretty large and we support quick navigation to properties `kb(workbench.action.gotoSymbol)` (sometimes referred to as goto symbol) with the Command Palette.
+JSON files can get pretty large and we support quick navigation to properties `kb(workbench.action.gotoSymbol)` (**Go to Symbol**) with the Command Palette.
 
 ![Goto Symbol](images/json/gotosymbol.png)
 
@@ -47,16 +47,15 @@ You can format your JSON document (or just a part of it) using `kb(editor.action
 
 To understand the structure of JSON files, we use [JSON schemas](http://spacetelescope.github.io/understanding-json-schema/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions.
 
-Servers like http://schemastore.org provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
+Servers like [JSON Schema Store](http://schemastore.org) provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
 The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [Settings](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **User Settings** or **Workspace Settings**) under the property `json.schemas`.
 
 VS Code extensions can also define schemas and schema mapping. That's why VS Code already knows about the schema of some well known JSON files such as `package.json`, `bower.json` and `tsconfig.json`.
 
-
 ### Mapping in the JSON
 
-In the following example, the JSON file specifies that its contents follow the CoffeeLint schema.
+In the following example, the JSON file specifies that its contents follow the [CoffeeLint](http://www.coffeelint.org/) schema.
 
 ```json
 {
@@ -67,7 +66,7 @@ In the following example, the JSON file specifies that its contents follow the C
 
 ### Mapping in the User Settings
 
-The following excerpt from the User Settings shows how `.babelrc` files are mapped to the babelrc schema located on http://json.schemastore.org/babelrc.
+The following excerpt from the User Settings shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on http://json.schemastore.org/babelrc.
 
 ```json
 "json.schemas": [
@@ -79,7 +78,7 @@ The following excerpt from the User Settings shows how `.babelrc` files are mapp
     },
 ```
 
->**Tip:** Additionally to defining a schema for .babelrc, also make sure that .babelrc is associated to the JSON mode. This is also done in the settings, under `files.association`.
+>**Tip:** Additionally to defining a schema for `.babelrc`, also make sure that `.babelrc` is associated to the JSON language mode. This is also done in the settings using the `files.association` array setting.
 
 >**Tip:** For an overview on settings, see [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
@@ -97,7 +96,7 @@ To map a schema that is located in the workspace, use a relative path. In this e
     },
 ```
 
-### Mapping to a Schema in the Settings Files
+### Mapping to a Schema Defined in Settindgs
 
 To map a schema that is defined in the User or Workspace Settings, use the `schema` property. In this example, a schema is defined that will be used for all files named `.myconfig`.
 

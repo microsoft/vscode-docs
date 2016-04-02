@@ -91,8 +91,6 @@ You can give even more hints to Visual Studio Code through a configuration file 
 }
 ```
 
-Restart VS Code for the new jsconfig.json to be read by VS Code.
-
 The presence of this file lets VS Code know that it should treat all the files under this root as part of the same project.  The specific `compilerOptions` tells VS Code you are writing ES5 compliant code and you want to use the **CommonJS** [module system](http://www.commonjs.org/specs/modules/1.0).
 
 ## Typings
@@ -128,11 +126,11 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debugging your Node Application
 
-In order to run and debug your Node application from within VS Code, you need to configure how the application will be started. To do this, click on the Debug icon in the View Bar on the left of Visual Studio Code.
+In order to run and debug your Node.js application from within VS Code, you need to configure how the application will be started. To do this, click on the Debug icon in the View Bar on the left of Visual Studio Code.
 
 ![Debug icon](images/nodejs/debugicon.png)
 
-Click on the Configure gear icon at the top of the Debug view to create a default `launch.json` file; and, select "Node.js" as the Debug Environment. This configuration file lets you specify how to start the application, what arguments to pass in, the working directory, and more. When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the `Launch` configuration. A second `Attach` configuration is also created to show you how to attach to a running Node application.
+Click on the Configure gear icon at the top of the Debug view to create a default `launch.json` file and select "Node.js" as the Debug Environment. This configuration file lets you specify how to start the application, what arguments to pass in, the working directory, and more. When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the `Launch` configuration. A second `Attach` configuration is also created to show you how to attach to a running Node application.
 
 ![launch.json configuration file](images/nodejs/launchjson.png)
 

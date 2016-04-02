@@ -119,7 +119,7 @@ In C# and in TypeScript, you can jump to a symbol across files with `kb(workbenc
 
 ## Folding
 
-You can fold regions of code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions.
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions.
 The folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
 You can also use the following actions:
@@ -131,7 +131,6 @@ You can also use the following actions:
  * Fold Level X (`kb(editor.foldLevel2)`) unfolds all regions of level X, except the region at the current cursor position
 
 ![Folding](images/editingevolved/folding.png)
-
 
 ## Gutter indicators
 
