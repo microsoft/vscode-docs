@@ -18,8 +18,7 @@ We have support for selectors, properties and values. Use `kb(editor.action.trig
 
 ![IntelliSense in CSS](images/css/intellisense.png)
 
-Proposals contain extensive documentation, including a list of browsers that support the property.
-To see the full description text of the selected entry, use `kb(toggleSuggestionDetails)`.
+Proposals contain extensive documentation, including a list of browsers that support the property. To see the full description text of the selected entry, use `kb(toggleSuggestionDetails)`.
 
 ## Emmet snippets
 
@@ -32,6 +31,7 @@ We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.
 ## Syntax coloring & Color preview
 
 As you type, we provide syntax highlighting as well as in context preview of colors.
+
 ![Syntax and color](images/css/color.png)
 
 ## Syntax Verification & Linting
@@ -97,14 +97,13 @@ nav {
 
 For the Less version of the above file, just change `$padding` to `@padding`.
 
->**Note:** This is a very simple example, which is why the code is almost identical between both file types.  In more advanced scenarios, the syntaxes and constructs will be much different.
+>**Note:** This is a very simple example, which is why the source code is almost identical between both file types.  In more advanced scenarios, the syntaxes and constructs will be much different.
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it. In the selection dialog that shows up, select `Others`.
+The next step is to set up the task configuration.  To do this open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it. In the selection dialog that shows up, select `Others`.
 
-This will create a sample `tasks.json` file in the `.vscode` folder.  The initial file has a sample of
-running an arbitary command. We will simply modify that configuration for transpiling Less/Sass instead:
+This will create a sample `tasks.json` file in the workspace `.vscode` folder.  The initial version of file has an example to run an arbitrary command. We will simply modify that configuration for transpiling Less/Sass instead:
 
 ```json
 // Sass configuration
@@ -126,11 +125,11 @@ running an arbitary command. We will simply modify that configuration for transp
 }
 ```
 
-Under the covers we interpret `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss styles.css` or `lessc styles.less styles.css`.
+Under the covers, we interpret `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss styles.css` or `lessc styles.less styles.css`.
 
 ### Step 4: Run the Build Task
 
-As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `style.css`.
+As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point you will see an additional file show up in the file list `style.css`.
 
 The sample Sass/Less file did not have any compile problems, so by running the task all that happened was a corresponding `styles.css` file was created.
 
@@ -150,7 +149,7 @@ npm install -g gulp gulp-sass gulp-less
 
 ### Step 2: Create a simple Gulp task
 
-Open VS Code on the same folder from before (contains `styles.scss`/`styles.less` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.  Place the following code in that file:
+Open VS Code on the same folder from before (contains `styles.scss`/`styles.less` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.  Place the following source code in that file:
 
 ```javascript
 // Sass configuration
@@ -190,8 +189,8 @@ gulp.task('default', function() {
 
 What is happening here?
 
-1. We are watching for changes to any Sass/Less file at the root of our workspace, i.e. the current folder open in VS Code.
-2. We take the set of Sass/Less files that have changed, and run them through our respective compiler, i.e. `gulp-sass`, `gulp-less`.
+1. We are watching for changes to any Sass/Less file at the root of our workspace, for example the current folder open in VS Code.
+2. We take the set of Sass/Less files that have changed, and run them through our respective compiler, for example `gulp-sass`, `gulp-less`.
 3. We now have a set of CSS files, each named respectively after their original Sass/Less file.  We then put these files in the same directory.
 
 
@@ -217,28 +216,25 @@ To complete the tasks integration with VS Code, we will need to modify the task 
 
 ### Step 4: Run the Build Task
 
-Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  But this time, we've set a watch so the status bar should indicate that on the left-hand side.
+Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  But this time, we've set a watch so the Status Bar should indicate that on the left-hand side.
 
 ![Task watching spinner](images/css/taskwatching.png)
 
 At this point, if you create and/or modify other Less/Sass files, you will see the respective CSS files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` again and click `Terminate Running Task` in the message box. Or you can use the Command Palette with `kb(workbench.action.showCommands)` and find the terminate command there.
+If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` again and click **Terminate Running Task** in the message box. Or you can use the **Command Palette** with `kb(workbench.action.showCommands)` and find the terminate command there.
 
 ## Customizing CSS, Sass and Less Settings
 
-You can configure the following lint warnings as User or Workspace Settings.
+You can configure the following lint warnings as [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
->**Tip:** Head over to this topic to get an overview of [User and Workspace Settings](/docs/customization/userandworkspace.md).
-
-The validate setting allows you turn off the built-in validation. You would do this if you rather use a different linter. 
+The `validate` setting allows you turn off the built-in validation. You would do this if you rather use a different linter.
 
 Id|Description|Default
 ---|------------|----
 css.validate | Enables or disables all css validations | true
 less.validate | Enables or disables all less validations | true
 sass.validate | Enables or disables all sass validations | true
-
 
 To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `less.lint.` and `sass.lint.`.
 
