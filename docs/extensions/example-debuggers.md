@@ -24,10 +24,9 @@ When the debug session ends, the adapter is stopped.
 
 Debug adapters are part of VS Code's extensible architecture: they are contributed as extensions. What sets them apart from other extensions is the fact that the debug adapter code is not running in the extension host, but as a separate standalone program. The reasons for this are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if the need arises.
 
-Visual Studio Code ships with a debug extension for Node.js.
-More debug extensions are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debug extension yourself.
+Visual Studio Code ships with a debugger extension for Node.js. More debugger extensions are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debugger extension yourself.
 
-This document will show you how to create a new debug extension.
+This document will show you how to create a new debugger extension.
 
 ## Installing a Sample Debug Extension
 
@@ -36,7 +35,7 @@ Since creating a debug adapter from scratch is a bit heavy for this tutorial, we
 Before delving into the development setup for mock-debug, let's first install a [pre-built version](https://marketplace.visualstudio.com/items/andreweinand.mock-debug)
 from the VS Code Marketplace and play with it:
 
-* use the Command Palette `Extensions: Install Extension` to find and install the mock-debug extension,
+* use the **Command Palette** `Extensions: Install Extension` to find and install the mock-debug extension,
 * restart VS Code.
 
 To try it:

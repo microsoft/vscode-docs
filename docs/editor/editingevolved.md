@@ -34,13 +34,13 @@ VS Code has support for multiple cursors. You can add secondary cursors (rendere
 
 > **Tip:** You can add more cursors also with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
 
-### Column selection
+### Column text selection
 
-Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column selection:
+Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column text selection:
 
-![Column-select](images/editingevolved/column-select.gif)
+![Column text selection](images/editingevolved/column-select.gif)
 
-There are also default keybindings for column selection on OSX and Windows, but not on Linux. You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish. 
+There are also default key bindings for column selection on OS X and Windows, but not on Linux. You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
 
 For example:
 

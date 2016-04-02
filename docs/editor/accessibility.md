@@ -20,7 +20,7 @@ You can increase the Zoom level in VS Code with the **View** > **Zoom In** comma
 
 ## Persisted Zoom Level
 
-With the  `window.zoomLevel` [setting](/docs/customization/userandworkspace.md) you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the **View** > **Zoom in** command.
+With the  `window.zoomLevel` [setting](/docs/customization/userandworkspace.md), you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the **View** > **Zoom in** command.
 
 ## High Contrast Theme
 
@@ -30,13 +30,13 @@ We support a High Contrast color theme on all platforms.  Use **File** > **Prefe
 
 ## Keyboard Navigation
 
-You will find that VS Code provides an exhaustive list of commands in the Command Palette (`kb(workbench.action.showCommands)`) so that you can run VS Code without  using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (e.g. 'git') to filter the list of commands.
+You will find that VS Code provides an exhaustive list of commands in the **Command Palette** (`kb(workbench.action.showCommands)`) so that you can run VS Code without using the mouse.  Press `kb(workbench.action.showCommands)` then type a command name (e.g. 'git') to filter the list of commands.
 
-VS Code also has many preset keyboard shortcuts for commands. These are displayed to the right of the command in the Command Palette.
+VS Code also has many preset keyboard shortcuts for commands. These are displayed to the right of the command in the **Command Palette**.
 
 ![Keyboard shortcuts in Command Palette](images/accessibility/keyboard-shortcuts.png)
 
-You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** brings up the Default Keyboard Shortcuts in the left pane and your customizable `keybindings.json` on the right.  See [Key Bindings](/docs/customization/keybindings.com) for more details on customizing or adding your own keyboard shortcuts.
+You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** brings up the **Default Keyboard Shortcuts** in the left pane and your customizable `keybindings.json` on the right.  See [Key Bindings](/docs/customization/keybindings.com) for more details on customizing or adding your own keyboard shortcuts.
 
 ## Tab Navigation
 
@@ -59,7 +59,7 @@ Read-only files never trap the `kbstyle(Tab)` key.
 
 ## Screen Readers
 
-VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](http://www.nvaccess.org), but we expect all screen readers to benefit from our changes, as we didn't do any NVDA specific changes.
+VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](http://www.nvaccess.org), but we expect all screen readers to benefit from this suppport.
 
 The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) allow screen readers to announce the error or warning messages.
 

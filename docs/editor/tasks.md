@@ -41,7 +41,7 @@ The CSS topic provides examples of how to use Tasks to generate CSS files.
 VS Code processes the output from a task with a problem matcher and we ship with a number of them 'in the box', we'll talk about how to make your own ones soon:
 
 - **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
-- **TypeScript Watch**: `$tsc-watch` matches problems reporter from the tsc compiler when executed in watch mode.
+- **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
 - **JSHint**: `$jshint` assumes that file names are reported as an absolute path.
 - **JSHint Stylish**: `$jshint-stylish` assumes that file names are reported as an absolute path.
 - **ESLint Compact**: `$eslint-compact` assumes that file names in the output are relative to the opened folder.
@@ -84,7 +84,7 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the ** Run Build Task** command (`kb(workbench.action.tasks.build)`).
 
-If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from. 
+If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the **Command Palette** (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from.
 
 For this example, select `Gulp` from the list. This will generate a `tasks.json` file like this:
 
@@ -114,7 +114,9 @@ For this example, select `Gulp` from the list. This will generate a `tasks.json`
 }
 ```
 
-Since we execute the Mono compiler to compile C# files, we use the `$msCompile` problem matcher to detect any problems reported by the compiler. The `problemMatcher` property will then be:
+Since we execute the Mono compiler to compile C# files, we use the `$msCompile` problem matcher to detect any problems reported by the compiler.
+
+The `problemMatcher` property will then be:
 
 ```json
 			"problemMatcher": [
