@@ -62,11 +62,13 @@ Startup.main();
 
 ### Step 2: Create tasks.json
 
-The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it. This shows a selection box with templates you can choose from:
+The next step is to set up the task configuration.  To do this open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it. This shows a selection box with templates you can choose from:
 
 ![Task Runner Selection](images/typescript/taskSelection.png)
 
-Select TypeScript - tsconfig.json. This will create a `tasks.json` file in the `.vscode` folder. The content of the tasks.json file looks like this:
+Select TypeScript - tsconfig.json. This will create a `tasks.json` file in the workspace `.vscode` folder.
+
+The content of the tasks.json file looks like this:
 
 ```json
 {
@@ -99,15 +101,15 @@ If you have [Node.js](https://nodejs.org) installed, you can run your simple Hel
 node HelloWorld.js
 ```
 
-> **Tip:** You can also run the program using VSCode's Run/Debug feature. Details about running and debugging node apps in VSCode can be found [here](/docs/runtimes/nodejs#_debugging-your-node-application)
+> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging node apps in VS Code can be found [here](/docs/runtimes/nodejs#_debugging-your-node-application)
 
 ### Step 4: Reviewing Build Issues
 
-Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file we may get the following output from `tsc`:
+Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file, we may get the following output from `tsc`:
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the output window (which can be opened using `kb(workbench.action.output.toggleOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highlight detected problems in the status bar.
+This would show up in the output window (which can be opened using `kb(workbench.action.output.toggleOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highlight detected problems in the Status Bar.
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 
@@ -147,11 +149,11 @@ If generated (transpiled) JavaScript files do not live next to their source, you
 
 ## Hiding Derived JavaScript Files
 
-When you are working with TypeScript, you often don’t want to see generated JavaScript files in the explorer or in search results. VS Code offers filtering capabilities with a `files.exclude` [setting](/docs/customization/userandworkspace.md) and you can easily create an expression to hide those derived files:
+When you are working with TypeScript, you often don’t want to see generated JavaScript files in the explorer or in search results. VS Code offers filtering capabilities with a `files.exclude` [setting](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **Workspace Settings**) and you can easily create an expression to hide those derived files:
 
 `"**/*.js": { "when": "$(basename).ts"}`
 
-This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The file explorer will no longer show derived resources for JavaScript if they are compiled to the same location. Configure this with the `files.exclude` setting in your workspace settings (**File** > **Preferences** > **Workspace Settings**).
+This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling TypeScript file with the same name is present. The file explorer will no longer show derived resources for JavaScript if they are compiled to the same location.
 
 ![Hiding derived resources](images/typescript/hidingDerivedBefore.png) ![Hiding derived resources](images/typescript/hidingDerivedAfter.png)
 
