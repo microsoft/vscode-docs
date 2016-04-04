@@ -33,11 +33,11 @@ Some users want to use syntax constructs like the proposed **ES7 Object Rest/Spr
 
 The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. Without a `jsconfig.json`, each JavaScript file is treated as an island. Only the file itself and the JavaScript files it references are considered for features like IntelliSense. By adding a `jsconfig.json` file, you can the define the root of your project, the folders to exclude, etc. For this reason we now provide a hint to create a `jsconfig.json` file.
 
-![jsconfig hint](images/March/jsconfig-hint.png)
+![The jsconfig hint is located towards the end of in the status bar](images/March/jsconfig-hint.png)
 
 The hint creates a template for a `jsconfig.json`, with an exclusion list for you to edit:
 
-![jsconfig template](images/March/jsconfig-template.png)
+![The jsconfig.json file now accepts an exclude property which takes an array of folder names](images/March/jsconfig-template.png)
 
 Similarly when your JavaScript project is growing too large, often because of library folders like _node_modules_, we will prompt you to edit the `exclude` list.
 
@@ -53,7 +53,7 @@ Previously you often had to run the **Reload JavaScript Project** command to ens
 
 To make it easy to distinguish between diagnostics from external linters and the built-in syntax validation, errors and warnings from the built-in validator are now prefixed with `[js]`.
 
-![diagnostics prefix](images/March/diagnostics.png)
+![](images/March/diagnostics.png)
 
 ### IntelliSense when using ES6 import statements in React Native
 
@@ -171,7 +171,7 @@ The HTML formatter is based on the **beautifyjs** library. The formatting option
 
 VS Code is now translated to the following 9 languages: Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish. By default, VS Code picks up the operating system's language. If you want to configure a specific language, you can either use the command line switch `--locale` to specify a locale when you launch VS Code or use the **Configure Language** action to specify a locale setting to use whenever VS Code is started. Examples are `de` for German or `zh-TW` for Traditional Chinese.
 
-![Configure Language](images/March/language.png)
+![](images/March/language.png)
 
 ## Editor
 
@@ -202,7 +202,7 @@ Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28
 
 You can now select columns of text by pressing `kbstyle(Shift+Alt)` and clicking or dragging the mouse:
 
-![mouse column selection](images/March/column-select-mouse.gif)
+![](images/March/column-select-mouse.gif)
 
 We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish. 
 
@@ -244,7 +244,7 @@ We have improved our indentation handling in the editor. We have added a new set
 
 The indentation status shows the current file's settings. We have also added additional actions to the indentation status.
 
-![indentation actions](images/March/indentation.png)
+![New actions include indent using spaces, indent using tabs and detect indentation from content](images/March/indentation.png)
 
 ### Visual Studio style word navigation and word deletion
 
@@ -279,7 +279,7 @@ To save all new files with the UTF-8 BOM encoding, configure the `files.encoding
 
 The Status Bar now distinguishes between files with UTF-8 and UTF-8 with BOM. You can convert the encoding from there.
 
-![file encoding on the status bar](images/March/statusbar_bom.png)
+![](images/March/statusbar_bom.png)
 
 ## Workbench
 
@@ -287,11 +287,11 @@ The Status Bar now distinguishes between files with UTF-8 and UTF-8 with BOM. Yo
 
 There is now an Extensions icon in the bottom left corner of the workbench. This is not only a shortcut to reach into extension related actions but also the place for notifying extension errors. It is also used to report progress during an extension's installation.
 
-![extension widget](images/March/extension-widget.png)
+![](images/March/extension-widget.png)
 
 Update notifications will also be notified in this widget:
 
-![extension widget with notification](images/March/extension-widget-notification.png)
+![](images/March/extension-widget-notification.png)
 
 ### Exclude files from watching
 
@@ -330,7 +330,7 @@ Thanks to this [pull request](https://github.com/Microsoft/vscode/pull/3990), VS
 
 Configuring the task runner now offers you a list of templates to choose from. Tasks defined for Gulp and Grunt are still auto detected.
 
-![task runner templates](images/March/tasks.png)
+![](images/March/tasks.png)
 
 ## Setup
 
@@ -367,7 +367,7 @@ For example, Git allows you to configure an external editor and here are the ste
 
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
 
-![git config in VS Code](images/March/gitconfig.png)
+![](images/March/gitconfig.png)
 
 Add the following to enable support for using VS Code as diff tool:
 
