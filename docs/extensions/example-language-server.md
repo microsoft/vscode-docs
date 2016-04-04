@@ -97,8 +97,8 @@ export function activate(context: ExtensionContext) {
     // If the extension is launch in debug mode the debug server options are use
     // Otherwise the run options are used
     let serverOptions: ServerOptions = {
-        run : { module: serverModule },
-        debug: { module: serverModule, options: debugOptions }
+        run : { module: serverModule, transport: TransportKind.ipc },
+        debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
     }
 
     // Options to control the language client
@@ -151,9 +151,8 @@ import {
     InitializeParams, InitializeResult
 } from 'vscode-languageserver';
 
-// Create a connection for the server. The connection uses 
-// stdin / stdout for message passing
-let connection: IConnection = createConnection(process.stdin, process.stdout);
+// Create a connection for the server. The connection uses Node's IPC as a transport
+let connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
 
 // Create a simple text document manager. The text document manager
 // supports full document sync only
