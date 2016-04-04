@@ -344,7 +344,7 @@ Installing can be done through a package manager GUI by running the file through
 sudo dpkg -i <file>.deb
 
 # For .rpm
-sudo dnf install <file>.rpm
+sudo yum install <file>.rpm
 ```
 
 ### Linux CLI
