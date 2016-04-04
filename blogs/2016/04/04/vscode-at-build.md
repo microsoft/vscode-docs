@@ -10,7 +10,7 @@ Author: Wade Anderson
 
 # VS Code at //build/
 
-This year's [Build 2016 conference](http://build.microsoft.com/) in San Francisco was super exciting and Visual Studio Code was very happy to be part of it. VS Code featured prominently as the editor of choice in many talks and demos and there were several presentations dedicated to VS Code.
+This year's [Build 2016 conference](http://build.microsoft.com/) in San Francisco was super exciting and Visual Studio Code was very happy to be a part of it. VS Code featured prominently as the editor of choice in many talks and demos and there were several presentations dedicated to VS Code.
 
 ## VS Code Tips and Tricks
 
@@ -24,9 +24,19 @@ TypeScript architect Anders Hejlsberg's talk on [What's New in TypeScript?](http
 
 [Channel 9's coverage of //build/ 2016](https://channel9.msdn.com/Events/Build/2016) is a great resource to learn more about VS Code and technologies (Cordova, Ionic, C++, C#) where VS Code is a good match for a high performance editor. Browse or search for your area of interest and we're sure you'll find a relevant presentation or panel.
 
+## VS Code Extensions
+
+There were also several new VS Code extensions released at //build:
+
+* [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - Complete C/C++ language support including code-editing and debugging.
+* [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) - Monitor builds and manage pull requests and work items for Team Services Git repositories.
+* [NativeScript](https://marketplace.visualstudio.com/items?itemName=Telerik.nativescript) - NativeScript support for Visual Studio Code.
+
+Visit the VS Code [Extensions Marketplace](https://marketplace.visualstudio.com/VSCode) to learn more about these and other useful extensions.
+
 ## 1.0 Release
 
-We're very excited about the upcoming VS Code 1.0 release on April 14th. We've come a long way since the initial preview release last year at //build/ 2015.  But don't wait until then, you can download the [Insider's build](http://code.visualstudio.com/download?insiders=true) to today.
+We're very excited about the upcoming VS Code 1.0 release on April 14th. We've come a long way since the initial preview release last year at //build/ 2015.  But don't wait until then, you can download the [Insider's build](http://code.visualstudio.com/download?insiders=true) today.
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
