@@ -1,0 +1,32 @@
+---
+Order: 6
+TOCTitle: VS Code at //build/
+PageTitle: Visual Studio Code at Build 2016
+MetaDescription: Visual Studio Code at Build 2016. Hear about presentations featuring VS Code. 
+Date: 2016-04-04
+ShortDescription: Visual Studio Code had a great presence at Build 2016.
+Author: Wade Anderson
+---
+
+# VS Code at //build/
+
+This year's [Build 2016 conference](http://build.microsoft.com/) in San Francisco was super exciting and Visual Studio Code was very happy to be part of it. VS Code featured prominently as the editor of choice in many talks and demos and there were several presentations dedicated to VS Code.
+
+## VS Code Tips and Tricks
+
+Don't miss this well attended session on [Best of VS Code: Tips and Tricks](https://channel9.msdn.com/Events/Build/2016/B887). You'll start by learning the basics of VS Code and quickly become a power user through useful [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks). The talk finishes with a working "To Do" list [example](https://github.com/Microsoft/vscode-react-sample) written in JavaScript, Node.js and React/JSX.
+
+## What's New in TypeScript
+
+TypeScript architect Anders Hejlsberg's talk on [What's New in TypeScript?](https://channel9.msdn.com/Events/Build/2016/B881) used VS Code throughout his demos. This talk is also a great way to understand the TypeScript/JavaScript improvements in VS Code when we adopted the new TypeScript language service, codename "Salsa".
+
+## Channel 9
+
+[Channel 9's coverage of //build/ 2016](https://channel9.msdn.com/Events/Build/2016) is a great resource to learn more about VS Code and technologies (Cordova, Ionic, C++, C#) where VS Code is a good match for a high performance editor. Browse or search for your area of interest and we're sure you'll find a relevant presentation or panel.
+
+## 1.0 Release
+
+We're very excited about the upcoming VS Code 1.0 release on April 14th. We've come a long way since the initial preview release last year at //build/ 2015.  But don't wait until then, you can download the [Insider's build](http://code.visualstudio.com/download?insiders=true) to today.
+
+Wade Anderson, VS Code Team Member <br>
+[@waderyan_](https://twitter.com/waderyan_)
