@@ -114,7 +114,7 @@ A debug adapter has to implement the *VS Code Debug Protocol*. You can find more
 
 Let's have a closer look at the debug adapter contribution of an VS Code extension.
 Like every VS Code extension, a debug adapter extension has a `package.json` file that declares the fundamental properties **name**, **publisher**,
-and **version** of the extension. Use the **categories** field to make the extension easier to find in the VS Code extension gallery.
+and **version** of the extension. Use the **categories** field to make the extension easier to find in the VS Code Extension Marketplace.
 
 ```json
 {
@@ -223,10 +223,10 @@ For this we have the following options:
 
 ## Publishing your Debug Adapter
 
-Once you have created your debug adapter you can publish it to the gallery:
+Once you have created your debug adapter you can publish it to the Marketplace:
 
 * update the attributes in the `package.json` to reflect the naming and purpose of your debug adapter.
-* upload to the gallery as described in [Share an Extension](/docs/tools/vscecli.md) section.
+* upload to the Marketplace as described in [Share an Extension](/docs/tools/vscecli.md) section.
 
 ## Common Questions
 

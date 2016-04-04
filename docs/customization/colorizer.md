@@ -10,17 +10,17 @@ MetaDescription: How to add colorization and bracket matching to Visual Studio C
 
 # Adding Language Colorization
 
-VS Code includes support for [many languages](/docs/languages/overview.md) in the box giving great syntax highlighting (colorization), bracket matching and more. You and the community can also add new languages to VS Code.  This topic explains how to install new languages from the Extension Gallery as well as create your own. 
+VS Code includes support for [many languages](/docs/languages/overview.md) in the box giving great syntax highlighting (colorization), bracket matching and more. You and the community can also add new languages to VS Code.  This topic explains how to install new languages from the Extension Marketplace as well as create your own.
 
-## Adding Colorizers from the Gallery
+## Adding Colorizers from the Marketplace
 
-Many language colorizers have been uploaded to the VS Code [Extension Gallery](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new language will be available.
+Many language colorizers have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new language will be available.
 
 > **Tip:** To search for language support for a specific language, type the language name in the `Extension: Install Extension` dropdown to filter the available extensions.
 
 ![filter go language](images/colorizer/filter-go.png)
 
-You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages) to find available colorizers and language support.
+You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages) site directly to find available colorizers and language support.
 
 ## Adding a New Language
 
@@ -38,9 +38,9 @@ To use your extension in your stable VS Code installation, copy the complete out
 
 ![select ant language](images/colorizer/antlanguage.png)
 
-## Publishing Language Support to the Extension Gallery
+## Publishing Language Support to the Extension Marketplace
 
-If you'd like to share your new language with the community, you can publish it to the [Extension Gallery](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/tools/vscecli.md) to package your extension and publish it to the VS Code gallery.
+If you'd like to share your new language with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/tools/vscecli.md) to package your extension and publish it to the VS Code Marketplace.
 
 > **Tip:** To make it easy for users to find your language support, include the language name and words "language" or "language support" in the extension description and set the `Category` to `Languages` in your `package.json`.
 

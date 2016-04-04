@@ -22,15 +22,15 @@ There are several out-of-the-box color themes in VS Code for you to try.
 
 ![Themes in the Command Palette](images/themes/colorthemes.png)
 
-## Adding Themes from the Extension Gallery
+## Adding Themes from the Extension Marketplace
 
-Many themes have been uploaded to the VS Code [Extension Gallery](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new theme will be available.
+Many themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new theme will be available.
 
 > **Tip:** To search for themes, type 'theme' in the `Extension: Install Extension` dropdown to filter on extensions with 'theme' in their name.
 
 ![filter theme extensions](images/themes/filter-theme.png)
 
-You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) to find available themes.
+You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
 ## Adding a new Theme
 
@@ -46,9 +46,9 @@ Open the Color Theme picker theme with **File** > **Preferences** > **Color Them
 
 ![select my theme](images/themes/mytheme.png)
 
-## Publishing a Theme to the Extension Gallery
+## Publishing a Theme to the Extension Marketplace
 
-If you'd like to share your new theme with the community, you can publish it to the [Extension Gallery](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/tools/vscecli.md) to package your theme and publish it to the VS Code gallery.
+If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/tools/vscecli.md) to package your theme and publish it to the VS Code Marketplace.
 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Theme` in your `package.json`.
 

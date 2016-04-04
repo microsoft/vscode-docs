@@ -12,7 +12,7 @@ MetaDescription: How to change the display language (locale) of Visual Studio Co
 
 Visual Studio Code ships with 10 available display languages (locales): English (US), Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish.  Localized display text for all 10 languages is included in the main VS Code download and as such, doesn't require a secondary install.
 
-By default, VS Code picks up the operation system's display language, falling back to English (US) if the locale is not supported.
+By default, VS Code picks up the operating system's display language, falling back to English (US) if the locale is not supported.
 
 ## Available Locales
 

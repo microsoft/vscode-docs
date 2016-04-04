@@ -21,11 +21,11 @@ Name | Required | Type | Details
 `publisher` | Y | `string` | The [publisher name](/docs/tools/vscecli.md#publishers-and-personal-access-tokens)
 `engines` | Y | `object` | An object containing at least the `vscode` key matching the versions of VS Code that the extension is compatible with.  Cannot be `*`. For example: `^0.10.5` indicates compatibility with a minimum VS Code version of `0.10.5`.
 `license` | | `string` | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.
-`displayName` | | `string`| The display name for the extension used in the Gallery.
+`displayName` | | `string`| The display name for the extension used in the Marketplace.
 `description` | | `string` | A short description of what your extension is and does.
 `categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Other]`
 `keywords` | | `array` | An array of **keywords** or **tags** to make it easier to find the extension.
-`galleryBanner` | | `object` | Helps format the gallery header to match your icon.  See details below.
+`galleryBanner` | | `object` | Helps format the Marketplace header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension to be flagged as a Preview in the Marketplace.
 `main` | | `string` | The entry point to your extension.
 [`contributes`](/docs/extensionAPI/extension-points.md) | | `object` | An object describing the extension's [contributions](/docs/extensionAPI/extension-points.md).
@@ -150,7 +150,7 @@ Get Started | `repository:url`
 Learn | `homepage`
 License | `license`
 
-Set a `category` for your extension.  Extensions in the same `category` are grouped together on the gallery which improves filtering and discovery.
+Set a `category` for your extension.  Extensions in the same `category` are grouped together on the Marketplace which improves filtering and discovery.
 
 >**Note:** Only use the values that make sense for your extension - allowed values are `[Languages, Snippets, Linters, Themes, Debuggers, Other]`
 
@@ -209,7 +209,7 @@ To learn more about VS Code extensibility model, try these topic:
 
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
-* [Extension Gallery](/docs/editor/extension-gallery.md) - Read more about the VS Code extension gallery
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - Read more about the VS Code Extension Marketplace
 
 ## Common Questions
 

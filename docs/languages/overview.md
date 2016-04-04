@@ -29,7 +29,7 @@ Syntax coloring, bracket matching |Batch, C++, Clojure, Coffee Script, [Dockerfi
 
 ## Language Extensions
 
-The community is providing VS Code language support for nearly any modern programming language.  To see if there are extensions for the language you're interested in, simply bring up the extension gallery and filter on the language name.  Type `kb(workbench.action.showCommands)`, `'ext inst '` to bring up the extension gallery dropdown and then type the language name to filter the results.
+The community is providing VS Code language support for nearly any modern programming language.  To see if there are extensions for the language you're interested in, simply bring up the extension Marketplace and filter on the language name.  Type `kb(workbench.action.showCommands)`, `'ext inst '` to bring up the extension Marketplace dropdown and then type the language name to filter the results.
 
 ![filter go extensions](images/overview/filter-go.png)
 

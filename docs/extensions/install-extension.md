@@ -5,7 +5,7 @@ TOCTitle: Installing Extensions
 ContentId: 8D19F206-8CB3-498D-BDD1-317B4104EDD0
 PageTitle: Installing Visual Studio Code Extensions
 DateApproved: 3/7/2016
-MetaDescription: Learn how to install Visual Studio Code extensions (plug-ins) from the public gallery, shared with other developers or privately on your own machine.
+MetaDescription: Learn how to install Visual Studio Code extensions (plug-ins) from the public Marketplace, shared with other developers or privately on your own machine.
 ---
 
 # Installing Extensions
@@ -36,11 +36,11 @@ The extension will be installed under your user `.vscode/extensions` folder. You
 
 You can also install a `.vsix` by opening the file from within VS Code.  Run **File** > **Open File...** or `kb(workbench.action.files.openFile)` and select the extension `.vsix`.
 
-## Publishing to the Gallery
+## Publishing to the Marketplace
 
-If you want to share your extension with others in the [Gallery](/docs/editor/extension-gallery.md), you can use the [vsce publishing tool](/docs/tools/vscecli.md) to package it up and submit it.
+If you want to share your extension with others in the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md), you can use the [vsce publishing tool](/docs/tools/vscecli.md) to package it up and submit it.
 
 ## Next Steps
 
-* [Extension Gallery](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension gallery.
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
 * [Publishing Extensions](/docs/tools/vscecli.md) - Learn how to package and publish your extensions.

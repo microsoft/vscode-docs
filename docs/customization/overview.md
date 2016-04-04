@@ -13,11 +13,11 @@ MetaDescription: You can configure VS Code to work the way you like to work.  He
 
 You can customize VS Code to work the way you like to work.  Here is a quick primer on some of the most common ways to configure VS Code.  Navigate to the relevant sections to learn more.
 
->**Tip:** several categories of customizations can be shared in the [Extension Gallery](/docs/editor/extension-gallery.md).  It's always a good idea to look there first.
+>**Tip:** Several categories of customizations (Themes, Snippets, Language Support) can be shared in the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md).  It's always a good idea to look there first.
 
 ## Customization Topics
 
-**Category**|**Scenario**|**Gallery**
+**Category**|**Scenario**|**Marketplace**
 ------------|------------|-----------
 [User and Workspace settings](/docs/customization/userandworkspace.md)|Configure settings for an individual workspace or all workspaces.  Word-wrapping, linting options and much more.|No
 [Key Bindings](/docs/customization/keybindings.md)| Review all key bindings and change them to suit your needs.|No
@@ -32,7 +32,7 @@ You can customize VS Code to work the way you like to work.  Here is a quick pri
 
 Here are a few pointers to help you on your way...
 
-* [Extension Gallery](/docs/editor/extension-gallery.md) - browse the extensions others have shared
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - browse the extensions others have shared
 * [Yo Code](/docs/tools/yocode.md) -  to generate a customization, then install it locally
 * [Publishing Tool](/docs/tools/vscecli.md) - use the vsce publishing tool to share your customization with others
 
