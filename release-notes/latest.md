@@ -6,6 +6,7 @@ MetaDescription: See what is new in the Visual Studio Code March Release (0.10.1
 ---
 
 # 0.10.14 (March 2016)
+The 0.10.14 Insiders drop has [very minor updates](https://github.com/Microsoft/vscode/issues?utf8=✓&q=is%3Aclosed+milestone%3A%22April+4th+Insiders%22+) from the previous version.  We continue to focus on stablization as we get closer and closer to our 1.0 release.
 
 ## March 2016 Release
 
