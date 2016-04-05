@@ -20,15 +20,23 @@ Don't miss this well attended session on [Best of VS Code: Tips and Tricks](http
 
 TypeScript architect Anders Hejlsberg's talk on [What's New in TypeScript?](https://channel9.msdn.com/Events/Build/2016/B881) used VS Code throughout his demos. This talk is also a great way to understand the TypeScript/JavaScript improvements in VS Code when we adopted the new TypeScript language service, codename "Salsa".
 
+## The Future of C&#35;
+
+There's a nice section on VS Code integration and C&#35; debugging later in [The Future of C&#35;](https://channel9.msdn.com/Events/Build/2016/B889) starting at minute 39 (but you'll want to watch the entire entertaining talk).
+
+## Node.js and Microsoft
+
+As you'd expect from a talk called [Node.js and Microsoft: A Love Story about Developer Tools](https://channel9.msdn.com/Events/Build/2016/B870), VS Code is going to be starring.  Check out the sections on using `nodemon` to automatically reattach the VS Code Node.js debugger (minute 28) and the cool prototype of time travel debugging (minute 39).
+
 ## Channel 9
 
-[Channel 9's coverage of //build/ 2016](https://channel9.msdn.com/Events/Build/2016) is a great resource to learn more about VS Code and technologies (Cordova, Ionic, C++, C#) where VS Code is a good match for a high performance editor. Browse or search for your area of interest and we're sure you'll find a relevant presentation or panel.
+[Channel 9's coverage of //build/ 2016](https://channel9.msdn.com/Events/Build/2016) is a great resource to learn more about VS Code and technologies (Cordova, Ionic, Angular, React Native) where VS Code is a good match for a high performance editor. Browse or search for your area of interest and we're sure you'll find a relevant presentation or panel.
 
 ## VS Code Extensions
 
 There were also several new VS Code extensions released at //build:
 
-* [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - Complete C/C++ language support including code-editing and debugging.
+* [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - Complete C/C++ language support including code-editing and debugging. See a demo in [C++ Discussion](https://channel9.msdn.com/Events/Build/2016/C-Discussion).
 * [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) - Monitor builds and manage pull requests and work items for Team Services Git repositories.
 * [NativeScript](https://marketplace.visualstudio.com/items?itemName=Telerik.nativescript) - NativeScript support for Visual Studio Code.
 
