@@ -199,6 +199,16 @@ When you open a folder, VS Code will search for typical project files to offer y
     }
 ```
 
+## Missing `csharp-o` extension?
+
+![missing csharp-o](https://cloud.githubusercontent.com/assets/1594619/11973026/891bfd78-a97c-11e5-9335-8dcc84373dfa.png)
+
+If you get an error at startup about a missing `csharp-o` extension, you can fix it by completely deleting its directory from the installation directory:
+
+```
+C:\Program Files (x86)\Microsoft VS Code\resources\app\extensions\csharp-o
+```
+
 ## How to disable crash reporting
 
 From **File** > **Preferences** > **User Settings**, add the following option to disable crash reporting:
