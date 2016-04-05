@@ -2,7 +2,7 @@
 Order: 6
 TOCTitle: VS Code at //build/
 PageTitle: Visual Studio Code at Build 2016
-MetaDescription: Visual Studio Code at Build 2016. Hear about presentations featuring VS Code. 
+MetaDescription: Visual Studio Code at Build 2016. Learn about presentations featuring VS Code. 
 Date: 2016-04-05
 ShortDescription: Visual Studio Code had a great presence at Build 2016.
 Author: Wade Anderson
@@ -12,9 +12,9 @@ Author: Wade Anderson
 
 This year's [Build 2016 conference](http://build.microsoft.com/) in San Francisco was super exciting and Visual Studio Code was very happy to be a part of it. VS Code featured prominently as the editor of choice in many talks and demos and there were several presentations dedicated to VS Code.
 
-## VS Code Tips and Tricks
+## Tips and Tricks
 
-Don't miss this well attended session on [Best of VS Code: Tips and Tricks](https://channel9.msdn.com/Events/Build/2016/B887). You'll start by learning the basics of VS Code and quickly become a power user through useful [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks). The talk finishes with a working "To Do" list [example](https://github.com/Microsoft/vscode-react-sample) written in JavaScript, Node.js and React/JSX.
+Don't miss this well attended session on [Best of VS Code: Tips and Tricks](https://channel9.msdn.com/Events/Build/2016/B887). You'll start by learning the basics of VS Code and quickly become a power user through useful [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks). The talk finishes with a working "To Do" list [sample](https://github.com/Microsoft/vscode-react-sample) written in JavaScript, Node.js and React/JSX.
 
 ## What's New in TypeScript
 
@@ -30,11 +30,11 @@ As you'd expect from a talk called [Node.js and Microsoft: A Love Story about De
 
 ## Channel 9
 
-[Channel 9's coverage of //build/ 2016](https://channel9.msdn.com/Events/Build/2016) is a great resource to learn more about VS Code and technologies (Cordova, Ionic, Angular, React Native) where VS Code is a good match for a high performance editor. Browse or search for your area of interest and we're sure you'll find a relevant presentation or panel.
+[Channel 9's coverage of //build/ 2016](https://channel9.msdn.com/Events/Build/2016) is a great resource to learn more about VS Code and technologies like Cordova, Ionic, Angular, and React Native where VS Code is a good match for a high performance editor. Browse or search for your area of interest and we're sure you'll find a relevant presentation or panel discussion.
 
-## VS Code Extensions
+## New Extensions
 
-There were also several new VS Code extensions released at //build:
+There were also several new VS Code extensions released at //build/:
 
 * [C/C++ for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) - Complete C/C++ language support including code-editing and debugging. See a demo in [C++ Discussion](https://channel9.msdn.com/Events/Build/2016/C-Discussion).
 * [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) - Monitor builds and manage pull requests and work items for Team Services Git repositories.
