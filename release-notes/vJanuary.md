@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 8
 TOCTitle: January
 PageTitle: Visual Studio Code January
 MetaDescription: See what is new in the Visual Studio Code January Release (0.10.9)

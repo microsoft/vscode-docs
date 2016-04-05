@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 7
 TOCTitle: December
 PageTitle: Visual Studio Code December
 MetaDescription: See what is new in the Visual Studio Code December Release (0.10.6)

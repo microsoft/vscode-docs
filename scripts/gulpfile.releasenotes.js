@@ -36,7 +36,7 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releas
 	var tpl = common.swigCompiler('scripts/templates/releasenotes-nav-template.html');
 
 	releaseNotes = releaseNotes.sort(function (a, b) {
-		return parseFloat(a.Order) - parseFloat(b.Order);
+		return parseFloat(b.Order) - parseFloat(a.Order);
 	});
 
 	var file = new File({
