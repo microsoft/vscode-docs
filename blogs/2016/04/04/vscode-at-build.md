@@ -12,6 +12,8 @@ Author: Wade Anderson
 
 This year's [Build 2016 conference](http://build.microsoft.com/) in San Francisco was super exciting and Visual Studio Code was very happy to be a part of it. VS Code featured prominently as the editor of choice in many talks and demos and there were several presentations dedicated to VS Code.
 
+![vscode at build](2016_04_04_vscode-at-build.png)
+
 ## Tips and Tricks
 
 Don't miss this well attended session on [Best of VS Code: Tips and Tricks](https://channel9.msdn.com/Events/Build/2016/B887). You'll start by learning the basics of VS Code and quickly become a power user through useful [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks). The talk finishes with a working "To Do" list [sample](https://github.com/Microsoft/vscode-react-sample) written in JavaScript, Node.js and React/JSX.
