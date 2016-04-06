@@ -10,6 +10,8 @@ Author: Wade Anderson
 
 # VS Code Extensions
 
+March 17, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
+
 In November 2015, we open sourced Visual Studio Code and introduced the [extensions API](http://code.visualstudio.com/docs/extensionAPI/vscode-api). The VS Code extensions [Marketplace](https://marketplace.visualstudio.com/VSCode) has over 850 extensions. Many new languages (Go, PowerShell, PHP, Python) and frameworks (Apache Cordova, React Native) are now supported.
 
 We will continue to iterate on improving the API and we would love your [feedback](https://github.com/Microsoft/vscode/issues). If you are new to VS Code extensions, check out the [docs](http://code.visualstudio.com/docs/editor/extension-gallery) for instructions on finding and installing new extensions. We are invested in empowering the community to make VS Code the world's greatest code editor.

@@ -10,6 +10,8 @@ Author: Chris Dias
 
 # February 2016 Release
 
+March 7, 2016 by The VS Code Team, [@code](https://twitter.com/code)
+
 Today we are releasing the February 2016 build of Visual Studio Code. This release brings many improvements to your development experience, including:
 
 * **JavaScript**: [Salsa](https://github.com/Microsoft/TypeScript/issues/4789) is now the default JavaScript/TypeScript language service, bringing support for React and React Native to VS Code.
