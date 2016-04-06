@@ -39,7 +39,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
  sudo dpkg -i <file>.deb
 
  # For .rpm
- sudo dnf install <file>.rpm
+ sudo yum install <file>.rpm
  ```
 
 3. VS Code should now be available to run through the launcher or the command line by running `code`.
