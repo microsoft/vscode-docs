@@ -11,9 +11,15 @@ The 0.10.14 Insiders build has [very minor updates](https://github.com/Microsoft
 
 ## March 2016 Release
 
-March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish.  Visit this page to [get the insiders build](http://code.visualstudio.com/Download#insiders).  There is a lot to be excited about in this release, here is a quick summary:
+March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish.  Visit this page to [get the insiders build](http://code.visualstudio.com/Download#insiders).
 
-![March Summary](images/March/summary.png)
+There is a lot to be excited about in this release, here are some highlights:
+
+* VS Code is now localized into 9 display languages.
+* Improved JavaScript support with "Salsa".
+* Simplified `jsconfig.json` and `tasks.json` file creation.
+* Easily add new file extensions to existing languages.
+* The editor now supports column text selection.
 
 Read on to get into the details...
 
