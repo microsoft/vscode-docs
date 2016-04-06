@@ -48,6 +48,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
 2. Double-click on `VSCodeSetup.exe` to launch the setup process. This will only take a minute.
+3. By default, VS Code is installed under `C:\Program Files (x86)\Microsoft VS Code` for a 64-bit machine.
 
 >**Tip:** Visual Studio Code will be added to your path, so from the console you can simply type `code .` to open VS Code on that folder!
 
