@@ -12,6 +12,8 @@ Author: Wade Anderson
 
 This year's [Build 2016 conference](http://build.microsoft.com/) in San Francisco was super exciting and Visual Studio Code was very happy to be a part of it. VS Code featured prominently as the editor of choice in many talks and demos and there were several presentations dedicated to VS Code.
 
+Here's a screenshot from Satya's [Keynote Presentation](https://channel9.msdn.com/Events/Build/2016/KEY01):
+
 ![vscode at build](2016_04_04_vscode-at-build.png)
 
 ## Tips and Tricks
