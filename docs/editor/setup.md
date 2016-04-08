@@ -14,6 +14,8 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 
 VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
 
+>**Note:** VS Code is an editor first and foremost and prides itself on a small footprint. Unlike traditional IDEs with everything and the kitchen sink, you can tune your installation to the development technologies you care about. Be sure to read the [Additional Components](/docs/editor/setup.md#additional-components) section after the platform information to learn about customizing your VS Code installation.
+
 ## Mac OS X
 
 1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for Mac OS X.
@@ -56,13 +58,27 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
 >**Tip:** You might need to log off after the installation for the change to the `PATH` environmental variable to take effect.
 
+## Additional Components
+
+VS Code is a small download by design and only includes the minimum shared components across most development workflows. Basic functionality like the editor, file management, window management, and preference settings are included. A JavaScript/TypeScript language service and Node.js debugger is also part of the base install.  If you are used to working with larger, monolithic development tools (IDEs), you may be surprised that your scenarios are completely supported out-of-the-box.  For example, there isn't a traditional **File** > **New Project** dialog with pre-installed project templates.  Most VS Code users will need to install additional components depending on their specific needs.
+
+Here are a few commonly installed components:
+
+- [Git](http://git-scm.com/download) - VS Code has built-in support for source code control using Git but requires Git to be installed separately.
+- [Node.js (includes NPM)](https://nodejs.org/) - A platform and runtime for easily building and running JavaScript applications
+- [TypeScript](http://typescriptlang.org) - Includes the TypeScript compiler `tsc` for transpiling structured and strongly typed TypeScript to JavaScript.
+- [Typings](https://github.com/typings/typings) - A TypeScript type definition manager that allows VS Code to provide IntelliSense for popular JavaScript frameworks.
+
+You'll find these components mentioned often in our documentation and walkthroughs.
+
+## Extensions
+
+VS Code [extensions](/docs/editors/extension-gallery.md) let third parties provide support for additional languages (C++, C#, Go, PHP, Python), tools (ESLint, JSHint, PowerShell, Visual Studio Team Services), and debuggers (Chrome, PHP XDebug). Plugged into VS Code's UI and command system, you'll find it easy to work with different technologies through VS Code's shared interface. Check out the VS Code extension [Marketplace](https://marketplace.visualstudio.com/vscode) to see what's available.  
+
 ## Additional Tools
 
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
-- [ASP.NET Core](https://github.com/aspnet/home) - a lean and composable framework for building web and cloud applications, fully open source and available on GitHub
-- [Node.js (includes NPM)](https://nodejs.org/) - a platform for easily building fast, scalable network applications
-- [Git](http://git-scm.com/download) - VS Code has built-in support for source code control using Git
 - [Yeoman](http://yeoman.io/) - an application scaffolding tool, you can think of this as **File** > **New Project** for VS Code
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - a yeoman generator for scaffolding ASP.NET Core applications, run `npm install -g generator-aspnet` to install
 - [hottowel](https://github.com/johnpapa/generator-hottowel) - a yeoman generator for quickly creating AngularJS applications, run `npm install -g generator-hottowel` to install
@@ -70,20 +86,24 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 - [gulp](http://gulpjs.com/) - a streaming task runner system, integrates with VS Code tasks
 - [mocha](http://mochajs.org/) - a JavaScript test framework that runs on Node.js
 - [bower](http://bower.io/) - a client side package manager
-- [TypeScript](http://typescriptlang.org) - brings structure and strong typing to your JavaScript code, without compromising the good parts
-- [Typings](https://github.com/typings/typings) - TypeScript definition manager to search and download 100's of TypeScript definition files for popular JavaScript frameworks, providing great IntelliSense in VS Code
 
 ## Next Steps
 
-Now you have installed and set up VS Code. Let's get going...
+Now you have installed and set up VS Code. For more documentation, try:
 
 * [The Basics](/docs/editor/codebasics.md) - Basic orientation around VS Code
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+
+If you'd like to getting something running quickly, try the [Node.js runtime](/docs/runtimes/nodejs.md) walkthrough which will have you debugging a running Node.js website with VS Code in minutes.
 
 ## Common Questions
 
 **Q: What are the system requirements for VS Code?**
 
 **A:** We have a list of [System Requirements](/docs/supporting/requirements.md).
+
+**Q: How do I create and run a new project?**
+
+**A:** VS Code doesn't include a traditional **File** > **Project** dialog or preinstalled templates. You'll need to add [additional components](/docs/editor/setup.md#additional-components) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates to create your projects. 
 
