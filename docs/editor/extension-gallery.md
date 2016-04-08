@@ -32,7 +32,7 @@ Simply pick the extension from the list. After a successful install, you'll get 
 
 ## List Installed Extensions
 
-You can also browse installed extensions with the `Extensions: Show Installed Extensions` command or by typing `kb(workbench.action.quickOpen)` and `ext ` with a trailing space.
+You can also browse installed extensions with the `Extensions: Show Installed Extensions` command or by typing `kb(workbench.action.quickOpen)` (**Quick Open**) and `ext ` with a trailing space.
 
 ![installed extensions](images/extension-gallery/installed-extensions.png)
 
