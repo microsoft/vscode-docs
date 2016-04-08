@@ -14,7 +14,7 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 
 VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
 
->**Note:** VS Code is an editor first and foremost and prides itself on a small footprint. Unlike traditional IDEs with everything and the kitchen sink, you can tune your installation to the development technologies you care about. Be sure to read the [Additional Components](/docs/editor/setup.md#additional-components) section after the platform information to learn about customizing your VS Code installation.
+>**Note:** VS Code is an editor first and foremost and prides itself on a small footprint. Unlike traditional IDEs with everything but the kitchen sink, you can tune your installation to the development technologies you care about. Be sure to read the [Additional Components](/docs/editor/setup.md#additional-components) section after the platform information below to learn about customizing your VS Code installation.
 
 ## Mac OS X
 
@@ -73,9 +73,15 @@ Here are a few commonly installed components:
 
 You'll find these components mentioned often in our documentation and walkthroughs.
 
-## Extensions
+## VS Code Extensions
 
-VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add support for additional languages (C++, C#, Go, PHP, Python), tools (ESLint, JSHint, PowerShell, Visual Studio Team Services), and debuggers (Chrome, PHP XDebug). Plugged into VS Code's UI and command system, you'll find it easy to work with different technologies through VS Code's shared interface. Check out the VS Code extension [Marketplace](https://marketplace.visualstudio.com/vscode) to see what's available.  
+VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add support for additional:
+
+* Languages - C++, C#, Go, PHP, Python
+* Tools - ESLint, JSHint, PowerShell, Visual Studio Team Services
+* Debuggers - Chrome, PHP XDebug.
+
+Extensions integrate into VS Code's UI, commands, and task running systems so you'll find it easy to work with different technologies through VS Code's shared interface. Check out the VS Code extension [Marketplace](https://marketplace.visualstudio.com/vscode) to see what's available.  
 
 ## Additional Tools
 
