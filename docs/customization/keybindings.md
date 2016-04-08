@@ -91,7 +91,7 @@ Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.showAllSymbols)`|Show All Symbols|`workbench.action.showAllSymbols`
 `kb(workbench.action.gotoLine)`|Go to Line...|`workbench.action.gotoLine`
-`kb(workbench.action.quickOpen)`|Go to File...|`workbench.action.quickOpen`
+`kb(workbench.action.quickOpen)`|Go to File..., Quick Open|`workbench.action.quickOpen`
 `kb(workbench.action.gotoSymbol)`|Go to Symbol...|`workbench.action.gotoSymbol`
 `kb(workbench.action.showErrorsWarnings)`|Show Errors and Warnings|`workbench.action.showErrorsWarnings`
 `kb(editor.action.marker.next)`|Go to Next Error or Warning|`editor.action.marker.next`
