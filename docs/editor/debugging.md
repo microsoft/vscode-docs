@@ -183,7 +183,7 @@ This is the corresponding launch configuration for a TypeScript program:
 		{
 			"name": "Launch TypeScript",
 			"type": "node",
-			"request": "attach",
+			"request": "launch",
 			"program": "app.ts",
 			"sourceMaps": true,
 			"outDir": "bin"
