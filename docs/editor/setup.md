@@ -50,6 +50,8 @@ VS Code is lightweight and should run on most available hardware and platform ve
 2. Double-click on `VSCodeSetup.exe` to launch the setup process. This will only take a minute.
 3. By default, VS Code is installed under `C:\Program Files (x86)\Microsoft VS Code` for a 64-bit machine.
 
+>**Note:** .NET Framework 4.5 is required for VS Code.  If you are using Windows 7, please make sure [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653) is installed.
+
 >**Tip:** Visual Studio Code will be added to your path, so from the console you can simply type `code .` to open VS Code on that folder!
 
 >**Tip:** You might need to log off after the installation for the change to the `PATH` environmental variable to take effect.
