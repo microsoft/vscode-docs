@@ -86,9 +86,16 @@ The following screen cast shows stepping through a simple async/await snippet fi
 
 ## Extension Authoring
 
-### Item
+## Debug Adapter Development
 
-bla
+For Node.js based debug adapter development, we've made the debug adapter test support available as an npm module [vscode-debugadapter-testsupport](https://www.npmjs.com/package/vscode-debugadapter-testsupport).
+
+The source for this module lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node).
+
+You can find examples of how to use the module here:
+* [Node Debug](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts)
+* [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/tests/adapter.test.ts)
+* [Mock Debug](https://github.com/Microsoft/vscode-mock-debug/blob/master/src/tests/adapter.test.ts)
 
 ## Notable Bug Fixes
 
