@@ -14,7 +14,7 @@ Working with Markdown in Visual Studio Code can be pretty fun and there are a nu
 
 ## Markdown Preview
 
-Open any Markdown file and press `kb(workbench.action.markdown.togglePreview)` in the editor to toggle between the code and a preview of the Markdown file. You can view the preview side-by-side with the file you are editing and see changes reflected in real-time as you edit.
+VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views you just have to press `kb(workbench.action.markdown.togglePreview)` in the editor. You can view the preview side-by-side with the file you are editing and see changes reflected in real-time as you edit.
 
 Here is an example with a very simple file.
 
