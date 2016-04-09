@@ -149,7 +149,7 @@ reported problems can be navigated to and fixed inside VS Code.
 To enable one of the linters, do the following:
 
 * Install the corresponding linter globally or inside the workspace folder that contains the JavaScript code to be validated.
-  For example, using `npm install-g eslint` or `npm install -g jshint`, respectively.
+  For example, using `npm install -g eslint` or `npm install -g jshint`, respectively.
 * Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) or [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) extension. After restarting the editor, enable ESLint or JSHint via the corresponding settings `"eslint.enable": true` or `"jshint.enable": true`, respectively.
 
 * Use the .eslintrc or .jshintrc file to configure the linter.
