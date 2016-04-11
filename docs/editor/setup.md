@@ -14,7 +14,7 @@ Getting up and running with VS Code is quick and easy.  Follow the platform spec
 
 VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
 
->**Note:** VS Code is an editor first and foremost and prides itself on a small footprint. Unlike traditional IDEs with everything but the kitchen sink, you can tune your installation to the development technologies you care about. Be sure to read the [Additional Components](/docs/editor/setup.md#additional-components) section after the platform information below to learn about customizing your VS Code installation.
+>**Note:** VS Code is an editor first and foremost and prides itself on a small footprint. Unlike traditional IDEs with everything but the kitchen sink, you can tune your installation to the development technologies you care about. Be sure to read the [Additional Components](/docs/editor/setup.md#additional-components) section after the platform guides to learn about customizing your VS Code installation.
 
 ## Mac OS X
 
@@ -60,28 +60,28 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
 ## Additional Components
 
-VS Code is a small download by design and only includes the minimum shared components across most development workflows. Basic functionality like the editor, file management, window management, and preference settings are included. A JavaScript/TypeScript language service and Node.js debugger is also part of the base install.
+VS Code is a small download by design and only includes the minimum number of components shared across most development workflows. Basic functionality like the editor, file management, window management, and preference settings are included. A JavaScript/TypeScript language service and Node.js debugger are also part of the base install.
 
-If you are used to working with larger, monolithic development tools (IDEs), you may be surprised that your scenarios aren't completely supported out-of-the-box.  For example, there isn't a traditional **File** > **New Project** dialog with pre-installed project templates.  Most VS Code users will need to install additional components depending on their specific needs.
+If you are used to working with larger, monolithic development tools (IDEs), you may be surprised that your scenarios aren't completely supported out-of-the-box.  For example, there isn't a **File** > **New Project** dialog with pre-installed project templates.  Most VS Code users will need to install additional components depending on their specific needs.
 
 Here are a few commonly installed components:
 
 - [Git](http://git-scm.com/download) - VS Code has built-in support for source code control using Git but requires Git to be installed separately.
 - [Node.js (includes NPM)](https://nodejs.org/) - A platform and runtime for easily building and running JavaScript applications
 - [TypeScript](http://typescriptlang.org) - The TypeScript compiler, `tsc`, for transpiling structured and strongly typed TypeScript to JavaScript.
-- [Typings](https://github.com/typings/typings) - A TypeScript type definition manager that allows VS Code to provide IntelliSense for popular JavaScript frameworks.
+- [Typings](https://github.com/typings/typings) - A TypeScript type definition manager so that VS Code can provide IntelliSense for popular JavaScript frameworks.
 
-You'll find these components mentioned often in our documentation and walkthroughs.
+You'll find the components above mentioned often in our documentation and walkthroughs.
 
 ## VS Code Extensions
 
 VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add support for additional:
 
-* Languages - C++, C#, Go, PHP, Python
-* Tools - ESLint, JSHint, PowerShell, Visual Studio Team Services
-* Debuggers - Chrome, PHP XDebug.
+* Languages - [C++](/docs/languages/cpp.md), [C#](/docs/languages/csharp.md), [Go](https://marketplace.visualstudio.com/items/lukehoban.Go), [PHP](/docs/languages/php.md), [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)
+* Tools - [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) , [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell), [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team)
+* Debuggers - [Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [PHP XDebug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 
-Extensions integrate into VS Code's UI, commands, and task running systems so you'll find it easy to work with different technologies through VS Code's shared interface. Check out the VS Code extension [Marketplace](https://marketplace.visualstudio.com/vscode) to see what's available.  
+Extensions integrate into VS Code's UI, commands, and task running systems so you'll find it easy to work with different technologies through VS Code's shared interface. Check out the VS Code extension [Marketplace](https://marketplace.visualstudio.com/vscode) to see what's available.
 
 ## Additional Tools
 
@@ -97,7 +97,7 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 
 ## Next Steps
 
-Now you have installed and set up VS Code. 
+Now you have installed and set up VS Code.
 
 For more documentation, try:
 
@@ -115,5 +115,5 @@ If you'd like to getting something running quickly, try the [Node.js runtime](/d
 
 **Q: How do I create and run a new project?**
 
-**A:** VS Code doesn't include a traditional **File** > **Project** dialog or preinstalled templates. You'll need to add [additional components](/docs/editor/setup.md#additional-components) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects. 
+**A:** VS Code doesn't include a traditional **File** > **Project** dialog or preinstalled templates. You'll need to add [additional components](/docs/editor/setup.md#additional-components) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
 
