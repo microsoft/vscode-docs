@@ -62,7 +62,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
 VS Code is a small download by design and only includes the minimum number of components shared across most development workflows. Basic functionality like the editor, file management, window management, and preference settings are included. A JavaScript/TypeScript language service and Node.js debugger are also part of the base install.
 
-If you are used to working with larger, monolithic development tools (IDEs), you may be surprised that your scenarios aren't completely supported out-of-the-box.  For example, there isn't a **File** > **New Project** dialog with pre-installed project templates.  Most VS Code users will need to install additional components depending on their specific needs.
+If you are used to working with larger, monolithic development tools (IDEs), you may be surprised that your scenarios aren't completely supported out of the box.  For example, there isn't a **File** > **New Project** dialog with pre-installed project templates.  Most VS Code users will need to install additional components depending on their specific needs.
 
 Here are a few commonly installed components:
 
@@ -71,7 +71,7 @@ Here are a few commonly installed components:
 - [TypeScript](http://typescriptlang.org) - The TypeScript compiler, `tsc`, for transpiling structured and strongly typed TypeScript to JavaScript.
 - [Typings](https://github.com/typings/typings) - A TypeScript type definition manager so that VS Code can provide IntelliSense for popular JavaScript frameworks.
 
-You'll find the components above mentioned often in our documentation and walkthroughs.
+You'll find the components above mentioned often in our documentation and walk-throughs.
 
 ## VS Code Extensions
 
@@ -87,7 +87,7 @@ Extensions integrate into VS Code's UI, commands, and task running systems so yo
 
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
-- [Yeoman](http://yeoman.io/) - An application scaffolding tool, you can think of it as a command line version of **File** > **New Project**.
+- [Yeoman](http://yeoman.io/) - An application scaffolding tool, think of it as a command line version of **File** > **New Project**.
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - A Yeoman generator for scaffolding **ASP.NET Core** applications.
 - [hottowel](https://github.com/johnpapa/generator-hottowel) - A Yeoman generator for quickly creating **AngularJS** applications.
 - [Express](http://expressjs.com/) - An application framework for Node.js applications using the **Jade** template engine.
@@ -115,5 +115,5 @@ If you'd like to getting something running quickly, try the [Node.js runtime](/d
 
 **Q: How do I create and run a new project?**
 
-**A:** VS Code doesn't include a traditional **File** > **Project** dialog or preinstalled templates. You'll need to add [additional components](/docs/editor/setup.md#additional-components) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
+**A:** VS Code doesn't include a traditional **File** > **New Project** dialog or pre-installed project templates. You'll need to add [additional components](/docs/editor/setup.md#additional-components) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
 
