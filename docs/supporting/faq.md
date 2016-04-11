@@ -13,7 +13,7 @@ Our docs contain a **Common Questions** section as needed for specific topics. W
 If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
 
 ## What is the difference between VS Code and VS Community?
-ar
+
 Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs. For more details about the goals of VS Code, see [Why VS Code](/docs/editor/whyvscode.md).
 
 ## Which OS's are supported?
@@ -201,8 +201,6 @@ When you open a folder, VS Code will search for typical project files to offer y
 
 ## Missing `csharp-o` extension?
 
-![missing csharp-o](https://cloud.githubusercontent.com/assets/1594619/11973026/891bfd78-a97c-11e5-9335-8dcc84373dfa.png)
-
 If you get an error at startup about a missing `csharp-o` extension, you can fix it by completely deleting its directory from the installation directory:
 
 ```
@@ -232,3 +230,9 @@ From **File** > **Preferences** > **User Settings**, add the following option to
 ```
 
 >**Note:** VS Code gives you the option to install Microsoft and third party extensions.  These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting.  Consult the specific extension’s documentation to learn about its telemetry reporting.
+
+## Technical Support
+
+You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode), provide suggestions on [UserVoice](http://go.microsoft.com/fwlink/?LinkID=533482), and enter issues directly in our [GitHub repository](https://github.com/Microsoft/vscode/issues).
+
+If you'd like to contact a professional support engineer, you can open a ticket with the [Microsoft assisted support team](https://support.microsoft.com/en-us/assistedsupportproducts).
