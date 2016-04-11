@@ -77,7 +77,7 @@ You'll find the components above mentioned often in our documentation and walkth
 
 VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add support for additional:
 
-* Languages - [C++](/docs/languages/cpp.md), [C#](/docs/languages/csharp.md), [Go](https://marketplace.visualstudio.com/items/lukehoban.Go), [PHP](/docs/languages/php.md), [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)
+* Languages - [C++](/docs/languages/cpp.md), [C#](/docs/languages/csharp.md), [Go](https://marketplace.visualstudio.com/items/lukehoban.Go), [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)
 * Tools - [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) , [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell), [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team)
 * Debuggers - [Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [PHP XDebug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 
@@ -87,13 +87,13 @@ Extensions integrate into VS Code's UI, commands, and task running systems so yo
 
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
-- [Yeoman](http://yeoman.io/) - an application scaffolding tool, you can think of this as **File** > **New Project** for VS Code
-- [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - a yeoman generator for scaffolding ASP.NET Core applications, run `npm install -g generator-aspnet` to install
-- [hottowel](https://github.com/johnpapa/generator-hottowel) - a yeoman generator for quickly creating AngularJS applications, run `npm install -g generator-hottowel` to install
-- [Express](http://expressjs.com/) - an application framework for Node.js applications, uses the Jade template engine
-- [gulp](http://gulpjs.com/) - a streaming task runner system, integrates with VS Code tasks
-- [mocha](http://mochajs.org/) - a JavaScript test framework that runs on Node.js
-- [bower](http://bower.io/) - a client side package manager
+- [Yeoman](http://yeoman.io/) - An application scaffolding tool, you can think of it as a command line version of **File** > **New Project**.
+- [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - A Yeoman generator for scaffolding **ASP.NET Core** applications.
+- [hottowel](https://github.com/johnpapa/generator-hottowel) - A Yeoman generator for quickly creating **AngularJS** applications.
+- [Express](http://expressjs.com/) - An application framework for Node.js applications using the **Jade** template engine.
+- [gulp](http://gulpjs.com/) - A streaming task runner system which integrates easily with VS Code tasks.
+- [mocha](http://mochajs.org/) - A JavaScript test framework that runs on Node.js.
+- [bower](http://bower.io/) - A client side package manager.
 
 ## Next Steps
 
