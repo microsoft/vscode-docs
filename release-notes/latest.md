@@ -233,7 +233,7 @@ For example:
 
 There are new folding actions to collapse source code regions based on their folding level.
 
-There are actions to fold level 1 (`kbstyle(Ctrl + K, Ctrl + 1)`) to level 5 (`kbstyle(Ctrl + K, Ctrl + 5)`).
+There are actions to fold level 1 (`kb(editor.foldLevel1)`) to level 5 (`kb(editor.foldLevel5)`).
 To unfold, use **Unfold All** (`kb(editor.unfoldAdd)`).
 
 The level folding actions do not apply to region containing the current cursor.
@@ -322,7 +322,7 @@ Large amounts of output were the cause of multiple user issues. We have now addr
 
 ### Run action
 
-With this release, VS Code now supports 'Run' (in addition to 'Debug') of a program. The **Run** action is triggered with `kbstyle(Ctrl + F5)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
+With this release, VS Code now supports 'Run' (in addition to 'Debug') of a program. The **Run** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
 
 Please note: The **Run** action is always available, but a debugger extension has to 'opt-in' in order to support 'Run'. If a debugger extension has not been updated, 'Run' will fall back to 'Debug' (the built-in Node Debug and [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) already support 'Run').
 
@@ -397,7 +397,7 @@ To summarize, here are some examples of where you can use Git with VS Code:
 
 We have added accessibility improvements to the suggestion widget, parameter hints widget and to the quick fix widget (lightbulb), which now announce each suggestion, as they are selected, to screen readers.
 
-> Tip: If you use the [NVDA screen reader](http://www.nvaccess.org), it is possible to navigate suggestions using `kbstyle(Alt+Up)` and `kbstyle(Alt+Down)`, to dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
+> Tip: If you use the [NVDA screen reader](http://www.nvaccess.org), it is possible to navigate suggestions using `kb(workbench.action.debug.run)` and `kb(editor.action.moveLinesDownAction)`, to dismiss the suggestions with `kb(hideSuggestWidget)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
 ## Extension Authoring
 
