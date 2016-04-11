@@ -234,7 +234,7 @@ For example:
 There are new folding actions to collapse source code regions based on their folding level.
 
 There are actions to fold level 1 (`kb(editor.foldLevel1)`) to level 5 (`kb(editor.foldLevel5)`).
-To unfold, use **Unfold All** (`kb(editor.unfoldAdd)`).
+To unfold, use **Unfold All** (`kb(editor.unfoldAll)`).
 
 The level folding actions do not apply to region containing the current cursor.
 

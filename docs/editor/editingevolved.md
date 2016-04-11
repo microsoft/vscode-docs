@@ -128,7 +128,7 @@ You can also use the following actions:
  * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
  * Fold All (`kb(editor.foldAll)`) folds all region in the editor
  * Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
- * Fold Level X (`kb(editor.foldLevel2)`) unfolds all regions of level X, except the region at the current cursor position
+ * Fold Level X (`kb(editor.foldLevel2)`) folds all regions of level X, except the region at the current cursor position
 
 ![Folding](images/editingevolved/folding.png)
 
