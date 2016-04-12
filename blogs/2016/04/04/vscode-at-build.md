@@ -44,9 +44,5 @@ There were also several new VS Code extensions released at //build/:
 
 Visit the VS Code [Extensions Marketplace](https://marketplace.visualstudio.com/VSCode) to learn more about these and other useful extensions.
 
-## 1.0 Release
-
-We're very excited about the upcoming VS Code 1.0 release on April 14th. We've come a long way since the initial preview release last year at //build/ 2015.  But don't wait until then, you can download the [Insider's build](http://code.visualstudio.com/download?insiders=true) today.
-
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
