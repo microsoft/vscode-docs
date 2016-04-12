@@ -381,7 +381,7 @@ The following language features are currently support in a language server besid
 * _List Document Symbols_: lists all symbols defined in a text document.
 * _List Workspace Symbols_: lists all project-wide symbols.
 * _Code Actions_: compute commands for a given text document and range.
-* _Code Lens_: compute code lenses for a given text document.
+* _CodeLens_: compute CodeLens statistics for a given text document.
 * _Document Formatting_: this includes formatting of whole documents, document ranges and formatting on type.
 * _Rename_: project-wide rename of a symbol.
 

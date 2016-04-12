@@ -18,7 +18,7 @@ You can browse and install extensions from within VS Code. Press `kb(workbench.a
 
 Pick `Extensions: Install Extension`.
 
-> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` and type `ext install ` with a trailing space. Not sure what to install? Visit [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site.
+> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` (**Quick Open**) and type `ext install ` with a trailing space. Not sure what to install? Visit [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 ![ext install shortcut](images/extension-gallery/ext-install.png)
 
@@ -32,7 +32,7 @@ Simply pick the extension from the list. After a successful install, you'll get 
 
 ## List Installed Extensions
 
-You can also browse installed extensions with the `Extensions: Show Installed Extensions` command or by typing `kb(workbench.action.quickOpen)` and `ext ` with a trailing space.
+You can also browse installed extensions with the `Extensions: Show Installed Extensions` command or by typing `kb(workbench.action.quickOpen)` (**Quick Open**) and `ext ` with a trailing space.
 
 ![installed extensions](images/extension-gallery/installed-extensions.png)
 

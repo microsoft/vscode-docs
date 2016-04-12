@@ -77,7 +77,7 @@ VS Code works very well with other tools that you might use, especially command 
 
 You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the Mac or **Open Containing Folder** on Linux).
 
->**Tip:** Type `kb(workbench.action.quickOpen)` to quickly search and open a file by its name.
+>**Tip:** Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
 By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/customization/userandworkspace.md) to configure rules for hiding files and folders from the explorer.
 
@@ -174,7 +174,7 @@ Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files that h
 
 Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench.action.navigateForward)` to navigate between files and edit locations. If you are jumping around between different lines of the same file, these shortcuts allow you to navigate between those locations easily.
 
->**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)`.
+>**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
 
 ## File Encoding Support
 

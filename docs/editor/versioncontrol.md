@@ -50,7 +50,7 @@ More specific **commit actions** can be found in the `...` menu on the top of th
 
 ## Branches and Tags
 
-You can create and checkout branches directly within VS code through the Command Palette. Press `kb(workbench.action.quickOpen)`, type `git` and then press `kbstyle(Space)`. You should see the following:
+You can create and checkout branches directly within VS code through **Quick Open**. Press `kb(workbench.action.quickOpen)`, type `git` and then press `Space`. You should see the following:
 
 ![Git commands](images/versioncontrol/gitcommands.png)
 

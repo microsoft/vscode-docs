@@ -93,7 +93,6 @@ We offer built-in snippets across languages as well as support for [Emmet abbrev
 
 You can also define your own snippets: Open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear. Find out more about this in the [customization section](/docs/customization/userdefinedsnippets.md) of our docs.
 
-
 ## Go to Definition
 
 If a [language](/docs/languages/overview.md) supports it, you can go to the definition of a symbol by pressing `kb(editor.action.goToDeclaration)`.

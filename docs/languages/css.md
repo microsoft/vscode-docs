@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
@@ -67,6 +67,8 @@ VS Code can integrate with Sass and Less transpilers through our integrated [tas
 
 For this walkthrough, let's use either the [node-sass](https://www.npmjs.com/package/node-sass) or [less](https://www.npmjs.com/package/less) Node.js module.
 
+>**Note:** If you don't have [Node.js](https://nodejs.org) and the [NPM](https://www.npmjs.com/) package manager already installed, you'll need to do so for this walkthrough. [Install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager (NPM) is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for `npm` to be on your PATH.
+
 ```
 npm install -g node-sass less
 ```
@@ -125,13 +127,11 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
 }
 ```
 
-Under the covers, we interpret `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss styles.css` or `lessc styles.less styles.css`.
+VS Code interprets `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss styles.css` or `lessc styles.less styles.css`.
 
 ### Step 4: Run the Build Task
 
-As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point you will see an additional file show up in the file list `style.css`.
-
-The sample Sass/Less file did not have any compile problems, so by running the task all that happened was a corresponding `styles.css` file was created.
+As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  The sample Sass/Less file should not have any compile problems, so by running the task all that happens is a corresponding `styles.css` file is created.
 
 ## Automating Sass/Less compilation
 
@@ -141,15 +141,19 @@ Let's take things a little further and automate Sass/Less compilation with VS Co
 
 We will use [Gulp](http://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
 
+We need to install `gulp` locally (no `-g` switch):
+
 ```
-npm install -g gulp gulp-sass gulp-less
+npm install gulp gulp-sass gulp-less
 ```
 
-> **Note:** gulp-sass and gulp-less are Gulp plug-ins for the `node-sass` and `lessc` modules we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
+> **Note:** `gulp-sass` and `gulp-less` are Gulp plug-ins for the `node-sass` and `lessc` modules we were using before.  There are many other Gulp Sass and Less plug-ins you can use, as well as plug-ins for Grunt.
 
 ### Step 2: Create a simple Gulp task
 
-Open VS Code on the same folder from before (contains `styles.scss`/`styles.less` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.  Place the following source code in that file:
+Open VS Code on the same folder from before (contains `styles.scss`/`styles.less` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.
+
+Place the following code in the `gulpfile.js` file:
 
 ```javascript
 // Sass configuration
@@ -164,7 +168,7 @@ gulp.task('sass', function() {
         }))
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['sass'], function() {
     gulp.watch('*.scss', ['sass']);
 })
 ```
@@ -182,17 +186,17 @@ gulp.task('less', function() {
         }))
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['less'], function() {
     gulp.watch('*.less', ['less']);
 })
 ```
 
 What is happening here?
 
-1. We are watching for changes to any Sass/Less file at the root of our workspace, for example the current folder open in VS Code.
-2. We take the set of Sass/Less files that have changed, and run them through our respective compiler, for example `gulp-sass`, `gulp-less`.
-3. We now have a set of CSS files, each named respectively after their original Sass/Less file.  We then put these files in the same directory.
-
+1. Our `default` gulp task first runs the `sass` or `less` task once when it starts up.
+2. It then watches for changes to any Sass/Less file at the root of our workspace, for example the current folder open in VS Code.
+3. It takes the set of Sass/Less files that have changed and runs them through our respective compiler, for example `gulp-sass`, `gulp-less`.
+4. We now have a set of CSS files, each named respectively after their original Sass/Less file.  We then put these files in the same directory.
 
 ### Step 3: Modify the configuration in tasks.json for watching
 

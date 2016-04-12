@@ -69,13 +69,13 @@ There are also features outside the editor. One is the ability to search for sym
 
 ![Symbols](images/csharp/symbols.png)
 
-## Code Lens
+## CodeLens
 
 Another cool feature is the ability to see the number of references to a method directly above the method. Click on the reference info to see the references in the Peek view.  This reference information updates as you type.
 
 >**Note:** Methods defined in `object`, such as `equals` and `hashCode` do not get reference information due to performance reasons.
 
-![Code Lens](images/csharp/codelens.png)
+![CodeLens](images/csharp/codelens.png)
 
 >**Tip:** You can turn off references information with the `editor.referenceInfos` [setting](/docs/customization/userandworkspace.md).
 
