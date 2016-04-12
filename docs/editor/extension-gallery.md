@@ -1,20 +1,20 @@
 ---
 Order: 3
 Area: editor
-TOCTitle: Extension Gallery
+TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
 DateApproved: 3/7/2016
-MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Gallery.
+MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 
-# VS Code Extension Gallery
+# VS Code Extension Marketplace
 
 ## Browse and Install Extensions in VS Code
 
 You can browse and install extensions from within VS Code. Press `kb(workbench.action.showCommands)` and narrow down the list commands by typing `extension`:
 
-![F1 Extensions](images/extension-gallery/f1extensions.png)
+![Extension Commands](images/extension-gallery/f1extensions.png)
 
 Pick `Extensions: Install Extension`.
 
@@ -22,7 +22,7 @@ Pick `Extensions: Install Extension`.
 
 ![ext install shortcut](images/extension-gallery/ext-install.png)
 
-You'll see a list of extensions on the gallery along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
+You'll see a list of extensions on the Marketplace along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
 
 ## Install an Extension
 
@@ -44,9 +44,11 @@ To uninstall an extension, bring up the `Extensions: Show Installed Extensions` 
 
 You can quickly look for extension updates by using the `Extensions: Show Outdated Extensions` dropdown.  This will display any available updates for your currently installed extensions. Simply click the Update Extension button in the lower right for the outdated extension and the update will be installed and you'll be prompted to restart VS Code.
 
+> **Tip:** Code will also notify you of available updates in the extension icon at the bottom left corner of its window.
+
 ## Browse Extensions
 
-Additionally, you can browse the VS Code Extension Gallery through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
+Additionally, you can browse for VS Code extensions through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site.
 
 ![marketplace](images/extension-gallery/marketplace.png)
 
@@ -54,7 +56,7 @@ Additionally, you can browse the VS Code Extension Gallery through the [VS Code 
 
 Here are a few topics you may find interesting...
 
-* [Publishing to the Gallery](/docs/tools/vscecli.md) - Publish your own customization or extension to the VS Code Gallery
+* [Publishing to the Marketplace](/docs/tools/vscecli.md) - Publish your own customization or extension to the VS Code Marketplace
 * [Customization](/docs/customization/overview.md) - Learn how to integrate TextMate themes, colorizers and snippets into Visual Studio Code.
 * [Yo Code](/docs/tools/yocode.md) - Learn how the Yo Code extension generator can scaffold out new extensions and package existing TextMate files.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility
@@ -72,6 +74,4 @@ Here are a few topics you may find interesting...
 
 **Q: Can I install Visual Studio Community extensions (shipped in .vsix) in Visual Studio Code?**
 
-**A:** No, Visual Studio Code's extensibility points are different from Visual Studio Community.  The two use different extension Galleries and the Visual Studio Community extension installer will not recognize Visual Studio Code.
-
-
+**A:** No, Visual Studio Code's extensibility points are different from Visual Studio Community.

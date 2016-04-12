@@ -126,7 +126,7 @@ VS Code is a great tool to help you develop your custom Office Add-ins regardles
 
 ### JavaScript Project Support
 
-The Office generator will create a `jsconfig.json` file when it creates your project.  This is the file that VS Code will use to infer all the JavaScript files within your project and save you from having to include the repetitive `/// <reference path="../App.js" />` code blocks.
+The Office generator will create a `jsconfig.json` file when it creates your project.  This is the file that VS Code will use to infer all the JavaScript files within your project and save you from having to include the repetitive `/// <reference path="../App.js" />` directives.
 
 > Learn more about the `jsconfig.json` file on the [JavaScript language](/docs/languages/javascript.md#javascript-projects-jsconfigjson) page.
 

@@ -16,11 +16,13 @@ As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image b
 
 ![HTML IntelliSense](images/html/htmlintellisense.png)
 
-We also offer up suggestions for elements, tags, some values (as defined in HTML 5) and AngularJS tags.  You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
+We also offer up suggestions for elements, tags, some values (as defined in HTML 5), Ionic and AngularJS tags. You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
 
 
 ## Format HTML
 To improve the formatting of your HTML code press `kb(editor.action.format)` and the selected area will be reformatted.
+
+>**Tip:** Configure the HTML formatter settings in the [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
 
 ## Emmet snippets

@@ -56,6 +56,13 @@ interface BaseTaskConfiguration {
 	isShellCommand?: boolean;
 
 	/**
+	 * Specifies whether a global command is watching the filesystem. A task.json
+	 * file can either contain a global isWatching property or a tasks property
+	 * but not both.
+	 */
+	isWatching?: boolean;
+	
+	/**
 	 * The command options used when the command is executed. Can be omitted.
 	 */
 	options?: CommandOptions;
@@ -149,6 +156,11 @@ export interface TaskDescription {
 	 */
 	isTestCommand?: boolean;
 
+	/**
+	 * Whether the executed command is kept alive and is watching the file system.
+	 */
+	isWatching?:boolean;
+	
 	/**
 	 * Controls whether the output view of the running tasks is brought to front or not.
 	 * See BaseTaskConfiguration#showOutput for details.

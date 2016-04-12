@@ -5,19 +5,18 @@ TOCTitle: Publishing Tool
 ContentId: 3F05F31A-FD66-4635-9BA2-F1799E795EA7
 PageTitle: vsce Publishing Tool - Publishing your Visual Studio Code Extensions
 DateApproved: 3/7/2016
-MetaDescription: Find out how to publish an extension to the Visual Studio Code Extension Gallery.
+MetaDescription: Find out how to publish an extension to the Visual Studio Code Extension Marketplace.
 ---
 
 # vsce - Publishing Tool Reference
 
-[vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish
-extensions to the [Extension Gallery](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
+[vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish extensions to the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
 
 ## Installation
 
 Make sure you have [node.js](https://nodejs.org/) installed. Then simply run:
 
-```bash
+```
 npm install -g vsce
 ```
 
@@ -25,7 +24,7 @@ npm install -g vsce
 
 You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension:
 
-```bash
+```
 $ vsce publish
 Publishing uuid@0.0.1...
 Successfully published uuid@0.0.1!
@@ -35,7 +34,7 @@ For a reference on all the available commands, run `vsce --help`.
 
 ## Publishing Extensions
 
-Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its gallery services. This means that authentication, hosting and management of extensions is provided through that service.
+Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/en-us/news/2015-jul-7-vso.aspx). You need to create at least one in order to publish an extension.
 
@@ -59,7 +58,7 @@ The next screen will display your newly created Personal Access Token. **Copy** 
 
 ### Create a Publisher
 
-A **publisher** is an identity who can publish extensions to the Visual Studio Code gallery. Every extension needs to include a `publisher` name in its [`package.json` file](/docs/extensionAPI/extension-manifest.md).
+A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/docs/extensionAPI/extension-manifest.md).
 
 Once you have a [Personal Access Token](/docs/tools/vscecli.md#get-a-personal-access-token), you can create a new publisher using `vsce`:
 
@@ -101,7 +100,7 @@ You can also specify a complete SemVer compatible version on the command line:
 
 ```bash
 vsce publish 2.0.1
-``` 
+```
 
 ## Packaging Extensions
 
@@ -121,9 +120,10 @@ You can customize how your extension looks in the Visual Studio Marketplace. See
 
 Here are some tips for making your extension look great on the Marketplace:
 
-- Any `README.md` file at the root of your extension will be used to populate the extension's gallery page's contents. **Note:** since the gallery doesn't serve images yet, you may find images and/or links to be broken in the extension's gallery page. `vsce` can fix this for you in two different ways:
+- Any `README.md` file at the root of your extension will be used to populate the extension's Marketplace page's contents. `vsce` can fix this for you in two different ways:
+- Likewise, any `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
 - If you add a `repository` field to your `package.json` and if it is a public GitHub repository, `vsce` will automatically detect it and adjust the links accordingly.
-- You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`. 
+- You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`.
 - You can set the banner background color by setting `galleryBanner.color` to the intended hex value in `package.json`.
 - You can set an icon by setting `icon` to a relative path to a squared `128px` PNG file included in your extension, in `package.json`.
 
@@ -167,7 +167,7 @@ This will always invoke the [TypeScript](http://www.typescriptlang.org/) compile
 
 ## Next Steps
 
-* [Extension Gallery](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension gallery.
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
 * [Installing Extensions](/docs/extensions/install-extension.md) - Learn about other options for installing and sharing extensions.
 
 ## Common Questions

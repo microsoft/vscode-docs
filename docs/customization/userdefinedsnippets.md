@@ -5,7 +5,7 @@ TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
 DateApproved: 3/7/2016
-MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Gallery. TextMate .tmSnippets files are supported.
+MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 
 # Adding Snippets to Visual Studio Code
@@ -16,13 +16,13 @@ Each snippet defines a prefix under which it will appear in IntelliSense via (`k
 
 ![User Snippets](images/userdefinedsnippets/usersnippets.png)
 
-## Add Snippets from the Gallery
+## Add Snippets from the Marketplace
 
-Many snippets have been uploaded to the VS Code [Extension Gallery](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new snippet will be available.
+Many snippets have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new snippet will be available.
 
-![Add some snippets from the Gallery](images/userdefinedsnippets/snippetgallery.gif)
+![Add some snippets from the Marketplace](images/userdefinedsnippets/snippetgallery.gif)
 
-You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Snippets) to find available snippets. 
+You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Snippets) site directly to find available snippets.
 
 ## Creating your Own Snippets
 
@@ -77,7 +77,7 @@ The final generator output has two files: an extension manifest `package.json` w
 
 Copy the generated snippets folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.
 
-## Sharing Your Snippets in the Gallery
+## Sharing Your Snippets in the Marketplace
 
 Once you have created your snippets and tested them out, you can share them with the community.
 
@@ -118,7 +118,7 @@ Below is an example manifest for Markdown snippets:
 
 Note that snippets need to be associated with a `language` identifier.  This can be a [language supported](/docs/languages/overview.md) directly by VS Code or a language provided by an extension.  Make sure the `language` identifier is correct.
 
-You then use the [vsce publishing tool](/docs/tools/vscecli.md) to publish the snippet extension to the [VS Code Extension Gallery](/docs/editor/extension-gallery.md).
+You then use the [vsce publishing tool](/docs/tools/vscecli.md) to publish the snippet extension to the [VS Code Extension Marketplace](/docs/editor/extension-gallery.md).
 
 > **Tip:** To make it easy for users to find your snippet, include the word "snippet" in the extension description and set the `Category` to `Snippets` in your `package.json`.
 

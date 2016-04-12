@@ -67,7 +67,7 @@ The last part adds a dependency to the `vscode-languageclient` library:
 
 ```json
 "dependencies": {
-    "vscode-languageclient": "0.10.x"
+    "vscode-languageclient": "^1.4.2"
 }
 ```
 
@@ -97,8 +97,8 @@ export function activate(context: ExtensionContext) {
     // If the extension is launch in debug mode the debug server options are use
     // Otherwise the run options are used
     let serverOptions: ServerOptions = {
-        run : { module: serverModule },
-        debug: { module: serverModule, options: debugOptions }
+        run : { module: serverModule, transport: TransportKind.ipc },
+        debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
     }
 
     // Options to control the language client
@@ -130,7 +130,7 @@ The interesting section in the server's package.json file is:
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "0.10.x"
+    "vscode-languageserver": "^1.4.1"
 }
 ```
 
@@ -151,9 +151,8 @@ import {
     InitializeParams, InitializeResult
 } from 'vscode-languageserver';
 
-// Create a connection for the server. The connection uses 
-// stdin / stdout for message passing
-let connection: IConnection = createConnection(process.stdin, process.stdout);
+// Create a connection for the server. The connection uses Node's IPC as a transport
+let connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
 
 // Create a simple text document manager. The text document manager
 // supports full document sync only
@@ -198,7 +197,8 @@ documents.onDidChangeContent((change) => {
                     start: { line: i, character: index},
                     end: { line: i, character: index + 10 }
                 },
-                message: `${line.substr(index, 10)} should be spelled TypeScript`
+                message: `${line.substr(index, 10)} should be spelled TypeScript`,
+                source: 'ex'
             });
         }
     })
@@ -289,7 +289,7 @@ interface Settings {
 // These are the example settings we defined in the client's package.json
 // file
 interface ExampleSettings {
-maxNumberOfProblems: number;
+    maxNumberOfProblems: number;
 }
 
 // hold the maxNumberOfProblems setting

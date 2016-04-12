@@ -97,6 +97,8 @@ Think of the **WORKING FILES** section as similar to Tabs that you may be famili
 
 Once you are done with your task, you can individually remove files from the working files section, or you can remove all files from the working files section by using the **Close All Files** action.
 
+>**Tip:** You can type `kb(workbench.files.action.workingFilesPicker)` to navigate the list of working files from file picker without having the explorer visible.
+
 ## Configuring the Editor
 
 VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/customization/userandworkspace.md#settings-file-locations).
@@ -201,7 +203,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
->**Tip:** We have instructions for Mac and Linux users in our [Setup](/docs/editor/setup.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows automatically.
+>**Tip:** We have instructions for Mac users in our [Setup](/docs/editor/setup.md#_mac-os-x) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows and Linux automatically.
 
 Sometimes you will want to open or create a file. If a file does not exist, we will create it for you:
 
@@ -220,12 +222,14 @@ Argument|Description
 ------------------|-----------
 `-h` or `--help` | Print usage
 `-v` or `--version` | Print VS Code version (e.g. 0.10.10)
-`-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session.
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
+`-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
 *file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
 *file:line:column?* | Name of a file to open at the specified line and optional column position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line:column?* specifier.
 *folder* | Name of a folder to open. You can specify multiple folders.
+`-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
+`--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es` 
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
 
 For both files and folders, you can use absolute or relative paths. Relative paths are relative to the current directory of the command prompt where you run `code`.
@@ -234,15 +238,15 @@ If you specify more than one file or folder at the command line, VS Code will op
 
 ## Opening a Project
 
-VS Code does not distinguish between opening a folder and opening a project. Instead, if the folder you open contains any project files, VS Code will read those files and indicate the project context in the status bar. From there, you can switch between projects if more than one project is found.
+VS Code does not distinguish between opening a folder and opening a project. If VS Code detects a project in the folder you opened (for example, a C# project), that project context will be displayed on the Status Bar. If more than one project is found, you can switch projects from there as well.
 
-To open the project contained in the folder `C:\src\WebApp`:
+To open a project contained in the folder `C:\src\WebApp`, you would start VS Code like this:
 
 ````
 code C:\src\webapp
 ````
 
-In other words, opening the folder containing the project effectively opens that project:
+After VS Code opens, just open source files and use the Status Bar to switch the active project as needed.
 
 ![Status Bar](images/codebasics/status.png)
 

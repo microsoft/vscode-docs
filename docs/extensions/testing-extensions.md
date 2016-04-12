@@ -16,6 +16,8 @@ VS Code supports running and debugging tests for your extension that require the
 
 The basic [yo code generator](/docs/tools/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
 
+**Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
+
 After you've created a new extension and opened the project in VS Code, you can select the `Launch Tests` configuration from the dropdown at the top of the Debug View.
 
 ![launch tests](images/testing-extensions/launch-tests.png)
@@ -49,14 +51,14 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
     "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
     "stopOnEntry": false,
     "sourceMaps": true,
-    "outDir": "out",
+    "outDir": "${workspaceRoot}/out/test",
     "preLaunchTask": "npm"
 }
 ```
 
 ## Passing Arguments to the Extension Development Host
 
-You can set the file or folder that the test instance should open by appending the path to the arguments list for the launch configuration.
+You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
 
 ```json
 "args": ["file or folder name", "--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
@@ -122,7 +124,7 @@ There are some optional environment variables to configure the test runner:
 
 | Name        | Description       |
 | ------------|-------------------|
-| `CODE_VERSION` | Version of VS Code to run the tests against |
+| `CODE_VERSION` | Version of VS Code to run the tests against (e.g. `0.10.10`) |
 | `CODE_DOWNLOAD_URL` | Full URL of a VS Code drop to use for running tests against |
 | `CODE_TESTS_PATH` | Location of the tests to execute |
 | `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance |

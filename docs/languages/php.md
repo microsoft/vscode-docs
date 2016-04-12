@@ -28,7 +28,7 @@ There are three [settings](/docs/customization/userandworkspace.md) to control t
 
 * `php.validate.enable`: controls whether to enable PHP linting at all. Enabled by default.
 * `php.validate.executablePath`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
-* `php.validate.run`: controls whether the validation is triggered on save (value: "onSave") or on type (value: "onType"). Default is on save.
+* `php.validate.run`: controls whether the validation is triggered on save (value: `"onSave"`) or on type (value: `"onType"`). Default is on save.
 
 ![show PHP settings](images/php/php-settings.png)
 
@@ -54,7 +54,7 @@ PHP debugging with **XDebug** is supported through a [PHP Debug extension](https
 
 Read on to find out about:
 
-* [Extension Gallery](/docs/editor/extension-gallery.md) - Browse the extensions others have shared
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - Browse the extensions others have shared
 * [Debugging](/docs/editor/debugging.md) - Learn more about VS Code debugging
 
 

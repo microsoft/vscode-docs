@@ -16,6 +16,10 @@ Visual Studio Code has built-in support for editing style sheets in CSS `.css`, 
 
 We have support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
 
+![IntelliSense in CSS](images/css/intellisense.png)
+
+Proposals contain extensive documentation, including a list of browsers that support the property. To see the full description text of the selected entry, use `kb(toggleSuggestionDetails)`.
+
 ## Emmet snippets
 
 Press `kb(editor.emmet.action.expandAbbreviation)` to expand the current abbreviation.
@@ -34,7 +38,7 @@ As you type, we provide syntax highlighting as well as in context preview of col
 
 We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 1.7.
 
->**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace setting to false.
+>**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/customization/userandworkspace.md) to false.
 >```json
 >    "css.validate": false
 >```
@@ -51,7 +55,7 @@ Hovering over a selector or property will provide an HTML snippet that is matche
 
 ## Goto Declaration and Find References
 
-This is supported for keyframes and variables in the same file.
+This is supported for Sass and Less variables in the same file.
 
 >**Note:** Cross file references ('imports') are not resolved.
 
@@ -95,17 +99,13 @@ nav {
 
 For the Less version of the above file, just change `$padding` to `@padding`.
 
->**Note:** This is a very simple example, which is why the code is almost identical between both file types.  In more advanced scenarios, the syntaxes and constructs will be much different.
+>**Note:** This is a very simple example, which is why the source code is almost identical between both file types.  In more advanced scenarios, the syntaxes and constructs will be much different.
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it.
+The next step is to set up the task configuration.  To do this open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it. In the selection dialog that shows up, select `Others`.
 
-This will create a sample `tasks.json` file in the `.vscode` folder.  The initial file has a large number of examples within it.
-
-> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
-
-The first example shows how to use configure tasks for TypeScript compilation.  We will simply modify that configuration for transpiling Less/Sass instead:
+This will create a sample `tasks.json` file in the workspace `.vscode` folder.  The initial version of file has an example to run an arbitrary command. We will simply modify that configuration for transpiling Less/Sass instead:
 
 ```json
 // Sass configuration
@@ -194,10 +194,9 @@ gulp.task('default', ['less'], function() {
 What is happening here?
 
 1. Our `default` gulp task first runs the `sass` or `less` task once when it starts up.
-2. It then watches for changes to any Sass/Less file at the root of our workspace, i.e. the current folder open in VS Code.
-3. It takes the set of Sass/Less files that have changed and runs them through our respective compiler, i.e. `gulp-sass`, `gulp-less`.
+2. It then watches for changes to any Sass/Less file at the root of our workspace, for example the current folder open in VS Code.
+3. It takes the set of Sass/Less files that have changed and runs them through our respective compiler, for example `gulp-sass`, `gulp-less`.
 4. We now have a set of CSS files, each named respectively after their original Sass/Less file.  We then put these files in the same directory.
-
 
 ### Step 3: Modify the configuration in tasks.json for watching
 
@@ -227,13 +226,19 @@ Again, as this is the only task in the file you can execute it by simply pressin
 
 At this point, if you create and/or modify other Less/Sass files, you will see the respective CSS files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` again and click `Terminate Running Task` in the message box. Or you can use the Command Palette with `kb(workbench.action.showCommands)` and find the terminate command there.
+If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` again and click **Terminate Running Task** in the message box. Or you can use the **Command Palette** with `kb(workbench.action.showCommands)` and find the terminate command there.
 
 ## Customizing CSS, Sass and Less Settings
 
-You can configure the following linter warnings as User or Workspace Settings.
+You can configure the following lint warnings as [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
->**Tip:** Head over to this topic to get an overview of [User and Workspace Settings](/docs/customization/userandworkspace.md).
+The `validate` setting allows you turn off the built-in validation. You would do this if you rather use a different linter.
+
+Id|Description|Default
+---|------------|----
+css.validate | Enables or disables all css validations | true
+less.validate | Enables or disables all less validations | true
+sass.validate | Enables or disables all sass validations | true
 
 To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `less.lint.` and `sass.lint.`.
 
@@ -241,6 +246,7 @@ Set a setting to `warning` or `error` if you want to enable lint checking, use `
 
 Id|Description|Default
 ---|------------|----
+validate | Enables or disables all validations | true
 compatibleVendorPrefixes | When using a property with a vendor-specific prefix (for example `-webkit-transition`), make sure to also include all other vendor-specific properties eg. `-moz-transition`, `-ms-transition` and `-o-transition` | ignore
 vendorPrefix | When using a property with a vendor-specific prefix for example `-webkit-transition`, make sure to also include the standard property if it exists eg. `transition` | warning
 duplicateProperties | Warn about duplicate properties in the same ruleset | ignore

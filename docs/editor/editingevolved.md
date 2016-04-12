@@ -30,8 +30,34 @@ VS Code has support for multiple cursors. You can add secondary cursors (rendere
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.  `kb(editor.action.moveSelectionToNextFindMatch)` moves the last added cursor to next occurrence of the current selection.
 
+![Multi-cursor-next-word](images/editingevolved/multicursor-word.gif)
 
 > **Tip:** You can add more cursors also with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
+
+### Column text selection
+
+Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column text selection:
+
+![Column text selection](images/editingevolved/column-select.gif)
+
+There are also default key bindings for column selection on OS X and Windows, but not on Linux. You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
+
+For example:
+
+```json
+{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
+                                  "when": "editorTextFocus" },
+{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
+                                  "when": "editorTextFocus" }
+```
 
 ### Shrink/expand selection
 
@@ -45,12 +71,11 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type (we call it affectionately 24x7 IntelliSense). You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  Out of the box, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are accept triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
 
-
 ![IntelliSense](images/editingevolved/intellisense.gif)
 
 > **Tip:** The suggestions filtering supports CamelCase so you can type the upper case letters of a method name to limit the suggestions. For example, "wl" will quickly bring up WriteLine.
 
-> **Tip:** The 24x7 IntelliSense can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` settings.
+> **Tip:** The 24x7 IntelliSense can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/customization/userandworkspace.md).
 
 ## Parameter Hints
 
@@ -89,6 +114,22 @@ You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. B
 In C# and in TypeScript, you can jump to a symbol across files with `kb(workbench.action.showAllSymbols)`. Just type the first letter of a type you want to navigate to, regardless of which file contains it, and press `kbstyle(Enter)`.
 
 ![Open symbol by name](images/editingevolved/symbol.png)
+
+
+## Folding
+
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions.
+The folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
+
+You can also use the following actions:
+
+ * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
+ * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
+ * Fold All (`kb(editor.foldAll)`) folds all region in the editor
+ * Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
+ * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position
+
+![Folding](images/editingevolved/folding.png)
 
 ## Gutter indicators
 

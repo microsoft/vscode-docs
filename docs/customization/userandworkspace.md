@@ -42,10 +42,14 @@ The workspace setting file is located under the `.vscode` folder in your project
 The `settings.json` file is divided into these sections:
 
 - **Editor Configuration** - font, word wrapping, tab size, line numbers, indentation, ...
-- **Files Configuration** - exclude filters, default encoding, trim trailing whitespace
-- **HTTP Configuration** - Proxy settings
-- **File Explorer Configuration** - Working Files behavior
+- **Window Configuration** - restore folders, zoom level, ...
+- **Files Configuration** - excluded file filters, default encoding, trim trailing whitespace, ...
+- **File Explorer Configuration** - encoding, **WORKING FILES** behavior, ...
+- **HTTP Configuration** - proxy settings
 - **Search Configuration** - file exclude filters
+- **Git Configuration** - disable Git integration, auto fetch behavior
+- **Telemetry Configuration** - disable telemetry reporting, crash reporting
+- **HTML Configuration** - HTML format configuration
 - **CSS Configuration** - CSS linting configuration
 - **JavaScript Configuration** - Language specific settings
 - **JSON Configuration** - Schemas associated with certain JSON files
@@ -53,6 +57,7 @@ The `settings.json` file is divided into these sections:
 - **Less Configuration** - Control linting for Less
 - **Sass Configuration** - Control linting for Sass
 - **TypeScript Configuration** - Language specific settings
+- **PHP Configuration** - PHP linter configuration
 
 ## Default Settings
 
@@ -64,410 +69,512 @@ Below is a copy of the default `settings.json` file.
 // Overwrite settings by placing them into your settings file.
 {
 
-    //-------- Editor configuration --------
+	//-------- Editor configuration --------
 
-    // Controls the font family.
-    "editor.fontFamily": "",
+	// Controls the font family.
+	"editor.fontFamily": "",
 
-    // Controls the font size.
-    "editor.fontSize": 0,
+	// Controls the font size.
+	"editor.fontSize": 0,
 
-    // Controls the line height.
-    "editor.lineHeight": 0,
+	// Controls the line height.
+	"editor.lineHeight": 0,
 
-    // Controls visibility of line numbers
-    "editor.lineNumbers": true,
+	// Controls visibility of line numbers
+	"editor.lineNumbers": true,
 
-    // Controls visibility of the glyph margin
-    "editor.glyphMargin": false,
+	// Controls visibility of the glyph margin
+	"editor.glyphMargin": false,
 
-    // Columns at which to show vertical rulers
-    "editor.rulers": [],
+	// Columns at which to show vertical rulers
+	"editor.rulers": [],
 
-    // Characters that will be used as word separators when doing word related navigations or operations
-    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
+	// Characters that will be used as word separators when doing word related navigations or operations
+	"editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
 
-    // Controls the rendering size of tabs in characters. Accepted values: "auto", 2, 4, 6, etc. If set to "auto", the value will be guessed when a file is opened.
-    "editor.tabSize": 4,
+	// The number of spaces a tab is equal to.
+	"editor.tabSize": 4,
 
-    // Controls if the editor will insert spaces for tabs. Accepted values:  "auto", true, false. If set to "auto", the value will be guessed when a file is opened.
-    "editor.insertSpaces": true,
+	// Insert spaces when pressing Tab.
+	"editor.insertSpaces": true,
 
-    // Controls if selections have rounded corners
-    "editor.roundedSelection": true,
+	// When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
+	"editor.detectIndentation": true,
 
-    // Controls if the editor will scroll beyond the last line
-    "editor.scrollBeyondLastLine": true,
+	// Controls if selections have rounded corners
+	"editor.roundedSelection": true,
 
-    // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping
-    "editor.wrappingColumn": 300,
+	// Controls if the editor will scroll beyond the last line
+	"editor.scrollBeyondLastLine": true,
 
-    // Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
-    "editor.wrappingIndent": "same",
+	// Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping
+	"editor.wrappingColumn": 300,
 
-    // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
-    "editor.mouseWheelScrollSensitivity": 1,
+	// Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
+	"editor.wrappingIndent": "same",
 
-    // Controls if quick suggestions should show up or not while typing
-    "editor.quickSuggestions": true,
+	// A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
+	"editor.mouseWheelScrollSensitivity": 1,
 
-    // Controls the delay in ms after which quick suggestions will show up
-    "editor.quickSuggestionsDelay": 10,
+	// Controls if quick suggestions should show up or not while typing
+	"editor.quickSuggestions": true,
 
-    // Controls if the editor should automatically close brackets after opening them
-    "editor.autoClosingBrackets": true,
+	// Controls the delay in ms after which quick suggestions will show up
+	"editor.quickSuggestionsDelay": 10,
 
-    // Controls if the editor should automatically format the line after typing
-    "editor.formatOnType": false,
+	// Controls if the editor should automatically close brackets after opening them
+	"editor.autoClosingBrackets": true,
 
-    // Controls if suggestions should automatically show up when typing trigger characters
-    "editor.suggestOnTriggerCharacters": true,
+	// Controls if the editor should automatically format the line after typing
+	"editor.formatOnType": false,
 
-    // Controls whether the editor should highlight similar matches to the selection
-    "editor.selectionHighlight": true,
+	// Controls if suggestions should automatically show up when typing trigger characters
+	"editor.suggestOnTriggerCharacters": true,
 
-    // Controls the number of decorations that can show up at the same position in the overview ruler
-    "editor.overviewRulerLanes": 3,
+	// Controls if suggestions should be accepted 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
+	"editor.acceptSuggestionOnEnter": true,
 
-    // Controls the cursor blinking animation, accepted values are 'blink', 'visible', and 'hidden'
-    "editor.cursorBlinking": "blink",
+	// Controls whether the editor should highlight similar matches to the selection
+	"editor.selectionHighlight": true,
 
-    // Controls the cursor style, accepted values are 'block' and 'line'
-    "editor.cursorStyle": "line",
+	// Controls the number of decorations that can show up at the same position in the overview ruler
+	"editor.overviewRulerLanes": 3,
 
-    // Enables font ligatures
-    "editor.fontLigatures": false,
+	// Controls the cursor blinking animation, accepted values are 'blink', 'visible', and 'hidden'
+	"editor.cursorBlinking": "blink",
 
-    // Controls if the cursor should be hidden in the overview ruler.
-    "editor.hideCursorInOverviewRuler": false,
+	// Controls the cursor style, accepted values are 'block' and 'line'
+	"editor.cursorStyle": "line",
 
-    // Controls whether the editor should render whitespace characters
-    "editor.renderWhitespace": false,
+	// Enables font ligatures
+	"editor.fontLigatures": false,
 
-    // Controls if the editor shows reference information for the modes that support it
-    "editor.referenceInfos": true,
+	// Controls if the cursor should be hidden in the overview ruler.
+	"editor.hideCursorInOverviewRuler": false,
 
-    // Controls whether the editor has code folding enabled
-    "editor.folding": true,
+	// Controls whether the editor should render whitespace characters
+	"editor.renderWhitespace": false,
 
-    // Controls if the diff editor shows the diff side by side or inline
-    "diffEditor.renderSideBySide": true,
+	// Controls if the editor shows reference information for the modes that support it
+	"editor.referenceInfos": true,
 
-    // Controls if the diff editor shows changes in leading or trailing whitespace as diffs
-    "diffEditor.ignoreTrimWhitespace": true,
+	// Controls whether the editor has code folding enabled
+	"editor.folding": true,
 
+	// Controls if the diff editor shows the diff side by side or inline
+	"diffEditor.renderSideBySide": true,
 
-    //-------- Window configuration --------
+	// Controls if the diff editor shows changes in leading or trailing whitespace as diffs
+	"diffEditor.ignoreTrimWhitespace": true,
 
-    // When enabled, will open files in a new window instead of reusing an existing instance.
-    "window.openFilesInNewWindow": true,
 
-    // Controls how folders are being reopened after a restart. Select 'none' to never reopen a folder, 'one' to reopen the last folder you worked on or 'all' to reopen all folders of your last session.
-    "window.reopenFolders": "one",
+	//-------- Window configuration --------
 
-    // Adjust the zoom level of the window. The original size is 0 and each increment above or below represents zooming 20% larger or smaller.
-    "window.zoomLevel": 0,
+	// When enabled, will open files in a new window instead of reusing an existing instance.
+	"window.openFilesInNewWindow": true,
 
+	// Controls how folders are being reopened after a restart. Select 'none' to never reopen a folder, 'one' to reopen the last folder you worked on or 'all' to reopen all folders of your last session.
+	"window.reopenFolders": "one",
 
-    //-------- Files configuration --------
+	// Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
+	"window.zoomLevel": 0,
 
-    // Configure glob patterns for excluding files and folders.
-    "files.exclude": {
-        "**/.git": true,
-        "**/.DS_Store": true
-    },
 
-    // The default character set encoding to use when reading and writing files.
-    "files.encoding": "utf8",
+	//-------- Files configuration --------
 
-    // The default end of line character.
-    "files.eol": "\r\n",
+	// Configure glob patterns for excluding files and folders.
+	"files.exclude": {
+		"**/.git": true,
+		"**/.DS_Store": true
+	},
 
-    // When enabled, will trim trailing whitespace when you save a file.
-    "files.trimTrailingWhitespace": false,
+	// Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
+	"files.associations": {},
 
-    // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange". If set to "afterDelay" you can configure the delay in "files.autoSaveDelay".
-    "files.autoSave": "off",
+	// The default character set encoding to use when reading and writing files.
+	"files.encoding": "utf8",
 
-    // Controls the delay in ms after which a dirty file is saved automatically. Only applies when "files.autoSave" is set to "afterDelay"
-    "files.autoSaveDelay": 1000,
+	// The default end of line character.
+	"files.eol": "\n",
 
+	// When enabled, will trim trailing whitespace when you save a file.
+	"files.trimTrailingWhitespace": false,
 
-    //-------- File Explorer configuration --------
+	// Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange". If set to "afterDelay" you can configure the delay in "files.autoSaveDelay".
+	"files.autoSave": "off",
 
-    // Maximum number of working files to show before scrollbars appear.
-    "explorer.workingFiles.maxVisible": 9,
+	// Controls the delay in ms after which a dirty file is saved automatically. Only applies when "files.autoSave" is set to "afterDelay"
+	"files.autoSaveDelay": 1000,
 
-    // Controls if the height of the working files section should adapt dynamically to the number of elements or not.
-    "explorer.workingFiles.dynamicHeight": true,
+	// Configure glob patterns of file paths to exclude from file watching. Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/node_modules/**": true
+	},
 
 
-    //-------- HTTP configuration --------
+	//-------- File Explorer configuration --------
 
-    // The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
-    "http.proxy": "",
+	// Maximum number of working files to show before scrollbars appear.
+	"explorer.workingFiles.maxVisible": 9,
 
-    // Whether the proxy server certificate should be verified against the list of supplied CAs.
-    "http.proxyStrictSSL": true,
+	// Controls if the height of the working files section should adapt dynamically to the number of elements or not.
+	"explorer.workingFiles.dynamicHeight": true,
 
 
-    //-------- Search configuration --------
+	//-------- HTTP configuration --------
 
-    // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the file.exclude setting.
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/bower_components": true
-    },
+	// The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
+	"http.proxy": "",
 
+	// Whether the proxy server certificate should be verified against the list of supplied CAs.
+	"http.proxyStrictSSL": true,
 
-    //-------- Update configuration --------
 
-    // Configure the update channel to receive updates from. Requires a restart after change.
-    "update.channel": "default",
+	//-------- Update configuration --------
 
+	// Configure the update channel to receive updates from. Requires a restart after change.
+	"update.channel": "default",
 
-    //-------- Git configuration --------
 
-    // Is git enabled
-    "git.enabled": true,
+	//-------- Search configuration --------
 
-    // Path to the git executable
-    "git.path": null,
+	// Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the file.exclude setting.
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/bower_components": true
+	},
 
-    // Whether auto fetching is enabled.
-    "git.autofetch": true,
 
+	//-------- Git configuration --------
 
-    //-------- Telemetry configuration --------
+	// Is git enabled
+	"git.enabled": true,
 
-    // Enable usage data and errors to be sent to Microsoft.
-    "telemetry.enableTelemetry": true,
+	// Path to the git executable
+	"git.path": null,
 
+	// Whether auto fetching is enabled.
+	"git.autofetch": true,
 
-    //-------- CSS configuration --------
 
-    // Controls CSS validation and problem severities.
+	//-------- Telemetry configuration --------
 
-    // Enables or disables all validations
-    "css.validate": true,
+	// Enable usage data and errors to be sent to Microsoft.
+	"telemetry.enableTelemetry": true,
 
-    // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-    "css.lint.compatibleVendorPrefixes": "ignore",
 
-    // When using a vendor-specific prefix also include the standard property
-    "css.lint.vendorPrefix": "warning",
+	//-------- Markdown preview configuration --------
 
-    // Do not use duplicate style definitions
-    "css.lint.duplicateProperties": "ignore",
+	// A list of URLs or local paths to CSS style sheets to use from the markdown preview.
+	"markdown.styles": [],
 
-    // Do not use empty rulesets
-    "css.lint.emptyRules": "warning",
 
-    // Import statements do not load in parallel
-    "css.lint.importStatement": "ignore",
+	//-------- JSON configuration --------
 
-    // Do not use width or height when using padding or border
-    "css.lint.boxModel": "ignore",
+	// Associate schemas to JSON files in the current project
+	"json.schemas": [],
 
-    // The universal selector (*) is known to be slow
-    "css.lint.universalSelector": "ignore",
 
-    // No unit for zero needed
-    "css.lint.zeroUnits": "ignore",
+	//-------- HTML configuration --------
 
-    // @font-face rule must define 'src' and 'font-family' properties
-    "css.lint.fontFaceProperties": "warning",
+	// Maximum amount of characters per line (0 = disable).
+	"html.format.wrapLineLength": 120,
 
-    // Hex colors must consist of three or six hex numbers
-    "css.lint.hexColorLength": "error",
+	// List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all inline tags.
+	"html.format.unformatted": null,
 
-    // Invalid number of parameters
-    "css.lint.argumentsInColorFunction": "error",
+	// Indent <head> and <body> sections.
+	"html.format.indentInnerHtml": false,
 
-    // Unknown property.
-    "css.lint.unknownProperties": "warning",
+	// Whether existing line breaks before elements should be preserved. Only works before elements, not inside tags or for text.
+	"html.format.preserveNewLines": true,
 
-    // IE hacks are only necessary when supporting IE7 and older
-    "css.lint.ieHack": "ignore",
+	// Maximum number of line breaks to be preserved in one chunk. Use 'null' for unlimited.
+	"html.format.maxPreserveNewLines": null,
 
-    // Unknown vendor specific property.
-    "css.lint.unknownVendorSpecificProperties": "ignore",
+	// Format and indent {{#foo}} and {{/foo}}.
+	"html.format.indentHandlebars": false,
 
-    // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-    "css.lint.propertyIgnoredDueToDisplay": "warning",
+	// End with a newline.
+	"html.format.endWithNewline": false,
 
-    // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-    "css.lint.important": "ignore",
+	// List of tags, comma separated, that should have an extra newline before them. 'null' defaults to "head, body, /html".
+	"html.format.extraLiners": null,
 
-    // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-    "css.lint.float": "ignore",
 
-    // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-    "css.lint.idSelector": "ignore",
+	//-------- Telemetry configuration --------
 
+	// Enable crash reports to be sent to Microsoft.
+	// This option requires restart to take effect.
+	"telemetry.enableCrashReporter": true,
 
-    //-------- JSON configuration --------
 
-    // Associate schemas to JSON files in the current project
-    "json.schemas": [],
+	//-------- CSS configuration --------
 
+	// Controls CSS validation and problem severities.
 
-    //-------- Markdown preview configuration --------
+	// Enables or disables all validations
+	"css.validate": true,
 
-    // A list of URLs or local paths to CSS style sheets to use from the markdown preview.
-    "markdown.styles": [],
+	// When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+	"css.lint.compatibleVendorPrefixes": "ignore",
 
+	// When using a vendor-specific prefix also include the standard property
+	"css.lint.vendorPrefix": "warning",
 
-    //-------- Telemetry configuration --------
+	// Do not use duplicate style definitions
+	"css.lint.duplicateProperties": "ignore",
 
-    // Enable crash reports to be sent to Microsoft.
-    // This option requires restart of VSCode to take effect.
-    "telemetry.enableCrashReporter": true,
+	// Do not use empty rulesets
+	"css.lint.emptyRules": "warning",
 
+	// Import statements do not load in parallel
+	"css.lint.importStatement": "ignore",
 
-    //-------- LESS configuration --------
+	// Do not use width or height when using padding or border
+	"css.lint.boxModel": "ignore",
 
-    // Controls LESS validation and problem severities.
+	// The universal selector (*) is known to be slow
+	"css.lint.universalSelector": "ignore",
 
-    // Enables or disables all validations
-    "less.validate": true,
+	// No unit for zero needed
+	"css.lint.zeroUnits": "ignore",
 
-    // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-    "less.lint.compatibleVendorPrefixes": "ignore",
+	// @font-face rule must define 'src' and 'font-family' properties
+	"css.lint.fontFaceProperties": "warning",
 
-    // When using a vendor-specific prefix also include the standard property
-    "less.lint.vendorPrefix": "warning",
+	// Hex colors must consist of three or six hex numbers
+	"css.lint.hexColorLength": "error",
 
-    // Do not use duplicate style definitions
-    "less.lint.duplicateProperties": "ignore",
+	// Invalid number of parameters
+	"css.lint.argumentsInColorFunction": "error",
 
-    // Do not use empty rulesets
-    "less.lint.emptyRules": "warning",
+	// Unknown property.
+	"css.lint.unknownProperties": "warning",
 
-    // Import statements do not load in parallel
-    "less.lint.importStatement": "ignore",
+	// IE hacks are only necessary when supporting IE7 and older
+	"css.lint.ieHack": "ignore",
 
-    // Do not use width or height when using padding or border
-    "less.lint.boxModel": "ignore",
+	// Unknown vendor specific property.
+	"css.lint.unknownVendorSpecificProperties": "ignore",
 
-    // The universal selector (*) is known to be slow
-    "less.lint.universalSelector": "ignore",
+	// Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+	"css.lint.propertyIgnoredDueToDisplay": "warning",
 
-    // No unit for zero needed
-    "less.lint.zeroUnits": "ignore",
+	// Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+	"css.lint.important": "ignore",
 
-    // @font-face rule must define 'src' and 'font-family' properties
-    "less.lint.fontFaceProperties": "warning",
+	// Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+	"css.lint.float": "ignore",
 
-    // Hex colors must consist of three or six hex numbers
-    "less.lint.hexColorLength": "error",
+	// Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+	"css.lint.idSelector": "ignore",
 
-    // Invalid number of parameters
-    "less.lint.argumentsInColorFunction": "error",
 
-    // Unknown property.
-    "less.lint.unknownProperties": "warning",
+	//-------- LESS configuration --------
 
-    // IE hacks are only necessary when supporting IE7 and older
-    "less.lint.ieHack": "ignore",
+	// Controls LESS validation and problem severities.
 
-    // Unknown vendor specific property.
-    "less.lint.unknownVendorSpecificProperties": "ignore",
+	// Enables or disables all validations
+	"less.validate": true,
 
-    // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-    "less.lint.propertyIgnoredDueToDisplay": "warning",
+	// When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+	"less.lint.compatibleVendorPrefixes": "ignore",
 
-    // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-    "less.lint.important": "ignore",
+	// When using a vendor-specific prefix also include the standard property
+	"less.lint.vendorPrefix": "warning",
 
-    // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-    "less.lint.float": "ignore",
+	// Do not use duplicate style definitions
+	"less.lint.duplicateProperties": "ignore",
 
-    // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-    "less.lint.idSelector": "ignore",
+	// Do not use empty rulesets
+	"less.lint.emptyRules": "warning",
 
+	// Import statements do not load in parallel
+	"less.lint.importStatement": "ignore",
 
-    //-------- Sass configuration --------
+	// Do not use width or height when using padding or border
+	"less.lint.boxModel": "ignore",
 
-    // Controls Sass validation and problem severities.
+	// The universal selector (*) is known to be slow
+	"less.lint.universalSelector": "ignore",
 
-    // Enables or disables all validations
-    "sass.validate": true,
+	// No unit for zero needed
+	"less.lint.zeroUnits": "ignore",
 
-    // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-    "sass.lint.compatibleVendorPrefixes": "ignore",
+	// @font-face rule must define 'src' and 'font-family' properties
+	"less.lint.fontFaceProperties": "warning",
 
-    // When using a vendor-specific prefix also include the standard property
-    "sass.lint.vendorPrefix": "warning",
+	// Hex colors must consist of three or six hex numbers
+	"less.lint.hexColorLength": "error",
 
-    // Do not use duplicate style definitions
-    "sass.lint.duplicateProperties": "ignore",
+	// Invalid number of parameters
+	"less.lint.argumentsInColorFunction": "error",
 
-    // Do not use empty rulesets
-    "sass.lint.emptyRules": "warning",
+	// Unknown property.
+	"less.lint.unknownProperties": "warning",
 
-    // Import statements do not load in parallel
-    "sass.lint.importStatement": "ignore",
+	// IE hacks are only necessary when supporting IE7 and older
+	"less.lint.ieHack": "ignore",
 
-    // Do not use width or height when using padding or border
-    "sass.lint.boxModel": "ignore",
+	// Unknown vendor specific property.
+	"less.lint.unknownVendorSpecificProperties": "ignore",
 
-    // The universal selector (*) is known to be slow
-    "sass.lint.universalSelector": "ignore",
+	// Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+	"less.lint.propertyIgnoredDueToDisplay": "warning",
 
-    // No unit for zero needed
-    "sass.lint.zeroUnits": "ignore",
+	// Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+	"less.lint.important": "ignore",
 
-    // @font-face rule must define 'src' and 'font-family' properties
-    "sass.lint.fontFaceProperties": "warning",
+	// Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+	"less.lint.float": "ignore",
 
-    // Hex colors must consist of three or six hex numbers
-    "sass.lint.hexColorLength": "error",
+	// Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+	"less.lint.idSelector": "ignore",
 
-    // Invalid number of parameters
-    "sass.lint.argumentsInColorFunction": "error",
 
-    // Unknown property.
-    "sass.lint.unknownProperties": "warning",
+	//-------- Sass configuration --------
 
-    // IE hacks are only necessary when supporting IE7 and older
-    "sass.lint.ieHack": "ignore",
+	// Controls Sass validation and problem severities.
 
-    // Unknown vendor specific property.
-    "sass.lint.unknownVendorSpecificProperties": "ignore",
+	// Enables or disables all validations
+	"sass.validate": true,
 
-    // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-    "sass.lint.propertyIgnoredDueToDisplay": "warning",
+	// When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+	"sass.lint.compatibleVendorPrefixes": "ignore",
 
-    // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-    "sass.lint.important": "ignore",
+	// When using a vendor-specific prefix also include the standard property
+	"sass.lint.vendorPrefix": "warning",
 
-    // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-    "sass.lint.float": "ignore",
+	// Do not use duplicate style definitions
+	"sass.lint.duplicateProperties": "ignore",
 
-    // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-    "sass.lint.idSelector": "ignore",
+	// Do not use empty rulesets
+	"sass.lint.emptyRules": "warning",
 
+	// Import statements do not load in parallel
+	"sass.lint.importStatement": "ignore",
 
-    //-------- TypeScript configuration --------
+	// Do not use width or height when using padding or border
+	"sass.lint.boxModel": "ignore",
 
-    // Complete functions with their parameter signature.
-    "typescript.useCodeSnippetsOnMethodSuggest": false,
+	// The universal selector (*) is known to be slow
+	"sass.lint.universalSelector": "ignore",
 
-    // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
-    "typescript.tsdk": null,
+	// No unit for zero needed
+	"sass.lint.zeroUnits": "ignore",
 
+	// @font-face rule must define 'src' and 'font-family' properties
+	"sass.lint.fontFaceProperties": "warning",
 
-    //-------- PHP Configuration options --------
+	// Hex colors must consist of three or six hex numbers
+	"sass.lint.hexColorLength": "error",
 
-    // Whether php validation is enabled or not.
-    "php.validate.enable": true,
+	// Invalid number of parameters
+	"sass.lint.argumentsInColorFunction": "error",
 
-    // Points to the php executable.
-    "php.validate.executablePath": null,
+	// Unknown property.
+	"sass.lint.unknownProperties": "warning",
 
-    // Whether the linter is run on save or on type.
-    "php.validate.run": "onSave",
+	// IE hacks are only necessary when supporting IE7 and older
+	"sass.lint.ieHack": "ignore",
+
+	// Unknown vendor specific property.
+	"sass.lint.unknownVendorSpecificProperties": "ignore",
+
+	// Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+	"sass.lint.propertyIgnoredDueToDisplay": "warning",
+
+	// Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+	"sass.lint.important": "ignore",
+
+	// Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+	"sass.lint.float": "ignore",
+
+	// Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+	"sass.lint.idSelector": "ignore",
+
+
+	//-------- TypeScript configuration --------
+
+	// Specifies the folder path containing the tsserver and lib*.d.ts files to use.
+	"typescript.tsdk": null,
+
+	// Complete functions with their parameter signature.
+	"typescript.useCodeSnippetsOnMethodSuggest": false,
+
+	// Enable / disable TypeScript validation
+	"typescript.validate.enable": true,
+
+	// Defines space handling after a comma delimiter
+	"typescript.format.insertSpaceAfterCommaDelimiter": true,
+
+	//  Defines space handling after a semicolon in a for statement
+	"typescript.format.insertSpaceAfterSemicolonInForStatements": true,
+
+	// Defines space handling after a binary operator
+	"typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+
+	// Defines space handling after keywords in control flow statement
+	"typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+
+	// Defines space handling after function keyword for anonymous functions
+	"typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+
+	// Defines space handling after opening and before closing non empty parenthesis
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+
+	// Defines space handling after opening and before closing non empty brackets
+	"typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+
+	// Defines whether an open brace is put onto a new line for functions or not
+	"typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+
+	// Defines whether an open brace is put onto a new line for control blocks or not
+	"typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+
+	// Enable / disable JavaScript validation
+	"javascript.validate.enable": true,
+
+	// Defines space handling after a comma delimiter
+	"javascript.format.insertSpaceAfterCommaDelimiter": true,
+
+	//  Defines space handling after a semicolon in a for statement
+	"javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+
+	// Defines space handling after a binary operator
+	"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+
+	// Defines space handling after keywords in control flow statement
+	"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+
+	// Defines space handling after function keyword for anonymous functions
+	"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+
+	// Defines space handling after opening and before closing non empty parenthesis
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+
+	// Defines space handling after opening and before closing non empty brackets
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+
+	// Defines whether an open brace is put onto a new line for functions or not
+	"javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+
+	// Defines whether an open brace is put onto a new line for control blocks or not
+	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+
+
+	//-------- PHP Configuration options --------
+
+	// Whether php validation is enabled or not.
+	"php.validate.enable": true,
+
+	// Points to the php executable.
+	"php.validate.executablePath": null,
+
+	// Whether the linter is run on save or on type.
+	"php.validate.run": "onSave"
 
 }
 ```

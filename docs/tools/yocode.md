@@ -9,7 +9,7 @@ MetaDescription: Easily create VS Code extensions and customizations with the Yo
 ---
 # Yo Code - Extension Generator
 
-We have written a Yeoman generator to help get you started. We plan to add templates for most extension/customization types into this.
+We have written a Yeoman generator to help get you started.
 
 ## Install the Generator
 
@@ -45,11 +45,11 @@ Creates an extension skeleton implementing a 'hello world' command. Use this as 
 * Sets-up `launch.json` and `tasks.json` so that F5 will compile and run your extension and attach the debugger
 * Optionally sets up a Git repository
 
-Once created, open VS Code on the created folder. The folder contains a file `vsc-extension-quickstart.md` as a quick guide with the next steps
+Once created, open VS Code on the created folder. The folder contains a file `vsc-extension-quickstart.md` as a quick guide with the next steps. The extension is setup so that you get IntelliSense for the extension API.
 
 ### New Extension in JavaScript
 
-Does the same as `New Extension (TypeScript)`, but for JavaScript.
+Does the same as `New Extension (TypeScript)`, but for JavaScript. The extension is setup so that you get IntelliSense for the extension API.
 
 ### New Color Theme
 
@@ -69,7 +69,7 @@ Creates an extension that contributes a language with colorizer.
 * Prompts for the location (URL or file path) of an existing TextMate language file (.tmLanguage, .plist or .json). This file will be imported to the new extension
 * Prompts for the extension identifier and will create a folder of that name in the current directory
 
-Once created, open VS Code on the created folder and run the extension to test the colorization. Check out `vsc-extension-quickstart.md` for the next steps. Have a look at the language configuration file that has been created and defines configuration options such what style of comments and brackets the language uses
+Once created, open VS Code on the created folder and run the extension to test the colorization. Check out `vsc-extension-quickstart.md` for the next steps. Have a look at the language configuration file that has been created and defines configuration options such what style of comments and brackets the language uses.
 
 ### New Code Snippets
 

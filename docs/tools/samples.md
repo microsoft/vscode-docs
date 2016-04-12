@@ -10,15 +10,17 @@ MetaDescription: Learn from existing extension samples.
 
 
 # VS Code Extension Samples
+
 This is a list to make it easy to see where all the samples are...
 
-We have two walkthroughs that cover many of the core concepts - start with these :)
+We have two walkthroughs that cover many of the core concepts - start with these:
+
 * **[Your First Extension](/docs/extensions/example-hello-world.md)** - explains the core extensibility concepts with a walkthrough
 * **[Word Count Extension](/docs/extensions/example-word-count.md)** - another walkthrough building on the last
 
 ## Sample Extensions
 
-Sample|Description|Type|InGallery
+Sample|Description|Type|In Marketplace
 ------|-----------|----|---------
 **[Word Count](https://github.com/Microsoft/vscode-wordcount)**|Adds a word count to the status bar for Markdown files that updates on editing events.  We have a [walkthrough on how this was created](/docs/extensions/example-word-count.md).|[Extension](/docs/extensions/example-hello-world.md)|Y
 **[MDTools](https://github.com/Microsoft/vscode-MDTools)**|Work with selections and update based on common text processing e.g. ToUpper, HTMLEncode, ...|[Extension](/docs/extensions/example-hello-world.md)|Y
@@ -37,7 +39,7 @@ Tool|Purpose
 ----|-------
 **[Extension Generator](/docs/tools/yocode.md)**|To help you getting started implementing an extension, we have a [Yeoman](http://yeoman.io/) generator.  This creates all the initial settings you need for the development environment to work well and includes the API Typing files and any relevant modules.  You can find the generator source [here](https://github.com/Microsoft/vscode-generator-code).
 **[Debugging Extensions](/docs/extensions/debugging-extensions.md)**|We have worked hard to provide an easy way to develop, debug and locally test your extensions.
-**[Publishing Tool](/docs/tools/vscecli.md)**|Once you have a working extension, it's time to [share it](/docs/tools/vscecli.md) in the [extension Gallery](/docs/editor/extension-gallery.md). We have a simple command line tool for this. You can find the source [here](https://github.com/Microsoft/vsce).
+**[Publishing Tool](/docs/tools/vscecli.md)**|Once you have a working extension, it's time to [share it](/docs/tools/vscecli.md) in the [extension Marketplace](/docs/editor/extension-gallery.md). We have a simple command line tool for this. You can find the source code [here](https://github.com/Microsoft/vsce).
 
 ## Runtime samples
 
@@ -45,7 +47,7 @@ Tool|Purpose
 
 ## Next Steps
 
-* [Extension Gallery](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension gallery.
+* [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
 
 ## Common Questions
 

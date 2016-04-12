@@ -29,7 +29,7 @@ Syntax coloring, bracket matching |Batch, Clojure, Coffee Script, [Dockerfile](/
 
 ## Language Extensions
 
-The community is providing VS Code language support for nearly any modern programming language.  To see if there are extensions for the language you're interested in, simply bring up the extension gallery and filter on the language name.  Type `kb(workbench.action.showCommands)`, `'ext inst '` to bring up the extension gallery dropdown and then type the language name to filter the results.
+The community is providing VS Code language support for nearly any modern programming language.  To see if there are extensions for the language you're interested in, simply bring up the extension Marketplace and filter on the language name.  Type `kb(workbench.action.showCommands)`, `'ext inst '` to bring up the extension Marketplace dropdown and then type the language name to filter the results.
 
 ![filter go extensions](images/overview/filter-go.png)
 
@@ -40,6 +40,16 @@ You can also browse the VS Code Marketplace directly to look for [supported lang
 In VS Code, we default the language support for a file based on its filename extension.  However at times you may wish to change language modes, to do this click on the language indicator - which is located on the right hand of the status bar.  This will bring up the Command Palette for Select Language Mode.
 
 ![Language Selector](images/overview/languageselect.png)
+
+>**Tip:** You can persist file associations with the `files.associations` [setting](/docs/customization/userandworkspace.md).
+
+For example, the setting below adds the `.myphp` file extension to the `php` language:
+
+```json
+    "files.associations": {
+        "*.myphp": "php"
+    }
+```
 
 ## Next Steps
 
@@ -57,4 +67,24 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **Q: Can I map additional file extensions to a language?**
 
-**A:** Currently this is not supported but it's on the way.
+**A:** Yes, with the `files.associations` [setting](/docs/customization/userandworkspace.md) you can map file extensions to an existing language either globally or per workspace.
+
+Here is an example that will associate more file extensions to the PHP language:
+
+```json
+"files.associations": {
+    "*.php4": "php",
+    "*.php5": "php"
+}
+```
+
+You can also configure full file paths to languages if needed. The following example associates all files in a folder `somefolder` to PHP:
+
+```json
+"files.associations": {
+    "**/somefolder/*.*": "php"
+}
+```
+
+Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
+

@@ -14,13 +14,13 @@ Working with Markdown in Visual Studio Code can be pretty fun and there are a nu
 
 ## Markdown Preview
 
-VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views you just have to press `kb(workbench.action.markdown.togglePreview)` in the editor. You can view the preview side-by-side with the file you are editing and see changes reflected in real-time as you edit.
+VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views you just have to press `kb(workbench.action.markdown.togglePreview)` in the editor. You can view the preview side-by-side (`kb(workbench.action.markdown.openPreviewSideBySide)`) with the file you are editing and see changes reflected in real-time as you edit.
 
 Here is an example with a very simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also click on the icon on the top right of the preview window to switch back and forth between code and preview mode.
+>**Tip:** You can also click on the icon on the top right of the preview window to switch back and forth between source and preview mode.
 
 ## Using your own CSS
 
@@ -63,13 +63,13 @@ VS Code can integrate with Markdown compilers through our integrated [task runne
 
 ### Step 1: Install a Markdown compiler
 
-For this walkthrough, let's use the popular [Node.js](https://nodejs.org) module, [marked](https://www.npmjs.com/package/marked).
+For this walkthrough, we will use the popular [Node.js](https://nodejs.org) module, [marked](https://www.npmjs.com/package/marked).
 
 ```
 npm install -g marked
 ```
 
-> **Note:** There are many Markdown compilers to choose from beyond `marked`, such as [markdown-it](https://www.npmjs.com/package/markdown-it).  Pick the one that best suits your needs and environment.
+> **Note:** There are many Markdown compilers to choose from beyond **marked**, such as [markdown-it](https://www.npmjs.com/package/markdown-it).  Pick the one that best suits your needs and environment.
 
 ### Step 2: Create a simple MD file
 
@@ -77,7 +77,7 @@ Open VS Code on an empty folder and create a `sample.md` file.
 
 > **Note:** You can open a folder with VS Code by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.
 
-Place the following code in that file:
+Place the following source code in that file:
 
 ```markdown
 Hello Markdown in VS Code!
@@ -86,6 +86,7 @@ Hello Markdown in VS Code!
 This is a simple introduction to compiling Markdown in VS Code.
 
 Things you'll need:
+
 * [node](https://nodejs.org)
 * [marked](https://www.npmjs.com/package/marked)
 * [tasks.json](/docs/editor/tasks.md)
@@ -97,28 +98,45 @@ Things you'll need:
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration.  To do this open the Command Palette with `kb(workbench.action.showCommands)` and type in `Configure Task Runner`, press `kbstyle(Enter)` to select it.
+The next step is to set up the task configuration file `tasks.json`.  To do this, open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it.
 
-This will create a sample `tasks.json` file in the `.vscode` folder.  The initial file has a large number of examples within it.
+It will present a list of possible `tasks.json` templates to choose from. Select `Others` since we want to run an external command.
 
-> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
-
-The first example shows how to use configure tasks for TypeScript compilation.  We will simply modify that configuration for compiling Markdown instead:
+This generate a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "marked",
-    "isShellCommand": true,
-    "args": ["sample.md", "-o", "sample.html"]
+	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"command": "echo",
+	"isShellCommand": true,
+	"args": ["Hello World"],
+	"showOutput": "always"
 }
 ```
 
-Under the covers we interpret `marked` as an external task runner exposing exactly one task: the compiling of Markdown files into HTML files. The command we run is `marked sample.md -o sample.html`.
+Since we want to use **marked** to compile the Markdown file, we change the contents as follows:
+
+```json
+{
+	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"command": "marked",
+	"isShellCommand": true,
+	"args": ["sample.md", "-o", "sample.html"],
+	"showOutput": "always"
+}
+```
+
+> **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
+
+Under the covers, we interpret **marked** as an external task runner exposing exactly one task: the compiling of Markdown files into HTML files. The command we run is `marked sample.md -o sample.html`.
 
 ### Step 4: Run the Build Task
 
-As this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  At this point you will see an additional file show up in the file list `sample.html`.
+As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point, you should see an additional file show up in the file list `sample.html`.
 
 The sample Markdown file did not have any compile problems, so by running the task all that happened was a corresponding `sample.html` file was created.
 
@@ -134,11 +152,13 @@ We will use [Gulp](http://gulpjs.com/) to create a task that will automate Markd
 npm install -g gulp gulp-markdown
 ```
 
-> **Note:** gulp-markdown is a Gulp plug-in for the `marked` module we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
+> **Note:** gulp-markdown is a Gulp plug-in for the **marked** module we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
 
 ### Step 2: Create a simple Gulp task
 
-Open VS Code on the same folder from before (contains `sample.md` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.  Place the following code in that file:
+Open VS Code on the same folder from before (contains `sample.md` and `tasks.json` under the `.vscode` folder), and create `gulpfile.js` at the root.
+
+Place the following source code in that file:
 
 ```javascript
 var gulp = require('gulp');
@@ -165,7 +185,9 @@ What is happening here?
 
 ### Step 3: Modify the configuration in tasks.json for watching
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before, to set a watch on the default Gulp task we just created.  Your tasks configuration should now look like this:
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to set a watch on the default Gulp task we just created.
+
+Your tasks configuration should now look like this:
 
 ```json
 {
@@ -185,13 +207,13 @@ To complete the tasks integration with VS Code, we will need to modify the task 
 
 ### Step 4: Run the gulp Build Task
 
-Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (Run Build Task).  But this time, we've set a watch so the status bar should indicate that on the left-hand side.
+Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  But this time, we've set a watch so the Status Bar should indicate that on the left-hand side.
 
 ![Task watching spinner](images/Markdown/taskwatching.png)
 
 At this point, if you create and/or modify other Markdown files, you will see the respective HTML files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` again and click `Terminate Running Task` in the message box. Or you can use the Command Palette with `kb(workbench.action.showCommands)` and find the terminate command there.
+If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` again and click **Terminate Running Task** in the message box. Or you can use the **Command Palette** with `kb(workbench.action.showCommands)` and find the terminate command there.
 
 ## Next Steps
 
@@ -211,6 +233,6 @@ Read on to find out about:
 
 **A:** We are using the [marked](https://github.com/chjj/marked) library with the `gfm` option set to [true](https://github.com/chjj/marked#gfm).
 
-**Q: In the walkthrough above, I didn't find the `Configure Task Runner` command in the Command Palette?**
+**Q: In the walkthrough above, I didn't find the Configure Task Runner command in the Command Palette?**
 
 **A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.
