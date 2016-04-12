@@ -20,7 +20,7 @@ In the spirit of a great [curated extensions list](https://github.com/viatsko/aw
 
 ## Ruby by Peng Lv
 
-Ruby language support is a popular request on [User Voice](https://visualstudio.uservoice.com/forums/293070-visual-studio-code?query=ruby), with a handful of extensions
+Ruby language support is a popular request on [UserVoice](https://visualstudio.uservoice.com/forums/293070-visual-studio-code?query=ruby), with a handful of extensions
 in the [Marketplace](https://marketplace.visualstudio.com/search?term=ruby&target=VSCode&sortBy=UpdatedDate). We've enjoyed playing with this [Ruby extension](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) that provides language and debugging support. The setup is simple and is contained in the extension's [README](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby).
 
 ### Install Ruby Dependencies

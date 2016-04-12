@@ -175,7 +175,7 @@ function render(commandId) {
 }
 
 exports.processFile = function(contents) {
-	return contents.replace(/\`kb\(([a-z.\-]+)\)\`/gi, function(match, p1) {
+	return contents.replace(/\`kb\(([a-z.\d\-]+)\)\`/gi, function(match, p1) {
 		return render(p1);
 	});
 }
