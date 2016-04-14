@@ -30,7 +30,7 @@ We could not have reached this important milestone without the help of all our c
 
 ## The History of VS Code
 
->*Can we build a code editor, one fast enough such that it doesn’t feel like you’re typing in a browser?*
+>*Can we build a code editor fast enough that it doesn’t feel like you’re typing in a browser?*
 
 It was only a few short years ago that we kicked off what we then called the "Monaco" team. At the time, browsers were just beginning to introduce HTML5, and the race to build faster JavaScript runtimes was in full swing.
 
@@ -62,7 +62,7 @@ Developers today love VS Code for its powerful set of built-in features, intuiti
 
 More than anything else, what drives the success of Visual Studio Code is the feedback and interactions from the community. From the beginning, we’ve striven to be as open as possible in our roadmap and vision for VS Code, and in November, we took that a step further by open-sourcing VS Code and adding the ability for anyone to make it better through submitting issues and feedback, making pull requests, or creating extensions.
 
-The community responded, with huge growth in the number of extensions and the way they’re using VS Code. Today we have extensions for [Node.js](https://marketplace.visualstudio.com/search?term=node&target=VSCode&sortBy=Downloads), [Go](https://marketplace.visualstudio.com/search?term=go&target=VSCode&sortBy=Downloads), [C++](https://marketplace.visualstudio.com/search?term=c++&target=VSCode&sortBy=Downloads), [PHP](https://marketplace.visualstudio.com/search?term=php&target=VSCode&sortBy=Downloads), and [Python](https://marketplace.visualstudio.com/search?term=python&target=VSCode&sortBy=Downloads), as well as many more languages, linters, and tools.  And VS Code is being used both by teams of developers, but also in companies like **Progressive Insurance**, where VS Code is used not just by developers, but analysts and data scientists as well.
+The community responded, with huge growth in the number of extensions and the way they’re using VS Code. Today we have extensions for [Node.js](https://marketplace.visualstudio.com/search?term=node&target=VSCode&sortBy=Downloads), [Go](https://marketplace.visualstudio.com/search?term=go&target=VSCode&sortBy=Downloads), [C++](https://marketplace.visualstudio.com/search?term=c++&target=VSCode&sortBy=Downloads), [PHP](https://marketplace.visualstudio.com/search?term=php&target=VSCode&sortBy=Downloads), and [Python](https://marketplace.visualstudio.com/search?term=python&target=VSCode&sortBy=Downloads), as well as many more languages, linters, and tools.  And VS Code is being used both by teams of developers, but also in companies like Progressive Insurance, where VS Code is used not just by developers, but analysts and data scientists as well.
 
 Seeing the support and help the community has already poured into the product, the potential for VS Code has never been greater.
 
@@ -74,7 +74,7 @@ While we’re excited about releasing 1.0 today, we are even more excited about 
 
 Of course, we will continue to focus on the fundamentals.  Performance, stability, accessibility, and compatibility are of utmost importance to our users, and they are to us as well. We will continue to invest in improving developer productivity, guided by the great user feedback on [UserVoice](http://go.microsoft.com/fwlink/?LinkID=533482). We will continue to work with partners and the community to expand support for new languages, and platforms, and experiences. And we will continue to work with you, our community, to build a great tool for you, and for every developer.
 
-If you haven’t tried out Visual Studio Code yet, [download](/Download) it and let us know what you think!
+If you haven’t tried out Visual Studio Code yet, please [download](/Download) it and let us know what you think!
 
 Thanks Again!
 
