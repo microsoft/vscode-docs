@@ -5,9 +5,11 @@ PageTitle: Visual Studio Code March 1.0.0
 MetaDescription: See what is new in the Visual Studio Code March Release (1.0.0)
 ---
 
-# 1.0.0 March 2016
+# Version 1.0!
 
-March was the end game milestone leading up to our 1.0 release.  We wanted the product to meet the high expections of a 1.0 release and we focused on fundamentals like quality, accessibility, global reach and performance. We also added features you care about and streamlined some common tasks.
+## 1.0.0 (March 2016)
+
+March was the end game milestone leading up to our [1.0 release](/blogs/2016/04/14/vscode-1.0.md).  We wanted the product to meet the high expections of a 1.0 release and we focused on fundamentals like quality, accessibility, global reach and performance. We also added features you care about and streamlined some common tasks.
 
 Here are a few highlights in this release:
 
