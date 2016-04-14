@@ -113,7 +113,8 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
     "version": "0.1.0",
     "command": "node-sass",
     "isShellCommand": true,
-    "args": ["styles.scss", "styles.css"]
+    "args": ["styles.scss", "styles.css"],
+    "outDir": "yourWorkingPath\path\",
 }
 ```
 
@@ -123,7 +124,8 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
     "version": "0.1.0",
     "command": "lessc",
     "isShellCommand": true,
-    "args": ["styles.less", "styles.css"]
+    "args": ["styles.less", "styles.css"],
+    "outDir": "yourWorkingPath\path\",
 }
 ```
 
