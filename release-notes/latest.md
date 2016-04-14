@@ -1,21 +1,21 @@
 ---
 Order: 10
 TOCTitle: Latest
-PageTitle: Visual Studio Code March 0.10.14
-MetaDescription: See what is new in the Visual Studio Code March Release (0.10.14)
+PageTitle: Visual Studio Code March 1.0.0
+MetaDescription: See what is new in the Visual Studio Code March Release (1.0.0)
 ---
 
-## March 2016 Release
+# 1.0.0 March 2016
 
-March was our end game for the Build 2016 milestone. During the endgame, the focus was on problems, performance, and polish.  Visit this page to [get the insiders build](http://code.visualstudio.com/Download#insiders).
+March was the end game milestone leading up to our 1.0 release.  We wanted the product to meet the high expections of a 1.0 release and we focused on fundamentals like quality, accessibility, global reach and performance. We also added features you care about and streamlined some common tasks.
 
-There is a lot to be excited about in this release, here are some highlights:
+Here are a few highlights in this release:
 
-* VS Code is now localized into 9 display languages.
-* Improved JavaScript support with "Salsa".
+* Added 9 localized display languages.
+* Improved JavaScript support with new TypeScript language service, codename "Salsa".
 * Simplified `jsconfig.json` and `tasks.json` file creation.
-* Easily add new file extensions to existing languages.
-* The editor now supports column text selection.
+* Support adding new file extensions to existing languages.
+* Implemented editor column text selection.
 
 Read on to get into the details...
 
@@ -25,7 +25,7 @@ Read on to get into the details...
 
 ### Documentation
 
-We made a pass over the [JavaScript documentation](/docs/languages/javascript.md) and added more information about the `jsconfig.json` and its attributes.
+We improved the [JavaScript documentation](/docs/languages/javascript.md) and added more information about the `jsconfig.json` and its attributes.
 
 ### Disable Syntax Validation when using ES7 constructs
 
@@ -59,7 +59,7 @@ To make it easy to distinguish between diagnostics from external linters and the
 
 ### IntelliSense when using ES6 import statements in React Native
 
-Previously you did not get IntelliSense when using ES6 style import statements in **React Native** as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start). 
+Previously you did not get IntelliSense when using ES6 style import statements in **React Native** as used in the [getting started guide](https://facebook.github.io/react-native/docs/getting-started.html#quick-start).
 
 In the snippet, below you get no IntelliSense for `React`:
 
@@ -206,7 +206,7 @@ You can now select columns of text by pressing `kbstyle(Shift+Alt)` and clicking
 
 ![](images/March/column-select-mouse.gif)
 
-We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish. 
+We have also added keyboard commands for column selection.  These are bound on Windows and OS X, but not on Linux, as we could not find any free default key bindings. You can edit your `keybindings.json` to bind them to something more familiar if you wish.
 
 For example:
 
@@ -250,7 +250,7 @@ The indentation status shows the current file's settings. We have also added add
 
 ### Visual Studio style word navigation and word deletion
 
-Visual Studio Code stops by default at the beginning of words when using `kbstyle(Ctrl+Left)` and at the end of words when using `kbstyle(Ctrl+Right)`. The same is true when deleting words. If you are accustomed to the Visual Studio style, you can change your `keybindings.json` to use the new commands we have added. 
+Visual Studio Code stops by default at the beginning of words when using `kbstyle(Ctrl+Left)` and at the end of words when using `kbstyle(Ctrl+Right)`. The same is true when deleting words. If you are accustomed to the Visual Studio style, you can change your `keybindings.json` to use the new commands we have added.
 
 For example:
 
@@ -352,11 +352,11 @@ sudo yum install <file>.rpm
 
 ### Linux CLI
 
-The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line args available for use.
+The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line arguments available for use.
 
 ### Wait support and Git patch/diff mode
 
-When you run VS Code from the command line, there is a new argument you can pass to make the command wait until you have closed the current VS Code instance. This can be used with applications that can configure an external editor for file changes.
+When you run VS Code from the command line, there is a new argument (`--wait`) you can pass to make the command wait until you have closed the current VS Code instance. This can be used with applications that can configure an external editor for file changes.
 
 For example, Git allows you to configure an external editor and here are the steps to do so:
 
@@ -380,7 +380,7 @@ Add the following to enable support for using VS Code as diff tool:
     cmd = code --wait --diff $LOCAL $REMOTE
 ```
 
-This leverages the new `--diff` option you can pass to VS Code to compare 2 files side by side.
+This leverages the new `--diff` option you can pass to VS Code to compare two files side by side.
 
 To summarize, here are some examples of where you can use Git with VS Code:
 
@@ -391,9 +391,9 @@ To summarize, here are some examples of where you can use Git with VS Code:
 
 ## Accessibility
 
-We have added accessibility improvements to the suggestion widget, parameter hints widget and to the quick fix widget (lightbulb), which now announce each suggestion, as they are selected, to screen readers.
+We have added accessibility improvements to the suggestion widget, parameter hints widget and to the quick fix widget (Lightbulb), which now announce each suggestion, as they are selected, to screen readers.
 
-> Tip: If you use the [NVDA screen reader](http://www.nvaccess.org), it is possible to navigate suggestions using `kb(workbench.action.debug.run)` and `kb(editor.action.moveLinesDownAction)`, to dismiss the suggestions with `kb(hideSuggestWidget)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
+> Tip: If you use the [NVDA screen reader](http://www.nvaccess.org), it is possible to navigate suggestions using `kb(editor.action.moveLinesUpAction)` and `kb(editor.action.moveLinesDownAction)`, to dismiss the suggestions with `kb(hideSuggestWidget)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
 ## Extension Authoring
 
@@ -404,6 +404,27 @@ We have added accessibility improvements to the suggestion widget, parameter hin
 * Added a `setContext` command for customizing key binding rules.  This command takes two arguments, a key and a value.
 * All typing in an editor now goes through a `type` command that can be overwritten by an extension to implement different editor emulation modes such as **Vim** emulation mode.
 * Added a [**Vim** emulation sample](https://github.com/alexandrudima/vscode-vim) that shows how a **Vim** emulation extension can use the VS Code API.
+
+## Licensing Changes
+
+There are several licensing changes for the Stable and Insiders builds.
+
+For Stable 1.0, these are the differences:
+
+* The TIME-SENSITIVE SOFTWARE clause has been removed and the product will no longer stop running on 31/12/2016 (day/month/year).
+* The PRE-RELEASE SOFTWARE qualification has been removed.
+* The license no longer prohibits you from opting out of data collection. You can turn off [crash reporting](/docs/supporting/faq.md#how-to-disable-crash-reporting) and [usage reporting](/docs/supporting/faq.md#how-to-disable-telemetry-reporting).
+* The license clarifies that extensions downloaded are covered by the license provided by the extension author, not the VS Code license.
+
+You can view the Stable license at https://code.visualstudio.com/license?lang= where lang is the two or three character language code ('en', 'de', 'fr', 'zh-CN', 'zh-TW', 'ko', 'ja', 'ru', 'es', 'it').
+
+For Insiders, these are the changes:
+
+* The TIME-SENSITIVE SOFTWARE clause which indicated that the software will stop running on 31/12/2016 (day/month/year) has been changed to a TERM clause which specifies the license agreement is for 90 days.
+* The license clarifies that extensions downloaded are covered by the license provided by the extension author, not the VS Code license (same as Stable).
+
+You can view the Insiders license at https://code.visualstudio.com/license/insiders, there are no localized Insider licenses.
+
 
 ## Notable Bug Fixes
 
