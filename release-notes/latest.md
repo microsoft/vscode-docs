@@ -19,6 +19,15 @@ MetaDescription: See what is new in the Visual Studio Code April Release
 
 A new setting `explorer.autoReveal` was introduced that allows to change the files explorer to no longer reveal the currently active file automatically. A new action `Show Active File in Explorer` was added to explicitly reveal the currently active file.
 
+### Sash double clicks
+
+You can now double click on some of the sashs in the workbench that divide larger UI elements to size it:
+* for the explorer sash the sidebar will size large enough so that files can show without getting trimmed
+* when you have multiple editors open, the editors will size equally among the available width
+* the panel will size to its minimal height
+* other views (search, git, debug) will cause the sidebar to shrink to its minimal width
+* the diff editor will distribute the available width equally between the two sides of the comparison
+
 ## Debugging
 
 ### Call Stack Paging
