@@ -90,5 +90,5 @@ These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Ais
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-* [Some One (@someone)](https://github.com/someone): Did something really great [XXX](https://github.com/Microsoft/vscode/pull/XXX).
+* [Maxime Quandalle (@mquandalle)](https://github.com/mquandalle): Implement double-click on sashs for optimal resizing [4702](https://github.com/Microsoft/vscode/pull/4702).
 
