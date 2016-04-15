@@ -68,6 +68,10 @@ The following screen cast shows stepping through a simple async/await snippet fi
 
 ## Extension Authoring
 
+### New command to open a folder in the same or new window
+
+We added a new command for extension writers to open a folder in the same or new window. The command identifier is `vscode.openFolder` and it accepts two optional arguments `uri` and `newWindow`. If you ommit the `uri` to open, it is also possible to bring up the native file dialog to let the user make the decision. 
+
 ## Debug Adapter Development
 
 For Node.js based debug adapter development, we've made the debug adapter test support available as an npm module [vscode-debugadapter-testsupport](https://www.npmjs.com/package/vscode-debugadapter-testsupport).
