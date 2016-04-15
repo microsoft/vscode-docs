@@ -15,6 +15,10 @@ MetaDescription: See what is new in the Visual Studio Code April Release
 
 ## Workbench
 
+### New option to disable automatic revealing of files in the explorer
+
+A new setting `explorer.autoReveal` was introduced that allows to change the files explorer to no longer reveal the currently active file automatically. A new action `Show Active File in Explorer` was added to explicitly reveal the currently active file.
+
 ## Debugging
 
 ### Call Stack Paging
