@@ -1,13 +1,15 @@
 ---
 Order: 11
 TOCTitle: Latest
-PageTitle: Visual Studio Code April 
-MetaDescription: See what is new in the Visual Studio Code April Release
+PageTitle: Visual Studio Code April 1.1
+MetaDescription: See what is new in the Visual Studio Code April Release (1.1)
 ---
 
-# (April 2016)
+# 1.1 (April 2016)
 
-** TO DO **
+Our April 1.1 is the first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
+
+Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it.
 
 ## JavaScript
 
@@ -15,71 +17,71 @@ MetaDescription: See what is new in the Visual Studio Code April Release
 
 ## Workbench
 
-### New option to disable automatic revealing of files in the explorer
+### Disable automatic revealing of files in the explorer
 
-A new setting `explorer.autoReveal` was introduced that allows to change the files explorer to no longer reveal the currently active file automatically. A new action `Show Active File in Explorer` was added to explicitly reveal the currently active file.
+By default, VS Code expands folders and scrolls your active file into view in the file Explorer. If you don't want this automatic reveal behavior, you can disable it through a new setting `explorer.autoReveal`. Set `explorer.autoReveal` to `false` to prevent your Explorer view from changing as you switch between active files. There is a new action, **Show Active File in Explorer**, if you would like to explicitly display (reveal) the currently active file in the Explorer.
 
-### Sash double clicks
+### Resize border (sash) double clicks
 
-You can now double click on some of the sashs in the workbench that divide larger UI elements to size it:
-* for the explorer sash the sidebar will size large enough so that files can show without getting trimmed
-* when you have multiple editors open, the editors will size equally among the available width
-* the panel will size to its minimal height
-* other views (search, git, debug) will cause the sidebar to shrink to its minimal width
-* the diff editor will distribute the available width equally between the two sides of the comparison
+You can now double-click on some resize borders (sashes) in the workbench to quickly resize them:
+
+* Double click on the Explorer resize border to size the sidebar to show file paths without being trimmed.
+* Double clicking the resize border of other Views (Search, Git, Debug) will cause the sidebar to shrink to its minimum width.
+* If you have multiple editors open, double clicking the resize border between them will resize the open editors to equal width.
+* Double clicking the resize border of the side by side diff editor will resize the diffs to equal width.
+* Double clicking the resize border of the lower **OUTPUT**/**DEBUG CONSOLE** panel will resize the panel to its minimum height.
 
 ## Debugging
 
 ### Call Stack Paging
 
-VS Code debugging now supports arbitrarily deep call stacks. For performance reasons we only load twenty frames initially but there is now a button at the bottom for loading the next set of frames:
+VS Code debugging now supports arbitrarily deep call stacks. For performance reasons, we only load twenty frames initially but there is now a button at the bottom for loading the next set of frames:
 
-![call stack paging](images/April/call-stack-paging.png)
+![Load More Stack Frames button](images/April/call-stack-paging.png)
 
 ## Node.js Debugging
 
 ### Support for ES6 Sets, Maps, and Generators
 
-The VS Code Node.js debugger no longer shows ES6 Sets, Maps, Promises, and Generators as undefined or empty objects.
+The VS Code Node.js debugger no longer shows ES6 Sets, Maps, Promises, and Generators as `undefined` or empty objects.
 
 Set and map items show a sequence number next to the item because both data structures preserve the insertion order:
 
-![es6 set support](images/April/es6-set-support.png)
+![ES6 set with sequence number](images/April/es6-set-support.png)
 
-![es6 map support](images/April/es6-map-support.png)
+![ES6 map with sequence number](images/April/es6-map-support.png)
 
 Generators show its state:
 
-![es6 generator support](images/April/es6-generator-support.png)
+![Show ES6 generator state](images/April/es6-generator-support.png)
 
 ### Support for property getters
 
-Object properties with getters are no longer shown as `undefined`. A prominent example for this are the environment variables available through `process.env`.
+Object properties with getters are no longer shown as `undefined`. An example for this are the environment variables available through `process.env`.
 
 ### String truncation limit lifted
 
-The node v8 debugger protocol truncates strings automatically to a (non configurable) 80 characters.
-In the April release VS Code works around this limitation and truncates only strings with more than 10000 characters.
+The Node.js v8 debugger protocol truncates strings automatically to a (non-configurable) 80 characters. In the April release, VS Code works around this limitation and truncates only strings with more than 10000 characters.
 
-### Improved performance when inspecting large data structures in node.js 4.x and 5.x
+### Improved performance when inspecting large data structures in Node.js 4.x and 5.x
 
-Inspecting large data structures like arrays or buffers results in Node.js becoming unresponsive because the v8 debugger protocol does not provide a way to access large data structures in chunks. In node 0.12.x VS Code started to dynamically inject code into the node runtime to improve the v8 debugging protocol but this stopped working after the io.js/node.js reunion for 2.x and 3.x versions. A recent fix to Node.js made code injection work again. So if you see performance problems make sure that you are using at least Node.js version 4.3.1 of the LTS stream or version 5.6 of the stable stream.
+Inspecting large data structures like arrays or buffers results in Node.js becoming unresponsive because the v8 debugger protocol does not provide a way to access large data structures in chunks. In Node.js 0.12.x, VS Code started to dynamically inject code into the Node.js runtime to improve the v8 debugging protocol but this stopped working after the io.js/node.js reunion for 2.x and 3.x versions. A recent fix to Node.js made code injection work again. So if you see performance problems, make sure that you are using at least Node.js version 4.3.1 of the LTS stream or version 5.6 of the stable stream.
 
 ### Automatic skipping code when stepping
 
-We added experimental support for automatically skipping 'uninteresting code' when stepping through code in the debugger. 'Uninteresting code' is code that is generated by a transpiling process but is not covered by a source map so it does not map back to the original source. Typically this code gets into your way when stepping through code in the debugger because it makes the debugger switch between the original source code and generated code that you are not really interested in.
+We added experimental support for automatically skipping 'uninteresting code' when stepping through code in the debugger. 'Uninteresting code' is code that is generated by a transpiling process but is not covered by a source map so it does not map back to the original source. This code gets into your way when stepping through source code in the debugger because it makes the debugger switch between the original source code and generated code that you are not really interested in.
 
-This experimental feature automatically steps through code not covered by a source map until it has reached a location that is covered by a source map again. To enable the feature just add the attribute `smartStep` with a value of `true` to your launch configuration.
+This experimental feature automatically steps through code not covered by a source map until it reaches a location that is covered by a source map again. To enable the feature, just add the attribute `smartStep` with a value of `true` to your launch configuration.
 
 The following screen cast shows stepping through a simple async/await snippet first with the feature disabled and then enabled:
 
-![skipping code when stepping](images/April/smartStepping.gif)
+![skipping code with smartStep](images/April/smartStepping.gif)
 
 ## Extension Authoring
 
 ### New command to open a folder in the same or new window
 
-We added a new command for extension writers to open a folder in the same or new window. The command identifier is `vscode.openFolder` and it accepts two optional arguments `uri` and `newWindow`. If you ommit the `uri` to open, it is also possible to bring up the native file dialog to let the user make the decision. 
+We added a new command for extension writers to open a folder in the same or new window. The command identifier is `vscode.openFolder` and it accepts two optional arguments `uri` and `newWindow`. If you omit the `uri` argument, the native file dialog is displayed for the user to select a folder.
 
 ## Debug Adapter Development
 
@@ -88,6 +90,7 @@ For Node.js based debug adapter development, we've made the debug adapter test s
 The source for this module lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node).
 
 You can find examples of how to use the module here:
+
 * [Node Debug](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts)
 * [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/tests/adapter.test.ts)
 * [Mock Debug](https://github.com/Microsoft/vscode-mock-debug/blob/master/src/tests/adapter.test.ts)
@@ -97,11 +100,11 @@ You can find examples of how to use the module here:
 * [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
 * [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
 
-These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the XXX update.
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.1 update.
 
 ## Thank You
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-* [Maxime Quandalle (@mquandalle)](https://github.com/mquandalle): Implement double-click on sashs for optimal resizing [4702](https://github.com/Microsoft/vscode/pull/4702).
+* [Maxime Quandalle (@mquandalle)](https://github.com/mquandalle): Implement double-click on sashes for optimal resizing [4702](https://github.com/Microsoft/vscode/pull/4702).
 
