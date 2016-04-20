@@ -103,7 +103,7 @@ The zip archive now included the CLI (`./bin/code`) and has been improved to sup
 
 ### Run code using sudo
 
-VSCode can now be run using super user permissions on Linux (`sudo`). A custom user data directory must be specified (non-existing or root-owned) to run under `sudo` due to limitations of Chromium/Electron.
+VSCode can now be run using super user permissions (`sudo`) on Linux and OS X. A custom user data directory must be specified (non-existing or root-owned) to run under `sudo` due to limitations of Chromium/Electron.
 
 ```bash
 sudo code --user-data-dir ~/.config/code-root-user
