@@ -1,21 +1,30 @@
 ---
 Order: 11
 TOCTitle: Latest
-PageTitle: Visual Studio Code April 1.1
-MetaDescription: See what is new in the Visual Studio Code April Release (1.1)
+PageTitle: Visual Studio Code April 1.0.1
+MetaDescription: See what is new in the Visual Studio Code April Release (1.0.1)
 ---
 
-# 1.1 (April 2016)
+# 1.0.1 (April 2016)
 
-The April 1.1 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
+The April 1.0.1 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
 
-Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it.
+Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it.  [https://github.com/Microsoft/vscode/issues/4888](Our April Iteration Plan) includes the remaining work in progress as well as other yet to be started work.
 
-## JavaScript
+This release also has a number of notable bug fixes - we would love help in verification of these fixes.
 
-## Editor
+* [3928](https://github.com/Microsoft/vscode/issues/3928): Error importing function definition for `BASH_FUNC_*' (VSCode corrupts multi-line environment variables)
+* [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
+* [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
+* [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
+* [4679](https://github.com/Microsoft/vscode/issues/4679): Don't localize command names on the command palette
+* [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
+* [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK) 
 
-## Workbench
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.0.1 update.
+
+
+## Editor 
 
 ### Disable automatic revealing of files in the explorer
 
@@ -117,14 +126,10 @@ alias sudocode='sudo code --user-data-dir=~/.config/code-root-user'
 
 When launching as root you can only edit root-owned files, not files owned by the user. It should not be used for general file editing.
 
-## Notable Bug Fixes
+## Electron Shell
 
-* [3928](https://github.com/Microsoft/vscode/issues/3928): Error importing function definition for `BASH_FUNC_*' (VSCode corrupts multi-line environment variables)
-* [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
-* [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
-* [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
+We updated the Electron shell to 0.37.6.
 
-These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.1 update.
 
 ## Thank You
 
@@ -134,4 +139,5 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [Christian Oetterli (@krizzdewizz)](https://github.com/krizzdewizz): Honor the %COMSPEC% envionment variable on Windows when spawning a shell [743](https://github.com/Microsoft/vscode/issues/743).
 * [Peter Flannery (@pflannery)](https://github.com/pflannery): Add custom terminal launch settings [3495](https://github.com/Microsoft/vscode/pull/3495).
 * [Xaver Hellauer (@xaverh)](https://github.com/xaverh): Add "new window" action to code.desktop [4916](https://github.com/Microsoft/vscode/pull/4916)
+
 
