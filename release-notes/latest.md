@@ -112,7 +112,7 @@ sudo code --user-data-dir ~/.config/code-root-user
 Due to the verbosity of this command, you can make put an alias in your `.bashrc` for convenience if you plan on using it frequently.
 
 ```bash
-alias sudocode='sudo code --user-data-dir ~/.config/code-root-user'
+alias sudocode='sudo code --user-data-dir=~/.config/code-root-user'
 ``` 
 
 When launching as root you can only edit root-owned files, not files owned by the user. It should not be used for general file editing.
