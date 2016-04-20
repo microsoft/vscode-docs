@@ -13,7 +13,7 @@ Keeping to our monthly release cadence, we've put together a nice selection of n
 
 This release also has a number of notable bug fixes - we would love help in verification of these fixes.
 
-* [3928](https://github.com/Microsoft/vscode/issues/3928): Error importing function definition for `BASH_FUNC_*' (VSCode corrupts multi-line environment variables)
+* [3928](https://github.com/Microsoft/vscode/issues/3928): VSCode corrupts multi-line environment variables
 * [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
 * [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
 * [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
