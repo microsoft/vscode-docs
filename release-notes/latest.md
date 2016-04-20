@@ -9,7 +9,7 @@ MetaDescription: See what is new in the Visual Studio Code April Release (1.0.1)
 
 The April 1.0.1 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
 
-Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it.  [https://github.com/Microsoft/vscode/issues/4888](Our April Iteration Plan) includes the remaining work in progress as well as other yet to be started work.
+Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it. Our [April Iteration Plan](https://github.com/Microsoft/vscode/issues/4888) includes the remaining work in progress as well as other yet to be started work.
 
 This release also has a number of notable bug fixes - we would love help in verification of these fixes.
 
@@ -22,7 +22,6 @@ This release also has a number of notable bug fixes - we would love help in veri
 * [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK) 
 
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.0.1 update.
-
 
 ## Editor 
 
@@ -70,11 +69,11 @@ Object properties with getters are no longer shown as `undefined`. An example fo
 
 ### String truncation limit lifted
 
-The Node.js v8 debugger protocol truncates strings automatically to a (non-configurable) 80 characters. In the April release, VS Code works around this limitation and truncates only strings with more than 10000 characters.
+The Node.js V8 debugger protocol truncates strings automatically to a (non-configurable) 80 characters. In the April release, VS Code works around this limitation and truncates only strings with more than 10000 characters.
 
 ### Improved performance with large data structures in Node.js 4.x, 5.x
 
-Inspecting large data structures like arrays or buffers results in Node.js becoming unresponsive because the v8 debugger protocol does not provide a way to access large data structures in chunks. In Node.js 0.12.x, VS Code started to dynamically inject code into the Node.js runtime to improve the v8 debugging protocol but this stopped working after the io.js/node.js reunion for 2.x and 3.x versions. A recent fix to Node.js made code injection work again. So if you see performance problems, make sure that you are using at least Node.js version 4.3.1 of the LTS stream or version 5.6 of the stable stream.
+Inspecting large data structures like arrays or buffers results in Node.js becoming unresponsive because the V8 debugger protocol does not provide a way to access large data structures in chunks. In Node.js 0.12.x, VS Code started to dynamically inject code into the Node.js runtime to improve the V8 debugging protocol but this stopped working after the io.js/node.js reunion for 2.x and 3.x versions. A recent fix to Node.js made code injection work again. So if you see performance problems, make sure that you are using at least Node.js version 4.3.1 of the LTS stream or version 5.6 of the stable stream.
 
 ### Smart code stepping
 
@@ -112,7 +111,7 @@ The zip archive now included the CLI (`./bin/code`) and has been improved to sup
 
 ### Run code using sudo
 
-VSCode can now be run using super user permissions (`sudo`) on Linux and OS X. A custom user data directory must be specified (non-existing or root-owned) to run under `sudo` due to limitations of Chromium/Electron.
+VS Code can now be run using super user permissions (`sudo`) on Linux and OS X. A custom user data directory must be specified (non-existing or root-owned) to run under `sudo` due to limitations of Chromium/Electron.
 
 ```bash
 sudo code --user-data-dir ~/.config/code-root-user
@@ -129,7 +128,6 @@ When launching as root you can only edit root-owned files, not files owned by th
 ## Electron Shell
 
 We updated the Electron shell to 0.37.6.
-
 
 ## Thank You
 
