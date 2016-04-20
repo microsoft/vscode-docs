@@ -104,7 +104,7 @@ You can find examples of how to use the module here:
 
 ## Command line interface
 
-### Improvements on Linux
+### Portability improvements on Linux
 
 The zip archive now included the CLI (`./bin/code`) and has been improved to support custom install locations and work when symlinked to. 
 
