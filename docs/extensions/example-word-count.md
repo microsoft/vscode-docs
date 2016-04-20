@@ -210,7 +210,7 @@ Second, we must make sure the extension is activated upon the opening of a `Mark
     "contributes": {
         "commands":
             [{
-                "onCommand": "extension.sayHello",
+                "command": "extension.sayHello",
                 "title": "Hello World"
             }
         ]
