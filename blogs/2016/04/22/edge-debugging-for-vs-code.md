@@ -9,7 +9,7 @@ ShortDescription: As a part of our continuous effort to simplify the daily workf
 Author: Kenneth Auchenberg
 ---
 
-# Introducing Chrome Debugging for VS Code
+# Introducing Microsoft Edge Debugging for VS Code
 
 April 22, 2016 by [Andy Sterland](https://twitter.com/AndySterland) and [Kenneth Auchenberg](https://twitter.com/auchenberg)
 
