@@ -1,6 +1,6 @@
 ---
-TOCTitle: Microsoft Edge Debugging for VS Code
 Order: 8
+TOCTitle: Microsoft Edge Debugging
 PageTitle: Microsoft Edge Debugging for VS Code
 MetaDescription: Microsoft Edge Debugging for Visual Studio Code
 Date: 2016-04-22
