@@ -40,7 +40,7 @@ In this release, we support the following features:
 
 ## Going forward
 
-If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/code) or [GitHub](https://github.com/Microsoft/vscode-edge-debug/).
+If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/EdgeDevTools) or [GitHub](https://github.com/Microsoft/vscode-edge-debug/).
 
 –
 
