@@ -15,7 +15,7 @@ April 22, 2016 by [Andy Sterland](https://twitter.com/AndySterland) and [Kenneth
 
 As a part of our continuous effort to simplify the daily workflow for developers, we are happy to enable web developers to debug their code running inside Microsoft Edge, directly from the editor by introducing Microsoft Edge Debugging for Visual Studio Code.
 
-Our new Edge Debugger, works is quite similar to [our Chrome debugger](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code) which we introduced back in February, and technically it’s the same debugger running inside VS Code, as we have embraced the [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol) with our new Edge Diagnostics Adaptor, which we have written in detail about on the [Edge blog]().
+Our new Edge Debugger, works is quite similar to [our Chrome debugger](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code) which we introduced back in February, and technically it’s the same debugger running inside VS Code, as we have embraced the [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol) with our new Edge Diagnostics Adaptor, which we have written in detail about on the [Edge blog](http://blogs.windows.com/msedgedev/2016/04/22/introducing-edge-diagnostics-adapter/).
 
 <br />
 
