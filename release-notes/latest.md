@@ -38,6 +38,10 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 * Double clicking the resize border of the side by side diff editor will resize the diffs to equal width.
 * Double clicking the resize border of the lower **OUTPUT**/**DEBUG CONSOLE** panel will resize the panel to its minimum height.
 
+### Reopen closed file command
+
+The `workbench.files.action.reopenClosedFile` command has been added which will reopen the most recent file removed from the working files list. The default keybinding for this command is <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>t</kbd>.
+
 ## Debugging
 
 ### Call Stack Paging
