@@ -43,7 +43,7 @@ VS Code is lightweight and should run on most available hardware and platform ve
  # For .rpm (Fedora 21 and below)
  sudo yum install <file>.rpm
  
- # For Fedora 22 and above
+ # For .rpm (Fedora 22 and above)
  sudo dnf install <file>.rpm
  ```
 
