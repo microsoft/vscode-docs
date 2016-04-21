@@ -15,7 +15,9 @@ April 22, 2016 by [Andy Sterland](https://twitter.com/AndySterland) and [Kenneth
 
 As a part of our continuous effort to simplify the daily workflow for developers, we are happy to enable web developers to debug their code running inside Microsoft Edge, directly from the editor by introducing Microsoft Edge Debugging for Visual Studio Code.
 
-Our new Edge Debugger, works is quite similar to [our Chrome debugger](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code) which we introduced back in February, and technically it’s the same debugger running inside VS Code, as we have embraced the [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol) with our new Edge Diagnostics Adaptor, which we have written in detail about on the [Edge blog](http://blogs.windows.com/msedgedev/2016/04/22/introducing-edge-diagnostics-adapter/).
+Our new Edge Debugger works similar to [our Chrome debugger](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code) which we introduced back in February. Technically it’s the same debugger running inside VS Code, as we are using the [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol) with our new Edge Diagnostics Adaptor. 
+
+You can learn all the details about the Edge Diagnostics Adaptor on the [Edge blog](http://blogs.windows.com/msedgedev/2016/04/22/introducing-edge-diagnostics-adapter/).
 
 <br />
 
@@ -32,9 +34,9 @@ In this release, we support the following features:
 - Setting breakpoints, including within source files when source maps are enabled
 - TypeScript, via source maps
 - Debug stepping
-- Locals scope variables via the Code Locals pane
+- Locals scope variables via the **VARIABLES** panel 
 - Debugging eval scripts, script tags, and scripts that are added dynamically
-- Watches via the VS Code Watch panel.
+- Watches via the **WATCH** panel.
 - The debug console
 - Most console APIs
 
