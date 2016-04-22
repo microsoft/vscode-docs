@@ -138,6 +138,16 @@ When launching as root you can only edit root-owned files, not files owned by th
 
 We updated the Electron shell to 0.37.6.
 
+## Language Server Protocol
+
+Version 2.x of the [language server protocol](https://github.com/Microsoft/vscode-languageserver-protocol) got releases together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for node. Major changes are:
+
+- alignment of the protocol with the VSCode exension API.
+- consistent support for language identifiers. This means that the language ID is passed to the server via the open notification.
+- support for version numbers on documents.
+- text document save notifications.
+- Support for request cancellation.
+
 ## Thank You
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
