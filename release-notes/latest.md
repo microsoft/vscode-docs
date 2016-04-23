@@ -18,11 +18,11 @@ This release also has a number of notable bug fixes - we would love help in veri
 * [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
 * [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
 * [4679](https://github.com/Microsoft/vscode/issues/4679): Don't localize command names on the command palette
-* [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK)
+* [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK) 
 
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.0.1 update.
 
-## Editor
+## Editor 
 
 ### Disable automatic revealing of files in the explorer
 
@@ -88,12 +88,6 @@ The following screen cast shows stepping through a simple async/await snippet fi
 
 ![skipping code with smartStep](images/April/smartStepping.gif)
 
-### Support for dynamically generated source maps
-
-VS Code got experimental support for dynamically generated JavaScript and source maps produced by the universal dynamic module loader [SystemJS](https://github.com/systemjs/systemjs). To support this the node debug extension listens for the "afterCompile" event of the node runtime and triggers a reload of the breakpoints if it detects a dynamically generated JavaScript with an inlined source map.
-
-**Please note:** since the node runtime does not stop after the generated JavaScript has been compiled, registering breakpoints in the startup phase of the loaded JavaScript might come too late for actually hitting the breakpoints. Registration of breakpoints in code that is executed later works fine.
-
 ## Extension Authoring
 
 ### New command to open a folder in the same or new window
@@ -116,7 +110,7 @@ You can find examples of how to use the module here:
 
 ### Portability improvements on Linux
 
-The zip archive now included the CLI (`./bin/code`) and has been improved to support custom install locations and work when symlinked to.
+The zip archive now included the CLI (`./bin/code`) and has been improved to support custom install locations and work when symlinked to. 
 
 ### Run code using sudo
 
@@ -130,7 +124,7 @@ Due to the verbosity of this command, you can make put an alias in your `.bashrc
 
 ```bash
 alias sudocode='sudo code --user-data-dir=~/.config/code-root-user'
-```
+``` 
 
 When launching as root you can only edit root-owned files, not files owned by the user. It should not be used for general file editing.
 
