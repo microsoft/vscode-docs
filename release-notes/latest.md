@@ -88,23 +88,6 @@ The following screen cast shows stepping through a simple async/await snippet fi
 
 ![skipping code with smartStep](images/April/smartStepping.gif)
 
-## Launch your preferred shell
-
-You can now specifiy which external shell vscode will launch.
-
-```js
-// place in your user or workspace settings
-...
-"terminal.external": {
-    // windows
-    "windowsExec": "powershell", // default is cmd
-    // linux
-    "linuxExec": "x-terminal-emulator" // default for debian, otherwise defaults to "gnome-terminal" on gnome desktops
-}
-...
-
-```
-
 ## Extension Authoring
 
 ### New command to open a folder in the same or new window
@@ -144,6 +127,19 @@ alias sudocode='sudo code --user-data-dir=~/.config/code-root-user'
 ``` 
 
 When launching as root you can only edit root-owned files, not files owned by the user. It should not be used for general file editing.
+
+### Launch your preferred shell
+
+You can now specify which external shell vscode will launch:
+
+```json
+{
+  "externalTerminal.windowsExec": "powershell",
+  "externalTerminal.linuxExec": "terminator",
+}
+```
+
+OS X support has not been implemented yet ([#5462](https://github.com/Microsoft/vscode/issues/5462)).
 
 ## Electron Shell
 
