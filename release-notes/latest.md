@@ -128,18 +128,18 @@ alias sudocode='sudo code --user-data-dir=~/.config/code-root-user'
 
 When launching as root you can only edit root-owned files, not files owned by the user. It should not be used for general file editing.
 
-## Launch your preferred shell
+### Launch your preferred shell
 
-You can now specify which external shell vscode will launch.
+You can now specify which external shell vscode will launch:
 
 ```json
 {
   "externalTerminal.windowsExec": "powershell",
-  "externalTerminal.linuxExec": "x-terminal-emulator",
+  "externalTerminal.linuxExec": "terminator",
 }
 ```
 
-OS X support has not been completed yet ([#5462](https://github.com/Microsoft/vscode/issues/5462)).
+OS X support has not been implemented yet ([#5462](https://github.com/Microsoft/vscode/issues/5462)).
 
 ## Electron Shell
 
