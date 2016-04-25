@@ -40,7 +40,7 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 
 ### Reopen closed file command
 
-The `workbench.files.action.reopenClosedFile` command has been added which will reopen the most recent file removed from the working files list. The default keybinding for this command is <kbd>ctrl</kbd>+<kbd>shift</kbd>+<kbd>t</kbd>.
+The `workbench.files.action.reopenClosedFile` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.files.action.reopenClosedFile)`.
 
 ## Debugging
 
@@ -88,25 +88,7 @@ The following screen cast shows stepping through a simple async/await snippet fi
 
 ![skipping code with smartStep](images/April/smartStepping.gif)
 
-## Extension Authoring
-
-### New command to open a folder in the same or new window
-
-We added a new command for extension writers to open a folder in the same or new window. The command identifier is `vscode.openFolder` and it accepts two optional arguments `uri` and `newWindow`. If you omit the `uri` argument, the native file dialog is displayed for the user to select a folder.
-
-## Debug Adapter Development
-
-For Node.js based debug adapter development, we've made the debug adapter test support available as an npm module [vscode-debugadapter-testsupport](https://www.npmjs.com/package/vscode-debugadapter-testsupport).
-
-The source for this module lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node).
-
-You can find examples of how to use the module here:
-
-* [Node Debug](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts)
-* [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/tests/adapter.test.ts)
-* [Mock Debug](https://github.com/Microsoft/vscode-mock-debug/blob/master/src/tests/adapter.test.ts)
-
-## Command line interface
+## Setup
 
 ### Portability improvements on Linux
 
@@ -130,16 +112,35 @@ When launching as root you can only edit root-owned files, not files owned by th
 
 ### Launch your preferred shell
 
-You can now specify which external shell vscode will launch:
+You can now specify which external shell VS Code will launch when you use commands like **Open in Command Prompt** (or **Open in Terminal** on OS X or Linux).  Set the `externalTerminal` user or workspace setting for your platform (`windowsExec`, `linuxExec`) to the executable to launch (`cmd` is the default for Windows). 
 
+For example, to set PowerShell as your external shell on Windows and Terminator on Linux, use:
 ```json
 {
-  "externalTerminal.windowsExec": "powershell",
-  "externalTerminal.linuxExec": "terminator",
+    "externalTerminal.windowsExec": "powershell",
+    "externalTerminal.linuxExec": "terminator"
 }
 ```
 
 OS X support has not been implemented yet ([#5462](https://github.com/Microsoft/vscode/issues/5462)).
+
+## Extension Authoring
+
+### New command to open a folder in the same or new window
+
+We added a new command for extension writers to open a folder in the same or new window. The command identifier is `vscode.openFolder` and it accepts two optional arguments `uri` and `newWindow`. If you omit the `uri` argument, the native file dialog is displayed for the user to select a folder.
+
+## Debug Adapter Development
+
+For Node.js based debug adapter development, we've made the debug adapter test support available as an npm module [vscode-debugadapter-testsupport](https://www.npmjs.com/package/vscode-debugadapter-testsupport).
+
+The source for this module lives in the GitHub repository [vscode-debugadapter-node](https://github.com/Microsoft/vscode-debugadapter-node).
+
+You can find examples of how to use the module here:
+
+* [Node Debug](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts)
+* [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/tests/adapter.test.ts)
+* [Mock Debug](https://github.com/Microsoft/vscode-mock-debug/blob/master/src/tests/adapter.test.ts)
 
 ## Electron Shell
 
