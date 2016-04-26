@@ -1,18 +1,19 @@
 ---
 Order: 11
 TOCTitle: Latest
-PageTitle: Visual Studio Code April 1.0.1
-MetaDescription: See what is new in the Visual Studio Code April Release (1.0.1)
+PageTitle: Visual Studio Code April 1.1.0
+MetaDescription: See what is new in the Visual Studio Code April Release (1.1.0)
 ---
 
-# 1.0.1 (April 2016)
+# 1.1.0 (April 2016)
 
-The April 1.0.1 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
+The April 1.1.0 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
 
 Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it. Our [April Iteration Plan](https://github.com/Microsoft/vscode/issues/4888) includes the remaining work in progress as well as other yet to be started work.
 
 This release also has a number of notable bug fixes - we would love help in verification of these fixes.
 
+* [4679](https://github.com/Microsoft/vscode/issues/4679): Don't localize command names on the command palette
 * [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multi-line environment variables
 * [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
 * [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
@@ -20,7 +21,7 @@ This release also has a number of notable bug fixes - we would love help in veri
 * [4679](https://github.com/Microsoft/vscode/issues/4679): Don't localize command names on the command palette
 * [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK)
 
-These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.0.1 update.
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.1.0 update.
 
 ## Editor
 
