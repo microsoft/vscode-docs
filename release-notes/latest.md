@@ -13,16 +13,16 @@ Keeping to our monthly release cadence, we've put together a nice selection of n
 
 This release also has a number of notable bug fixes - we would love help in verification of these fixes.
 
-* [3928](https://github.com/Microsoft/vscode/issues/3928): VSCode corrupts multi-line environment variables
+* [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multi-line environment variables
 * [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
 * [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
 * [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
 * [4679](https://github.com/Microsoft/vscode/issues/4679): Don't localize command names on the command palette
-* [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK) 
+* [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK)
 
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.0.1 update.
 
-## Editor 
+## Editor
 
 ### Disable automatic revealing of files in the explorer
 
@@ -41,6 +41,8 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 ### Reopen closed file command
 
 The `workbench.files.action.reopenClosedFile` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.files.action.reopenClosedFile)`.
+
+>**Note:** `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding.
 
 ## Debugging
 
@@ -92,9 +94,9 @@ The following screen cast shows stepping through a simple async/await snippet fi
 
 ### Portability improvements on Linux
 
-The zip archive now included the CLI (`./bin/code`) and has been improved to support custom install locations and work when symlinked to. 
+The zip archive now included the CLI (`./bin/code`) and has been improved to support custom install locations and work when symlinked to.
 
-### Run code using sudo
+### Run VS Code using sudo
 
 VS Code can now be run using super user permissions (`sudo`) on Linux and OS X. A custom user data directory must be specified (non-existing or root-owned) to run under `sudo` due to limitations of Chromium/Electron.
 
@@ -106,15 +108,16 @@ Due to the verbosity of this command, you can make put an alias in your `.bashrc
 
 ```bash
 alias sudocode='sudo code --user-data-dir=~/.config/code-root-user'
-``` 
+```
 
 When launching as root you can only edit root-owned files, not files owned by the user. It should not be used for general file editing.
 
 ### Launch your preferred shell
 
-You can now specify which external shell VS Code will launch when you use commands like **Open in Command Prompt** (or **Open in Terminal** on OS X or Linux).  Set the `externalTerminal` user or workspace setting for your platform (`windowsExec`, `linuxExec`) to the executable to launch (`cmd` is the default for Windows). 
+You can now specify which external shell VS Code will launch when you use commands like **Open in Command Prompt** (or **Open in Terminal** on OS X or Linux).  Set the `externalTerminal` user or workspace setting for your platform (`windowsExec`, `linuxExec`) to the executable to launch (`cmd` is the default for Windows).
 
 For example, to set PowerShell as your external shell on Windows and Terminator on Linux, use:
+
 ```json
 {
     "externalTerminal.windowsExec": "powershell",
@@ -148,12 +151,14 @@ We updated the Electron shell to 0.37.6.
 
 ## Language Server Protocol
 
-Version 2.x of the [language server protocol](https://github.com/Microsoft/vscode-languageserver-protocol) got releases together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for node. Major changes are:
+Version 2.x of the [language server protocol](https://github.com/Microsoft/vscode-languageserver-protocol) was released together with a corresponding [client library](https://github.com/Microsoft/vscode-languageserver-node) to be used in extensions and a [server library](https://github.com/Microsoft/vscode-languageserver-node) for Node.js.
 
-- alignment of the protocol with the VSCode exension API.
-- consistent support for language identifiers. This means that the language ID is passed to the server via the open notification.
-- support for version numbers on documents.
-- text document save notifications.
+The major changes are:
+
+- Alignment of the protocol with the VS Code extension API.
+- Consistent support for language identifiers. This means that the language ID is passed to the server via the open notification.
+- Support for version numbers on documents.
+- Text document save notifications.
 - Support for request cancellation.
 
 ## Thank You
@@ -161,7 +166,7 @@ Version 2.x of the [language server protocol](https://github.com/Microsoft/vscod
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
 * [Maxime Quandalle (@mquandalle)](https://github.com/mquandalle): Implement double-click on sashes for optimal resizing [4702](https://github.com/Microsoft/vscode/pull/4702).
-* [Christian Oetterli (@krizzdewizz)](https://github.com/krizzdewizz): Honor the %COMSPEC% envionment variable on Windows when spawning a shell [743](https://github.com/Microsoft/vscode/issues/743).
+* [Christian Oetterli (@krizzdewizz)](https://github.com/krizzdewizz): Honor the %COMSPEC% environment variable on Windows when spawning a shell [743](https://github.com/Microsoft/vscode/issues/743).
 * [Peter Flannery (@pflannery)](https://github.com/pflannery): Add custom terminal launch settings [3495](https://github.com/Microsoft/vscode/pull/3495).
 * [Xaver Hellauer (@xaverh)](https://github.com/xaverh): Add "new window" action to code.desktop [4916](https://github.com/Microsoft/vscode/pull/4916)
 
