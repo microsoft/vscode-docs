@@ -133,6 +133,14 @@ OS X support has not been implemented yet ([#5462](https://github.com/Microsoft/
 
 We added a new command for extension writers to open a folder in the same or new window. The command identifier is `vscode.openFolder` and it accepts two optional arguments `uri` and `newWindow`. If you omit the `uri` argument, the native file dialog is displayed for the user to select a folder.
 
+### Custom close affordance when showing messages
+
+The extensions API now allows you to provide a custom close affordance when showing a message using `window.show{Information|Warning|Error}Message` call. Just pass in a message item which has the `isCloseAffordance`-property set to `true`.
+
+### Links when previewing html
+
+When previewing html files with the `vscode.previewHtml` commands links are not interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `command:vscode.previewHtml?["file:///some/file.html"]` tells the editor to run the command `vscode.previewHtml` using arguments that are JSON-encoded as query
+
 ## Debug Adapter Development
 
 For Node.js based debug adapter development, we've made the debug adapter test support available as an npm module [vscode-debugadapter-testsupport](https://www.npmjs.com/package/vscode-debugadapter-testsupport).
