@@ -32,6 +32,13 @@
 	</div>
 </div>
 {{#section 'meta'}}
-	<meta name="description" content="{$ MetaDescription $}" />
-	<meta name="keywords" content="{$ MetaTags $}" />
+    <meta name="description" content="{$ MetaDescription $}" />
+    <meta name="keywords" content="{$ MetaTags $}" />
+    <!-- Twitter and Facebook OpenGraph Metadata-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:url" content="http://code.visualstudio.com/blogs/{$ Link $}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{$ Title $}"/>
+    <meta property="og:description" content="{$ MetaDescription $}"/>
+    <meta property="og:image" content="http://code.visualstudio.com/opengraphimg/opengraph-docs-documentation.png"/>
 {{/section}}
