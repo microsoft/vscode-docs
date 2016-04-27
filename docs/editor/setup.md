@@ -40,8 +40,11 @@ VS Code is lightweight and should run on most available hardware and platform ve
  # For .deb
  sudo dpkg -i <file>.deb
 
- # For .rpm
+ # For .rpm (Fedora 21 and below)
  sudo yum install <file>.rpm
+ 
+ # For .rpm (Fedora 22 and above)
+ sudo dnf install <file>.rpm
  ```
 
 3. VS Code should now be available to run through the launcher or the command line by running `code`.
