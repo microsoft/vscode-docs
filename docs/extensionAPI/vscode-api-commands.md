@@ -67,6 +67,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
+* _triggerCharacter_ (optional) Trigger signature help when the user types the character, like `,` or `(`
 * _(returns)_ A promise that resolves to SignatureHelp.
 
 
@@ -80,6 +81,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
+* _triggerCharacter_ (optional) Trigger completion when the user types the character, like `,` or `(`
 * _(returns)_ A promise that resolves to a CompletionList-instance.
 
 
@@ -87,13 +89,13 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 * _uri_ Uri of a text document
 * _range_ Range in a text document
-* _(returns)_ A promise that resolves to an array of CompletionItem-instances.
+* _(returns)_ A promise that resolves to an array of Command-instances.
 
 
 `vscode.executeCodeLensProvider` - Execute completion item provider.
 
 * _uri_ Uri of a text document
-* _(returns)_ A promise that resolves to an array of Commands.
+* _(returns)_ A promise that resolves to an array of CodeLens-instances.
 
 
 `vscode.executeFormatDocumentProvider` - Execute document format provider.
@@ -120,10 +122,21 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of TextEdits.
 
 
-`vscode.previewHtml` - Preview an html document.
+`vscode.previewHtml` - Render the html of the resource in an editor view.
 
-* _uri_ Uri of the document to preview.
+Links contained in the document will be handled by VS Code whereby it supports file-resources and virtual resources as well as triggering commands using the 'command'-scheme.
+
+* _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
+
+
+
+`vscode.openFolder` - Open a folder in the current window or new window depending on the newWindow argument. 
+
+Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder unless the newWindow parameter is set to true.
+
+* _uri_ (optional) Uri of the folder to open. If not provided, a native dialog will ask the user for the folder.
+* _newWindow_ (optional) Whether to open the folder in a new window or the same. Defaults to opening in the same window.
 
 
 
