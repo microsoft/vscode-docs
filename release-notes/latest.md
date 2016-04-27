@@ -13,7 +13,6 @@ Keeping to our monthly release cadence, we've put together a nice selection of n
 
 This release also has a number of notable bug fixes - we would love help in verification of these fixes.
 
-* [4679](https://github.com/Microsoft/vscode/issues/4679): Don't localize command names on the command palette
 * [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multi-line environment variables
 * [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
 * [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
@@ -43,7 +42,7 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 
 The `workbench.files.action.reopenClosedFile` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.files.action.reopenClosedFile)`.
 
->**Note:** `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding.
+>**Note:** Previously `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding.
 
 ## Debugging
 
