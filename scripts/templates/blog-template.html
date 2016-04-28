@@ -40,5 +40,9 @@
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="{$ Title $}"/>
     <meta property="og:description" content="{$ MetaDescription $}"/>
-    <meta property="og:image" content="http://code.visualstudio.com/opengraphimg/opengraph-docs-documentation.png"/>
+    {% if MetaSocialImage %}
+    <meta property="og:image" content="http://code.visualstudio.com/images/{$ MetaSocialImage $}"/>
+    {% else %}
+    <meta property="og:image" content="http://code.visualstudio.com/opengraphimg/opengraph-blog.png"/>
+    {% endif %}
 {{/section}}
