@@ -24,6 +24,10 @@ These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Ais
 
 ## Editor
 
+### Visual Design for tabs in VS Code
+
+We have a [visual design](https://github.com/Microsoft/vscode/issues/224#issuecomment-213015687) for how tabs might look in VS Code. We will start to implement the design in the next milestone. 
+
 ### Disable automatic revealing of files in the explorer
 
 By default, VS Code expands folders and scrolls your active file into view in the file Explorer. If you don't want this automatic reveal behavior, you can disable it through a new setting `explorer.autoReveal`. Set `explorer.autoReveal` to `false` to prevent your Explorer view from changing as you switch between active files. There is a new action, **Show Active File in Explorer**, if you would like to explicitly display (reveal) the currently active file in the Explorer.
