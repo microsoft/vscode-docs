@@ -14,6 +14,7 @@ Extensions are activated lazily in VS Code.  As a result you need to provide VS 
 
 * [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage)
 * [`onCommand:${command}`](/docs/extensionAPI/activation-events.md#activationeventsoncommand)
+* [`onDebug:${type}`](/docs/extensionAPI/activation-events.md#activationeventsondebug)
 * [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
@@ -39,6 +40,18 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 "activationEvents": [
 	"onCommand:extension.sayHello"
+]
+...
+```
+
+## `activationEvents.onDebug`
+
+This activation event is emitted and interested extensions will be activated whenever a debug session of the specified type is started:
+
+```json
+...
+"activationEvents": [
+	"onDebug:node"
 ]
 ...
 ```

@@ -24,9 +24,9 @@ These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Ais
 
 ## Editor
 
-### Visual Design for tabs in VS Code
+### Visual design for editor tabs
 
-We have a [visual design](https://github.com/Microsoft/vscode/issues/224#issuecomment-213015687) for how tabs might look in VS Code. We will start to implement the design in the next milestone. 
+We have a [visual design](https://github.com/Microsoft/vscode/issues/224#issuecomment-213015687) for how editor tabs might look in VS Code. We will start to implement the design in the next milestone.
 
 ### Disable automatic revealing of files in the explorer
 
@@ -137,13 +137,13 @@ OS X support has not been implemented yet ([#5462](https://github.com/Microsoft/
 
 We added a new command for extension writers to open a folder in the same or new window. The command identifier is `vscode.openFolder` and it accepts two optional arguments `uri` and `newWindow`. If you omit the `uri` argument, the native file dialog is displayed for the user to select a folder.
 
-### Custom close affordance when showing messages
+### Custom Close action when showing messages
 
-The extensions API now allows you to provide a custom close affordance when showing a message using `window.show{Information|Warning|Error}Message` call. Just pass in a message item which has the `isCloseAffordance`-property set to `true`.
+The extensions API now allows you to provide custom Close button affordance (text and action) when showing a message using `window.show{Information|Warning|Error}Message` call. Just pass in a message item which has the `isCloseAffordance`-property set to `true`.
 
 ### Links when previewing html
 
-When previewing html files with the `vscode.previewHtml` commands links are not interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `'command:vscode.previewHtml?' + JSON.stringify("file:///some/file.html")` tells the editor to run the command `vscode.previewHtml` using arguments  from the query. Note that url-encoding applies.
+When previewing HTML files with the `vscode.previewHtml` command, links are not interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `command:vscode.previewHtml?["file:///some/file.html"]` tells the editor to run the command `vscode.previewHtml` using arguments that are JSON-encoded as query
 
 ## Debug Adapter Development
 
@@ -177,14 +177,15 @@ The major changes are:
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-* [Maxime Quandalle (@mquandalle)](https://github.com/mquandalle): Implement double-click on sashes for optimal resizing [4702](https://github.com/Microsoft/vscode/pull/4702).
-* [Christian Oetterli (@krizzdewizz)](https://github.com/krizzdewizz): Honor the %COMSPEC% environment variable on Windows when spawning a shell [743](https://github.com/Microsoft/vscode/issues/743).
-* [Peter Flannery (@pflannery)](https://github.com/pflannery): Add custom terminal launch settings [3495](https://github.com/Microsoft/vscode/pull/3495).
-* [Xaver Hellauer (@xaverh)](https://github.com/xaverh): Add "new window" action to code.desktop [4916](https://github.com/Microsoft/vscode/pull/4916)
-* [Sam Verschueren (@SamVerschueren)](https://github.com/SamVerschueren): Show move file to trash keybinding in context menu - resolves #5603 [5622](https://github.com/Microsoft/vscode/pull/5622)
-* [Sam Verschueren (@SamVerschueren)](https://github.com/SamVerschueren): Add a global action to add a new file in the explorer - resolves #5547 [5597](https://github.com/Microsoft/vscode/pull/5597)
-* [Denis Gladkikh (@outcoldman)](https://github.com/outcoldman): Create new conf files with right indent settings (fixes #5550) [5527](https://github.com/Microsoft/vscode/pull/5527)
-* [Peng Lv (@rebornix)](https://github.com/rebornix): uninstall outdated extension with correct version #5502 [5502](https://github.com/Microsoft/vscode/pull/5502)
-* [xzper (@f111fei)](https://github.com/f111fei): Context menu is positioned wrongly when zoomed in [5158](https://github.com/Microsoft/vscode/pull/5158)
-* [Belleve Invis (@be5invis)](https://github.com/be5invis): Add CJK-aware line wrapping, and basic Kinsoku Shori (禁則処理) to Visual Studio Code [4825](https://github.com/Microsoft/vscode/pull/4825)
-* [Jonathan Edwards (@JonathanMEdwards)](https://github.com/JonathanMEdwards): Make mouse cursor visible in dark themes. Fixes #754 [4654](https://github.com/Microsoft/vscode/pull/4654)
+* [Maxime Quandalle (@mquandalle)](https://github.com/mquandalle): Implement double-click on sashes for optimal resizing. [PR #4702](https://github.com/Microsoft/vscode/pull/4702)
+* [Christian Oetterli (@krizzdewizz)](https://github.com/krizzdewizz): Honor the %COMSPEC% environment variable on Windows when spawning a shell. [PR #743](https://github.com/Microsoft/vscode/issues/743)
+* [Peter Flannery (@pflannery)](https://github.com/pflannery): Add custom terminal launch settings. [PR #3495](https://github.com/Microsoft/vscode/pull/3495)
+* [Xaver Hellauer (@xaverh)](https://github.com/xaverh): Add "new window" action to code.desktop. [PR #4916](https://github.com/Microsoft/vscode/pull/4916)
+* [Sam Verschueren (@SamVerschueren)](https://github.com/SamVerschueren):
+  * Show move file to trash keybinding in context menu - resolves #5603. [PR #5622](https://github.com/Microsoft/vscode/pull/5622)
+  * Add a global action to add a new file in the explorer - resolves #5547. [PR #5597](https://github.com/Microsoft/vscode/pull/5597)
+* [Denis Gladkikh (@outcoldman)](https://github.com/outcoldman): Create new conf files with right indent settings (fixes #5550). [PR #5527](https://github.com/Microsoft/vscode/pull/5527)
+* [Peng Lv (@rebornix)](https://github.com/rebornix): uninstall outdated extension with correct version #5502. [PR #5502](https://github.com/Microsoft/vscode/pull/5502)
+* [xzper (@f111fei)](https://github.com/f111fei): Context menu is positioned wrongly when zoomed in. [PR #5158](https://github.com/Microsoft/vscode/pull/5158)
+* [Belleve Invis (@be5invis)](https://github.com/be5invis): Add CJK-aware line wrapping, and basic Kinsoku Shori (禁則処理) to Visual Studio Code. [PR #4825](https://github.com/Microsoft/vscode/pull/4825)
+* [Jonathan Edwards (@JonathanMEdwards)](https://github.com/JonathanMEdwards): Make mouse cursor visible in dark themes. Fixes #754. [PR #4654](https://github.com/Microsoft/vscode/pull/4654)

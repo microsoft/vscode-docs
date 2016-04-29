@@ -155,9 +155,6 @@ Below is a copy of the default `settings.json` file.
     // Controls whether the editor should render whitespace characters
     "editor.renderWhitespace": false,
 
-    // Controls whether the editor should render indent guides
-    "editor.indentGuides": false,
-
     // Controls if the editor shows reference information for the modes that support it
     "editor.referenceInfos": true,
 
