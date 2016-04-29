@@ -182,7 +182,7 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [Peter Flannery (@pflannery)](https://github.com/pflannery): Add custom terminal launch settings. [PR #3495](https://github.com/Microsoft/vscode/pull/3495)
 * [Xaver Hellauer (@xaverh)](https://github.com/xaverh): Add "new window" action to code.desktop. [PR #4916](https://github.com/Microsoft/vscode/pull/4916)
 * [Sam Verschueren (@SamVerschueren)](https://github.com/SamVerschueren):
-  * Show move file to trash keybinding in context menu - resolves #5603. [PR #5622](https://github.com/Microsoft/vscode/pull/5622)
+  * Show move file to trash key binding in context menu - resolves #5603. [PR #5622](https://github.com/Microsoft/vscode/pull/5622)
   * Add a global action to add a new file in the explorer - resolves #5547. [PR #5597](https://github.com/Microsoft/vscode/pull/5597)
 * [Denis Gladkikh (@outcoldman)](https://github.com/outcoldman): Create new conf files with right indent settings (fixes #5550). [PR #5527](https://github.com/Microsoft/vscode/pull/5527)
 * [Peng Lv (@rebornix)](https://github.com/rebornix): uninstall outdated extension with correct version #5502. [PR #5502](https://github.com/Microsoft/vscode/pull/5502)
