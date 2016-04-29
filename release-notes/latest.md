@@ -177,5 +177,10 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [Christian Oetterli (@krizzdewizz)](https://github.com/krizzdewizz): Honor the %COMSPEC% environment variable on Windows when spawning a shell [743](https://github.com/Microsoft/vscode/issues/743).
 * [Peter Flannery (@pflannery)](https://github.com/pflannery): Add custom terminal launch settings [3495](https://github.com/Microsoft/vscode/pull/3495).
 * [Xaver Hellauer (@xaverh)](https://github.com/xaverh): Add "new window" action to code.desktop [4916](https://github.com/Microsoft/vscode/pull/4916)
-
-
+* [Sam Verschueren (@SamVerschueren)](https://github.com/SamVerschueren): Show move file to trash keybinding in context menu - resolves #5603 [5622](https://github.com/Microsoft/vscode/pull/5622)
+* [Sam Verschueren (@SamVerschueren)](https://github.com/SamVerschueren): Add a global action to add a new file in the explorer - resolves #5547 [5597](https://github.com/Microsoft/vscode/pull/5597)
+* [Denis Gladkikh (@outcoldman)](https://github.com/outcoldman): Create new conf files with right indent settings (fixes #5550) [5527](https://github.com/Microsoft/vscode/pull/5527)
+* [Peng Lv (@rebornix)](https://github.com/rebornix): uninstall outdated extension with correct version #5502 [5502](https://github.com/Microsoft/vscode/pull/5502)
+* [xzper (@f111fei)](https://github.com/f111fei): Context menu is positioned wrongly when zoomed in [5158](https://github.com/Microsoft/vscode/pull/5158)
+* [Belleve Invis (@be5invis)](https://github.com/be5invis): Add CJK-aware line wrapping, and basic Kinsoku Shori (禁則処理) to Visual Studio Code [4825](https://github.com/Microsoft/vscode/pull/4825)
+* [Jonathan Edwards (@JonathanMEdwards)](https://github.com/JonathanMEdwards): Make mouse cursor visible in dark themes. Fixes #754 [4654](https://github.com/Microsoft/vscode/pull/4654)
