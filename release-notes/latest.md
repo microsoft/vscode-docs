@@ -139,7 +139,7 @@ The extensions API now allows you to provide a custom close affordance when show
 
 ### Links when previewing html
 
-When previewing html files with the `vscode.previewHtml` commands links are not interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `command:vscode.previewHtml?["file:///some/file.html"]` tells the editor to run the command `vscode.previewHtml` using arguments that are JSON-encoded as query
+When previewing html files with the `vscode.previewHtml` commands links are not interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `'command:vscode.previewHtml?' + JSON.stringify("file:///some/file.html")` tells the editor to run the command `vscode.previewHtml` using arguments  from the query. Note that url-encoding applies.
 
 ## Debug Adapter Development
 
