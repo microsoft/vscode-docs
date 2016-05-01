@@ -11,7 +11,7 @@ The April 1.1.0 release is our first monthly release after announcing 1.0. We ha
 
 Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it. Our [April Iteration Plan](https://github.com/Microsoft/vscode/issues/4888) includes the remaining work in progress as well as other yet to be started work.
 
-This release also has a number of notable bug fixes - we would love help in verification of these fixes.
+This release also has a number of notable bug fixes.
 
 * [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multi-line environment variables
 * [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
@@ -46,7 +46,11 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 
 The `workbench.files.action.reopenClosedFile` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.files.action.reopenClosedFile)`.
 
->**Note:** Previously `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding.
+>**Note:** Previously `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behaviour back to the previous one if desired.
+
+### Disable Emmet abbreviation expansion on TAB 
+
+You can now disable the Emmet abbreviation triggered on <kbd>Tab</kbd> using the `emmet.triggerExpansionOnTab` setting.
 
 ## Debugging
 
@@ -143,7 +147,7 @@ The extensions API now allows you to provide custom Close button affordance (tex
 
 ### Links when previewing html
 
-When previewing HTML files with the `vscode.previewHtml` command, links are not interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `command:vscode.previewHtml?["file:///some/file.html"]` tells the editor to run the command `vscode.previewHtml` using arguments that are JSON-encoded as query
+When previewing HTML files with the `vscode.previewHtml` command, links are now interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `command:vscode.previewHtml?["file:///some/file.html"]` tells the editor to run the command `vscode.previewHtml` using arguments that are JSON-encoded as query.
 
 ## Debug Adapter Development
 
