@@ -10,7 +10,7 @@ MetaDescription: Visual Studio Code has a rich extensibility model for interacti
 
 # Extending Visual Studio Code
 
-If you are interested in extending VS Code, you are in the right place.  Below is an outline of the VS Code extensibility documentation and how to quickly build your first VS Code extension.  If you're curious about our design approach to extensibility for VS Code, you can read about it [here](/docs/extensions/our-approach.md).
+If you are interested in extending VS Code, you are in the right place. If you want to learn about finding and installed existing VS Code extensions, see our [Extension Marketplace](/docs/editor/extension-gallery.md) topic.  Below is an outline of the VS Code extensibility documentation and how to quickly build your first VS Code extension.  If you're curious about our design approach to extensibility for VS Code, you can read about it [here](/docs/extensions/our-approach.md).
 
 If you want to install existing extensions, see the [Extension Marketplace](/docs/editor/extension-gallery.md) topic where we show you how to find and install extensions from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
