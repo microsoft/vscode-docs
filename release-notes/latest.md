@@ -50,7 +50,7 @@ The `workbench.files.action.reopenClosedFile` command has been added which will 
 
 >**Note:** Previously `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behaviour back to the previous one if desired.
 
-### Disable Emmet abbreviation expansion on TAB
+### Disable Emmet abbreviation expansion on Tab
 
 You can now disable the Emmet abbreviation triggered on <kbd>Tab</kbd> using the `emmet.triggerExpansionOnTab` setting.
 
@@ -63,7 +63,8 @@ VS Code debugging now supports arbitrarily deep call stacks. For performance rea
 ![Load More Stack Frames button](images/April/call-stack-paging.png)
 
 ### Improved thread support
-Debugging multi-threaded programs has been improved. The currently debugged thread is now automaticaly expanded and quite some issues have been fixed to make debugging multiple threads a smoother experience.
+
+Debugging multi-threaded programs has been improved. The currently debugged thread is now automatically expanded and several issues were fixed to make debugging multiple threads a smoother experience.
 
 ## Node.js Debugging
 
@@ -155,15 +156,15 @@ The extensions API now allows you to provide custom Close button affordance (tex
 When previewing HTML files with the `vscode.previewHtml` command, links are now interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `command:vscode.previewHtml?["file:///some/file.html"]` tells the editor to run the command `vscode.previewHtml` using arguments that are JSON-encoded as query.
 
 ### Enhance support for your JSON configuration files
-If you have your own JSON files and want to improve the editing experience, a first step is to associate JSON schemas to your files. The schemas associations will be picked up by the JSON language support that ships with VSCode and you will get validations, completions and hovers for free. The schema association can be done [by user configuration](https://code.visualstudio.com/docs/languages/json#_json-schemas-settings) and also [by extensions](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesjsonvalidation).
 
-In some cases you want more than that: For example you want to provide completion support that requires a database lookup, or you want validation that cannot be expressed by a regular expression.
-In that case you want to implement your own completion, validation and hover supports using the regular VSCode APIs.
-To make this easier, we moved our JSON scanner and parsers to a node-module, jsonc-parser, that you can reuse.
-You can see this in action with the dependency completion support for package.json and bower.json that is now part of the [JavaScript extension]( https://github.com/Microsoft/vscode/tree/master/extensions/javascript) and for project.json soon to be part of the [C# extension](https://github.com/OmniSharp/omnisharp-vscode/).
+If you have your own JSON files and want to improve the editing experience, you can associate JSON schemas to your files. The schemas associations will be picked up by the JSON language support that ships with VS Code and you will get validations, completions and hovers for free. The schema association can be done either [by a user configuration](https://code.visualstudio.com/docs/languages/json#_json-schemas-settings) or [by an extension point](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesjsonvalidation).
+
+In some cases, you want more control, for example, you may want to provide completion support that requires a database lookup, or you want validation that cannot be expressed by a regular expression.
+To implement your own completion, validation and hover support, you can use the regular VS Code APIs. To make this easier, we moved our JSON scanner and parsers to a node-module, jsonc-parser, that you can reuse. You can see this module in action with the dependency completion support for package.json and bower.json that is now part of the [JavaScript extension]( https://github.com/Microsoft/vscode/tree/master/extensions/javascript) and for project.json soon to be part of the [C# extension](https://github.com/OmniSharp/omnisharp-vscode/).
 
 ### 'onDebug' Activation Event
-Upon starting a debug session VSCode now emits a 'onDebug:{type}' event, e.g 'onDebug:node'. Debug extensions can now be more eagierly activated by listening on this activation event.
+
+Upon starting a debug session VSCode now emits a `onDebug:{type}` event, for example 'onDebug:node'. Debug extensions can now be activated by listening for this activation event.
 
 ## Debug Adapter Development
 
@@ -173,7 +174,7 @@ The source for this module lives in the GitHub repository [vscode-debugadapter-n
 
 You can find examples of how to use the module here:
 
-* [Node Debug](https://gihub.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts)
+* [Node Debug](https://github.com/Microsoft/vscode-node-debug/blob/master/src/tests/adapter.test.ts)
 * [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/tests/adapter.test.ts)
 * [Mock Debug](https://github.com/Microsoft/vscode-mock-debug/blob/master/src/tests/adapter.test.ts)
 
