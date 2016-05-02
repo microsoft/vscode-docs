@@ -48,7 +48,7 @@ The `workbench.files.action.reopenClosedFile` command has been added which will 
 
 >**Note:** Previously `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behaviour back to the previous one if desired.
 
-### Disable Emmet abbreviation expansion on TAB 
+### Disable Emmet abbreviation expansion on TAB
 
 You can now disable the Emmet abbreviation triggered on <kbd>Tab</kbd> using the `emmet.triggerExpansionOnTab` setting.
 
@@ -59,6 +59,9 @@ You can now disable the Emmet abbreviation triggered on <kbd>Tab</kbd> using the
 VS Code debugging now supports arbitrarily deep call stacks. For performance reasons, we only load twenty frames initially but there is now a button at the bottom for loading the next set of frames:
 
 ![Load More Stack Frames button](images/April/call-stack-paging.png)
+
+### Improved thread support
+Debugging multi-threaded programs has been improved. The currently debugged thread is now automaticaly expanded and quite some issues have been fixed to make debugging multiple threads a smoother experience.
 
 ## Node.js Debugging
 
@@ -148,6 +151,9 @@ The extensions API now allows you to provide custom Close button affordance (tex
 ### Links when previewing html
 
 When previewing HTML files with the `vscode.previewHtml` command, links are now interpreted in the context of VS Code. That is file-links are resolved within the editor, web-links with the default browser. Also commands are supported using the `command`-scheme. For instance, `command:vscode.previewHtml?["file:///some/file.html"]` tells the editor to run the command `vscode.previewHtml` using arguments that are JSON-encoded as query.
+
+### 'onDebug' Activation Event
+Upon starting a debug session VSCode now emits a 'onDebug:{type}' event, e.g 'onDebug:node'. Debug extensions can now be more eagierly activated by listening on this activation event.
 
 ## Debug Adapter Development
 
