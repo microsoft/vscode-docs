@@ -60,7 +60,7 @@ Additionally, you can browse and search for VS Code extensions through the [VS C
 
 You can review our handy **Featured**, **Most Popular**, and **Recently Added** extension lists and filter by **Category** (Debuggers, Languages, Linters, etc).
 
-![marketplace-categories](/images/extension-gallery/marketplace-categories.png)
+![marketplace-categories](images/extension-gallery/marketplace-categories.png)
 
 ## Next Steps
 
