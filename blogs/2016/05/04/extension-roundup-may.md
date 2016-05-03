@@ -1,14 +1,14 @@
 ---
 Order: 8
-TOCTitle: Extensions Roundup II
-PageTitle: Visual Studio Code Extensions Roundup II
-MetaDescription: New, useful, and interesting extensions in Visual Studio Code. 
+TOCTitle: Extensions Roundup May
+PageTitle: Visual Studio Code Extensions Roundup May 2016
+MetaDescription: New, useful, and interesting extensions in Visual Studio Code for May 2016.
 Date: 2016-05-04
 ShortDescription: New, useful, and interesting extensions in Visual Studio Code.
 Author: Wade Anderson
 ---
 
-# Extensions Roundup II
+# Extensions Roundup May
 
 May 4, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
@@ -24,7 +24,7 @@ The same folks who created the very popular [Debugger for Chrome](https://market
 
 ## SVG Viewer by cssho
 
-This highly rated extension lets you view Scalable Vector Graphics (SVG) right from within VS Code. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=cssho.vscode-svgviewer).
+This highly rated extension lets you view Scalable Vector Graphics (SVG) right from within VS Code. [See more details in the Marketplace](https://marketplace.visualstudio.com/items?itemName=cssho.vscode-svgviewer).
 
 ![SVG viewer](2016_05_04_svg-viewer.gif)
 
@@ -32,7 +32,7 @@ This highly rated extension lets you view Scalable Vector Graphics (SVG) right f
 
 Curious if your TypeScript source code is getting a little too clever and hard for others to maintain? This [extension](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-codemetrics) computes the complexity of your code and displays a rating in a CodeLens decoration in the editor. Clicking on the rating brings up the rules used to arrive at the complexity score.
 
-![complexity CodeLens](2016_05_04_complexity-codelens.png)
+![complexity CodeLens](2016_05_04_complexity-codelens.gif)
 
 ## npm IntelliSense by Christian Kohler
 
@@ -43,6 +43,8 @@ Bring quick auto completion into the editor for your workspace's npm modules wit
 ## Let us know what extensions you're using
 
 If you are using an extension that you really like and want to see it featured here, send us a [Tweet](https://twitter.com/code).
+
+Most extensions are open sourced on [GitHub](https://github.com) so you can learn from the source code and contribute to your favorite extensions.
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
