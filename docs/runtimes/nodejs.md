@@ -165,4 +165,4 @@ There is much more to explore with Visual Studio Code, please try the following 
 
 **Q: IntelliSense isn't working for Node.js and Express after I install their typings?**
 
-**A:** Be sure you have a `jsconfig.json` file in the workspace root folder so that VS Code treats all files and folders as belonging to the same project context. Without a `jsconfig.json`, VS Code treats all JavaScript and TypeScript files as unrelated and won't correlate the application types with the typings files type definitions.
+**A:** Be sure you have a `jsconfig.json` file in the workspace root folder so that VS Code treats all files and folders as belonging to the same project context. Without a `jsconfig.json`, VS Code considers JavaScript and TypeScript files in isolation and won't associate your source code types with the typings files type definitions.
