@@ -9,7 +9,9 @@ MetaDescription: See what is new in the Visual Studio Code April Release (1.1.0)
 
 The April 1.1.0 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
 
-Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it. Our [April Iteration Plan](https://github.com/Microsoft/vscode/issues/4888) includes the remaining work in progress as well as other yet to be started work.
+Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it. Our [April Iteration Plan](https://github.com/Microsoft/vscode/issues/4888) includes the remaining work in progress as well as other yet to be started work.  Here is a overview of some of the updates contained in this release:
+
+![April Summary image](images/April/summary.png)
 
 This release also has a number of notable bug fixes.
 
