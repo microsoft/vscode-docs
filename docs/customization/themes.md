@@ -64,6 +64,11 @@ Themes are just one way to customize VS Code. If you'd like to learn more about 
 
 ## Common Questions
 
-  Nothing yet
+**Q: What parts of VS code can I theme with a custom theme?**
 
+The VS Code themes are limited to the editor input area: text foreground, background, selection, lineHighlight, caret as well as the syntax tokens. When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-dark`). The base theme is used for all other areas in the workbench such as the explorer. Base themes are not customizable or contributable by extensions.
 
+**Q: Is there are list of scopes that I can use in my custom theme?**
+
+VS Code themes are standard text mate themes and the tokenizers used in VS code are text mate tokenizers, mostly maintained my the community. Too learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes). I also found [this blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html) useful.
+ You will find that authoring a theme is a rather tricky business as the grammars all behave a bit different. It's try and error. It helps a lot at looking how other themes do it. A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
