@@ -70,5 +70,9 @@ The VS Code themes are limited to the editor input area: text foreground, backgr
 
 **Q: Is there are list of scopes that I can use in my custom theme?**
 
-VS Code themes are standard text mate themes and the tokenizers used in VS code are text mate tokenizers, mostly maintained my the community. Too learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes). I also found [this blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html) useful.
- You will find that authoring a theme is a rather tricky business as the grammars all behave a bit different. It's try and error. It helps a lot at looking how other themes do it. A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
+VS Code themes are standard text mate themes and the tokenizers used in VS code are well established text mate tokenizers, mostly maintained my the community and in use in other products.
+
+Too learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes). I also found [this blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html) useful.  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
+
+You will find that authoring a theme is tricky business as the grammars all behave a bit different. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
+
