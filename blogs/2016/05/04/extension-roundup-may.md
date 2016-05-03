@@ -1,6 +1,6 @@
 ---
 Order: 8
-TOCTitle: Extensions Roundup May
+TOCTitle: Extensions Roundup
 PageTitle: Visual Studio Code Extensions Roundup May 2016
 MetaDescription: New, useful, and interesting extensions in Visual Studio Code for May 2016.
 Date: 2016-05-04
@@ -8,7 +8,7 @@ ShortDescription: New, useful, and interesting extensions in Visual Studio Code.
 Author: Wade Anderson
 ---
 
-# Extensions Roundup May
+# Extensions Roundup
 
 May 4, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
