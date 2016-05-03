@@ -120,6 +120,8 @@ Notice how VS Code now understands what `__dirname` is, based on the metadata fr
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
+>**Note:** Make sure you have a `jsconfig.json` file in your workspace root as described in the [previous section](/docs/runtimes/nodejs.md#adding-a-jsconfigjson-configuration-file) so VS Code will pick up the installed typings files.
+
 You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
 
 ![Express.Router IntelliSense](images/nodejs/moduleintellisense.png)
@@ -159,3 +161,8 @@ There is much more to explore with Visual Studio Code, please try the following 
 * [ASP.NET Core](/docs/runtimes/ASPnet5.md) - End to end sample showing off our ASP.NET Core and .NET Core support with a sample app
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
 
+## Common Questions
+
+**Q: IntelliSense isn't working for Node.js and Express after I install their typings?**
+
+**A:** Be sure you have a `jsconfig.json` file in the workspace root folder so that VS Code treats all files and folders as belonging to the same project context. Without a `jsconfig.json`, VS Code treats all JavaScript and TypeScript files as unrelated and won't correlate the application types with the typings files type definitions.
