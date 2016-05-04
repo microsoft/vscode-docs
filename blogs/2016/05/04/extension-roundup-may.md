@@ -18,7 +18,7 @@ If you are new to VS Code extensions, check out the [docs](http://code.visualstu
 
 ## Debugger for Edge by Microsoft JS Diagnostics
 
->**Install:** In VS Code, use Quick Open (`kb(workbench.action.quickOpen)`, paste 'ext install debugger-for-edge', and type `kbstyle(Enter)`.
+>**Install:** From within Visual Studio Code, you can use Quick Open (`kb(workbench.action.quickOpen)`) and paste 'ext install debugger-for-edge' then press `kbstyle(Enter)`.
 
 The same folks who created the very popular [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension have published [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) for the Microsoft Edge browser. They were able to reuse the same debugger using the [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol). You can learn more about the details in their recent [blog post](https://blogs.windows.com/msedgedev/2016/04/27/introducing-edge-diagnostics-adapter/).
 
@@ -26,7 +26,7 @@ The same folks who created the very popular [Debugger for Chrome](https://market
 
 ## SVG Viewer by cssho
 
->**Install:** In VS Code, use Quick Open (`kb(workbench.action.quickOpen)`, paste 'ext install vscode-svgviewer', and type `kbstyle(Enter)`.
+>**Install:** Quick Open (`kb(workbench.action.quickOpen)`, paste 'ext install vscode-svgviewer', and `kbstyle(Enter)`.
 
 This highly rated extension lets you view Scalable Vector Graphics (SVG) right from within VS Code. [See more details in the Marketplace](https://marketplace.visualstudio.com/items?itemName=cssho.vscode-svgviewer).
 
@@ -34,7 +34,7 @@ This highly rated extension lets you view Scalable Vector Graphics (SVG) right f
 
 ## CodeMetrics by Kiss Tamas
 
->**Install:** In VS Code, use Quick Open (`kb(workbench.action.quickOpen)`, paste 'ext install vscode-codemetrics', and type `kbstyle(Enter)`.
+>**Install:** Quick Open (`kb(workbench.action.quickOpen)`), paste 'ext install vscode-codemetrics', and `kbstyle(Enter)`.
 
 Curious if your TypeScript source code is getting a little too clever and hard for others to maintain? This [extension](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-codemetrics) computes the complexity of your code and displays a rating in a CodeLens decoration in the editor. Clicking on the rating brings up the rules used to arrive at the complexity score.
 
@@ -42,7 +42,7 @@ Curious if your TypeScript source code is getting a little too clever and hard f
 
 ## npm IntelliSense by Christian Kohler
 
->**Install:** In VS Code, use Quick Open (`kb(workbench.action.quickOpen)`, paste 'ext install npm-intellisense', and type `kbstyle(Enter)`.
+>**Install:** Quick Open (`kb(workbench.action.quickOpen)`), paste 'ext install npm-intellisense', and `kbstyle(Enter)`.
 
 Bring quick auto completion into the editor for your workspace's npm modules with this handy [extension](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense).
 
