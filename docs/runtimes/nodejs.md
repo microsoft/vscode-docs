@@ -14,9 +14,9 @@ MetaDescription: Visual Studio Code has great support for writing and debugging 
 
 VS Code has support for the JavaScript and TypeScript languages out-of-the-box as well as Node.js debugging. However, to run a Node.js application, you will need to install the Node.js runtime on your machine.
 
-To get started in this walkthrough, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for `npm` to be on your PATH.
+To get started in this walkthrough, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for the `node` and `npm` command line tools to be on your PATH.
 
->**Tip!** To test that you've got Node.js correctly installed on your computer, type `node --version` from a terminal and you should see the installed version.
+>**Tip:** To test that you've got Node.js correctly installed on your computer, type `node --version` from a terminal and you should see the installed version.
 
 ## Hello World
 
@@ -61,7 +61,7 @@ After experimenting with IntelliSense, revert any extra changes from the source 
 
 ### Running Hello World
 
-To run `app.js` with Node.js, from a terminal type:
+It's simple to run `app.js` with Node.js. From a terminal, just type:
 
 ```bash
 node app.js
@@ -73,7 +73,7 @@ You should see "Hello World" output to the terminal and then Node.js returns.
 
 As mentioned in the introduction, VS Code comes with a Node.js debugger installed. Let's try debugging our simple application.
 
-To set a breakpoint in `HelloWorld.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter.  A red circle will appear in the gutter.
+To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter next to the line numbers.  A red circle will appear in the gutter.
 
 ![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
 
@@ -95,7 +95,7 @@ Now that you've seen VS Code in action with "Hello World", the next section show
 
 [Express](http://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
 
->**Tip!** To test that you've got `npm` correctly installed on your computer, type `npm --version` from a terminal and you should see the installed version.
+>**Tip:** To test that you've got `npm` correctly installed on your computer, type `npm --version` from a terminal and you should see the installed version.
 
 Install the Express Generator by running the following from a terminal:
 
@@ -162,7 +162,7 @@ The presence of this file lets VS Code know that it should treat all the files u
 
 VS Code can use TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience.
 
-[Typings](https://github.com/typings/typings), the type definition manager for TypeScript, makes it easy to search for and install TypeScript definition files into your workspace. This tool can download the requested definitions from a variety of sources, including the [DefinitelyTyped repository](https://github.com/DefinitelyTyped/DefinitelyTyped). As we did with the express generator, we will install the Typings command line tool globally using NPM so that you can use the tool in any application you create.
+[Typings](https://github.com/typings/typings), the type definition manager for TypeScript, makes it easy to search for and install TypeScript definition files into your workspace. This tool can download the requested definitions from a variety of sources, including the [DefinitelyTyped repository](https://github.com/DefinitelyTyped/DefinitelyTyped). As we did with the Express Generator, we will install the Typings command line tool globally using NPM so that you can use the tool in any application you create.
 
 ```bash
 npm install -g typings
