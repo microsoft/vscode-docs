@@ -78,7 +78,7 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 ![Task list](images/tasks/gulpautodetect.png)
 
->**Note:** Gulp, Grunt and Jake are autodetected only if the corresponding files (for example `gulp.js`) are present in the root of the opened folder.
+>**Note:** Gulp, Grunt and Jake are autodetected only if the corresponding files (for example `gulpfile.js`) are present in the root of the opened folder.
 
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
 
