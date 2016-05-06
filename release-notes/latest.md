@@ -9,11 +9,23 @@ MetaDescription: See what is new in the Visual Studio Code April Release (1.1.0)
 
 The April 1.1.0 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
 
-Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes for April.  We hope you enjoy it. Our [April Iteration Plan](https://github.com/Microsoft/vscode/issues/4888) includes the remaining work in progress as well as other yet to be started work.  Here is a overview of some of the updates contained in this release:
+Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes in April.  We hope you enjoy it.
 
-![April Summary image](images/April/summary.png)
+Here is a overview of some of the updates contained in this release:
 
-This release also has a number of notable bug fixes.
+* Double-click editor resizing
+* Debugging performance improvements and better Node.js support
+* Configure the external shell to use from VS Code
+
+Extension authors will be especially happy with this release, as we've:
+
+* Updated the Language Server protocol
+* Added Debug Adapter test support
+* Added several new APIs (open folder, add JSON schema validation, `onDebug` activation)
+
+## Bug Fixes
+
+This release has a number of notable bug fixes.
 
 * [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multi-line environment variables
 * [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
@@ -50,11 +62,11 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 
 The `workbench.files.action.reopenClosedFile` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.files.action.reopenClosedFile)`.
 
->**Note:** Previously `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behaviour back to the previous one if desired.
+>**Note:** Previously `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behavior back to the previous one if desired.
 
 ### Disable Emmet abbreviation expansion on Tab
 
-You can now disable the Emmet abbreviation triggered on <kbd>Tab</kbd> using the `emmet.triggerExpansionOnTab` setting.
+You can now disable the Emmet abbreviation triggered on `kbstyle(Tab)` using the `emmet.triggerExpansionOnTab` setting.
 
 ## Debugging
 
@@ -145,12 +157,11 @@ When previewing HTML files with the `vscode.previewHtml` command, links are now 
 
 If you have your own JSON files and want to improve the editing experience, you can associate JSON schemas to your files. The schemas associations will be picked up by the JSON language support that ships with VS Code and you will get validations, completions and hovers for free. The schema association can be done either [by a user configuration](https://code.visualstudio.com/docs/languages/json#_json-schemas-settings) or [by an extension point](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesjsonvalidation).
 
-In some cases, you want more control, for example, you may want to provide completion support that requires a database lookup, or you want validation that cannot be expressed by a regular expression.
-To implement your own completion, validation and hover support, you can use the regular VS Code APIs. To make this easier, we moved our JSON scanner and parsers to a node-module, [jsonc-parser](https://www.npmjs.com/package/jsonc-parser), that you can reuse. You can see this module in action with the dependency completion support for package.json and bower.json that is now part of the [JavaScript extension]( https://github.com/Microsoft/vscode/tree/master/extensions/javascript) and for project.json soon to be part of the [C# extension](https://github.com/OmniSharp/omnisharp-vscode/).
+In some cases, you want more control, for example, you may want to provide completion support that requires a database lookup, or you want validation that cannot be expressed by a regular expression. To implement your own completion, validation, and hover support, you can use the regular VS Code APIs. To make this easier, we moved our JSON scanner and parsers to a node-module, [jsonc-parser](https://www.npmjs.com/package/jsonc-parser), that you can reuse. You can see this module in action with the dependency completion support for `package.json` and `bower.json` that is now part of the [JavaScript extension]( https://github.com/Microsoft/vscode/tree/master/extensions/javascript) and for `project.json` soon to be part of the [C# extension](https://github.com/OmniSharp/omnisharp-vscode/).
 
 ### 'onDebug' Activation Event
 
-Upon starting a debug session VSCode now emits a `onDebug:{type}` event, for example 'onDebug:node'. Debug extensions can now be activated by listening for this activation event.
+Upon starting a debug session, VS Code now emits a `onDebug:{type}` event, for example 'onDebug:node'. Debug extensions can now be activated by listening for this activation event.
 
 ## Debug Adapter Development
 
