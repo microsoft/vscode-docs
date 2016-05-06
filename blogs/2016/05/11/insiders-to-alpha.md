@@ -14,11 +14,11 @@ May 11, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 ## Hello Alpha, Goodbye Insiders
 
-Over five thousand developers have been using our Visual Studio Code [Insiders Builds](blogs/2016/02/01/introducing_insiders_build). With the Insiders build, you were able to use new features and test bug fixes early, providing us with valuable feedback and usage insights prior to each Stable release. Thank you for your help!
+Over five thousand developers have been using our Visual Studio Code [Insiders Builds](../../../2016/02/01/introducing_insiders_build). With the Insiders build, you were able to use new features and test bug fixes early, providing us with valuable feedback and usage insights prior to each Stable release. Thank you for your help!
 
 ## Retiring Insiders - Wait, Why?
 
-Even with access to weekly Insiders builds, many of you asked [TODO link to GH issue] to get access to our VS Code nightly builds. After considering different options, we decided to make our Alpha builds public. We use these builds ourselves internally to develop and test VS Code. As a pilot, we made the Alpha builds available to several community members given that their reaction was so positive, we decided to retire Insiders. You might ask, "Why not have both Insiders and Alpha?" We want to spend our time making VS Code the best product possible and maintaining separate builds would take too much away from product development. With Alpha, you'll have the cutting edge, what we use every day.
+Even with access to weekly Insiders builds, many of you asked [TODO link to GH issue] to get access to our VS Code nightly builds. After considering different options, we decided to make our Alpha builds public. We use these builds ourselves internally to develop and test VS Code. As a pilot, we made the Alpha builds available to several community members given that their reaction was so positive, we decided to retire Insiders. You might ask, "Why not have both Insiders and Alpha?" We want to spend our time making VS Code the best product possible and maintaining separate builds would take too much away from product development.
 
 ![alpha replacing insiders](2016_05_11_TODO)
 
