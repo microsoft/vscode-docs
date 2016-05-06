@@ -3,7 +3,7 @@ Order:
 TOCTitle: How to Update
 ContentId: EB6E82F3-7A9E-4B88-998D-4A55AE477A49
 PageTitle: How to update Visual Studio Code to the latest version
-DateApproved: 4/14/2016
+DateApproved: 5/9/2016
 MetaDescription: Find out how to update to the most recent version of Visual Studio Code – an evolved Code editing experience on Mac OS X, Linux and Windows.
 ---
 

@@ -4,7 +4,7 @@ Area: runtimes
 TOCTitle: Node.js
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Node.js and Visual Studio Code End to End
-DateApproved: 4/14/2016
+DateApproved: 5/9/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications.  At the heart of VS Code is a Node server so we use these features day-in day-out.
 ---
 

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 4/14/2016
+DateApproved: 5/9/2016
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 

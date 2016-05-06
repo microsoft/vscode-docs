@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Setup
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
 PageTitle: Setting up Visual Studio Code
-DateApproved: 4/14/2016
+DateApproved: 5/9/2016
 MetaDescription: Get Visual Studio Code up and running on Mac OS X, Linux or Windows.
 ---
 
