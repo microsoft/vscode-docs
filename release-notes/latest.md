@@ -112,22 +112,6 @@ The following screen cast shows stepping through a simple async/await snippet fi
 
 The zip archive now included the CLI (`./bin/code`) and has been improved to support custom install locations and work when symlinked to.
 
-### Run VS Code using sudo
-
-VS Code can now be run using super user permissions (`sudo`) on Linux and OS X. A custom user data directory must be specified (non-existing or root-owned) to run under `sudo` due to limitations of Chromium/Electron.
-
-```bash
-sudo code --user-data-dir ~/.config/code-root-user
-```
-
-Due to the verbosity of this command, you can make put an alias in your `.bashrc` for convenience if you plan on using it frequently.
-
-```bash
-alias sudocode='sudo code --user-data-dir=~/.config/code-root-user'
-```
-
-When launching as root you can only edit root-owned files, not files owned by the user. It should not be used for general file editing.
-
 ### Launch your preferred shell
 
 You can now specify which external shell VS Code will launch when you use commands like **Open in Command Prompt** (or **Open in Terminal** on OS X or Linux).  Set the `externalTerminal` user or workspace setting for your platform (`windowsExec`, `linuxExec`) to the executable to launch (`cmd` is the default for Windows).
