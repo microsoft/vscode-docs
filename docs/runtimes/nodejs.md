@@ -16,7 +16,7 @@ VS Code has support for the JavaScript and TypeScript languages out-of-the-box a
 
 To get started in this walkthrough, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for the `node` and `npm` command line tools to be on your PATH.
 
->**Tip:** To test that you've got Node.js correctly installed on your computer, type `node --version` from a terminal and you should see the installed version.
+>**Tip:** To test that you've got Node.js correctly installed on your computer, type `node --help` from a terminal and you should see the usage documentation.
 
 ## Hello World
 
@@ -57,7 +57,7 @@ Also notice that VS Code knows that `msg` is a string based on the initializatio
 
 ![string IntelliSense](images/nodejs/stringintellisense.png)
 
-After experimenting with IntelliSense, revert any extra changes from the source code example above and save the file.
+After experimenting with IntelliSense, revert any extra changes from the source code example above and save the file (`kb(workbench.action.files.save)`).
 
 ### Running Hello World
 
@@ -95,7 +95,7 @@ Now that you've seen VS Code in action with "Hello World", the next section show
 
 [Express](http://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
 
->**Tip:** To test that you've got `npm` correctly installed on your computer, type `npm --version` from a terminal and you should see the installed version.
+>**Tip:** To test that you've got `npm` correctly installed on your computer, type `npm --help` from a terminal and you should see the usage documentation.
 
 Install the Express Generator by running the following from a terminal:
 
