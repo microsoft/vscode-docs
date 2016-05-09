@@ -23,21 +23,6 @@ Extension authors will be especially happy with this release, as we've:
 * Added Debug Adapter test support
 * Added several new APIs (open folder, add JSON schema validation, `onDebug` activation)
 
-## Bug Fixes
-
-This release has a number of notable bug fixes.
-
-* [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multi-line environment variables
-* [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
-* [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
-* [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
-* [4679](https://github.com/Microsoft/vscode/issues/4679): Don't localize command names on the command palette
-* [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK)
-* [4400](https://github.com/Microsoft/vscode/issues/4400): Add update notifications for Linux
-* [1796](https://github.com/Microsoft/vscode/issues/1796): HTTPS Authentication not working on Linux
-
-These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.1.0 update.
-
 ## Editor
 
 ### Visual design for editor tabs
@@ -190,6 +175,21 @@ The major changes are:
 - Support for version numbers on documents.
 - Text document save notifications.
 - Support for request cancellation.
+
+## Bug Fixes
+
+This release has a number of notable bug fixes.
+
+* [3928](https://github.com/Microsoft/vscode/issues/3928): VS Code corrupts multi-line environment variables
+* [4426](https://github.com/Microsoft/vscode/issues/4426): Include CLI in Linux zip archive and support custom install locations
+* [4478](https://github.com/Microsoft/vscode/issues/4478): "Open in Terminal" not working on Fedora
+* [4691](https://github.com/Microsoft/vscode/issues/4691): Command palette's camel case matching does not work for non ASCII characters
+* [4679](https://github.com/Microsoft/vscode/issues/4679): Don't localize command names on the command palette
+* [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK)
+* [4400](https://github.com/Microsoft/vscode/issues/4400): Add update notifications for Linux
+* [1796](https://github.com/Microsoft/vscode/issues/1796): HTTPS Authentication not working on Linux
+
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.1.0 update.
 
 ## Thank You
 
