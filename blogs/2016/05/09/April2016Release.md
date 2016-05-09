@@ -16,19 +16,19 @@ Today we are releasing the April 2016 build of Visual Studio Code. This is our f
 
 With this release, we're bringing many improvements to your development experience:
 
-**Developer Workflow**:
+##Developer Workflow
 
 * Quickly resize panes by double-clicking editor borders
 * Reopen the last closed file using `kb(workbench.files.action.reopenClosedFile)`
 * Launch your favorite shell when opening a new Terminal from the Explorer or Command Palette
 
-**Debugging**:
+##Debugging
 
 * Improved stepping performance when inspecting very large strings or arrays
 * Support for deep call stacks
 * Node.js improvments such as experimental "smart" code stepping, ES6 type support in Watch, Locals, etc.
 
-**Extension Authoring**:
+##Extension Authoring
 
 * Language Server protocol 2.0 is now consistent with core VS Code API
 * Automated test support for authoring Debug Adapters
