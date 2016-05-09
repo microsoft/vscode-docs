@@ -18,19 +18,20 @@ With this release, we're bringing many improvements to your development experien
 
 **Developer Workflow**:
 
-* Double-click editor resizing
-* Reopen last closed file
-* Configurable external shell
+* Quickly resize panes by double-clicking editor borders
+* Reopen the last closed file using `kb(workbench.files.action.reopenClosedFile)`
+* Launch your favorite shell when opening a new Terminal from the Explorer or Command Palette
 
 **Debugging**:
 
-* Improved performance
-* Expanded Node.js support
+* Improved stepping performance when inspecting very large strings or arrays
+* Support for deep call stacks
+* Node.js improvments such as experimental "smart" code stepping, ES6 type support in Watch, Locals, etc.
 
 **Extension Authoring**:
 
-* Language Server protocol 2.0
-* Debug Adapter test support
+* Language Server protocol 2.0 is now consistent with core VS Code API
+* Automated test support for authoring Debug Adapters
 * New APIs for working with folders and JSON files
 
 Please see our [Release Notes](http://go.microsoft.com/fwlink/?LinkID=533483) for the full list of features and fixes.
