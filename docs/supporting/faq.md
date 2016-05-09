@@ -169,7 +169,7 @@ We're working on a fix. In the meantime, open the application menu, then choose 
 
 If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
 
-* Set the operating system environment variables ‘http.proxy’ and ‘https.proxy’
+* Set the operating system environment variables ‘http_proxy’ and ‘https_proxy’
 
 ```bash
     SET http_proxy=http://10.203.0.1:5187/
