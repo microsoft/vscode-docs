@@ -11,7 +11,7 @@ The April 1.1.0 release is our first monthly release after announcing 1.0. We ha
 
 Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes in April.  We hope you enjoy it.
 
-Here is a overview of some of the updates contained in this release:
+Here is an overview of some of the updates contained in this release:
 
 * Double-click editor resizing
 * Debugging performance improvements and better Node.js support
