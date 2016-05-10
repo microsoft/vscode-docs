@@ -23,6 +23,9 @@ Extension authors will be especially happy with this release, as we've:
 * Added Debug Adapter test support
 * Added several new APIs (open folder, add JSON schema validation, `onDebug` activation)
 
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-darwin-stable.zip) | Linux 64-bit [.zip](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-linux-x64-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-amd64.deb) [.rpm](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-x86_64.rpm) | Linux 32-bit [.zip](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-linux-ia32-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-i386.deb) [.rpm](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-i386.rpm)
+
 ## Editor
 
 ### Visual design for editor tabs
