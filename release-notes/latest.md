@@ -13,15 +13,15 @@ Keeping to our monthly release cadence, we've put together a nice selection of n
 
 Here is an overview of some of the updates contained in this release:
 
-* Double-click editor resizing
-* Debugging performance improvements and better Node.js support
-* Configure the external shell to use from VS Code
+* Quickly resize panes by double-clicking editor borders
+* Reopen the last closed file using `kb(workbench.files.action.reopenClosedFile)`
+* Launch your favorite shell when opening a new Terminal from the Explorer or Command Palette
 
 Extension authors will be especially happy with this release, as we've:
 
-* Updated the Language Server protocol
-* Added Debug Adapter test support
-* Added several new APIs (open folder, add JSON schema validation, `onDebug` activation)
+* Language Server protocol 2.0 is now consistent with core VS Code API
+* Automated test support for authoring Debug Adapters
+* New APIs for working with folders and JSON files
 
 Downloads: [Windows](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCodeSetup-stable.exe) |
 [OS X](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-darwin-stable.zip) | Linux 64-bit [.zip](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-linux-x64-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-amd64.deb) [.rpm](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-x86_64.rpm) | Linux 32-bit [.zip](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-linux-ia32-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-i386.deb) [.rpm](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-i386.rpm)
