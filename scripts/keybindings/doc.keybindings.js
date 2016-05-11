@@ -175,13 +175,13 @@ function render(commandId) {
 }
 
 exports.processFile = function(contents) {
-	return contents.replace(/\`kb\(([a-z.\-]+)\)\`/gi, function(match, p1) {
+	return contents.replace(/\`kb\(([a-z.\d\-]+)\)\`/gi, function(match, p1) {
 		return render(p1);
 	});
 }
 
 exports.postProcessFile = function(contents) {
-	return contents.replace(/\<code\>kb\(([a-z.\-]+)\)\<\/code\>/gi, function(match, p1) {
+	return contents.replace(/\<code\>kb\(([a-z.\d\-]+)\)\<\/code\>/gi, function(match, p1) {
 		return render(p1);
 	}).replace(/\<code\>kbstyle\(([^\)]+)\)\<\/code\>/gi, function(match, p1) {
 		return renderKeybinding(p1);

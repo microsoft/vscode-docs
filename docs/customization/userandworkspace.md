@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: User and Workspace Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 
@@ -42,10 +42,14 @@ The workspace setting file is located under the `.vscode` folder in your project
 The `settings.json` file is divided into these sections:
 
 - **Editor Configuration** - font, word wrapping, tab size, line numbers, indentation, ...
-- **Files Configuration** - exclude filters, default encoding, trim trailing whitespace
-- **HTTP Configuration** - Proxy settings
-- **File Explorer Configuration** - Working Files behavior
+- **Window Configuration** - restore folders, zoom level, ...
+- **Files Configuration** - excluded file filters, default encoding, trim trailing whitespace, ...
+- **File Explorer Configuration** - encoding, **WORKING FILES** behavior, ...
+- **HTTP Configuration** - proxy settings
 - **Search Configuration** - file exclude filters
+- **Git Configuration** - disable Git integration, auto fetch behavior
+- **Telemetry Configuration** - disable telemetry reporting, crash reporting
+- **HTML Configuration** - HTML format configuration
 - **CSS Configuration** - CSS linting configuration
 - **JavaScript Configuration** - Language specific settings
 - **JSON Configuration** - Schemas associated with certain JSON files
@@ -53,6 +57,7 @@ The `settings.json` file is divided into these sections:
 - **Less Configuration** - Control linting for Less
 - **Sass Configuration** - Control linting for Sass
 - **TypeScript Configuration** - Language specific settings
+- **PHP Configuration** - PHP linter configuration
 
 ## Default Settings
 
@@ -87,11 +92,14 @@ Below is a copy of the default `settings.json` file.
     // Characters that will be used as word separators when doing word related navigations or operations
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
 
-    // Controls the rendering size of tabs in characters. Accepted values: "auto", 2, 4, 6, etc. If set to "auto", the value will be guessed when a file is opened.
+    // The number of spaces a tab is equal to.
     "editor.tabSize": 4,
 
-    // Controls if the editor will insert spaces for tabs. Accepted values:  "auto", true, false. If set to "auto", the value will be guessed when a file is opened.
+    // Insert spaces when pressing Tab.
     "editor.insertSpaces": true,
+
+    // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
+    "editor.detectIndentation": true,
 
     // Controls if selections have rounded corners
     "editor.roundedSelection": true,
@@ -99,7 +107,7 @@ Below is a copy of the default `settings.json` file.
     // Controls if the editor will scroll beyond the last line
     "editor.scrollBeyondLastLine": true,
 
-    // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping
+    // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
     "editor.wrappingColumn": 300,
 
     // Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
@@ -122,6 +130,9 @@ Below is a copy of the default `settings.json` file.
 
     // Controls if suggestions should automatically show up when typing trigger characters
     "editor.suggestOnTriggerCharacters": true,
+
+    // Controls if suggestions should be accepted 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
+    "editor.acceptSuggestionOnEnter": true,
 
     // Controls whether the editor should highlight similar matches to the selection
     "editor.selectionHighlight": true,
@@ -165,7 +176,7 @@ Below is a copy of the default `settings.json` file.
     // Controls how folders are being reopened after a restart. Select 'none' to never reopen a folder, 'one' to reopen the last folder you worked on or 'all' to reopen all folders of your last session.
     "window.reopenFolders": "one",
 
-    // Adjust the zoom level of the window. The original size is 0 and each increment above or below represents zooming 20% larger or smaller.
+    // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
     "window.zoomLevel": 0,
 
 
@@ -176,6 +187,9 @@ Below is a copy of the default `settings.json` file.
         "**/.git": true,
         "**/.DS_Store": true
     },
+
+    // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
+    "files.associations": {},
 
     // The default character set encoding to use when reading and writing files.
     "files.encoding": "utf8",
@@ -192,6 +206,17 @@ Below is a copy of the default `settings.json` file.
     // Controls the delay in ms after which a dirty file is saved automatically. Only applies when "files.autoSave" is set to "afterDelay"
     "files.autoSaveDelay": 1000,
 
+    // Configure glob patterns of file paths to exclude from file watching. Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
+    "files.watcherExclude": {
+        "**/.git/objects/**": true
+    },
+
+
+    //-------- Emmet configuration --------
+
+    // When enabled, emmet abbreviations are expanded when pressing TAB.
+    "emmet.triggerExpansionOnTab": true,
+
 
     //-------- File Explorer configuration --------
 
@@ -200,6 +225,9 @@ Below is a copy of the default `settings.json` file.
 
     // Controls if the height of the working files section should adapt dynamically to the number of elements or not.
     "explorer.workingFiles.dynamicHeight": true,
+
+    // Controls if the explorer should automatically reveal files when opening them.
+    "explorer.autoReveal": true,
 
 
     //-------- HTTP configuration --------
@@ -213,7 +241,7 @@ Below is a copy of the default `settings.json` file.
 
     //-------- Search configuration --------
 
-    // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the file.exclude setting.
+    // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true
@@ -238,10 +266,43 @@ Below is a copy of the default `settings.json` file.
     "git.autofetch": true,
 
 
-    //-------- Telemetry configuration --------
+    //-------- JSON configuration --------
 
-    // Enable usage data and errors to be sent to Microsoft.
-    "telemetry.enableTelemetry": true,
+    // Associate schemas to JSON files in the current project
+    "json.schemas": [],
+
+
+    //-------- Markdown preview configuration --------
+
+    // A list of URLs or local paths to CSS style sheets to use from the markdown preview.
+    "markdown.styles": [],
+
+
+    //-------- HTML configuration --------
+
+    // Maximum amount of characters per line (0 = disable).
+    "html.format.wrapLineLength": 120,
+
+    // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all inline tags.
+    "html.format.unformatted": null,
+
+    // Indent <head> and <body> sections.
+    "html.format.indentInnerHtml": false,
+
+    // Whether existing line breaks before elements should be preserved. Only works before elements, not inside tags or for text.
+    "html.format.preserveNewLines": true,
+
+    // Maximum number of line breaks to be preserved in one chunk. Use 'null' for unlimited.
+    "html.format.maxPreserveNewLines": null,
+
+    // Format and indent {{#foo}} and {{/foo}}.
+    "html.format.indentHandlebars": false,
+
+    // End with a newline.
+    "html.format.endWithNewline": false,
+
+    // List of tags, comma separated, that should have an extra newline before them. 'null' defaults to "head, body, /html".
+    "html.format.extraLiners": null,
 
 
     //-------- CSS configuration --------
@@ -306,23 +367,17 @@ Below is a copy of the default `settings.json` file.
     "css.lint.idSelector": "ignore",
 
 
-    //-------- JSON configuration --------
+    //-------- Telemetry configuration --------
 
-    // Associate schemas to JSON files in the current project
-    "json.schemas": [],
-
-
-    //-------- Markdown preview configuration --------
-
-    // A list of URLs or local paths to CSS style sheets to use from the markdown preview.
-    "markdown.styles": [],
+    // Enable crash reports to be sent to Microsoft.
+	// This option requires restart to take effect.
+    "telemetry.enableCrashReporter": true,
 
 
     //-------- Telemetry configuration --------
 
-    // Enable crash reports to be sent to Microsoft.
-    // This option requires restart of VSCode to take effect.
-    "telemetry.enableCrashReporter": true,
+    // Enable usage data and errors to be sent to Microsoft.
+    "telemetry.enableTelemetry": true,
 
 
     //-------- LESS configuration --------
@@ -449,13 +504,85 @@ Below is a copy of the default `settings.json` file.
     "sass.lint.idSelector": "ignore",
 
 
+    //-------- External terminal configuration --------
+
+    // Customizes which terminal to run on Windows.
+    "externalTerminal.windowsExec": "cmd",
+
+    // Customizes which terminal to run on Linux.
+    "externalTerminal.linuxExec": "x-terminal-emulator",
+
+
     //-------- TypeScript configuration --------
+
+    // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
+    "typescript.tsdk": null,
 
     // Complete functions with their parameter signature.
     "typescript.useCodeSnippetsOnMethodSuggest": false,
 
-    // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
-    "typescript.tsdk": null,
+    // Enable / disable TypeScript validation
+    "typescript.validate.enable": true,
+
+    // Enables tracing of messages sent to the TS server
+    "typescript.tsserver.trace": "off",
+
+    // Defines space handling after a comma delimiter
+    "typescript.format.insertSpaceAfterCommaDelimiter": true,
+
+    //  Defines space handling after a semicolon in a for statement
+    "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
+
+    // Defines space handling after a binary operator
+    "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+
+    // Defines space handling after keywords in control flow statement
+    "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+
+    // Defines space handling after function keyword for anonymous functions
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+
+    // Defines space handling after opening and before closing non empty parenthesis
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+
+    // Defines space handling after opening and before closing non empty brackets
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+
+    // Defines whether an open brace is put onto a new line for functions or not
+    "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
+
+    // Defines whether an open brace is put onto a new line for control blocks or not
+    "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+
+    // Enable / disable JavaScript validation
+    "javascript.validate.enable": true,
+
+    // Defines space handling after a comma delimiter
+    "javascript.format.insertSpaceAfterCommaDelimiter": true,
+
+    //  Defines space handling after a semicolon in a for statement
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
+
+    // Defines space handling after a binary operator
+    "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
+
+    // Defines space handling after keywords in control flow statement
+    "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
+
+    // Defines space handling after function keyword for anonymous functions
+    "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+
+    // Defines space handling after opening and before closing non empty parenthesis
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+
+    // Defines space handling after opening and before closing non empty brackets
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+
+    // Defines whether an open brace is put onto a new line for functions or not
+    "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
+
+    // Defines whether an open brace is put onto a new line for control blocks or not
+    "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
 
 
     //-------- PHP Configuration options --------
@@ -467,7 +594,7 @@ Below is a copy of the default `settings.json` file.
     "php.validate.executablePath": null,
 
     // Whether the linter is run on save or on type.
-    "php.validate.run": "onSave",
+    "php.validate.run": "onSave"
 
 }
 ```

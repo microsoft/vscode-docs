@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: C#
 ContentId: 40C8AAC1-C00D-4E91-8877-737A598346B6
 PageTitle: C# programming with Visual Studio Code
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 ---
 
@@ -77,7 +77,7 @@ Another cool feature is the ability to see the number of references to a method 
 
 ![CodeLens](images/csharp/codelens.png)
 
->**Tip:** You can turn off references information in the __User Settings__ under the property `editor.referenceInfos`.
+>**Tip:** You can turn off references information with the `editor.referenceInfos` [setting](/docs/customization/userandworkspace.md).
 
 ## Find References/Peek Definition
 

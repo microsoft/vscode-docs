@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in visual Studio Code
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 
@@ -41,6 +41,7 @@ The CSS topic provides examples of how to use Tasks to generate CSS files.
 VS Code processes the output from a task with a problem matcher and we ship with a number of them 'in the box', we'll talk about how to make your own ones soon:
 
 - **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
+- **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
 - **JSHint**: `$jshint` assumes that file names are reported as an absolute path.
 - **JSHint Stylish**: `$jshint-stylish` assumes that file names are reported as an absolute path.
 - **ESLint Compact**: `$eslint-compact` assumes that file names in the output are relative to the opened folder.
@@ -77,33 +78,50 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 ![Task list](images/tasks/gulpautodetect.png)
 
->**Tip:** Gulp, Grunt and Jake are autodetected only if the corresponding files are present in the root of the opened folder.
+>**Note:** Gulp, Grunt and Jake are autodetected only if the corresponding files (for example `gulpfile.js`) are present in the root of the opened folder.
 
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
 
-You need to configure the tasks in `tasks.json` (`.vscode\tasks.json`) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build using `kb(workbench.action.tasks.build)` (Run Build Task).
+You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the ** Run Build Task** command (`kb(workbench.action.tasks.build)`).
 
->**Note:** If you don't already have a `tasks.json` under your workspace's `.vscode` folder, running the **Tasks: Configure Task Runner** action from the Command Palette (`kb(workbench.action.showCommands)`) will create one for you with several default examples.
+If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the **Command Palette** (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from.
 
-To do this, we need to edit the `tasks.json` file to 'wrap' the build gulp task that was defined in the gulpfile.  This is achieved with the following:
+For this example, select `Gulp` from the list. This will generate a `tasks.json` file like this:
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "gulp",
-    "isShellCommand": true,
-    "args": [
-        "--no-color"
-    ],
-    "tasks": [
-        {
-            "taskName": "build",
-            "args": [],
-            "isBuildCommand": true,
-            "problemMatcher": "$msCompile"
-        }
-    ]
+	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"command": "gulp",
+	"isShellCommand": true,
+	"args": [
+		"--no-color"
+	],
+	"tasks": [
+		{
+			"taskName": "build",
+			"args": [],
+			"isBuildCommand": true,
+			"isWatching": false,
+			"problemMatcher": [
+				"$lessCompile",
+				"$tsc",
+				"$jshint"
+			]
+		}
+	]
 }
+```
+
+Since we execute the Mono compiler to compile C# files, we use the `$msCompile` problem matcher to detect any problems reported by the compiler.
+
+The `problemMatcher` property will then be:
+
+```json
+			"problemMatcher": [
+				"$msCompile"
+			]
 ```
 
 In contrast to the `tasks.json` file in the TypeScript section, this file has:
@@ -114,24 +132,24 @@ In contrast to the `tasks.json` file in the TypeScript section, this file has:
 
 ### Syntax for the Tasks Property
 
-The tasks property is defined as an array of object literals where each literal has the following properties:
+The `tasks` property is defined as an array of object literals where each literal has the following properties:
 
-- **taskName** this is the task's name in the Gulp or Jake file.
-- **args** a string array of additional arguments to be passed to the task.
-- **isBuildCommand** if this property is set to true, `kb(workbench.action.tasks.build)` will trigger this task.
-- **problemMatcher** a string or array of strings based on the pre-defined problem matchers.
+- **taskName** - The task's name in the Gulp or Jake file.
+- **args** - A string array of additional arguments to be passed to the task.
+- **isBuildCommand** - If this property is set to true, `kb(workbench.action.tasks.build)` will trigger this task.
+- **problemMatcher** A string or array of strings based on the pre-defined problem matchers.
 
 ## Output Window Behavior
 
 Sometimes you will want to control how the output window behaves when running tasks. For instance, you may always want to show output for the debug command. The property **showOutput** controls this and the valid values are:
 
-- **silent**: the output window is brought to front only if no problem matchers fire for the task. This is the default.
-- **always**: the output window is always brought to front.
-- **never**: The user must explicitly bring the output window to the front using the View menu or the short cut `kb(workbench.action.output.toggleOutput)`.
+- **silent** - The output window is brought to front only if no problem matchers fire for the task. This is the default.
+- **always** - The output window is always brought to front.
+- **never** - The user must explicitly bring the output window to the front using the **View** > **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`).
 
 ## Operating System Specific Properties
 
-The task system supports defining values (for example the command to be executed) specific to an operating system. To do so, simply put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
+The task system supports defining values (for example, the command to be executed) specific to an operating system. To do so, simply put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
 
 Below is an example that uses the Node.js executable as a command and is treated differently on Windows and Linux:
 
@@ -147,7 +165,9 @@ Below is an example that uses the Node.js executable as a command and is treated
 }
 ```
 
-Valid operating properties are **windows** for Windows, **linux** for Linux and **osx** for Mac OS X. Properties defined in an operating system specific scope override properties defined in the global scope. In the example below:
+Valid operating properties are `windows` for Windows, `linux` for Linux and `osx` for Mac OS X. Properties defined in an operating system specific scope override properties defined in the global scope.
+
+In the example below:
 
 ```json
 {
@@ -163,7 +183,7 @@ Output from the executed task is never brought to front except for Windows where
 
 ## Task Specific Properties
 
-The global properties **showOutput** and **suppressTaskName** can be redefined on a task by task basis. The **args** property can be augmented resulting in the additional values being appended to the global arguments.
+The global properties `showOutput` and `suppressTaskName` can be redefined on a task by task basis. The `args` property can be augmented resulting in the additional values being appended to the global arguments.
 
 Here is an example where output for the "deploy" task is always brought to front:
 
@@ -184,7 +204,7 @@ Here is an example where output for the "deploy" task is always brought to front
 
 ## Variable substitution
 
-When authoring tasks and launch configurations it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the tasks.json and launch.json files and has the following predefined variables:
+When authoring tasks and launch configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` and `launch.json` files and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
 - **${file}** the current opened file
@@ -193,7 +213,7 @@ When authoring tasks and launch configurations it is often useful to have a set 
 - **${fileExtname}** the current opened file's extension
 - **${cwd}** the task runner's current working directory on startup
 
-You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}).
+You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `env.Path` on Windows.
 
 Below is an example of a configuration that passes the current opened file to the TypeScript compiler.
 
@@ -374,7 +394,7 @@ That was tasks - let's keep going...
 
 ## Common Questions
 
-**Q: Some task runners require [node](https://nodejs.org/) for execution. Does VS Code require executing a task runner under a special node version?**
+**Q: Some task runners require [Node.js](https://nodejs.org/) for execution. Does VS Code require executing a task runner under a special Node.js version?**
 
-**A:** We recommend that you use Node.js version 0.12.x. This is due to the fact that Node.js 0.10.x doesn't flush stdio on exit (see this [issue](https://github.com/joyent/node/issues/8329) for details)
+**A:** We recommend that you use Node.js version 0.12.x. This is due to the fact that Node.js 0.10.x doesn't flush stdio on exit (see this [issue](https://github.com/joyent/node/issues/8329) for details).
 

@@ -10,6 +10,8 @@ Author: Chris Dias
 
 # Introducing the Insiders Build
 
+February 1, 2016 by Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
+
 VS Code has its roots in the web (built using TypeScript and Node.js) and one thing we love about cloud based applications is that they are always up to date. Update the service and all of your users are instantly on the latest fixes and features, with no user interaction.
 
 This is why VS Code has automatic updates on by default. We periodically query the update service to see if a new version is available, download it when ready, and then gently prompt you to restart.

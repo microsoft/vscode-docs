@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Debuggers
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
 
@@ -24,9 +24,9 @@ When the debug session ends, the adapter is stopped.
 
 Debug adapters are part of VS Code's extensible architecture: they are contributed as extensions. What sets them apart from other extensions is the fact that the debug adapter code is not running in the extension host, but as a separate standalone program. The reasons for this are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if the need arises.
 
-Visual Studio Code ships two debug extensions, one for Node.js and one for Mono. More are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debug extension yourself.
+Visual Studio Code ships with a debugger extension for Node.js. More debugger extensions are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debugger extension yourself.
 
-This document will show you how to create a new debug extension.
+This document will show you how to create a new debugger extension.
 
 ## Installing a Sample Debug Extension
 
@@ -35,7 +35,7 @@ Since creating a debug adapter from scratch is a bit heavy for this tutorial, we
 Before delving into the development setup for mock-debug, let's first install a [pre-built version](https://marketplace.visualstudio.com/items/andreweinand.mock-debug)
 from the VS Code Marketplace and play with it:
 
-* use the Command Palette `Extensions: Install Extension` to find and install the mock-debug extension,
+* use the **Command Palette** `Extensions: Install Extension` to find and install the mock-debug extension,
 * restart VS Code.
 
 To try it:
@@ -86,13 +86,14 @@ The solution for this problem is to run the debug adapter in server mode:
 ```json
 {
     "version": "0.2.0",
+
     "debugServer": 4711,
 
     "configurations": [{
         "name": "mock test",
         "request": "launch",
         "type": "mock",
-        "program": "readme.md",
+        "program": "${workspaceRoot}/readme.md",
         "stopOnEntry": true
     }]
 }
@@ -113,7 +114,7 @@ A debug adapter has to implement the *VS Code Debug Protocol*. You can find more
 
 Let's have a closer look at the debug adapter contribution of an VS Code extension.
 Like every VS Code extension, a debug adapter extension has a `package.json` file that declares the fundamental properties **name**, **publisher**,
-and **version** of the extension. Use the **categories** field to make the extension easier to find in the VS Code extension gallery.
+and **version** of the extension. Use the **categories** field to make the extension easier to find in the VS Code Extension Marketplace.
 
 ```json
 {
@@ -141,7 +142,7 @@ and **version** of the extension. Use the **categories** field to make the exten
 						"program": {
 							"type": "string",
 							"description": "Workspace relative path to a text file.",
-							"default": "readme.md"
+							"default": "${workspaceRoot}/readme.md"
 						},
 						"stopOnEntry": {
 							"type": "boolean",
@@ -222,10 +223,10 @@ For this we have the following options:
 
 ## Publishing your Debug Adapter
 
-Once you have created your debug adapter you can publish it to the gallery:
+Once you have created your debug adapter you can publish it to the Marketplace:
 
 * update the attributes in the `package.json` to reflect the naming and purpose of your debug adapter.
-* upload to the gallery as described in [Share an Extension](/docs/tools/vscecli.md) section.
+* upload to the Marketplace as described in [Share an Extension](/docs/tools/vscecli.md) section.
 
 ## Common Questions
 

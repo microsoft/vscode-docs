@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 
@@ -131,7 +131,7 @@ When a file is opened by the user, these three rules are applied and a language 
 		"id": "python",
 		"extensions": [ ".py" ],
 		"aliases": [ "Python", "py" ],
-		"filenames": [ ... ]
+		"filenames": [ ... ],
 		"firstLine": "^#!/.*\\bpython[0-9.-]*\\b"
 	}]
 }
@@ -139,7 +139,7 @@ When a file is opened by the user, these three rules are applied and a language 
 ## `contributes.debuggers`
 
 Contribute a 'debug adapter' to VS Code's debugger. A debug adapter integrates VS Code with a particular debug engine.
-It runs in a separate process and communicates with VS Code through a specific protocol. 
+It runs in a separate process and communicates with VS Code through the VS Code debug protocol.
 You must provide one (or more) executables that implement the debug adapter.
 
 ### Example
@@ -148,11 +148,18 @@ You must provide one (or more) executables that implement the debug adapter.
 ...
 "contributes": {
 	"debuggers": [{
-        	"type": "node",
-        	"program": "./debugger/out/node/nodeDebug.js",
-        	"runtime": "node",
-        	"enableBreakpointsFor": { "languageIds": ["javascript", "typescript", "coffeescript"] }
-        }]
+		"type": "node",
+		"label": "Node Debug",
+		"program": "./out/node/nodeDebug.js",
+		"runtime": "node",
+		"enableBreakpointsFor": { "languageIds": ["javascript", "javascriptreact"] },
+		"initialConfigurations": [{
+			...
+		}],
+		"configurationAttributes": {
+			...
+		}
+	}]
 }
 ...
 ```
@@ -208,8 +215,8 @@ See [Changing the Color Theme](/docs/customization/themes.md) for instructions o
 ```json
 "contributes": {
 	"snippets": [{
-			"language": "go",
-			"path": "./snippets/go.json"
+		"language": "go",
+		"path": "./snippets/go.json"
 	}]
 }
 ```
@@ -220,11 +227,11 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
 
 ```json
 "contributes": {
-    "jsonValidation": [{ 
+    "jsonValidation": [{
  		"fileMatch": ".jshintrc",
  		"url": "http://json.schemastore.org/jshintrc"
 	}]
-} 
+}
 ```
 
 ## Next Steps

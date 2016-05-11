@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 ---
 
@@ -64,6 +64,7 @@ Key|Command|Command id
 `kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
 `kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
 `kb(editor.action.toggleTabFocusMode)`|Toggle Use of Tab Key for Setting Focus|`editor.action.toggleTabFocusMode`
+`kb(toggleRenderWhitespace)`|Toggle Render Whitespace|`toggleRenderWhitespace`
 
 ## Rich Languages Editing
 
@@ -91,7 +92,7 @@ Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.showAllSymbols)`|Show All Symbols|`workbench.action.showAllSymbols`
 `kb(workbench.action.gotoLine)`|Go to Line...|`workbench.action.gotoLine`
-`kb(workbench.action.quickOpen)`|Go to File...|`workbench.action.quickOpen`
+`kb(workbench.action.quickOpen)`|Go to File..., Quick Open|`workbench.action.quickOpen`
 `kb(workbench.action.gotoSymbol)`|Go to Symbol...|`workbench.action.gotoSymbol`
 `kb(workbench.action.showErrorsWarnings)`|Show Errors and Warnings|`workbench.action.showErrorsWarnings`
 `kb(editor.action.marker.next)`|Go to Next Error or Warning|`editor.action.marker.next`
@@ -166,6 +167,7 @@ Key|Command|Command id
 `kb(workbench.action.openGlobalKeybindings)`|Open Keyboard Shortcuts|`workbench.action.openGlobalKeybindings`
 `kb(workbench.action.openSnippets)`|Open User Snippets|`workbench.action.openSnippets`
 `kb(workbench.action.selectTheme)`|Select Color Theme|`workbench.action.selectTheme`
+`kb(workbench.action.configureLocale)`|Configure Display Language|`workbench.action.configureLocale`
 
 ## Debug
 
@@ -194,7 +196,7 @@ Key|Command|Command id
 `kb(workbench.extensions.action.installExtension)`|Install Extension|`workbench.extensions.action.installExtension`
 `kb(workbench.extensions.action.listExtensions)`|Show Installed Extensions|`workbench.extensions.action.listExtensions`
 `kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
-`kb(workbench.extensions.action.listSuggestedExtensions)`|Show Suggested Extensions|`workbench.extensions.action.listSuggestedExtensions`
+`kb(workbench.extensions.action.listSuggestedExtensions)`|Show Extension Recommendations|`workbench.extensions.action.listSuggestedExtensions`
 
 ## Customizing Shortcuts
 

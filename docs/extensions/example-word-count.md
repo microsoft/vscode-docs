@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Word Count
 ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
 PageTitle: Visual Studio Code Example - Word Count Extension
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
 
@@ -210,7 +210,7 @@ Second, we must make sure the extension is activated upon the opening of a `Mark
     "contributes": {
         "commands":
             [{
-                "onCommand": "extension.sayHello",
+                "command": "extension.sayHello",
                 "title": "Hello World"
             }
         ]
@@ -286,7 +286,7 @@ Read on to find out about:
 * [Yo Code](/docs/tools/yocode.md) - learn about other options in Yo Code
 * [Extension API](/docs/extensionAPI/overview.md) - Get an overview of the Extension API
 * [Customization](/docs/customization/overview.md) - Themes, settings and keyboard bindings
-* [Publishing Tool](/docs/tools/vscecli.md) - Learn how to publish an extension to the public gallery
+* [Publishing Tool](/docs/tools/vscecli.md) - Learn how to publish an extension to the public Marketplace
 * [Editor API](/docs/extensionAPI/vscode-api.md#window) - Learn more about Text Documents, Text Editors and editing text
 
 ## Common Questions

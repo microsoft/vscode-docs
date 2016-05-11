@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 
@@ -13,7 +13,7 @@ Our docs contain a **Common Questions** section as needed for specific topics. W
 If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
 
 ## What is the difference between VS Code and VS Community?
-ar
+
 Visual Studio Code is a streamlined code editor with support for development operations like debugging, task running and version control. It aims to provide just the tools a developer needs for a quick code-build-debug cycle and leaves more complex workflows to fuller featured IDEs. For more details about the goals of VS Code, see [Why VS Code](/docs/editor/whyvscode.md).
 
 ## Which OS's are supported?
@@ -44,14 +44,15 @@ To modify the update channel, go to **File** > **Preferences** > **User Settings
 
 You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/Updates).
 
-## Why does Visual Studio Code have a different license than the `vscode` GitHub repository?
+## Licensing
 
-Great question! Please see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
+### Location
 
-## Why does Visual Studio Code have an expiration date of 31-Dec-2016?
+You can find the VS Code licenses, third party notices and [Chromium](https://www.chromium.org) Open Source credit list under your VS Code installation location `resources\app` folder. VS Code's `ThirdPartyNotices.txt`, Chromium's `Credits_*.html`, and VS Code's English language `LICENSE.txt` are available under `resources\app`. Localized versions of `LICENSE.txt` by Language ID are under `resources\app\licenses`.
 
-Great question! Please see [this StackOverflow question](http://stackoverflow.com/questions/35744049/visual-studio-code-vscode-license-expires/35816955#35816955) for a detailed explanation.
+### Why does Visual Studio Code have a different license than the vscode GitHub repository?
 
+To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 
 ## How can I test prerelease versions of VS Code?
 
@@ -63,7 +64,7 @@ To install the Insiders build, go to the Insiders [download page](/Download#insi
 
 ### Trouble with the installer
 
-Try using the [zip file](https://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this unzip VS Code in your `Program Files` folder.
+Try using the [zip file](https://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this, unzip VS Code in your **Program Files** folder.
 
 >**Note:** When VS Code is installed via a Zip you will need to manually update it for each release.
 
@@ -168,7 +169,7 @@ We're working on a fix. In the meantime, open the application menu, then choose 
 
 If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
 
-* Set the operating system environment variables ‘http.proxy’ and ‘https.proxy’
+* Set the operating system environment variables ‘http_proxy’ and ‘https_proxy’
 
 ```bash
     SET http_proxy=http://10.203.0.1:5187/
@@ -194,6 +195,14 @@ When you open a folder, VS Code will search for typical project files to offer y
     }
 ```
 
+## Missing `csharp-o` extension?
+
+If you get an error at startup about a missing `csharp-o` extension, you can fix it by completely deleting its directory from the installation directory:
+
+```
+C:\Program Files (x86)\Microsoft VS Code\resources\app\extensions\csharp-o
+```
+
 ## How to disable crash reporting
 
 From **File** > **Preferences** > **User Settings**, add the following option to disable crash reporting:
@@ -217,3 +226,9 @@ From **File** > **Preferences** > **User Settings**, add the following option to
 ```
 
 >**Note:** VS Code gives you the option to install Microsoft and third party extensions.  These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting.  Consult the specific extension’s documentation to learn about its telemetry reporting.
+
+## Technical Support
+
+You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode), provide suggestions on [UserVoice](http://go.microsoft.com/fwlink/?LinkID=533482), and enter issues directly in our [GitHub repository](https://github.com/Microsoft/vscode/issues).
+
+If you'd like to contact a professional support engineer, you can open a ticket with the [Microsoft assisted support team](https://support.microsoft.com/en-us/assistedsupportproducts).

@@ -33,7 +33,8 @@ function mapFileToBlogArticle(file) {
         File: null,
         Date: file.data.Date,
         Author: file.data.Author,
-        ShortDescription: file.data.ShortDescription
+        ShortDescription: file.data.ShortDescription,
+        MetaSocialImage: file.data.MetaSocialImage
 	};
 }
 
@@ -50,7 +51,7 @@ function renderTemplate(file, article) {
 gulp.task('copy-blog-images', function () {
 	console.log('Copying blog images..');
 
-	var images = gulp.src([BLOG_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG}']).pipe(imagemin());
+	var images = gulp.src([BLOG_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG,svg,SVG}']).pipe(imagemin());
 	var gifs = gulp.src([BLOG_ROOT + '/**/images/**/*.{gif,GIF}']);
 
 	return es.merge([images, gifs])

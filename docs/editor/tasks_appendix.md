@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Tasks Appendix
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 
@@ -55,6 +55,13 @@ interface BaseTaskConfiguration {
 	 */
 	isShellCommand?: boolean;
 
+	/**
+	 * Specifies whether a global command is watching the filesystem. A task.json
+	 * file can either contain a global isWatching property or a tasks property
+	 * but not both.
+	 */
+	isWatching?: boolean;
+	
 	/**
 	 * The command options used when the command is executed. Can be omitted.
 	 */
@@ -149,6 +156,11 @@ export interface TaskDescription {
 	 */
 	isTestCommand?: boolean;
 
+	/**
+	 * Whether the executed command is kept alive and is watching the file system.
+	 */
+	isWatching?:boolean;
+	
 	/**
 	 * Controls whether the output view of the running tasks is brought to front or not.
 	 * See BaseTaskConfiguration#showOutput for details.

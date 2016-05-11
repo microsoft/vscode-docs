@@ -3,7 +3,7 @@ Order:
 TOCTitle: Error Codes
 ContentId: 343B5C4D-3473-4454-AD22-084F405D6905
 PageTitle: Visual Studio Code workarounds for errors you might hit in the product.
-DateApproved: 3/7/2016
+DateApproved: 5/9/2016
 MetaDescription: Several error conditions can easily be resolved by the user this page is designed to help un-block you.
 ---
 
@@ -12,21 +12,6 @@ MetaDescription: Several error conditions can easily be resolved by the user thi
 Some errors that happen in Visual Studio Code can be worked around or resolved by you.  This topic describes several of the most common error conditions, and what you can do to resolve them.
 
 If these steps don't help you, you probably hit a bug. You can check our [reported issues](https://github.com/microsoft/vscode/issues) list to see if others have had the same issue.
-
-## 20001
-
->**Error:** Cannot start OmniSharp because Mono version >=3.10.0 is required.
-
-Currently, debugging support of VS Code on Linux or OS X requires Mono version 3.12 or later.
-If you intend to build ASP.NET Core applications with VS Code, we recommend to first follow the steps
-**Installing ASP.NET Core and DNX** in [ASP.NET Core Applications](/docs/runtimes/ASPnet5.md), since this will install a version of Mono
-that also supports debugging.
-
-If you just want to try debugging support of VS Code, you can either download the latest Mono version
-for Linux or OS X at the [Mono Project Site](http://www.mono-project.com/download/), or you can use your package manager:
-
-* On OS X: `brew install mono`
-* On Linux: `sudo apt-get install mono-complete`
 
 ## 20002
 

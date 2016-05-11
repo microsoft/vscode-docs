@@ -10,6 +10,8 @@ Author: Chris Dias
 
 # February 2016 "Recovery" Release
 
+March 14, 2016 by The VS Code Team, [@code](https://twitter.com/code)
+
 If we find critical issues after a major update, we do what we call a "recovery" release. Today we're updating the February 2016 build with fixes for the following four issues:
 
 - [3903](https://github.com/Microsoft/vscode/issues/3903): [js] syntax highlight for 'var' and 'function' not working in Default VS theme
