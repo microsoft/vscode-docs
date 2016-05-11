@@ -203,6 +203,14 @@ If you get an error at startup about a missing `csharp-o` extension, you can fix
 C:\Program Files (x86)\Microsoft VS Code\resources\app\extensions\csharp-o
 ```
 
+## VS Code main window is blank?
+
+The Electron shell used by Visual Studio Code has trouble with some GPU (graphics processing unit) hardware acceleration. If VS Code is displaying a blank (empty) main window, you can try disabling GPU acceleration when launching VS Code by adding the Electron `--disable-gpu` command line switch.
+
+```bash
+code --disable-gpu
+```
+
 ## How to disable crash reporting
 
 From **File** > **Preferences** > **User Settings**, add the following option to disable crash reporting:
