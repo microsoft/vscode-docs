@@ -10,7 +10,7 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 
 # C/C++ for VS Code (Preview)
 
-C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux (Ubuntu 14.04 64-bit) and OS X (see _Known limitations_ below).
+C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux (Ubuntu 14.04 64-bit is supported; other versions of Linux might work, but are unsupported) and OS X (see _Known limitations_ below).
 
 If you just want a lightweight tool to edit your C++ files VS Code has you covered wherever you are, but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
@@ -20,11 +20,19 @@ Because we're still shaping the C++ experience in VS Code, now is a great time t
 
 C++ language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). Or, just install it from VS Code by launching the __Quick Open__ (`kb(workbench.action.quickOpen)`) and then entering the command **ext install cpptools**.
 
-On Linux, there's an additional step that installs dependencies necessary for debugging support. When VS Code restarts after installing the extension, a script installs the [dotnet cli](http://dotnet.github.io/) dependency. Because elevated permissions are needed to install this package, you'll be prompted for your password in the terminal where the script is running. If you'd rather perform these last steps yourself, you can close the terminal now, then enter the commands yourself (these steps must be completed to enable debugging support.) For more information on these commands, see _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+On Linux, only Ubuntu 14.04 64-bit is officially supported. Other versions of Linux might work, but are untested and unsupported. 
 
 On OS X, additional install steps need to be completed manually to enable debugging on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 
 ## Navigating code
+
+### Specifying Additional Include Directories for Better Symbol Support.
+
+To provide the best experience, the C/C++ extension for Visual Studio Code needs to know where it can find each header file referenced in your code. By default, the extension searches the current source directory, its sub-directories, and some platform-specific locations. If a referenced header file can't be found, VS Code displays a green squiggle underneath each #include directive that references it.
+
+To specify additional include directories to be searched, place your cursor over any #include directive that displays a green squiggle, then click the lightbulb action when it appears. This opens the file ```c_cpp_properties.json``` for editing; here you can specify additional include directories for each platform configuration individually by adding additional directories to its 'includePath' property.  
+
+![Adding an additional include path](images/cpp/includepath.gif)
 
 ### Search for Symbols
 
@@ -60,7 +68,7 @@ To go to a symbol's definition, place your cursor on the symbol anywhere its use
 
 ## Debugging
 
-Debugging is supported on Linux (Ubuntu 14.04 64-bit) and OS X (see Known limitation below).
+Debugging is supported on Linux (Ubuntu 14.04 64-bit) and OS X (see _Known limitations_ below).
 
 ### Preparing your launch.json file for debugging
 
@@ -96,6 +104,10 @@ VS Code supports expression evaluation in several contexts:
 
 Note that expressions in the Watch Pane take effect in the application being debugged; an expression that modifies the value of a variable will modify that variable for the duration of the program.
 
+### Multi-threaded debugging
+
+The C/C++ extension for VS Code now has the ability to debug threaded code. 
+
 ### Core Dump debugging
 
 The C/C++ extension for VS Code also has the ability to debug using a memory dump. To debug using a memory dump, open your launch.json file for editing and add the `coreDumpPath` property to the __C++ Launch__ configuration, setting its value to be a string containing the path to the core dump. This will even work for multi-threaded programs and x86 programs being debugged on an x64 machine.
@@ -126,7 +138,7 @@ Windows:
 
 Linux:
 
-* Ubuntu 14.04 64-bit is the only version of Linux supported by the script that performs additional install steps on Linux. Other versions of Linux might work if you perform these steps manually, but you might need to modify them for your version of Linux. For more information on these steps, see _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+* Ubuntu 14.04 64-bit remains the only version of Linux that officially supports debugging, but automatic installation of debugging features is no longer blocked on versions of Linux other than Ubuntu 14.04 64-bit. While this makes installation on other versions of Linux easier and we encourage you to try out debugging on your preferred version of Linux, such installations remain unsupported for now.
 * GDB needs elevated permissions in order to attach to a process. When using *attach to process*, you need to provide your password before the debugging session can begin. 
 
 OS X:
@@ -147,11 +159,7 @@ Read on to find out about:
 
 **Q: Which versions of Linux support debugging?**
 
-**A:** In this release our Linux install script targets Ubuntu 14.04 64-bit, therefore its the only version of Linux that officially supports debugging. Other versions of Linux might work if you perform the steps found in the script, but you might need to modify them for your version of Linux. For more information on these steps, see _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
-
-**Q: Why do I need provide my password to complete installation of the extension on Linux?**
-
-**A:** VS Code takes a dependency on [dotnet cli](http://dotnet.github.io/) to enable debugging support on Linux. Root access is required to install the dotnet cli package. Normally these steps are performed by a script we've provided, but you can perform the steps manually if you prefer not to run the script with elevated permissions. 
+**A:** In this release, Ubuntu 14.04 64-bit remains the only version of Linux that officially supports debugging. However, the extension no longer relies on the install script found in previous versions to install the necessary dependencies; previously, this script blocked automatic installation on Linux versions other than Ubuntu 14.04 64-bit. Because of this, you no longer have to manually perform the steps found in the script to enable the debugging features on other versions of Linux. While this makes installation on other versions of Linux easier and we encourage you to try out debugging on your preferred version of Linux, such installations remain unsupported for now.
 
 **Q: My project won't load.**
 
@@ -164,4 +172,5 @@ Read on to find out about:
 **Q: How do I build/run my project?**
 
 **A:** VS Code supports tasks that you can configure to build your application, and natively understands the output of MSBuild, CSC, and XBuild. For more information, see the [Tasks](/docs/editor/tasks.md) documentation.
+
 
