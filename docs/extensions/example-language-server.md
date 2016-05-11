@@ -94,7 +94,7 @@ export function activate(context: ExtensionContext) {
     // The debug options for the server
     let debugOptions = { execArgv: ["--nolazy", "--debug=6004"] };
 
-    // If the extension is launch in debug mode the debug server options are use
+    // If the extension is launched in debug mode then the debug server options are used
     // Otherwise the run options are used
     let serverOptions: ServerOptions = {
         run : { module: serverModule, transport: TransportKind.ipc },
