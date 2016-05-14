@@ -5,6 +5,13 @@ PageTitle: Visual Studio Code April 1.1.0
 MetaDescription: See what is new in the Visual Studio Code April Release (1.1.0)
 ---
 
+# 1.1.1 (April 2016)
+
+The 1.1.1 release addresses an [issue](https://github.com/Microsoft/vscode/issues/6304) with multi-threaded debugging and an [issue](https://github.com/Microsoft/vscode/issues/6281) with the editor API.
+
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-darwin-stable.zip) | Linux 64-bit [.zip](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-linux-x64-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-amd64.deb) [.rpm](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-x86_64.rpm) | Linux 32-bit [.zip](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-linux-ia32-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-i386.deb) [.rpm](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-i386.rpm)
+
 # 1.1.0 (April 2016)
 
 The April 1.1.0 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
