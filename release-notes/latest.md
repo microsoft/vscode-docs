@@ -24,7 +24,7 @@ Here is an overview of some of the updates contained in this release:
 * Reopen the last closed file using `kb(workbench.files.action.reopenClosedFile)`
 * Launch your favorite shell when opening a new Terminal from the Explorer or Command Palette
 
-Extension authors will be especially happy with this release, as we've:
+Extension authors will be especially happy with these updates:
 
 * Language Server protocol 2.0 is now consistent with core VS Code API
 * Automated test support for authoring Debug Adapters
