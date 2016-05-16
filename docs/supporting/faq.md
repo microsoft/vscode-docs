@@ -165,6 +165,21 @@ We're working on a fix. In the meantime, open the application menu, then choose 
     "editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"
 ```
 
+### Package git is not installed.
+
+This error can appear during installation and is typically caused by the package manager's being out of date. Try updating it and installing again:
+
+```bash
+# For .deb
+sudo apt-get update
+
+# For .rpm (Fedora 21 and below)
+sudo yum update
+
+# For .rpm (Fedora 22 and above)
+sudo dnf update
+```
+
 ## Proxy Server Support
 
 If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
