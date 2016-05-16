@@ -5,7 +5,7 @@ PageTitle: Visual Studio Code May 1.1.2
 MetaDescription: See what is new in the Visual Studio Code May Release (1.1.2)
 ---
 
-# 1.1.1 (May 2016)
+# 1.1.2 (May 2016)
 
 Here is an overview of some of the updates contained in this release:
 
@@ -30,10 +30,10 @@ This release has a number of notable bug fixes.
 
 * [TODO](https://github.com/Microsoft/vscode/issues/TODO): TODO
 
-These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22May+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22May+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.1.0 update.
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22May+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22May+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.1.2 update.
 
 ## Thank You
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-* [TODO (@todo)](https://github.com/todo): TODOD. [PR #TODO](https://github.com/Microsoft/vscode/pull/todo)
+* [TODO (@todo)](https://github.com/todo): TODO. [PR #TODO](https://github.com/Microsoft/vscode/pull/todo)
