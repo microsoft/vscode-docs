@@ -21,7 +21,7 @@ MetaTags:
 
 ## Installing ASP.NET Core and DNX
 
-Installation for each platform (Windows, OS X and Linux) is slightly different and covered in detail at [ASP.NET Getting Started](https://docs.asp.net/en/latest/getting-started/index.html).
+Installation for each platform (Windows, OS X and Linux) is slightly different and covered in detail at [ASP.NET Getting Started](http://docs.asp.net/en/latest/getting-started.html).
 
 ## Getting Started
 
