@@ -172,14 +172,16 @@ npm install -g typings
 
 Go back to the file `app.js` and notice that if you hover over the Node.js global object `__dirname`, VS Code does not know the type and displays `any`.
 
-Now, using the Typings command line, pull down the Node.js and Express type definition files.
+Now, using the Typings command line, pull down the Node.js and Express type definition files.  The `dt~` prefix tells the Typings tool to search the DefinitelyTyped repository for the specified type definition files.
 
 ```bash
-typings install node --ambient
-typings install express serve-static express-serve-static-core --ambient
+typings install dt~node --global
+typings install dt~express dt~serve-static dt~express-serve-static-core --global
 ```
 
 >**Tip:** You can download multiple definition files by combining them on the command line, as you can see from the Express typings above.  We need to install the typings for Express and also it's references.
+
+>**Note:** Don't worry if you see `typings INFO reference` messages during installation. The Typings tool is cleaning out unnecessary `///` references in the downloaded typings files.
 
 Notice how VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 
