@@ -43,7 +43,11 @@ code . --locale=fr
 
 The **Configure Language** command creates a `locale.json` file in your user VS Code folder.  Set the `locale` attribute to your preferred locale.
 
-Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "config" and you'll see the **Configure Language** command appear. Press `kbstyle(Enter)` and a `locale.json` file is created with the default value set to your operating system language. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to select a different supported language locale.  Save `locale.json` and restart VS Code to use the new display language.
+Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "config" to filter and display the **Configure Language** command.
+
+![configure language command ](images/locales/configure-language-command.png)
+
+Press `kbstyle(Enter)` and a `locale.json` file is created with the default value set to your operating system language. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to select a different supported language locale.  Save `locale.json` and restart VS Code to use the new display language.
 
 ![locale IntelliSense](images/locales/locale-intellisense.png)
 
