@@ -5,7 +5,7 @@ PageTitle: Visual Studio Alpha Prerelease Builds
 MetaDescription: Announcing the Visual Studio Code Alpha prerelease builds
 Date: 2016-05-16
 ShortDescription: Announcing the Alpha Builds of VS Code
-Author: Wade Anderson
+Author: Mr. Wade Anderson
 ---
 
 # Insiders to Alpha
