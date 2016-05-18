@@ -47,16 +47,18 @@ Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** th
 
 ![configure language command ](images/locales/configure-language-command.png)
 
-Press `kbstyle(Enter)` and a `locale.json` file is created with the default value set to your operating system language. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to select a different supported language locale.  Save `locale.json` and restart VS Code to use the new display language.
+Press `kbstyle(Enter)` and a `locale.json` file is created with the default value set to your operating system language. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to select a different supported language locale.
 
 ![locale IntelliSense](images/locales/locale-intellisense.png)
 
-The example below sets VS Code to display Traditional Chinese `zh-TW`:
+Save `locale.json` and restart VS Code to use the new display language.
+
+The example below sets VS Code to display Simplified Chinese `zh-CN`:
 
 ```json
 {
     // Defines VS Code's display language.
-    "locale":"zh-TW"
+    "locale":"zh-CN"
 }
 ```
 
