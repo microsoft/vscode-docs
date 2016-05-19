@@ -32,6 +32,7 @@ Key|Command|Command id
 `kb(editor.action.addSelectionToNextFindMatch)`|Add Selection To Next Find Match|`editor.action.addSelectionToNextFindMatch`
 `kb(editor.action.moveSelectionToNextFindMatch)`|Move Last Selection To Next Find Match|`editor.action.moveSelectionToNextFindMatch`
 `kb(cursorUndo)`|Undo last cursor operation|`cursorUndo`
+`kb(editor.action.insertCursorAtEndOfEachLineSelected)`|Insert cursor at end of each line selected|`editor.action.insertCursorAtEndOfEachLineSelected`
 `kb(editor.action.selectHighlights)`|Select all occurrences of current selection|`editor.action.selectHighlights`
 `kb(editor.action.changeAll)`|Select all occurrences of current word|`editor.action.changeAll`
 `kb(expandLineSelection)`|Select current line|`expandLineSelection`
