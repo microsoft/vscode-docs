@@ -180,6 +180,21 @@ sudo yum update
 sudo dnf update
 ```
 
+### The code bin command does not bring the window to the foreground on Ubuntu
+
+When running `code .` on Ubuntu when vscode is already open in `.` will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
+
+```
+# Install
+sudo apt-get update
+sudo apt-get install compizconfig-settings-manager
+
+# Run
+ccsm
+```
+
+Under General > General Options > Focus & Raise Behaviour, set "Focus Prevention Level" to "Off". Remember this is an OS-level setting that will apply to all applications, not just VS Code.
+
 ## Proxy Server Support
 
 If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
