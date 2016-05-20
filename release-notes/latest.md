@@ -16,6 +16,13 @@ Downloads: [Windows](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317b
 
 ## Editor
 
+### Resizable Peek View
+
+The peek view editor that shows for reference search and for previewing declarations can not be resized.
+
+![Peek](images/May/peek.gif)
+
+
 ## Workbench
 
 ## Debugging
