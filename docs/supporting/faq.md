@@ -182,7 +182,7 @@ sudo dnf update
 
 ### The code bin command does not bring the window to the foreground on Ubuntu
 
-When running `code .` on Ubuntu when vscode is already open in `.` will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
+Running code . on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
 
 ```
 # Install
