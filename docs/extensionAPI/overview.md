@@ -26,6 +26,7 @@ Topic|Description
 **[API vscode namespace](/docs/extensionAPI/vscode-api.md)**|Review the full vscode namespace API reference.
 **[API complex commands](/docs/extensionAPI/vscode-api-commands.md)**|See the VS Code complex command API reference.
 **[API debugging](/docs/extensionAPI/api-debugging.md)**|Learn the details about integrating debuggers into VS Code.
+**[API samples](https://github.com/Microsoft/vscode-extension-samples)**|Sample code illustrating the VS Code extension API.
 
 ## Common Questions
 
