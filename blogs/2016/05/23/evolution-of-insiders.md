@@ -38,7 +38,7 @@ Because we are producing Insiders builds daily, the "Release Notes" become the c
 
 ## Next Steps
 
-We will start building and releasing the Insiders builds on a daily basis in conjunction with releasing the [May Stable release](https://github.com/Microsoft/vscode/issues/6105). If you are already using the Insiders build there is nothing for you to do today. Starting in June you will begin receiving daily updates. Hopefully will not impact your daily workflow as the upgrade process is very quick.
+We will start building and releasing the Insiders builds on a daily basis in conjunction with releasing the [May Stable release](https://github.com/Microsoft/vscode/issues/6105). If you are already using the Insiders build, there is nothing for you to do today. Starting in June, you will begin receiving daily updates. Hopefully this will not impact your daily workflow as the upgrade process is very quick.
 
 If you are not using the Insiders builds and want to be on the leading edge, using the same builds we use to develop VS Code, head over to our [downloads page](https://code.visualstudio.com/downloads) and install Insiders today.
 
