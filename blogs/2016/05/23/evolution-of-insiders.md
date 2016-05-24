@@ -24,9 +24,9 @@ We initially looked at releasing our internal "Alpha" builds. Alpha builds are w
 
 We decided that the overhead of releasing three different builds outweighed the benefits, as the difference between weekly and nightly builds is actually low. We then considered retiring the Insiders builds and moving everyone to Alpha, but decided that would leave dead ended installations of Insiders builds on everyones desktops.
 
-Instead, we've decided to build Insiders nightly from master, move our development team over to the Insiders builds, and retire our internal Alpha builds. We will do development on the same builds we make public. 
+Instead, we've decided to build Insiders nightly from master, move our development team over to the Insiders builds, and retire our internal Alpha builds. We will do development on the same builds we make public.
 
-For developers using Insiders builds, this means you now have access to fixes and new features a day after check in. If you are already using Insiders builds there is nothing for you to do, you will simply be notified when new builds are available, which will now be daily.
+For developers using Insiders builds, this means you now have access to fixes and new features a day after check in. If you are already using Insiders builds there is nothing for you to do, you will simply be notified when new builds are available, which will be daily starting in June.
 
 ## Blocking Issues
 
@@ -38,7 +38,7 @@ Becasue we are producing Insiders builds daily, the "Release Notes" become the c
 
 ## Next Steps
 
-Will start building and releasing the Insiders builds on a daily basis in conjunction with releasing the [May Stable release](https://github.com/Microsoft/vscode/issues/6105). If you are already using the Insiders build there is nothing for you to do today. On May 31st you will start receiving daily updates. Hopefully will not impact your daily workflow as the upgrade process is very quick.
+Will start building and releasing the Insiders builds on a daily basis in conjunction with releasing the [May Stable release](https://github.com/Microsoft/vscode/issues/6105). If you are already using the Insiders build there is nothing for you to do today. Starting in June you will begin receiving daily updates. Hopefully will not impact your daily workflow as the upgrade process is very quick.
 
 If you are not using the Insiders builds and want to be on the cutting edge, using the same builds we use to develop VS Code, head over to our [downloads page](https://code.visualstudio.com/downloads) and install it today.
 
