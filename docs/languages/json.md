@@ -96,7 +96,7 @@ To map a schema that is located in the workspace, use a relative path. In this e
     },
 ```
 
-### Mapping to a Schema Defined in Settindgs
+### Mapping to a Schema Defined in Settings
 
 To map a schema that is defined in the User or Workspace Settings, use the `schema` property. In this example, a schema is defined that will be used for all files named `.myconfig`.
 
