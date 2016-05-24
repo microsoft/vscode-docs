@@ -182,7 +182,7 @@ sudo dnf update
 
 ### The code bin command does not bring the window to the foreground on Ubuntu
 
-Running code . on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
+Running 'code .' on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
 
 ```
 # Install
@@ -193,7 +193,7 @@ sudo apt-get install compizconfig-settings-manager
 ccsm
 ```
 
-Under General > General Options > Focus & Raise Behaviour, set "Focus Prevention Level" to "Off". Remember this is an OS-level setting that will apply to all applications, not just VS Code.
+Under **General** > **General Options** > **Focus & Raise Behaviour**, set "Focus Prevention Level" to "Off". Remember this is an OS-level setting that will apply to all applications, not just VS Code.
 
 ## Proxy Server Support
 
