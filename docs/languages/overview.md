@@ -41,7 +41,9 @@ In VS Code, we default the language support for a file based on its filename ext
 
 ![Language Selector](images/overview/languageselect.png)
 
->**Tip:** You can persist file associations with the `files.associations` [setting](/docs/customization/userandworkspace.md).
+## Adding a file extension to a Language
+
+You can add new file extensions to an existing language with the `files.associations` [setting](/docs/customization/userandworkspace.md).
 
 For example, the setting below adds the `.myphp` file extension to the `php` language:
 
@@ -50,6 +52,10 @@ For example, the setting below adds the `.myphp` file extension to the `php` lan
         "*.myphp": "php"
     }
 ```
+
+IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available language identifiers.
+
+![language id IntelliSense](images/overview/language-id-intellisense.png)
 
 ## Next Steps
 
