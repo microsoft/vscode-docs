@@ -35,6 +35,10 @@ The peek view editor that shows for reference search and for previewing declarat
 
 ## Extension Authoring
 
+### Comparing resources
+
+We have added a new API command that allows you to use the diff-editor on two arbitrary resources like so: `commands.executeCommand('vscode.diff', uri1, uri2)`
+
 ## Bug Fixes
 
 This release has a number of notable bug fixes.
