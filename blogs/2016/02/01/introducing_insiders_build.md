@@ -30,7 +30,7 @@ The Insiders build will automatically update when we release new builds, general
 
 The features included in the Insiders build is tracked in [our iteration plans](https://github.com/Microsoft/vscode/issues?utf8=%E2%9C%93&q=label%3Aiteration-plan+). Feel free to communicate your thoughts, ideas and bug reports on these builds – we will be paying close attention to the feedback as it helps us stabilize before an official release.
 
-[Download the Insiders build](https://code.visualstudio.com/Download#insiders) today! Again, you only need to install it once and it will update itself when we push new builds each month.
+[Download the Insiders build](/insiders) today! Again, you only need to install it once and it will update itself when we push new builds each month.
 
 Note: If you have been an “Insider”, you will need to manually download this new drop to keep testing the latest and greatest of VS Code. Your current build will upgrade to the latest stable release when we ship at the end of the month.
 

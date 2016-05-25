@@ -58,7 +58,7 @@ To learn why Visual Studio Code, the product, has a different license than vscod
 
 Want get an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build will automatically update when we release new builds, towards the end of each month or whenever there is new functionality we'd like to get into the hands of developers early.
 
-To install the Insiders build, go to the Insiders [download page](/Download#insiders).
+To install the Insiders build, go to the Insiders [download page](/insiders).
 
 ## Windows FAQ
 
