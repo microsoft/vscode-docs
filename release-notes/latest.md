@@ -39,6 +39,13 @@ The peek view editor that shows for reference search and for previewing declarat
 
 We have added a new API command that allows you to use the diff-editor on two arbitrary resources like so: `commands.executeCommand('vscode.diff', uri1, uri2)`
 
+### Updated extension samples
+
+There is a new rich sample that walks you through _virtual documents_, _eventing_, and using _language features as commands_. Also, the preview html sample was updated:
+
+* [contentprovider-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/contentprovider-sample)
+* [previewhtml-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/previewhtml-sample)
+
 ## Bug Fixes
 
 This release has a number of notable bug fixes.
