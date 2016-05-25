@@ -16,6 +16,10 @@ Downloads: [Windows](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317b
 
 ## Editor
 
+### Configure Word Based Suggestion
+
+When a language service isn't able to compute semantic completion, VS Code defaults to word based completions. Word based completions can be disabled with the `editor.wordBasedSuggestions`-setting.
+
 ### Resizable Peek View
 
 The peek view editor that shows for reference search and for previewing declarations can now be resized.
