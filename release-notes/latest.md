@@ -54,7 +54,8 @@ we've made the following adjustments:
 * if a scope has more than 100 local variables, the VS Code node debug no longer auto expands that scope automatically.
 * after the user has expanded the scope manually only the first 100 local variables are shown.
 * in both cases the scope header reflects the fact that there are many locals and only a subset is shown:
-  ![Peek](images/May/many-locals.png)
+
+![Peek](images/May/many-locals.png)
 
 If you need to track a variable that is not within the first hundred, you can add it as a watch expression or evaluate it in the debug console.
 
