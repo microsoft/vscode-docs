@@ -34,6 +34,10 @@ The peek view editor that shows for reference search and for previewing declarat
 
 CSS / SASS / LESS editors can now identify CSS variables and provide intelli-sense, go to, peek definition and finding all occurrences support.
 
+### vscode-tslint
+
+There is now support for quick fixing some tslint warnings.
+
 ## Debugging
 
 ### Debug extension API
