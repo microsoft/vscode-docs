@@ -40,22 +40,48 @@ There is now support for quick fixing some tslint warnings.
 
 ## Debugging
 
-### Debug extension API
-
-We have exposed `'vscode.startDebug'` command as an extension API. An extension can pass in the name of the debug launch configuration or pass a complete launch configuration JSON to use when invoking `'vscode.startDebug'` command.
-More details can be found [here](https://github.com/microsoft/vscode/issues/4615).
-
 ### Setting for revealing the debug console
-We have introduced a setting `'internalConsoleOptions'` in `'launch.json'` to change the behavior of automatic revealing of the debug console.
-`'internalConsoleOptions'` can now have the following three values: `'neverOpen'`, `'openOnSessionStart'` and `'openOnFirstSessionStart'`.
+We have introduced a setting `internalConsoleOptions` in `launch.json` to change the behavior of automatic revealing of the debug console.
+`internalConsoleOptions` can now have the following values: `neverOpen`, `openOnSessionStart` and `openOnFirstSessionStart`.
 
-### Stop one and stop all threads model
-We have added an attribute `allThreadsContinued` to the `ContinueResponse`. Using this attribute each adapter can decide if it supports a stop one or stop all threads model.
-More details can be found [here](https://github.com/Microsoft/vscode/issues/6400)
+## Node.js Debugging
+
+### Improved Stepping Performance
+
+To improve the stepping experience for programs with a large number of local variables per scope,
+we've made the following adjustments:
+
+* if a scope has more than 100 local variables, the VS Code node debug no longer auto expands that scope automatically.
+* after the user has expanded the scope manually only the first 100 local variables are shown.
+* in both cases the scope header reflects the fact that there are many locals and only a subset is shown:
+  ![Peek](images/May/many-locals.png)
+
+If you need to track a variable that is not within the first hundred, you can add it as a watch expression or evaluate it in the debug console.
 
 ## Setup
 
 ## Extension Authoring
+
+### Debug extension API
+
+We have exposed a `vscode.startDebug` command as an extension API for the VS Code debugger component. With this a debug session can be started programmatically either by passing the name of a launch configuration or a complete launch configuration object:
+
+```js
+	let launchConfig = {
+		type: "node",
+		request: "launch",
+		program: "${workspaceRoot}/test.js",
+		cwd: "${workspaceRoot}"
+	};
+
+	vscode.commands.executeCommand('vscode.startDebug', launchConfig).then(() => {
+		vscode.window.showInformationMessage('Debug session started successfully');
+	}, err => {
+		vscode.window.showInformationMessage('Error: ' + err.message);
+	});
+```
+More details can be found [here](https://github.com/microsoft/vscode/issues/4615).
+
 
 ### Comparing resources
 
@@ -68,12 +94,27 @@ There is a new rich sample that walks you through _virtual documents_, _eventing
 * [contentprovider-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/contentprovider-sample)
 * [previewhtml-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/previewhtml-sample)
 
+## Debug Adapter Development
+
+### Support a _One_ or _All_ mode of operation for controlling threads
+
+In a previous revision of the VS Code Debug Protocol we had already introduced a `allThreadsStopped` attribute on the `StoppedEvent`.
+With this attribute a debug adapter can report back to the frontend whether only a single thread or all threads have stopped.
+Thanks to client feedback we learned that a similar attribute is necessary for the `ContinueRequest` too.
+
+In the version 1.9.0 of the [VS Code Debug Protocol](https://github.com/Microsoft/vscode-debugadapter-node) a boolean attribute `allThreadsContinued` has been added to the response from the `ContinueRequest`.
+Using this attribute a debug adapter can report back to the UI whether only a single thread or all threads are continuing.
+More details can be found [here](https://github.com/Microsoft/vscode/issues/6400).
+
 ## Bug Fixes
 
 This release has a number of notable bug fixes.
 
-* [5780](https://github.com/Microsoft/vscode/issues/5780): Come up with better external terminal defaults on Linux
+* [6029](https://github.com/Microsoft/vscode/issues/6029): debug doesn't work on node v6
+* [6530](https://github.com/Microsoft/vscode/issues/6530): source maps don't work if drive letter case does not match
 * [6432](https://github.com/Microsoft/vscode/issues/6432): Ubuntu scope not setup on installation
+* [5780](https://github.com/Microsoft/vscode/issues/5780): Come up with better external terminal defaults on Linux
+* [5645](https://github.com/Microsoft/vscode/issues/5645): Slow call stack response for TS repository
 * [1000](https://github.com/Microsoft/vscode/issues/1000): Slow response when system is offline
 
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22May+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22May+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.2.0 update.
