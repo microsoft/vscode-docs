@@ -125,12 +125,12 @@ More details can be found [here](https://github.com/Microsoft/vscode/issues/6400
 
 This release has a number of notable bug fixes.
 
-* [6029](https://github.com/Microsoft/vscode/issues/6029): debug doesn't work on node v6
-* [6530](https://github.com/Microsoft/vscode/issues/6530): source maps don't work if drive letter case does not match
-* [6432](https://github.com/Microsoft/vscode/issues/6432): Ubuntu scope not setup on installation
-* [5780](https://github.com/Microsoft/vscode/issues/5780): Come up with better external terminal defaults on Linux
-* [5645](https://github.com/Microsoft/vscode/issues/5645): Slow call stack response for TS repository
 * [1000](https://github.com/Microsoft/vscode/issues/1000): Slow response when system is offline
+* [5645](https://github.com/Microsoft/vscode/issues/5645): Slow call stack response for TS repository
+* [5780](https://github.com/Microsoft/vscode/issues/5780): Come up with better external terminal defaults on Linux
+* [6029](https://github.com/Microsoft/vscode/issues/6029): debug doesn't work on node v6
+* [6432](https://github.com/Microsoft/vscode/issues/6432): Ubuntu scope not setup on installation
+* [6530](https://github.com/Microsoft/vscode/issues/6530): source maps don't work if drive letter case does not match
 
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22May+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22May+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.2.0 update.
 
