@@ -66,6 +66,16 @@ Given that your repository is connected to some remote and that your checked out
 
 >**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/customization/userandworkspace.md) to reduce the number of prompts you get.
 
+## Gutter indicators
+
+If you open a folder that is a Git repository and begin making changes, VS Code will add useful annotations to the gutter and to the overview ruler.
+
+* A red triangle indicates where lines have been deleted
+* A green bar indicates new added lines
+* A blue bar indicates modified lines
+
+![Gutter indicators](images/editingevolved/gutter.png)
+
 ## Merge Conflicts
 
 ![Git merge](images/versioncontrol/merge.png)
