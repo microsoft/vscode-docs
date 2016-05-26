@@ -10,17 +10,17 @@ MetaDescription: Visual Studio Code is a first class editor - but it's also so m
 
 # Editing Evolved
 
-Visual Studio Code features a high productivity code editor which when combined with programming language services gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
+Visual Studio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
 
 ## Editing - Smart
 
-VS Code comes with a built-in JavaScript/TypeScript language service so you get JavaScript and TypeScript code intelligence out-of-the-box. For other languages, like Go, Python, and C#, you will need to install an extension for deep language service integration. Language services provide the code understanding necessary for features like IntelliSense (suggestions) and smart code navigation (Go to Definition, Find All References, Rename Symbol).  Different language service extensions provide various levels of support for VS Code's language features but rest assured the community is very active adding new languages and great functionality. Learn more about installing VS Code extensions in our [Extensions Marketplace](/docs/editor/extension-gallery.md) topic and visit the [Marketplace](https://marketplace.visualstudio.com/VSCode) to see what's available for your favorite programming languages.
+VS Code comes with a built-in JavaScript/TypeScript language service so you get JavaScript and TypeScript code intelligence out-of-the-box. For other languages, like Go, Python, and C#, you will need to install an extension for deep language service integration. Language services provide the code understanding necessary for features like IntelliSense (suggestions) and smart code navigation (Go to Definition, Find All References, Rename Symbol).  Different language extensions provide different levels of support for VS Code's language features but rest assured the community is very active adding new languages and great functionality. Learn more about installing VS Code extensions in our [Extensions Marketplace](/docs/editor/extension-gallery.md) topic and visit the [Marketplace](https://marketplace.visualstudio.com/VSCode) to see what's available for your favorite programming languages.
+
+![IntelliSense](images/editingevolved/javascript-intellisense.png)
 
 ## IntelliSense
 
 We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(.)`, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
-
-![IntelliSense](images/editingevolved/javascript-intellisense.png)
 
 > **Tip:** The suggestions filtering supports CamelCase so you can type the upper case letters of a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
@@ -118,7 +118,7 @@ The Visual Studio Code editor has many features you need for high productivity w
 
 VS Code supports for multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
 
-> **Note:** Your graphics card provider might overwrite these default shortcuts.
+> **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
 
 ![Multi-cursor](images/editingevolved/multicursor.gif)
 
@@ -136,7 +136,7 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 ![Expand selection](images/editingevolved/expandselection.gif)
 
-## Column text selection
+## Column (box) text selection
 
 Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column text selection:
 
