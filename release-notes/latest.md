@@ -81,4 +81,6 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 
 * [rebornix (@rebornix)](https://github.com/rebornix): add touch screen tap support for reference search. [PR #6386](add touch screen tap support for reference search)
 * [Ikuyadeu (@Ikuyadeu)](https://github.com/Ikuyadeu): debt reduction in suggest. [PR #6035](https://github.com/Microsoft/vscode/pull/6035) and [PR #6057](https://github.com/Microsoft/vscode/pull/6057)
+* [rlasjunies (@rlasjunies)](https://github.com/rlasjunies): vscode-tslint - autofix some tslint warnings [PR #47](https://github.com/Microsoft/vscode-tslint/pull/47)
+* [Spacetech (@Spacetech)](https://github.com/Spacetech): vscode-tslint - Ability to exclude files [PR #40](https://github.com/Microsoft/vscode-tslint/pull/40)
 
