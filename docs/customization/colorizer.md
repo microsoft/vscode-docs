@@ -48,7 +48,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 ## Add to your Language Support Extension
 
-When you're adding a new language to VS Code, it is also great to add language [snippets](/docs/customization/userdefinedsnippets.md) to support common editing actions. It is easy to [combine multiple extensions](/docs/extensionAPI/extension-manifest.md#combining-extension-contributions) like snippets and colorizers into the same extension. You can modify the colorizer extension manifest `package.json` to include a `snippets` contribution and the snippets.json.  
+When you're adding a new language to VS Code, it is also great to add language [snippets](/docs/customization/userdefinedsnippets.md) to support common editing actions. It is easy to [combine multiple extensions](/docs/extensionAPI/extension-manifest.md#combining-extension-contributions) like snippets and colorizers into the same extension. You can modify the colorizer extension manifest `package.json` to include a `snippets` contribution and the snippets.json.
 
 ```json
 {
@@ -123,27 +123,14 @@ Colorizers are just one way to customize VS Code, If you'd like to learn more ab
 
 **Q: Can I add more file extensions to an existing colorizer?**
 
-**A:** Yes. To extend an existing colorizer, you would create a simple `package.json` in a new folder under `.vscode/extensions` and provide the `extensionDependencies` attribute specifying the customization you want to add to.  In the example below, an extension `.mmd` is added to the `markdown` colorizer. Note that not only must the `extensionDependency` name match the customization but also the `language` `id` must match the language id of the colorizer you are extending.
+**A:** Yes. To extend an existing colorizer, you can associate a file extension to an existing language identifier with the `files.associations` [setting](/docs/customization/userandworkspace.md).  IntelliSense will show you the list of currently available language ids.
+
+For example, the setting below adds the `.mmd` file extension to the `markdown` colorizer:
 
 ```json
-{
-    "name": "MyMarkdown",
-    "version": "0.0.1",
-    "engines": {
-        "vscode": "0.10.x"
-    },
-    "publisher": "none",
-    "extensionDependencies": [
-        "markdown"
-    ],
-    "contributes": {
-        "languages": [{
-            "id": "markdown",
-            "aliases": ["mmd"],
-            "extensions": [".mmd"]
-        }]
+    "files.associations": {
+        "*.mmd": "markdown"
     }
-}
 ```
 
 **Q: What if I want to completely override an existing colorizer?**

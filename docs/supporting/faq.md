@@ -58,7 +58,7 @@ To learn why Visual Studio Code, the product, has a different license than vscod
 
 Want get an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build will automatically update when we release new builds, towards the end of each month or whenever there is new functionality we'd like to get into the hands of developers early.
 
-To install the Insiders build, go to the Insiders [download page](/Download#insiders).
+To install the Insiders build, go to the Insiders [download page](/insiders).
 
 ## Windows FAQ
 
@@ -179,6 +179,21 @@ sudo yum update
 # For .rpm (Fedora 22 and above)
 sudo dnf update
 ```
+
+### The code bin command does not bring the window to the foreground on Ubuntu
+
+Running 'code .' on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
+
+```
+# Install
+sudo apt-get update
+sudo apt-get install compizconfig-settings-manager
+
+# Run
+ccsm
+```
+
+Under **General** > **General Options** > **Focus & Raise Behaviour**, set "Focus Prevention Level" to "Off". Remember this is an OS-level setting that will apply to all applications, not just VS Code.
 
 ## Proxy Server Support
 

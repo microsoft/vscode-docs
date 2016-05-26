@@ -59,6 +59,8 @@ VS Code is lightweight and should run on most available hardware and platform ve
 
 >**Note:** .NET Framework 4.5 is required for VS Code.  If you are using Windows 7, please make sure [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653) is installed.
 
+>**Note:** You can download the zip archive [here](/Docs/?dv=winzip).
+
 >**Tip:** The Setup will optionally add Visual Studio Code to your `%PATH%`, so from the console you can simply type `code .` to open VS Code on that folder.
 
 >**Tip:** You might need to log off after the installation for the change to the `%PATH%` environmental variable to take effect.

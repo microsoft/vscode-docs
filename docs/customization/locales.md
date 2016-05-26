@@ -18,7 +18,7 @@ By default, VS Code picks up the operating system's display language, falling ba
 
 Display Language | Locale
 -----------------|-------
-English (US) | `en-US`
+English (US) | `en`
 Simplified Chinese | `zh-CN`
 Traditional Chinese | `zh-TW`
 French | `fr`
@@ -33,19 +33,35 @@ Spanish | `es`
 
 If you want to configure a specific language, you can either use the command line switch `--locale` to specify a locale when you launch a VS Code session or use the **Configure Language** command to persist the display language to use when VS Code is started.
 
+Below is an example of using the `--locale` command line switch to set the VS Code display language to French:
+
 ```bash
 code . --locale=fr
 ```
 
-The **Configure Language** command (available in the **Command Palette** `kb(workbench.action.showCommands)`) creates a `locale.json` file in your user VS Code folder.  Set the `locale` attribute to your preferred locale.
+## Configure Language command
 
-The example below sets VS Code to display Traditional Chinese `zh-TW`:
+The **Configure Language** command creates a `locale.json` file in your user VS Code folder.  Set the `locale` attribute to your preferred locale.
+
+Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "config" to filter and display the **Configure Language** command.
+
+![configure language command ](images/locales/configure-language-command.png)
+
+Press `kbstyle(Enter)` and a `locale.json` file is created with the default value set to your operating system language. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to select a different supported language locale.
+
+![locale IntelliSense](images/locales/locale-intellisense.png)
+
+Save `locale.json` and restart VS Code to use the new display language.
+
+The example below sets VS Code to display Simplified Chinese `zh-CN`:
 
 ```json
 {
     // Defines VS Code's display language.
-    "locale":"zh-TW"
+    "locale":"zh-CN"
 }
 ```
 
-Changing the `locale` value requires a restart of VS Code.
+You can rerun the **Configure Language** command to review and change your `locale.json` file.
+
+>**Note:** Changing the `locale` value requires a restart of VS Code.
