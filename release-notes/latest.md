@@ -36,6 +36,19 @@ CSS / SASS / LESS editors can now identify CSS variables and provide intelli-sen
 
 ## Debugging
 
+### Debug extension API
+
+We have exposed `'vscode.startDebug'` command as an extension API. An extension can pass in the name of the debug launch configuration or pass a complete launch configuration JSON to use when invoking `'vscode.startDebug'` command.
+More details can be found [here](https://github.com/microsoft/vscode/issues/4615).
+
+### Setting for revealing the debug console
+We have introduced a setting `'internalConsoleOptions'` in `'launch.json'` to change the behavior of automatic revealing of the debug console.
+`'internalConsoleOptions'` can now have the following three values: `'neverOpen'`, `'openOnSessionStart'` and `'openOnFirstSessionStart'`.
+
+### Stop one and stop all threads model
+We have added an attribute `allThreadsContinued` to the `ContinueResponse`. Using this attribute each adapter can decide if it supports a stop one or stop all threads model.
+More details can be found [here](https://github.com/Microsoft/vscode/issues/6400)
+
 ## Setup
 
 ## Extension Authoring
