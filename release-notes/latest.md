@@ -60,4 +60,7 @@ These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Ais
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
-* [TODO (@todo)](https://github.com/todo): TODO. [PR #TODO](https://github.com/Microsoft/vscode/pull/todo)
+
+* [rebornix (@rebornix)](https://github.com/rebornix): add touch screen tap support for reference search. [PR #6386](add touch screen tap support for reference search)
+* [Ikuyadeu (@Ikuyadeu)](https://github.com/Ikuyadeu): debt reduction in suggest. [PR #6035](https://github.com/Microsoft/vscode/pull/6035) and [PR #6057](https://github.com/Microsoft/vscode/pull/6057)
+
