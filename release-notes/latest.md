@@ -26,8 +26,13 @@ The peek view editor that shows for reference search and for previewing declarat
 
 ![Peek](images/May/peek.gif)
 
-
 ## Workbench
+
+## Languages
+
+### CSS
+
+CSS / SASS / LESS editors can now identify CSS variables and provide intelli-sense, go to, peek definition and finding all occurrences support.
 
 ## Debugging
 
