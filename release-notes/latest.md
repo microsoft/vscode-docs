@@ -32,11 +32,11 @@ The peek view editor that shows for reference search and for previewing declarat
 
 The initial version of the integrated terminal ([#143](https://github.com/Microsoft/vscode/issues/143)) has been implemented. The terminal can be triggered using <kbd>ctrl</kbd>+<kbd>&#96;</kbd> or by triggering the `View: Toggle Terminal` command in the command palette.
 
-The terminal defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `integratedTerminal.shell.*` in settings. It should act just like the terminal you're familiar with.
+The shell that is used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `integratedTerminal.shell.*` in settings. It should act just like the terminal you're familiar with.
 
 ![](images/May/integrated-terminal.png)
 
-This is an early version of what we want to deliver, currently it only supports a single terminal and is still missing features like copying and pasting with the keyboard. We wanted to get it into your hands as soon as possible and continue iterating from there while gathering your feedback.
+This is an early version of what we want to deliver, currently it only supports a single terminal and is still missing features like copying and pasting with the keyboard. We wanted to get it into your hands as soon as possible and continue iterating with your feedback.
 
 Some Windows 10 users may experience problems getting cmd.exe to work, if so you can try enabling the legacy terminal as described in [#143](https://github.com/Microsoft/vscode/issues/143#issuecomment-221054202). 
 
