@@ -1,6 +1,6 @@
 ---
 Order: 10
-TOCTitle: 1.0 March 2016
+TOCTitle: March 2016 1.0
 PageTitle: Visual Studio Code March 1.0.0
 MetaDescription: See what is new in the Visual Studio Code March Release (1.0.0)
 ---

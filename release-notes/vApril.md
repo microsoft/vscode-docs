@@ -1,6 +1,6 @@
 ---
 Order: 11
-TOCTitle: April 2016
+TOCTitle: April 2016 1.1
 PageTitle: Visual Studio Code April 1.1.0
 MetaDescription: See what is new in the Visual Studio Code April Release (1.1.0)
 ---
