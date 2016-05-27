@@ -20,6 +20,18 @@ Downloads: [Windows](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317b
 
 ## Editor
 
+### Trim auto whitespace
+
+Thanks to [PR #5423](https://github.com/Microsoft/vscode/pull/5423) by [@outcoldman](https://github.com/outcoldman), there is a new option `editor.trimAutoWhitespace`, which is on by default, that makes the editor track the automatic whitespace it inserted and remove it if it no longer is needed (typing somewhere else). This helps keep your source code nice and tidy!
+
+![](images/May/trimAutoWhitespace.gif)
+
+### Select all find matches
+
+Thanks to [PR #5715](https://github.com/Microsoft/vscode/pull/5715) by [@Inori](https://github.com/Inori), when searching for something, by pressing `kbstyle(Alt+Enter)` you can now immediately select all the find results:
+
+![](images/May/selectAllFindMatches.gif)
+
 ### Configure Word Based Suggestion
 
 When a language service isn't able to compute semantic completion (suggestions), VS Code defaults to word based completions. Word based completions can be disabled with the `editor.wordBasedSuggestions`-setting.
@@ -68,6 +80,28 @@ There is now support for a fix all problems command which can be bound to a keyb
 ### vscode-tslint
 
 There is now support for quick fixing some TSLint warnings.
+
+## Keybindings
+
+### Removing a specific keybinding rule
+
+It is now possible to write a keybinding rule that targets the removal of a specific default keybinding. With the `keybindings.json` it was always possible to redefine all the keybindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. From now on, simply add a `-` to the `command` and the rule will be a removal rule. Here is an example:
+
+```
+// In Default Keyboard Shortcuts
+...
+{ "key": "tab", "command": "tab", "when": ... },
+{ "key": "tab", "command": "editor.emmet.action.expandAbbreviation", "when": ... },
+{ "key": "tab", "command": "jumpToNextSnippetPlaceholder", "when": ... },
+{ "key": "tab", "command": "acceptQuickFixSuggestion", "when": ... },
+{ "key": "tab", "command": "acceptSelectedSuggestion", "when": ... },
+...
+
+// To remove the second rule, for example, add in keybindings.json:
+{ "key": "tab", "command": "-editor.emmet.action.expandAbbreviation" }
+
+```
+
 
 ## Debugging
 
@@ -165,6 +199,10 @@ code --uninstall-extension ms-vscode.csharp
 
 The protocol now offers support for telemetry notifications. In addition message tracing support has been implemented in the [node client library](https://www.npmjs.com/package/vscode-languageclient) to help tracking down problems in the server. It can be enabled via a settings `${clientName}.trace.server` where client name is the name passed when creating the `LanguageClient` instance. For example `eslint.trace.server` for the eslint linter service.
 
+## The Monaco Editor
+
+We have been working on creating a public release of the Monaco Editor (a code editor based on the same sources as VS Code's text editor that runs in any browser). The first result is [an exploration](https://github.com/alexandrudima/monaco-typescript) where the standalone editor TypeScript language has been extracted from VS Code's sources and can run on top of the standalone editor API. We are working on polishing its API and automating some manual tasks in packaging it, such that it can be in a great shape when we create the first public release of it.
+
 ## Bug Fixes
 
 This release has a number of notable bug fixes.
@@ -175,6 +213,12 @@ This release has a number of notable bug fixes.
 * [6029](https://github.com/Microsoft/vscode/issues/6029): debug doesn't work on node v6
 * [6432](https://github.com/Microsoft/vscode/issues/6432): Ubuntu scope not setup on installation
 * [6530](https://github.com/Microsoft/vscode/issues/6530): source maps don't work if drive letter case does not match
+* [6916](https://github.com/Microsoft/vscode/issues/6916), [6878](https://github.com/Microsoft/vscode/issues/6878): Freeze/Crash when dealing with minified js files
+* [2717](https://github.com/Microsoft/vscode/issues/2717): "Define Keybindings" is invalidating keybindings.json
+* [4541](https://github.com/Microsoft/vscode/issues/4541): Problem typing in Korean
+* [959](https://github.com/Microsoft/vscode/issues/959): Fonts become fuzzy after zooming and scrolling
+* [6151](https://github.com/Microsoft/vscode/issues/6151): The border of scroll bar is ugly, and unclear under high dpi
+
 
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22May+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22May+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.2.0 update.
 
@@ -192,3 +236,9 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [@rgl](https://github.com/rgl): Correct typos [PR #6](https://github.com/Microsoft/vscode-languageserver-protocol/pull/6)
 * [@brettcannon](https://github.com/brettcannon): Grammar tweak in a comment [PR #8](https://github.com/Microsoft/vscode-languageserver-node-example/pull/8)
 * [@hoovercj](https://github.com/hoovercj): Update launch.json [PR #10](https://github.com/Microsoft/vscode-languageserver-node-example/pull/10)
+* [@hungys](https://github.com/hungys): Fix link parsing for non-ASCII characters [PR #5293](https://github.com/Microsoft/vscode/pull/5293)
+* [@outcoldman](https://github.com/outcoldman): Editor improvements (Implement trim whitespaces on enter, Backspaces decreases indent) [PR #5423](https://github.com/Microsoft/vscode/pull/5423)
+* [@ioklo](https://github.com/ioklo): fix Korean(and Chinese, Japanese) IME behavior [PR #5615](https://github.com/Microsoft/vscode/pull/5615)
+* [@aioutecism](https://github.com/aioutecism): Fix validatePosition related bug [PR #5705](https://github.com/Microsoft/vscode/pull/5705)
+* [@Inori](https://github.com/Inori): Add selectAllMatches command in column selection mode [PR #5715](https://github.com/Microsoft/vscode/pull/5715)
+* [@Ikuyadeu](https://github.com/Ikuyadeu): Delete the mention [PR #5786](https://github.com/Microsoft/vscode/pull/5786)
