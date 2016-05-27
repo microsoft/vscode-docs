@@ -180,6 +180,6 @@ OK, read on to find out about:
 
 **Q: How do I resolve a TypeScript "Cannot compile external module" error?**
 
-**A**: If you get that error, resolve it by creating a `tsconfig.json` file in the root folder of your project. The tsconfig.json file lets you control how Visual Studio Code compiles your TypeScript code. For more information, see the [typescript.json overview](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json).
+**A**: If you get that error, resolve it by creating a `tsconfig.json` file in the root folder of your project. The tsconfig.json file lets you control how Visual Studio Code compiles your TypeScript code. For more information, see the [tsconfig.json overview](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 Due to a current limitation, you must restart VS Code after adding the `tsconfig.json` file.
