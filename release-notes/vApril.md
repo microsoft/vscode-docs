@@ -1,20 +1,13 @@
 ---
 Order: 11
-TOCTitle: 1.1 - Apr 2016
-PageTitle: Visual Studio Code April 1.1
-MetaDescription: See what is new in the Visual Studio Code April Release (1.1)
+TOCTitle: April 2016
+PageTitle: Visual Studio Code April 2016 1.1
+MetaDescription: See what is new in the Visual Studio Code April 2016 Release (1.1)
 ---
 
-# 1.1.1 (April 2016)
+# April 2016 (1.1)
 
-The 1.1.1 release addresses an [issue](https://github.com/Microsoft/vscode/issues/6304) with multi-threaded debugging and an [issue](https://github.com/Microsoft/vscode/issues/6281) with the editor API.
-
-Downloads: [Windows](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCodeSetup-stable.exe) |
-[OS X](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-darwin-stable.zip) | Linux 64-bit [.zip](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-linux-x64-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-amd64.deb) [.rpm](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-x86_64.rpm) | Linux 32-bit [.zip](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-linux-ia32-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-i386.deb) [.rpm](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-i386.rpm)
-
-# 1.1.0 (April 2016)
-
-The April 1.1.0 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
+The April 1.1 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.
 
 Keeping to our monthly release cadence, we've put together a nice selection of new features and fixes in April.  We hope you enjoy it.
 
@@ -30,8 +23,8 @@ Extension authors will be especially happy with these updates:
 * Automated test support for authoring Debug Adapters
 * New APIs for working with folders and JSON files
 
-Downloads: [Windows](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCodeSetup-stable.exe) |
-[OS X](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-darwin-stable.zip) | Linux 64-bit [.zip](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-linux-x64-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-amd64.deb) [.rpm](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-x86_64.rpm) | Linux 32-bit [.zip](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/VSCode-linux-ia32-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-i386.deb) [.rpm](https://az764295.vo.msecnd.net/stable/c212f0908f3d29933317bbc3233568fbca7944b1/vscode-i386.rpm)
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-darwin-stable.zip) | Linux 64-bit [.zip](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-linux-x64-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-amd64.deb) [.rpm](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-x86_64.rpm) | Linux 32-bit [.zip](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/VSCode-linux-ia32-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-i386.deb) [.rpm](https://az764295.vo.msecnd.net/stable/def9e32467ad6e4f48787d38caf190acbfee5880/vscode-i386.rpm)
 
 ## Editor
 
@@ -198,6 +191,8 @@ This release has a number of notable bug fixes.
 * [5260](https://github.com/Microsoft/vscode/issues/5260): Use proper font family for East Asian languages (CJK)
 * [4400](https://github.com/Microsoft/vscode/issues/4400): Add update notifications for Linux
 * [1796](https://github.com/Microsoft/vscode/issues/1796): HTTPS Authentication not working on Linux
+* [6281](https://github.com/Microsoft/vscode/issues/6281): Edits fail to validate ranges correctly before applying
+* [6304](https://github.com/Microsoft/vscode/issues/6304): Debug: continue action is broken when target app has multiple threads
 
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22April+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22April+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.1.0 update.
 
