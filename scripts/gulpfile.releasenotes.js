@@ -41,7 +41,7 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releas
 
     var latest = new File({
        path: 'latest.handlebars',
-       contents: releasenotes[0].File.contents
+       contents: releaseNotes[0].File.contents
     });
     
     es.readArray([latest])
