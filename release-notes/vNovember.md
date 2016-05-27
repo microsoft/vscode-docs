@@ -1,6 +1,6 @@
 ---
 Order: 6
-TOCTitle: November
+TOCTitle: November 2015
 PageTitle: Visual Studio Code November
 MetaDescription: See what is new in Visual Studio Code November v0.10.3
 ---
