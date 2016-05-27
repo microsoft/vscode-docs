@@ -42,7 +42,7 @@ The shell that is used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` o
 
 This is an early version of what we want to deliver, currently it only supports a single terminal and is still missing features like copying and pasting with the keyboard. We wanted to get it into your hands as soon as possible and continue iterating with your feedback.
 
-Some Windows 10 users may experience problems getting cmd.exe to work, if so you can try enabling the legacy terminal as described in [#143](https://github.com/Microsoft/vscode/issues/143#issuecomment-221054202). 
+Some Windows 10 users may experience problems getting cmd.exe to work, if so you can try enabling the legacy terminal as described in [#143](https://github.com/Microsoft/vscode/issues/143#issuecomment-221054202).
 
 If you experience any issues or think of possible improvements, please [file an issue](https://github.com/Microsoft/vscode/issues/new) against the GitHub repository. You can see a [list of current bugs and feature requests here](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aintegrated-terminal).
 
@@ -116,6 +116,22 @@ There is a new rich extension sample that walks you through _virtual documents_,
 In a previous revision of the VS Code Debug Protocol, we had introduced a `allThreadsStopped` attribute on the `StoppedEvent`. With this attribute, a debug adapter can report back to the frontend whether only a single thread or all threads have stopped. Thanks to developer feedback, we learned that a similar attribute is necessary for the `ContinueRequest` too.
 
 In the version 1.9.0 of the [VS Code Debug Protocol](https://github.com/Microsoft/vscode-debugadapter-node), a boolean attribute `allThreadsContinued` has been added to the response from the `ContinueRequest`. Using this attribute, a debug adapter can report back to the UI whether only a single thread or all threads are continuing. More details can be found [here](https://github.com/Microsoft/vscode/issues/6400).
+
+## Automation
+
+### CLI Extension Management
+
+It's now possible to list, install and uninstall extensions from the command line. This mechanism
+helps in automating tasks. For the most common use case, the recommended way is still the in-product
+experience: `ext install`.
+
+Example:
+
+```
+code --list-extensions
+code --install-extension ms-vscode.cpptools
+code --uninstall-extension ms-vscode.csharp
+```
 
 ## Bug Fixes
 
