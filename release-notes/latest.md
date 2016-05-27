@@ -170,4 +170,6 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [Yuki Ueda (@Ikuyadeu)](https://github.com/Ikuyadeu): debt reduction in suggest. [PR #6035](https://github.com/Microsoft/vscode/pull/6035) and [PR #6057](https://github.com/Microsoft/vscode/pull/6057)
 * [Richard Lasjunies (@rlasjunies)](https://github.com/rlasjunies): vscode-tslint - autofix some tslint warnings [PR #47](https://github.com/Microsoft/vscode-tslint/pull/47)
 * [Gary Wilber (@Spacetech)](https://github.com/Spacetech): vscode-tslint - Ability to exclude files [PR #40](https://github.com/Microsoft/vscode-tslint/pull/40)
+* [@dbillingham](https://github.com/dbillingham): [folding] Added fold and unfold recursively to foldings [PR #5721](https://github.com/Microsoft/vscode/pull/5721)
+
 
