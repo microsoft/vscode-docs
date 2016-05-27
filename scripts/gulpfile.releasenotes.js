@@ -39,6 +39,14 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releas
 		return parseFloat(b.Order) - parseFloat(a.Order);
 	});
 
+    var latest = new File({
+       path: 'latest.handlebars',
+       contents: releasenotes[0].File.contents
+    });
+    
+    es.readArray([latest])
+        .pipe(gulp.dest(DEST_ROOT + '/views/updates'));
+    
 	var file = new File({
 		path: 'updateNav.handlebars',
 		contents: new Buffer(tpl({ articles: releaseNotes }))
