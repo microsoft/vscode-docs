@@ -32,6 +32,15 @@ The peek view editor that shows for reference search and for previewing declarat
 
 ## Workbench
 
+### Tabs
+We have been working on implementing the designs for tabs and editor groups in this milestone and will continue to do so in the next milestone
+
+We got some great feedback during our May UX study that has helped us make further improvements to the design:
+•Redesign the overflow icon
+•Provide a setting for choosing whether or not files from quick open are pinned or previewed
+•Add a command to turn a previewed file into a pinned file
+
+
 ### Integrated terminal
 
 The initial version of the integrated terminal ([#143](https://github.com/Microsoft/vscode/issues/143)) has been implemented. The terminal can be triggered using `kb(workbench.action.terminal.toggleTerminal)` or by triggering the **View** > **Toggle Terminal** command in the **Command Palette**.
