@@ -124,19 +124,38 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 `vscode.previewHtml` - Render the html of the resource in an editor view.
 
-Links contained in the document will be handled by VS Code whereby it supports file-resources and virtual resources as well as triggering commands using the 'command'-scheme.
+Links contained in the document will be handled by VS Code whereby it supports `file`-resources and [virtual](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L3295)-resources as well as triggering commands using the `command`-scheme. Use the query part of a command-uri to pass along JSON-encoded arguments - note that URL-encoding must be applied.
+
+The snippet below defines a command-link that calls the _previewHtml_ command and passes along an uri:
+
+```
+let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
+let html = '<a href="' + href + '">Show Resource...</a>.';
+```
 
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
 
 
 
-`vscode.openFolder` - Open a folder in the current window or new window depending on the newWindow argument. 
+`vscode.openFolder` - Open a folder in the current window or new window depending on the newWindow argument. Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder unless the newWindow parameter is set to true.
 
-Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder unless the newWindow parameter is set to true.
+* _uri_ (optional) Uri of the folder to open. If not provided, a native dialog will ask the user for the folder
+* _newWindow_ (optional) Wether to open the folder in a new window or the same. Defaults to opening in the same window.
 
-* _uri_ (optional) Uri of the folder to open. If not provided, a native dialog will ask the user for the folder.
-* _newWindow_ (optional) Whether to open the folder in a new window or the same. Defaults to opening in the same window.
+
+
+`vscode.startDebug` - Start a debugging session.
+
+* _configuration_ (optional) Name of the debug configuration from 'launch.json' to use. Or a configuration json object to use.
+
+
+
+`vscode.diff` - Opens the provided resources in the diff editor to compare their contents.
+
+* _left_ Left-hand side resource of the diff editor
+* _right_ Right-hand side resource of the diff editor
+* _title_ (optional) Human readable title for the diff editor
 
 
 
