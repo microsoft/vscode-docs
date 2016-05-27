@@ -10,7 +10,7 @@ MetaDescription: See what is new in the Visual Studio Code May Release (1.2.0)
 Our May release has some great new features as well as important bug fixes and enhancements:
 
 * Integrated Terminal - Stay in VS Code while using your platform's shell
-* Smart CSS support - Now with IntelliSense, Go to Definition, Find all Occurrences
+* Smart CSS variable support - Now with IntelliSense, Go to Definition, Find all Occurrences
 * TSLint Quick Fixes - Fix TSLint warning with Quick Fix lightbulbs
 
 Add we've continued to expand our extensions support with new samples and new APIs to automatically start debug sessions and programmatically use our handy diff-editor.
@@ -99,6 +99,21 @@ We have exposed a `vscode.startDebug` command as an extension API for the VS Cod
 ```
 
 More details can be found [here](https://github.com/microsoft/vscode/issues/4615).
+
+### Text mate grammar injections
+
+Extensions can now contribute textmate grammars that inject new rules into the existing gramars used for syntax highlighting. This makes it possible to add colorization inside string literals or comments, such as highlighting of URLs or TODO markers across multiple languages.
+
+```json
+"grammars": [
+  {
+    "scopeName": "source.todo",
+    "path": "./syntaxes/todo.tmLanguage",
+    "injectTo": [  "source.js", "source.ts" ]
+  }
+]
+```
+
 
 ### Comparing files
 
