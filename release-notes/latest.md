@@ -36,7 +36,7 @@ The peek view editor that shows for reference search and for previewing declarat
 
 The initial version of the integrated terminal ([#143](https://github.com/Microsoft/vscode/issues/143)) has been implemented. The terminal can be triggered using `kb(workbench.action.terminal.toggleTerminal)` or by triggering the **View** > **Toggle Terminal** command in the **Command Palette**.
 
-The shell that is used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `integratedTerminal.shell.*` in settings. It should act just like the terminal you're familiar with.
+The shell that is used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in settings. It should act just like the terminal you're familiar with.
 
 ![](images/May/integrated-terminal.png)
 
