@@ -52,6 +52,10 @@ If you experience any issues or think of possible improvements, please [file an 
 
 CSS / SASS / LESS editors can now identify CSS variables and provide IntelliSense, Go to and Peek Definition and Find All Occurrences support.
 
+### vscode-eslint
+
+There is now support for a fix all problems command which can be bound to a keyboard shortcut. The command id is: `eslint.fixAllProblems`
+
 ### vscode-tslint
 
 There is now support for quick fixing some TSLint warnings.
@@ -148,6 +152,10 @@ code --install-extension ms-vscode.cpptools
 code --uninstall-extension ms-vscode.csharp
 ```
 
+## Language Server Protocol
+
+The protocol now offers support for telemetry notifications. In addition message tracing support has been implemented in the [node client library](https://www.npmjs.com/package/vscode-languageclient) to help tracking down problems in the server. It can be enabled via a settings `${clientName}.trace.server` where client name is the name passed when creating the `LanguageClient` instance. For example `eslint.trace.server` for the eslint linter service.
+
 ## Bug Fixes
 
 This release has a number of notable bug fixes.
@@ -171,5 +179,7 @@ Last but certainly not least, a big *__Thank You!__* to the following folks that
 * [Richard Lasjunies (@rlasjunies)](https://github.com/rlasjunies): vscode-tslint - autofix some tslint warnings [PR #47](https://github.com/Microsoft/vscode-tslint/pull/47)
 * [Gary Wilber (@Spacetech)](https://github.com/Spacetech): vscode-tslint - Ability to exclude files [PR #40](https://github.com/Microsoft/vscode-tslint/pull/40)
 * [@dbillingham](https://github.com/dbillingham): [folding] Added fold and unfold recursively to foldings [PR #5721](https://github.com/Microsoft/vscode/pull/5721)
-
-
+* [@briangreenery](https://github.com/briangreenery): Fix small typos [PR #33](https://github.com/Microsoft/vscode-languageserver-node/pull/33)
+* [@rgl](https://github.com/rgl): Correct typos [PR #6](https://github.com/Microsoft/vscode-languageserver-protocol/pull/6)
+* [@brettcannon](https://github.com/brettcannon): Grammar tweak in a comment [PR #8](https://github.com/Microsoft/vscode-languageserver-node-example/pull/8)
+* [@hoovercj](https://github.com/hoovercj): Update launch.json [PR #10](https://github.com/Microsoft/vscode-languageserver-node-example/pull/10)
