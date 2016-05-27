@@ -1,6 +1,6 @@
 ---
 Order: 9
-TOCTitle: 0.10.10 Feb 2016
+TOCTitle: 0.10.10 - Feb 2016
 PageTitle: Visual Studio Code February 0.10.10
 MetaDescription: See what is new in the Visual Studio Code February Release (0.10.10)
 ---

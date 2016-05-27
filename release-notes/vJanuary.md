@@ -1,6 +1,6 @@
 ---
 Order: 8
-TOCTitle: 0.10.8 Jan 2016
+TOCTitle: 0.10.8 - Jan 2016
 PageTitle: Visual Studio Code January
 MetaDescription: See what is new in the Visual Studio Code January Release (0.10.9)
 ---
