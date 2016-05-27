@@ -36,9 +36,9 @@ The peek view editor that shows for reference search and for previewing declarat
 We have been working on implementing the designs for tabs and editor groups in this milestone and will continue to do so in the next milestone
 
 We got some great feedback during our May UX study that has helped us make further improvements to the design:
-•Redesign the overflow icon
-•Provide a setting for choosing whether or not files from quick open are pinned or previewed
-•Add a command to turn a previewed file into a pinned file
+* Redesign the overflow icon
+* Provide a setting for choosing whether or not files from quick open are pinned or previewed
+* Add a command to turn a previewed file into a pinned file
 
 
 ### Integrated terminal
