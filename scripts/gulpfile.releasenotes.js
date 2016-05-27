@@ -67,9 +67,9 @@ gulp.task('compile-releasenotes-markdown', function () {
 		.pipe(es.mapSync(function (file) {
 			var rn = common.mapFileToArticle(file);
 
-			if (rn.Link.toLowerCase() == 'latest') {
-				rn.Link = '';
-			}
+			// if (rn.Link.toLowerCase() == 'latest') {
+			// 	rn.Link = '';
+			// }
 			console.log("Compiling RN: " + rn.Title);
 			rn = common.compileMarkdown(file, rn);
 
