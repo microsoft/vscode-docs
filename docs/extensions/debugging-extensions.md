@@ -34,7 +34,7 @@ Let's peek at what is going on behind the scenes. If you are writing your extens
 
 The TypeScript compilation is setup as follows in the generated extension:
 
-* A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
+* A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
 * A TypeScript compiler with the proper version is included inside the node_modules folder.
 * A `typings/vscode-typings.d.ts`: instructs the TypeScript compiler to include the `vscode` API definition.
 * The API definition is included in `node_modules/vscode`.
