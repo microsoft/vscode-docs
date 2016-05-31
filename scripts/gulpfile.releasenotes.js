@@ -39,9 +39,12 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releas
 		return parseFloat(b.Order) - parseFloat(a.Order);
 	});
 
+    // Compile most recent releasenotes as latest.handlebars
+    var template = common.swigCompiler('scripts/templates/releasenotes-template.html');
+
     var latest = new File({
        path: 'latest.handlebars',
-       contents: releaseNotes[0].contents
+       contents: new Buffer(template(releaseNotes[0]))
     });
     
     es.readArray([latest])
