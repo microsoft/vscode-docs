@@ -242,7 +242,7 @@ The `restart` attribute controls whether the Node.js debugger automatically rest
 
 On the command line, start your Node.js program `server.js` with **nodemon**:
 
-```shell
+```bash
 nodemon --debug server.js
 ```
 

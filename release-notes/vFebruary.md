@@ -252,7 +252,7 @@ Setting the launch configuration attribute `restart` to `true` makes node-debug 
 
 On the command line, start your Node.js program `server.js`:
 
-```shell
+```bash
 nodemon --debug server.js
 ```
 
