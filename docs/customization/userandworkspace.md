@@ -72,10 +72,10 @@ Below is a copy of the default `settings.json` file.
     //-------- Editor configuration --------
 
     // Controls the font family.
-    "editor.fontFamily": "",
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
     // Controls the font size.
-    "editor.fontSize": 0,
+    "editor.fontSize": 14,
 
     // Controls the line height.
     "editor.lineHeight": 0,
@@ -161,6 +161,15 @@ Below is a copy of the default `settings.json` file.
     // Controls whether the editor has code folding enabled
     "editor.folding": true,
 
+    // Inserting and deleting whitespace follows tab stops
+    "editor.useTabStops": true,
+
+    // Remove trailing auto inserted whitespace
+    "editor.trimAutoWhitespace": true,
+
+    // Keep peek editors open even when double clicking their content or when hitting Escape.
+    "editor.stablePeek": false,
+
     // Controls if the diff editor shows the diff side by side or inline
     "diffEditor.renderSideBySide": true,
 
@@ -185,6 +194,7 @@ Below is a copy of the default `settings.json` file.
     // Configure glob patterns for excluding files and folders.
     "files.exclude": {
         "**/.git": true,
+        "**/.svn": true,
         "**/.DS_Store": true
     },
 
@@ -266,43 +276,29 @@ Below is a copy of the default `settings.json` file.
     "git.autofetch": true,
 
 
-    //-------- JSON configuration --------
-
-    // Associate schemas to JSON files in the current project
-    "json.schemas": [],
-
-
     //-------- Markdown preview configuration --------
 
     // A list of URLs or local paths to CSS style sheets to use from the markdown preview.
     "markdown.styles": [],
 
 
-    //-------- HTML configuration --------
+    //-------- JSON configuration --------
 
-    // Maximum amount of characters per line (0 = disable).
-    "html.format.wrapLineLength": 120,
+    // Associate schemas to JSON files in the current project
+    "json.schemas": [],
 
-    // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all inline tags.
-    "html.format.unformatted": null,
 
-    // Indent <head> and <body> sections.
-    "html.format.indentInnerHtml": false,
+    //-------- Telemetry configuration --------
 
-    // Whether existing line breaks before elements should be preserved. Only works before elements, not inside tags or for text.
-    "html.format.preserveNewLines": true,
+    // Enable usage data and errors to be sent to Microsoft.
+    "telemetry.enableTelemetry": true,
 
-    // Maximum number of line breaks to be preserved in one chunk. Use 'null' for unlimited.
-    "html.format.maxPreserveNewLines": null,
 
-    // Format and indent {{#foo}} and {{/foo}}.
-    "html.format.indentHandlebars": false,
+    //-------- Telemetry configuration --------
 
-    // End with a newline.
-    "html.format.endWithNewline": false,
-
-    // List of tags, comma separated, that should have an extra newline before them. 'null' defaults to "head, body, /html".
-    "html.format.extraLiners": null,
+    // Enable crash reports to be sent to Microsoft.
+	// This option requires restart to take effect.
+    "telemetry.enableCrashReporter": true,
 
 
     //-------- CSS configuration --------
@@ -367,17 +363,31 @@ Below is a copy of the default `settings.json` file.
     "css.lint.idSelector": "ignore",
 
 
-    //-------- Telemetry configuration --------
+    //-------- HTML configuration --------
 
-    // Enable crash reports to be sent to Microsoft.
-	// This option requires restart to take effect.
-    "telemetry.enableCrashReporter": true,
+    // Maximum amount of characters per line (0 = disable).
+    "html.format.wrapLineLength": 120,
 
+    // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
+    "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, script, select, small, span, strong, sub, sup, textarea, tt, var",
 
-    //-------- Telemetry configuration --------
+    // Indent <head> and <body> sections.
+    "html.format.indentInnerHtml": false,
 
-    // Enable usage data and errors to be sent to Microsoft.
-    "telemetry.enableTelemetry": true,
+    // Whether existing line breaks before elements should be preserved. Only works before elements, not inside tags or for text.
+    "html.format.preserveNewLines": true,
+
+    // Maximum number of line breaks to be preserved in one chunk. Use 'null' for unlimited.
+    "html.format.maxPreserveNewLines": null,
+
+    // Format and indent {{#foo}} and {{/foo}}.
+    "html.format.indentHandlebars": false,
+
+    // End with a newline.
+    "html.format.endWithNewline": false,
+
+    // List of tags, comma separated, that should have an extra newline before them. 'null' defaults to "head, body, /html".
+    "html.format.extraLiners": "head, body, /html",
 
 
     //-------- LESS configuration --------
@@ -504,13 +514,28 @@ Below is a copy of the default `settings.json` file.
     "sass.lint.idSelector": "ignore",
 
 
+    //-------- Integrated terminal configuration --------
+
+    // The path of the shell that the terminal uses on Linux.
+    "terminal.integrated.shell.linux": "sh",
+
+    // The path of the shell that the terminal uses on OS X.
+    "terminal.integrated.shell.osx": "sh",
+
+    // The path of the shell that the terminal uses on Windows.
+    "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe",
+
+    // The font family used by the terminal (CSS font-family format).
+    "terminal.integrated.fontFamily": "Menlo, Monaco, Consolas, \"Droid Sans Mono\", \"Courier New\", monospace, \"Droid Sans Fallback\"",
+
+
     //-------- External terminal configuration --------
 
     // Customizes which terminal to run on Windows.
-    "externalTerminal.windowsExec": "cmd",
+    "terminal.external.windowsExec": "cmd",
 
     // Customizes which terminal to run on Linux.
-    "externalTerminal.linuxExec": "x-terminal-emulator",
+    "terminal.external.linuxExec": "xterm",
 
 
     //-------- TypeScript configuration --------
@@ -524,7 +549,7 @@ Below is a copy of the default `settings.json` file.
     // Enable / disable TypeScript validation
     "typescript.validate.enable": true,
 
-    // Enables tracing of messages sent to the TS server
+    // Enables tracing of messages send to the TS server
     "typescript.tsserver.trace": "off",
 
     // Defines space handling after a comma delimiter
@@ -594,7 +619,10 @@ Below is a copy of the default `settings.json` file.
     "php.validate.executablePath": null,
 
     // Whether the linter is run on save or on type.
-    "php.validate.run": "onSave"
+    "php.validate.run": "onSave",
+
+    // Enable word based suggestions.
+    "editor.wordBasedSuggestions": true
 
 }
 ```

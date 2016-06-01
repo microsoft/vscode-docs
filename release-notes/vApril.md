@@ -114,14 +114,14 @@ The zip archive now included the CLI (`./bin/code`) and has been improved to sup
 
 ### Launch your preferred shell
 
-You can now specify which external shell VS Code will launch when you use commands like **Open in Command Prompt** (or **Open in Terminal** on OS X or Linux).  Set the `externalTerminal` user or workspace setting for your platform (`windowsExec`, `linuxExec`) to the executable to launch (`cmd` is the default for Windows).
+You can now specify which external shell VS Code will launch when you use commands like **Open in Command Prompt** (or **Open in Terminal** on OS X or Linux).  Set the `terminal.external` user or workspace setting for your platform (`windowsExec`, `linuxExec`) to the executable to launch (`cmd` is the default for Windows).
 
 For example, to set PowerShell as your external shell on Windows and Terminator on Linux, use:
 
 ```json
 {
-    "externalTerminal.windowsExec": "powershell",
-    "externalTerminal.linuxExec": "terminator"
+    "terminal.external.windowsExec": "powershell",
+    "terminal.external.linuxExec": "terminator"
 }
 ```
 
