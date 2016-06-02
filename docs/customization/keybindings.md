@@ -272,6 +272,27 @@ The following keys are accepted:
 
 Chords are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
 
+## Removing a specific key binding rule
+
+You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, simply add a `-` to the `command` and the rule will be a removal rule.
+
+Here is an example:
+
+```json
+// In Default Keyboard Shortcuts
+...
+{ "key": "tab", "command": "tab", "when": ... },
+{ "key": "tab", "command": "editor.emmet.action.expandAbbreviation", "when": ... },
+{ "key": "tab", "command": "jumpToNextSnippetPlaceholder", "when": ... },
+{ "key": "tab", "command": "acceptQuickFixSuggestion", "when": ... },
+{ "key": "tab", "command": "acceptSelectedSuggestion", "when": ... },
+...
+
+// To remove the second rule, for example, add in keybindings.json:
+{ "key": "tab", "command": "-editor.emmet.action.expandAbbreviation" }
+
+```
+
 ## Keyboard layouts
 
 >**Note:** This section relates only to key bindings, not to typing in the editor.
