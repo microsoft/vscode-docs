@@ -231,6 +231,9 @@ Argument|Description
 `-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
 `--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es` 
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
+`--list-extensions` | List the installed extensions.
+`--install-extension` | Install an extension. Provide the full extension name `publisher.extension` as an argument.
+`--uninstall-extension` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument.
 `-w` or `--wait` | Wait for the window to be closed before returning
 
 For both files and folders, you can use absolute or relative paths. Relative paths are relative to the current directory of the command prompt where you run `code`.

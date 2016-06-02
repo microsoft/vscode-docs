@@ -62,6 +62,18 @@ You can review our handy **Featured**, **Most Popular**, and **Recently Added** 
 
 ![marketplace-categories](images/extension-gallery/marketplace-categories.png)
 
+## Command Line Extension Management
+
+To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the command line. When identifying an extension, provide the full name of the form `publisher.extension`, for example `donjayamanne.python`.
+
+Example:
+
+```
+code --list-extensions
+code --install-extension ms-vscode.cpptools
+code --uninstall-extension ms-vscode.csharp
+```
+
 ## Next Steps
 
 Here are a few topics you may find interesting...
