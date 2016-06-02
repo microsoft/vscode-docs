@@ -51,6 +51,8 @@ Key|Command|Command id
 `kb(scrollPageUp)`|Scroll Page Up|`scrollPageUp`
 `kb(editor.fold)`|Fold (collapse) region|`editor.fold`
 `kb(editor.unfold)`|Unfold (uncollapse) region|`editor.unfold`
+`kb(editor.foldRecursively)`|Fold (collapse) all subregions|`editor.foldRecursively`
+`kb(editor.unfoldRecursively)`|Unfold (uncollapse) all subregions|`editor.unfoldRecursively`
 `kb(editor.foldAll)`|Fold (collapse) all regions|`editor.foldAll`
 `kb(editor.unfoldAll)`|Unfold (uncollapse) all regions|`editor.unfoldAll`
 `kb(editor.action.addCommentLine)`|Add Line Comment|`editor.action.addCommentLine`
@@ -61,6 +63,7 @@ Key|Command|Command id
 `kb(editor.action.startFindReplaceAction)`|Replace|`editor.action.startFindReplaceAction`
 `kb(editor.action.nextMatchFindAction)`|Find Next|`editor.action.nextMatchFindAction`
 `kb(editor.action.previousMatchFindAction)`|Find Previous|`editor.action.previousMatchFindAction`
+`kb(editor.action.selectAllMatches)`|Select All Occurences of Find Match|`editor.action.selectAllMatches`
 `kb(toggleFindCaseSensitive)`|Toggle Find Case Sensitive|`toggleFindCaseSensitive`
 `kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
 `kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
@@ -158,6 +161,7 @@ Key|Command|Command id
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
 `kb(workbench.action.markdown.togglePreview)`|Toggle Markdown Preview|`workbench.action.markdown.togglePreview`
 `kb(workbench.action.markdown.openPreviewSideBySide)`|Open Preview to the Side|`workbench.action.markdown.openPreviewSideBySide`
+`kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
 
 ## Preferences
 
