@@ -25,13 +25,13 @@ Python is fully supported in Visual Studio Code through [extensions](/docs/edito
 VS Code is a fast editor and ships with only the basic features. Add Python language support to VS Code by installing one of the popular Python extensions. 
 
 1. Select an extension. 
-2. Install the extension by typing `ext install` into the command palette `kb(workbench.action.showCommands)`. 
+2. Install the extension by typing `ext install` into the Command Palette `kb(workbench.action.showCommands)`. 
 
 <div class="marketplace-extensions-python"></div>
 
-> Tip: The extensions shown above are dynamically queried. Read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-The examples in this document will use [Don Jayamanne's Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python), which has the highest number of downloads and the most features. 
+The examples in this document will use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
 
 ## Code Completion
 
@@ -53,11 +53,11 @@ Linting is the analysis of your Python code for potential errors. Use Visual Stu
 
 ## Debugging
 
-No more `print` statement debugging! Set breakpoints, inspect data, and use the debug console. Debug a number of different type of Python applications, including multi threaded, web, and remote applications. 
+No more `print` statement debugging! Set breakpoints, inspect data, and use the debug console. Debug a number of different type of Python applications, including multi-threaded, web, and remote applications. 
 
 <video id="python-debugging-video" src="http://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
 
-> Tip: Follow the instructions in the [wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Debugging) for getting started with debugging, including setting up your `launch.json` and troubleshooting common issues. 
+> Tip: Follow the instructions in the [wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Debugging) for getting started with debugging, including setting up your `launch.json` debugging configuration and troubleshooting common issues. 
 
 > Tip: Read more about general information about debugging in Visual Studio Code in the [debugging document](/docs/editor/debugging.md). 
 
