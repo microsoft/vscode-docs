@@ -29,7 +29,7 @@ VS Code is a fast editor and ships with only the basic features. Add Python lang
 
 <div class="marketplace-extensions-python"></div>
 
-> Tip: The extensions shown above are dynamically queried. Read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 The examples in this document will use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
 
