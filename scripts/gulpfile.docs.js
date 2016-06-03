@@ -33,8 +33,9 @@ gulp.task('copy-images', function () {
 					.pipe(imagemin());
 
 	var gifs = gulp.src([DOCS_SRC_ROOT + '/**/images/**/*.{gif,GIF}']);
+	var videos = gulp.src([DOCS_SRC_ROOT + '/**/images/**/*.{mp4,MP4}']);
 	
-	return es.merge([images, gifs])
+	return es.merge([images, gifs, videos])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
 		.pipe(rename({ dirname: '' }))
 		.pipe(gulp.dest(DEST_ROOT + '/dist/images'));

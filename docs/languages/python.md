@@ -1,0 +1,83 @@
+---
+Order: 8
+Area: languages
+TOCTitle: Python
+ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
+PageTitle: Python with Visual Studio Code
+DateApproved: 6/2/2016
+MetaDescription: Learn about Visual Studio Code features (syntax highlighting, snippets, linting) for Python development.
+---
+
+# Python on Visual Studio Code
+
+Python is fully supported in Visual Studio Code through an extension. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide code completion, linting, debugging, code formatting, snippets, and more. 
+
+## Demo in 30 Seconds
+
+<video id="python-feature-showcase-video" src="/images/python_feature_showcase.mp4" poster="/images/python_feature_showcase_placeholder.png" autoplay loop controls muted></video>
+
+> Download - If you haven't downloaded Visual Studio Code yet, click [here](/download) to give it a try. 
+
+## Install Python Extension
+
+Visual Studio Code is a fast editor and ships with only the basic features. Customize Visual Studio Code with Python by installing one of the popular Python Extensions. 
+
+1. Select an extension. 
+2. Install the extension by typing `ext install` into the command palette `kb(workbench.action.showCommands)`. 
+
+<div class="marketplace-extensions-python"></div>
+
+> Tip: these extensions are dynamically queried. Read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+
+The examples in this document will use [Don Jayamanne's Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) as it has the highest number of downloads and the most features. 
+
+## Code Completion
+
+[Intellisense](/docs/editor/editingevolved#_intellisense) is intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules. 
+
+Quickly see methods, class members, and documentation.
+
+<video id="python-code-completion-video" src="/images/python_python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
+
+> Tip: trigger code completion with `kb(editor.action.triggerSuggest)`.
+
+## Linting
+
+Linting is the analysis of your Python code for potential errors. Use Visual Studio Code to quickly navigate to the errors and warnings in your code. 
+
+<video id="python-linting-video" src="/images/python_python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
+
+> Tip: [Don Jayamanne's Python extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) gives you the option of using three different linters - [Pylint](https://www.pylint.org/), [Pep8](https://pypi.python.org/pypi/pep8), and [Flake8](https://flake8.readthedocs.io/en/latest/). See the [wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Linting) for more details. 
+
+## Debugging
+
+No more `print` statement debugging! Set breakpoints, watch variables, inspect data, and use the debug console. Debug a number of different type of Python applications, including multi threaded, web, and remote applications. 
+
+<video id="python-debugging-video" src="/images/python_python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
+
+> Tip: Follow the instructions in the [wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Debugging) for getting started with debugging, including setting up your `launch.json` and troubleshooting common issues. 
+
+> Tip: Read more about general information about debugging in Visual Studio Code in the [debugging document](/docs/editor/debugging). 
+
+## Snippets
+
+Snippets will take productivity to the next level. You can configure [your own snippets](/docs/customization/userdefinedsnippets) and use snippets provided by an extension. 
+
+<video id="python-snippets-video" src="/images/python_python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
+
+> Tip: Snippets appear in the same way as code completion - `kb(editor.action.triggerSuggest)`. 
+
+## Configuration
+
+You will need an [extension](#_install-python-extension) and [Python](https://www.python.org/downloads/) installed. Other dependencies are optional and depend on the features you want to use. Read through the requirements on the [extension's README](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements). 
+
+## Next Steps
+
+* [Install an Extension](#_install-python-extension) - Python extension are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Editing Evolved](/docs/editor/editingevolved) - Become a power user by mastering tips and tricks.
+
+## Common Questions
+
+**Q: Why won't linting work for me?**
+
+**A:** First make sure you have installed an extension. Next, many extensions have a dependency on an external package. Install the [required packages](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements) using a Python package manager like [pip](https://pypi.python.org/pypi/pip) or [easy_install](http://peak.telecommunity.com/DevCenter/EasyInstall). You can read more about troubleshooting linting issues [here](https://github.com/DonJayamanne/pythonVSCode/wiki/Autocomplete-Intellisense). 
