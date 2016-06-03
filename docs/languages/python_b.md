@@ -15,7 +15,7 @@ Python is fully supported in Visual Studio Code through an extension. Popular ex
 
 ## Install Python Extension
 
-Visual Studio Code is a fast editor and ships with only the basic features. Customize Visual Studio Code with Python by installing one of the popular Python Extensions. 
+VS Code is a fast editor and ships with only the basic features. Add Python language support to VS Code by installing one of the popular Python extensions. 
 
 1. Select an extension. 
 2. Install the extension by typing `ext install` into the command palette `kb(workbench.action.showCommands)`. 
@@ -24,11 +24,11 @@ Visual Studio Code is a fast editor and ships with only the basic features. Cust
 
 > Tip: these extensions are dynamically queried. Read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-The examples in this document will use [Don Jayamanne's Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) as it has the highest number of downloads and the most features. 
+The examples in this document will use [Don Jayamanne's Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python), which has the highest number of downloads and the most features. 
 
 ## Code Completion
 
-[Intellisense](/docs/editor/editingevolved#_intellisense) is intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules. 
+Python extensions support code completion and Intellisense. [Intellisense](/docs/editor/editingevolved#_intellisense) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules. 
 
 Quickly see methods, class members, and documentation.
 
@@ -46,7 +46,7 @@ Linting is the analysis of your Python code for potential errors. Use Visual Stu
 
 ## Debugging
 
-No more `print` statement debugging! Set breakpoints, watch variables, inspect data, and use the debug console. Debug a number of different type of Python applications, including multi threaded, web, and remote applications. 
+No more `print` statement debugging! Set breakpoints, inspect data, and use the debug console. Debug a number of different type of Python applications, including multi threaded, web, and remote applications. 
 
 <video id="python-debugging-video" src="/images/python_python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
 
@@ -60,7 +60,7 @@ Snippets will take productivity to the next level. You can configure [your own s
 
 <video id="python-snippets-video" src="/images/python_python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
 
-> Tip: Snippets appear in the same way as code completion - `kb(editor.action.triggerSuggest)`. 
+> Tip: Snippets appear in the same way as code completion `kb(editor.action.triggerSuggest)`. 
 
 ## Configuration
 
