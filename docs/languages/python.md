@@ -5,12 +5,12 @@ TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python with Visual Studio Code
 DateApproved: 6/2/2016
-MetaDescription: Learn about Visual Studio Code features (syntax highlighting, snippets, linting) for Python development.
+MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Python.
 ---
 
 # Python on Visual Studio Code
 
-Python is fully supported in Visual Studio Code through an extension. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide code completion, linting, debugging, code formatting, snippets, and more. 
+Python is fully supported in Visual Studio Code through [extensions](/docs/editor/extension-gallery.md). Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide code completion, linting, debugging, code formatting, snippets, and more. 
 
 ## Demo in 30 Seconds
 
@@ -27,7 +27,7 @@ VS Code is a fast editor and ships with only the basic features. Add Python lang
 
 <div class="marketplace-extensions-python"></div>
 
-> Tip: these extensions are dynamically queried. Read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+> Tip: The extensions shown above are dynamically queried. Read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 The examples in this document will use [Don Jayamanne's Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python), which has the highest number of downloads and the most features. 
 
@@ -39,7 +39,7 @@ Quickly see methods, class members, and documentation.
 
 <video id="python-code-completion-video" src="/images/python_python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
 
-> Tip: trigger code completion with `kb(editor.action.triggerSuggest)`.
+> Tip: Trigger code completion with `kb(editor.action.triggerSuggest)`.
 
 ## Linting
 
@@ -57,11 +57,11 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 
 > Tip: Follow the instructions in the [wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Debugging) for getting started with debugging, including setting up your `launch.json` and troubleshooting common issues. 
 
-> Tip: Read more about general information about debugging in Visual Studio Code in the [debugging document](/docs/editor/debugging). 
+> Tip: Read more about general information about debugging in Visual Studio Code in the [debugging document](/docs/editor/debugging.md). 
 
 ## Snippets
 
-Snippets will take productivity to the next level. You can configure [your own snippets](/docs/customization/userdefinedsnippets) and use snippets provided by an extension. 
+Snippets will take productivity to the next level. You can configure [your own snippets](/docs/customization/userdefinedsnippets.md) and use snippets provided by an extension. 
 
 <video id="python-snippets-video" src="/images/python_python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
 
@@ -73,8 +73,8 @@ You will need an [extension](#_install-python-extension) and [Python](https://ww
 
 ## Next Steps
 
-* [Install an Extension](#_install-python-extension) - Python extension are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Editing Evolved](/docs/editor/editingevolved) - Become a power user by mastering tips and tricks.
+* [Install an Extension](/docs/editor/extension-gallery.md) - Python extension are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+* [Editing Evolved](/docs/editor/editingevolved.md) - Become a power user by mastering tips and tricks.
 
 ## Common Questions
 
