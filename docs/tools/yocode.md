@@ -9,7 +9,7 @@ MetaDescription: Easily create VS Code extensions and customizations with the Yo
 ---
 # Yo Code - Extension Generator
 
-We have written a Yeoman generator to help get you started.
+We have written a [Yeoman generator](https://github.com/Microsoft/vscode-generator-code) to help get you started.
 
 ## Install the Generator
 
