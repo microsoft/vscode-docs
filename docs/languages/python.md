@@ -14,7 +14,9 @@ Python is fully supported in Visual Studio Code through [extensions](/docs/edito
 
 ## Demo in 30 Seconds
 
-<video id="python-feature-showcase-video" src="/images/python_feature_showcase.mp4" poster="/images/python_feature_showcase_placeholder.png" autoplay loop controls muted></video>
+<video id="python-feature-showcase-video" src="http://az754404.vo.msecnd.net/public/feature_showcase.mp4" poster="/images/python_feature_showcase_placeholder.png" autoplay loop controls muted>
+    Sorry you're browser doesn't support HTML 5 video. 
+</video>
 
 > [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, OS X, Linux). 
 
@@ -37,7 +39,7 @@ Python extensions support code completion and Intellisense. [Intellisense](/docs
 
 Quickly see methods, class members, and documentation.
 
-<video id="python-code-completion-video" src="/images/python_python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
+<video id="python-code-completion-video" src="http://az754404.vo.msecnd.net/public/python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
 
 > Tip: Trigger code completion with `kb(editor.action.triggerSuggest)`.
 
@@ -45,7 +47,7 @@ Quickly see methods, class members, and documentation.
 
 Linting is the analysis of your Python code for potential errors. Use Visual Studio Code to quickly navigate to the errors and warnings in your code. 
 
-<video id="python-linting-video" src="/images/python_python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
+<video id="python-linting-video" src="http://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
 
 > Tip: [Don Jayamanne's Python extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) gives you the option of using three different linters - [Pylint](https://www.pylint.org/), [Pep8](https://pypi.python.org/pypi/pep8), and [Flake8](https://flake8.readthedocs.io/en/latest/). See the [wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Linting) for more details. 
 
@@ -53,7 +55,7 @@ Linting is the analysis of your Python code for potential errors. Use Visual Stu
 
 No more `print` statement debugging! Set breakpoints, inspect data, and use the debug console. Debug a number of different type of Python applications, including multi threaded, web, and remote applications. 
 
-<video id="python-debugging-video" src="/images/python_python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
+<video id="python-debugging-video" src="http://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
 
 > Tip: Follow the instructions in the [wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Debugging) for getting started with debugging, including setting up your `launch.json` and troubleshooting common issues. 
 
@@ -63,7 +65,7 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 
 Snippets will take productivity to the next level. You can configure [your own snippets](/docs/customization/userdefinedsnippets.md) and use snippets provided by an extension. 
 
-<video id="python-snippets-video" src="/images/python_python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
+<video id="python-snippets-video" src="http://az754404.vo.msecnd.net/public/python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
 
 > Tip: Snippets appear in the same way as code completion `kb(editor.action.triggerSuggest)`. 
 
