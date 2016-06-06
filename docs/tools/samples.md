@@ -4,7 +4,7 @@ Area: tools
 TOCTitle: Samples
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
 PageTitle: Visual Studio Code Extension Samples
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Learn from existing extension samples.
 ---
 
