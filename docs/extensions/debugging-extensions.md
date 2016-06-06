@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Running and Debugging Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
 PageTitle: Running and Debugging your Visual Studio Code Extension
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: It is easy to debug and test your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension directly in Visual Studio Code.
 ---
 
@@ -34,7 +34,7 @@ Let's peek at what is going on behind the scenes. If you are writing your extens
 
 The TypeScript compilation is setup as follows in the generated extension:
 
-* A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
+* A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
 * A TypeScript compiler with the proper version is included inside the node_modules folder.
 * A `typings/vscode-typings.d.ts`: instructs the TypeScript compiler to include the `vscode` API definition.
 * The API definition is included in `node_modules/vscode`.
