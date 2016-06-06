@@ -49,11 +49,11 @@ In the example above:
 * `prefix` defines a prefix used in the IntelliSense drop down.  In this case `for`.
 * `body` is the snippet content.
 
-Possible variables are:
-
-* $1, $2 for tab stops
-* ${id} and ${id:label} and ${1:label} for variables
-* Variables with the same id are connected.
+    Possible variables are:
+    
+    * $1, $2 for tab stops
+    * ${id} and ${id:label} and ${1:label} for variables
+    * Variables with the same id are connected.
 * `description` is the description used in the IntelliSense drop down
 
 To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear.
