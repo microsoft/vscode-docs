@@ -16,6 +16,8 @@ VS Code has support for the JavaScript and TypeScript languages out-of-the-box a
 
 To get started in this walkthrough, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for the `node` and `npm` command line tools to be on your PATH.
 
+>**Linux**: There are specific Node.js packages available for the various flavors of Linux. See [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your version of Linux.
+
 >**Tip:** To test that you've got Node.js correctly installed on your computer, type `node --help` from a terminal and you should see the usage documentation.
 
 ## Hello World
