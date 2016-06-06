@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 
@@ -61,6 +61,18 @@ Additionally, you can browse and search for VS Code extensions through the [VS C
 You can review our handy **Featured**, **Most Popular**, and **Recently Added** extension lists and filter by **Category** (Debuggers, Languages, Linters, etc).
 
 ![marketplace-categories](images/extension-gallery/marketplace-categories.png)
+
+## Command Line Extension Management
+
+To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the command line. When identifying an extension, provide the full name of the form `publisher.extension`, for example `donjayamanne.python`.
+
+Example:
+
+```
+code --list-extensions
+code --install-extension ms-vscode.cpptools
+code --uninstall-extension ms-vscode.csharp
+```
 
 ## Next Steps
 

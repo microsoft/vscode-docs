@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 ---
 
@@ -242,7 +242,7 @@ The `restart` attribute controls whether the Node.js debugger automatically rest
 
 On the command line, start your Node.js program `server.js` with **nodemon**:
 
-```shell
+```bash
 nodemon --debug server.js
 ```
 

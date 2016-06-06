@@ -1,23 +1,19 @@
 ---
 Order: 7
-TOCTitle: December
-PageTitle: Visual Studio Code December
+TOCTitle: December 2015
+PageTitle: Visual Studio Code December 2015 0.10.6
 MetaDescription: See what is new in the Visual Studio Code December Release (0.10.6)
 ---
 
-# 0.10.6 (December 2015)
-
-The 0.10.6 release fixes a [crash on startup](https://github.com/Microsoft/vscode/issues/1463) that happens on OS X when using certain keyboard layouts.
-
-Downloads: [Windows](https://az764295.vo.msecnd.net/public/0.10.6/VSCodeSetup.exe) | [OS X](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-darwin.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-linux32.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-linux64.zip)
-
-# 0.10.5 (December 2015)
+# December 2015 (0.10.6)
 
 Hi,
 
 November was a big release for us (adding extensibility support and moving to open source) and we appreciate all the support we received leading up to and during the Connect(); event. We've kept busy in December and we hope you like this release.
 
 These release notes only capture what's new in the core of Visual Studio Code. Do not forget to check out the [marketplace](https://marketplace.visualstudio.com/VSCode) for new extensions.
+
+Downloads: [Windows](https://az764295.vo.msecnd.net/public/0.10.6/VSCodeSetup.exe) | [OS X](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-darwin.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-linux32.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/public/0.10.6/VSCode-linux64.zip)
 
 ## Thanks
 

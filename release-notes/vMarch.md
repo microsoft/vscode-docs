@@ -1,13 +1,13 @@
 ---
 Order: 10
-TOCTitle: 1.0 March
-PageTitle: Visual Studio Code March 1.0.0
-MetaDescription: See what is new in the Visual Studio Code March Release (1.0.0)
+TOCTitle: March 2016
+PageTitle: Visual Studio Code March 2016 1.0
+MetaDescription: See what is new in the Visual Studio Code March 2016 Release (1.0)
 ---
 
 # Version 1.0!
 
-## 1.0.0 (March 2016)
+## March 2016 (1.0)
 
 March was the end game milestone leading up to our [1.0 release](/blogs/2016/04/14/vscode-1.0.md).  We wanted the product to meet the high expections of a 1.0 release and we focused on fundamentals like quality, accessibility, global reach and performance. We also added features you care about and streamlined some common tasks.
 
@@ -357,7 +357,7 @@ sudo yum install <file>.rpm
 
 ### Linux CLI
 
-The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](http://code.visualstudio.com/Updates#_setup). Run `code --help` to see the command line arguments available for use.
+The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](/Updates/vFebruary.md#setup). Run `code --help` to see the command line arguments available for use.
 
 ### Wait support and Git patch/diff mode
 

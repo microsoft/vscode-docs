@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 ---
 
@@ -51,6 +51,8 @@ Key|Command|Command id
 `kb(scrollPageUp)`|Scroll Page Up|`scrollPageUp`
 `kb(editor.fold)`|Fold (collapse) region|`editor.fold`
 `kb(editor.unfold)`|Unfold (uncollapse) region|`editor.unfold`
+`kb(editor.foldRecursively)`|Fold (collapse) all subregions|`editor.foldRecursively`
+`kb(editor.unfoldRecursively)`|Unfold (uncollapse) all subregions|`editor.unfoldRecursively`
 `kb(editor.foldAll)`|Fold (collapse) all regions|`editor.foldAll`
 `kb(editor.unfoldAll)`|Unfold (uncollapse) all regions|`editor.unfoldAll`
 `kb(editor.action.addCommentLine)`|Add Line Comment|`editor.action.addCommentLine`
@@ -61,6 +63,7 @@ Key|Command|Command id
 `kb(editor.action.startFindReplaceAction)`|Replace|`editor.action.startFindReplaceAction`
 `kb(editor.action.nextMatchFindAction)`|Find Next|`editor.action.nextMatchFindAction`
 `kb(editor.action.previousMatchFindAction)`|Find Previous|`editor.action.previousMatchFindAction`
+`kb(editor.action.selectAllMatches)`|Select All Occurences of Find Match|`editor.action.selectAllMatches`
 `kb(toggleFindCaseSensitive)`|Toggle Find Case Sensitive|`toggleFindCaseSensitive`
 `kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
 `kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
@@ -158,6 +161,7 @@ Key|Command|Command id
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
 `kb(workbench.action.markdown.togglePreview)`|Toggle Markdown Preview|`workbench.action.markdown.togglePreview`
 `kb(workbench.action.markdown.openPreviewSideBySide)`|Open Preview to the Side|`workbench.action.markdown.openPreviewSideBySide`
+`kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
 
 ## Preferences
 
@@ -267,6 +271,27 @@ The following keys are accepted:
 * `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
 Chords are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
+
+## Removing a specific key binding rule
+
+You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, simply add a `-` to the `command` and the rule will be a removal rule.
+
+Here is an example:
+
+```json
+// In Default Keyboard Shortcuts
+...
+{ "key": "tab", "command": "tab", "when": ... },
+{ "key": "tab", "command": "editor.emmet.action.expandAbbreviation", "when": ... },
+{ "key": "tab", "command": "jumpToNextSnippetPlaceholder", "when": ... },
+{ "key": "tab", "command": "acceptQuickFixSuggestion", "when": ... },
+{ "key": "tab", "command": "acceptSelectedSuggestion", "when": ... },
+...
+
+// To remove the second rule, for example, add in keybindings.json:
+{ "key": "tab", "command": "-editor.emmet.action.expandAbbreviation" }
+
+```
 
 ## Keyboard layouts
 

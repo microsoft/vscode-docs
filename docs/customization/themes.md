@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 
@@ -66,13 +66,13 @@ Themes are just one way to customize VS Code. If you'd like to learn more about 
 
 **Q: What parts of VS code can I theme with a custom theme?**
 
-The VS Code themes are limited to the editor input area: text foreground, background, selection, lineHighlight, caret as well as the syntax tokens. When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-dark`). The base theme is used for all other areas in the workbench such as the explorer. Base themes are not customizable or contributable by extensions.
+The VS Code themes are limited to the editor input area: text foreground, background, selection, lineHighlight, caret as well as the syntax tokens. When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-dark`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
 
 **Q: Is there are list of scopes that I can use in my custom theme?**
 
-VS Code themes are standard text mate themes and the tokenizers used in VS code are well established text mate tokenizers, mostly maintained my the community and in use in other products.
+VS Code themes are standard TextMate themes and the tokenizers used in VS code are well established TextMate tokenizers, mostly maintained by the community and in use in other products.
 
-Too learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes). I also found [this blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html) useful.  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
+Too learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html) useful.  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
 
-You will find that authoring a theme is tricky business as the grammars all behave a bit different. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
+Authoring a theme is fairly tricky as the grammars all behave a bit differently. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
 

@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Installing Extensions
 ContentId: 8D19F206-8CB3-498D-BDD1-317B4104EDD0
 PageTitle: Installing Visual Studio Code Extensions
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Learn how to install Visual Studio Code extensions (plug-ins) from the public Marketplace, shared with other developers or privately on your own machine.
 ---
 
