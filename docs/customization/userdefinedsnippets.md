@@ -85,7 +85,7 @@ To do this, you need to create a snippet extension.  If you've used the `yo code
 
 If you want to share user snippets, you'll need to package your snippet json file along with an extension manifest which has the necessary metadata to integrate the snippets into VS Code.
 
-Depending on your plaform, your user snippets file is located here:
+Depending on your platform, your user snippets file is located here:
 
 * **Windows** `%APPDATA%\Code\User\snippets\(language).json`
 * **Mac** `$HOME/Library/Application Support/Code/User/snippets/(language).json`
