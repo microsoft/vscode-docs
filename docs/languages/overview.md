@@ -22,9 +22,9 @@ The richness of support varies across the different languages. The table below p
 
 Features|Languages
 --------|-------------------------
-Syntax coloring, bracket matching |Batch, Clojure, Coffee Script, [Dockerfile](/docs/languages/dockerfile.md), F#, Go, Jade, Java, HandleBars, Ini, Lua, Makefile, Objective-C, Perl, PowerShell, Python, R, Razor, Ruby, Rust, SQL, Visual Basic, XML
+Syntax coloring, bracket matching |Batch, Clojure, Coffee Script, [Dockerfile](/docs/languages/dockerfile.md), F#, Go, Jade, Java, HandleBars, Ini, Lua, Makefile, Objective-C, Perl, PowerShell, R, Razor, Ruby, Rust, SQL, Visual Basic, XML
 + Snippets| Groovy, [Markdown](/docs/languages/markdown.md), Swift
-+ IntelliSense, linting, outline|[C++](/docs/languages/cpp.md), [CSS](/docs/languages/css.md), [HTML](/docs/languages/html.md), [JavaScript](/docs/languages/javascript.md), [JSON](/docs/languages/json.md), [Less](/docs/languages/css.md), [PHP](/docs/languages/php.md), [Sass](/docs/languages/css.md)
++ IntelliSense, linting, outline|[C++](/docs/languages/cpp.md), [CSS](/docs/languages/css.md), [HTML](/docs/languages/html.md), [JavaScript](/docs/languages/javascript.md), [JSON](/docs/languages/json.md), [Less](/docs/languages/css.md), [PHP](/docs/languages/php.md), [Python](/docs/languages/python.md), [Sass](/docs/languages/css.md)
 + Refactoring, find all references|[TypeScript](/docs/languages/typescript.md), [C&#35;](/docs/languages/csharp.md)
 
 ## Language Extensions

@@ -49,11 +49,11 @@ In the example above:
 * `prefix` defines a prefix used in the IntelliSense drop down.  In this case `for`.
 * `body` is the snippet content.
 
-Possible variables are:
-
-* $1, $2 for tab stops
-* ${id} and ${id:label} and ${1:label} for variables
-* Variables with the same id are connected.
+    Possible variables are:
+    
+    * $1, $2 for tab stops
+    * ${id} and ${id:label} and ${1:label} for variables
+    * Variables with the same id are connected.
 * `description` is the description used in the IntelliSense drop down
 
 To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear.
@@ -85,7 +85,7 @@ To do this, you need to create a snippet extension.  If you've used the `yo code
 
 If you want to share user snippets, you'll need to package your snippet json file along with an extension manifest which has the necessary metadata to integrate the snippets into VS Code.
 
-Depending on your plaform, your user snippets file is located here:
+Depending on your platform, your user snippets file is located here:
 
 * **Windows** `%APPDATA%\Code\User\snippets\(language).json`
 * **Mac** `$HOME/Library/Application Support/Code/User/snippets/(language).json`

@@ -19,7 +19,7 @@ VS Code provides two different scopes for settings:
 
 ## Creating User and Workspace Settings
 
-The menu under **File** > **Preferences** provides entries to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the related `settings.json` file.
+The menu under **File** > **Preferences** (**Code** > **Preferences** on Mac) provides entries to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the related `settings.json` file.
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
