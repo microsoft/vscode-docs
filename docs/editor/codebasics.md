@@ -182,7 +182,6 @@ Set the file encoding globally or per workspace by using the `files.encoding` se
 
 ![files.encoding setting](images/codebasics/filesencodingsetting.png)
 
-
 You can view the file encoding in the status bar.
 
 ![Encoding in status bar](images/codebasics/fileencoding.png)
@@ -203,7 +202,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
->**Tip:** We have instructions for Mac users in our [Setup](/docs/editor/setup.md#_mac-os-x) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows and Linux automatically.
+>**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/osx.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows and Linux automatically.
 
 Sometimes you will want to open or create a file. If a file does not exist, we will create it for you:
 

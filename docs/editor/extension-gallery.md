@@ -28,7 +28,7 @@ Pick `Extensions: Install Extension`.
 
 You'll see a list of extensions on the Marketplace along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
 
->**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/supporting/faq.md#proxy-server-support) for details.
+>**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/overview.md#proxy-server-support) for details.
 
 ## Install an Extension
 
