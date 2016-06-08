@@ -107,6 +107,8 @@ VS Code gives you many options to configure the editor. You can set options glob
  
 * Select **Files** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
 
+>Note: The **Preferences** menu is under **Code** not **File** on a Mac. For example, **Code** > **Preferences** > **User Settings**.
+
 You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from Default Settings.
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
