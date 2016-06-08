@@ -40,7 +40,9 @@ Extensions integrate into VS Code's UI, commands, and task running systems so yo
 
 ## Proxy Server Support
 
-Many enterprises require that their computers run behind a proxy server and don't allow direct access to the Internet. A proxy server intermediary can limit access to the VS Code Extension [Marketplace](https://marketplace.visualstudio.com/vscode) and prevent installing VS Code [extensions](/docs/editor/extension-gallery.md). If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
+Many enterprises require that their computers run behind a proxy server and don't allow direct access to the Internet. A proxy server intermediary can limit access to the VS Code Extension [Marketplace](https://marketplace.visualstudio.com/vscode) and prevent installing VS Code [extensions](/docs/editor/extension-gallery.md). 
+
+If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
 
 * Set the operating system environment variables ‘http_proxy’ and ‘https_proxy’
 
@@ -62,10 +64,10 @@ Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a sel
 
 Once you have installed and set up VS Code, these topics will help you learn more about VS Code:
 
-* [Installing Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, and TypeScript as well as tools like Yeoman.
+* [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
 * [The Basics](/docs/editor/codebasics.md) - Basic orientation around VS Code
-* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Go To Definition and more
+* [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
 
 If you'd like to getting something running quickly, try the [Node.js runtime](/docs/runtimes/nodejs.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
 
@@ -85,4 +87,4 @@ If you'd like to getting something running quickly, try the [Node.js runtime](/d
 
 **Q: How do I know which version I'm running?**
 
-**A:** In Linux and Windows, choose **Help**, **About**. In OS X, use **Code**, **About Visual Studio Code**.
+**A:** In Linux and Windows, choose **Help** > **About**. In OS X, use **Code** > **About Visual Studio Code**.

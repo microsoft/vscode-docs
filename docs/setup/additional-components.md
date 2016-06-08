@@ -19,9 +19,9 @@ If you are used to working with larger, monolithic development tools (IDEs), you
 Here are a few commonly installed components:
 
 - [Git](http://git-scm.com/download) - VS Code has built-in support for source code control using Git but requires Git to be installed separately.
-- [Node.js (includes NPM)](https://nodejs.org/) - A platform and runtime for easily building and running JavaScript applications
+- [Node.js (includes NPM)](https://nodejs.org/) - A platform and runtime for building and running JavaScript applications.
 - [TypeScript](http://typescriptlang.org) - The TypeScript compiler, `tsc`, for transpiling structured and strongly typed TypeScript to JavaScript.
-- [Typings](https://github.com/typings/typings) - A TypeScript type definition manager so that VS Code can provide IntelliSense for popular JavaScript frameworks.
+- [Typings](https://github.com/typings/typings) - A TypeScript type definition manager so that VS Code can provide IntelliSense (smart code completion) for popular JavaScript frameworks.
 
 You'll find the components above mentioned often in our documentation and walkthroughs.
 
@@ -37,13 +37,18 @@ The extensions shown above are the current most popular on Marketplace. Click on
 
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
-- [Yeoman](http://yeoman.io/) - An application scaffolding tool, think of it as a command line version of **File** > **New Project**.
+- [Yeoman](http://yeoman.io/) - An application scaffolding tool, a command line version of **File** > **New Project**.
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - A Yeoman generator for scaffolding **ASP.NET Core** applications.
 - [hottowel](https://github.com/johnpapa/generator-hottowel) - A Yeoman generator for quickly creating **AngularJS** applications.
-- [Express](gtp://bower.io/) - A client side package manager.
+- [Express](http://expressjs.com/) - An application framework for Node.js applications using the **Jade** template engine.
+- [gulp](http://gulpjs.com/) - A streaming task runner system which integrates easily with VS Code tasks.
+- [mocha](http://mochajs.org/) - A JavaScript test framework that runs on Node.js.
+- [bower](http://bower.io/) - A client side package manager.
+
+>**Note:** Most of these tools require Node.js and the NPM package manager to install and use.
 
 ## Next Steps
 
 * [The Basics](/docs/editor/codebasics.md) - A quick orientation around VS Code.
-* [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through settings.
 * [Languages](/docs/languages/overview.md) - VS Code supports many programming languages out-of-the-box as well as many more through community created extensions.
