@@ -32,7 +32,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 ## Updates
 
-VS Code ships monthly [releases](https://github.com/Microsoft/vscode/issues?utf8=%E2%9C%93&q=is%3Aissue+label%3Aiteration-plan) and you can see when a new release is available by checking [Updates](/updates).  Unfortunately, VS Code does not yet support auto-update on Linux, so you will need to manually install each new release.
+VS Code ships monthly and you can see when a new release is available by checking [Updates](/updates).  Unfortunately, VS Code does not yet support auto-update on Linux, so you will need to manually install each new release.
 
 ## Node.js
 
