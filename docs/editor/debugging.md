@@ -14,15 +14,15 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ![Debugging](images/debugging/hero.png)
 
-VS Code has built-in debugging support for Node.js (JavaScript, TypeScript, and any other language that gets transpiled to JavaScript). For debugging other languages (including C# on [Mono](http://www.mono-project.com)), please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
+## Debugger Extensions
 
-The following documentation is based on the built-in Node.js debugger, but many of the concepts and features are applicable to other debuggers as well.
+VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript. For debugging other languages and runtimes (including [C#](/docs/languages/csharp.md) on [Mono](http://www.mono-project.com)), please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).  Some of the programming languages with debugger extensions available are: [PHP](/docs/languages/php.md), [C++](/docs/languages/cpp.md), [Go](https://marketplace.visualstudio.com/items/lukehoban.Go) and [Python](/docs/languages/python.md).
 
-It is helpful to first create a sample Node.js application before reading about debugging. Follow this guide to do a run-through with Node.js:
+## Start Debugging
 
-* [Node.js Applications](/docs/runtimes/nodejs.md)
+The following documentation is based on the built-in [Node.js](https://nodejs.org/) debugger, but most of the concepts and features are applicable to other debuggers as well.
 
-Once you are all set up, this page will take you through the debugging scenarios we support.
+It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/runtimes/nodejs.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application all set up, this page will take you through VS Code debugging features.
 
 ## Debug View
 
@@ -89,6 +89,8 @@ Select the configuration named `Launch` using the **Configuration dropdown** in 
 To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
 
 VS Code supports variable substitution inside strings in `launch.json` the same way as for [tasks.json](/docs/editor/tasks.md#variables-in-tasksjson).
+
+## Run mode
 
 In addition to debugging a program, VS Code supports running the program. The **Run** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
 
