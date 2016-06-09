@@ -14,12 +14,12 @@ MetaTags:
 
 # .NET Core and Visual Studio Code
 
-.NET Core gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and Mac. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# intellisense and debugging.   
+.NET Core gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and Mac. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# IntelliSense (smart code completion) and debugging.
 
 ## Getting Started
 
-1. Install [.NET Core](https://microsoft.com/net/core)
-2. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the marketplace 
+1. Install [.NET Core](https://microsoft.com/net/core).
+2. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
 
 You're all set!
 

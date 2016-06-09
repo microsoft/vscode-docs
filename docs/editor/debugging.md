@@ -263,13 +263,9 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
 
 ## Mono Debugging
 
-On Linux or OS X, the Mono debugging support of VS Code requires [Mono](http://www.mono-project.com/) version 3.12 or later.
-If you intend to build ASP.NET Core applications with Visual Studio Code, we recommend you first follow the steps
-**Installing ASP.NET Core and DNX** in [ASP.NET Core Applications](/docs/runtimes/ASPnet5.md) which will install a version of Mono
-that supports debugging.
+On Linux or OS X, the Mono debugging support of VS Code requires [Mono](http://www.mono-project.com/) version 3.12 or later. If you intend to build .NET Core applications with Visual Studio Code, we recommend you first follow the steps in [.NET Core and Visual Studio](/docs/runtimes/dotnet.md).
 
-If you just want to try VS Code Mono debugging, you can either download the latest Mono version
-for Linux or OS X at [Mono project](http://www.mono-project.com/download/) or you can use your package manager.
+If you just want to try VS Code Mono debugging, you can either download the latest Mono version for Linux or OS X at [Mono project](http://www.mono-project.com/download/) or you can use your package manager.
 
 * On OS X: `brew install mono`
 * On Linux: `sudo apt-get install mono-complete`
