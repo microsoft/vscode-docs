@@ -211,6 +211,12 @@ If you work on a machine where Internet traffic needs to go through a proxy serv
     "http.proxy": "http://10.203.0.1:5187/"
 ```
 
+or for an authenticating proxy 
+
+```json
+    "http.proxy": "http://userid:password@10.203.0.1:5187/"
+```
+
 Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.
 
 >**Note:** VS Code supports http and https proxies, but not SOCKS proxies.
