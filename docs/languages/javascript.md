@@ -88,7 +88,7 @@ Option  | Description
 
 ## IntelliSense
 
-The JavaScript Support uses different strategies to provide IntelliSense.
+The JavaScript Support uses different strategies to provide IntelliSense (smart code completions).
 
 ### IntelliSense based on type inference
 
@@ -242,7 +242,7 @@ Once you have added this, you can start **Babel** with the `kb(workbench.action.
 
 ## JSX and React Native
 
-VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/JSX**, install the typings for `react-global` by running `typings install dt~react --global` from the terminal. To get IntelliSense for **React Native**, run `typings install dt~react-native --global`
+VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/JSX**, install the typings for `react` by running `typings install dt~react --global` from the terminal. To get IntelliSense for **React Native**, run `typings install dt~react-native --global`
 
 **React Native** examples often use the experimental **Object Rest/Spread** operator. This is not yet supported by VS Code. If you want to use it, it is recommended that you disable the built-in syntax checking (see below).
 
