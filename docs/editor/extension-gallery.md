@@ -12,7 +12,7 @@ MetaDescription: Find out how to discover, add, update, disable and uninstall Vi
 
 ## Increase the power of VS Code through Extensions
 
-The features that VS Code includes out-of-the-box are just the start. VS Code extensions let you add new languages, features and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
+The features that VS Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
 
 ## Browse and Install Extensions in VS Code
 
@@ -28,7 +28,7 @@ Pick `Extensions: Install Extension`.
 
 You'll see a list of extensions on the Marketplace along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
 
->**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/supporting/faq.md#proxy-server-support) for details.
+>**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) for details.
 
 ## Install an Extension
 
@@ -100,4 +100,4 @@ Here are a few topics you may find interesting...
 
 **Q: Whenever I try to install any extension, I get a connect ETIMEDOUT error.**
 
-**A:** You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy Server Support](/docs/supporting/faq.md#proxy-server-support) section in our FAQ for details.
+**A:** You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) section in SETUP topic for details.

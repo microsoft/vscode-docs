@@ -18,19 +18,11 @@ Visual Studio Code is a streamlined code editor with support for development ope
 
 ## Which OS's are supported?
 
-VS Code runs on Mac, Linux, and Windows. See [Requirements](requirements) for the supported versions.
+VS Code runs on Mac, Linux, and Windows. See [Requirements](requirements) for the supported versions. You can find more platform specific details under [SETUP](/docs/setup/setup-overview.md).
 
 ## Is VS Code free?
 
 Yes, VS Code is a free, [open source](https://github.com/microsoft/vscode) editor.
-
-## How big is VS Code?
-
-VS Code is a small download (< 100 MB) and has a disk footprint of less than 200 MB, so you can quickly install VS Code and try it out.
-
-## How do I update to the latest version?
-
-See [how to update](howtoupdate). You'll find downloads for Linux (32-bit and 64-bit) and OS X, and both an installer and download for Windows.
 
 ## How do I opt out of VS Code auto-updates?
 
@@ -59,161 +51,6 @@ To learn why Visual Studio Code, the product, has a different license than vscod
 Want get an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build will automatically update when we release new builds, towards the end of each month or whenever there is new functionality we'd like to get into the hands of developers early.
 
 To install the Insiders build, go to the Insiders [download page](/insiders).
-
-## Windows FAQ
-
-### Trouble with the installer
-
-Try using the [zip file](https://go.microsoft.com/fwlink/?LinkID=615207) instead of the installer.  To use this, unzip VS Code in your **Program Files** folder.
-
->**Note:** When VS Code is installed via a Zip you will need to manually update it for each release.
-
-### Icons are missing
-
-I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
-
-VS Code uses [SVG](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) icons and we have found instances where the .SVG file extension is associated with something other than `image/svg+xml`. We're considering options to fix it, but for now here's a workaround:
-
-Using the Command Prompt:
-
-1. Open an Administrator Command Prompt.
-2. Type `REG ADD HKCR\.svg /f /v "Content Type" /t REG_SZ /d image/svg+xml`.
-
-Using the Registry Editor:
-
-1. Start regedit.
-2. Open the `HKEY_CLASSES_ROOT` key.
-3. Find the `.svg` key.
-4. Set its `Content Type` Data value to `image/svg+xml`.
-5. Exit regedit.
-
-### Windows 7 - Error when deleting files from Explorer
-
->**19 Dec 2015 | version 0.10.5**
-
-When deleting a file from the VS Code Explorer on **Windows 7** using the 0.10.5 release, you may receive an error "Failed to move '*filename*' to the trash" which prompts you to "Delete Permanently", "Retry", or "Cancel".
-
-By default, VS Code attempts to move the file to the Trash (Windows Recycle Bin). In the 0.10.5 release, there is an issue [3656](https://github.com/atom/electron/issues/3656) with the Electron Shell preventing this from working correctly.
-
-You can choose to delete the file permanently or delete the file using the Windows Explorer or Command Prompt, which will properly move the file to the Windows Recycle Bin.
-
-## OS X FAQ
-
-### VS Code fails to start OmniSharp
-
-On OS X, VS Code can no longer start OmniSharp after updating VS Code.
-
-To fix this issue, run these commands to update mono:
-
-```bash
-brew update
-brew reinstall mono
-```
-
-### Mono and El Capitan
-
-Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
-
-Run these commands:
-
-```bash
-brew update
-brew reinstall mono
-```
-
-## Linux FAQ
-
-### Azure VM Issues
-
-I'm getting a "Running without the SUID sandbox" error?
-
-Unfortunately, this is a known issue that we're still investigating.
-
-### Debian and Moving Files to Trash
-
-If you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
-
-Run these commands to solve this issue:
-
-```bash
-sudo apt-get install gvfs-bin
-```
-
-### error ENOSPC
-
-When you see this error, it indicates that the VS Code file watcher is running out of handles. The current limit can be viewed by running:
-
-```bash
-cat /proc/sys/fs/inotify/max_user_watches
-```
-
-The limit can be increased to its maximum by editing `/etc/sysctl.conf` and adding this line to the end of the file:
-
-```
-fs.inotify.max_user_watches=524288
-```
-
-The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
-
-While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](http://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upperbound of around 256MB (32-bit) or 512MB (64-bit).
-
-### I can't see Chinese characters in Ubuntu
-
-We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **User Settings**. Then set `editor.fontFamily` as shown:
-
-```json
-    "editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"
-```
-
-### Package git is not installed.
-
-This error can appear during installation and is typically caused by the package manager's being out of date. Try updating it and installing again:
-
-```bash
-# For .deb
-sudo apt-get update
-
-# For .rpm (Fedora 21 and below)
-sudo yum update
-
-# For .rpm (Fedora 22 and above)
-sudo dnf update
-```
-
-### The code bin command does not bring the window to the foreground on Ubuntu
-
-Running 'code .' on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
-
-```
-# Install
-sudo apt-get update
-sudo apt-get install compizconfig-settings-manager
-
-# Run
-ccsm
-```
-
-Under **General** > **General Options** > **Focus & Raise Behaviour**, set "Focus Prevention Level" to "Off". Remember this is an OS-level setting that will apply to all applications, not just VS Code.
-
-## Proxy Server Support
-
-If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
-
-* Set the operating system environment variables ‘http_proxy’ and ‘https_proxy’
-
-```bash
-    SET http_proxy=http://10.203.0.1:5187/
-```
-
-* Configure the ‘http.proxy’ setting in your user settings (**File** > **Preferences** > **User Settings**)
-
-```json
-    "http.proxy": "http://10.203.0.1:5187/"
-```
-
-Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.
-
->**Note:** VS Code supports http and https proxies, but not SOCKS proxies.
 
 ## VS Code gets unresponsive right after opening a folder
 
