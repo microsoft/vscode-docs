@@ -26,5 +26,5 @@ You're all set!
 ## Next Steps
 
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Go to Definition and more
-* [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your ASP.NET application.
+* [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET Core application.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings

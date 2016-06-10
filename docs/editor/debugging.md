@@ -330,7 +330,7 @@ To write your own debugger extension, visit:
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. ASP.NET Core applications are compiled using the [Roslyn](https://github.com/dotnet/roslyn) compiler, not the Mono compiler. ASP.NET Core debugging will be available through a VS Code extension. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads).
+**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. .NET Core applications are compiled using the [Roslyn](https://github.com/dotnet/roslyn) compiler, not the Mono compiler. .NET Core debugging will be available through a VS Code extension. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads).
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 

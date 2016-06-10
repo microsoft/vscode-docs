@@ -104,7 +104,7 @@ Read on to find out about:
 
 **Q: My Project won't load.**
 
-**A:** VS Code only supports a limited set of project types (primarily ASP.NET Core).  For full .NET project support, we suggest you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
+**A:** VS Code only supports a limited set of project types (primarily .NET Core).  For full .NET project support, we suggest you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
 **Q: IntelliSense is not working.**
 
