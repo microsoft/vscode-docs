@@ -29,6 +29,10 @@ MetaDescription: Get Visual Studio Code up and running on Mac OS X.
 
 VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits). If you'd rather control VS Code updates manually, see [How do I opt out of auto-updates](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates).
 
+## Preferences Menu
+
+You can configure VS Code through [settings](/docs/customization/userandworkspace.md), [color themes](/docs/customization/themes.md) and [custom keybindings](/docs/customization/keybindings.md) and you will see often see mention in our documentation of the **File** > **Preferences** menu group.  On a Mac, the **Preferences** menu group is under **Code**, not **File**.
+
 ## Next Steps
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
