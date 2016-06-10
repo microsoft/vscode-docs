@@ -50,10 +50,16 @@ If you work on a machine where Internet traffic needs to go through a proxy serv
     SET http_proxy=http://10.203.0.1:5187/
 ```
 
-* Configure the ‘http.proxy’ setting in your user settings (**File** > **Preferences** > **User Settings**)
+* Configure the ‘http.proxy’ setting in your user [settings](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **User Settings** or **Code** > **Preferences** > **User Settings** on Mac):
 
 ```json
     "http.proxy": "http://10.203.0.1:5187/"
+```
+
+or for an authenticating proxy
+
+```json
+    "http.proxy": "http://userid:password@10.203.0.1:5187/"
 ```
 
 Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.
