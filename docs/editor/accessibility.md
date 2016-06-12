@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.  
 ---
 
@@ -59,7 +59,7 @@ Read-only files never trap the `kbstyle(Tab)` key.
 
 ## Screen Readers
 
-VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](http://www.nvaccess.org), but we expect all screen readers to benefit from this suppport.
+VS Code supports screen readers in the editor using a strategy based on paging the text. We have tested using the [NVDA screen reader](http://www.nvaccess.org), but we expect all screen readers to benefit from this support.
 
 The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) allow screen readers to announce the error or warning messages.
 
@@ -67,7 +67,7 @@ When the suggestions pop up, they will get announced to screen readers. It is po
 
 ## Debugger Accessibility
 
-The VS Code debugger UI is user accessible and has the following feature:
+The VS Code debugger UI is user accessible and has the following features:
 
 * Changes in debug state are read out (e.g. 'started', 'breakpoint hit', 'terminated', ...).
 * All debug actions are keyboard accessible.
@@ -80,7 +80,7 @@ VS Code has some known accessibility issues depending on the platform.
 
 ### Windows
 
-You can not use the key board (right, left arrow keys) to move between top-level menu items (**File**, **Edit**, **View**, etc).  This is due to Election shell issue [#2504](https://github.com/atom/electron/issues/2504).
+You can not use the keyboard (right, left arrow keys) to move between top-level menu items (**File**, **Edit**, **View**, etc).  This is due to Election shell issue [#2504](https://github.com/atom/electron/issues/2504).
 
 ### OS X
 

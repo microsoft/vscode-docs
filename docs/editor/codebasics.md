@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: The Basics
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: The Basics of Visual Studio Code
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.
 ---
 
@@ -19,7 +19,7 @@ In addition, there are a number of unique features in the VS Code user interface
 
 VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
 
-On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or ASP.NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
+On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or .NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
 
 
 ## Basic Layout
@@ -107,6 +107,8 @@ VS Code gives you many options to configure the editor. You can set options glob
  
 * Select **Files** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
 
+>Note: The **Preferences** menu is under **Code** not **File** on a Mac. For example, **Code** > **Preferences** > **User Settings**.
+
 You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from Default Settings.
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
@@ -182,7 +184,6 @@ Set the file encoding globally or per workspace by using the `files.encoding` se
 
 ![files.encoding setting](images/codebasics/filesencodingsetting.png)
 
-
 You can view the file encoding in the status bar.
 
 ![Encoding in status bar](images/codebasics/fileencoding.png)
@@ -203,7 +204,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
->**Tip:** We have instructions for Mac users in our [Setup](/docs/editor/setup.md#_mac-os-x) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows and Linux automatically.
+>**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/osx.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows and Linux automatically.
 
 Sometimes you will want to open or create a file. If a file does not exist, we will create it for you:
 
@@ -231,6 +232,9 @@ Argument|Description
 `-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
 `--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es` 
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
+`--list-extensions` | List the installed extensions.
+`--install-extension` | Install an extension. Provide the full extension name `publisher.extension` as an argument.
+`--uninstall-extension` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument.
 `-w` or `--wait` | Wait for the window to be closed before returning
 
 For both files and folders, you can use absolute or relative paths. Relative paths are relative to the current directory of the command prompt where you run `code`.

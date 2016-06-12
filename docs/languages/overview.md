@@ -4,8 +4,8 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 5/9/2016
-MetaDescription: In Visual Studio Code we have support for all common languages.  We even support debugging for Node.js and ASP.NET Core.
+DateApproved: 6/6/2016
+MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 
 # Languages
@@ -22,9 +22,9 @@ The richness of support varies across the different languages. The table below p
 
 Features|Languages
 --------|-------------------------
-Syntax coloring, bracket matching |Batch, Clojure, Coffee Script, [Dockerfile](/docs/languages/dockerfile.md), F#, Go, Jade, Java, HandleBars, Ini, Lua, Makefile, Objective-C, Perl, PowerShell, Python, R, Razor, Ruby, Rust, SQL, Visual Basic, XML
+Syntax coloring, bracket matching |Batch, Clojure, Coffee Script, [Dockerfile](/docs/languages/dockerfile.md), F#, Go, Jade, Java, HandleBars, Ini, Lua, Makefile, Objective-C, Perl, PowerShell, R, Razor, Ruby, Rust, SQL, Visual Basic, XML
 + Snippets| Groovy, [Markdown](/docs/languages/markdown.md), Swift
-+ IntelliSense, linting, outline|[C++](/docs/languages/cpp.md), [CSS](/docs/languages/css.md), [HTML](/docs/languages/html.md), [JavaScript](/docs/languages/javascript.md), [JSON](/docs/languages/json.md), [Less](/docs/languages/css.md), [PHP](/docs/languages/php.md), [Sass](/docs/languages/css.md)
++ IntelliSense, linting, outline|[C++](/docs/languages/cpp.md), [CSS](/docs/languages/css.md), [HTML](/docs/languages/html.md), [JavaScript](/docs/languages/javascript.md), [JSON](/docs/languages/json.md), [Less](/docs/languages/css.md), [PHP](/docs/languages/php.md), [Python](/docs/languages/python.md), [Sass](/docs/languages/css.md)
 + Refactoring, find all references|[TypeScript](/docs/languages/typescript.md), [C&#35;](/docs/languages/csharp.md)
 
 ## Language Extensions

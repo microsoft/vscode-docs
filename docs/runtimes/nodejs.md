@@ -4,7 +4,7 @@ Area: runtimes
 TOCTitle: Node.js
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Node.js and Visual Studio Code End to End
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications.  At the heart of VS Code is a Node server so we use these features day-in day-out.
 ---
 
@@ -15,6 +15,8 @@ MetaDescription: Visual Studio Code has great support for writing and debugging 
 VS Code has support for the JavaScript and TypeScript languages out-of-the-box as well as Node.js debugging. However, to run a Node.js application, you will need to install the Node.js runtime on your machine.
 
 To get started in this walkthrough, [install Node.js for your platform](https://nodejs.org/en/download/). The Node Package Manager is included in the Node.js distribution. You'll need to open a new terminal (command prompt) for the `node` and `npm` command line tools to be on your PATH.
+
+>**Linux**: There are specific Node.js packages available for the various flavors of Linux. See [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your version of Linux.
 
 >**Tip:** To test that you've got Node.js correctly installed on your computer, type `node --help` from a terminal and you should see the usage documentation.
 

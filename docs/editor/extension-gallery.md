@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 
@@ -12,7 +12,7 @@ MetaDescription: Find out how to discover, add, update, disable and uninstall Vi
 
 ## Increase the power of VS Code through Extensions
 
-The features that VS Code includes out-of-the-box are just the start. VS Code extensions let you add new languages, features and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
+The features that VS Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
 
 ## Browse and Install Extensions in VS Code
 
@@ -28,7 +28,7 @@ Pick `Extensions: Install Extension`.
 
 You'll see a list of extensions on the Marketplace along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
 
->**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/supporting/faq.md#proxy-server-support) for details.
+>**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) for details.
 
 ## Install an Extension
 
@@ -62,6 +62,18 @@ You can review our handy **Featured**, **Most Popular**, and **Recently Added** 
 
 ![marketplace-categories](images/extension-gallery/marketplace-categories.png)
 
+## Command Line Extension Management
+
+To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the command line. When identifying an extension, provide the full name of the form `publisher.extension`, for example `donjayamanne.python`.
+
+Example:
+
+```
+code --list-extensions
+code --install-extension ms-vscode.cpptools
+code --uninstall-extension ms-vscode.csharp
+```
+
 ## Next Steps
 
 Here are a few topics you may find interesting...
@@ -88,4 +100,4 @@ Here are a few topics you may find interesting...
 
 **Q: Whenever I try to install any extension, I get a connect ETIMEDOUT error.**
 
-**A:** You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy Server Support](/docs/supporting/faq.md#proxy-server-support) section in our FAQ for details.
+**A:** You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) section in SETUP topic for details.

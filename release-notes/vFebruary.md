@@ -1,21 +1,11 @@
 ---
 Order: 9
-TOCTitle: February
-PageTitle: Visual Studio Code February 0.10.10
-MetaDescription: See what is new in the Visual Studio Code February Release (0.10.10)
+TOCTitle: February 2016
+PageTitle: Visual Studio Code February 0.10.11
+MetaDescription: See what is new in the Visual Studio Code February Release (0.10.11)
 ---
-# 0.10.11 (February 2016)
 
-The 0.10.11 release addresses the following issues:
-- [3894](https://github.com/Microsoft/vscode/issues/3894): [Handlebars] Curly braces edit issuess
-- [3899](https://github.com/Microsoft/vscode/issues/3899): [folding] sections are still folded when disabled in preferences 
-- [3903](https://github.com/Microsoft/vscode/issues/3903): [js] syntax highlight for 'var' and 'function' not working in Default VS theme
-- [3509](https://github.com/Microsoft/vscode/issues/3509): Smoke Test: Don't get cross file intellisense in JS
-
-Downloads: [Windows](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCodeSetup-stable.exe) |
-[OS X](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-darwin-stable.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-linux-x64-stable.zip)
-
-# 0.10.10 (February 2016)
+# February 2016 (0.10.11)
 
 February is our last full iteration before we start the end game for the [Build 2016 conference](http://build.microsoft.com/) milestone at the end of March. It comes with many improvements:
 
@@ -25,8 +15,8 @@ February is our last full iteration before we start the end game for the [Build 
 
 In addition, we continued to listen to your issues and feature requests.
 
-Downloads: [Windows](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCodeSetup-stable.exe) |
-[OS X](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-darwin-stable.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/5b5f4db87c10345b9d5c8d0bed745bcad4533135/VSCode-linux-x64-stable.zip)
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-darwin-stable.zip) | [Linux 32-bit](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-linux-ia32-stable.zip) | [Linux 64-bit](https://az764295.vo.msecnd.net/stable/f291f4ad600767626b24a4b15816b04bee9a3049/VSCode-linux-x64-stable.zip)
 
 ## Languages - JavaScript
 
@@ -52,7 +42,7 @@ There is now support for JSX/React:
 
 ![React/JSX Support](images/January/jsx-salsa.png)
 
->**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` or `typings install dt~react-global --global` from the terminal.
+>**Tip:** To get IntelliSense for React/JSX, install the typings for `react-global` by running `tsd install react-global` or `typings install dt~react --global` from the terminal.
 
 >**Tip:** When you use eslint for linting (see below) and you used `eslint --init` to create an eslint configuration and you answered  `yes` to "Do you use React?", then the setting `experimentalObjectRestSpread` is enabled. Support for ObjectRestSpread is not yet provided by Salsa but it is on the roadmap (see [#2103](https://github.com/Microsoft/TypeScript/issues/2103)).
 
@@ -262,7 +252,7 @@ Setting the launch configuration attribute `restart` to `true` makes node-debug 
 
 On the command line, start your Node.js program `server.js`:
 
-```shell
+```bash
 nodemon --debug server.js
 ```
 
@@ -410,6 +400,10 @@ We have changed the debug protocol in the following (backward compatible) ways:
 - [1228](https://github.com/Microsoft/vscode/issues/1228): Add option to convert tabs to spaces
 - [2490](https://github.com/Microsoft/vscode/issues/2490): Improve IntelliSense perf
 - [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
+- [3894](https://github.com/Microsoft/vscode/issues/3894): [Handlebars] Curly braces edit issuess
+- [3899](https://github.com/Microsoft/vscode/issues/3899): [folding] sections are still folded when disabled in preferences 
+- [3903](https://github.com/Microsoft/vscode/issues/3903): [js] syntax highlight for 'var' and 'function' not working in Default VS theme
+- [3509](https://github.com/Microsoft/vscode/issues/3509): Smoke Test: Don't get cross file intellisense in JS
 
 Here are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22Feb+2016%22+is%3Aclosed) and the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22Feb+2016%22+is%3Aclosed+label%3Afeature-request) for the February update.
 

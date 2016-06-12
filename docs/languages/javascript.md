@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 5/9/2016
+DateApproved: 6/6/2016
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -22,7 +22,7 @@ VS Code's JavaScript support can operate in two different modes:
 
 * **Explicit Project - with jsconfig.json**: A JavaScript project is defined via a `jsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a JavaScript project. The file itself can optionally list the files belonging to the project, the files to be excluded from the project, as well as compiler options (see below).
 
-The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. For this reason, we provide a hint to create a `jsconfig.json` file when you open a JavaScript file in a fresh workspace. The `jsconfig.json` file corresponds to a TypeScript project [tsconfig.json](https://github.com/Microsoft/TypeScript/wiki/tsconfig.json) file with the attribute `allowJs` implicitly set to `true`. If no `files` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `files` attribute is specified, only those files are included.
+The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. For this reason, we provide a hint to create a `jsconfig.json` file when you open a JavaScript file in a fresh workspace. The `jsconfig.json` file corresponds to a TypeScript project [tsconfig.json](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file with the attribute `allowJs` implicitly set to `true`. If no `files` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `files` attribute is specified, only those files are included.
 
 Make sure that you place the `jsconfig.json` at the root of your JavaScript project and not just at the root of your workspace. Below is a `jsconfig.json` file which defines the JavaScript `target` to be `ES6` and the `exclude` attribute excludes the `node_modules` folder.
 
@@ -88,7 +88,7 @@ Option  | Description
 
 ## IntelliSense
 
-The JavaScript Support uses different strategies to provide IntelliSense.
+The JavaScript Support uses different strategies to provide IntelliSense (smart code completions).
 
 ### IntelliSense based on type inference
 
@@ -242,7 +242,7 @@ Once you have added this, you can start **Babel** with the `kb(workbench.action.
 
 ## JSX and React Native
 
-VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/JSX**, install the typings for `react-global` by running `typings install dt~react-global --global` from the terminal. To get IntelliSense for **React Native**, run `typings install dt~react-native --global`
+VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/JSX**, install the typings for `react` by running `typings install dt~react --global` from the terminal. To get IntelliSense for **React Native**, run `typings install dt~react-native --global`
 
 **React Native** examples often use the experimental **Object Rest/Spread** operator. This is not yet supported by VS Code. If you want to use it, it is recommended that you disable the built-in syntax checking (see below).
 

@@ -39,6 +39,17 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-markdown', 'copy-releas
 		return parseFloat(b.Order) - parseFloat(a.Order);
 	});
 
+    // Compile most recent releasenotes as latest.handlebars
+    var template = common.swigCompiler('scripts/templates/releasenotes-template.html');
+
+    var latest = new File({
+       path: 'latest.handlebars',
+       contents: new Buffer(template(releaseNotes[0]))
+    });
+    
+    es.readArray([latest])
+        .pipe(gulp.dest(DEST_ROOT + '/views/updates'));
+    
 	var file = new File({
 		path: 'updateNav.handlebars',
 		contents: new Buffer(tpl({ articles: releaseNotes }))
@@ -59,9 +70,9 @@ gulp.task('compile-releasenotes-markdown', function () {
 		.pipe(es.mapSync(function (file) {
 			var rn = common.mapFileToArticle(file);
 
-			if (rn.Link.toLowerCase() == 'latest') {
-				rn.Link = '';
-			}
+			// if (rn.Link.toLowerCase() == 'latest') {
+			// 	rn.Link = '';
+			// }
 			console.log("Compiling RN: " + rn.Title);
 			rn = common.compileMarkdown(file, rn);
 
