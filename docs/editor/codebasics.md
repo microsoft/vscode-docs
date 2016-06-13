@@ -19,7 +19,7 @@ In addition, there are a number of unique features in the VS Code user interface
 
 VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
 
-On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or ASP.NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
+On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or .NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
 
 
 ## Basic Layout
@@ -184,7 +184,6 @@ Set the file encoding globally or per workspace by using the `files.encoding` se
 
 ![files.encoding setting](images/codebasics/filesencodingsetting.png)
 
-
 You can view the file encoding in the status bar.
 
 ![Encoding in status bar](images/codebasics/fileencoding.png)
@@ -205,7 +204,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
->**Tip:** We have instructions for Mac users in our [Setup](/docs/editor/setup.md#_mac-os-x) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows and Linux automatically.
+>**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/osx.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows and Linux automatically.
 
 Sometimes you will want to open or create a file. If a file does not exist, we will create it for you:
 

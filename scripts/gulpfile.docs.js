@@ -16,6 +16,7 @@ var DOCS_SRC_ROOT = 'docs';
 var DEST_ROOT = 'out/vscode-website/src'; 
 
 var areas = {
+	setup: { title: 'Setup', path: 'setup', include: true, articles: [] },
 	editor: { title: 'Editor', path: 'editor', include: true, articles: [] },
 	customization: {title: 'Customization', path: 'customization', include: true, articles: []},
 	languages: { title: 'Languages', path: 'languages', include: true, articles: [] },
