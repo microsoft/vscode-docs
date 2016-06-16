@@ -12,7 +12,13 @@ MetaDescription: Learn about Visual Studio Code editor features (syntax highligh
 
 Visual Studio Code is a great editor for PHP development. You get features like syntax highlighting and bracket matching, IntelliSense (code completion), and snippets out of the box and you can add more functionality through community created VS Code [extensions](/docs/editor/extension-gallery.md).
 
-![show PHP IntelliSense](images/php/php-intellisense.png)
+## PHP Extensions
+
+There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created.  You can search for PHP extensions from within VS Code by running the **Extensions: Install Extension** command (`kb(workbench.action.showCommands)` and type `ext install`) then filter the extensions drop down list by typing `php`.
+
+<div class="marketplace-extensions-php"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Snippets
 
@@ -39,14 +45,6 @@ To set the PHP executable path, open your **User or Workspace Settings** and add
     "php.validate.executablePath": "c:/php/php.exe"
 }
 ```
-
-## Extensions
-
-There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created.  You can search for PHP extensions from within VS Code by running the **Extensions: Install Extension** command (`kb(workbench.action.showCommands)` and type `ext install`) then filter the extensions drop down list by typing `php`.
-
-<div class="marketplace-extensions-php"></div>
-
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Debugging
 

@@ -20,9 +20,15 @@ Because we're still shaping the C++ experience in VS Code, now is a great time t
 
 C++ language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). Or, just install it from VS Code by launching the __Quick Open__ (`kb(workbench.action.quickOpen)`) and then entering the command **ext install cpptools**.
 
-On Linux, only Ubuntu 14.04 64-bit is officially supported. Other versions of Linux might work, but are untested and unsupported. 
+> Tip: On Linux, only Ubuntu 14.04 64-bit is officially supported. Other versions of Linux might work, but are untested and unsupported. 
 
-On OS X, additional install steps need to be completed manually to enable debugging on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+> Tip: On OS X, additional install steps need to be completed manually to enable debugging on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+
+In addition to the [Microsoft C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), the community has produced other extensions.  
+
+<div class="marketplace-extensions-cpp"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Navigating code
 
@@ -152,14 +158,6 @@ OS X:
 * Additional install steps need to be completed manually to enable debugging on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 * *Launch process* is not currently supported on OS X.
 * No additional terminal is provided for programs that already display a terminal, and the GDB shell is not available for those applications.
-
-## C++ Extensions
-
-In addition to the [Microsoft C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), the community has produced other extensions.  
-
-<div class="marketplace-extensions-c++"></div>
-
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next Steps
 
