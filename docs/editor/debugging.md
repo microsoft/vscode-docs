@@ -16,7 +16,11 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ## Debugger Extensions
 
-VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript. For debugging other languages and runtimes (including [C#](/docs/languages/csharp.md) on [Mono](http://www.mono-project.com)), please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).  Some of the programming languages with debugger extensions available are: [PHP](/docs/languages/php.md), [C++](/docs/languages/cpp.md), [Go](https://marketplace.visualstudio.com/items/lukehoban.Go) and [Python](/docs/languages/python.md).
+VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript. Below is a small sampling. 
+
+<div class="marketplace-extensions-debuggers"></div>
+
+For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) and many others) please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).  
 
 ## Start Debugging
 
