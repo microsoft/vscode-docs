@@ -14,14 +14,6 @@ MetaDescription: Get the best out of Visual Studio Code for JavaScript developme
 
 Visual Studio Code uses the TypeScript language service to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
 
-## Javascript Extensions
-
-VS Code provides excellent support for JavaScript out of the box. Additionally, you can install debuggers, snippets, linters, and other extensions. 
-
-<div class="marketplace-extensions-javascript"></div>
-
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
-
 ## JavaScript Projects (jsconfig.json)
 
 VS Code's JavaScript support can operate in two different modes:
@@ -287,6 +279,14 @@ In ESLint:
 "no-undef": 1,
 "no-unused-vars": 1,
 ```
+
+## JavaScript Extensions
+
+VS Code provides excellent support for JavaScript out of the box. Additionally, you can install debuggers, snippets, linters, and other extensions. 
+
+<div class="marketplace-extensions-javascript"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next Steps
 
