@@ -153,6 +153,14 @@ OS X:
 * *Launch process* is not currently supported on OS X.
 * No additional terminal is provided for programs that already display a terminal, and the GDB shell is not available for those applications.
 
+## C++ Extensions
+
+In addition to the [Microsoft C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), the community has produced other extensions.  
+
+<div class="marketplace-extensions-c++"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+
 ## Next Steps
 
 Read on to find out about:

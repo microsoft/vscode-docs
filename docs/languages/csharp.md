@@ -91,6 +91,14 @@ There are some basic quick fixes supported in VS Code.  You will see a lightbulb
 
 ![Quick fix](images/csharp/lightbulb.png)
 
+## C&#35 Extensions
+
+In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), the community has produced other extensions. 
+
+<div class="marketplace-extensions-csharp"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+
 ## Next Steps
 
 Read on to find out about:

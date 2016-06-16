@@ -10,7 +10,11 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 
 # Markdown and VS Code
 
-Working with Markdown in Visual Studio Code can be pretty fun and there are a number of Markdown specific features that will help you be more productive.
+Working with Markdown in Visual Studio Code can be pretty fun and there are a number of Markdown specific features that will help you be more productive. In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality. 
+
+<div class="marketplace-extensions-markdown"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Markdown Preview
 

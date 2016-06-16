@@ -44,7 +44,9 @@ To set the PHP executable path, open your **User or Workspace Settings** and add
 
 There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created.  You can search for PHP extensions from within VS Code by running the **Extensions: Install Extension** command (`kb(workbench.action.showCommands)` and type `ext install`) then filter the extensions drop down list by typing `php`.
 
-![show PHP extensions](images/php/php-extensions.png)
+<div class="marketplace-extensions-php"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Debugging
 
