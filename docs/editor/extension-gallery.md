@@ -54,9 +54,9 @@ You can quickly look for extension updates by using the `Extensions: Show Outdat
 
 ## Browse Extensions
 
-Additionally, you can browse and search for VS Code extensions through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site.
+Additionally, you can browse and search for VS Code extensions through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site. Below is a sampling of the most popular extensions. 
 
-![marketplace](images/extension-gallery/marketplace.png)
+<div class="marketplace-extensions-top"></div>
 
 You can review our handy **Featured**, **Most Popular**, and **Recently Added** extension lists and filter by **Category** (Debuggers, Languages, Linters, etc).
 

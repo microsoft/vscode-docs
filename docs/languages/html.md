@@ -10,7 +10,11 @@ MetaDescription: Get the best out of Visual Studio Code for HTML development
 
 # HTML Programming in VS Code
 
-When editing HTML files in Visual Studio Code you get all of the basics and a few more things :)
+VS Code provides basic support for HTML programming out of the box. Install an extension for greater functionality. 
+
+<div class="marketplace-extensions-html"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## IntelliSense
 

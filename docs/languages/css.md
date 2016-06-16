@@ -10,7 +10,11 @@ MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and 
 
 # CSS, Sass and Less
 
-Visual Studio Code has built-in support for editing style sheets in CSS `.css`, Sass `.scss` and Less `.less`.  This support includes:
+Visual Studio Code has built-in support for editing style sheets in CSS `.css`, Sass `.scss` and Less `.less`.  In addition, you can install an extension for greater functionality. 
+
+<div class="marketplace-extensions-css"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## IntelliSense
 

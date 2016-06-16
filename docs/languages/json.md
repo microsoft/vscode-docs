@@ -10,7 +10,7 @@ MetaDescription: Edit JSON files in Visual Studio Code
 
 # JSON
 
-JSON is a data format that is common in configuration files like `package.json` or `project.json`. We also use it extensively in VS Code for our configuration files.  When opening a file that ends with `.json`, VS Code provides the following set of features that make it simpler to write or modify the file's content.
+JSON is a data format that is common in configuration files like `package.json` or `project.json`. We also use it extensively in VS Code for our configuration files.  When opening a file that ends with `.json`, VS Code provides features out of the box to make it simpler to write or modify the file's content. 
 
 ## JSON Comments
 
@@ -122,6 +122,14 @@ To map a schema that is defined in the User or Workspace Settings, use the `sche
 ### Mapping a Schema in an Extension
 
 Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/docs/extensionAPI/extension-points.md#contributesjsonvalidation).
+
+## JSON Extensions
+
+In addition, you can install an extension for greater functionality. 
+
+<div class="marketplace-extensions-json"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next Steps
 

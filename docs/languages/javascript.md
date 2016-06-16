@@ -280,6 +280,14 @@ In ESLint:
 "no-unused-vars": 1,
 ```
 
+## JavaScript Extensions
+
+VS Code provides excellent support for JavaScript out of the box. Additionally, you can install debuggers, snippets, linters, and other extensions. 
+
+<div class="marketplace-extensions-javascript"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+
 ## Next Steps
 
 Read on to find out about:

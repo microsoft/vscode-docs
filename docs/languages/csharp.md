@@ -20,6 +20,12 @@ Due to this focus many standard C# project types are not recognized by VS Code. 
 
 C# language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). You can install it from within VS Code by searching for 'C#' in the **Extensions: Install Extension** dropdown (`kb(workbench.action.showCommands)` and type `ext install`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
 
+In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), the community has produced other extensions. 
+
+<div class="marketplace-extensions-csharp"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+
 ## Roslyn and OmniSharp
 
 Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](http://www.omnisharp.net) to offer an enhanced C# experience.  We offer support for both:

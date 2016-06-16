@@ -18,6 +18,12 @@ Docker support for VS Code is provided by an extension.  To install the Docker e
 
 ![Select Docker extension](images/docker/installdockerextension.png)
 
+Additionally, you can install other extensions to make you more productive. 
+
+<div class="marketplace-extensions-docker"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+
 ## Dockerfiles
 
 With Docker, you can build images by specifying the step by step commands needed to build the image in a `Dockerfile`. A Dockerfile is simply a text file that contains the build instructions.

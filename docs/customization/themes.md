@@ -28,7 +28,7 @@ Many themes have been uploaded to the VS Code [Extension Marketplace](/docs/edit
 
 > **Tip:** To search for themes, type 'theme' in the `Extension: Install Extension` dropdown to filter on extensions with 'theme' in their name.
 
-![filter theme extensions](images/themes/filter-theme.png)
+<div class="marketplace-extensions-themes"></div>
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
