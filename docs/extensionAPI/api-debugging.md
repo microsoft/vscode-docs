@@ -35,7 +35,7 @@ We have already implemented client libraries for CDP in TypeScript and C#, but o
 The following debugger extension projects can serve as examples for how to implement debug adapters:
 
 GitHub Project | Description | Implementation Language
---- | ---
+--- | --- | ---
 [Mock Debug](https://github.com/Microsoft/vscode-mock-debug.git) | A 'fake' debugger | TypeScript/JavaScript
 [Node Debug](https://github.com/Microsoft/vscode-node-debug.git) | The built-in Node.js debugger |TypeScript/JavaScript
 [Mono Debug](https://github.com/Microsoft/vscode-mono-debug.git) | A simple C# debugger for Mono | C#

@@ -391,10 +391,3 @@ That was tasks - let's keep going...
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
 * [Language Support](/docs/languages/overview.md) - Our Good, Better, Best language grid to see what you can expect
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-
-## Common Questions
-
-**Q: Some task runners require [Node.js](https://nodejs.org/) for execution. Does VS Code require executing a task runner under a special Node.js version?**
-
-**A:** We recommend that you use Node.js version 0.12.x. This is due to the fact that Node.js 0.10.x doesn't flush stdio on exit (see this [issue](https://github.com/joyent/node/issues/8329) for details).
-

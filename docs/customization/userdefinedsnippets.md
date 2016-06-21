@@ -14,15 +14,19 @@ Code snippets are ready-made snippets of code you can quickly insert into your s
 
 Each snippet defines a prefix under which it will appear in IntelliSense via (`kb(editor.action.triggerSuggest)`) as well as a body inserted when the snippet is selected. The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
 
-![User Snippets](images/userdefinedsnippets/usersnippets.png)
+<video id="snippets-showcase" src="https://az754404.vo.msecnd.net/public/snippets_showcase.mp4" placeholder="/images/userdefinedsnippets_snippets_placeholder.png" autoplay loop controls muted>
+    Sorry you're browser doesn't support HTML 5 video. 
+</video>
 
 ## Add Snippets from the Marketplace
 
-Many snippets have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new snippet will be available.
+Many [extensions](/docs/editor/extension-gallery.md) on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, simply install it and restart VS Code and the new snippet will be available (see [here](/docs/editor/extension-gallery#_browse-and-install-extensions-in-vs-code) for more instructions on installing an extension).
 
-![Add some snippets from the Marketplace](images/userdefinedsnippets/snippetgallery.gif)
+Below are some popular extensions which include snippets in their language support:
 
-You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Snippets) site directly to find available snippets.
+<div class="marketplace-extensions-snippets"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Creating your Own Snippets
 

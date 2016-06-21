@@ -16,7 +16,15 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ## Debugger Extensions
 
-VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript. For debugging other languages and runtimes (including [C#](/docs/languages/csharp.md) on [Mono](http://www.mono-project.com)), please look for `Debuggers` extensions in our [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).  Some of the programming languages with debugger extensions available are: [PHP](/docs/languages/php.md), [C++](/docs/languages/cpp.md), [Go](https://marketplace.visualstudio.com/items/lukehoban.Go) and [Python](/docs/languages/python.md).
+VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript. 
+
+For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) and many others), please look for `Debuggers` [extensions](/docs/editor/extension-gallery.md) in our VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
+
+Below are several popular extension which include debugging support:
+
+<div class="marketplace-extensions-debuggers"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. 
 
 ## Start Debugging
 
@@ -338,7 +346,7 @@ To write your own debugger extension, visit:
 
 **Q: What Node.js version is required for Node.js debugging?**
 
-**A:** Version 0.12.x is recommended, though most functionality is supported in 0.10.x as well (except break on unhandled exceptions).
+**A:** The latest LTS version of [Node.js](https://nodejs.org/) is recommended.
 
 **Q: Is Mono debugging supported on Windows?**
 

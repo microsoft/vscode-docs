@@ -167,6 +167,14 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 VS Code ships with a recent stable version of TypeScript in the box.  If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting (**File** > **Preferences** > **User/Workspace Settings**) pointing to a directory containing the TypeScript `tsserver.js` and the corresponding `lib.*.d.ts` files. The directory path can be absolute or relative to the workspace directory. By using a relative path, you can easily share this workspace setting with your team and use the latest TypeScript version (`npm install typescript@next`). Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.
 
+## TypeScript Extensions
+
+VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality. 
+
+<div class="marketplace-extensions-typescript"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+
 ## Next Steps
 
 OK, read on to find out about:
