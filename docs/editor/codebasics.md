@@ -270,6 +270,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 * [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition, and more
+* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Customization](/docs/customization/overview.md) - Themes, settings, and keyboard bindings
 

@@ -10,9 +10,13 @@ MetaDescription: Visual Studio Code has an integrated terminal so you can work i
 
 # Integrated Terminal
 
-It can be convenient to have a terminal embedded directly in VS Code, initially scoped to the workspace you are working in. You don't have to switch windows or alter the state of an existing terminal for a quick task.
+In Visual Studio Code, you can open an integrated terminal, initially scoped to the workspace you are working in. This can be very convenient as you don't have to switch windows or alter the state of an existing terminal to perform a quick command line task.
 
-You can open the terminal using `kb(workbench.action.terminal.toggleTerminal)`, from the **View** | **Toggle Integrated Terminal** menu, or from the **View** > **Toggle Integrated Terminal** command in the **Command Palette**.
+To open the terminal:
+
+* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+* From the **View** | **Toggle Integrated Terminal** menu.
+* From the **Command Palette** (`kb(workbench.action.showCommands)`), with the **View** > **Toggle Integrated Terminal** command.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
@@ -28,6 +32,6 @@ The **Toggle Integrated Terminal** command is bound to `kb(workbench.action.term
 
 ## Managing Multiple Terminals
 
-Multiple terminals are coming soon and you can start using them today with the [Insiders](/insiders) build.  The UI is under development but you can easily create and navigated between multiple terminals scoped to different locations.
+Multiple terminals are coming soon and you can start using them today with the [Insiders](/insiders) build.  The UI is under development but you can easily create and navigate between multiple terminals scoped to different locations.
 
-Along with multiple terminals, new settings (e.g. shell argument list) and key bindings are also coming the next release.
+Along with multiple terminals, new settings (e.g. shell argument lists) and key bindings are also coming in the next release.
