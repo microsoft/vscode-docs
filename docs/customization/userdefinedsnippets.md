@@ -20,9 +20,9 @@ Each snippet defines a prefix under which it will appear in IntelliSense via (`k
 
 ## Add Snippets from the Marketplace
 
-Many extensions on the VS Code [Marketplace](/docs/editor/extension-gallery.md) include snippets.  If you find one you want to use, simply install it and restart VS Code and the new snippet will be available (see [here](/docs/editor/extension-gallery#_browse-and-install-extensions-in-vs-code) for more instructions on installing an extension). 
+Many [extensions](/docs/editor/extension-gallery.md) on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, simply install it and restart VS Code and the new snippet will be available (see [here](/docs/editor/extension-gallery#_browse-and-install-extensions-in-vs-code) for more instructions on installing an extension).
 
-Below are some popular extensions which include snippets in their language support. 
+Below are some popular extensions which include snippets in their language support:
 
 <div class="marketplace-extensions-snippets"></div>
 
