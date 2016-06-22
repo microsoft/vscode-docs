@@ -20,6 +20,8 @@ To open the terminal:
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
+> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on OS X or Linux) if you prefer to work outside VS Code.
+
 ## Configuration
 
 The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/customization/userandworkspace.md).
@@ -27,8 +29,6 @@ The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Window
 ## Key Bindings
 
 The **Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
-
->**Note:** The **Toggle Integrated Terminal** key binding `kb(workbench.action.terminal.toggleTerminal)` had previously been bound to the **Cycle Between Open Editors** command. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behavior back if desired.
 
 ## Managing Multiple Terminals
 
