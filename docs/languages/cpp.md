@@ -36,7 +36,7 @@ In addition to the [Microsoft C++ extension](https://marketplace.visualstudio.co
 
 The C/C++ extension for Visual Studio Code supports automatic formatting with [clang-format](http://llvm.org/releases/download.html). To use this feature, you must install `clang-format` manually and add its path to your user [settings](/docs/customization/userandworkspace.md) file (`settings.json`).
 
-To configure code formatting, open your `settings.json` file (**Files** > **Preferences** > **User Settings**), then add the `c_cpp.clang_format_path` property and set its value to the path where clang-format.exe is installed.
+To configure code formatting, open your `settings.json` file (**File** > **Preferences** > **User Settings**), then add the `c_cpp.clang_format_path` property and set its value to the path where clang-format.exe is installed.
 
 For example:
 
@@ -46,7 +46,7 @@ For example:
 
 By default, the clang-format style is set to __file__ which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied according to a default style specified in `c_cpp_properties.json` instead. Currently, the default formatting style is __LLVM__.
 
-To access the `c_cpp_properties.json` file, launch the __Command Palette__ (`kb(workbench.action.showCommands)`) prompt and begin typing **>C/Cpp: Edit Configurations**, then choose this command from the command list that appears.
+To access the `c_cpp_properties.json` file, launch the __Command Palette__ (`kb(workbench.action.showCommands)`) prompt and begin typing **C/Cpp: Edit Configurations**, then choose this command from the command list that appears.
 
 ### Fuzzy Auto-Complete (preview)
 
@@ -196,7 +196,7 @@ OS X:
 
 * Additional install steps need to be completed manually to enable debugging on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 * *Launch process* is not currently supported on OS X.
-* When attaching to a process with GDB, the application being debugged cannot be interrupted. GDB will only bind breakpoints set while the application is not running (either before attaching to the application, or while the application is in a stopped state). This is due to [a bug in GDB](https://sourceware.org/bugzilla/show_bug.cgi?id=20035)
+* When attaching to a process with GDB, the application being debugged cannot be interrupted. GDB will only bind breakpoints set while the application is not running (either before attaching to the application, or while the application is in a stopped state). This is due to [a bug in GDB](https://sourceware.org/bugzilla/show_bug.cgi?id=20035).
 * Core dumps cannot be loaded when debugging with GDB because GDB [does not support the core dump format used in OS X](https://www.sourceware.org/ml/gdb/2014-01/msg00036.html).
 * When attached to a process with GDB, break-all will ends the process.
 
@@ -229,3 +229,7 @@ Read on to find out about:
 **Q: How do I build/run my project?**
 
 **A:** VS Code supports tasks that you can configure to build your application, and natively understands the output of MSBuild, CSC, and XBuild. For more information, see the [Tasks](/docs/editor/tasks.md) documentation.
+
+**Q: Why is there a .browse.VC.db file in my workspace?**
+
+**A:** The C/C++ extension automatically creates a database of symbol information for your workspace and stores it in a `.browse.VC.db` file in your workspace's `.vscode` folder. This improves the extension's performance and this file should not be added to source control.
