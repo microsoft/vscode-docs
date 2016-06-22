@@ -15,8 +15,8 @@ In Visual Studio Code, you can open an integrated terminal, initially scoped to 
 To open the terminal:
 
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
-* From the **View** | **Toggle Integrated Terminal** menu.
-* From the **Command Palette** (`kb(workbench.action.showCommands)`), with the **View** > **Toggle Integrated Terminal** command.
+* Use the **View** | **Toggle Integrated Terminal** menu command.
+* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
