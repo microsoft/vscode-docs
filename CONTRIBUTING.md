@@ -150,9 +150,9 @@ If you are listing out multiple key bindings, you can use a table.
 
 ### Source Code
 
-For source code we use the fenced code block notation "```".
+For source code we use the fenced code block notation ```` ``` ````.
 
->**Note:** To get colorization, add a language modifier e.g. "```json" or "```javascript".
+>**Note:** To get colorization, add a language modifier e.g. ```` ```json ```` or ```` ```javascript ````.
 
 Some JavaScript code...
 
