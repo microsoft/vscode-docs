@@ -12,7 +12,7 @@ MetaDescription: Visual Studio Code has support for Tabbed editor windows. Tabs 
 
 Visual Studio Code has support for showing open items with Tabs (tabbed headings) in the title area above the editor.
 
->**Prerelease:** Tabs and the features discussed here are currently only supported on the prerelease [Insiders](/insiders) build. We invite you to install the Insiders build and give Tabs a try today.
+>**Prerelease:** Tabs and the features discussed here are currently only supported on the prerelease [Insiders](/insiders) build. The features and UI are still under development but we invite you to install the Insiders build and give Tabs a try today.
 
 To enable Tabs, use the `workbench.editor.showTabs` [setting](/docs/customization/userandworkspace.md):
 
@@ -20,15 +20,17 @@ To enable Tabs, use the `workbench.editor.showTabs` [setting](/docs/customizatio
     "workbench.editor.showTabs": true
 ```
 
-When you open a file, a new Tab will be added for that file.
+When you open a file, a new Tab is added for that file.
 
 ![tabs hero](images/tabs/tabs-hero.png)
 
-Tabs let you quick navigate between items and you can Drag and Drop Tabs to reorder them. When you have more open items than can fit in the title area, an overflow icon will be enabled to display a dropdown of tabbed items.
+Tabs let you quickly navigate between items and you can Drag and Drop Tabs to reorder them.
+
+When you have more open items than can fit in the title area, an overflow icon is enabled which will display a dropdown of tabbed items.
 
 ![tabs overflow icon](images/tabs/tabs-overflow.png)
 
-## Tab order
+## Tab ordering
 
 By default, new Tabs are added to the right of the existing Tabs but you can control where you'd like new Tabs to appear with the `workbench.editor.openPositioning` setting.
 
@@ -40,7 +42,7 @@ For example, you might like new tabbed items to appear on the left:
 
 ## Preview mode
 
-When you simply single-click or select a file in the Explorer, it is shown in a preview mode and reuses an existing Tab. This is useful if you are quickly browsing files and don't want every visited file to have its own Tab. When you start editing the file or double-click when you open the file in the Explorer, a new Tab is dedicated to that file.
+When you simply single-click or select a file in the Explorer, it is shown in a preview mode and reuses an existing Tab. This is useful if you are quickly browsing files and don't want every visited file to have its own Tab. When you start editing the file or use double-click to open the file from the Explorer, a new Tab is dedicated to that file.
 
 Preview mode is indicated by italics in the Tab heading:
 

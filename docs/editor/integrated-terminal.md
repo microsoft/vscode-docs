@@ -29,7 +29,7 @@ The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Window
 For example, if you wanted to use PowerShell on Windows:
 
 ```json
-    "terminal.integrated.shell.windows":"C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe"
+"terminal.integrated.shell.windows":"C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe"
 ```
 
 ## Key Bindings
