@@ -20,9 +20,11 @@ To enable Tabs, use the `workbench.editor.showTabs` [setting](/docs/customizatio
     "workbench.editor.showTabs": true
 ```
 
+When you open a file, a new Tab will be added for that file.
+
 ![tabs hero](images/tabs/tabs-hero.png)
 
-When you open a file, a new Tab will be added for that file. Tabs let you quick navigate between items and you can Drag and Drop Tabs to reorder them.  When you have more open items than can fit in the title area, an overflow icon will be enabled to display a dropdown of tabbed items.
+Tabs let you quick navigate between items and you can Drag and Drop Tabs to reorder them. When you have more open items than can fit in the title area, an overflow icon will be enabled to display a dropdown of tabbed items.
 
 ![tabs overflow icon](images/tabs/tabs-overflow.png)
 
