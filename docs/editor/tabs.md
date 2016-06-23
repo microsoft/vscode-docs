@@ -12,7 +12,7 @@ MetaDescription: Visual Studio Code has support for Tabbed editor windows. Tabs 
 
 Visual Studio Code has support for showing open items with Tabs (tabbed headings) in the title area above the editor.
 
->**Note:** Tabs and the features discussed here are currently only supported on the prerelease [Insiders](/insiders) build. We invite you to install the Insiders build and give Tabs a try today.
+>**Prerelease:** Tabs and the features discussed here are currently only supported on the prerelease [Insiders](/insiders) build. We invite you to install the Insiders build and give Tabs a try today.
 
 To enable Tabs, use the `workbench.editor.showTabs` [setting](/docs/customization/userandworkspace.md):
 

@@ -26,11 +26,17 @@ To open the terminal:
 
 The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/customization/userandworkspace.md).
 
+For example, if you wanted to use PowerShell on Windows:
+
+```json
+    "terminal.integrated.shell.windows":"C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe"
+```
+
 ## Key Bindings
 
 The **Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
-## Managing Multiple Terminals
+## Prerelease: Managing Multiple Terminals
 
 Multiple terminals are coming soon and you can start using them today with the [Insiders](/insiders) build.  The UI is under development but you can easily create and navigate between multiple terminals open to different locations.
 
