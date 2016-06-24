@@ -30,7 +30,9 @@ Below are some popular extensions which include snippets in their language suppo
 
 ## Creating your Own Snippets
 
-You can define your own snippets for specific languages.  Snippets are defined in a JSON format.
+You can define your own snippets for specific languages.  To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on Mac OS X) and select the language for which the snippets should appear.
+
+Snippets are defined in a JSON format and stored in a per user `(languageId).json` file. For example, Markdown snippets go in a `markdown.json` file.
 
 The example below is a `For Loop` snippet for `JavaScript`.
 
@@ -77,9 +79,6 @@ Here a `label` 'Enter your name' is added to the variable with the `id` 'name':
 which will display as:
 
 ![variable with label](images/userdefinedsnippets/variable-label.png)
-
-
-To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear.
 
 > In case your snippet should contain `{` or `}`, it is possible to escape them, in JSON as `\\{` and `\\}`
 
