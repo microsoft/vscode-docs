@@ -58,7 +58,26 @@ In the example above:
     * $1, $2 for tab stops
     * ${id} and ${id:label} and ${1:label} for variables
     * Variables with the same id are connected.
+
 * `description` is the description used in the IntelliSense drop down
+
+The example above has three variables with the `ids` 'index', 'array', and 'element'. You can quickly fill in and tab to each. 
+
+An optional variable `label` lets you add a short description as a prompt to the user.
+
+Here a `label` 'Enter your name' is added to the variable with the `id` 'name':
+
+```json
+    "body": [
+        "Hello ${name:Enter your name}.",
+        "Goodbye ${name}!"
+    ],
+```
+
+which will display as:
+
+![variable with label](images/userdefinedsnippets/variable-label.png)
+
 
 To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear.
 
