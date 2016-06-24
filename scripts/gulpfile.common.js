@@ -106,8 +106,8 @@ exports.compileMarkdown = function(file, article) {
 	// Keybindings pre-process
 	var fileContents = file.contents.toString('utf8');
 
-    // remove .md file extensions from topic links
-	fileContents = fileContents.replace(/.md\)/g, ')');
+    // remove .md file extensions from topic links (only our relative links)
+	fileContents = fileContents.replace(/\(\/(blogs|updates|docs).+\.md\)/g, function(str) { return str.replace(/\.md\)/g, ')'); } );
 	
 	// need to remove embedded .md before # section tags and place _ underscore after for cshtml navigation
 	fileContents = fileContents.replace(/.md#/g, "#_");
