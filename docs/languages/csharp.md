@@ -12,9 +12,16 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 
 The C# support in VS Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/runtimes/dotnet.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance, many Unity game developers enjoy using VS Code in place of the MonoDevelop IDE.
 
-VS Code supports debugging of C# apps which are either running on .NET Core or Mono. For detailed instructions for .NET Core debugging see the [C# extension's github page](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md). For help setting up Mono debugging, see [Mono Debugging](/Docs/editor/debugging.md#mono-debugging). Note that VS Code does not support debugging applications running on the Desktop .NET Framework.
+VS Code supports debugging of C# applications running on either .NET Core or Mono. 
 
-Due to this focus many standard C# project types are not recognized by VS Code.  An example of a non-supported project type is an ASP.NET MVC Application (though ASP.NET Core is supported).  In these cases if you simply want to have a lightweight tool to edit a file - VS Code has you covered.  If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
+For detailed instructions on: 
+
+* .NET Core debugging - see the [Microsoft C# extension's GitHub page](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md).
+* Mono debugging - see the section on [Mono Debugging](/Docs/editor/debugging.md#mono-debugging).
+
+>**Note:** VS Code does not support debugging applications running on the Desktop .NET Framework.
+
+Due to this focus, many standard C# project types are not recognized by VS Code.  An example of a non-supported project type is an ASP.NET MVC Application (though ASP.NET Core is supported).  In these cases, if you simply want to have a lightweight tool to edit a file - VS Code has you covered.  If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
 ## Installing C&#35; support
 
