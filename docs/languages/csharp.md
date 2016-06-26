@@ -17,7 +17,7 @@ VS Code supports debugging of C# applications running on either .NET Core or Mon
 For detailed instructions on: 
 
 * .NET Core debugging - see the [Microsoft C# extension's GitHub page](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md).
-* Mono debugging - see the section on [Mono Debugging](/Docs/editor/debugging.md#mono-debugging).
+* Mono debugging - see the section on [Mono Debugging](/docs/editor/debugging.md#mono-debugging).
 
 >**Note:** VS Code does not support debugging applications running on the Desktop .NET Framework.
 

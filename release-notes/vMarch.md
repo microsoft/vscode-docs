@@ -357,7 +357,7 @@ sudo yum install <file>.rpm
 
 ### Linux CLI
 
-The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](/Updates/vFebruary.md#setup). Run `code --help` to see the command line arguments available for use.
+The new bin command installed with the package files brings Linux in line with the other platforms that had their command line interfaces improved in the [February release](/updates/vFebruary.md#setup). Run `code --help` to see the command line arguments available for use.
 
 ### Wait support and Git patch/diff mode
 
