@@ -18,7 +18,7 @@ Visual Studio Code can be a great companion to Unity for editing and debugging C
 
 Read on to find out how to configure Unity and your project to get the best possible experience.
 
->**Note:** VS Code uses a more recent version of Mono than that included with Unity.  If you get OmniSharp errors, you may need to update your Mono version.  See this [FAQ topic](/docs/supporting/FAQ.md#vs-code-fails-to-start-omnisharp-on-os-x) for additional details.
+>**Note:** VS Code uses a more recent version of Mono than that included with Unity. If you get OmniSharp errors, you may need to update your Mono version.  See this [FAQ topic](/docs/setup/osx#_common-questions) for additional details.
 
 ## Connecting Unity and VS Code
 
