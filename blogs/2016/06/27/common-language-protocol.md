@@ -52,7 +52,7 @@ The complete specification for this protocol is available in a [public GitHub re
 
 This is just the start – communities for programming languages like OmniSharp (C#), JSON, C++, xText, JavaFX, and R have made commitments to release language servers for their languages in the future.  A full [list of protocol implementations](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations), including language servers, editors, and SDKs is available on the GitHub repo.
 
-If you want to learn more, [view the keynote](http://www.devnation.org/), check out the joint press release from Codenvy and Red Hat and visit the [language server protocol repo](https://github.com/microsoft/language-server-protocol) on GitHub.  There is even a [Language Server Walkthrough](/docs/extensions/example-language-server.md) where you can step through the source code of a working language server.
+If you want to learn more, [view the keynote](http://www.devnation.org/), check out the joint press release from Codenvy and Red Hat and visit the [language server protocol repo](https://github.com/microsoft/language-server-protocol) on GitHub.  There is even a [Language Server Walkthrough](/docs/extensions/example-language-server.md) where you can step through the source code of a working language server implemented in TypeScript and Node.js.
 
 Happy Coding!
 
