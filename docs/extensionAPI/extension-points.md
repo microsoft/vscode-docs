@@ -14,6 +14,7 @@ This document covers the various contribution points that are defined in the [`p
 
 * [`configuration`](/docs/extensionAPI/extension-points.md#contributesconfiguration)
 * [`commands`](/docs/extensionAPI/extension-points.md#contributescommands)
+* [`menus`](/docs/extensionAPI/extension-points.md#contributesmenus)
 * [`keybindings`](/docs/extensionAPI/extension-points.md#contributeskeybindings)
 * [`languages`](/docs/extensionAPI/extension-points.md#contributeslanguages)
 * [`debuggers`](/docs/extensionAPI/extension-points.md#contributesdebuggers)
@@ -76,6 +77,35 @@ Contribute an entry consisting of a title and a command to invoke to the Command
 ```
 
 ![commands extension point example](images/extension-points/commands.png)
+
+## `contributes.menus`
+
+Contribute a menu item for a command to the editor or explorer. The menu item definition basically contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when`-clause which is the same as the keybindings [`when`](/docs/customization/keybindings.md). In addition to the mandatory `command` property an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `Alt` while hovering over a menu item. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
+
+>**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as parameter when invoking the command. For instance, a menu item inside the explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
+
+In addition to a title, commands can also define icons which VS Code will show in the editor menu bar.
+
+### Example
+
+```json
+...
+"contributes": {
+	"menus": {
+		"editor/title": [{
+			"when": "resourceLangId == markdown",
+			"command": "markdown.showPreview",
+			"alt": "markdown.showPreviewToSide",
+			"group": "navigation"
+		}]
+	}
+}
+...
+```
+
+![menus extension point example](images/extension-points/menus.png)
+
+
 
 
 ## `contributes.keybindings`
