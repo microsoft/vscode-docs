@@ -16,7 +16,7 @@ Visual Studio Code is an editor for any developer, no matter what programming la
 
 ## Any Language, Any Tool
 
-Today at the [DevNation](http://www.devnation.org) conference in San Francisco, we’ve announced along with Red Hat and Codenvy that this language server protocol is now being adopted by tool creators and language providers across the industry. For language creators, this means an enhanced tooling experience for their language across a variety of development tools and operating systems, similar to the experience that [TypeScript](http://typescriptlang.org) developers or C# developers (via [OmniSharp](http://omnisharp.net) get today.  It also means any developer can have a consistent editing experience for their favorite programming language on any tool – even if that tool isn’t VS Code. 
+Today at the [DevNation](http://www.devnation.org) conference in San Francisco, we’ve announced along with Red Hat and Codenvy that this language server protocol is now being adopted by tool creators and language providers across the industry. For language creators, this means an enhanced tooling experience for their language across a variety of development tools and operating systems, similar to the experience that [TypeScript](http://typescriptlang.org) developers or C# developers (via [OmniSharp](http://omnisharp.net)) get today.  It also means any developer can have a consistent editing experience for their favorite programming language on any tool – even if that tool isn’t VS Code. 
  
 ## How it works
 
