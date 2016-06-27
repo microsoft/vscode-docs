@@ -16,7 +16,7 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 2. Once it is downloaded, run the installer (VSCodeSetup-stable.exe). This will only take a minute.
 3. By default, VS Code is installed under `C:\Program Files (x86)\Microsoft VS Code` for a 64-bit machine.
 
-You can also find a Zip archive [here](/Docs/?dv=winzip).
+You can also find a Zip archive [here](/docs/?dv=winzip).
 
 >**Note:** .NET Framework 4.5 is required for VS Code.  If you are using Windows 7, please make sure [.NET Framework 4.5](https://www.microsoft.com/en-us/download/details.aspx?id=30653) is installed.
 
@@ -38,7 +38,7 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ### Trouble with the installer
 
-Try using the [zip file](/Docs/?dv=winzip) instead of the installer.  To use this, unzip VS Code in your **Program Files** folder.
+Try using the [zip file](/docs/?dv=winzip) instead of the installer.  To use this, unzip VS Code in your **Program Files** folder.
 
 >**Note:** When VS Code is installed via a Zip file, you will need to manually update it for each [release](/updates).
 

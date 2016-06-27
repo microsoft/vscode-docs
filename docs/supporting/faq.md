@@ -10,7 +10,7 @@ MetaDescription: Our docs contain a Common Questions section. Here are items tha
 
 Our docs contain a **Common Questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
 
-If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/Updates) notes.
+If you don't see an answer to your question here, check our previously [reported issues](https://github.com/microsoft/vscode/issues) and our [Updates](/updates) notes.
 
 ## What is the difference between VS Code and VS Community?
 
@@ -34,7 +34,7 @@ To modify the update channel, go to **File** > **Preferences** > **User Settings
     "update.channel": "none"
 ```
 
-You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/Updates).
+You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/updates).
 
 ## Licensing
 

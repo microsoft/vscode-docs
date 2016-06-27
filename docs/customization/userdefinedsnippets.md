@@ -30,7 +30,9 @@ Below are some popular extensions which include snippets in their language suppo
 
 ## Creating your Own Snippets
 
-You can define your own snippets for specific languages.  Snippets are defined in a JSON format.
+You can define your own snippets for specific languages.  To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on Mac OS X) and select the language for which the snippets should appear.
+
+Snippets are defined in a JSON format and stored in a per user `(languageId).json` file. For example, Markdown snippets go in a `markdown.json` file.
 
 The example below is a `For Loop` snippet for `JavaScript`.
 
@@ -58,9 +60,25 @@ In the example above:
     * $1, $2 for tab stops
     * ${id} and ${id:label} and ${1:label} for variables
     * Variables with the same id are connected.
+
 * `description` is the description used in the IntelliSense drop down
 
-To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** and select the language for which the snippets should appear.
+The example above has three variables with the `ids` 'index', 'array', and 'element'. You can quickly fill in and tab to each. 
+
+An optional variable `label` lets you add a short description as a prompt to the user.
+
+Here a `label` 'Enter your name' is added to the variable with the `id` 'name':
+
+```json
+    "body": [
+        "Hello ${name:Enter your name}.",
+        "Goodbye ${name}!"
+    ],
+```
+
+which will display as:
+
+![variable with label](images/userdefinedsnippets/variable-label.png)
 
 > In case your snippet should contain `{` or `}`, it is possible to escape them, in JSON as `\\{` and `\\}`
 

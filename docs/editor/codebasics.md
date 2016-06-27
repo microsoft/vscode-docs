@@ -103,9 +103,9 @@ Once you are done with your task, you can individually remove files from the wor
 
 VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/customization/userandworkspace.md#settings-file-locations).
  
-* Select **Files** > **Preferences** > **User Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
+* Select **File** > **Preferences** > **User Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
  
-* Select **Files** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
+* Select **File** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
 
 >Note: The **Preferences** menu is under **Code** not **File** on a Mac. For example, **Code** > **Preferences** > **User Settings**.
 
@@ -270,6 +270,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 * [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition, and more
+* [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Customization](/docs/customization/overview.md) - Themes, settings, and keyboard bindings
 
