@@ -60,7 +60,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 
 Contribute an entry consisting of a title and a command to invoke to the Command Palette (`kb(workbench.action.showCommands)`).
 
->**Note:** When a command is invoked (from a key binding or from the Command Palette), VS Code will emit an `activationEvent` `onCommand:${command}`.
+>**Note:** When a command is invoked (from a key binding or from the Command Palette), VS Code will emit an activationEvent `onCommand:${command}`.
 
 ### Example
 
