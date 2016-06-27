@@ -2,7 +2,7 @@
 Order: 11
 TOCTitle: The Language Server Protocol 
 PageTitle: Common Language Server Protocol 
-MetaDescription: A Common Language Server Protocol for all programming languages.
+MetaDescription: A Common Language Server Protocol for any tool and any language.
 Date: 2016-06-27
 ShortDescription: Common Language Server Protocol
 Author: PJ Meyer
