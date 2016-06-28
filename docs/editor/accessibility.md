@@ -36,7 +36,7 @@ VS Code also has many preset keyboard shortcuts for commands. These are displaye
 
 ![Keyboard shortcuts in Command Palette](images/accessibility/keyboard-shortcuts.png)
 
-You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** brings up the **Default Keyboard Shortcuts** in the left pane and your customizable `keybindings.json` on the right.  See [Key Bindings](/docs/customization/keybindings.com) for more details on customizing or adding your own keyboard shortcuts.
+You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** brings up the **Default Keyboard Shortcuts** in the left pane and your customizable `keybindings.json` on the right.  See [Key Bindings](/docs/customization/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
 ## Tab Navigation
 
