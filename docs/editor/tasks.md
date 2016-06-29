@@ -40,6 +40,8 @@ You can get IntelliSense on `tasks.json` variables and their values with hover a
 
 ![tasks IntelliSense](images/tasks/tasks-intellisense.png)
 
+>**Tip:** You can run your task through **Quick Open** (`kb(workbench.action.quickOpen)`) by typing 'task', `kbstyle(Space)` and the command name. In this case, 'task echo'.
+
 ## Examples of Tasks in Action
 
 The best way to highlight the power of Tasks is with a few examples of how VS Code can use Tasks to integrate external tools like linters and compilers.
