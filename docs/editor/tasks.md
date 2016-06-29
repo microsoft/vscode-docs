@@ -27,16 +27,20 @@ Select the **Tasks: Configure Task Runner** command and you will see a list of t
 You should now see a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
 ```json
+{
     "version": "0.1.0",
     "command": "echo",
     "isShellCommand": true,
     "args": ["Hello World"],
     "showOutput": "always"
+}
 ```
+
+In this example, we are just running the `echo` shell command with "Hello World" as an argument.
 
 Test the `echo` task by running **Tasks: Run Tasks** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
 
-You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`. In this example, we are just running the `echo` shell command with "Hello World" as an argument.
+You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`. 
 
 ![tasks IntelliSense](images/tasks/tasks-intellisense.png)
 
