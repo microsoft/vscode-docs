@@ -242,9 +242,12 @@ Id|Description|Default
 ---|------------|----
 css.validate | Enables or disables all css validations | true
 less.validate | Enables or disables all less validations | true
-sass.validate | Enables or disables all sass validations | true
+scss.validate | Enables or disables all scss validations | true
 
-To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `less.lint.` and `sass.lint.`.
+To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `less.lint.` and `scss.lint.`.
+
+>**Note:** In VSCode 1.2 (May 2016) and earlier the Sass settings were prefixed with `sass`. If you have customized settings, rename the prefix from `sass` to `scss` to have
+them working again.
 
 Set a setting to `warning` or `error` if you want to enable lint checking, use `ignore` to disable it. Lint checks are performed as you type.
 
@@ -286,4 +289,4 @@ Read on to find out about:
 
 **Q: Do you support the indentation based Sass syntax (.sass) ?**
 
-**A:** No, not yet.
+**A:** No, but there are several extensions in the Marketplace supporting the indented flavor of Sass.

@@ -41,23 +41,23 @@ The workspace setting file is located under the `.vscode` folder in your project
 
 The `settings.json` file is divided into these sections:
 
-- **Editor Configuration** - font, word wrapping, tab size, line numbers, indentation, ...
-- **Window Configuration** - restore folders, zoom level, ...
-- **Files Configuration** - excluded file filters, default encoding, trim trailing whitespace, ...
-- **File Explorer Configuration** - encoding, **WORKING FILES** behavior, ...
-- **HTTP Configuration** - proxy settings
-- **Search Configuration** - file exclude filters
-- **Git Configuration** - disable Git integration, auto fetch behavior
-- **Telemetry Configuration** - disable telemetry reporting, crash reporting
-- **HTML Configuration** - HTML format configuration
-- **CSS Configuration** - CSS linting configuration
-- **JavaScript Configuration** - Language specific settings
-- **JSON Configuration** - Schemas associated with certain JSON files
-- **Markdown Preview Configuration** - Add a custom CSS to the Markdown preview
-- **Less Configuration** - Control linting for Less
-- **Sass Configuration** - Control linting for Sass
-- **TypeScript Configuration** - Language specific settings
-- **PHP Configuration** - PHP linter configuration
+- **Editor** - font, word wrapping, tab size, line numbers, indentation, ...
+- **Window** - restore folders, zoom level, ...
+- **Files** - excluded file filters, default encoding, trim trailing whitespace, ...
+- **File Explorer** - encoding, **WORKING FILES** behavior, ...
+- **HTTP** - proxy settings
+- **Search** - file exclude filters
+- **Git** - disable Git integration, auto fetch behavior
+- **Telemetry** - disable telemetry reporting, crash reporting
+- **HTML** - HTML format configuration
+- **CSS** - CSS linting configuration
+- **JavaScript** - Language specific settings
+- **JSON** - Schemas associated with certain JSON files
+- **Markdown** - Add a custom CSS to the Markdown preview
+- **Less** - Control linting for Less
+- **SCSS** - Control linting for Sass
+- **TypeScript** - Language specific settings
+- **PHP** - PHP linter configuration
 
 ## Default Settings
 
@@ -452,66 +452,66 @@ Below is a copy of the default `settings.json` file.
     "less.lint.idSelector": "ignore",
 
 
-    //-------- Sass configuration --------
+ // SCSS (Sass)
 
-    // Controls Sass validation and problem severities.
+    // Controls SCSS validation and problem severities.
 
     // Enables or disables all validations
-    "sass.validate": true,
+    "scss.validate": true,
 
     // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-    "sass.lint.compatibleVendorPrefixes": "ignore",
+    "scss.lint.compatibleVendorPrefixes": "ignore",
 
     // When using a vendor-specific prefix also include the standard property
-    "sass.lint.vendorPrefix": "warning",
+    "scss.lint.vendorPrefix": "warning",
 
     // Do not use duplicate style definitions
-    "sass.lint.duplicateProperties": "ignore",
+    "scss.lint.duplicateProperties": "ignore",
 
     // Do not use empty rulesets
-    "sass.lint.emptyRules": "warning",
+    "scss.lint.emptyRules": "warning",
 
     // Import statements do not load in parallel
-    "sass.lint.importStatement": "ignore",
+    "scss.lint.importStatement": "ignore",
 
     // Do not use width or height when using padding or border
-    "sass.lint.boxModel": "ignore",
+    "scss.lint.boxModel": "ignore",
 
     // The universal selector (*) is known to be slow
-    "sass.lint.universalSelector": "ignore",
+    "scss.lint.universalSelector": "ignore",
 
     // No unit for zero needed
-    "sass.lint.zeroUnits": "ignore",
+    "scss.lint.zeroUnits": "ignore",
 
     // @font-face rule must define 'src' and 'font-family' properties
-    "sass.lint.fontFaceProperties": "warning",
+    "scss.lint.fontFaceProperties": "warning",
 
     // Hex colors must consist of three or six hex numbers
-    "sass.lint.hexColorLength": "error",
+    "scss.lint.hexColorLength": "error",
 
     // Invalid number of parameters
-    "sass.lint.argumentsInColorFunction": "error",
+    "scss.lint.argumentsInColorFunction": "error",
 
     // Unknown property.
-    "sass.lint.unknownProperties": "warning",
+    "scss.lint.unknownProperties": "warning",
 
     // IE hacks are only necessary when supporting IE7 and older
-    "sass.lint.ieHack": "ignore",
+    "scss.lint.ieHack": "ignore",
 
     // Unknown vendor specific property.
-    "sass.lint.unknownVendorSpecificProperties": "ignore",
+    "scss.lint.unknownVendorSpecificProperties": "ignore",
 
     // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-    "sass.lint.propertyIgnoredDueToDisplay": "warning",
+    "scss.lint.propertyIgnoredDueToDisplay": "warning",
 
     // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-    "sass.lint.important": "ignore",
+    "scss.lint.important": "ignore",
 
     // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-    "sass.lint.float": "ignore",
+    "scss.lint.float": "ignore",
 
     // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-    "sass.lint.idSelector": "ignore",
+    "scss.lint.idSelector": "ignore",
 
 
     //-------- Integrated terminal configuration --------
