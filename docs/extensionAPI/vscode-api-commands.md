@@ -128,13 +128,14 @@ Links contained in the document will be handled by VS Code whereby it supports `
 
 The snippet below defines a command-link that calls the _previewHtml_ command and passes along an uri:
 
-```
-let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
-let html = '<a href="' + href + '">Show Resource...</a>.';
-```
-
+					```
+					let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
+					let html = '<a href="' + href + '">Show Resource...</a>.';
+					```
+				
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
+* _label_ (optional) An human readable string that is used as title for the preview.
 
 
 
@@ -156,6 +157,13 @@ let html = '<a href="' + href + '">Show Resource...</a>.';
 * _left_ Left-hand side resource of the diff editor
 * _right_ Right-hand side resource of the diff editor
 * _title_ (optional) Human readable title for the diff editor
+
+
+
+`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file.
+
+* _resource_ Resource to open
+* _column_ (optional) Column in which to open
 
 
 
