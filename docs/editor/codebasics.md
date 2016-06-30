@@ -274,7 +274,9 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: Is it possible to globally search and replace?**
 
-**A:** This feature is not yet implemented, but you can expect it to come in the future!
+**A:** Yes, expand the Search view text box to include a replace text field.
+
+![global search and replace](images/codebasics/global-search-replace.png)
 
 **Q: How do I turn on word wrap?**
 
