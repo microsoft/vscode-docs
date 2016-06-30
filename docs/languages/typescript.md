@@ -117,7 +117,7 @@ You can click on that icon to get a list of the problems and navigate to them.
 
 ![Compile Problems](images/typescript/compileerror.png)
 
-You can also use the keyboard to open the list `kb(workbench.action.showErrorsWarnings)`.
+You can also use the keyboard to open the list `kb(workbench.actions.view.problems)`.
 
 >**Tip:** Tasks offer rich support for many actions. Check the [Tasks](/docs/editor/tasks.md) topic for more information on how to configure them.
 

@@ -322,7 +322,7 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
 }
 ```
 
-Running it inside VS Code and pressing `kb(workbench.action.showErrorsWarnings)` to get the list of problems gives you the following output:
+Running it inside VS Code and pressing `kb(workbench.actions.view.problems)` to get the list of problems gives you the following output:
 
 ![GCC Problem Matcher](images/tasks/problemmatcher.png)
 
