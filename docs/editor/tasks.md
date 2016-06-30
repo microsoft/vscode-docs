@@ -14,6 +14,38 @@ Lots of tools exist to automate tasks like building, packaging, testing or deplo
 
 These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code. Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
 
+## Hello World
+
+Let's start with a simple "Hello World" task which will display text to the OUTPUT panel when run.
+
+Tasks are defined in a workspace `tasks.json` file and VS Code has templates for common task runners. In the **Command Palette** (`kb(workbench.action.showCommands)`), you can filter on 'task' and can see the various Task related commands.
+
+![tasks in command palette](images/tasks/tasks-command-palette.png)
+
+Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates. Select **Others** to create a task which runs an external command.
+
+You should now see a `tasks.json` file in your workspace `.vscode` folder with the following content:
+
+```json
+{
+    "version": "0.1.0",
+    "command": "echo",
+    "isShellCommand": true,
+    "args": ["Hello World"],
+    "showOutput": "always"
+}
+```
+
+In this example, we are just running the `echo` shell command with "Hello World" as an argument.
+
+Test the `echo` task by running **Tasks: Run Tasks** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
+
+You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`. 
+
+![tasks IntelliSense](images/tasks/tasks-intellisense.png)
+
+>**Tip:** You can run your task through **Quick Open** (`kb(workbench.action.quickOpen)`) by typing 'task', `kbstyle(Space)` and the command name. In this case, 'task echo'.
+
 ## Examples of Tasks in Action
 
 The best way to highlight the power of Tasks is with a few examples of how VS Code can use Tasks to integrate external tools like linters and compilers.
@@ -388,7 +420,45 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 
 That was tasks - let's keep going...
 
-* [tasks.json Schema](/docs/editor/tasks_appendix.md) - Still want more on tasks dig into the schema to see what else is possible
-* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
-* [Language Support](/docs/languages/overview.md) - Our Good, Better, Best language grid to see what you can expect
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
+* [tasks.json Schema](/docs/editor/tasks_appendix.md) - You can review the full `tasks.json` schema and descriptions.
+* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Go to Definition and more.
+* [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
+* [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
+
+## Common Questions
+
+**Q: How can I define multiple tasks to run different commands?**
+
+**A:** Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and OS X, `cmd` on Windows).
+
+Here is an example to add two tasks for `make` and `ls`:
+
+```json
+{
+    "version": "0.1.0",
+    "command": "sh",
+    "args": ["-c"],
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "make",
+            "args": ["make"]
+        },
+        {
+            "taskName": "ls",
+            "args": ["ls"]
+        }
+    ]
+}
+```
+
+Both tasks `make` and `ls` will be visible in the **Tasks: Run Task** dropdown.
+
+For Windows, you will need to pass the '/C' argument to `cmd` so that the tasks arguments are run.
+
+```json
+    "command": "cmd",
+    "args: ["/C"]
+```
