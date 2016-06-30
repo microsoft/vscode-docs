@@ -16,41 +16,37 @@ The features that VS Code includes out-of-the-box are just the start. VS Code ex
 
 ## Browse and Install Extensions in VS Code
 
-You can browse and install extensions from within VS Code. Press `kb(workbench.action.showCommands)` and narrow down the list commands by typing `extension`:
+You can browse and install extensions from within VS Code. Bring up the Extension view by clicking on the Extensions icon in the View Bar on the side of VS Code.
 
-![Extension Commands](images/extension-gallery/f1extensions.png)
+![Extension View icon](images/extension-gallery/extension-view-icon.png)
 
-Pick `Extensions: Install Extension`.
+This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
-> **Tip:** As an alternative, press `kb(workbench.action.quickOpen)` (**Quick Open**) and type `ext install ` with a trailing space. Not sure what to install? Visit [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
-
-![ext install shortcut](images/extension-gallery/ext-install.png)
-
-You'll see a list of extensions on the Marketplace along with the publisher, published date and a brief description.  You can click the `README` button to go to the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
+Each extension in the list includes a brief description, the publisher, the download count and a five star rating. You can click on the extension item to display the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
 
 >**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) for details.
 
 ## Install an Extension
 
-Simply pick the extension from the list. After a successful install, you'll get the following notification:
+Simply click the **Install** button and after a successful install, you'll see an **Enable** button which will prompt you to restart VS Code to enable the new extension.
 
-![extension installed](images/extension-gallery/installed.png)
+## Search for an Extension
+
+You can clear the Search box at the top of the Extensions View and type in the name of the extension, tool or programming language you're looking for. For example, typing 'python' will bring up a list of Python language extensions.
+
+You can see a list of recommended extensions (based on your workspace file types), using the `Extensions: Show Extension Recommendations` command which uses the '@recommended' filter.
 
 ## List Installed Extensions
 
-You can also browse installed extensions with the `Extensions: Show Installed Extensions` command or by typing `kb(workbench.action.quickOpen)` (**Quick Open**) and `ext ` with a trailing space.
-
-![installed extensions](images/extension-gallery/installed-extensions.png)
+You can also review your installed extensions with the `Extensions: Show Installed Extensions` command or by typing `kb(workbench.action.quickOpen)` (**Quick Open**) and `ext ` with a trailing space.  Clearing the Extensions view search box will also show your installed extensions.
 
 ## Uninstall an Extension
 
-To uninstall an extension, bring up the `Extensions: Show Installed Extensions` dropdown and click the `x` button in the lower right of the extension entry. This will uninstall the extension and prompt you to restart VS Code.
+To uninstall an extension, bring up the `Extensions: Show Installed Extensions` list and click the **Uninstall** button. This will uninstall the extension and prompt you to restart VS Code.
 
 ## Update an Extension
 
-You can quickly look for extension updates by using the `Extensions: Show Outdated Extensions` dropdown.  This will display any available updates for your currently installed extensions. Simply click the Update Extension button in the lower right for the outdated extension and the update will be installed and you'll be prompted to restart VS Code.
-
-> **Tip:** Code will also notify you of available updates in the extension icon at the bottom left corner of its window.
+You can quickly look for extension updates by using the `Extensions: Show Outdated Extensions` command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Simply click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code.
 
 ## Browse Extensions
 
