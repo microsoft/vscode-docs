@@ -35,9 +35,9 @@ Each time you start VS Code, it opens up in the same state it was in when you la
 
 ![VS Code Layout](images/codebasics/layout.png)
 
-Instead of placing files in separate tabs, VS Code allows up to three visible editors at any one time, allowing you place up to three files together side by side.
+VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side.
 
-This helps to reduce the overhead of managing tabs but does not restrict the number of files you can work with. The Explorer view maintains a list of working files allowing you quick access to the files you need.
+The Explorer view maintains a list of open editors allowing you quick access to the files you need.
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
@@ -83,21 +83,17 @@ By default, VS Code excludes some folders from the explorer (for example. `.git`
 
 **Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
-## Working Files
+## Open Editors
 
-At the top of the Explorer is a section labeled **WORKING FILES**. This is a list of active files. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the working files section if you:
+At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list of active files. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** section if you:
 
 * make a change to a file
 * double-click a file in the Explorer
 * open a file that is not part of the current folder
 
-![Working Files Section](images/codebasics/workingfiles.png)
+Just click an item in the **OPEN EDITORS** section, and it becomes active in VS Code.
 
-Think of the **WORKING FILES** section as similar to Tabs that you may be familiar with in other code editors or IDEs. Just click a file in the working files section, and it becomes active in VS Code.
-
-Once you are done with your task, you can individually remove files from the working files section, or you can remove all files from the working files section by using the **Close All Files** action.
-
->**Tip:** You can type `kb(workbench.files.action.workingFilesPicker)` to navigate the list of working files from file picker without having the explorer visible.
+Once you are done with your task, you can individually remove files from the **OPEN FILES** section, or you can remove all files from the **OPEN EDITORS** section by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
 
 ## Configuring the Editor
 
@@ -292,6 +288,6 @@ You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWo
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
 
-**Q: How can I show more files in the WORKING FILES section?**
+**Q: How can I show more files in the OPEN EDITORS section?**
 
-**A:** You can configure the appearance of **WORKING FILES** through your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.workingFiles.maxVisible` setting and whether the **WORKING FILES** section should dynamically set its height via `explorer.workingFiles.dynamicHeight`.
+**A:** You can configure the appearance of **OPEN EDITORS** through your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.openEditors.visible` setting and whether the **OPEN EDITORS** section should dynamically set its height via `explorer.openEditors.dynamicHeight`.

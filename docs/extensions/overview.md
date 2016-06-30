@@ -31,7 +31,7 @@ Extensions include support for:
 
 * **Activation** - load an extension when a specific file type is detected, when a specific file exists, or when a command is selected via the Command Palette or a key combination
 * **Editor** - work with the editor's content - read and manipulate text, leverage selection(s)
-* **Workspace** - access working files, the status bar, information messages and more
+* **Workspace** - access open editors, the status bar, information messages and more
 * **Eventing** - connect to the editor life-cycle events such as: open, close, change, and more
 * **Evolved editing** - create providers for rich language support including IntelliSense, Peek, Hover, Diagnostics and much, much more
 
