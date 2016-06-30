@@ -69,7 +69,7 @@ Below is a copy of the default `settings.json` file.
 // Overwrite settings by placing them into your settings file.
 {
 
-    //-------- Editor configuration --------
+// Editor
 
     // Controls the font family.
     "editor.fontFamily": "Consolas, 'Courier New', monospace",
@@ -122,6 +122,9 @@ Below is a copy of the default `settings.json` file.
     // Controls the delay in ms after which quick suggestions will show up
     "editor.quickSuggestionsDelay": 10,
 
+    // Enables parameter hints
+    "editor.parameterHints": true,
+
     // Controls if the editor should automatically close brackets after opening them
     "editor.autoClosingBrackets": true,
 
@@ -155,6 +158,9 @@ Below is a copy of the default `settings.json` file.
     // Controls whether the editor should render whitespace characters
     "editor.renderWhitespace": false,
 
+    // Controls whether the editor should render control characters
+    "editor.renderControlCharacters": false,
+
     // Controls if the editor shows reference information for the modes that support it
     "editor.referenceInfos": true,
 
@@ -176,8 +182,38 @@ Below is a copy of the default `settings.json` file.
     // Controls if the diff editor shows changes in leading or trailing whitespace as diffs
     "diffEditor.ignoreTrimWhitespace": true,
 
+    // Enable word based suggestions.
+    "editor.wordBasedSuggestions": true,
 
-    //-------- Window configuration --------
+
+// Emmet
+
+    // When enabled, emmet abbreviations are expanded when pressing TAB.
+    "emmet.triggerExpansionOnTab": true,
+
+    // Preferences used to modify behavior of some actions and resolvers of Emmet.
+    "emmet.preferences": {},
+
+    // Define profile for specified syntax or use your own profile with specific rules.
+    "emmet.syntaxProfiles": {},
+
+
+// Workbench
+
+    // Controls if opened editors should show in tabs or not.
+    "workbench.editor.showTabs": false,
+
+    // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
+    "workbench.editor.enablePreview": true,
+
+    // Controls if opened editors from quick open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+
+    // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the current active one. Select 'first' or 'last' to open editors independently from the currently active one.
+    "workbench.editor.openPositioning": "right",
+
+
+// Window
 
     // When enabled, will open files in a new window instead of reusing an existing instance.
     "window.openFilesInNewWindow": true,
@@ -185,11 +221,14 @@ Below is a copy of the default `settings.json` file.
     // Controls how folders are being reopened after a restart. Select 'none' to never reopen a folder, 'one' to reopen the last folder you worked on or 'all' to reopen all folders of your last session.
     "window.reopenFolders": "one",
 
+    // Controls if a window should restore to full screen mode if it was exited in full screen mode.
+    "window.restoreFullscreen": false,
+
     // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
     "window.zoomLevel": 0,
 
 
-    //-------- Files configuration --------
+// Files
 
     // Configure glob patterns for excluding files and folders.
     "files.exclude": {
@@ -222,34 +261,19 @@ Below is a copy of the default `settings.json` file.
     },
 
 
-    //-------- Emmet configuration --------
+// File Explorer
 
-    // When enabled, emmet abbreviations are expanded when pressing TAB.
-    "emmet.triggerExpansionOnTab": true,
+    // Number of editors shown in the Open Editors pane. Set it to 0 to hide the pane.
+    "explorer.openEditors.visible": 9,
 
-
-    //-------- File Explorer configuration --------
-
-    // Maximum number of working files to show before scrollbars appear.
-    "explorer.workingFiles.maxVisible": 9,
-
-    // Controls if the height of the working files section should adapt dynamically to the number of elements or not.
-    "explorer.workingFiles.dynamicHeight": true,
+    // Controls if the height of the open editors section should adapt dynamically to the number of elements or not.
+    "explorer.openEditors.dynamicHeight": true,
 
     // Controls if the explorer should automatically reveal files when opening them.
     "explorer.autoReveal": true,
 
 
-    //-------- HTTP configuration --------
-
-    // The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
-    "http.proxy": "",
-
-    // Whether the proxy server certificate should be verified against the list of supplied CAs.
-    "http.proxyStrictSSL": true,
-
-
-    //-------- Search configuration --------
+// Search
 
     // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
     "search.exclude": {
@@ -258,13 +282,7 @@ Below is a copy of the default `settings.json` file.
     },
 
 
-    //-------- Update configuration --------
-
-    // Configure the update channel to receive updates from. Requires a restart after change.
-    "update.channel": "default",
-
-
-    //-------- Git configuration --------
+// Git
 
     // Is git enabled
     "git.enabled": true,
@@ -275,33 +293,29 @@ Below is a copy of the default `settings.json` file.
     // Whether auto fetching is enabled.
     "git.autofetch": true,
 
+    // Whether long commit messages should be warned about.
+    "git.enableLongCommitWarning": true,
 
-    //-------- Markdown preview configuration --------
-
-    // A list of URLs or local paths to CSS style sheets to use from the markdown preview.
-    "markdown.styles": [],
-
-
-    //-------- JSON configuration --------
-
-    // Associate schemas to JSON files in the current project
-    "json.schemas": [],
+    // Always allow large repositories to be managed by Code.
+    "git.allowLargeRepositories": false,
 
 
-    //-------- Telemetry configuration --------
+// HTTP
 
-    // Enable usage data and errors to be sent to Microsoft.
-    "telemetry.enableTelemetry": true,
+    // The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
+    "http.proxy": "",
 
-
-    //-------- Telemetry configuration --------
-
-    // Enable crash reports to be sent to Microsoft.
-	// This option requires restart to take effect.
-    "telemetry.enableCrashReporter": true,
+    // Whether the proxy server certificate should be verified against the list of supplied CAs.
+    "http.proxyStrictSSL": true,
 
 
-    //-------- CSS configuration --------
+// Update
+
+    // Configure whether you receive automatic updates from an update channel. Requires a restart after change.
+    "update.channel": "default",
+
+
+// CSS
 
     // Controls CSS validation and problem severities.
 
@@ -363,96 +377,7 @@ Below is a copy of the default `settings.json` file.
     "css.lint.idSelector": "ignore",
 
 
-    //-------- HTML configuration --------
-
-    // Maximum amount of characters per line (0 = disable).
-    "html.format.wrapLineLength": 120,
-
-    // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
-    "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, script, select, small, span, strong, sub, sup, textarea, tt, var",
-
-    // Indent <head> and <body> sections.
-    "html.format.indentInnerHtml": false,
-
-    // Whether existing line breaks before elements should be preserved. Only works before elements, not inside tags or for text.
-    "html.format.preserveNewLines": true,
-
-    // Maximum number of line breaks to be preserved in one chunk. Use 'null' for unlimited.
-    "html.format.maxPreserveNewLines": null,
-
-    // Format and indent {{#foo}} and {{/foo}}.
-    "html.format.indentHandlebars": false,
-
-    // End with a newline.
-    "html.format.endWithNewline": false,
-
-    // List of tags, comma separated, that should have an extra newline before them. 'null' defaults to "head, body, /html".
-    "html.format.extraLiners": "head, body, /html",
-
-
-    //-------- LESS configuration --------
-
-    // Controls LESS validation and problem severities.
-
-    // Enables or disables all validations
-    "less.validate": true,
-
-    // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-    "less.lint.compatibleVendorPrefixes": "ignore",
-
-    // When using a vendor-specific prefix also include the standard property
-    "less.lint.vendorPrefix": "warning",
-
-    // Do not use duplicate style definitions
-    "less.lint.duplicateProperties": "ignore",
-
-    // Do not use empty rulesets
-    "less.lint.emptyRules": "warning",
-
-    // Import statements do not load in parallel
-    "less.lint.importStatement": "ignore",
-
-    // Do not use width or height when using padding or border
-    "less.lint.boxModel": "ignore",
-
-    // The universal selector (*) is known to be slow
-    "less.lint.universalSelector": "ignore",
-
-    // No unit for zero needed
-    "less.lint.zeroUnits": "ignore",
-
-    // @font-face rule must define 'src' and 'font-family' properties
-    "less.lint.fontFaceProperties": "warning",
-
-    // Hex colors must consist of three or six hex numbers
-    "less.lint.hexColorLength": "error",
-
-    // Invalid number of parameters
-    "less.lint.argumentsInColorFunction": "error",
-
-    // Unknown property.
-    "less.lint.unknownProperties": "warning",
-
-    // IE hacks are only necessary when supporting IE7 and older
-    "less.lint.ieHack": "ignore",
-
-    // Unknown vendor specific property.
-    "less.lint.unknownVendorSpecificProperties": "ignore",
-
-    // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-    "less.lint.propertyIgnoredDueToDisplay": "warning",
-
-    // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-    "less.lint.important": "ignore",
-
-    // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-    "less.lint.float": "ignore",
-
-    // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-    "less.lint.idSelector": "ignore",
-
-
- // SCSS (Sass)
+// SCSS (Sass)
 
     // Controls SCSS validation and problem severities.
 
@@ -514,43 +439,135 @@ Below is a copy of the default `settings.json` file.
     "scss.lint.idSelector": "ignore",
 
 
-    //-------- Integrated terminal configuration --------
+// LESS
 
-    // The path of the shell that the terminal uses on Linux.
-    "terminal.integrated.shell.linux": "sh",
+    // Controls LESS validation and problem severities.
 
-    // The path of the shell that the terminal uses on OS X.
-    "terminal.integrated.shell.osx": "sh",
+    // Enables or disables all validations
+    "less.validate": true,
 
-    // The path of the shell that the terminal uses on Windows.
-    "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe",
+    // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+    "less.lint.compatibleVendorPrefixes": "ignore",
 
-    // The font family used by the terminal (CSS font-family format).
-    "terminal.integrated.fontFamily": "Menlo, Monaco, Consolas, \"Droid Sans Mono\", \"Courier New\", monospace, \"Droid Sans Fallback\"",
+    // When using a vendor-specific prefix also include the standard property
+    "less.lint.vendorPrefix": "warning",
+
+    // Do not use duplicate style definitions
+    "less.lint.duplicateProperties": "ignore",
+
+    // Do not use empty rulesets
+    "less.lint.emptyRules": "warning",
+
+    // Import statements do not load in parallel
+    "less.lint.importStatement": "ignore",
+
+    // Do not use width or height when using padding or border
+    "less.lint.boxModel": "ignore",
+
+    // The universal selector (*) is known to be slow
+    "less.lint.universalSelector": "ignore",
+
+    // No unit for zero needed
+    "less.lint.zeroUnits": "ignore",
+
+    // @font-face rule must define 'src' and 'font-family' properties
+    "less.lint.fontFaceProperties": "warning",
+
+    // Hex colors must consist of three or six hex numbers
+    "less.lint.hexColorLength": "error",
+
+    // Invalid number of parameters
+    "less.lint.argumentsInColorFunction": "error",
+
+    // Unknown property.
+    "less.lint.unknownProperties": "warning",
+
+    // IE hacks are only necessary when supporting IE7 and older
+    "less.lint.ieHack": "ignore",
+
+    // Unknown vendor specific property.
+    "less.lint.unknownVendorSpecificProperties": "ignore",
+
+    // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+    "less.lint.propertyIgnoredDueToDisplay": "warning",
+
+    // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+    "less.lint.important": "ignore",
+
+    // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+    "less.lint.float": "ignore",
+
+    // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+    "less.lint.idSelector": "ignore",
 
 
-    //-------- External terminal configuration --------
+// HTML
 
-    // Customizes which terminal to run on Windows.
-    "terminal.external.windowsExec": "cmd",
+    // Maximum amount of characters per line (0 = disable).
+    "html.format.wrapLineLength": 120,
 
-    // Customizes which terminal to run on Linux.
-    "terminal.external.linuxExec": "xterm",
+    // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
+    "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, script, select, small, span, strong, sub, sup, textarea, tt, var",
+
+    // Indent <head> and <body> sections.
+    "html.format.indentInnerHtml": false,
+
+    // Whether existing line breaks before elements should be preserved. Only works before elements, not inside tags or for text.
+    "html.format.preserveNewLines": true,
+
+    // Maximum number of line breaks to be preserved in one chunk. Use 'null' for unlimited.
+    "html.format.maxPreserveNewLines": null,
+
+    // Format and indent {{#foo}} and {{/foo}}.
+    "html.format.indentHandlebars": false,
+
+    // End with a newline.
+    "html.format.endWithNewline": false,
+
+    // List of tags, comma separated, that should have an extra newline before them. 'null' defaults to "head, body, /html".
+    "html.format.extraLiners": "head, body, /html",
 
 
-    //-------- TypeScript configuration --------
+// JSON
+
+    // Associate schemas to JSON files in the current project
+    "json.schemas": [],
+
+
+// Markdown
+
+    // A list of URLs or local paths to CSS style sheets to use from the markdown preview.
+    "markdown.styles": null,
+
+
+// PHP
+
+    // Whether php validation is enabled or not.
+    "php.validate.enable": true,
+
+    // Points to the php executable.
+    "php.validate.executablePath": null,
+
+    // Whether the linter is run on save or on type.
+    "php.validate.run": "onSave",
+
+
+// TypeScript
 
     // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
     "typescript.tsdk": null,
+
+    // Enables tracing of messages send to the TS server
+    "typescript.tsserver.trace": "off",
+
+    // Enables experimental auto build. Requires 1.9 dev or 2.x tsserver version and a restart of VS Code after changing it.
+    "typescript.tsserver.experimentalAutoBuild": false,
 
     // Complete functions with their parameter signature.
     "typescript.useCodeSnippetsOnMethodSuggest": false,
 
     // Enable / disable TypeScript validation
     "typescript.validate.enable": true,
-
-    // Enables tracing of messages send to the TS server
-    "typescript.tsserver.trace": "off",
 
     // Defines space handling after a comma delimiter
     "typescript.format.insertSpaceAfterCommaDelimiter": true,
@@ -610,19 +627,62 @@ Below is a copy of the default `settings.json` file.
     "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
 
 
-    //-------- PHP Configuration options --------
+// External Terminal
 
-    // Whether php validation is enabled or not.
-    "php.validate.enable": true,
+    // Customizes which terminal to run on Windows.
+    "terminal.external.windowsExec": "cmd",
 
-    // Points to the php executable.
-    "php.validate.executablePath": null,
+    // Customizes which terminal application to run on OS X.
+    "terminal.external.osxExec": "Terminal.app",
 
-    // Whether the linter is run on save or on type.
-    "php.validate.run": "onSave",
+    // Customizes which terminal to run on Linux.
+    "terminal.external.linuxExec": "xterm",
 
-    // Enable word based suggestions.
-    "editor.wordBasedSuggestions": true
+
+// Integrated Terminal
+
+    // The path of the shell that the terminal uses on Linux.
+    "terminal.integrated.shell.linux": "sh",
+
+    // The command line arguments to use when on the Linux terminal.
+    "terminal.integrated.shellArgs.linux": [],
+
+    // The path of the shell that the terminal uses on OS X.
+    "terminal.integrated.shell.osx": "sh",
+
+    // The command line arguments to use when on the OS X terminal.
+    "terminal.integrated.shellArgs.osx": [],
+
+    // The path of the shell that the terminal uses on Windows.
+    "terminal.integrated.shell.windows": "C:\\windows\\system32\\cmd.exe",
+
+    // The command line arguments to use when on the Windows terminal.
+    "terminal.integrated.shellArgs.windows": [],
+
+    // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
+    "terminal.integrated.fontFamily": "",
+
+    // Controls the font size of the terminal, this defaults to editor.fontSize's value.
+    "terminal.integrated.fontSize": 0,
+
+    // Controls the line height of the terminal, this defaults to normal.
+    "terminal.integrated.lineHeight": 0,
+
+
+// Problems View
+
+    // Controls if Problems view should automatically reveal files when opening them
+    "problems.autoReveal": true,
+
+
+// Telemetry
+
+    // Enable usage data and errors to be sent to Microsoft.
+    "telemetry.enableTelemetry": true,
+
+    // Enable crash reports to be sent to Microsoft.
+	// This option requires restart to take effect.
+    "telemetry.enableCrashReporter": true
 
 }
 ```
