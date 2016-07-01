@@ -14,7 +14,7 @@ Visual Studio Code has support for showing open items with Tabs (tabbed headings
 
 >**Prerelease:** Tabs and the features discussed here are currently only supported on the prerelease [Insiders](/insiders) build. The features and UI are still under development but we invite you to install the Insiders build and give Tabs a try today.
 
-To enable Tabs, use the `workbench.editor.showTabs` [setting](/docs/customization/userandworkspace.md):
+To enable or disable Tabs, use the `workbench.editor.showTabs` [setting](/docs/customization/userandworkspace.md):
 
 ```json
     "workbench.editor.showTabs": true
