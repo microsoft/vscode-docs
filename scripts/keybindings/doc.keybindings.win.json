@@ -423,6 +423,7 @@
 { "key": "ctrl+p",                "command": "workbench.action.quickOpenNavigateNext",
                                      "when": "inQuickOpen" },
 { "key": "ctrl+shift+t",          "command": "workbench.action.reopenClosedEditor" },
+{ "key": "ctrl+shift+h",          "command": "workbench.action.replaceInFiles" },
 { "key": "ctrl+shift+j",          "command": "workbench.action.search.toggleQueryDetails",
                                      "when": "searchViewletVisible" },
 { "key": "ctrl+t",                "command": "workbench.action.showAllSymbols" },
