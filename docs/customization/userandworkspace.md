@@ -146,6 +146,9 @@ Below is a copy of the default `settings.json` file.
     // Controls the cursor blinking animation, accepted values are 'blink', 'visible', and 'hidden'
     "editor.cursorBlinking": "blink",
 
+    // Zoom the font of the editor when using mouse wheel and holding Ctrl
+    "editor.mouseWheelZoom": false,
+
     // Controls the cursor style, accepted values are 'block' and 'line'
     "editor.cursorStyle": "line",
 
@@ -160,6 +163,9 @@ Below is a copy of the default `settings.json` file.
 
     // Controls whether the editor should render control characters
     "editor.renderControlCharacters": false,
+
+    // Controls whether the editor should render indent guides
+    "editor.renderIndentGuides": false,
 
     // Controls if the editor shows reference information for the modes that support it
     "editor.referenceInfos": true,
@@ -201,7 +207,7 @@ Below is a copy of the default `settings.json` file.
 // Workbench
 
     // Controls if opened editors should show in tabs or not.
-    "workbench.editor.showTabs": false,
+    "workbench.editor.showTabs": true,
 
     // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
     "workbench.editor.enablePreview": true,
@@ -536,8 +542,8 @@ Below is a copy of the default `settings.json` file.
 
 // Markdown
 
-    // A list of URLs or local paths to CSS style sheets to use from the markdown preview.
-    "markdown.styles": null,
+    // A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
+    "markdown.styles": [],
 
 
 // PHP
@@ -655,9 +661,6 @@ Below is a copy of the default `settings.json` file.
 
     // The path of the shell that the terminal uses on Windows.
     "terminal.integrated.shell.windows": "C:\\windows\\system32\\cmd.exe",
-
-    // The command line arguments to use when on the Windows terminal.
-    "terminal.integrated.shellArgs.windows": [],
 
     // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
     "terminal.integrated.fontFamily": "",
