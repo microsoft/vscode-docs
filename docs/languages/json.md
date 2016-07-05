@@ -74,7 +74,7 @@ The following excerpt from the User Settings shows how `.babelrc` files are mapp
         "fileMatch": [
             "/.babelrc"
         ],
-        "url": "http://json.schemastore.org/babelrc
+        "url": "http://json.schemastore.org/babelrc"
     },
 ```
 
