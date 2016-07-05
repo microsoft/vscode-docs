@@ -20,7 +20,7 @@ You can customize VS Code to work the way you like to work.  Here is a quick pri
 **Category**|**Scenario**|**Marketplace**
 ------------|------------|-----------
 [User and Workspace settings](/docs/customization/userandworkspace.md)|Configure settings for an individual workspace or all workspaces.  Word-wrapping, linting options and much more.|No
-[Key Bindings](/docs/customization/keybindings.md)| Review all key bindings and change them to suit your needs.|No
+[Key Bindings](/docs/customization/keybindings.md)| Review all key bindings and change them to suit your needs.|Yes
 [Tasks](/docs/editor/tasks.md)|Tasks are a great way to connect VS Code with your broader development workflow.|No
 [Themes](/docs/customization/themes.md)| Add additional color themes to VS Code.|Yes 
 [Basic Language Support](/docs/customization/colorizer.md)| Add additional basic language support (colorization and bracket matching) to VS Code via a TextMate bundle.  You can also associate more file extensions with an existing language.|Yes
