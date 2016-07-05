@@ -84,6 +84,10 @@ You can not use the keyboard (right, left arrow keys) to move between top-level 
 
 ### OS X
 
+There is limited screen reader support for the editor with VoiceOver.
+
+### Linux
+
 There is no screen reader support for the editor.
 
 ## Next Steps
