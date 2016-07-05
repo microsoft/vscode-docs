@@ -378,6 +378,8 @@
                                      "when": "accessibilityHelpWidgetVisible && editorFocus" },
 { "key": "escape",                "command": "closeAccessibilityHelp",
                                      "when": "accessibilityHelpWidgetVisible && editorFocus" },
+{ "key": "alt+cmd+enter",         "command": "search.action.replaceAll",
+                                     "when": "replaceActive && searchViewletVisible && !findWidgetVisible" },                                     
 { "key": "shift+cmd+r",           "command": "toggleExperimentalScreenReaderSupport" },
 { "key": "cmd+w",                 "command": "workbench.action.closeActiveEditor" },
 { "key": "cmd+k cmd+w",           "command": "workbench.action.closeAllEditors" },
