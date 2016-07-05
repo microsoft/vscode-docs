@@ -92,7 +92,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of Command-instances.
 
 
-`vscode.executeCodeLensProvider` - Execute completion lens provider.
+`vscode.executeCodeLensProvider` - Execute CodeLens provider.
 
 * _uri_ Uri of a text document
 * _(returns)_ A promise that resolves to an array of CodeLens-instances.
