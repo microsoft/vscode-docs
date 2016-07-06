@@ -32,12 +32,23 @@ For example, if you wanted to use PowerShell on Windows:
 "terminal.integrated.shell.windows":"C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe"
 ```
 
+Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
+
 ## Key Bindings
 
 The **Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
-## Prerelease: Managing Multiple Terminals
+Other terminal commands are available and can be bound to your preferred key board shortcuts.
 
-Multiple terminals are coming soon and you can start using them today with the [Insiders](/insiders) build.  The UI is under development but you can easily create and navigate between multiple terminals open to different locations.
+They are:
 
-Along with multiple terminals, new settings (e.g. shell argument lists) and key bindings are also coming in the next release.
+* `workbench.action.terminal.focus`: Focus the terminal. This is like toggle but focuses the terminal instead of hides it if its visible.
+* `workbench.action.terminal.focusNext`: Focuses the next terminal instance.
+* `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
+* `workbench.action.terminal.kill`: Remove the current terminal instance.
+
+## Managing Multiple Terminals
+
+You can create multiple terminals (`+` button) open to different locations and easily navigate between them.
+
+![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
