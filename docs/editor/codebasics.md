@@ -153,7 +153,7 @@ VS Code is equally accessible from the keyboard. The most important key combinat
 The Command Palette provides access to many commands. You can execute editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
 
 * `kb(workbench.action.quickOpen)` will let you navigate to any file or symbol by simply typing its name
-* `kb(workbench.action.openPreviousEditor)` will cycle you through the last set of files opened
+* `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` will cycle you through the last set of files opened
 * `kb(workbench.action.showCommands)` will bring you directly to the editor commands
 * `kb(workbench.action.gotoSymbol)` will let you navigate to a specific symbol in a file
 * `kb(workbench.action.gotoLine)` will let you navigate to a specific line in a file

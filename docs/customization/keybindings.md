@@ -98,11 +98,11 @@ Key|Command|Command id
 `kb(workbench.action.gotoLine)`|Go to Line...|`workbench.action.gotoLine`
 `kb(workbench.action.quickOpen)`|Go to File..., Quick Open|`workbench.action.quickOpen`
 `kb(workbench.action.gotoSymbol)`|Go to Symbol...|`workbench.action.gotoSymbol`
-`kb(workbench.action.showErrorsWarnings)`|Show Errors and Warnings|`workbench.action.showErrorsWarnings`
+`kb(workbench.actions.view.problems)`|Show Problems|`workbench.actions.view.problems`
 `kb(editor.action.marker.next)`|Go to Next Error or Warning|`editor.action.marker.next`
 `kb(editor.action.marker.prev)`|Go to Previous Error or Warning|`editor.action.marker.prev`
 `kb(workbench.action.showCommands)`|Show All Commands|`workbench.action.showCommands`
-`kb(workbench.action.openPreviousEditor)`|Navigate History|`workbench.action.openPreviousEditor`
+`kb(workbench.action.workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate History|`workbench.action.workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
 `kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
 
@@ -114,15 +114,15 @@ Key|Command|Command id
 `kb(workbench.action.closeWindow)`|Close Window|`workbench.action.closeWindow`
 `kb(workbench.action.closeActiveEditor)`|Close Editor|`workbench.action.closeActiveEditor`
 `kb(workbench.action.closeFolder)`|Close Folder|`workbench.action.closeFolder`
-`kb(workbench.action.cycleEditor)`|Cycle Between Opened Editors|`workbench.action.cycleEditor`
+`kb(workbench.action.navigateEditorGroups)`|Cycle Between Editor Groups|`workbench.action.navigateEditorGroups`
 `kb(workbench.action.splitEditor)`|Split Editor|`workbench.action.splitEditor`
-`kb(workbench.action.focusFirstEditor)`|Focus into Left Hand Editor|`workbench.action.focusFirstEditor`
-`kb(workbench.action.focusSecondEditor)`|Focus into Side Editor|`workbench.action.focusSecondEditor`
-`kb(workbench.action.focusThirdEditor)`|Focus into Right Hand Editor|`workbench.action.focusThirdEditor`
-`kb(workbench.action.focusLeftEditor)`|Focus into Next Editor on the Left|`workbench.action.focusLeftEditor`
-`kb(workbench.action.focusRightEditor)`|Focus into Next Editor on the Right|`workbench.action.focusRightEditor`
-`kb(workbench.action.moveActiveEditorLeft)`|Move Active Editor Left|`workbench.action.moveActiveEditorLeft`
-`kb(workbench.action.moveActiveEditorRight)`|Move Active Editor Right|`workbench.action.moveActiveEditorRight`
+`kb(workbench.action.focusFirstEditorGroup)`|Focus into Left Editor Group|`workbench.action.focusFirstEditorGroup`
+`kb(workbench.action.focusSecondEditorGroup)`|Focus into Side Editor Group|`workbench.action.focusSecondEditorGroup`
+`kb(workbench.action.focusThirdEditorGroup)`|Focus into Right Editor Group|`workbench.action.focusThirdEditorGroup`
+`kb(workbench.action.focusPreviousGroup)`|Focus into Editor Group on the Left|`workbench.action.focusPreviousGroup`
+`kb(workbench.action.focusNextGroup)`|Focus into Editor Group on the Right|`workbench.action.focusNextGroup`
+`kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
+`kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
 
 ## File Management
 
@@ -133,12 +133,16 @@ Key|Command|Command id
 `kb(workbench.action.files.save)`|Save|`workbench.action.files.save`
 `kb(workbench.action.files.saveAll)`|Save All|`workbench.action.files.saveAll`
 `kb(workbench.action.files.saveAs)`|Save As...|`workbench.action.files.saveAs`
-`kb(workbench.files.action.closeFile)`|Close File|`workbench.files.action.closeFile`
-`kb(workbench.files.action.closeAllFiles)`|Close All Files|`workbench.files.action.closeAllFiles`
-`kb(workbench.files.action.closeOtherFiles)`|Close Other Files|`workbench.files.action.closeOtherFiles`
-`kb(workbench.files.action.addToWorkingFiles)`|Add to Working Files|`workbench.files.action.addToWorkingFiles`
-`kb(workbench.files.action.openNextWorkingFile)`|Open Next Working File|`workbench.files.action.openNextWorkingFile`
-`kb(workbench.files.action.openPreviousWorkingFile)`|Open Previous Working File|`workbench.files.action.openPreviousWorkingFile`
+`kb(workbench.action.closeActiveEditor)`|Close|`workbench.action.closeActiveEditor`
+`kb(workbench.action.closeOtherEditors)`|Close Others|`workbench.action.closeOtherEditors`
+`kb(workbench.action.closeEditorsInGroup)`|Close Group|`workbench.action.closeEditorsInGroup`
+`kb(workbench.action.closeEditorsInOtherGroups)`|Close Other Groups|`workbench.action.closeEditorsInOtherGroups`
+`kb(workbench.action.closeEditorsToTheLeft)`|Close Group to Left|`workbench.action.closeEditorsToTheLeft`
+`kb(workbench.action.closeEditorsToTheRight)`|Close Group to Right|`workbench.action.closeEditorsToTheRight`
+`kb(workbench.action.closeAllEditors)`|Close All|`workbench.action.closeAllEditors`
+`kb(workbench.action.keepEditor)`|Keep Open|`workbench.action.keepEditor`
+`kb(workbench.action.openNextEditor)`|Open Next|`workbench.action.openNextEditor`
+`kb(workbench.action.openPreviousEditor)`|Open Previous|`workbench.action.openPreviousEditor`
 `kb(workbench.action.files.copyPathOfActiveFile)`|Copy Path of Active File|`workbench.action.files.copyPathOfActiveFile`
 `kb(workbench.action.files.revealActiveFileInWindows)`|Reveal Active File in Windows|`workbench.action.files.revealActiveFileInWindows`
 `kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
@@ -156,6 +160,7 @@ Key|Command|Command id
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
 `kb(workbench.view.git)`|Show Git|`workbench.view.git`
 `kb(workbench.view.search)`|Show Search|`workbench.view.search`
+`kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
@@ -202,6 +207,7 @@ Key|Command|Command id
 `kb(workbench.extensions.action.listExtensions)`|Show Installed Extensions|`workbench.extensions.action.listExtensions`
 `kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
 `kb(workbench.extensions.action.listSuggestedExtensions)`|Show Extension Recommendations|`workbench.extensions.action.listSuggestedExtensions`
+`kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
 
 ## Customizing Shortcuts
 
@@ -229,8 +235,8 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 { "key": "alt+right",                             "command": "workbench.action.navigateForward" },
 
 // Global keybindings using chords
-{ "key": "ctrl+k enter",                          "command": "workbench.files.action.addToWorkingFiles" },
-{ "key": "ctrl+k ctrl+w",                         "command": "workbench.files.action.closeAllFiles" },
+{ "key": "ctrl+k enter",                          "command": "workbench.action.keepEditor" },
+{ "key": "ctrl+k ctrl+w",                         "command": "workbench.action.closeAllEditors" },
 ```
 
 Each rule consists of:

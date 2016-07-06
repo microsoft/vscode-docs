@@ -14,7 +14,7 @@ Keeping to our monthly release cadence, we've put together a nice selection of n
 Here is an overview of some of the updates contained in this release:
 
 * Quickly resize panes by double-clicking editor borders
-* Reopen the last closed file using `kb(workbench.files.action.reopenClosedFile)`
+* Reopen the last closed file using `kb(workbench.action.reopenClosedEditor)`
 * Launch your favorite shell when opening a new Terminal from the Explorer or Command Palette
 
 Extension authors will be especially happy with these updates:
@@ -48,9 +48,9 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 
 ### Reopen closed file command
 
-The `workbench.files.action.reopenClosedFile` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.files.action.reopenClosedFile)`.
+The `workbench.action.reopenClosedEditor` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.action.reopenClosedEditor)`.
 
->**Note:** Previously `kb(workbench.files.action.reopenClosedFile)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behavior back to the previous one if desired.
+>**Note:** Previously `kb(workbench.action.reopenClosedEditor)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behavior back to the previous one if desired.
 
 ### Disable Emmet abbreviation expansion on Tab
 

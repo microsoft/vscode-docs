@@ -19,7 +19,7 @@ With this release, we're bringing many improvements to your development experien
 ## Developer Workflow
 
 * Quickly resize panes by double-clicking editor borders
-* Reopen the last closed file using `kb(workbench.files.action.reopenClosedFile)`
+* Reopen the last closed file using `kb(workbench.action.reopenClosedEditor)`
 * Launch your favorite shell when opening a new Terminal from the Explorer or Command Palette
 
 ## Debugging
