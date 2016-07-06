@@ -166,7 +166,7 @@ Type `?` into the input field to get a list of available commands you can execut
 
 The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
 
-Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files that have been opened since VS Code was launched. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
+Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open in an editor group. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
 
 ![Quick Navigation](images/codebasics/quicknav.png)
 
