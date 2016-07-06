@@ -102,7 +102,7 @@ Key|Command|Command id
 `kb(editor.action.marker.next)`|Go to Next Error or Warning|`editor.action.marker.next`
 `kb(editor.action.marker.prev)`|Go to Previous Error or Warning|`editor.action.marker.prev`
 `kb(workbench.action.showCommands)`|Show All Commands|`workbench.action.showCommands`
-`kb(workbench.action.workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate History|`workbench.action.workbench.action.openPreviousRecentlyUsedEditorInGroup`
+`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
 `kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
 
