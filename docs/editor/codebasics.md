@@ -85,7 +85,7 @@ By default, VS Code excludes some folders from the explorer (for example. `.git`
 
 ## Open Editors
 
-At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list of active files. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** section if you:
+At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** section if you:
 
 * make a change to a file
 * double-click a file in the Explorer
@@ -93,7 +93,7 @@ At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list
 
 Just click an item in the **OPEN EDITORS** section, and it becomes active in VS Code.
 
-Once you are done with your task, you can individually remove files from the **OPEN FILES** section, or you can remove all files from the **OPEN EDITORS** section by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
+Once you are done with your task, you can individually remove files from the **OPEN EDITORS** section, or you can remove all files from the **OPEN EDITORS** section by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
 
 ## Configuring the Editor
 
