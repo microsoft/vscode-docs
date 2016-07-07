@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control
-DateApproved: 6/6/2016
+DateApproved: 7/7/2016
 MetaDescription: Visual Studio Code has integrated Git support for the most common commands.
 ---
 
