@@ -24,12 +24,13 @@ On top of this, VS Code can read and take advantage of a variety of project file
 
 ## Basic Layout
 
-VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into four areas:
+VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five areas:
 
 * **Editor** the main area to edit your files. You can open up to three editors side by side
 * **Side Bar** contains different views like the Explorer to assist you while working on your project
 * **Status Bar** indicates information about the opened project and the files you edit
 * **View Bar** on the far left-hand side, lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled
+* **Panels** optionally you can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal 
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
