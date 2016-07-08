@@ -22,11 +22,13 @@ You can browse and install extensions from within VS Code. Bring up the Extensio
 
 This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
+![popular extensions](images/extension-gallery/extensions-popular.png)
+
 Each extension in the list includes a brief description, the publisher, the download count and a five star rating. You can click on the extension item to display the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
 
 >**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) for details.
 
-By clicking on the `...` **More** button, it is possible to show:
+By clicking on the view's `...` **More** button, it is possible to show:
 
 * The list of currently installed extensions
 * The list of outdated extensions that can be updated
