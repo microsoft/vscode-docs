@@ -356,7 +356,7 @@ vscode.window.showInformationMessage('Selected characters: ' + text.length);
 
 So far, the extension you have written only runs in a special instance of VS Code, the Extension Development instance. To get your extension running in all instances of VS Code, you need to copy it to a new folder under your local extensions folder:
 
-到目前为止, 你编写的扩展只在 VS Code 特定的扩展开发实例上运行。为了使你的扩展能在所有 VS Code 实例上运行，你需要将它拷贝到你得本地扩展文件夹中。
+到目前为止, 你编写的扩展只在 VS Code 特定的扩展开发实例上运行。为了使你的扩展能在所有 VS Code 实例上运行，你需要将它拷贝到你的本地扩展文件夹中。
 
 * Windows: `%USERPROFILE%\.vscode\extensions`
 * Mac/Linux: `$HOME/.vscode/extensions`
@@ -379,14 +379,14 @@ In this walkthrough, we've seen a very simple extension. For a more detailed exa
 
 If you'd like to read more generally about the extension APIs, try these topics:
 
-如果你想阅读更多关于扩展 APIs 的通用内容，试试下面主题：
+如果你想阅读更多关于扩展 API 的通用内容，试试下面主题：
 
 * [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
 * [API Patterns and Principles](/docs/extensions/patterns-and-principles.md) - VS Code extensibility is based on several guiding patterns and principles.
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - Details about the various VS Code contribution points.
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
 
-* [扩展 API](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
+* [扩展 API](/docs/extensionAPI/overview.md) - 学习完整的 VS Code 扩展性模型。
 * [API 模式与原则](/docs/extensions/patterns-and-principles.md) - VS Code 扩展性基于几个指导模式与原则。
 * [贡献点](/docs/extensionAPI/extension-points.md) - 关于各种 VS Code 贡献点的详细信息。
 * [激活事件](/docs/extensionAPI/activation-events.md) - VS Code 激活事件参考
