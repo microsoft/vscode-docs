@@ -375,7 +375,7 @@ Read about how to [Share an Extension](/docs/tools/vscecli.md).
 
 In this walkthrough, we've seen a very simple extension. For a more detailed example, see the [Word Count Example](/docs/extensions/example-word-count.md) which shows how to target a specific language (Markdown) and listen to the editor's document changed events.
 
-在此次演练中，我们看到了一个非常简单的扩展。一个更加详细的例子在 [Word Count Example](/docs/extensions/example-word-count.md) 中，其展示了如何在特定语言目标下监听编辑器文档变更事件。
+在此次演练中，我们看到了一个非常简单的扩展。一个更加详细的例子在 [单词计数](/docs/extensions/example-word-count.md) 中，其展示了如何在特定语言目标下监听编辑器文档变更事件。
 
 If you'd like to read more generally about the extension APIs, try these topics:
 
