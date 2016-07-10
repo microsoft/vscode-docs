@@ -22,7 +22,7 @@ This document will take you through creating your first VS Code extension ("Hell
 
 In this walkthrough, you'll add a new command to VS Code which will display a simple "Hello World" message.  Later in the walkthrough, you'll interact with the VS Code editor and query for the user's currently selected text.
 
-在此次演练中，你将添加一个新的 VS Code 命令用来显示一条简单的 "Hello World" 消息。然后，与 VS Code 中用户当前所选文本进行交互。
+在此次演练中，你将为 VS Code 添加一个新的命令，用来显示一条简单的 "Hello World" 消息。然后，与 VS Code 编辑器进行交互，并查询用户当前所选文本。
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ For the hello world extension, you can either create a **TypeScript** extension 
 * 按下 `kb(workbench.action.debug.start)` 或点击 `调试` 和 `启动` 图标。
 * VS Code 将在特定模式（`扩展开发主机`）启动一个新的实例，**该新实例现在知道你的扩展**。
 * 按下 `kb(workbench.action.showCommands)` 并运行名为 `Hello World` 的命令。
-* 共享！你刚刚创建并运行了你的第一 VS Code 命令！
+* 恭喜！你刚刚创建并运行了你的第一 VS Code 命令！
 
 ![Running VS Code with an extension](images/example-hello-world/running.png)
 
@@ -132,7 +132,7 @@ Let's go through the purpose of all these files and explain what they do:
 
 * 请阅读 [`package.json` 扩展清单参考](/docs/extensionAPI/extension-manifest.md)
 * 更多关于 [`package.json` 贡献点](/docs/extensionAPI/extension-points.md) 的信息
-* 每个 VS Code 扩展必须包含一个描述其自身及其能力的 `package.json` 文件
+* 每个 VS Code 扩展必须有一个描述其自身及其能力的 `package.json` 文件
 * VS Code 在启动时读取该文件，并立刻反应到每个 `contributes` 区。
 
 #### Example TypeScript extension manifest
@@ -174,7 +174,7 @@ Let's go through the purpose of all these files and explain what they do:
 
 > **Note:** A JavaScript extension doesn't require the `scripts` field as no compilation is needed.
 
-> **Note:** JavaScript 扩展不必请求 `scripts` 字段，即无需编译。
+> **Note:** JavaScript 扩展不必请求 `scripts` 字段，因为其无需编译。
 
 * This specific package.json describes an extension that:
  * *contributes* an entry to the Command Palette (`kb(workbench.action.showCommands)`) with the label `"Hello world"` that will invoke a command `"extension.sayHello"`.
@@ -182,8 +182,8 @@ Let's go through the purpose of all these files and explain what they do:
  * has its *main* JavaScript code in a file called `"./out/src/extension.js"`.
 
 
-* 这种特殊的 package.json 描述一个扩展：
- * *contributes* 添加到命令面板（`kb(workbench.action.showCommands)`）的条目，标签为 `"Hello world"`，其将呼叫 `"extension.sayHello"` 命令。
+ * 这种特定的 package.json 描述一个扩展：
+ * 为命令面板（`kb(workbench.action.showCommands)`）**contributes** 一个条目，标签为 `"Hello world"`，其将呼叫 `"extension.sayHello"` 命令。
  * 请求在命令 `"extension.sayHello"` 被呼叫时加载（*activationEvents*）。
  * 调用其在 `"./out/src/extension.js"` 中的 **main** JavaScript 代码。
 
