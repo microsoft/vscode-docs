@@ -2,3 +2,8 @@ out
 node_modules
 
 .DS_Store
+wiki
+scripts
+gulpfile.js
+package.json
+.vscode

@@ -10,6 +10,8 @@ MetaDescription: Learn how to create Language Servers for Visual Studio Code.  T
 
 # Example - Language Server
 
+# 例子：语言服务
+
 Language servers allow you to add your own validation logic to files open in VS Code. Typically you just validate programming languages. However validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
 
 In general, validating programming language can be expensive. Especially when validation requires parsing multiple files and building up abstract syntax trees. To avoid that performance cost, language servers in VS Code are executed in a separate process. This architecture also makes it possible that language servers can be written in other languages besides TypeScript/JavaScript and that they can support expensive additional language features like code completion or `Find All References`.
@@ -440,11 +442,15 @@ connection.onDidCloseTextDocument((params) => {
 
 ## Next Steps
 
+## 下一步
+
 To learn more about VS Code extensibility model, try these topic:
 
 * [vscode API Reference](/docs/extensionAPI/vscode-api.md) - Learn about deep language integration with VS Code language services.
 
 ## Common Questions
+
+## 常见问题
 
 **Q: When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?**
 
