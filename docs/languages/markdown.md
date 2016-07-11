@@ -22,13 +22,13 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 ## Markdown Preview
 
-VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views you just have to press `kb(workbench.action.markdown.togglePreview)` in the editor. You can view the preview side-by-side (`kb(workbench.action.markdown.openPreviewSideBySide)`) with the file you are editing and see changes reflected in real-time as you edit.
+VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, you just have to press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
 
 Here is an example with a very simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also click on the icon on the top right of the preview window to switch back and forth between source and preview mode.
+>**Tip:** You can also right-click on the editor Tab and select **Open Preview** or use the **Command Palette** (`kb(workbench.action.showCommands)`) **Markdown: Open Preview** and **Markdown: Open Preview to the Side** commands.
 
 ## Using your own CSS
 
