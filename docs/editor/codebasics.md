@@ -272,13 +272,13 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: Is it possible to globally search and replace?**
 
-**A:** Yes, expand the Search view text box to include a replace text field.
+**A:** Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace.
 
 ![global search and replace](images/codebasics/global-search-replace.png)
 
 **Q: How do I turn on word wrap?**
 
-**A:** You can control word wrap through the `editor.wrappingColumn` [setting](/docs/customization/userandworkspace.md).  By default `editor.wrapperingColumn` is set to 300 characters.  You can adjust the column width or set the value to zero to wrap on the editor viewport width:
+**A:** You can control word wrap through the `editor.wrappingColumn` [setting](/docs/customization/userandworkspace.md). By default `editor.wrapperingColumn` is set to 300 characters.  You can adjust the column width or set the value to zero to wrap on the editor viewport width:
 
 ```json
     "editor.wrappingColumn": 0
