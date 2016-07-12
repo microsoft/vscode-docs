@@ -217,7 +217,7 @@ Argument|Description
 ------------------|-----------
 `-h` or `--help` | Print usage
 `-v` or `--version` | Print VS Code version (e.g. 0.10.10)
-`-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session.
+`-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
 `-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
 *file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
