@@ -12,8 +12,7 @@ MetaDescription: This topic helps you get acquainted with the Visual Studio Code
 
 At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 
-In addition, there are a number of unique features in the VS Code user interface. This topic describes these features.
-
+![code basics hero](images/codebasics/hero.png)
 
 ## Files, Folders & Projects
 
@@ -21,16 +20,15 @@ VS Code is file and folder based - you can get started immediately by opening a 
 
 On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or .NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
 
-
 ## Basic Layout
 
 VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five areas:
 
-* **Editor** the main area to edit your files. You can open up to three editors side by side
-* **Side Bar** contains different views like the Explorer to assist you while working on your project
-* **Status Bar** indicates information about the opened project and the files you edit
-* **View Bar** on the far left-hand side, lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled
-* **Panels** optionally you can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal 
+* **Editor** The main area to edit your files. You can open up to three editors side by side.
+* **Side Bar** Contains different views like the Explorer to assist you while working on your project.
+* **Status Bar** Information about the opened project and the files you edit.
+* **View Bar** Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
+* **Panels** You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
@@ -48,9 +46,9 @@ You can have up to three editors open side by side.
 
 If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
-* `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer
-* `kb(workbench.action.splitEditor)` to split the active editor into two
-* **Open to the Side** from the Explorer context menu on a file
+* `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer.
+* `kb(workbench.action.splitEditor)` to split the active editor into two.
+* **Open to the Side** from the Explorer context menu on a file.
 
 ![Side by Side editing](images/codebasics/sidebyside.png)
 
@@ -66,11 +64,11 @@ The Explorer is used to browse, open, and manage all of the files and folders in
 
 After opening a folder in VS Code, the contents of the folder are shown in the Explorer. You can do many things from here:
 
-* create, delete, and rename files and folders
-* move files and folders with drag and drop
-* use the context menu to explore all options
+* Create, delete, and rename files and folders.
+* Move files and folders with drag and drop.
+* Use the context menu to explore all options.
 
->**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them
+>**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them.
 
 ![Explorer Menu](images/codebasics/explorer_menu.png)
 
@@ -88,13 +86,13 @@ By default, VS Code excludes some folders from the explorer (for example. `.git`
 
 At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** section if you:
 
-* make a change to a file
-* double-click a file in the Explorer
-* open a file that is not part of the current folder
+* Make a change to a file.
+* Double-click a file in the Explorer.
+* Open a file that is not part of the current folder.
 
 Just click an item in the **OPEN EDITORS** section, and it becomes active in VS Code.
 
-Once you are done with your task, you can individually remove files from the **OPEN EDITORS** section, or you can remove all files from the **OPEN EDITORS** section by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
+Once you are done with your task, you can remove files individually from the **OPEN EDITORS** section, or you can remove all files by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
 
 ## Configuring the Editor
 
@@ -104,13 +102,13 @@ VS Code gives you many options to configure the editor. You can set options glob
  
 * Select **File** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
 
->Note: The **Preferences** menu is under **Code** not **File** on a Mac. For example, **Code** > **Preferences** > **User Settings**.
+>**Note for Max users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **User Settings**.
 
-You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from Default Settings.
+You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from `Default Settings`.
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
 
-## Save/Auto Save
+## Save / Auto Save
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
@@ -185,7 +183,7 @@ You can view the file encoding in the status bar.
 
 ![Encoding in status bar](images/codebasics/fileencoding.png)
 
-Click on the encoding in the status bar to reopen or save the active file with a different encoding.
+Click on the encoding button in the status bar to reopen or save the active file with a different encoding.
 
 ![Reopen or save with a different encoding](images/codebasics/encodingclicked.png)
 
@@ -201,16 +199,15 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
->**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/osx.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable in Windows and Linux automatically.
+>**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/osx.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable on Windows and Linux automatically during installation.
 
-Sometimes you will want to open or create a file. If a file does not exist, we will create it for you:
+Sometimes you will want to open or create a file. If the specified files does not exist, VS Code will create them for you:
 
 ```
 code index.html style.css readme.md
 ```
 
 >**Tip:** You can have as many file names as you want separated by spaces.
-
 
 ## Additional Command line arguments
 
