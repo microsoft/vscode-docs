@@ -160,6 +160,7 @@ Key|Command|Command id
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
 `kb(workbench.view.git)`|Show Git|`workbench.view.git`
 `kb(workbench.view.search)`|Show Search|`workbench.view.search`
+`kb(workbench.action.replaceInFiles)`|Replace in Files|`workbench.action.replaceInFiles`
 `kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
@@ -214,7 +215,7 @@ Key|Command|Command id
 All keyboard shortcuts in VS Code can be customized via the `User/keybindings.json` file.
 
 * To configure keyboard shortcuts the way you want, go to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on Mac)
-* This will open the Default Keyboard Shortcuts on the left and your `User/keybindings.json` file where you can overwrite the default bindings on the right.
+* This will open the `Default Keyboard Shortcuts` on the left and your `User/keybindings.json` file where you can overwrite the default bindings on the right.
 
 ## Keyboard Rules
 
@@ -222,28 +223,30 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 
 ```json
 // Keybindings that are active when the focus is in the editor
-{ "key": "home",       "when": "editorTextFocus", "command": "cursorHome" },
-{ "key": "shift+home", "when": "editorTextFocus", "command": "cursorHomeSelect" },
+{ "key": "home",                    "command": "cursorHome",                        "when": "editorTextFocus" },
+{ "key": "shift+home",              "command": "cursorHomeSelect",                  "when": "editorTextFocus" },
 
 // Keybindings that are complementary
-{ "key": "f5",         "when": "inDebugMode",     "command": "workbench.action.debug.continue" },
-{ "key": "f5",         "when": "!inDebugMode",    "command": "workbench.action.debug.start" }
+{ "key": "f5",                      "command": "workbench.action.debug.continue",   "when": "inDebugMode" },
+{ "key": "f5",                      "command": "workbench.action.debug.start",      "when": "!inDebugMode" },
 
 // Global keybindings
-{ "key": "ctrl+f",                                "command": "actions.find" },
-{ "key": "alt+left",                              "command": "workbench.action.navigateBack" },
-{ "key": "alt+right",                             "command": "workbench.action.navigateForward" },
+{ "key": "ctrl+f",                  "command": "actions.find" },
+{ "key": "alt+left",                "command": "workbench.action.navigateBack" },
+{ "key": "alt+right",               "command": "workbench.action.navigateForward" },
 
-// Global keybindings using chords
-{ "key": "ctrl+k enter",                          "command": "workbench.action.keepEditor" },
-{ "key": "ctrl+k ctrl+w",                         "command": "workbench.action.closeAllEditors" },
+// Global keybindings using chords (two separate keypress actions)
+{ "key": "ctrl+k enter",            "command": "workbench.action.keepEditor" },
+{ "key": "ctrl+k ctrl+w",           "command": "workbench.action.closeAllEditors" },
 ```
 
 Each rule consists of:
 
-* a **required** `key` that describes the pressed keys.
-* an **optional** `when` containing a boolean expression that will be evaluated depending on the current **context**.
-* an **optional** `command` containing the identifier of the command to execute.
+* a `key` that describes the pressed keys.
+* a `command` containing the identifier of the command to execute.
+* an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
+
+Chords (two separate keypress actions) are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
 
 When a key is pressed:
 
@@ -273,10 +276,41 @@ The following keys are accepted:
 * `kbstyle(left)`, `kbstyle(up)`, `kbstyle(right)`, `kbstyle(down)`, `kbstyle(pageup)`, `kbstyle(pagedown)`, `kbstyle(end)`, `kbstyle(home)`
 * `kbstyle(tab)`, `kbstyle(enter)`, `kbstyle(escape)`, `kbstyle(space)`, `kbstyle(backspace)`, `kbstyle(delete)`
 * `kbstyle(pausebreak)`, `kbstyle(capslock)`, `kbstyle(insert)`
-* `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(numpad_separator)`
+* `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(nupad_separator)`
 * `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
-Chords are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
+## when clause contexts
+
+VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If you key binding doesn't have a `when` clause, the key binding is globally available at all times.
+
+Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false:
+
+Context name | True when
+------------ | ------------
+editorFocus | An editor has focus, either the text or a widget.
+editorTextFocus | The text in an editor has focus (cursor is blinking).
+editorHasSelection | Text is selected in the editor.
+editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
+editorReadOnly | Editor is readonly.
+editorLangId | True when the associated language Id matches. Example: `"editorLangId == 'typescript'"`.
+inDebugMode | A debug session is running.
+findWidgetVisible | Editor Find widget is visible.
+suggestWidgetVisible | Suggestion widget (IntelliSense) is visible.
+suggestWidgetMultipleSuggestions | Multiple suggestions are displayed.
+inSnippetMode | Editor is in snippet mode.
+renameInputVisible | Rename input text box is visible.
+referenceSearchVisible | Find All References peek window is open.
+inReferenceSearchEditor | The Find All References peek window editor has focus.
+config.editor.stablePeek | Keep peek editors open (controlled by `editor.stablePeek` setting).
+quickFixWidgetVisible | Quick Fix widget is visible.
+parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints` setting).
+parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
+globalMessageVisible | Message box is visible at the top of VS Code.
+inQuickOpen | The Quick Open dropdown has focus.
+searchViewletVisible | Search view is open.
+replaceActive | Replace text box is open.
+
+The list above isn't exhaustive and you may see some `when` contexts used internally by VS Code in the `Default Keyboard Shortcuts`.
 
 ## Removing a specific key binding rule
 
@@ -345,7 +379,6 @@ Now that you know about our Key binding support, what's next...
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Node.js](/docs/runtimes/nodejs.md) - End to end Node.js scenario with a sample app
 
-
 ## Common Questions
 
 **Q: How to find out what command is bound to a specific key?**
@@ -365,18 +398,6 @@ Now that you know about our Key binding support, what's next...
 // Modified, in User/keybindings.json, Ctrl+D now will also trigger this action
 { "key": "ctrl+d",                "command": "editor.action.deleteLines",
                                      "when": "editorTextFocus" },
-```
-
-**Q: How to remove a key binding from an action? E.g. Remove Ctrl+Shift+K from Delete Lines**
-
-**A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `User/keybindings.json` file:
-
-```json
-// Original, in Default Keyboard Shortcuts
-{ "key": "ctrl+shift+k",          "command": "editor.action.deleteLines",
-                                     "when": "editorTextFocus" },
-// Modified, in User/keybindings.json, Ctrl+Shift+K won't do anything anymore since command is empty
-{ "key": "ctrl+shift+k",             "when": "editorTextFocus" },
 ```
 
 **Q: How can I add a key binding for only certain file types?**
