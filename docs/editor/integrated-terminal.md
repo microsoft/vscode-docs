@@ -82,3 +82,5 @@ Copy and paste on Linux & Windows can be done using `ctrl+ins` and `shift+ins` r
 You can create multiple terminals (`+` button) open to different locations and easily navigate between them.
 
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
+
+If you plan on utilizing multiple terminals extensively it would be a good idea to add keybindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](#_key-bindings) to allow navigation between them using only the keyboard.
