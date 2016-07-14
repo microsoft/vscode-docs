@@ -223,8 +223,8 @@ The keyboard shortcuts dispatching is done by analyzing a list of rules that are
 
 ```json
 // Keybindings that are active when the focus is in the editor
-{ "key": "home",            "command": "cursorHome",                      "when": "editorTextFocus" },
-{ "key": "shift+home",      "command": "cursorHomeSelect",                "when": "editorTextFocus" },
+{ "key": "home",            "command": "cursorHome",                  "when": "editorTextFocus" },
+{ "key": "shift+home",      "command": "cursorHomeSelect",            "when": "editorTextFocus" },
 
 // Keybindings that are complementary
 { "key": "f5",              "command": "workbench.action.debug.continue", "when": "inDebugMode" },
@@ -292,11 +292,11 @@ editorFocus | An editor has focus, either the text or a widget.
 editorTextFocus | The text in an editor has focus (cursor is blinking).
 editorHasSelection | Text is selected in the editor.
 editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
-editorReadOnly | Editor is readonly.
-editorLangId | True when the associated language Id matches. Example: `"editorLangId == 'typescript'"`.
+editorReadOnly | The editor is readonly.
+editorLangId | True when the editor's associated language Id matches. Example: `"editorLangId == typescript"`.
 **Mode contexts** |
 inDebugMode | A debug session is running.
-inSnippetMode | Editor is in snippet mode.
+inSnippetMode | The editor is in snippet mode.
 inQuickOpen | The Quick Open dropdown has focus.
 **Editor widget contexts** |
 findWidgetVisible | Editor Find widget is visible.
@@ -310,11 +310,12 @@ quickFixWidgetVisible | Quick Fix widget is visible.
 parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints` setting).
 parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
 **Global UI contexts** |
+resourceLangId | True when the Explorer or editor title language Id matches. Example: `"resourceLangId == markdown"`
 globalMessageVisible | Message box is visible at the top of VS Code.
 searchViewletVisible | Search view is open.
-replaceActive | Replace text box is open.
+replaceActive | Search view Replace text box is open.
 
-The list above isn't exhaustive and you may see some `when` contexts used internally by VS Code in the `Default Keyboard Shortcuts`.
+The list above isn't exhaustive and you may see some `when` contexts used internally for specific VS Code UI in the `Default Keyboard Shortcuts`.
 
 ## Removing a specific key binding rule
 
@@ -410,7 +411,7 @@ Now that you know about our Key binding support, what's next...
 
 ```json
 { "key": "shift+alt+a",           "command": "editor.action.blockComment",
-                                     "when": "editorTextFocus && editorLangId == 'csharp'" },
+                                     "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
 **Q: I have modified my key bindings in `User/keybindings.json`, why don't they work?**
