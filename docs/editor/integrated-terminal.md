@@ -28,7 +28,9 @@ The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Window
 
 ### Windows
 
-Correctly configuring your shell on Windows is a matter of locating the right executable. VS Code defaults to the `%COMSPEC%` environment variable on Windows which typically points to the 32-bit version of `cmd.exe`. Below are a list of common shell executables and their default locations:
+Correctly configuring your shell on Windows is a matter of locating the right executable. VS Code defaults to the `%COMSPEC%` environment variable on Windows which typically points to the 32-bit version of `cmd.exe`. 
+
+Below are a list of common shell executables and their default locations:
 
 ```json
 // 64-bit cmd it available, otherwise 32-bit
@@ -43,7 +45,9 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 
 ### Linux & OS X
 
-Typically `$SHELL` is your primary shell on Unix-like systems so you probably won't need to change the shell. Passing arguments to the shell may be done however, enabling for example running bash as a login shell (which runs `.bash_profile`) by passing in the `-l` argument.
+Typically `$SHELL` is your primary shell on Unix-like systems so you probably won't want to change the shell. You can pass arguments to the shell when it is launched. 
+
+For example, to enable running bash as a login shell (which runs `.bash_profile`), pass in the `-l` argument (with double quotes):
 
 ```json
 // Linux
@@ -64,7 +68,7 @@ They are:
 * `workbench.action.terminal.focusNext`: Focuses the next terminal instance.
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
-* `workbench.action.terminal.runSelectedText`: Runs the selected text in the termianl instance
+* `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
 
 ### Copy & Paste
 
@@ -76,7 +80,7 @@ Copy and paste on OS X can be done using the standard keys, `kbstyle(cmd+c)` and
 
 Copy and paste on Linux & Windows can be done using `kbstyle(ctrl+ins)` and `kbstyle(shift+ins)` respectively. 
 
-> Pre-release: This is changing in the upcoming version to `kbstyle(ctrl+shift+c)` and `kbstyle(ctrl+shift+v)` respectively, this change is live in the [Insiders build](https://code.visualstudio.com/insiders).
+> Pre-release: This is changing in the upcoming version to `kbstyle(ctrl+shift+c)` and `kbstyle(ctrl+shift+v)`, this change is live in the [Insiders build](https://code.visualstudio.com/insiders).
 
 ## Managing Multiple Terminals
 
@@ -84,10 +88,10 @@ You can create multiple terminals (`+` button) open to different locations and e
 
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
-If you plan on utilizing multiple terminals extensively it would be a good idea to add keybindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](#_key-bindings) to allow navigation between them using only the keyboard.
+If you plan on utilizing multiple terminals extensively, it would be a good idea to add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#key-bindings) to allow navigation between them using only the keyboard.
 
-## FAQ
+## Common Questions
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
-Currently the terminal consumes many keybindings, preventing Visual Studio Code to react to them. Some examples are `kbstyle(F1)` to open the command palette and `kbstyle(ctrl+p)` for quick open on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these keybindings themselves. There are plans to explore a blacklist that would prevent certain keybindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
+Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(ctrl+p)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
