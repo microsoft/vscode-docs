@@ -69,13 +69,13 @@ They are:
 
 #### OS X
 
-Copy and paste on OS X can be done using the standard keys, `cmd+c` and `cmd+v` respectively.
+Copy and paste on OS X can be done using the standard keys, `kbstyle(cmd+c)` and `kbstyle(cmd+v)` respectively.
 
 #### Linux & Windows
 
-Copy and paste on Linux & Windows can be done using `ctrl+ins` and `shift+ins` respectively. 
+Copy and paste on Linux & Windows can be done using `kbstyle(ctrl+ins)` and `kbstyle(shift+ins)` respectively. 
 
-> Pre-release: This is changing in the upcoming version to `ctrl+shift+c` and `ctrl+shift+v` respectively, this change is live in the [Insiders build](https://code.visualstudio.com/insiders).
+> Pre-release: This is changing in the upcoming version to `kbstyle(ctrl+shift+c)` and `kbstyle(ctrl+shift+v)` respectively, this change is live in the [Insiders build](https://code.visualstudio.com/insiders).
 
 ## Managing Multiple Terminals
 
@@ -84,3 +84,9 @@ You can create multiple terminals (`+` button) open to different locations and e
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
 If you plan on utilizing multiple terminals extensively it would be a good idea to add keybindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](#_key-bindings) to allow navigation between them using only the keyboard.
+
+## FAQ
+
+### Why is VS Code shortcut X not working when the terminal has focus?
+
+Currently the terminal consumes many keybindings, preventing Visual Studio Code to react to them. Some examples are `kbstyle(F1)` to open the command palette and `kbstyle(ctrl+p)` for quick open on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these keybindings themselves. There are plans to explore a blacklist that would prevent certain keybindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
