@@ -64,6 +64,7 @@ They are:
 * `workbench.action.terminal.focusNext`: Focuses the next terminal instance.
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
+* `workbench.action.terminal.runSelectedText`: Runs the selected text in the termianl instance
 
 ### Copy & Paste
 
