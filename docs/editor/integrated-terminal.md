@@ -65,6 +65,18 @@ They are:
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 
+### Copy & Paste
+
+#### OS X
+
+Copy and paste on OS X can be done using the standard keys, `cmd+c` and `cmd+v` respectively.
+
+#### Linux & Windows
+
+Copy and paste on Linux & Windows can be done using `ctrl+ins` and `shift+ins` respectively. 
+
+> Pre-release: This is changing in the upcoming version to `ctrl+shift+c` and `ctrl+shift+v` respectively, this change is live in the [Insiders build](https://code.visualstudio.com/insiders).
+
 ## Managing Multiple Terminals
 
 You can create multiple terminals (`+` button) open to different locations and easily navigate between them.
