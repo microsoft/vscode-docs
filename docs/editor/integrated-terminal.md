@@ -24,21 +24,39 @@ To open the terminal:
 
 ## Configuration
 
-The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/customization/userandworkspace.md).
+The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/customization/userandworkspace.md). Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
 
-For example, if you wanted to use PowerShell on Windows:
+### Windows
+
+Correctly configuring your shell on Windows is a matter of locating the right executable. VS Code defaults to the `%COMSPEC%` environment variable on Windows which typically points to the 32-bit version of `cmd.exe`. Below are a list of common shell executables and their default locations:
 
 ```json
-"terminal.integrated.shell.windows":"C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe"
+// 64-bit cmd it available, otherwise 32-bit
+"terminal.integrated.shell.windows":"C:\\Windows\\sysnative\\cmd.exe"
+// 64-bit PowerShell if available, otherwise 32-bit
+"terminal.integrated.shell.windows":"C:\\Windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe"
+// Git Bash
+"terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
+// Bash on Ubuntu (on Windows)
+"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe"
 ```
 
-Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
+### Linux & OS X
+
+Typically `$SHELL` is your primary shell on Unix-like systems so you probably won't need to change the shell. Passing arguments to the shell may be done however, enabling for example running bash as a login shell (which runs `.bash_profile`) by passing in the `-l` argument.
+
+```json
+// Linux
+"terminal.integrated.shellArgs.linux": ["-l"]
+// OS X
+"terminal.integrated.shellArgs.osx": ["-l"]
+```
 
 ## Key Bindings
 
 The **Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
-Other terminal commands are available and can be bound to your preferred key board shortcuts.
+Other terminal commands are available and can be bound to your preferred keyboard shortcuts.
 
 They are:
 
