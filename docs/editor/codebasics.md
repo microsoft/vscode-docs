@@ -34,9 +34,7 @@ Each time you start VS Code, it opens up in the same state it was in when you la
 
 ![VS Code Layout](images/codebasics/layout.png)
 
-VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side.
-
-The Explorer view maintains a list of open editors allowing you quick access to the files you need.
+VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side. The open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/editor/tabs.md) topic.
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
@@ -49,6 +47,8 @@ If you already have one editor open, there are multiple ways of opening another 
 * `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** from the Explorer context menu on a file.
+* Click the **Split Editor** button in the upper right of an editor.
+* Drag and drop a file to the either side of the editor region.
 
 ![Side by Side editing](images/codebasics/sidebyside.png)
 

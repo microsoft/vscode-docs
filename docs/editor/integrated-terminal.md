@@ -55,7 +55,7 @@ Below are a list of common shell executables and their default locations:
 
 >**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr`  can be redirected.
 
->**Tip:** The integrated terminal shell is runnning with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
+>**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
 
 ### Linux & OS X
 
@@ -74,8 +74,8 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 
 You can customize the integrated terminal font and line height with the following settings:
 
-* `terminal.integrated.fontFamily` - The font family of the terminal, this defaults to editor.fontFamily's value.
-* `terminal.integrated.fontSize` - The font size of the terminal, this defaults to editor.fontSize's value.
+* `terminal.integrated.fontFamily` - The font family, this defaults to the `editor.fontFamily` value.
+* `terminal.integrated.fontSize` - The font size, this defaults to the `editor.fontSize` value.
 * `terminal.integrated.lineHeight` - The line height of the terminal, this defaults to normal.
 
 ## Key Bindings
@@ -95,6 +95,8 @@ They are:
 To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
 
 ![Run selected text](images/integrated-terminal/terminal_run_selected.png)
+
+The terminal will attempt to run the selected text.
 
 ![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
 
