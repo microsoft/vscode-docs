@@ -240,6 +240,7 @@ When authoring tasks and launch configurations, it is often useful to have a set
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
 - **${file}** the current opened file
+- **${relativeFile}** the current opened file relative to `workspaceRoot` 
 - **${fileBasename}** the current opened file's basename
 - **${fileDirname}** the current opened file's dirname
 - **${fileExtname}** the current opened file's extension
