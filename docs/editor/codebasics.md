@@ -143,6 +143,14 @@ VS Code excludes some folders by default to reduce the number of search results 
 
 >**Tip:** From the Explorer you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
+You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
+
+![search and replace](images/codebasics/global-search-replace.png)
+
+When you type text into the Replace text box, you will see a diff display of the pending changes. You can replace across all files from the Replace text box, replace all in one file or replace a single change.
+
+![search and replace diff view](images/codebasics/search-replace-example.png)
+
 ## Command Palette
 
 VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all of the functionality of VS Code, including keyboard shortcuts for the most common operations.
