@@ -64,7 +64,7 @@ Other terminal commands are available and can be bound to your preferred keyboar
 
 They are:
 
-* `workbench.action.terminal.focus`: Focus the terminal. This is like toggle but focuses the terminal instead of hides it if its visible.
+* `workbench.action.terminal.focus`: Focus the terminal. This is like toggle but focuses the terminal instead of hiding it, if it is visible.
 * `workbench.action.terminal.focusNext`: Focuses the next terminal instance.
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
@@ -74,13 +74,13 @@ They are:
 
 #### OS X
 
-Copy and paste on OS X can be done using the standard keys, `kbstyle(cmd+c)` and `kbstyle(cmd+v)` respectively.
+Copy and paste on OS X can be done using the standard keys, `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)` respectively.
 
 #### Linux & Windows
 
-Copy and paste on Linux & Windows can be done using `kbstyle(ctrl+ins)` and `kbstyle(shift+ins)` respectively. 
+Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+Ins)` and `kbstyle(Shift+Ins)` respectively. 
 
-> Pre-release: This is changing in the upcoming version to `kbstyle(ctrl+shift+c)` and `kbstyle(ctrl+shift+v)`, this change is live in the [Insiders build](https://code.visualstudio.com/insiders).
+> Pre-release: This is changing in the upcoming version to `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`. This change is available now in the [Insiders build](https://code.visualstudio.com/insiders).
 
 ## Managing Multiple Terminals
 
@@ -88,10 +88,10 @@ You can create multiple terminals (`+` button) open to different locations and e
 
 ![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
 
-If you plan on utilizing multiple terminals extensively, it would be a good idea to add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#key-bindings) to allow navigation between them using only the keyboard.
+If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#key-bindings) to allow navigation between them using only the keyboard.
 
 ## Common Questions
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
 
-Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(ctrl+p)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
+Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
