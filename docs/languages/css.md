@@ -59,7 +59,7 @@ Hovering over a selector or property will provide an HTML snippet that is matche
 
 ## Goto Declaration and Find References
 
-This is supported for Sass and Less variables in the same file.
+This is supported for Sass and Less variables in the same file. [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) per the [draft standards proposal](https://drafts.csswg.org/css-variables/) are also supported.
 
 >**Note:** Cross file references ('imports') are not resolved.
 
