@@ -100,9 +100,11 @@ Some languages support rename symbol across files. Simply press `kb(editor.actio
 
 Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md), by rich language services, or by linters, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
 
-* In the status line there is a summary of all errors and warnings counts.
+* In the status bar, there is a summary of all errors and warnings counts.
 * You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
 * If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
+
+![errors in problems panel](images/editingevolved/errors.png)
 
 > **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.next)` or `kb(editor.action.marker.prev)` which will show an inline zone detailing the problem and possible code actions (if available):
 
