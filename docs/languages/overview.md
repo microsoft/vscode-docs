@@ -29,9 +29,9 @@ Syntax coloring, bracket matching |Batch, Clojure, Coffee Script, [Dockerfile](/
 
 ## Language Extensions
 
-The community is providing VS Code language support for nearly any modern programming language.  To see if there are extensions for the language you're interested in, simply bring up the extension Marketplace and filter on the language name.  Type `kb(workbench.action.showCommands)`, `'ext inst '` to bring up the extension Marketplace dropdown and then type the language name to filter the results.
+The community is providing VS Code language support for nearly any modern programming language.  To see if there are [extensions](/docs/editor/extension-gallery.md) for the language you're interested in, simply bring up the Extension view (`kb(workbench.view.extensions)`) and filter on the language name in the search box.
 
-![filter go extensions](images/overview/filter-go.png)
+![python extensions](images/overview/extensions-python.png)
 
 You can also browse the VS Code Marketplace directly to look for [supported languages](https://marketplace.visualstudio.com/vscode/Languages).
 
