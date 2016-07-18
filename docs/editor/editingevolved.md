@@ -72,6 +72,8 @@ We think there's nothing worse than a big context switch when all you want is to
 
 > **Tip:** Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
+> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/customization/userandworkspace.md).
+
 ## Bracket matching
 
 Matching brackets will be highlighted as soon as the cursor is near one of them.
