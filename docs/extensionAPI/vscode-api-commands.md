@@ -128,10 +128,10 @@ Links contained in the document will be handled by VS Code whereby it supports `
 
 The snippet below defines a command-link that calls the _previewHtml_ command and passes along an uri:
 
-					```
-					let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
-					let html = '<a href="' + href + '">Show Resource...</a>.';
-					```
+```javascript
+let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
+let html = '<a href="' + href + '">Show Resource...</a>.';
+```
 				
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
