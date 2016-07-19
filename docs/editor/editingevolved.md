@@ -68,9 +68,7 @@ We think there's nothing worse than a big context switch when all you want is to
 
 ![Find All References](images/editingevolved/references.png)
 
-> **Tip:** You can navigate between different references in the peeked editor and, if you need to, you can even make quick edits right there!
-
-> **Tip:** Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
+You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
 > **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/customization/userandworkspace.md).
 
