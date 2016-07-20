@@ -12,6 +12,8 @@ MetaDescription: Changing the color theme in Visual Studio Code. You can use col
 
 Color themes let you modify VS Code's background, text and language syntax colorization to suit your preferences and work environment. VS Code supports light, dark and high contrast themes.
 
+![Preview themes from the Command Palette](images/themes/themes_hero.gif)
+
 ## Selecting the Color Theme
 
 There are several out-of-the-box color themes in VS Code for you to try.

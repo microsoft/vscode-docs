@@ -13,6 +13,8 @@ MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 It offers classes, modules, and interfaces to help you build robust components. A language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
 
+![TypeScript language within VS Code](images/typescript/typescript_hero.png)
+
 VS Code's TypeScript support can operate in two different modes:
 
 * **File Scope**: in this mode TypeScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.ts` doesn't reference a file `b.ts` explicitly (either using [/// reference directives](http://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or external modules) there is no common project context between the two files.
