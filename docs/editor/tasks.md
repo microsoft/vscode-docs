@@ -300,7 +300,7 @@ A matcher that captures the above warning (and errors) looks like:
     }
 }
 ```
-Please note that the file, line and message properties are mandantory.
+Please note that the file, line and message properties are mandatory.
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
 
