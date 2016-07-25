@@ -30,6 +30,7 @@ Name | Required | Type | Details
 `main` | | `string` | The entry point to your extension.
 [`contributes`](/docs/extensionAPI/extension-points.md) | | `object` | An object describing the extension's [contributions](/docs/extensionAPI/extension-points.md).
 [`activationEvents`](/docs/extensionAPI/activation-events.md) | | `array` | An array of the [activation events](/docs/extensionAPI/activation-events.md) for this extension.
+`badges` | | `array` | Array of badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
@@ -88,6 +89,13 @@ Here is a complete `package.json`
 			}
 		]
 	},
+	"badges": [
+		{
+			"url": "https://david-dm.org/Microsoft/vscode-spell-check.svg",
+			"href": "https://david-dm.org/Microsoft/vscode-spell-check",
+			"description": "Dependency Status"
+		}
+	],
 	"scripts": {
 		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
 		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
