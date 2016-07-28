@@ -10,7 +10,7 @@ MetaDescription: Changing the color theme in Visual Studio Code. You can use col
 
 # Changing the Color Theme
 
-Color themes let you modify VS Code's background, text and language syntax colorization to suit your preferences and work environment. VS Code supports light, dark and high contrast themes.
+Color themes let you modify VS Code's background, text, and language syntax colorization to suit your preferences and work environment. VS Code supports light, dark and high contrast themes.
 
 ![Preview themes from the Command Palette](images/themes/themes_hero.gif)
 
@@ -38,7 +38,7 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 You can also add new TextMate theme files (.tmTheme) to your VS Code installation using the [yo code](/docs/tools/yocode.md) extension generator.
 
-[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator.  It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name as well as other information for the theme.
+[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator.  It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
 
 ![yo code theme](images/themes/yocodetheme.png)
 
@@ -68,13 +68,12 @@ Themes are just one way to customize VS Code. If you'd like to learn more about 
 
 **Q: What parts of VS code can I theme with a custom theme?**
 
-The VS Code themes are limited to the editor input area: text foreground, background, selection, lineHighlight, caret as well as the syntax tokens. When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-dark`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
+The VS Code themes are limited to the editor input area: text foreground, background, selection, lineHighlight, caret, and the syntax tokens. When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-dark`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
 
 **Q: Is there are list of scopes that I can use in my custom theme?**
 
 VS Code themes are standard TextMate themes and the tokenizers used in VS code are well established TextMate tokenizers, mostly maintained by the community and in use in other products.
 
-Too learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html) useful.  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
+To learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html).  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
 
 Authoring a theme is fairly tricky as the grammars all behave a bit differently. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
-
