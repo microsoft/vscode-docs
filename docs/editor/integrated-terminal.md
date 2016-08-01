@@ -22,6 +22,16 @@ To open the terminal:
 
 > **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on OS X or Linux) if you prefer to work outside VS Code.
 
+## Managing Multiple Terminals
+
+You can create multiple terminals open to different locations and easily navigate between them. Terminal instances can be added by hitting the plus icon on the top-right of the **TERMINAL** panel or by triggering the `kb(workbench.action.terminal.new)` command. This creates another entry in the dropdown list that can be used to switch between them.
+
+![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
+
+Remove terminal instances by pressing the trash can button.
+
+>**Tip:** If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#key-bindings) to allow navigation between them using only the keyboard.
+
 ## Configuration
 
 The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/customization/userandworkspace.md). Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
@@ -43,6 +53,10 @@ Below are a list of common shell executables and their default locations:
 "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe"
 ```
 
+>**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr`  can be redirected.
+
+>**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
+
 ### Linux & OS X
 
 Typically `$SHELL` is your primary shell on Unix-like systems so you probably won't want to change the shell. You can pass arguments to the shell when it is launched. 
@@ -55,6 +69,14 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 // OS X
 "terminal.integrated.shellArgs.osx": ["-l"]
 ```
+
+## Terminal Display Settings
+
+You can customize the integrated terminal font and line height with the following settings:
+
+* `terminal.integrated.fontFamily` - The font family, this defaults to the `editor.fontFamily` value.
+* `terminal.integrated.fontSize` - The font size, this defaults to the `editor.fontSize` value.
+* `terminal.integrated.lineHeight` - The line height of the terminal, this defaults to normal.
 
 ## Key Bindings
 
@@ -70,6 +92,14 @@ They are:
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
 
+To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
+
+![Run selected text](images/integrated-terminal/terminal_run_selected.png)
+
+The terminal will attempt to run the selected text.
+
+![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
+
 ### Copy & Paste
 
 #### OS X
@@ -81,14 +111,6 @@ Copy and paste on OS X can be done using the standard keys, `kbstyle(Cmd+C)` and
 Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+Ins)` and `kbstyle(Shift+Ins)` respectively. 
 
 > Pre-release: This is changing in the upcoming version to `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`. This change is available now in the [Insiders build](https://code.visualstudio.com/insiders).
-
-## Managing Multiple Terminals
-
-You can create multiple terminals (`+` button) open to different locations and easily navigate between them.
-
-![Multiple Terminals](images/integrated-terminal/terminal-multiple-instances.png)
-
-If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#key-bindings) to allow navigation between them using only the keyboard.
 
 ## Common Questions
 

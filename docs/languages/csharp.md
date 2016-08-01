@@ -12,6 +12,8 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 
 The C# support in VS Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/runtimes/dotnet.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance, many Unity game developers enjoy using VS Code in place of the MonoDevelop IDE.
 
+![C# language within VS Code](images/csharp/c_sharp_hero.png)
+
 VS Code supports debugging of C# applications running on either .NET Core or Mono. 
 
 For detailed instructions on: 

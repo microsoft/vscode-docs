@@ -34,9 +34,7 @@ Each time you start VS Code, it opens up in the same state it was in when you la
 
 ![VS Code Layout](images/codebasics/layout.png)
 
-VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side.
-
-The Explorer view maintains a list of open editors allowing you quick access to the files you need.
+VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side. The open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/editor/tabs.md) topic.
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
@@ -49,6 +47,8 @@ If you already have one editor open, there are multiple ways of opening another 
 * `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** from the Explorer context menu on a file.
+* Click the **Split Editor** button in the upper right of an editor.
+* Drag and drop a file to the either side of the editor region.
 
 ![Side by Side editing](images/codebasics/sidebyside.png)
 
@@ -102,7 +102,7 @@ VS Code gives you many options to configure the editor. You can set options glob
  
 * Select **File** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
 
->**Note for Max users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **User Settings**.
+>**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **User Settings**.
 
 You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from `Default Settings`.
 
@@ -142,6 +142,14 @@ In the two input boxes below the search box, you can include and exclude files. 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open settings to change these rules under the `files.exclude` and `search.exclude` section.
 
 >**Tip:** From the Explorer you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+
+You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
+
+![search and replace](images/codebasics/global-search-replace.png)
+
+When you type text into the Replace text box, you will see a diff display of the pending changes. You can replace across all files from the Replace text box, replace all in one file or replace a single change.
+
+![search and replace diff view](images/codebasics/search-replace-example.png)
 
 ## Command Palette
 

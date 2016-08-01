@@ -95,6 +95,24 @@ Here are a few topics you may find interesting...
 
 ## Common Questions
 
+**Q: Can I download an extension directly from the Marketplace?**
+
+**A:** Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
+
+An extension's direct download URL is in the form: 
+
+```
+https://${publisher}.gallery.vsassets.io/_apis/public/gallery/publisher/${publisher}/extension/${extension name}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
+```
+
+For example, the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) version `0.10.18` would be:
+
+```
+https://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
+```
+
+Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then opening the `.vsix` file directly in VS Code (**File** > **Open File...**).  See [Installing Extensions](/docs/extensions/install-extension.md#install-a-packaged-extension-vsix) for more details.
+
 **Q: Can VS Code read TextMate bundles directly?**
 
 **A**: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration.  The [Yo Code](/docs/tools/yocode.md) extension generator makes it easy to package these files for use in VS Code.

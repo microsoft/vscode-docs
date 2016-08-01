@@ -68,9 +68,9 @@ We think there's nothing worse than a big context switch when all you want is to
 
 ![Find All References](images/editingevolved/references.png)
 
-> **Tip:** You can navigate between different references in the peeked editor and, if you need to, you can even make quick edits right there!
+You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
-> **Tip:** Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
+> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/customization/userandworkspace.md).
 
 ## Bracket matching
 
@@ -100,9 +100,11 @@ Some languages support rename symbol across files. Simply press `kb(editor.actio
 
 Warnings or Errors can be generated either via [configured tasks](/docs/editor/tasks.md), by rich language services, or by linters, that constantly analyze your code in the background. Since we love bug-free code, warnings and errors show up in multiple places:
 
-* In the status line there is a summary of all errors and warnings counts.
+* In the status bar, there is a summary of all errors and warnings counts.
 * You can click on the summary or press `kb(workbench.actions.view.problems)` to display the **PROBLEMS** panel with a list of all current errors.
 * If you open a file that has errors or warnings, they will be rendered inline with the text and in the overview ruler.
+
+![errors in problems panel](images/editingevolved/errors.png)
 
 > **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.next)` or `kb(editor.action.marker.prev)` which will show an inline zone detailing the problem and possible code actions (if available):
 
