@@ -12,7 +12,7 @@ Author: Wade Anderson
 
 August 2, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
-The first extension I built for Visual Studio Code was called [Git Blame](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame). It lets you quickly see which developer most recently modified the currently selected line (possibly to assign "blame"). It was simple and effective. Since the time when I built this extension, there have been many more awesome Git extensions added to the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode). Here are some of my favorite.
+The first extension I built for Visual Studio Code was called [Git Blame](https://marketplace.visualstudio.com/items?itemName=waderyan.gitblame). It lets you quickly see which developer most recently modified the currently selected line ("blame"). It was simple and effective. Since the time when I built this extension, there have been many more awesome Git extensions added to the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode). Here are some of my favorite.
 
 > Tip: Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](https://code.visualstudio.com/docs/editor/extension-gallery#_browse-and-install-extensions-in-vs-code).
 
@@ -88,7 +88,7 @@ Marketplace - [gitignore](https://marketplace.visualstudio.com/items?itemName=mi
 
 Publisher - [michelemelluso](https://marketplace.visualstudio.com/search?term=publisher%3A%22michelemelluso%22&target=VSCode)
 
-This is the first of two `gitignore` extensions. With this `gitignore` extension, simply right click and add a file to your `.gitignore`!
+This is the first of two gitignore extensions. With this gitignore extension, simply right click and add a file to your `.gitignore` configuration!
 
 ![gitignore right click extension](2016_07_29_gitignore-rightclick.png)
 
@@ -98,7 +98,7 @@ Marketplace - [gitignore](https://marketplace.visualstudio.com/items?itemName=co
 
 Publisher - [CodeZombie](https://marketplace.visualstudio.com/search?term=publisher%3A%22CodeZombie%22&target=VSCode)
 
-The second `gitignore` extension (note that they are from different publishers) will pull in template `.gitignore` files. Are you coding in Python and want all the "normal" `.gitignore` specifications? Install this extension and run a simple command to pull down the `.gitignore` from [github/gitignore](https://github.com/github/gitignore).
+The second gitignore extension (note that they are from different publishers) will pull in template `.gitignore` files. Are you coding in Python and want all the "usual" Python `.gitignore` configurations? Install this extension and run a simple command to pull down the `.gitignore` from [github/gitignore](https://github.com/github/gitignore).
 
 ![gitignore template extension](2016_07_29_gitignore-template.png)
 
