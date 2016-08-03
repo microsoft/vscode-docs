@@ -166,7 +166,7 @@ Before|After
 ------|-----
 ![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
 
-**Q: VS Code did not go the correct position in my file.**
+**Q: VS Code did not go to the correct position in my file.**
 
 **A:** For OS X, make sure you have installed the Unity plug-in described above.  For Windows, ensure you have set the additional command line arguments when you launch VS Code from Unity.
 
