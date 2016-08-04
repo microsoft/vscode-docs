@@ -1,0 +1,55 @@
+---
+Order: 15
+TOCTitle: August 2016
+PageTitle: Visual Studio Code August 2016 1.5
+MetaDescription: See what is new in the Visual Studio Code August 2016 Release (1.5)
+---
+
+# August 2016 (version 1.5)
+
+TBD 
+
+Here are the highlights:
+
+* **Workbench**: TBD
+* **Editor**: TBD
+* **Languages**: TBD
+* **Debugging**: TBD
+* **Extension Authoring**: TBD
+
+## Editor
+
+### Item
+
+## Workbench
+
+### Item
+
+## Languages
+
+### Item
+
+## Debugging
+
+### Item
+
+## Extension Authoring
+
+### Item
+
+## Notable Changes
+
+* [TBD](https://github.com/Microsoft/vscode/issues/TBD): Cool Stuff
+
+These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22August+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22August+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.5 update.
+
+## Downloads
+
+Downloads: [Windows](https://az764295.vo.msecnd.net/stable/6276dcb0ae497766056b4c09ea75be1d76a8b679/VSCodeSetup-stable.exe) |
+[OS X](https://az764295.vo.msecnd.net/stable/6276dcb0ae497766056b4c09ea75be1d76a8b679/VSCode-darwin-stable.zip) | Linux 64-bit [.zip](https://az764295.vo.msecnd.net/stable/6276dcb0ae497766056b4c09ea75be1d76a8b679/VSCode-linux-x64-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/6276dcb0ae497766056b4c09ea75be1d76a8b679/code_1.4.0-1470329130_amd64.deb) [.rpm](https://az764295.vo.msecnd.net/stable/6276dcb0ae497766056b4c09ea75be1d76a8b679/code-1.4.0-1470329130.el7.x86_64.rpm) | Linux 32-bit [.zip](https://az764295.vo.msecnd.net/stable/6276dcb0ae497766056b4c09ea75be1d76a8b679/VSCode-linux-ia32-stable.zip) [.deb](https://az764295.vo.msecnd.net/stable/6276dcb0ae497766056b4c09ea75be1d76a8b679/code_1.4.0-1470328389_i386.deb) [.rpm](https://az764295.vo.msecnd.net/stable/6276dcb0ae497766056b4c09ea75be1d76a8b679/code-1.4.0-1470328389.el7.i386.rpm)
+
+## Thank You
+
+Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
+
+* [TBD (@tbd)](https://github.com/tbd): A fix [PR #TBD](https://github.com/Microsoft/vscode/pull/TBD)
