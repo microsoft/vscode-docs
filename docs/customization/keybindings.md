@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 7/7/2016
+DateApproved: 8/4/2016
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 ---
 
@@ -205,9 +205,9 @@ Key|Command|Command id
 Key|Command|Command id
 ---|-------|----------
 `kb(workbench.extensions.action.installExtension)`|Install Extension|`workbench.extensions.action.installExtension`
-`kb(workbench.extensions.action.listExtensions)`|Show Installed Extensions|`workbench.extensions.action.listExtensions`
+`kb(workbench.extensions.action.showInstalledExtensions)`|Show Installed Extensions|`workbench.extensions.action.showInstalledExtensions`
 `kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
-`kb(workbench.extensions.action.listSuggestedExtensions)`|Show Extension Recommendations|`workbench.extensions.action.listSuggestedExtensions`
+`kb(workbench.extensions.action.showRecommendedExtensions)`|Show Recommended Extensions|`workbench.extensions.action.showRecommendedExtensions`
 `kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
 
 ## Customizing Shortcuts
@@ -292,7 +292,7 @@ editorFocus | An editor has focus, either the text or a widget.
 editorTextFocus | The text in an editor has focus (cursor is blinking).
 editorHasSelection | Text is selected in the editor.
 editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
-editorReadOnly | The editor is readonly.
+editorReadOnly | The editor is read only.
 editorLangId | True when the editor's associated language Id matches. Example: `"editorLangId == typescript"`.
 **Mode contexts** |
 inDebugMode | A debug session is running.
@@ -309,13 +309,15 @@ config.editor.stablePeek | Keep peek editors open (controlled by `editor.stableP
 quickFixWidgetVisible | Quick Fix widget is visible.
 parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints` setting).
 parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
+**Integrated terminal contexts** |
+terminalFocus | An integrated terminal has focus.
 **Global UI contexts** |
 resourceLangId | True when the Explorer or editor title language Id matches. Example: `"resourceLangId == markdown"`
 globalMessageVisible | Message box is visible at the top of VS Code.
 searchViewletVisible | Search view is open.
 replaceActive | Search view Replace text box is open.
 
-The list above isn't exhaustive and you may see some `when` contexts used internally for specific VS Code UI in the `Default Keyboard Shortcuts`.
+The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the `Default Keyboard Shortcuts`.
 
 ## Removing a specific key binding rule
 

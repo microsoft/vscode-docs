@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Our Approach
 ContentId: 2D912137-E7FE-4C5F-91D9-52088169C4AD
 PageTitle: Our Approach to Extensibility
-DateApproved: 7/7/2016
+DateApproved: 8/4/2016
 MetaDescription: Learn about the choices we made in creating the Visual Studio Code extension (plug-in) model.
 ---
 

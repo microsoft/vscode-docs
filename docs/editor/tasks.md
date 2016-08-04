@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in visual Studio Code
-DateApproved: 7/7/2016
+DateApproved: 8/4/2016
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 
@@ -242,6 +242,7 @@ When authoring tasks and launch configurations, it is often useful to have a set
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
 - **${file}** the current opened file
+- **${relativeFile}** the current opened file relative to `workspaceRoot` 
 - **${fileBasename}** the current opened file's basename
 - **${fileDirname}** the current opened file's dirname
 - **${fileExtname}** the current opened file's extension

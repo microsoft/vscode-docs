@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Editing Evolved
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Editing Evolved
-DateApproved: 7/7/2016
+DateApproved: 8/4/2016
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 

@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: API complex commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Commands API Reference
-DateApproved: 7/7/2016
+DateApproved: 8/4/2016
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands API Reference.  
 ---
 
@@ -122,6 +122,12 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of TextEdits.
 
 
+`vscode.executeLinkProvider` - Execute document link provider.
+
+* _uri_ Uri of a text document
+* _(returns)_ A promise that resolves to an array of DocumentLink-instances.
+
+
 `vscode.previewHtml` - Render the html of the resource in an editor view.
 
 Links contained in the document will be handled by VS Code whereby it supports `file`-resources and [virtual](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L3295)-resources as well as triggering commands using the `command`-scheme. Use the query part of a command-uri to pass along JSON-encoded arguments - note that URL-encoding must be applied.
@@ -132,7 +138,7 @@ The snippet below defines a command-link that calls the _previewHtml_ command an
 let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
 let html = '<a href="' + href + '">Show Resource...</a>.';
 ```
-				
+
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
 * _label_ (optional) An human readable string that is used as title for the preview.
@@ -160,10 +166,16 @@ let html = '<a href="' + href + '">Show Resource...</a>.';
 
 
 
-`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file.
+`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or a http(s) url
 
 * _resource_ Resource to open
 * _column_ (optional) Column in which to open
+
+
+
+`cursorMove` - Move cursor to a logical position in the view
+
+* _Cursor move argument_ Argument containing mandatory 'to' value and an optional 'inSelectionMode' value. Value of 'to' has to be a defined value in `CursorMoveViewPosition`.
 
 
 
@@ -172,3 +184,18 @@ let html = '<a href="' + href + '">Show Resource...</a>.';
 * _uri_ The text document in which to show references
 * _position_ The position at which to show
 * _locations_ An array of locations.
+
+
+
+`moveActiveEditor` - Move the active editor by tabs or groups
+
+* _Active editor move argument_
+
+>Argument Properties:
+
+>* 'to': String value providing where to move.
+>* 'by': String value providing the unit for move. By tab or by group.
+>* 'value': Number value providing how many positions or an absolute position to move.
+					
+
+

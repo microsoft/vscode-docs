@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tabs
 ContentId: DDBD486B-E18F-4C3E-9CA0-766DE5E5EE67
 PageTitle: Tabbed editor support in Visual Studio Code
-DateApproved: 7/7/2016
+DateApproved: 8/4/2016
 MetaDescription: Visual Studio Code has support for Tabbed editor windows. Tabs let you quickly navigate between your open files.  
 ---
 
@@ -18,9 +18,7 @@ When you open a file, a new Tab is added for that file.
 
 Tabs let you quickly navigate between items and you can Drag and Drop Tabs to reorder them.
 
-When you have more open items than can fit in the title area, an overflow icon is enabled which will display a dropdown of tabbed items.
-
-![tabs overflow icon](images/tabs/tabs-overflow.png)
+When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a dropdown of tabbed items.
 
 If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/customization/userandworkspace.md) to false:
 

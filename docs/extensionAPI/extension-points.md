@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 7/7/2016
+DateApproved: 8/4/2016
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 
@@ -151,9 +151,20 @@ VS Code uses three hints to determine the language a file will be associated wit
 2. the filename (`filenames` below)
 3. the first line inside the file (`firstLine` below)
 
-The last piece of information VS Code wants to know about a language is the `aliases` property, the first item in this list will be picked as the language label (as rendered in the status bar on the right).
-
 When a file is opened by the user, these three rules are applied and a language is determined. VS Code will then emit an activationEvent `onLanguage:${language}` (e.g. `onLanguage:python` for the example below)
+
+The `aliases` property contains human readable names under which the language is known. The first item in this list will be picked as the language label (as rendered in the status bar on the right).
+
+The `configuration` property specifies a path to the language configuration file. The path is relative to the extension folder, and is typically `./language-configuration.json`. The file uses the JSON format and can contain the following properties:
+
+* `comments` - Defines the comment symbols
+  * `blockComment` - The begin and end token used to mark a block comment. Used by the 'Toggle Block Comment' command.
+  * `lineComment` - The begin token used to mark a line comment. Used by the 'Add Line Comment' command.
+* `brackets` - Defines the bracket symbols that influence the indentation of code between the brackets. Used by the editor to determine or correct the new indentation level when entering a new line.
+* `autoClosingPairs` - Defines the open and close symbols for the auto-close functionality. When an open symbol is entered, the editor will insert the close symbol automatically. Auto closing pairs optionally take a `notIn` parameter to deactivate a pair inside strings or comments.
+* `surroundingPairs` - Defines the open and close pairs used to surround a selected string.
+
+If your language configuration file name is or ends with `language-configuration.json`, you will get validation and editing support in VS Code.
 
 ### Example
 
@@ -165,10 +176,40 @@ When a file is opened by the user, these three rules are applied and a language 
 		"extensions": [ ".py" ],
 		"aliases": [ "Python", "py" ],
 		"filenames": [ ... ],
-		"firstLine": "^#!/.*\\bpython[0-9.-]*\\b"
+		"firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
+		"configuration": "./language-configuration.json"
 	}]
 }
 ```
+language-configuration.json
+```json
+{
+	"comments": {
+		"lineComment": "//",
+		"blockComment": [ "/*", "*/" ]
+	},
+	"brackets": [
+		["{", "}"],
+		["[", "]"],
+		["(", ")"]
+	],
+	"autoClosingPairs": [
+		["{", "}"],
+		["[", "]"],
+		["(", ")"],
+		{ "open": "'", "close": "'", "notIn": ["string", "comment"] },
+		{ "open": "/**", "close": " */", "notIn": ["string"] }
+	],
+	"surroundingPairs": [
+		["{", "}"],
+		["[", "]"],
+		["(", ")"],
+		["<", ">"],
+		["'", "'"]
+	]
+}
+```
+
 ## `contributes.debuggers`
 
 Contribute a 'debug adapter' to VS Code's debugger. A debug adapter integrates VS Code with a particular debug engine.

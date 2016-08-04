@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: User and Workspace Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 7/7/2016
+DateApproved: 8/4/2016
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 
@@ -77,7 +77,7 @@ Below is a copy of the default `settings.json` file.
     // Controls the font size.
     "editor.fontSize": 14,
 
-    // Controls the line height.
+    // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
     "editor.lineHeight": 0,
 
     // Controls visibility of line numbers
@@ -137,19 +137,28 @@ Below is a copy of the default `settings.json` file.
     // Controls if suggestions should be accepted 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
     "editor.acceptSuggestionOnEnter": true,
 
+    // Controls whether snippets are shown with other suggestions and how they are sorted.
+    "editor.snippetSuggestions": "inline",
+
+    // Enable word based suggestions.
+    "editor.wordBasedSuggestions": true,
+
+    // Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.
+    "editor.tabCompletion": false,
+
     // Controls whether the editor should highlight similar matches to the selection
     "editor.selectionHighlight": true,
 
     // Controls the number of decorations that can show up at the same position in the overview ruler
     "editor.overviewRulerLanes": 3,
 
-    // Controls the cursor blinking animation, accepted values are 'blink', 'visible', and 'hidden'
+    // Control the cursor animation style, possible values are 'blink', 'smooth', 'phase', 'expand' and 'solid'
     "editor.cursorBlinking": "blink",
 
     // Zoom the font of the editor when using mouse wheel and holding Ctrl
     "editor.mouseWheelZoom": false,
 
-    // Controls the cursor style, accepted values are 'block' and 'line'
+    // Controls the cursor style, accepted values are 'block', 'line' and 'underline'
     "editor.cursorStyle": "line",
 
     // Enables font ligatures
@@ -187,9 +196,6 @@ Below is a copy of the default `settings.json` file.
 
     // Controls if the diff editor shows changes in leading or trailing whitespace as diffs
     "diffEditor.ignoreTrimWhitespace": true,
-
-    // Enable word based suggestions.
-    "editor.wordBasedSuggestions": true,
 
 
 // Emmet
@@ -240,6 +246,7 @@ Below is a copy of the default `settings.json` file.
     "files.exclude": {
         "**/.git": true,
         "**/.svn": true,
+        "**/.hg": true,
         "**/.DS_Store": true
     },
 
@@ -278,6 +285,9 @@ Below is a copy of the default `settings.json` file.
     // Controls if the explorer should automatically reveal files when opening them.
     "explorer.autoReveal": true,
 
+    // Controls if the explorer should allow to move files and folders via drag and drop.
+    "explorer.enableDragAndDrop": true,
+
 
 // Search
 
@@ -296,6 +306,9 @@ Below is a copy of the default `settings.json` file.
     // Path to the git executable
     "git.path": null,
 
+    // Whether auto refreshing is enabled
+    "git.autorefresh": true,
+
     // Whether auto fetching is enabled.
     "git.autofetch": true,
 
@@ -304,6 +317,9 @@ Below is a copy of the default `settings.json` file.
 
     // Always allow large repositories to be managed by Code.
     "git.allowLargeRepositories": false,
+
+    // Confirm before synchronizing git repositories.
+    "git.confirmSync": false,
 
 
 // HTTP
@@ -636,7 +652,7 @@ Below is a copy of the default `settings.json` file.
 // External Terminal
 
     // Customizes which terminal to run on Windows.
-    "terminal.external.windowsExec": "cmd",
+    "terminal.external.windowsExec": "%COMSPEC%",
 
     // Customizes which terminal application to run on OS X.
     "terminal.external.osxExec": "Terminal.app",
@@ -659,17 +675,26 @@ Below is a copy of the default `settings.json` file.
     // The command line arguments to use when on the OS X terminal.
     "terminal.integrated.shellArgs.osx": [],
 
-    // The path of the shell that the terminal uses on Windows.
+    // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
     "terminal.integrated.shell.windows": "C:\\windows\\system32\\cmd.exe",
 
     // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
     "terminal.integrated.fontFamily": "",
 
+    // Controls whether font ligatures are enabled in the terminal.
+    "terminal.integrated.fontLigatures": false,
+
     // Controls the font size of the terminal, this defaults to editor.fontSize's value.
     "terminal.integrated.fontSize": 0,
 
-    // Controls the line height of the terminal, this defaults to normal.
-    "terminal.integrated.lineHeight": 0,
+    // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
+    "terminal.integrated.lineHeight": 1.2,
+
+    // Controls whether the terminal cursor blinks.
+    "terminal.integrated.cursorBlinking": false,
+
+    // Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.
+    "terminal.integrated.setLocaleVariables": false,
 
 
 // Problems View
