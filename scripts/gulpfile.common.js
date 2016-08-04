@@ -110,7 +110,7 @@ exports.compileMarkdown = function(file, article) {
 	fileContents = fileContents.replace(/\(\/(blogs|updates|docs).+\.md\)/g, function(str) { return str.replace(/\.md\)/g, ')'); } );
 	
 	// need to remove embedded .md before # section tags and place _ underscore after for cshtml navigation
-	fileContents = fileContents.replace(/\(\/(blogs|updates|docs).+\.md#\)/g, function(str) { return str.replace(/.md#/g, "#_"); } );
+	fileContents = fileContents.replace(/.md#/g, "#_"); 
 
 	// Render markdown
 	article.Content = md.render(fileContents);
