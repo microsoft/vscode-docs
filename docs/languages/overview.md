@@ -10,24 +10,26 @@ MetaDescription: In Visual Studio Code we have support for all common languages 
 
 # Languages
 
-## What Languages are Supported
-
 In Visual Studio Code, we have support for many programming languages out of the box (JavaScript, TypeScript, CSS, HTML) and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
 
 <div class="marketplace-extensions-languages"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+## What Languages are Supported
 
-Here's a list of just some of the programming languages available for VS Code:
-
-Batch - [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - Clojure - Coffee Script - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - F# - Go - Groovy<br>
-HandleBars - [HTML](/docs/languages/html.md) - Ini - Jade - Java - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) - Lua - Makefile<br>
-[Markdown](/docs/languages/markdown.md) - Objective-C - Pascal - Perl  - [PHP](/docs/languages/php.md) - PowerShell - [Python](/docs/languages/python.md) - R - Razor - Ruby <br>
-Rust - [Sass](/docs/languages/css.md) - Scala - SQL - Swift - [TypeScript](/docs/languages/typescript.md) - Visual Basic - XML<br>
+Batch - [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - Clojure - Coffee Script - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - F# - Go - Groovy - HandleBars - [HTML](/docs/languages/html.md) - Ini - Jade - Java - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) - Lua - Makefile - 
+[Markdown](/docs/languages/markdown.md) - Objective-C - Pascal - Perl  - [PHP](/docs/languages/php.md) - PowerShell - [Python](/docs/languages/python.md) - R - Razor - Ruby - Rust - [Sass](/docs/languages/css.md) - Scala - SQL - Swift - [TypeScript](/docs/languages/typescript.md) - Visual Basic - XML
 
 Click on any linked item to get an overview of how to use VS Code in the context of that language.
 
-The richness of support varies across the different languages and their extensions. From basic syntax highlighting and bracket matching to smart completions (IntelliSense) and linting to advanced language features like debugging and refactoring.
+The richness of support varies across the different languages and their extensions:
+
+* Syntax highlighting and bracket matching
+* Smart completions (IntelliSense)
+* Linting and corrections
+* Code navigation (Go to Definition, Find All References)
+* Debugging
+* Refactoring
+
 
 ## Language Extensions
 
