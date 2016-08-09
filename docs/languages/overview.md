@@ -8,7 +8,7 @@ DateApproved: 8/4/2016
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 
-# Languages
+# Programming Languages
 
 In Visual Studio Code, we have support for many programming languages out of the box (JavaScript, TypeScript, CSS, HTML) and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
 
@@ -19,7 +19,9 @@ In Visual Studio Code, we have support for many programming languages out of the
 Batch - [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - Clojure - Coffee Script - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - F# - Go - Groovy - HandleBars - [HTML](/docs/languages/html.md) - Ini - Jade - Java - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) - Lua - Makefile - 
 [Markdown](/docs/languages/markdown.md) - Objective-C - Pascal - Perl  - [PHP](/docs/languages/php.md) - PowerShell - [Python](/docs/languages/python.md) - R - Razor - Ruby - Rust - [Sass](/docs/languages/css.md) - Scala - SQL - Swift - [TypeScript](/docs/languages/typescript.md) - Visual Basic - XML
 
-Click on any linked item to get an overview of how to use VS Code in the context of that language.
+>Click on any linked item to get an overview of how to use VS Code in the context of that language.
+
+## Language Features in VS Code
 
 The richness of support varies across the different languages and their extensions:
 
@@ -29,7 +31,6 @@ The richness of support varies across the different languages and their extensio
 * Code navigation (Go to Definition, Find All References)
 * Debugging
 * Refactoring
-
 
 ## Language Extensions
 
@@ -101,4 +102,3 @@ You can also configure full file paths to languages if needed. The following exa
 ```
 
 Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
-
