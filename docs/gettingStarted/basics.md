@@ -22,7 +22,7 @@ In this tutorial we walk you through the basics of Visual Studio Code.
 
 ## Next Steps
 
-* [Configure and Extend](/docs/gettingstarted/config) - Learn how to personalize VS Code to your style. 
+* [Configure and Extend](/docs/gettingstarted/configure) - Learn how to personalize VS Code to your style. 
 
 ## Learn More
 
