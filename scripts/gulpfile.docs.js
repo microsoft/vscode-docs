@@ -24,7 +24,7 @@ function Area(title, path, include, articles) {
 
 var areas = {
 	// Note that each attribute must be lower case
-	gettingstarted: new Area('Getting Started', 'gettingStarted', true),
+	firststepvideos: new Area('First Step Videos', 'firststepvideos', true),
 	setup: new Area('Setup', 'setup', true),
 	editor: new Area('Editor', 'editor', true),
 	customization: new Area('Customization', 'customization', true),
