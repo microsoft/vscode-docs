@@ -8,7 +8,7 @@ DateApproved: 8/10/2016
 MetaDescription: Download and learn the basics of Visual Studio Code.
 ---
 
-# Basics and Setup of Visual Studio Code
+# Basics and Setup of VS Code
 
 In this tutorial we walk you through the basics of Visual Studio Code. 
 

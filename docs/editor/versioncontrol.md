@@ -141,6 +141,7 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 ## Next Steps
 
+* [Intro Video - Git Version Control](/docs/introvideos/versioncontrol)
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings

@@ -1,16 +1,16 @@
 ---
 Order: 5
 Area: introvideos
-TOCTitle: Advanced Code Editing
+TOCTitle: Code Editing
 ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
-PageTitle: Advanced Code Editing in VS Code
+PageTitle: Code Editing Features in VS Code
 DateApproved: 8/10/2016
 MetaDescription: Take coding to the next level of speed and efficiency with these code editing features. 
 ---
 
-# Advanced Code Editing
+# Code Editing Features in VS Code
 
-In this tutorial we cover advanced code editing, including the features outlined below. After viewing this overview, read on in the [Learn More](#_learn-more) section to see more features. 
+In this tutorial we cover code editing, including the features outlined below. After viewing this overview, read on in the [learn more](#_learn-more) section to see more features. 
 
 <iframe src="https://www.youtube.com/embed/rsatrlBEFFA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 

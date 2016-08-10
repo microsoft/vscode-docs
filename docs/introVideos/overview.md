@@ -10,16 +10,18 @@ MetaDescription: Overview of VS Code's Introductory Videos.
 
 # Introductory Videos
 
-Start your journey with VS Code with this sequenced course of introductory videos. [Start learning now!](/docs/introvideos/basics)
+Start your journey with VS Code with this sequenced course of introductory videos. These videos are designed to give you a quick overview of various topics. Because VS Code comes with JavaScript and TypeScript support out of the box, each video uses JavaScript as an example. To learn more about the content of the video see the section titled "Learn More" towards the bottom of each intro video page. [Start learning now!](/docs/introvideos/basics)
 
-> Note: If you would like us to cover other topics, please leave [feedback here](https://www.surveymonkey.com/r/H9W7K8J). 
+## Tutorials
 
 Tutorial                              | Time Required | Description
 ------------------------------------- | ------------- | --------------------------------
 [Basics and Setup](/docs/introvideos/basics) | 3m | Setup and understand the basics of your new editor. 
 [Configure and Extend](/docs/introvideos/configure) | 5m | Personalize and extend VS Code.
 [IntelliSense](/docs/introvideos/intellisense) | 5m | Receive intelligent code completions. 
-[Advanced Code Editing](/docs/introvideos/codeediting) | 6m | Take productivity to the next level. 
-[Version Control](/docs/introvideos/codeediting) | 4m | Learn how to use Git version control in VS Code.
+[Code Editing](/docs/introvideos/codeediting) | 6m | Take code editing to the next level. 
+[Version Control](/docs/introvideos/versioncontrol) | 4m | Learn how to use Git version control in VS Code.
 [Debugging](/docs/introvideos/debugging) | 5m | Setup and debug a simple Node.js application. 
+
+> Note: If you would like us to cover other topics, please leave [feedback here](https://www.surveymonkey.com/r/H9W7K8J). 
 
