@@ -1,6 +1,6 @@
 ---
 Order: 3
-Area: firststepvideos
+Area: introvideos
 TOCTitle: Configure and Extend
 ContentId: d9583ed0-aaf6-4ce1-9a27-bbfb0017b6be
 PageTitle: Configure and Extend VS Code
@@ -31,4 +31,4 @@ In this tutorial we show you how to personalize and extend VS Code.
 
 ## Next Video
 
-* [IntelliSense](/docs/firststepvideos/intellisense) - Setup IntelliSense for intelligent code completion. 
+* [IntelliSense](/docs/introvideos/intellisense) - Setup IntelliSense for intelligent code completion. 

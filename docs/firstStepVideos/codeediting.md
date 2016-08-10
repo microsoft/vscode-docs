@@ -1,6 +1,6 @@
 ---
 Order: 5
-Area: firststepvideos
+Area: introvideos
 TOCTitle: Advanced Code Editing
 ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
 PageTitle: Advanced Code Editing in VS Code
@@ -38,5 +38,5 @@ In this tutorial we cover advanced code editing, including the features outlined
 
 ## Next Video
 
-* [Version Control](/docs/firststepvideos/versioncontrol) - Learn the basics of Git version control. 
+* [Version Control](/docs/introvideos/versioncontrol) - Learn the basics of Git version control. 
 

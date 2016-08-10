@@ -1,6 +1,6 @@
 ---
 Order: 2
-Area: firststepvideos
+Area: introvideos
 TOCTitle: Basics and Setup
 ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7
 PageTitle: Basics and Setup of VS Code
@@ -27,4 +27,4 @@ In this tutorial we walk you through the basics of Visual Studio Code.
 
 ## Next Video
 
-* [Configure and Extend](/docs/firststepvideos/configure) - Learn how to personalize VS Code to your style. 
+* [Configure and Extend](/docs/introvideos/configure) - Learn how to personalize VS Code to your style. 

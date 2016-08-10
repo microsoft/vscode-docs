@@ -1,6 +1,6 @@
 ---
 Order: 6
-Area: firststepvideos
+Area: introvideos
 TOCTitle: Git Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Git Version Control in VS Code
@@ -18,12 +18,12 @@ In this tutorial we wil learn how to use the basics of Git version control in VS
 
 * Create a branch
 * Change branches
-* View diffs
-* Stage and clean
-* Undo commit
-* Publish
-* Push and sync
-* View git commands
+* View diffs between two files
+* Stage and clean changes
+* Undo a commit
+* Publish to a remote branch
+* Push commits
+* View git commands in Git output
 
 ## Learn More
 
@@ -31,4 +31,4 @@ In this tutorial we wil learn how to use the basics of Git version control in VS
 
 ## Next Video
 
-* [Debugging](/docs/firststepvideos/debugging) - Use the debugging interface to debug your app, including setting breakpoints and inspecting variables. 
+* [Debugging](/docs/introvideos/debugging) - Use the debugging interface to debug your app, including setting breakpoints and inspecting variables. 

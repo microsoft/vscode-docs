@@ -1,6 +1,6 @@
 ---
 Order: 7
-Area: firststepvideos
+Area: introvideos
 TOCTitle: Debugging
 ContentId: cf275b3d-c1d8-4a55-b2eb-a8a744882b6a
 PageTitle: Debugging in VS Code

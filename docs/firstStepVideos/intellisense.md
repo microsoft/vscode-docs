@@ -1,6 +1,6 @@
 ---
 Order: 4
-Area: firststepvideos
+Area: introvideos
 TOCTitle: IntelliSense
 ContentId: 3e36b1fa-cefc-4a07-9773-e672da5881a2
 PageTitle: IntelliSense in VS Code
@@ -31,4 +31,4 @@ In this tutorial we show you how to setup IntelliSense for JavaScript.
 
 ## Next Video
 
-* [Advanced Code Editing](/docs/firststepvideos/codeediting) - Learn advanced editing tips and tricks. 
+* [Advanced Code Editing](/docs/introvideos/codeediting) - Learn advanced editing tips and tricks. 
