@@ -16,7 +16,7 @@ Start your journey with VS Code with this sequenced course of introductory video
 
 Tutorial                              | Time Required | Description
 ------------------------------------- | ------------- | --------------------------------
-[Basics](/docs/introvideos/basics) | 3m | Understand the basics of your new editor. 
+[Basics and Setup](/docs/introvideos/basics) | 3m | Setup and understand the basics of your new editor. 
 [Configure and Extend](/docs/introvideos/configure) | 5m | Personalize and extend VS Code.
 [IntelliSense](/docs/introvideos/intellisense) | 5m | Receive intelligent code completions. 
 [Advanced Code Editing](/docs/introvideos/codeediting) | 6m | Take productivity to the next level. 
