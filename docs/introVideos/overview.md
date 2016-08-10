@@ -10,11 +10,13 @@ MetaDescription: Overview of VS Code's Introductory Videos.
 
 # Introductory Videos
 
-Start your journey with VS Code with this sequenced course of introductory videos. These videos are designed to give you a quick overview of various topics. Because VS Code comes with JavaScript and TypeScript support out of the box, each video uses JavaScript as an example. To learn more about the content of the video see the section titled "Learn More" towards the bottom of each intro video page. [Start learning now!](/docs/introvideos/basics)
+Start your journey with VS Code with this sequenced course of introductory videos. These videos are designed to give you a quick overview of various topics. Because VS Code comes with JavaScript and TypeScript support out of the box, each video uses JavaScript as an example. 
+
+[Start learning now!](/docs/introvideos/basics)
 
 ## Tutorials
 
-Tutorial                              | Time Required | Description
+|              |  |  |
 ------------------------------------- | ------------- | --------------------------------
 [Basics and Setup](/docs/introvideos/basics) | 3m | Setup and understand the basics of your new editor. 
 [Configure and Extend](/docs/introvideos/configure) | 5m | Personalize and extend VS Code.
