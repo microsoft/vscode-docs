@@ -34,7 +34,7 @@ In this tutorial we cover advanced code editing, including the features outlined
 * [Tasks](/docs/editor/tasks) - Setup tasks to use external tools inside VS Code. 
 * [JavaScript Linters](/docs/languages/javascript#_javascript-linters-eslint-jshint) - Install linters for JavaScript and TypeScript. 
 * [Code Folding](/docs/editor/editingevolved#_folding) - See the details of code folding. 
-* [VS Code Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks) - A Github repository of helpful tips and tricks for VS Code. 
+* [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks) - A Github repository of helpful tips and tricks for VS Code. 
 
 ## Next Video
 
