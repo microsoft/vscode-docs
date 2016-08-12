@@ -10,7 +10,7 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 
 # C/C++ for VS Code (Preview)
 
-C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux and OS X (see _Known limitations_ below).
+C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux, OS X, and Windows (GDB only with Cygin and MinGW).
 
 If you just want a lightweight tool to edit your C++ files, VS Code has you covered but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
@@ -34,7 +34,7 @@ We're still shaping the C++ experience in VS Code so now is a great time to [pro
 
 This will generate a `c_cpp_properties.json` file that allows you to add additional include paths to properly enable code navigation and auto-completion.
 
-**To build your application from VS Code, you will need to generate a `tasks.json` file:**
+**If you want to build your application from VS Code, you will need to generate a `tasks.json` file:**
 
 * Open the **Command Palette** (`kb(workbench.action.showCommands)`).
 * Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates.
@@ -62,8 +62,8 @@ For more information on tasks, see [Integrate with External Tools via Tasks](/do
 * Navigate to the Debug view by clicking the Debug icon in the Sidebar.
 * In the **Debug** view, click the **Configure** icon.
 * Select `C++ Launch (GDB/LLDB)` from the **Select Environment** dropdown. This creates a `launch.json` file for editing with two configurations:
- * **C++ Launch** defines the properties for launching your app when you start debugging (F5).
- * **C++ Attach** defines the properties for attaching to a process that's already running.
+  * **C++ Launch** defines the properties for launching your app when you start debugging (F5).
+  * **C++ Attach** defines the properties for attaching to a process that's already running.
 * Update the `program` property with the path to the program you are debugging.
   * If you are debugging on Windows, see [Windows debugging (Cygwin/MinGW)](#debug_windows).
 * If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` ("g++" in the example above).
