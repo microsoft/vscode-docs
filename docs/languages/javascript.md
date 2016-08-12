@@ -296,6 +296,11 @@ Read on to find out about:
 
 * [TypeScript](typescript) - VS Code has great support for TypeScript which brings structure and strong typing to your JavaScript code, without compromising the good parts.
 
+Watch the introductory video:
+
+* [IntelliSense](/docs/introvideos/intellisense) - Tutorial on IntelliSense with JavaScript
+* [Debugging](/docs/introvideos/debugging)
+
 ## Common Questions
 
 **Q: Can I debug minified/uglified JavaScript?**

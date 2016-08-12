@@ -15,16 +15,25 @@ var common = require('./gulpfile.common');
 var DOCS_SRC_ROOT = 'docs'; 
 var DEST_ROOT = 'out/vscode-website/src'; 
 
+function Area(title, path, include, articles) {
+	this.title = title || '';
+	this.path = path || '';
+	this.include = include || false;
+	this.articles = articles || [];
+}
+
 var areas = {
-	setup: { title: 'Setup', path: 'setup', include: true, articles: [] },
-	editor: { title: 'Editor', path: 'editor', include: true, articles: [] },
-	customization: {title: 'Customization', path: 'customization', include: true, articles: []},
-	languages: { title: 'Languages', path: 'languages', include: true, articles: [] },
-	runtimes: { title: 'Runtimes', path: 'runtimes', include: true, articles: [] },
-	extensions: { title: 'Extensions', path: 'extensions', include: true, articles: [] },
-	extensionapi: { title: 'Extensibility Reference', path: 'extensionAPI', include: true, articles: [] },
-	tools: { title: 'Tools', path: 'tools', include: true, articles: [] },
-	supporting: { title: 'Supporting', path: 'supporting', include: false, articles: [] }
+	// Note that each attribute must be lower case
+	introvideos: new Area('Intro Videos', 'introvideos', true),
+	setup: new Area('Setup', 'setup', true),
+	editor: new Area('Editor', 'editor', true),
+	customization: new Area('Customization', 'customization', true),
+	languages: new Area('Languages', 'languages', true),
+	runtimes: new Area('Runtimes', 'runtimes', true),
+	extensions: new Area('Extensions', 'extensions', true),
+	extensionapi: new Area('Extensibility Reference', 'extensionAPI', true),
+	tools: new Area('Tools', 'tools', true),
+	supporting: new Area('Supporting', 'supporting', false)
 };
 
 gulp.task('copy-images', function () {

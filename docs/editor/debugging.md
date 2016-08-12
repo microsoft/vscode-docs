@@ -325,6 +325,10 @@ In case you didn't already read the Node.js section, take a look at:
 
 * [Node.js](/docs/runtimes/nodejs.md) - End to end Node scenario with a sample application
 
+To see a tutorial on the basics of Node.js debugging, check out:
+
+* [Intro Video - Debugging](/docs/introvideos/debugging) - Introductory Video showcasing the basics of debugging. 
+
 To learn about VS Code's task running support, go to:
 
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
