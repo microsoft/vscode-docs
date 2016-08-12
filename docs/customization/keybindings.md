@@ -141,8 +141,8 @@ Key|Command|Command id
 `kb(workbench.action.closeEditorsToTheRight)`|Close Group to Right|`workbench.action.closeEditorsToTheRight`
 `kb(workbench.action.closeAllEditors)`|Close All|`workbench.action.closeAllEditors`
 `kb(workbench.action.keepEditor)`|Keep Open|`workbench.action.keepEditor`
-`kb(workbench.action.openNextEditor)`|Open Next|`workbench.action.openNextEditor`
-`kb(workbench.action.openPreviousEditor)`|Open Previous|`workbench.action.openPreviousEditor`
+`kb(workbench.action.openNextRecentlyUsedEditorInGroup)`|Open Next|`workbench.action.openNextRecentlyUsedEditorInGroup`
+`kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Open Previous|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.files.copyPathOfActiveFile)`|Copy Path of Active File|`workbench.action.files.copyPathOfActiveFile`
 `kb(workbench.action.files.revealActiveFileInWindows)`|Reveal Active File in Windows|`workbench.action.files.revealActiveFileInWindows`
 `kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
