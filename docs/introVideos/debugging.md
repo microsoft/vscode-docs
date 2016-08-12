@@ -16,16 +16,16 @@ Debugging is a core feature of VS Code. In this tutorial we will show you how to
 
 ## Outline
 
-* Configure debugging by creating a launch.json file
+* Configure debugging by creating a `launch.json` file
 * Set break points
 * Inspect your program's state and variables
-* Step through your code
-* Use the debug view and console, including variables, call stack information, and breakpoints. 
+* Step through your source code
+* Use the Debug View and Console, including variables, call stack information, and breakpoints. 
 
 ## Learn More
 
 * [Debugging](/docs/editor/debugging) - Official documentation for VS Code debugging.
-* [Integrated Terminal](/docs/editor/integrated-terminal) - Use your terminal inside VS Code. 
+* [Integrated Terminal](/docs/editor/integrated-terminal) - Use the integrated terminal inside VS Code. 
 
 ## Next Steps
 

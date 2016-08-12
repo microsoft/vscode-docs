@@ -10,14 +10,14 @@ MetaDescription: Download and learn the basics of Visual Studio Code.
 
 # Basics and Setup of VS Code
 
-In this tutorial we walk you through the basics of Visual Studio Code. 
+In this tutorial, we walk you through the basics of Visual Studio Code. 
 
 <iframe src="https://www.youtube.com/embed/fpqy0ZkavWM?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 
-* Download and Install VS Code
-* Practice Quick Open and using the Command Palatte
+* Download and install VS Code
+* Practice **Quick Open** and using the **Command Palatte**
 * Orient around the basics of the editor
 
 ## Learn More
