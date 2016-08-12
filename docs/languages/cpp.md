@@ -10,35 +10,38 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 
 # C/C++ for VS Code (Preview)
 
-C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux (Ubuntu 14.04 64-bit is supported; other versions of Linux might work, but are unsupported) and OS X (see _Known limitations_ below).
+C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux and OS X (see _Known limitations_ below).
 
-If you just want a lightweight tool to edit your C++ files VS Code has you covered wherever you are, but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
+If you just want a lightweight tool to edit your C++ files, VS Code has you covered but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-Because we're still shaping the C++ experience in VS Code, now is a great time to [provide bug reports, feature requests, and feedback](mailto:c_cpp_support@microsoft.com), and for those of you who use Linux or OS X as your development environment to [get engaged](http://landinghub.visualstudio.com/c-nonwin) with the Visual Studio team.
+We're still shaping the C++ experience in VS Code so now is a great time to [provide bug reports, feature requests, and feedback](mailto:c_cpp_support@microsoft.com), and for those of you who use Linux or OS X as your development environment, to [get engaged](http://landinghub.visualstudio.com/c-nonwin) with the Visual Studio team.
 
 ## Getting Started
 
-**To install the Microsoft C/C++ extension:** 
-* Open VS Code 
-* Click the Extensions icon on the toolbar 
-* Search for `cpptools`
-* Click "Install", then click "Enable"
-* Open a folder that contains your C/C++ code
+### To install the Microsoft C/C++ extension
 
-**To enable code completion and navigation you will need to generate a `c_cpp_properties.json` file:**
-* Hover over any green squiggle in a source file (e.g. a #include instatement)
-* Click the lightbulb that appears underneath the mouse cursor
-* Click "Add include path to settings"
+* Open VS Code.
+* Click the Extensions View icon on the Sidebar.
+* Search for `cpptools`.
+* Click **Install**, then click **Enable**.
+* Open a folder that contains your C/C++ code.
+
+### To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file
+
+* Hover over any green squiggle in a source file (e.g. a #include statement).
+* Click the lightbulb that appears underneath the mouse cursor.
+* Click **Add include path to settings**.
 
 This will generate a `c_cpp_properties.json` file that allows you to add additional include paths to properly enable code navigation and auto-completion.
 
-**To build your application from VS Code, you will need to generate a `tasks.json` file:**
-* Open the **Command Palette** (`kb(workbench.action.showCommands)`)
-* Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates
-* Select **Others** to create a task which runs an external command
-* Change the `command` to the commandline expression you use to build your application (e.g. `g++ -g main.cpp`)
-* Add any required args (e.g. `-g` to build for debugging)
-* You can now build your application with (kb(workbench.action.tasks.build))
+### To build your application from VS Code, you will need to generate a `tasks.json` file
+
+* Open the **Command Palette** (`kb(workbench.action.showCommands)`).
+* Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates.
+* Select **Others** to create a task which runs an external command.
+* Change the `command` to the commandline expression you use to build your application (e.g. `g++ -g main.cpp`).
+* Add any required args (e.g. `-g` to build for debugging).
+* You can now build your application with (`kb(workbench.action.tasks.build)`)
 
 You should now see a `tasks.json` file in your workspace `.vscode` folder that looks something like:
 
@@ -48,22 +51,22 @@ You should now see a `tasks.json` file in your workspace `.vscode` folder that l
     "command": "g++",
     "isShellCommand": true,
     "showOutput": "always",
-    "args": [
-                "-g", "main.cpp"
-    ]
+    "args": ["-g", "main.cpp"]
 }
 ```
-For more information on tasks, see [Integrate with External Tools via Tasks] (/docs/editor/tasks)
 
-**To enable debugging, you will need to generate a launch.json file:**
-* Navigate to the Debug view by clicking the debug icon in the toolbar 
-* In the __Debug Panel__, click the __Settings__ icon 
-* Select `C++ Launch (GDB/LLDB)` from the __Select Environment__ dropdown. This creates a `launch.json` file for editing with two configurations:
- * __C++ Launch__ defines the properties for launching your app when you start debugging (F5)
- * __C++ Attach__ defines the properties for attaching to a process that's already running
-* Update the 'program" property with the path to the program you are debugging 
-  * If you are debugging on Windows see [Windows debugging (Cygwin/MinGW)](#debug_windows)
-* If you want your application to build when you start debugging add a `preLaunchTask` property with the name of the build task you created in `tasks.json`
+For more information on tasks, see [Integrate with External Tools via Tasks](/docs/editor/tasks).
+
+### To enable debugging, you will need to generate a `launch.json` file
+
+* Navigate to the Debug view by clicking the Debug icon in the Sidebar.
+* In the **Debug** view, click the **Configure** icon.
+* Select `C++ Launch (GDB/LLDB)` from the **Select Environment** dropdown. This creates a `launch.json` file for editing with two configurations:
+ * **C++ Launch** defines the properties for launching your app when you start debugging (F5).
+ * **C++ Attach** defines the properties for attaching to a process that's already running.
+* Update the `program` property with the path to the program you are debugging.
+  * If you are debugging on Windows, see [Windows debugging (Cygwin/MinGW)](#debug_windows).
+* If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` ("g++" in the example above).
 
 Your `launch.json` file should look something like:
 
@@ -175,7 +178,7 @@ Alternatively, you can search for symbols by accessing these commands through th
 
 You can take a quick look at how a symbol was defined by using the Peek Definition feature. This feature displays a few lines of code near the definition inside a peek window so you can take a look without navigating away from your current location.
 
-To peek at a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__). 
+To peek at a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__).
 
 ![Peek definition](images/cpp/peekdefn.png)
 
@@ -191,10 +194,11 @@ To go to a symbol's definition, place your cursor on the symbol anywhere its use
 
 ## Debugging
 
-The debuggers VS Code supports for C/C++ are as follows depending on the operating system you are using: 
-* __Linux__: supports debugging using GDB
-* __OS X__: supports using LLDB or GDB
-* __Windows__: currently supports GDB only (using Cygwin or MinGW)
+VS Code supports the following debuggers for C/C++ depending on the operating system you are using:
+
+* **Linux**: supports debugging using GDB
+* **OS X**: supports using LLDB or GDB
+* **Windows**: currently supports GDB only (using Cygwin or MinGW)
 
 ### Windows debugging (Cygwin/MinGW) <a name="debug_windows"></a>
 
@@ -232,7 +236,7 @@ Note that expressions in the Watch Pane take effect in the application being deb
 
 ### Multi-threaded debugging
 
-The C/C++ extension for VS Code now has the ability to debug threaded code. 
+The C/C++ extension for VS Code now has the ability to debug threaded code.
 
 ### Core Dump debugging
 
