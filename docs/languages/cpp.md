@@ -18,7 +18,7 @@ We're still shaping the C++ experience in VS Code so now is a great time to [pro
 
 ## Getting Started
 
-### To install the Microsoft C/C++ extension
+**To install the Microsoft C/C++ extension:**
 
 * Open VS Code.
 * Click the Extensions View icon on the Sidebar.
@@ -26,7 +26,7 @@ We're still shaping the C++ experience in VS Code so now is a great time to [pro
 * Click **Install**, then click **Enable**.
 * Open a folder that contains your C/C++ code.
 
-### To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file
+**To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file:**
 
 * Hover over any green squiggle in a source file (e.g. a #include statement).
 * Click the lightbulb that appears underneath the mouse cursor.
@@ -34,7 +34,7 @@ We're still shaping the C++ experience in VS Code so now is a great time to [pro
 
 This will generate a `c_cpp_properties.json` file that allows you to add additional include paths to properly enable code navigation and auto-completion.
 
-### To build your application from VS Code, you will need to generate a `tasks.json` file
+**To build your application from VS Code, you will need to generate a `tasks.json` file:**
 
 * Open the **Command Palette** (`kb(workbench.action.showCommands)`).
 * Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates.
@@ -57,7 +57,7 @@ You should now see a `tasks.json` file in your workspace `.vscode` folder that l
 
 For more information on tasks, see [Integrate with External Tools via Tasks](/docs/editor/tasks).
 
-### To enable debugging, you will need to generate a `launch.json` file
+**To enable debugging, you will need to generate a `launch.json` file:**
 
 * Navigate to the Debug view by clicking the Debug icon in the Sidebar.
 * In the **Debug** view, click the **Configure** icon.
@@ -289,10 +289,6 @@ Read on to find out about:
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
 ## Common Questions
-
-**Q: Which versions of Linux support debugging?**
-
-**A:** In this release, Ubuntu 14.04 64-bit remains the only version of Linux that officially supports debugging. However, the extension no longer relies on the install script found in previous versions to install the necessary dependencies; previously, this script blocked automatic installation on Linux versions other than Ubuntu 14.04 64-bit. Because of this, you no longer have to manually perform the steps found in the script to enable the debugging features on other versions of Linux. While this makes installation on other versions of Linux easier and we encourage you to try out debugging on your preferred version of Linux, such installations remain unsupported for now.
 
 **Q: I can't debug multi-threaded code.**
 
