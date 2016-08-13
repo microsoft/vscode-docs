@@ -16,19 +16,19 @@ In this tutorial we show you how to personalize and extend VS Code.
 
 ## Outline
 
-* Change your UI color theme. 
-* Find customization options in preferences
-* Change and learn key bindings
-* Write code faster with snippets, including creating your own. 
-* Install extensions for additional features and programming language support. 
+* Change your UI color theme.
+* Find customization options in user and workspace settings.
+* Change and learn key bindings.
+* Write code faster with snippets, including creating your own.
+* Install extensions for additional features and programming language support.
 
 ## Learn More
 
-* [User and Workspace Settings](/docs/customization/userandworkspace) - Configure user and workspace settings. 
-* [Key Bindings](/docs/customization/keybindings) - See the default key bindings for editing, navigation, and more. 
-* [Snippets](/docs/customization/snippets) - Create your own custom snippets. 
-* [Themes](/docs/customization/themes) - Change your color theme to customize VS Code's background text and language syntax colorization. 
+* [User and Workspace Settings](/docs/customization/userandworkspace.md) - Configure user and workspace settings.
+* [Key Bindings](/docs/customization/keybindings.md) - See the default key bindings for editing, navigation, and more.
+* [Snippets](/docs/customization/snippets.md) - Create your own custom snippets.
+* [Themes](/docs/customization/themes.md) - Change your color theme to customize VS Code's background text and language syntax colorization.
 
 ## Next Video
 
-* [IntelliSense](/docs/introvideos/intellisense) - Setup IntelliSense for intelligent code completion. 
+* [IntelliSense](/docs/introvideos/intellisense.md) - Setup IntelliSense for intelligent code completion.

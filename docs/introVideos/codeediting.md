@@ -16,27 +16,27 @@ In this tutorial we cover code editing, including the features outlined below. A
 
 ## Outline
 
-* Emmet syntax for HTML and CSS development 
+* Emmet syntax for HTML and CSS development
 * Hover over CSS elements
 * Use case of using a task
-* Global find and replace, including regex search. 
+* Global find and replace, including regex search
 * ESLint for JavaScript linting
 * Errors and Warning output
 * Multi-cursor editing
 * Code folding
 * Bracket matching
-* Code formatting to consistently style code. 
+* Code formatting to consistently style code
 
 ## Learn More
 
-* [Editing Evolved](/docs/editor/editingevolved) - Official documentation for code editing features. 
-* [Emmet Snippets](/docs/languages/html#_emmet-snippets) - Use Emmet Snippets.
-* [Tasks](/docs/editor/tasks) - Setup tasks to use external tools inside VS Code. 
-* [JavaScript Linters](/docs/languages/javascript#_javascript-linters-eslint-jshint) - Install linters for JavaScript and TypeScript. 
-* [Code Folding](/docs/editor/editingevolved#_folding) - See the details of code folding. 
-* [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks) - A Github repository of helpful tips and tricks for VS Code. 
+* [Editing Evolved](/docs/editor/editingevolved.md) - Official documentation for code editing features.
+* [Emmet Snippets](/docs/languages/html.md#emmet-snippets) - Use Emmet Snippets.
+* [Tasks](/docs/editor/tasks.md) - Setup tasks to use external tools inside VS Code.
+* [JavaScript Linters](/docs/languages/javascript.md#javascript-linters-eslint-jshint) - Install linters for JavaScript and TypeScript.
+* [Code Folding](/docs/editor/editingevolved,md#folding) - See the details of code folding.
+* [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks.md) - A GitHub repository of helpful tips and tricks for VS Code.
 
 ## Next Video
 
-* [Version Control](/docs/introvideos/versioncontrol) - Learn the basics of Git version control. 
+* [Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.
 

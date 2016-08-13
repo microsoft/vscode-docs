@@ -296,10 +296,10 @@ Read on to find out about:
 
 * [TypeScript](typescript) - VS Code has great support for TypeScript which brings structure and strong typing to your JavaScript code, without compromising the good parts.
 
-Watch the introductory video:
+Watch these introductory videos:
 
-* [IntelliSense](/docs/introvideos/intellisense) - Tutorial on IntelliSense with JavaScript
-* [Debugging](/docs/introvideos/debugging)
+* [IntelliSense](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript
+* [Debugging](/docs/introvideos/debugging.md)
 
 ## Common Questions
 

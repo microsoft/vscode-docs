@@ -22,9 +22,9 @@ In this tutorial, we walk you through the basics of Visual Studio Code.
 
 ## Learn More
 
-* [The Basics](/docs/editor/codebasics) - View the documentation for the basics of VS Code. 
-* [Setup Overview](/docs/setup/setup-overview) - Documentation for getting up and running with VS Code, including for each platform. 
+* [The Basics](/docs/editor/codebasics.md) - View the documentation for the basics of VS Code.
+* [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including for each platform.
 
 ## Next Video
 
-* [Configure and Extend](/docs/introvideos/configure) - Learn how to personalize VS Code to your style. 
+* [Configure and Extend](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your style.

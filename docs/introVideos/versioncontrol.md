@@ -27,8 +27,8 @@ In this tutorial we wil learn how to use the basics of Git version control in VS
 
 ## Learn More
 
-* [Version Control](/docs/editor/versioncontrol) - Read more about integrated Git support. 
+* [Version Control](/docs/editor/versioncontrol.md) - Read more about integrated Git support. 
 
 ## Next Video
 
-* [Debugging](/docs/introvideos/debugging) - Use the debugging interface to debug your app, including setting breakpoints and inspecting variables. 
+* [Debugging](/docs/introvideos/debugging.md) - Use the debugging interface to debug your app, including setting breakpoints and inspecting variables.

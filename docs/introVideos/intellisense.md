@@ -10,25 +10,25 @@ MetaDescription: IntelliSense is a fundamental feature for VS Code. In this arti
 
 # IntelliSense in VS Code
 
-In this tutorial we show you how to setup IntelliSense for JavaScript. 
+In this tutorial, we show you how to set up IntelliSense for JavaScript.
 
-> Note: For using IntelliSense in additional languages consult the README of the languages extension. [Read more here](http://localhost:7000/docs/languages/overview). 
+> Note: For using IntelliSense in additional languages, consult the language extension's README. [Read more here](/docs/languages/overview.md).
 
 <iframe src="https://www.youtube.com/embed/jVIe82TdmqE?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 
 * IntelliSense basics and how to set it up
-* Peek and go-to-definition
-* Find all references
-* Rename symbol
+* Peek and Go To Definition
+* Find All References
+* Rename Symbol
 
 ## Learn More
 
-* [Editing Evolved](/docs/editor/editingevolved) - Read the official documentation on editing productivity. 
-* [JavaScript Projects (jsconfig.json)](/docs/languages/javascript#_javascript-projects-jsconfigjson) - Define a JavaScript project with jsconfig.json to get IntelliSense across files. 
-* [Node.js IntelliSense](/docs/runtimes/nodejs#_adding-a-jsconfigjson-configuration-file) - Setup IntelliSense for Node.js
+* [Editing Evolved](/docs/editor/editingevolved.md) - Read the official documentation on editing productivity.
+* [JavaScript Projects (jsconfig.json)](/docs/languages/javascript.md#javascript-projects-jsconfigjson) - Define a JavaScript project with jsconfig.json to get IntelliSense across files.
+* [Node.js IntelliSense](/docs/runtimes/nodejs.md#adding-a-jsconfigjson-configuration-file) - Set up IntelliSense for Node.js.
 
 ## Next Video
 
-* [Advanced Code Editing](/docs/introvideos/codeediting) - Learn advanced editing tips and tricks. 
+* [Advanced Code Editing](/docs/introvideos/codeediting.md) - Learn advanced editing tips and tricks.
