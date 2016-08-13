@@ -299,7 +299,7 @@ Read on to find out about:
 Watch these introductory videos:
 
 * [IntelliSense](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
-* [Debugging](/docs/introvideos/debugging.md) - Debug a Node.js application.
+* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
 
 ## Common Questions
 
