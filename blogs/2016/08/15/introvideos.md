@@ -16,17 +16,17 @@ On the product team, we're constantly trying to make Visual Studio Code better. 
 
 One theme we hear from users new to VS Code is that they would like more on-boarding material. They want to be able to get up and running with VS Code quickly and be able to take advantage of its powerful features right away.
 
-To help new users, today we are announcing a set of introductory videos. These videos give a basic introduction to downloading and installing VS Code and using features like IntelliSense, debugging, version control and more.
+To help new users, today we are announcing a set of introductory videos. These videos give basic introductions to downloading and installing VS Code and using features like IntelliSense, debugging, version control and more.
 
 ## Take a Look
 
 Navigate to [Intro Videos - Overview](/docs/introvideos/overview.md) to get started. 
 
-Below is the first video covering downloading, installing, and the basics of VS Code:
+Below is the first video covering downloading, installing, and the basics of using VS Code:
 
 <iframe src="https://www.youtube.com/embed/fpqy0ZkavWM?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-See the full outline and additional learning resources [here](/docs/introvideos/basics.md).
+You can see the video outline [here](/docs/introvideos/basics.md) as well as additional introductory learning resources.
 
 We want your feedback. What other videos would you like to see? Leave feedback in [this survey](https://www.surveymonkey.com/r/H9W7K8J) or ping me on [Twitter](https://twitter.com/waderyan_). 
 

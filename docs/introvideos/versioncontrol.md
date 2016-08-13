@@ -3,7 +3,7 @@ Order: 6
 Area: introvideos
 TOCTitle: Git Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
-PageTitle: Git Version Control in VS Code
+PageTitle: Git Version Control in Visual Studio Code
 DateApproved: 8/5/2016
 MetaDescription: Learn how to use Git version control basics in VS Code. 
 ---
@@ -31,4 +31,4 @@ In this tutorial we wil learn how to use the basics of Git version control in VS
 
 ## Next Video
 
-* [Debugging](/docs/introvideos/debugging.md) - Use the debugging interface to debug your app, including setting breakpoints and inspecting variables.
+* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug your application, including setting breakpoints and inspecting variables.

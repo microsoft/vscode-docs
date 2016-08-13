@@ -327,7 +327,7 @@ In case you didn't already read the Node.js section, take a look at:
 
 To see a tutorial on the basics of Node.js debugging, check out:
 
-* [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory Video showcasing the basics of debugging. 
+* [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory video showcasing the basics of debugging. 
 
 To learn about VS Code's task running support, go to:
 
