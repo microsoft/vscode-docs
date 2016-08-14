@@ -102,7 +102,7 @@ Now that you've seen VS Code in action with "Hello World", the next section show
 Install the Express Generator by running the following from a terminal:
 
 ```bash
-npm install -g express-generator
+sudo npm install -g express-generator
 ```
 
 The `-g` switch installs the Express Generator globally on your machine so you can run it from anywhere.
