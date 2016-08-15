@@ -8,24 +8,29 @@ DateApproved: 8/4/2016
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 
-# Languages
+# Programming Languages
+
+In Visual Studio Code, we have support for many programming languages out of the box (JavaScript, TypeScript, CSS, HTML) and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+
+<div class="marketplace-extensions-languages"></div>
 
 ## What Languages are Supported
 
-In Visual Studio Code, we have support for many languages out of the box and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+Batch - [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - Clojure - Coffee Script - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - F# - Go - Groovy - HandleBars - [HTML](/docs/languages/html.md) - Ini - Jade - Java - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) - Lua - Makefile - 
+[Markdown](/docs/languages/markdown.md) - Objective-C - Pascal - Perl  - [PHP](/docs/languages/php.md) - PowerShell - [Python](/docs/languages/python.md) - R - Razor - Ruby - Rust - [Sass](/docs/languages/css.md) - Scala - SQL - Swift - [TypeScript](/docs/languages/typescript.md) - Visual Basic - XML
 
->**Tip:** You can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/customization/colorizer.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code.
+>Click on any linked item to get an overview of how to use VS Code in the context of that language.
 
-![Languages](images/overview/languagecoverage.png)
+## Language Features in VS Code
 
-The richness of support varies across the different languages. The table below provides a brief description of Visual Studio Code's various languages features.  Click on any linked item to get an overview of how to use VS Code in the context of that language.
+The richness of support varies across the different languages and their extensions:
 
-Features|Languages
---------|-------------------------
-Syntax coloring, bracket matching |Batch, Clojure, Coffee Script, [Dockerfile](/docs/languages/dockerfile.md), F#, Go, Jade, Java, HandleBars, Ini, Lua, Makefile, Objective-C, Perl, PowerShell, R, Razor, Ruby, Rust, SQL, Visual Basic, XML
-+ Snippets| Groovy, [Markdown](/docs/languages/markdown.md), Swift
-+ IntelliSense, linting, outline|[C++](/docs/languages/cpp.md), [CSS](/docs/languages/css.md), [HTML](/docs/languages/html.md), [JavaScript](/docs/languages/javascript.md), [JSON](/docs/languages/json.md), [Less](/docs/languages/css.md), [PHP](/docs/languages/php.md), [Python](/docs/languages/python.md), [Sass](/docs/languages/css.md)
-+ Refactoring, find all references|[TypeScript](/docs/languages/typescript.md), [C&#35;](/docs/languages/csharp.md)
+* Syntax highlighting and bracket matching
+* Smart completions (IntelliSense)
+* Linting and corrections
+* Code navigation (Go to Definition, Find All References)
+* Debugging
+* Refactoring
 
 ## Language Extensions
 
@@ -69,7 +74,11 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **Q: Can I contribute my own language service?**
 
-**A:** Yes you can! Check out the [example language server](/docs/extensions/example-language-server.md) in the [Extending Visual Studio Code](/docs/extensions/overview.md) documentation. 
+**A:** Yes you can! Check out the [example language server](/docs/extensions/example-language-server.md) in the [Extending Visual Studio Code](/docs/extensions/overview.md) documentation.
+
+**Q: What if I don't want to create a full language service, can I reuse existing TextMate bundles?**
+
+>**A:** Yes, you can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/customization/colorizer.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code. 
 
 **Q: Can I map additional file extensions to a language?**
 
@@ -93,4 +102,3 @@ You can also configure full file paths to languages if needed. The following exa
 ```
 
 Note that the pattern is a [glob pattern](https://en.wikipedia.org/wiki/Glob_%28programming%29) that will match on the full path of the file if it contains a `/` and will match on the file name otherwise.
-

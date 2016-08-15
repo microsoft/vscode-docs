@@ -48,7 +48,7 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 ![Ctrl Hover](images/editingevolved/ctrlhover.png)
 
-> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`. If you opened a new editor window, you can go back to the previous editor with `kb(workbench.action.focusLeftEditor)`.
+> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`. If you opened a new editor window, you can go back to the previous editor with `kb(workbench.action.focusPreviousGroup)`.
 
 ## Goto Symbol
 
@@ -179,6 +179,7 @@ You can also use the following actions:
 
 Now that you know how the editor works, time to try a few other things...
 
+* [Intro Video - Code Editing] - Watch an introductory video on code editing features. 
 * [The Basics](/docs/editor/codebasics.md) - In case you missed a basic orientation around VS Code.
 * [Customization](/docs/customization/overview.md) - Configure VS Code the way you want - Themes, Settings, Display Language
 * [Key Bindings](/docs/customization/keybindings.md) - Learn how to modify key bindings to your preference.

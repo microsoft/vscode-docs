@@ -10,25 +10,115 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 
 # C/C++ for VS Code (Preview)
 
-C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux (Ubuntu 14.04 64-bit is supported; other versions of Linux might work, but are unsupported) and OS X (see _Known limitations_ below).
+C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux, OS X, and Windows (GDB only with Cygin and MinGW).
 
-If you just want a lightweight tool to edit your C++ files VS Code has you covered wherever you are, but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
+If you just want a lightweight tool to edit your C++ files, VS Code has you covered but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-Because we're still shaping the C++ experience in VS Code, now is a great time to [provide bug reports, feature requests, and feedback](mailto:c_cpp_support@microsoft.com), and for those of you who use Linux or OS X as your development environment to [get engaged](http://landinghub.visualstudio.com/c-nonwin) with the Visual Studio team.
+We're still shaping the C++ experience in VS Code so now is a great time to [provide bug reports, feature requests, and feedback](mailto:c_cpp_support@microsoft.com), and for those of you who use Linux or OS X as your development environment, to [get engaged](http://landinghub.visualstudio.com/c-nonwin) with the Visual Studio team.
 
-## Installing C++ support
+## Getting Started
 
-C++ language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools). Or, just install it from VS Code by launching the __Quick Open__ (`kb(workbench.action.quickOpen)`) and then entering the command **ext install cpptools**.
+**To install the Microsoft C/C++ extension:**
 
-> Tip: On Linux, only Ubuntu 14.04 64-bit is officially supported. Other versions of Linux might work, but are untested and unsupported.
+* Open VS Code.
+* Click the Extensions View icon on the Sidebar.
+* Search for `cpptools`.
+* Click **Install**, then click **Enable**.
+* Open a folder that contains your C/C++ code.
 
-> Tip: On OS X, additional install steps need to be completed manually to enable debugging on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+**To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file:**
 
-In addition to the [Microsoft C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), the community has produced other extensions.
+* Hover over any green squiggle in a source file (e.g. a #include statement).
+* Click the lightbulb that appears underneath the mouse cursor.
+* Click **Add include path to settings**.
 
-<div class="marketplace-extensions-cpp"></div>
+This will generate a `c_cpp_properties.json` file that allows you to add additional include paths to properly enable code navigation and auto-completion.
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+**If you want to build your application from VS Code, you will need to generate a `tasks.json` file:**
+
+* Open the **Command Palette** (`kb(workbench.action.showCommands)`).
+* Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates.
+* Select **Others** to create a task which runs an external command.
+* Change the `command` to the commandline expression you use to build your application (e.g. `g++ -g main.cpp`).
+* Add any required args (e.g. `-g` to build for debugging).
+* You can now build your application with (`kb(workbench.action.tasks.build)`)
+
+You should now see a `tasks.json` file in your workspace `.vscode` folder that looks something like:
+
+```json
+{
+    "version": "0.1.0",
+    "command": "g++",
+    "isShellCommand": true,
+    "showOutput": "always",
+    "args": ["-g", "main.cpp"]
+}
+```
+
+For more information on tasks, see [Integrate with External Tools via Tasks](/docs/editor/tasks).
+
+**To enable debugging, you will need to generate a `launch.json` file:**
+
+* Navigate to the Debug view by clicking the Debug icon in the Sidebar.
+* In the **Debug** view, click the **Configure** icon.
+* Select `C++ Launch (GDB/LLDB)` from the **Select Environment** dropdown. This creates a `launch.json` file for editing with two configurations:
+  * **C++ Launch** defines the properties for launching your app when you start debugging (F5).
+  * **C++ Attach** defines the properties for attaching to a process that's already running.
+* Update the `program` property with the path to the program you are debugging.
+  * If you are debugging on Windows, see [Windows debugging (Cygwin/MinGW)](#debug_windows).
+* If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` ("g++" in the example above).
+
+Your `launch.json` file should look something like:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/code.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": true,
+            "preLaunchTask": "g++",
+            "linux": {
+                "MIMode": "gdb"
+            },
+            "osx": {
+                "MIMode": "lldb"
+            },
+            "windows": {
+                "MIMode": "gdb"
+            }
+        },
+        {
+            "name": "C++ Attach",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/code.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "processId": "${command.pickProcess}",
+            "externalConsole": false,
+            "linux": {
+                "MIMode": "gdb"
+            },
+            "osx": {
+                "MIMode": "lldb"
+            },
+            "windows": {
+                "MIMode": "gdb"
+            }
+        }
+    ]
+}
+```
 
 ## Editing code
 
@@ -88,7 +178,7 @@ Alternatively, you can search for symbols by accessing these commands through th
 
 You can take a quick look at how a symbol was defined by using the Peek Definition feature. This feature displays a few lines of code near the definition inside a peek window so you can take a look without navigating away from your current location.
 
-To peek at a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__). 
+To peek at a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__).
 
 ![Peek definition](images/cpp/peekdefn.png)
 
@@ -104,21 +194,13 @@ To go to a symbol's definition, place your cursor on the symbol anywhere its use
 
 ## Debugging
 
-Debugging is supported on Windows (Cygwin/MinGW), Linux (Ubuntu 14.04 64-bit), and OS X (see _Known limitations_ below).
+VS Code supports the following debuggers for C/C++ depending on the operating system you are using:
 
-### Preparing your launch.json file for debugging
+* **Linux**: supports debugging using GDB
+* **OS X**: supports using LLDB or GDB
+* **Windows**: currently supports GDB only (using Cygwin or MinGW)
 
-Before you can debug your app you'll need to set a few things up. Navigate to the Debug View (click the debug icon in the toolbar on the left-hand side of the VS Code window) then in the __Debug Panel__, click the __Settings__ icon and select `C++ Launch (GDB)`. This opens the `launch.json` file for editing.
-
-![launch.json](images/cpp/launchjson.png)
-
-This file, `launch.json`, contains configurations that tell the debugger how to interact with your app. Two configurations are included by default -- one that defines the properties for launching your app under GDB from VS Code, and another that defines the properties for attaching GDB to a process that's already running. Note that launching your app under GDB is not currently supported on OS X, for now you have to use Attach to debug OS X apps.
-
-At the minimum, you'll need to update the 'program' property to contain the program name and path, but you can modify other properties as well. You can view a tooltip that describes each property and its possible values by placing your cursor over a property. For more information about the properties inside the launch.json file and how to use them, see the VS Code [debugging documentation](/docs/editor/debugging.md).
-
-After your launch.json file is configured, you're ready to start debugging, but remember that VS Code won't rebuild your program when you make changes to it between debugging sessions unless you also create a task.json file to invoke the build and set it as the `preLaunchTask` property in the launch.json file
-
-### Windows debugging (Cygwin/MinGW)
+### Windows debugging (Cygwin/MinGW) <a name="debug_windows"></a>
 
 You can debug Windows applications created using Cygwin or MinGW by using VS Code. To use Cygwin or MinGW debugging features, the debugger path must be set manually in the launch configuration (`launch.json`). To debug your Cygwin or MinGW app, add the `miDebuggerPath` property and set its value to the location of the corresponding gdb.exe for your Cygwin or MinGW environment.
 
@@ -154,7 +236,7 @@ Note that expressions in the Watch Pane take effect in the application being deb
 
 ### Multi-threaded debugging
 
-The C/C++ extension for VS Code now has the ability to debug threaded code. 
+The C/C++ extension for VS Code now has the ability to debug threaded code.
 
 ### Core Dump debugging
 
@@ -184,21 +266,19 @@ All platforms:
 Windows:
 
 * Debugging of Windows applications created using Visual Studio is not currently supported. The extension supports debugging of Cygwin and MinGW applications on Windows.
-* GDB on Cygwin and MinGW cannot break a running process. To set a breakpoint in run mode, or to pause the application being debugged, press `kbstyle(Ctrl-C)` in the application's terminal.
+* GDB on Cygwin and MinGW cannot break a running process. To set a breakpoint when the application is running (not stopped under the debugger), or to pause the application being debugged, press `kbstyle(Ctrl-C)` in the application's terminal.
 * GDB on Cygwin cannot open core dumps.
 
 Linux:
 
-* Ubuntu 14.04 64-bit remains the only version of Linux that officially supports debugging, but automatic installation of debugging features is no longer blocked on versions of Linux other than Ubuntu 14.04 64-bit. While this makes installation on other versions of Linux easier and we encourage you to try debugging on your preferred version of Linux, such installations remain unsupported for now.
 * GDB needs elevated permissions to attach to a process. When using *attach to process*, you need to provide your password before the debugging session can begin.
 
 OS X:
 
-* Additional install steps need to be completed manually to enable debugging on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
-* *Launch process* is not currently supported on OS X.
+* Additional install steps need to be completed manually to use GDB on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
 * When attaching to a process with GDB, the application being debugged cannot be interrupted. GDB will only bind breakpoints set while the application is not running (either before attaching to the application, or while the application is in a stopped state). This is due to [a bug in GDB](https://sourceware.org/bugzilla/show_bug.cgi?id=20035).
 * Core dumps cannot be loaded when debugging with GDB because GDB [does not support the core dump format used in OS X](https://www.sourceware.org/ml/gdb/2014-01/msg00036.html).
-* When attached to a process with GDB, break-all will ends the process.
+* When attached to a process with GDB, break-all will end the process.
 
 ## Next Steps
 
@@ -209,10 +289,6 @@ Read on to find out about:
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
 ## Common Questions
-
-**Q: Which versions of Linux support debugging?**
-
-**A:** In this release, Ubuntu 14.04 64-bit remains the only version of Linux that officially supports debugging. However, the extension no longer relies on the install script found in previous versions to install the necessary dependencies; previously, this script blocked automatic installation on Linux versions other than Ubuntu 14.04 64-bit. Because of this, you no longer have to manually perform the steps found in the script to enable the debugging features on other versions of Linux. While this makes installation on other versions of Linux easier and we encourage you to try out debugging on your preferred version of Linux, such installations remain unsupported for now.
 
 **Q: I can't debug multi-threaded code.**
 
