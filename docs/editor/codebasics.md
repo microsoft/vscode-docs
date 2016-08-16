@@ -38,6 +38,10 @@ VS Code allows up to three visible editors at any one time, allowing you to edit
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
+### Hide the Menu Bar (Windows, Linux)
+
+You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command (`kbstyle(Ctrl+U)`). You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.
+
 ## Side by Side Editing
 
 You can have up to three editors open side by side.
