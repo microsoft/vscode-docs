@@ -14,11 +14,13 @@ Lots of tools exist to automate tasks like building, packaging, testing or deplo
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
-These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code. Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
+These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code.
+
+>Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
 
 ## Hello World
 
-Let's start with a simple "Hello World" task which will display text to the OUTPUT panel when run.
+Let's start with a simple "Hello World" task which will display text to the **OUTPUT** panel when run.
 
 Tasks are defined in a workspace `tasks.json` file and VS Code has templates for common task runners. In the **Command Palette** (`kb(workbench.action.showCommands)`), you can filter on 'task' and can see the various Task related commands.
 
@@ -42,11 +44,19 @@ In this example, we are just running the `echo` shell command with "Hello World"
 
 Test the `echo` task by running **Tasks: Run Tasks** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
 
-You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`. 
+You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`.
 
 ![tasks IntelliSense](images/tasks/tasks-intellisense.png)
 
 >**Tip:** You can run your task through **Quick Open** (`kb(workbench.action.quickOpen)`) by typing 'task', `kbstyle(Space)` and the command name. In this case, 'task echo'.
+
+## Output Window Behavior
+
+Sometimes you will want to control how the output window behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The property **showOutput** controls this and the valid values are:
+
+- **always** - The output window is always brought to front. This is the default.
+- **never** - The user must explicitly bring the output window to the front using the **View** > **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`).
+- **silent** - The output window is brought to front only if no [problem matchers](/docs/editor/tasks.md#processing-task-output-with-problem-matchers) are set for the task.
 
 ## Examples of Tasks in Action
 
@@ -173,14 +183,6 @@ The `tasks` property is defined as an array of object literals where each litera
 - **isBuildCommand** - If this property is set to true, `kb(workbench.action.tasks.build)` will trigger this task.
 - **problemMatcher** A string or array of strings based on the pre-defined problem matchers.
 
-## Output Window Behavior
-
-Sometimes you will want to control how the output window behaves when running tasks. For instance, you may always want to show output for the debug command. The property **showOutput** controls this and the valid values are:
-
-- **silent** - The output window is brought to front only if no problem matchers fire for the task. This is the default.
-- **always** - The output window is always brought to front.
-- **never** - The user must explicitly bring the output window to the front using the **View** > **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`).
-
 ## Operating System Specific Properties
 
 The task system supports defining values (for example, the command to be executed) specific to an operating system. To do so, simply put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
@@ -242,7 +244,7 @@ When authoring tasks and launch configurations, it is often useful to have a set
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
 - **${file}** the current opened file
-- **${relativeFile}** the current opened file relative to `workspaceRoot` 
+- **${relativeFile}** the current opened file relative to `workspaceRoot`
 - **${fileBasename}** the current opened file's basename
 - **${fileDirname}** the current opened file's dirname
 - **${fileExtname}** the current opened file's extension
