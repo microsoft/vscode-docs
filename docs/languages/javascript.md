@@ -5,14 +5,14 @@ TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
 DateApproved: 8/4/2016
-MetaDescription: Get the best out of Visual Studio Code for JavaScript development
+MetaDescription: Get the best out of Visual Studio Code for JavaScript development.
 ---
 
 # JavaScript
 
 ## Rich Editing Support
 
-Visual Studio Code uses the TypeScript language service to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
+Visual Studio Code uses the [TypeScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa), to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
 
 ![JavaScript language within VS Code](images/javascript/javascript_hero.png)
 
@@ -301,3 +301,75 @@ Read on to find out about:
 **Q: Can I debug minified/uglified JavaScript?**
 
 **A:** Yes, you can.
+
+## Configuring JavaScript IntelliSense
+
+## Single File
+
+IntelliSense will work for a single file out of the box. You don't need to do anything. 
+
+> Note: if IntelliSense isn't working, run `Reload JavaScript Project` from the command pallate and check [Troubleshooting](#troubleshooting) below. 
+
+## Entire Workspace
+
+Create a `jsconfig.json` in the root of your workspace. This file indicates to the [Salsa language service](https://code.visualstudio.com/updates/vJanuary#_javascript-salsa-preview) this is a JavaScript project. 
+
+Each sample contains a `jsconfig.json` file. Here is a simple template you can use. 
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES6"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
+```
+
+The `excludes` attribute is important. This tells the language service what files are and are not part of your source code. If IntelliSense is slow, add folders to your `excludes` list (VS Code will prompt you to do this if it detects the slow down). 
+
+> Note: The file paths in `excludes` are relative to the location of `jsconfig.json`. 
+
+The full documentation for jsconfig.json is here. 
+
+> Tip: For advanced usage, remember that `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJS` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options. 
+
+## Third Party Modules
+
+TODO typings
+
+# Troubleshooting
+
+## Verify correct setup
+
+1. Do you have jsconfig.json? 
+2. Typings
+
+## Report a bug
+
+3. TS Server Trace
+
+```
+{
+  "typescript.tsserver.trace": "verbose"
+}
+```
+
+Open the developer tools console. 
+
+> Mac: Help -> Toggle Developer Tools
+
+4. Extensions
+
+```
+code --disable-extensions .
+```
+
+5. Settings
+
+Copy the contents of your
+
+## Check Samples
+
+This repo contains samples for setting up IntelliSense for JavaScript. If you cannot get IntelliSense to work, compare your project setup with the closest related sample. 
