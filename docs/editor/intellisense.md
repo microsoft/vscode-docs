@@ -50,23 +50,19 @@ IntelliSense is context aware and will provide you with the best recommendation 
 
 Methods, variables, and objects tend to have high priority. Simple word completion, tends to be lower priority. When the priority level is equivalent, ordering is done alphabetically. 
 
+|       |         |
+| ----- | ------- |
+| ![purple cube for a method](images/intellisense/method_icon.png) | Method or Function |
+| ![blue cuboid for a variable](images/intellisense/variable_icon.png) | Variable | 
+| ![blue circles connected by a blue line for an object](images/intellisense/object_icon.png) | Object |
+| ![a square with a small fold in the top left corner indicates word completion](images/intellisense/word_completion_icon.png) | Word Completion |
+
+This image shows the result of triggering IntelliSense on `express` a popular [Node.js module](https://expressjs.com/). 
+
 ![image showing intellisense icons](images/intellisense/intellisense_icons.png)
 
-Method icon. 
 
-![purple cube for a method](images/intellisense/method_icon.png)
 
-Variable icon. 
-
-![blue cuboid for a variable](images/intellisense/variable_icon.png)
-
-Object icon.
-
-![blue circles connected by a blue line for an object](images/intellisense/object_icon.png)
-
-Word completion icon.
-
-![a square with a small fold in the top left corner indicates word completion](images/intellisense/word_completion_icon.png)
 
 ## Customize IntelliSense
 
@@ -101,7 +97,7 @@ IntelliSense is straight forward enough. Let's keep going.
 
 This issue can be caused by a variety of reasons. For JavaScript specific troubleshooting, please go to the troubleshooting section [here](/docs/languages/javascript#troubleshooting-intellisense). For other languages you will need to consult the language service extension's documentation. 
 
-* Why is there no useful suggestions given?
+* Why am I only seeing word completion suggestions?
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
