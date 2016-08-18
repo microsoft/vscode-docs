@@ -46,7 +46,7 @@ IntelliSense is very easy to use. Simply begin typing. While you type the langua
 
 IntelliSense is context aware and will provide you with the best recommendation possible. The order and the icon to the left of the word indicate the priority of each suggestion. The language service provides this information. 
 
-**Higher suggestion priority = higher order and more detailed icon**
+**Higher suggestion priority = higher order and a more detailed icon**
 
 Methods, variables, and objects tend to have high priority. Simple word completion, tends to be lower priority. When the priority level is equivalent, ordering is done alphabetically. 
 
