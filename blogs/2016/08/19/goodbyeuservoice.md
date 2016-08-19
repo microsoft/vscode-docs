@@ -37,6 +37,10 @@ Happy Coding.
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
+
+## Top 50 User Voice issues
+
+These issues will be migrated to Github over the next couple of weeks. 
   
 1. [Vim-style Keybindings](https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7752447-vim-style-keybindings)
 2. [PHP IntelliSense](https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7752606-php-intellisense)
