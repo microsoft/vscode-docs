@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order: 12
 Area: editor
 TOCTitle: Why VS Code
 ContentId: FF543B32-703C-4894-9A3B-2B5BFAF8B6B8

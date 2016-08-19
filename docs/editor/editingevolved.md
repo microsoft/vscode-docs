@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: editor
 TOCTitle: Editing Evolved
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
