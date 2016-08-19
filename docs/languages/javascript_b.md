@@ -18,16 +18,24 @@ Visual Studio Code uses the [TypeScript language service](https://github.com/Mic
 
 ## IntelliSense
 
-There are a few steps to configure IntelliSense. 
+IntelliSense will work for single files immediately. There are two additional steps to configure IntelliSense for your workspace and for third party libraries. 
 
-1. Create a JavaScript project file named `jsconfig.json`. 
-2. Install the relevant typings files. 
+1. Create a [JavaScript project](#_javascript_project_jsconfigjson) file named `jsconfig.json`. 
+2. Install [TypeScript Definition files](#_typescript_definition_files_typings). 
 
 > Note: if IntelliSense isn't working, run `Reload JavaScript Project` from the command pallate and check [Troubleshooting](#troubleshooting) below. 
 
 ### JavaScript Project (jsconfig.json)
 
-Create a `jsconfig.json` file in the root of your JavaScript project. This file indicates to the [Salsa language service](https://code.visualstudio.com/updates/vJanuary#_javascript-salsa-preview) this is a JavaScript project. Below is a simple template for `jsconfig.json` file which defines the JavaScript `target` to be `ES6` and the `exclude` attribute excludes the `node_modules` folder.
+Create a `jsconfig.json` file. The presence of this file indicates to the [TypeScript language service](https://code.visualstudio.com/updates/vJanuary#_javascript-salsa-preview) that this is a JavaScript project. 
+
+Make sure that you place the `jsconfig.json` at the root of your JavaScript project and not at the root of your workspace. A project in this context refers to the relative location of JavaScript files and directories containing JavaScript files. 
+
+> TODO need to explain what a project is. 
+
+![jsconfig setup](images/javascript/jsconfig_setup.png)
+
+Below is a simple template for `jsconfig.json` file which defines the JavaScript `target` to be `ES6` and the `exclude` attribute excludes the `node_modules` folder.
 
 ```json
 {
@@ -42,83 +50,7 @@ Create a `jsconfig.json` file in the root of your JavaScript project. This file 
 
 The `excludes` attribute is important. This tells the language service what files are and are not part of your source code. If IntelliSense is slow, add folders to your `excludes` list (VS Code will prompt you to do this if it detects the slow down). 
 
-> Tip: The file paths in `excludes` are relative to the location of `jsconfig.json`. 
-
-The full documentation for jsconfig.json is [here](). 
-
-> Note: `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJS` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options. 
-
-
-### Why do I need a jsconfig.json file? 
-
-VS Code's JavaScript support can operate in two different modes:
-
-* **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using /// reference [directives](http://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0)), there is no common project context between the two files.
-
-* **Explicit Project - with jsconfig.json**: A JavaScript project is defined via a `jsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a JavaScript project. The file itself can optionally list the files belonging to the project, the files to be excluded from the project, as well as compiler options (see below).
-
-The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. For this reason, we provide a hint to create a `jsconfig.json` file when you open a JavaScript file in a fresh workspace. If no `files` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `files` attribute is specified, only those files are included.
-
-Make sure that you place the `jsconfig.json` at the root of your JavaScript project and not just at the root of your workspace. 
-
-Create a `jsconfig.json` in the root of your workspace. 
-
-
-### TypeScript Definition Files (Typings)
-
-TODO typings
-
-### Common Issues and Troubleshooting
-
-#### Common Issues
-
-#### Troubleshooting Steps
-
-First, Do you have jsconfig.json? 
-
-> [Read above](#_javascript-projects-jsconfigjson) for instructions to create a `jsconfig.json` file in the root of your workspace. 
-
-Second, Do you have the typings files? 
-
-> [Read above](# typings_typescript_definition_files)
-
-Third, Is there an extension inhibiting the IntelliSense experience? 
-
-> Close VS Code and restart with the command line option `--disable-extensions`. 
-
-Once you have confirmed you have the correct setup (note you can see JavaScript IntelliSense samples [here]()), please open an [issue on Github](https://github.com/Microsoft/vscode/issues/new). 
-
-3. TS Server Trace
-
-```
-{
-  "typescript.tsserver.trace": "verbose"
-}
-```
-
-Open the developer tools console. 
-
-> Mac: Help -> Toggle Developer Tools
-
-4. Extensions
-
-```
-code --disable-extensions .
-```
-
-5. Settings
-
-Copy the contents of your
-
-##### Check Samples
-
-This repo contains samples for setting up IntelliSense for JavaScript. If you cannot get IntelliSense to work, compare your project setup with the closest related sample. 
-
-## Configuration File (jsconfig.json)
-
-
-
-Here is an example with an explicit `files` attribute.
+Optionally, you can explicitly set the files in your project using the `files` attribute. Here is an example with an explicit `files` attribute.
 ```json
 {
     "compilerOptions": {
@@ -130,13 +62,13 @@ Here is an example with an explicit `files` attribute.
 }
 ```
 
-The `files` attribute cannot be used in conjunction with the `exclude` attribute. If both are specified, the `files` attribute takes precedence.
+The `files` attribute cannot be used in conjunction with the `exclude` attribute. If both are specified, the `files` attribute will take precedence.
 
 In more complex projects, you may have more than one `jsconfig.json` file defined inside a workspace, as illustrated in below for a project with a `client` and `server` folder, that are a separate project context:
 
-![multiple jsconfigs](images/javascript/client-server.png)
+![multiple jsconfigs](images/javascript/complex_jsconfig_setup.png)
 
-### Excludes 
+### IntelliSense Best Practices
 
 Whenever possible, you should exclude folders with JavaScript files that are not part of the source code for your project.
 
@@ -156,6 +88,16 @@ When your JavaScript project is growing too large, it is often because of librar
 
 >**Tip:** Sometimes changes to configuration, such as adding or editing a `jsconfig.json` file are not picked up correctly. Running the **Reload JavaScript Project** command should reload the project and pick up the changes.
 
+### Why do I need a jsconfig.json file? 
+
+VS Code's JavaScript support can operate in two different modes:
+
+* **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using /// reference [directives](http://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0)), there is no common project context between the two files.
+
+* **Explicit Project - with jsconfig.json**: A JavaScript project is defined via a `jsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a JavaScript project. The file itself can optionally list the files belonging to the project, the files to be excluded from the project, as well as compiler options (see below).
+
+The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. For this reason, we provide a hint to create a `jsconfig.json` file when you open a JavaScript file in a fresh workspace. If no `files` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `files` attribute is specified, only those files are included.
+
 ### jsconfig Options
 
 Below are jsconfig options to configure the JavaScript language support.
@@ -166,6 +108,80 @@ Option  | Description
 `target`| Specifies which default library (lib.d.ts) to use. The values are "ES3", "ES5", "ES6".
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just typechecking.
+
+> Tip: The file paths in `excludes` and `files` are relative to the location of `jsconfig.json`. 
+
+> Tip: `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJS` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options. 
+
+
+### TypeScript Definition Files (Typings)
+
+You can also get IntelliSense for libraries through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [Typings](https://github.com/typings/typings), the TypeScript Definition manager.
+
+For example `typings install dt~node --global` installs all the typings for the built-in Node.js modules. If your project has a `jsconfig.json` file, then make sure that `typings` is contained in the project context defined by the location of the `jsconfig.json` file. If you have no `jsconfig.json`, then you need to manually add a `/// reference`  to the `.d.ts` from each JavaScript file.
+
+>**Tip**: When you want to use ES6 style imports but the typings do not yet use ES6 style exports, then set the [TypeScript compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports` to true.
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
+```
+
+### Common Issues and Troubleshooting
+
+#### Common Issues
+
+* IntelliSense is not working in my file. 
+
+![intellisense_error](images/javascript/intellisense_error.png)
+
+* IntelliSense is not working for other files in my workspace. 
+
+You must have your `jsconfig.json` at the root of your JavaScript project and not at the root of your workspace. In addition, check that you have the `exclude` and `files` attributes set correctly. [Read above](#_javascript_project_jsconfigjson).
+
+* IntelliSense is not working for libraries I have installed. 
+
+![typings not installed](images/javascript/missing_typings.png)
+
+You need to install the typings files for each library you use. [Read above](#_typescript_definition_files_typings).
+
+#### Troubleshooting Steps
+
+* Is there an extension inhibiting the IntelliSense experience? 
+
+> Close VS Code and restart with the command line option `--disable-extensions`. 
+
+* Are there settings causing issues with your IntelliSense setup? 
+
+> Copy your settings to a temporary location and remove them from settings.json. 
+
+* Are there errors being thrown by tsserver?
+
+> Copy the following setting to your settings.json file and save your new settings. Open Developer Tools (Help | Toggle Developer Tools). 
+
+```
+{
+  "typescript.tsserver.trace": "verbose"
+}
+```
+
+Once you have confirmed you have the correct setup, please open an [issue on Github](https://github.com/Microsoft/vscode/issues/new) and paste any errors you see from `tsserver`. 
+
+> Note: you can see correctly configured JavaScript IntelliSense samples [here]().
+
+
+
+
+
+
 
 ## IntelliSense
 
@@ -194,24 +210,7 @@ This [document](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-Ja
 
 ### TypeScript definition file
 
- You can also get IntelliSense for libraries through the use of type definition `.d.ts` files. [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) is a repository of typings files for all major JavaScript libraries and environments. The typings are easily managed using [Typings](https://github.com/typings/typings), the TypeScript Definition manager.
 
-For example `typings install dt~node --global` installs all the typings for the built-in Node.js modules. If your project has a `jsconfig.json` file, then make sure that `typings` is contained in the project context defined by the location of the `jsconfig.json` file. If you have no `jsconfig.json`, then you need to manually add a `/// reference`  to the `.d.ts` from each JavaScript file.
-
->**Tip**: When you want to use ES6 style imports but the typings do not yet use ES6 style exports, then set the [TypeScript compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports` to true.
-
-```json
-{
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": [
-    "node_modules"
-  ]
-}
-```
 
 ## Mixed TypeScript and JavaScript projects
 
