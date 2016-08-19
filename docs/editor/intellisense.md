@@ -16,7 +16,7 @@ IntelliSense is a core feature of Visual Studio Code. When you first download VS
 
 ## Language Extensions
 
-IntelliSense for JavaScript and TypeScript is provided out of the box through the [TypeScript](https://github.com/Microsoft/TypeScript/wiki/Salsa) language service. For other languages you will need to [install a language extension](/docs/editor/extension-gallery).
+IntelliSense for JavaScript and TypeScript is provided out of the box through the [TypeScript](https://github.com/Microsoft/TypeScript/wiki/Salsa) language service. For other languages you will need to [install a language extension](/docs/editor/extension-gallery). 
 
 > Tip: For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript#configuring-intellisense).
 
@@ -26,7 +26,7 @@ Below are the most popular language extensions in the [Marketplace](https://mark
 
 ## What is IntelliSense?
 
-IntelliSense is a general term for a variety of code editing features, including: code completion, paramter info, quick info, and list members. 
+IntelliSense is a general term for a variety of code editing features, including: code completion, parameter info, quick info, and list members. 
 
 IntelliSense has been described in a number of ways. 
 
@@ -46,7 +46,7 @@ In addition, you can see the short documentation (commonly called **quick outlin
 
 ![quick outline](images/intellisense/quick_outline.png)
 
-After choosing a method you are provided with **paramater info**. 
+After choosing a method you are provided with **parameter info**. 
 
 ![paramater info](images/intellisense/paramater_info.png)
 
@@ -82,7 +82,7 @@ You can customize your IntelliSense experience in settings.
     // Controls if quick suggestions should show up while typing
     "editor.quickSuggestions": true,
 
-    // Controls if suggestions should be accetped with "Enter" - in addition to "Tab". Helps to avoid ambiguity between inserting new lines and accepting suggestions. 
+    // Controls if suggestions should be accepted with "Enter" - in addition to "Tab". Helps to avoid ambiguity between inserting new lines and accepting suggestions. 
     "editor.acceptSuggestionOnEnter": true,
 
     // Controls the delay in ms after which quick suggestions will show up. 
@@ -101,6 +101,7 @@ From here the details become language dependent. The TypeScript language service
 IntelliSense is straight forward enough. Let's keep going. 
 
 * [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
+* [Node.js](https://code.visualstudio.com/docs/runtimes/nodejs#_intellisense-and-typings) - See an example of IntelliSense in action in the Node.js walkthrough. 
 * [Debugging](/docs/editor/debugging.md) - Learn how to setup debugging for your application. 
 
 ## Common Questions
