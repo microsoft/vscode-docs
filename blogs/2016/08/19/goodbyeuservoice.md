@@ -40,7 +40,7 @@ Wade Anderson, VS Code Team Member <br>
 
 ## Top 50 User Voice issues
 
-These issues will be migrated to Github over the next couple of weeks. 
+The following table lists the current top 50 User Voice requests as of 08/18/2016. We will triage these requests and migrate them to Github issues by XX/YY/2016, following our normal inbox triage process
   
 1. [Vim-style Keybindings](https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7752447-vim-style-keybindings)
 2. [PHP IntelliSense](https://visualstudio.uservoice.com/forums/293070-visual-studio-code/suggestions/7752606-php-intellisense)
