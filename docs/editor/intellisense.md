@@ -109,11 +109,11 @@ IntelliSense is straight forward enough. Let's keep going.
 
 ![image of IntelliSense not working](images/intellisense/intellisense_error.png)
 
-This issue can be caused by a variety of reasons. For JavaScript specific troubleshooting, please go to the troubleshooting section [here](/docs/languages/javascript#troubleshooting-intellisense). For other languages you will need to consult the language service extension's documentation. 
+This issue can be caused by a variety of reasons. For JavaScript specific troubleshooting, please navigate to the [JavaScript language document](/docs/languages/javascript). For other languages you will need to consult the extension's documentation. 
 
 * Why am I not seeing method and variable suggestions?
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
-This issue is caused by missing typings files in JavaScript. You can learn how to solve this issue [here](/docs/languages/javascript#third-party-intellisense). For other languages, please consult the language service extension's documentation. 
+This issue is caused by missing typings files in JavaScript. You can learn how to solve this issue in the [JavaScript language document](/docs/languages/javascript). For other languages, please consult the extension's documentation. 
 
