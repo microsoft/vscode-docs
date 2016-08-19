@@ -306,3 +306,4 @@ Watch these introductory videos:
 **Q: Can I debug minified/uglified JavaScript?**
 
 **A:** Yes, you can.
+
