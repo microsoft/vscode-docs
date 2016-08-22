@@ -10,41 +10,32 @@ MetaDescription: One of the core features of Visual Studio Code is IntelliSense.
 
 # IntelliSense
 
-IntelliSense is a core feature of Visual Studio Code. When you first download VS Code you will see syntax highlighting for nearly every language, and IntelliSense for JavaScript and TypeScript. 
+IntelliSense is a general term for a variety of code editing features, including: code completion, parameter info, quick info, and list members. IntelliSense is described in a number of ways such as "code completion", "content assist", and "code hinting."
 
 ![IntelliSense demo](images/intellisense/intellisense.gif)
 
-## Language Extensions
+## Where is IntelliSense for my language? 
 
-IntelliSense for JavaScript and TypeScript is provided out of the box through the [TypeScript](https://github.com/Microsoft/TypeScript/wiki/Salsa) language service. For other languages you will need to [install a language extension](/docs/editor/extension-gallery). 
+When you first download VS Code you will see IntelliSense for JavaScript and TypeScript only. Although nearly every language has syntax highlighting, IntelliSense for other languages is provided through a language extension. 
+
+Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Click on an extension tile below to read the description and reviews to decide which extension is best for you. 
 
 > Tip: For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript#configuring-intellisense).
 
-Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode)Click on an extension tile above to read the description and reviews to decide which extension is best for you. 
-
 <div class="marketplace-extensions-languages"></div>
 
-## What is IntelliSense?
 
-IntelliSense is a general term for a variety of code editing features, including: code completion, parameter info, quick info, and list members. 
+## IntelliSense Features
 
-IntelliSense has been described in a number of ways. 
+You can trigger IntelliSense in any editor window by typing <kbd>ctrl+space</kbd> or by typing a trigger character (such as `.` in JavaScript). If you continue typing characters, the list of members (variables, methods, etc.) is filtered to include only members containing your typed characters. Pressing <kbd>tab</kbd> will insert the selected member. 
 
-* IntelliSense is intelligent code completion.
-* IntelliSense is docs at your finger tips
-* IntelliSense provides instant context-aware help. 
+![intellisense in package json](images/intellisense/intellisense_packagejson.gif)
 
-In other tools, IntelliSense goes by the terms "code completion", "auto code completion", "content assist", or "code hinting." The IntelliSense experience in VS Code is best-in-class, providing the most intelligent, context-aware suggestions possible. 
+> Tip: You can turn off IntelliSense while you type. See the [Customize IntelliSense below](#_customize_intellisense).
 
-## Using IntelliSense
+In addition, you can see **quick info** for each method (as provided by the language service). 
 
-IntelliSense is easy to use. Simply begin typing. While you type the language service will provide code completion and on certain characters (for example `.`) method suggestions will appear. 
-
-> Tip: You can trigger IntelliSense in any editor window by typing <kbd>ctrl+space</kbd>.
-
-In addition, you can see the short documentation (commonly called **quick outline**) for each method (as provided by the language service). 
-
-![quick outline](images/intellisense/quick_outline.png)
+![quick info](images/intellisense/quick_outline.png)
 
 After choosing a method you are provided with **parameter info**. 
 
@@ -52,7 +43,7 @@ After choosing a method you are provided with **parameter info**.
 
 ## Suggestion Priority
 
-IntelliSense is context aware and will provide you with the best suggestions possible. The order and the icon to the left of the word indicate the priority of each suggestion. 
+The order and the icon to the left of the word show the IntelliSense suggestion's priority.  
 
 > **Higher suggestion priority = higher order and a more detailed icon**
 
@@ -60,7 +51,7 @@ This image shows the result of triggering IntelliSense on `express` a popular [N
 
 ![image showing intellisense icons](images/intellisense/intellisense_icons.png)
 
-Methods, variables, and objects tend to have high priority. Simple word completion, tends to be lower priority. When the priority level is equivalent, ordering is done alphabetically. 
+Methods, variables, and objects tend to be high priority. Simple word completion, tend to be lower priority. When the priority level is equivalent, ordering is done alphabetically. 
 
 |       |         |
 | ----- | ------- |
@@ -90,11 +81,22 @@ You can customize your IntelliSense experience in settings.
 }
 ```
 
+## Troubleshooting IntelliSense
+
+If you find IntelliSense has stopped working, the language service may have crashed. Simply restart VS Code and this should solve 99% of the problems. If you continue to lack IntelliSense features after installing a language extension, open an issue in the repository of the language extension. 
+
+> Tip: For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript#configuring-intellisense).
+
+> Note: Not all language extensions provide all or even some IntelliSense features. Read the extension's README to find the right fit for you. 
+
+> Tip: You can find the issue repository for most extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's detail page and click `Support`. 
+
+
 ## How does IntelliSense work? 
 
 Each language service runs in our shared [extension host process](https://code.visualstudio.com/docs/extensions/our-approach#_stability-extension-isolation). This process is separate from the main execution process, keeping VS Code fast and responsive. The language service interacts with VS Code's main process through the extension API. 
 
-From here the details become language dependent. The TypeScript language service, which powers both JavaScript and TypeScript, uses static analysis and will provide suggestions based on type inference, JS Docs and TypeScript definition files (you can read more about the TypeScript language service's IntelliSense strategy [here](https://github.com/Microsoft/TypeScript/wiki/Salsa#features)). Other language may implement a different strategy, including using an "execution based" model. 
+From here the details become language dependent. The [TypeScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa), which powers both JavaScript and TypeScript, uses static analysis and will provide suggestions based on type inference, JS Docs and TypeScript definition files (you can read more about the TypeScript language service's IntelliSense strategy [here](https://github.com/Microsoft/TypeScript/wiki/Salsa#features)). Other language may implement a different strategy, including using an "execution based" model. 
 
 ## Next Steps
 
@@ -110,9 +112,9 @@ IntelliSense is straight forward enough. Let's keep going.
 
 ![image of IntelliSense not working](images/intellisense/intellisense_error.png)
 
-This issue can be caused by a variety of reasons. For JavaScript specific troubleshooting, please navigate to the [JavaScript language document](/docs/languages/javascript). For other languages you will need to consult the extension's documentation. 
+This issue can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript specific troubleshooting, please navigate to the [JavaScript language document](/docs/languages/javascript). 
 
-* Why am I not seeing method and variable suggestions?
+* Why am I not seeing method and variable suggestions? (see image below)
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
