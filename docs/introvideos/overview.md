@@ -69,7 +69,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<div class="info">
 				<h3 class="title">Debugging</h3>
 				<p class="description">Debug a simple Node.js application.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true">m</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
