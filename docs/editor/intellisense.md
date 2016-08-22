@@ -24,20 +24,17 @@ Below are the most popular language extensions in the [Marketplace](https://mark
 
 <div class="marketplace-extensions-languages"></div>
 
-
 ## IntelliSense Features
 
 If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, etc.) is filtered to include only members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member. 
 
 You can trigger IntelliSense in any editor window by typing `kb(editor.action.triggerSuggest)` or by typing a trigger character (such as `.` in JavaScript). 
 
-> Tip: 
-
 ![intellisense in package json](images/intellisense/intellisense_packagejson.gif)
 
 > **Tip:** The suggestions filtering supports CamelCase so you can type the upper case letters of a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
-> **Tip:** You can turn off IntelliSense while you type. See the [Customize IntelliSense below](#_customize_intellisense).
+> **Tip:** You can turn off IntelliSense while you type. See [Customize IntelliSense below](#_customize_intellisense).
 
 In addition, you can see **quick info** for each method (as provided by the language service). 
 
@@ -93,6 +90,8 @@ The settings shown below are the default settings. You can change these settings
 ### Key Bindings
 
 The key bindings shown below are the default key bindings. You can change these key bindings in your `keybindings.json` file as described [here](/docs/customization/keybindings.md). 
+
+> **Note:** The key bindings below are the most popular key bindings for IntelliSense. There are many more key bindings relating to IntelliSense. Simply open key bindings and search for "suggest." 
 
 ```json
 {
