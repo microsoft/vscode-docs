@@ -117,7 +117,7 @@ The key bindings shown below are the default key bindings. You can change these 
 
 ## Troubleshooting IntelliSense
 
-If you find IntelliSense has stopped working, the language service may have crashed. Simply restart VS Code and this should solve 99% of the problems. If you continue to lack IntelliSense features after installing a language extension, open an issue in the repository of the language extension. 
+If you find IntelliSense has stopped working, the language service may have crashed. Simply restart VS Code and this should solve the issue. If you continue to lack IntelliSense features after installing a language extension, open an issue in the repository of the language extension. 
 
 > **Tip:** For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript#configuring-intellisense).
 
