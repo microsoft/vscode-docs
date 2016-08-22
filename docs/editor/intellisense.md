@@ -16,22 +16,28 @@ IntelliSense is a general term for a variety of code editing features, including
 
 ## Where is IntelliSense for my language? 
 
-When you first download VS Code you will see IntelliSense for JavaScript and TypeScript only. Although nearly every language has syntax highlighting, IntelliSense for other languages is provided through a language extension. 
+IntelliSense is provided in VS Code for JavaScript, TypeScript, JSON, HTML, CSS, Less, and Sass out of the box. Other languages have word completions and can be configured to have IntelliSense by installing a language extension. 
 
 Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Click on an extension tile below to read the description and reviews to decide which extension is best for you. 
 
-> Tip: For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript#configuring-intellisense).
+> **Tip:** For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript#configuring-intellisense).
 
 <div class="marketplace-extensions-languages"></div>
 
 
 ## IntelliSense Features
 
-You can trigger IntelliSense in any editor window by typing <kbd>ctrl+space</kbd> or by typing a trigger character (such as `.` in JavaScript). If you continue typing characters, the list of members (variables, methods, etc.) is filtered to include only members containing your typed characters. Pressing <kbd>tab</kbd> will insert the selected member. 
+If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, etc.) is filtered to include only members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member. 
+
+You can trigger IntelliSense in any editor window by typing `kb(editor.action.triggerSuggest)` or by typing a trigger character (such as `.` in JavaScript). 
+
+> Tip: 
 
 ![intellisense in package json](images/intellisense/intellisense_packagejson.gif)
 
-> Tip: You can turn off IntelliSense while you type. See the [Customize IntelliSense below](#_customize_intellisense).
+> **Tip:** The suggestions filtering supports CamelCase so you can type the upper case letters of a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+
+> **Tip:** You can turn off IntelliSense while you type. See the [Customize IntelliSense below](#_customize_intellisense).
 
 In addition, you can see **quick info** for each method (as provided by the language service). 
 
@@ -40,6 +46,7 @@ In addition, you can see **quick info** for each method (as provided by the lang
 After choosing a method you are provided with **parameter info**. 
 
 ![paramater info](images/intellisense/paramater_info.png)
+
 
 ## Suggestion Priority
 
@@ -63,9 +70,11 @@ Methods, variables, and objects tend to be high priority. Simple word completion
 
 ## Customize IntelliSense
 
-You can customize your IntelliSense experience in settings. 
+You can customize your IntelliSense experience in settings and key bindings. 
 
-> Tip: The settings shown below are the default settings. You can change these settings in your settings.json file as described [here](/docs/customization/userandworkspace.md). 
+### Settings
+
+The settings shown below are the default settings. You can change these settings in your settings.json file as described [here](/docs/customization/userandworkspace.md). 
 
 ```json
 {
@@ -81,15 +90,41 @@ You can customize your IntelliSense experience in settings.
 }
 ```
 
+### Key Bindings
+
+The key bindings shown below are the default key bindings. You can change these key bindings in your `keybindings.json` file as described [here](/docs/customization/keybindings.md). 
+
+```json
+{
+
+   { 
+       "key": "ctrl+space",            
+       "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly" 
+    },
+    { 
+        "key": "tab",                   
+        "command": "acceptQuickFixSuggestion",
+        "when": "editorFocus && quickFixWidgetVisible" 
+    },
+    { 
+        "key": "enter",                 
+        "command": "acceptQuickFixSuggestion",
+        "when": "editorFocus && quickFixWidgetVisible" 
+    },
+}
+```
+
+
 ## Troubleshooting IntelliSense
 
 If you find IntelliSense has stopped working, the language service may have crashed. Simply restart VS Code and this should solve 99% of the problems. If you continue to lack IntelliSense features after installing a language extension, open an issue in the repository of the language extension. 
 
-> Tip: For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript#configuring-intellisense).
+> **Tip:** For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript#configuring-intellisense).
 
-> Note: Not all language extensions provide all or even some IntelliSense features. Read the extension's README to find the right fit for you. 
+> **Note:** Not all language extensions provide all or even some IntelliSense features. Read the extension's README to find the right fit for you. 
 
-> Tip: You can find the issue repository for most extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's detail page and click `Support`. 
+> **Tip:** You can find the issue repository for most extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's detail page and click `Support`. 
 
 
 ## How does IntelliSense work? 
