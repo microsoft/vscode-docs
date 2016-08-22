@@ -10,7 +10,7 @@ MetaDescription: Overview of VS Code's Introductory Videos.
 
 # Introductory Videos
 
-Start your journey with VS Code with this sequenced course of introductory videos. Each video uses JavaScript examples, since this is one of the languages supported right out of the box.
+Start your journey with Visual Studio Code with this set of introductory videos. The videos are designed to give you a quick overview of the various features of VS Code. VS Code comes with JavaScript and TypeScript support out of the box so the videos use JavaScript in the examples.
 
 <ul class="video-list">
 	<li class="video">
@@ -18,8 +18,8 @@ Start your journey with VS Code with this sequenced course of introductory video
 			<img src="https://img.youtube.com/vi/fpqy0ZkavWM/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h3 class="title">Basics and Setup</h3>
-				<p class="description">Setup and understand the basics of your new editor.</p>
-				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true">m</span><span class="sr-only"> minutes</span></span>
+				<p class="description">Install and learn the basics of your new editor.</p>
+				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -29,7 +29,7 @@ Start your journey with VS Code with this sequenced course of introductory video
 			<div class="info">
 				<h3 class="title">Configure and Extend</h3>
 				<p class="description">Personalize and extend VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true">m</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -39,7 +39,7 @@ Start your journey with VS Code with this sequenced course of introductory video
 			<div class="info">
 				<h3 class="title">IntelliSense</h3>
 				<p class="description">Receive intelligent code completions.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true">m</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -49,7 +49,7 @@ Start your journey with VS Code with this sequenced course of introductory video
 			<div class="info">
 				<h3 class="title">Code Editing</h3>
 				<p class="description">Take code editing to the next level.</p>
-				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true">m</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -59,7 +59,7 @@ Start your journey with VS Code with this sequenced course of introductory video
 			<div class="info">
 				<h3 class="title">Version Control</h3>
 				<p class="description">Learn how to use Git version control in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true">m</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -68,7 +68,7 @@ Start your journey with VS Code with this sequenced course of introductory video
 			<img src="https://img.youtube.com/vi/hvPuPi8iG_w/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h3 class="title">Debugging</h3>
-				<p class="description">Setup and debug a simple Node.js application.</p>
+				<p class="description">Debug a simple Node.js application.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true">m</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
