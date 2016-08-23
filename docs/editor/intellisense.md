@@ -32,7 +32,7 @@ You can trigger IntelliSense in any editor window by typing `kb(editor.action.tr
 
 > **Tip:** The suggestions widget supports CamelCase filtering meaning you can type the upper case letters of a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
-> **Tip:** You can turn off IntelliSense while you type. See [Customize IntelliSense below](/docs/editor/intellisense.md#customize-intellisense).
+If you prefer, you can turn off IntelliSense while you type. See [Customize IntelliSense below](/docs/editor/intellisense.md#customize-intellisense) to learn how to disable or customize VS Code's IntelliSense features.
 
 As provided by the language service, you can see **quick info** for each method.
 
@@ -42,7 +42,7 @@ After choosing a method you are provided with **parameter info**.
 
 ![parameter info](images/intellisense/paramater_info.png)
 
-> **Tip:** When applicable, a language service will surface the underlying types in the quick info and method signatures. In the image above, you can see several `any` types. Because JavaScript is dynamic and doesn't need or enforce types, `any` suggests that the variable can be of any type.
+When applicable, a language service will surface the underlying types in the quick info and method signatures. In the image above, you can see several `any` types. Because JavaScript is dynamic and doesn't need or enforce types, `any` suggests that the variable can be of any type.
 
 ## Types of Completions
 
@@ -50,7 +50,7 @@ The JavaScript code below illustrates IntelliSense completions. IntelliSense giv
 
 ![intellisense icons](images/intellisense/intellisense_icons.png)
 
-VS Code IntelliSense offers different types of completions, including language, snippets, and textual completions.
+VS Code IntelliSense offers different types of completions, including language server suggestions, snippets, and simple word based textual completions.
 
 |       |         |
 | ----- | ------- |
@@ -91,6 +91,8 @@ The settings shown below are the default settings. You can change these settings
     "editor.wordBasedSuggestions": true
 }
 ```
+
+By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `editor.snippetSuggestions` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom`"), or inline ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 ### Key Bindings
 
@@ -136,13 +138,13 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 ## Common Questions
 
-**Why am I not getting any suggestions?**
+**Q: Why am I not getting any suggestions?**
 
 ![image of IntelliSense not working](images/intellisense/intellisense_error.png)
 
 **A:** This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md).
 
-**Why am I not seeing method and variable suggestions?**
+**Q: Why am I not seeing method and variable suggestions?**
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
