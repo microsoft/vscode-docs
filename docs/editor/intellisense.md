@@ -2,7 +2,7 @@
 Order: 4
 Area: editor
 TOCTitle: IntelliSense
-ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
+ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
 DateApproved: 8/15/2016
 MetaDescription: One of the core features of Visual Studio Code is IntelliSense.  Set breakpoints, step-in, inspect variables and more.
