@@ -60,7 +60,7 @@ Sometimes you will want to control how the output window behaves when running ta
 
 ### echoCommand
 
-You can get see the exact command VS Code is running if you enable the `echoCommand` setting in `tasks.json`:
+To see the exact command VS Code is running, you can enable the `echoCommand` setting in `tasks.json`:
 
 ![tasks echoCommand](images/tasks/tasks-echoCommand.png)
 
@@ -72,7 +72,7 @@ You can get see the exact command VS Code is running if you enable the `echoComm
 
 You can also define multiple tasks in a `tasks` array in order to pass different arguments or use different settings when the `command` is run.
 
-Here's a simple example passing different arguements to the `echo` command:
+Here's a simple example passing different arguments to the `echo` command:
 
 ```json
 {
@@ -98,9 +98,9 @@ Now when you run **Tasks: Run Task**, you will now see two tasks in the dropdown
 
 ![tasks array](images/tasks/tasks-array.png)
 
-Some `tasks.json` properties such as `showOutput` and `suppressTaskName` can be set both globally and then overridden in specific tasks. The tasks[] `args` property values are appended to the global arguments.
+Some `tasks.json` properties such as `showOutput` and `suppressTaskName` can be set both globally and then overridden in specific tasks. The `tasks` `args` property values are appended to the global arguments.
 
-There are also tasks[] specific properties. One useful property is `isBuildCommand` which if set to true, will run the task on **Tasks: Run Build Task** `kb(workbench.action.tasks.build)`.
+There are also `tasks` specific properties. One useful property is `isBuildCommand`, which if set to true, will run the task with the **Tasks: Run Build Task** (`kb(workbench.action.tasks.build)`) command.
 
 ## Running multiple commands
 
@@ -135,7 +135,7 @@ For Windows, you will need to pass the '/C' argument to `cmd` so that the tasks 
 
 ```json
     "command": "cmd",
-    "args: ["/C"]
+    "args": ["/C"]
 ```
 
 ## Variable substitution
@@ -197,7 +197,7 @@ Output from the executed task is never brought to front except for Windows where
 
 ## Examples of Tasks in Action
 
-The best way to highlight the power of Tasks is with a few examples of how VS Code can use Tasks to integrate external tools like linters and compilers.
+To highlight the power of Tasks, here are a few examples of how VS Code can use Tasks to integrate external tools like linters and compilers.
 
 ### Transpiling TypeScript to JavaScript
 
@@ -250,7 +250,7 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 ## Processing Task Output with Problem Matchers
 
-VS Code processes the output from a task with a problem matcher and we ship with a number of them 'in the box':
+VS Code can process the output from a task with a problem matcher and we ship with a number of them 'in the box':
 
 - **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
 - **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
@@ -261,17 +261,17 @@ VS Code processes the output from a task with a problem matcher and we ship with
 - **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
 - **Less**: `$lessCompile` assumes that file names are reported as absolute path.
 
-Problem matchers can be set globally or in a specific task entry.
+Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel. Problem matchers can be set globally or in a specific task entry.
 
 You can also create your own problem matcher which we'll talk about soon.
 
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
 
-You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the ** Run Build Task** command (`kb(workbench.action.tasks.build)`).
+You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the **Tasks: Run Build Task** command (`kb(workbench.action.tasks.build)`).
 
 If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the **Command Palette** (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from.
 
-For this example, select `Gulp` from the list. This will generate a `tasks.json` file like this:
+For this example, select `Gulp` from the list. Given a `gulpfile.js` like the example above, this will generate a `tasks.json` file like this:
 
 ```json
 {
@@ -299,7 +299,7 @@ For this example, select `Gulp` from the list. This will generate a `tasks.json`
 }
 ```
 
-Since we execute the Mono compiler to compile C# files, we use the `$msCompile` problem matcher to detect any problems reported by the compiler.
+Since we execute the Mono compiler to compile C# files, we should use the `$msCompile` problem matcher to detect any problems reported by the compiler.
 
 The `problemMatcher` property will then be:
 
@@ -309,11 +309,12 @@ The `problemMatcher` property will then be:
             ]
 ```
 
-In contrast to the `tasks.json` file in the TypeScript section, this file has:
+Several things to note about this `tasks.json`:
 
 1. We want to run the gulp command in a shell (VS Code directly executing it) so we used **isShellCommand**.
-2. We added an explicit **tasks** property which allowed us to *optionally* augment a task that was in the gulpfile.
+2. We added an explicit **tasks** property which allowed us to *optionally* augment a task that was in the `gulpfile.js`.
 3. We defined a problem matcher **$msCompile** to process the output - since we are compiling C# using the Mono compiler, the built-in one works as *msc* adheres to the Microsoft compiler pattern.
+4. The `isWatching` property is set to false so we won't automatically run the build on source code file changes.
 
 ## Defining a Problem Matcher
 
@@ -518,5 +519,5 @@ For Windows, you will need to pass the '/C' argument to `cmd` so that the tasks 
 
 ```json
     "command": "cmd",
-    "args: ["/C"]
+    "args": ["/C"]
 ```
