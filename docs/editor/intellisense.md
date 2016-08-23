@@ -42,7 +42,9 @@ In addition, you can see **quick info** for each method (as provided by the lang
 
 After choosing a method you are provided with **parameter info**. 
 
-![paramater info](images/intellisense/paramater_info.png)
+![parameter info](images/intellisense/paramater_info.png)
+
+> **Tip:** When applicable, a language service will surface the underlying types in the quick info and method signatures. In the image above, you can see serveral `any` types. Because JavaScript is dynamic and doesn't need or enforce types, `any` suggests that the variable can be of any type. 
 
 
 ## Suggestion Priority
@@ -62,8 +64,10 @@ Methods, variables, and objects tend to be high priority. Simple word completion
 | ![purple cube for a method](images/intellisense/method_icon.png) | Method or Function |
 | ![blue cuboid for a variable](images/intellisense/variable_icon.png) | Variable | 
 | ![blue circles connected by a blue line for an object](images/intellisense/object_icon.png) | Object |
-| ![a square with a small fold in the top left corner indicates word completion](images/intellisense/word_completion_icon.png) | Word Completion |
+| ![a square with letters abc word completion](images/intellisense/word_completion_icon.png) | Word Completion |
 | ![a square with a small fold in the top left corner indicates string completion](images/intellisense/string_completion_icon.png) | String completion |
+| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/word_completion_icon.png) | Snippet Prefix |
+| ![a series of lines arranged horrizontally show a language keyword](images/intellisense/string_completion_icon.png) | Language Keyword |
 
 ## Customize IntelliSense
 
@@ -73,7 +77,7 @@ You can customize your IntelliSense experience in settings and key bindings.
 
 The settings shown below are the default settings. You can change these settings in your settings.json file as described [here](/docs/customization/userandworkspace.md). 
 
-```json
+```js
 {
 
     // Controls if quick suggestions should show up while typing
@@ -93,7 +97,7 @@ The key bindings shown below are the default key bindings. You can change these 
 
 > **Note:** The key bindings below are the most popular key bindings for IntelliSense. There are many more key bindings relating to IntelliSense. Simply open key bindings and search for "suggest." 
 
-```json
+```js
 {
 
    { 
