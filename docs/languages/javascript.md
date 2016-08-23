@@ -5,14 +5,14 @@ TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
 DateApproved: 8/4/2016
-MetaDescription: Get the best out of Visual Studio Code for JavaScript development
+MetaDescription: Get the best out of Visual Studio Code for JavaScript development.
 ---
 
 # JavaScript
 
 ## Rich Editing Support
 
-Visual Studio Code uses the TypeScript language service to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
+Visual Studio Code uses the [TypeScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa), to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
 
 ![JavaScript language within VS Code](images/javascript/javascript_hero.png)
 
@@ -306,3 +306,4 @@ Watch these introductory videos:
 **Q: Can I debug minified/uglified JavaScript?**
 
 **A:** Yes, you can.
+

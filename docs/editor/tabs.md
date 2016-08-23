@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 10
 Area: editor
 TOCTitle: Tabs
 ContentId: DDBD486B-E18F-4C3E-9CA0-766DE5E5EE67
