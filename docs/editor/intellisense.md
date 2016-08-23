@@ -59,6 +59,8 @@ This image shows the result of triggering IntelliSense on `express` a popular [N
 
 Methods, variables, and objects tend to be high priority. Simple word completion, tend to be lower priority. When the priority level is equivalent, ordering is done alphabetically. 
 
+Below is an index table of the meaning of various icons. 
+
 |       |         |
 | ----- | ------- |
 | ![purple cube for a method](images/intellisense/method_icon.png) | Method or Function |
