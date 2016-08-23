@@ -28,6 +28,8 @@ We'll always offer word completion, but for the rich [languages](/docs/languages
 
 JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/runtimes/nodejs#_intellisense-and-typings) walkthrough.
 
+Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
+
 ## Parameter Hints
 
 In JavaScript, TypeScript or C#, parameter hints will pop up as you're typing a method invocation. You can navigate between different overloads with `kbstyle(Up)` and `kbstyle(Down)` and the best overload will be presented based on the arguments you pass in.
