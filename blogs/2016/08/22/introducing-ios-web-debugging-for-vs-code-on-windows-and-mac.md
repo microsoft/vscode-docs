@@ -1,14 +1,14 @@
 ---
-Order: 14
-TOCTitle: Introducing iOS Web Debugging for VS Code on Windows and Mac
+Order: 15
+TOCTitle: iOS Web Debugging for VS Code
 PageTitle: Introducing iOS Web Debugging for VS Code on Windows and Mac
 MetaDescription: iOS Web Debugging for VS Code on Windows and Mac
-Date: 2016-08-22
+Date: 2016-08-23
 ShortDescription: Today debugging web sites running on iOS devices are limited to a subset of developers, as the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. With our new debugger we are aiming to change that, as our iOS Web Debugger for Visual Studio Code works both on Mac and Windows.
 Author: Kenneth Auchenberg
 ---
 
-# iOS Web Debugging
+# iOS Web Debugging on Windows and Mac
 
 As a part of our continuous effort to simplify the daily workflow for developers, we are today enabling mobile web developers to debug JavaScript running on their iOS devices directly from their editor, with our new iOS Web Debugger for Visual Studio Code.
 
