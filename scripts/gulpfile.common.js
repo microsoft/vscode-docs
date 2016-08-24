@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
  
 var markdownIt = require('markdown-it');
+var externalLinks = require('markdown-it-external-links');
 var highlightjs = require('highlight.js');
 var swig = require('swig');
 var slash = require('gulp-slash');
@@ -64,6 +65,10 @@ exports.mapFileToArticle = function(file) {
 
 exports.compileMarkdown = function(file, article) {
 	var md = markdownIt({ html: true, langPrefix: '' });
+	md.use(externalLinks, {
+		externalTarget: "_blank",
+		internalDomains: ["code.visualstudio.com"]
+	});
 
 	// Apply custom markdown rules
 	md.renderer.rules.heading_open = function (tokens, idx, options, env, self) {
