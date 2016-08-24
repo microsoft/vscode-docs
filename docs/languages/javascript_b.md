@@ -372,12 +372,13 @@ VS Code provides excellent support for JavaScript out of the box. Additionally, 
 
 Read on to find out about:
 
+* [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language. 
 * [TypeScript](typescript) - VS Code has great support for TypeScript which brings structure and strong typing to your JavaScript code, without compromising the good parts.
 
 Watch these introductory videos:
 
-* [IntelliSense](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
-* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
+* [IntelliSense Intro Video](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
+* [Debugging Intro Video](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
 
 ## Common Questions
 
