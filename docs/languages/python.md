@@ -29,7 +29,7 @@ The examples in this document will use Don Jayamanne's popular and full featured
 
 ## Code Completion
 
-Python extensions support code completion and Intellisense. [Intellisense](/docs/editor/editingevolved#_intellisense) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules. 
+Python extensions support code completion and IntelliSense. [IntelliSense](/docs/editor/intellisense) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules.
 
 Quickly see methods, class members, and documentation.
 
