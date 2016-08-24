@@ -47,10 +47,10 @@ In this release, we support the following features:
 
 ## Experimenting out in the open
 
-Our new iOS Web Debugger is a *public experiment* and this means we are releasing it to the public to find out if *integrated script debugging for iOS* are valuable for developers, so please let us know what you think.
+Our new iOS Web Debugger is a **public experiment** and this means we are releasing it to the public to find out if **integrated script debugging for iOS** are valuable for developers, so please let us know what you think.
 
 If you have any issues or ideas for improvements, feel free to reach out to us on [Twitter](https://twitter.com/code) or on [GitHub](https://github.com/Microsoft/vscode-ios-web-debug).
 
--
+–
 
 [Kenneth Auchenberg](https://twitter.com/auchenberg), Program Manager, JavaScript Diagnostics
