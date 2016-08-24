@@ -12,11 +12,7 @@ Author: Kenneth Auchenberg
 
 August 24, 2016 by [Kenneth Auchenberg](https://twitter.com/auchenberg)
 
-As a part of our continuous effort to simplify the daily workflow for developers, we are today enabling mobile web developers to debug JavaScript running on their iOS devices directly from their editor, with our new iOS Web Debugger for Visual Studio Code.
-
-Today debugging web sites running on iOS devices are limited to a subset of developers, as the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users.
-
-With our new debugger we are aiming to change that, as our [iOS Web Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) works both on **Mac and Windows**.
+Debugging web sites running on iOS devices is accessible only to a subset of developers. For example, using the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. Today, we’re enabling mobile web developers to debug JavaScript running on their iOS devices directly from their editor with a new [iOS Web Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web). This debug extension works on both **Mac and Windows**.
 
 ![Demo](2016_08_22_ios-debugger-splash.png)
 
