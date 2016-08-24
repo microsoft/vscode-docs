@@ -59,10 +59,10 @@ After running, the generated extension should have the following structure:
 ├── .vscodeignore
 ├── README.md
 ├── src                         // sources
-│   └── extension.ts			// extension.js, in case of JavaScript extension
+│   └── extension.ts            // extension.js, in case of JavaScript extension
 ├── test                        // tests folder
-│   ├── extension.test.ts	   // extension.test.js, in case of JavaScript extension
-│   └── index.ts	            // index.js, in case of JavaScript extension
+│   ├── extension.test.ts       // extension.test.js, in case of JavaScript extension
+│   └── index.ts                // index.js, in case of JavaScript extension
 ├── node_modules
 │   ├── vscode                  // language services
 │   └── typescript              // compiler for typescript (TypeScript only)

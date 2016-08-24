@@ -12,7 +12,7 @@ MetaDescription: Download and learn the basics of Visual Studio Code.
 
 In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
-<iframe src="https://www.youtube.com/embed/fpqy0ZkavWM?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/LUl_WXt8ohA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 
