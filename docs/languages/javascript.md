@@ -118,8 +118,6 @@ Read more in the documentation for [typings](https://www.npmjs.com/package/typin
 
 You can use the command above (`typings search lodash`) to find your library and you can look on [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), which is a repository of typings files for many major JavaScript libraries and environments. 
 
-
-
 ## Debugging
 
 VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See more about debugging [here](docs/editor/debugging.md). 
@@ -258,6 +256,8 @@ VS Code provides excellent support for JavaScript out of the box. Additionally, 
 Read on to find out about:
 
 * [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language. 
+* [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
+* [Node.js](/docs/runtimes/nodejs.md) - Get going with an Express Node.js application. 
 * [TypeScript](typescript) - VS Code has great support for TypeScript which brings structure and strong typing to your JavaScript code, without compromising the good parts.
 
 Watch these introductory videos:
