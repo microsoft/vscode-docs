@@ -140,13 +140,13 @@ All you have to do after creating the project using the Yeoman Office generator 
 tsd install
 ```
 
-> Learn more about the JavaScript IntelliSense support provided by VS Code with TypeScript on the [JavaScript language](/docs/languages/javascript.md#intellisense-support) page.
+> Learn more about the JavaScript IntelliSense support provided by VS Code with TypeScript on the [JavaScript language](/docs/languages/javascript.md#intellisense) page.
 
 ### JavaScript Peek Definition
 
 You can also get details on objects, properties and methods you are referencing within your Office Add-in using VS Code capabilities like Peek Definition, Go to Definition and Find all References by simply right-clicking in any JavaScript file.
 
-> Learn more about the Rich Editing Support in VS Code on the [JavaScript language](/docs/languages/javascript.md#rich-editing-support) page.
+> Learn more about the Rich Editing Support in VS Code on the [JavaScript language](/docs/languages/javascript.md) page.
 
 ### Debugging your Office Add-in
 
