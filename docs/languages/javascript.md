@@ -243,7 +243,7 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 "javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
 ```
 
-## JavaScript Extensions
+## Popular Extensions
 
 VS Code provides excellent support for JavaScript out of the box. Additionally, you can install debuggers, snippets, linters, and other extensions. 
 
