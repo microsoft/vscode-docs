@@ -21,9 +21,9 @@ VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code complet
 1. Create a `jsconfig.json` to indicate a [JavaScript project](/docs/language/javascript.md#javascript_project_jsconfigjson). 
 2. Install [TypeScript Definition files (typings)](/docs/language/javascript.md#typescript_definition_files_typings). 
 
-![JavaScript intellisense animation](images/javascript/javascript_intellisense.png)
+![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
-> **Tip:** For the details of how JavaScript IntelliSense works, including based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript langugage service documentation](https://github.com/Microsoft/TypeScript/wiki/Salsa). 
+> **Tip:** For the details of how JavaScript IntelliSense works, including being based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript langugage service documentation](https://github.com/Microsoft/TypeScript/wiki/Salsa). 
 
 ## JavaScript Project (jsconfig.json)
 
@@ -304,6 +304,12 @@ When you want to use ES6 style imports but the typings do not yet use ES6 style 
 ```
 
 ## Common Questions
+
+**Q: Why isn't my JavaScript code colorizing methods?**
+
+![grammar colorization](images/javascript/grammar_color_issue.png)
+
+**A:** This is a known [issue](https://github.com/Microsoft/TypeScript-TmLanguage/issues/149). You can install [an extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-atom-grammar) based on Atom's JavaScript grammar package to improve the colorization. 
 
 **Q: Can I debug minified/uglified JavaScript?**
 
