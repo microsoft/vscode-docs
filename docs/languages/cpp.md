@@ -10,13 +10,13 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 
 # C/C++ for VS Code (Preview)
 
-C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux, OS X, and Windows (GDB only with Cygin and MinGW).
+C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux, OS X, and Windows.
 
 If you just want a lightweight tool to edit your C++ files, VS Code has you covered but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
 We're still shaping the C++ experience in VS Code so now is a great time to [provide bug reports, feature requests, and feedback](mailto:c_cpp_support@microsoft.com), and for those of you who use Linux or OS X as your development environment, to [get engaged](http://landinghub.visualstudio.com/c-nonwin) with the Visual Studio team.
 
-## Getting Started
+## Getting Started <a name="getting_started"></a>
 
 **To install the Microsoft C/C++ extension:**
 
@@ -61,66 +61,15 @@ For more information on tasks, see [Integrate with External Tools via Tasks](/do
 
 * Navigate to the Debug view by clicking the Debug icon in the Sidebar.
 * In the **Debug** view, click the **Configure** icon.
-* Select `C++ Launch (GDB/LLDB)` from the **Select Environment** dropdown. This creates a `launch.json` file for editing with two configurations:
-  * **C++ Launch** defines the properties for launching your app when you start debugging (F5).
+* Select `C++ (GDB/LLDB)` (to use GDB or LLDB) or `C++ (Windows)` (to use the Visual Studio Windows Debugger) from the **Select Environment** dropdown. This creates a `launch.json` file for editing with two configurations:
+  * **C++ Launch** defines the properties for launching your application when you start debugging.
   * **C++ Attach** defines the properties for attaching to a process that's already running.
 * Update the `program` property with the path to the program you are debugging.
-  * If you are debugging on Windows, see [Windows debugging (Cygwin/MinGW)](#debug_windows).
-* If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` ("g++" in the example above).
+* If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` (`g++` in the example above).
 
-Your `launch.json` file should look something like:
+If you are debugging with GDB on Windows, see [Windows Debugging on Cygwin/MinGW](#debug_windows_gdb).
 
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "C++ Launch",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceRoot}/code.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
-            "environment": [],
-            "externalConsole": true,
-            "preLaunchTask": "g++",
-            "linux": {
-                "MIMode": "gdb"
-            },
-            "osx": {
-                "MIMode": "lldb"
-            },
-            "windows": {
-                "MIMode": "gdb"
-            }
-        },
-        {
-            "name": "C++ Attach",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceRoot}/code.exe",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
-            "environment": [],
-            "processId": "${command.pickProcess}",
-            "externalConsole": false,
-            "linux": {
-                "MIMode": "gdb"
-            },
-            "osx": {
-                "MIMode": "lldb"
-            },
-            "windows": {
-                "MIMode": "gdb"
-            }
-        }
-    ]
-}
-```
-
-## Editing code
+## Editing Code
 
 ### Code Formatting
 
@@ -131,7 +80,7 @@ To configure code formatting, open your `settings.json` file (**File** > **Prefe
 For example:
 
 ```json
-  "c_cpp.clang_format_path":"C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
+  "c_cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
 ```
 
 By default, the clang-format style is set to __file__ which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied according to a default style specified in `c_cpp_properties.json` instead. Currently, the default formatting style is __LLVM__.
@@ -144,7 +93,7 @@ Fuzzy auto-complete is powered by an enhanced tag-parser approach. Although sugg
 
 In particular, this feature's capabilities give a good experience for C code.
 
-## Navigating code
+## Navigating Code
 
 The source code navigation features provided by the C/C++ extension are powerful tools for understanding and getting around in your codebase. These features are powered by tags stored in an offline database of symbol information (in the file `browse.VC.db`). With the C/C++ extension installed, this database is generated whenever a folder containing C++ source code files is loaded into VS Code. The platform indicator (Win32 in the figure below) turns red and appears next to a flame icon while the tag-parser is generating this information.
 
@@ -152,7 +101,7 @@ The source code navigation features provided by the C/C++ extension are powerful
 
 When the platform indicator returns to its normal appearance, the source code symbols have been tagged in the offline database and source code navigation features are ready to be used.
 
-### Specifying Additional Include Directories for Better Symbol Support.
+### Specifying Additional Include Directories for Better Symbol Support
 
 To provide the best experience, the C/C++ extension for VS Code needs to know where it can find each header file referenced in your code. By default, the extension searches the current source directory, its sub-directories, and some platform-specific locations. If a referenced header file can't be found, VS Code displays a green squiggle underneath each #include directive that references it.
 
@@ -194,57 +143,77 @@ To go to a symbol's definition, place your cursor on the symbol anywhere its use
 
 ## Debugging
 
+After you have set up the basics of your debugging environment as specified in [Getting Started](#getting_started), you can learn more details about debugging C/C++ in this section.
+
 VS Code supports the following debuggers for C/C++ depending on the operating system you are using:
 
-* **Linux**: supports debugging using GDB
-* **OS X**: supports using LLDB or GDB
-* **Windows**: currently supports GDB only (using Cygwin or MinGW)
+* **Linux**: GDB
+* **OS X**: LLDB or GDB
+* **Windows**: the Visual Studio Windows Debugger or GDB (using Cygwin or MinGW)
 
-### Windows debugging (Cygwin/MinGW) <a name="debug_windows"></a>
+### Windows Debugging with GDB on Cygwin/MinGW <a name="debug_windows_gdb"></a>
 
-You can debug Windows applications created using Cygwin or MinGW by using VS Code. To use Cygwin or MinGW debugging features, the debugger path must be set manually in the launch configuration (`launch.json`). To debug your Cygwin or MinGW app, add the `miDebuggerPath` property and set its value to the location of the corresponding gdb.exe for your Cygwin or MinGW environment.
+You can debug Windows applications created using Cygwin or MinGW by using VS Code. To use Cygwin or MinGW debugging features, the debugger path must be set manually in the launch configuration (`launch.json`). To debug your Cygwin or MinGW application, add the `miDebuggerPath` property and set its value to the location of the corresponding gdb.exe for your Cygwin or MinGW environment.
 
 For example:
 
 ```json
-    "miDebuggerPath":"c:\\mingw\\bin\\gdb.exe"
+    "miDebuggerPath": "c:\\mingw\\bin\\gdb.exe"
 ```
 
 Cygwin/MinGW debugging on Windows supports both attach and launch debugging scenarios.
 
 ### Conditional Breakpoints
 
-Conditional breakpoints enable you to break execution on a particular line of code only when the value of the conditional is true. To set a conditional breakpoint, right-click on an existing breakpoint and select __Edit Breakpoint__, this opens a small peek window where you can enter the condition that must evaluate to true in order for the breakpoint to activate and break execution.
+Conditional breakpoints enable you to break execution on a particular line of code only when the value of the condition is true. To set a conditional breakpoint, right-click on an existing breakpoint and select __Edit Breakpoint__. This opens a small peek window where you can enter the condition that must evaluate to true in order for the breakpoint to be hit during debugging.
 
 ![A conditional break](images/cpp/condbreak.png)
 
-In the editor, conditional breakpoints are indicated by a breakpoint symbol that has a black equals sigh inside of it. You can place the cursor over a conditional breakpoint to show its condition.
+In the editor, conditional breakpoints are indicated by a breakpoint symbol that has a black equals sign inside of it. You can place the cursor over a conditional breakpoint to show its condition.
 
-### Function breakpoints
+### Function Breakpoints
 
-Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the __Debug Panel__, right click inside the __Breakpoints__ pane, then choose __Add Function Breakpoint__ and enter the name of the function on which you want to break execution.
+Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the __Debug__ pane right click inside the __Breakpoints__ section, then choose __Add Function Breakpoint__ and enter the name of the function on which you want to break execution.
 
-### Expression evaluation
+### Expression Evaluation
 
 VS Code supports expression evaluation in several contexts:
 
-* You can type an expression into the __Watch__ pane and it will be evaluated each time a breakpoint is hit.
+* You can type an expression into the __Watch__ section of the __Debug__ panel and it will be evaluated each time a breakpoint is hit.
 * You can type an expression into the __Debug Console__ and it will be evaluated only once.
 * You can evaluate any expression that appears in your code while you're stopped at a breakpoint.
 
-Note that expressions in the Watch Pane take effect in the application being debugged; an expression that modifies the value of a variable will modify that variable for the duration of the program.
+Note that expressions in the __Watch__ section take effect in the application being debugged; an expression that modifies the value of a variable will modify that variable for the duration of the program.
 
-### Multi-threaded debugging
+### Multi-threaded Debugging
 
-The C/C++ extension for VS Code now has the ability to debug threaded code.
+The C/C++ extension for VS Code has the ability to debug multi-threaded programs. All threads and their call stacks appear in the __Call Stack__ section:
 
-### Core Dump debugging
+![Multi-threaded process](images/cpp/threads.png)
 
-The C/C++ extension for VS Code also has the ability to debug using a memory dump. To debug using a memory dump, open your launch.json file for editing and add the `coreDumpPath` property to the __C++ Launch__ configuration, setting its value to be a string containing the path to the core dump. This will even work for multi-threaded programs and x86 programs being debugged on an x64 machine.
+### Memory Dump Debugging
 
-### GDB and MI commands
+The C/C++ extension for VS Code also has the ability to debug memory dumps. To debug a memory dump, open your `launch.json` file and add the `coreDumpPath` (for GDB or LLDB) or `dumpPath` (for the Visual Studio Windows Debugger) property to the __C++ Launch__ configuration, set its value to be a string containing the path to the memory dump. This will even work for x86 programs being debugged on an x64 machine.
 
-You can execute GDB or MI commands directly through the debug console with the `-exec` command, but be careful -- executing GDB commands directly in the debug console is untested and might crash VS Code in some cases. For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
+### Additional Symbols
+
+If there are additional directories where the debugger can find symbol files (e.g., `.pdb` files for the Visual Studio Windows Debugger), they can be specified by adding the `additionalSOLibSearchPath` (for GDB or LLDB) or `symbolSearchPath` (for the Visual Studio Windows Debugger).
+
+For example:
+
+```json
+    "additionalSOLibSearchPath": "/path/to/symbols;/another/path/to/symbols"
+```
+or
+
+```json
+    "symbolSearchPath": "C:\\path\\to\\symbols;C:\\another\\path\\to\\symbols"
+```
+
+
+### GDB, LLDB and MI Commands (GDB/LLDB)
+
+For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and MI commands directly through the debug console with the `-exec` command, but be careful -- executing commands directly in the debug console is untested and might crash VS Code in some cases.
 
 ### Other Debugging Features
 
@@ -253,19 +222,23 @@ You can execute GDB or MI commands directly through the debug console with the `
 * Call stack
 * Stepping
 
-## Known limitations
+ For more information on debugging with VS Code, see this introduction to [debugging in VS Code](/docs/editor/debugging.md).
+
+## Known Limitations
 
 ### Symbols and Code Navigation
 
 All platforms:
 
-* Because the extension doesn't parse function bodies, Peek Definition and Go to Definition don't work for symbols defined inside the body of a function. 
+* Because the extension doesn't parse function bodies, Peek Definition and Go to Definition don't work for symbols defined inside the body of a function.
 
 ### Debugging
 
+All platforms:
+* There is no way to specify the source file mappings from the compiled locations to the current location. This prevents debugging an application in a different file system layout than where it was compiled.
+
 Windows:
 
-* Debugging of Windows applications created using Visual Studio is not currently supported. The extension supports debugging of Cygwin and MinGW applications on Windows.
 * GDB on Cygwin and MinGW cannot break a running process. To set a breakpoint when the application is running (not stopped under the debugger), or to pause the application being debugged, press `kbstyle(Ctrl-C)` in the application's terminal.
 * GDB on Cygwin cannot open core dumps.
 
@@ -275,10 +248,14 @@ Linux:
 
 OS X:
 
-* Additional install steps need to be completed manually to use GDB on OS X. See _Manual Installation for the C++ Debugger extension_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
-* When attaching to a process with GDB, the application being debugged cannot be interrupted. GDB will only bind breakpoints set while the application is not running (either before attaching to the application, or while the application is in a stopped state). This is due to [a bug in GDB](https://sourceware.org/bugzilla/show_bug.cgi?id=20035).
-* Core dumps cannot be loaded when debugging with GDB because GDB [does not support the core dump format used in OS X](https://www.sourceware.org/ml/gdb/2014-01/msg00036.html).
-* When attached to a process with GDB, break-all will end the process.
+* LLDB:
+    * When debugging with LLDB, if the Terminal window is closed while in break mode, debugging does not stop. Debugging can be stopped by pressing the **Stop** button.
+    * When debugging is stopped the Terminal window is not closed.
+* GDB:
+    * Additional manual install steps need to be completed to use GDB on OS X. See _Manual Installation of GDB for OS X_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+    * When attaching to a process with GDB, the application being debugged cannot be interrupted. GDB will only bind breakpoints set while the application is not running (either before attaching to the application, or while the application is in a stopped state). This is due to [a bug in GDB](https://sourceware.org/bugzilla/show_bug.cgi?id=20035).
+    * Core dumps cannot be loaded when debugging with GDB because GDB [does not support the core dump format used in OS X](https://www.sourceware.org/ml/gdb/2014-01/msg00036.html).
+    * When attached to a process with GDB, break-all will end the process.
 
 ## Next Steps
 
@@ -289,10 +266,6 @@ Read on to find out about:
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 
 ## Common Questions
-
-**Q: I can't debug multi-threaded code.**
-
-**A:** For multi-threaded debugging, you must use the version 1.1.1 of the C/C++ Extension for Visual Studio Code.
 
 **Q: My project won't load.**
 
@@ -309,3 +282,5 @@ Read on to find out about:
 **Q: Why is there a .browse.VC.db file in my workspace?**
 
 **A:** The C/C++ extension automatically creates a database of symbol information for your workspace and stores it in a `.browse.VC.db` file in your workspace's `.vscode` folder. This improves the extension's performance and this file should not be added to source control.
+
+If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).
