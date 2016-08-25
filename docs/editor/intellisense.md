@@ -124,7 +124,7 @@ The key bindings shown below are the default key bindings. You can change these 
 
 If you find IntelliSense has stopped working, the language service may not be running. Simply restart VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
 
-> **Tip:** For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript.md#configuring-intellisense).
+> **Tip:** For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript.md#intellisense).
 
 A particular language extension may not support all the VS Code IntelliSense features. Review the extension's README to find out what is supported. If you think there are issues with a language extension, you can usually find the issue repository for an extension through the [Marketplace](https://marketplace.visualstudio.com/vscode). Navigate to the extension's detail page and click the `Support` link.
 
@@ -142,11 +142,11 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 ![image of IntelliSense not working](images/intellisense/intellisense_error.png)
 
-**A:** This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md).
+**A:** This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
 
 **Q: Why am I not seeing method and variable suggestions?**
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
-**A:** This issue is caused by missing Typings files in JavaScript. You can learn how to solve this issue in the [JavaScript language topic](/docs/languages/javascript.md). For other languages, please consult the extension's documentation.
+**A:** This issue is caused by missing Typings files in JavaScript. You can learn how to solve this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
 
