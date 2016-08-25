@@ -16,7 +16,7 @@ If you just want a lightweight tool to edit your C++ files, VS Code has you cove
 
 We're still shaping the C++ experience in VS Code so now is a great time to [provide bug reports, feature requests, and feedback](mailto:c_cpp_support@microsoft.com), and for those of you who use Linux or OS X as your development environment, to [get engaged](http://landinghub.visualstudio.com/c-nonwin) with the Visual Studio team.
 
-## Getting Started <a name="getting_started"></a>
+## Getting Started
 
 **To install the Microsoft C/C++ extension:**
 
@@ -39,7 +39,7 @@ This will generate a `c_cpp_properties.json` file that allows you to add additio
 * Open the **Command Palette** (`kb(workbench.action.showCommands)`).
 * Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates.
 * Select **Others** to create a task which runs an external command.
-* Change the `command` to the commandline expression you use to build your application (e.g. `g++ -g main.cpp`).
+* Change the `command` to the command line expression you use to build your application (e.g. `g++ -g main.cpp`).
 * Add any required args (e.g. `-g` to build for debugging).
 * You can now build your application with (`kb(workbench.action.tasks.build)`)
 
@@ -75,7 +75,7 @@ If you are debugging with GDB on Windows, see [Windows Debugging on Cygwin/MinGW
 
 The C/C++ extension for Visual Studio Code supports automatic formatting with [clang-format](http://llvm.org/releases/download.html). To use this feature, you must install `clang-format` manually and add its path to your user [settings](/docs/customization/userandworkspace.md) file (`settings.json`).
 
-To configure code formatting, open your `settings.json` file (**File** > **Preferences** > **User Settings**), then add the `c_cpp.clang_format_path` property and set its value to the path where clang-format.exe is installed.
+To configure code formatting, open your `settings.json` file (**File** > **Preferences** > **User Settings**), then add the `c_cpp.clang_format_path` property and set its value to the path where `clang-format.exe` is installed.
 
 For example:
 
@@ -127,7 +127,7 @@ Alternatively, you can search for symbols by accessing these commands through th
 
 You can take a quick look at how a symbol was defined by using the Peek Definition feature. This feature displays a few lines of code near the definition inside a peek window so you can take a look without navigating away from your current location.
 
-To peek at a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__).
+To peek at a symbol's definition, place your cursor on the symbol anywhere it's used in your source code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__).
 
 ![Peek definition](images/cpp/peekdefn.png)
 
@@ -143,7 +143,7 @@ To go to a symbol's definition, place your cursor on the symbol anywhere its use
 
 ## Debugging
 
-After you have set up the basics of your debugging environment as specified in [Getting Started](#getting_started), you can learn more details about debugging C/C++ in this section.
+After you have set up the basics of your debugging environment as specified in [Getting Started](/docs/languages/cpp.md/#getting-started), you can learn more details about debugging C/C++ in this section.
 
 VS Code supports the following debuggers for C/C++ depending on the operating system you are using:
 
@@ -173,7 +173,7 @@ In the editor, conditional breakpoints are indicated by a breakpoint symbol that
 
 ### Function Breakpoints
 
-Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the __Debug__ pane right click inside the __Breakpoints__ section, then choose __Add Function Breakpoint__ and enter the name of the function on which you want to break execution.
+Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the __Debug__ pane right-click inside the __Breakpoints__ section, then choose __Add Function Breakpoint__ and enter the name of the function on which you want to break execution.
 
 ### Expression Evaluation
 
