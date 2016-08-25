@@ -134,7 +134,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can 
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
-## JavaScript Linters
+## Linters
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions. 
  
