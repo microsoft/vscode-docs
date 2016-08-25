@@ -18,8 +18,8 @@ Visual Studio Code provides IntelliSense, debugging, and more editor features fo
 
 VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code completion, parameter info, and member lists. JavaScript IntelliSense will work for single files immediately. There are two more steps to configure IntelliSense for your workspace and external modules. 
 
-1. Create a `jsconfig.json` to indicate a [JavaScript project](/docs/language/javascript.md#javascript_project_jsconfigjson). 
-2. Install [TypeScript Definition files (typings)](/docs/language/javascript.md#typescript_definition_files_typings). 
+1. Create a `jsconfig.json` to indicate a [JavaScript project](/docs/language/javascript.md#javascript-project-jsconfigjson). 
+2. Install [TypeScript Definition files (typings)](/docs/language/javascript.md#typescript-definition-files-typings). 
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
@@ -210,7 +210,7 @@ One of the key features TypeScript provides is the ability to use the latest Jav
 
 The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Configure the `jsconfig.json` with the desired options and then use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json` to down-level compile.
 
-Read more about the compiler options for down level compilation [here](/docs/tools/jsconfig). 
+Read more about the compiler options for down level compilation [here](/docs/tools/jsconfig.md#down-level-compilation-with-typeScript-compiler). 
 
 ## Formatting
 
@@ -269,13 +269,13 @@ Watch these introductory videos:
 
 **IntelliSense is not working for other files in my workspace.**
 
-You must have your `jsconfig.json` at the root of your JavaScript project and not at the root of your workspace. In addition, check that you have the `exclude` and `files` attributes set correctly. [Read more above](/docs/languages/javascript#javascript_project_jsconfigjson).
+You must have your `jsconfig.json` at the root of your JavaScript project and not at the root of your workspace. In addition, check that you have the `exclude` and `files` attributes set correctly. [Read more above](/docs/languages/javascript.md#javascript-project-jsconfigjson).
 
 **IntelliSense is not working for libraries I have npm installed.**
 
 ![typings not installed](images/javascript/missing_typings.png)
 
-You need to install the typings files for each library in the root of your JavaScript project. [Read how to do this above](/docs/languages/javascript#typescript_definition_files_typings). 
+You need to install the typings files for each library in the root of your JavaScript project. [Read how to do this above](/docs/languages/javascript.md#typescript-definition-files-typings). 
 
 **IntelliSense is not working in my file.** 
 
@@ -329,12 +329,11 @@ To enable ES6 import statements for **React Native**, you need to set the `allow
 
 With `javascript.validate.enable: false` you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](http://eslint.org) to validate your code. Since the JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
 
-
 **Q: Why do I see "No ESLint Configuration found" message repeatedly?**
 
 ![no eslint config found](images/javascript/no_eslint_config.png)
 
-**A:** This message indicates that you need an `.eslintrc.json` file. You can resolve this by creating `.eslintrc.json` file in your workspace (read [here](http://eslint.org/docs/user-guide/configuring) for the eslint user guide). The message showing repeatedly is a known issue and you can track the progress of the issue being resolved [here](https://github.com/Microsoft/vscode-eslint/issues/107). 
+**A:** This message indicates that you need an `.eslintrc.json` file. You can resolve this by creating `.eslintrc.json` file in your workspace (read [here](http://eslint.org/docs/user-guide/configuring) for the ESLint user guide). The message showing repeatedly is a known issue and you can track the progress of the issue being resolved [here](https://github.com/Microsoft/vscode-eslint/issues/107). 
 
 **Q: Why can't I install node typings? I ran `typings install node`.**
 
@@ -345,7 +344,7 @@ typings ERR! message Unable to find "node" ("npm") in the registry.
 typings ERR! message However, we found "node" for 2 other sources: "dt" and "env"
 ```
 
-`node` typings were not found in the `npm` registery. You can install `node` from one of the other registeries. Run one of the following commands. 
+`node` typings were not found in the `npm` registery. You can install `node` from one of the other registries. Run one of the following commands. 
 
 >**Tip:** Use the `--global` flag or you will see another error. 
 
