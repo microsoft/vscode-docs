@@ -118,47 +118,9 @@ Read more in the documentation for [typings](https://www.npmjs.com/package/typin
 
 You can use the command above (`typings search lodash`) to find your library and you can look on [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), which is a repository of typings files for many major JavaScript libraries and environments. 
 
-## Troubleshooting JavaScript IntelliSense
 
-### Common Issues
 
-* IntelliSense is not working in my file. 
-
-![intellisense_error](images/javascript/intellisense_error.png)
-
-Something is wrong with the language service. Please restart VS Code and open an [issue](https://github.com/Microsoft/vscode/issues/new) if the problem persists. 
-
-> **Tip:** You can set `"typescript.tsserver.trace": "verbose"` in your settings to see the output of `tsserver`. 
-
-* IntelliSense is not working for other files in my workspace. 
-
-You must have your `jsconfig.json` at the root of your JavaScript project and not at the root of your workspace. In addition, check that you have the `exclude` and `files` attributes set correctly. [Read more above](/docs/languages/javascript#javascript_project_jsconfigjson).
-
-* IntelliSense is not working for libraries I have installed. 
-
-![typings not installed](images/javascript/missing_typings.png)
-
-You need to install the typings files for each library in the root of your JavaScript project. [Read how to do this above](/docs/languages/javascript#_typescript_definition_files_typings). 
-
-* ES6 Style imports are not working. 
-
-When you want to use ES6 style imports but the typings do not yet use ES6 style exports, then set the [TypeScript compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports` to true.
-
-```javascript
-{
-  "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    // This is the line you want to set
-    "allowSyntheticDefaultImports": true
-  },
-  "exclude": [
-    "node_modules"
-  ]
-}
-```
-
-## Debugging JavaScript Code
+## Debugging
 
 VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See more about debugging [here](docs/editor/debugging.md). 
 
@@ -178,19 +140,17 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can 
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions. 
  
- ![linter warning](images/javascript/eslint_warning.png)
-
 VS Code provides support for JavaScript linters, including [ESLint](http://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](http://standardjs.com/) via .  If enabled, the JavaScript code is validated as you type and reported problems can be navigated to and fixed inside VS Code.
+
+ ![linter warning](images/javascript/eslint_warning.png)
 
 <div class="marketplace-extensions-javascript-linters"></div>
 
 > **Tip:** This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you. 
 
-To enable ESLint, do the following:
+A linter extension may require an external tool. These steps show how to setup ESLint. The process is similar for other linters.
 
->**Tip:** The process is similar for other linters. 
-
-1. Install the corresponding linter globally or inside the workspace folder that contains the JavaScript code to be validated. For example, using `npm install -g eslint`
+1. Install the linter globally or inside the workspace folder that contains the JavaScript code to be validated. For example, using `npm install -g eslint`
 2. Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) extension. 
 3. Create a `.eslintrc.json` file in the root of your workspace to configure the linter. You can use `eslint --init` to create an initial version of the `.eslintrc.json` file.
 
@@ -211,15 +171,13 @@ Here are a few useful resources when using ESLint.
 * [Configurating ESLint](http://eslint.org/docs/user-guide/configuring)
 * [Getting Started with ESLint](http://eslint.org/docs/user-guide/getting-started)
 
-## Snippets for JavaScript
+## Snippets
 
 VS Code has several built-in snippets that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (**Trigger Suggest**) and you will see a context specific list of suggestions.
 
 ![built in javascript snippet foreach](images/javascript/javascript_snippets.gif)
 
-Additionally, you can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how. In the animation below you can see a custom snippet for creating a [React Component](https://facebook.github.io/react/docs/component-api.html). 
-
-![custom snippet](images/javascript/custom_javascript_snippet.gif)
+> **Tip:** You can add in your own User Defined Snippets for JavaScript.  See [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how. 
 
 ## Use Next Generation JavaScript
 
@@ -246,7 +204,7 @@ The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 Jav
 
 Once you have added this, you can start **Babel** with the `kb(workbench.action.tasks.build)` (**Run Build Task**) command and it will compile all files from the `src` directory into the `lib` directory.
 
-### Use the TypeScript Compiler with JavaScript
+### Use the TypeScript Compiler
 
 One of the key features TypeScript provides is the ability to use the latest JavaScript language features, and emit code that can execute in JavaScript runtimes that don't yet understand those newer features. With JavaScript using the same language service, it too can now take advantage of this same feature.
 
@@ -254,9 +212,7 @@ The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 t
 
 Read more about the compiler options for down level compilation [here](/docs/tools/jsconfig). 
 
-
-
-## JavaScript Formatting
+## Formatting
 
 VS Code provides several formatting settings for JavaScript. They can all be found in the `javascript.format` [settings](/docs/customization/userandworkspace.md) name space.
 
@@ -309,15 +265,49 @@ Watch these introductory videos:
 * [IntelliSense Intro Video](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
 * [Debugging Intro Video](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
 
+## Troubleshooting IntelliSense
+
+**IntelliSense is not working for other files in my workspace.**
+
+You must have your `jsconfig.json` at the root of your JavaScript project and not at the root of your workspace. In addition, check that you have the `exclude` and `files` attributes set correctly. [Read more above](/docs/languages/javascript#javascript_project_jsconfigjson).
+
+**IntelliSense is not working for libraries I have npm installed.**
+
+![typings not installed](images/javascript/missing_typings.png)
+
+You need to install the typings files for each library in the root of your JavaScript project. [Read how to do this above](/docs/languages/javascript#typescript_definition_files_typings). 
+
+**IntelliSense is not working in my file.** 
+
+![intellisense_error](images/javascript/intellisense_error.png)
+
+Something is wrong with the language service. Please restart VS Code. Open an [issue](https://github.com/Microsoft/vscode/issues/new) if the problem persists. 
+
+> **Tip:** You can set `"typescript.tsserver.trace": "verbose"` in your settings to see the output of `tsserver`. 
+
+**ES6 Style imports are not working.** 
+
+When you want to use ES6 style imports but the typings do not yet use ES6 style exports, then set the [TypeScript compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports` to true.
+
+```javascript
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "commonjs",
+    // This is the line you want to add
+    "allowSyntheticDefaultImports": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
+```
+
 ## Common Questions
 
 **Q: Can I debug minified/uglified JavaScript?**
 
-**A:** Yes, you can. You 
-
-**Q: Why am I seeing two suggestions in the IntelliSense window?** 
-
-**A:** (not the best question... but getting at the idea that we want to ignore certain build files)
+**A:** Yes, you can. You can see this working using JavaScript source maps in the [debugging document](/docs/editor/debugging.md#node-debugging). 
 
 **Q: Does VS Code support JSX and React Native?**
 
