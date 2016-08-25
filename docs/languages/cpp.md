@@ -65,7 +65,7 @@ For more information on tasks, see [Integrate with External Tools via Tasks](/do
   * **C++ Launch** defines the properties for launching your application when you start debugging.
   * **C++ Attach** defines the properties for attaching to a process that's already running.
 * Update the `program` property with the path to the program you are debugging.
-* If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` (`g++` in the example above).
+* If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` ("g++" in the example above).
 
 If you are debugging with GDB on Windows, see [Windows Debugging on Cygwin/MinGW](#debug_windows_gdb).
 
@@ -143,7 +143,7 @@ To go to a symbol's definition, place your cursor on the symbol anywhere its use
 
 ## Debugging
 
-After you have set up the basics of your debugging environment as specified in [Getting Started](/docs/languages/cpp.md/#getting-started), you can learn more details about debugging C/C++ in this section.
+After you have set up the basics of your debugging environment as specified in [Getting Started](/docs/languages/cpp.md#getting-started), you can learn more details about debugging C/C++ in this section.
 
 VS Code supports the following debuggers for C/C++ depending on the operating system you are using:
 
@@ -213,7 +213,7 @@ or
 
 ### GDB, LLDB and MI Commands (GDB/LLDB)
 
-For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and MI commands directly through the debug console with the `-exec` command, but be careful -- executing commands directly in the debug console is untested and might crash VS Code in some cases.
+For the `C++ (GDB/LLDB)` debugging environment, you can execute GDB, LLDB and MI commands directly through the debug console with the `-exec` command, but be careful, executing commands directly in the debug console is untested and might crash VS Code in some cases.
 
 ### Other Debugging Features
 
