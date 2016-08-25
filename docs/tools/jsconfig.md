@@ -27,11 +27,11 @@ VS Code's JavaScript support can run in two different modes:
 
 * **Explicit Project - with jsconfig.json**: A JavaScript project is defined via a `jsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a JavaScript project. The file itself can optionally list the files belonging to the project, the files to be excluded from the project, as well as compiler options (see below).
 
-The JavaScript experience is much better when you have a `jsconfig.json` file in your workspace that defines the project context. For this reason, we provide a hint to create a `jsconfig.json` file when you open a JavaScript file in a fresh workspace. 
+The JavaScript experience is improved when you have a `jsconfig.json` file in your workspace that defines the project context. For this reason, we offer a hint to create a `jsconfig.json` file when you open a JavaScript file in a fresh workspace. 
 
 ### Location of jsconfig.json
 
-We define this portion of our code, the client side of our website, as a JavaScript project by creating a `jsconfig.json` file. Place the file at the root of your JavaScript code as shown below.
+We define this part of our code, the client side of our website, as a JavaScript project by creating a `jsconfig.json` file. Place the file at the root of your JavaScript code as shown below.
 
 ![jsconfig setup](images/javascript/jsconfig_setup.png)
 
