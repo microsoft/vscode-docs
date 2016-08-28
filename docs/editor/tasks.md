@@ -84,11 +84,13 @@ Here's a simple example passing different arguments to the `echo` command:
     "echoCommand": true,
     "suppressTaskName": true,
     "tasks": [
-        { "taskName": "hello",
-          "args": ["Hello World"],
+        { 
+            "taskName": "hello",
+            "args": ["Hello World"]
         },
-        { "taskName": "bye",
-          "args": ["Good Bye"],
+        { 
+            "taskName": "bye",
+            "args": ["Good Bye"]
         }
     ]
 }
