@@ -98,7 +98,7 @@ Option  | Description
 
 Whenever possible, you should exclude folders with JavaScript files that are not part of the source code for your project.
 
->**Tip:** If you do not have a `jsconfig.json` in your workspace, VS Code will by default exclude the `node_modules` folder and the folder defined by the `out` attribute.
+>**Tip:** If you do not have a `jsconfig.json` in your workspace, VS Code will by default exclude the `node_modules` folder.
 
 Below is a table mapping common project components to their installation folders which are recommended to exclude:
 
