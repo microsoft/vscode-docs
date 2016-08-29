@@ -167,13 +167,29 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 ## Using Newer TypeScript Versions
 
-VS Code ships with a recent stable version of TypeScript in the box. If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting (**File** > **Preferences** > **User/Workspace Settings**) pointing to a directory containing the TypeScript `tsserver.js` file. To install the latest TypeScript version, run `npm install typescript@next`. You can find the installation location using `npm list typescript`, `tsserver.js` is usually under the `lib` folder.
+VS Code ships with a recent stable version of TypeScript. If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting (**File** > **Preferences** > **User/Workspace Settings**) pointing to a directory containing the TypeScript `tsserver.js` file. 
 
-After setting `typescript.tsdk`, restart VS Code and the TypeScript version will be shown in the bottom right of the Status Bar when you open a JavaScript or TypeScript file.
+To install the latest TypeScript version, run:
+
+```bash
+npm install typescript@next
+```
 
 >**Tip:** To get a specific TypeScript version, specify `@version`.  For example for TypeScript 2.0, you would use `npm install typescript@2.0.0`.
 
+You can find the installation location using `npm list typescript`, `tsserver.js` is usually under the `lib` folder. 
+
+For example:
+
+```json
+{
+   "typescript.tsdk": "node_modules/typescript/lib"
+}
+```
+
 The directory path can be absolute or relative to the workspace directory. By using a relative path, you can easily share this workspace setting with your team. Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.
+
+After setting `typescript.tsdk`, restart VS Code and the TypeScript version will be shown in the bottom right of the Status Bar when you open a JavaScript or TypeScript file.
 
 ## TypeScript Extensions
 
