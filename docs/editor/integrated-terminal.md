@@ -44,9 +44,9 @@ Below are a list of common shell executables and their default locations:
 
 ```json
 // 64-bit cmd it available, otherwise 32-bit
-"terminal.integrated.shell.windows":"C:\\Windows\\sysnative\\cmd.exe"
+"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\cmd.exe"
 // 64-bit PowerShell if available, otherwise 32-bit
-"terminal.integrated.shell.windows":"C:\\Windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe"
+"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe"
 // Git Bash
 "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 // Bash on Ubuntu (on Windows)
