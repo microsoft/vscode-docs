@@ -268,7 +268,7 @@ Watch these introductory videos:
 
 **IntelliSense is not working for other files in my workspace.**
 
-You must have your `jsconfig.json` at the root of your JavaScript project and not at the root of your workspace. In addition, check that you have the `exclude` and `files` attributes set correctly. Read more about `jsconfig.json [above](/docs/languages/javascript.md#javascript-project-jsconfigjson).
+You must have your `jsconfig.json` at the root of your JavaScript project and not at the root of your workspace. In addition, check that you have the `exclude` and `files` attributes set correctly. Read more about `jsconfig.json` [above](/docs/languages/javascript.md#javascript-project-jsconfigjson).
 
 **IntelliSense is not working for external libraries I installed with npm.**
 
