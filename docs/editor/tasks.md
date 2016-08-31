@@ -1,5 +1,5 @@
 ﻿---
-Order: 9
+Order: 8
 Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
@@ -14,11 +14,13 @@ Lots of tools exist to automate tasks like building, packaging, testing or deplo
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
-These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code. Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
+These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code.
+
+>Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
 
 ## Hello World
 
-Let's start with a simple "Hello World" task which will display text to the OUTPUT panel when run.
+Let's start with a simple "Hello World" task which will display text to the **OUTPUT** panel when run.
 
 Tasks are defined in a workspace `tasks.json` file and VS Code has templates for common task runners. In the **Command Palette** (`kb(workbench.action.showCommands)`), you can filter on 'task' and can see the various Task related commands.
 
@@ -42,144 +44,124 @@ In this example, we are just running the `echo` shell command with "Hello World"
 
 Test the `echo` task by running **Tasks: Run Tasks** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
 
-You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`. 
+You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`.
 
 ![tasks IntelliSense](images/tasks/tasks-intellisense.png)
 
 >**Tip:** You can run your task through **Quick Open** (`kb(workbench.action.quickOpen)`) by typing 'task', `kbstyle(Space)` and the command name. In this case, 'task echo'.
 
-## Examples of Tasks in Action
+## Output Window Behavior
 
-The best way to highlight the power of Tasks is with a few examples of how VS Code can use Tasks to integrate external tools like linters and compilers.
+Sometimes you will want to control how the output window behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The property **showOutput** controls this and the valid values are:
 
-### Transpiling TypeScript to JavaScript
+- **always** - The output window is always brought to front. This is the default.
+- **never** - The user must explicitly bring the output window to the front using the **View** > **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`).
+- **silent** - The output window is brought to front only if no [problem matchers](/docs/editor/tasks.md#processing-task-output-with-problem-matchers) are set for the task.
 
-The [TypeScript topic](/docs/languages/typescript.md#transpiling-typescript-into-javascript) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
+### echoCommand
 
-### Compiling Markdown to HTML
+To see the exact command VS Code is running, you can enable the `echoCommand` setting in `tasks.json`:
 
-The Markdown topic provides two examples for compiling Markdown to HTML:
+![tasks echoCommand](images/tasks/tasks-echoCommand.png)
 
-1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
-2. [Automation of the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
+>**Note:** VS Code ships with predefined `tasks.json` templates to run npm, MSBuild, maven and other command line tools. A great way to learn about tasks is to review these templates and see which tools or task runners are similar to other tools you may be using.
 
-### Transpiling Less and Sass into CSS
+## command and tasks[]
 
-The CSS topic provides examples of how to use Tasks to generate CSS files.
+`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default the `command` will show up in the **Tasks: Run Task** dropdown.
 
-1. [Manually transpiling with a Build task](/docs/languages/css.md#transpiling-sass-and-less-into-css)
-2. [Automation of the compile step with a file watcher](/docs/languages/css.md#automating-sassless-compilation)
+You can also define multiple tasks in a `tasks` array in order to pass different arguments or use different settings when the `command` is run.
 
-## Processing Task Output with Problem Matchers
-
-VS Code processes the output from a task with a problem matcher and we ship with a number of them 'in the box', we'll talk about how to make your own ones soon:
-
-- **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
-- **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
-- **JSHint**: `$jshint` assumes that file names are reported as an absolute path.
-- **JSHint Stylish**: `$jshint-stylish` assumes that file names are reported as an absolute path.
-- **ESLint Compact**: `$eslint-compact` assumes that file names in the output are relative to the opened folder.
-- **ESLint Stylish**: `$eslint-stylish` assumes that file names in the output are relative to the opened folder.
-- **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
-- **Less**: `$lessCompile` assumes that file names are reported as absolute path.
-
-## Autodetecting Gulp, Grunt and Jake Tasks
-
-VS Code can autodetect tasks from within Gulp, Grunt and Jake files.  This adds their tasks to the task list without requiring additional configuration (unless you need to use a problem matcher, more on that in a moment).
-
-To help make this example more concrete, let's use this simple Gulp file.  This defines two tasks: build and debug. The first compiles C# code using [Mono](http://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
-
-```javascript
-var gulp = require("gulp");
-
-var program = "MyApp";
-var port = 55555;
-
-gulp.task('default', ['debug']);
-
-gulp.task('build', function() {
-    return gulp
-        .src('./**/*.cs')
-        .pipe(msc(['-fullpaths', '-debug', '-target:exe', '-out:' + program]));
-});
-
-gulp.task('debug', ['build'], function(done) {
-    return mono.debug({ port: port, program: program}, done);
-});
-```
-
-Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed by `kbstyle(Enter)` will list all available tasks. Selecting one and pressing `kbstyle(Enter)` will execute the task.
-
-![Task list](images/tasks/gulpautodetect.png)
-
->**Note:** Gulp, Grunt and Jake are autodetected only if the corresponding files (for example `gulpfile.js`) are present in the root of the opened folder.
-
-## Mapping Gulp, Grunt and Jake Output to Problem Matchers
-
-You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the ** Run Build Task** command (`kb(workbench.action.tasks.build)`).
-
-If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the **Command Palette** (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from.
-
-For this example, select `Gulp` from the list. This will generate a `tasks.json` file like this:
+Here's a simple example passing different arguments to the `echo` command:
 
 ```json
 {
-	// See http://go.microsoft.com/fwlink/?LinkId=733558
-	// for the documentation about the tasks.json format
-	"version": "0.1.0",
-	"command": "gulp",
-	"isShellCommand": true,
-	"args": [
-		"--no-color"
-	],
-	"tasks": [
-		{
-			"taskName": "build",
-			"args": [],
-			"isBuildCommand": true,
-			"isWatching": false,
-			"problemMatcher": [
-				"$lessCompile",
-				"$tsc",
-				"$jshint"
-			]
-		}
-	]
+    "version": "0.1.0",
+    "command": "echo",
+    "isShellCommand": true,
+    "args": [],
+    "showOutput": "always",
+    "echoCommand": true,
+    "suppressTaskName": true,
+    "tasks": [
+        { 
+            "taskName": "hello",
+            "args": ["Hello World"]
+        },
+        { 
+            "taskName": "bye",
+            "args": ["Good Bye"]
+        }
+    ]
 }
 ```
 
-Since we execute the Mono compiler to compile C# files, we use the `$msCompile` problem matcher to detect any problems reported by the compiler.
+Now when you run **Tasks: Run Task**, you will now see two tasks in the dropdown `hello` and `bye`. We set `suppressTaskName` to true as by default the task name is also passed to the command which would result in "echo hello Hello World".
 
-The `problemMatcher` property will then be:
+![tasks array](images/tasks/tasks-array.png)
+
+Some `tasks.json` properties such as `showOutput` and `suppressTaskName` can be set both globally and then overridden in specific tasks. The `tasks` `args` property values are appended to the global arguments.
+
+There are also `tasks` specific properties. One useful property is `isBuildCommand`, which if set to true, will run the task with the **Tasks: Run Build Task** (`kb(workbench.action.tasks.build)`) command.
+
+## Running multiple commands
+
+What if you want to run different command line tools in your workspace? Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and OS X, `cmd` on Windows).
+
+Here is an example to add two tasks for `make` and `ls`:
 
 ```json
-			"problemMatcher": [
-				"$msCompile"
-			]
+{
+    "version": "0.1.0",
+    "command": "sh",
+    "args": ["-c"],
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "make",
+            "args": ["make"]
+        },
+        {
+            "taskName": "ls",
+            "args": ["ls"]
+        }
+    ]
+}
 ```
 
-In contrast to the `tasks.json` file in the TypeScript section, this file has:
+Both tasks `make` and `ls` will be visible in the **Tasks: Run Task** dropdown.
 
-1. We want to run the gulp command in a shell (VS Code directly executing it) so we used **isShellCommand**.
-2. We added an explicit **tasks** property which allowed us to *optionally* augment a task that was in the gulpfile.
-3. We defined a problem matcher **$msCompile** to process the output - since we are compiling C# using the Mono compiler, the built-in one works as *msc* adheres to the Microsoft compiler pattern.
+For Windows, you will need to pass the '/C' argument to `cmd` so that the tasks arguments are run.
 
-### Syntax for the Tasks Property
+```json
+    "command": "cmd",
+    "args": ["/C"]
+```
 
-The `tasks` property is defined as an array of object literals where each literal has the following properties:
+## Variable substitution
 
-- **taskName** - The task's name in the Gulp or Jake file.
-- **args** - A string array of additional arguments to be passed to the task.
-- **isBuildCommand** - If this property is set to true, `kb(workbench.action.tasks.build)` will trigger this task.
-- **problemMatcher** A string or array of strings based on the pre-defined problem matchers.
+When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json`  file and has the following predefined variables:
 
-## Output Window Behavior
+- **${workspaceRoot}** the path of the folder opened in VS Code
+- **${file}** the current opened file
+- **${relativeFile}** the current opened file relative to `workspaceRoot`
+- **${fileBasename}** the current opened file's basename
+- **${fileDirname}** the current opened file's dirname
+- **${fileExtname}** the current opened file's extension
+- **${cwd}** the task runner's current working directory on startup
 
-Sometimes you will want to control how the output window behaves when running tasks. For instance, you may always want to show output for the debug command. The property **showOutput** controls this and the valid values are:
+You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `env.Path` on Windows.
 
-- **silent** - The output window is brought to front only if no problem matchers fire for the task. This is the default.
-- **always** - The output window is always brought to front.
-- **never** - The user must explicitly bring the output window to the front using the **View** > **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`).
+Below is an example of a configuration that passes the current opened file to the TypeScript compiler.
+
+```json
+{
+    "command": "tsc",
+    "args": ["${file}"]
+}
+```
 
 ## Operating System Specific Properties
 
@@ -215,50 +197,126 @@ In the example below:
 
 Output from the executed task is never brought to front except for Windows where it is always shown.
 
-## Task Specific Properties
+## Examples of Tasks in Action
 
-The global properties `showOutput` and `suppressTaskName` can be redefined on a task by task basis. The `args` property can be augmented resulting in the additional values being appended to the global arguments.
+To highlight the power of Tasks, here are a few examples of how VS Code can use Tasks to integrate external tools like linters and compilers.
 
-Here is an example where output for the "deploy" task is always brought to front:
+### Transpiling TypeScript to JavaScript
+
+The [TypeScript topic](/docs/languages/typescript.md#transpiling-typescript-into-javascript) includes an example that creates a task to transpile TypeScript to JavaScript and observe any related errors from within VS Code.
+
+### Compiling Markdown to HTML
+
+The Markdown topic provides two examples for compiling Markdown to HTML:
+
+1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
+2. [Automation of the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
+
+### Transpiling Less and Sass into CSS
+
+The CSS topic provides examples of how to use Tasks to generate CSS files.
+
+1. [Manually transpiling with a Build task](/docs/languages/css.md#transpiling-sass-and-less-into-css)
+2. [Automation of the compile step with a file watcher](/docs/languages/css.md#automating-sassless-compilation)
+
+## Autodetecting Gulp, Grunt and Jake Tasks
+
+VS Code can autodetect tasks from within Gulp, Grunt and Jake files.  This adds their tasks to the task list without requiring additional configuration (unless you need to use a problem matcher, more on that in a moment).
+
+To help make this example more concrete, let's use this simple Gulp file.  This defines two tasks: build and debug. The first compiles C# code using [Mono](http://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
+
+```javascript
+var gulp = require("gulp");
+
+var program = "MyApp";
+var port = 55555;
+
+gulp.task('default', ['debug']);
+
+gulp.task('build', function() {
+    return gulp
+        .src('./**/*.cs')
+        .pipe(msc(['-fullpaths', '-debug', '-target:exe', '-out:' + program]));
+});
+
+gulp.task('debug', ['build'], function(done) {
+    return mono.debug({ port: port, program: program}, done);
+});
+```
+
+Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed by `kbstyle(Enter)` will list all available tasks. Selecting one and pressing `kbstyle(Enter)` will execute the task.
+
+![Task list](images/tasks/gulpautodetect.png)
+
+>**Note:** Gulp, Grunt and Jake are autodetected only if the corresponding files (for example `gulpfile.js`) are present in the root of the opened folder.
+
+## Processing Task Output with Problem Matchers
+
+VS Code can process the output from a task with a problem matcher and we ship with a number of them 'in the box':
+
+- **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
+- **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
+- **JSHint**: `$jshint` assumes that file names are reported as an absolute path.
+- **JSHint Stylish**: `$jshint-stylish` assumes that file names are reported as an absolute path.
+- **ESLint Compact**: `$eslint-compact` assumes that file names in the output are relative to the opened folder.
+- **ESLint Stylish**: `$eslint-stylish` assumes that file names in the output are relative to the opened folder.
+- **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
+- **Less**: `$lessCompile` assumes that file names are reported as absolute path.
+
+Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel. Problem matchers can be set globally or in a specific task entry.
+
+You can also create your own problem matcher which we'll talk about soon.
+
+## Mapping Gulp, Grunt and Jake Output to Problem Matchers
+
+You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the **Tasks: Run Build Task** command (`kb(workbench.action.tasks.build)`).
+
+If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the **Command Palette** (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from.
+
+For this example, select `Gulp` from the list. Given a `gulpfile.js` like the example above, this will generate a `tasks.json` file like this:
 
 ```json
 {
+    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
     "version": "0.1.0",
-    "showOutput": "silent",
+    "command": "gulp",
+    "isShellCommand": true,
+    "args": [
+        "--no-color"
+    ],
     "tasks": [
         {
-            "taskName": "deploy",
-            "showOutput": "always",
+            "taskName": "build",
+            "args": [],
+            "isBuildCommand": true,
+            "isWatching": false,
+            "problemMatcher": [
+                "$lessCompile",
+                "$tsc",
+                "$jshint"
+            ]
         }
     ]
 }
 ```
 
->**Tip:** If a property is redefined per OS and per task, the one from the task wins.
+Since we execute the Mono compiler to compile C# files, we should use the `$msCompile` problem matcher to detect any problems reported by the compiler.
 
-## Variable substitution
-
-When authoring tasks and launch configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` and `launch.json` files and has the following predefined variables:
-
-- **${workspaceRoot}** the path of the folder opened in VS Code
-- **${file}** the current opened file
-- **${relativeFile}** the current opened file relative to `workspaceRoot` 
-- **${fileBasename}** the current opened file's basename
-- **${fileDirname}** the current opened file's dirname
-- **${fileExtname}** the current opened file's extension
-- **${cwd}** the task runner's current working directory on startup
-
-You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `env.Path` on Windows.
-
-Below is an example of a configuration that passes the current opened file to the TypeScript compiler.
+The `problemMatcher` property will then be:
 
 ```json
-{
-    "command": "tsc",
-
-    "args": ["${file}"]
-}
+            "problemMatcher": [
+                "$msCompile"
+            ]
 ```
+
+Several things to note about this `tasks.json`:
+
+1. We want to run the gulp command in a shell (VS Code directly executing it) so we used **isShellCommand**.
+2. We added an explicit **tasks** property which allowed us to *optionally* augment a task that was in the `gulpfile.js`.
+3. We defined a problem matcher **$msCompile** to process the output - since we are compiling C# using the Mono compiler, the built-in one works as *msc* adheres to the Microsoft compiler pattern.
+4. The `isWatching` property is set to false so we won't automatically run the build on source code file changes.
 
 ## Defining a Problem Matcher
 
@@ -267,7 +325,7 @@ VS Code ships some of the most common problem matchers out of the box.  However,
 We have a `helloWorld.c` program in which the developer mistyped **printf**
 as **prinft**. Compiling it with [gcc](https://gcc.gnu.org/) will produce the following warning:
 
-```
+```bash
 helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’
 ```
 
@@ -301,6 +359,7 @@ A matcher that captures the above warning (and errors) looks like:
     }
 }
 ```
+
 Please note that the file, line and message properties are mandatory.
 
 Here is a finished `tasks.json` file with the code above (comments removed) wrapped with the actual task details:
@@ -338,12 +397,11 @@ There are a couple more properties that can be used inside a pattern. These are:
 
 >**Note:** A functional pattern must at least provide a match group for file, message and line or location.
 
-
 ## Defining a Multi-Line Problem Matcher
 
 Some tools spread problems found in a source file over several lines, especially if stylish reporters are used. An example is [ESLint](http://eslint.org/); in stylish mode it produces output like this:
 
-```
+```bash
 test.js
   1:0   error  Missing "use strict" statement                 strict
 ✖ 1 problems (1 errors, 0 warnings)
@@ -378,7 +436,7 @@ The following problem pattern matches the output from ESLint in stylish mode - b
 
 Of course it's never quite that simple, and this pattern will not work if there is more than one problem on a resource. For instance, imagine the following output from ESLint:
 
-```
+```bash
 test.js
   1:0   error  Missing "use strict" statement                 strict
   1:9   error  foo is defined but never used                  no-unused-vars
@@ -463,5 +521,5 @@ For Windows, you will need to pass the '/C' argument to `cmd` so that the tasks 
 
 ```json
     "command": "cmd",
-    "args: ["/C"]
+    "args": ["/C"]
 ```

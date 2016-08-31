@@ -32,7 +32,7 @@ In this tutorial, we cover code editing, including the features outlined below. 
 * [Editing Evolved](/docs/editor/editingevolved.md) - Official documentation for code editing features.
 * [Emmet Snippets](/docs/languages/html.md#emmet-snippets) - Use Emmet Snippets.
 * [Tasks](/docs/editor/tasks.md) - Create tasks to use external tools inside VS Code.
-* [JavaScript Linters](/docs/languages/javascript.md#javascript-linters-eslint-jshint) - Install linters for JavaScript and TypeScript.
+* [JavaScript Linters](/docs/languages/javascript.md#javascript-linters) - Install linters for JavaScript.
 * [Code Folding](/docs/editor/editingevolved.md#folding) - See the details of source code folding.
 * [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks) - A GitHub repository of helpful tips and tricks for VS Code.
 

@@ -38,6 +38,10 @@ VS Code allows up to three visible editors at any one time, allowing you to edit
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
+### Hide the Menu Bar (Windows, Linux)
+
+You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command (`kbstyle(Ctrl+U)`). You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.
+
 ## Side by Side Editing
 
 You can have up to three editors open side by side.
@@ -274,6 +278,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 * [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition, and more
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
+* [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions. 
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Customization](/docs/customization/overview.md) - Themes, settings, and keyboard bindings
 

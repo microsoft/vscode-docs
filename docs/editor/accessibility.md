@@ -1,5 +1,5 @@
 ---
-Order: 13
+Order: 11
 Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
@@ -55,7 +55,9 @@ By default, pressing the `kbstyle(Tab)` within a source code file inserts the Ta
 
 ![tab moves focus](images/accessibility/tab-moves-focus.png)
 
-Read-only files never trap the `kbstyle(Tab)` key.
+You can also toggle `kbstyle(Tab)` trapping from the **Command Palette** (`kb(workbench.action.showCommands)`) with the **Toggle Use of Tab Key for Setting Focus** action.
+
+Read-only files never trap the `kbstyle(Tab)` key. The **Integrated Terminal** panel respects the `kbstyle(Tab)` trapping mode and can be toggled with `kbstyle(Ctrl+M)`.
 
 ## Screen Readers
 

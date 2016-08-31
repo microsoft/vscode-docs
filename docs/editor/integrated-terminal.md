@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 9
 Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
@@ -44,9 +44,9 @@ Below are a list of common shell executables and their default locations:
 
 ```json
 // 64-bit cmd it available, otherwise 32-bit
-"terminal.integrated.shell.windows":"C:\\Windows\\sysnative\\cmd.exe"
+"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\cmd.exe"
 // 64-bit PowerShell if available, otherwise 32-bit
-"terminal.integrated.shell.windows":"C:\\Windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe"
+"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe"
 // Git Bash
 "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 // Bash on Ubuntu (on Windows)

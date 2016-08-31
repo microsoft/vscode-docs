@@ -15,16 +15,16 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 1. Download Visual Studio Code for your distribution, [.deb](http://go.microsoft.com/fwlink/?LinkID=760868) for Debian-based distributions such as Ubuntu or [.rpm](http://go.microsoft.com/fwlink/?LinkID=760867) for Red Hat-based distributions such as Fedora or CentOS. Note that 32-bit binaries are also available on the [download page](/Download).
 2. Install the package through a GUI package manager by double clicking on the package file, or through the command line:
 
- ```bash
+```bash
  # For .deb
  sudo dpkg -i <file>.deb
 
  # For .rpm (Fedora 21 and below)
  sudo yum install <file>.rpm
- 
+
  # For .rpm (Fedora 22 and above)
  sudo dnf install <file>.rpm
- ```
+```
 
 3. VS Code should now be available to run through the launcher or the command line by running `code`.
 
