@@ -90,7 +90,7 @@ Some languages like C# supports inline reference information, that is updated li
 
 > **Tip:** Directly invoke the **Find All References** action by clicking on these annotations.
 
-> **Tip:** Reference information can be turned on or off through the `editor.referenceInfos` setting.
+> **Tip:** Reference information shown in CodeLens can be turned on or off through the `editor.codeLens` setting.
 
 ## Rename symbol
 
