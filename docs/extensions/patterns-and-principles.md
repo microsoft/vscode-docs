@@ -42,7 +42,7 @@ Events in the VS Code API are exposed as functions which you call with a listene
 
 ```javascript
 var listener = function(event) {
-	console.log(“It happened”, event);
+	console.log("It happened", event);
 };
 
 // start listening
