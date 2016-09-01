@@ -36,7 +36,7 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Adding a new Theme
 
-You can also add new TextMate theme files (.tmTheme) to your VS Code installation using the [yo code](/docs/tools/yocode.md) extension generator.
+You can also add new TextMate theme files (.tmTheme) to your VS Code installation using VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/tools/yocode.md). The extension generator takes an existing TextMate theme file and packages it for use in VS Code.
 
 [ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator.  It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
 
@@ -56,6 +56,29 @@ If you'd like to share your new theme with the community, you can publish it to 
 
 We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
 
+## Creating a Custom Theme
+
+You can also author your own TextMate themes from scratch. Consult the TextMate [theme](http://manual.macromates.com/en/themes) and language grammar [naming conventions](http://manual.macromates.com/en/language_grammars#naming_conventions) documentation for details.
+
+Besides the TextMate language grammar standard scopes, VS Code also has custom theme settings which you can use to tune your own theme:
+
+- `rangeHighlight`: Background color of range highlighted, like by Quick open and Find features.
+- `selectionHighlight`: Background color of regions highlighted while selecting.
+- `inactiveSelection`: Background color of selections when not in focus.
+- `wordHighlight`: Background color of a symbol during read-access, like reading a variable.
+- `wordHighlightStrong`: Background color of a symbol during write-access, like writing to a variable.
+- `findMatchHighlight`: Background color of regions matching the search.
+- `currentFindMatchHighlight`: Background color of the current region matching the search.
+- `findRangeHighlight`: Background color of regions selected for search.
+- `activeLinkForeground`: Color of active links.
+- `hoverHighlight`: Background color when hovered.
+- `referenceHighlight`: Background color of a reference when finding all references.
+- `guide`: Color of the guides displayed to indicate nesting levels.
+
+You can find an example VS Code theme [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) which includes the custom settings.
+
+Authoring a theme is fairly tricky as the grammars all behave a bit differently. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
+
 ## Next Steps
 
 Themes are just one way to customize VS Code. If you'd like to learn more about VS Code extensibility, try these topics:
@@ -68,12 +91,10 @@ Themes are just one way to customize VS Code. If you'd like to learn more about 
 
 **Q: What parts of VS code can I theme with a custom theme?**
 
-The VS Code themes are limited to the editor input area: text foreground, background, selection, lineHighlight, caret, and the syntax tokens. When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-dark`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
+The VS Code themes affect the editor input area (text foreground, background, selection, lineHighlight, caret, and the syntax tokens) as well as some of the custom UI (see the list in [Creating a Theme](/docs/customization/themes.md#creating-a-custom-theme)). When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-black`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
 
 **Q: Is there are list of scopes that I can use in my custom theme?**
 
 VS Code themes are standard TextMate themes and the tokenizers used in VS code are well established TextMate tokenizers, mostly maintained by the community and in use in other products.
 
 To learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html).  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
-
-Authoring a theme is fairly tricky as the grammars all behave a bit differently. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
