@@ -77,7 +77,7 @@ Below is a copy of the default `settings.json` file.
     // Controls the font weight.
     "editor.fontWeight": "normal",
 
-    // Controls the font size.
+    // Controls the font size in pixels.
     "editor.fontSize": 14,
 
     // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
@@ -218,6 +218,9 @@ Below is a copy of the default `settings.json` file.
     // Define profile for specified syntax or use your own profile with specific rules.
     "emmet.syntaxProfiles": {},
 
+    // An array of languages where emmet abbreviations should not be expanded.
+    "emmet.excludeLanguages": [],
+
 
 // Workbench
 
@@ -227,7 +230,7 @@ Below is a copy of the default `settings.json` file.
     // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
     "workbench.editor.enablePreview": true,
 
-    // Controls if opened editors from quick open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
+    // Controls if opened editors from Quick Open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
     "workbench.editor.enablePreviewFromQuickOpen": true,
 
     // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the current active one. Select 'first' or 'last' to open editors independently from the currently active one.
@@ -350,6 +353,9 @@ Below is a copy of the default `settings.json` file.
 
     // Whether the proxy server certificate should be verified against the list of supplied CAs.
     "http.proxyStrictSSL": true,
+
+    // The value to send as the 'Proxy-Authorization' header for every network request.
+    "http.proxyAuthorization": null,
 
 
 // Update
@@ -609,9 +615,6 @@ Below is a copy of the default `settings.json` file.
     // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
     "typescript.tsdk": null,
 
-    // Specifies the version of the tsserver. Only necessary if the tsserver is not installed using npm.
-    "typescript.tsdk_version": null,
-
     // Enables tracing of messages send to the TS server
     "typescript.tsserver.trace": "off",
 
@@ -720,13 +723,10 @@ Below is a copy of the default `settings.json` file.
     // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
     "terminal.integrated.fontFamily": "",
 
-    // Controls the font weight of the terminal, this defaults to editor.fontWeight's value.
-    "terminal.integrated.fontWeight": "",
-
     // Controls whether font ligatures are enabled in the terminal.
     "terminal.integrated.fontLigatures": false,
 
-    // Controls the font size of the terminal, this defaults to editor.fontSize's value.
+    // Controls the font size in pixels of the terminal, this defaults to editor.fontSize's value.
     "terminal.integrated.fontSize": 0,
 
     // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
@@ -738,7 +738,7 @@ Below is a copy of the default `settings.json` file.
     // Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.
     "terminal.integrated.setLocaleVariables": false,
 
-    // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch quick open.
+    // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
     "terminal.integrated.commandsToSkipShell": [
         "editor.action.toggleTabFocusMode",
         "workbench.action.quickOpen",
@@ -769,7 +769,7 @@ Below is a copy of the default `settings.json` file.
     "telemetry.enableTelemetry": true,
 
     // Enable crash reports to be sent to Microsoft.
-	// This option requires restart to take effect.
+    // This option requires restart to take effect.
     "telemetry.enableCrashReporter": true
 
 }
