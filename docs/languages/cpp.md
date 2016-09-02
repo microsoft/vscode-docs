@@ -67,6 +67,8 @@ For more information on tasks, see [Integrate with External Tools via Tasks](/do
 * Update the `program` property with the path to the program you are debugging.
 * If you want your application to build when you start debugging, add a `preLaunchTask` property with the name of the build task you created in `tasks.json` ("g++" in the example above).
 
+To learn more about the Microsoft C/C++ extension `launch.json` options, see [Configuring launch.json for C/C++ debugging](https://github.com/Microsoft/vscode-cpptools/blob/master/launch.md).
+
 If you are debugging with GDB on Windows, see [Windows Debugging on Cygwin/MinGW](#debug_windows_gdb).
 
 ## Editing Code
