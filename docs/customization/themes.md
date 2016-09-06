@@ -81,28 +81,27 @@ Authoring a theme is fairly tricky as the grammars all behave a bit differently.
 
 # Icon Themes
 
-File icon themes can be contributed by extensions and selected by users as their favourite set of file icons. File icons are shown in the file explorer.
+File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer.
 
 ## Select an Icon Theme
 
-1. Open the Icon Theme picker with **File** > **Preferences** > **Icon Theme**. (**Code** > **Preferences** > **Icon Theme** on Mac)
+1. Open the Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on Mac)
 2. Use the cursor keys to preview the icons of the theme.
 3. Select the theme you want and hit `kbstyle(Enter)`.
 
-By default, no file icon set is configured, therefore the file explorer shows no icons. Once an icon theme is selected, the selected theme will be remembered and set again when VSCode is started the next time .
+By default, no file icon set is configured, therefore the File Explorer shows no icons. Once an icon theme is selected, the selected theme will be remembered and set again when VS Code is started the next time .
 
-Out of the box, VS code ships with two icon themes; **Minimal** and **Seti**.
-To install more icon themes, select the **Find more in the Marketplace...** item in the icon theme picker.
+VS code ships with two icon themes; **Minimal** and **Seti**. To install more icon themes, select the **Find more in the Marketplace...** item in the icon theme picker.
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
 ## Adding a new Icon Theme
 
-You can create your own icon theme from icons (preferrably SVG) and from icon fonts.
-As example, check out the two built-in themes: [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti).
+You can create your own icon theme from icons (preferrably SVG) and from icon fonts. As example, check out the two built-in themes: [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti).
 
 
-To begin, create a VSCode extension and add the `iconTheme` contribution point.
+To begin, create a VS Code extension and add the `iconTheme` contribution point.
+
 ```json
 "contributes": {
     "iconThemes": [
@@ -114,8 +113,8 @@ To begin, create a VSCode extension and add the `iconTheme` contribution point.
     ]
 }
 ```
-The `id` is the identifier for the icon theme. It is currently only used internally. In the future it might be used in the settings, so keep it not only unique but also readable. `label` is shown in the icon theme configuration dialog. 
-The `path` points to a file in the extension that defines the icon set. If your icon set name follows the `*icon-theme.json` name scheme, you will get completion support and hovers in VS Code.
+
+The `id` is the identifier for the icon theme. It is currently only used internally. In the future, it might be used in the settings, so make it unique but also readable. `label` is shown in the icon theme picker dropdown. The `path` points to a file in the extension that defines the icon set. If your icon set name follows the `*icon-theme.json` name scheme, you will get completion support and hovers in VS Code.
 
 ### Icon Set File
 
@@ -128,19 +127,21 @@ An icon association maps a file type ('file', 'folder', 'json-file'...) to an ic
 The `iconDefinitions` section contains all definitions. Each definition has an id, which will be used to reference the definition. A definition can be referenced also by more than one file association.
 
 ```json
-	"iconDefinitions": {
-		"_folder_dark": {
-			"iconPath": "./images/Folder_16x_inverse.svg"
-		}
-	}
+    "iconDefinitions": {
+        "_folder_dark": {
+            "iconPath": "./images/Folder_16x_inverse.svg"
+        }
+    }
 ```
-This icon definition contains definition with the identifier `_folder_dark`.
+
+This icon definition above contains a definition with the identifier `_folder_dark`.
 
 The following properties are supported:
+
 - `iconPath`: When using a svg/png: the path to the image.
-- `fontCharacter`: When using a glyph font: The character in the font to use
-- `fontColor`: When using a glyph font: The color to use for the glyph
-- `fontSize`: When using a font: The font size. By default the size specified in the font specification is used. Should be a relative size (e.g. 150%) to the parent font size.
+- `fontCharacter`: When using a glyph font: The character in the font to use.
+- `fontColor`: When using a glyph font: The color to use for the glyph.
+- `fontSize`: When using a font: The font size. By default, the size specified in the font specification is used. Should be a relative size (e.g. 150%) to the parent font size.
 - `fontId`: When using a font: The id of the font. If not specified, the first font specified in font specification section will be picked.
 
 ### File association
@@ -150,33 +151,35 @@ Icons can be associated to folders, folder names, files, file extensions, file n
 Additionally each of these associations can be refined for 'light' and 'highContrast' color themes.
 
 Each file association points to an icon definition.
+
 ```json
 "file": "_file_dark",
 "folder": "_folder_dark",
 "folderExpanded": "_folder_open_dark",
 "folderNames": {
-	".vscode": "_vscode_folder",
+    ".vscode": "_vscode_folder",
 },
 "fileExtensions": {
-	"ini": "_ini_file",
+    "ini": "_ini_file",
 },
 "fileNames": {
-	"win.ini": "_win_ini_file",
+    "win.ini": "_win_ini_file",
 },
 "languageIds": {
-	"ini": "_ini_file"
+    "ini": "_ini_file"
 },
 "light": {
-	"folderExpanded": "_folder_open_light",
-	"folder": "_folder_light",
-	"file": "_file_light",
-	"fileExtensions": {
-		"ini": "_ini_file_light",
-	}
+    "folderExpanded": "_folder_open_light",
+    "folder": "_folder_light",
+    "file": "_file_light",
+    "fileExtensions": {
+        "ini": "_ini_file_light",
+    }
 },
 "highContrast": {
 }
 ```
+
 - `file` is the default file icon, shown for all files that don't match any extension, filename or language id. Currently all properties defined by the definition of the file icon will be inherited (only relevant for font glyphs, useful for the fontSize)
 - `folder` is the folder icon for collapsed folders, and if `folderExpanded` is not set, also for expanded folders. Icons for specific folder names can be associated using the `folderNames` property .
 The folder icon is optional. If not set, no icon will be shown for folder.
@@ -204,27 +207,27 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
 * the size should be relative to the font size where the icon is used. Therefore always use percentage. 
 
 ```json
-	"fonts": [
-		{
-			"id": "turtles-font",
-			"src": [
-				{
-					"path": "./turtles.woff",
-					"format": "woff"
-				}
-			],
-			"weight": "normal",
-			"style": "normal",
-			"size": "150%"
-		}
-	],
-	"iconDefinitions": {
-		"_file": {
-			"fontCharacter": "\\E002",
-			"fontColor": "#5f8b3b",
-			"fontId": "turtles-font"
-		}
-	}
+    "fonts": [
+        {
+            "id": "turtles-font",
+            "src": [
+                {
+                    "path": "./turtles.woff",
+                    "format": "woff"
+                }
+            ],
+            "weight": "normal",
+            "style": "normal",
+            "size": "150%"
+        }
+    ],
+    "iconDefinitions": {
+        "_file": {
+            "fontCharacter": "\\E002",
+            "fontColor": "#5f8b3b",
+            "fontId": "turtles-font"
+        }
+    }
 ```
 
 ## Next Steps
