@@ -34,6 +34,8 @@ We're still shaping the C++ experience in VS Code so now is a great time to [pro
 
 This will generate a `c_cpp_properties.json` file that allows you to add additional include paths to properly enable code navigation and auto-completion.
 
+>**Note:** You can also generate or edit a `c_cpp_properties.json` file with the **C/Cpp: Edit Configurations** command from the __Command Palette__ (`kb(workbench.action.showCommands)`).
+
 **If you want to build your application from VS Code, you will need to generate a `tasks.json` file:**
 
 * Open the **Command Palette** (`kb(workbench.action.showCommands)`).
@@ -75,19 +77,23 @@ If you are debugging with GDB on Windows, see [Windows Debugging on Cygwin/MinGW
 
 ### Code Formatting
 
-The C/C++ extension for Visual Studio Code supports automatic formatting with [clang-format](http://llvm.org/releases/download.html). To use this feature, you must install `clang-format` manually and add its path to your user [settings](/docs/customization/userandworkspace.md) file (`settings.json`).
+The C/C++ extension for Visual Studio Code supports source code formatting with [clang-format](http://llvm.org/releases/download.html) which is included with the extension.
 
-To configure code formatting, open your `settings.json` file (**File** > **Preferences** > **User Settings**), then add the `c_cpp.clang_format_path` property and set its value to the path where `clang-format.exe` is installed.
+You can format an entire file or just the current selection with the **Format Code** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) and right-click context menu. You can also configure auto-formatting when you save your file with the `C_Cpp.clang_format_formatOnSave` [setting](/docs/customization/userandworkspace.md).
+
+By default, the clang-format style is set to "file" which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied according to a default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/customization/userandworkspace.md) instead. Currently, the default formatting style is "Visual Studio". Using "Visual Studio" formatting ensures that source code formatting will be compatible in both VS Code and Visual Studio Community.
+
+The __Visual Studio__ formatting implies the following options:
+
+![visual studio formatting options](images/cpp/visual-studio-formatting.png)
+
+If you'd like to use a different version of `clang-format` than ships with the extension, you can use the `C_Cpp.clang_format_path` [setting](/docs/customization/userandworkspace.md) and set its value to the path where `clang-format.exe` is installed.
 
 For example:
 
 ```json
-  "c_cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
+  "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
 ```
-
-By default, the clang-format style is set to __file__ which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied according to a default style specified in `c_cpp_properties.json` instead. Currently, the default formatting style is __LLVM__.
-
-To access the `c_cpp_properties.json` file, launch the __Command Palette__ (`kb(workbench.action.showCommands)`) prompt and begin typing **C/Cpp: Edit Configurations**, then choose this command from the command list that appears.
 
 ### Fuzzy Auto-Complete (preview)
 
