@@ -83,7 +83,7 @@ You can format an entire file or just the current selection with the **Format Co
 
 By default, the clang-format style is set to "file" which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied according to a default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/customization/userandworkspace.md) instead. Currently, the default formatting style is "Visual Studio". Using "Visual Studio" formatting ensures that source code formatting will be compatible in both VS Code and Visual Studio Community.
 
-The __Visual Studio__ formatting implies the following options:
+The "Visual Studio" formatting implies the following options:
 
 ```json
 UseTab: Never
