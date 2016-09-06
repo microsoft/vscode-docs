@@ -74,7 +74,10 @@ Below is a copy of the default `settings.json` file.
     // Controls the font family.
     "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
-    // Controls the font size.
+    // Controls the font weight.
+    "editor.fontWeight": "normal",
+
+    // Controls the font size in pixels.
     "editor.fontSize": 14,
 
     // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
@@ -92,10 +95,10 @@ Below is a copy of the default `settings.json` file.
     // Characters that will be used as word separators when doing word related navigations or operations
     "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?",
 
-    // The number of spaces a tab is equal to.
+    // The number of spaces a tab is equal to. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
     "editor.tabSize": 4,
 
-    // Insert spaces when pressing Tab.
+    // Insert spaces when pressing Tab. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
     "editor.insertSpaces": true,
 
     // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
@@ -109,6 +112,9 @@ Below is a copy of the default `settings.json` file.
 
     // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
     "editor.wrappingColumn": 300,
+
+    // Controls if lines should wrap. The lines will wrap at min(editor.wrappingColumn, viewportWidthInColumns).
+    "editor.wordWrap": false,
 
     // Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
     "editor.wrappingIndent": "same",
@@ -138,7 +144,7 @@ Below is a copy of the default `settings.json` file.
     "editor.acceptSuggestionOnEnter": true,
 
     // Controls whether snippets are shown with other suggestions and how they are sorted.
-    "editor.snippetSuggestions": "inline",
+    "editor.snippetSuggestions": "bottom",
 
     // Enable word based suggestions.
     "editor.wordBasedSuggestions": true,
@@ -176,8 +182,11 @@ Below is a copy of the default `settings.json` file.
     // Controls whether the editor should render indent guides
     "editor.renderIndentGuides": false,
 
-    // Controls if the editor shows reference information for the modes that support it
-    "editor.referenceInfos": true,
+    // Controls whether the editor should render the current line highlight
+    "editor.renderLineHighlight": true,
+
+    // Controls if the editor shows code lenses
+    "editor.codeLens": true,
 
     // Controls whether the editor has code folding enabled
     "editor.folding": true,
@@ -209,6 +218,9 @@ Below is a copy of the default `settings.json` file.
     // Define profile for specified syntax or use your own profile with specific rules.
     "emmet.syntaxProfiles": {},
 
+    // An array of languages where emmet abbreviations should not be expanded.
+    "emmet.excludeLanguages": [],
+
 
 // Workbench
 
@@ -218,11 +230,17 @@ Below is a copy of the default `settings.json` file.
     // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
     "workbench.editor.enablePreview": true,
 
-    // Controls if opened editors from quick open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
+    // Controls if opened editors from Quick Open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
     "workbench.editor.enablePreviewFromQuickOpen": true,
 
     // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the current active one. Select 'first' or 'last' to open editors independently from the currently active one.
     "workbench.editor.openPositioning": "right",
+
+    // Controls if Quick Open should close automatically once it loses focus.
+    "workbench.quickOpen.closeOnFocusLost": true,
+
+    // Controls if opening settings also opens an editor showing all default settings.
+    "workbench.settings.openDefaultSettings": true,
 
 
 // Window
@@ -262,7 +280,7 @@ Below is a copy of the default `settings.json` file.
     // When enabled, will trim trailing whitespace when you save a file.
     "files.trimTrailingWhitespace": false,
 
-    // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange". If set to "afterDelay" you can configure the delay in "files.autoSaveDelay".
+    // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange" (editor loses focus), "onWindowChange" (window loses focus). If set to "afterDelay", you can configure the delay in "files.autoSaveDelay".
     "files.autoSave": "off",
 
     // Controls the delay in ms after which a dirty file is saved automatically. Only applies when "files.autoSave" is set to "afterDelay"
@@ -297,6 +315,9 @@ Below is a copy of the default `settings.json` file.
         "**/bower_components": true
     },
 
+    // Configure to include results from a global symbol search in the file results for Quick Open.
+    "search.quickOpen.includeSymbols": false,
+
 
 // Git
 
@@ -321,6 +342,9 @@ Below is a copy of the default `settings.json` file.
     // Confirm before synchronizing git repositories.
     "git.confirmSync": false,
 
+    // Controls the git badge counter.
+    "git.countBadge": "all",
+
 
 // HTTP
 
@@ -329,6 +353,9 @@ Below is a copy of the default `settings.json` file.
 
     // Whether the proxy server certificate should be verified against the list of supplied CAs.
     "http.proxyStrictSSL": true,
+
+    // The value to send as the 'Proxy-Authorization' header for every network request.
+    "http.proxyAuthorization": null,
 
 
 // Update
@@ -549,6 +576,15 @@ Below is a copy of the default `settings.json` file.
     // List of tags, comma separated, that should have an extra newline before them. 'null' defaults to "head, body, /html".
     "html.format.extraLiners": "head, body, /html",
 
+    // Configures if the built-in HTML language support suggests Angular V1 tags and properties.
+    "html.suggest.angular1": true,
+
+    // Configures if the built-in HTML language support suggests Ionic tags, properties and values.
+    "html.suggest.ionic": true,
+
+    // Configures if the built-in HTML language support suggests HTML5 tags, properties and values.
+    "html.suggest.html5": true,
+
 
 // JSON
 
@@ -649,6 +685,12 @@ Below is a copy of the default `settings.json` file.
     "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
 
 
+// Extensions
+
+    // Automatically update extensions
+    "extensions.autoUpdate": false,
+
+
 // External Terminal
 
     // Customizes which terminal to run on Windows.
@@ -676,7 +718,7 @@ Below is a copy of the default `settings.json` file.
     "terminal.integrated.shellArgs.osx": [],
 
     // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
-    "terminal.integrated.shell.windows": "C:\\windows\\system32\\cmd.exe",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\system32\\cmd.exe",
 
     // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
     "terminal.integrated.fontFamily": "",
@@ -684,7 +726,7 @@ Below is a copy of the default `settings.json` file.
     // Controls whether font ligatures are enabled in the terminal.
     "terminal.integrated.fontLigatures": false,
 
-    // Controls the font size of the terminal, this defaults to editor.fontSize's value.
+    // Controls the font size in pixels of the terminal, this defaults to editor.fontSize's value.
     "terminal.integrated.fontSize": 0,
 
     // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
@@ -695,6 +737,24 @@ Below is a copy of the default `settings.json` file.
 
     // Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.
     "terminal.integrated.setLocaleVariables": false,
+
+    // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
+    "terminal.integrated.commandsToSkipShell": [
+        "editor.action.toggleTabFocusMode",
+        "workbench.action.quickOpen",
+        "workbench.action.showCommands",
+        "workbench.action.terminal.copySelection",
+        "workbench.action.terminal.focus",
+        "workbench.action.terminal.focusNext",
+        "workbench.action.terminal.focusPrevious",
+        "workbench.action.terminal.kill",
+        "workbench.action.terminal.new",
+        "workbench.action.terminal.paste",
+        "workbench.action.terminal.runSelectedText",
+        "workbench.action.terminal.scrollDown",
+        "workbench.action.terminal.scrollUp",
+        "workbench.action.terminal.toggleTerminal"
+    ],
 
 
 // Problems View
@@ -709,7 +769,7 @@ Below is a copy of the default `settings.json` file.
     "telemetry.enableTelemetry": true,
 
     // Enable crash reports to be sent to Microsoft.
-	// This option requires restart to take effect.
+    // This option requires restart to take effect.
     "telemetry.enableCrashReporter": true
 
 }

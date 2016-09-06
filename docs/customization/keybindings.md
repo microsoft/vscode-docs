@@ -121,6 +121,8 @@ Key|Command|Command id
 `kb(workbench.action.focusThirdEditorGroup)`|Focus into Right Editor Group|`workbench.action.focusThirdEditorGroup`
 `kb(workbench.action.focusPreviousGroup)`|Focus into Editor Group on the Left|`workbench.action.focusPreviousGroup`
 `kb(workbench.action.focusNextGroup)`|Focus into Editor Group on the Right|`workbench.action.focusNextGroup`
+`kb(workbench.action.moveEditorLeftInGroup)` | Move Editor Left | `workbench.action.moveEditorLeftInGroup`
+`kb(workbench.action.moveEditorRightInGroup)` | Move Editor Right | `workbench.action.moveEditorRightInGroup`
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
 `kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
 

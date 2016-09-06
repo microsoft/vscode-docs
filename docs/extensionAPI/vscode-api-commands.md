@@ -135,9 +135,11 @@ Links contained in the document will be handled by VS Code whereby it supports `
 The snippet below defines a command-link that calls the _previewHtml_ command and passes along an uri:
 
 ```javascript
-let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
-let html = '<a href="' + href + '">Show Resource...</a>.';
+  let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
+  let html = '<a href="' + href + '">Show Resource...</a>.';
 ```
+
+The body element of the displayed html is dynamically annotated with one of the following CSS classes in order to communicate the kind of color theme VS Code is currently using: `vscode-light`, `vscode-dark`, or `vscode-high-contrast`.
 
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
@@ -175,7 +177,77 @@ let html = '<a href="' + href + '">Show Resource...</a>.';
 
 `cursorMove` - Move cursor to a logical position in the view
 
-* _Cursor move argument_ Argument containing mandatory 'to' value and an optional 'inSelectionMode' value. Value of 'to' has to be a defined value in `CursorMoveViewPosition`.
+* _Cursor move argument object_ 
+
+  Property-value pairs that can be passed through this argument:
+
+  * 'to': A mandatory logical position value providing where to move the cursor.
+    ```
+    'left', 'right', 'up', 'down'
+    'wrappedLineStart', 'wrappedLineEnd', 'wrappedLineColumnCenter'
+	'wrappedLineFirstNonWhitespaceCharacter', 'wrappedLineLastNonWhitespaceCharacter'
+    'viewPortTop', 'viewPortCenter', 'viewPortBottom', 'viewPortIfOutside'
+    ```
+  * 'by': Unit to move. Default is computed based on 'to' value.
+    ```
+    'line', 'wrappedLine', 'character', 'halfLine'
+    ```
+  * 'value': Number of units to move. Default is '1'.
+  * 'select': If 'true' makes the selection. Default is 'false'.
+
+
+
+`editorScroll` - Scroll editor in the given direction
+
+* _Editor scroll argument object_
+
+  Property-value pairs that can be passed through this argument:
+
+  * 'to': A mandatory direction value.
+    ```
+    'up', 'down'
+    ```
+  *	'by': Unit to move. Default is computed based on 'to' value.
+    ```
+	'line', 'wrappedLine', 'page', 'halfPage'
+    ```
+  * 'value': Number of units to move. Default is '1'.
+  * 'revealCursor': If 'true' reveals the cursor if it is outside view port.
+
+
+
+`revealLine` - Reveal the given line at the given logical position
+
+* _Reveal line argument object_
+
+  Property-value pairs that can be passed through this argument:
+
+  * 'lineNumber': A mandatory line number value.
+  * 'at': Logical position at which line has to be revealed .
+    ```
+    'top', 'center', 'bottom'
+    ```
+
+
+
+`editor.unfold` - Unfold the content in the editor
+
+* _Unfold editor argument_
+
+  Property-value pairs that can be passed through this argument:
+
+  * 'level': Number of levels to unfold
+
+
+
+`editor.fold` - Fold the content in the editor
+
+* _Fold editor argument_
+
+  Property-value pairs that can be passed through this argument:
+
+  * 'levels': Number of levels to fold
+  * 'up': If 'true' folds given number of levels up otherwise folds down
 
 
 
@@ -191,11 +263,11 @@ let html = '<a href="' + href + '">Show Resource...</a>.';
 
 * _Active editor move argument_
 
->Argument Properties:
+  Argument Properties:
 
->* 'to': String value providing where to move.
->* 'by': String value providing the unit for move. By tab or by group.
->* 'value': Number value providing how many positions or an absolute position to move.
-					
+  * 'to': String value providing here to move.
+  * 'by': String value providing the unit for move. By tab or by group.
+  * 'value': Number value providing how many positions or an absolute position to move.
+
 
 

@@ -92,6 +92,8 @@ They are:
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
 
+### Run Selected Text
+
 To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
 
 ![Run selected text](images/integrated-terminal/terminal_run_selected.png)
@@ -99,6 +101,8 @@ To use the `runSelectedText` command, select text in an editor and run the comma
 The terminal will attempt to run the selected text.
 
 ![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
+
+If no text is selected in the active editor, the entire file contents is run in the terminal. This is useful if you want to run an entire script or batch file. Simply open the file and run **Terminal: Run Selected Text in Active Terminal**.
 
 ### Copy & Paste
 

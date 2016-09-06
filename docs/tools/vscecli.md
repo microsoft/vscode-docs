@@ -42,15 +42,15 @@ Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstu
 
 First, login to or sign up for [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online).
 
-Then, from your account's home page `https://ACCOUNT.visualstudio.com`, go to the **My Profile** page:
+Then, from your account's home page `https://ACCOUNT.visualstudio.com`, go to the **Security** page:
 
-![My Profile page](images/vscecli/publishers1.png)
+![Security page](images/vscecli/publishers1.png)
 
-Switch to the **Security** tab and **Add** a new Personal Access Token:
+Click **Add** to create a new Personal Access Token:
 
 ![Add personal access token](images/vscecli/publishers2.png)
 
-Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year and make it access every account:
+Give the Personal Access Token a nice description, optionally extend its expiration date to 1 year, make it access every account and set the authorization to **all scopes**:
 
 ![Personal access token details](images/vscecli/publishers3.png)
 
