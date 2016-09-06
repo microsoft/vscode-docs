@@ -116,6 +116,10 @@ Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+Ins)` and `kbs
 
 > Pre-release: This is changing in the upcoming version to `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`. This change is available now in the [Insiders build](https://code.visualstudio.com/insiders).
 
+### Forcing keybindings to pass through the terminal
+
+While focus is in the integrated terminal, many keybindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose keybindings will skip processing by the shell and instead be processed by the VS Code keybinding system. By default this includes all terminal keybindings in addition to a select few commonly used keybidnings.
+
 ## Common Questions
 
 ### Why is VS Code shortcut X not working when the terminal has focus?
