@@ -85,7 +85,14 @@ By default, the clang-format style is set to "file" which means it looks for a `
 
 The __Visual Studio__ formatting implies the following options:
 
-![visual studio formatting options](images/cpp/visual-studio-formatting.png)
+```json
+UseTab: Never
+IndentWidth: 4
+BreakBeforeBraces: AllMan
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: false
+ColumnLimit: 0
+```
 
 If you'd like to use a different version of `clang-format` than ships with the extension, you can use the `C_Cpp.clang_format_path` [setting](/docs/customization/userandworkspace.md) and set its value to the path where `clang-format.exe` is installed.
 
