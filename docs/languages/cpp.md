@@ -77,26 +77,26 @@ If you are debugging with GDB on Windows, see [Windows Debugging on Cygwin/MinGW
 
 ### Code Formatting
 
-The C/C++ extension for Visual Studio Code supports source code formatting with [clang-format](http://llvm.org/releases/download.html) which is included with the extension.
+The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](http://clang.llvm.org/docs/ClangFormat.html) which is included with the extension.
 
-You can format an entire file or just the current selection with the **Format Code** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) and right-click context menu. You can also configure auto-formatting when you save your file with the `C_Cpp.clang_format_formatOnSave` [setting](/docs/customization/userandworkspace.md).
+You can format an entire file or just the current selection with the **Format Code** command (`kb(editor.action.format)`) in right-click context menu. You can also configure auto-formatting when you save your file with the `C_Cpp.clang_format_formatOnSave` [setting](/docs/customization/userandworkspace.md).
 
 By default, the clang-format style is set to "file" which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied according to a default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/customization/userandworkspace.md) instead. Currently, the default formatting style is "Visual Studio". Using "Visual Studio" formatting ensures that source code formatting will be compatible in both VS Code and Visual Studio Community.
 
-The "Visual Studio" formatting implies the following options:
+The “Visual Studio” clang-format style is not yet an official OOTB clang-format style but it implies the following clang-format settings:
 
 ```json
-UseTab: Never
-IndentWidth: 4
+UseTab: (VS Code current setting)
+IndentWidth: (VS Code current setting)
 BreakBeforeBraces: AllMan
 AllowShortIfStatementsOnASingleLine: false
 IndentCaseLabels: false
 ColumnLimit: 0
 ```
 
-If you'd like to use a different version of `clang-format` than ships with the extension, you can use the `C_Cpp.clang_format_path` [setting](/docs/customization/userandworkspace.md) and set its value to the path where `clang-format.exe` is installed.
+If you'd like to use a different version of clang-format than the one that ships with the extension, you can use the `C_Cpp.clang_format_path` [setting](/docs/customization/userandworkspace.md) and set its value to the path where the clang-format binary is installed.
 
-For example:
+For example on the Windows platform:
 
 ```json
   "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
