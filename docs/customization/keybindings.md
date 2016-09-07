@@ -157,6 +157,7 @@ Key|Command|Command id
 `kb(workbench.action.toggleFullScreen)`|Toggle Full Screen|`workbench.action.toggleFullScreen`
 `kb(workbench.action.zoomIn)`|Zoom in|`workbench.action.zoomIn`
 `kb(workbench.action.zoomOut)`|Zoom out|`workbench.action.zoomOut`
+`kb(workbench.action.zoomReset)`|Reset Zoom|`workbench.action.zoomReset`
 `kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar Visibility|`workbench.action.toggleSidebarVisibility`
 `kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`

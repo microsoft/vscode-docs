@@ -112,9 +112,7 @@ Copy and paste on OS X can be done using the standard keys, `kbstyle(Cmd+C)` and
 
 #### Linux & Windows
 
-Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+Ins)` and `kbstyle(Shift+Ins)` respectively. 
-
-> Pre-release: This is changing in the upcoming version to `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`. This change is available now in the [Insiders build](https://code.visualstudio.com/insiders).
+Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)` respectively. 
 
 ### Forcing keybindings to pass through the terminal
 
