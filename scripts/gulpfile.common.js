@@ -67,7 +67,7 @@ exports.compileMarkdown = function(file, article) {
 	var md = markdownIt({ html: true, langPrefix: '' });
 	md.use(externalLinks, {
 		externalTarget: "_blank",
-		internalDomains: ["code.visualstudio.com"]
+		internalDomains: ["code.visualstudio.com", "vscode-update.azurewebsites.net"]
 	});
 
 	// Apply custom markdown rules
