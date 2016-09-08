@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tabs
 ContentId: DDBD486B-E18F-4C3E-9CA0-766DE5E5EE67
 PageTitle: Tabbed editor support in Visual Studio Code
-DateApproved: 8/4/2016
+DateApproved: 9/8/2016
 MetaDescription: Visual Studio Code has support for Tabbed editor windows. Tabs let you quickly navigate between your open files.  
 ---
 

@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: Overview
 ContentId: A6C43AD7-1720-462B-9F4F-945F74F706EA
 PageTitle: Customize Visual Studio Code
-DateApproved: 8/4/2016
+DateApproved: 9/8/2016
 MetaDescription: You can configure VS Code to work the way you like to work.  Here is a quick primer on some of the most common ways to configure VS Code.
 ---
 
