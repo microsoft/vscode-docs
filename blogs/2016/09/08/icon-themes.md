@@ -64,7 +64,7 @@ Simply choose the "Seti (Visual Studio Code)" icon theme from in the File Icon T
 
 ## Create your own Icon Theme
 
-It is incredibly easy for extension authors to create your own File Icon Theme packs, check out the raw documentation [here](https://github.com/Microsoft/vscode/issues/10804) and the [Theming reference](TBD) in the core docs. Looking ahead, we will continue to fill out the API based on your feedback.
+It is incredibly easy for extension authors to create your own File Icon Theme packs, check out the raw documentation [here](https://github.com/Microsoft/vscode/issues/10804) and [Adding a new Icon Theme](/docs/customization/themes.md#adding-a-new-icon-theme) in the core docs. Looking ahead, we will continue to fill out the API based on your feedback.
 
 Thanks again for all of your feedback and thanks to Roberto for building a popular extension and helping us deliver great APIs.
 
