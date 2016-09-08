@@ -116,7 +116,7 @@ Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+C)` and `kbsty
 
 ### Forcing keybindings to pass through the terminal
 
-While focus is in the integrated terminal, many keybindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose keybindings will skip processing by the shell and instead be processed by the VS Code keybinding system. By default this includes all terminal keybindings in addition to a select few commonly used keybidnings.
+While focus is in the integrated terminal, many keybindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose keybindings will skip processing by the shell and instead be processed by the VS Code keybinding system. By default this includes all terminal keybindings in addition to a select few commonly used keybindings.
 
 ## Common Questions
 
