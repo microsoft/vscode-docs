@@ -38,11 +38,11 @@ Not only did this approach mean that the extension needed to be reinstalled on e
 
 With the 1.5 release of VS Code, we now support icons to the File Explorer.
 
-From the **File** > **Preferences** menu or the **Command Palette** (`kb(workbench.action.showCommands)` search for File Icon Theme:
+From the **File** > **Preferences** menu or the **Command Palette** (`kb(workbench.action.showCommands)`) search for File Icon Theme:
 
 ![select icon theme](2016_09_08_select-icon-theme.png)
 
-Initially we were going to ship with a single, simple theme called "Minimal", which has folder open/closed icons as well as a single file icon for all types.
+Initially we were going to ship with a single, simple theme called **Minimal**, which has folder open/closed icons as well as a single file icon for all types.
 
 ![minimal icon theme](2016_09_08_minimal-icon-theme.png)
 
@@ -54,9 +54,7 @@ And we were converted.
 
 ![I heart seti](2016_09_08_i-heart-seti.png)
 
-Most of the team now runs on the Seti icons so we decided to include them in the product for everyone to enjoy. 
-
-Simply choose the "Seti (Visual Studio Code)" icon theme from in the File Icon Theme selection dialog:
+Most of the team now runs on the Seti icons so we decided to include them in the product for everyone to enjoy. Simply choose the **Seti (Visual Studio Code)** icon theme in the File Icon Theme selection dialog.
 
 ![Seti icon theme](2016_09_08_seti-icon-theme.png)
 
@@ -64,7 +62,7 @@ Simply choose the "Seti (Visual Studio Code)" icon theme from in the File Icon T
 
 ## Create your own Icon Theme
 
-It is incredibly easy for extension authors to create your own File Icon Theme packs, check out the raw documentation [here](https://github.com/Microsoft/vscode/issues/10804) and [Adding a new Icon Theme](/docs/customization/themes.md#adding-a-new-icon-theme) in the core docs. Looking ahead, we will continue to fill out the API based on your feedback.
+It is incredibly easy for extension authors to create your own File Icon Theme packs, check out the raw documentation [here](https://github.com/Microsoft/vscode/issues/10804) and the ["Adding a new Icon Theme"](/docs/customization/themes.md#adding-a-new-icon-theme) topic in the VS Code docs. Looking ahead, we will continue to fill out the API based on your feedback.
 
 Thanks again for all of your feedback and thanks to Roberto for building a popular extension and helping us deliver great APIs.
 
