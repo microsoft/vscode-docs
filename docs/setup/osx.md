@@ -43,17 +43,6 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ## Common Questions
 
-### VS Code fails to start OmniSharp
-
-On OS X, VS Code can no longer start OmniSharp after updating VS Code.
-
-To fix this issue, run these commands to update mono:
-
-```bash
-brew update
-brew reinstall mono
-```
-
 ### Mono and El Capitan
 
 Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
