@@ -22,7 +22,7 @@ If you use the CommonJS module system that is used by Node.js, then you get Inte
 
 There are two more steps to configure IntelliSense across all the files in your workspace and external modules:
 
-1. Create a `jsconfig.json` to indicate a [JavaScript project](/docs/languages/javascript.md#javascript-project-jsconfigjson).
+1. Create a `jsconfig.json` file to indicate a [JavaScript project](/docs/languages/javascript.md#javascript-project-jsconfigjson).
 2. Install [TypeScript Definition files (typings)](/docs/languages/javascript.md#typescript-definition-files-typings) for external libraries.
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
@@ -31,7 +31,7 @@ For the details of how JavaScript IntelliSense works, including being based on t
 
 ## JavaScript Project (jsconfig.json)
 
-The presence of [`jsconfig.json`](/docs/languages/jsconfig.md) file in a directory indicates that the directory is the root of a JavaScript project. `jsconfig.json` specifies the root files and the options for the language features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa).
+The presence of [jsconfig.json](/docs/languages/jsconfig.md) file in a directory indicates that the directory is the root of a JavaScript project. `jsconfig.json` specifies the root files and the options for the language features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa).
 
 ### Location of jsconfig.json
 
@@ -179,7 +179,7 @@ VS Code has several built-in snippets that will come up as you type or you can p
 
 > **Tip:** You can add in your own snippets for JavaScript. See [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
 
-You may not want to show snippets. You can disable them by setting `editor.snippetSuggestions` to `"none"` in your settings file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+You may not want to show snippets. You can disable them by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/customization/userandworkspace.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 You can enable tab completions with `editor.tabCompletion` setting. After typing the prefix of a snippet, press `kbstyle(Tab)` to insert it.
 
