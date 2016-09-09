@@ -1,7 +1,7 @@
 ---
 Order: 13
 Area: languages
-TOCTitle: Appendix: jsconfig.json
+TOCTitle: Appendix-jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
 DateApproved: 9/9/2016
