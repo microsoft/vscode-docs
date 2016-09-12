@@ -35,6 +35,8 @@ By clicking on the view's `...` **More** button, it is possible to show:
 * The list of recommended extensions based on your workspace
 * The list of globally popular extensions
 
+You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order.
+
 ## Install an Extension
 
 Simply click the **Install** button and after a successful install, you'll see an **Enable** button which will prompt you to restart VS Code to enable the new extension.
@@ -59,11 +61,15 @@ To uninstall an extension, click the **Uninstall** button. This will uninstall t
 
 ## Update an Extension
 
-You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Simply click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code.
+You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Simply click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+
+## Auto Update Extensions
+
+If you would like your installed extensions to be updated automatically, you can use the `extensions.autoUpdate` [setting](/docs/customization/userandworkspace.md). When set to `true`, VS Code will download new versions of outdated extensions automatically and you will just need to restart VS Code when you see the blue **Enable** button in the Installed Extensions list.
 
 ## Browse Extensions
 
-Additionally, you can browse and search for VS Code extensions through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site. Below is a sampling of the most popular extensions. 
+Additionally, you can browse and search for VS Code extensions through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site. Below is a sampling of the most popular extensions.
 
 <div class="marketplace-extensions-top"></div>
 
