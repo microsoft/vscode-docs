@@ -120,7 +120,11 @@ However, it's easy to turn on `Auto Save`, which will save your changes after a 
 
 To configure `Auto Save`, open **User Settings** or **Workspace Settings** and find the associated settings:
 
-* `files.autoSave`: Can have the values `off` to disable auto save, `afterDelay` to save files after a configured delay and `onFocusChange` to save files when focus moves out of the editor of the dirty file.
+* `files.autoSave`: Can have the values:
+  * `off` - to disable auto save.
+  * `afterDelay` - to save files after a configured delay.
+  * `onFocusChange` - to save files when focus moves out of the editor of the dirty file.
+  * `onWindowChange` - to save files when the focus moves out of the VS Code window.
 * `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
 
 ## Search Across Files
@@ -298,7 +302,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
     "editor.wrappingColumn": 0
 ```
 
-You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.  Restarting VS Code will pick up the persisted `editor.wrappingColumn` value.
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wrappingColumn` value.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
 
