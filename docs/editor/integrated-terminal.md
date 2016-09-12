@@ -114,9 +114,9 @@ Copy and paste on OS X can be done using the standard keys, `kbstyle(Cmd+C)` and
 
 Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)` respectively. 
 
-### Forcing keybindings to pass through the terminal
+### Forcing key bindings to pass through the terminal
 
-While focus is in the integrated terminal, many keybindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose keybindings will skip processing by the shell and instead be processed by the VS Code keybinding system. By default this includes all terminal keybindings in addition to a select few commonly used keybidnings.
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default this includes all terminal key bindings in addition to a select few commonly used key bindings.
 
 ## Common Questions
 
