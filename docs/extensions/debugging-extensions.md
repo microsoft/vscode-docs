@@ -49,7 +49,7 @@ The TypeScript compilation is triggered before running your extension. This is d
 Your extension is launched in a new window with the title `Extension Development Host`. This window runs VS Code or more
 precisely the `Extension Host` with your extension under development.
 
-You can accomplish the same from the command line using the `extensionDevelopmentPath` option. This options tells VS Code in what
+You can accomplish the same from the command line using the `extensionDevelopmentPath` option. This option tells VS Code in what
 other locations it should look for extensions, e.g.,
 
 >`code --extensionDevelopmentPath=_my_extension_folder`.
