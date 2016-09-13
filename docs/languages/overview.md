@@ -46,11 +46,36 @@ In VS Code, we default the language support for a file based on its filename ext
 
 ![Language Selector](images/overview/languageselect.png)
 
+## Language Id
+
+VS Code associates a language mode with a specific language identifier so that various VS Code features can be enabled based on the current language mode.
+
+Languages | Identifiers
+-------- | ----------
+Java, JavaScript | `java`, `javascript`
+TypeScript | `typescript`
+C, C++, C# | `c`, `cpp`, `csharp`
+CSS, HTML | `css`, `html`
+Less, Sass | `less`, `scss`
+JSON | `json`
+Markdown | `markdown`
+F# | `fsharp`
+PHP | `php`
+Python | `python`
+PowerShell | `powershell`
+Rust | `rust`
+Swift | `swift`
+Text | `plaintext`
+Visual Basic | `vb`
+XML, XSL, YAML | `xml`, `xsl`, `yaml`
+
+Unknown language files have the language identifier `plaintext`.
+
 ## Adding a file extension to a Language
 
 You can add new file extensions to an existing language with the `files.associations` [setting](/docs/customization/userandworkspace.md).
 
-For example, the setting below adds the `.myphp` file extension to the `php` language:
+For example, the setting below adds the `.myphp` file extension to the `php` language identifier:
 
 ```json
     "files.associations": {

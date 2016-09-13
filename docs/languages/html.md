@@ -38,6 +38,18 @@ We support Emmet snippet expansion, simply press `kb(editor.emmet.action.expandA
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
+If you'd like to use HTML Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `html`, `css`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/customization/userandworkspace.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
+
+For example, to use Emmet HTML abbreviations inside JavaScript:
+
+```json
+{
+    "emmet.syntaxProfiles": {
+        "javascript": "html"
+     }
+}
+```
+
 We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.md).
 
 ## Next Steps
