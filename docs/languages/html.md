@@ -24,6 +24,19 @@ As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image b
 
 We also offer up suggestions for elements, tags, some values (as defined in HTML 5), Ionic and AngularJS tags. You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
 
+You can also control which built-in code completion providers are active. Override these in your user or workspace [settings](/docs/customization/userandworkspace.md) if you prefer not to see the corresponding suggestions.
+
+```json
+// Configures if the built-in HTML language suggests Angular V1 tags and properties.
+"html.suggest.angular1": true,
+
+// Configures if the built-in HTML language suggests Ionic tags, properties and values.
+"html.suggest.ionic": true,
+
+// Configures if the built-in HTML language suggests HTML5 tags, properties and values.
+"html.suggest.html5": true
+```
+
 ## Format HTML
 
 To improve the formatting of your HTML code press `kb(editor.action.format)` and the selected area will be reformatted.
