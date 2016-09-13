@@ -165,6 +165,8 @@ It is recommended that you enable the linter rules that warn about undefined and
 "no-unused-vars": 1,
 ```
 
+You can also control when a linter runs with the linter `.run` setting. The two options are the default `onType` after each key stroke and `onSave` after you save your file.
+
 Here are a few useful resources when using ESLint.
 
 * [Complete list of ESLint Rules](http://eslint.org/docs/rules/)
