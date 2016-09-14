@@ -16,9 +16,7 @@ Visual Studio Code provides IntelliSense, debugging, and powerful editor feature
 
 ## IntelliSense
 
-VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code completion, parameter info, and member lists. JavaScript IntelliSense will work for single files immediately.
-
-If you use the CommonJS module system that is used by Node.js, then you get IntelliSense across your modules immediately.
+VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code completion, parameter info, and member lists. JavaScript IntelliSense will work for single files immediately.If you use the CommonJS module system that is used by Node.js, then you get IntelliSense across your modules immediately.
 
 There are two more steps to configure IntelliSense across all the files in your workspace and external modules:
 
@@ -27,7 +25,10 @@ There are two more steps to configure IntelliSense across all the files in your 
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
-For the details of how JavaScript IntelliSense works, including being based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/Salsa). Where type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported.
+For the details of how JavaScript IntelliSense works, including being based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/Salsa). When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported.
+
+VS Code ships with the most stable version of the JavaScript language service. The same language service powers both JavaScript and TypeScript, so if you want to use a newer version you can define the `typescript.tsdk` setting (File > Preferences > User/Worksapce Settings) to point to a directory containing the TypeScript `server.js` file. See more details [here](/docs/languages/typescript.md#using-newer-typescript-versions). 
+
 
 ## JavaScript Project (jsconfig.json)
 
