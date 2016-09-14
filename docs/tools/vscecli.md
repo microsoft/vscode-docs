@@ -42,7 +42,7 @@ Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstu
 
 First, make sure you have a [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) account.
 
-In the following examples, the account name is `joao`. From your account's home page (in this example, `https://joao.visualstudio.com`), go to the **Security** page:
+In the following examples, the account name is `monacotools`. From your account's home page (eg: `https://monacotools.visualstudio.com`), go to the **Security** page:
 
 ![Security page](images/vscecli/publishers1.png)
 
