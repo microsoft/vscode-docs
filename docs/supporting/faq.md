@@ -24,6 +24,14 @@ VS Code runs on Mac, Linux, and Windows. See [Requirements](requirements) for th
 
 Yes, VS Code is a free, [open source](https://github.com/microsoft/vscode) editor.
 
+## How do I find what version of VS Code I am on?
+
+You can find the version information in the About menu item. 
+
+On a Mac, go to **Code** -> **About Visual Studio Code**
+
+On Windows and Linux, go to **Help** -> **About**
+
 ## How do I opt out of VS Code auto-updates?
 
 By default, VS Code is set up to auto-update for OS X and Windows users when we release new updates. (Auto-update of VS Code is not supported for Linux.) If you do not want to get automatic updates, you can set the `update.channel` setting from the default `stable` to `none`.
