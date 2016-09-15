@@ -1,4 +1,3 @@
-
 ---
 Order: 7
 Area: extensions
@@ -32,6 +31,7 @@ After that we'll list some methods that are available to manager the state in yo
 
 In order to support syntax highlighting your extension needs to registers a TextMate grammar for its
 language in its `package.json` file.
+
 ```json
 "contributes": {
     "languages": [
@@ -65,12 +65,14 @@ Provide a grammar that understands terms and expressions and thus supports color
 With code snippets, you can provide useful code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file.
 
 ```json
-"snippets": [
-    {
-        "language": "javascript",
-        "path": "./snippets/javascript.json"
-    }, ...
-]
+"contributes": {
+    "snippets": [
+        {
+            "language": "javascript",
+            "path": "./snippets/javascript.json"
+        }, ...
+    ], ...
+}
 ```
 
 #### Basic
