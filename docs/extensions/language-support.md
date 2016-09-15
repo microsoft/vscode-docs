@@ -17,13 +17,11 @@ Through configuration files, an extension can support syntax highlighting, snipp
 
 A language server is a stand-alone server that speaks the language server protocol. You can implement the server in the language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript you can build on top of our [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
 
-Besides the implementation language, you have flexibility in deciding which parts of the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) your language server implements. The only thing you have to make sure is that your server correctly announces its capabilities in response to the `initialize` method.
+Besides the implementation language, you have flexibility in deciding which parts of the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) your language server implements. The only thing you have to make sure is that your server correctly announces its capabilities in response to the initialize` method.
 
-However, the language server architecture is not the only possible way to implement your extension. You can also implement the various language features directly in your extension and we show those in a **Direct Implementaion** section.
+However, the language server architecture is not the only possible way to implement your extension. You can also implement the various language features directly in your extension. In the guidelines below we show both the language server protocol approach (configuration and required events) and follow with a **Direct Implementation** section showing how to programatically register various language feature providers (ex. `registerHoverProvider`).
 
 In order to make it easier for you to decide what to implement first and what to improve later on we list the various support features below with examples of how they are exposed to users and to which classes and methods or language server protocol messages they map to.  Also included is guidance on the **Basic** support required as well as descriptions of **Advanced** feature implementation.
-
-After that we'll list some methods that are available to manager the state in your extension.
 
 ## Syntax Highlighting
 
@@ -59,11 +57,11 @@ language in its `package.json` file.
 >
 >Provide a grammar that understands terms and expressions and thus supports colorization of variables and function references etc.
 
-## Provide Out-Of-The-Box Code Snippets
+## Provide Source Code Snippets
 
 ![Snippets at work](images/language-support/snippets.gif)
 
-With code snippets, you can provide useful code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file.
+With code snippets, you can provide useful source code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file.
 
 ```json
 "contributes": {
@@ -172,7 +170,7 @@ Hovers show information about the symbol/object that's below the mouse cursor. T
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce that it provides hovers.
+In the response to the `initialize` method, your language server needs to announce that it provides hovers.
 
 ```json
 {
@@ -190,15 +188,18 @@ In addition, your language server needs to respond to `textDocument/hover`.
 
 ```typescript
 class GoHoverProvider implements HoverProvider {
- public provideHover(document: TextDocument, position: Position, token: CancellationToken): Thenable<Hover> {
-  ...
- }
+    public provideHover(
+        document: TextDocument, position: Position, token: CancellationToken):
+        Thenable<Hover> {
+    ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(vscode.languages.registerHoverProvider(GO_MODE, new GoHoverProvider()));
- ...
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerHoverProvider(GO_MODE, new GoHoverProvider()));
+    ...
 }
 ```
 
@@ -218,9 +219,7 @@ Code completion provide context sensitive suggestions to users.
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce
-that it provides completions and whether or not it supports the `completionItem\resolve`
-method to provide additional information for the computed completion items.
+In the response to the `initialize` method, your language server needs to announce that it provides completions and whether or not it supports the `completionItem\resolve` method to provide additional information for the computed completion items.
 
 ```json
 {
@@ -239,16 +238,19 @@ method to provide additional information for the computed completion items.
 
 ```typescript
 class GoCompletionItemProvider implements vscode.CompletionItemProvider {
- public provideCompletionItems(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): Thenable<vscode.CompletionItem[]> {
-  ...
- }
+    public provideCompletionItems(
+        document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken):
+        Thenable<vscode.CompletionItem[]> {
+        ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(getDisposable());
- ctx.subscriptions.push(vscode.languages.registerCompletionItemProvider(GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
- ...
+     ...
+    ctx.subscriptions.push(getDisposable());
+    ctx.subscriptions.push(
+    vscode.languages.registerCompletionItemProvider(GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
+    ...
 }
 ```
 
@@ -268,11 +270,9 @@ Diagnostics are a way to indicate issues with the code.
 
 #### Language Server Protocol
 
-Your language server send the `textDocument/publishDiagnostics` message to the
-language client. The message carries an array of diagnostic items for a resource URI.
+Your language server send the `textDocument/publishDiagnostics` message to the language client. The message carries an array of diagnostic items for a resource URI.
 
-**Note**: The client is not asking the server for diagnostics. The server pushes
-the diagnostic information to the client.
+**Note**: The client is not asking the server for diagnostics. The server pushes the diagnostic information to the client.
 
 #### Direct Implementation
 
@@ -280,30 +280,30 @@ the diagnostic information to the client.
 let diagnosticCollection: vscode.DiagnosticCollection;
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(getDisposable());
- diagnosticCollection = vscode.languages.createDiagnosticCollection('go');
- ctx.subscriptions.push(diagnosticCollection);
- ...
+    ...
+    ctx.subscriptions.push(getDisposable());
+    diagnosticCollection = vscode.languages.createDiagnosticCollection('go');
+    ctx.subscriptions.push(diagnosticCollection);
+    ...
 }
 
 function onChange() {
- let uri = document.uri;
- check(uri.fsPath, goConfig).then(errors => {
-  diagnosticCollection.clear();
-  let diagnosticMap: Map<string, vscode.Diagnostic[]> = new Map();
-  errors.forEach(error => {
-   let canonicalFile = vscode.Uri.file(error.file).toString();
-   let range = new vscode.Range(error.line - 1, error.startColumn, error.line - 1, error.endColumn);
-   let diagnostics = diagnosticMap.get(canonicalFile);
-   if (!diagnostics) { diagnostics = []; }
-   diagnostics.push(new vscode.Diagnostic(range, error.msg, error.severity));
-   diagnosticMap.set(canonicalFile, diagnostics);
-  });
-  diagnosticMap.forEach((diags, file) => {
-   diagnosticCollection.set(vscode.Uri.parse(file), diags);
-  });
- })
+    let uri = document.uri;
+    check(uri.fsPath, goConfig).then(errors => {
+        diagnosticCollection.clear();
+        let diagnosticMap: Map<string, vscode.Diagnostic[]> = new Map();
+        errors.forEach(error => {
+            let canonicalFile = vscode.Uri.file(error.file).toString();
+            let range = new vscode.Range(error.line - 1, error.startColumn, error.line - 1, error.endColumn);
+            let diagnostics = diagnosticMap.get(canonicalFile);
+            if (!diagnostics) { diagnostics = []; }
+            diagnostics.push(new vscode.Diagnostic(range, error.msg, error.severity));
+            diagnosticMap.set(canonicalFile, diagnostics);
+        });
+        diagnosticMap.forEach((diags, file) => {
+            diagnosticCollection.set(vscode.Uri.parse(file), diags);
+        });
+    })
 }
 ```
 
@@ -324,7 +324,7 @@ When the user enters a function or method call your extension can help with info
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce that it provides signature help.
+In the response to the `initialize` method, your language server needs to announce that it provides signature help.
 
 ```json
 {
@@ -344,14 +344,17 @@ In addition, your language server needs to respond to `textDocument/signatureHel
 
 ```typescript
 class GoSignatureHelpProvider implements SignatureHelpProvider {
- public provideSignatureHelp(document: TextDocument, position: Position, token: CancellationToken): Promise<SignatureHelp> {
- ...
- }
+    public provideSignatureHelp(
+        document: TextDocument, position: Position, token: CancellationToken):
+        Promise<SignatureHelp> {
+        ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
  ...
- ctx.subscriptions.push(vscode.languages.registerSignatureHelpProvider(GO_MODE, new GoSignatureHelpProvider(), '(', ','));
+    ctx.subscriptions.push(
+        vscode.languages.registerSignatureHelpProvider(GO_MODE, new GoSignatureHelpProvider(), '(', ','));
 }
 ```
 
@@ -371,8 +374,7 @@ Allow users to see the definition of variables/functions/methods right where the
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce
-that it provides goto-definition locations.
+In the response to the `initialize` method, your language server needs to announce that it provides goto-definition locations.
 
 ```json
 {
@@ -390,14 +392,17 @@ In addition, your language server needs to respond to `textDocument/definition`.
 
 ```typescript
 class GoDefinitionProvider implements vscode.DefinitionProvider {
- public provideDefinition(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): Thenable<vscode.Location> {
-  ...
+    public provideDefinition(
+        document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken):
+        Thenable<vscode.Location> {
+    ...
  }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(vscode.languages.registerDefinitionProvider(GO_MODE, new GoDefinitionProvider()));
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerDefinitionProvider(GO_MODE, new GoDefinitionProvider()));
 }
 ```
 
@@ -411,15 +416,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Find All References to a Symbol
 
-Allow users to see all the places where a certain
-variable/function/method/symbol is being used.
+Allow users to see all the places where a certain variable/function/method/symbol is being used.
 
 ![Type Hover](images/language-support/find-references.gif)
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce
-that it provides symbol reference locations.
+In the response to the `initialize` method, your language server needs to announce that it provides symbol reference locations.
 
 ```json
 {
@@ -437,14 +440,17 @@ In addition, your language server needs to respond to `textDocument/references`.
 
 ```typescript
 class GoReferenceProvider implements vscode.ReferenceProvider {
- public provideReferences(document: vscode.TextDocument, position: vscode.Position, options: { includeDeclaration: boolean }, token: vscode.CancellationToken): Thenable<vscode.Location[]> {
-  ...
- }
+    public provideReferences(
+        document: vscode.TextDocument, position: vscode.Position, options: { includeDeclaration: boolean }, token: vscode.CancellationToken):
+        Thenable<vscode.Location[]> {
+        ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(vscode.languages.registerReferenceProvider(GO_MODE, new GoReferenceProvider()));
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerReferenceProvider(GO_MODE, new GoReferenceProvider()));
 }
 ```
 
@@ -464,7 +470,7 @@ Allow users to see all occurrences of a symbol in the open editor.
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce that it provides symbol document locations.
+In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations.
 
 ```json
 {
@@ -482,14 +488,17 @@ In addition, your language server needs to respond to `textDocument/documentHigh
 
 ```typescript
 class GoDocumentHighlightProvider implements vscode.DocumentHighlightProvider {
- public provideDocumentHighlights(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.DocumentHighlight[] | Thenable<vscode.DocumentHighlight[]>;
-  ...
- }
+    public provideDocumentHighlights(
+        document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken):
+        vscode.DocumentHighlight[] | Thenable<vscode.DocumentHighlight[]>;
+        ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(vscode.languages.registerDocumentHighlightProvider(GO_MODE, new GoDocumentHighlightProvider()));
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerDocumentHighlightProvider(GO_MODE, new GoDocumentHighlightProvider()));
 }
 ```
 
@@ -509,7 +518,7 @@ Allow users to quickly navigate to any symbol definition in the open editor.
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce that it provides symbol document locations.
+In the response to the `initialize` method, your language server needs to announce that it provides symbol document locations.
 
 ```json
 {
@@ -527,14 +536,17 @@ In addition, your language server needs to respond to `textDocument/documentSymb
 
 ```typescript
 class GoDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
- public provideDocumentSymbols(document: vscode.TextDocument, token: vscode.CancellationToken): Thenable<vscode.SymbolInformation[]> {
-  ...
- }
+    public provideDocumentSymbols(
+        document: vscode.TextDocument, token: vscode.CancellationToken):
+        Thenable<vscode.SymbolInformation[]> {
+        ...
+        }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(vscode.languages.registerDocumentSymbolProvider(GO_MODE, new GoDocumentSymbolProvider()));
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerDocumentSymbolProvider(GO_MODE, new GoDocumentSymbolProvider()));
 }
 ```
 
@@ -554,8 +566,7 @@ Allow users to quickly navigate to any symbol definition anywhere in the folder 
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce
-that it provides global symbol locations.
+In the response to the `initialize` method, your language server needs to announce that it provides global symbol locations.
 
 ```json
 {
@@ -573,20 +584,23 @@ In addition, your language server needs to respond to `workspace/symbol`.
 
 ```typescript
 class GoWorkspaceSymbolProvider implements vscode.WorkspaceSymbolProvider {
- public provideWorkspaceSymbols(query: string, token: vscode.CancellationToken): Thenable<vscode.SymbolInformation[]> {
-  ...
- }
+    public provideWorkspaceSymbols(
+        query: string, token: vscode.CancellationToken):
+        Thenable<vscode.SymbolInformation[]> {
+        ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(vscode.languages.registerWorkspaceSymbolProvider(new GoWorkspaceSymbolProvider()));
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerWorkspaceSymbolProvider(new GoWorkspaceSymbolProvider()));
 }
 ```
 
 >**Basic**
 >
->Return all symbols define by the code within the folder opened in VS Code. Define the kinds of symbols such as variables, functions, classes, methods, etc.
+>Return all symbols define by the source code within the folder opened in VS Code. Define the kinds of symbols such as variables, functions, classes, methods, etc.
 
 >**Advanced**
 >
@@ -600,8 +614,7 @@ Provide users with possible actions right next to an error or warning. If action
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce
-that it provides code actions.
+In the response to the `initialize` method, your language server needs to announce that it provides code actions.
 
 ```json
 {
@@ -619,14 +632,17 @@ In addition, your language server needs to respond to `textDocument/codeAction`.
 
 ```typescript
 class GoCodeActionProvider implements vscode.CodeActionProvider {
-    public provideCodeActions(document: vscode.TextDocument, range: vscode.Range, context: vscode.CodeActionContext, token: vscode.CancellationToken): Thenable<vscode.Command[]> {
-  ...
- }
+    public provideCodeActions(
+        document: vscode.TextDocument, range: vscode.Range, context: vscode.CodeActionContext, token: vscode.CancellationToken):
+        Thenable<vscode.Command[]> {
+    ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- ctx.subscriptions.push(vscode.languages.registerCodeActionsProvider(GO_MODE, new GoCodeActionProvider()));
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerCodeActionsProvider(GO_MODE, new GoCodeActionProvider()));
 }
 ```
 
@@ -636,9 +652,9 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->In addition, provide code manipulation actions such as refactoring. For example, `Extract Method`.
+>In addition, provide source code manipulation actions such as refactoring. For example, `Extract Method`.
 
-## Code Lens - Show Actionable Context Information Within Code
+## CodeLens - Show Actionable Context Information Within Source Code
 
 Provide users with actionable, contextual information that is displayed interspersed with the code.
 
@@ -646,7 +662,7 @@ Provide users with actionable, contextual information that is displayed interspe
 
 #### Language Server Protocol
 
-In its response to the `initialize` method, your language server needs to announce that it provides CodeLens results and whether it supports the `codeLens\resolve` method to bind the CodeLens to its command.
+In the response to the `initialize` method, your language server needs to announce that it provides CodeLens results and whether it supports the `codeLens\resolve` method to bind the CodeLens to its command.
 
 ```json
 {
@@ -681,7 +697,7 @@ Allow your users to rename a symbol and update all references to the symbol.
 
 #### Language Server Protocol
 
-In its response to the `initialize` method, your language server needs to announce that it provides code actions.
+In the response to the `initialize` method, your language server needs to announce that it provides code actions.
 
 ```json
 {
@@ -699,14 +715,17 @@ In addition, your language server needs to respond to `textDocument/rename`.
 
 ```typescript
 class GoRenameProvider implements vscode.RenameProvider {
- public provideRenameEdits(document: vscode.TextDocument, position: vscode.Position, newName: string, token: vscode.CancellationToken): Thenable<vscode.WorkspaceEdit> {
+ public provideRenameEdits(
+     document: vscode.TextDocument, position: vscode.Position, newName: string, token: vscode.CancellationToken):
+     Thenable<vscode.WorkspaceEdit> {
   ...
  }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
  ...
- context.subscriptions.push(vscode.languages.registerRenameProvider(GO_MODE, new GoRenameProvider()));
+ context.subscriptions.push(
+     vscode.languages.registerRenameProvider(GO_MODE, new GoRenameProvider()));
 }
 ```
 
@@ -718,7 +737,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 >
 >Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
 
-## Format the Code in an Editor
+## Format Source Code in an Editor
 
 Provide users with support for formatting whole documents.
 
@@ -726,7 +745,7 @@ Provide users with support for formatting whole documents.
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce that it provides document formatting.
+In the response to the `initialize` method, your language server needs to announce that it provides document formatting.
 
 ```json
 {
@@ -744,14 +763,17 @@ In addition, your language server needs to respond to `textDocument/formatting`.
 
 ```typescript
 class GoDocumentFormatter implements vscode.DocumentFormattingEditProvider {
- public formatDocument(document: vscode.TextDocument): Thenable<vscode.TextEdit[]> {
-  ...
- }
+    public formatDocument(
+        document: vscode.TextDocument):
+        Thenable<vscode.TextEdit[]> {
+        ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- context.subscriptions.push(vscode.languages.registerDocumentFormattingEditProvider(GO_MODE, new GoDocumentFormatter()));
+    ...
+    context.subscriptions.push(
+        vscode.languages.registerDocumentFormattingEditProvider(GO_MODE, new GoDocumentFormatter()));
 }
 ```
 
@@ -761,7 +783,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->You should always return the smallest possible text edits that result in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted correctly and are not being lost.
+>You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted correctly and are not being lost.
 
 ## Format the Selected Lines in an Editor
 
@@ -771,7 +793,7 @@ Provide users with support for formatting a selected range of lines in a documen
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce that it provides formatting support for ranges of lines.
+In the response to the `initialize` method, your language server needs to announce that it provides formatting support for ranges of lines.
 
 ```json
 {
@@ -789,14 +811,17 @@ In addition, your language server needs to respond to `textDocument/rangeFormatt
 
 ```typescript
 class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProvider{
- public provideDocumentRangeFormattingEdits(document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token: vscode.CancellationToken): Thenable<vscode.TextEdit[]>;
-  ...
- }
+    public provideDocumentRangeFormattingEdits(
+        document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token: vscode.CancellationToken):
+        Thenable<vscode.TextEdit[]>;
+    ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- context.subscriptions.push(vscode.languages.registerDocumentRangeFormattingEditProvider(GO_MODE, new GoDocumentRangeFormatter()));
+    ...
+    context.subscriptions.push(
+        vscode.languages.registerDocumentRangeFormattingEditProvider(GO_MODE, new GoDocumentRangeFormatter()));
 }
 ```
 
@@ -806,7 +831,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->You should always return the smallest possible text edits that result in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted corrected and are not being lost.
+>You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted corrected and are not being lost.
 
 ## Incrementally Format Code as the User Types
 
@@ -818,7 +843,7 @@ Provide users with support for formatting text as the user types.
 
 #### Language Server Protocol
 
-In its response to the `initialize` method your language server needs to announce that it provides formatting as the user types. It also needs to tell the client on which characters formatting should be triggered. `moreTriggerCharacters` is optional.
+In the response to the `initialize` method, your language server needs to announce that it provides formatting as the user types. It also needs to tell the client on which characters formatting should be triggered. `moreTriggerCharacters` is optional.
 
 
 ```json
@@ -840,14 +865,17 @@ In addition, your language server needs to respond to `textDocument/onTypeFormat
 
 ```typescript
 class GoOnTypingFormatter implements vscode.OnTypeFormattingEditProvider{
- public provideOnTypeFormattingEdits(document: vscode.TextDocument, position: vscode.Position, ch: string, options: vscode.FormattingOptions, token: vscode.CancellationToken): Thenable<vscode.TextEdit[]>;
-  ...
- }
+    public provideOnTypeFormattingEdits(
+        document: vscode.TextDocument, position: vscode.Position, ch: string, options: vscode.FormattingOptions, token: vscode.CancellationToken):
+        Thenable<vscode.TextEdit[]>;
+    ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- context.subscriptions.push(vscode.languages.registerOnTypeFormattingEditProvider(GO_MODE, new GoOnTypingFormatter()));
+    ...
+    context.subscriptions.push(
+        vscode.languages.registerOnTypeFormattingEditProvider(GO_MODE, new GoOnTypingFormatter()));
 }
 ```
 
@@ -857,7 +885,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->You should always return the smallest possible text edits that result in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted corrected and are not being lost.
+>You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted corrected and are not being lost.
 
 
 
