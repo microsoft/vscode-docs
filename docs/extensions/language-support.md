@@ -27,7 +27,7 @@ After that we'll list some methods that are available to manager the state in yo
 
 ## Syntax Highlighting
 
-![syntax highlighting](./images/language-support/syntax-highlighting.png)
+![syntax highlighting](images/language-support/syntax-highlighting.png)
 
 In order to support syntax highlighting your extension needs to registers a TextMate grammar for its
 language in its `package.json` file.
@@ -60,7 +60,7 @@ Provide a grammar that understands terms and expressions and thus supports color
 
 ## Provide Out-Of-The-Box Code Snippets
 
-![Snippets at work](./images/language-support/snippets.gif)
+![Snippets at work](images/language-support/snippets.gif)
 
 With code snippets, you can provide useful code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file.
 
@@ -106,7 +106,7 @@ as this example for `groovy`
 
 ## Support Smart Editing
 
-![Smart Editing At Work](./images/language-support/smart-editing.gif)
+![Smart Editing At Work](images/language-support/smart-editing.gif)
 
 You can provide a language configuration in your extension's `package.json` file.
 
@@ -168,7 +168,7 @@ Here is an example from `TypeScript`:
 
 Hovers show information about the symbol/object that's below the mouse cursor. This usually is the type of the symbol including some documentation.
 
-![Hovers at Work](./images/language-support/hovers.gif)
+![Hovers at Work](images/language-support/hovers.gif)
 
 #### Language Server Protocol
 
@@ -214,7 +214,7 @@ Colorize method signatures in the same style you colorize the code.
 
 Code completion provide context sensitive suggestions to users.
 
-![Code Completion at Work](./images/language-support/code-completion.gif)
+![Code Completion at Work](images/language-support/code-completion.gif)
 
 #### Language Server Protocol
 
@@ -265,7 +265,7 @@ being displayed along-side with the selected item.
 ## Provide Diagnostics
 Diagnostics are a way to indicate issues with the code.
 
-![Diagnostics at Work](./images/language-support/diagnostics.gif)
+![Diagnostics at Work](images/language-support/diagnostics.gif)
 
 #### Language Server Protocol
 
@@ -321,7 +321,7 @@ Report diagnostics not only for the open editors but for all resources in the op
 
 When the user enters a function or method call your extension can help with information about the function/method that is being called.
 
-![Type Hover](./images/language-support/signature-help.gif)
+![Type Hover](images/language-support/signature-help.gif)
 
 #### Language Server Protocol
 
@@ -369,7 +369,7 @@ Nothing additional.
 
 Allow users to see the definition of variables/functions/methods right where the variables/functions/methods are being used.
 
-![Type Hover](./images/language-support/goto-definition.gif)
+![Type Hover](images/language-support/goto-definition.gif)
 
 #### Language Server Protocol
 
@@ -415,7 +415,7 @@ Nothing additional.
 Allow users to see all the places where a certain
 variable/function/method/symbol is being used.
 
-![Type Hover](./images/language-support/find-references.gif)
+![Type Hover](images/language-support/find-references.gif)
 
 #### Language Server Protocol
 
@@ -460,7 +460,7 @@ Nothing additional.
 
 Allow users to see all occurrences of a symbol in the open editor.
 
-![Type Hover](./images/language-support/document-highlights.gif)
+![Type Hover](images/language-support/document-highlights.gif)
 
 #### Language Server Protocol
 
@@ -506,7 +506,7 @@ Nothing additional.
 
 Allow users to quickly navigate to any symbol definition in the open editor.
 
-![Type Hover](./images/language-support/document-symbols.gif)
+![Type Hover](images/language-support/document-symbols.gif)
 
 #### Language Server Protocol
 
@@ -552,7 +552,7 @@ Nothing additional.
 
 Allow users to quickly navigate to any symbol definition anywhere in the folder being opened in VS Code.
 
-![Type Hover](./images/language-support/workspace-symbols.gif)
+![Type Hover](images/language-support/workspace-symbols.gif)
 
 #### Language Server Protocol
 
@@ -599,7 +599,7 @@ Nothing additional.
 
 Provide users with possible actions right next to an error or warning. If actions are available for a light bulb appears next to the error or warning. When the user clicks the light bulb a list of available code actions is presented.
 
-![Type Hover](./images/language-support/quick-fixes.gif)
+![Type Hover](images/language-support/quick-fixes.gif)
 
 #### Language Server Protocol
 
@@ -645,7 +645,7 @@ In addition, provide code manipulation actions such as refactoring. For example,
 
 Provide users with actionable, contextual information that is displayed interspersed with the code.
 
-![Type Hover](./images/language-support/code-lens.gif)
+![Type Hover](images/language-support/code-lens.gif)
 
 #### Language Server Protocol
 
@@ -681,7 +681,7 @@ Define the CodeLens results that are available for a document. Bind the CodeLens
 
 Allow your users to rename a symbol and update all references to the symbol.
 
-![Type Hover](./images/language-support/rename.gif)
+![Type Hover](images/language-support/rename.gif)
 
 #### Language Server Protocol
 
@@ -726,7 +726,7 @@ Return the list of all workspace edits that need to be performed, for example al
 
 Provide users with support for formatting whole documents.
 
-![Document Formatting at Work](./images/language-support/format-document.gif)
+![Document Formatting at Work](images/language-support/format-document.gif)
 
 #### Language Server Protocol
 
@@ -771,7 +771,7 @@ You should always return the smallest possible text edits that result in the cod
 
 Provide users with support for formatting a selected range of lines in a document.
 
-![Document Formatting at Work](./images/language-support/format-document-range.gif)
+![Document Formatting at Work](images/language-support/format-document-range.gif)
 
 #### Language Server Protocol
 
@@ -819,7 +819,7 @@ Provide users with support for formatting text as the user types.
 
 **Note**: The user setting `editor.formatOnType` controls whether source code gets formatted or not as the user types.
 
-![Document Formatting at Work](./images/language-support/format-on-type.gif)
+![Document Formatting at Work](images/language-support/format-on-type.gif)
 
 #### Language Server Protocol
 
