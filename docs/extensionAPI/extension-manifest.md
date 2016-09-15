@@ -153,9 +153,9 @@ There are several optional links (`bugs`, `homepage`, `repository`) you can set 
 
 Marketplace Resources link | package.json attribute
 -----------------|-----------------------
-Support | `bugs:url`
-Get Started | `repository:url`
-Learn | `homepage`
+Issues | `bugs:url`
+Repository | `repository:url`
+Homepage | `homepage`
 License | `license`
 
 Set a `category` for your extension.  Extensions in the same `category` are grouped together on the Marketplace which improves filtering and discovery.
