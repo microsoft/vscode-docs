@@ -19,9 +19,9 @@ A language server is a stand-alone server that speaks the language server protoc
 
 Besides the implementation language, you have flexibility in deciding which parts of the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) your language server implements. The only thing you have to make sure is that your server correctly announces its capabilities in response to the `initialize` method.
 
-However, the language server architecture is not the only possible way to implement your extension. You can also implement the various language support features directly in your extension.
+However, the language server architecture is not the only possible way to implement your extension. You can also implement the various language features directly in your extension and we show those in a **Direct Implementaion** section.
 
-In order to make it easier for you to decide what to implement first and what to improve later on we list the various support features below with examples of how they are exposed to users and to which classes and methods or language server protocol messages they map to.
+In order to make it easier for you to decide what to implement first and what to improve later on we list the various support features below with examples of how they are exposed to users and to which classes and methods or language server protocol messages they map to.  Also included is guidance on the **Basic** support required as well as descriptions of **Advanced** feature implementation.
 
 After that we'll list some methods that are available to manager the state in your extension.
 
@@ -50,13 +50,14 @@ language in its `package.json` file.
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Start with a simple grammar that supports colorization of strings, comments, keywords, etc.
 
-Start with a simple grammar that supports colorization of strings, comments, keywords, etc.
 
-#### Advanced
-
-Provide a grammar that understands terms and expressions and thus supports colorization of variables and function references etc.
+>**Advanced**
+>
+>Provide a grammar that understands terms and expressions and thus supports colorization of variables and function references etc.
 
 ## Provide Out-Of-The-Box Code Snippets
 
@@ -75,34 +76,33 @@ With code snippets, you can provide useful code templates with placeholders. You
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Provide snippets with placeholders such as this example for `markdown`:
+>
+>```json
+>"Insert ordered list": {
+>    "prefix": "ordered list",
+>    "body": [
+>        "1. ${first}",
+>        "2. ${second}",
+>        "3. ${third}",
+>        "$0"
+>    ],
+>    "description": "Insert ordered list"
+>}
+>```
 
-Provide snippets with placeholders such as this example for `markdown`:
-
-```json
-"Insert ordered list": {
-    "prefix": "ordered list",
-    "body": [
-        "1. ${first}",
-        "2. ${second}",
-        "3. ${third}",
-        "$0"
-    ],
-    "description": "Insert ordered list"
-}
-```
-
-#### Advanced
-
-Provide snippets that use explicit tab stops to guide the user and use nested placeholders such
-as this example for `groovy`
-
-```json
-"key: \"value\" (Hash Pair)": {
-        "prefix": "key",
-        "body": "${1:key}: ${2:\"${3:value}\"}"
-    }
-```
+>**Advanced**
+>
+>Provide snippets that use explicit tab stops to guide the user and use nested placeholders such as this example for `groovy`
+>
+>```json
+>"key: \"value\" (Hash Pair)": {
+>        "prefix": "key",
+>        "body": "${1:key}: ${2:\"${3:value}\"}"
+>    }
+>```
 
 ## Support Smart Editing
 
@@ -123,46 +123,46 @@ You can provide a language configuration in your extension's `package.json` file
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>None
 
-None
-
-#### Advanced
-
-Here is an example from `TypeScript`:
-
-```json
-{
-    "comments": {
-        "lineComment": "//",
-        "blockComment": [ "/*", "*/" ]
-    },
-    "brackets": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        ["<", ">"]
-    ],
-    "autoClosingPairs": [
-        { "open": "{", "close": "}" },
-        { "open": "[", "close": "]" },
-        { "open": "(", "close": ")" },
-        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
-        { "open": "\"", "close": "\"", "notIn": ["string"] },
-        { "open": "`", "close": "`", "notIn": ["string", "comment"] },
-        { "open": "/**", "close": " */", "notIn": ["string"] }
-    ],
-    "surroundingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
-        ["<", ">"],
-        ["'", "'"],
-        ["\"", "\""],
-        ["`", "`"]
-    ]
-}
-```
+>**Advanced**
+>
+>Here is an example from `TypeScript`:
+>
+>```json
+>{
+>    "comments": {
+>        "lineComment": "//",
+>        "blockComment": [ "/*", "*/" ]
+>    },
+>    "brackets": [
+>        ["{", "}"],
+>        ["[", "]"],
+>        ["(", ")"],
+>        ["<", ">"]
+>    ],
+>    "autoClosingPairs": [
+>        { "open": "{", "close": "}" },
+>        { "open": "[", "close": "]" },
+>        { "open": "(", "close": ")" },
+>        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+>        { "open": "\"", "close": "\"", "notIn": ["string"] },
+>        { "open": "`", "close": "`", "notIn": ["string", "comment"] },
+>        { "open": "/**", "close": " */", "notIn": ["string"] }
+>    ],
+>    "surroundingPairs": [
+>        ["{", "}"],
+>        ["[", "]"],
+>        ["(", ")"],
+>        ["<", ">"],
+>        ["'", "'"],
+>        ["\"", "\""],
+>        ["`", "`"]
+>    ]
+>}
+>```
 
 ## Show Hovers
 
@@ -202,13 +202,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Show type information and include document if available.
 
-Show type information and include document if available.
-
-#### Advanced
-
-Colorize method signatures in the same style you colorize the code.
+>**Advanced**
+>
+>Colorize method signatures in the same style you colorize the code.
 
 ## Show Code Completion Proposals
 
@@ -252,17 +252,16 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>You don't support resolve providers. Completions are computed based on the state saved on disk.
 
-You don't support resolve providers. Completions are computed based on the state saved on disk.
-
-#### Advanced
-
-Completion items are computed based on the un-saved contents of current open editors. You support resolve
-providers that compute additional information for completion proposal the user selects, This information is
-being displayed along-side with the selected item.
+>**Advanced**
+>
+>Completion items are computed based on the un-saved contents of current open editors. You support resolve providers that compute additional information for completion proposal the user selects, This information is being displayed along-side with the selected item.
 
 ## Provide Diagnostics
+
 Diagnostics are a way to indicate issues with the code.
 
 ![Diagnostics at Work](images/language-support/diagnostics.gif)
@@ -308,14 +307,14 @@ function onChange() {
 }
 ```
 
-#### Basic
-
-Report diagnostics for open editors. Minimally, this needs to happen on every save. Better, diagnostics should be computed based on the un-saved contents of
+>**Basic**
+>
+>Report diagnostics for open editors. Minimally, this needs to happen on every save. Better, diagnostics should be computed based on the un-saved contents of
 the editor.
 
-#### Advanced
-
-Report diagnostics not only for the open editors but for all resources in the open folder, no matter whether they have ever been opened in an editor or not.
+>**Advanced**
+>
+>Report diagnostics not only for the open editors but for all resources in the open folder, no matter whether they have ever been opened in an editor or not.
 
 ## Help With Function and Method Signatures
 
@@ -356,14 +355,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Ensure that the signature help contains the documentation of the parameters of the function or method.
 
-Ensure that the signature help contains the documentation of the parameters
-of the function or method.
-
-#### Advanced
-
-Nothing additional.
+>**Advanced**
+>
+>Nothing additional.
 
 ## Show Definitions of a Symbol
 
@@ -385,6 +383,7 @@ that it provides goto-definition locations.
     }
 }
 ```
+
 In addition, your language server needs to respond to `textDocument/definition`.
 
 #### Direct Implementation
@@ -402,13 +401,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>If a symbol is ambivalent, you can show multiple definitions.
 
-If a symbol is ambivalent, you can show multiple definitions.
-
-#### Advanced
-
-Nothing additional.
+>**Advanced**
+>
+>Nothing additional.
 
 ## Find All References to a Symbol
 
@@ -431,6 +430,7 @@ that it provides symbol reference locations.
     }
 }
 ```
+
 In addition, your language server needs to respond to `textDocument/references`.
 
 #### Direct Implementation
@@ -448,13 +448,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Return the location (resource URI and range) for all references.
 
-Return the location (resource URI and range) for all references.
-
-#### Advanced
-
-Nothing additional.
+>**Advanced**
+>
+>Nothing additional.
 
 ## Highlight All Occurrences of a Symbol in a Document
 
@@ -493,14 +493,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>You return the ranges in the editor's document where the references are being found.
 
-You return the ranges in the editor's document where the
-references are being found.
-
-#### Advanced
-
-Nothing additional.
+>**Advanced**
+>
+>Nothing additional.
 
 ## Show all Symbol Definitions Within a Document
 
@@ -539,14 +538,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Return all symbols in the document. Define the kinds of symbols such as variables, functions, classes, methods, etc.
 
-Return all symbols in the document. Define the kinds of symbols such as variables,
-functions, classes, methods, etc.
-
-#### Advanced
-
-Nothing additional.
+>**Advanced**
+>
+>Nothing additional.
 
 ## Show all All Symbol Definitions in Folder
 
@@ -586,14 +584,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Return all symbols define by the code within the folder opened in VS Code. Define the kinds of symbols such as variables, functions, classes, methods, etc.
 
-Return all symbols define by the code within the folder opened in VS Code. Define the kinds of symbols such as variables,
-functions, classes, methods, etc.
-
-#### Advanced
-
-Nothing additional.
+>**Advanced**
+>
+>Nothing additional.
 
 ## Possible Actions on Errors or Warnings
 
@@ -633,13 +630,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Provide code actions for error/warning correcting actions.
 
-Provide code actions for error/warning correcting actions.
-
-#### Advanced
-
-In addition, provide code manipulation actions such as refactoring. For example, `Extract Method`.
+>**Advanced**
+>
+>In addition, provide code manipulation actions such as refactoring. For example, `Extract Method`.
 
 ## Code Lens - Show Actionable Context Information Within Code
 
@@ -667,15 +664,14 @@ In addition, your language server needs to respond to `textDocument/codeLens`.
 
 #### Direct Implementation
 
-TBD
 
-#### Basic
+>**Basic**
+>
+>Don't provide any CodeLens results.
 
-Don't provide any CodeLens results.
-
-#### Advanced
-
-Define the CodeLens results that are available for a document. Bind the CodeLens to its command by responding to `codeLens/resolve`.
+>**Advanced**
+>
+>Define the CodeLens results that are available for a document. Bind the CodeLens to its command by responding to `codeLens/resolve`.
 
 ## Rename Symbols
 
@@ -714,13 +710,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Don't provide rename support.
 
-Don't provide rename support.
-
-#### Advanced
-
-Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
+>**Advanced**
+>
+>Return the list of all workspace edits that need to be performed, for example all edits across all files that contain references to the symbol.
 
 ## Format the Code in an Editor
 
@@ -759,13 +755,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Don't provide formatting support.
 
-Don't provide formatting support.
-
-#### Advanced
-
-You should always return the smallest possible text edits that result in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted correctly and are not being lost.
+>**Advanced**
+>
+>You should always return the smallest possible text edits that result in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted correctly and are not being lost.
 
 ## Format the Selected Lines in an Editor
 
@@ -791,6 +787,7 @@ In addition, your language server needs to respond to `textDocument/rangeFormatt
 
 #### Direct Implementation
 
+```typescript
 class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProvider{
  public provideDocumentRangeFormattingEdits(document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token: vscode.CancellationToken): Thenable<vscode.TextEdit[]>;
   ...
@@ -803,15 +800,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Don't provide formatting support.
 
-Don't provide formatting support.
-
-#### Advanced
-
-You should always return the smallest possible text edits that result
-in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc.
-are adjusted corrected and are not being lost.
+>**Advanced**
+>
+>You should always return the smallest possible text edits that result in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted corrected and are not being lost.
 
 ## Incrementally Format Code as the User Types
 
@@ -856,15 +851,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 }
 ```
 
-#### Basic
+>**Basic**
+>
+>Don't provide formatting support.
 
-Don't provide formatting support.
-
-#### Advanced
-
-You should always return the smallest possible text edits that result
-in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc.
-are adjusted corrected and are not being lost.
+>**Advanced**
+>
+>You should always return the smallest possible text edits that result in the code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted corrected and are not being lost.
 
 
 
