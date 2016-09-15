@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 4
 Area: extensions
 TOCTitle: Example-Language Server
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03

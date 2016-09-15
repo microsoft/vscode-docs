@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 6
 Area: extensions
 TOCTitle: Principles and Patterns
 ContentId: 36C1E34B-2F41-4AA0-9443-015D92EF85FB
