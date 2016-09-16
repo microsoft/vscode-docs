@@ -13,7 +13,7 @@ MetaDescription: Visual Studio Code language extensions contribute new programmi
 When you hear about a language being supported in VS Code, you usually think first of syntax highlighting, code completion, and if applicable,
 debugging support. This is a good start, but language extensions can do a lot more.
 
-Through configuration files, an extension can support syntax highlighting, snippets, and some smart editing features. For more advanced features, your extension needs can integrate directly with VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) and the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md).
+Through configuration files, an extension can support syntax highlighting, snippets, and some smart editing features. For more advanced features, your extension needs to extend VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) or it can provide a [language server](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md).
 
 A language server is a stand-alone server that speaks the language server protocol. You can implement the server in the language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript you can build on top of our [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
 
