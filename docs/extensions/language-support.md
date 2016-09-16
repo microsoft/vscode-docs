@@ -61,7 +61,7 @@ language in its `package.json` file.
 
 ![Snippets at work](images/language-support/snippets.gif)
 
-With code snippets, you can provide useful source code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file.
+With code snippets, you can provide useful source code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file. You can learn about VS Code's snippet schema in [Creating Your Own Snippets](/docs/customization/userdefinedsnippets.md#creating-your-own-snippets).
 
 ```json
 "contributes": {
@@ -164,7 +164,7 @@ You can provide a language configuration in your extension's `package.json` file
 
 ## Show Hovers
 
-Hovers show information about the symbol/object that's below the mouse cursor. This usually is the type of the symbol including some documentation.
+Hovers show information about the symbol/object that's below the mouse cursor. This is usually the type of the symbol and a description.
 
 ![Hovers at Work](images/language-support/hovers.gif)
 
@@ -182,7 +182,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/hover`.
+In addition, your language server needs to respond to the `textDocument/hover` request.
 
 #### Direct Implementation
 
@@ -242,16 +242,16 @@ class GoCompletionItemProvider implements vscode.CompletionItemProvider {
     public provideCompletionItems(
         document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken):
         Thenable<vscode.CompletionItem[]> {
-        ...
+    ...
     }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
-     ...
+    ...
     ctx.subscriptions.push(getDisposable());
     ctx.subscriptions.push(
-    vscode.languages.registerCompletionItemProvider(
-        GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
+        vscode.languages.registerCompletionItemProvider(
+            GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
     ...
 }
 ```
@@ -296,7 +296,7 @@ function onChange() {
         let diagnosticMap: Map<string, vscode.Diagnostic[]> = new Map();
         errors.forEach(error => {
             let canonicalFile = vscode.Uri.file(error.file).toString();
-            let range = new vscode.Range(error.line - 1, error.startColumn, error.line - 1, error.endColumn);
+            let range = new vscode.Range(error.line-1, error.startColumn, error.line-1, error.endColumn);
             let diagnostics = diagnosticMap.get(canonicalFile);
             if (!diagnostics) { diagnostics = []; }
             diagnostics.push(new vscode.Diagnostic(range, error.msg, error.severity));
@@ -340,7 +340,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/signatureHelp`.
+In addition, your language server needs to respond to the `textDocument/signatureHelp` request.
 
 #### Direct Implementation
 
@@ -349,15 +349,16 @@ class GoSignatureHelpProvider implements SignatureHelpProvider {
     public provideSignatureHelp(
         document: TextDocument, position: Position, token: CancellationToken):
         Promise<SignatureHelp> {
-        ...
+    ...
     }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
+    ...
     ctx.subscriptions.push(
         vscode.languages.registerSignatureHelpProvider(
             GO_MODE, new GoSignatureHelpProvider(), '(', ','));
+    ...
 }
 ```
 
@@ -389,7 +390,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/definition`.
+In addition, your language server needs to respond to the `textDocument/definition` request.
 
 #### Direct Implementation
 
@@ -399,7 +400,7 @@ class GoDefinitionProvider implements vscode.DefinitionProvider {
         document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken):
         Thenable<vscode.Location> {
     ...
- }
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
@@ -407,6 +408,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
     ctx.subscriptions.push(
         vscode.languages.registerDefinitionProvider(
             GO_MODE, new GoDefinitionProvider()));
+    ...
 }
 ```
 
@@ -438,16 +440,17 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/references`.
+In addition, your language server needs to respond to the `textDocument/references` request.
 
 #### Direct Implementation
 
 ```typescript
 class GoReferenceProvider implements vscode.ReferenceProvider {
     public provideReferences(
-        document: vscode.TextDocument, position: vscode.Position, options: { includeDeclaration: boolean }, token: vscode.CancellationToken):
+        document: vscode.TextDocument, position: vscode.Position,
+        options: { includeDeclaration: boolean }, token: vscode.CancellationToken):
         Thenable<vscode.Location[]> {
-        ...
+    ...
     }
 }
 
@@ -456,6 +459,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
     ctx.subscriptions.push(
         vscode.languages.registerReferenceProvider(
             GO_MODE, new GoReferenceProvider()));
+    ...
 }
 ```
 
@@ -487,7 +491,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/documentHighlight`.
+In addition, your language server needs to respond to the `textDocument/documentHighlight` request.
 
 #### Direct Implementation
 
@@ -496,7 +500,7 @@ class GoDocumentHighlightProvider implements vscode.DocumentHighlightProvider {
     public provideDocumentHighlights(
         document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken):
         vscode.DocumentHighlight[] | Thenable<vscode.DocumentHighlight[]>;
-        ...
+    ...
     }
 }
 
@@ -505,6 +509,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
     ctx.subscriptions.push(
         vscode.languages.registerDocumentHighlightProvider(
             GO_MODE, new GoDocumentHighlightProvider()));
+    ...
 }
 ```
 
@@ -536,7 +541,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/documentSymbol`.
+In addition, your language server needs to respond to the `textDocument/documentSymbol` request.
 
 #### Direct Implementation
 
@@ -545,8 +550,8 @@ class GoDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
     public provideDocumentSymbols(
         document: vscode.TextDocument, token: vscode.CancellationToken):
         Thenable<vscode.SymbolInformation[]> {
-        ...
-        }
+    ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
@@ -554,6 +559,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
     ctx.subscriptions.push(
         vscode.languages.registerDocumentSymbolProvider(
             GO_MODE, new GoDocumentSymbolProvider()));
+    ...
 }
 ```
 
@@ -585,7 +591,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `workspace/symbol`.
+In addition, your language server needs to respond to the `workspace/symbol` request.
 
 #### Direct Implementation
 
@@ -594,7 +600,7 @@ class GoWorkspaceSymbolProvider implements vscode.WorkspaceSymbolProvider {
     public provideWorkspaceSymbols(
         query: string, token: vscode.CancellationToken):
         Thenable<vscode.SymbolInformation[]> {
-        ...
+    ...
     }
 }
 
@@ -603,6 +609,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
     ctx.subscriptions.push(
         vscode.languages.registerWorkspaceSymbolProvider(
             new GoWorkspaceSymbolProvider()));
+    ...
 }
 ```
 
@@ -634,14 +641,15 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/codeAction`.
+In addition, your language server needs to respond to the `textDocument/codeAction` request.
 
 #### Direct Implementation
 
 ```typescript
 class GoCodeActionProvider implements vscode.CodeActionProvider {
     public provideCodeActions(
-        document: vscode.TextDocument, range: vscode.Range, context: vscode.CodeActionContext, token: vscode.CancellationToken):
+        document: vscode.TextDocument, range: vscode.Range,
+        context: vscode.CodeActionContext, token: vscode.CancellationToken):
         Thenable<vscode.Command[]> {
     ...
     }
@@ -652,6 +660,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
     ctx.subscriptions.push(
         vscode.languages.registerCodeActionsProvider(
             GO_MODE, new GoCodeActionProvider()));
+    ...
 }
 ```
 
@@ -685,7 +694,7 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/codeLens`.
+In addition, your language server needs to respond to the `textDocument/codeLens` request.
 
 #### Direct Implementation
 
@@ -718,17 +727,18 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/rename`.
+In addition, your language server needs to respond to the `textDocument/rename` request.
 
 #### Direct Implementation
 
 ```typescript
 class GoRenameProvider implements vscode.RenameProvider {
- public provideRenameEdits(
-     document: vscode.TextDocument, position: vscode.Position, newName: string, token: vscode.CancellationToken):
-     Thenable<vscode.WorkspaceEdit> {
-  ...
- }
+    public provideRenameEdits(
+        document: vscode.TextDocument, position: vscode.Position,
+        newName: string, token: vscode.CancellationToken):
+        Thenable<vscode.WorkspaceEdit> {
+    ...
+    }
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
@@ -767,16 +777,15 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/formatting`.
+In addition, your language server needs to respond to the `textDocument/formatting` request.
 
 #### Direct Implementation
 
 ```typescript
 class GoDocumentFormatter implements vscode.DocumentFormattingEditProvider {
-    public formatDocument(
-        document: vscode.TextDocument):
+    public formatDocument(document: vscode.TextDocument):
         Thenable<vscode.TextEdit[]> {
-        ...
+    ...
     }
 }
 
@@ -816,14 +825,15 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/rangeFormatting`.
+In addition, your language server needs to respond to the `textDocument/rangeFormatting` request.
 
 #### Direct Implementation
 
 ```typescript
 class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProvider{
     public provideDocumentRangeFormattingEdits(
-        document: vscode.TextDocument, range: vscode.Range, options: vscode.FormattingOptions, token: vscode.CancellationToken):
+        document: vscode.TextDocument, range: vscode.Range,
+        options: vscode.FormattingOptions, token: vscode.CancellationToken):
         Thenable<vscode.TextEdit[]>;
     ...
     }
@@ -871,14 +881,15 @@ In the response to the `initialize` method, your language server needs to announ
 }
 ```
 
-In addition, your language server needs to respond to `textDocument/onTypeFormatting`.
+In addition, your language server needs to respond to the `textDocument/onTypeFormatting` request.
 
 #### Direct Implementation
 
 ```typescript
 class GoOnTypingFormatter implements vscode.OnTypeFormattingEditProvider{
     public provideOnTypeFormattingEdits(
-        document: vscode.TextDocument, position: vscode.Position, ch: string, options: vscode.FormattingOptions, token: vscode.CancellationToken):
+        document: vscode.TextDocument, position: vscode.Position,
+        ch: string, options: vscode.FormattingOptions, token: vscode.CancellationToken):
         Thenable<vscode.TextEdit[]>;
     ...
     }
