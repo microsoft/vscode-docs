@@ -13,11 +13,11 @@ MetaDescription: Visual Studio Code language extensions contribute new programmi
 When you hear about a language being supported in VS Code, you usually think first of syntax highlighting, code completion, and if applicable,
 debugging support. This is a good start, but language extensions can do a lot more.
 
-Through configuration files, an extension can support syntax highlighting, snippets, and some smart editing features. For more advanced features, your extension needs can integrate directly with VS Code through its extensibility [APIs](/docs/extensionAPI/vscode-api.md) and [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md).
+Through configuration files, an extension can support syntax highlighting, snippets, and some smart editing features. For more advanced features, your extension needs can integrate directly with VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) and the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md).
 
 A language server is a stand-alone server that speaks the language server protocol. You can implement the server in the language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript you can build on top of our [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
 
-Besides the implementation language, you have flexibility in deciding which parts of the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) your language server implements. The only thing you have to make sure is that your server correctly announces its capabilities in response to the initialize` method.
+Besides the implementation language, you have flexibility in deciding which parts of the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) your language server implements. The only thing you have to make sure is that your server correctly announces its capabilities in response to the [initialize](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#initialize-request) method.
 
 However, the language server architecture is not the only possible way to implement your extension. You can also implement the various language features directly in your extension. In the guidelines below we show both the language server protocol approach (configuration and required events) and follow with a **Direct Implementation** section showing how to programatically register various language feature providers (ex. `registerHoverProvider`).
 
@@ -198,7 +198,8 @@ class GoHoverProvider implements HoverProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerHoverProvider(GO_MODE, new GoHoverProvider()));
+        vscode.languages.registerHoverProvider(
+            GO_MODE, new GoHoverProvider()));
     ...
 }
 ```
@@ -249,7 +250,8 @@ export function activate(ctx: vscode.ExtensionContext): void {
      ...
     ctx.subscriptions.push(getDisposable());
     ctx.subscriptions.push(
-    vscode.languages.registerCompletionItemProvider(GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
+    vscode.languages.registerCompletionItemProvider(
+        GO_MODE, new GoCompletionItemProvider(), '.', '\"'));
     ...
 }
 ```
@@ -354,7 +356,8 @@ class GoSignatureHelpProvider implements SignatureHelpProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
  ...
     ctx.subscriptions.push(
-        vscode.languages.registerSignatureHelpProvider(GO_MODE, new GoSignatureHelpProvider(), '(', ','));
+        vscode.languages.registerSignatureHelpProvider(
+            GO_MODE, new GoSignatureHelpProvider(), '(', ','));
 }
 ```
 
@@ -402,7 +405,8 @@ class GoDefinitionProvider implements vscode.DefinitionProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerDefinitionProvider(GO_MODE, new GoDefinitionProvider()));
+        vscode.languages.registerDefinitionProvider(
+            GO_MODE, new GoDefinitionProvider()));
 }
 ```
 
@@ -450,7 +454,8 @@ class GoReferenceProvider implements vscode.ReferenceProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerReferenceProvider(GO_MODE, new GoReferenceProvider()));
+        vscode.languages.registerReferenceProvider(
+            GO_MODE, new GoReferenceProvider()));
 }
 ```
 
@@ -498,7 +503,8 @@ class GoDocumentHighlightProvider implements vscode.DocumentHighlightProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerDocumentHighlightProvider(GO_MODE, new GoDocumentHighlightProvider()));
+        vscode.languages.registerDocumentHighlightProvider(
+            GO_MODE, new GoDocumentHighlightProvider()));
 }
 ```
 
@@ -546,7 +552,8 @@ class GoDocumentSymbolProvider implements vscode.DocumentSymbolProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerDocumentSymbolProvider(GO_MODE, new GoDocumentSymbolProvider()));
+        vscode.languages.registerDocumentSymbolProvider(
+            GO_MODE, new GoDocumentSymbolProvider()));
 }
 ```
 
@@ -594,7 +601,8 @@ class GoWorkspaceSymbolProvider implements vscode.WorkspaceSymbolProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerWorkspaceSymbolProvider(new GoWorkspaceSymbolProvider()));
+        vscode.languages.registerWorkspaceSymbolProvider(
+            new GoWorkspaceSymbolProvider()));
 }
 ```
 
@@ -642,7 +650,8 @@ class GoCodeActionProvider implements vscode.CodeActionProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     ctx.subscriptions.push(
-        vscode.languages.registerCodeActionsProvider(GO_MODE, new GoCodeActionProvider()));
+        vscode.languages.registerCodeActionsProvider(
+            GO_MODE, new GoCodeActionProvider()));
 }
 ```
 
@@ -723,9 +732,10 @@ class GoRenameProvider implements vscode.RenameProvider {
 }
 
 export function activate(ctx: vscode.ExtensionContext): void {
- ...
- context.subscriptions.push(
-     vscode.languages.registerRenameProvider(GO_MODE, new GoRenameProvider()));
+    ...
+    context.subscriptions.push(
+        vscode.languages.registerRenameProvider(
+            GO_MODE, new GoRenameProvider()));
 }
 ```
 
@@ -773,7 +783,8 @@ class GoDocumentFormatter implements vscode.DocumentFormattingEditProvider {
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     context.subscriptions.push(
-        vscode.languages.registerDocumentFormattingEditProvider(GO_MODE, new GoDocumentFormatter()));
+        vscode.languages.registerDocumentFormattingEditProvider(
+            GO_MODE, new GoDocumentFormatter()));
 }
 ```
 
@@ -821,7 +832,8 @@ class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProv
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     context.subscriptions.push(
-        vscode.languages.registerDocumentRangeFormattingEditProvider(GO_MODE, new GoDocumentRangeFormatter()));
+        vscode.languages.registerDocumentRangeFormattingEditProvider(
+            GO_MODE, new GoDocumentRangeFormatter()));
 }
 ```
 
@@ -875,7 +887,8 @@ class GoOnTypingFormatter implements vscode.OnTypeFormattingEditProvider{
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
     context.subscriptions.push(
-        vscode.languages.registerOnTypeFormattingEditProvider(GO_MODE, new GoOnTypingFormatter()));
+        vscode.languages.registerOnTypeFormattingEditProvider(
+            GO_MODE, new GoOnTypingFormatter()));
 }
 ```
 
