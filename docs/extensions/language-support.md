@@ -13,15 +13,19 @@ MetaDescription: Visual Studio Code language extensions contribute new programmi
 When you hear about a language being supported in VS Code, you usually think first of syntax highlighting, code completion, and if applicable,
 debugging support. This is a good start, but language extensions can do a lot more.
 
-Through configuration files, an extension can support syntax highlighting, snippets, and some smart editing features. For more advanced features, your extension needs to extend VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) or it can provide a [language server](/docs/extensions/example-language-server).
+With just configuration files, an extension can support syntax highlighting, snippets, and smart bracket matching. For more advanced language features, you need to extend VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) or by providing a [language server](/docs/extensions/example-language-server).
 
-A language server is a stand-alone server that speaks the language server protocol. You can implement the server in the language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript you can build on top of our [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
+A language server is a stand-alone server that speaks the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md). You can implement the server in the language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript, you can build on top of the VS Code [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
 
-Besides the implementation language, you have flexibility in deciding which parts of the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) your language server implements. The only thing you have to make sure is that your server correctly announces its capabilities in response to the `initialize` method.
+Besides the implementation language, you have flexibility in deciding which parts of the language server protocol your language server implements. Your language server announces its capabilities in response to the protocol's `initialize` method.
 
-However, the language server architecture is not the only possible way to implement your extension. You can also implement the various language features directly in your extension. In the guidelines below we show both the language server protocol approach (configuration and required events) and follow with a **Direct Implementation** section showing how to programatically register various language feature providers (ex. `registerHoverProvider`).
+However, the language server architecture is not the only way to implement language features in an extension. You can also implement features directly in your extension. In the guidelines below, we show both the **Language Server Protocol** approach (configuration and required events) and also a **Direct Implementation** section showing how to programatically register various language feature providers (ex. `registerHoverProvider`).
 
-In order to make it easier for you to decide what to implement first and what to improve later on we list the various support features below with examples of how they are exposed to users and to which classes and methods or language server protocol messages they map to.  Also included is guidance on the **Basic** support required as well as descriptions of **Advanced** feature implementation.
+To make it easier for you to decide what to implement first and what to improve upon later, we show the various features as they appear in VS Code and follow with the classes and methods or language server protocol messages they map to.  Also included is guidance on the **Basic** support required as well as descriptions of **Advanced** implementations.
+
+## Configuration Based Language Support
+
+Syntax highlighting, snippets, and smart bracket matching can be implemented declaratively with configuration files and don't require writing any extension code.
 
 ## Syntax Highlighting
 
@@ -57,7 +61,7 @@ language in its `package.json` file.
 >
 >Provide a grammar that understands terms and expressions and thus supports colorization of variables and function references etc.
 
-## Provide Source Code Snippets
+## Source Code Snippets
 
 ![Snippets at work](images/language-support/snippets.gif)
 
@@ -102,7 +106,7 @@ With code snippets, you can provide useful source code templates with placeholde
 >    }
 >```
 
-## Support Smart Editing
+## Smart Bracket Matching
 
 ![Smart Editing At Work](images/language-support/smart-editing.gif)
 
@@ -161,6 +165,20 @@ You can provide a language configuration in your extension's `package.json` file
 >    ]
 >}
 >```
+
+## Programmatic Language Support
+
+The rest of the language features require writing extension code to handle requests from VS Code. You can implement your language extension as a standalone server implementing the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) or directly register providers in your extension's `activate` method. Both approaches are shown in sections called **Language Server Protocol** and **Direct Implementation**.
+
+The language server protocol approach follows the pattern of describing your server's capabilities in the response to the `initialize` request and then handling specific requests based on the user's actions.
+
+The direct implementation approach requires you register your feature provider when your extension is activated, often providing a `DocumentSelector` to identify the programming languages the provider supports.
+
+In the examples below, the providers are being registered for Go language files.
+
+```typescript
+const GO_MODE: vscode.DocumentFilter = { language: 'go', scheme: 'file' };
+```
 
 ## Show Hovers
 
@@ -698,6 +716,27 @@ In addition, your language server needs to respond to the `textDocument/codeLens
 
 #### Direct Implementation
 
+```typescript
+class GoRCodeLensProvider implements vscode.CodeLensProvider {
+    public provideCodeLenses(document: TextDocument, token: CancellationToken):
+        CodeLens[] | Thenable<CodeLens[]> {
+    ...
+    }
+
+    public resolveCodeLens?(codeLens: CodeLens, token: CancellationToken):
+         CodeLens | Thenable<CodeLens> {
+    ...
+    }
+}
+
+export function activate(ctx: vscode.ExtensionContext): void {
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerCodeLensProvider(
+            GO_MODE, new GoCodeLensProvider()));
+    ...
+}
+```
 
 >**Basic**
 >
@@ -743,9 +782,10 @@ class GoRenameProvider implements vscode.RenameProvider {
 
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
-    context.subscriptions.push(
+    ctx.subscriptions.push(
         vscode.languages.registerRenameProvider(
             GO_MODE, new GoRenameProvider()));
+    ...
 }
 ```
 
@@ -791,9 +831,10 @@ class GoDocumentFormatter implements vscode.DocumentFormattingEditProvider {
 
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
-    context.subscriptions.push(
+    ctx.subscriptions.push(
         vscode.languages.registerDocumentFormattingEditProvider(
             GO_MODE, new GoDocumentFormatter()));
+    ...
 }
 ```
 
@@ -841,9 +882,10 @@ class GoDocumentRangeFormatter implements vscode.DocumentRangeFormattingEditProv
 
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
-    context.subscriptions.push(
+    ctx.subscriptions.push(
         vscode.languages.registerDocumentRangeFormattingEditProvider(
             GO_MODE, new GoDocumentRangeFormatter()));
+    ...
 }
 ```
 
@@ -857,9 +899,9 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Incrementally Format Code as the User Types
 
-Provide users with support for formatting text as the user types.
+Provide users with support for formatting text as they type.
 
-**Note**: The user setting `editor.formatOnType` controls whether source code gets formatted or not as the user types.
+**Note**: The user [setting](/docs/customization/userandworkspace.md) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
 
 ![Document Formatting at Work](images/language-support/format-on-type.gif)
 
@@ -897,9 +939,10 @@ class GoOnTypingFormatter implements vscode.OnTypeFormattingEditProvider{
 
 export function activate(ctx: vscode.ExtensionContext): void {
     ...
-    context.subscriptions.push(
+    ctx.subscriptions.push(
         vscode.languages.registerOnTypeFormattingEditProvider(
             GO_MODE, new GoOnTypingFormatter()));
+    ...
 }
 ```
 
