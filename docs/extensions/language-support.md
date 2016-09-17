@@ -25,7 +25,7 @@ To make it easier for you to decide what to implement first and what to improve 
 
 ## Configuration Based Language Support
 
-Syntax highlighting, snippets, and smart bracket matching can be implemented declaratively with configuration files and don't require writing any extension code.
+[Syntax highlighting](/docs/extensions/language-support.md#syntax-highlighting), [snippets](/docs/extensions/language-support.md#source-code-snippets), and [smart bracket matching](/docs/extensions/language-support.md#smart-bracket-matching) can be implemented declaratively with configuration files and don't require writing any extension code.
 
 ## Syntax Highlighting
 
@@ -168,7 +168,7 @@ You can provide a language configuration in your extension's `package.json` file
 
 ## Programmatic Language Support
 
-The rest of the language features require writing extension code to handle requests from VS Code. You can implement your language extension as a standalone server implementing the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) or directly register providers in your extension's `activate` method. Both approaches are shown in sections called **Language Server Protocol** and **Direct Implementation**.
+The rest of the language features require writing extension code to handle requests from VS Code. You can implement your language extension as a standalone server implementing the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) or directly register providers in your extension's `activate` method. Both approaches are shown in sections called **LANGUAGE SERVER PROTOCOL** and **DIRECT IMPLEMENTATION**.
 
 The language server protocol approach follows the pattern of describing your server's capabilities in the response to the `initialize` request and then handling specific requests based on the user's actions.
 
@@ -300,30 +300,30 @@ Your language server send the `textDocument/publishDiagnostics` message to the l
 let diagnosticCollection: vscode.DiagnosticCollection;
 
 export function activate(ctx: vscode.ExtensionContext): void {
-    ...
-    ctx.subscriptions.push(getDisposable());
-    diagnosticCollection = vscode.languages.createDiagnosticCollection('go');
-    ctx.subscriptions.push(diagnosticCollection);
-    ...
+  ...
+  ctx.subscriptions.push(getDisposable());
+  diagnosticCollection = vscode.languages.createDiagnosticCollection('go');
+  ctx.subscriptions.push(diagnosticCollection);
+  ...
 }
 
 function onChange() {
-    let uri = document.uri;
-    check(uri.fsPath, goConfig).then(errors => {
-        diagnosticCollection.clear();
-        let diagnosticMap: Map<string, vscode.Diagnostic[]> = new Map();
-        errors.forEach(error => {
-            let canonicalFile = vscode.Uri.file(error.file).toString();
-            let range = new vscode.Range(error.line-1, error.startColumn, error.line-1, error.endColumn);
-            let diagnostics = diagnosticMap.get(canonicalFile);
-            if (!diagnostics) { diagnostics = []; }
-            diagnostics.push(new vscode.Diagnostic(range, error.msg, error.severity));
-            diagnosticMap.set(canonicalFile, diagnostics);
-        });
-        diagnosticMap.forEach((diags, file) => {
-            diagnosticCollection.set(vscode.Uri.parse(file), diags);
-        });
-    })
+  let uri = document.uri;
+  check(uri.fsPath, goConfig).then(errors => {
+    diagnosticCollection.clear();
+    let diagnosticMap: Map<string, vscode.Diagnostic[]> = new Map();
+    errors.forEach(error => {
+      let canonicalFile = vscode.Uri.file(error.file).toString();
+      let range = new vscode.Range(error.line-1, error.startColumn, error.line-1, error.endColumn);
+      let diagnostics = diagnosticMap.get(canonicalFile);
+      if (!diagnostics) { diagnostics = []; }
+      diagnostics.push(new vscode.Diagnostic(range, error.msg, error.severity));
+      diagnosticMap.set(canonicalFile, diagnostics);
+    });
+    diagnosticMap.forEach((diags, file) => {
+      diagnosticCollection.set(vscode.Uri.parse(file), diags);
+    });
+  })
 }
 ```
 
