@@ -389,6 +389,8 @@ The following language features are currently supported in a language server alo
 * _Document Formatting_: this includes formatting of whole documents, document ranges and formatting on type.
 * _Rename_: project-wide rename of a symbol.
 
+The [Language Extension Guidelines](/docs/extensions/language-support.md) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
+
 ## Incremental Text Document Synchronization
 
 The example uses the simple text document manager provided by the `vscode-languageserver` module to synchronize documents between VS Code and the language server.
@@ -443,6 +445,7 @@ connection.onDidCloseTextDocument((params) => {
 To learn more about VS Code extensibility model, try these topic:
 
 * [vscode API Reference](/docs/extensionAPI/vscode-api.md) - Learn about deep language integration with VS Code language services.
+* [Language Extension Guideline](/docs/extensions/language-support.md) - A guide to implementing VS Code's rich language features.
 
 ## Common Questions
 
