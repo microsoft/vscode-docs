@@ -14,12 +14,12 @@ In Visual Studio Code, we have support for many programming languages out of the
 
 <div class="marketplace-extensions-languages"></div>
 
-## What Languages are Supported
+## Language Specific Documentaion/Tips Languages are Supported
 
-Batch - [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - Clojure - Coffee Script - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - F# - Go - Groovy - HandleBars - [HTML](/docs/languages/html.md) - Ini - Jade - Java - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) - Lua - Makefile - 
-[Markdown](/docs/languages/markdown.md) - Objective-C - Pascal - Perl  - [PHP](/docs/languages/php.md) - PowerShell - [Python](/docs/languages/python.md) - R - Razor - Ruby - Rust - [Sass](/docs/languages/css.md) - Scala - SQL - Swift - [TypeScript](/docs/languages/typescript.md) - Visual Basic - XML
+On this site we have a bumber of documents outlining specific language support.  These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - [HTML](/docs/languages/html.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
+[Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [Python](/docs/languages/python.md) - [Sass](/docs/languages/css.md) - [TypeScript](/docs/languages/typescript.md).
 
->Click on any linked item to get an overview of how to use VS Code in the context of that language.
+Click on any linked item to get an overview of how to use VS Code in the context of that language.  Most extensions also contain a summary of there core features as well.
 
 ## Language Features in VS Code
 
