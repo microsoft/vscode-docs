@@ -15,24 +15,27 @@ debugging support. This is a good start, but language extensions can do a lot mo
 
 With just configuration files, an extension can support syntax highlighting, snippets, and smart bracket matching. For more advanced language features, you need to extend VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) or by providing a [language server](/docs/extensions/example-language-server).
 
-A language server is a stand-alone server that speaks the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md). You can implement the server in the language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript, you can build on top of the VS Code [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
+A language server is a stand-alone server that speaks the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md). You can implement the server in the programming language that is best suited for the task. For example, if there are good libraries written in Python for the language you want to support, you might want to consider implementing your language server in Python. If you choose to implement your language server in JavaScript or TypeScript, you can build on top of the VS Code [npm modules](https://github.com/Microsoft/vscode-languageserver-node).
 
 Besides the implementation language, you have flexibility in deciding which parts of the language server protocol your language server implements. Your language server announces its capabilities in response to the protocol's `initialize` method.
 
-However, the language server architecture is not the only way to implement language features in an extension. You can also implement features directly in your extension. In the guidelines below, we show both the **Language Server Protocol** approach (configuration and required events) and also a **Direct Implementation** section showing how to programatically register various language feature providers (ex. `registerHoverProvider`).
+However, the language server architecture is not the only way to provide language features in an extension. You can also implement features directly in your main extension code. In the guidelines below, we show both the **Language Server Protocol** approach (configuration and required events) and also a **Direct Implementation** section showing how to programatically register specific language feature providers (ex. `registerHoverProvider`).
 
-To make it easier for you to decide what to implement first and what to improve upon later, we show the various features as they appear in VS Code and follow with the classes and methods or language server protocol messages they map to.  Also included is guidance on the **Basic** support required as well as descriptions of **Advanced** implementations.
+To make it easier for you to decide what to implement first and what to improve upon later, we show the language features as they appear in VS Code and follow with the classes and methods or language server protocol messages they map to.  Also included is guidance on the **Basic** support required as well as descriptions of **Advanced** implementations.
 
 ## Configuration Based Language Support
 
 [Syntax highlighting](/docs/extensions/language-support.md#syntax-highlighting), [snippets](/docs/extensions/language-support.md#source-code-snippets), and [smart bracket matching](/docs/extensions/language-support.md#smart-bracket-matching) can be implemented declaratively with configuration files and don't require writing any extension code.
 
+### Language identifiers
+
+VS Code maps different language configurations and providers to specific programming languages through a [language identifier](/docs/languages/overview.md#language-id). This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`.
+
 ## Syntax Highlighting
 
 ![syntax highlighting](images/language-support/syntax-highlighting.png)
 
-In order to support syntax highlighting your extension needs to registers a TextMate grammar for its
-language in its `package.json` file.
+In order to support syntax highlighting, your extension needs to registers a TextMate grammar `.tmLanguage` for its language in its `package.json` file.
 
 ```json
 "contributes": {
@@ -54,8 +57,7 @@ language in its `package.json` file.
 
 >**Basic**
 >
->Start with a simple grammar that supports colorization of strings, comments, keywords, etc.
-
+>Start with a simple grammar that supports colorization of strings, comments, and keywords.
 
 >**Advanced**
 >
@@ -97,7 +99,7 @@ With code snippets, you can provide useful source code templates with placeholde
 
 >**Advanced**
 >
->Provide snippets that use explicit tab stops to guide the user and use nested placeholders such as this example for `groovy`
+>Provide snippets that use explicit tab stops to guide the user and use nested placeholders such as this example for `groovy`:
 >
 >```json
 >"key: \"value\" (Hash Pair)": {
@@ -168,7 +170,7 @@ You can provide a language configuration in your extension's `package.json` file
 
 ## Programmatic Language Support
 
-The rest of the language features require writing extension code to handle requests from VS Code. You can implement your language extension as a standalone server implementing the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) or directly register providers in your extension's `activate` method. Both approaches are shown in sections called **LANGUAGE SERVER PROTOCOL** and **DIRECT IMPLEMENTATION**.
+The rest of the language features require writing extension code to handle requests from VS Code. You can implement your language extension as a standalone server implementing the [language server protocol](https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md) or directly register providers in your extension's `activate` method. Both approaches are shown in two sections called **LANGUAGE SERVER PROTOCOL** and **DIRECT IMPLEMENTATION**.
 
 The language server protocol approach follows the pattern of describing your server's capabilities in the response to the `initialize` request and then handling specific requests based on the user's actions.
 
@@ -224,7 +226,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Basic**
 >
->Show type information and include document if available.
+>Show type information and include documentation if available.
 
 >**Advanced**
 >
@@ -232,7 +234,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Show Code Completion Proposals
 
-Code completion provide context sensitive suggestions to users.
+Code completions provide context sensitive suggestions to the user.
 
 ![Code Completion at Work](images/language-support/code-completion.gif)
 
@@ -280,7 +282,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->Completion items are computed based on the un-saved contents of current open editors. You support resolve providers that compute additional information for completion proposal the user selects, This information is being displayed along-side with the selected item.
+>Completion items are computed based on the un-saved contents of current open editors. You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
 
 ## Provide Diagnostics
 
@@ -292,7 +294,7 @@ Diagnostics are a way to indicate issues with the code.
 
 Your language server send the `textDocument/publishDiagnostics` message to the language client. The message carries an array of diagnostic items for a resource URI.
 
-**Note**: The client is not asking the server for diagnostics. The server pushes the diagnostic information to the client.
+**Note**: The client does not ask the server for diagnostics. The server pushes the diagnostic information to the client.
 
 #### Direct Implementation
 
@@ -329,8 +331,7 @@ function onChange() {
 
 >**Basic**
 >
->Report diagnostics for open editors. Minimally, this needs to happen on every save. Better, diagnostics should be computed based on the un-saved contents of
-the editor.
+>Report diagnostics for open editors. Minimally, this needs to happen on every save. Better, diagnostics should be computed based on the un-saved contents of the editor.
 
 >**Advanced**
 >
@@ -338,7 +339,7 @@ the editor.
 
 ## Help With Function and Method Signatures
 
-When the user enters a function or method call your extension can help with information about the function/method that is being called.
+When the user enters a function or method, display information about the function/method that is being called.
 
 ![Type Hover](images/language-support/signature-help.gif)
 
@@ -390,7 +391,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Show Definitions of a Symbol
 
-Allow users to see the definition of variables/functions/methods right where the variables/functions/methods are being used.
+Allow the user to see the definition of variables/functions/methods right where the variables/functions/methods are being used.
 
 ![Type Hover](images/language-support/goto-definition.gif)
 
@@ -440,7 +441,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Find All References to a Symbol
 
-Allow users to see all the places where a certain variable/function/method/symbol is being used.
+Allow the user to see all the source code locations where a certain variable/function/method/symbol is being used.
 
 ![Type Hover](images/language-support/find-references.gif)
 
@@ -491,7 +492,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Highlight All Occurrences of a Symbol in a Document
 
-Allow users to see all occurrences of a symbol in the open editor.
+Allow the user to see all occurrences of a symbol in the open editor.
 
 ![Type Hover](images/language-support/document-highlights.gif)
 
@@ -541,7 +542,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Show all Symbol Definitions Within a Document
 
-Allow users to quickly navigate to any symbol definition in the open editor.
+Allow the user to quickly navigate to any symbol definition in the open editor.
 
 ![Type Hover](images/language-support/document-symbols.gif)
 
@@ -591,7 +592,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Show all All Symbol Definitions in Folder
 
-Allow users to quickly navigate to any symbol definition anywhere in the folder being opened in VS Code.
+Allow the user to quickly navigate to symbol definitions anywhere in the folder (workspace) opened in VS Code.
 
 ![Type Hover](images/language-support/workspace-symbols.gif)
 
@@ -633,7 +634,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Basic**
 >
->Return all symbols define by the source code within the folder opened in VS Code. Define the kinds of symbols such as variables, functions, classes, methods, etc.
+>Return all symbols define by the source code within the open folder. Define the kinds of symbols such as variables, functions, classes, methods, etc.
 
 >**Advanced**
 >
@@ -641,7 +642,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Possible Actions on Errors or Warnings
 
-Provide users with possible actions right next to an error or warning. If actions are available for a light bulb appears next to the error or warning. When the user clicks the light bulb a list of available code actions is presented.
+Provide the user with possible corrective actions right next to an error or warning. If actions are available, a light bulb appears next to the error or warning. When the user clicks the light bulb, a list of available code actions is presented.
 
 ![Type Hover](images/language-support/quick-fixes.gif)
 
@@ -692,7 +693,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## CodeLens - Show Actionable Context Information Within Source Code
 
-Provide users with actionable, contextual information that is displayed interspersed with the code.
+Provide the user with actionable, contextual information that is displayed interspersed with the source code.
 
 ![Type Hover](images/language-support/code-lens.gif)
 
@@ -740,21 +741,21 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Basic**
 >
->Don't provide any CodeLens results.
+>Define the CodeLens results that are available for a document.
 
 >**Advanced**
 >
->Define the CodeLens results that are available for a document. Bind the CodeLens to its command by responding to `codeLens/resolve`.
+>Bind the CodeLens results to a command by responding to `codeLens/resolve`.
 
 ## Rename Symbols
 
-Allow your users to rename a symbol and update all references to the symbol.
+Allow the user to rename a symbol and update all references to the symbol.
 
 ![Type Hover](images/language-support/rename.gif)
 
 #### Language Server Protocol
 
-In the response to the `initialize` method, your language server needs to announce that it provides code actions.
+In the response to the `initialize` method, your language server needs to announce that it provides for renaming.
 
 ```json
 {
@@ -799,7 +800,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Format Source Code in an Editor
 
-Provide users with support for formatting whole documents.
+Provide the user with support for formatting whole documents.
 
 ![Document Formatting at Work](images/language-support/format-document.gif)
 
@@ -844,11 +845,11 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted correctly and are not being lost.
+>You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted correctly and are not lost.
 
 ## Format the Selected Lines in an Editor
 
-Provide users with support for formatting a selected range of lines in a document.
+Provide the user with support for formatting a selected range of lines in a document.
 
 ![Document Formatting at Work](images/language-support/format-document-range.gif)
 
@@ -895,11 +896,11 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted corrected and are not being lost.
+>You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
 
 ## Incrementally Format Code as the User Types
 
-Provide users with support for formatting text as they type.
+Provide the user with support for formatting text as they type.
 
 **Note**: The user [setting](/docs/customization/userandworkspace.md) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
 
@@ -908,7 +909,6 @@ Provide users with support for formatting text as they type.
 #### Language Server Protocol
 
 In the response to the `initialize` method, your language server needs to announce that it provides formatting as the user types. It also needs to tell the client on which characters formatting should be triggered. `moreTriggerCharacters` is optional.
-
 
 ```json
 {
@@ -952,7 +952,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results etc. are adjusted corrected and are not being lost.
+>You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
 
 
 
