@@ -47,7 +47,7 @@ By using the `.js` file extension, VS Code interprets this file as JavaScript an
 Create a simple string variable in `app.js` and send the contents of the string to the console:
 
 ```javascript
-var msg = 'hello world';
+var msg = 'Hello World';
 console.log(msg);
 ```
 
@@ -55,7 +55,7 @@ Note that when you typed `console.` IntelliSense on the `console` object was aut
 
 ![console IntelliSense](images/nodejs/consoleintellisense.png)
 
-Also notice that VS Code knows that `msg` is a string based on the initialization to `'hello world'`.  If you type `msg.` you'll see IntelliSense showing all of the string functions available on `msg`.
+Also notice that VS Code knows that `msg` is a string based on the initialization to `'Hello World'`.  If you type `msg.` you'll see IntelliSense showing all of the string functions available on `msg`.
 
 ![string IntelliSense](images/nodejs/stringintellisense.png)
 
@@ -70,6 +70,16 @@ node app.js
 ```
 
 You should see "Hello World" output to the terminal and then Node.js returns.
+
+### Integrated Terminal
+
+VS Code has an [integrated terminal](/docs/editor/integrated-terminal.md) which you can use to run shell commands. You can run Node.js directly from there and avoid switching out of VS Code while running command line tools.
+
+**View** > **Integrated Terminal** (`kb(workbench.action.terminal.toggleTerminal)`) will open the integrated terminal and you can run `node app.js` there:
+
+![integrated terminal](images/nodejs/integrated-terminal.png)
+
+For this walkthrough, you can use either an external terminal or the VS Code integrated terminal for running the command line tools.
 
 ### Debugging Hello World
 
@@ -92,6 +102,8 @@ With the default Node.js **Launch** configuration created, you can now click Deb
 ![hello world debugging](images/nodejs/hello-world-debugging.png)
 
 Now that you've seen VS Code in action with "Hello World", the next section shows using VS Code with a full-stack Node.js web app.
+
+>**Note:** We're done with the "Hello World" example so navigate out of that folder before you create an Express app. You can delete the "Hello" folder if you wish as it is not required for the rest of the walkthrough.
 
 ## Express
 
@@ -142,19 +154,37 @@ Now launch VS Code:
 code .
 ```
 
+>**Note:** If you've been using the VS Code integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder with **Files: Open Folder...** command.
+
 The [Node.js](https://nodejs.org/api/) and [Express](http://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
 
 Earlier we saw the IntelliSense that the JavaScript language service can infer about your source code.  Next we will see that with a little more setup and configuration, Visual Studio Code can provide even richer information and build support.
 
 ## Adding a jsconfig.json Configuration File
 
-When VS Code detects that you are working on a JavaScript file, it looks to see if you have a JavaScript configuration file `jsconfig.json` in your workspace. If it doesn't find one, you will see a green lightbulb on the Status Bar prompting you to create one.
+When VS Code detects that you are working on a JavaScript file (open the `app.js` file), it looks to see if you have a JavaScript configuration file `jsconfig.json` in your workspace. If it doesn't find one, you will see a green lightbulb on the Status Bar prompting you to create one.
 
 ![jsconfig lightbulb](images/nodejs/jsconfig-lightbulb.png)
 
 Click the green lightbulb and accept the prompt to create a `jsconfig.json` file:
 
-![generated jsconfig json](images/nodejs/jsconfig.png)
+```json
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": [
+        "node_modules",
+        "bower_components",
+        "jspm_packages",
+        "tmp",
+        "temp"
+    ]
+}
+
+```
 
 If you do not have [Auto Save](/docs/editor/codebasics.md#saveauto-save) on, save the file by pressing `kb(workbench.action.files.save)`.
 
