@@ -156,11 +156,16 @@ Let's take things a little further and automate Markdown compilation with VS Cod
 
 We will use [Gulp](http://gulpjs.com/) to create a task that will automate Markdown compilation.  We will also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
 
+We need to install `gulp` both globally (`-g` switch) and locally:
+
 ```
-npm install -g gulp gulp-markdown
+npm install -g gulp
+npm install gulp gulp-markdown
 ```
 
 > **Note:** gulp-markdown is a Gulp plug-in for the **marked** module we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
+
+You can test that your `gulp` installation was successful but typing `gulp -v`. You should see a version displayed for both the global (CLI) and local installations.
 
 ### Step 2: Create a simple Gulp task
 
@@ -180,7 +185,7 @@ gulp.task('markdown', function() {
         }));
 });
 
-gulp.task('default', function() {
+gulp.task('default', ['markdown'], function() {
     gulp.watch('**/*.md', ['markdown']);
 });
 ```
