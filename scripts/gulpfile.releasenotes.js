@@ -33,7 +33,7 @@ gulp.task('copy-releasenotes-images', function () {
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
 		.pipe(gulp.dest(DEST_ROOT + '/dist'));
-;})
+});
 
 gulp.task('compile-releasenotes', ['compile-releasenotes-handlebars', 'copy-releasenotes-images', 'compile-releasenotes-markdown'], function () {
 	console.log('Creating release notes index...');
