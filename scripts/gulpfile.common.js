@@ -58,7 +58,8 @@ exports.mapFileToArticle = function(file) {
 		MetaTags: !file.data.MetaTags ? [] : (file.data.MetaTags).join(','),
 		Sections: [],
 		Order: file.data.Order,
-		Content: ""
+		Content: "",
+		MetaSocialImage: file.data.MetaSocialImage
 	};
 	return article;
 }
