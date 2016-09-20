@@ -207,8 +207,8 @@ Go back to the file `app.js` and notice that if you hover over the Node.js globa
 Now, using the Typings command line, pull down the Node.js and Express type definition files:
 
 ```bash
-typings install dt~node --global
-typings install dt~express dt~serve-static dt~express-serve-static-core --global
+typings install dt~node --global --save
+typings install dt~express dt~serve-static dt~express-serve-static-core --global --save
 ```
 
 The `dt~` prefix tells the Typings tool to search the DefinitelyTyped repository for the specified type definition files.

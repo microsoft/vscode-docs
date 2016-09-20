@@ -324,7 +324,7 @@ When you want to use ES6 style imports but the typings do not yet use ES6 style 
 
 **Q: Does VS Code support JSX and React Native?**
 
-**A:** VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/JSX**, install the typings for `react` by running `typings install dt~react --global` from the terminal. To get IntelliSense for **React Native**, run `typings install dt~react-native --global`. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
+**A:** VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/JSX**, install the typings for `react` by running `typings install dt~react --global --save` from the terminal. To get IntelliSense for **React Native**, run `typings install dt~react-native --global --save`. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
 
 **React Native** examples often use the experimental **Object Rest/Spread** operator. This is not yet supported by VS Code. If you want to use it, it is recommended that you disable the built-in syntax checking (see below).
 
@@ -359,10 +359,10 @@ Run one of the following commands which includes the registry prefix:
 
 ```bash
 # Install from dt registery
-typings install dt~node --global
+typings install dt~node --global --save
 
 # Install from env registry
-typings install env~node --global
+typings install env~node --global --save
 ```
 
 >**Tip:** Use the `--global` flag or you will see another error.
