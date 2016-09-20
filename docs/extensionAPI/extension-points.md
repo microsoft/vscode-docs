@@ -111,6 +111,20 @@ In addition to a title, commands can also define icons which VS Code will show i
 
 ![menus extension point example](images/extension-points/menus.png)
 
+### Sorting of groups
+
+Menu items can be sorted into groups. They are sorted in lexicographical order with the following defaults/rules.
+
+The context menu of the editor has these default:
+
+* `navigation` - The `navigation` group comes first in all cases.
+* `1_modification` - This group comes next and contains commands that modify your code.
+* `9_cutcopypaste` - The last default group with the basic editing commands.
+
+![Menu Group Sorting](images/extension-points/groupSorting.png)
+
+You can add menu items to these groups or add new groups of menu items in between, below, or above. Only the editor context menu allows this grouping control.
+
 ## `contributes.keybindings`
 
 Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/customization/keybindings.md) topic where key bindings are explained in detail.
