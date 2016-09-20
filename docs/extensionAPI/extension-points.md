@@ -240,7 +240,6 @@ You must provide one (or more) executables that implement the debug adapter.
 		"label": "Node Debug",
 		"program": "./out/node/nodeDebug.js",
 		"runtime": "node",
-		"enableBreakpointsFor": { "languageIds": ["javascript", "javascriptreact"] },
 		"initialConfigurations": [{
 			...
 		}],
@@ -253,6 +252,23 @@ You must provide one (or more) executables that implement the debug adapter.
 ```
 
 For a full walkthrough on how to integrate a `debugger` go to [Debuggers](/docs/extensions/example-debuggers.md).
+
+## `contributes.breakpoints`
+
+Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
+
+```json
+"contributes": {
+	"breakpoints": [
+		{
+			"language": "javascript"
+		},
+		{
+			"language": "javascriptreact"
+		}
+	]
+}
+```
 
 ## `contributes.grammars`
 
