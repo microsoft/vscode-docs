@@ -251,20 +251,6 @@ For both files and folders, you can use absolute or relative paths. Relative pat
 
 If you specify more than one file or folder at the command line, VS Code will open only a single instance.
 
-## Opening a Project
-
-VS Code does not distinguish between opening a folder and opening a project. If VS Code detects a project in the folder you opened (for example, a C# project), that project context will be displayed on the Status Bar. If more than one project is found, you can switch projects from there as well.
-
-To open a project contained in the folder `C:\src\WebApp`, you would start VS Code like this:
-
-````
-code C:\src\webapp
-````
-
-After VS Code opens, just open source files and use the Status Bar to switch the active project as needed.
-
-![Status Bar](images/codebasics/status.png)
-
 ## Window Management
 
 VS Code has some options to control how windows should be opened or restored between sessions.
