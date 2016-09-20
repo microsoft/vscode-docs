@@ -125,6 +125,20 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 The `Reapply All Breakpoints` command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed. (For details see below under __Node Debugging: Breakpoint Validation__)
 
+## Function Breakpoints
+
+Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
+
+A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header:
+
+![function breakpoint](images/debugging/function-breakpoint.gif)
+
+**Please note**: Function breakpoints support is limited because:
+
+- Not every debug extension supports function breakpoints (the Node.js debugger in VS Code does).
+- Function breakpoints only work for global, non-native functions.
+- Function breakpoints can only be created if the function has been defined (seen by the debugger).
+
 ## Data inspection
 
 Variables can be inspected in the **VARIABLES** section of the Debug view or by hovering over their source in the editor. Variables and expression evaluation is relative to the selected stack frame in the **CALL STACK** section.
@@ -177,19 +191,6 @@ When doing so you will find that some of your breakpoints don't "stick" to the l
 This breakpoint validation occurs when a session starts and the breakpoints are registered with Node.js, or when a session is already running and a new breakpoint is set. In this case, the breakpoint may "jump" to a different location. After Node.js has parsed all the code (e.g. by running through it), breakpoints can be easily re-applied to the requested locations with the **Reapply** button in the **BREAKPOINTS** section header. This should make the breakpoints "jump back" to the requested location.
 
 ![Breakpoint Actions](images/debugging/breakpointstoolbar.png)
-
-### Function Breakpoints
-
-Instead of placing breakpoints directly in source code, the Node.js debugger now supports creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
-
-A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header:
-
-![function breakpoint](images/debugging/function-breakpoint.gif)
-
-**Please note**: Node.js support for function breakpoints is limited because:
-
-- function breakpoints only work for global, non-native functions and
-- function breakpoints can only be created if the function has been defined (seen by Node.js).
 
 ### JavaScript Source Maps
 
