@@ -24,7 +24,7 @@ Below are several popular extension which include debugging support:
 
 <div class="marketplace-extensions-debuggers"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. 
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you.
 
 ## Start Debugging
 
@@ -278,7 +278,6 @@ The Node.js debugger supports remote debugging for recent versions of Node.js (>
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
-
 ## Mono Debugging
 
 On Linux or OS X, the Mono debugging support of VS Code requires [Mono](http://www.mono-project.com/) version 3.12 or later. If you intend to build .NET Core applications with Visual Studio Code, we recommend you first follow the steps in [.NET Core and Visual Studio](/docs/runtimes/dotnet.md).
@@ -325,10 +324,6 @@ The corresponding launch configuration looks like this:
 }
 ```
 
-## Debugging Other Languages
-
-Debugging many other languages is supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads). These include Go, PowerShell, Python, PHP, ...
-
 ## Next Steps
 
 In case you didn't already read the Node.js section, take a look at:
@@ -352,7 +347,7 @@ To write your own debugger extension, visit:
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. .NET Core applications are compiled using the [Roslyn](https://github.com/dotnet/roslyn) compiler, not the Mono compiler. .NET Core debugging will be available through a VS Code extension. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads).
+**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 
@@ -361,7 +356,3 @@ To write your own debugger extension, visit:
 **Q: What Node.js version is required for Node.js debugging?**
 
 **A:** The latest LTS version of [Node.js](https://nodejs.org/) is recommended.
-
-**Q: Is Mono debugging supported on Windows?**
-
-**A:** No. Currently Mono debugging is only supported on Mac and Linux.
