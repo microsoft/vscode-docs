@@ -35,7 +35,6 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 ### Example
 
 ```json
-...
 "contributes": {
 	"configuration": {
 		"type": "object",
@@ -67,14 +66,12 @@ Contribute an entry consisting of a title and a command to invoke to the Command
 ### Example
 
 ```json
-...
 "contributes": {
 	"commands": [{
 		"command": "extension.sayHello",
 		"title": "Hello World"
 	}]
 }
-...
 ```
 
 ![commands extension point example](images/extension-points/commands.png)
@@ -96,7 +93,6 @@ In addition to a title, commands can also define icons which VS Code will show i
 ### Example
 
 ```json
-...
 "contributes": {
 	"menus": {
 		"editor/title": [{
@@ -107,7 +103,6 @@ In addition to a title, commands can also define icons which VS Code will show i
 		}]
 	}
 }
-...
 ```
 
 ![menus extension point example](images/extension-points/menus.png)
@@ -141,7 +136,6 @@ Contributing a key binding will cause the Default Keyboard Shortcuts to display 
 Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` under Mac trigger the `"extension.sayHello"` command:
 
 ```json
-...
 "contributes": {
 	"keybindings": [{
 		"command": "extension.sayHello",
@@ -150,7 +144,6 @@ Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` u
 		"when": "editorTextFocus"
 	}]
 }
-...
 ```
 
 ![keybindings extension point example](images/extension-points/keybindings.png)
@@ -234,7 +227,6 @@ You must provide one (or more) executables that implement the debug adapter.
 ### Example
 
 ```json
-...
 "contributes": {
 	"debuggers": [{
 		"type": "node",
@@ -249,7 +241,6 @@ You must provide one (or more) executables that implement the debug adapter.
 		}
 	}]
 }
-...
 ```
 
 For a full walkthrough on how to integrate a `debugger` go to [Debuggers](/docs/extensions/example-debuggers.md).
@@ -280,7 +271,6 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 ### Example
 
 ```json
-...
 "contributes": {
 	"grammars": [{
 		"language": "shellscript",
@@ -288,7 +278,6 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 		"path": "./syntaxes/Shell-Unix-Bash.tmLanguage"
 	}]
 }
-...
 ```
 
 See [Adding Language Colorization](/docs/customization/colorizer.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
@@ -332,9 +321,9 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
 
 ```json
 "contributes": {
-    "jsonValidation": [{
- 		"fileMatch": ".jshintrc",
- 		"url": "http://json.schemastore.org/jshintrc"
+	"jsonValidation": [{
+		"fileMatch": ".jshintrc",
+		"url": "http://json.schemastore.org/jshintrc"
 	}]
 }
 ```
