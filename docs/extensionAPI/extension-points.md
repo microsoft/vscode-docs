@@ -36,22 +36,22 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 
 ```json
 "contributes": {
-	"configuration": {
-		"type": "object",
-		"title": "TypeScript configuration",
-		"properties": {
-			"typescript.useCodeSnippetsOnMethodSuggest": {
-				"type": "boolean",
-				"default": false,
-				"description": "Complete functions with their parameter signature."
-			},
-			"typescript.tsdk": {
-				"type": ["string", "null"],
-				"default": null,
-				"description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
-			}
-		}
-	}
+    "configuration": {
+        "type": "object",
+        "title": "TypeScript configuration",
+        "properties": {
+            "typescript.useCodeSnippetsOnMethodSuggest": {
+                "type": "boolean",
+                "default": false,
+                "description": "Complete functions with their parameter signature."
+            },
+            "typescript.tsdk": {
+                "type": ["string", "null"],
+                "default": null,
+                "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+            }
+        }
+    }
 }
 ```
 
@@ -67,10 +67,10 @@ Contribute an entry consisting of a title and a command to invoke to the Command
 
 ```json
 "contributes": {
-	"commands": [{
-		"command": "extension.sayHello",
-		"title": "Hello World"
-	}]
+    "commands": [{
+        "command": "extension.sayHello",
+        "title": "Hello World"
+    }]
 }
 ```
 
@@ -94,14 +94,14 @@ In addition to a title, commands can also define icons which VS Code will show i
 
 ```json
 "contributes": {
-	"menus": {
-		"editor/title": [{
-			"when": "resourceLangId == markdown",
-			"command": "markdown.showPreview",
-			"alt": "markdown.showPreviewToSide",
-			"group": "navigation"
-		}]
-	}
+    "menus": {
+        "editor/title": [{
+            "when": "resourceLangId == markdown",
+            "command": "markdown.showPreview",
+            "alt": "markdown.showPreviewToSide",
+            "group": "navigation"
+        }]
+    }
 }
 ```
 
@@ -137,12 +137,12 @@ Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` u
 
 ```json
 "contributes": {
-	"keybindings": [{
-		"command": "extension.sayHello",
-		"key": "ctrl+f1",
-		"mac": "cmd+f1",
-		"when": "editorTextFocus"
-	}]
+    "keybindings": [{
+        "command": "extension.sayHello",
+        "key": "ctrl+f1",
+        "mac": "cmd+f1",
+        "when": "editorTextFocus"
+    }]
 }
 ```
 
@@ -179,42 +179,44 @@ If your language configuration file name is or ends with `language-configuration
 ```json
 ...
 "contributes": {
-	"languages": [{
-		"id": "python",
-		"extensions": [ ".py" ],
-		"aliases": [ "Python", "py" ],
-		"filenames": [ ... ],
-		"firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
-		"configuration": "./language-configuration.json"
-	}]
+    "languages": [{
+        "id": "python",
+        "extensions": [ ".py" ],
+        "aliases": [ "Python", "py" ],
+        "filenames": [ ... ],
+        "firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
+        "configuration": "./language-configuration.json"
+    }]
 }
 ```
+
 language-configuration.json
+
 ```json
 {
-	"comments": {
-		"lineComment": "//",
-		"blockComment": [ "/*", "*/" ]
-	},
-	"brackets": [
-		["{", "}"],
-		["[", "]"],
-		["(", ")"]
-	],
-	"autoClosingPairs": [
-		["{", "}"],
-		["[", "]"],
-		["(", ")"],
-		{ "open": "'", "close": "'", "notIn": ["string", "comment"] },
-		{ "open": "/**", "close": " */", "notIn": ["string"] }
-	],
-	"surroundingPairs": [
-		["{", "}"],
-		["[", "]"],
-		["(", ")"],
-		["<", ">"],
-		["'", "'"]
-	]
+    "comments": {
+        "lineComment": "//",
+        "blockComment": [ "/*", "*/" ]
+    },
+    "brackets": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"]
+    ],
+    "autoClosingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+        { "open": "/**", "close": " */", "notIn": ["string"] }
+    ],
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["<", ">"],
+        ["'", "'"]
+    ]
 }
 ```
 
@@ -228,18 +230,18 @@ You must provide one (or more) executables that implement the debug adapter.
 
 ```json
 "contributes": {
-	"debuggers": [{
-		"type": "node",
-		"label": "Node Debug",
-		"program": "./out/node/nodeDebug.js",
-		"runtime": "node",
-		"initialConfigurations": [{
-			...
-		}],
-		"configurationAttributes": {
-			...
-		}
-	}]
+    "debuggers": [{
+        "type": "node",
+        "label": "Node Debug",
+        "program": "./out/node/nodeDebug.js",
+        "runtime": "node",
+        "initialConfigurations": [{
+            ...
+        }],
+        "configurationAttributes": {
+            ...
+        }
+    }]
 }
 ```
 
@@ -251,14 +253,14 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
 
 ```json
 "contributes": {
-	"breakpoints": [
-		{
-			"language": "javascript"
-		},
-		{
-			"language": "javascriptreact"
-		}
-	]
+    "breakpoints": [
+        {
+            "language": "javascript"
+        },
+        {
+            "language": "javascriptreact"
+        }
+    ]
 }
 ```
 
@@ -272,11 +274,11 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 
 ```json
 "contributes": {
-	"grammars": [{
-		"language": "shellscript",
-		"scopeName": "source.shell",
-		"path": "./syntaxes/Shell-Unix-Bash.tmLanguage"
-	}]
+    "grammars": [{
+        "language": "shellscript",
+        "scopeName": "source.shell",
+        "path": "./syntaxes/Shell-Unix-Bash.tmLanguage"
+    }]
 }
 ```
 
@@ -292,11 +294,11 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 
 ```json
 "contributes": {
-	"themes": [{
-		"label": "Monokai",
-		"uiTheme": "vs-dark",
-		"path": "./themes/Monokai.tmTheme"
-	}]
+    "themes": [{
+        "label": "Monokai",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Monokai.tmTheme"
+    }]
 }
 ```
 
@@ -308,10 +310,10 @@ See [Changing the Color Theme](/docs/customization/themes.md) for instructions o
 
 ```json
 "contributes": {
-	"snippets": [{
-		"language": "go",
-		"path": "./snippets/go.json"
-	}]
+    "snippets": [{
+        "language": "go",
+        "path": "./snippets/go.json"
+    }]
 }
 ```
 
@@ -321,14 +323,15 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
 
 ```json
 "contributes": {
-	"jsonValidation": [{
-		"fileMatch": ".jshintrc",
-		"url": "http://json.schemastore.org/jshintrc"
-	}]
+    "jsonValidation": [{
+        "fileMatch": ".jshintrc",
+        "url": "http://json.schemastore.org/jshintrc"
+    }]
 }
 ```
 
 ## Next Steps
+
 To learn more about VS Code extensibility model, try these topic:
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
