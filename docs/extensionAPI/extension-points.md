@@ -18,6 +18,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`keybindings`](/docs/extensionAPI/extension-points.md#contributeskeybindings)
 * [`languages`](/docs/extensionAPI/extension-points.md#contributeslanguages)
 * [`debuggers`](/docs/extensionAPI/extension-points.md#contributesdebuggers)
+* [`breakpoints`](/docs/extensionAPI/extension-points.md#contributesbreakpoints)
 * [`grammars`](/docs/extensionAPI/extension-points.md#contributesgrammars)
 * [`themes`](/docs/extensionAPI/extension-points.md#contributesthemes)
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
