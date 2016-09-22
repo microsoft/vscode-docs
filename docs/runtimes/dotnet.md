@@ -20,6 +20,16 @@ MetaTags:
 
 1. Install [.NET Core](https://microsoft.com/net/core).
 2. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
+3. Intialize a C# project
+     * Open the command prompt (or terminal)
+     * Navigate to the folder where you want your C# project to be
+     * Type **dotnet new**
+     * This creates a Program.cs file in your folder with a HelloWorld program already written
+4. Resolve the build assets by typing **dotnet restore**
+  * This creates a project.lock.json file in your project folder
+5. Run the HelloWorld program by typing **dotnet run**
+
+    [Watch a Video Tutorial for Further Set Up Help](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-using-CSharp-and-NET-Core)
 
 You're all set!
 
