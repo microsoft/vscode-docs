@@ -14,7 +14,7 @@ MetaDescription: Find out how to publish an extension to the Visual Studio Code 
 
 ## Installation
 
-Make sure you have [node.js](https://nodejs.org/) installed. Then simply run:
+Make sure you have [Node.js](https://nodejs.org/) installed. Then simply run:
 
 ```
 npm install -g vsce
@@ -120,11 +120,11 @@ You can customize how your extension looks in the Visual Studio Marketplace. See
 
 Here are some tips for making your extension look great on the Marketplace:
 
-- Any `README.md` file at the root of your extension will be used to populate the extension's Marketplace page's contents. `vsce` can fix this for you in two different ways:
-- Likewise, any `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
-- Again, any `CHANGELOG.md` file at the root of your extension will be used as the contents for the extension's changelog.
-- If you add a `repository` field to your `package.json` and if it is a public GitHub repository, `vsce` will automatically detect it and adjust the links accordingly.
-- You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`.
+- A `README.md` file at the root of your extension will be used to populate the extension's Marketplace page's contents. `vsce` will modify README links for you in two different ways:
+  - If you add a `repository` field to your `package.json` and if it is a public GitHub repository, `vsce` will automatically detect it and adjust the links accordingly.
+  - You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`.
+- A `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
+- A `CHANGELOG.md` file at the root of your extension will be used as the contents for the extension's changelog.
 - You can set the banner background color by setting `galleryBanner.color` to the intended hex value in `package.json`.
 - You can set an icon by setting `icon` to a relative path to a squared `128px` PNG file included in your extension, in `package.json`.
 
