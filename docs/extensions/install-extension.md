@@ -26,10 +26,10 @@ If you want to share your extension or customization with others privately, you 
 
 ## Install a Packaged Extension (.vsix)
 
-You can manually install an VS Code extension packaged in a `.vsix` file.  Simply install using the VS Code command line providing the path to the `.vsix` file.
+You can manually install an VS Code extension packaged in a `.vsix` file.  Simply install using the VS Code `--install-extension` command line switch providing the path to the `.vsix` file.
 
 ```
-code myextension.vsix
+code --install-extension myextension.vsix
 ```
 
 The extension will be installed under your user `.vscode/extensions` folder. You may provide multiple `.vsix` files on the command line to install multiple extensions at once.
