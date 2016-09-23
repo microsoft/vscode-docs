@@ -278,52 +278,6 @@ The Node.js debugger supports remote debugging for recent versions of Node.js (>
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
-## Mono Debugging
-
-On Linux or OS X, the Mono debugging support of VS Code requires [Mono](http://www.mono-project.com/) version 3.12 or later. If you intend to build .NET Core applications with Visual Studio Code, we recommend you first follow the steps in [.NET Core and Visual Studio](/docs/runtimes/dotnet.md).
-
-If you just want to try VS Code Mono debugging, you can either download the latest Mono version for Linux or OS X at [Mono project](http://www.mono-project.com/download/) or you can use your package manager.
-
-* On OS X: `brew install mono`
-* On Linux: `sudo apt-get install mono-complete`
-
-### Installing the Mono Debug Extension
-
-VS Code Mono debugging integration comes from the ['Mono Debug'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) extension on the Visual Studio Marketplace.
-
-You can either install the **Mono Debug** extension with the VS Code **Extensions: Install Extension** command or if you already have a Mono based project with a `mono` launch configuration, simply by starting a debug session. VS Code will then prompt you to download and install **Mono Debug**.
-
-### Enable Mono debugging
-
-To enable debugging of Mono based C# (and F#) programs, you have to pass the `-debug` option to the compiler:
-
-```
-mcs -debug Program.cs
-```
-
-If you want to attach the VS Code debugger to a Mono program, pass these additional arguments to the Mono runtime:
-
-```
-mono --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555 Program.exe
-```
-
-The corresponding launch configuration looks like this:
-
-```json
-{
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Attach to Mono",
-			"request": "attach",
-			"type": "mono",
-			"address": "localhost",
-			"port": 55555
-		}
-	]
-}
-```
-
 ## Next Steps
 
 In case you didn't already read the Node.js section, take a look at:
