@@ -160,7 +160,7 @@ Before|After
 
 **Q: VS Code did not go to the correct position in my file.**
 
-**A:** For OS X, make sure you have installed the Unity plug-in described above.  For Windows, ensure you have set the additional command line arguments when you launch VS Code from Unity.
+**A:** For Mac, make sure you have installed the Unity plug-in described above.  For Windows, ensure you have set the additional command line arguments when you launch VS Code from Unity.
 
 **Q: How can I debug Unity?**
 

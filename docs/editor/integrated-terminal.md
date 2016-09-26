@@ -20,7 +20,7 @@ To open the terminal:
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
-> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on OS X or Linux) if you prefer to work outside VS Code.
+> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on Mac or Linux) if you prefer to work outside VS Code.
 
 ## Managing Multiple Terminals
 
@@ -106,9 +106,9 @@ If no text is selected in the active editor, the entire file contents is run in 
 
 ### Copy & Paste
 
-#### OS X
+#### Mac
 
-Copy and paste on OS X can be done using the standard keys, `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)` respectively.
+Copy and paste on Mac can be done using the standard keys, `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)` respectively.
 
 #### Linux & Windows
 

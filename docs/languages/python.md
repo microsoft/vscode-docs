@@ -12,7 +12,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 Python is fully supported in Visual Studio Code through [extensions](/docs/editor/extension-gallery.md). Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide code completion, linting, debugging, code formatting, snippets, and more. 
 
-> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, OS X, Linux). 
+> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, Mac, Linux).
 
 ## Install Python Extension
 
