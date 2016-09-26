@@ -12,7 +12,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac OS X.
 
 ## Installation
 
-1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for Mac OS X.
+1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for Mac OS X. Visual Studio Code (current version 1.5.3) also work well on macOS Sierra (10.12).
 2. Double-click on the downloaded archive to expand the contents.
 3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
 4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
