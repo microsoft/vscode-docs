@@ -25,7 +25,7 @@ There are two more steps to configure IntelliSense across all the files in your 
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
-For the details of how JavaScript IntelliSense works, including being based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/Salsa). When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported. In addition to objects, methods, and properties, JavaScript IntelliSense window also provides basic word completion based on the other words in the file. 
+For the details of how JavaScript IntelliSense works, including being based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/Salsa). When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported. In addition to objects, methods, and properties, the JavaScript IntelliSense window also provides basic word completion based on the other words in the file. 
 
 VS Code ships with the most stable version of the JavaScript language service. The same language service powers both JavaScript and TypeScript, so if you want to use a newer version, you can define the `typescript.tsdk` [setting](/docs/customization/userandworkspace.md) to point to a directory containing the TypeScript `tsserver.js` file. See more details [here](/docs/languages/typescript.md#using-newer-typescript-versions).
 
@@ -117,10 +117,10 @@ typings search node
 Install the typings at the same location as `jsconfig.json` (the root of your JavaScript project).
 
 ```bash
-typings install dt~node --global
+typings install dt~node --save --global
 ```
 
-The flag `--global` is for libraries on the global (`window.*`) object. The prefix `dt~` specifies the source of the Node.js typings file. You can see the sources, versions, and updated date information using `typings search node`. Learn more in the documentation about typings in the [documentation](https://www.npmjs.com/package/typings) and at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), which is a repository of typings files for many major JavaScript libraries and environments.
+The flag `--global` is for libraries on the global (`window.*`) object. The prefix `dt~` specifies the source of the Node.js typings file. You can see the sources, versions, and updated date information using `typings search node`. Learn more about typings in the [Typings documentation](https://www.npmjs.com/package/typings) and at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), which is a repository of typings files for many major JavaScript libraries and environments.
 
 ## Debugging
 
