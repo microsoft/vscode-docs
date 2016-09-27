@@ -8,17 +8,17 @@ DateApproved: 9/8/2016
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 
-# Programming Languages
+# Hundreds of Programming Languages Supported
 
-In Visual Studio Code, we have support for many programming languages out of the box (JavaScript, TypeScript, CSS, HTML) and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+In Visual Studio Code, we have support for almost every manjor many programming language out there.  Several ship in the box e.g. JavaScript, TypeScript, CSS, HTML.  But most of the rich language extensions can be found in the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages) here  are four of the most popular ones.
 
 <div class="marketplace-extensions-languages"></div>
 
+Go to the [marketplace](https://marketplace.visualstudio.com/vscode) or use our [integrated extension manager](https://code.visualstudio.com/docs/editor/extension-gallery) and search for your desired language to find snippets, codecompetion/intellisense providers, linters, debuggers and more.
+
 ## Language Specific Documentation
 
-On this site we have a number of topics outlining specific language support.
-
-These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - [HTML](/docs/languages/html.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
+On this site we have a number of topics outlining a several of the commonlanguages supproted by VS Code.  These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - [HTML](/docs/languages/html.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
 [Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [Python](/docs/languages/python.md) - [Sass](/docs/languages/css.md) - [TypeScript](/docs/languages/typescript.md).
 
 Click on any linked item to get an overview of how to use VS Code in the context of that language.  Most language extensions also contain a summary of their core features in their README.
