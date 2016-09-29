@@ -84,10 +84,7 @@ Below is a copy of the default `settings.json` file.
     "editor.lineHeight": 0,
 
     // Controls visibility of line numbers
-    "editor.lineNumbers": true,
-
-    // Controls visibility of the glyph margin
-    "editor.glyphMargin": false,
+    "editor.lineNumbers": "on",
 
     // Columns at which to show vertical rulers
     "editor.rulers": [],
@@ -173,8 +170,8 @@ Below is a copy of the default `settings.json` file.
     // Controls if the cursor should be hidden in the overview ruler.
     "editor.hideCursorInOverviewRuler": false,
 
-    // Controls whether the editor should render whitespace characters
-    "editor.renderWhitespace": false,
+    // Controls how the editor should render whitespace characters, posibilties are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.
+    "editor.renderWhitespace": "none",
 
     // Controls whether the editor should render control characters
     "editor.renderControlCharacters": false,
@@ -226,6 +223,9 @@ Below is a copy of the default `settings.json` file.
 
     // Controls if opened editors should show in tabs or not.
     "workbench.editor.showTabs": true,
+
+    // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
+    "workbench.editor.showIcons": true,
 
     // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
     "workbench.editor.enablePreview": true,
@@ -290,6 +290,9 @@ Below is a copy of the default `settings.json` file.
     "files.watcherExclude": {
         "**/.git/objects/**": true
     },
+
+    // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+    "editor.formatOnSave": false,
 
 
 // File Explorer
@@ -615,6 +618,12 @@ Below is a copy of the default `settings.json` file.
     // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
     "typescript.tsdk": null,
 
+    // Check if a TypeScript version is available in the workspace
+    "typescript.check.workspaceVersion": true,
+
+    // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
+    "typescript.check.tscVersion": true,
+
     // Enables tracing of messages send to the TS server
     "typescript.tsserver.trace": "off",
 
@@ -743,6 +752,7 @@ Below is a copy of the default `settings.json` file.
         "editor.action.toggleTabFocusMode",
         "workbench.action.quickOpen",
         "workbench.action.showCommands",
+        "workbench.action.terminal.clear",
         "workbench.action.terminal.copySelection",
         "workbench.action.terminal.focus",
         "workbench.action.terminal.focusNext",
@@ -752,7 +762,9 @@ Below is a copy of the default `settings.json` file.
         "workbench.action.terminal.paste",
         "workbench.action.terminal.runSelectedText",
         "workbench.action.terminal.scrollDown",
+        "workbench.action.terminal.scrollDownPage",
         "workbench.action.terminal.scrollUp",
+        "workbench.action.terminal.scrollUpPage",
         "workbench.action.terminal.toggleTerminal"
     ],
 
