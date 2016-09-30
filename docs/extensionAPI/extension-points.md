@@ -18,6 +18,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`keybindings`](/docs/extensionAPI/extension-points.md#contributeskeybindings)
 * [`languages`](/docs/extensionAPI/extension-points.md#contributeslanguages)
 * [`debuggers`](/docs/extensionAPI/extension-points.md#contributesdebuggers)
+* [`breakpoints`](/docs/extensionAPI/extension-points.md#contributesbreakpoints)
 * [`grammars`](/docs/extensionAPI/extension-points.md#contributesgrammars)
 * [`themes`](/docs/extensionAPI/extension-points.md#contributesthemes)
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
@@ -34,24 +35,23 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 ### Example
 
 ```json
-...
 "contributes": {
-	"configuration": {
-		"type": "object",
-		"title": "TypeScript configuration",
-		"properties": {
-			"typescript.useCodeSnippetsOnMethodSuggest": {
-				"type": "boolean",
-				"default": false,
-				"description": "Complete functions with their parameter signature."
-			},
-			"typescript.tsdk": {
-				"type": ["string", "null"],
-				"default": null,
-				"description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
-			}
-		}
-	}
+    "configuration": {
+        "type": "object",
+        "title": "TypeScript configuration",
+        "properties": {
+            "typescript.useCodeSnippetsOnMethodSuggest": {
+                "type": "boolean",
+                "default": false,
+                "description": "Complete functions with their parameter signature."
+            },
+            "typescript.tsdk": {
+                "type": ["string", "null"],
+                "default": null,
+                "description": "Specifies the folder path containing the tsserver and lib*.d.ts files to use."
+            }
+        }
+    }
 }
 ```
 
@@ -66,14 +66,12 @@ Contribute an entry consisting of a title and a command to invoke to the Command
 ### Example
 
 ```json
-...
 "contributes": {
-	"commands": [{
-		"command": "extension.sayHello",
-		"title": "Hello World"
-	}]
+    "commands": [{
+        "command": "extension.sayHello",
+        "title": "Hello World"
+    }]
 }
-...
 ```
 
 ![commands extension point example](images/extension-points/commands.png)
@@ -95,21 +93,33 @@ In addition to a title, commands can also define icons which VS Code will show i
 ### Example
 
 ```json
-...
 "contributes": {
-	"menus": {
-		"editor/title": [{
-			"when": "resourceLangId == markdown",
-			"command": "markdown.showPreview",
-			"alt": "markdown.showPreviewToSide",
-			"group": "navigation"
-		}]
-	}
+    "menus": {
+        "editor/title": [{
+            "when": "resourceLangId == markdown",
+            "command": "markdown.showPreview",
+            "alt": "markdown.showPreviewToSide",
+            "group": "navigation"
+        }]
+    }
 }
-...
 ```
 
 ![menus extension point example](images/extension-points/menus.png)
+
+### Sorting of groups
+
+Menu items can be sorted into groups. They are sorted in lexicographical order with the following defaults/rules.
+
+The context menu of the editor has these default:
+
+* `navigation` - The `navigation` group comes first in all cases.
+* `1_modification` - This group comes next and contains commands that modify your code.
+* `9_cutcopypaste` - The last default group with the basic editing commands.
+
+![Menu Group Sorting](images/extension-points/groupSorting.png)
+
+You can add menu items to these groups or add new groups of menu items in between, below, or above. Only the editor context menu allows this grouping control.
 
 ## `contributes.keybindings`
 
@@ -126,16 +136,14 @@ Contributing a key binding will cause the Default Keyboard Shortcuts to display 
 Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` under Mac trigger the `"extension.sayHello"` command:
 
 ```json
-...
 "contributes": {
-	"keybindings": [{
-		"command": "extension.sayHello",
-		"key": "ctrl+f1",
-		"mac": "cmd+f1",
-		"when": "editorTextFocus"
-	}]
+    "keybindings": [{
+        "command": "extension.sayHello",
+        "key": "ctrl+f1",
+        "mac": "cmd+f1",
+        "when": "editorTextFocus"
+    }]
 }
-...
 ```
 
 ![keybindings extension point example](images/extension-points/keybindings.png)
@@ -171,42 +179,44 @@ If your language configuration file name is or ends with `language-configuration
 ```json
 ...
 "contributes": {
-	"languages": [{
-		"id": "python",
-		"extensions": [ ".py" ],
-		"aliases": [ "Python", "py" ],
-		"filenames": [ ... ],
-		"firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
-		"configuration": "./language-configuration.json"
-	}]
+    "languages": [{
+        "id": "python",
+        "extensions": [ ".py" ],
+        "aliases": [ "Python", "py" ],
+        "filenames": [ ... ],
+        "firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
+        "configuration": "./language-configuration.json"
+    }]
 }
 ```
+
 language-configuration.json
+
 ```json
 {
-	"comments": {
-		"lineComment": "//",
-		"blockComment": [ "/*", "*/" ]
-	},
-	"brackets": [
-		["{", "}"],
-		["[", "]"],
-		["(", ")"]
-	],
-	"autoClosingPairs": [
-		["{", "}"],
-		["[", "]"],
-		["(", ")"],
-		{ "open": "'", "close": "'", "notIn": ["string", "comment"] },
-		{ "open": "/**", "close": " */", "notIn": ["string"] }
-	],
-	"surroundingPairs": [
-		["{", "}"],
-		["[", "]"],
-		["(", ")"],
-		["<", ">"],
-		["'", "'"]
-	]
+    "comments": {
+        "lineComment": "//",
+        "blockComment": [ "/*", "*/" ]
+    },
+    "brackets": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"]
+    ],
+    "autoClosingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        { "open": "'", "close": "'", "notIn": ["string", "comment"] },
+        { "open": "/**", "close": " */", "notIn": ["string"] }
+    ],
+    "surroundingPairs": [
+        ["{", "}"],
+        ["[", "]"],
+        ["(", ")"],
+        ["<", ">"],
+        ["'", "'"]
+    ]
 }
 ```
 
@@ -219,26 +229,40 @@ You must provide one (or more) executables that implement the debug adapter.
 ### Example
 
 ```json
-...
 "contributes": {
-	"debuggers": [{
-		"type": "node",
-		"label": "Node Debug",
-		"program": "./out/node/nodeDebug.js",
-		"runtime": "node",
-		"enableBreakpointsFor": { "languageIds": ["javascript", "javascriptreact"] },
-		"initialConfigurations": [{
-			...
-		}],
-		"configurationAttributes": {
-			...
-		}
-	}]
+    "debuggers": [{
+        "type": "node",
+        "label": "Node Debug",
+        "program": "./out/node/nodeDebug.js",
+        "runtime": "node",
+        "initialConfigurations": [{
+            ...
+        }],
+        "configurationAttributes": {
+            ...
+        }
+    }]
 }
-...
 ```
 
 For a full walkthrough on how to integrate a `debugger` go to [Debuggers](/docs/extensions/example-debuggers.md).
+
+## `contributes.breakpoints`
+
+Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
+
+```json
+"contributes": {
+    "breakpoints": [
+        {
+            "language": "javascript"
+        },
+        {
+            "language": "javascriptreact"
+        }
+    ]
+}
+```
 
 ## `contributes.grammars`
 
@@ -249,15 +273,13 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 ### Example
 
 ```json
-...
 "contributes": {
-	"grammars": [{
-		"language": "shellscript",
-		"scopeName": "source.shell",
-		"path": "./syntaxes/Shell-Unix-Bash.tmLanguage"
-	}]
+    "grammars": [{
+        "language": "shellscript",
+        "scopeName": "source.shell",
+        "path": "./syntaxes/Shell-Unix-Bash.tmLanguage"
+    }]
 }
-...
 ```
 
 See [Adding Language Colorization](/docs/customization/colorizer.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
@@ -272,11 +294,11 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 
 ```json
 "contributes": {
-	"themes": [{
-		"label": "Monokai",
-		"uiTheme": "vs-dark",
-		"path": "./themes/Monokai.tmTheme"
-	}]
+    "themes": [{
+        "label": "Monokai",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Monokai.tmTheme"
+    }]
 }
 ```
 
@@ -288,10 +310,10 @@ See [Changing the Color Theme](/docs/customization/themes.md) for instructions o
 
 ```json
 "contributes": {
-	"snippets": [{
-		"language": "go",
-		"path": "./snippets/go.json"
-	}]
+    "snippets": [{
+        "language": "go",
+        "path": "./snippets/go.json"
+    }]
 }
 ```
 
@@ -302,13 +324,14 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
 ```json
 "contributes": {
     "jsonValidation": [{
- 		"fileMatch": ".jshintrc",
- 		"url": "http://json.schemastore.org/jshintrc"
-	}]
+        "fileMatch": ".jshintrc",
+        "url": "http://json.schemastore.org/jshintrc"
+    }]
 }
 ```
 
 ## Next Steps
+
 To learn more about VS Code extensibility model, try these topic:
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference

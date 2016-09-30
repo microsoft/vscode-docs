@@ -10,16 +10,22 @@ MetaDescription: In Visual Studio Code we have support for all common languages 
 
 # Programming Languages
 
-In Visual Studio Code, we have support for many programming languages out of the box (JavaScript, TypeScript, CSS, HTML) and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+## Hundreds of Programming Languages Supported
+
+In Visual Studio Code, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML but more rich language extensions can be found in the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+
+Here are four of the most popular language extensions:
 
 <div class="marketplace-extensions-languages"></div>
 
-## What Languages are Supported
+Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use our [integrated extension manager](/docs/editor/extension-gallery) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers and more.
 
-Batch - [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - Clojure - Coffee Script - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - F# - Go - Groovy - HandleBars - [HTML](/docs/languages/html.md) - Ini - Jade - Java - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) - Lua - Makefile - 
-[Markdown](/docs/languages/markdown.md) - Objective-C - Pascal - Perl  - [PHP](/docs/languages/php.md) - PowerShell - [Python](/docs/languages/python.md) - R - Razor - Ruby - Rust - [Sass](/docs/languages/css.md) - Scala - SQL - Swift - [TypeScript](/docs/languages/typescript.md) - Visual Basic - XML
+## Language Specific Documentation
 
->Click on any linked item to get an overview of how to use VS Code in the context of that language.
+On this website, we have a number of topics outlining several of the common languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - [HTML](/docs/languages/html.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
+[Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [Python](/docs/languages/python.md) - [Sass](/docs/languages/css.md) - [TypeScript](/docs/languages/typescript.md).
+
+Click on any linked item to get an overview of how to use VS Code in the context of that language.  Most language extensions also contain a summary of their core features in their README.
 
 ## Language Features in VS Code
 
@@ -46,11 +52,36 @@ In VS Code, we default the language support for a file based on its filename ext
 
 ![Language Selector](images/overview/languageselect.png)
 
+## Language Id
+
+VS Code associates a language mode with a specific language identifier so that various VS Code features can be enabled based on the current language mode.
+
+Languages | Identifiers
+-------- | ----------
+Java, JavaScript | `java`, `javascript`
+TypeScript | `typescript`
+C, C++, C# | `c`, `cpp`, `csharp`
+CSS, HTML | `css`, `html`
+Less, Sass | `less`, `scss`
+JSON | `json`
+Markdown | `markdown`
+F# | `fsharp`
+PHP | `php`
+Python | `python`
+PowerShell | `powershell`
+Rust | `rust`
+Swift | `swift`
+Text | `plaintext`
+Visual Basic | `vb`
+XML, XSL, YAML | `xml`, `xsl`, `yaml`
+
+A language identifier is often (but not always) the lowercased programming language name. Note that casing matters for exact identifier matching ('Markdown' != 'markdown'). Unknown language files have the language identifier `plaintext`.
+
 ## Adding a file extension to a Language
 
 You can add new file extensions to an existing language with the `files.associations` [setting](/docs/customization/userandworkspace.md).
 
-For example, the setting below adds the `.myphp` file extension to the `php` language:
+For example, the setting below adds the `.myphp` file extension to the `php` language identifier:
 
 ```json
     "files.associations": {

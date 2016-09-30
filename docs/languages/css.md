@@ -30,6 +30,18 @@ Press `kb(editor.emmet.action.expandAbbreviation)` to expand the current abbrevi
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
+If you'd like to use CSS Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `css`, `html`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/customization/userandworkspace.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
+
+For example, to use Emmet CSS abbreviations inside JavaScript:
+
+```json
+{
+    "emmet.syntaxProfiles": {
+        "javascript": "css"
+     }
+}
+```
+
 We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.md).
 
 ## Syntax coloring & Color preview
@@ -147,13 +159,16 @@ Let's take things a little further and automate Sass/Less compilation with VS Co
 
 We will use [Gulp](http://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
 
-We need to install `gulp` locally (no `-g` switch):
+We need to install gulp both globally (`-g` switch) and locally:
 
 ```
+npm install -g gulp
 npm install gulp gulp-sass gulp-less
 ```
 
 > **Note:** `gulp-sass` and `gulp-less` are Gulp plug-ins for the `node-sass` and `lessc` modules we were using before.  There are many other Gulp Sass and Less plug-ins you can use, as well as plug-ins for Grunt.
+
+You can test that your gulp installation was successful but typing `gulp -v`. You should see a version displayed for both the global (CLI) and local installations.
 
 ### Step 2: Create a simple Gulp task
 
@@ -232,7 +247,7 @@ Again, as this is the only task in the file you can execute it by simply pressin
 
 At this point, if you create and/or modify other Less/Sass files, you will see the respective CSS files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-If you want to stop the watch, you can press `kb(workbench.action.tasks.build)` again and click **Terminate Running Task** in the message box. Or you can use the **Command Palette** with `kb(workbench.action.showCommands)` and find the terminate command there.
+If you want to stop the watch, you can use the **Tasks: Terminate Running Task** command in the  **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ## Customizing CSS, Sass and Less Settings
 

@@ -107,7 +107,7 @@ Edit your [keybindings](/docs/customization/keybindings.md) and add the followin
 
 If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/customization/keybindings.md).
 
-Mac OS X:
+Mac:
 
 ```json
 { "key": "cmd+w", "command": "workbench.action.closeEditorsInGroup" }

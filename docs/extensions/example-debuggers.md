@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 5
 Area: extensions
 TOCTitle: Example-Debuggers
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
@@ -126,11 +126,14 @@ and **version** of the extension. Use the **categories** field to make the exten
 	"categories": ["Debuggers"],
 
 	"contributes": {
+		"breakpoints": [
+			{ 
+				"language": "markdown"
+			}
+		],
 		"debuggers": [{
 			"type": "mock",
 			"label": "Mock Debugger",
-
-			"enableBreakpointsFor": { "languageIds": ["markdown"] },
 
 			"program": "./out/mockDebug.js",
 			"runtime": "node",
@@ -167,13 +170,9 @@ and **version** of the extension. Use the **categories** field to make the exten
 }
 ```
 
-More interesting is the specific **debuggers** section under **contributes**.
+Take a look at the **contributes** section. First we have **breakpoints** where you can list the language file types for which setting breakpoints will be enabled.
 
-Here one debug adapter is introduced under a (unique) debug **type**.
-The user can reference this type in his launch configurations.
-The optional attribute **label** can be used to give the debug type a nicer name when showing it in the UI.
-
-With the attribute **enableBreakpointsFor** you can list the language file types for which setting breakpoints will be enabled.
+Next is the **debuggers** section. Here one debug adapter is introduced under a (unique) debug **type**. The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nicer name when showing it in the UI.
 
 Since a debug adapter is a standalone application, a path to that application is specified under the **program** attribute.
 In order to make the extension self-contained the application must live inside the extension folder.

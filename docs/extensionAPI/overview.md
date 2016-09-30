@@ -28,6 +28,10 @@ Topic|Description
 **[API debugging](/docs/extensionAPI/api-debugging.md)**|Learn the details about integrating debuggers into VS Code.
 **[API samples](https://github.com/Microsoft/vscode-extension-samples)**|Sample code illustrating the VS Code extension API.
 
+## Language Extension Guidelines
+
+If you are implementing programming language support, we have a [Language Extension Guidelines](/docs/extensions/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and provides guidance on how to implement them.
+
 ## Common Questions
 
 Nothing yet

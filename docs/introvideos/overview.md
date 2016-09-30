@@ -17,7 +17,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		<a href="/docs/introvideos/basics">
 			<img src="https://img.youtube.com/vi/fpqy0ZkavWM/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h3 class="title">Basics and Setup</h3>
+				<h3 class="title">Setup and Basics</h3>
 				<p class="description">Install and learn the basics of your new editor.</p>
 				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>

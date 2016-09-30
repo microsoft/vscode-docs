@@ -24,7 +24,7 @@ Below are several popular extension which include debugging support:
 
 <div class="marketplace-extensions-debuggers"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. 
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you.
 
 ## Start Debugging
 
@@ -48,41 +48,50 @@ Here is the one generated for Node.js debugging:
 
 ```json
 {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Launch",
-			"type": "node",
-			"request": "launch",
-			"program": "${workspaceRoot}/app.js",
-			"stopOnEntry": false,
-			"args": [],
-			"cwd": "${workspaceRoot}",
-			"preLaunchTask": null,
-			"runtimeExecutable": null,
-			"runtimeArgs": [
-				"--nolazy"
-			],
-			"env": {
-				"NODE_ENV": "development"
-			},
-			"externalConsole": false,
-			"sourceMaps": false,
-			"outDir": null
-		},
-		{
-			"name": "Attach",
-			"type": "node",
-			"request": "attach",
-			"port": 5858,
-			"address": "localhost",
-			"restart": false,
-			"sourceMaps": false,
-			"outDir": null,
-			"localRoot": "${workspaceRoot}",
-			"remoteRoot": null
-		}
-	]
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/app.js",
+            "stopOnEntry": false,
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "console": "internalConsole",
+            "sourceMaps": false,
+            "outDir": null
+        },
+        {
+            "name": "Attach",
+            "type": "node",
+            "request": "attach",
+            "port": 5858,
+            "address": "localhost",
+            "restart": false,
+            "sourceMaps": false,
+            "outDir": null,
+            "localRoot": "${workspaceRoot}",
+            "remoteRoot": null
+        },
+        {
+            "name": "Attach to Process",
+            "type": "node",
+            "request": "attach",
+            "processId": "${command.PickProcess}",
+            "port": 5858,
+            "sourceMaps": false,
+            "outDir": null
+        }
+    ]
 }
 ```
 
@@ -115,6 +124,20 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 ![Debug Breakpoints](images/debugging/breakpoints.png)
 
 The `Reapply All Breakpoints` command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed. (For details see below under __Node Debugging: Breakpoint Validation__)
+
+## Function Breakpoints
+
+Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
+
+A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header:
+
+![function breakpoint](images/debugging/function-breakpoint.gif)
+
+**Please note**: Function breakpoints support is limited because:
+
+- Not every debug extension supports function breakpoints (the Node.js debugger in VS Code does).
+- Function breakpoints only work for global, non-native functions.
+- Function breakpoints can only be created if the function has been defined (seen by the debugger).
 
 ## Data inspection
 
@@ -151,7 +174,7 @@ The following sections are specific to the Node.js debugger.
 
 ### Node Console
 
-By default, Node.js debug sessions launch the target in the internal VS Code Debug Console. Since the Debug Console does not support programs that need to read input from the console, you can enable an external, native console by setting the attribute `externalConsole` to `true` in your launch configuration.
+By default, Node.js debug sessions launch the target in the internal VS Code Debug Console. Since the Debug Console does not support programs that need to read input from the console, you can enable either an external, native console or use the VS Code Integrated Terminal by setting the attribute `console` to `externalTerminal` or `integratedTerminal` respectively in your launch configuration.
 
 ### Breakpoint Validation
 
@@ -168,19 +191,6 @@ When doing so you will find that some of your breakpoints don't "stick" to the l
 This breakpoint validation occurs when a session starts and the breakpoints are registered with Node.js, or when a session is already running and a new breakpoint is set. In this case, the breakpoint may "jump" to a different location. After Node.js has parsed all the code (e.g. by running through it), breakpoints can be easily re-applied to the requested locations with the **Reapply** button in the **BREAKPOINTS** section header. This should make the breakpoints "jump back" to the requested location.
 
 ![Breakpoint Actions](images/debugging/breakpointstoolbar.png)
-
-### Function Breakpoints
-
-Instead of placing breakpoints directly in source code, the Node.js debugger now supports creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
-
-A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header:
-
-![function breakpoint](images/debugging/function-breakpoint.gif)
-
-**Please note**: Node.js support for function breakpoints is limited because:
-
-- function breakpoints only work for global, non-native functions and
-- function breakpoints can only be created if the function has been defined (seen by Node.js).
 
 ### JavaScript Source Maps
 
@@ -268,57 +278,6 @@ The Node.js debugger supports remote debugging for recent versions of Node.js (>
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
-
-## Mono Debugging
-
-On Linux or OS X, the Mono debugging support of VS Code requires [Mono](http://www.mono-project.com/) version 3.12 or later. If you intend to build .NET Core applications with Visual Studio Code, we recommend you first follow the steps in [.NET Core and Visual Studio](/docs/runtimes/dotnet.md).
-
-If you just want to try VS Code Mono debugging, you can either download the latest Mono version for Linux or OS X at [Mono project](http://www.mono-project.com/download/) or you can use your package manager.
-
-* On OS X: `brew install mono`
-* On Linux: `sudo apt-get install mono-complete`
-
-### Installing the Mono Debug Extension
-
-VS Code Mono debugging integration comes from the ['Mono Debug'](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) extension on the Visual Studio Marketplace.
-
-You can either install the **Mono Debug** extension with the VS Code **Extensions: Install Extension** command or if you already have a Mono based project with a `mono` launch configuration, simply by starting a debug session. VS Code will then prompt you to download and install **Mono Debug**.
-
-### Enable Mono debugging
-
-To enable debugging of Mono based C# (and F#) programs, you have to pass the `-debug` option to the compiler:
-
-```
-mcs -debug Program.cs
-```
-
-If you want to attach the VS Code debugger to a Mono program, pass these additional arguments to the Mono runtime:
-
-```
-mono --debug --debugger-agent=transport=dt_socket,server=y,address=127.0.0.1:55555 Program.exe
-```
-
-The corresponding launch configuration looks like this:
-
-```json
-{
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Attach to Mono",
-			"request": "attach",
-			"type": "mono",
-			"address": "localhost",
-			"port": 55555
-		}
-	]
-}
-```
-
-## Debugging Other Languages
-
-Debugging many other languages is supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads). These include Go, PowerShell, Python, PHP, ...
-
 ## Next Steps
 
 In case you didn't already read the Node.js section, take a look at:
@@ -342,7 +301,7 @@ To write your own debugger extension, visit:
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows. Debugging of C# applications running on Mono is supported on Linux and OS X. .NET Core applications are compiled using the [Roslyn](https://github.com/dotnet/roslyn) compiler, not the Mono compiler. .NET Core debugging will be available through a VS Code extension. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads).
+**A:** Debugging of Node.js based applications is supported on Linux, Mac, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 
@@ -351,7 +310,3 @@ To write your own debugger extension, visit:
 **Q: What Node.js version is required for Node.js debugging?**
 
 **A:** The latest LTS version of [Node.js](https://nodejs.org/) is recommended.
-
-**Q: Is Mono debugging supported on Windows?**
-
-**A:** No. Currently Mono debugging is only supported on Mac and Linux.

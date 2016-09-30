@@ -16,8 +16,6 @@ Visual Studio Code can be a great companion to Unity for editing and debugging C
 
 Read on to find out how to configure Unity and your project to get the best possible experience.
 
->**Note:** VS Code uses a more recent version of Mono than that included with Unity. If you get OmniSharp errors, you may need to update your Mono version.  See this [FAQ topic](/docs/setup/osx#_common-questions) for additional details.
-
 ## Connecting Unity and VS Code
 
 The easiest way to get going is to leverage a [Unity plug-in](https://github.com/dotBunny/VSCode/) maintained by [@Reapazor](https://twitter.com/reapazor).  This plug-in streamlines the integration process significantly by performing the following tasks:
@@ -160,7 +158,7 @@ Before|After
 
 **Q: VS Code did not go to the correct position in my file.**
 
-**A:** For OS X, make sure you have installed the Unity plug-in described above.  For Windows, ensure you have set the additional command line arguments when you launch VS Code from Unity.
+**A:** For Mac, make sure you have installed the Unity plug-in described above.  For Windows, ensure you have set the additional command line arguments when you launch VS Code from Unity.
 
 **Q: How can I debug Unity?**
 
