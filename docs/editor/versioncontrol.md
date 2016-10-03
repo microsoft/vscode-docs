@@ -189,7 +189,7 @@ Next, assuming you want to remove the unintended repo initialization, look for t
 
 **Q: I have GitHub Desktop installed on my computer but VS Code ignores it.**
 
-**A:** VS Code expects `git.exe` to be on the operating system's `PATH` (`$PATH` on OS X or Linux).  **GitHub Desktop** installs isolated git binaries and does not automatically add `git.exe` to `PATH`.
+**A:** VS Code expects `git.exe` to be on the operating system's `PATH` (`$PATH` on Mac or Linux).  **GitHub Desktop** installs isolated git binaries and does not automatically add `git.exe` to `PATH`.
 
 You can either:
 

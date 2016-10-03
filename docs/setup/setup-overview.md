@@ -14,11 +14,11 @@ Getting up and running with VS Code is quick and easy. It is a small download so
 
 ## Cross Platform
 
-VS Code is a free code editor which runs on the Mac OS X, Linux and Windows operating systems.
+VS Code is a free code editor which runs on the Mac, Linux and Windows operating systems.
 
 Follow the platform specific guides below:
 
-* [OS X](/docs/setup/osx.md)
+* [Mac](/docs/setup/mac.md)
 * [Linux](/docs/setup/linux.md)
 * [Windows](/docs/setup/windows.md)
 
@@ -93,4 +93,4 @@ If you'd like to getting something running quickly, try the [Node.js runtime](/d
 
 **Q: How do I know which version I'm running?**
 
-**A:** In Linux and Windows, choose **Help** > **About**. In OS X, use **Code** > **About Visual Studio Code**.
+**A:** On Linux and Windows, choose **Help** > **About**. On Mac, use **Code** > **About Visual Studio Code**.

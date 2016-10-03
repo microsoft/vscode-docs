@@ -10,11 +10,11 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 
 # C/C++ for VS Code (Preview)
 
-C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and OS X. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux, OS X, and Windows.
+C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and Mac. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux, Mac, and Windows.
 
 If you just want a lightweight tool to edit your C++ files, VS Code has you covered but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
-We're still shaping the C++ experience in VS Code so now is a great time to [provide bug reports, feature requests, and feedback](mailto:c_cpp_support@microsoft.com), and for those of you who use Linux or OS X as your development environment, to [get engaged](http://landinghub.visualstudio.com/c-nonwin) with the Visual Studio team.
+We're still shaping the C++ experience in VS Code so now is a great time to [provide bug reports, feature requests, and feedback](mailto:c_cpp_support@microsoft.com), and for those of you who use Linux or Mac as your development environment, to [get engaged](http://landinghub.visualstudio.com/c-nonwin) with the Visual Studio team.
 
 ## Getting Started
 

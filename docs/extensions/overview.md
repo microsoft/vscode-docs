@@ -37,8 +37,10 @@ Extensions include support for:
 
 We have two end-to-end walkthroughs to get you going on extension basics:
 
-1. **[Hello World](/docs/extensions/example-hello-world.md)** - generate a basic extension, understand an extension's folder structure, the extension manifest, learn how activation works, run and debug your extension and install it locally. 
-2. **[Word Count](/docs/extensions/example-word-count.md)** - activate based on a specific file type, update the status bar, respond to changes in the text editor, and dispose your extension when moving off the file. 
+1. **[Hello World](/docs/extensions/example-hello-world.md)** - generate a basic extension, understand an extension's folder structure, the extension manifest, learn how activation works, run and debug your extension and install it locally.
+2. **[Word Count](/docs/extensions/example-word-count.md)** - activate based on a specific file type, update the status bar, respond to changes in the text editor, and dispose your extension when moving off the file.
+
+Also helpful is [Extensibility Patterns and Practices](/docs/extensions/patterns-and-principles.md) which describes the shared programming patterns used throughout the extensibility API.
 
 ## Language Servers
 
@@ -53,6 +55,10 @@ Connecting a debugger written for any language to VS Code is possible through th
 Find out more about integrating [debuggers](/docs/extensions/example-debuggers.md).
 
 The easiest way to see VS Code extensions in action is via the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can browse for useful extensions, install them to try them out and get an idea how you might extend VS Code for your own development scenarios.
+
+## Language Extension Guidelines
+
+To help you decide what language features you'd like to support with your extension, we have a [Language Extension Guidelines](/docs/extensions/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and how to implement them through either the language server protocol or by using the extensibility API directly from your extension.
 
 ## Writing an Extension
 
