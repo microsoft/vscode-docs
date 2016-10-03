@@ -12,7 +12,19 @@ MetaDescription: Overview of VS Code's Introductory Videos.
 
 Start your journey with Visual Studio Code with this set of introductory videos. The videos are designed to give you a quick overview of the various features of VS Code. VS Code comes with JavaScript and TypeScript support out of the box so the videos use JavaScript in the examples.
 
+> Note: If you would like us to cover other topics, please leave [feedback here](https://www.surveymonkey.com/r/H9W7K8J). 
+
 <ul class="video-list">
+	<li class="video">
+		<a href="/docs/introvideos/quicktour">
+			<img src="https://img.youtube.com/vi/RAFFF1bIwTk/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">Quick Tour using JavaScript</h2>
+				<p class="description">Check out the key features of VS Code in a quick overview.</p>
+				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+	</li>
 	<li class="video">
 		<a href="/docs/introvideos/basics">
 			<img src="https://img.youtube.com/vi/fpqy0ZkavWM/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
@@ -75,5 +87,4 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 	</li>
 </ul>
 
-> Note: If you would like us to cover other topics, please leave [feedback here](https://www.surveymonkey.com/r/H9W7K8J). 
 
