@@ -17,7 +17,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		<a href="/docs/introvideos/basics">
 			<img src="https://img.youtube.com/vi/fpqy0ZkavWM/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h3 class="title">Setup and Basics</h3>
+				<h2 class="title faux-h3">Setup and Basics</h2>
 				<p class="description">Install and learn the basics of your new editor.</p>
 				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
@@ -27,7 +27,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		<a href="/docs/introvideos/configure">
 			<img src="https://img.youtube.com/vi/BzLawuxe3nk/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h3 class="title">Configure and Extend</h3>
+				<h2 class="title faux-h3">Configure and Extend</h2>
 				<p class="description">Personalize and extend VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
@@ -37,7 +37,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		<a href="/docs/introvideos/intellisense">
 			<img src="https://img.youtube.com/vi/jVIe82TdmqE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h3 class="title">IntelliSense</h3>
+				<h2 class="title faux-h3">IntelliSense</h2>
 				<p class="description">Receive intelligent code completions.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
@@ -47,7 +47,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		<a href="/docs/introvideos/codeediting">
 			<img src="https://img.youtube.com/vi/rsatrlBEFFA/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h3 class="title">Code Editing</h3>
+				<h2 class="title faux-h3">Code Editing</h2>
 				<p class="description">Take code editing to the next level.</p>
 				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
@@ -57,7 +57,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		<a href="/docs/introvideos/versioncontrol">
 			<img src="https://img.youtube.com/vi/AKNYgP0yEOY/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h3 class="title">Version Control</h3>
+				<h2 class="title faux-h3">Version Control</h2>
 				<p class="description">Learn how to use Git version control in VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
@@ -67,7 +67,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		<a href="/docs/introvideos/debugging">
 			<img src="https://img.youtube.com/vi/hvPuPi8iG_w/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h3 class="title">Debugging</h3>
+				<h2 class="title faux-h3">Debugging</h2>
 				<p class="description">Debug a simple Node.js application.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
