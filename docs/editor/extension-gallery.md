@@ -89,6 +89,32 @@ code --install-extension ms-vscode.cpptools
 code --uninstall-extension ms-vscode.csharp
 ```
 
+## Workspace Recommended Extensions
+
+Often you have a set of extensions that makes working with a particular workspace or programming language more productive and you'd like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Workspace Recommended Extensions** command. This creates a `extensions.json` file located in the workspace `.vscode` folder where you can list extensions.
+
+An example `extensions.json` could be:
+
+```json
+{
+    "recommendations": [
+        "eg2.tslint",
+        "dbaeumer.vscode-eslint",
+        "msjsdiag.debugger-for-chrome"
+    ]
+}
+```
+
+which recommends two linter extensions, TSLint and ESLint, as well as the Chrome debugger extension.
+
+An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page.
+
+![Extension identifier](images/extension-gallery/extension-identifier.png).
+
+VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Workspace Recommended Extensions** command.
+
+![Show Recommendations](images/extension-gallery/recommendations.png)
+
 ## Next Steps
 
 Here are a few topics you may find interesting...
