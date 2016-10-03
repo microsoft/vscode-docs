@@ -100,7 +100,7 @@ class WordCounter {
             return;
         }
 
-         let doc = editor.document;
+        let doc = editor.document;
 
         // Only update status if an MarkDown file
         if (doc.languageId === "markdown") {
