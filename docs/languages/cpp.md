@@ -166,7 +166,7 @@ After you have set up the basics of your debugging environment as specified in [
 VS Code supports the following debuggers for C/C++ depending on the operating system you are using:
 
 * **Linux**: GDB
-* **OS X**: LLDB or GDB
+* **Mac**: LLDB or GDB
 * **Windows**: the Visual Studio Windows Debugger or GDB (using Cygwin or MinGW)
 
 ### Windows Debugging with GDB on Cygwin/MinGW <a name="debug_windows_gdb"></a>
@@ -264,15 +264,15 @@ Linux:
 
 * GDB needs elevated permissions to attach to a process. When using *attach to process*, you need to provide your password before the debugging session can begin.
 
-OS X:
+Mac:
 
 * LLDB:
     * When debugging with LLDB, if the Terminal window is closed while in break mode, debugging does not stop. Debugging can be stopped by pressing the **Stop** button.
     * When debugging is stopped the Terminal window is not closed.
 * GDB:
-    * Additional manual install steps need to be completed to use GDB on OS X. See _Manual Installation of GDB for OS X_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
+    * Additional manual install steps need to be completed to use GDB on MAC. See _Manual Installation of GDB for Mac_ in the [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools).
     * When attaching to a process with GDB, the application being debugged cannot be interrupted. GDB will only bind breakpoints set while the application is not running (either before attaching to the application, or while the application is in a stopped state). This is due to [a bug in GDB](https://sourceware.org/bugzilla/show_bug.cgi?id=20035).
-    * Core dumps cannot be loaded when debugging with GDB because GDB [does not support the core dump format used in OS X](https://www.sourceware.org/ml/gdb/2014-01/msg00036.html).
+    * Core dumps cannot be loaded when debugging with GDB because GDB [does not support the core dump format used in Mac](https://www.sourceware.org/ml/gdb/2014-01/msg00036.html).
     * When attached to a process with GDB, break-all will end the process.
 
 ## Next Steps
