@@ -34,7 +34,7 @@ code --install-extension myextension.vsix
 
 The extension will be installed under your user `.vscode/extensions` folder. You may provide multiple `.vsix` files on the command line to install multiple extensions at once.
 
-You can also install a `.vsix` by opening the file from within VS Code.  Run **File** > **Open File...** or `kb(workbench.action.files.openFile)` and select the extension `.vsix`.
+You can also install a `.vsix` with the **Install from VSIX...** command in the Extensions View command dropdown.
 
 ## Publishing to the Marketplace
 

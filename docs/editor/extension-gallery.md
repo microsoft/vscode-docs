@@ -16,7 +16,7 @@ The features that VS Code includes out-of-the-box are just the start. VS Code ex
 
 ## Browse and Install Extensions in VS Code
 
-You can browse and install extensions from within VS Code. Bring up the Extension view by clicking on the Extensions icon in the View Bar on the side of VS Code.
+You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the View Bar on the side of VS Code.
 
 ![Extension View icon](images/extension-gallery/extensions-view-icon.png)
 
@@ -117,7 +117,7 @@ For example, the [ESLint extension](https://marketplace.visualstudio.com/items?i
 https://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
 ```
 
-Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then opening the `.vsix` file directly in VS Code (**File** > **Open File...**).  See [Installing Extensions](/docs/extensions/install-extension.md#install-a-packaged-extension-vsix) for more details.
+Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions View command dropdown. See [Installing Extensions](/docs/extensions/install-extension.md#install-a-packaged-extension-vsix) for more details.
 
 **Q: Can VS Code read TextMate bundles directly?**
 
