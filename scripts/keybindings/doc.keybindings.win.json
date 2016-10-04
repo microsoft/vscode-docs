@@ -361,7 +361,7 @@
                                      "when": "replaceActive && searchViewletVisible && !findWidgetVisible" },
 { "key": "down",                  "command": "search.focus.nextInputBox",
                                      "when": "inputBoxFocus && searchViewletVisible" },
-{ "key": "up",                    "command": "search.focus.previousInputbox",
+{ "key": "up",                    "command": "search.focus.previousInputBox",
                                      "when": "inputBoxFocus && searchViewletVisible && !searchInputBoxFocus" },
 { "key": "alt+down",              "command": "search.history.showNext",
                                      "when": "searchInputBoxFocus && searchViewletVisible" },

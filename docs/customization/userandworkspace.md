@@ -627,9 +627,6 @@ Below is a copy of the default `settings.json` file.
     // Enables tracing of messages send to the TS server
     "typescript.tsserver.trace": "off",
 
-    // Enables experimental auto build. Requires 1.9 dev or 2.x tsserver version and a restart of VS Code after changing it.
-    "typescript.tsserver.experimentalAutoBuild": false,
-
     // Complete functions with their parameter signature.
     "typescript.useCodeSnippetsOnMethodSuggest": false,
 

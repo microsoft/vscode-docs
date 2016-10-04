@@ -65,7 +65,7 @@ Snippets will take productivity to the next level. You can configure [your own s
 
 ## Configuration
 
-You will need an [extension](#_install-python-extension) and [Python](https://www.python.org/downloads/) installed. Other dependencies are optional and depend on the features you want to use. Read through the requirements on the [extension's README](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements). 
+You will need an [extension](/docs/languages/python.md#install-python-extension) and [Python](https://www.python.org/downloads/) installed. Other dependencies are optional and depend on the features you want to use. Read through the requirements on the [extension's README](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements). 
 
 ## Next Steps
 
