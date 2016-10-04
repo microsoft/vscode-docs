@@ -6,6 +6,7 @@ ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: The Basics of Visual Studio Code
 DateApproved: 9/8/2016
 MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.
+MetaSocialImage: codebasics_CodeBasics.png
 ---
 
 # The Basics of Visual Studio Code
