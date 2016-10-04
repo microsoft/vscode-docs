@@ -30,7 +30,7 @@ var areas = {
 	customization: new Area('Customization', 'customization', true),
 	languages: new Area('Languages', 'languages', true),
 	runtimes: new Area('Runtimes', 'runtimes', true),
-	extensions: new Area('Extensions', 'extensions', true),
+	extensions: new Area('Creating Extensions', 'extensions', true),
 	extensionapi: new Area('Extensibility Reference', 'extensionAPI', true),
 	tools: new Area('Tools', 'tools', true),
 	supporting: new Area('Supporting', 'supporting', false)
