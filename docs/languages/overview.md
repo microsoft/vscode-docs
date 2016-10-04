@@ -70,12 +70,15 @@ PHP | `php`
 Python | `python`
 PowerShell | `powershell`
 Rust | `rust`
+Shell Script (Bash) | `shellscript`
 Swift | `swift`
 Text | `plaintext`
 Visual Basic | `vb`
 XML, XSL, YAML | `xml`, `xsl`, `yaml`
 
 A language identifier is often (but not always) the lowercased programming language name. Note that casing matters for exact identifier matching ('Markdown' != 'markdown'). Unknown language files have the language identifier `plaintext`.
+
+You can see the list of currently installed languages and their identifiers in the **Change Language Mode** (`kb(workbench.action.editor.changeLanguageMode)`) dropdown.
 
 ## Adding a file extension to a Language
 
