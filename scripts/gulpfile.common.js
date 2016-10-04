@@ -118,6 +118,9 @@ exports.compileMarkdown = function(file, article) {
 	// need to remove embedded .md before # section tags and place _ underscore after for cshtml navigation
 	fileContents = fileContents.replace(/.md#/g, "#_"); 
 
+	// place underscore after a single # section tags for cshtml navigation
+	fileContents = fileContents.replace(/\(#/g, "(#_"); 
+
 	// Render markdown
 	article.Content = md.render(fileContents);
 
