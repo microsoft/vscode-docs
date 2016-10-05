@@ -81,7 +81,9 @@ exports.compileMarkdown = function(file, article) {
 				Title: title.content,
 				Anchor: anchor
 			};
-			article.Sections.push(section);
+			if (headerToken.tag === 'h2') {
+				article.Sections.push(section);
+			}
 			headerToken.attrPush(['id', anchor]);
             headerToken.attrPush(['data-needslink', anchor]);
 			tokens[idx] = headerToken;
