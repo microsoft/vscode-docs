@@ -75,7 +75,7 @@ exports.compileMarkdown = function(file, article) {
 	md.renderer.rules.heading_open = function (tokens, idx, options, env, self) {
 		var headerToken = tokens[idx];
 		var title = tokens[idx + 1];
-		if (headerToken.tag === 'h2') {
+		if ((headerToken.tag === 'h2') || (headerToken.tag === 'h3')) {
 			var anchor = "_" + exports.filterText(title.content).toLowerCase();
 			var section = {
 				Title: title.content,
