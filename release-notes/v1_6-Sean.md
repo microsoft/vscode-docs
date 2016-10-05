@@ -1,33 +1,50 @@
----
-Order: 16
-TOCTitle: September 2016
-PageTitle: Visual Studio Code September 2016 1.6
-MetaDescription: See what is new in the Visual Studio Code September 2016 Release (1.6)
-MetaSocialImage: 1_6_releasehighlights.jpg
----
 
 # September 2016 (version 1.6)
 
-This release has some big infrastructure changes for Visual Studio Code. We've updated to the latest Electron shell (version 1.3.7) and now include TypeScript 2.0.  We added programmatic access to user and workspace settings and you'll see this is action in several places in the UI (**File** > **Auto Save**, **Configure File Associations**). And we're continuing to improve Extension management (**Configure Workspace Recommended Extensions**, a preview of **Extension Packs**). All of this work puts VS Code in great shape for us and our extension partners moving forward.
+Welcome to the September release of VS Code.  There are a number of significant updates in this version we hope you will all notice, some of the key highlights include:
+* **[TypeScript 2.0](#typescript-20)** - brings improvements for [JavaScript](#javascript) and [TypeScript](#typescript) as well as [extension authoring](#extension-authoring) and your own projects.
+* **[Release notes](#release-notes-inside-vs-code)** - are now available within VS Code making them more discoverable and easier to[] review.
+* **[Format on Save](#format-on-save)** - Formatters can now hook into the save event.
+* **[Icons Everywhere](#icons-everywhere)** - file icons are now supported in more locations e.g. tab headers.
+* **[Switch Windows](#switch-between-running-windows)** - moving quickly between VS Code Windows/Instances is now supported via the command palette.
+* **[Search term history](#search-term-history)** - past search terms are available in the search dialogue. 
+* **[Launch script support](#launch-configuration-supports-npm-and-other-tools)** - it's now possible to launch an NPM script before debugging
+* **[Workspace recommendions](#workspace-extension-recomandations)** - your workspace can now provide suggestions for the extensions other members of the team should use.
+* **[API for Settings](#new-apis)** - it's now possible to change settings via an API, this allows new options like persistent [autosave](#uto-save-menu-item), and [file associations](#file-associations-configuration).
+* **[VIM relative Line numebrs](#contibutions-to-extensions)** - The VIM extension now supports relative line numbers.
+* **[Node 6.3+ Debugger](#experimental-nodejs-v63-debugger)** - an experimental extension is available to support the V8 Inspector Protocol.
+* **[*PREVIEW* Extensions packs](#preview-extension-packs)** - a set of extensions can now be made into a single download from the marketplace.
+* **[*PREVIEW* TS/JS Grammar](#preview-typescriptjavascript-grammar)** - a new colorizer is available for JS/TS with over 200 fixes, we will bundle this in the next release.
 
-Here are some other highlights:
+There are of course many additional updates in this release as well, read on for the complete list...
 
-* [**Workbench**](#workbench): File Icons added to Open Editors, Search Results, Problems, and Tabs. Automatic detection of corrupted installation.
-* [**Editor**](#editor): Format On Save, Vim style relative line numbers.
-* [**Languages**](#languages): TypeScript 2.0 language features which benefits both TypeScript and JavaScript development.
-* [**Extensions**](#extensions): Create workspace recommended Extension lists. Extension packs to automatically include dependencies.
-* [**Debugging**](#debugging): Support for running NPM and other script runners on launch. 
-* [**Extension Authoring**](#extension-authoring): New APIs to update settings and modify files before save. Debug protocol updates including programmatic access to `launch.json`.
+## Release Notes structure
+
+The release notes are arranged in the following sections related to the relevant VS Code focus areas:
+
+* **[Workbench](#workbench)** - Release notes inside VS Code, Icons everywhere, Switch between running Windows, Image dimensions & file size details
+* **[Editor](#editor)** - Format On Save, search term history, Hover & IntelliSense UI consistency, Auto save menu item, Streamlined file associations, Unicode improvements, Improvements to LineNumber and Whitespace settings.
+* **[Languages](#languages)** - TypeScript 2.0 adoption, TypeScript & JavaScript improvements, improved JS/TS Grammar, Updates TML/Razor/Handlebar support
+* **[Extensions](#extensions)** - Workspace extension recommendations, extension packs, extension identifier badge, extension update version check
+* **[Debugging](#debugging)** - Configurable External Terminal Support, Launch configuration supports script running, Glob patters for source maps, Experimental V8 Inspector extension. 
+ 
+We have also added a few reference sections with additional details:
+
+* **[Extension Authoring](#extension-authoring)** - Adopting TypeScript 2.0 for JavaScript or TypeScript, New APIs [onWillSaveTextDocument, WorkSpaceConfiguration, Terminal processID, Create Terminal, Close terminal], updated button order, background terminal creation, Updates Debug Authoring [language nutral JSAON schema, External Terminal support, Improved Initial Configuration contribution, breakpoint hit count]. 
+* **[Miscellaneous](#miscellaneous)** - Improving command discoverability, new location for dirty indicator in tabs mode, Electron update, Bundled extension support, Currupt install notification, Improvements in issue reporting, Mac OS Sierra update.
+* **[New Commands](#new-commands)** - each release several new commands become available, this is a quick summary list.
+* **[Notable Changes/Fixes](#notable-changes/fixes)** - on top of all the features in the release several notable issues are resolved.
+* **[Contributions to Extensions](#contributions-to-extensions)** - a quick run-down of some of the VS Code extensions our team made updated to during the iteration.
+* **[Download Links](#download-links)** - a set of release specific download links.
+* **[Acknowlegements](#acknowlegements)** - each release we accept a number of community contributions into the code base here is the full list.
+
+Ok read on to get into the specifics for this release...
 
 ## Workbench
 
 ### Release notes inside VS Code
 
 There is no need to go to our website to review the latest release notes - you can now see these directly within VS Code itself.  Use the global **Show Release Notes** command or the **Help** > **Release Notes** menu to access them.  Perhaps this is how you are reading these notes right now. :)
-
-### Quickly switch between running VS Code instances
-
-We added a new command to let you quickly move between open instances of VS Code.  Simply open the **Command Palette** (`(kb(workbench.action.showCommand)`) and type **Switch Window**. A dropdown will appear showing all the opened VS Code Windows (instances) and you can quickly move from one to the other without leaving the keyboard, right from within VS Code.
 
 ### Icons Everywhere
 
@@ -37,6 +54,10 @@ If you don't want to see icons everywhere, for instance in Tab headings, we adde
 
 ![Icons](images/1_6/icons.png)
 
+### Switch between running Windows
+
+We added a new command to let you quickly move between open Windows of VS Code.  Simply open the **Command Palette** (`(kb(workbench.action.showCommand)`) and type **Switch Window**. A dropdown will appear showing all the opened VS Code Windows (instances) and you can quickly move from one to the other without leaving the keyboard, right from within VS Code.
+
 ### Image dimensions & Binary file size
 
 When you open a binary file in VS Code, extra meta information is now displayed in the Status Bar. For all binary files, we show the size of the file and for images, we also show the image dimensions.
@@ -45,31 +66,7 @@ When you open a binary file in VS Code, extra meta information is now displayed 
 
 VS Code also now detects image file changes on disk so you no longer see stale old versions of an image.
 
-### New location for dirty indicator when Tabs are disabled
 
-We decided to move the dirty (unsaved file) indicator over to the **Close** button when Tabs (tabbed headers) are disabled. This makes the experience consistent with other places where we replace the Close button with the dirty indicator (for example, inside **OPEN EDITORS** or when Tabs are enabled).
-
-![Status](images/1_6/dirty.png)
-
-### Improving command discoverability
-
-In an effort to improve the onboarding experience for first-time users, we are running a few UX experiments. You will see a combination of these three variations:
-
-- Whether or not to show the file Explorer in a new window with no folder opened.
-- Whether or not to open an untitled file in a new window with no folder opened.
-- Whether or not to show most useful commands on the empty editor area:
-
-![Useful commands](images/1_6/watermark.png)
-
-The randomization for the experiments is done once per stable/insiders release stream. For existing users, you may notice command hints displayed in the empty editor window.  We really want to improve the discovery of key product features so expect to see us tweak these hints as time goes on.
-
-### Electron update
-
-In this release, we decided to take a major update of the [Electron](https://github.com/electron/electron) framework. We now run with version **1.3.7** which brings big version increments to the Chrome rendering engine (from **49** to **52**) and Node.js (from **5.10.0** to **6.5.0**). This also means that all extensions can expect the full Node.js **6.5.0** runtime when running in this VS Code release. For a full list of changes in Node.js, please refer to the [Node.js Changelog](https://github.com/nodejs/node/blob/master/CHANGELOG.md).
-
-> **Note:** We don't recommend extensions to use native `npm` modules. But if you authored an extension that does use native modules, remember to recompile all of them.
-
-![Icons](images/1_6/electron.png)
 
 ## Editor
 
@@ -79,14 +76,6 @@ Would you like your source code formatted each time you save? VS Code now suppor
 
 > **Note:** to keep cursors and selections stable, we don't format when saving after delay. 
 
-### Auto Save
-
-Auto Save is a great feature for many scenarios. In order to make this feature more discoverable, VS Code now has an **Auto Save** toggle right in the **File** menu. This will toggle the `files.autoSave` [setting](https://code.visualstudio.com/docs/customization/userandworkspace) in your global User `settings.json` configuration file.
-
-### File Associations configuration
-
-It is tedious to repeatedly set the Language Mode of a given file type and configuring a file association mapping was a manual process through your user or workspace settings. Now when changing the Language Mode of a file, you can pick **Configure File Association for...** and your choice will be stored to your User settings file and remembered.
-
 ### Search term history
 
 You can now navigate to your previous search terms in the global Search View and in the editor Find widget.
@@ -94,41 +83,51 @@ You can now navigate to your previous search terms in the global Search View and
 * `kbstyle(Alt+Up)` navigates backward in the history. Corresponding commands are `search.history.showPrevious` and `find.history.showPrevious`.
 * `kbstyle(Alt+Down)` navigates forward in the history. Corresponding commands are `search.history.showNext` and `find.history.showNext`.
 
-### Unicode format
-
-VS Code now has better handling of UTF-16 surrogate pairs and validates all edits such that it doesn't break up the surrogate pairs. This is particularly important if you want to add things like Emojis into your source code.
-
-### Hover & IntelliSense UI alignment
+### Hover & IntelliSense UI consistancy
 
 The Hover widget UI was updated aligning it more with VS Code's IntelliSense experience:
 
 ![hover](images/1_6/hover.png)
 
-### Changes to existing settings
+### Auto Save Menu Item
+
+Auto Save is a great feature for many scenarios. In order to make this feature more discoverable, VS Code now has an **Auto Save** toggle right in the **File** menu. This will toggle the `files.autoSave` [setting](https://code.visualstudio.com/docs/customization/userandworkspace) in your global User `settings.json` configuration file.
+
+### File Associations configuration
+
+It is tedious to repeatedly set the Language Mode of a given file type and configuring a file association mapping was a manual process through your user or workspace settings. Now when changing the Language Mode of a file, you can pick **Configure File Association for...** and your choice will be stored to your User settings file and remembered.
+
+### Unicode improvements
+
+VS Code now has better handling of UTF-16 surrogate pairs and validates all edits such that it doesn't break up the surrogate pairs. This is particularly important if you want to add things like Emojis into your source code.
+
+### Improvements to LineNumber and Whitespace settings
 
 Several editor settings have been updated to support new options:
 
-* `editor.renderWhitespace` Possible values are now `"all"`, `"boundary"` and `"none"`. The `"boundary"` option does not render single spaces between words.
+* We have added a `"boundary"` option which does not render single spaces between words.
+<br/>`editor.renderWhitespace`: possible values are now `"all"`, `"boundary"` and `"none"`. 
+* We have added a `"relative"` options which shows the line count from the current cursor position.
+<br/>`editor.lineNumbers`: possible values are `"on"`, `"off"` and `"relative"`. 
 
-* `editor.lineNumbers` Possible values are `"on"`, `"off"` and `"relative"`. `"relative"` shows the line count from the current cursor position.
 
 ## Languages
 
 ### TypeScript 2.0
 
-VS Code 1.6 now ships with TypeScript 2.0.3. TypeScript 2.0.3 contains lots of new features, like strict null checking or modular library dependencies to name a few. A complete list of the new features can be found [here](https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#typescript-20).
-
-Besides new features, TypeScript 2.0.3 contains many bug fixes. This might result in additional compile time errors when you first compile your project with TypeScript 2.0.3.
-
-You can do the following to go back to TypeScript 1.8.10 in your workspace:
+VS Code 1.6 now ships with TypeScript 2.0.3.  You can do the following to go back to TypeScript 1.8.10 in your workspace:
 
 - Navigate into your workspace folder.
 - Run `npm install typescript@1.8.10` to install TypeScript version 1.8.10.
 - Start VS Code. You will get prompted whether you want to use the workspace version (1.8.10) or the bundled version (2.0.3) of TypeScript. Select workspace version and confirm the setting change.
 
-#### TypeScript TextMate Grammar
 
-The TypeScript TextMate grammar has been reworked. This work is currently available as an [extension in the marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.typescript-javascript-grammar). The plan is to switch to this version during October. Please install this extension now and provide us with feedback.
+### TypeScript
+TypeScript 2.0.3 contains lots of new features, like strict null checking or modular library dependencies to name a few. A complete list of the new features can be found [here](https://github.com/Microsoft/TypeScript/wiki/What%27s-new-in-TypeScript#typescript-20).
+
+Besides new features, TypeScript 2.0.3 contains many bug fixes. This might result in additional compile time errors when you first compile your project with TypeScript 2.0.3.
+
+
 
 ### JavaScript
 
@@ -153,6 +152,10 @@ For example to get typings for `lodash` you can run:
 npm install --save-dev @types/lodash
 ```
 
+### PREVIEW TypeScript/JavaScript Grammar
+
+The TypeScript/JavaScript TextMate grammar has been reworked. This work is currently available as an [extension in the marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.typescript-javascript-grammar). The plan is to switch to this version during October. Please install this extension now and provide us with feedback.
+
 ### Updated HTML/Razor/Handlebar Support
 
 Since we made VS Code available, we've had the debt item that some languages were implemented inside VS Code directly and they were not implemented as an extension. In the last couple of milestones, we have reduced this debt by extracting the JSON, CSS, LESS, SASS languages into their own extension. In September, we have now done this for HTML and its coupled languages, Razor and Handlebar. These languages are now all implemented using the [language server protocol](https://github.com/Microsoft/language-server-protocol). 
@@ -168,7 +171,7 @@ However, we are not done yet.. Now that we have extracted languages into extensi
 
 ## Extensions
 
-### Workspace Recommended Extensions
+### Workspace Extension Recomandations
 
 Often you have a set of extensions that makes working with a particular workspace more productive. We now support creating a recommended list of extensions for a workspace. The set of recommendations is defined in a file `extensions.json` which is located in the `.vscode` folder. In this way, the recommendations can easily be shared inside a team. 
 
@@ -188,15 +191,13 @@ For example, this is the `extensions.json` file that we use for the [vscode work
 
 As you can see from the `recommendations` setting above, we recommend that anybody working on the VS Code codebase use the TSLint and ESLint extensions. In addition, we recommend using the Chrome debugger extension.
 
-An extension is identified using its publisher name and extension identifier. You can see the name on the extension's detail page.
-
-![Extension identifier](images/1_6/extension-identifier.png).
 
 VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Workspace Recommended Extensions** command.
 
 ![Show Recommendations](images/1_6/recommendations.png)
 
-### Extension Packs (Preview)
+
+### PREVIEW Extension Packs
 
 We have added support for publishing 'Extension Packs' in the Marketplace. An Extension Pack is a set of extensions that can be installed together. This enables easily sharing your favorite extensions with other users. Another use case is to create a set of extensions for a particular scenario like PHP development to help a PHP developer get started with VS Code quickly. The feature is available as preview with the understanding that more work is still needed.
 
@@ -214,7 +215,12 @@ For example, here is an Extension Pack for PHP that includes a debugger, languag
 
 When installing an Extension Pack, VS Code will now also install its extension dependencies.
 
-### Outdated extensions
+### Extension identfyer badge
+To ease in the discoverability of the identfyer of an extension [required for workspace recomandations and extension packs] we have added a badge to the extesnion details view.  An extension is uniquely identified using its `publisher name` and `extension name` separated by a period `.`. 
+
+![Extension identifier](images/1_6/extension-identifier.png).
+
+### Extension update version check
 
 Now you will only see an extension as outdated if there is a new version that is compatible with your VS Code installation available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
@@ -222,13 +228,12 @@ Now you will only see an extension as outdated if there is a new version that is
 
 ## Debugging
 
-### External Terminal now configurable
+### Configurabel External Terminal
 
 Running a debug target in an external terminal is now provided as a VS Code service to debugger extensions and we hope that this will result in widespread adoption. A useful side effect of this is that it is now possible to configure which terminal program to use via the existing `terminal.external.windowsExec`, `terminal.external.osxExec`, and `terminal.external.linuxExec` settings.
 
 >**Note:** In this release, only the built-in debug extensions have adopted this new feature.
 
-## Node Debugging
 
 ### Launch configuration supports 'npm' and other tools
 
@@ -439,13 +444,35 @@ Debug adapters can now implement 'hit count' support for breakpoints. With this,
 
 ## Engineering
 
-### Built-in Extensions
-
-It is now possible to bundle a selection of Marketplace extensions with VS Code. These extensions appear as _Built-in_ extensions. This allows us to decouple bundled extension development from VS Code's core development.
-
-![builtin](images/1_6/builtin.png)
 
 ## Miscellaneous
+This sections covers off changes not immediately obvious but worth a mention.
+
+### Improving command discoverability
+
+In an effort to improve the onboarding experience for first-time users, we are running a few UX experiments. You will see a combination of these three variations:
+
+- Whether or not to show the file Explorer in a new window with no folder opened.
+- Whether or not to open an untitled file in a new window with no folder opened.
+- Whether or not to show most useful commands on the empty editor area:
+
+![Useful commands](images/1_6/watermark.png)
+
+The randomization for the experiments is done once per stable/insiders release stream. For existing users, you may notice command hints displayed in the empty editor window.  We really want to improve the discovery of key product features so expect to see us tweak these hints as time goes on.
+
+### New location for dirty indicator when Tabs are disabled
+
+We decided to move the dirty (unsaved file) indicator over to the **Close** button when Tabs (tabbed headers) are disabled. This makes the experience consistent with other places where we replace the Close button with the dirty indicator (for example, inside **OPEN EDITORS** or when Tabs are enabled).
+
+![Status](images/1_6/dirty.png)
+
+### Electron update
+
+In this release, we decided to take a major update of the [Electron](https://github.com/electron/electron) framework. We now run with version **1.3.7** which brings big version increments to the Chrome rendering engine (from **49** to **52**) and Node.js (from **5.10.0** to **6.5.0**). This also means that all extensions can expect the full Node.js **6.5.0** runtime when running in this VS Code release. For a full list of changes in Node.js, please refer to the [Node.js Changelog](https://github.com/nodejs/node/blob/master/CHANGELOG.md).
+
+> **Note:** We don't recommend extensions to use native `npm` modules. But if you authored an extension that does use native modules, remember to recompile all of them.
+
+![Icons](images/1_6/electron.png)
 
 ### Detecting a corrupt installation
 
@@ -455,25 +482,29 @@ We have therefore added a background check where we try to detect if the VS Code
 
 ![corrupt install](images/1_6/corrupt-install.png)
 
-### Issue reporting improvement
+
+### Built-in Extensions
+
+It is now possible to bundle a selection of Marketplace extensions with VS Code. These extensions appear as _Built-in_ extensions. This allows us to decouple bundled extension development from VS Code's core development.
+
+![builtin](images/1_6/builtin.png)
+
+### Improvements in Issue Reporting
 
 Related to this, we often investigate issues that are caused by an installed extension. To help us with these investigations, we have enriched the **Help** > **Report Issues** action to seed the issue description with the list of installed extensions.
 
 Please use this action when reporting issues so we have more information to help track down the problem and ultimately resolve the issue for you quicker.
 
-### macOS Sierra workaround
+### macOS Sierra support
 
-Apple recently released the final version of macOS Sierra and with the Electron update, we were able to fix some issues we had seen (fonts and icons did not look sharp on a Retina display). However, we [hear that some users](https://github.com/Microsoft/vscode/issues/12473) are seeing bad background artifacts in the editor as shown below:
-
-![Icons](images/1_6/artifacts.png)
-
-The underlying issue is Chrome related and it seems to happen when you are using a custom color profile. There is a workaround, you can run VS Code with forced GPU rasterization to mitigate this issue:
+Apple recently released the final version of macOS Sierra and with the Electron update, we were able to fix some issues we had seen (fonts and icons did not look sharp on a Retina display). However, [some users](https://github.com/Microsoft/vscode/issues/12473) are seeing bad background artifacts in the editor the underlying issue is Chrome related and it seems to happen when you are using a custom color profile. There is a workaround, you can run VS Code with forced GPU rasterization to mitigate this issue:
 
 ```bash
 code --force-gpu-rasterization
 ```
 
-## New commands
+## New Commands
+Each release severalnew commands become available, this is a quick summary list.
 
 Key|Command|Command id
 ---|-------|----------
@@ -497,7 +528,8 @@ Help||
 `kb(update.showCurrentReleaseNotes)`|Show Release Notes|`update.showCurrentReleaseNotes`
 `kb(workbench.action.reportIssues)`|Report Issues|`workbench.action.reportIssues`
 
-## Notable Changes
+## Notable Changes/Fixes
+In this release like all others several notable issues are resolved.
 
 * [241](https://github.com/Microsoft/vscode/issues/241): Windows: Jump list misses files and folders in the recent category when opened
 * [7470](https://github.com/Microsoft/vscode/issues/7470): Save file even w/o file changes - so that Nodemon, Gulp, Chokidar and other file watchers restart
@@ -517,9 +549,9 @@ Help||
 
 These are the [closed bugs](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+label%3Abug+milestone%3A%22September+2016%22+is%3Aclosed) and these are the [closed feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aissue+milestone%3A%22September+2016%22+is%3Aclosed+label%3Afeature-request) for the 1.6 update.
 
-## Team Contributions
+## Contributions to Extensions
 
-As in every iteration, our team maintained and contributed to a number of VS Code extensions. Most notably:
+As in every iteration, our team maintained or contributed to a number of VS Code extensions. Most notably:
 
 * [Go](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go)
 * [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)
@@ -528,18 +560,20 @@ As in every iteration, our team maintained and contributed to a number of VS Cod
 * [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 * [VSCodeVim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
 
-## Downloads
+## Download Links
 
-* [Windows](https://vscode-update.azurewebsites.net/1.6.0/win32/stable)
-* [Mac](https://vscode-update.azurewebsites.net/1.6.0/darwin/stable)
-* Linux 64-bit [.zip](https://vscode-update.azurewebsites.net/1.6.0/linux-x64/stable)
-  [.deb](https://vscode-update.azurewebsites.net/1.6.0/linux-deb-x64/stable)
+The following direct links give you direct access to this releases downloads:
+
+[Windows](https://vscode-update.azurewebsites.net/1.6.0/win32/stable) |
+[Mac](https://vscode-update.azurewebsites.net/1.6.0/darwin/stable) |
+Linux 64-bit [.zip](https://vscode-update.azurewebsites.net/1.6.0/linux-x64/stable) 
+  [.deb](https://vscode-update.azurewebsites.net/1.6.0/linux-deb-x64/stable) 
   [.rpm](https://vscode-update.azurewebsites.net/1.6.0/linux-rpm-x64/stable)
-* Linux 32-bit [.zip](https://vscode-update.azurewebsites.net/1.6.0/linux-ia32/stable)
+| Linux 32-bit [.zip](https://vscode-update.azurewebsites.net/1.6.0/linux-ia32/stable)
   [.deb](https://vscode-update.azurewebsites.net/1.6.0/linux-deb-ia32/stable)
   [.rpm](https://vscode-update.azurewebsites.net/1.6.0/linux-rpm-ia32/stable)
 
-## Thank You
+## Acknowlegements
 
 Last but certainly not least, a big *__Thank You!__* to the following folks that helped to make VS Code even better:
 
