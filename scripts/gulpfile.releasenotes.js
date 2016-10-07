@@ -23,12 +23,15 @@ var sources = [
 		RN_SRC_ROOT + '/**/*.md'
 ];
 
+var css = [
+		RN_SRC_ROOT + '/**/css/*.{css,CSS}'
+];
 
 function getStaticContent() {
 	var images = gulp.src([RN_SRC_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG}']).pipe(imagemin());
 
 	var gifs = gulp.src([RN_SRC_ROOT + '/**/images/**/*.{gif,GIF}']);
-
+	
 	return [images, gifs];
 }
 
@@ -49,7 +52,7 @@ gulp.task('copy-releasenotes-raw-images', function () {
 		.pipe(gulp.dest(RAW_ROOT));
 });
 
-gulp.task('compile-releasenotes', ['compile-releasenotes-handlebars', 'copy-releasenotes-raw-images', 'copy-releasenotes-images', 'compile-releasenotes-markdown'], function () {
+gulp.task('compile-releasenotes', ['compile-releasenotes-handlebars', 'copy-releasenotes-raw-images', 'copy-releasenotes-images', 'compile-releasenotes-markdown', 'compile-releasenotes-css'], function () {
 	console.log('Creating release notes index...');
 	var tpl = common.swigCompiler('scripts/templates/releasenotes-nav-template.html');
 
@@ -113,4 +116,10 @@ gulp.task('compile-releasenotes-markdown', function() {
 		return gulp.src(sources)
 			.pipe(frontMatter({ property: 'data', remove: true }))
 			.pipe(gulp.dest(RAW_ROOT));
+});
+
+gulp.task('compile-releasenotes-css', function () {
+	console.log('Copying CSS styles for in-product release notes markdown...');
+	return gulp.src(css)
+		.pipe(gulp.dest(RAW_ROOT));
 });
