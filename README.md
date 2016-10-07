@@ -28,7 +28,7 @@ If you think the issue is with the VS Code product itself, please enter issues [
 
 ## Editing
 
-In order to edit the VS Code documentation, ensure that you have [Git](http://git-scm.com/downloads) installed.
+In order to edit the VS Code documentation, ensure that you have [Git](https://git-scm.com/downloads) installed.
 
 Clone a copy of the repo:
 
