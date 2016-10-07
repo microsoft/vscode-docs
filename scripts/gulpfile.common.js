@@ -123,6 +123,9 @@ exports.compileMarkdown = function(file, article) {
 	// place underscore after a single # section tags for cshtml navigation
 	fileContents = fileContents.replace(/\(#/g, "(#_"); 
 
+	// remove the markdown stylesheet and scroll-to-top button that we intend only for the release notes that show in the product
+	fileContents = fileContents.replace('<a id="scroll-to-top" role="button" aria-label="scroll to top" onclick="scroll\(0,0\)"><span class="icon"><\/span><\/a>\n<link rel="stylesheet" type="text\/css" href="css\/inproduct_releasenotes.css"\/>', ""); 
+
 	// Render markdown
 	article.Content = md.render(fileContents);
 
