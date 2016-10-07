@@ -32,7 +32,7 @@ You can manually install an VS Code extension packaged in a `.vsix` file.  Simpl
 code --install-extension myextension.vsix
 ```
 
-The extension will be installed under your user `.vscode/extensions` folder. You may provide multiple `.vsix` files on the command line to install multiple extensions at once.
+The extension will be installed under your user `.vscode/extensions` folder. You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
 You can also install a `.vsix` with the **Install from VSIX...** command in the Extensions View command dropdown.
 
