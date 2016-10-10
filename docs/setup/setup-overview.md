@@ -95,6 +95,6 @@ If you'd like to getting something running quickly, try the [Node.js runtime](/d
 
 **A:** On Linux and Windows, choose **Help** > **About**. On Mac, use **Code** > **About Visual Studio Code**.
 
-**Q: Why is VS Code saying my installation is corrupt?"**
+**Q: Why is VS Code saying my installation is corrupt?**
 
 **A:** VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt) for more details.
