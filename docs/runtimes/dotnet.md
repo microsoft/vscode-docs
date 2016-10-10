@@ -4,7 +4,7 @@ Area: runtimes
 TOCTitle: .NET Core
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET Core and Visual Studio Code
-DateApproved: 5/9/2016
+DateApproved: 10/10/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging .NET Core applications.
 MetaTags:
 - .NET Core
