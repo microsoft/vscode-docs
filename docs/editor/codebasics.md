@@ -112,6 +112,8 @@ You will see the VS Code [Default Settings](/docs/customization/userandworkspace
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
 
+>**Note:** Workspace settings will override User settings and are useful for sharing project specific settings across a team.
+
 ## Save / Auto Save
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
