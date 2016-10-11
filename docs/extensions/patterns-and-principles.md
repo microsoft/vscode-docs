@@ -79,4 +79,7 @@ Visual Studio Code **will not** install your extension's dependencies when a use
 
 The only way to make this work for now is to include binaries for all four platforms of VS Code (Windows x86 and x64, Linux, Mac) in your extension and have code that dynamically loads the right one.
 
+We don't recommend extensions use native `npm` modules as native modules bundled with an extension must be recompiled with every new version of VS Code against the same Node.js version that VS Code ships with. You can find the Node.js and module versions by running `process.versions` from the developer tools console (**Help** > **Toggle Developer Tools**).
+
+
 
