@@ -6,6 +6,7 @@ ContentId: a51b707c-19f7-41af-b5c2-c296e6e9fea2
 PageTitle: Quick Tour of Visual Studio Code using JavaScript
 DateApproved: 10/03/2016
 MetaDescription: Quick Tour around Visual Studio Code using JavaScript.
+MetaSocialImage: opengraph_introvideos.png
 ---
 
 # Quick Tour of VS Code using JavaScript
