@@ -168,7 +168,19 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 ## Using Newer TypeScript Versions
 
-VS Code ships with a recent stable version of TypeScript. If you want to use a different version of TypeScript, you can define the `typescript.tsdk` setting (**File** > **Preferences** > **User/Workspace Settings**) pointing to a directory containing the TypeScript `tsserver.js` file.
+VS Code ships with a recent stable version of TypeScript. It also performs version checking for any version of TypeScript you may have installed globally or locally in your workspace.
+
+By default, VS Code will warn you if your global version is different than VS Code's TypeScript version since this may cause inconsistent compiler errors when building your project within VS Code and in an external terminal. You can disable this check with the **Dont Check Again** button on the warning which sets the `typescript.check.tscVersion` User [setting](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **User Settings**) to false:
+
+```json
+{
+    "typescript.check.tscVersion": false
+}
+```
+
+VS Code will also detect if a local workspace version of TypeScript is different from the bundled version. You can disable this check in either your User or Workspace settings with `typescript.check.workspaceVersion`.
+
+You can also direct VS Code to use your workspace TypeScript version with the `typescript.tsdk` setting pointing to a directory containing the TypeScript `tsserver.js` file.
 
 To install the latest TypeScript version, run:
 
@@ -184,7 +196,7 @@ For example:
 
 ```json
 {
-   "typescript.tsdk": "node_modules/typescript/lib"
+   "typescript.tsdk": "./node_modules/typescript/lib"
 }
 ```
 
