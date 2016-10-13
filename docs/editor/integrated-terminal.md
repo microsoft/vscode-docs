@@ -80,7 +80,9 @@ You can customize the integrated terminal font and line height with the followin
 
 ## Key Bindings
 
-The **Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
+The **View:: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
+
+You can clear the terminal with the **Terminal: Clear** command from the **Command Palette** (`kb(workbench.action.showCommands)`). The command is not bound to any keyboard shortcut but you can add your [own](/docs/customization/keybindings.md).
 
 Other terminal commands are available and can be bound to your preferred keyboard shortcuts.
 
@@ -91,6 +93,7 @@ They are:
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
+* `workbench.action.terminal.clear`: Clear the terminal.
 
 ### Run Selected Text
 
