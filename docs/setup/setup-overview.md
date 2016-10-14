@@ -4,8 +4,9 @@ Area: setup
 TOCTitle: Overview
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
 PageTitle: Setting up Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Get Visual Studio Code up and running.
+MetaSocialImage: quicksetup_QuickSetup.png
 ---
 
 # Setting up Visual Studio Code
@@ -14,11 +15,11 @@ Getting up and running with VS Code is quick and easy. It is a small download so
 
 ## Cross Platform
 
-VS Code is a free code editor which runs on the Mac OS X, Linux and Windows operating systems.
+VS Code is a free code editor which runs on the Mac, Linux and Windows operating systems.
 
 Follow the platform specific guides below:
 
-* [OS X](/docs/setup/osx.md)
+* [Mac](/docs/setup/mac.md)
 * [Linux](/docs/setup/linux.md)
 * [Windows](/docs/setup/windows.md)
 
@@ -93,4 +94,8 @@ If you'd like to getting something running quickly, try the [Node.js runtime](/d
 
 **Q: How do I know which version I'm running?**
 
-**A:** In Linux and Windows, choose **Help** > **About**. In OS X, use **Code** > **About Visual Studio Code**.
+**A:** On Linux and Windows, choose **Help** > **About**. On Mac, use **Code** > **About Visual Studio Code**.
+
+**Q: Why is VS Code saying my installation is corrupt?**
+
+**A:** VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt) for more details.

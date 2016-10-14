@@ -4,21 +4,25 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 
 # Programming Languages
 
-In Visual Studio Code, we have support for many programming languages out of the box (JavaScript, TypeScript, CSS, HTML) and more through language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+## Hundreds of Programming Languages Supported
+
+In Visual Studio Code, we have support for almost every major programming language. Several ship in the box, for example, JavaScript, TypeScript, CSS, and HTML but more rich language extensions can be found in the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages).
+
+Here are four of the most popular language extensions:
 
 <div class="marketplace-extensions-languages"></div>
 
+Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use our [integrated extension manager](/docs/editor/extension-gallery) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers and more.
+
 ## Language Specific Documentation
 
-On this site we have a number of topics outlining specific language support.
-
-These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - [HTML](/docs/languages/html.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
+On this website, we have a number of topics outlining several of the common languages supported by VS Code. These include: [C++](/docs/languages/cpp.md) - [C&#35;](/docs/languages/csharp.md) - [CSS](/docs/languages/css.md) - [Dockerfile](/docs/languages/dockerfile.md) - [HTML](/docs/languages/html.md) - [JavaScript](/docs/languages/javascript.md) - [JSON](/docs/languages/json.md) - [Less](/docs/languages/css.md) -
 [Markdown](/docs/languages/markdown.md) - [PHP](/docs/languages/php.md) - [Python](/docs/languages/python.md) - [Sass](/docs/languages/css.md) - [TypeScript](/docs/languages/typescript.md).
 
 Click on any linked item to get an overview of how to use VS Code in the context of that language.  Most language extensions also contain a summary of their core features in their README.
@@ -36,7 +40,7 @@ The richness of support varies across the different languages and their extensio
 
 ## Language Extensions
 
-The community is providing VS Code language support for nearly any modern programming language.  To see if there are [extensions](/docs/editor/extension-gallery.md) for the language you're interested in, simply bring up the Extension view (`kb(workbench.view.extensions)`) and filter on the language name in the search box.
+The community is providing VS Code language support for nearly any modern programming language. To see if there are [extensions](/docs/editor/extension-gallery.md) for the language you're interested in, simply bring up the Extensions view (`kb(workbench.view.extensions)`) and filter on the language name in the search box.
 
 ![python extensions](images/overview/extensions-python.png)
 
@@ -66,12 +70,15 @@ PHP | `php`
 Python | `python`
 PowerShell | `powershell`
 Rust | `rust`
+Shell Script (Bash) | `shellscript`
 Swift | `swift`
 Text | `plaintext`
 Visual Basic | `vb`
 XML, XSL, YAML | `xml`, `xsl`, `yaml`
 
 A language identifier is often (but not always) the lowercased programming language name. Note that casing matters for exact identifier matching ('Markdown' != 'markdown'). Unknown language files have the language identifier `plaintext`.
+
+You can see the list of currently installed languages and their identifiers in the **Change Language Mode** (`kb(workbench.action.editor.changeLanguageMode)`) dropdown.
 
 ## Adding a file extension to a Language
 

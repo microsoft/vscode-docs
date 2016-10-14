@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Extension Manifest
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
 
@@ -31,6 +31,7 @@ Name | Required | Type | Details
 [`contributes`](/docs/extensionAPI/extension-points.md) | | `object` | An object describing the extension's [contributions](/docs/extensionAPI/extension-points.md).
 [`activationEvents`](/docs/extensionAPI/activation-events.md) | | `array` | An array of the [activation events](/docs/extensionAPI/activation-events.md) for this extension.
 `badges` | | `array` | Array of badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.
+`markdown` | | `string` | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
@@ -167,6 +168,8 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 		"Linters", "Languages", "Other"
 	],
 ```
+
+>**Tip:** The [Extension Manifest Editor](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) extension lets you preview how your extension `README.md` and `package.json` metadata will look when published to the Marketplace.
 
 ## Combining Extension Contributions
 

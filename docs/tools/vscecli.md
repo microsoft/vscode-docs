@@ -4,7 +4,7 @@ Area: tools
 TOCTitle: Publishing Tool
 ContentId: 3F05F31A-FD66-4635-9BA2-F1799E795EA7
 PageTitle: vsce Publishing Tool - Publishing your Visual Studio Code Extensions
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Find out how to publish an extension to the Visual Studio Code Extension Marketplace.
 ---
 
@@ -40,9 +40,9 @@ Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstu
 
 ### Get a Personal Access Token
 
-First, login to or sign up for [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online).
+First, make sure you have a [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) account.
 
-Then, from your account's home page `https://ACCOUNT.visualstudio.com`, go to the **Security** page:
+In the following examples, the account name is `monacotools`. From your account's home page (eg: `https://monacotools.visualstudio.com`), go to the **Security** page:
 
 ![Security page](images/vscecli/publishers1.png)
 

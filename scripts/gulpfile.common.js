@@ -75,13 +75,15 @@ exports.compileMarkdown = function(file, article) {
 	md.renderer.rules.heading_open = function (tokens, idx, options, env, self) {
 		var headerToken = tokens[idx];
 		var title = tokens[idx + 1];
-		if (headerToken.tag === 'h2') {
+		if ((headerToken.tag === 'h2') || (headerToken.tag === 'h3')) {
 			var anchor = "_" + exports.filterText(title.content).toLowerCase();
 			var section = {
 				Title: title.content,
 				Anchor: anchor
 			};
-			article.Sections.push(section);
+			if (headerToken.tag === 'h2') {
+				article.Sections.push(section);
+			}
 			headerToken.attrPush(['id', anchor]);
             headerToken.attrPush(['data-needslink', anchor]);
 			tokens[idx] = headerToken;
@@ -117,6 +119,12 @@ exports.compileMarkdown = function(file, article) {
 	
 	// need to remove embedded .md before # section tags and place _ underscore after for cshtml navigation
 	fileContents = fileContents.replace(/.md#/g, "#_"); 
+
+	// place underscore after a single # section tags for cshtml navigation
+	fileContents = fileContents.replace(/\(#/g, "(#_"); 
+
+	// remove the markdown stylesheet and scroll-to-top button that we intend only for the release notes that show in the product
+	fileContents = fileContents.replace('<a id="scroll-to-top" role="button" aria-label="scroll to top" onclick="scroll\(0,0\)"><span class="icon"><\/span><\/a>\n<link rel="stylesheet" type="text\/css" href="css\/inproduct_releasenotes.css"\/>', ""); 
 
 	// Render markdown
 	article.Content = md.render(fileContents);

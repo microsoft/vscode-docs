@@ -4,8 +4,9 @@ Area: customization
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
+MetaSocialImage: keybinding_customization_keybindings.png
 ---
 
 # Key Bindings for Visual Studio Code
@@ -213,6 +214,7 @@ Key|Command|Command id
 `kb(workbench.extensions.action.listOutdatedExtensions)`|Show Outdated Extensions|`workbench.extensions.action.listOutdatedExtensions`
 `kb(workbench.extensions.action.showRecommendedExtensions)`|Show Recommended Extensions|`workbench.extensions.action.showRecommendedExtensions`
 `kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
+`kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
 
 ## Customizing Shortcuts
 
@@ -267,9 +269,9 @@ The `key` is made up of modifiers and the key itself.
 
 The following modifiers are accepted:
 
-OS|Modifiers
+Platform|Modifiers
 --|---------
-OS X|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(cmd+)`
+Mac|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(cmd+)`
 Windows|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(win+)`
 Linux|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(meta+)`
 

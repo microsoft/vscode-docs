@@ -8,7 +8,7 @@ If you are looking for the VS Code product GitHub repository, you can find it [h
 
 ## Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on your favorite platform - Linux, Mac OSX and Windows.
+[VS Code](https://code.visualstudio.com/) is a lightweight but powerful development environment for building and debugging modern web and cloud applications.  It is free and available on your favorite platform - Linux, Mac and Windows.
 
 If you landed here looking for other information about VS Code, head over to [our website](https://code.visualstudio.com) for additional information.
 
@@ -28,7 +28,7 @@ If you think the issue is with the VS Code product itself, please enter issues [
 
 ## Editing
 
-In order to edit the VS Code documentation, ensure that you have [Git](http://git-scm.com/downloads) installed.
+In order to edit the VS Code documentation, ensure that you have [Git](https://git-scm.com/downloads) installed.
 
 Clone a copy of the repo:
 

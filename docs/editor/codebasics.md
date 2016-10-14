@@ -4,8 +4,9 @@ Area: editor
 TOCTitle: The Basics
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: The Basics of Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.
+MetaSocialImage: codebasics_CodeBasics.png
 ---
 
 # The Basics of Visual Studio Code
@@ -76,7 +77,7 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 ![Explorer Menu](images/codebasics/explorer_menu.png)
 
-VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on OS X or Linux).
+VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on Mac or Linux).
 
 You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the Mac or **Open Containing Folder** on Linux).
 
@@ -111,6 +112,8 @@ VS Code gives you many options to configure the editor. You can set options glob
 You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from `Default Settings`.
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
+
+>**Note:** Workspace settings will override User settings and are useful for sharing project specific settings across a team.
 
 ## Save / Auto Save
 
@@ -215,7 +218,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
->**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/osx.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable on Windows and Linux automatically during installation.
+>**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/mac.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable on Windows and Linux automatically during installation.
 
 Sometimes you will want to open or create a file. If the specified files does not exist, VS Code will create them for you:
 

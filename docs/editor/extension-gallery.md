@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 
@@ -16,7 +16,7 @@ The features that VS Code includes out-of-the-box are just the start. VS Code ex
 
 ## Browse and Install Extensions in VS Code
 
-You can browse and install extensions from within VS Code. Bring up the Extension view by clicking on the Extensions icon in the View Bar on the side of VS Code.
+You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the View Bar on the side of VS Code.
 
 ![Extension View icon](images/extension-gallery/extensions-view-icon.png)
 
@@ -89,6 +89,32 @@ code --install-extension ms-vscode.cpptools
 code --uninstall-extension ms-vscode.csharp
 ```
 
+## Workspace Recommended Extensions
+
+Often you have a set of extensions that makes working with a particular workspace or programming language more productive and you'd like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Workspace Recommended Extensions** command. This creates a `extensions.json` file located in the workspace `.vscode` folder where you can list extensions.
+
+An example `extensions.json` could be:
+
+```json
+{
+    "recommendations": [
+        "eg2.tslint",
+        "dbaeumer.vscode-eslint",
+        "msjsdiag.debugger-for-chrome"
+    ]
+}
+```
+
+which recommends two linter extensions, TSLint and ESLint, as well as the Chrome debugger extension.
+
+An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page.
+
+![Extension identifier](images/extension-gallery/extension-identifier.png).
+
+VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Workspace Recommended Extensions** command.
+
+![Show Recommendations](images/extension-gallery/recommendations.png)
+
 ## Next Steps
 
 Here are a few topics you may find interesting...
@@ -117,7 +143,7 @@ For example, the [ESLint extension](https://marketplace.visualstudio.com/items?i
 https://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
 ```
 
-Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then opening the `.vsix` file directly in VS Code (**File** > **Open File...**).  See [Installing Extensions](/docs/extensions/install-extension.md#install-a-packaged-extension-vsix) for more details.
+Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions View command dropdown. See [Installing Extensions](/docs/extensions/install-extension.md#install-a-packaged-extension-vsix) for more details.
 
 **Q: Can VS Code read TextMate bundles directly?**
 

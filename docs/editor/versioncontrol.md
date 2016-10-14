@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Visual Studio Code has integrated Git support for the most common commands.
 ---
 
@@ -189,7 +189,7 @@ Next, assuming you want to remove the unintended repo initialization, look for t
 
 **Q: I have GitHub Desktop installed on my computer but VS Code ignores it.**
 
-**A:** VS Code expects `git.exe` to be on the operating system's `PATH` (`$PATH` on OS X or Linux).  **GitHub Desktop** installs isolated git binaries and does not automatically add `git.exe` to `PATH`.
+**A:** VS Code expects `git.exe` to be on the operating system's `PATH` (`$PATH` on Mac or Linux).  **GitHub Desktop** installs isolated git binaries and does not automatically add `git.exe` to `PATH`.
 
 You can either:
 

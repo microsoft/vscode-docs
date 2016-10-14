@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tabs
 ContentId: DDBD486B-E18F-4C3E-9CA0-766DE5E5EE67
 PageTitle: Tabbed editor support in Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Visual Studio Code has support for Tabbed editor windows. Tabs let you quickly navigate between your open files.  
 ---
 
@@ -107,7 +107,7 @@ Edit your [keybindings](/docs/customization/keybindings.md) and add the followin
 
 If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/customization/keybindings.md).
 
-Mac OS X:
+Mac:
 
 ```json
 { "key": "cmd+w", "command": "workbench.action.closeEditorsInGroup" }

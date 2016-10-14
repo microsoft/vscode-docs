@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Testing Extensions
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Testing Visual Studio Code Extensions
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
 
@@ -115,7 +115,7 @@ script:
   - npm test --silent
 ```
 
-The script above will run the tests on both Linux and Mac OS X. Note that in order to run the tests on Linux, you need to have
+The script above will run the tests on both Linux and Mac. Note that in order to run the tests on Linux, you need to have
 a `before_install` configuration as above to enable Linux to start VS Code from the build.
 
 There are some optional environment variables to configure the test runner:

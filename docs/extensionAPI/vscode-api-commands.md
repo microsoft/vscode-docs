@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: API complex commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Commands API Reference
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands API Reference.  
 ---
 
@@ -185,7 +185,7 @@ The body element of the displayed html is dynamically annotated with one of the 
     ```
     'left', 'right', 'up', 'down'
     'wrappedLineStart', 'wrappedLineEnd', 'wrappedLineColumnCenter'
-	'wrappedLineFirstNonWhitespaceCharacter', 'wrappedLineLastNonWhitespaceCharacter'
+    'wrappedLineFirstNonWhitespaceCharacter', 'wrappedLineLastNonWhitespaceCharacter'
     'viewPortTop', 'viewPortCenter', 'viewPortBottom', 'viewPortIfOutside'
     ```
   * 'by': Unit to move. Default is computed based on 'to' value.
@@ -207,9 +207,9 @@ The body element of the displayed html is dynamically annotated with one of the 
     ```
     'up', 'down'
     ```
-  *	'by': Unit to move. Default is computed based on 'to' value.
+  * 'by': Unit to move. Default is computed based on 'to' value.
     ```
-	'line', 'wrappedLine', 'page', 'halfPage'
+    'line', 'wrappedLine', 'page', 'halfPage'
     ```
   * 'value': Number of units to move. Default is '1'.
   * 'revealCursor': If 'true' reveals the cursor if it is outside view port.
@@ -265,7 +265,7 @@ The body element of the displayed html is dynamically annotated with one of the 
 
   Argument Properties:
 
-  * 'to': String value providing here to move.
+  * 'to': String value providing where to move.
   * 'by': String value providing the unit for move. By tab or by group.
   * 'value': Number value providing how many positions or an absolute position to move.
 

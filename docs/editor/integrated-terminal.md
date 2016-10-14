@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.  
 ---
 
@@ -14,13 +14,13 @@ In Visual Studio Code, you can open an integrated terminal, initially starting a
 
 To open the terminal:
 
-* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut.
+* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
 * Use the **View** | **Toggle Integrated Terminal** menu command.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
-> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on OS X or Linux) if you prefer to work outside VS Code.
+> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on Mac or Linux) if you prefer to work outside VS Code.
 
 ## Managing Multiple Terminals
 
@@ -80,7 +80,9 @@ You can customize the integrated terminal font and line height with the followin
 
 ## Key Bindings
 
-The **Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
+The **View:: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
+
+You can clear the terminal with the **Terminal: Clear** command from the **Command Palette** (`kb(workbench.action.showCommands)`). The command is not bound to any keyboard shortcut but you can add your [own](/docs/customization/keybindings.md).
 
 Other terminal commands are available and can be bound to your preferred keyboard shortcuts.
 
@@ -91,6 +93,7 @@ They are:
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
+* `workbench.action.terminal.clear`: Clear the terminal.
 
 ### Run Selected Text
 
@@ -106,9 +109,9 @@ If no text is selected in the active editor, the entire file contents is run in 
 
 ### Copy & Paste
 
-#### OS X
+#### Mac
 
-Copy and paste on OS X can be done using the standard keys, `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)` respectively.
+Copy and paste on Mac can be done using the standard keys, `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)` respectively.
 
 #### Linux & Windows
 

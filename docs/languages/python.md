@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python with Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Python.
 ---
 
@@ -12,7 +12,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 Python is fully supported in Visual Studio Code through [extensions](/docs/editor/extension-gallery.md). Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide code completion, linting, debugging, code formatting, snippets, and more. 
 
-> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, OS X, Linux). 
+> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, Mac, Linux).
 
 ## Install Python Extension
 
@@ -65,7 +65,7 @@ Snippets will take productivity to the next level. You can configure [your own s
 
 ## Configuration
 
-You will need an [extension](#_install-python-extension) and [Python](https://www.python.org/downloads/) installed. Other dependencies are optional and depend on the features you want to use. Read through the requirements on the [extension's README](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements). 
+You will need an [extension](/docs/languages/python.md#install-python-extension) and [Python](https://www.python.org/downloads/) installed. Other dependencies are optional and depend on the features you want to use. Read through the requirements on the [extension's README](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements). 
 
 ## Next Steps
 

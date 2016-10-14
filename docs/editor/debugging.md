@@ -4,8 +4,9 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
+MetaSocialImage: debugging_Debugging.png
 ---
 
 # Debugging
@@ -301,7 +302,7 @@ To write your own debugger extension, visit:
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, OS X, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
+**A:** Debugging of Node.js based applications is supported on Linux, Mac, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 

@@ -1,11 +1,12 @@
 ---
-Order: 3
+Order: 4
 Area: introvideos
 TOCTitle: Configure and Extend
 ContentId: d9583ed0-aaf6-4ce1-9a27-bbfb0017b6be
 PageTitle: Configure and Extend Visual Studio Code
 DateApproved: 8/10/2016
-MetaDescription: Learn how to configure and extend VS Code, including settings, keybindings, snippets and extensions.  
+MetaDescription: Learn how to configure and extend VS Code, including settings, keybindings, snippets and extensions.
+MetaSocialImage: opengraph_introvideos.png
 ---
 
 # Configure and Extend VS Code

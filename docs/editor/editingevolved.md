@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Editing Evolved
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Editing Evolved
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 
@@ -144,7 +144,7 @@ Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column text select
 
 ![Column text selection](images/editingevolved/column-select.gif)
 
-There are also default key bindings for column selection on OS X and Windows, but not on Linux. You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
+There are also default key bindings for column selection on Mac and Windows, but not on Linux. You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
 
 For example:
 

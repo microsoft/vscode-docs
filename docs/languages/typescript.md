@@ -4,8 +4,9 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
+MetaSocialImage: typescript_Languages_typescript.png
 ---
 
 # Editing TypeScript
@@ -167,7 +168,19 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 ## Using Newer TypeScript Versions
 
-VS Code ships with a recent stable version of TypeScript. If you want to use a newer version of TypeScript, you can define the `typescript.tsdk` setting (**File** > **Preferences** > **User/Workspace Settings**) pointing to a directory containing the TypeScript `tsserver.js` file. 
+VS Code ships with a recent stable version of TypeScript. It also performs version checking for any version of TypeScript you may have installed globally or locally in your workspace.
+
+By default, VS Code will warn you if your global version is different than VS Code's TypeScript version since this may cause inconsistent compiler errors when building your project within VS Code and in an external terminal. You can disable this check with the **Dont Check Again** button on the warning which sets the `typescript.check.tscVersion` User [setting](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **User Settings**) to false:
+
+```json
+{
+    "typescript.check.tscVersion": false
+}
+```
+
+VS Code will also detect if a local workspace version of TypeScript is different from the bundled version. You can disable this check in either your User or Workspace settings with `typescript.check.workspaceVersion`.
+
+You can also direct VS Code to use your workspace TypeScript version with the `typescript.tsdk` setting pointing to a directory containing the TypeScript `tsserver.js` file.
 
 To install the latest TypeScript version, run:
 
@@ -177,13 +190,13 @@ npm install typescript@next
 
 >**Tip:** To get a specific TypeScript version, specify `@version`.  For example for TypeScript 2.0, you would use `npm install typescript@2.0.0`.
 
-You can find the installation location using `npm list typescript`, `tsserver.js` is usually under the `lib` folder. 
+You can find the installation location using `npm list typescript`, `tsserver.js` is usually under the `lib` folder.
 
 For example:
 
 ```json
 {
-   "typescript.tsdk": "node_modules/typescript/lib"
+   "typescript.tsdk": "./node_modules/typescript/lib"
 }
 ```
 

@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: User and Workspace Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 
@@ -15,7 +15,7 @@ It's easy to configure VS Code the way you want by editing the various setting f
 VS Code provides two different scopes for settings:
 
 * **User** these settings apply globally to any instance of VS Code you open
-* **Workspace** these settings are stored inside your workspace in a `.vscode` folder and only apply when the workspace is opened. Settings defined on this scope overwrite the user scope.
+* **Workspace** these settings are stored inside your workspace in a `.vscode` folder and only apply when the workspace is opened. Settings defined on this scope override the user scope.
 
 ## Creating User and Workspace Settings
 
@@ -26,6 +26,8 @@ In the example below, we disabled line numbers in the editor and configured line
 ![Example Settings](images/userandworkspace/settings.png)
 
 Changes to settings are reloaded by VS Code after the modified `settings.json` file is saved.
+
+>**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
 ## Settings File Locations
 
@@ -84,10 +86,7 @@ Below is a copy of the default `settings.json` file.
     "editor.lineHeight": 0,
 
     // Controls visibility of line numbers
-    "editor.lineNumbers": true,
-
-    // Controls visibility of the glyph margin
-    "editor.glyphMargin": false,
+    "editor.lineNumbers": "on",
 
     // Columns at which to show vertical rulers
     "editor.rulers": [],
@@ -173,8 +172,8 @@ Below is a copy of the default `settings.json` file.
     // Controls if the cursor should be hidden in the overview ruler.
     "editor.hideCursorInOverviewRuler": false,
 
-    // Controls whether the editor should render whitespace characters
-    "editor.renderWhitespace": false,
+    // Controls how the editor should render whitespace characters, posibilties are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.
+    "editor.renderWhitespace": "none",
 
     // Controls whether the editor should render control characters
     "editor.renderControlCharacters": false,
@@ -226,6 +225,9 @@ Below is a copy of the default `settings.json` file.
 
     // Controls if opened editors should show in tabs or not.
     "workbench.editor.showTabs": true,
+
+    // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
+    "workbench.editor.showIcons": true,
 
     // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
     "workbench.editor.enablePreview": true,
@@ -290,6 +292,9 @@ Below is a copy of the default `settings.json` file.
     "files.watcherExclude": {
         "**/.git/objects/**": true
     },
+
+    // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+    "editor.formatOnSave": false,
 
 
 // File Explorer
@@ -615,11 +620,14 @@ Below is a copy of the default `settings.json` file.
     // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
     "typescript.tsdk": null,
 
+    // Check if a TypeScript version is available in the workspace
+    "typescript.check.workspaceVersion": true,
+
+    // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
+    "typescript.check.tscVersion": true,
+
     // Enables tracing of messages send to the TS server
     "typescript.tsserver.trace": "off",
-
-    // Enables experimental auto build. Requires 1.9 dev or 2.x tsserver version and a restart of VS Code after changing it.
-    "typescript.tsserver.experimentalAutoBuild": false,
 
     // Complete functions with their parameter signature.
     "typescript.useCodeSnippetsOnMethodSuggest": false,
@@ -743,6 +751,7 @@ Below is a copy of the default `settings.json` file.
         "editor.action.toggleTabFocusMode",
         "workbench.action.quickOpen",
         "workbench.action.showCommands",
+        "workbench.action.terminal.clear",
         "workbench.action.terminal.copySelection",
         "workbench.action.terminal.focus",
         "workbench.action.terminal.focusNext",
@@ -752,7 +761,9 @@ Below is a copy of the default `settings.json` file.
         "workbench.action.terminal.paste",
         "workbench.action.terminal.runSelectedText",
         "workbench.action.terminal.scrollDown",
+        "workbench.action.terminal.scrollDownPage",
         "workbench.action.terminal.scrollUp",
+        "workbench.action.terminal.scrollUpPage",
         "workbench.action.terminal.toggleTerminal"
     ],
 

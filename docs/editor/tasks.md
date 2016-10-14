@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 
@@ -106,7 +106,7 @@ There are also `tasks` specific properties. One useful property is `isBuildComma
 
 ## Running multiple commands
 
-What if you want to run different command line tools in your workspace? Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and OS X, `cmd` on Windows).
+What if you want to run different command line tools in your workspace? Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and Mac, `cmd` on Windows).
 
 Here is an example to add two tasks for `make` and `ls`:
 
@@ -181,7 +181,7 @@ Below is an example that uses the Node.js executable as a command and is treated
 }
 ```
 
-Valid operating properties are `windows` for Windows, `linux` for Linux and `osx` for Mac OS X. Properties defined in an operating system specific scope override properties defined in the global scope.
+Valid operating properties are `windows` for Windows, `linux` for Linux and `osx` for Mac. Properties defined in an operating system specific scope override properties defined in the global scope.
 
 In the example below:
 
@@ -490,7 +490,7 @@ That was tasks - let's keep going...
 
 **Q: How can I define multiple tasks to run different commands?**
 
-**A:** Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and OS X, `cmd` on Windows).
+**A:** Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and Mac, `cmd` on Windows).
 
 Here is an example to add two tasks for `make` and `ls`:
 

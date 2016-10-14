@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Installing Extensions
 ContentId: 8D19F206-8CB3-498D-BDD1-317B4104EDD0
 PageTitle: Installing Visual Studio Code Extensions
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Learn how to install Visual Studio Code extensions (plug-ins) from the public Marketplace, shared with other developers or privately on your own machine.
 ---
 
@@ -32,9 +32,9 @@ You can manually install an VS Code extension packaged in a `.vsix` file.  Simpl
 code --install-extension myextension.vsix
 ```
 
-The extension will be installed under your user `.vscode/extensions` folder. You may provide multiple `.vsix` files on the command line to install multiple extensions at once.
+The extension will be installed under your user `.vscode/extensions` folder. You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
-You can also install a `.vsix` by opening the file from within VS Code.  Run **File** > **Open File...** or `kb(workbench.action.files.openFile)` and select the extension `.vsix`.
+You can also install a `.vsix` with the **Install from VSIX...** command in the Extensions View command dropdown.
 
 ## Publishing to the Marketplace
 

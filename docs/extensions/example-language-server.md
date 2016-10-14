@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Language Server
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
 PageTitle: Creating Language Servers for Visual Studio Code
-DateApproved: 9/8/2016
+DateApproved: 10/10/2016
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
 
@@ -221,7 +221,7 @@ To test the language server do the following:
 * Now go back to the VS Code instance with the extension (client) and press `kb(workbench.action.debug.start)` to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 * Create a test.txt file in the root folder and paste the following content:
 
-```plaintext
+```bash
 typescript lets you write JavaScript the way you really want to.
 typescript is a typed superset of JavaScript that compiles to plain JavaScript.
 Any browser. Any host. Any OS. Open Source.
