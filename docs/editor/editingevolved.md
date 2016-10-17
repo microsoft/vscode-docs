@@ -112,57 +112,6 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 
 ![Errors and Warnings Inline](images/editingevolved/errorsinline.png)
 
-## Editing - Fast
-
-The Visual Studio Code editor has many features you need for high productivity when working with text. Besides the features discussed below, you can learn about other editor commands and their keyboard shortcuts by looking in the **Command Palette** (`kb(workbench.action.showCommands)`) and the `Default Keyboard Shortcuts` (**Files** > **Preferences** > **Keyboard Shortcuts**).
-
-## Multiple Selections
-
-VS Code supports for multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
-
-> **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
-
-![Multi-cursor](images/editingevolved/multicursor.gif)
-
-`kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.  `kb(editor.action.moveSelectionToNextFindMatch)` moves the last added cursor to next occurrence of the current selection.
-
-![Multi-cursor-next-word](images/editingevolved/multicursor-word.gif)
-
-> **Tip:** You can add more cursors also with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
-
-## Shrink/expand selection
-
-Quickly shrink or expand the current selection (applies to all languages). Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
-
-Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
-
-![Expand selection](images/editingevolved/expandselection.gif)
-
-## Column (box) text selection
-
-Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column text selection:
-
-![Column text selection](images/editingevolved/column-select.gif)
-
-There are also default key bindings for column selection on Mac and Windows, but not on Linux. You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
-
-For example:
-
-```json
-{ "key": "shift+alt+down",     "command": "cursorColumnSelectDown",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+left",     "command": "cursorColumnSelectLeft",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+pagedown", "command": "cursorColumnSelectPageDown",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+pageup",   "command": "cursorColumnSelectPageUp",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+right",    "command": "cursorColumnSelectRight",
-                                  "when": "editorTextFocus" },
-{ "key": "shift+alt+up",       "command": "cursorColumnSelectUp",
-                                  "when": "editorTextFocus" }
-```
-
 ## Folding
 
 You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions. The folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
