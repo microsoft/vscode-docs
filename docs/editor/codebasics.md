@@ -129,7 +129,7 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 > **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
 
-## Shrink/expand selection
+### Shrink/expand selection
 
 Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
 
