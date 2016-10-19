@@ -6,6 +6,7 @@ ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: The Basics of Visual Studio Code
 DateApproved: 10/10/2016
 MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.
+MetaSocialImage: codebasics_CodeBasics.png
 ---
 
 # The Basics of Visual Studio Code
@@ -112,13 +113,56 @@ You will see the VS Code [Default Settings](/docs/customization/userandworkspace
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
 
+>**Note:** Workspace settings will override User settings and are useful for sharing project specific settings across a team.
+
+## Multiple selections (multi-cursor)
+
+VS Code supports multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
+
+> **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
+
+![Multi-cursor](images/editingevolved/multicursor.gif)
+
+`kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.
+
+![Multi-cursor-next-word](images/editingevolved/multicursor-word.gif)
+
+> **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
+
+### Shrink/expand selection
+
+Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
+
+Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
+
+![Expand selection](images/editingevolved/expandselection.gif)
+
+## Column (box) selection
+
+Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column selection:
+
+![Column text selection](images/editingevolved/column-select.gif)
+
+There are also default key bindings for column selection on Mac and Windows, but not on Linux.
+
+Key|Command|Command id
+---|-------|----------
+`kb(cursorColumnSelectDown)`|Column Select Down|`cursorColumnSelectDown`
+`kb(cursorColumnSelectUp)`|Column Select Up|`cursorColumnSelectUp`
+`kb(cursorColumnSelectLeft)`|Column Select Left|`cursorColumnSelectLeft`
+`kb(cursorColumnSelectRight)`|Column Select Right|`cursorColumnSelectRight`
+`kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
+`kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
+
+You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
+
 ## Save / Auto Save
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
-However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file.
+However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easist way to turn on `Auto Save` is with the **File** > **Auto Save** toggle which turns on and off save after a delay.
 
-To configure `Auto Save`, open **User Settings** or **Workspace Settings** and find the associated settings:
+For more control over `Auto Save`, open **User Settings** or **Workspace Settings** and find the associated settings:
 
 * `files.autoSave`: Can have the values:
   * `off` - to disable auto save.

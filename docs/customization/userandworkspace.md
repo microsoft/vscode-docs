@@ -15,7 +15,7 @@ It's easy to configure VS Code the way you want by editing the various setting f
 VS Code provides two different scopes for settings:
 
 * **User** these settings apply globally to any instance of VS Code you open
-* **Workspace** these settings are stored inside your workspace in a `.vscode` folder and only apply when the workspace is opened. Settings defined on this scope overwrite the user scope.
+* **Workspace** these settings are stored inside your workspace in a `.vscode` folder and only apply when the workspace is opened. Settings defined on this scope override the user scope.
 
 ## Creating User and Workspace Settings
 
@@ -26,6 +26,8 @@ In the example below, we disabled line numbers in the editor and configured line
 ![Example Settings](images/userandworkspace/settings.png)
 
 Changes to settings are reloaded by VS Code after the modified `settings.json` file is saved.
+
+>**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
 ## Settings File Locations
 

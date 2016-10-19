@@ -169,6 +169,8 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 	],
 ```
 
+>**Tip:** The [Extension Manifest Editor](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) extension lets you preview how your extension `README.md` and `package.json` metadata will look when published to the Marketplace.
+
 ## Combining Extension Contributions
 
 The `yo code` generator lets you easily package TextMate themes, colorizers and snippets and create new extensions.  When the generator is run, it creates a complete standalone extension package for each option.  However it is often more convenient to have a single extension which combines multiple contributions.  For example, if you are adding support for a new language, you'd like to provide users with both the language definition with colorization and also snippets and perhaps even debugging support.

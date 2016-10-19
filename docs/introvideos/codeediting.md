@@ -1,11 +1,12 @@
 ---
-Order: 6
+Order: 5
 Area: introvideos
 TOCTitle: Code Editing
 ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
 PageTitle: Code Editing Features in Visual Studio Code
 DateApproved: 8/10/2016
-MetaDescription: Take coding to the next level of speed and efficiency with these code editing features. 
+MetaDescription: Take coding to the next level of speed and efficiency with these code editing features.
+MetaSocialImage: opengraph_introvideos.png
 ---
 
 # Code Editing Features in VS Code
