@@ -70,6 +70,7 @@ Key|Command|Command id
 `kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
 `kb(editor.action.toggleTabFocusMode)`|Toggle Use of Tab Key for Setting Focus|`editor.action.toggleTabFocusMode`
 `kb(toggleRenderWhitespace)`|Toggle Render Whitespace|`toggleRenderWhitespace`
+`kb(editor.action.toggleWordWrap)`|Toggle Word Wrap|`editor.action.toggleWordWrap`
 
 ## Rich Languages Editing
 
