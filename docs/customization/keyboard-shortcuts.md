@@ -58,7 +58,7 @@ Key|Command
 `kb(toggleFindRegex)`|Toggle Find regex
 `kb(toggleFindWholeWord)`|Toggle Find whole word
 
-## Multi-cursor and selection
+## Multi-cursor and Selection
 
 Key|Command
 ---|---
@@ -113,7 +113,7 @@ Key|Command
 `kb(workbench.action.navigateForward)`|Go forward
 `kb(editor.action.toggleTabFocusMode)`|Toggle Tab moves focus
 
-## editor Management
+## Editor Management
 
 Key|Command
 ---|---
@@ -130,7 +130,7 @@ Key|Command
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move active editor group left/up
 `kb(workbench.action.moveActiveEditorGroupRight)`|Move active editor group right/down
 
-## file Management
+## File Management
 
 Key|Command
 ---|---
@@ -183,7 +183,7 @@ Key|Command
 `kb(workbench.action.debug.stop)`|Stop
 `kb(editor.action.showHover)`|Show hover
 
-## Integrated terminal
+## Integrated Terminal
 
 Key|Command
 ---|---
