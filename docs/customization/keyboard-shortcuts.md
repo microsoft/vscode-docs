@@ -120,9 +120,9 @@ Key|Command
 `kb(workbench.action.closeActiveEditor)`|Close editor
 `kb(workbench.action.closeFolder)`|Close folder
 `kb(workbench.action.splitEditor)`|Split editor
-`kb(workbench.action.focusFirstEditorGroup)`|Focus into left/top editor group
-`kb(workbench.action.focusSecondEditorGroup)`|Focus into middle editor group
-`kb(workbench.action.focusThirdEditorGroup)`|Focus into right/bottom editor group
+`kb(workbench.action.focusFirstEditorGroup)`|Focus into first editor group
+`kb(workbench.action.focusSecondEditorGroup)`|Focus into second editor group
+`kb(workbench.action.focusThirdEditorGroup)`|Focus into third editor group
 `kb(workbench.action.focuspreviousGroup)`|Focus into previous editor group
 `kb(workbench.action.focusnextGroup)`|Focus into next editor group
 `kb(workbench.action.moveEditorLeftInGroup)`| Move editor left
@@ -165,7 +165,7 @@ Key|Command
 `kb(workbench.view.extensions)`|Show Extensions
 `kb(workbench.action.replaceInfiles)`|Replace in files
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search details
-`kb(workbench.action.terminal.openNativeConsole)`|Open new Command Prompt
+`kb(workbench.action.terminal.openNativeConsole)`|Open new command prompt/terminal
 `kb(workbench.action.output.toggleOutput)`|Show Output panel
 `kb(markdown.showPreview)`|Toggle Markdown preview
 `kb(markdown.showPreviewToSide)`|Open Markdown preview to the side
