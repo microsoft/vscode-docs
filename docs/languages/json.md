@@ -43,7 +43,7 @@ When you hover over properties and values for JSON data with or without schema, 
 
 ## Formatting
 
-You can format your JSON document (or just a part of it) using `kb(editor.action.format)` or **Format** from the context menu.
+You can format your JSON document using `kb(editor.action.formatDocument)` or **Format Document** from the context menu.
 
 ## JSON Schemas & Settings
 

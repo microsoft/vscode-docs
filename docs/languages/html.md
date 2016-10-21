@@ -39,7 +39,7 @@ You can also control which built-in code completion providers are active. Overri
 
 ## Format HTML
 
-To improve the formatting of your HTML code press `kb(editor.action.format)` and the selected area will be reformatted.
+To improve the formatting of your HTML source code, press `kb(editor.action.formatSelection)` and the selected area will be reformatted.
 
 >**Tip:** Configure the HTML formatter settings in the [User and Workspace Settings](/docs/customization/userandworkspace.md).
 

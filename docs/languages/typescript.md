@@ -132,7 +132,8 @@ You can also use the keyboard to open the list `kb(workbench.actions.view.proble
 
 ## Format Code
 
-`kb(editor.action.format)`: formats the currently selected code, or the whole document if no code is selected.
+`kb(editor.action.formatDocument)`: formats the whole document.
+`kb(editor.action.formatSelection)`: formats the currently selected source code.
 
 ## JSDoc Support
 

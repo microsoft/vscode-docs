@@ -84,7 +84,8 @@ Key|Command
 ---|---
 `kb(editor.action.triggerSuggest)`|Trigger Suggest
 `kb(editor.action.triggerParameterHints)`|Trigger Parameter Hints
-`kb(editor.action.format)`|Format Code
+`kb(editor.action.formatDocument)`|Format Document
+`kb(editor.action.formatSelection)`|Format Selection
 `kb(editor.action.goToDeclaration)`|Go to Definition
 `kb(editor.action.previewDeclaration)`|Peek Definition
 `kb(editor.action.openDeclarationToTheSide)`|Open Definition to the Side
@@ -137,8 +138,8 @@ Key|Command
 `kb(workbench.action.files.openFile)`|Open File...
 `kb(workbench.action.files.save)`|Save
 `kb(workbench.action.files.saveAs)`|Save As...
+`kb(workbench.action.files.saveAll)`|Save All
 `kb(workbench.action.closeActiveEditor)`|Close
-`kb(workbench.action.closeOtherEditors)`|Close Others
 `kb(workbench.action.closeAllEditors)`|Close All
 `kb(workbench.action.reopenClosedEditor)`|Reopen Closed Editor
 `kb(workbench.action.keepEditor)`|Keep Open
@@ -153,6 +154,7 @@ Key|Command
 Key|Command
 ---|---
 `kb(workbench.action.toggleFullScreen)`|Toggle Full Screen
+`kb(workbench.action.toggleEditorLayout)`|Toggle Editor Layout
 `kb(workbench.action.zoomIn)`|Zoom in
 `kb(workbench.action.zoomOut)`|Zoom out
 `kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar Visibility

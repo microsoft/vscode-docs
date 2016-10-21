@@ -78,7 +78,8 @@ Key|Command|Command id
 ---|-------|----------
 `kb(editor.action.triggerSuggest)`|Trigger Suggest|`editor.action.triggerSuggest`
 `kb(editor.action.triggerParameterHints)`|Trigger Parameter Hints|`editor.action.triggerParameterHints`
-`kb(editor.action.format)`|Format Code|`editor.action.format`
+`kb(editor.action.formatDocument)`|Format Document|`editor.action.formatDocument`
+`kb(editor.action.formatSelection)`|Format Selection|`editor.action.formatSelection`
 `kb(editor.action.goToDeclaration)`|Go to Definition|`editor.action.goToDeclaration`
 `kb(editor.action.previewDeclaration)`|Peek Definition|`editor.action.previewDeclaration`
 `kb(editor.action.openDeclarationToTheSide)`|Open Definition to the Side|`editor.action.openDeclarationToTheSide`
