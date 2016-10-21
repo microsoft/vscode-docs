@@ -2,7 +2,7 @@
 
 Key|Command
 ---|---
-`kb(workbench.action.showCommands)`|Show all commands
+`kb(workbench.action.showCommands)`|Show Command Palette
 `kb(workbench.action.quickOpen)`|Quick Open
 `kb(workbench.action.newWindow)`|New window/instance
 `kb(workbench.action.closeWindow)`|Close window/instance
@@ -95,7 +95,7 @@ Key|Command
 `kb(editor.action.inPlaceReplace.down)`|Replace with next value
 `kb(editor.action.inPlaceReplace.up)`|Replace with previous value
 `kb(editor.action.trimTrailingWhitespace)`|Trim trailing whitespace
-`kb(workbench.action.editor.changeLanguageMode)`|Change Language Mode
+`kb(workbench.action.editor.changeLanguageMode)`|Change file language
 
 ## Navigation
 
@@ -147,7 +147,7 @@ Key|Command
 `kb(workbench.action.openpreviousRecentlyUsedEditorInGroup)`|Open previous
 `kb(workbench.action.files.copyPathOfActivefile)`|Copy path of active file
 `kb(workbench.action.files.revealActivefileInWindows)`|Reveal active file in Explorer
-`kb(workbench.action.files.showOpenedfileInNewWindow)`|Show opened file in new window/instance
+`kb(workbench.action.files.showOpenedfileInNewWindow)`|Show active file in new window/instance
 
 ## Display
 
@@ -188,7 +188,7 @@ Key|Command
 Key|Command
 ---|---
 `kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal
-`kb(workbench.action.terminal.new)`|Create New terminal
+`kb(workbench.action.terminal.new)`|Create new terminal
 `kb(workbench.action.terminal.copySelection)`|Copy selection
 `kb(workbench.action.terminal.paste)`|Paste into active terminal
 `kb(workbench.action.terminal.scrollup)`|Scroll up
@@ -196,5 +196,5 @@ Key|Command
 `kb(workbench.action.terminal.scrollupPage)`|Scroll page up
 `kb(workbench.action.terminal.scrolldownPage)`|Scroll page down
 `kb(workbench.action.terminal.scrollToTop)`|Scroll to top
-`kb(workbench.action.terminal.scrollToBottom)`|Scroll to Bottom
+`kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
 
