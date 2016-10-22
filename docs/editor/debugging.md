@@ -52,45 +52,17 @@ Here is the one generated for Node.js debugging:
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
             "type": "node",
             "request": "launch",
+            "name": "Launch Program",
             "program": "${workspaceRoot}/app.js",
-            "stopOnEntry": false,
-            "args": [],
-            "cwd": "${workspaceRoot}",
-            "preLaunchTask": null,
-            "runtimeExecutable": null,
-            "runtimeArgs": [
-                "--nolazy"
-            ],
-            "env": {
-                "NODE_ENV": "development"
-            },
-            "console": "internalConsole",
-            "sourceMaps": false,
-            "outDir": null
+            "cwd": "${workspaceRoot}"
         },
         {
-            "name": "Attach",
             "type": "node",
             "request": "attach",
-            "port": 5858,
-            "address": "localhost",
-            "restart": false,
-            "sourceMaps": false,
-            "outDir": null,
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
-        },
-        {
             "name": "Attach to Process",
-            "type": "node",
-            "request": "attach",
-            "processId": "${command.PickProcess}",
-            "port": 5858,
-            "sourceMaps": false,
-            "outDir": null
+            "port": 5858
         }
     ]
 }
@@ -104,7 +76,37 @@ Review the generated values and make sure that they make sense for your project 
 
 Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
+## Debug actions
+
+Once a debug session starts, the **Debug actions pane** will appear on the top of the editor.
+
+![Debug Actions](images/debugging/actions.png)
+
+* Continue / Pause `kb(workbench.action.debug.continue)`
+* Step Over `kb(workbench.action.debug.stepOver)`
+* Step Into `kb(workbench.action.debug.stepInto)`
+* Step Out `kb(workbench.action.debug.stepOut)`
+* Restart `kb(workbench.action.debug.restart)`
+* Stop `kb(workbench.action.debug.stop)`
+
+## Launch.json attributes
+
+There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned aboveyou can use IntelliSense (`kb(editor.action.triggerSuggestion)`) to see the list of available attributes.
+
+![launch json suggestions](images/debugging/launch-json-suggestions.png)
+
+Some attributes are common to most debuggers:
+
+* `type` - type of configuration which maps to the registered debug extension (`node`, `php`, `go`)
+* `request`- debug request, either to launch or attach
+* `name`- friendly name which appears in the Debug launch configuration dropdown
+* `program` - executable or file to run when launching the debugger
+* `cwd` - current working directory for finding dependencies and other files
+* `port` - port when attaching to a running process
+
 To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
+
+## Variable substitution
 
 VS Code supports variable substitution inside strings in `launch.json` the same way as for [tasks.json](/docs/editor/tasks.md#variables-in-tasksjson).
 
@@ -155,19 +157,6 @@ Variables and expressions can also be evaluated and watched in the Debug view **
 Expressions can be evaluated in the **Debug Console**. To open the Debug Console, use the **Open Console** action at the top of the Debug pane or using the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Debug Console](images/debugging/debugconsole.png)
-
-## Debug actions
-
-Once a debug session starts, the **Debug actions pane** will appear on the top of the editor.
-
-![Debug Actions](images/debugging/actions.png)
-
-* Continue / Pause `kb(workbench.action.debug.continue)`
-* Step Over `kb(workbench.action.debug.stepOver)`
-* Step Into `kb(workbench.action.debug.stepInto)`
-* Step Out `kb(workbench.action.debug.stepOut)`
-* Restart `kb(workbench.action.debug.restart)`
-* Stop `kb(workbench.action.debug.stop)`
 
 ## Node Debugging
 
@@ -251,7 +240,6 @@ The corresponding launch configuration looks like this:
 			"name": "Attach to Node",
 			"type": "node",
 			"request": "attach",
-			"address": "localhost",
 			"port": 5858,
 			"restart": false
 		}
