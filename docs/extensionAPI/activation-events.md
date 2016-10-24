@@ -18,7 +18,7 @@ Extensions are activated lazily in VS Code.  As a result you need to provide VS 
 * [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
-We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.  
+We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
 
 ## `activationEvents.onLanguage`
 
@@ -27,7 +27,7 @@ This activation event is emitted and interested extensions will be activated whe
 ```json
 ...
 "activationEvents": [
-	"onLanguage:python"
+    "onLanguage:python"
 ]
 ...
 ```
@@ -39,7 +39,7 @@ This activation event is emitted and interested extensions will be activated whe
 ```json
 ...
 "activationEvents": [
-	"onCommand:extension.sayHello"
+    "onCommand:extension.sayHello"
 ]
 ...
 ```
@@ -51,7 +51,7 @@ This activation event is emitted and interested extensions will be activated whe
 ```json
 ...
 "activationEvents": [
-	"onDebug:node"
+    "onDebug:node"
 ]
 ...
 ```
@@ -63,7 +63,7 @@ This activation event is emitted and interested extensions will be activated whe
 ```json
 ...
 "activationEvents": [
-	"workspaceContains:.editorconfig"
+    "workspaceContains:.editorconfig"
 ]
 ...
 ```
@@ -75,16 +75,17 @@ This activation event is emitted and interested extensions will be activated whe
 ```json
 ...
 "activationEvents": [
-	"*"
+    "*"
 ]
 ...
 ```
 
 > **Note:** An extension can listen to multiple activation events, and that is preferable to listening to `"*"`.
 
-> **Note:** An extension **must** export an `activate()` function from its main module and it will be invoked **only once** by VS Code when any of the specified activation events is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown. Extension **must** return a Promise from `deactivate()` if the cleanup process is async.
+> **Note:** An extension **must** export an `activate()` function from its main module and it will be invoked **only once** by VS Code when any of the specified activation events is emitted. Also, an extension **should** export a `deactivate()` function from its main module to perform cleanup tasks on VS Code shutdown. Extension **must** return a Promise from `deactivate()` if the cleanup process is asynchronous. An extension may return `undefined` from `deactivate()` if the cleanup runs synchronously.
 
 ## Next Steps
+
 To learn more about VS Code extensibility model, try these topic:
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
