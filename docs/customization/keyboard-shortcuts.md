@@ -2,7 +2,7 @@
 
 Key|Command
 ---|---
-`kb(workbench.action.showCommands)`|Show Command Palette
+`kb(workbench.action.showCommands)`, `kbstyle(F1)`|Show Command Palette
 `kb(workbench.action.quickOpen)`|Quick Open
 `kb(workbench.action.newWindow)`|New window/instance
 `kb(workbench.action.closeWindow)`|Close window/instance
@@ -62,6 +62,7 @@ Key|Command
 
 Key|Command
 ---|---
+`kbstyle(Alt+Click)`|Insert cursor
 `kb(editor.action.insertCursorabove)`|Insert cursor above
 `kb(editor.action.insertCursorbelow)`|Insert cursor below
 `kb(cursorUndo)`|Undo last cursor operation
@@ -71,6 +72,7 @@ Key|Command
 `kb(editor.action.changeAll)`|Select all occurrences of current word
 `kb(editor.action.smartSelect.grow)`|Expand selection
 `kb(editor.action.smartSelect.shrink)`|Shrink selection
+`kbstyle(Shift+Alt)` + drag mouse |Column selection
 `kb(cursorColumnSelectup)`|Column selection up
 `kb(cursorColumnSelectdown)`|Column selection down
 `kb(cursorColumnSelectLeft)`|Column selection left
@@ -84,6 +86,7 @@ Key|Command
 ---|---
 `kb(editor.action.triggerSuggest)`|Trigger suggestion
 `kb(editor.action.triggerParameterHints)`|Trigger parameter hints
+`kb(editor.emmet.action.expandAbbreviation)`|Emmet expand abbreviation
 `kb(editor.action.formatDocument)`|Format document
 `kb(editor.action.formatSelection)`|Format selection
 `kb(editor.action.goToDeclaration)`|Go to Definition
@@ -117,7 +120,7 @@ Key|Command
 
 Key|Command
 ---|---
-`kb(workbench.action.closeActiveEditor)`|Close editor
+`kb(workbench.action.closeActiveEditor)`, `kbstyle(Ctrl+W)`|Close editor
 `kb(workbench.action.closeFolder)`|Close folder
 `kb(workbench.action.splitEditor)`|Split editor
 `kb(workbench.action.focusFirstEditorGroup)`|Focus into first editor group
@@ -136,6 +139,7 @@ Key|Command
 ---|---
 `kb(workbench.action.files.newUntitledfile)`|New File
 `kb(workbench.action.files.openfile)`|Open File...
+`kb(workbench.action.files.openFileFolder)`|Open File... (macOS)
 `kb(workbench.action.files.save)`|Save
 `kb(workbench.action.files.saveAs)`|Save As...
 `kb(workbench.action.files.saveAll)`|Save All
