@@ -11,7 +11,12 @@ MetaSocialImage: keybinding_customization_keybindings.png
 
 # Key Bindings for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings and describes how you can update them.
+Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings and describes how you can update them. 
+
+Additionally, you can install an extension to use the popular keybindings from your old editor. 
+
+* [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) - Sublime Text keyboard shortcuts mapped to VS Code commands. 
+* [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings) - Port of popular Atom keyboard shortcuts for VS Code users. 
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that OS. If you need the key binding for another OS, hover your mouse over the key you are interested in.
 
