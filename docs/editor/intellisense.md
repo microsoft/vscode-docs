@@ -96,9 +96,9 @@ By default, VS Code shows snippets and completion proposals in one widget. You c
 
 ### Key Bindings
 
-The key bindings shown below are the default key bindings. You can change these key bindings in your `keybindings.json` file as described in [Key Bindings](/docs/customization/keybindings.md).
+The key binding shown below is the default key binding. You can change this key binding in your `keybindings.json` file as described in [Key Bindings](/docs/customization/keybindings.md).
 
-> **Note:** The key bindings below are the most popular key bindings for IntelliSense. There are many more key bindings relating to IntelliSense. Simply open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
+> **Note:** There are many more key bindings relating to IntelliSense. Simply open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 
 ```json
 {
@@ -106,17 +106,7 @@ The key bindings shown below are the default key bindings. You can change these 
        "key": "ctrl+space",
        "command": "editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
-    },
-    {
-        "key": "tab",
-        "command": "acceptQuickFixSuggestion",
-        "when": "editorFocus && quickFixWidgetVisible"
-    },
-    {
-        "key": "enter",
-        "command": "acceptQuickFixSuggestion",
-        "when": "editorFocus && quickFixWidgetVisible"
-    },
+    }
 }
 ```
 

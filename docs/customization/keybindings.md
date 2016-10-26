@@ -339,7 +339,6 @@ Here is an example:
 { "key": "tab", "command": "tab", "when": ... },
 { "key": "tab", "command": "editor.emmet.action.expandAbbreviation", "when": ... },
 { "key": "tab", "command": "jumpToNextSnippetPlaceholder", "when": ... },
-{ "key": "tab", "command": "acceptQuickFixSuggestion", "when": ... },
 { "key": "tab", "command": "acceptSelectedSuggestion", "when": ... },
 ...
 
