@@ -158,7 +158,7 @@ Key|Command
 Key|Command
 ---|---
 `kb(workbench.action.toggleFullScreen)`|Toggle full screen
-`kb(workbench.action.toggleEditorLayout)`|Toggle editor layout
+`kb(workbench.action.toggleEditorGroupLayout)`|Toggle editor layout
 `kb(workbench.action.zoomIn)`|Zoom in
 `kb(workbench.action.zoomOut)`|Zoom out
 `kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar visibility

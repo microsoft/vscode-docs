@@ -85,7 +85,7 @@ Below is a copy of the default `settings.json` file.
     // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
     "editor.lineHeight": 0,
 
-    // Controls visibility of line numbers
+    // Controls the display of line numbers. Possible values are 'on', 'off', and 'relative'. 'relative' shows the line count from the current cursor position.
     "editor.lineNumbers": "on",
 
     // Columns at which to show vertical rulers
@@ -145,8 +145,17 @@ Below is a copy of the default `settings.json` file.
     // Controls whether snippets are shown with other suggestions and how they are sorted.
     "editor.snippetSuggestions": "bottom",
 
+    // Controls whether copying without a selection copies the current line.
+    "editor.emptySelectionClipboard": true,
+
     // Enable word based suggestions.
     "editor.wordBasedSuggestions": true,
+
+    // Font size for the suggest widget
+    "editor.suggestFontSize": 0,
+
+    // Line height for the suggest widget
+    "editor.suggestLineHeight": 0,
 
     // Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.
     "editor.tabCompletion": false,
@@ -190,6 +199,9 @@ Below is a copy of the default `settings.json` file.
     // Controls whether the editor has code folding enabled
     "editor.folding": true,
 
+    // Controls whether the editor should render the vertical glyph margin. Glyph margin is mostly used for debugging.
+    "editor.glyphMargin": true,
+
     // Inserting and deleting whitespace follows tab stops
     "editor.useTabStops": true,
 
@@ -223,6 +235,9 @@ Below is a copy of the default `settings.json` file.
 
 // Workbench
 
+    // Controls how multiple editor groups should layout by default if no other user choice has been made.
+    "workbench.editor.defaultEditorGroupLayout": "vertical",
+
     // Controls if opened editors should show in tabs or not.
     "workbench.editor.showTabs": true,
 
@@ -243,6 +258,12 @@ Below is a copy of the default `settings.json` file.
 
     // Controls if opening settings also opens an editor showing all default settings.
     "workbench.settings.openDefaultSettings": true,
+
+    // Controls the location of the sidebar. It can either show on the left or right of the workbench.
+    "workbench.sideBar.location": "left",
+
+    // Controls the visibility of the status bar at the bottom of the workbench.
+    "workbench.statusBar.visible": true,
 
 
 // Window
@@ -345,7 +366,7 @@ Below is a copy of the default `settings.json` file.
     "git.allowLargeRepositories": false,
 
     // Confirm before synchronizing git repositories.
-    "git.confirmSync": false,
+    "git.confirmSync": true,
 
     // Controls the git badge counter.
     "git.countBadge": "all",
@@ -555,7 +576,19 @@ Below is a copy of the default `settings.json` file.
     "less.lint.idSelector": "ignore",
 
 
+// Debug
+
+    // Allows setting breakpoint in any file
+    "debug.allowBreakpointsEverywhere": false,
+
+    // Automatically open explorer viewlet on the end of a debug session
+    "debug.openExplorerOnEnd": false,
+
+
 // HTML
+
+    // Enable/disable default HTML formatter (requires restart)
+    "html.format.enable": true,
 
     // Maximum amount of characters per line (0 = disable).
     "html.format.wrapLineLength": 120,
@@ -596,6 +629,9 @@ Below is a copy of the default `settings.json` file.
     // Associate schemas to JSON files in the current project
     "json.schemas": [],
 
+    // Enable/disable default JSON formatter (requires restart)
+    "json.format.enable": true,
+
 
 // Markdown
 
@@ -615,81 +651,102 @@ Below is a copy of the default `settings.json` file.
     "php.validate.run": "onSave",
 
 
-// TypeScript
+// TypeScript.
 
     // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
     "typescript.tsdk": null,
 
-    // Check if a TypeScript version is available in the workspace
+    // Disables automatic type acquisition. Requires TypeScript >= 2.0.6 and a restart after changing it.
+    "typescript.disableAutomaticTypeAcquisition": false,
+
+    // Check if a TypeScript version is available in the workspace.
     "typescript.check.workspaceVersion": true,
 
     // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
     "typescript.check.tscVersion": true,
 
-    // Enables tracing of messages send to the TS server
+    // Enables tracing of messages send to the TS server.
     "typescript.tsserver.trace": "off",
 
     // Complete functions with their parameter signature.
     "typescript.useCodeSnippetsOnMethodSuggest": false,
 
-    // Enable / disable TypeScript validation
+    // Enable/disable TypeScript validation.
     "typescript.validate.enable": true,
 
-    // Defines space handling after a comma delimiter
+    // Enable/disable default TypeScript formatter.
+    "typescript.format.enable": true,
+
+    // Defines space handling after a comma delimiter.
     "typescript.format.insertSpaceAfterCommaDelimiter": true,
 
-    //  Defines space handling after a semicolon in a for statement
+    //  Defines space handling after a semicolon in a for statement.
     "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
 
-    // Defines space handling after a binary operator
+    // Defines space handling after a binary operator.
     "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
 
-    // Defines space handling after keywords in control flow statement
+    // Defines space handling after keywords in control flow statement.
     "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
-    // Defines space handling after function keyword for anonymous functions
+    // Defines space handling after function keyword for anonymous functions.
     "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
 
-    // Defines space handling after opening and before closing non empty parenthesis
+    // Defines space handling after opening and before closing non empty parenthesis.
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
-    // Defines space handling after opening and before closing non empty brackets
+    // Defines space handling after opening and before closing non empty brackets.
     "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
-    // Defines whether an open brace is put onto a new line for functions or not
+    // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+
+    // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+
+    // Defines whether an open brace is put onto a new line for functions or not.
     "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
 
-    // Defines whether an open brace is put onto a new line for control blocks or not
+    // Defines whether an open brace is put onto a new line for control blocks or not.
     "typescript.format.placeOpenBraceOnNewLineForControlBlocks": false,
 
-    // Enable / disable JavaScript validation
+    // Enable/disable JavaScript validation.
     "javascript.validate.enable": true,
 
-    // Defines space handling after a comma delimiter
+    // Enable/disable default JavaScript formatter.
+    "javascript.format.enable": true,
+
+    // Defines space handling after a comma delimiter.
     "javascript.format.insertSpaceAfterCommaDelimiter": true,
 
-    //  Defines space handling after a semicolon in a for statement
+    //  Defines space handling after a semicolon in a for statement.
     "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
 
-    // Defines space handling after a binary operator
+    // Defines space handling after a binary operator.
     "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
 
-    // Defines space handling after keywords in control flow statement
+    // Defines space handling after keywords in control flow statement.
     "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
-    // Defines space handling after function keyword for anonymous functions
+    // Defines space handling after function keyword for anonymous functions.
     "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
 
-    // Defines space handling after opening and before closing non empty parenthesis
+    // Defines space handling after opening and before closing non empty parenthesis.
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
-    // Defines space handling after opening and before closing non empty brackets
+    // Defines space handling after opening and before closing non empty brackets.
     "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
-    // Defines whether an open brace is put onto a new line for functions or not
+    // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+
+    // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+
+    // Defines whether an open brace is put onto a new line for functions or not.
     "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
 
-    // Defines whether an open brace is put onto a new line for control blocks or not
+    // Defines whether an open brace is put onto a new line for control blocks or not.
     "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
 
 
@@ -726,7 +783,10 @@ Below is a copy of the default `settings.json` file.
     "terminal.integrated.shellArgs.osx": [],
 
     // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
-    "terminal.integrated.shell.windows": "C:\\WINDOWS\\system32\\cmd.exe",
+    "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe",
+
+    // The command line arguments to use when on the Windows terminal.
+    "terminal.integrated.shellArgs.windows": [],
 
     // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
     "terminal.integrated.fontFamily": "",
@@ -749,6 +809,11 @@ Below is a copy of the default `settings.json` file.
     // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
     "terminal.integrated.commandsToSkipShell": [
         "editor.action.toggleTabFocusMode",
+        "workbench.action.debug.continue",
+        "workbench.action.debug.restart",
+        "workbench.action.debug.run",
+        "workbench.action.debug.start",
+        "workbench.action.debug.stop",
         "workbench.action.quickOpen",
         "workbench.action.showCommands",
         "workbench.action.terminal.clear",
@@ -762,6 +827,8 @@ Below is a copy of the default `settings.json` file.
         "workbench.action.terminal.runSelectedText",
         "workbench.action.terminal.scrollDown",
         "workbench.action.terminal.scrollDownPage",
+        "workbench.action.terminal.scrollToBottom",
+        "workbench.action.terminal.scrollToTop",
         "workbench.action.terminal.scrollUp",
         "workbench.action.terminal.scrollUpPage",
         "workbench.action.terminal.toggleTerminal"
@@ -780,7 +847,7 @@ Below is a copy of the default `settings.json` file.
     "telemetry.enableTelemetry": true,
 
     // Enable crash reports to be sent to Microsoft.
-    // This option requires restart to take effect.
+	// This option requires restart to take effect.
     "telemetry.enableCrashReporter": true
 
 }
