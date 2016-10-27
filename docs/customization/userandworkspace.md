@@ -235,9 +235,6 @@ Below is a copy of the default `settings.json` file.
 
 // Workbench
 
-    // Controls how multiple editor groups should layout by default if no other user choice has been made.
-    "workbench.editor.defaultEditorGroupLayout": "vertical",
-
     // Controls if opened editors should show in tabs or not.
     "workbench.editor.showTabs": true,
 
@@ -783,7 +780,7 @@ Below is a copy of the default `settings.json` file.
     "terminal.integrated.shellArgs.osx": [],
 
     // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
-    "terminal.integrated.shell.windows": "C:\\Windows\\system32\\cmd.exe",
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\system32\\cmd.exe",
 
     // The command line arguments to use when on the Windows terminal.
     "terminal.integrated.shellArgs.windows": [],
