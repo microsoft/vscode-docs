@@ -108,7 +108,19 @@ To launch a task before the start of each debug session, set the `preLaunchTask`
 
 ## Variable substitution
 
-VS Code supports variable substitution inside strings in `launch.json` the same way as for [tasks.json](/docs/editor/tasks.md#variables-in-tasksjson).
+VS Code supports variable substitution inside strings in `launch.json` and has the following predefined variables:
+
+- **${workspaceRoot}** the path of the folder opened in VS Code
+- **${file}** the current opened file
+- **${relativeFile}** the current opened file relative to `workspaceRoot`
+- **${fileBasename}** the current opened file's basename
+- **${fileDirname}** the current opened file's dirname
+- **${fileExtname}** the current opened file's extension
+- **${cwd}** the task runner's current working directory on startup
+
+You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `env.Path` on Windows.
+
+You can also reference VS Code settings using **${config.NAME}**.
 
 ## Run mode
 
