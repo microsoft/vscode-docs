@@ -237,10 +237,11 @@ If you want to attach the VS Code debugger to a Node.js program, launch Node.js 
 
 ```
 node --debug program.js
+or
 node --debug-brk program.js
 ```
 
-With the `--debug-brk` option Node.js stops on the first line of the program.
+With the `--debug-brk` option, Node.js stops on the first line of the program.
 
 The corresponding launch configuration looks like this:
 
