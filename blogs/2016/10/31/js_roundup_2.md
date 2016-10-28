@@ -14,28 +14,7 @@ October 31, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 Visual Studio Code has excellent support for JavaScript out of the box. As with other languages, JavaScript is powered by a language service. The [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa) is implemented by the TypeScript team, allowing JavaScript developers to leverage the best IntelliSense experience. 
 
-But what other features can you get with VS Code? Because of VS Code's rich extensibilty model, there are many features extensions can provide. This post is a follow up to my previous post about JavaScript extensions and a brief introduction to writing your own JavaScript extension. 
-
-## Do you want to build an extension? 
-
-You can build an extension with JavaScript. To write your first extension takes only three simpe steps. 
-
-1. [Decide what to build](http://code.visualstudio.com/docs/extensions/overview) - Read the various [ways to contribute](http://code.visualstudio.com/docs/extensionAPI/extension-points). Want to add your custom snippets or keybindings? You can do that easily. 
-2. [Install the extension generator](http://code.visualstudio.com/docs/tools/yocode) - Installed via yo, the starter kit starts you off on the right foot. 
-3. [Code, debug](http://code.visualstudio.com/docs/extensions/debugging-extensions), and [publish](http://code.visualstudio.com/docs/tools/vscecli) - Write code for your extension, debug using VS Code, and then publish with a single CLI command. 
-
-```zsh
-# Install the necessary tools
-npm install -g yo generator-code vsce
-
-# Install the extension generator
-yo code
-
-# Write code, debug, then publish
-vsce publish
-```
-
-You can use the extensions below as a model for how to build your own and install them to accelerate your JavaScript coding productivity. 
+But what other features can you get with VS Code? VS Code has a rich extensibility model and many features are provided through VS Code extensions. This post is a follow up to my [previous post](/blogs/2016/09/14/js_roundup_1.md) about JavaScript extensions. 
 
 > **Tip:** Install any of these extensions by clicking the Extensions View button, typing the name of the extension in the Search box, and clicking **Install**. See more instructions [here](/docs/editor/extension-gallery.md#browse-and-install-extensions-in-vs-code).
 
@@ -91,7 +70,7 @@ You can search the Marketplace for more formatters using the new [Formatters cat
 
 >**Note:** For extension authors, we are working on a blog post for Formatting best practices. Stay tuned as it will be coming soon. 
 
-# Keymaps for Sublime Text and Atom
+## Keymaps for Sublime Text and Atom
 
 There are two extensions in this section, one for [Atom](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings) and another for [Sublime Text](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings). If you have used these editors you have likely developed habits with your keyboards shortcuts. These extensions bring the keyboard shortcuts from Atom and Sublime Text to VS Code. 
 
@@ -112,7 +91,11 @@ These extensions are in preview because we want your feedback. There are still m
 }
 ```
 
-If you find that VS Code does not have a feature from Atom or Sublime Text, please comment in these Github issues ([Atom](https://github.com/waderyan/vscode/issues/14316) and [Sublime Text](https://github.com/Microsoft/vscode/issues/3776)). Additionally, there are many extensions in the Marketplace to add the missing features. 
+Do you have other editors or IDEs you'd like to make a keymap for? Simply follow the instructions in the [`contribrutions.keybindings` section](http://code.visualstudio.com/docs/extensionAPI/extension-points#_contributeskeybindings) and the [Customization -> Keybindings document](http://code.visualstudio.com/docs/customization/keybindings). 
+
+## It's raining keyboard shortcuts
+
+If you find that VS Code does not have a keyboard shortcut feature from Atom, Sublime Text or another product, please comment in one of these Github issues ([Atom](https://github.com/waderyan/vscode/issues/14316) and [Sublime Text](https://github.com/Microsoft/vscode/issues/3776)) or create a new issue. Additionally, there are many extensions in the Marketplace to add the missing keyboard shortcut features. 
 
 * [Join Lines](https://marketplace.visualstudio.com/items?itemName=wmaurer.join-lines)
 * [Paste and Indent](https://marketplace.visualstudio.com/items?itemName=Rubymaniac.vscode-paste-and-indent)
@@ -123,7 +106,9 @@ If you find that VS Code does not have a feature from Atom or Sublime Text, plea
 * [transpose](https://marketplace.visualstudio.com/items?itemName=v4run.transpose)
 * [Close HTML/XML tag](https://marketplace.visualstudio.com/items?itemName=Compulim.compulim-vscode-closetag)
 
-Do you have other editors or IDEs you'd like to make a keymap for? Simply follow the instructions in the [`contribrutions.keybindings` section](http://code.visualstudio.com/docs/extensionAPI/extension-points#_contributeskeybindings) and the [Customization -> Keybindings document](http://code.visualstudio.com/docs/customization/keybindings). 
+## Creating your own JavaScript extension
+
+Not finding an extension that meets your needs. You can make your own with JavaScript or TypeScript! Check out the [documentation](/docs/extensions/overview.md) to learn more.  
 
 ## Want to see your extension featured?
 
