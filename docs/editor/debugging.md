@@ -118,9 +118,23 @@ VS Code supports variable substitution inside strings in `launch.json` and has t
 - **${fileExtname}** the current opened file's extension
 - **${cwd}** the task runner's current working directory on startup
 
-You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `env.Path` on Windows.
 
-You can also reference VS Code settings using **${config.NAME}**.
+You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `${env.Path}` on Windows.
+
+
+```json
+{
+    "type": "node",
+    "request": "launch",
+    "type": "node",
+    "name": "Launch Program",
+    "program": "${workspaceRoot}/app.js",
+    "cwd": "${workspaceRoot}",
+    "args": [ "${env.USERNAME}" ]
+}
+```
+
+You can also reference VS Code settings using **${config.NAME}** (for example: `${config.editor.fontSize}`).
 
 ## Run mode
 
@@ -140,7 +154,34 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 The `Reapply All Breakpoints` command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed. (For details see below under __Node Debugging: Breakpoint Validation__)
 
-## Function Breakpoints
+## Conditional breakpoints
+
+A powerful VS Code debugging feature is the ability to set conditions either based on expressions or hit counts. When you create a new breakpoint, you have the option to **Add Breakpoint** or a **Add Conditional Breakpoint**. If you add a conditional breakpoint, you have a dropdown to choose either an **Expression** or **Hit Count** condition.
+
+>**Note:** Not every debugger extension supports conditional breakpoints in which case you won't see the **Add Conditional Breakpoint** action.
+
+### Expression condition
+
+The breakpoint will be hit whenever the expression evaluates to `true`.
+
+### Hit count condition
+
+The 'hit count condition' controls how many times a breakpoint needs to be hit before it will 'break' execution.
+
+![HitCount](images/1_7/hitCount.gif)
+
+Whether a 'hit count condition' is respected and how the exact syntax of the expression looks like depends on the debugger extension used. In this milestone, only the built-in Node.js debugger supports hit counts (but we hope other debugger extensions will follow soon).
+
+The hit count syntax supported by the Node.js debugger is either an integer or one of the operators `<`, `<=`, `=`, `>`, `>=`, `%` followed by an integer.
+
+Some examples:
+
+- `>10` break always after 10 hits
+- `<3` break on the first two hits only
+- `10` same as `>=10`
+- `%2` break on every other hit
+
+## Function breakpoints
 
 Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
 
@@ -279,6 +320,26 @@ In VS Code, set the `restart` attribute to `true` in the 'attach' launch configu
 The Node.js debugger supports remote debugging for recent versions of Node.js (>= 4.x). Specify a remote host via the `address` attribute.
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
+
+## Command variables
+
+As we saw above, VS Code supports variable substitution in `launch.json` configurations. An advanced type of variable is one that is bound to a VS Code _command_. When a debug session is started, all command variables that occur in the underlying launch configuration are first collected and then executed. Before the launch configuration is passed to the debug adapter, all variables are substituted with the command results.
+
+A command is implemented and registered in an extension and its return value is used as the variable's value. The implementation of a command can range from a simple expression with no UI, to some sophisticated functionality based on the UI features available in the extension API.
+
+An example of this functionality can be found in `node-debug`. Here a variable `${command.PickProcess}` is bound to a process picker command.
+
+For example the 'Attach to Process' launch configuration below uses the variable to let the user pick a Node.js process when running the launch configuration.
+
+```json
+{
+    "name": "Attach to Process",
+    "type": "node",
+    "request": "attach",
+    "processId": "${command.PickProcess}",
+    "port": 5858
+}
+```
 
 ## Next Steps
 
