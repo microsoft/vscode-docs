@@ -203,6 +203,8 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
+>**Tip:** You can quickly reuse a previous search term by using `kb(search.history.showNext)` and `kb(search.history.showPrevious)` to navigate through your search term history.
+
 ## Command Palette
 
 VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all of the functionality of VS Code, including keyboard shortcuts for the most common operations.
