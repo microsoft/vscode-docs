@@ -67,6 +67,12 @@ The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.n
 
 When the suggestions pop up, they will get announced to screen readers. It is possible to navigate the suggestions using `kbstyle(Alt+Up)` and `kbstyle(Alt+Down)`, you can dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 
+## Accessibility Help
+
+You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code:
+
+![accessibility status](images/accessibility/status.png)
+
 ## Debugger Accessibility
 
 The VS Code debugger UI is user accessible and has the following features:

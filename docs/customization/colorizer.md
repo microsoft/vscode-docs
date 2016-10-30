@@ -133,7 +133,7 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
 
 **Q: What if I want to completely override an existing colorizer?**
 
-**A:** Yes and no.  If the colorizer is implemented as a customization then yes but some of VS Code's built-in colorizers (e.g. Markdown) are integrated differently and cannot be overridden.  You override the colorizer by using the `extensionDependencies` attribute as above and providing a new `grammars` element.
+**A:** Yes and no.  If the colorizer is implemented as a customization then yes but some of VS Code's built-in colorizers (e.g. Markdown) are integrated differently and cannot be overridden.  You override the colorizer by using the `extensionDependencies` attribute and providing a new `grammars` element.
 
 ```json
 {

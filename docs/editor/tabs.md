@@ -82,6 +82,10 @@ Here are some handy keyboard shortcuts to quickly navigate between editors and e
 * `kb(workbench.action.closeEditorsInGroup)` close all editors in the editor group.
 * `kb(workbench.action.closeAllEditors)` close all editors.
 
+## File icons in Tabs
+
+If you have a File Icon theme selected (**File** > **Preferences** > **File Icon Theme**, **Code** > **Preferences** > **File Icon Theme** on macOS), you will see file icons in the Tab headings. If you prefer to just see the filename in the heading, you can disable icons with the `workbench.editor.showIcons` setting.
+
 ## Working without Tabs
 
 If you prefer not to use Tabs as in earlier releases of VS Code, you can use the following configurations.

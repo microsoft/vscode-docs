@@ -23,7 +23,7 @@ Name | Required | Type | Details
 `license` | | `string` | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.
 `displayName` | | `string`| The display name for the extension used in the Marketplace.
 `description` | | `string` | A short description of what your extension is and does.
-`categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Other]`
+`categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other]`
 `keywords` | | `array` | An array of **keywords** or **tags** to make it easier to find the extension.
 `galleryBanner` | | `object` | Helps format the Marketplace header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension to be flagged as a Preview in the Marketplace.
@@ -161,7 +161,7 @@ License | `license`
 
 Set a `category` for your extension.  Extensions in the same `category` are grouped together on the Marketplace which improves filtering and discovery.
 
->**Note:** Only use the values that make sense for your extension - allowed values are `[Languages, Snippets, Linters, Themes, Debuggers, Other]`
+>**Note:** Only use the values that make sense for your extension - allowed values are `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other]`
 
 ```json
 	"categories": [

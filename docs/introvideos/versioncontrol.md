@@ -11,7 +11,7 @@ MetaSocialImage: opengraph_introvideos.png
 
 # Git Version Control in VS Code
 
-In this tutorial we wil learn how to use the basics of Git version control in VS Code. 
+In this tutorial we will learn how to use the basics of Git version control in VS Code. 
 
 <iframe src="https://www.youtube.com/embed/AKNYgP0yEOY?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
