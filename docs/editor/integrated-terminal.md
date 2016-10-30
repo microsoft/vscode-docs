@@ -82,6 +82,19 @@ You can customize the integrated terminal font and line height with the followin
 
 The **View:: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
+Below are the keyboard shortcuts to quickly navigate within the integreted terminal:
+
+Key|Command
+---|---
+`kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal
+`kb(workbench.action.terminal.new)`|Create new terminal
+`kb(workbench.action.terminal.scrollup)`|Scroll up
+`kb(workbench.action.terminal.scrolldown)`|Scroll down
+`kb(workbench.action.terminal.scrollupPage)`|Scroll page up
+`kb(workbench.action.terminal.scrolldownPage)`|Scroll page down
+`kb(workbench.action.terminal.scrollToTop)`|Scroll to top
+`kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
+
 You can clear the terminal with the **Terminal: Clear** command from the **Command Palette** (`kb(workbench.action.showCommands)`). The command is not bound to any keyboard shortcut but you can add your [own](/docs/customization/keybindings.md).
 
 Other terminal commands are available and can be bound to your preferred keyboard shortcuts.
