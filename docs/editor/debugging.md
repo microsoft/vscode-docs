@@ -103,6 +103,8 @@ Some attributes are common to most debuggers:
 * `program` - executable or file to run when launching the debugger
 * `cwd` - current working directory for finding dependencies and other files
 * `port` - port when attaching to a running process
+* `stopOnEntry` - break immediately when the program launches
+* `internalConsoleOptions` - control visibility of the Debug Console panel during a debugging session
 
 To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
 
