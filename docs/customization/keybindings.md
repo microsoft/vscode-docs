@@ -22,6 +22,8 @@ Additionally, you can install an extension to use the popular keybindings from y
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
 
+Like a printable version of these keyboard shortcuts? **Help** > **Keyboard Shortcut Reference** displays a condensed PDF version suitable for printing as an easy reference.
+
 ## Basic Editing
 
 Key|Command|Command id
