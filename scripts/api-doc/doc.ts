@@ -2,14 +2,14 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
- 
+
 import * as marked from 'marked';
-import {Item, Type, Kind, Comment} from './model';
+import { Item, Type, Kind, Comment } from './model';
 
 
 function doc(value: string): string {
     let data = <Item>JSON.parse(value);
-    let start = data.children[0].children[1];
+    let start = data.children[0].children[0];
     let result = Builder.translate(start);
     return result;
 }
@@ -75,8 +75,8 @@ class Builder {
     }
 
     private _onContainerType(container: Item, isNamespace: boolean = false): void {
-        
-        isNamespace ? this._h2(container.name) : this._h3(itemName2HtmlString(container, undefined)); 
+
+        isNamespace ? this._h2(container.name) : this._h3(itemName2HtmlString(container, undefined));
         this._paragragh(comment2HtmlString(container.comment));
 
         if (container.groups) {
@@ -207,7 +207,7 @@ class Builder {
     private _h3(value) {
         this._builder.push('### ' + value + '\n\n');
     }
-    
+
     private _h4(value) {
         this._builder.push('#### ' + value + '\n\n');
     }
@@ -370,7 +370,7 @@ function type2HtmlString(type: Type): string {
         case 'reference':
             label = `<a class="type-ref" href="#${type.name}">${type.name}</a>`;
             if (type.typeArguments) {
-                label += `&lt;${type.typeArguments.map(type2HtmlString).join(', ') }&gt;`;
+                label += `&lt;${type.typeArguments.map(type2HtmlString).join(', ')}&gt;`;
             }
             break;
         case 'union':
