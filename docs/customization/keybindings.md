@@ -227,6 +227,7 @@ All keyboard shortcuts in VS Code can be customized via the `User/keybindings.js
 
 * To configure keyboard shortcuts the way you want, go to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on Mac)
 * This will open the `Default Keyboard Shortcuts` on the left and your `User/keybindings.json` file where you can overwrite the default bindings on the right.
+* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in `Default Keyboard Shortcuts`.
 
 ## Keyboard Rules
 
