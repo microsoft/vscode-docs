@@ -22,7 +22,15 @@ Additionally, you can install an extension to use the popular keybindings from y
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
 
-Like a printable version of these keyboard shortcuts? **Help** > **Keyboard Shortcut Reference** displays a condensed PDF version suitable for printing as an easy reference.
+## Keyboard Shortcuts Reference
+
+We also have a printable version of these keyboard shortcuts. **Help** > **Keyboard Shortcut Reference** displays a condensed PDF version suitable for printing as an easy reference.
+
+Below are links to the three platform-specific versions:
+
+* [Windows](https://go.microsoft.com/fwlink/?linkid=832145)
+* [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
+* [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
 
 ## Basic Editing
 
