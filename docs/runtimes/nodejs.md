@@ -98,7 +98,7 @@ Click on the Configure gear icon at the top of the Debug view to create a defaul
 
 ![hello world launch json](images/nodejs/hello-world-launch-json.png)
 
-With the default Node.js **Launch** configuration created, you can now click Debug tool bar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that VS Code displays an orange Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
+With the default Node.js **Launch Program** configuration created, you can now click Debug tool bar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that VS Code displays an orange Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
 
 ![hello world debugging](images/nodejs/hello-world-debugging.png)
 
@@ -230,11 +230,30 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debugging your Express Application
 
-Just as we did earlier for "Hello World", you will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the View Bar and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Again select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the **Launch** configuration. A second **Attach** configuration is also created to show you how to attach to a running Node.js application.
+Just as we did earlier for "Hello World", you will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the View Bar and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Again select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the **Launch Program** configuration. A second **Attach to Process** configuration is also created to show you how to attach to a running Node.js application.
 
-![launch.json configuration file](images/nodejs/launchjson.png)
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceRoot}/bin/www",
+            "cwd": "${workspaceRoot}"
+        },
+        {
+            "type": "node",
+            "request": "attach",
+            "name": "Attach to Process",
+            "port": 5858
+        }
+    ]
+}
+```
 
-Save the new file and make sure **Launch** is selected in the configuration dropdown at the top of the Debug view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
+Save the new file and make sure **Launch Program** is selected in the configuration dropdown at the top of the Debug view. Open `app.js` and set a breakpoint near the top of the file where the Express app object is created by clicking in the gutter to the left of the line number. Press `kb(workbench.action.debug.start)` to start debugging the application. VS Code will start the server in a new terminal and hit the breakpoint we set. From there you can inspect variables, create watches, and step through your code.
 
 ![Debug session](images/nodejs/debugsession.png)
 
