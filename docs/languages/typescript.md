@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 10/10/2016
+DateApproved: 11/2/2016
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: typescript_Languages_typescript.png
 ---
@@ -132,7 +132,8 @@ You can also use the keyboard to open the list `kb(workbench.actions.view.proble
 
 ## Format Code
 
-`kb(editor.action.format)`: formats the currently selected code, or the whole document if no code is selected.
+`kb(editor.action.formatDocument)`: formats the whole document.
+`kb(editor.action.formatSelection)`: formats the currently selected source code.
 
 ## JSDoc Support
 

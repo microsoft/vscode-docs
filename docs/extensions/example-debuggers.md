@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Debuggers
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 10/10/2016
+DateApproved: 11/2/2016
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
 

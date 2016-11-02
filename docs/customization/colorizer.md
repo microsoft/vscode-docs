@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: Colorizer
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Visual Studio Code Colorizers
-DateApproved: 10/10/2016
+DateApproved: 11/2/2016
 MetaDescription: How to add colorization and bracket matching to Visual Studio Code.  TextMate .tmLanguage files are supported.
 ---
 

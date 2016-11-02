@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 10/10/2016
+DateApproved: 11/2/2016
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -52,45 +52,17 @@ Here is the one generated for Node.js debugging:
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Launch",
             "type": "node",
             "request": "launch",
+            "name": "Launch Program",
             "program": "${workspaceRoot}/app.js",
-            "stopOnEntry": false,
-            "args": [],
-            "cwd": "${workspaceRoot}",
-            "preLaunchTask": null,
-            "runtimeExecutable": null,
-            "runtimeArgs": [
-                "--nolazy"
-            ],
-            "env": {
-                "NODE_ENV": "development"
-            },
-            "console": "internalConsole",
-            "sourceMaps": false,
-            "outDir": null
+            "cwd": "${workspaceRoot}"
         },
         {
-            "name": "Attach",
             "type": "node",
             "request": "attach",
-            "port": 5858,
-            "address": "localhost",
-            "restart": false,
-            "sourceMaps": false,
-            "outDir": null,
-            "localRoot": "${workspaceRoot}",
-            "remoteRoot": null
-        },
-        {
             "name": "Attach to Process",
-            "type": "node",
-            "request": "attach",
-            "processId": "${command.PickProcess}",
-            "port": 5858,
-            "sourceMaps": false,
-            "outDir": null
+            "port": 5858
         }
     ]
 }
@@ -104,9 +76,67 @@ Review the generated values and make sure that they make sense for your project 
 
 Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
+## Debug actions
+
+Once a debug session starts, the **Debug actions pane** will appear on the top of the editor.
+
+![Debug Actions](images/debugging/actions.png)
+
+* Continue / Pause `kb(workbench.action.debug.continue)`
+* Step Over `kb(workbench.action.debug.stepOver)`
+* Step Into `kb(workbench.action.debug.stepInto)`
+* Step Out `kb(workbench.action.debug.stepOut)`
+* Restart `kb(workbench.action.debug.restart)`
+* Stop `kb(workbench.action.debug.stop)`
+
+## Launch.json attributes
+
+There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned aboveyou can use IntelliSense (`kb(editor.action.triggerSuggestion)`) to see the list of available attributes.
+
+![launch json suggestions](images/debugging/launch-json-suggestions.png)
+
+Some attributes are common to most debuggers:
+
+* `type` - type of configuration which maps to the registered debug extension (`node`, `php`, `go`)
+* `request`- debug request, either to launch or attach
+* `name`- friendly name which appears in the Debug launch configuration dropdown
+* `program` - executable or file to run when launching the debugger
+* `cwd` - current working directory for finding dependencies and other files
+* `port` - port when attaching to a running process
+* `stopOnEntry` - break immediately when the program launches
+* `internalConsoleOptions` - control visibility of the Debug Console panel during a debugging session
+
 To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
 
-VS Code supports variable substitution inside strings in `launch.json` the same way as for [tasks.json](/docs/editor/tasks.md#variables-in-tasksjson).
+## Variable substitution
+
+VS Code supports variable substitution inside strings in `launch.json` and has the following predefined variables:
+
+- **${workspaceRoot}** the path of the folder opened in VS Code
+- **${file}** the current opened file
+- **${relativeFile}** the current opened file relative to `workspaceRoot`
+- **${fileBasename}** the current opened file's basename
+- **${fileDirname}** the current opened file's dirname
+- **${fileExtname}** the current opened file's extension
+- **${cwd}** the task runner's current working directory on startup
+
+
+You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `${env.Path}` on Windows.
+
+
+```json
+{
+    "type": "node",
+    "request": "launch",
+    "type": "node",
+    "name": "Launch Program",
+    "program": "${workspaceRoot}/app.js",
+    "cwd": "${workspaceRoot}",
+    "args": [ "${env.USERNAME}" ]
+}
+```
+
+You can also reference VS Code settings using **${config.NAME}** (for example: `${config.editor.fontSize}`).
 
 ## Run mode
 
@@ -126,7 +156,34 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 The `Reapply All Breakpoints` command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed. (For details see below under __Node Debugging: Breakpoint Validation__)
 
-## Function Breakpoints
+## Conditional breakpoints
+
+A powerful VS Code debugging feature is the ability to set conditions either based on expressions or hit counts. When you create a new breakpoint, you have the option to **Add Breakpoint** or a **Add Conditional Breakpoint**. If you add a conditional breakpoint, you have a dropdown to choose either an **Expression** or **Hit Count** condition.
+
+>**Note:** Not every debugger extension supports conditional breakpoints in which case you won't see the **Add Conditional Breakpoint** action.
+
+### Expression condition
+
+The breakpoint will be hit whenever the expression evaluates to `true`.
+
+### Hit count condition
+
+The 'hit count condition' controls how many times a breakpoint needs to be hit before it will 'break' execution.
+
+![HitCount](images/1_7/hitCount.gif)
+
+Whether a 'hit count condition' is respected and how the exact syntax of the expression looks like depends on the debugger extension used. In this milestone, only the built-in Node.js debugger supports hit counts (but we hope other debugger extensions will follow soon).
+
+The hit count syntax supported by the Node.js debugger is either an integer or one of the operators `<`, `<=`, `=`, `>`, `>=`, `%` followed by an integer.
+
+Some examples:
+
+- `>10` break always after 10 hits
+- `<3` break on the first two hits only
+- `10` same as `>=10`
+- `%2` break on every other hit
+
+## Function breakpoints
 
 Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
 
@@ -155,19 +212,6 @@ Variables and expressions can also be evaluated and watched in the Debug view **
 Expressions can be evaluated in the **Debug Console**. To open the Debug Console, use the **Open Console** action at the top of the Debug pane or using the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Debug Console](images/debugging/debugconsole.png)
-
-## Debug actions
-
-Once a debug session starts, the **Debug actions pane** will appear on the top of the editor.
-
-![Debug Actions](images/debugging/actions.png)
-
-* Continue / Pause `kb(workbench.action.debug.continue)`
-* Step Over `kb(workbench.action.debug.stepOver)`
-* Step Into `kb(workbench.action.debug.stepInto)`
-* Step Out `kb(workbench.action.debug.stepOut)`
-* Restart `kb(workbench.action.debug.restart)`
-* Stop `kb(workbench.action.debug.stop)`
 
 ## Node Debugging
 
@@ -236,10 +280,11 @@ If you want to attach the VS Code debugger to a Node.js program, launch Node.js 
 
 ```
 node --debug program.js
+or
 node --debug-brk program.js
 ```
 
-With the `--debug-brk` option Node.js stops on the first line of the program.
+With the `--debug-brk` option, Node.js stops on the first line of the program.
 
 The corresponding launch configuration looks like this:
 
@@ -251,7 +296,6 @@ The corresponding launch configuration looks like this:
 			"name": "Attach to Node",
 			"type": "node",
 			"request": "attach",
-			"address": "localhost",
 			"port": 5858,
 			"restart": false
 		}
@@ -278,6 +322,26 @@ In VS Code, set the `restart` attribute to `true` in the 'attach' launch configu
 The Node.js debugger supports remote debugging for recent versions of Node.js (>= 4.x). Specify a remote host via the `address` attribute.
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
+
+## Command variables
+
+As we saw above, VS Code supports variable substitution in `launch.json` configurations. An advanced type of variable is one that is bound to a VS Code _command_. When a debug session is started, all command variables that occur in the underlying launch configuration are first collected and then executed. Before the launch configuration is passed to the debug adapter, all variables are substituted with the command results.
+
+A command is implemented and registered in an extension and its return value is used as the variable's value. The implementation of a command can range from a simple expression with no UI, to some sophisticated functionality based on the UI features available in the extension API.
+
+An example of this functionality can be found in `node-debug`. Here a variable `${command.PickProcess}` is bound to a process picker command.
+
+For example the 'Attach to Process' launch configuration below uses the variable to let the user pick a Node.js process when running the launch configuration.
+
+```json
+{
+    "name": "Attach to Process",
+    "type": "node",
+    "request": "attach",
+    "processId": "${command.PickProcess}",
+    "port": 5858
+}
+```
 
 ## Next Steps
 

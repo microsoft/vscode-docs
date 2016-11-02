@@ -2,6 +2,7 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+"use strict";
 (function (Kind) {
     Kind[Kind["ExternalModule"] = 1] = "ExternalModule";
     Kind[Kind["Module"] = 2] = "Module";

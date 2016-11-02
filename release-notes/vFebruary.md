@@ -365,12 +365,12 @@ We now support more OS types for the `debuggers` contribution point (see [#1696]
 "debuggers": [{
     "type": "gdb",
     "win": {
-        "program": "./bin/gdbDebug.exe",
+        "program": "./bin/gdbDebug.exe"
     },
     "winx86": {
-        "program": "./bin/gdbDebug_x86.exe",
+        "program": "./bin/gdbDebug_x86.exe"
     }
-}
+}]
 ```
 
 ### Debug Protocol Changes

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 10/10/2016
+DateApproved: 11/2/2016
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 
@@ -43,7 +43,7 @@ When you hover over properties and values for JSON data with or without schema, 
 
 ## Formatting
 
-You can format your JSON document (or just a part of it) using `kb(editor.action.format)` or **Format** from the context menu.
+You can format your JSON document using `kb(editor.action.formatDocument)` or **Format Document** from the context menu.
 
 ## JSON Schemas & Settings
 
