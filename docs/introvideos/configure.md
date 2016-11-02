@@ -32,4 +32,4 @@ In this tutorial, we show you how to personalize and extend VS Code.
 
 ## Next Video
 
-* [IntelliSense](/docs/introvideos/intellisense.md) - Set up IntelliSense for intelligent code completion.
+* [Advance Code Editing](/docs/introvideos/codeediting.md) - Learn advanced editing tips and tricks.

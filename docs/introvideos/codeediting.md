@@ -39,5 +39,5 @@ In this tutorial, we cover code editing, including the features outlined below. 
 
 ## Next Video
 
-* [Git Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.
+* [IntelliSense](/docs/introvideos/intellisense.md) - Set up IntelliSense for intelligent code completion.
 
