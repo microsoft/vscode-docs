@@ -46,7 +46,7 @@ Here is a complete `package.json`
 
 ```json
 {
-	"name": "Spell",
+	"name": "spell",
 	"displayName": "Spelling and Grammar Checker",
 	"description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
 	"icon": "images/spellIcon.svg",
