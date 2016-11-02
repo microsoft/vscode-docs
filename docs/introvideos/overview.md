@@ -47,22 +47,22 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/intellisense">
-			<img src="https://img.youtube.com/vi/jVIe82TdmqE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">IntelliSense</h2>
-				<p class="description">Receive intelligent code completions.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
 		<a href="/docs/introvideos/codeediting">
 			<img src="https://img.youtube.com/vi/rsatrlBEFFA/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Code Editing</h2>
 				<p class="description">Take code editing to the next level.</p>
 				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+	</li>
+	<li class="video">
+		<a href="/docs/introvideos/intellisense">
+			<img src="https://img.youtube.com/vi/jVIe82TdmqE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">IntelliSense</h2>
+				<p class="description">Receive intelligent code completions.</p>
+				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
