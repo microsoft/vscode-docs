@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: User and Workspace Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 10/10/2016
+DateApproved: 11/2/2016
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 
