@@ -16,7 +16,7 @@ Last night Wednesday November 2nd, we rolled back the 1.7 release of Visual Stud
 
 We apologize for the inconvenience these updates caused and want to explain the events that took place and the steps we're taking to ensure you have a great experience with VS Code.
 
-## What happened?
+## Automatic Type Acquisition
 
 In VS Code 1.7, we released a featured called "Automatic Type Acquisition" (ATA). The purpose of ATA is to improve the JavaScript IntelliSense experience.
 
@@ -25,6 +25,8 @@ VS Code uses the TypeScript language service to provide IntelliSense for JavaScr
 A TypeScript language service that has ATA enabled watches your `package.json` files and automatically installs the type declaration files of all dependencies in a cache on your file system. It does the same when it finds references to well-known client-side libraries.
 
 After enabling this feature on Insiders builds for two weeks, we felt it proved useful for users and decided to ship ATA to everyone in VS Code 1.7.
+
+## What happened?
 
 **Nov 2 at ~1:57 pm PST** We released VS Code 1.7. The team in Zurich went to bed and the Redmond team started on our plans for 1.8.
 
@@ -41,7 +43,7 @@ Given the number of modules that do not exist under the `@types` scope, a large 
 
 **Nov 2 at ~5:45 pm PST** With proper context and at the request of npm, we took down the 1.7 release and moved users back VS Code 1.6.1. We updated the website with the facts we had and rolled up our sleeves to analyze the best next steps.
 
-## What should you do now?
+## Going forward
 
 You should have been prompted to install VS Code 1.7.1. This release has ATA disabled, however all other 1.7 features are available to use. Over the next few days, we will work with the TypeScript team on a satisfactory fix for ATA (one was started last night in this [PR](https://github.com/Microsoft/TypeScript/pull/12014)) and we will notify you when this update is available.
 
