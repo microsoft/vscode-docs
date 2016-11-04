@@ -49,5 +49,5 @@ You should have been prompted to install VS Code 1.7.1. This release has ATA dis
 
 [#HappyCoding](https://twitter.com/hashtag/HappyCoding?src=hash)
 
-Wade Anderson, VS Code Team Member
+Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)

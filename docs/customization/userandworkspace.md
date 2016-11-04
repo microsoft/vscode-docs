@@ -653,9 +653,6 @@ Below is a copy of the default `settings.json` file.
     // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
     "typescript.tsdk": null,
 
-    // Disables automatic type acquisition. Requires TypeScript >= 2.0.6 and a restart after changing it.
-    "typescript.disableAutomaticTypeAcquisition": false,
-
     // Check if a TypeScript version is available in the workspace.
     "typescript.check.workspaceVersion": true,
 
