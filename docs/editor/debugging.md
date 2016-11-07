@@ -91,7 +91,7 @@ Once a debug session starts, the **Debug actions pane** will appear on the top o
 
 ## Launch.json attributes
 
-There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned aboveyou can use IntelliSense (`kb(editor.action.triggerSuggestion)`) to see the list of available attributes.
+There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned aboveyou can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes.
 
 ![launch json suggestions](images/debugging/launch-json-suggestions.png)
 
