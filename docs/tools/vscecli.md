@@ -68,6 +68,8 @@ vsce create-publisher (publisher name)
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
 
+**Note:** Alternatively, create your publisher in http://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
+
 ### Login to a Publisher
 
 If you already created a publisher before and simply want to use it with `vsce`:
