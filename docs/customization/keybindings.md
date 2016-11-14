@@ -79,7 +79,7 @@ Key|Command|Command id
 `kb(editor.action.startFindReplaceAction)`|Replace|`editor.action.startFindReplaceAction`
 `kb(editor.action.nextMatchFindAction)`|Find Next|`editor.action.nextMatchFindAction`
 `kb(editor.action.previousMatchFindAction)`|Find Previous|`editor.action.previousMatchFindAction`
-`kb(editor.action.selectAllMatches)`|Select All Occurences of Find Match|`editor.action.selectAllMatches`
+`kb(editor.action.selectAllMatches)`|Select All Occurrences of Find Match|`editor.action.selectAllMatches`
 `kb(toggleFindCaseSensitive)`|Toggle Find Case Sensitive|`toggleFindCaseSensitive`
 `kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
 `kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`
