@@ -315,12 +315,6 @@ When you want to use ES6 style imports but the typings do not yet use ES6 style 
 
 ## Common Questions
 
-**Q: Why aren't my JavaScript methods getting syntax highlighting?**
-
-![grammar colorization](images/javascript/grammar_color_issue.png)
-
-**A:** This is a known [issue](https://github.com/Microsoft/TypeScript-TmLanguage/issues/149). You can install [an extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.js-atom-grammar) based on Atom's JavaScript grammar package to improve the colorization.
-
 **Q: Can I debug minified/uglified JavaScript?**
 
 **A:** Yes, you can. You can see this working using JavaScript source maps in the Node.js section of the [Debugging](/docs/editor/debugging.md#node-debugging) topic.
