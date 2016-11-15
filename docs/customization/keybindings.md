@@ -11,16 +11,17 @@ MetaSocialImage: keybinding_customization_keybindings.png
 
 # Key Bindings for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings and describes how you can update them. 
-
-Additionally, you can install an extension to use the popular keybindings from your old editor. 
-
-* [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) - Sublime Text keyboard shortcuts mapped to VS Code commands. 
-* [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings) - Port of popular Atom keyboard shortcuts for VS Code users. 
+Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings and describes how you can update them. The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
 
 >**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that OS. If you need the key binding for another OS, hover your mouse over the key you are interested in.
 
->**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
+## Keymap Extensions
+
+Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, we created the [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) in the Marketplace. The purpose is to make it easier to switch between editors by removing the need to learn new keyboard shortcuts.
+
+<div class="marketplace-extensions-keymaps"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Keyboard Shortcuts Reference
 

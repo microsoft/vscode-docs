@@ -115,6 +115,14 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 >**Note:** Workspace settings will override User settings and are useful for sharing project specific settings across a team.
 
+## Configuring Keyboard Shortcuts
+
+VS Code supports keybindings for nearly every editor action. 
+
+* [Keyboard Shortcuts Reference](/docs/customization/keybindings#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet. 
+* [Install a Keymap extension](/docs/customization/keybindings#keymap_extensions) - Port keyboard shortcuts from your old editor (such as Sublime Text, Atom, and Vim) to VS Code with a Keymap extension. 
+* [Customize Keyboard Shortcuts](/docs/customization/keybindings#customizing-shortcuts) - Change the default keyboard shortcuts to fit your style.
+
 ## Multiple selections (multi-cursor)
 
 VS Code supports multiple cursors for fast simultaneous edits. You can add secondary cursors (rendered thinner) with `kbstyle(Alt+Click)`. Each cursor operates independently based on the context it sits in. A common way to add more cursors is with `kb(editor.action.insertCursorBelow)` or `kb(editor.action.insertCursorAbove)` that insert cursors below or above.
