@@ -40,8 +40,8 @@ The example below is a `For Loop` snippet for `JavaScript`.
     "For Loop": {
         "prefix": "for",
         "body": [
-            "for (var ${index} = 0; ${index} < ${array}.length; ${index}++) {",
-            "\tvar ${element} = ${array}[${index}];",
+            "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
+            "\tvar ${3:element} = ${2:array}[${1:index}];",
             "\t$0",
             "}"
         ],
@@ -52,27 +52,24 @@ The example below is a `For Loop` snippet for `JavaScript`.
 In the example above:
 
 * `For Loop` is the snippet name
-* `prefix` defines a prefix used in the IntelliSense drop down.  In this case `for`.
+* `prefix` defines how this snippets is select from IntelliSense and tab completion. In this case `for`. 
 * `body` is the snippet content.
 
     Possible variables are:
     
-    * $1, $2 for tab stops
-    * ${id} and ${id:label} and ${1:label} for variables
-    * Variables with the same id are connected.
+    * `$1`, `$2` for tab stops, `$0` is the final tab stop, when omitted the end of the snippet is used as final tab stop.
+    * `${1:value}`, `${2:another value}` for placeholders. Placeholders with the same number are connected.
 
 * `description` is the description used in the IntelliSense drop down
 
-The example above has three variables with the `ids` 'index', 'array', and 'element'. You can quickly fill in and tab to each. 
+The example above has three placeholders, `${1:index}`, `${2:array}`, and `${3:element}`. You can quickly traverse them in the order of their number. The string after the number and colon is filled in as default.
 
-An optional variable `label` lets you add a short description as a prompt to the user.
-
-Here a `label` 'Enter your name' is added to the variable with the `id` 'name':
+Here, the default for the placeholder number `1`, is 'Enter your name':
 
 ```json
     "body": [
-        "Hello ${name:Enter your name}.",
-        "Goodbye ${name}!"
+        "Hello ${1:Enter your name}.",
+        "Goodbye ${1}!"
     ],
 ```
 
@@ -80,7 +77,9 @@ which will display as:
 
 ![variable with label](images/userdefinedsnippets/variable-label.png)
 
-> In case your snippet should contain `{` or `}`, it is possible to escape them, in JSON as `\\{` and `\\}`
+Note how both occurrences of the placeholder have been filled in and how the final cursor position is shown at the end of the snippet.
+
+> In case your snippet should contain `$` it is possible to escape it with a backslash, in JSON as `\\$`
 
 Once you have added a new snippet, you can try it out right away, no restart needed.
 
