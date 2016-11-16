@@ -7,14 +7,13 @@ PageTitle: Markdown editing with Visual Studio Code
 DateApproved: 11/2/2016
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
-
 # Markdown and VS Code
 
-Working with the Markdown text formatting engine using Visual Studio Code is simple, straightforward, and fun. You can integrate a  number of Markdown specific extensions to make you more productive. 
+Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
 
 ## Markdown Extensions
 
-In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality. 
+In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
 
 <div class="marketplace-extensions-markdown"></div>
 
@@ -40,11 +39,11 @@ Here is the relevant CSS:
 
 ```css
 body {
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1 {
-	color: cornflowerblue;
+    color: cornflowerblue;
 }
 ```
 
@@ -108,19 +107,19 @@ Things you'll need:
 
 The next step is to set up the task configuration file `tasks.json`.  To do this, open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it.
 
-Visual Studio Code then presents a list of possible `tasks.json` templates to choose from. Select `Others` since we want to run an external command.
+VS Code then presents a list of possible `tasks.json` templates to choose from. Select `Others` since we want to run an external command.
 
 This generates a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
 ```json
 {
-	// See http://go.microsoft.com/fwlink/?LinkId=733558
-	// for the documentation about the tasks.json format
-	"version": "0.1.0",
-	"command": "echo",
-	"isShellCommand": true,
-	"args": ["Hello World"],
-	"showOutput": "always"
+    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "echo",
+    "isShellCommand": true,
+    "args": ["Hello World"],
+    "showOutput": "always"
 }
 ```
 
@@ -128,13 +127,13 @@ To use **marked** to compile the Markdown file, change the contents as follows:
 
 ```json
 {
-	// See http://go.microsoft.com/fwlink/?LinkId=733558
-	// for the documentation about the tasks.json format
-	"version": "0.1.0",
-	"command": "marked",
-	"isShellCommand": true,
-	"args": ["sample.md", "-o", "sample.html"],
-	"showOutput": "always"
+    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "marked",
+    "isShellCommand": true,
+    "args": ["sample.md", "-o", "sample.html"],
+    "showOutput": "always"
 }
 ```
 
@@ -154,7 +153,7 @@ Let's take things a little further and automate Markdown compilation with VS Cod
 
 ### Step 1: Install Gulp and some plug-ins
 
-We use [Gulp](http://gulpjs.com/) to create a task that automate Markdowns compilation.  We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
+We use [Gulp](http://gulpjs.com/) to create a task that automates Markdown compilation. We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
 
 We need to install gulp both globally (`-g` switch) and locally:
 
@@ -240,7 +239,7 @@ Read on to find out about:
 
 **Q: Is there spell checking?**
 
-**A:** Not in VS Code out of the box but there are [spell checking extensions](https://marketplace.visualstudio.com/items/seanmcbreen.Spell).  Be sure to check the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
+**A:** Not installed with VS Code but there are spell checking extensions. Check the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
 
 **Q: Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
 
