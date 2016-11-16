@@ -10,7 +10,7 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 
 # Markdown and VS Code
 
-Working with Markdown in Visual Studio Code can be pretty fun and there are a number of Markdown specific features that will help you be more productive. 
+Working with the Markdown text formatting engine using Visual Studio Code is simple, straightforward, and fun. You can integrate a  number of Markdown specific extensions to make you more productive. 
 
 ## Markdown Extensions
 
@@ -22,7 +22,7 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 ## Markdown Preview
 
-VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, you just have to press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
+VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
 
 Here is an example with a very simple file.
 
@@ -34,7 +34,7 @@ Here is an example with a very simple file.
 
 By default, we use a CSS style for the preview that matches the style of VS Code. If you want to use your own CSS for the Markdown preview, update the `"markdown.styles": []` [setting](/docs/customization/userandworkspace.md) with the comma-separated list of URL(s) for your style sheet(s).
 
-For instance, in the screen shot above we used a custom CSS to change the default font for the page and changed the color for the H1 title.
+For instance, in the screen shot above we used a custom CSS that changes the default font for the page and changes the color for the H1 title.
 
 Here is the relevant CSS:
 
@@ -61,17 +61,17 @@ Use **File** > **Preferences** > **Workspace Settings** to bring up the workspac
 
 ## Snippets for Markdown
 
-There are several built-in Markdown snippets included in VS Code - simply press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and we will give you a context specific list of suggestions.
+There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
 
 >**Tip:** You can add in your own User Defined Snippets for Markdown.  Take a look at [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
 
 ## Compiling Markdown into HTML
 
-VS Code can integrate with Markdown compilers through our integrated [task runner](/docs/editor/tasks.md).  We can use this to compile `.md` files into `.html` files.  Let's walk through compiling a simple Markdown document.
+VS Code integrates with Markdown compilers through the integrated [task runner](/docs/editor/tasks.md).  We can use this to compile `.md` files into `.html` files.  Let's walk through compiling a simple Markdown document.
 
 ### Step 1: Install a Markdown compiler
 
-For this walkthrough, we will use the popular [Node.js](https://nodejs.org) module, [marked](https://www.npmjs.com/package/marked).
+For this walkthrough, we use the popular [Node.js](https://nodejs.org) module, [marked](https://www.npmjs.com/package/marked).
 
 ```
 npm install -g marked
@@ -108,9 +108,9 @@ Things you'll need:
 
 The next step is to set up the task configuration file `tasks.json`.  To do this, open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it.
 
-It will present a list of possible `tasks.json` templates to choose from. Select `Others` since we want to run an external command.
+Visual Studio Code then presents a list of possible `tasks.json` templates to choose from. Select `Others` since we want to run an external command.
 
-This generate a `tasks.json` file in your workspace `.vscode` folder with the following content:
+This generates a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
 ```json
 {
@@ -124,7 +124,7 @@ This generate a `tasks.json` file in your workspace `.vscode` folder with the fo
 }
 ```
 
-Since we want to use **marked** to compile the Markdown file, we change the contents as follows:
+To use **marked** to compile the Markdown file, change the contents as follows:
 
 ```json
 {
@@ -140,7 +140,7 @@ Since we want to use **marked** to compile the Markdown file, we change the cont
 
 > **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
 
-Under the covers, we interpret **marked** as an external task runner exposing exactly one task: the compiling of Markdown files into HTML files. The command we run is `marked sample.md -o sample.html`.
+Under the covers, we interpret **marked** as an external task runner that exposes exactly one task: the compiling of Markdown files into HTML files. The command we run is `marked sample.md -o sample.html`.
 
 ### Step 4: Run the Build Task
 
@@ -154,7 +154,7 @@ Let's take things a little further and automate Markdown compilation with VS Cod
 
 ### Step 1: Install Gulp and some plug-ins
 
-We will use [Gulp](http://gulpjs.com/) to create a task that will automate Markdown compilation.  We will also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
+We use [Gulp](http://gulpjs.com/) to create a task that automate Markdowns compilation.  We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
 
 We need to install gulp both globally (`-g` switch) and locally:
 
@@ -198,7 +198,7 @@ What is happening here?
 
 ### Step 3: Modify the configuration in tasks.json for watching
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to set a watch on the default Gulp task we just created.
+To complete the tasks integration with VS Code, we need to modify the task configuration from before to set a watch on the default Gulp task we just created.
 
 Your tasks configuration should now look like this:
 
@@ -224,7 +224,7 @@ Again, as this is the only task in the file you can execute it by simply pressin
 
 ![Task watching spinner](images/Markdown/taskwatching.png)
 
-At this point, if you create and/or modify other Markdown files, you will see the respective HTML files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
+At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
 If you want to stop the watch, you can use the **Tasks: Terminate Running Task** command in the  **Command Palette** (`kb(workbench.action.showCommands)`).
 
