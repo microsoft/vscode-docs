@@ -18,6 +18,8 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 ```bash
  # For .deb
  sudo dpkg -i <file>.deb
+ # install dependencies
+ sudo apt-get install -f
 
  # For .rpm (Fedora 21 and below)
  sudo yum install <file>.rpm
