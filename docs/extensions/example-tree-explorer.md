@@ -30,6 +30,8 @@ We'll show you an example of a Dependency Tree Explorer:
 
 To get it running, clone https://github.com/octref/tree-explorer-example, install dependencies with `npm install` and run `Launch Extension` in the Debug View.
 
+By default the Explorer wouldn't be displayed on Activity Bar. Find "View: Toggle Custom Explorer" in Command Palette and choose your Explorer to enable it.
+
 ### The Structure of Tree Explorer extension
 
 First, let's take a look at `package.json`. There are a few interesting bits:
