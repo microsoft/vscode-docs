@@ -21,7 +21,7 @@ All VS Code extensions share a common model of contribution (registration), acti
 1. [Extensions](/docs/extensions/overview.md#extensions) - the base building block
 2. [Language Servers](/docs/extensions/overview.md#language-servers) - for high cost IO or CPU intensive tasks
 3. [Debuggers](/docs/extensions/overview.md#debuggers) - wire up an external debugger
-
+4. **Experimental**: [Custom Tree Explorers](/docs/extensions/overview.md#custom-tree-explorer) - contribute a tree-style custom View
 
 ## Extensions
 
@@ -55,6 +55,14 @@ Connecting a debugger written for any language to VS Code is possible through th
 Find out more about integrating [debuggers](/docs/extensions/example-debuggers.md).
 
 The easiest way to see VS Code extensions in action is via the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can browse for useful extensions, install them to try them out and get an idea how you might extend VS Code for your own development scenarios.
+
+## Custom Tree Explorers
+
+**This kind of extension is experimental.**
+
+Create a tree-style custom View to the sidebar. 
+
+Find out more about [custom tree explorers](docs/extensions/example-tree-explorer.md).
 
 ## Language Extension Guidelines
 
