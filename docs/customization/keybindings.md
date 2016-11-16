@@ -11,13 +11,13 @@ MetaSocialImage: keybinding_customization_keybindings.png
 
 # Key Bindings for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings and describes how you can update them. The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
+Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
 
->**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that OS. If you need the key binding for another OS, hover your mouse over the key you are interested in.
+>**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key binding for another platform, hover your mouse over the key you are interested in.
 
 ## Keymap Extensions
 
-Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, we created the [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) in the Marketplace. The purpose is to make it easier to switch between editors by removing the need to learn new keyboard shortcuts.
+Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, there is a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) of extensions in the Marketplace. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts.
 
 <div class="marketplace-extensions-keymaps"></div>
 
@@ -34,6 +34,8 @@ Below are links to the three platform-specific versions:
 * [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
 
 ## Basic Editing
+
+>**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
 
 Key|Command|Command id
 ---|-------|----------
