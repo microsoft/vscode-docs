@@ -122,6 +122,18 @@ The context menu of the editor has these default:
 
 You can add menu items to these groups or add new groups of menu items in between, below, or above. Only the editor context menu allows this grouping control.
 
+### Sorting inside groups
+
+The order inside a group depends the title or an order-attribute. The group-local order of a menu item is specified by appending `@<number>` to the group identifier as shown below:
+
+```json
+"editor/title": [{
+    "when": "editorHasSelection",
+    "command": "extension.Command",
+    "group": "myGroup@1"
+}]
+```
+
 ## `contributes.keybindings`
 
 Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/customization/keybindings.md) topic where key bindings are explained in detail.
