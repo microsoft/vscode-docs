@@ -120,7 +120,7 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 VS Code supports keyboard shortcuts for nearly every editor action.
 
 * [Keyboard Shortcuts Reference](/docs/customization/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
-* [Install a Keymap extension](/docs/customization/keybinding.md#keymap_extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
+* [Install a Keymap extension](/docs/customization/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
 * [Customize Keyboard Shortcuts](/docs/customization/keybindings.md#customizing-shortcuts) - Change the default keyboard shortcuts to fit your style.
 
 ## Multiple selections (multi-cursor)
