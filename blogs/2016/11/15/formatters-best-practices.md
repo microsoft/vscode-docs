@@ -16,7 +16,7 @@ Since its introduction, the Visual Studio Code extension API has provided suppor
 
 VS Code's extension API follows a set of guiding principles. The essence of these principles is that VS Code provides the skeleton and extensions provide the "smarts". The common pattern is for VS Code to provide the UI around a feature and the extensions provide the necessary data to make it shine.
 
-The core benefit of using the extension API for implementing a formatter comes from the exposure of the **Format Document** and **Format Selection** actions. These actions are available in the context menu, bound to keyboard shortcuts, and visible in the **Command Palette**. Using the API leads to a consistent user experience across all formatter extensions.
+The core benefit of using the extension API for implementing a formatter comes from the exposure of the **Format Document** and **Format Selection** actions. These actions are available in the editor context menu, bound to keyboard shortcuts, and visible in the **Command Palette**. Using the API leads to a consistent user experience across all formatter extensions.
 
 ## The Formatting API
 
@@ -61,7 +61,7 @@ Recently, we added the "Format on Save" feature. An extension properly implement
 
 A common misunderstanding is that when contributing a formatter, you must support all programming languages. When an extension registers as a formatter with [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4149), it indicates with a [DocumentSelector](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L1501) which programming languages it supports. With that information, the editor can enable the formatting actions when for example, an HTML document is open. Likewise, the editor will disable the formatting actions when displaying documents for which no formatter is registered.
 
-What happens when there are multiple formatters for one language? This can be a problem when formatter actions contradict. In the October release, we added a setting to enable or disable the default formatters that ship with VS Code. The best practice is for extension authors to add a similar setting as what we did in VS Code as shown below.
+What happens when there are multiple formatters for one language? This can be a problem when different formatters' actions contradict. In the October release, we added settings to enable or disable the default formatters that ship with VS Code. The best practice is for extension authors to add a similar setting as what we did in VS Code as shown below.
 
 ```json
 "html.format.enable": true,
@@ -70,7 +70,7 @@ What happens when there are multiple formatters for one language? This can be a 
 "json.format.enable": true
 ```
 
-Your extension adds a setting through the [contributes.configuration](/docs/extensionAPI/extension-points.md#contributesconfiguration) extension point.
+An extension adds settings through the [contributes.configuration](/docs/extensionAPI/extension-points.md#contributesconfiguration) extension point.
 
 ## Formatters in the Marketplace
 
