@@ -26,11 +26,11 @@ While this may seem restricting at first, particularly when you frequently work 
 
 The important exception to this restriction is that when a window is reloaded then hot exit will always trigger. This means no more annoying Save dialog when installing extensions!
 
-## Crash Protection
+## Crash protection
 
 The way hot exit works is to periodically make backups of unsaved files. If VS Code happens to crash, a backup restore will occur the next time the folder is opened.
 
-## Looking Forward
+## Looking forward
 
 Hot exit will be coming to the Stable build in the November/December update (1.8.0). This should also include support for hot exit on workspaces that do not have a folder opened ([#13733](https://github.com/Microsoft/vscode/issues/13733)).
 
