@@ -1,0 +1,42 @@
+---
+Order: 21
+TOCTitle: Hot Exit Has Come to Insiders
+PageTitle: Hot Exit Has Come to Insiders
+MetaDescription: Unsaved changes are now remembered between Visual Studio Code sessions.
+Date: 2016-11-30
+ShortDescription: Unsaved changes are now remembered between Visual Studio Code sessions.
+Author: Daniel Imms
+---
+
+# Hot Exit Has Come to Insiders
+
+November 30, 2016 by Daniel Imms, [@Tyriar](https://twitter.com/Tyriar)
+
+The ability to have Visual Studio Code remember unsaved changes when you exit (hot exit) has been a long requested feature, in fact it's currently [number #3](https://github.com/Microsoft/vscode/issues/101) in terms of 👍 reactions on GitHub. Well it's been on its way for some time and we have decided to turn it on by default in the Insiders build!
+
+## Initial Design
+
+We initially considered tying backups to an opened folder so that once VS Code was closed, that same folder would have to be opened again in order to trigger the hot exit restore. The main issue with this very loose approach was that backups could potentially go "missing"; the backups are still around but the user may have forgotten which folder they had made the changes in.
+
+## Restricting to Entire Application Shutdown
+
+It was due to this fear of having backups persisted but not all that visible that we decided to add a restriction to when a hot exit occurs: Hot exit will only occur when *all* VS Code windows are being closed, or in the case of Mac the application is quit (cmd+q).
+
+While this does seem quite restricting at first particularly when you frequently work on multiple folders, the great thing about it is that *all* of the workspaces with backups will be presented when you launch VS Code, so there is no ambiguity as to what else could be backed up.
+
+The important exception to this restriction is that when a window is reloaded then hot exit will always trigger. This means no more annoying save dialog when installing extensions!
+
+## Crash Protection
+
+The way hot exit works is to periodically make backups of unsaved files. This means that if VS Code happens to crash, a backup restore will occur the next time the folder is opened.
+
+## Looking Forward
+
+Hot exit will be coming to the stable build in the November/December update (v1.8.0). This should also include support for hot exit on workspaces that do not have a folder opened ([#13733](https://github.com/Microsoft/vscode/issues/13733)).
+
+After that we want to look into how best to loosen the restrictions for when a hot exit is triggered while at the same time ensuring backups don't go missing ([#15467](https://github.com/Microsoft/vscode/issues/15467)). The solution to this largely depends on how multiple folder workspaces ([#396](https://github.com/Microsoft/vscode/issues/396)) will be handled.
+
+[#HappyCoding](https://twitter.com/hashtag/HappyCoding?src=hash)
+
+Daniel Imms, VS Code Team Member <br>
+[@Tyriar](https://twitter.com/Tyriar)
