@@ -16,12 +16,12 @@ If you just want to use existing extensions, see the [Extension Marketplace](/do
 
 >**Tip:** Don't forget there are several ways to [customize](/docs/customization/overview.md) VS Code without writing an extension.  This includes adding [Themes](/docs/customization/themes.md), [basic Language Support](/docs/customization/colorizer.md), and [Snippets](/docs/customization/userdefinedsnippets.md) without writing a single line of code.
 
-All VS Code extensions share a common model of contribution (registration), activation (loading) and access to the VS Code extensibility API.  There are however two special flavors of VS Code extensions, language servers and debuggers, which have their own additional protocols and are covered in their own sections of the documentation.
+All VS Code extensions share a common model of contribution (registration), activation (loading) and access to the VS Code extensibility API.  There are however two special flavors of VS Code extensions, language servers and debuggers, which have their own additional protocols and are covered in their own sections of the documentation.  Additionally, extensions can access [Proposed API](/docs/extensions/proposed-api.md) to play with experimental APIs.
 
 1. [Extensions](/docs/extensions/overview.md#extensions) - the base building block
 2. [Language Servers](/docs/extensions/overview.md#language-servers) - for high cost IO or CPU intensive tasks
 3. [Debuggers](/docs/extensions/overview.md#debuggers) - wire up an external debugger
-
+4. [Proposed API](/docs/extensions/overview.md#proposed-api) - play with experimental APIs
 
 ## Extensions
 
@@ -56,6 +56,14 @@ Find out more about integrating [debuggers](/docs/extensions/example-debuggers.m
 
 The easiest way to see VS Code extensions in action is via the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can browse for useful extensions, install them to try them out and get an idea how you might extend VS Code for your own development scenarios.
 
+## Proposed API
+
+Extension can access Proposed API to get a sneak-peek of new APIs coming to VS Code.
+
+By experimenting with Proposed API, extension authors can familiarize themselves with new features coming to VS Code and provide feedback to influence the development of the API.
+
+Find out more about using [Proposed API](/docs/extensions/proposed-api.md).
+
 ## Language Extension Guidelines
 
 To help you decide what language features you'd like to support with your extension, we have a [Language Extension Guidelines](/docs/extensions/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and how to implement them through either the language server protocol or by using the extensibility API directly from your extension.
@@ -81,4 +89,3 @@ We also have great support for [writing and running tests](/docs/extensions/test
 ## Common Questions
 
 Nothing yet
-
