@@ -52,7 +52,7 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 > **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`. If you opened a new editor window, you can go back to the previous editor with `kb(workbench.action.focusPreviousGroup)`.
 
-## Goto Symbol
+## Go to Symbol
 
 You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. By typing `kbstyle(:)` the symbols will be grouped by category. Just press `kbstyle(Up)` or `kbstyle(Down)` and navigate to the place you want.
 
@@ -84,7 +84,7 @@ Matching brackets will be highlighted as soon as the cursor is near one of them.
 
 ## Reference information
 
-Some languages like C# supports inline reference information, that is updated live. This allows you to quickly analyze the impact of your edit or the popularity of your specific method or property throughout your project:
+Some languages like C# support inline reference information, that is updated live. This allows you to quickly analyze the impact of your edit or the popularity of your specific method or property throughout your project:
 
 ![Reference information](images/editingevolved/referenceinfo.png)
 
