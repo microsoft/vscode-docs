@@ -181,7 +181,7 @@ Below is a copy of the default `settings.json` file.
     // Controls if the cursor should be hidden in the overview ruler.
     "editor.hideCursorInOverviewRuler": false,
 
-    // Controls how the editor should render whitespace characters, posibilties are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.
+    // Controls how the editor should render whitespace characters, possibilities are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.
     "editor.renderWhitespace": "none",
 
     // Controls whether the editor should render control characters
@@ -190,8 +190,8 @@ Below is a copy of the default `settings.json` file.
     // Controls whether the editor should render indent guides
     "editor.renderIndentGuides": false,
 
-    // Controls whether the editor should render the current line highlight
-    "editor.renderLineHighlight": true,
+    // Controls how the editor should render the current line highlight, possibilities are 'none', 'gutter', 'line', and 'all'.
+    "editor.renderLineHighlight": "all",
 
     // Controls if the editor shows code lenses
     "editor.codeLens": true,
@@ -217,6 +217,8 @@ Below is a copy of the default `settings.json` file.
     // Controls if the diff editor shows changes in leading or trailing whitespace as diffs
     "diffEditor.ignoreTrimWhitespace": true,
 
+    // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+    "editor.formatOnSave": false,
 
 // Emmet
 
@@ -232,11 +234,13 @@ Below is a copy of the default `settings.json` file.
     // An array of languages where emmet abbreviations should not be expanded.
     "emmet.excludeLanguages": [],
 
-
 // Workbench
 
     // Controls if opened editors should show in tabs or not.
     "workbench.editor.showTabs": true,
+
+    // Controls if editor tabs should have a visible close button or not.
+    "workbench.editor.showTabCloseButton": true,
 
     // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
     "workbench.editor.showIcons": true,
@@ -262,6 +266,8 @@ Below is a copy of the default `settings.json` file.
     // Controls the visibility of the status bar at the bottom of the workbench.
     "workbench.statusBar.visible": true,
 
+    // Controls the visibility of the activity bar in the workbench.
+    "workbench.activityBar.visible": true,
 
 // Window
 
@@ -274,11 +280,16 @@ Below is a copy of the default `settings.json` file.
     // Controls if a window should restore to full screen mode if it was exited in full screen mode.
     "window.restoreFullscreen": false,
 
+    // Controls if zen mode should transition the workbench to full screen mode automatically.
+    "window.fullScreenZenMode": true,
+
     // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
     "window.zoomLevel": 0,
 
+    // If enabled, will show the full path of opened files in the window title.
+    "window.showFullPath": false,
 
-// Files
+// Files 
 
     // Configure glob patterns for excluding files and folders.
     "files.exclude": {
@@ -297,8 +308,11 @@ Below is a copy of the default `settings.json` file.
     // The default end of line character.
     "files.eol": "\r\n",
 
-    // When enabled, will trim trailing whitespace when you save a file.
+    // When enabled, will trim trailing whitespace when saving a file.
     "files.trimTrailingWhitespace": false,
+
+    // When enabled, insert a final new line at the end of the file when saving it.
+    "files.insertFinalNewline": false,
 
     // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange" (editor loses focus), "onWindowChange" (window loses focus). If set to "afterDelay", you can configure the delay in "files.autoSaveDelay".
     "files.autoSave": "off",
@@ -311,9 +325,8 @@ Below is a copy of the default `settings.json` file.
         "**/.git/objects/**": true
     },
 
-    // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
-    "editor.formatOnSave": false,
-
+    // Controls whether unsaved files are restored after relaunching. If this is enabled there will be no prompt to save when exiting the editor.
+    "files.hotExit": true,
 
 // File Explorer
 
@@ -329,7 +342,6 @@ Below is a copy of the default `settings.json` file.
     // Controls if the explorer should allow to move files and folders via drag and drop.
     "explorer.enableDragAndDrop": true,
 
-
 // Search
 
     // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
@@ -340,7 +352,6 @@ Below is a copy of the default `settings.json` file.
 
     // Configure to include results from a global symbol search in the file results for Quick Open.
     "search.quickOpen.includeSymbols": false,
-
 
 // Git
 
@@ -368,7 +379,6 @@ Below is a copy of the default `settings.json` file.
     // Controls the git badge counter.
     "git.countBadge": "all",
 
-
 // HTTP
 
     // The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
@@ -380,12 +390,10 @@ Below is a copy of the default `settings.json` file.
     // The value to send as the 'Proxy-Authorization' header for every network request.
     "http.proxyAuthorization": null,
 
-
 // Update
 
     // Configure whether you receive automatic updates from an update channel. Requires a restart after change.
     "update.channel": "default",
-
 
 // CSS
 
@@ -448,7 +456,6 @@ Below is a copy of the default `settings.json` file.
     // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
     "css.lint.idSelector": "ignore",
 
-
 // SCSS (Sass)
 
     // Controls SCSS validation and problem severities.
@@ -509,7 +516,6 @@ Below is a copy of the default `settings.json` file.
 
     // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
     "scss.lint.idSelector": "ignore",
-
 
 // LESS
 
@@ -572,7 +578,6 @@ Below is a copy of the default `settings.json` file.
     // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
     "less.lint.idSelector": "ignore",
 
-
 // Debug
 
     // Allows setting breakpoint in any file
@@ -580,7 +585,6 @@ Below is a copy of the default `settings.json` file.
 
     // Automatically open explorer viewlet on the end of a debug session
     "debug.openExplorerOnEnd": false,
-
 
 // HTML
 
@@ -591,7 +595,7 @@ Below is a copy of the default `settings.json` file.
     "html.format.wrapLineLength": 120,
 
     // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
-    "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, script, select, small, span, strong, sub, sup, textarea, tt, var",
+    "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, pre, q, samp, script, select, small, span, strong, sub, sup, textarea, tt, var",
 
     // Indent <head> and <body> sections.
     "html.format.indentInnerHtml": false,
@@ -620,7 +624,6 @@ Below is a copy of the default `settings.json` file.
     // Configures if the built-in HTML language support suggests HTML5 tags, properties and values.
     "html.suggest.html5": true,
 
-
 // JSON
 
     // Associate schemas to JSON files in the current project
@@ -629,12 +632,22 @@ Below is a copy of the default `settings.json` file.
     // Enable/disable default JSON formatter (requires restart)
     "json.format.enable": true,
 
-
 // Markdown
 
     // A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
     "markdown.styles": [],
 
+    // Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.
+    "markdown.previewFrontMatter": "hide",
+
+    // Controls the font family used in the markdown preview.
+    "markdown.preview.fontFamily": "'Segoe WPC', 'Segoe UI', 'SFUIText-Light', 'HelveticaNeue-Light'",
+
+    // Controls the font size in pixels used in the markdown preview.
+    "markdown.preview.fontSize": 14,
+
+    // Controls the line height used in the markdown preview. This number is relative to the font size.
+    "markdown.preview.lineHeight": 1.6,
 
 // PHP
 
@@ -647,8 +660,7 @@ Below is a copy of the default `settings.json` file.
     // Whether the linter is run on save or on type.
     "php.validate.run": "onSave",
 
-
-// TypeScript.
+// TypeScript
 
     // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
     "typescript.tsdk": null,
@@ -746,12 +758,10 @@ Below is a copy of the default `settings.json` file.
     // Defines whether an open brace is put onto a new line for control blocks or not.
     "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
 
-
 // Extensions
 
     // Automatically update extensions
     "extensions.autoUpdate": false,
-
 
 // External Terminal
 
@@ -763,7 +773,6 @@ Below is a copy of the default `settings.json` file.
 
     // Customizes which terminal to run on Linux.
     "terminal.external.linuxExec": "xterm",
-
 
 // Integrated Terminal
 
@@ -800,6 +809,9 @@ Below is a copy of the default `settings.json` file.
     // Controls whether the terminal cursor blinks.
     "terminal.integrated.cursorBlinking": false,
 
+    // Controls the maximum amount of lines the terminal keeps in its buffer.
+    "terminal.integrated.scrollback": 1000,
+
     // Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.
     "terminal.integrated.setLocaleVariables": false,
 
@@ -831,22 +843,19 @@ Below is a copy of the default `settings.json` file.
         "workbench.action.terminal.toggleTerminal"
     ],
 
-
 // Problems View
 
     // Controls if Problems view should automatically reveal files when opening them
     "problems.autoReveal": true,
 
-
 // Telemetry
 
-    // Enable usage data and errors to be sent to Microsoft.
-    "telemetry.enableTelemetry": true,
-
     // Enable crash reports to be sent to Microsoft.
-	// This option requires restart to take effect.
-    "telemetry.enableCrashReporter": true
+    // This option requires restart to take effect.
+    "telemetry.enableCrashReporter": true,
 
+    // Enable usage data and errors to be sent to Microsoft.
+    "telemetry.enableTelemetry": true
 }
 ```
 
