@@ -145,7 +145,7 @@ For Windows, you will need to pass the '/C' argument to `cmd` so that the tasks 
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json`  file and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
-- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any solidus (/)
+- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
 - **${file}** the current opened file
 - **${relativeFile}** the current opened file relative to `workspaceRoot`
 - **${fileBasename}** the current opened file's basename
