@@ -11,16 +11,17 @@ MetaSocialImage: keybinding_customization_keybindings.png
 
 # Key Bindings for Visual Studio Code
 
-Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings and describes how you can update them. 
+Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
 
-Additionally, you can install an extension to use the popular keybindings from your old editor. 
+>**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that platform. If you need the key binding for another platform, hover your mouse over the key you are interested in.
 
-* [Sublime Text Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) - Sublime Text keyboard shortcuts mapped to VS Code commands. 
-* [Atom Keymap](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings) - Port of popular Atom keyboard shortcuts for VS Code users. 
+## Keymap Extensions
 
->**Note:** If you visit this page on a Mac, you will see the key bindings for the Mac.  If you visit using Windows or Linux, you will see the keys for that OS. If you need the key binding for another OS, hover your mouse over the key you are interested in.
+Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, there is a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) of extensions in the Marketplace. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts.
 
->**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
+<div class="marketplace-extensions-keymaps"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Keyboard Shortcuts Reference
 
@@ -33,6 +34,8 @@ Below are links to the three platform-specific versions:
 * [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
 
 ## Basic Editing
+
+>**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
 
 Key|Command|Command id
 ---|-------|----------
@@ -79,7 +82,7 @@ Key|Command|Command id
 `kb(editor.action.startFindReplaceAction)`|Replace|`editor.action.startFindReplaceAction`
 `kb(editor.action.nextMatchFindAction)`|Find Next|`editor.action.nextMatchFindAction`
 `kb(editor.action.previousMatchFindAction)`|Find Previous|`editor.action.previousMatchFindAction`
-`kb(editor.action.selectAllMatches)`|Select All Occurences of Find Match|`editor.action.selectAllMatches`
+`kb(editor.action.selectAllMatches)`|Select All Occurrences of Find Match|`editor.action.selectAllMatches`
 `kb(toggleFindCaseSensitive)`|Toggle Find Case Sensitive|`toggleFindCaseSensitive`
 `kb(toggleFindRegex)`|Toggle Find Regex|`toggleFindRegex`
 `kb(toggleFindWholeWord)`|Toggle Find Whole Word|`toggleFindWholeWord`

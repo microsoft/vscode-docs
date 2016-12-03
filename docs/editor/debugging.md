@@ -91,7 +91,7 @@ Once a debug session starts, the **Debug actions pane** will appear on the top o
 
 ## Launch.json attributes
 
-There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned aboveyou can use IntelliSense (`kb(editor.action.triggerSuggestion)`) to see the list of available attributes.
+There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned above, you can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes.
 
 ![launch json suggestions](images/debugging/launch-json-suggestions.png)
 
@@ -113,6 +113,7 @@ To launch a task before the start of each debug session, set the `preLaunchTask`
 VS Code supports variable substitution inside strings in `launch.json` and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
+- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any solidus (/)
 - **${file}** the current opened file
 - **${relativeFile}** the current opened file relative to `workspaceRoot`
 - **${fileBasename}** the current opened file's basename

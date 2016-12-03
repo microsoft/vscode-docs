@@ -102,9 +102,9 @@ Once you are done with your task, you can remove files individually from the **O
 ## Configuring the Editor
 
 VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/customization/userandworkspace.md#settings-file-locations).
- 
+
 * Select **File** > **Preferences** > **User Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
- 
+
 * Select **File** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
 
 >**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **User Settings**.
@@ -114,6 +114,14 @@ You will see the VS Code [Default Settings](/docs/customization/userandworkspace
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
 
 >**Note:** Workspace settings will override User settings and are useful for sharing project specific settings across a team.
+
+## Configuring Keyboard Shortcuts
+
+VS Code supports keyboard shortcuts for nearly every editor action.
+
+* [Keyboard Shortcuts Reference](/docs/customization/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
+* [Install a Keymap extension](/docs/customization/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
+* [Customize Keyboard Shortcuts](/docs/customization/keybindings.md#customizing-shortcuts) - Change the default keyboard shortcuts to fit your style.
 
 ## Multiple selections (multi-cursor)
 
@@ -286,7 +294,7 @@ Argument|Description
 *file:line:column?* | Name of a file to open at the specified line and optional column position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line:column?* specifier.
 *folder* | Name of a folder to open. You can specify multiple folders.
 `-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
-`--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es` 
+`--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es`
 `--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.
 `--list-extensions` | List the installed extensions.
 `--install-extension` | Install an extension. Provide the full extension name `publisher.extension` as an argument.
@@ -310,11 +318,11 @@ reopen the last opened folder you worked on (setting: `one`). Change this settin
 
 You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
 
-* [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code. 
+* [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
 * [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition, and more
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
-* [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions. 
+* [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Customization](/docs/customization/overview.md) - Themes, settings, and keyboard bindings
 

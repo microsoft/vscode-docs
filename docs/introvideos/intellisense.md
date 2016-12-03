@@ -33,4 +33,4 @@ In this tutorial, we show you how to set up IntelliSense for a JavaScript projec
 
 ## Next Video
 
-* [Advanced Code Editing](/docs/introvideos/codeediting.md) - Learn advanced editing tips and tricks.
+* [Git Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.
