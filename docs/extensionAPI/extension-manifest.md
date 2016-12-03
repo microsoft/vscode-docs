@@ -34,7 +34,7 @@ Name | Required | Type | Details
 `markdown` | | `string` | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
-`extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
+`extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
 `scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/tools/vscecli.md#pre-publish-step).
 `icon` | | `string` | The path to a 128x128 pixel icon.
 
@@ -214,6 +214,24 @@ Below is an extension manifest which includes a LaTex language definition (langu
 Notice that the extension manifest `categories` attribute now includes both `Languages` and `Snippets` for easy discovery and filtering on the Marketplace.
 
 >**Tip:** Make sure your merged contributions are using the same identifiers.  In the example above, all three contributions are using "latex" as the language identifier.  This lets VS Code know that the colorizer (`grammar`) and snippets are for the LaTeX language and will be active when editing LaTeX files.
+
+## Extension Packs
+
+You can also bundle separate extensions together in 'Extension Packs'. An Extension Pack is a set of extensions that can be installed together. This enables easily sharing your favorite extensions with other users or creating a set of extensions for a particular scenario like PHP development to help a PHP developer get started with VS Code quickly.
+
+An Extension Pack can include other contributions or simply be a bundling extension that lists other extensions. This dependency is expressed using the `extensionDependencies` attribute inside the `package.json` file.
+
+For example, here is an Extension Pack for PHP that includes a debugger, language service, and formatter:
+
+```json
+  "extensionDependencies": [
+      "felixfbecker.php-debug",
+      "felixfbecker.php-intellisense",
+      "Kasik96.format-php"
+  ]
+```
+
+When installing an Extension Pack, VS Code will now also install its extension dependencies.
 
 ## Next Steps
 To learn more about VS Code extensibility model, try these topic:
