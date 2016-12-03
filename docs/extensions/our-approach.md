@@ -44,17 +44,7 @@ VS Code is implemented using web technologies (HTML, CSS) and web technologies a
 ## Protocol based extensions
 A common extension pattern in VS Code is to execute extension code in a separate process that communicates with VS Code through a protocol. Examples of this in VS Code are the language servers and debug adapters.  Typically this protocol uses stdin/stdout to communicate between the processes using a JSON payload. Using separate processes provides good isolation boundaries which helps VS Code preserve the stability of the core editor. In addition, this allows extenders to pick the programming language that is most appropriate for the particular extension implementation.
 
-
 ## Next Steps
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension
 * [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
 * [Samples](/docs/tools/samples.md) - A list of extension samples you can review and build
-
-## Common Questions
-
-Nothing yet
-
-
-
-
-

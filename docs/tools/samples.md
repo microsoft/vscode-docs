@@ -49,7 +49,3 @@ Tool|Purpose
 ## Next Steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
-
-## Common Questions
-
-Nothing yet

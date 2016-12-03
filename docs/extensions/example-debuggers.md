@@ -226,8 +226,3 @@ Once you have created your debug adapter you can publish it to the Marketplace:
 
 * update the attributes in the `package.json` to reflect the naming and purpose of your debug adapter.
 * upload to the Marketplace as described in [Share an Extension](/docs/tools/vscecli.md) section.
-
-## Common Questions
-
-Nothing yet
-

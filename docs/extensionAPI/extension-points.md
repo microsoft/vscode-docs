@@ -24,7 +24,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
 * [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
 
-## `contributes.configuration`
+## contributes.configuration
 
 Contribute configuration keys that will be exposed to the user. The user will be able to set these configuration options either from User Settings or from the Workspace Settings.
 
@@ -57,7 +57,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 
 ![configuration extension point example](images/extension-points/configuration.png)
 
-## `contributes.commands`
+## contributes.commands
 
 Contribute an entry consisting of a title and a command to invoke to the Command Palette (`kb(workbench.action.showCommands)`).
 
@@ -76,7 +76,7 @@ Contribute an entry consisting of a title and a command to invoke to the Command
 
 ![commands extension point example](images/extension-points/commands.png)
 
-## `contributes.menus`
+## contributes.menus
 
 Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The later is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/customization/keybindings.md#when-clause-contexts). In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while hovering over a menu item. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
@@ -121,7 +121,7 @@ The context menu of the editor has these default:
 
 You can add menu items to these groups or add new groups of menu items in between, below, or above. Only the editor context menu allows this grouping control.
 
-## `contributes.keybindings`
+## contributes.keybindings
 
 Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/customization/keybindings.md) topic where key bindings are explained in detail.
 
@@ -148,13 +148,14 @@ Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` u
 
 ![keybindings extension point example](images/extension-points/keybindings.png)
 
-## `contributes.languages`
+## contributes.languages
 
 Contribute the definition of a language. This will introduce a new language or enrich the knowledge VS Code has about a language.
 
 In this context, a language is basically a string identifier that is associated to a file (See `TextDocument.getLanguageId()`).
 
 VS Code uses three hints to determine the language a file will be associated with. Each "hint" can be enriched independently:
+
 1. the extension of the filename (`extensions` below)
 2. the filename (`filenames` below)
 3. the first line inside the file (`firstLine` below)
@@ -220,7 +221,7 @@ language-configuration.json
 }
 ```
 
-## `contributes.debuggers`
+## contributes.debuggers
 
 Contribute a 'debug adapter' to VS Code's debugger. A debug adapter integrates VS Code with a particular debug engine.
 It runs in a separate process and communicates with VS Code through the VS Code debug protocol.
@@ -247,7 +248,7 @@ You must provide one (or more) executables that implement the debug adapter.
 
 For a full walkthrough on how to integrate a `debugger` go to [Debuggers](/docs/extensions/example-debuggers.md).
 
-## `contributes.breakpoints`
+## contributes.breakpoints
 
 Usually a debugger extension will also have a `contributes.breakpoints` entry where the extension lists the language file types for which setting breakpoints will be enabled.
 
@@ -264,7 +265,7 @@ Usually a debugger extension will also have a `contributes.breakpoints` entry wh
 }
 ```
 
-## `contributes.grammars`
+## contributes.grammars
 
 Contribute a TextMate grammar to a language. You must provide the `language` this grammar applies to, the TextMate `scopeName` for the grammar and the file path.
 
@@ -286,7 +287,7 @@ See [Adding Language Colorization](/docs/customization/colorizer.md) for instruc
 
 ![grammars extension point example](images/extension-points/grammars.png)
 
-## `contributes.themes`
+## contributes.themes
 
 Contribute a TextMate theme to VS Code. You must specify a label, whether the theme is a dark theme or a light theme (such that the rest of VS Code changes to match your theme) and the path to the file (XML plist format).
 
@@ -306,7 +307,7 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 
 See [Changing the Color Theme](/docs/customization/themes.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
 
-## `contributes.snippets`
+## contributes.snippets
 
 ```json
 "contributes": {
@@ -317,7 +318,7 @@ See [Changing the Color Theme](/docs/customization/themes.md) for instructions o
 }
 ```
 
-## `contributes.jsonValidation`
+## contributes.jsonValidation
 
 Contributes a validation schema for a specific type of `json` file.  The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
 
@@ -336,9 +337,3 @@ To learn more about VS Code extensibility model, try these topic:
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
-
-## Common Questions
-
-Nothing yet
-
-

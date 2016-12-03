@@ -31,9 +31,3 @@ Topic|Description
 ## Language Extension Guidelines
 
 If you are implementing programming language support, we have a [Language Extension Guidelines](/docs/extensions/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and provides guidance on how to implement them.
-
-## Common Questions
-
-Nothing yet
-
-
