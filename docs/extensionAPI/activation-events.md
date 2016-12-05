@@ -20,7 +20,7 @@ Extensions are activated lazily in VS Code.  As a result you need to provide VS 
 
 We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
 
-## `activationEvents.onLanguage`
+## activationEvents.onLanguage
 
 This activation event is emitted and interested extensions will be activated whenever a file that resolves to a certain language gets opened.
 
@@ -32,7 +32,7 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
-## `activationEvents.onCommand`
+## activationEvents.onCommand
 
 This activation event is emitted and interested extensions will be activated whenever a command is being invoked:
 
@@ -44,7 +44,7 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
-## `activationEvents.onDebug`
+## activationEvents.onDebug
 
 This activation event is emitted and interested extensions will be activated whenever a debug session of the specified type is started:
 
@@ -56,7 +56,7 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
-## `activationEvents.workspaceContains`
+## activationEvents.workspaceContains
 
 This activation event is emitted and interested extensions will be activated whenever a folder is opened and the folder contains a top-level file.
 
@@ -68,7 +68,7 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
-## `activationEvents.*`
+## activationEvents.*
 
 This activation event is emitted and interested extensions will be activated whenever VS Code starts up. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.
 
@@ -90,9 +90,3 @@ To learn more about VS Code extensibility model, try these topic:
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
-
-## Common Questions
-
-Nothing yet
-
- 

@@ -109,8 +109,3 @@ To learn more about VS Code extensibility model, try these topics:
 * [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
-
-## Common Questions
-
-Nothing yet
-

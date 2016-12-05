@@ -77,8 +77,3 @@ We also have great support for [writing and running tests](/docs/extensions/test
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension
 * [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
 * [Samples](/docs/tools/samples.md) - A list of extension samples you can review and build
-
-## Common Questions
-
-Nothing yet
-
