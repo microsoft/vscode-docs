@@ -32,7 +32,7 @@ The way hot exit works is to periodically make backups of unsaved files. If VS C
 
 ## Looking forward
 
-Hot exit will be coming to the Stable build in the November/December update (1.8.0). This should also include support for hot exit on workspaces that do not have a folder opened ([#13733](https://github.com/Microsoft/vscode/issues/13733)).
+Hot exit will be coming to the Stable build in the November/December update (1.8.0).
 
 After that, we want to look into how best to loosen the restrictions for when a hot exit is triggered while at the same time ensuring backups don't go missing ([#15467](https://github.com/Microsoft/vscode/issues/15467)). The solution to this largely depends on how VS Code will handle multiple folder workspaces ([#396](https://github.com/Microsoft/vscode/issues/396)).
 
