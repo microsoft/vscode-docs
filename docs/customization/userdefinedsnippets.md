@@ -10,9 +10,11 @@ MetaDescription: It is easy to add code snippets to Visual Studio Code both for 
 
 # Adding Snippets to Visual Studio Code
 
-Code snippets are ready-made snippets of code you can quickly insert into your source code. For example, a `for` code snippet creates an empty `for` loop. 
+Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
-Each snippet defines a prefix under which it will appear in IntelliSense via (`kb(editor.action.triggerSuggest)`) as well as a body inserted when the snippet is selected. The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
+Snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (F1 > Insert Snippet). There is also support for tab-completion: Enable it with `"editor.tabCompletion": true`, type a *snippet prefix*, and press kb(insertSnippet) to insert a snippet.
+
+The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
 
 <video id="snippets-showcase" src="https://az754404.vo.msecnd.net/public/snippets_showcase.mp4" placeholder="/images/userdefinedsnippets_snippets_placeholder.png" autoplay loop controls muted>
     Sorry you're browser doesn't support HTML 5 video. 
@@ -53,35 +55,53 @@ In the example above:
 
 * `For Loop` is the snippet name
 * `prefix` defines how this snippets is select from IntelliSense and tab completion. In this case `for`. 
-* `body` is the snippet content.
-
-    Possible variables are:
-    
-    * `$1`, `$2` for tab stops, `$0` is the final tab stop, when omitted the end of the snippet is used as final tab stop.
-    * `${1:value}`, `${2:another value}` for placeholders. Placeholders with the same number are connected.
-
+* `body` is the content and either a single string or an array of strings of which each element will be inserted as separate line.
 * `description` is the description used in the IntelliSense drop down
 
 The example above has three placeholders, `${1:index}`, `${2:array}`, and `${3:element}`. You can quickly traverse them in the order of their number. The string after the number and colon is filled in as default.
 
-Here, the default for the placeholder number `1`, is 'Enter your name':
+Once you have added a new snippet, you can try it out right away, no restart needed.
 
-```json
-    "body": [
-        "Hello ${1:Enter your name}.",
-        "Goodbye ${1}!"
-    ],
+## Snippet Syntax
+
+The `body` of a snippet can use special constructs to control cursors and the text being inserted. The following are supported features and their syntaxes:
+
+### Tabstops
+
+With tabstops you can make the editor cursor move inside a snippet. Use `$1`, `$2` to specify cursor locations. The number is the order in which tabstops will be visited, whereas `$0` denotes the final cursor position. Multiple tabstops are linked and updated in sync.
+
+### Placeholders
+
+Placeholders are tabstops with values, like `${1:foo}`. The placeholder text will be inserted and selected such that it can be easily changed. Placeholders can be nested, like `${1:another ${2:placeholder}}`.
+
+### Variables
+
+With `$name` or `${name:default}` you can insert the value of a variable. When a variable isn’t set its *default* or the empty string is inserted. When a varibale is unknown (that is, its name isn’t defined) the name of the variable is inserted and it is transformed into a placeholder. The following variables can be used:
+
+* `TM_SELECTED_TEXT` The currently selected text or the empty string
+* `TM_CURRENT_LINE` The contents of the current line
+* `TM_CURRENT_WORD` The contents of the word under cursor or the empty string
+* `TM_LINE_INDEX` The zero-index based line number
+* `TM_LINE_NUMBER` The one-index based line number
+* `TM_FILENAME` The filename of the current document
+* `TM_DIRECTORY` The direcorty of the current document
+* `TM_FILEPATH` The full file path of the current document
+
+
+### Grammar
+
+Below is the EBNF for snippets. With `\` (backslash) you can escape `$`, `}` and `\`.
+
+```
+any         ::= tabstop | placeholder | variable | text
+tabstop     ::= '$' int | '${' int '}'
+placeholder ::= '${' int ':' any '}'
+variable    ::= '$' var | '${' var }' | '${' var ':' any '}'
+var         ::= [_a-zA-Z] [_a-zA-Z0-9]*
+int         ::= [0-9]+
+text        ::= .*
 ```
 
-which will display as:
-
-![variable with label](images/userdefinedsnippets/variable-label.png)
-
-Note how both occurrences of the placeholder have been filled in and how the final cursor position is shown at the end of the snippet.
-
-> In case your snippet should contain `$` it is possible to escape it with a backslash, in JSON as `\\$`
-
-Once you have added a new snippet, you can try it out right away, no restart needed.
 
 ## Using TextMate Snippets
 
