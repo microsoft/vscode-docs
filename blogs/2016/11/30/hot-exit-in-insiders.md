@@ -12,7 +12,7 @@ Author: Daniel Imms
 
 November 30, 2016 by Daniel Imms, [@Tyriar](https://twitter.com/Tyriar)
 
-The ability to have Visual Studio Code remember unsaved changes when you exit (hot exit) has been a long requested feature, in fact it's currently [number #3](https://github.com/Microsoft/vscode/issues/101) in terms of 👍 reactions on GitHub. We've been working on an implementation for some time and we decided to turn it on by default in the Insiders build!
+The ability to have Visual Studio Code remember unsaved changes when you exit (hot exit) has been a long requested feature, in fact it's currently [number #3](https://github.com/Microsoft/vscode/issues/101) in terms of 👍 reactions on GitHub. We've been working on an implementation for some time and it is now enabled by default in the Insiders build!
 
 ## Initial design
 
