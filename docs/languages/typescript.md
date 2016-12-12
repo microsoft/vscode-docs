@@ -147,9 +147,9 @@ To generate source maps for your TypeScript files, compile with the `--sourcemap
 
 In-lined source maps (a source map where the content is stored as a data URL instead of a separate file) are also supported, although in-lined source is not yet supported.
 
-## Setting a different outDir for generated files
+## Setting a different outFiles for generated files
 
-If generated (transpiled) JavaScript files do not live next to their source, you can help the VS Code debugger locate them by specifying the outDir directory in the launch configuration. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source, and the associated source map, in the outDir directory.
+If generated (transpiled) JavaScript files do not live next to their source, you can help the VS Code debugger locate them by setting the `outFiles` attribute in the launch configuration. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source by searching the files specified by glob patterns in `outFiles`.
 
 ## Hiding Derived JavaScript Files
 
@@ -207,7 +207,7 @@ After setting `typescript.tsdk`, restart VS Code and the TypeScript version will
 
 ## TypeScript Extensions
 
-VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality. 
+VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
 
 <div class="marketplace-extensions-typescript"></div>
 
