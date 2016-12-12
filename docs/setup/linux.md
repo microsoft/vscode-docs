@@ -58,7 +58,7 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 I'm getting a "Running without the SUID sandbox" error?
 
-Unfortunately, this is a known issue that we're still investigating.
+You can safely ignore this error.
 
 ### Debian and Moving Files to Trash
 
