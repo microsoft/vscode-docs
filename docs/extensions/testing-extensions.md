@@ -51,7 +51,7 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
     "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
     "stopOnEntry": false,
     "sourceMaps": true,
-    "outFiles": "${workspaceRoot}/out/test",
+    "outFiles": ["${workspaceRoot}/out/test/**/*.js"],
     "preLaunchTask": "npm"
 }
 ```
