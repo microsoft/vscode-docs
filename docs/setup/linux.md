@@ -44,6 +44,24 @@ If you'd like to install Node.js on Linux, see [Installing Node.js via package m
 
 To learn more about JavaScript and Node.js, see our [Node.js walkthrough](/docs/runtimes/nodejs.md) where you'll learn about running and debugging Node.js applications with VS Code.
 
+## Setting VS Code as the default text editor
+
+### xdg-open
+
+You can set the default text editor for text files (`text/plain`) that is used by `xdg-open` with the following command:
+
+```
+xdg-mime default code.desktop text/plain
+```
+
+### Debian alternatives system
+
+Debian-based distributions allow setting a default *editor* using the [alternatives system](https://wiki.debian.org/DebianAlternatives), without concern for the mime type. You can set this by running the following and selecting code.
+
+```
+sudo update-alternatives --set editor /usr/bin/code
+```
+
 ## Next Steps
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
