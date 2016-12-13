@@ -334,7 +334,7 @@ For example using:
 ```typescript
   "skipFiles": [
     "node_modules/**/*.js",
-    "lib/**/*.js
+    "lib/**/*.js"
   ]
 ```
 
@@ -346,12 +346,12 @@ all code in the 'node_modules' and 'lib' folders will be skipped. The exact rule
 
 This feature is available in the `node` and `node2` debuggers.
 
->**Note:** the old debugger (`node`) supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set. In the following example all but a 'math' module is skipped:
+>**Note:** The old debugger (`node`) supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set. In the following example all but a 'math' module is skipped:
 
 ```typescript
 "skipFiles": [
     "node_modules/**/*.js",
-    "!node_modules/math/**/*.js",
+    "!node_modules/math/**/*.js"
 ]
 ```
 
