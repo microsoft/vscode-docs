@@ -202,8 +202,8 @@ You can later reference these font in the icon definitions. The font declared fi
 Copy the font file into your extension and set the path accordingly.
 It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) fonts.
 * Set 'woff' as the format.
-* the weight property values are define [here](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values)
-* the style property values are define [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values)
+* the weight property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values)
+* the style property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values)
 * the size should be relative to the font size where the icon is used. Therefore always use percentage. 
 
 ```json
