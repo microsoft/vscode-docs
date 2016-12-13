@@ -325,6 +325,38 @@ The Node.js debugger supports remote debugging for recent versions of Node.js (>
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
+### Just My Code (`skipFiles`)
+
+This feature allows you to avoid code that you don't want to step through. It can be enabled with the `skipFiles` setting in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
+
+For example using:
+
+```typescript
+  "skipFiles": [
+    "node_modules/**/*.js",
+    "lib/**/*.js
+  ]
+```
+
+all code in the 'node_modules' and 'lib' folders will be skipped. The exact rules are as follows:
+
+* If you step into a skipped file, you won't stop there - you will stop on the next executed line that is not in a skipped file.
+* If you have set the option to break on thrown exceptions, then you won't break on exceptions thrown from skipped files.
+* If you set a breakpoint in a skipped file, you will stop at that breakpoint, and you will be able to step through it until you step out of it, at which point normal skipping behavior will resume.
+
+This feature is available in the `node` and `node2` debuggers.
+
+>**Note:** the old debugger (`node`) supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set. In the following example all but a 'math' module is skipped:
+
+```typescript
+"skipFiles": [
+    "node_modules/**/*.js",
+    "!node_modules/math/**/*.js",
+]
+```
+
+>**Note:** The old debugger (`node`) has to emulate the _Just My Code_ feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
+
 ## Command variables
 
 As we saw above, VS Code supports variable substitution in `launch.json` configurations. An advanced type of variable is one that is bound to a VS Code _command_. When a debug session is started, all command variables that occur in the underlying launch configuration are first collected and then executed. Before the launch configuration is passed to the debug adapter, all variables are substituted with the command results.
