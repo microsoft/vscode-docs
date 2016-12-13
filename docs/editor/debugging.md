@@ -337,7 +337,7 @@ Here are some things to try when your breakpoints turn gray.
 * Are the `sourceRoot` and `sources` properties in your source map correct? Can they be combined to get the correct path to the `.ts` file?
 * Are you using Webpack? By default, it outputs paths with a `webpack:///` prefix, which the debug adapter can't resolve. You can change this in your Webpack config with the `devtoolModuleFilenameTemplate` option, or try using `node2`, which provides some extra options for resolving these paths.
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
-* Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a Github issue.
+* Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a Github issue. If it breaks into a `.ts` file that says "read-only inline content from source map" next to it in Open Editors, then that's a sure sign that the source is inlined in the source map, and the path in the source map is incorrect.
 
 
 ### Attaching VS Code to Node.js
