@@ -254,7 +254,7 @@ Variables and expressions can also be evaluated and watched in the Debug view **
 
 ## Debug Console
 
-Expressions can be evaluated in the **Debug Console**. To open the Debug Console, use the **Open Console** action at the top of the Debug pane or using the **Command Palette** (`kb(workbench.action.showCommands)`).
+Expressions can be evaluated in the **Debug Console**. To open the Debug Console, use the **Open Console** action at the top of the Debug pane or using the **Command Palette** (`kb(workbench.action.showCommands)`). Debug Console shows suggestions while typing. Debug console input expands to multiple lines when needed, the expansion can be triggered using Shift + Enter.
 
 ![Debug Console](images/debugging/debugconsole.png)
 
