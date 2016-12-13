@@ -106,6 +106,10 @@ Some attributes are common to most debuggers:
 * `stopOnEntry` - break immediately when the program launches
 * `internalConsoleOptions` - control visibility of the Debug Console panel during a debugging session
 
+To add a new configuration use IntelliSense if your cursor is located inside the configurations array. Or just press the Add Configuration button to invoke snippet IntelliSense at the start of the array.
+![launch json suggestions](images/debugging/add-config.gif)
+
+
 To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
 
 ## Variable substitution
