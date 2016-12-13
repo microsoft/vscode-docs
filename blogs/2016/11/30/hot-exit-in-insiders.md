@@ -1,8 +1,9 @@
 ---
-Order: 
+Order: 21
 TOCTitle: Hot Exit Comes to Insiders
 PageTitle: Hot Exit Comes to Insiders
 MetaDescription: Unsaved changes are now remembered between Visual Studio Code sessions.
+MetaSocialImage: 2016_11_30_opengraph_insiders.png
 Date: 2016-11-30
 ShortDescription: Unsaved changes are now remembered between Visual Studio Code sessions.
 Author: Daniel Imms
@@ -12,7 +13,7 @@ Author: Daniel Imms
 
 November 30, 2016 by Daniel Imms, [@Tyriar](https://twitter.com/Tyriar)
 
-The ability to have Visual Studio Code remember unsaved changes when you exit (hot exit) has been a long requested feature, in fact it's currently [number #3](https://github.com/Microsoft/vscode/issues/101) in terms of 👍 reactions on GitHub. We've been working on an implementation for some time and we decided to turn it on by default in the Insiders build!
+The ability to have Visual Studio Code remember unsaved changes when you exit (hot exit) has been a long requested feature, in fact it's currently [number #3](https://github.com/Microsoft/vscode/issues/101) in terms of 👍 reactions on GitHub. We've been working on an implementation for some time and it is now enabled by default in the Insiders build!
 
 ## Initial design
 
