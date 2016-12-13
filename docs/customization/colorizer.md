@@ -22,15 +22,42 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Adding a New Language
 
-Using the ['code' Yeoman generator](/docs/tools/yocode.md), you can add TextMate language specification files (.tmLanguage) to your VS Code installation to get syntax highlighting and bracket matching.
+Using the ['code' Yeoman generator](/docs/tools/yocode.md), you can create an extension that adds syntax highlighting and bracket matching for a language to your VS Code installation.
 
-A good place to look for existing TextMate .tmLanguage files is on GitHub.  Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can handle either .tmLanguage or .plist files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. http://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage.
+Core to a language support is a TextMate language specification file (.tmLanguage) that describes the colorizer rules. The yeoman generator either takes an existing TextMate language specification file or lets you start with a fresh one.
+
+A good place to look for existing TextMate .tmLanguage files is on GitHub. Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can import either .tmLanguage or .pList files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. http://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage. Make sure that the path points to the content of the file, not the HTML file showing the content.
 
 ![yo code language support](images/colorizer/yocodelanguage.png)
 
-The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other extensions) and the language name, aliases and file extensions.
+The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other extensions) and the language name, aliases and file extensions. You also have to provide the top level scope name of the grammar. That scope name must match the scope name in the tmLanguage file.
 
-When the generator is finished, open the created folder in Visual Studio Code. Have a look at the generated `<languageid>.configuration.json` file: It contains more language settings such as the tokens used for comments and brackets.  Make sure the configurations are accurate. The generated `vsc-extension-quickstart.md` file also contains more information on how to run and debug your extension.
+When the generator is finished, open the created folder in Visual Studio Code. Have a look at the generated `<languageid>.configuration.json` file: It contains more language settings such as the tokens used for comments and brackets.  Make sure the configurations are accurate. Here is an example for a language with XML-like brackets.
+```json
+{
+	"comments": {
+		"lineComment": "",
+		"blockComment": ["<!--", "-->"]
+	},
+	"brackets": [
+		["<", ">"]
+	],
+	"autoClosingPairs": [
+		["<", ">"],
+		["'", "'"],
+		["\"", "\""]
+	],
+	"surroundingPairs": [
+		["<", ">"],
+		["'", "'"],
+		["\"", "\""]
+	]
+
+}
+```
+For more details check out the [languages contribution point documentation](/docs/extensionAPI/extension-points.md#contributeslanguages).
+
+The generated `vsc-extension-quickstart.md` file also contains more information on how to run and debug your extension.
 
 To use your extension in your stable VS Code installation, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
@@ -133,7 +160,7 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
 
 **Q: What if I want to completely override an existing colorizer?**
 
-**A:** Yes and no.  If the colorizer is implemented as a customization then yes but some of VS Code's built-in colorizers (e.g. Markdown) are integrated differently and cannot be overridden.  You override the colorizer by using the `extensionDependencies` attribute and providing a new `grammars` element.
+**A:** Yes. You override the colorizer by providing a new `grammars` element for an existing language id. Also, add a `extensionDependencies` attribute that contains the name of the extension that defines the grammar that you want to replace. 
 
 ```json
 {
@@ -149,8 +176,8 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
     "contributes": {
         "grammars": [{
             "language": "xml",
-            "scopeName": "text.xml.ant",
-            "path": "./syntaxes/ant.tmLanguage"
+            "scopeName": "text.xml",
+            "path": "./syntaxes/BetterXML.tmLanguage"
         }]
     }
 }
