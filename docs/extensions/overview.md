@@ -40,7 +40,7 @@ We have two end-to-end walkthroughs to get you going on extension basics:
 1. **[Hello World](/docs/extensions/example-hello-world.md)** - generate a basic extension, understand an extension's folder structure, the extension manifest, learn how activation works, run and debug your extension and install it locally.
 2. **[Word Count](/docs/extensions/example-word-count.md)** - activate based on a specific file type, update the status bar, respond to changes in the text editor, and dispose your extension when moving off the file.
 
-Also helpful is [Extensibility Patterns and Practices](/docs/extensions/patterns-and-principles.md) which describes the shared programming patterns used throughout the extensibility API.
+Also helpful is [Extensibility Principles and Patterns](/docs/extensions/patterns-and-principles.md) which describes the shared programming patterns used throughout the extensibility API.
 
 ## Language Servers
 
