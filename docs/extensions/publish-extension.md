@@ -40,7 +40,13 @@ to publish an extension version which benefits from this API, you should indicat
 dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only
 get the update when Stable reaches `1.9.0`.
 
-## Publishing to the Marketplace
+## Visual Studio Marketplace
+
+The [Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode) is the ideal place to publish your extensions on. It supports [categories](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Downloads), [tags](https://marketplace.visualstudio.com/search?term=tag%3Apython&target=VSCode&sortBy=Relevance), [rich extension pages](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), etc.
+
+[![marketplace](images/publish-extension/marketplace.png)](https://marketplace.visualstudio.com/vscode)
+
+### Publishing to the Marketplace
 
 If you want to share your extension with others in the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md), you should use the [vsce publishing tool](/docs/tools/vscecli.md) to package it up and submit it.
 
