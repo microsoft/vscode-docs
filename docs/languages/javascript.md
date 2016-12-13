@@ -99,28 +99,15 @@ In this image you can see IntelliSense, including the method signature, paramete
 
 ### Using Typings
 
-First, install [Typings](https://www.npmjs.com/package/typings), the TypeScript Definition Manager, using the [NPM](https://www.npmjs.com/) JavaScript package manager.
+Typings files are installed from the [@types organization on npm](https://www.npmjs.com/%7Etypes). 
 
-> **Tip:** The `--global` flag is optional, but recommended so the Typings utility can be used in any of your projects.
-
-```bash
-npm install typings --global
-```
-
-Next find the typings file for the module you need.
+To install the typings for **lodash**, create a [`package.json` file](https://docs.npmjs.com/files/package.json) at the root of your project if one does not already exist, and run:
 
 ```bash
-# Replace "node" with the name of your Node.js module
-typings search node
+npm install --save-dev @types/lodash
 ```
 
-Install the typings at the same location as `jsconfig.json` (the root of your JavaScript project).
-
-```bash
-typings install dt~node --save --global
-```
-
-The flag `--global` is for libraries on the global (`window.*`) object. The prefix `dt~` specifies the source of the Node.js typings file. You can see the sources, versions, and updated date information using `typings search node`. Learn more about typings in the [Typings documentation](https://www.npmjs.com/package/typings) and at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), which is a repository of typings files for many major JavaScript libraries and environments.
+This installs the `*.d.ts` type definitions for lodash in order to provide rich IntelliSense. Many common JavaScript libraries have typings avalible. You can learn more about using @types packages [here](https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/).
 
 ## Debugging
 
@@ -338,28 +325,3 @@ With `javascript.validate.enable: false`, you disable all built-in syntax checki
 ![no eslint config found](images/javascript/no_eslint_config.png)
 
 **A:** This message indicates that you need an `.eslintrc.json` file. You can resolve this by creating `.eslintrc.json` file in your workspace (read [here](http://eslint.org/docs/user-guide/configuring) for the ESLint user guide). The message showing repeatedly is a known [issue](https://github.com/Microsoft/vscode-eslint/issues/107).
-
-**Q: Why can't I install node typings? I ran `typings install node`.**
-
-**A:** One reason may be that the `node` typings were not available in the default `npm` registry.
-
-You should see the solution in the error message:
-
-```
-typings ERR! message Unable to find "node" ("npm") in the registry.
-typings ERR! message However, we found "node" for 2 other sources: "dt" and "env"
-```
-
-You can install `node` from one of the other registries, `dt` or `env`.
-
-Run one of the following commands which includes the registry prefix:
-
-```bash
-# Install from dt registery
-typings install dt~node --global --save
-
-# Install from env registry
-typings install env~node --global --save
-```
-
->**Tip:** Use the `--global` flag or you will see another error.
