@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: extensions
 TOCTitle: Installing Extensions
 ContentId: 8D19F206-8CB3-498D-BDD1-317B4104EDD0
@@ -12,7 +12,7 @@ MetaDescription: Learn how to install Visual Studio Code extensions (plug-ins) f
 
 ## Your Extensions Folder
 
-VS Code looks for extensions under your extensions folder `.vscode/extensions`. Depending on your platform it is located:
+VS Code looks for extensions under your extensions folder `.vscode/extensions`. Depending on your platform it is located in the following folders:
 
 * **Windows** `%USERPROFILE%\.vscode\extensions`
 * **Mac** `~/.vscode/extensions`
@@ -35,10 +35,6 @@ code --install-extension myextension.vsix
 The extension will be installed under your user `.vscode/extensions` folder. You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
 
 You can also install a `.vsix` with the **Install from VSIX...** command in the Extensions View command dropdown.
-
-## Publishing to the Marketplace
-
-If you want to share your extension with others in the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md), you can use the [vsce publishing tool](/docs/tools/vscecli.md) to package it up and submit it.
 
 ## Next Steps
 
