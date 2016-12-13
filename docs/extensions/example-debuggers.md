@@ -81,18 +81,17 @@ The solution for this problem is to run the debug adapter in server mode:
 * run the `mock-debug server` launch configuration to start the debug adapter in server mode (it listens on port 4711)
 * set a breakpoint at the beginning of method `launchRequest(...)` in file `mockDebug.ts`
 * open the test project with the `readme.md` in an additional VS Code window
-* in that project add a top-level `debugServer` attribute like this:
+* in that project add a launch config with a `debugServer` attribute like this:
 
 ```json
 {
     "version": "0.2.0",
 
-    "debugServer": 4711,
-
     "configurations": [{
+		"debugServer": 4711,
         "name": "mock test",
-        "request": "launch",
         "type": "mock",
+        "request": "launch",
         "program": "${workspaceRoot}/readme.md",
         "stopOnEntry": true
     }]
@@ -127,7 +126,7 @@ and **version** of the extension. Use the **categories** field to make the exten
 
 	"contributes": {
 		"breakpoints": [
-			{ 
+			{
 				"language": "markdown"
 			}
 		],
