@@ -345,6 +345,20 @@ For example the 'Attach to Process' launch configuration below uses the variable
 }
 ```
 
+### Experimental Node Debugger (node2)
+
+VS Code includes an experimental Node debug extension called `node2` that uses the [V8 Inspector Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/v8/), which Node.js now exposes via the `--inspect` flag, only in Node.js versions 6.3+. This is the same protocol exposed by [Chrome and other targets](https://developer.chrome.com/devtools/docs/debugger-protocol). This extension runs on the [vscode-chrome-debug-core](https://github.com/Microsoft/vscode-chrome-debug-core) library which also powers the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension, and several others.
+
+>**Note**: Node v6.9 or above is recommended with `node2`, especially on Windows. The new protocol was less stable in earlier versions of Node.
+
+Here are a few reasons to try `node2` over `node`:
+* It can be more stable when debugging near very large JavaScript objects. The older debug protocol can hang when sending large values over the wire.
+* If you are using an ES6 Proxy in your app, a Node v7+ runtime might crash when being debugged by the old debugger. This does not happen with `node2`. This issue is tracked in [Microsoft/vscode#12749](https://github.com/Microsoft/vscode/issues/12749).
+* `node2` can handle some trickier source map setups. If you have trouble setting breakpoints in sourcemapped files, trying `node2` is worth a shot.
+
+>**Note**: See more tips in the `node2` extension [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.node-debug2).
+
+
 ## Next Steps
 
 In case you didn't already read the Node.js section, take a look at:
