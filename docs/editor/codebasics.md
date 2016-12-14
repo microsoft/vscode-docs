@@ -179,6 +179,12 @@ For more control over `Auto Save`, open **User Settings** or **Workspace Setting
   * `onWindowChange` - to save files when the focus moves out of the VS Code window.
 * `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`.
 
+## Hot Exit
+
+VS Code will remember unsaved changes to files when you exit by default. Hot exit is triggered when the application is closed via **File** > **Exit**/**Quit** or when the last window is closed.
+
+Hot exit can be disabled in the settings by setting `files.hotExit` to `false`.
+
 ## Search Across Files
 
 VS Code allows you to quickly search over all files in the currently-opened folder.  Simply type `kb(workbench.view.search)` and type in your search. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
