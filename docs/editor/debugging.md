@@ -330,14 +330,15 @@ When you build your `app.ts` file in TypeScript with source maps enabled, it eit
 Finally, the debug adapter searches for the full path of `app.ts` in this resulting list of `.ts` files. If there's a match, it has found the source map file to use when mapping `app.ts` to `app.js`. If there is no match, then it can't bind the breakpoint, and it will turn gray.
 
 Here are some things to try when your breakpoints turn gray.
-* First and most important: do you have `"sourceMaps": true` in your launch config?
+* Do you have `"sourceMaps": true` in your launch config?
 * Did you build with source maps enabled? Are there `.js.map` files, or inlined source maps in your `.js` files?
 * Did you set the `outFiles` property in your launch config? It should be a glob pattern for an absolute path that matches your `.js` files.
 * Try the new experimental `node2` debug adapter. It can handle some more of the more complex source map cases.
 * Are the `sourceRoot` and `sources` properties in your source map correct? Can they be combined to get the correct path to the `.ts` file?
 * Are you using Webpack? By default, it outputs paths with a `webpack:///` prefix, which the debug adapter can't resolve. You can change this in your Webpack config with the `devtoolModuleFilenameTemplate` option, or try using `node2`, which provides some extra options for resolving these paths.
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
-* Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a Github issue. If it breaks into a `.ts` file that says "read-only inline content from source map" next to it in Open Editors, then that's a sure sign that the source is inlined in the source map, and the path in the source map is incorrect.
+* Try searching for help with your particular setup on Stack Overflow or by filing an issue on Github.
+* Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a Github issue.
 
 
 ### Attaching VS Code to Node.js
