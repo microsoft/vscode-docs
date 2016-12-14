@@ -47,8 +47,6 @@ Illustrated below is a project with a `client` and `server` folder, showing two 
 
 ### Writing jsconfig.json
 
-When VS Code detects that you are working on a JavaScript file, it looks to see if you have a JavaScript configuration file `jsconfig.json` in your workspace. If it doesn't find one, you will see a green lightbulb on the Status Bar prompting you to create one. Click the green lightbulb and accept the prompt to create a `jsconfig.json` file.
-
 Below is a simple template for `jsconfig.json` file which defines the JavaScript `target` to be `ES6` and the `exclude` attribute excludes the `node_modules` folder. You can copy and paste this code into your `jsconfig.json` file.
 
 ```json
