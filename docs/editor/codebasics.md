@@ -181,9 +181,9 @@ For more control over `Auto Save`, open **User Settings** or **Workspace Setting
 
 ## Hot Exit
 
-VS Code will remember unsaved changes to files when you exit by default. Hot exit is triggered when the application is closed via **File** > **Exit**/**Quit** or when the last window is closed.
+VS Code will remember unsaved changes to files when you exit by default. Hot exit is triggered when the application is closed via **File** > **Exit** (**Code** > **Quit** on macOS) or when the last window is closed.
 
-Hot exit can be disabled in the settings by setting `files.hotExit` to `false`.
+Hot exit can be disabled by changing the setting `files.hotExit` to `false`.
 
 ## Search Across Files
 
