@@ -109,7 +109,7 @@ VS Code gives you many options to configure the editor. You can set options glob
 
 >**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **User Settings**.
 
-You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily review and copy settings from `Default Settings`.
+You will see the VS Code [Default Settings](/docs/customization/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily filter settings in the `Default Settings` using the search box at the top. Copy a setting over to the editable `settings.json` on the right by clicking on the edit icon after the setting. Settings with a fixed set values allow you to pick a value as part of their edit icon menu.
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
 
@@ -135,7 +135,7 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 ![Multi-cursor-next-word](images/editingevolved/multicursor-word.gif)
 
-> **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text or with `kb(editor.action.changeAll)`, which will add a selection at each occurrence of the current word.
+> **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
 
 ### Shrink/expand selection
 
@@ -289,9 +289,9 @@ Argument|Description
 `-v` or `--version` | Print VS Code version (e.g. 0.10.10)
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
-`-g` or `--goto` | When used with *file:line:column?*, opens a file at a specific line and optional column position. This argument is provided since some operating systems permit `:` in a file name.
+`-g` or `--goto` | When used with *file:line:character?*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
 *file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
-*file:line:column?* | Name of a file to open at the specified line and optional column position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line:column?* specifier.
+*file:line:character?* | Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line:character?* specifier.
 *folder* | Name of a folder to open. You can specify multiple folders.
 `-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
 `--locale` | Set the display language (locale) for the VS Code session.  Supported locales are: `en-US`, `zh-TW`, `zh-CN`, `fr`, `de`, `it`, `ja`, `ko`, `ru`, `es`
@@ -330,7 +330,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: Is it possible to globally search and replace?**
 
-**A:** Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace.
+**A:** Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace. Note that if you did not open VS Code on a folder, the search will only run on the currently open files.
 
 ![global search and replace](images/codebasics/global-search-replace.png)
 

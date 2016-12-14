@@ -21,7 +21,6 @@ Here are a few commonly installed components:
 - [Git](http://git-scm.com/download) - VS Code has built-in support for source code control using Git but requires Git to be installed separately.
 - [Node.js (includes NPM)](https://nodejs.org/) - A platform and runtime for building and running JavaScript applications.
 - [TypeScript](http://typescriptlang.org) - The TypeScript compiler, `tsc`, for transpiling TypeScript to JavaScript.
-- [Typings](https://github.com/typings/typings) - A TypeScript type definition manager so that VS Code can provide IntelliSense (smart code completion) for popular JavaScript frameworks.
 
 You'll find the components above mentioned often in our documentation and walkthroughs.
 

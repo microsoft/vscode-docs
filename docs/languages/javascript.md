@@ -21,7 +21,7 @@ VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code complet
 There are two more steps to configure IntelliSense across all the files in your workspace and external modules:
 
 1. Create a `jsconfig.json` file to indicate a [JavaScript project](/docs/languages/javascript.md#javascript-project-jsconfigjson).
-2. Install [TypeScript Definition files (typings)](/docs/languages/javascript.md#typescript-definition-files-typings) for external libraries.
+2. Create a `package.json` file listing dependencies so that [automatic typings acquisition](/docs/languages/javascript.md#automatic-typings-acquisition) kicks in.
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
@@ -89,25 +89,33 @@ See [here](/docs/languages/jsconfig.md) for the full documentation of `jsconfig.
 
 > **Note:** `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJS` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options.
 
-## TypeScript Definition Files (Typings)
+## Automatic Typings Acquisition
 
-You get VS Code IntelliSense for third-party libraries and modules with type definition `*.d.ts` files. TypeScript definition files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience.
+VS Code JavaScript IntelliSense for third-party libraries and modules is powered by type definition `*.d.ts` files. TypeScript definition files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide rich IntelliSense.
 
 In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation, for a popular library called [lodash](https://lodash.com/).
 
 ![lodash typings](images/javascript/lodash_typings.png)
 
-### Using Typings
+Typings files are automatically download and managed by Visual Studio Code for packages listed in your project's `package.json`.
 
-Typings files are installed from the [@types organization on npm](https://www.npmjs.com/%7Etypes). 
-
-To install the typings for **lodash**, create a [`package.json` file](https://docs.npmjs.com/files/package.json) at the root of your project if one does not already exist, and run:
-
-```bash
-npm install --save-dev @types/lodash
+```json
+    "dependencies": {
+        "lodash": "^4.17.0"
+    }
 ```
 
-This installs the `*.d.ts` type definitions for lodash in order to provide rich IntelliSense. Many common JavaScript libraries have typings avalible. You can learn more about using @types packages [here](https://blogs.msdn.microsoft.com/typescript/2016/06/15/the-future-of-declaration-files/).
+If you are using Visual Studio Code 1.8+, you can alternately explicitly list packages to acquire typings for in your `jsconfig.json`.
+
+```json
+    "typeAcquisition": {
+        "include": [
+            "lodash"
+        ]
+    }
+```
+
+Now when you `require` or `import` **lodash**, Visual Studio Code will use the automatically downloaded typings files for the library to provide rich Intellisense. Most common JavaScript libraries have typings available.
 
 ## Debugging
 
