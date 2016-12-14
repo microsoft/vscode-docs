@@ -70,7 +70,7 @@ VS Code integrates with Markdown compilers through the integrated [task runner](
 
 ### Step 1: Install a Markdown compiler
 
-For this walkthrough, we use the popular [Node.js](https://nodejs.org) module, [markdown-it][].
+For this walkthrough, we use the popular [Node.js](https://nodejs.org) module, [markdown-it](https://github.com/markdown-it/markdown-it).
 
 ```
 npm install -g markdown-it
@@ -248,6 +248,3 @@ Read on to find out about:
 **Q: In the walkthrough above, I didn't find the Configure Task Runner command in the Command Palette?**
 
 **A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.
-
-
-[markdown-it]: https://github.com/markdown-it/markdown-it
