@@ -25,7 +25,7 @@ All VS Code extensions share a common model of contribution (registration), acti
 
 ## Extensions
 
-All extensions when activated run in our shared extension host process.  This separate process for extensions ensures that VS Code remains responsive through-out.  
+All extensions when activated run in our shared extension host process.  This separate process for extensions ensures that VS Code remains responsive through-out.
 
 Extensions include support for:
 
@@ -48,11 +48,13 @@ Language servers let you create a dedicated process for your extension.  This is
 
 Find out more about [language servers](/docs/extensions/example-language-server.md).
 
-## Debuggers
+## Debug Adapter
 
-Connecting a debugger written for any language to VS Code is possible through the creation of a debug service.
+VS Code implements a generic debugger UI and relies on debugger extensions and so called "debug adapters" to connect the debug UI to a real debugger or runtime. A debug adapter is a dedicated process that communicates with VS Code through the _VS Code Debug Protocol_ and can be implemented in any language.
 
-Find out more about integrating [debuggers](/docs/extensions/example-debuggers.md).
+Find out more about creating [debugger extensions](/docs/extensions/example-debuggers.md).
+
+---
 
 The easiest way to see VS Code extensions in action is via the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can browse for useful extensions, install them to try them out and get an idea how you might extend VS Code for your own development scenarios.
 
