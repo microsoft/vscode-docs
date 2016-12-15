@@ -232,7 +232,7 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
 
 # Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Sidebar and Panel) and going to full screen. Zen mode can be toggled using the View menu, Command Palette or by the shortcut `kb(workbench.action.toggleZenMode)`. The transition to full screen can be disabled via `workbench.fullScreenZenMode`. Double `kb(Esc)` exits Zen Mode.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Sidebar and Panel) and going to full screen. Zen mode can be toggled using the View menu, Command Palette or by the shortcut `kb(workbench.action.toggleZenMode)`. The transition to full screen can be disabled via `window.fullScreenZenMode`. Double `kb(Esc)` exits Zen Mode.
 
 ## Next Steps
 
