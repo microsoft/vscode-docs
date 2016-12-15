@@ -388,6 +388,7 @@ The following language features are currently supported in a language server alo
 * _CodeLens_: compute CodeLens statistics for a given text document.
 * _Document Formatting_: this includes formatting of whole documents, document ranges and formatting on type.
 * _Rename_: project-wide rename of a symbol.
+* _Document Links_: compute and resolve links inside a document.
 
 The [Language Extension Guidelines](/docs/extensions/language-support.md) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
 
