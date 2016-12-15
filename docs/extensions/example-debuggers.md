@@ -117,13 +117,7 @@ If you now launch this debug configuration, VS Code does not start the mock debu
 
 With this setup you can now easily edit, transpile, and debug Mock Debug.
 
-(and turn it into the debug adapter you want to create).
-
-
-## Implementing the VS Code Debug Protocol
-
-A debug adapter has to implement the *VS Code Debug Protocol*. You can find more details [here](/docs/extensionAPI/api-debugging.md).
-
+Now the real work begins: you will have to replace the 'mock' implementation by some 'real' code that talks to your debugger or runtime.
 
 ## Anatomy of the Debug Adapter package.json
 
@@ -134,11 +128,14 @@ and **version** of the extension. Use the **categories** field to make the exten
 ```json
 {
     "name": "mock-debug",
-    "version": "0.10.18",
-    "publisher": "vscode",
+    "version": "0.17.0",
+    "publisher": "andreweinand",
     "description": "Starter extension for developing debug adapters for VS Code.",
-    "engines": { "vscode": "0.10.x" },
-    "categories": ["Debuggers"],
+    "engines": {
+        "vscode": "^1.1.0",
+        "node": "^6.5.0"
+    },
+    "categories": [ "Debuggers" ],
 
     "contributes": {
         "breakpoints": [
@@ -148,7 +145,7 @@ and **version** of the extension. Use the **categories** field to make the exten
         ],
         "debuggers": [{
             "type": "mock",
-            "label": "Mock Debugger",
+            "label": "Mock Debug",
 
             "program": "./out/mockDebug.js",
             "runtime": "node",
@@ -159,7 +156,7 @@ and **version** of the extension. Use the **categories** field to make the exten
                     "properties": {
                         "program": {
                             "type": "string",
-                            "description": "Workspace relative path to a text file.",
+                            "description": "Absolute path to a text file.",
                             "default": "${workspaceRoot}/readme.md"
                         },
                         "stopOnEntry": {
@@ -173,8 +170,8 @@ and **version** of the extension. Use the **categories** field to make the exten
 
             "initialConfigurations": [
                 {
-                    "name": "Mock-Debug",
                     "type": "mock",
+                    "name": "Mock-Debug",
                     "request": "launch",
                     "program": "readme.md",
                     "stopOnEntry": true
@@ -185,9 +182,9 @@ and **version** of the extension. Use the **categories** field to make the exten
 }
 ```
 
-Take a look at the **contributes** section. First we have **breakpoints** where you can list the language file types for which setting breakpoints will be enabled.
+Take a look at the **contributes** section. First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled.
 
-Next is the **debuggers** section. Here one debug adapter is introduced under a (unique) debug **type**. The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nicer name when showing it in the UI.
+Next is the **debuggers** section. Here one debug adapter is introduced under a (unique) debug **type** `mock`. The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nicer name when showing it in the UI.
 
 Since a debug adapter is a standalone application, a path to that application is specified under the **program** attribute.
 In order to make the extension self-contained the application must live inside the extension folder.
@@ -196,9 +193,9 @@ By convention we keep this applications inside a folder named `out` or `bin` but
 Since VS Code runs on different platforms, we have to make sure that the debug adapter program supports the different platforms as well.
 For this we have the following options:
 
-1. If the program is implemented in a platform independent way, e.g. as program that runs on a runtime that is available on all supported platforms, you can specify this runtime via the **runtime** attribute. As of today, VS Code supports 'node' and 'mono' runtimes. Our mock-debug adapter from above uses this approach.
+1. If the program is implemented in a platform independent way, e.g. as program that runs on a runtime that is available on all supported platforms, you can specify this runtime via the **runtime** attribute. As of today, VS Code supports `node` and `mono` runtimes. Our Mock Debug adapter from above uses this approach.
 
-1. If your debug-adapter implementation needs different executables on different platforms, the **program** attribute can be qualified for specific platforms like this:
+1. If your debug adapter implementation needs different executables on different platforms, the **program** attribute can be qualified for specific platforms like this:
 
     ```json
     "debuggers": [{
@@ -215,7 +212,7 @@ For this we have the following options:
     }]
     ```
 
-1. A combination of both approaches is possible too. The following example is from the mono-debug adapter which is implemented as a mono application that needs a runtime on OS X and Linux:
+1. A combination of both approaches is possible too. The following example is from the Mono Debug adapter which is implemented as a mono application that needs a runtime on OS X and Linux but not on Windows:
 
     ```json
     "debuggers": [{
