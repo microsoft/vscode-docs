@@ -26,7 +26,7 @@ When a debug session is started, VS Code looks up the debug extension based on t
 
 Visual Studio Code ships with two debug extensions for Node.js: `node-debug` uses the (deprecated) v8 Debugger Protocol for node versions < 6.3 and `node-debug2` uses the Chrome Debugger Protocol (CDP) supported by node versions >= 6.3. Many more debugger extensions are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debugger extension yourself.
 
-The rest of this document shows how to create a debugger extension.
+The rest of this document shows how to develop a debugger extension.
 
 ## The Mock Debug Extension
 
@@ -55,7 +55,7 @@ Before using Mock Debug as a starting point for your own development, we recomme
 * switch to the Extensions viewlet and click on the gear icon of the Mock Debug extension,
 * run the 'uninstall' action and then 'Reload' the window.
 
-## Development Setup for mock-debug
+## Development Setup for Mock Debug
 
 Now let's get the source for Mock Debug and start development on it within VS Code:
 
@@ -117,9 +117,9 @@ If you now launch this debug configuration, VS Code does not start the mock debu
 
 With this setup you can now easily edit, transpile, and debug Mock Debug.
 
-Now the real work begins: you will have to replace the 'mock' implementation by some 'real' code that talks to your debugger or runtime.
+But now the real work begins: you will have to replace the 'mock' implementation in `src/mockDebug.ts` by some 'real' code that talks to your debugger or runtime.
 
-## Anatomy of the Debug Adapter package.json
+## Anatomy of the package.json of a Debug Extension
 
 Let's have a closer look at the debug adapter contribution of an VS Code extension.
 Like every VS Code extension, a debug adapter extension has a `package.json` file that declares the fundamental properties **name**, **publisher**,
@@ -171,7 +171,7 @@ and **version** of the extension. Use the **categories** field to make the exten
             "initialConfigurations": [
                 {
                     "type": "mock",
-                    "name": "Mock-Debug",
+                    "name": "Mock Debug",
                     "request": "launch",
                     "program": "readme.md",
                     "stopOnEntry": true
@@ -182,16 +182,17 @@ and **version** of the extension. Use the **categories** field to make the exten
 }
 ```
 
-Take a look at the **contributes** section. First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled.
+Now take a look at the **contributes** section which contains contributions specific to debug extensions.
 
-Next is the **debuggers** section. Here one debug adapter is introduced under a (unique) debug **type** `mock`. The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nicer name when showing it in the UI.
+First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled.
 
-Since a debug adapter is a standalone application, a path to that application is specified under the **program** attribute.
+Next is the **debuggers** section. Here one debugger is introduced under a (unique) debug **type** `mock`. The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nicer name when showing it in the UI.
+
+Since the debug extension uses a debug adapter, a relative path to this is given as the **program** attribute.
 In order to make the extension self-contained the application must live inside the extension folder.
 By convention we keep this applications inside a folder named `out` or `bin` but you are free to use a different name.
 
-Since VS Code runs on different platforms, we have to make sure that the debug adapter program supports the different platforms as well.
-For this we have the following options:
+Since VS Code runs on different platforms, we have to make sure that the debug adapter program supports the different platforms as well. For this we have the following options:
 
 1. If the program is implemented in a platform independent way, e.g. as program that runs on a runtime that is available on all supported platforms, you can specify this runtime via the **runtime** attribute. As of today, VS Code supports `node` and `mono` runtimes. Our Mock Debug adapter from above uses this approach.
 
@@ -227,10 +228,33 @@ For this we have the following options:
     }]
     ```
 
-**configurationAttributes** represent attributes that are specific for your debugger and are used for validation and suggestion of values in 'launch.json'.
+**configurationAttributes** represents the schema for the `launch.json` attributes that are available for this debugger. This schema is used for validating the `launch.json` and supporting IntelliSense and hover help when editing the launch configuration.
 
-**initialConfigurations** is used when VS Code generates the 'launch.json'. This should be a default launch configuration that covers configuration attributes of your adapter.
+**initialConfigurations** represents the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the debug viewlet. In this case VS Code lets the user pick a debugger from the list of all debuggers and then creates the corresponding `launch.json`:
 
+![Quickpick for ](images/example-debuggers/debug-init-config.png)
+
+Instead of defining the initial content of the `launch.json` statically in the `package.json` it is possible to 'compute' the initial content with a command that is implemented in the extension.
+
+In this case the value for the `initialConfigurations` attribute must be set to a command ID:
+
+```json
+    // ...
+    "initialConfigurations": "extension.mock-debug.provideInitialConfigurations",
+    // ...
+```
+
+And the implementation of this command lives in `src/extension.ts` and returns the content for the `launch.json` as a string (which makes it possible to include comments and control precise formatting):
+
+```ts
+vscode.commands.registerCommand('extension.mock-debug.provideInitialConfigurations', () => {
+    return [
+        '// Use IntelliSense to learn about possible Mock Debug attributes.',
+        '// Hover to view descriptions of existing attributes.',
+        JSON.stringify(initialConfigurations, null, '\t')
+    ].join('\n');
+});
+```
 
 ## Publishing your Debug Adapter
 
