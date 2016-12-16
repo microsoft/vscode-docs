@@ -29,7 +29,7 @@ To make it easier for you to decide what to implement first and what to improve 
 
 ### Language identifiers
 
-VS Code maps different language configurations and providers to specific programming languages through a [language identifier](/docs/languages/identifiers). This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`.
+VS Code maps different language configurations and providers to specific programming languages through a [language identifier](/docs/languages/identifiers.md). This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`.
 
 ## Syntax Highlighting
 
