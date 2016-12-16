@@ -94,8 +94,7 @@ Key|Command
 `kb(workbench.action.terminal.scrolldownPage)`|Scroll page down
 `kb(workbench.action.terminal.scrollToTop)`|Scroll to top
 `kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
-
-You can clear the terminal with the **Terminal: Clear** command from the **Command Palette** (`kb(workbench.action.showCommands)`). The command is not bound to any keyboard shortcut but you can add your [own](/docs/customization/keybindings.md).
+`kb(workbench.action.terminal.clear)`|Clear the terminal
 
 Other terminal commands are available and can be bound to your preferred keyboard shortcuts.
 
