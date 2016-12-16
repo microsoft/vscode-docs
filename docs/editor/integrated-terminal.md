@@ -75,7 +75,7 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 You can customize the integrated terminal font and line height with the following settings:
 
 * `terminal.integrated.fontFamily` - The font family, this defaults to the `editor.fontFamily` value.
-* `terminal.integrated.fontSize` - The font size, this defaults to the `editor.fontSize` value.
+* `terminal.integrated.fontSize` - The font size.
 * `terminal.integrated.lineHeight` - The line height of the terminal, this defaults to normal.
 
 ## Key Bindings
