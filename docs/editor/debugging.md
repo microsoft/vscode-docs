@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -17,7 +17,7 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ## Debugger Extensions
 
-VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript. 
+VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript.
 
 For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) and many others), please look for `Debuggers` [extensions](/docs/editor/extension-gallery.md) in our VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers).
 
@@ -113,10 +113,11 @@ To launch a task before the start of each debug session, set the `preLaunchTask`
 VS Code supports variable substitution inside strings in `launch.json` and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
-- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any solidus (/)
+- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
 - **${file}** the current opened file
 - **${relativeFile}** the current opened file relative to `workspaceRoot`
 - **${fileBasename}** the current opened file's basename
+- **${fileBasenameNoExtension}** the current opened file's basename without the extension
 - **${fileDirname}** the current opened file's dirname
 - **${fileExtname}** the current opened file's extension
 - **${cwd}** the task runner's current working directory on startup
@@ -242,7 +243,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 The Node.js debugger of VS Code supports JavaScript Source Maps which help debugging of transpiled languages, e.g. TypeScript or minified/uglified JavaScript. With source maps, it is possible to single step through or set breakpoints in the original source. If no source map exists for the original source or if the source map is broken and cannot successfully map between the source and the generated JavaScript, the breakpoints are shown as gray hollow circles.
 
-The source map feature is enabled by setting the `sourceMaps` attribute to `true` in the launch configuration. With that you can now specify a source file (e.g. app.ts) with the `program` attribute. If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory, you can help the VS Code debugger locate them by setting the `outDir` attribute. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source, and the associated source map, in the `outDir` directory.
+The source map feature is enabled by setting the `sourceMaps` attribute to `true` in the launch configuration. With that you can now specify a source file (e.g. app.ts) with the `program` attribute. If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory, you can help the VS Code debugger locate them by setting the `outFiles` attribute. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source by searching the files specified by glob patterns in `outFiles`. Once it finds the generated source, it looks for its associated source map.
 
 Since source maps are not automatically created, you must configure the TypeScript compiler to create them:
 
@@ -262,7 +263,7 @@ This is the corresponding launch configuration for a TypeScript program:
 			"request": "launch",
 			"program": "app.ts",
 			"sourceMaps": true,
-			"outDir": "bin"
+			"outFiles": ["${workspaceRoot}/bin/**/*.js"]
 		}
 	]
 }
@@ -324,6 +325,58 @@ The Node.js debugger supports remote debugging for recent versions of Node.js (>
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
+### Just My Code (`skipFiles`)
+
+This feature allows you to avoid code that you don't want to step through. It can be enabled with the `skipFiles` setting in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
+
+For example using:
+
+```typescript
+  "skipFiles": [
+    "node_modules/**/*.js",
+    "lib/**/*.js"
+  ]
+```
+
+all code in the 'node_modules' and 'lib' folders will be skipped. The exact rules are as follows:
+
+* If you step into a skipped file, you won't stop there - you will stop on the next executed line that is not in a skipped file.
+* If you have set the option to break on thrown exceptions, then you won't break on exceptions thrown from skipped files.
+* If you set a breakpoint in a skipped file, you will stop at that breakpoint, and you will be able to step through it until you step out of it, at which point normal skipping behavior will resume.
+
+This feature is available in the `node` and `node2` debuggers.
+
+>**Note:** The old debugger (`node`) supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set. In the following example all but a 'math' module is skipped:
+
+```typescript
+"skipFiles": [
+    "node_modules/**/*.js",
+    "!node_modules/math/**/*.js"
+]
+```
+
+>**Note:** The old debugger (`node`) has to emulate the _Just My Code_ feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
+
+### Smart step
+
+With the `smartStep` attribute set to `true` in a launch configuration, VS Code will automatically skip 'uninteresting code' when stepping through code in the debugger. 'Uninteresting code' is code that is generated by a transpiling process but is not covered by a source map so it does not map back to the original source. This code gets in your way when stepping through source code in the debugger because it makes the debugger switch between the original source code and generated code that you are not really interested in. `smartStep` will automatically step through code not covered by a source map until it reaches a location that is covered by a source map again.
+
+This is especially useful for cases like async/await downcompilation in TypeScript, where the compiler injects helper code that is not covered by a source map.
+
+### Experimental Node Debugger (node2)
+
+VS Code includes an experimental Node debug extension called `node2` that uses the [V8 Inspector Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/v8/), which Node.js now exposes via the `--inspect` flag, only in Node.js versions 6.3+. This is the same protocol exposed by [Chrome and other targets](https://developer.chrome.com/devtools/docs/debugger-protocol). This extension runs on the [vscode-chrome-debug-core](https://github.com/Microsoft/vscode-chrome-debug-core) library which also powers the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension, and several others.
+
+>**Note**: Node v6.9 or above is recommended with `node2`, especially on Windows. The new protocol was less stable in earlier versions of Node.
+
+Here are a few reasons to try `node2` over `node`:
+
+* It can be more stable when debugging near very large JavaScript objects. The older debug protocol can hang when sending large values over the wire.
+* If you are using an ES6 Proxy in your app, a Node v7+ runtime might crash when being debugged by the old debugger. This does not happen with `node2`. This issue is tracked in [Microsoft/vscode#12749](https://github.com/Microsoft/vscode/issues/12749).
+* `node2` can handle some trickier source map setups. If you have trouble setting breakpoints in sourcemapped files, trying `node2` is worth a shot.
+
+>**Note**: See more tips in the `node2` extension [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.node-debug2).
+
 ## Command variables
 
 As we saw above, VS Code supports variable substitution in `launch.json` configurations. An advanced type of variable is one that is bound to a VS Code _command_. When a debug session is started, all command variables that occur in the underlying launch configuration are first collected and then executed. Before the launch configuration is passed to the debug adapter, all variables are substituted with the command results.
@@ -352,7 +405,7 @@ In case you didn't already read the Node.js section, take a look at:
 
 To see a tutorial on the basics of Node.js debugging, check out:
 
-* [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory video showcasing the basics of debugging. 
+* [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory video showcasing the basics of debugging.
 
 To learn about VS Code's task running support, go to:
 

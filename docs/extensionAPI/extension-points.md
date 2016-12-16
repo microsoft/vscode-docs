@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 
@@ -85,6 +85,7 @@ Currently extension writers can to contribute to:
 * The Explorer context menu - `explorer/context`
 * The editor context menu - `editor/context`
 * The editor title menu - `editor/title`
+* The editor title context menu - `editor/title`
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
@@ -120,6 +121,18 @@ The context menu of the editor has these default:
 ![Menu Group Sorting](images/extension-points/groupSorting.png)
 
 You can add menu items to these groups or add new groups of menu items in between, below, or above. Only the editor context menu allows this grouping control.
+
+### Sorting inside groups
+
+The order inside a group depends the title or an order-attribute. The group-local order of a menu item is specified by appending `@<number>` to the group identifier as shown below:
+
+```json
+"editor/title": [{
+    "when": "editorHasSelection",
+    "command": "extension.Command",
+    "group": "myGroup@1"
+}]
+```
 
 ## contributes.keybindings
 

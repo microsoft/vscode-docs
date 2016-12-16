@@ -4,7 +4,7 @@ Area: customization
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 
@@ -202,8 +202,8 @@ You can later reference these font in the icon definitions. The font declared fi
 Copy the font file into your extension and set the path accordingly.
 It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) fonts.
 * Set 'woff' as the format.
-* the weight property values are define [here](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values)
-* the style property values are define [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values)
+* the weight property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values)
+* the style property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values)
 * the size should be relative to the font size where the icon is used. Therefore always use percentage. 
 
 ```json
@@ -229,6 +229,10 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
         }
     }
 ```
+
+# Zen Mode
+
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Sidebar and Panel) and going to full screen. Zen mode can be toggled using the View menu, Command Palette or by the shortcut `kb(workbench.action.toggleZenMode)`. The transition to full screen can be disabled via `window.fullScreenZenMode`. Double `kb(Esc)` exits Zen Mode.
 
 ## Next Steps
 

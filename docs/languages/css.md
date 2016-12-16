@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, Sass and Less support in VS Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
 
@@ -52,7 +52,7 @@ As you type, we provide syntax highlighting as well as in context preview of col
 
 ## Syntax Verification & Linting
 
-We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 1.7.
+We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
 >**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/customization/userandworkspace.md) to false.
 >```json

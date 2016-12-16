@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 
@@ -124,6 +124,41 @@ To map a schema that is defined in the User or Workspace Settings, use the `sche
 ### Mapping a Schema in an Extension
 
 Schemas and schema associations can also be defined by an extension. Check out the [jsonValidation contribution point](/docs/extensionAPI/extension-points.md#contributesjsonvalidation).
+
+### Define Snippets in JSON Schemas
+
+JSON schemas describe the shape of the JSON file, as well as value sets and default values which are used by the JSON language support to provide completion proposals.
+If you are a schema author and want to provide even more customized completion proposals, you can also specify snippets in the schema. The following example shows a schema for a our keybinding settings file defining a snippet:
+
+```json
+{
+    "type": "array",
+    "title": "Keybindings configuration",
+    "items": {
+        "type": "object",
+        "required": ["key"],
+        "defaultSnippets": [
+            {
+                "label": "New keybinding",
+                "description": "Binds a key to a command for a given state",
+                "body": { "key": "$1", "command": "$2", "when": "$3" }
+            }
+        ],
+        "properties": {
+            "key": {
+                "type": "string",
+            }
+            ...
+        }
+    }
+};
+```
+
+Use the property `defaultSnippets` to specify any number of snippets for the given JSON object.
+- `label` and `description` will be shown in the completion selection dialog. If no label is provided, a stringified object representation of the snippet will be shown as label instead.
+- `body` is the JSON object that is stringified and inserted when the completion is selected by the user. [Snippet syntax](https://github.com/Microsoft/vscode/blob/master/src/vs/editor/contrib/snippet/common/snippet.md) can be used inside strings literals to define tabstops, placeholders and variables. If a string starts with `^`, the string content will be inserted as-is, not stringified. You can use this to specify snippets for numbers and booleans.
+ 
+Note that `defaultSnippets` is not part of the JSON schema spec but a VS Code specific schema extension.
 
 ## JSON Extensions
 

@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Debuggers
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
 
@@ -62,13 +62,13 @@ Open the project folder `vscode-mock-debug` in VS Code.
 
 What's in the package?
 
-* the mock-debug implementation lives in `src/mockDebug.ts`. There you find the request handlers for the various requests of the CDP.
-* `package.json`, the manifest for the mock-debug extension:
-  - lists the contributions of the mock-debug extension.
-  - the `compile` and `watch` scripts are used to transpile the TypeScript source into the `out` folder and watch for subsequent source modifications.
-  - the two dependencies `vscode-debugprotocol` and `vscode-debugadapter` are NPM modules that simplify the development of node-based debug adapters.
+* The mock-debug implementation lives in `src/mockDebug.ts`. There you find the request handlers for the various requests of the CDP.
+* `package.json` is the manifest for the mock-debug extension:
+  - Lists the contributions of the mock-debug extension.
+  - The `compile` and `watch` scripts are used to transpile the TypeScript source into the `out` folder and watch for subsequent source modifications.
+  - The two dependencies `vscode-debugprotocol` and `vscode-debugadapter` are NPM modules that simplify the development of Node.js-based debug adapters.
 
-Now build and launch the debug adapter by selecting the `Launch Extension` configuration and hitting `F5`.
+Now build and launch the debug adapter by selecting the `Extension` configuration and hitting `F5`.
 Initially this will do a full transpile of the TypeScript sources into the `out` folder.
 After the full build, a 'watcher task' is started that incrementally transpiles any changes you make.
 
@@ -78,37 +78,34 @@ You can now open your test project with the `readme.md` file from above and 'deb
 This approach for launching the debug extension like any other extension works well for **running** the extension but not for **debugging** it. The problem is that the debug adapter runs as a separate process outside of the extension host.
 The solution for this problem is to run the debug adapter in server mode:
 
-* run the `mock-debug server` launch configuration to start the debug adapter in server mode (it listens on port 4711)
-* set a breakpoint at the beginning of method `launchRequest(...)` in file `mockDebug.ts`
-* open the test project with the `readme.md` in an additional VS Code window
-* in that project add a top-level `debugServer` attribute like this:
+* Run the `Server` launch configuration to start the debug adapter in server mode (it listens on port 4711).
+* Set a breakpoint at the beginning of method `launchRequest(...)` in file `mockDebug.ts`.
+* Open the test project with the `readme.md` in an additional VS Code window.
+* In that project, add a `debugServer` attribute in the launch configuration like this:
 
 ```json
 {
     "version": "0.2.0",
 
-    "debugServer": 4711,
-
     "configurations": [{
-        "name": "mock test",
-        "request": "launch",
         "type": "mock",
-        "program": "${workspaceRoot}/readme.md",
+        "request": "launch",
+        "name": "Mock-Debug",
+        "debugServer": 4711,
+        "program": "${workspaceRoot}/${command.AskForProgramName}",
         "stopOnEntry": true
     }]
 }
 ```
 
-* if you now launch this debug configuration, VS Code does not launch a debug adapter as a separate process but directly connects to local port 4711.
-* you should hit the breakpoint in `launchRequest`.
+* If you now launch this debug configuration, VS Code does not launch a debug adapter as a separate process but directly connects to local port 4711.
+* You should hit the breakpoint in `launchRequest`.
 
 With this setup you can now easily edit, transpile, and debug the mock debug and turn it into the debug adapter you want to create.
-
 
 ## Implementing the VS Code Debug Protocol
 
 A debug adapter has to implement the *VS Code Debug Protocol*. You can find more details [here](/docs/extensionAPI/api-debugging.md).
-
 
 ## Anatomy of the Debug Adapter package.json
 

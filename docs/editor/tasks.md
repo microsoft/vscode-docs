@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 
@@ -145,11 +145,11 @@ For Windows, you will need to pass the '/C' argument to `cmd` so that the tasks 
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json`  file and has the following predefined variables:
 
 - **${workspaceRoot}** the path of the folder opened in VS Code
-- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any path information
+- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
 - **${file}** the current opened file
 - **${relativeFile}** the current opened file relative to `workspaceRoot`
 - **${fileBasename}** the current opened file's basename
-- **${fileBasenameNoExtension}** the current opened file's basename without extension.
+- **${fileBasenameNoExtension}** the current opened file's basename without the extension
 - **${fileDirname}** the current opened file's dirname
 - **${fileExtname}** the current opened file's extension
 - **${cwd}** the task runner's current working directory on startup

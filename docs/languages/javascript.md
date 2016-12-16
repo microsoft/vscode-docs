@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 
@@ -21,7 +21,7 @@ VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code complet
 There are two more steps to configure IntelliSense across all the files in your workspace and external modules:
 
 1. Create a `jsconfig.json` file to indicate a [JavaScript project](/docs/languages/javascript.md#javascript-project-jsconfigjson).
-2. Install [TypeScript Definition files (typings)](/docs/languages/javascript.md#typescript-definition-files-typings) for external libraries.
+2. Create a `package.json` file listing dependencies so that [automatic typings acquisition](/docs/languages/javascript.md#automatic-typings-acquisition) kicks in.
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
@@ -46,8 +46,6 @@ Illustrated below is a project with a `client` and `server` folder, showing two 
 ![multiple jsconfigs](images/javascript/complex_jsconfig_setup.png)
 
 ### Writing jsconfig.json
-
-When VS Code detects that you are working on a JavaScript file, it looks to see if you have a JavaScript configuration file `jsconfig.json` in your workspace. If it doesn't find one, you will see a green lightbulb on the Status Bar prompting you to create one. Click the green lightbulb and accept the prompt to create a `jsconfig.json` file.
 
 Below is a simple template for `jsconfig.json` file which defines the JavaScript `target` to be `ES6` and the `exclude` attribute excludes the `node_modules` folder. You can copy and paste this code into your `jsconfig.json` file.
 
@@ -89,38 +87,33 @@ See [here](/docs/languages/jsconfig.md) for the full documentation of `jsconfig.
 
 > **Note:** `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJS` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options.
 
-## TypeScript Definition Files (Typings)
+## Automatic Typings Acquisition
 
-You get VS Code IntelliSense for third-party libraries and modules with type definition `*.d.ts` files. TypeScript definition files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience.
+VS Code JavaScript IntelliSense for third-party libraries and modules is powered by type definition `*.d.ts` files. TypeScript definition files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide rich IntelliSense.
 
 In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation, for a popular library called [lodash](https://lodash.com/).
 
 ![lodash typings](images/javascript/lodash_typings.png)
 
-### Using Typings
+Typings files are automatically download and managed by Visual Studio Code for packages listed in your project's `package.json`.
 
-First, install [Typings](https://www.npmjs.com/package/typings), the TypeScript Definition Manager, using the [NPM](https://www.npmjs.com/) JavaScript package manager.
-
-> **Tip:** The `--global` flag is optional, but recommended so the Typings utility can be used in any of your projects.
-
-```bash
-npm install typings --global
+```json
+    "dependencies": {
+        "lodash": "^4.17.0"
+    }
 ```
 
-Next find the typings file for the module you need.
+If you are using Visual Studio Code 1.8+, you can alternately explicitly list packages to acquire typings for in your `jsconfig.json`.
 
-```bash
-# Replace "node" with the name of your Node.js module
-typings search node
+```json
+    "typeAcquisition": {
+        "include": [
+            "lodash"
+        ]
+    }
 ```
 
-Install the typings at the same location as `jsconfig.json` (the root of your JavaScript project).
-
-```bash
-typings install dt~node --save --global
-```
-
-The flag `--global` is for libraries on the global (`window.*`) object. The prefix `dt~` specifies the source of the Node.js typings file. You can see the sources, versions, and updated date information using `typings search node`. Learn more about typings in the [Typings documentation](https://www.npmjs.com/package/typings) and at [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped), which is a repository of typings files for many major JavaScript libraries and environments.
+Now when you `require` or `import` **lodash**, Visual Studio Code will use the automatically downloaded typings files for the library to provide rich Intellisense. Most common JavaScript libraries have typings available.
 
 ## Debugging
 
@@ -338,28 +331,3 @@ With `javascript.validate.enable: false`, you disable all built-in syntax checki
 ![no eslint config found](images/javascript/no_eslint_config.png)
 
 **A:** This message indicates that you need an `.eslintrc.json` file. You can resolve this by creating `.eslintrc.json` file in your workspace (read [here](http://eslint.org/docs/user-guide/configuring) for the ESLint user guide). The message showing repeatedly is a known [issue](https://github.com/Microsoft/vscode-eslint/issues/107).
-
-**Q: Why can't I install node typings? I ran `typings install node`.**
-
-**A:** One reason may be that the `node` typings were not available in the default `npm` registry.
-
-You should see the solution in the error message:
-
-```
-typings ERR! message Unable to find "node" ("npm") in the registry.
-typings ERR! message However, we found "node" for 2 other sources: "dt" and "env"
-```
-
-You can install `node` from one of the other registries, `dt` or `env`.
-
-Run one of the following commands which includes the registry prefix:
-
-```bash
-# Install from dt registery
-typings install dt~node --global --save
-
-# Install from env registry
-typings install env~node --global --save
-```
-
->**Tip:** Use the `--global` flag or you will see another error.
