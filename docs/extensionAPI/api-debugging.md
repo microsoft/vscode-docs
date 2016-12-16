@@ -1,17 +1,17 @@
 ---
 Order: 7
 Area: extensionapi
-TOCTitle: API debugging
+TOCTitle: Debugging API
 ContentId: 9C4B10A2-44BE-4ABD-8FF4-F1A8683A90AD
 PageTitle: Visual Studio Code Debugging API
 DateApproved: 11/2/2016
 MetaDescription: Visual Studio Code extensions (plug-ins) Debugging API.
 ---
 
-# Debugging API
+# The VS Code Debug Protocol
 
 Since Visual Studio Code implements a language agnostic debug UI, it does not communicate directly with real debuggers
-but instead talks to so-called *debug adapters* through an abstract wire protocol, the *VS Code Debug Protocol* (or CDP for short).
+but instead talks to so-called *debug adapters* through an abstract wire protocol, the *VS Code Debug Protocol*.
 
 ![Debugger Architecture](images/api-debugging/debug-arch.png)
 
@@ -20,31 +20,31 @@ So it is not (yet) possible to extend the debugger UI in similar ways as for exa
 
 ## Debug Adapter
 
-A debug adapter is a standalone executable that talks to a real debugger and translates between the abstract
-CDP and the concrete protocol of the debugger. Since a debug adapter can be implemented in the language that is best suited
-for a given debugger backend, the wire protocol is more important than the API of a particular client library that implements
+A debug adapter is a standalone executable that talks to a real debugger and translates between the
+VS Code Debug Protocol and the concrete protocol of the debugger. Since a debug adapter can be implemented in the language that is best suited or a given debugger or runtime, the wire protocol is more important than the API of a particular client library that implements
 that protocol.
 
-You can find the protocol specification expressed as a TypeScript definition file in the GitHub repository
-[`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/protocol/src/debugProtocol.ts).
-It shows the detailed structure of the CDP protocol requests, responses and events.
+You can find the VS Code Debug Protocol specification expressed as a [JSON schema](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/debugProtocol.json) or as a (generated) [TypeScript definition](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/protocol/src/debugProtocol.ts) file in the
+[`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node) repository.
+Both files show the detailed structure of the individual protocol requests, responses and events.
 The protocol is also available as the NPM module [`vscode-debugprotocol`](https://www.npmjs.com/package/vscode-debugprotocol).
 
-We have already implemented client libraries for CDP in TypeScript and C#, but only the JavaScript/TypeScript client library is already available as an NPM module [`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node). You can find the C# client library in the [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/src/DebugSession.cs) repository.
+We have implemented client libraries for the VS Code Debug Protocol in TypeScript and C#, but only the JavaScript/TypeScript client library is already available as an NPM module [`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node). You can find the C# client library in the [Mono Debug](https://github.com/Microsoft/vscode-mono-debug/blob/master/src/DebugSession.cs) repository.
 
 The following debugger extension projects can serve as examples for how to implement debug adapters:
 
 GitHub Project | Description | Implementation Language
 --- | --- | ---
-[Mock Debug](https://github.com/Microsoft/vscode-mock-debug.git) | A 'fake' debugger | TypeScript/JavaScript
-[Node Debug](https://github.com/Microsoft/vscode-node-debug.git) | The built-in Node.js debugger |TypeScript/JavaScript
+[Node Debug](https://github.com/Microsoft/vscode-node-debug.git) | The built-in v8-based Node.js debugger |TypeScript/JavaScript
+[Node Debug2](https://github.com/Microsoft/vscode-node-debug2.git) | The built-in CDP-based Node.js debugger |TypeScript/JavaScript
 [Mono Debug](https://github.com/Microsoft/vscode-mono-debug.git) | A simple C# debugger for Mono | C#
+[Mock Debug](https://github.com/Microsoft/vscode-mock-debug.git) | A 'fake' debugger | TypeScript/JavaScript
 
 
 ## The VS Code Debug Protocol in a Nutshell
 
-In this section we will give a high-level overview of the interaction between VS Code and a debug adapter.
-This should help you in your implementation of a debug adapter based on CDP.
+In this section we give a high-level overview of the interaction between VS Code and a debug adapter.
+This should help you in your implementation of a debug adapter based on the VS Code Debug Protocol.
 
 When a debug sessions starts, VS Code launches the debug adapter executable and talks to it through *stdin* and *stdout*. VS Code sends an **initialize** request to configure the adapter with information about the path format (native or URI) and whether line and column values are 0 or 1 based.
 If your adapter is derived from the TypeScript or C# default implementation `DebugSession`, you don't have to handle the initialize request yourself.
@@ -54,8 +54,7 @@ For **launch** the debug adapter has to launch a runtime or program so that it c
 If the program can interact with the user through stdin/stdout, it is important that the debug adapter launches the program in an interactive terminal or console.
 For **attach** the debug adapter has to attach or connect to an already running program.
 
-Since arguments for both requests are highly dependent on a specific debug adapter implementation, the CDP does not prescribe
-any arguments. Instead VS Code passes all arguments from the user's launch configuration to the *launch* or *attach* requests.
+Since arguments for both requests are highly dependent on a specific debug adapter implementation, the VS Code Debug Protocol does not prescribe any arguments. Instead VS Code passes all arguments from the user's launch configuration to the *launch* or *attach* requests.
 A schema for IntelliSense and hover information for these attributes can be contributed in the `package.json` of the debug adapter extension. This will guide the user when creating or editing launch configurations.
 
 Since VS Code persists breakpoints on behalf of the debug adapter, it has to register the breakpoints with the debug adapter when a session starts.
@@ -84,11 +83,11 @@ This leads to the following hierarchy:
 
 ```
 Threads
-	Stackframes
-		Scopes
-			Variables
-				...
-					Variables
+   Stackframes
+      Scopes
+         Variables
+            ...
+               Variables
 ```
 
 The VS Code debug UI supports multiple threads (but you are probably not aware of this if you are only using the Node.js debugger). Whenever VS Code receives a **stopped** or a **thread** event, VS Code requests all **threads** that exist at that point in time and displays them if there are more than one. If only one thread is detected, the VS Code UI stays in single thread mode. **Thread** events are optional but a debug adapter can send them to force VS Code to update the threads UI dynamically even when not in a stopped state.
