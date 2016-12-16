@@ -53,7 +53,7 @@ A debug session starts and you can 'step' through the readme file, set and hit b
 Before using Mock Debug as a starting point for your own development, we recommend to uninstall the pre-built version first:
 
 * switch to the Extensions viewlet and click on the gear icon of the Mock Debug extension,
-* run the 'uninstall' action and then 'Reload' the window.
+* run the 'Uninstall' action and then 'Reload' the window.
 
 ## Development Setup for Mock Debug
 
@@ -76,11 +76,11 @@ What's in the package?
 * the implementation of the debug adapter of the extension lives in `src/mockDebug.ts`. Here you find the handlers for the various requests of the VS Code debug protocol.
 * since the implementation of debug extension lives in the debug adapter, there is no need to have extension code at all (i.e. code that runs in the extension host process). However, Mock Debug has a small `src/extension.ts` because it illustrates what can be done in the extension code of a debug extension.
 
-Now build and launch the mode-debug extension by selecting the `Extension` launch configuration and hitting `F5`.
+Now build and launch the Mock Debug extension by selecting the `Extension` launch configuration and hitting `F5`.
 Initially this will do a full transpile of the TypeScript sources into the `out` folder.
-After the full build, a 'watcher task' is started that incrementally transpiles any changes you make.
+After the full build, a 'watcher task' is started that transpiles any changes you make.
 
-After transpiling the source, a new VS Code window ('[Extenson Development Host]') appears with the mock-debug extension now running in debug mode. From that window open your `mock test` project with the `readme.md` file, start a debug session with 'F5', and then step through it:
+After transpiling the source, a new VS Code window ('[Extenson Development Host]') appears with the Mock Debug extension now running in debug mode. From that window open your `mock test` project with the `readme.md` file, start a debug session with 'F5', and then step through it:
 
 ![Debugging Extension and Server](images/example-debuggers/debug-mock-session.png)
 
@@ -117,13 +117,16 @@ If you now launch this debug configuration, VS Code does not start the mock debu
 
 With this setup you can now easily edit, transpile, and debug Mock Debug.
 
-But now the real work begins: you will have to replace the 'mock' implementation in `src/mockDebug.ts` by some 'real' code that talks to your debugger or runtime.
+But now the real work begins: you will have to replace the 'mock' implementation of the debug adapter in `src/mockDebug.ts` by some 'real' code that talks to your debugger or runtime. This involves understanding and implementing the VS Code Debug Protocol. More details
+about this can be found [here](https://code.visualstudio.com/docs/extensionAPI/api-debugging).
 
 ## Anatomy of the package.json of a Debug Extension
 
-Let's have a closer look at the debug adapter contribution of an VS Code extension.
-Like every VS Code extension, a debug adapter extension has a `package.json` file that declares the fundamental properties **name**, **publisher**,
-and **version** of the extension. Use the **categories** field to make the extension easier to find in the VS Code Extension Marketplace.
+Besides providing a debugger specific implementation of the debug adapter a debugger extension needs a `package.json` that contributes to the various debug related contributions points.
+
+So let's have a closer look at the `package.json` of Mock Debug.
+
+Like every VS Code extension, the `package.json` declares the fundamental properties **name**, **publisher**, and **version** of the extension. Use the **categories** field to make the extension easier to find in the VS Code Extension Marketplace.
 
 ```json
 {
@@ -136,6 +139,11 @@ and **version** of the extension. Use the **categories** field to make the exten
         "node": "^6.5.0"
     },
     "categories": [ "Debuggers" ],
+
+    "activationEvents": [
+        "onCommand:extension.mock-debug.getProgramName",
+        "onCommand:extension.mock-debug.provideInitialConfigurations"
+    ],
 
     "contributes": {
         "breakpoints": [
@@ -176,13 +184,30 @@ and **version** of the extension. Use the **categories** field to make the exten
                     "program": "readme.md",
                     "stopOnEntry": true
                 }
-            ]
+            ],
+
+            "configurationSnippets": [
+                {
+                    "label": "Mock Debug: Launch",
+                    "description": "A new configuration for launching a mock debug program",
+                    "body": {
+                        "type": "mock",
+                        "request": "launch",
+                        "name": "${2:Launch Program}",
+                        "program": "^\"\\${workspaceRoot}/${1:Program}\""
+                    }
+                }
+            ],
+
+            "variables": {
+                "AskForProgramName": "extension.mock-debug.getProgramName"
+            }
         }]
     }
 }
 ```
 
-Now take a look at the **contributes** section which contains contributions specific to debug extensions.
+Now take a look at the **contributes** section which contains the contributions specific to debug extensions.
 
 First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled.
 
@@ -230,9 +255,9 @@ Since VS Code runs on different platforms, we have to make sure that the debug a
 
 **configurationAttributes** represents the schema for the `launch.json` attributes that are available for this debugger. This schema is used for validating the `launch.json` and supporting IntelliSense and hover help when editing the launch configuration.
 
-**initialConfigurations** represents the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the debug viewlet. In this case VS Code lets the user pick a debugger from the list of all debuggers and then creates the corresponding `launch.json`:
+**initialConfigurations** defines the initial content of the default `launch.json` for this debugger. This information is used when a project does not have a `launch.json` and a user starts a debug session or clicks on the gear icon in the debug viewlet. In this case VS Code lets the user pick a debugger from the list of all debuggers and then creates the corresponding `launch.json`:
 
-![Quickpick for ](images/example-debuggers/debug-init-config.png)
+![Debugger Quickpick](images/example-debuggers/debug-init-config.png)
 
 Instead of defining the initial content of the `launch.json` statically in the `package.json` it is possible to 'compute' the initial content with a command that is implemented in the extension.
 
@@ -244,9 +269,22 @@ In this case the value for the `initialConfigurations` attribute must be set to 
     // ...
 ```
 
-And the implementation of this command lives in `src/extension.ts` and returns the content for the `launch.json` as a string (which makes it possible to include comments and control precise formatting):
+And the implementation of this command lives in `src/extension.ts` and returns the content for the `launch.json` as a string (which makes it possible to include comments and precisely control the formatting):
 
 ```ts
+const initialConfigurations = {
+    version: '0.2.0',
+    configurations: [
+        {
+            type: 'mock',
+            request: 'launch',
+            name: 'Mock Debug',
+            program: '${workspaceRoot}/readme.md',
+            stopOnEntry: true
+        }
+    ]
+};
+
 vscode.commands.registerCommand('extension.mock-debug.provideInitialConfigurations', () => {
     return [
         '// Use IntelliSense to learn about possible Mock Debug attributes.',
@@ -255,6 +293,22 @@ vscode.commands.registerCommand('extension.mock-debug.provideInitialConfiguratio
     ].join('\n');
 });
 ```
+
+**configurationSnippets** define launch configuration snippets that get surfaced in IntelliSense when editing the `launch.json`. The `label` attribute of a snippet is prefixed by the debugger name so that it can be clearly identified when presented in a list of all snippet proposals.
+
+The **variables** contribution binds 'variables' to 'commands'. These variables can be used in the launch configuration using the **${command.Xxxx}** syntax and the variables are substituted by the value returned from the bound command when a debug session is started.
+
+The implementation of a command lives in the extension and it can range from a simple expression with no UI, to sophisticated functionality based on the UI features available in the extension API.
+Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The implementation of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
+```ts
+vscode.commands.registerCommand('extension.mock-debug.getProgramName', config => {
+    return vscode.window.showInputBox({
+        placeHolder: "Please enter the name of a markdown file in the workspace folder",
+        value: "readme.md"
+    });
+});
+```
+The variable can now be used in any string typed value of a launch configuration as **${command.AskForProgramName}**.
 
 ## Publishing your Debug Adapter
 
