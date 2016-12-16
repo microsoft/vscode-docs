@@ -67,7 +67,7 @@ The last part adds a dependency to the `vscode-languageclient` library:
 
 ```json
 "dependencies": {
-    "vscode-languageclient": "^2.2.1"
+    "vscode-languageclient": "^2.6.3"
 }
 ```
 
@@ -114,7 +114,7 @@ export function activate(context: ExtensionContext) {
 	}
 	
 	// Create the language client and start the client.
-	let disposable = new LanguageClient('Language Server Example', serverOptions, clientOptions).start();
+	let disposable = new LanguageClient('languageServerExample', 'Language Server Example', serverOptions, clientOptions).start();
 	
 	// Push the disposable to the context's subscriptions so that the 
 	// client can be deactivated on extension deactivation
@@ -132,7 +132,7 @@ The interesting section in the server's `package.json` file is:
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "^2.2.0"
+    "vscode-languageserver": "^2.6.2"
 }
 ```
 
@@ -221,7 +221,7 @@ To test the language server do the following:
 * Now go back to the VS Code instance with the extension (client) and press `kb(workbench.action.debug.start)` to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 * Create a test.txt file in the root folder and paste the following content:
 
-```bash
+```txt
 typescript lets you write JavaScript the way you really want to.
 typescript is a typed superset of JavaScript that compiles to plain JavaScript.
 Any browser. Any host. Any OS. Open Source.
@@ -388,6 +388,7 @@ The following language features are currently supported in a language server alo
 * _CodeLens_: compute CodeLens statistics for a given text document.
 * _Document Formatting_: this includes formatting of whole documents, document ranges and formatting on type.
 * _Rename_: project-wide rename of a symbol.
+* _Document Links_: compute and resolve links inside a document.
 
 The [Language Extension Guidelines](/docs/extensions/language-support.md) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
 
