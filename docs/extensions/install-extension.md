@@ -12,12 +12,11 @@ MetaDescription: Learn how to install Visual Studio Code extensions (plug-ins) f
 
 ## Install from the Marketplace
 
-The easiest way to install an extension is to use the Extensions View
-inside VS Code to query and install any extension that is published to the Visual Studio Marketplace.
+The easiest way to install an extension is to use the Extensions View inside VS Code to query and install any extension that is published to the Visual Studio Marketplace.
 
 ![extensions view](images/install-extension/extensions-view.png)
 
-You can query for extensions, sort the results, read each one's details, check out what contributions they bring into VS Code, read its Changelog, etc...
+You can query for extensions, sort the results, read each one's details, check out what contributions they bring into VS Code, and read its Changelog.
 
 Installing extensions from the Marketplace comes with the added benefit of getting update notifications when their authors publish new versions.
 
@@ -50,4 +49,5 @@ If you want to share your extension or customization with others privately, you 
 ## Next Steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
-* [Publishing Extensions](/docs/tools/vscecli.md) - Learn how to package and publish your extensions.
+* [Publishing Extensions](/docs/extensions/publish-extension.md) - Put your extension on the Marketplace.
+* [Publishing Tool Reference](/docs/tools/vscecli.md) - Learn how to package and publish your extensions.
