@@ -39,48 +39,35 @@ Depending on your platform, the user settings file is located here:
 
 The workspace setting file is located under the `.vscode` folder in your project.
 
-## Settings File Sections
-
-The `settings.json` file is divided into these sections:
-
-- **Editor** - font, word wrapping, tab size, line numbers, indentation, ...
-- **Window** - restore folders, zoom level, ...
-- **Files** - excluded file filters, default encoding, trim trailing whitespace, ...
-- **File Explorer** - encoding, **OPEN EDITORS** behavior, ...
-- **HTTP** - proxy settings
-- **Search** - file exclude filters
-- **Git** - disable Git integration, auto fetch behavior
-- **Telemetry** - disable telemetry reporting, crash reporting
-- **HTML** - HTML format configuration
-- **CSS** - CSS linting configuration
-- **JavaScript** - Language specific settings
-- **JSON** - Schemas associated with certain JSON files
-- **Markdown** - Add a custom CSS to the Markdown preview
-- **Less** - Control linting for Less
-- **SCSS** - Control linting for Sass
-- **TypeScript** - Language specific settings
-- **PHP** - PHP linter configuration
-
 ## Default Settings
 
-Below is a copy of the default `settings.json` file.
+When you open settings, we show `Default Settings` to search and discover settings you are looking for. When you search using the big Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside Default Settings and Settings editors which will help you in quickly copying or updating a setting.
 
->**Tip:** While in the `settings.json` file, press `kb(workbench.action.gotoSymbol)` to see an outline of all available settings and navigate through the file.
+![Settings Groups](images/userandworkspace/default-settings.gif)
+
+### Settings groups
+
+Default settings are represented in groups so that you can navigate them easily. It has `Most commonly used` group on the top to see the most common customizations done by VS Code users.
+
+![Settings Groups](images/userandworkspace/settings-groups.png)
+
+
+Below is a copy of the `Default Settings` that comes with VS Code.
 
 ```json
 // Overwrite settings by placing them into your settings file.
 {
 
-// Editor    
+// Editor
 
   // Controls the font family.
-  "editor.fontFamily": "Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
 
   // Controls the font weight.
   "editor.fontWeight": "normal",
 
   // Controls the font size in pixels.
-  "editor.fontSize": 14,
+  "editor.fontSize": 12,
 
   // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
   "editor.lineHeight": 0,
@@ -223,20 +210,6 @@ Below is a copy of the default `settings.json` file.
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
   "editor.formatOnSave": false,
 
-// Emmet
-
-  // When enabled, emmet abbreviations are expanded when pressing TAB.
-  "emmet.triggerExpansionOnTab": true,
-
-  // Preferences used to modify behavior of some actions and resolvers of Emmet.
-  "emmet.preferences": {},
-
-  // Define profile for specified syntax or use your own profile with specific rules.
-  "emmet.syntaxProfiles": {},
-
-  // An array of languages where emmet abbreviations should not be expanded.
-  "emmet.excludeLanguages": [],
-
 // Workbench
 
   // Controls if opened editors should show in tabs or not.
@@ -292,6 +265,9 @@ Below is a copy of the default `settings.json` file.
   // If enabled, will show the full path of opened files in the window title.
   "window.showFullPath": false,
 
+  // Adjust the appearance of the window title bar. Changes require a full restart to apply.
+  "window.titleBarStyle": "custom",
+
 // Files
 
   // Configure glob patterns for excluding files and folders.
@@ -309,7 +285,7 @@ Below is a copy of the default `settings.json` file.
   "files.encoding": "utf8",
 
   // The default end of line character.
-  "files.eol": "\r\n",
+  "files.eol": "\n",
 
   // When enabled, will trim trailing whitespace when saving a file.
   "files.trimTrailingWhitespace": false,
@@ -325,7 +301,8 @@ Below is a copy of the default `settings.json` file.
 
   // Configure glob patterns of file paths to exclude from file watching. Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
-    "**/.git/objects/**": true
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
   },
 
   // Controls whether unsaved files are restored after relaunching. If this is enabled there will be no prompt to save when exiting the editor.
@@ -398,7 +375,7 @@ Below is a copy of the default `settings.json` file.
   // Configure whether you receive automatic updates from an update channel. Requires a restart after change.
   "update.channel": "default",
 
-// CSS 
+// CSS
 
   // Controls CSS validation and problem severities.
 
@@ -789,19 +766,19 @@ Below is a copy of the default `settings.json` file.
 // Integrated Terminal
 
   // The path of the shell that the terminal uses on Linux.
-  "terminal.integrated.shell.linux": "sh",
+  "terminal.integrated.shell.linux": "/bin/zsh",
 
   // The command line arguments to use when on the Linux terminal.
   "terminal.integrated.shellArgs.linux": [],
 
   // The path of the shell that the terminal uses on OS X.
-  "terminal.integrated.shell.osx": "sh",
+  "terminal.integrated.shell.osx": "/bin/zsh",
 
   // The command line arguments to use when on the OS X terminal.
   "terminal.integrated.shellArgs.osx": [],
 
   // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
-  "terminal.integrated.shell.windows": "C:\\WINDOWS\\system32\\cmd.exe",
+  "terminal.integrated.shell.windows": "cmd.exe",
 
   // The command line arguments to use when on the Windows terminal.
   "terminal.integrated.shellArgs.windows": [],
@@ -813,7 +790,7 @@ Below is a copy of the default `settings.json` file.
   "terminal.integrated.fontLigatures": false,
 
   // Controls the font size in pixels of the terminal.
-  "terminal.integrated.fontSize": 14,
+  "terminal.integrated.fontSize": 12,
 
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1.2,
@@ -825,7 +802,7 @@ Below is a copy of the default `settings.json` file.
   "terminal.integrated.scrollback": 1000,
 
   // Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.
-  "terminal.integrated.setLocaleVariables": false,
+  "terminal.integrated.setLocaleVariables": true,
 
   // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
   "terminal.integrated.commandsToSkipShell": [
