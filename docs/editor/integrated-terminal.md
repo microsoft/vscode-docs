@@ -121,13 +121,11 @@ If no text is selected in the active editor, the entire file contents is run in 
 
 ### Copy & Paste
 
-#### Mac
+The keybindings for copy and paste follow platform standards:
 
-Copy and paste on Mac can be done using the standard keys, `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)` respectively.
-
-#### Linux & Windows
-
-Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)` respectively. 
+- Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`
+- Mac: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
+- Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
 
 ### Forcing key bindings to pass through the terminal
 
