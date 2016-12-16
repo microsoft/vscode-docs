@@ -28,8 +28,8 @@ Let's get started by creating the simplest Node.js application, "Hello World".
 Create an empty folder called "Hello", navigate into and open VS Code:
 
 ```bash
-mkdir Hello
-cd Hello
+mkdir hello
+cd hello
 code .
 ```
 
@@ -38,6 +38,7 @@ code .
 From the File Explorer tool bar, press the New File button:
 
 ![File Explorer New File](images/nodejs/toolbar-new-file.png)
+
 
 and name the file `app.js`:
 
@@ -84,9 +85,9 @@ For this walkthrough, you can use either an external terminal or the VS Code int
 
 ### Debugging Hello World
 
-As mentioned in the introduction, VS Code comes with a Node.js debugger installed. Let's try debugging our simple application.
+As mentioned in the introduction, VS Code ships with a debugger for Node.js apps. Let's try debugging our simple Hello World application.
 
-To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter next to the line numbers.  A red circle will appear in the gutter.
+To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter next to the line numbers. A red circle will appear in the gutter.
 
 ![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
 
@@ -159,11 +160,11 @@ code .
 
 The [Node.js](https://nodejs.org/api/) and [Express](http://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
 
-Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how VS Code understands what `__dirname` is. Even more exciting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
+Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how VS Code understands what `__dirname` is. Even more interesting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
-VS Code uses TypeScript definition files (for example node.d.ts) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition` you as user do not have to worry about these typings file. VS Code will install them automatically for you.
+VS Code uses TypeScript definition files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition` you as user do not have to worry about these typings file, VS Code will install them automatically for you.
 
 You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
 
