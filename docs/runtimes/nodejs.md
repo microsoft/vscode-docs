@@ -25,7 +25,7 @@ To get started in this walkthrough, [install Node.js for your platform](https://
 
 Let's get started by creating the simplest Node.js application, "Hello World".
 
-Create an empty folder called "Hello", navigate into and open VS Code:
+Create an empty folder called "hello", navigate into and open VS Code:
 
 ```bash
 mkdir hello
@@ -38,7 +38,6 @@ code .
 From the File Explorer tool bar, press the New File button:
 
 ![File Explorer New File](images/nodejs/toolbar-new-file.png)
-
 
 and name the file `app.js`:
 
@@ -85,7 +84,7 @@ For this walkthrough, you can use either an external terminal or the VS Code int
 
 ### Debugging Hello World
 
-As mentioned in the introduction, VS Code ships with a debugger for Node.js apps. Let's try debugging our simple Hello World application.
+As mentioned in the introduction, VS Code ships with a debugger for Node.js applications. Let's try debugging our simple Hello World application.
 
 To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter next to the line numbers. A red circle will appear in the gutter.
 
@@ -228,9 +227,12 @@ There is much more to explore with Visual Studio Code, please try the following 
 
 **Q: Do I need to define a `jsconfig.json` file?**
 
-**A:** Without a `jsconfig.json` file in the workspace root folder VS Code treats all files and folders as belonging to the same project context. This is sufficient for common setups. There are situations when you want to add a `jsconfig.json` file. For example, 
-- when not all JavaScript files should be part of the project context, for example, you want to exclude some files, then you can define which files to exclude in the jsconfig.json file.
-- when a workspace contains more then one project context, then you should add a `jsconfig.json` file at the root folder for each project.
-- when you are using the TypeScript compiler to down-level compile JavaScript source code.
+**A:** Without a `jsconfig.json` file in the workspace root folder, VS Code treats all files and folders as belonging to the same project context. This is sufficient for common setups. There are situations when you want to add a `jsconfig.json` file.
+
+For example:
+
+- When not all JavaScript files should be part of the project context, for example, you want to exclude some files, then you can define which files to exclude in the jsconfig.json file.
+- When a workspace contains more then one project context, then you should add a `jsconfig.json` file at the root folder for each project.
+- When you are using the TypeScript compiler to down-level compile JavaScript source code.
 
 More information about the configuration options for a `jsconfig.json` can be found in [jsconfig.json reference](/docs/languages/javascript.md#javascript-project-jsconfigjson).

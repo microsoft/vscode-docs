@@ -84,11 +84,11 @@ Here's a simple example passing different arguments to the `echo` command:
     "echoCommand": true,
     "suppressTaskName": true,
     "tasks": [
-        { 
+        {
             "taskName": "hello",
             "args": ["Hello World"]
         },
-        { 
+        {
             "taskName": "bye",
             "args": ["Good Bye"]
         }
@@ -100,7 +100,10 @@ Now when you run **Tasks: Run Task**, you will now see two tasks in the dropdown
 
 ![tasks array](images/tasks/tasks-array.png)
 
-Some `tasks.json` properties such as `showOutput` and `suppressTaskName` can be set both globally and then overridden in specific tasks. The `tasks` `args` property values are appended to the global arguments. In detail the final command line is constructed as follows: if `suppressTaskName` is `true` it is `command 'global args' 'task args'`. If `suppressTaskName` is `false` it is `command 'global args' taskName 'task args'`.
+Some `tasks.json` properties such as `showOutput` and `suppressTaskName` can be set both globally and then overridden in specific tasks. The `tasks` `args` property values are appended to the global arguments. The final command line is constructed as follows:
+
+* If `suppressTaskName` is `true`, the command line is `command 'global args' 'task args'`.
+* If `suppressTaskName` is `false`, it is `command 'global args' taskName 'task args'`.
 
 There are also `tasks` specific properties. One useful property is `isBuildCommand`, which if set to true, will run the task with the **Tasks: Run Build Task** (`kb(workbench.action.tasks.build)`) command.
 
@@ -482,16 +485,16 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 
 ## Background / Watching tasks
 
-Quite some tools support running in the background watching the file system for changes and then triggering a certain action when a file changes on disk. In `Gulp` such a functionality is provided through the npm module [gulp-watch](https://www.npmjs.com/package/gulp-watch). The TypeScript compiler `tsc` has built in support for this via the --watch command line option.
+Some tools support running in the background while watching the file system for changes and then triggering an action when a file changes on disk. With `Gulp` such functionality is provided through the npm module [gulp-watch](https://www.npmjs.com/package/gulp-watch). The TypeScript compiler `tsc` has built in support for this via the `--watch command` line option.
 
-To provide feedback in VS Code about the fact that a background task is active and produces problems a problem matcher has to provide additional information to detect these `state` changes in the output. Let take the `tsc` compiler as an example to explain this. When the compiler is started in watch mode it prints the following additional information to the console:
+To provide feedback that a background task is active in VS Code and producing problem results, a problem matcher has to use additional information to detect these `state` changes in the output. Let's take the `tsc` compiler as an example. When the compiler is started in watch mode, it prints the following additional information to the console:
 
 ```
 > tsc --watch
 12:30:36 PM - Compilation complete. Watching for file changes.
 ```
 
-When a file changes on disk which contains a problem the following output appears:
+When a file changes on disk which contains a problem, the following output appears:
 
 ```
 12:32:35 PM - File change detected. Starting incremental compilation...
@@ -501,12 +504,14 @@ src/messages.ts(276,9): error TS2304: Cannot find name 'candidate'.
 
 Looking at the output shows the following pattern:
 
-- the compiler gets active when `File change detected. Starting incremental compilation...` is printed to the console
-- the compiler gets inactive when `Compilation complete. Watching for file changes.` is printed to the console.
-- between the two strings problems are reported.
-- the compiler is `active` on initial start (e.g. without printing `File change detected. Starting incremental compilation...` to the console).
+- The compiler runs when `File change detected. Starting incremental compilation...` is printed to the console.
+- The compiler stops when `Compilation complete. Watching for file changes.` is printed to the console.
+- Between those two strings problems are reported.
+- The compiler also runs once the initial start (without printing `File change detected. Starting incremental compilation...` to the console).
 
-To capture this information a problem matcher can provide a `watching` property. For the tsc compiler this looks like follows:
+To capture this information, a problem matcher can provide a `watching` property. 
+
+For the tsc compiler, this looks like follows:
 
 ```json
 "watching": {
@@ -516,7 +521,9 @@ To capture this information a problem matcher can provide a `watching` property.
 }
 ```
 
-In addition to the `watching` property on the problem matcher the task itself as to be marked as watching using the `isWatching` property. A full handcrafted tasks.json for a tsc task running in watch mode looks like this:
+In addition to the `watching` property on the problem matcher ,the task itself has to be marked as watching using the `isWatching` property.
+
+A full handcrafted tasks.json for a tsc task running in watch mode looks like this:
 
 ```json
 {

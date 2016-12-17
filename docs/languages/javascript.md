@@ -21,7 +21,7 @@ VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code complet
 There are two more steps to configure IntelliSense across all the files in your workspace and external modules:
 
 1. Create a `jsconfig.json` file to indicate a [JavaScript project](/docs/languages/javascript.md#javascript-project-jsconfigjson).
-2. Create a `package.json` file listing dependencies so that [automatic typings acquisition](/docs/languages/javascript.md#automatic-typings-acquisition) kicks in.
+2. Create a `package.json` file listing dependencies so that [automatic type acquisition](/docs/languages/javascript.md#automatic-type-acquisition) kicks in.
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
@@ -87,7 +87,7 @@ See [here](/docs/languages/jsconfig.md) for the full documentation of `jsconfig.
 
 > **Note:** `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJS` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options.
 
-## Automatic Typings Acquisition
+## Automatic Type Acquisition
 
 VS Code JavaScript IntelliSense for third-party libraries and modules is powered by type definition `*.d.ts` files. TypeScript definition files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide rich IntelliSense.
 
