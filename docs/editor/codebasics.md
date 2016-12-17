@@ -45,7 +45,7 @@ You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Sidebar and Panel) and going to full screen. Zen mode can be toggled using the View menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. The transition to full screen can be disabled via `window.fullScreenZenMode`. Double `kb(Esc)` exits Zen Mode.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Sidebar and Panel) and going to full screen. Zen mode can be toggled using the View menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. The transition to full screen can be disabled via `window.fullScreenZenMode`. Double `kbstyle(Esc)` exits Zen Mode.
 
 ## Side by Side Editing
 

@@ -43,4 +43,4 @@ If you want to share your extension with others in the VS Code [Extension Market
 ## Next Steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
-* [Publishing Tool Refernce](/docs/tools/vscecli.md) - Learn how to package and publish your extensions.
+* [Publishing Tool Reference](/docs/tools/vscecli.md) - Learn how to package and publish your extensions.
