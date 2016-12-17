@@ -23,7 +23,7 @@ At its heart, Visual Studio Code features a lightning fast source code editor, p
 
 For serious coding, you'll often need to work with code as more than just text. Visual Studio Code includes built-in support for always-on IntelliSense code completion, rich semantic code understanding and navigation, and code refactoring.
 
-And when the going gets tough, the tough get debugging. Debugging is often the one feature from an IDE that developers crave most in a leaner coding experience, so we made it happen. Visual Studio Code includes an interactive debugger, so you can step through code, inspect variables, view call stacks, and execute commands in the console.
+And when the coding gets tough, the tough get debugging. Debugging is often the one feature from an IDE that developers crave most in a leaner coding experience, so we made it happen. Visual Studio Code includes an interactive debugger, so you can step through code, inspect variables, view call stacks, and execute commands in the console.
 
 VS Code also integrates with package managers, repositories and build tools to perform common tasks to make everyday workflows faster. VS Code understands Git, and delivers great Git workflows and source diffs integrated with the editor.
 
