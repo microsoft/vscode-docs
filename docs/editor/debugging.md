@@ -159,9 +159,9 @@ Please note: The **Run** action is always available, but not all debugger extens
 
 ## Multi-target debugging
 
-For debugging more complex scenarios involving more than one process (e.g. a client and a server), VS Code supports multi-target debugging.
+For debugging complex scenarios involving more than one process (e.g. a client and a server), VS Code supports multi-target debugging.
 
-Using multi-target debugging is very simple: after you've started a first debug session, you can just launch another session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
+Using multi-target debugging is simple: after you've started a first debug session, you can just launch another session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
 
 - The individual sessions now show up as top level elements in the CALL STACK view.<BR>![Callstack View](images/debugging/debug-callstack.png)
 - The floating debug widget shows the currently _active session_ (and all other sessions are available in a dropdown menu).<BR>![Debug Actions Widget](images/debugging/debug-actions-widget.png)
@@ -207,24 +207,18 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 ![Debug Breakpoints](images/debugging/breakpoints.png)
 
-The `Reapply All Breakpoints` command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed. (For details see below under __Node Debugging: Breakpoint Validation__)
+The `Reapply All Breakpoints` command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
 
-## Conditional breakpoints
+A powerful VS Code debugging feature is the ability to set conditions either based on expressions or hit counts.
 
-A powerful VS Code debugging feature is the ability to set conditions either based on expressions or hit counts. When you create a new breakpoint, you have the option to **Add Breakpoint** or a **Add Conditional Breakpoint**. If you add a conditional breakpoint, you have a dropdown to choose either an **Expression** or **Hit Count** condition.
+- **Expression condition**: The breakpoint will be hit whenever the expression evaluates to `true`.
+- **Hit count**: The 'hit count' controls how many times a breakpoint needs to be hit before it will 'break' execution. Whether a 'hit count' is respected and how the exact syntax of the expression looks like depends on the debugger extension used.
 
->**Note:** Not every debugger extension supports conditional breakpoints in which case you won't see the **Add Conditional Breakpoint** action.
-
-### Expression condition
-
-The breakpoint will be hit whenever the expression evaluates to `true`.
-
-### Hit count condition
-
-The 'hit count condition' controls how many times a breakpoint needs to be hit before it will 'break' execution.
-Whether a 'hit count condition' is respected and how the exact syntax of the expression looks like depends on the debugger extension used.
+You can add a condition and/or hit count either when creating the breakpoint with the **Add Conditional Breakpoint** action or with the **Edit Breakpoint...** action for existing breakpoints. In both cases an inline text box with a drop down menu opens where the expressions can be entered:
 
 ![HitCount](images/debugging/hitCount.gif)
+
+If a debugger does not support conditional breakpoints the **Add Conditional Breakpoint** action will be missing.
 
 ## Function breakpoints
 
