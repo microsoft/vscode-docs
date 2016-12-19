@@ -70,9 +70,13 @@ Here is the one generated for Node.js debugging:
 
 Please note that the attributes available in these launch configurations vary from debugger to debugger. You can use IntelliSense to find out which attributes exist for a specific debugger. In addition, hover help is available for all attributes. If you see green squigglies in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
 
-In VS Code, we support launching your app in debug mode or attaching to an already running app. Depending on the request (`attach` or `launch`) different attributes are required and our `launch.json` validation and suggestions should help with that.
+VS Code debuggers typically support launching a program in debug mode or attaching to an already running program. Depending on the request (`attach` or `launch`) different attributes are required and our `launch.json` validation and suggestions should help with that.
 
-Review the generated values and make sure that they make sense for your project and debugging environment. You can add additional configurations to the `launch.json` (use hover and IntelliSense to help).
+Review the generated values and make sure that they make sense for your project and debugging environment.
+
+To add a new configuration to an existing `launch.json` use IntelliSense if your cursor is located inside the configurations array. Or just press the **Add Configuration** button to invoke snippet IntelliSense at the start of the array.
+
+![launch json suggestions](images/debugging/add-config.gif)
 
 Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
@@ -91,26 +95,29 @@ Once a debug session starts, the **Debug actions pane** will appear on the top o
 
 ## Launch.json attributes
 
-There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned above, you can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes.
+There are many `launch.json` attributes to help support different debuggers and debugging scenarios. As mentioned above, you can use IntelliSense (`kb(editor.action.triggerSuggest)`) to see the list of available attributes once you have specified a value for the `type` attribute.
 
 ![launch json suggestions](images/debugging/launch-json-suggestions.png)
 
-Some attributes are common to most debuggers:
+The following attributes are mandatory for every launch configuration:
 
-* `type` - type of configuration which maps to the registered debug extension (`node`, `php`, `go`)
-* `request`- debug request, either to launch or attach
+* `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type, e.g. `node` and `node2` for the built-in node debuggers, or `php` and `go` for the php and go extensions.
+* `request`- the request type of this launch configuration. Currently supported are `launch` or `attach`
 * `name`- friendly name which appears in the Debug launch configuration dropdown
+
+Here are some optional attributes available to all launch configurations:
+
+* `preLaunchTask` To launch a task before the start of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
+* `internalConsoleOptions` - control visibility of the Debug Console panel during a debugging session
+* `debugServer` - **for debug extension authors only**: connect to the specified port instead of launching the debug adapter
+
+Many debuggers support some of the following attributes:
+
 * `program` - executable or file to run when launching the debugger
 * `cwd` - current working directory for finding dependencies and other files
 * `port` - port when attaching to a running process
 * `stopOnEntry` - break immediately when the program launches
-* `internalConsoleOptions` - control visibility of the Debug Console panel during a debugging session
-
-To add a new configuration use IntelliSense if your cursor is located inside the configurations array. Or just press the Add Configuration button to invoke snippet IntelliSense at the start of the array.
-![launch json suggestions](images/debugging/add-config.gif)
-
-
-To launch a task before the start of each debug session, set the `preLaunchTask` to the name of one of the tasks specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
+* `console` - what kind of console to use, e.g. `internalConsole`, `integratedTerminal`, `externalTerminal`
 
 ## Variable substitution
 
@@ -148,12 +155,13 @@ You can also reference VS Code settings using **${config.NAME}** (for example: `
 
 In addition to debugging a program, VS Code supports running the program. The **Run** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
 
-Please note: The **Run** action is always available, but a debugger extension has to 'opt-in' in order to support 'Run'. If a debugger extension has not been updated, 'Run' will fall back to 'Debug' (the built-in Node.js Debug and [Mono Debug](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug) already support 'Run').
+Please note: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case 'Run' will be the same as 'Debug'.
 
 ## Multi-target debugging
 
+For debugging more complex scenarios involving more than one process (e.g. a client and a server), VS Code supports multi-target debugging.
 
-Using multi-target debugging is very simple: after you've started a first debug session, VS Code no longer blocks you from launching another session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
+Using multi-target debugging is very simple: after you've started a first debug session, you can just launch another session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
 
 - The individual sessions now show up as top level elements in the CALL STACK view.<BR>![Callstack View](images/debugging/debug-callstack.png)
 - The floating debug widget shows the currently _active session_ (and all other sessions are available in a dropdown menu).<BR>![Debug Actions Widget](images/debugging/debug-actions-widget.png)
@@ -214,19 +222,9 @@ The breakpoint will be hit whenever the expression evaluates to `true`.
 ### Hit count condition
 
 The 'hit count condition' controls how many times a breakpoint needs to be hit before it will 'break' execution.
+Whether a 'hit count condition' is respected and how the exact syntax of the expression looks like depends on the debugger extension used.
 
-![HitCount](images/1_7/hitCount.gif)
-
-Whether a 'hit count condition' is respected and how the exact syntax of the expression looks like depends on the debugger extension used. In this milestone, only the built-in Node.js debugger supports hit counts (but we hope other debugger extensions will follow soon).
-
-The hit count syntax supported by the Node.js debugger is either an integer or one of the operators `<`, `<=`, `=`, `>`, `>=`, `%` followed by an integer.
-
-Some examples:
-
-- `>10` break always after 10 hits
-- `<3` break on the first two hits only
-- `10` same as `>=10`
-- `%2` break on every other hit
+![HitCount](images/debugging/hitCount.gif)
 
 ## Function breakpoints
 
@@ -235,12 +233,6 @@ Instead of placing breakpoints directly in source code, a debugger can support c
 A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header:
 
 ![function breakpoint](images/debugging/function-breakpoint.gif)
-
-**Please note**: Function breakpoints support is limited because:
-
-- Not every debug extension supports function breakpoints (the Node.js debugger in VS Code does).
-- Function breakpoints only work for global, non-native functions.
-- Function breakpoints can only be created if the function has been defined (seen by the debugger).
 
 ## Data inspection
 
