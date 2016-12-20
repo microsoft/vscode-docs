@@ -102,12 +102,12 @@ There are many `launch.json` attributes to help support different debuggers and 
 The following attributes are mandatory for every launch configuration:
 
 * `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type, e.g. `node` and `node2` for the built-in node debuggers, or `php` and `go` for the php and go extensions.
-* `request`- the request type of this launch configuration. Currently supported are `launch` or `attach`
-* `name`- friendly name which appears in the Debug launch configuration dropdown
+* `request` - the request type of this launch configuration. Currently supported are `launch` and `attach`
+* `name` - friendly name which appears in the Debug launch configuration dropdown
 
 Here are some optional attributes available to all launch configurations:
 
-* `preLaunchTask` To launch a task before the start of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
+* `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
 * `internalConsoleOptions` - control visibility of the Debug Console panel during a debugging session
 * `debugServer` - **for debug extension authors only**: connect to the specified port instead of launching the debug adapter
 
@@ -134,8 +134,7 @@ VS Code supports variable substitution inside strings in `launch.json` and has t
 - **${cwd}** the task runner's current working directory on startup
 
 
-You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `${env.Path}` on Windows.
-
+You can also reference environment variables through **${env.Name}** syntax (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `${env.Path}` on Windows.
 
 ```json
 {
@@ -149,7 +148,7 @@ You can also reference environment variables through **${env.Name}** (e.g. ${env
 }
 ```
 
-You can also reference VS Code settings using **${config.NAME}** (for example: `${config.editor.fontSize}`).
+You can also reference VS Code settings using **${config.NAME}** syntax (for example: `${config.editor.fontSize}`).
 Some debug extensions even introduce additional command variables that can be referenced as **${command.NAME}**.
 
 ## Run mode
@@ -446,6 +445,16 @@ In VS Code, set the `restart` attribute to `true` in the 'attach' launch configu
 The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. Specify a remote host via the `address` attribute.
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
+
+## Restart Frame (`node`)
+
+The Node debugger supports restarting execution at a stack frame. This can be useful in situations where you have found a problem in your source code and you want to rerun a small portion of the code with modified input values. Stopping and then restarting the full debug session can be very time-consuming. The **Restart Frame** action allows you to re-enter the current function after you have changed variables with the **Set Value** action:
+
+![Restart Frame](images/debugging/restartFrame.gif)
+
+Note that **Restart Frame** won't unroll any state changes, so it may not always work as expected.
+
+Make sure to use a Node.js version >= 5.11 since earlier versions do not work in all situations.
 
 ## Breakpoints
 
