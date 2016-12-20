@@ -150,6 +150,7 @@ You can also reference environment variables through **${env.Name}** (e.g. ${env
 ```
 
 You can also reference VS Code settings using **${config.NAME}** (for example: `${config.editor.fontSize}`).
+Some debug extensions even introduce additional command variables that can be referenced as **${command.NAME}**.
 
 ## Run mode
 
@@ -280,29 +281,35 @@ We try to keep feature parity between both node debuggers but this becomes more 
 
 ## Launch Configuration attributes
 
-Common attribute:
+The following attributes are supported in launch configurations of type `launch` and `attach`:
 
-* `port` - debug port to use
-* `stopOnEntry` - break immediately when the program launches
-* `console` - the kind of console to use, e.g. `internalConsole`, `integratedTerminal`, `externalTerminal`. See section 'Node Console' below.
-* `restart` -
-* `timeout` -
+* `port` - debug port to use. See sections 'Attaching to Node.js' and 'Remote Debugging Node.js'.
+* `address` - TCP/IP address of the debug port. See sections 'Attaching to Node.js' and 'Remote Debugging Node.js'.
+* `restart` - restart session on termination. See section 'Attaching to Node.js'.
+* `timeout` - when restarting a session give up after this number of milliseconds. See section 'Attaching to Node.js'.
+* `stopOnEntry` - break immediately when the program launches.
+* `sourceMaps` - enable source maps by setting this to `true`. See section 'Source Maps'.
+* `outFiles` - array of glob patterns where to look for JavaScript files. See section 'Source Maps'.
+* `smartStep`- try to automatically step over code that doesn map to source. See section 'Smart Stepping'.
+* `skipFiles` - automatically skip files covered by these glob patterns. See section 'Skipping Uninteresting Code'.
+* `trace` - enable diagnostic output. Set to `"all"` for verbose output.
 
-'Launch' attributes:
+These attributes are only available for launch configurations of type `launch`:
 
-* `program` - executable or file to run when launching the debugger
-* `runtimeExecutable` - xxxxx
-* `runtimeArgs` - xxxxx
-* `env` -
-* `cwd` - current working directory for finding dependencies and other files
+* `program` - an absolute path to the node program to debug.
+* `args` - arguments passed to the program to debug.
+* `cwd` - launch the program to debug in this directory.
+* `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section 'Launch configuration support for 'npm' and other tools'.
+* `runtimeArgs` - optional arguments passed to the runtime executable.
+* `env` - optional environment variables.
+* `envFile` - optional path to a file containing environment variable definitions.
+* `console` - kind of console to launch the program, e.g. `internalConsole`, `integratedTerminal`, `externalTerminal`. See section 'Node Console' below.
 
+These attributes are only available for launch configurations of type `attach`:
 
-'Attach' attributes:
-
-* `address` - See sections 'Attaching to Node.js' and 'Remote Debugging Node.js' below.
-* `localRoot` - See sections 'Remote Debugging Node.js' below.
-* `remoteRoot` - See sections 'Remote Debugging Node.js' below.
-
+* `localRoot` - VS Code's root directory. See sections 'Remote Debugging Node.js' below.
+* `remoteRoot` - Node's root directory. See sections 'Remote Debugging Node.js' below.
+* `processId` - debugger tries to attach to this process after having sent a USR1 signal. With this the debugger can attach to an already running process that was not started in debug mode.
 
 ## Node Console
 
@@ -375,15 +382,11 @@ empty=
 lines="foo\nbar"
 ```
 
-## Command variables
+## Command variable `PickProcess` (`node`)
 
-VS Code supports variable substitution in `launch.json` configurations. An advanced type of variable is one that is bound to a VS Code _command_. When a debug session is started, all command variables that occur in the underlying launch configuration are first collected and then executed. Before the launch configuration is passed to the debug adapter, all variables are substituted with the command results.
+Node debug supports a command variable `PickProcess` that binds to a process picker.
 
-A command is implemented and registered in an extension and its return value is used as the variable's value. The implementation of a command can range from a simple expression with no UI, to some sophisticated functionality based on the UI features available in the extension API.
-
-An example of this functionality can be found in `node-debug`. Here a variable `${command.PickProcess}` is bound to a process picker command.
-
-For example the 'Attach to Process' launch configuration below uses the variable to let the user pick a Node.js process when running the launch configuration.
+For example the 'Attach to Process' launch configuration below uses this variable to let the user pick a Node.js process when running the launch configuration.
 
 ```json
 {
@@ -448,7 +451,7 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
 
 ## Function breakpoints
 
-Support for function breakpoints in node debugging is limited because:
+Node debug supports function breakpoints but their usefulness is limited because:
 
 - Function breakpoints only work for global, non-native functions.
 - Function breakpoints can only be created if the function has been defined (and has been seen by the debugger).
@@ -518,13 +521,20 @@ In the following (`node`-only) example all but a 'math' module is skipped:
 >**Note:** The old debugger (`node`) has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
 
 
-## JavaScript Source Maps
+## Source Maps
 
-The Node.js debugger of VS Code supports JavaScript Source Maps which help debugging of transpiled languages, e.g. TypeScript or minified/uglified JavaScript. With source maps, it is possible to single step through or set breakpoints in the original source. If no source map exists for the original source or if the source map is broken and cannot successfully map between the source and the generated JavaScript, the breakpoints are shown as gray hollow circles.
+The Node.js debugger of VS Code supports JavaScript Source Maps which help debugging of transpiled languages, e.g. TypeScript or minified/uglified JavaScript. With source maps, it is possible to single step through or set breakpoints in the original source. If no source map exists for the original source or if the source map is broken and cannot successfully map between the source and the generated JavaScript, then breakpoints show up as unverified (gray hollow circles).
 
-The source map feature is enabled by setting the `sourceMaps` attribute to `true` in the launch configuration. With that you can now specify a source file (e.g. app.ts) with the `program` attribute. If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory, you can help the VS Code debugger locate them by setting the `outFiles` attribute. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source, and the associated source map, in the `outFiles`.
+Source maps can be generated with two kinds of inlining:
 
-Since source maps are not automatically created, you must configure the TypeScript compiler to create them:
+* _Inlined source maps_: the generated JavaScript file contains the source map as a data URI at the end (instead of referencing the source map through a file URI).
+* _Inlined source_: the source map contains the original source (instead of referencing the source through a path).
+
+VS Code supports both the _inlined source maps_ and the _inlined source_.
+
+The source map feature is enabled by setting the `sourceMaps` attribute to `true` in the launch configuration. With that you can now specify a source file (e.g. app.ts) with the `program` attribute. If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory, you must help the VS Code debugger locating them by setting the `outFiles` attribute. This attribute takes multiple glob patterns for including and excluding files from the set of generated JavaScript files. Whenever you set a breakpoint in the original source, VS Code tries to find the generated JavaScript code in the files specified by `outFiles`.
+
+Since source maps are not automatically created, you must configure the transpiler you are using to create them. For TypeScript this can be done in the follwoing way:
 
 ```
 tsc --sourceMap --outDir bin app.ts
@@ -547,13 +557,6 @@ This is the corresponding launch configuration for a TypeScript program:
     ]
 }
 ```
-
-Source maps can be generated with two kinds of inlining:
-
-* **Inlined source maps**: the generated JavaScript file contains the source map as a data URI at the end (instead of referencing the source map through a file URI).
-* **Inlined source**: the source map contains the original source (instead of referencing the source through a path).
-
-VS Code supports both the **inlined source maps** and the **inlined source**.
 
 ### Smart Stepping
 
