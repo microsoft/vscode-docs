@@ -10,9 +10,9 @@ Author: Jonathan Carter
 
 # Node.js Development with Visual Studio Code and Azure
 
-Between Visual Studio Code and Azure, we're trying to contribute to simplifying and improving the overall developer experience of building, debugging and deploying Node.js applications. At [Node Interactive North America 2016](events.linuxfoundation.org/events/node-interactive), I was excited to be able to demo some of the work we've been doing recently based on community feedback, and this article tries captures that demo workflow for folks who are interested in trying it out and/or are looking for a little more detail than I was able to cover in my talk.
+Between Visual Studio Code and Azure, we're trying to contribute to simplifying and improving the overall developer experience of building, debugging and deploying Node.js applications. At [Node Interactive North America 2016](events.linuxfoundation.org/events/node-interactive), I was excited to be able to demo some of the work we've been doing recently based on community feedback, and this article tries to capture that workflow for folks who are interested in trying it out and/or are looking for a little more detail than I was able to cover in my talk.
 
-The demo makes use of a simple todo app created by and published by [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular). It is a single-page MEAN app, and therefore, uses MongoDB as its database, Node/Express for the REST API/web server and Angular.js 1.x for the front-end UI. Use the following ToC to jump to particular sections of interest, otherwise continue reading ahead.
+The demo makes use of a simple todo app created by and published by [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular). It is a single-page MEAN app, and therefore, uses MongoDB as its database, Node/Express for the REST API/web server and Angular.js 1.x for the front-end UI. Use the following ToC to jump to particular sections of interest, otherwise, continue reading ahead.
 
 * [Pre-requisites](#pre-requisites)
 * [Project Setup](#project-setup)
@@ -31,11 +31,11 @@ The demo makes use of a simple todo app created by and published by [Scotch.io](
 
 ## Pre-requisites
 
-In order to effectively run through this demo, you need to have the following software installed:
+In order to effectively run through this demo, you'll need to have the following software installed:
 
 1. Visual Studio Code Insiders Build, which you can download [here](https://code.visualstudio.com/insiders). You don't technically need the insiders build, however, I would encourage everyone to use it since it provides access to the latest bug fixes/feature enhancements (just like Chrome Canary builds), and is the same build that the VS Code team uses.
 
-2. Docker, which can be downloaded [here](https://www.docker.com/products/docker). Additionally, you will need to have a DockerHub account in order to publish the Docker images that will be created in the walkthrough.
+2. Docker, which can be downloaded [here](https://www.docker.com/products/docker). Additionally, you will need to have a [DockerHub](https://hub.docker.com/) account in order to publish the Docker images that will be created in the walkthrough.
 
 3. Azure CLI 2.0 preview, which provides installation instructions [here](https://github.com/Azure/azure-cli#installation). Additionally, you will need an Azure account, and be logged in with the Azure CLI by running `az login` and following the interactive login.
 
@@ -61,7 +61,7 @@ To get started, we need to grab the todo sample project so we can start playing 
 
     <img src="images/Explorer.png" width="150px" />
 
-Alternatively, you could use the Git CLI to clone the sample repo, however, this exercise helps illustrate some of the productivity enhancers that VS Code provides by means of the command pallete. I'd encourage you to hit `CMD+Shift+P` and browse the various commands it (and installed extensions) provides, in order to identify what else you can do.
+Alternatively, you could use the Git CLI to clone the sample repo, however, this exercise helps illustrate some of the productivity enhancers that VS Code provides by means of the command palette. I'd encourage you to hit `CMD+Shift+P` and browse the various commands it (and any installed extensions) provides, in order to identify what else you can do.
 
 ## Integrated Terminal
 
@@ -69,14 +69,13 @@ Since this is a Node.js project, the first thing we need to do is ensure that al
 
 <img src="images/Terminal.png" width="400px" />
 
-Since VS Code wants to fit naturally into your existing workflow, it's up to you to decide if and when the integrated terminal is useful. I find that if I'm running VS Code full-screen (especially with the new Zen mode!), it's nice to be able to use the integrated terminal for simple/one-off 
-commands. Whereas if I'm doing something more "sophisticated", I'll just switch to a full-screen version of Hyper. Choice and flexibility is key here.
+Since VS Code wants to fit naturally into your existing workflow, it's up to you to decide if and when the integrated terminal is useful. I find that if I'm running VS Code full-screen (especially with the new Zen mode!), it's nice to be able to use the integrated terminal for simple/one-off commands. Whereas if I'm doing something more "sophisticated", I'll just switch to a full-screen version of Hyper. Choice and flexibility is key here.
 
 ## Integrated Git version control
 
 Installing the app's dependencies via Yarn resulted in a `yarn.lock` file being generated, which provides a predictable way to re-acquire the exact same dependencies in the future, without any surprises in either CI builds, production deployments or other devloper's machines.
 
-It is encouraged that this file be checked into source control, and to do this, we can easily switch to the integrated Git tab in VS Code (the one with the Git logo), and notice the newly added file. We can type in a commit message, and type `CMD+Enter` (or click the checkmark icon) in order to stage/commit the change locally.
+It is encouraged that this file be checked into source control, and to do this, you can easily switch to the integrated Git tab in VS Code (the one with the Git logo), and notice the newly added file. You can type in a commit message, and type `CMD+Enter` (or click the checkmark icon) in order to stage/commit the change locally.
 
 <img src="images/Git.png" width="250px" />
 
@@ -86,9 +85,9 @@ Behind the scenes, this is simply automating the same Git CLI commands you would
 
 ## Project / Code navigation
 
-In order to orient ourselves within the codebase, let's play around with some examples of some of the navigation capabilities within VS Code.
+In order to orient ourselves within the codebase, let's play around with some examples of some of the navigation capabilities that VS Code provides:
 
-1. Type `CMD+P` and enter `.js`, which let's you  see all of the JavaScript/JSON files in the project, along with the directory they're within. Once again, this dialog supports the same "fuzzy search" as the command palette, so it's pretty flexible.
+1. Type `CMD+P` and enter `.js`, which let's you see all of the JavaScript/JSON files in the project, along with the directory they're within. Once again, this dialog supports the same "fuzzy search" as the command palette, so it's pretty flexible.
 
     <img src="images/FilePicker.png" width="250px" /><br />
 
@@ -102,7 +101,7 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
     <img src="images/WordHighlight.png" width="250px" />
 
-5. Beyond quickly inspecting variable types on hover, you can also inspect the definition of a variable, even if it's in another file!. For example, right-click on `database.localUrl` on line 12, and select `Peek Definition`, which let's us quickly see how the app is configured to connect to MongoDB by default.
+5. Beyond quickly inspecting variable types on hover, you can also inspect the definition of a variable, even if it's in another file! For example, right-click on `database.localUrl` on line 12, and select `Peek Definition`, which let's us quickly see how the app is configured to connect to MongoDB by default.
 
     <img src="images/CodePeek.png" width="550px" />
 
@@ -131,7 +130,7 @@ This works because VS Code uses TypeScript behind the scenes (even for JavaScrip
 In addition to the built-in Node.js APIs, this auto-acquisition of typings also works for over 2,000 3rd party libraries, such as React, Underscore and Express. For example, in order to disable Mongoose from crashing the sample app if it can't connect to the configured MongoDB database instance, add the following line of code to line 13:
 
 ```javascript
-mongoose.connection.on("error", () => {});
+mongoose.connection.on("error", () => { console.log("DB connection error"); });
 ```
 
 When typing that, you'll notice that you get completion, once again, without needing to do anything.
@@ -142,7 +141,7 @@ You can see which libraries support this auto-complete capability by browsing th
 
 ## Running The App
 
-Now that we've explored and tweaked this app a bit, now is time to run it. To do this, simply type `F5` to run the app. Because this is the first time we've ever run it, we're asked to specify the type of run configuration we want to use:
+Now that we've explored and tweaked this app a bit, now is time to run it. To do this, simply hit `F5` to run the app. Because this is the first time we've ever tried to run it, we're asked to specify the type of "run configuration" we want to use:
 
 <img src="images/DebugConfig.png" width="400px" />
 
@@ -176,17 +175,17 @@ With that set, go back to the running app and add a todo. This immediately cause
 
 <img src="images/Debugger.png" width="300px" />
 
-Within the paused file, we cover hover over expressions to view their current value, inspect the locals/watches and call stack, and use the debug toolbar at the top to step through the execution. All the things you would expect from an IDE, but in a lightweight text editor. Hit `F5` again to continue execution of the app.
+Within the paused file, we can hover over expressions to view their current value, inspect the locals/watches and call stack, and use the debug toolbar at the top to step through the execution. All the things you would expect from an IDE, but in a lightweight text editor. Hit `F5` again to continue execution of the app.
 
 ## Full Stack Debugging
 
-As mentioned, this is a MEAN app, which means it's front-end and back-end are both written using JavaScript. So while we're currently debugging our back-end Node/Express code, we may need to also be able to debug our front-end/Angular code. Fortunately, VS Code has a huge ecosystem of extensions, which are easy to install, including integrated Chrome debugging.
+As mentioned, this is a MEAN app, which means it's front-end and back-end are both written using JavaScript. So while we're currently debugging our back-end Node/Express code, at some point, we may need to debug our front-end/Angular code. Fortunately, VS Code has a huge ecosystem of extensions, which are easy to install, including integrated Chrome debugging.
 
 To demonstrate this, switch to the extensions tab and type `chrome` into the search box:
 
 <img src="images/Chrome.png" width="300px" />
 
-Select the extension named `Debugger for Chrome` and click the `Install` button. After doing this, you'll need to reload VS Code to activate the extension. It will persist your workspace across the restart so don't worry.
+Select the extension named `Debugger for Chrome` and click the `Install` button. After doing this, you'll need to reload VS Code to activate the extension. It will persist your workspace across the restart so don't worry about losing any state.
 
 Type `CTRL+P`, enter/select `launch.json` and replace the contents of that file with the following:
 
@@ -222,11 +221,11 @@ Type `CTRL+P`, enter/select `launch.json` and replace the contents of that file 
 
 This change does two things:
 
-1. Adds a new run configuration for Chrome, which will allow us to debug our front-end JavaScript code. You can hover your mouse over any of the settings that are specified to view documentation about what they do.
+1. Adds a new run configuration for Chrome, which will allow us to debug our front-end JavaScript code. You can hover your mouse over any of the settings that are specified to view documentation about what they do. Nice!
 
 2. Adds a "compound" run configuration, which will allow us to debug our front and back-end code at the same time! The compound configuration concept is really powerful, as we'll discuss later!
 
-To see this in action, switch to the debug tab in VS Code, and change the selected configuration to "Full-Stack" (which is what we called the compound config), and then hit `F5` to run it.
+To see this in action, switch to the debug tab in VS Code, and change the selected configuration to "Full-Stack" (which is what we called the compound config, you can name it anything you want), and then hit `F5` to run it.
 
 <img src="images/FullStackProfile.png" width="200px" />
 
@@ -244,11 +243,11 @@ Just like with the Node.js debugging, you can hover over expressions, view local
 
 2. You can step between front and back-end code! To test this, simply hit `F5`, which will run execution and hit the breakpoint we previously set in our Express route.
 
-With this setup, we can no effeciently debug front, back or full-stack JavaScript code directly within VS Code. Going further, the compound debugger concept isn't limited to just two target processes, and also isn't just limited to JavaScript, so if you're working on a micro-service app, that is potentially polyglot, you can use the exact same workflow we did above, once you've installed the neccesary extensions (e.g. Go, Ruby, PHP).
+With this setup, we can now effeciently debug front, back or full-stack JavaScript code directly within VS Code. Going further, the compound debugger concept isn't limited to just two target processes, and also isn't just limited to JavaScript, so if you're working on a micro-service app, that is potentially polyglot, you can use the exact same workflow we did above, once you've installed the neccesary extensions (e.g. Go, Ruby, PHP).
 
 ## Dockererizing Your App
 
-Speaking of microservices, let's take a look at the experience that VS Code provides for developing with Docker. Many Node.js devs are using Docker for providing predictable app deployments for both development, CI and production environments. That said, we've heard lots of feedback that while the benefits of Docker are extremely high, the learning curve and cost of getting started can be fairly high. VS Code provides an extension that tries to help simplify some of that onboarding!
+Speaking of microservices, let's take a look at the experience that VS Code provides for developing with Docker. Many Node.js devs are using Docker for providing portable app deployments for both development, CI and production environments. That said, we've heard lots of feedback that while the benefits of Docker are extremely high, the learning curve and cost of getting started can also be fairly high. VS Code provides an extension that tries to help simplify some of that onboarding!
 
 Switch back to the extensions tab, search for `docker` and select the `Docker Support` extension. Install it and then reload VS Code, just like we did for the Chrome extension above.
 
@@ -278,7 +277,7 @@ With your cusor after the `t` in `mhart`, hit `CTRL+Space` to view all of the im
 
 <img src="images/DockerCompletion.png" width="300px" />
 
-Select `mhart/aline-node`, which a very efficient and small Linux distro and provides everything that this app needs, without any additional bloat. Smaller images are typically better since you want your app builds and deployments to be as fast as possible!
+Select `mhart/aline-node`, which a very efficient and small Linux distro and provides everything that this app needs, without any additional bloat (Alpine Linux is great for Docker!). Smaller images are typically better since you want your app builds and deployments to be as fast as possible, which makes distribution/scaling/etc. quick.
 
 Now that we have our `Dockerfile`, we need to build the actual Docker image. Once again, we can use a command that the Docker extension installed, by typing `CMD+Shift+P` and entering `dockerb` (using "fuzzy search"). Select the `Docker: Build Image` command, choose the `/Dockerfile` that we just generated/edited, and then give a tag to the image which includes your DockerHub username (e.g. `lostintangent/node`). Hit `<ENTER>`, which will launch the integrated terminal window and display the output of your Docker image being built.
 
@@ -304,15 +303,17 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
     az group create -n nina-demo -l westus
     ```
 
-    *Note: The `-l` flag indicates the location of the resource group. If you aren't located on the Western US coast, then hit `<TAB>` after typing `-l` and the Azure CLI will provide you with a list of available regions.*
+    *Note: The `-l` flag indicates the location of the resource group. If you aren't located on the Western US region, then hit `<TAB>` after typing `-l` and the Azure CLI will provide you with a list of available regions.*
 
-2. Create the App Service plan, which will manage creating and scaling the underlying VMs that your app is deployed to. Once again, specify any value that you'd like for the name flag, however, make sure that the `-g` flag references the name that you gave to the resource group.
+2. Create the App Service plan, which will manage creating and scaling the underlying VMs that your app is deployed to. Once again, specify any value that you'd like for the name flag, however, make sure that the `-g` flag references the name that you gave to the resource group above.
 
     ```shell
     az appservice plan create -n nina-demo -g nina-demo --is-linux
     ```
+    
+    *Note: The `--is-linux` flag is key, since that is what indicates that you want Linux-based VMs. Without it, the CLI will provision Windows-based VMs.*
 
-3. Create the App Service web app, which represents the todo app that will be running within the plan and resource group we just created:
+3. Create the App Service web app, which represents the todo app that will be running within the plan and resource group we just created. You can roughly think of a web app as being synonomous with a process or container, and the plan as being the VM/container host that they're running on.
 
     ```shell
     az appservice web create -n nina-demo -p nina-demo -g nina-demo
@@ -338,7 +339,7 @@ Yay! We just deployed our app. However, the spinning icon indicates that the app
 
 ## Using DocumentDB
 
-While we could setup a MongoDB server, or replica set, and manage that infrastructure ourselves, Azure provides another solution called DocumentDB. DocumentDB is a fully-managed, NoSQL database, which provides a MongoDB-compatibility layer. This means that you can point an existing MEAN app at it, without needing to change anything but the connection string! Let's take a look at how using it looks, using the Azure portal this time, instead of the CLI.
+While we could setup a MongoDB server, or replica set, and manage that infrastructure ourselves, Azure provides another solution called DocumentDB. DocumentDB is a fully-managed, geo-replicable, high-performance, NoSQL database, which provides a MongoDB-compatibility layer. This means that you can point an existing MEAN app at it, without needing to change anything but the connection string! Let's take a look at how using it looks, using the Azure portal this time, instead of the CLI.
 
 1. Go to portal.azure.com and log into the same account you were using in the CLI.
 
@@ -366,13 +367,15 @@ Return to the `All Resources` page within the portal, and navigate to the `App S
 
 <img src="images/AppSettings.png" width="400px" />
 
-Hit the `Save` button, and then return to your browser and refresh it. Try adding and removing a todo item, to prove that the app now works without needing to change anything! We simply set the environment variable to our created DocDB instance, which is fully emulating a MongoDB database.
+Hit the `Save` button, and then return to your browser and refresh it. Try adding and removing a todo item, to prove that the app now works without needing to change anything! We simply set the environment variable to our created DocumentDB instance, which is fully emulating a MongoDB database.
 
 <img src="images/FinishedDemo.png" width="400px" />
 
 When needed, we could switch back to the DocumentDB instance, and scale up (or down) the reserved throughput that our MongoDB instance needs, and benefit from the added traffic without needing to manage any infrastructure manually.
 
 <img src="images/DocDBScale.png" width="300px" />
+
+Additionally, DocumentDB automatically indexes every single document and property for you, so you don't need to worry about  profiling slow queries and/or manually fine-tuning your indexes. Just provision and scale as needed, and let DocumentDB handle the rest!
 
 ## Clean-up
 
@@ -382,12 +385,12 @@ To ensure that you don't get charged for any Azure resources you aren't using, s
 az group delete -n nina-demo
 ```
 
-This will take a few minutes to complete, but when done, will leave your Azure account in the same state as it was before we started. This ability to organize, deploy and delete Azure resources as a single unit is one of the primary benefits of resource groups in the first place, so in the future, if you use Azure, I would recommend grouping resources together that you'd expect to have the same lifecycle.
+This will take a few minutes to complete, but when done, will leave your Azure account in the same state as it was before we started. This ability to organize, deploy and delete Azure resources as a single unit is one of the primary benefits of resource groups in the first place, so in the future, if you use Azure, I would recommend grouping resources together that you'd expect to have the same lifetime.
 
 ## Conclusion
 
-Hopefully this demo illustrated some of the ways that Visual Studio Code is trying to help improve the overall Node.js development experience. Between debugging, that supports full-stack and microservices, a rich authoring experience that provides navigation and auto-completion without any further configuration, and a large ecosystem of extensions such as Docker, that can enhance your feedback loop for other app types and practices, we're excited to keep evolving what productivity can look like from within a lightweight editor.
+Hopefully this demo illustrated some of the ways that Visual Studio Code is trying to help improve the overall Node.js development experience. Between debugging that supports full-stack and microservices, a rich authoring experience that provides navigation and auto-completion without any further configuration, and a large ecosystem of extensions such as Docker, that can enhance your feedback loop for other app types and practices, we're excited to keep evolving what productivity can look like from within a lightweight editor.
 
-Additionally, between App Service and DocumentDB, we're trying to provide a productive and low-management cloud stack for MEAN apps that can scale as needed, without introducing additional infrastructure complexity.
+Additionally, between the Azure CLI, App Service and DocumentDB, we're trying to provide a productive and low-management cloud stack for Node.js/MEAN apps that can scale as needed, without introducing additional infrastructure complexity.
 
 Beyond simply providing a walkthrough of the NINA 2016 demo, we hope to use this demo to continue iterating on the overall Node.js experience in both VS Code and Azure, so we can make it simpler and more flexible. If you have any questions or feedback for how we can improve things, please don't hesitate to file an issue on this repo or send me an [e-mail](mailto:joncart@microsoft.com). Thanks!
