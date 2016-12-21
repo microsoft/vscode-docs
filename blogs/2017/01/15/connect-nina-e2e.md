@@ -23,7 +23,7 @@ The demo makes use of a simple todo app created by and published by [Scotch.io](
 * [Running The App](#running-the-app)
 * [Integrated Debugging](#debugging)
 * [Full Stack Debugging](#full-stack-debugging)
-* [Dockerizing Your App](#dockererizing-your-app)
+* [Dockerizing Your App](#dockerizing-your-app)
 * [Deploying Your App](#deploying-your-app)
 * [Using DocumentDB](#using-documentdb)
 * [Clean-up](#clean-up)
@@ -47,7 +47,7 @@ Additionally, since the demo app uses MongoDB, you need to have a locally runnin
 
 To get started, we need to grab the todo sample project so we can start playing around with it. To do this, perform the following steps:
 
-1. Open up Visual Studio Code, and type `CMD+Shift+P` to bring up the command pallete *(or alternatively, select `Command Palette...` from the `View` menu)*
+1. Open up Visual Studio Code, and type `F1` to bring up the command pallete *(or alternatively, select `Command Palette...` from the `View` menu)*
 
 2. Type `gitcl` to find the `Git: Clone` command and hit `<ENTER>`.
 
@@ -61,7 +61,7 @@ To get started, we need to grab the todo sample project so we can start playing 
 
     <img src="images/Explorer.png" width="150px" />
 
-Alternatively, you could use the Git CLI to clone the sample repo, however, this exercise helps illustrate some of the productivity enhancers that VS Code provides by means of the command palette. I'd encourage you to hit `CMD+Shift+P` and browse the various commands it (and any installed extensions) provides, in order to identify what else you can do.
+Alternatively, you could use the Git CLI to clone the sample repo, however, this exercise helps illustrate some of the productivity enhancers that VS Code provides by means of the command palette. I'd encourage you to hit `F1` and browse the various commands it (and any installed extensions) provides, in order to identify what else you can do.
 
 ## Integrated Terminal
 
@@ -171,6 +171,8 @@ Let's set a breakpoint on line 28, which represents the Express route that will 
 
 <img src="images/Breakpoint.png" width="300px" />
 
+*Note: In addition to standard breakpoints, VS Code also supports conditional breakpoints, which allow you to customize when the app should suspend execution. To use them, simply right-click the gutter, select `Add Conditional Breakpoint...`, and specify either the JavaScript expression (e.g. `foo = "bar"`) or hit count that you'd like to condition the breakpoint on.*
+
 With that set, go back to the running app and add a todo. This immediately causes the app to suspend execution, and VS Code will pause on line 28 where we set the breakpoint:
 
 <img src="images/Debugger.png" width="300px" />
@@ -245,7 +247,7 @@ Just like with the Node.js debugging, you can hover over expressions, view local
 
 With this setup, we can now effeciently debug front, back or full-stack JavaScript code directly within VS Code. Going further, the compound debugger concept isn't limited to just two target processes, and also isn't just limited to JavaScript, so if you're working on a micro-service app, that is potentially polyglot, you can use the exact same workflow we did above, once you've installed the neccesary extensions (e.g. Go, Ruby, PHP).
 
-## Dockererizing Your App
+## Dockerizing Your App
 
 Speaking of microservices, let's take a look at the experience that VS Code provides for developing with Docker. Many Node.js devs are using Docker for providing portable app deployments for both development, CI and production environments. That said, we've heard lots of feedback that while the benefits of Docker are extremely high, the learning curve and cost of getting started can also be fairly high. VS Code provides an extension that tries to help simplify some of that onboarding!
 
@@ -253,7 +255,7 @@ Switch back to the extensions tab, search for `docker` and select the `Docker Su
 
 <img src="images/DockerSearch.png" width="300px" />
 
-This extension includes many things, one of which is a simple command for generating a `Dockerfile` and `docker-compose.yml` file for an existing project. To see this in action, type `CMD+Shift+P` (to bring up the command palette) and type `docker` to display all of the commands that the Docker extension provides:
+This extension includes many things, one of which is a simple command for generating a `Dockerfile` and `docker-compose.yml` file for an existing project. To see this in action, type `F1` (to bring up the command palette) and type `docker` to display all of the commands that the Docker extension provides:
 
 <img src="images/DockerCommands.png" width="300px" />
 
@@ -279,7 +281,7 @@ With your cusor after the `t` in `mhart`, hit `CTRL+Space` to view all of the im
 
 Select `mhart/aline-node`, which a very efficient and small Linux distro and provides everything that this app needs, without any additional bloat (Alpine Linux is great for Docker!). Smaller images are typically better since you want your app builds and deployments to be as fast as possible, which makes distribution/scaling/etc. quick.
 
-Now that we have our `Dockerfile`, we need to build the actual Docker image. Once again, we can use a command that the Docker extension installed, by typing `CMD+Shift+P` and entering `dockerb` (using "fuzzy search"). Select the `Docker: Build Image` command, choose the `/Dockerfile` that we just generated/edited, and then give a tag to the image which includes your DockerHub username (e.g. `lostintangent/node`). Hit `<ENTER>`, which will launch the integrated terminal window and display the output of your Docker image being built.
+Now that we have our `Dockerfile`, we need to build the actual Docker image. Once again, we can use a command that the Docker extension installed, by typing `F1` and entering `dockerb` (using "fuzzy search"). Select the `Docker: Build Image` command, choose the `/Dockerfile` that we just generated/edited, and then give a tag to the image which includes your DockerHub username (e.g. `lostintangent/node`). Hit `<ENTER>`, which will launch the integrated terminal window and display the output of your Docker image being built.
 
 <img src="images/DockerBuild.png" width="300xp" />
 
@@ -303,12 +305,12 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
     az group create -n nina-demo -l westus
     ```
 
-    *Note: The `-l` flag indicates the location of the resource group. If you aren't located on the Western US region, then hit `<TAB>` after typing `-l` and the Azure CLI will provide you with a list of available regions.*
+    *Note: The `-l` flag indicates the location of the resource group. While in preview, the App Service on Linux support is only available in select regions, so if you aren't located in the Western US, and you want to check which other regions are available, simply run `az appservice list-locations --linux-workers-enabled` from the CLI to view your datacenter options.*
 
 2. Create the App Service plan, which will manage creating and scaling the underlying VMs that your app is deployed to. Once again, specify any value that you'd like for the name flag, however, make sure that the `-g` flag references the name that you gave to the resource group above.
 
     ```shell
-    az appservice plan create -n nina-demo -g nina-demo --is-linux
+    az appservice plan create -n nina-demo-plan -g nina-demo --is-linux
     ```
     
     *Note: The `--is-linux` flag is key, since that is what indicates that you want Linux-based VMs. Without it, the CLI will provision Windows-based VMs.*
@@ -316,19 +318,19 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
 3. Create the App Service web app, which represents the todo app that will be running within the plan and resource group we just created. You can roughly think of a web app as being synonomous with a process or container, and the plan as being the VM/container host that they're running on.
 
     ```shell
-    az appservice web create -n nina-demo -p nina-demo -g nina-demo
+    az appservice web create -n nina-demo-app -p nina-demo-plan -g nina-demo
     ```
 
 4. Configure the web app to use our Docker image, making sure to set the `-c` flag to the name of your DockerHub account/image name:
 
     ```shell
-    az appservice web config container update -n nina-demo -g nina-demo -c lostintangent/node
+    az appservice web config container update -n nina-demo-app -g nina-demo -c lostintangent/node
     ```
 
 5. Launch the app to view the container that was just deployed, which will be available at an `*.azurewebsites.net` URL:
 
     ```shell
-    az appservice web browse -n nina-demo -g nina-demo
+    az appservice web browse -n nina-demo-app -g nina-demo
     ```
 
     <img src="images/BrowseApp.png" width="300px" />
