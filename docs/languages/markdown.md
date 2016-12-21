@@ -87,8 +87,7 @@ Open VS Code on an empty folder and create a `sample.md` file.
 Place the following source code in that file:
 
 ```markdown
-Hello Markdown in VS Code!
-====================
+# Hello Markdown in VS Code!
 
 This is a simple introduction to compiling Markdown in VS Code.
 
