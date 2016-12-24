@@ -24,7 +24,7 @@ As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image b
 
 We also offer up suggestions for elements, tags, some values (as defined in HTML 5), Ionic and AngularJS tags,
 
-You can also work with embedded CSS and JavaScript. However, note that script and style includes are not followed: The language support ony looks at content of the HTML file.
+You can also work with embedded CSS and JavaScript. However, note that script and style includes are not followed: The language support only looks at content of the HTML file.
 
 You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
 
