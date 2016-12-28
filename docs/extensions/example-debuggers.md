@@ -10,8 +10,7 @@ MetaDescription: Learn how to provide debug service extensions (plug-ins) for Vi
 
 # Example - Debuggers
 
-Since Visual Studio Code implements a generic (language agnostic) debug UI, it cannot talk to real debuggers directly but instead relies
-on debug extensions for implementing the debugger or runtime specific functionality.
+Since Visual Studio Code implements a generic (language agnostic) debug UI, it cannot talk to real debuggers directly but instead relies on debug extensions for implementing the debugger or runtime specific functionality.
 
 These debug extensions differ from other extensions in that their implementation is not running in the extension host, but as a separate standalone program, a so-called _debug adapter_. We call these programs adapters because they "adapt" the API or protocol of a concrete debugger or runtime to the _VS Code Debug Protocol_ used by VS Code.
 
