@@ -20,7 +20,7 @@ You can increase the Zoom level in VS Code with the **View** > **Zoom In** comma
 
 ## Persisted Zoom Level
 
-With the  `window.zoomLevel` [setting](/docs/customization/userandworkspace.md), you to change and persist the zoom level of the window. The default value is 0 and each increment increases the zoom level by 20% similar to the effect of the **View** > **Zoom in** command.
+When you adjust the zoom level with the **View** > **Zoom In / Out** commands (`kb(workbench.action.zoomIn)` / `kb(workbench.action.zoomIn)`), the zoom level is persisted in the `window.zoomLevel` [setting](/docs/customization/userandworkspace.md). The default value is 0 and each increment increases the zoom level by 20%.
 
 ## High Contrast Theme
 

@@ -33,7 +33,7 @@ The demo makes use of a simple todo app created by and published by [Scotch.io](
 
 In order to effectively run through this demo, you'll need to have the following software installed:
 
-1. Visual Studio Code Insiders Build, which you can download [here](https://code.visualstudio.com/insiders). You don't technically need the insiders build, however, I would encourage everyone to use it since it provides access to the latest bug fixes/feature enhancements (just like Chrome Canary builds), and is the same build that the VS Code team uses.
+1. Visual Studio Code Insiders build, which you can download [here](https://code.visualstudio.com/insiders). You don't technically need the Insiders build, however, I would encourage everyone to use it since it provides access to the latest bug fixes/feature enhancements (just like Chrome Canary builds), and is the same build that the VS Code team uses.
 
 2. Docker, which can be downloaded [here](https://www.docker.com/products/docker). Additionally, you will need to have a [DockerHub](https://hub.docker.com/) account in order to publish the Docker images that will be created in the walkthrough.
 
@@ -47,13 +47,13 @@ Additionally, since the demo app uses MongoDB, you need to have a locally runnin
 
 To get started, we need to grab the todo sample project so we can start playing around with it. To do this, perform the following steps:
 
-1. Open up Visual Studio Code, and type `F1` to bring up the command pallete *(or alternatively, select `Command Palette...` from the `View` menu)*
+1. Open up Visual Studio Code, and type `F1` to bring up the **Command Palette** (or alternatively, select `Command Palette...` from the `View` menu).
 
 2. Type `gitcl` to find the `Git: Clone` command and hit `<ENTER>`.
 
     <img src="images/GitClone.png" width="200px" />
 
-    *Note: The VS Code command pallete supports "fuzzy search", which allows you to type fewer keystrokes to find commonly used commands.*
+    *Note: The VS Code **Command Palette** supports "fuzzy search", which allows you to type fewer keystrokes to find commonly used commands.*
 
 3. Enter `https://github.com/scotch-io/node-todo` into the prompt and hit `<ENTER>`.
 
