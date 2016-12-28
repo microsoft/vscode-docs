@@ -96,6 +96,7 @@ By default, VS Code excludes some folders from the explorer (for example. `.git`
 At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** section if you:
 
 * Make a change to a file.
+* Double-click a file's header.
 * Double-click a file in the Explorer.
 * Open a file that is not part of the current folder.
 
