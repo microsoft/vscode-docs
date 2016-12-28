@@ -236,9 +236,16 @@ language-configuration.json
 
 ## contributes.debuggers
 
-Contribute a 'debug adapter' to VS Code's debugger. A debug adapter integrates VS Code with a particular debug engine.
-It runs in a separate process and communicates with VS Code through the VS Code debug protocol.
-You must provide one (or more) executables that implement the debug adapter.
+Contribute a debugger to VS Code. A debugger contribution has the following properties:
+
+* `type` is a unique ID that is used to identify this debugger in a launch configuration,
+* `label` is the user visible name of this debugger in the UI,
+* `program` the path to the debug adapter that implements the VS Code debug protocol against the real debugger or runtime,
+* `runtime` if the path to the debug adapter is not an executable but needs a runtime,
+* `configurationAttributes` is the schema for launch configuration arguments specific to this debugger,
+* `initialConfigurations` lists launch configurations that are used to populate an initial launch.json,
+* `configurationSnippets` lists launch configurations that are available through IntelliSense when editing a launch.json,
+* `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
 
 ### Example
 
@@ -247,13 +254,44 @@ You must provide one (or more) executables that implement the debug adapter.
     "debuggers": [{
         "type": "node",
         "label": "Node Debug",
+
         "program": "./out/node/nodeDebug.js",
         "runtime": "node",
-        "initialConfigurations": [{
-            ...
-        }],
+
         "configurationAttributes": {
-            ...
+            "launch": {
+                "required": [ "program" ],
+                "properties": {
+                    "program": {
+                        "type": "string",
+                        "description": "The program to debug."
+                    }
+                }
+            }
+        },
+
+        "initialConfigurations": [{
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceRoot}/app.js"
+        }],
+
+        "configurationSnippets": [
+            {
+                "label": "Node.js: Attach Configuration",
+                "description": "A new configuration for attaching to a running node program.",
+                "body": {
+                    "type": "node",
+                    "request": "attach",
+                    "name": "${2:Attach to Port}",
+                    "port": 5858
+                }
+            }
+        ],
+
+        "variables": {
+            "PickProcess": "extension.node-debug.pickNodeProcess"
         }
     }]
 }
