@@ -4,7 +4,7 @@ Area: runtimes
 TOCTitle: Node.js
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Node.js and Visual Studio Code End to End
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications.  At the heart of VS Code is a Node server so we use these features day-in day-out.
 MetaSocialImage: nodejs_runtimes_node.png
 ---
@@ -25,11 +25,11 @@ To get started in this walkthrough, [install Node.js for your platform](https://
 
 Let's get started by creating the simplest Node.js application, "Hello World".
 
-Create an empty folder called "Hello", navigate into and open VS Code:
+Create an empty folder called "hello", navigate into and open VS Code:
 
 ```bash
-mkdir Hello
-cd Hello
+mkdir hello
+cd hello
 code .
 ```
 
@@ -84,9 +84,9 @@ For this walkthrough, you can use either an external terminal or the VS Code int
 
 ### Debugging Hello World
 
-As mentioned in the introduction, VS Code comes with a Node.js debugger installed. Let's try debugging our simple application.
+As mentioned in the introduction, VS Code ships with a debugger for Node.js applications. Let's try debugging our simple Hello World application.
 
-To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter next to the line numbers.  A red circle will appear in the gutter.
+To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter next to the line numbers. A red circle will appear in the gutter.
 
 ![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
 
@@ -159,70 +159,11 @@ code .
 
 The [Node.js](https://nodejs.org/api/) and [Express](http://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
 
-Earlier we saw the IntelliSense that the JavaScript language service can infer about your source code.  Next we will see that with a little more setup and configuration, Visual Studio Code can provide even richer information and build support.
-
-## Adding a jsconfig.json Configuration File
-
-When VS Code detects that you are working on a JavaScript file (open the `app.js` file), it looks to see if you have a JavaScript configuration file `jsconfig.json` in your workspace. If it doesn't find one, you will see a green lightbulb on the Status Bar prompting you to create one.
-
-![jsconfig lightbulb](images/nodejs/jsconfig-lightbulb.png)
-
-Click the green lightbulb and accept the prompt to create a `jsconfig.json` file:
-
-```json
-{
-    "compilerOptions": {
-        "target": "es6",
-        "module": "commonjs",
-        "allowSyntheticDefaultImports": true
-    },
-    "exclude": [
-        "node_modules",
-        "bower_components",
-        "jspm_packages",
-        "tmp",
-        "temp"
-    ]
-}
-
-```
-
-If you do not have [Auto Save](/docs/editor/codebasics.md#saveauto-save) on, save the file by pressing `kb(workbench.action.files.save)`.
-
-The presence of this file lets VS Code know that it should treat all the files under this root as part of the same project.  We'll see in the next section that this is important for extending IntelliSense by adding typings (Type Definition files) to your workspace. This configuration file also lets you specify settings such as `compilerOptions` and which folders you'd like the JavaScript language service to `exclude` (ignore). The default `jsconfig.json` file we just created tells the JavaScript language service that you are writing ES6 compliant code and you want to ignore dependency and temporary content folders.
-
-## IntelliSense and Typings
-
-VS Code can use TypeScript definition files (for example [`node.d.ts`](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/node/node.d.ts)) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience.
-
-[Typings](https://github.com/typings/typings), the type definition manager for TypeScript, makes it easy to search for and install TypeScript definition files into your workspace. This tool can download the requested definitions from a variety of sources, including the [DefinitelyTyped repository](https://github.com/DefinitelyTyped/DefinitelyTyped). As we did with the Express Generator, we will install the Typings command line tool globally using NPM so that you can use the tool in any application you create.
-
-```bash
-npm install -g typings
-```
-
->**Tip:** Typings has a number of options for configuring where and how definition files are downloaded. From the terminal, run `typings --help` for more information.
-
-Go back to the file `app.js` and notice that if you hover over the Node.js global object `__dirname`, VS Code does not know the type and displays `any`.
-
-Now, using the Typings command line, pull down the Node.js and Express type definition files:
-
-```bash
-typings install dt~node --global --save
-typings install dt~express dt~serve-static dt~express-serve-static-core --global --save
-```
-
-The `dt~` prefix tells the Typings tool to search the DefinitelyTyped repository for the specified type definition files.
-
->**Tip:** You can download multiple definition files by combining them on the command line, as you can see from the Express typings above.  We need to install the typings for Express and also it's references.
-
->**Note:** Don't worry if you see `typings INFO reference` messages during installation. The Typings tool is cleaning out unnecessary `///` references in the downloaded typings files.
-
-Notice how VS Code now understands what `__dirname` is, based on the metadata from the `node.d.ts` file. Even more exciting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
+Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how VS Code understands what `__dirname` is. Even more interesting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
->**Note:** Make sure you have a `jsconfig.json` file in your workspace root as described in the [previous section](/docs/runtimes/nodejs.md#adding-a-jsconfigjson-configuration-file) so VS Code will pick up the installed typings files.
+VS Code uses TypeScript definition files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition` you as user do not have to worry about these typings file, VS Code will install them automatically for you.
 
 You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
 
@@ -284,6 +225,14 @@ There is much more to explore with Visual Studio Code, please try the following 
 
 ## Common Questions
 
-**Q: IntelliSense isn't working for Node.js and Express after I install their typings?**
+**Q: Do I need to define a `jsconfig.json` file?**
 
-**A:** Be sure you have a `jsconfig.json` file in the workspace root folder so that VS Code treats all files and folders as belonging to the same project context. Without a `jsconfig.json`, VS Code considers JavaScript and TypeScript files in isolation and won't associate your source code types with the typings type definitions files.
+**A:** Without a `jsconfig.json` file in the workspace root folder, VS Code treats all files and folders as belonging to the same project context. This is sufficient for common setups. There are situations when you want to add a `jsconfig.json` file.
+
+For example:
+
+- When not all JavaScript files should be part of the project context, for example, you want to exclude some files, then you can define which files to exclude in the jsconfig.json file.
+- When a workspace contains more then one project context, then you should add a `jsconfig.json` file at the root folder for each project.
+- When you are using the TypeScript compiler to down-level compile JavaScript source code.
+
+More information about the configuration options for a `jsconfig.json` can be found in [jsconfig.json reference](/docs/languages/javascript.md#javascript-project-jsconfigjson).

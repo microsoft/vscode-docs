@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Tasks Appendix
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 
@@ -231,6 +231,35 @@ export interface ProblemMatcher {
 	 * problems spread over multiple lines.
 	 */
 	pattern?: string | ProblemPattern | ProblemPattern[];
+
+	/**
+	 * Additional information used to detect when a background task (like a watching task in Gulp)
+	 * is active.
+	 */
+	watching?: WatchingMatcher;
+}
+
+/**
+ * A description to track the start and end of a watching task.
+ */
+export interface WatchingMatcher {
+
+	/**
+	 * If set to true the watcher is in active mode when the task
+	 * starts. This is equals of issuing a line that matches the
+	 * beginPattern.
+	 */
+	activeOnStart?: boolean;
+
+	/**
+	 * If matched in the output the start of a watching task is signaled.
+	 */
+	beginsPattern?: string;
+
+	/**
+	 * If matched in the output the end of a watching task is signaled.
+	 */
+	endsPattern?: string;
 }
 
 export interface ProblemPattern {

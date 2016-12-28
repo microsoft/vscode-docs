@@ -4,7 +4,7 @@ Area: tools
 TOCTitle: Publishing Tool
 ContentId: 3F05F31A-FD66-4635-9BA2-F1799E795EA7
 PageTitle: vsce Publishing Tool - Publishing your Visual Studio Code Extensions
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Find out how to publish an extension to the Visual Studio Code Extension Marketplace.
 ---
 
@@ -67,6 +67,8 @@ vsce create-publisher (publisher name)
 ```
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
+
+**Note:** Alternatively, create your publisher in http://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
 
 ### Login to a Publisher
 

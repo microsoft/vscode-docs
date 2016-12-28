@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and VS Code
@@ -70,13 +70,13 @@ VS Code integrates with Markdown compilers through the integrated [task runner](
 
 ### Step 1: Install a Markdown compiler
 
-For this walkthrough, we use the popular [Node.js](https://nodejs.org) module, [marked](https://www.npmjs.com/package/marked).
+For this walkthrough, we use the popular [Node.js](https://nodejs.org) module, [markdown-it](https://github.com/markdown-it/markdown-it).
 
 ```
-npm install -g marked
+npm install -g markdown-it
 ```
 
-> **Note:** There are many Markdown compilers to choose from beyond **marked**, such as [markdown-it](https://www.npmjs.com/package/markdown-it).  Pick the one that best suits your needs and environment.
+> **Note:** There are many Markdown compilers to choose from beyond **markdown-it**.  Pick the one that best suits your needs and environment.
 
 ### Step 2: Create a simple MD file
 
@@ -87,15 +87,14 @@ Open VS Code on an empty folder and create a `sample.md` file.
 Place the following source code in that file:
 
 ```markdown
-Hello Markdown in VS Code!
-====================
+# Hello Markdown in VS Code!
 
 This is a simple introduction to compiling Markdown in VS Code.
 
 Things you'll need:
 
 * [node](https://nodejs.org)
-* [marked](https://www.npmjs.com/package/marked)
+* [markdown-it](https://www.npmjs.com/package/markdown-it)
 * [tasks.json](/docs/editor/tasks.md)
 
 ## Section Title
@@ -123,14 +122,14 @@ This generates a `tasks.json` file in your workspace `.vscode` folder with the f
 }
 ```
 
-To use **marked** to compile the Markdown file, change the contents as follows:
+To use **markdown-it** to compile the Markdown file, change the contents as follows:
 
 ```json
 {
     // See http://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
-    "command": "marked",
+    "command": "markdown-it",
     "isShellCommand": true,
     "args": ["sample.md", "-o", "sample.html"],
     "showOutput": "always"
@@ -139,7 +138,7 @@ To use **marked** to compile the Markdown file, change the contents as follows:
 
 > **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
 
-Under the covers, we interpret **marked** as an external task runner that exposes exactly one task: the compiling of Markdown files into HTML files. The command we run is `marked sample.md -o sample.html`.
+Under the covers, we interpret **markdown-it** as an external task runner that exposes exactly one task: the compiling of Markdown files into HTML files. The command we run is `markdown-it sample.md -o sample.html`.
 
 ### Step 4: Run the Build Task
 
@@ -159,10 +158,10 @@ We need to install gulp both globally (`-g` switch) and locally:
 
 ```
 npm install -g gulp
-npm install gulp gulp-markdown
+npm install gulp gulp-markdown-it
 ```
 
-> **Note:** gulp-markdown is a Gulp plug-in for the **marked** module we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
+> **Note:** gulp-markdown-it is a Gulp plug-in for the **markdown-it** module we were using before.  There are many other Gulp Markdown plug-ins you can use, as well as plug-ins for Grunt.
 
 You can test that your gulp installation was successful but typing `gulp -v`. You should see a version displayed for both the global (CLI) and local installations.
 
@@ -174,7 +173,7 @@ Place the following source code in that file:
 
 ```javascript
 var gulp = require('gulp');
-var markdown = require('gulp-markdown');
+var markdown = require('gulp-markdown-it');
 
 gulp.task('markdown', function() {
     return gulp.src('**/*.md')
@@ -192,7 +191,7 @@ gulp.task('default', ['markdown'], function() {
 What is happening here?
 
 1. We are watching for changes to any Markdown file in our workspace, i.e. the current folder open in VS Code.
-2. We take the set of Markdown files that have changed, and run them through our Markdown compiler, i.e. `gulp-markdown`.
+2. We take the set of Markdown files that have changed, and run them through our Markdown compiler, i.e. `gulp-markdown-it`.
 3. We now have a set of HTML files, each named respectively after their original Markdown file.  We then put these files in the same directory.
 
 ### Step 3: Modify the configuration in tasks.json for watching

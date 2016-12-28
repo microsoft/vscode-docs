@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 
@@ -56,27 +56,9 @@ In VS Code, we default the language support for a file based on its filename ext
 
 VS Code associates a language mode with a specific language identifier so that various VS Code features can be enabled based on the current language mode.
 
-Languages | Identifiers
--------- | ----------
-Java, JavaScript | `java`, `javascript`
-TypeScript | `typescript`
-C, C++, C# | `c`, `cpp`, `csharp`
-CSS, HTML | `css`, `html`
-Less, Sass | `less`, `scss`
-JSON | `json`
-Markdown | `markdown`
-F# | `fsharp`
-PHP | `php`
-Python | `python`
-PowerShell | `powershell`
-Rust | `rust`
-Shell Script (Bash) | `shellscript`
-Swift | `swift`
-Text | `plaintext`
-Visual Basic | `vb`
-XML, XSL, YAML | `xml`, `xsl`, `yaml`
-
 A language identifier is often (but not always) the lowercased programming language name. Note that casing matters for exact identifier matching ('Markdown' != 'markdown'). Unknown language files have the language identifier `plaintext`.
+
+You can find a list of all known identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
 You can see the list of currently installed languages and their identifiers in the **Change Language Mode** (`kb(workbench.action.editor.changeLanguageMode)`) dropdown.
 

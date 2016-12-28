@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Language Extension Guidelines
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
 PageTitle: Visual Studio Code Language Extension Guidelines
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Visual Studio Code language extensions contribute new programming language features to VS Code. These guidelines present the language extensibility points and how to implement them.
 ---
 
@@ -29,7 +29,7 @@ To make it easier for you to decide what to implement first and what to improve 
 
 ### Language identifiers
 
-VS Code maps different language configurations and providers to specific programming languages through a [language identifier](/docs/languages/overview.md#language-id). This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`.
+VS Code maps different language configurations and providers to specific programming languages through a [language identifier](/docs/languages/identifiers.md). This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`.
 
 ## Syntax Highlighting
 

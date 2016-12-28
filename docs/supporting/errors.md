@@ -3,7 +3,7 @@ Order:
 TOCTitle: Error Codes
 ContentId: 343B5C4D-3473-4454-AD22-084F405D6905
 PageTitle: Visual Studio Code workarounds for errors you might hit in the product.
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Several error conditions can easily be resolved by the user this page is designed to help un-block you.
 ---
 
@@ -33,7 +33,7 @@ Before VS Code release 0.10.11, it was possible to use relative paths in launch 
 
 There were two problems with this:
 
-- VS Code would only fix paths for some well-known attributes like `program`, `cwd`, or `outDir`. Relative paths passed as an argument or set as an environment variable would not be fixed and this behavior was not transparent.
+- VS Code would only fix paths for some well-known attributes like `program`, `cwd`, or `outFiles`. Relative paths passed as an argument or set as an environment variable would not be fixed and this behavior was not transparent.
 - VS Code would only fix paths in the `launch.json` configuration file. It would not touch paths in `tasks.json` and this inconsistency was difficult to understand.
 
 Starting with release 0.10.11, VS Code no longer modifies launch configuration paths.  If you are using relative paths in your launch configurations, you'll need to fix them by prefixing the relative path with `${workspaceRoot}/`.

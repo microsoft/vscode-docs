@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 11
 Area: extensions
 TOCTitle: Testing Extensions
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Testing Visual Studio Code Extensions
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
 
@@ -51,7 +51,7 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
     "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
     "stopOnEntry": false,
     "sourceMaps": true,
-    "outDir": "${workspaceRoot}/out/test",
+    "outFiles": ["${workspaceRoot}/out/test/**/*.js"],
     "preLaunchTask": "npm"
 }
 ```

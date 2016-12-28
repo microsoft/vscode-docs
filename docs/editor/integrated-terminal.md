@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.  
 ---
 
@@ -75,7 +75,7 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 You can customize the integrated terminal font and line height with the following settings:
 
 * `terminal.integrated.fontFamily` - The font family, this defaults to the `editor.fontFamily` value.
-* `terminal.integrated.fontSize` - The font size, this defaults to the `editor.fontSize` value.
+* `terminal.integrated.fontSize` - The font size.
 * `terminal.integrated.lineHeight` - The line height of the terminal, this defaults to normal.
 
 ## Key Bindings
@@ -94,8 +94,7 @@ Key|Command
 `kb(workbench.action.terminal.scrolldownPage)`|Scroll page down
 `kb(workbench.action.terminal.scrollToTop)`|Scroll to top
 `kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
-
-You can clear the terminal with the **Terminal: Clear** command from the **Command Palette** (`kb(workbench.action.showCommands)`). The command is not bound to any keyboard shortcut but you can add your [own](/docs/customization/keybindings.md).
+`kb(workbench.action.terminal.clear)`|Clear the terminal
 
 Other terminal commands are available and can be bound to your preferred keyboard shortcuts.
 
@@ -122,13 +121,11 @@ If no text is selected in the active editor, the entire file contents is run in 
 
 ### Copy & Paste
 
-#### Mac
+The keybindings for copy and paste follow platform standards:
 
-Copy and paste on Mac can be done using the standard keys, `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)` respectively.
-
-#### Linux & Windows
-
-Copy and paste on Linux & Windows can be done using `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)` respectively. 
+- Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`
+- Mac: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
+- Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
 
 ### Forcing key bindings to pass through the terminal
 

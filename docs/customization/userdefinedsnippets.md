@@ -4,15 +4,17 @@ Area: customization
 TOCTitle: Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Snippets in Visual Studio Code
-DateApproved: 11/2/2016
+DateApproved: 12/14/2016
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 
 # Adding Snippets to Visual Studio Code
 
-Code snippets are ready-made snippets of code you can quickly insert into your source code. For example, a `for` code snippet creates an empty `for` loop. 
+Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
-Each snippet defines a prefix under which it will appear in IntelliSense via (`kb(editor.action.triggerSuggest)`) as well as a body inserted when the snippet is selected. The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
+Snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (F1 > Insert Snippet). There is also support for tab-completion: Enable it with `"editor.tabCompletion": true`, type a *snippet prefix*, and press kb(insertSnippet) to insert a snippet.
+
+The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
 
 <video id="snippets-showcase" src="https://az754404.vo.msecnd.net/public/snippets_showcase.mp4" placeholder="/images/userdefinedsnippets_snippets_placeholder.png" autoplay loop controls muted>
     Sorry you're browser doesn't support HTML 5 video. 
@@ -40,8 +42,8 @@ The example below is a `For Loop` snippet for `JavaScript`.
     "For Loop": {
         "prefix": "for",
         "body": [
-            "for (var ${index} = 0; ${index} < ${array}.length; ${index}++) {",
-            "\tvar ${element} = ${array}[${index}];",
+            "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
+            "\tvar ${3:element} = ${2:array}[${1:index}];",
             "\t$0",
             "}"
         ],
@@ -52,37 +54,54 @@ The example below is a `For Loop` snippet for `JavaScript`.
 In the example above:
 
 * `For Loop` is the snippet name
-* `prefix` defines a prefix used in the IntelliSense drop down.  In this case `for`.
-* `body` is the snippet content.
-
-    Possible variables are:
-    
-    * $1, $2 for tab stops
-    * ${id} and ${id:label} and ${1:label} for variables
-    * Variables with the same id are connected.
-
+* `prefix` defines how this snippets is select from IntelliSense and tab completion. In this case `for`. 
+* `body` is the content and either a single string or an array of strings of which each element will be inserted as separate line.
 * `description` is the description used in the IntelliSense drop down
 
-The example above has three variables with the `ids` 'index', 'array', and 'element'. You can quickly fill in and tab to each. 
-
-An optional variable `label` lets you add a short description as a prompt to the user.
-
-Here a `label` 'Enter your name' is added to the variable with the `id` 'name':
-
-```json
-    "body": [
-        "Hello ${name:Enter your name}.",
-        "Goodbye ${name}!"
-    ],
-```
-
-which will display as:
-
-![variable with label](images/userdefinedsnippets/variable-label.png)
-
-> In case your snippet should contain `{` or `}`, it is possible to escape them, in JSON as `\\{` and `\\}`
+The example above has three placeholders, `${1:index}`, `${2:array}`, and `${3:element}`. You can quickly traverse them in the order of their number. The string after the number and colon is filled in as default.
 
 Once you have added a new snippet, you can try it out right away, no restart needed.
+
+## Snippet Syntax
+
+The `body` of a snippet can use special constructs to control cursors and the text being inserted. The following are supported features and their syntaxes:
+
+### Tabstops
+
+With tabstops you can make the editor cursor move inside a snippet. Use `$1`, `$2` to specify cursor locations. The number is the order in which tabstops will be visited, whereas `$0` denotes the final cursor position. Multiple tabstops are linked and updated in sync.
+
+### Placeholders
+
+Placeholders are tabstops with values, like `${1:foo}`. The placeholder text will be inserted and selected such that it can be easily changed. Placeholders can be nested, like `${1:another ${2:placeholder}}`.
+
+### Variables
+
+With `$name` or `${name:default}` you can insert the value of a variable. When a variable isn’t set its *default* or the empty string is inserted. When a varibale is unknown (that is, its name isn’t defined) the name of the variable is inserted and it is transformed into a placeholder. The following variables can be used:
+
+* `TM_SELECTED_TEXT` The currently selected text or the empty string
+* `TM_CURRENT_LINE` The contents of the current line
+* `TM_CURRENT_WORD` The contents of the word under cursor or the empty string
+* `TM_LINE_INDEX` The zero-index based line number
+* `TM_LINE_NUMBER` The one-index based line number
+* `TM_FILENAME` The filename of the current document
+* `TM_DIRECTORY` The directory of the current document
+* `TM_FILEPATH` The full file path of the current document
+
+
+### Grammar
+
+Below is the EBNF for snippets. With `\` (backslash) you can escape `$`, `}` and `\`.
+
+```
+any         ::= tabstop | placeholder | variable | text
+tabstop     ::= '$' int | '${' int '}'
+placeholder ::= '${' int ':' any '}'
+variable    ::= '$' var | '${' var }' | '${' var ':' any '}'
+var         ::= [_a-zA-Z] [_a-zA-Z0-9]*
+int         ::= [0-9]+
+text        ::= .*
+```
+
 
 ## Using TextMate Snippets
 
