@@ -4,7 +4,7 @@ Area: runtimes
 TOCTitle: .NET Core
 ContentId: AFFD7BDB-925E-4D02-828D-4E14360C70DA
 PageTitle: .NET Core and Visual Studio Code
-DateApproved: 10/10/2016
+DateApproved: 12/22/2016
 MetaDescription: Visual Studio Code has great support for writing and debugging .NET Core applications.
 MetaTags:
 - .NET Core
@@ -14,7 +14,7 @@ MetaTags:
 
 # .NET Core and Visual Studio Code
 
-.NET Core gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and Mac. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# IntelliSense (smart code completion) and debugging.
+[.NET Core](https://docs.microsoft.com/en-us/dotnet/articles/welcome) gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and Mac. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# IntelliSense (smart code completion) and debugging.
 
 ## Getting Started
 
@@ -34,16 +34,22 @@ If you'd like to get started with a simple "Hello World" program on .NET Core, f
 
 2. Resolve the build assets by typing `dotnet restore`.
 
+> Tip: If you are using the MSBuild-based .NET Core Tools a .csproj will be created instead of a project.json, but the `dotnet` commands remain the same. [Read more](https://blogs.msdn.microsoft.com/dotnet/2016/11/16/announcing-net-core-tools-msbuild-alpha/).
+
   * Running `restore` pulls down the required packages declared in the `project.json` file.
   * You'll see a new `project.lock.json` file in your project folder.
   * This file contains information about your project's dependencies to make subsequent restores quicker.
+  * There will be notification that appears at the top of the window asking if you'd like to add the required assets to build and debug your project. Select Yes.
 
 3. Run the "Hello World" program by typing `dotnet run`.
 
-You can also watch a short [Video Tutorial](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-using-CSharp-and-NET-Core) for further setup help.
+Watch a video tutorial for further setup help on [Windows](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-using-CSharp-and-NET-Core), [macOS](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-using-CSharp-and-NET-Core-on-MacOS), or [Linux](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-Csharp-dotnet-Core-Ubuntu).
+
+> Tip: Continue exploring C# development: <b>[Debug with VS Code and .NET Core](https://docs.microsoft.com/en-us/dotnet/articles/csharp/getting-started/with-visual-studio-code##debug)</b>
 
 ## Next Steps
 
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Go to Definition and more
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET Core application.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
+* [.NET Core Docs](https://docs.microsoft.com/en-us/dotnet/articles/core/) - Visit the .NET Core docs for more information on this powerful cross-platform development solution.
