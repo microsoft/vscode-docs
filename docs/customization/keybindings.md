@@ -177,19 +177,22 @@ Key|Command|Command id
 Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.toggleFullScreen)`|Toggle Full Screen|`workbench.action.toggleFullScreen`
+`kb(workbench.action.toggleZenMode)`|Toggle Zen Mode|`workbench.action.toggleZenMode`
+`kb(workbench.action.exitZenMode)`|Leave Zen Mode|`workbench.action.exitZenMode`
 `kb(workbench.action.zoomIn)`|Zoom in|`workbench.action.zoomIn`
 `kb(workbench.action.zoomOut)`|Zoom out|`workbench.action.zoomOut`
 `kb(workbench.action.zoomReset)`|Reset Zoom|`workbench.action.zoomReset`
 `kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar Visibility|`workbench.action.toggleSidebarVisibility`
-`kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
+`kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
 `kb(workbench.view.git)`|Show Git|`workbench.view.git`
+`kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
+`kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
+`kb(workbench.action.quickOpenView)`|Quick Open View|`workbench.action.quickOpenView`
 `kb(workbench.view.search)`|Show Search|`workbench.view.search`
 `kb(workbench.action.replaceInFiles)`|Replace in Files|`workbench.action.replaceInFiles`
-`kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
 `kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
-`kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
 `kb(markdown.showPreview)`|Toggle Markdown Preview|`markdown.showPreview`
 `kb(markdown.showPreviewToSide)`|Open Preview to the Side|`markdown.showPreviewToSide`
 `kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
