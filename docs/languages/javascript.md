@@ -313,7 +313,7 @@ When you want to use ES6 style imports but the typings do not yet use ES6 style 
 
 **Q: Can I debug minified/uglified JavaScript?**
 
-**A:** Yes, you can. You can see this working using JavaScript source maps in the Node.js section of the [Debugging](/docs/editor/debugging.md#node-debugging) topic.
+**A:** Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/editor/node-debugging.md) topic.
 
 **Q: How do I disable Syntax Validation when using non ES6 constructs?**
 
