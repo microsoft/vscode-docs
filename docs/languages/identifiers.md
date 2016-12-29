@@ -9,9 +9,9 @@ In VS Code, each language mode has a unique specific language identifier. That i
 ```
 Note that casing matters for exact identifier matching ('Markdown' != 'markdown')
 
-The language identifier becomes essential for VS Code extension developers when adding new language capabilities or when replacing a language support:
+The language identifier becomes essential for VS Code extension developers when adding new language capabilities or when replacing a language support.
 
-- Every language defines its *id* through the `languages` configuration point:
+Every language defines its *id* through the `languages` configuration point:
 
 ```json
     "languages": [{
@@ -20,7 +20,9 @@ The language identifier becomes essential for VS Code extension developers when 
         "aliases": [ "Java", "java" ]
     }]
 ```
-- language supports are added using the language identifier:
+
+Language supports are added using the language identifier:
+
 ```json
     "grammars": [{
         "language": "groovy",
@@ -39,8 +41,8 @@ languages.registerCompletionItemProvider('php', new PHPCompletionItemProvider(),
 
 When defining a new language identifier, use the following guidelines:
 
-- Use the lowercased programming language name
-- Search for other extensions in the market place to find out if a language identifier has already been used
+- Use the lowercased programming language name.
+- Search for other extensions in the Marketplace to find out if a language identifier has already been used.
 
 The following table lists all known language identifiers:
 
@@ -89,5 +91,3 @@ Visual Basic | `vb`
 XML | `xml`
 XSL | `xsl`
 YAML | `yaml`
-CSS| `css`
-

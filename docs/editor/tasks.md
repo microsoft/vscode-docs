@@ -1,5 +1,5 @@
-﻿---
-Order: 8
+﻿﻿---
+Order: 9
 Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
@@ -84,11 +84,11 @@ Here's a simple example passing different arguments to the `echo` command:
     "echoCommand": true,
     "suppressTaskName": true,
     "tasks": [
-        { 
+        {
             "taskName": "hello",
             "args": ["Hello World"]
         },
-        { 
+        {
             "taskName": "bye",
             "args": ["Good Bye"]
         }
@@ -100,13 +100,16 @@ Now when you run **Tasks: Run Task**, you will now see two tasks in the dropdown
 
 ![tasks array](images/tasks/tasks-array.png)
 
-Some `tasks.json` properties such as `showOutput` and `suppressTaskName` can be set both globally and then overridden in specific tasks. The `tasks` `args` property values are appended to the global arguments.
+Some `tasks.json` properties such as `showOutput` and `suppressTaskName` can be set both globally and then overridden in specific tasks. The `tasks` `args` property values are appended to the global arguments. The final command line is constructed as follows:
+
+* If `suppressTaskName` is `true`, the command line is `command 'global args' 'task args'`.
+* If `suppressTaskName` is `false`, it is `command 'global args' taskName 'task args'`.
 
 There are also `tasks` specific properties. One useful property is `isBuildCommand`, which if set to true, will run the task with the **Tasks: Run Build Task** (`kb(workbench.action.tasks.build)`) command.
 
 ## Running multiple commands
 
-What if you want to run different command line tools in your workspace? Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and Mac, `cmd` on Windows).
+What if you want to run different command line tools in your workspace? Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and Mac, `cmd` on Windows) or a task runner like `gulp` or `jake` which supports launching external programs.
 
 Here is an example to add two tasks for `make` and `ls`:
 
@@ -262,6 +265,7 @@ VS Code can process the output from a task with a problem matcher and we ship wi
 - **JSHint Stylish**: `$jshint-stylish` assumes that file names are reported as an absolute path.
 - **ESLint Compact**: `$eslint-compact` assumes that file names in the output are relative to the opened folder.
 - **ESLint Stylish**: `$eslint-stylish` assumes that file names in the output are relative to the opened folder.
+- **Go**: `$go` matches problems reported from the `go` compiler. Assumes that file names are relative to the opened folder.
 - **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
 - **Less**: `$lessCompile` assumes that file names are reported as absolute path.
 
@@ -474,6 +478,80 @@ Here is a problem matcher to fully capture ESLint stylish problems:
             "message": 4,
             "code": 5,
             "loop": true
+        }
+    ]
+}
+```
+
+## Background / Watching tasks
+
+Some tools support running in the background while watching the file system for changes and then triggering an action when a file changes on disk. With `Gulp` such functionality is provided through the npm module [gulp-watch](https://www.npmjs.com/package/gulp-watch). The TypeScript compiler `tsc` has built in support for this via the `--watch command` line option.
+
+To provide feedback that a background task is active in VS Code and producing problem results, a problem matcher has to use additional information to detect these `state` changes in the output. Let's take the `tsc` compiler as an example. When the compiler is started in watch mode, it prints the following additional information to the console:
+
+```
+> tsc --watch
+12:30:36 PM - Compilation complete. Watching for file changes.
+```
+
+When a file changes on disk which contains a problem, the following output appears:
+
+```
+12:32:35 PM - File change detected. Starting incremental compilation...
+src/messages.ts(276,9): error TS2304: Cannot find name 'candidate'.
+12:32:35 PM - Compilation complete. Watching for file changes.
+```
+
+Looking at the output shows the following pattern:
+
+- The compiler runs when `File change detected. Starting incremental compilation...` is printed to the console.
+- The compiler stops when `Compilation complete. Watching for file changes.` is printed to the console.
+- Between those two strings problems are reported.
+- The compiler also runs once the initial start (without printing `File change detected. Starting incremental compilation...` to the console).
+
+To capture this information, a problem matcher can provide a `watching` property. 
+
+For the tsc compiler, this looks like follows:
+
+```json
+"watching": {
+    "activeOnStart": true,
+    "beginsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - File change detected\\. Starting incremental compilation\\.\\.\\.",
+    "endsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - Compilation complete\\. Watching for file changes\\."
+}
+```
+
+In addition to the `watching` property on the problem matcher ,the task itself has to be marked as watching using the `isWatching` property.
+
+A full handcrafted tasks.json for a tsc task running in watch mode looks like this:
+
+```json
+{
+    "version": "0.1.0",
+    "command": "tsc",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "watch",
+            "args": ["--watch"],
+            "isWatching": true,
+            "problemMatcher": {
+                "owner": "typescript",
+                "fileLocation": "relative",
+                "pattern": {
+                    "regexp": "^([^\\s].*)\\((\\d+|\\,\\d+|\\d+,\\d+,\\d+,\\d+)\\):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+                    "file": 1,
+                    "location": 2,
+                    "severity": 3,
+                    "code": 4,
+                    "message": 5
+                },
+                "watching": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - File change detected\\. Starting incremental compilation\\.\\.\\.",
+                    "endsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - Compilation complete\\. Watching for file changes\\."
+                }
+            }
         }
     ]
 }

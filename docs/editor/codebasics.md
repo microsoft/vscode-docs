@@ -43,6 +43,10 @@ VS Code allows up to three visible editors at any one time, allowing you to edit
 
 You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command (`kbstyle(Ctrl+U)`). You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.
 
+### Zen Mode
+
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Sidebar and Panel) and going to full screen. Zen mode can be toggled using the View menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. The transition to full screen can be disabled via `window.fullScreenZenMode`. Double `kbstyle(Esc)` exits Zen Mode.
+
 ## Side by Side Editing
 
 You can have up to three editors open side by side.
@@ -92,6 +96,7 @@ By default, VS Code excludes some folders from the explorer (for example. `.git`
 At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** section if you:
 
 * Make a change to a file.
+* Double-click a file's header.
 * Double-click a file in the Explorer.
 * Open a file that is not part of the current folder.
 

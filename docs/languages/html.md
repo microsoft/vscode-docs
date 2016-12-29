@@ -7,10 +7,9 @@ PageTitle: HTML Programming with Visual Studio Code
 DateApproved: 12/14/2016
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
-
 # HTML Programming in VS Code
 
-VS Code provides basic support for HTML programming out of the box. Install an extension for greater functionality. 
+VS Code provides basic support for HTML programming out of the box. Install an extension for greater functionality.
 
 <div class="marketplace-extensions-html"></div>
 
@@ -24,7 +23,7 @@ As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image b
 
 We also offer up suggestions for elements, tags, some values (as defined in HTML 5), Ionic and AngularJS tags,
 
-You can also work with embedded CSS and JavaScript. However, note that script and style includes are not followed: The language support ony looks at content of the HTML file.
+You can also work with embedded CSS and JavaScript. However, note that script and style includes are not followed, the language support only looks at the content of the HTML file.
 
 You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
 
@@ -40,12 +39,12 @@ You can also control which built-in code completion providers are active. Overri
 // Configures if the built-in HTML language suggests HTML5 tags, properties and values.
 "html.suggest.html5": true
 ```
+
 ## Hover
 
 Move the mouse over HTML tags or embedded styles and JavaScript to get more information on the symbol under the cursor.
 
 ![HTML Hover](images/html/htmlhover.png)
-
 
 ## Format HTML
 
@@ -53,7 +52,7 @@ To improve the formatting of your HTML source code, press `kb(editor.action.form
 
 >**Tip:** The formatter does not format the tags listed in the `html.format.unformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
->**Tip:** Configure the HTML formatter settings in the [User and Workspace Settings](/docs/customization/userandworkspace.md). 
+>**Tip:** Configure the HTML formatter settings in the [User and Workspace Settings](/docs/customization/userandworkspace.md).
 
 ## Emmet snippets
 
@@ -82,5 +81,3 @@ We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.
 Read on to find out about:
 
 * [CSS, Less and Sass](/docs/languages/css.md) - VS Code has first class support for CSS including Less and Sass.
-
-

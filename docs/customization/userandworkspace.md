@@ -41,33 +41,68 @@ The workspace setting file is located under the `.vscode` folder in your project
 
 ## Default Settings
 
-When you open settings, we show `Default Settings` to search and discover settings you are looking for. When you search using the big Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside Default Settings and Settings editors which will help you in quickly copying or updating a setting.
+When you open settings, we show **Default Settings** to search and discover settings you are looking for. When you search using the big Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
 
 ![Settings Groups](images/userandworkspace/default-settings.gif)
 
 ### Settings groups
 
-Default settings are represented in groups so that you can navigate them easily. It has `Most commonly used` group on the top to see the most common customizations done by VS Code users.
+Default settings are represented in groups so that you can navigate them easily. It has **Most Commonly Used** group on the top to see the most common customizations done by VS Code users.
 
 ![Settings Groups](images/userandworkspace/settings-groups.png)
 
 
-Below is a copy of the `Default Settings` that comes with VS Code.
+Below is a copy of the **Default Settings** that comes with VS Code.
 
 ```json
-// Overwrite settings by placing them into your settings file.
 {
+// Most Commonly Used
+
+  // Controls the font size in pixels.
+  "editor.fontSize": 14,
+
+  // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange" (editor loses focus), "onWindowChange" (window loses focus). If set to "afterDelay", you can configure the delay in "files.autoSaveDelay".
+  "files.autoSave": "off",
+
+  // Controls the font family.
+  "editor.fontFamily": "Consolas, 'Courier New', monospace",
+
+  // The number of spaces a tab is equal to. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
+  "editor.tabSize": 4,
+
+  // Controls how the editor should render whitespace characters, possibilities are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.
+  "editor.renderWhitespace": "none",
+
+  // Configure glob patterns for excluding files and folders.
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true
+  },
+
+  // Controls the cursor style, accepted values are 'block', 'line' and 'underline'
+  "editor.cursorStyle": "line",
+
+  // Insert spaces when pressing Tab. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
+  "editor.insertSpaces": true,
+
+  // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
+  "editor.wrappingColumn": 300,
+
+  // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
+  "files.associations": {},
 
 // Editor
 
   // Controls the font family.
-  "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
   // Controls the font weight.
   "editor.fontWeight": "normal",
 
   // Controls the font size in pixels.
-  "editor.fontSize": 12,
+  "editor.fontSize": 14,
 
   // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
   "editor.lineHeight": 0,
@@ -210,6 +245,20 @@ Below is a copy of the `Default Settings` that comes with VS Code.
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
   "editor.formatOnSave": false,
 
+// Emmet
+
+  // When enabled, emmet abbreviations are expanded when pressing TAB.
+  "emmet.triggerExpansionOnTab": true,
+
+  // Preferences used to modify behavior of some actions and resolvers of Emmet.
+  "emmet.preferences": {},
+
+  // Define profile for specified syntax or use your own profile with specific rules.
+  "emmet.syntaxProfiles": {},
+
+  // An array of languages where emmet abbreviations should not be expanded.
+  "emmet.excludeLanguages": [],
+
 // Workbench
 
   // Controls if opened editors should show in tabs or not.
@@ -285,7 +334,7 @@ Below is a copy of the `Default Settings` that comes with VS Code.
   "files.encoding": "utf8",
 
   // The default end of line character.
-  "files.eol": "\n",
+  "files.eol": "\r\n",
 
   // When enabled, will trim trailing whitespace when saving a file.
   "files.trimTrailingWhitespace": false,
@@ -301,8 +350,7 @@ Below is a copy of the `Default Settings` that comes with VS Code.
 
   // Configure glob patterns of file paths to exclude from file watching. Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
-    "**/.git/objects/**": true,
-    "**/node_modules/**": true
+    "**/.git/objects/**": true
   },
 
   // Controls whether unsaved files are restored after relaunching. If this is enabled there will be no prompt to save when exiting the editor.
@@ -766,19 +814,19 @@ Below is a copy of the `Default Settings` that comes with VS Code.
 // Integrated Terminal
 
   // The path of the shell that the terminal uses on Linux.
-  "terminal.integrated.shell.linux": "/bin/zsh",
+  "terminal.integrated.shell.linux": "sh",
 
   // The command line arguments to use when on the Linux terminal.
   "terminal.integrated.shellArgs.linux": [],
 
   // The path of the shell that the terminal uses on OS X.
-  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.shell.osx": "sh",
 
   // The command line arguments to use when on the OS X terminal.
   "terminal.integrated.shellArgs.osx": [],
 
   // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
-  "terminal.integrated.shell.windows": "cmd.exe",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\system32\\cmd.exe",
 
   // The command line arguments to use when on the Windows terminal.
   "terminal.integrated.shellArgs.windows": [],
@@ -790,7 +838,7 @@ Below is a copy of the `Default Settings` that comes with VS Code.
   "terminal.integrated.fontLigatures": false,
 
   // Controls the font size in pixels of the terminal.
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 14,
 
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1.2,
@@ -802,7 +850,7 @@ Below is a copy of the `Default Settings` that comes with VS Code.
   "terminal.integrated.scrollback": 1000,
 
   // Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.
-  "terminal.integrated.setLocaleVariables": true,
+  "terminal.integrated.setLocaleVariables": false,
 
   // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
   "terminal.integrated.commandsToSkipShell": [
@@ -841,12 +889,12 @@ Below is a copy of the `Default Settings` that comes with VS Code.
 
 // Telemetry
 
+  // Enable usage data and errors to be sent to Microsoft.
+  "telemetry.enableTelemetry": true,
+
   // Enable crash reports to be sent to Microsoft.
   // This option requires restart to take effect.
-  "telemetry.enableCrashReporter": true,
-
-  // Enable usage data and errors to be sent to Microsoft.
-  "telemetry.enableTelemetry": true
+  "telemetry.enableCrashReporter": true
 }
 ```
 
