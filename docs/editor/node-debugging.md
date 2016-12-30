@@ -20,7 +20,7 @@ VS Code includes an experimental Node.js debug extension with debug type `node2`
 
 We recommend using the new experimental debugger `node2` for node.js versions >= 6.3. When debugging Node.js versions < 6.3, you have to use the 'old' debugger `node`.
 
->**Note**: On the Windows operating sytem, we recommend Node.js v6.9 with `node2` because earlier versions are not stable enough.
+>**Note**: On the Windows operating sytem, we recommend Node.js v6.9+ with `node2` because earlier versions are not stable enough.
 
 Here are a few additional reasons for using the `node2` debugger over `node`:
 
