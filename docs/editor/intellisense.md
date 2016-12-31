@@ -62,13 +62,13 @@ VS Code IntelliSense offers different types of completions, including language s
 | ![property](images/intellisense/Property_16x.svg) | Properties and Attributes |
 | ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations |
 | ![color](images/intellisense/Enumerator_16x.svg) | References |
-| ![symbol](images/intellisense/Enumerator_16x.svg) | Symbols |
 | ![keyword](images/intellisense/IntelliSenseKeyword_16x.svg) | Keywords |
 | ![global identifiers](images/intellisense/Document_16x.svg) | Global Identifiers |
 | ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet Prefixes |
 | ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words |
 | ![a square with letters abc word completion](images/intellisense/Misc_16x.svg) | Miscellaneous |
 | ![color](images/intellisense/ColorPalette_16x.svg) | Colors |
+| ![unit](images/intellisense/Ruler_16x.svg) | Unit |
 
 ## Customizing IntelliSense
 
