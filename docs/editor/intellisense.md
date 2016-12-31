@@ -55,18 +55,20 @@ VS Code IntelliSense offers different types of completions, including language s
 |       |         |
 | ----- | ------- |
 | ![method icon](images/intellisense/Method_16x.svg) | Methods, Functions, or Constructors |
-| ![variable icon](images/intellisense/Field_16x.svg) | Variables |
+| ![variable icon](images/intellisense/Field_16x.svg) | Variables and Fields |
 | ![class](images/intellisense/Class_16x.svg) | Classes |
 | ![interface](images/intellisense/Interface_16x.svg) | Interfaces |
-| ![module](images/intellisense/Module_16x.svg) | Modules |
+| ![module](images/intellisense/Namespace_16x.svg) | Modules |
 | ![property](images/intellisense/Property_16x.svg) | Properties and Attributes |
-| ![enumerator](images/intellisense/Enumerator_16x.svg) | Enumerations |
-| ![symbol](images/intellisense/symbol_icon.png) | Symbols |
+| ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations |
+| ![color](images/intellisense/Enumerator_16x.svg) | References |
+| ![symbol](images/intellisense/Enumerator_16x.svg) | Symbols |
 | ![keyword](images/intellisense/IntelliSenseKeyword_16x.svg) | Keywords |
-| ![value](images/intellisense/value_icon.png) | Values |
-| ![global identifiers](images/intellisense/file_icon.png) | Global Identifiers |
+| ![global identifiers](images/intellisense/Document_16x.svg) | Global Identifiers |
 | ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet Prefixes |
 | ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words |
+| ![a square with letters abc word completion](images/intellisense/Misc_16x.svg) | Miscellaneous |
+| ![color](images/intellisense/ColorPalette_16x.svg) | Colors |
 
 ## Customizing IntelliSense
 
