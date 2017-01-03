@@ -49,17 +49,17 @@ To get started, we need to grab the todo sample project so we can start playing 
 
 1. Open up Visual Studio Code, and type `F1` to bring up the **Command Palette** (or alternatively, select `Command Palette...` from the `View` menu).
 
-2. Type `gitcl` to find the `Git: Clone` command and hit `<ENTER>`.
+2. Type `gitcl` to find the `Git: Clone` command and hit `ENTER`.
 
-    <img src="images/GitClone.png" width="200px" />
+<img src="images/GitClone.png" width="200px" />
 
     *Note: The VS Code **Command Palette** supports "fuzzy search", which allows you to type fewer keystrokes to find commonly used commands.*
 
-3. Enter `https://github.com/scotch-io/node-todo` into the prompt and hit `<ENTER>`.
+3. Enter `https://github.com/scotch-io/node-todo` into the prompt and hit `ENTER`.
 
 4. Select the folder you'd like to clone the project into, or create a new one (e.g. called `Todos`). At this point, VS Code will clone the repo, and launch a new workspace that is rooted at the newly cloned project.
 
-    <img src="images/Explorer.png" width="150px" />
+<img src="images/Explorer.png" width="150px" />
 
 Alternatively, you could use the Git CLI to clone the sample repo, however, this exercise helps illustrate some of the productivity enhancers that VS Code provides by means of the command palette. I'd encourage you to hit `F1` and browse the various commands it (and any installed extensions) provides, in order to identify what else you can do.
 
