@@ -53,7 +53,7 @@ To get started, we need to grab the todo sample project so we can start playing 
 
 <img src="/images/2017_01_03_GitClone.png" width="200px" />
 
-    *Note: The VS Code **Command Palette** supports "fuzzy search", which allows you to type fewer keystrokes to find commonly used commands.*
+> Note: The VS Code **Command Palette** supports "fuzzy search", which allows you to type fewer keystrokes to find commonly used commands.
 
 3. Enter `https://github.com/scotch-io/node-todo` into the prompt and hit `ENTER`.
 
@@ -65,7 +65,7 @@ Alternatively, you could use the Git CLI to clone the sample repo, however, this
 
 ## Integrated Terminal
 
-Since this is a Node.js project, the first thing we need to do is ensure that all of it's dependencies are installed from NPM, since they weren't checked into the Git repo. You can perform this step from within your standard terminal (I would recommend [Hyper](https://hyper.is/)!), or, if you prefer, you can also bring up the VS Code integrated terminal by pressing `` CTRL+` `` and then running either `npm install` or `yarn`, depending on which NPM client you prefer. I like Yarn since it's super fast and provides some great workflow improvements, so I'd recommend checking it out if you haven't already.
+Since this is a Node.js project, the first thing we need to do is ensure that all of its dependencies are installed from NPM, since they weren't checked into the Git repo. You can perform this step from within your standard terminal (I would recommend [Hyper](https://hyper.is/)!), or, if you prefer, you can also bring up the VS Code integrated terminal by pressing `` CTRL+` `` and then running either `npm install` or `yarn`, depending on which NPM client you prefer. I like Yarn since it's super fast and provides some great workflow improvements, so I'd recommend checking it out if you haven't already.
 
 <img src="/images/2017_01_03_Terminal.png" width="400px" />
 
@@ -73,7 +73,7 @@ Since VS Code wants to fit naturally into your existing workflow, it's up to you
 
 ## Integrated Git version control
 
-Installing the app's dependencies via Yarn resulted in a `yarn.lock` file being generated, which provides a predictable way to re-acquire the exact same dependencies in the future, without any surprises in either CI builds, production deployments or other devloper's machines.
+Installing the app's dependencies via Yarn resulted in a `yarn.lock` file being generated, which provides a predictable way to re-acquire the exact same dependencies in the future, without any surprises in either CI builds, production deployments or other developer's machines.
 
 It is encouraged that this file be checked into source control, and to do this, you can easily switch to the integrated Git tab in VS Code (the one with the Git logo), and notice the newly added file. You can type in a commit message, and type `CMD+Enter` (or click the checkmark icon) in order to stage/commit the change locally.
 
@@ -87,9 +87,9 @@ Behind the scenes, this is simply automating the same Git CLI commands you would
 
 In order to orient ourselves within the codebase, let's play around with some examples of some of the navigation capabilities that VS Code provides:
 
-1. Type `CMD+P` and enter `.js`, which let's you see all of the JavaScript/JSON files in the project, along with the directory they're within. Once again, this dialog supports the same "fuzzy search" as the command palette, so it's pretty flexible.
+1. Type `CMD+P` and enter `.js`, which lets you see all of the JavaScript/JSON files in the project, along with the directory they're within. Once again, this dialog supports the same "fuzzy search" as the command palette, so it's pretty flexible.
 
-    <img src="/images/2017_01_03_FilePicker.png" width="250px" /><br />
+    <img src="/images/2017_01_03_FilePicker.png" width="300px" /><br />
 
 2. Select `server.js`, which is the startup script for the app. 
 
@@ -99,9 +99,9 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
 4. Simply placing your cursor within the span of the name `database`, allows you to quickly see all other references to it within the same file, and right-clicking and selecting `Find All References` allows you to see uses of it project wide.
 
-    <img src="/images/2017_01_03_WordHighlight.png" width="250px" />
+    <img src="/images/2017_01_03_WordHighlight.png" width="300px" />
 
-5. Beyond quickly inspecting variable types on hover, you can also inspect the definition of a variable, even if it's in another file! For example, right-click on `database.localUrl` on line 12, and select `Peek Definition`, which let's us quickly see how the app is configured to connect to MongoDB by default.
+5. Beyond quickly inspecting variable types on hover, you can also inspect the definition of a variable, even if it's in another file! For example, right-click on `database.localUrl` on line 12, and select `Peek Definition`, which lets us quickly see how the app is configured to connect to MongoDB by default.
 
     <img src="/images/2017_01_03_CodePeek.png" width="550px" />
 
@@ -123,7 +123,7 @@ mongoose.connect(process.env.MONGO_URL || database.localUrl);
 
 When typing `process.`, you should have noticed that VS Code displayed the available members of the Node.js `process` global API, without you needing to configure anything.
 
-<img src="/images/2017_01_03_ProcessEnv.png" width="300px" />
+<img src="/images/2017_01_03_ProcessEnv.png" width="350px" />
 
 This works because VS Code uses TypeScript behind the scenes (even for JavaScript!) to provide type information, which can then be used to inform the completion list as you type. VS Code is able to detect that this is a Node.js project, and as a result, automatically downloaded the TypeScript typings file for [Node.js](https://www.npmjs.com/package/@types/node) from NPM. This allows you to get completion for other Node.js globals such as `Buffer` or `setTimeout`, as well as all of the built-in modules such as `fs` and `http`.
 
@@ -135,7 +135,7 @@ mongoose.connection.on("error", () => { console.log("DB connection error"); });
 
 When typing that, you'll notice that you get completion, once again, without needing to do anything.
 
-<img src="/images/2017_01_03_Mongoose.png" width="250px" />
+<img src="/images/2017_01_03_Mongoose.png" width="300px" />
 
 You can see which libraries support this auto-complete capability by browsing the amazing [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) project, which is the community-driven source of all TypeScript type definitions.
 
@@ -143,25 +143,25 @@ You can see which libraries support this auto-complete capability by browsing th
 
 Now that we've explored and tweaked this app a bit, now is time to run it. To do this, simply hit `F5` to run the app. Because this is the first time we've ever tried to run it, we're asked to specify the type of "run configuration" we want to use:
 
-<img src="/images/2017_01_03_DebugConfig.png" width="400px" />
+<img src="/images/2017_01_03_DebugConfig.png" width="450px" />
 
 Select `Node.js v6.3+ (Experimental)`, which will use the new Chrome Debugging Protocol support that was recently added to Node.js. Doing this generates a new file in your project called `launch.json`, which simply tells VS Code how to launch and/or attach to your app in order to debug it.
 
-<img src="/images/2017_01_03_LaunchJson.png" width="250px" />
+<img src="/images/2017_01_03_LaunchJson.png" width="300px" />
 
 Notice that it was able to detect that the app's startup script is `server.js`, and once again, we don't need to change anything in order to make debugging just work.
 
 At this point, hit `F5` again to run the app. This will launch the app, along with the `Debug Console` window in VS Code, which displays stdout for our newly running app.
 
-<img src="/images/2017_01_03_Console.png" width="400px" />
+<img src="/images/2017_01_03_Console.png" width="450px" />
 
 Additionally, this console is actually attached to our newly running app, so you can type JavaScript expressions, which will be evaluated in the app, and also includes auto-completion! For example, try typing `process.env` in the console to see what I mean.
 
-<img src="/images/2017_01_03_ConsoleCode.png" width="400px" />
+<img src="/images/2017_01_03_ConsoleCode.png" width="450px" />
 
 If you open a browser, you can navigate to `http://localhost:8080` and see the running app. Type a message into the textbox and add/remove a few todos to get a feel for how the app works.
 
-<img src="/images/2017_01_03_Todo.png" width="300px" />
+<img src="/images/2017_01_03_Todo.png" width="350px" />
 
 ## Debugging
 
@@ -169,13 +169,13 @@ In addition to being able to run the app and interact with it via the integrated
 
 Let's set a breakpoint on line 28, which represents the Express route that will be called when our app tries to add a todo. To set a breakpoint, simply click the gutter to the left of the line number within the editor:
 
-<img src="/images/2017_01_03_Breakpoint.png" width="300px" />
+<img src="/images/2017_01_03_Breakpoint.png" width="350px" />
 
 *Note: In addition to standard breakpoints, VS Code also supports conditional breakpoints, which allow you to customize when the app should suspend execution. To use them, simply right-click the gutter, select `Add Conditional Breakpoint...`, and specify either the JavaScript expression (e.g. `foo = "bar"`) or hit count that you'd like to condition the breakpoint on.*
 
 With that set, go back to the running app and add a todo. This immediately causes the app to suspend execution, and VS Code will pause on line 28 where we set the breakpoint:
 
-<img src="/images/2017_01_03_Debugger.png" width="300px" />
+<img src="/images/2017_01_03_Debugger.png" width="350px" />
 
 Within the paused file, we can hover over expressions to view their current value, inspect the locals/watches and call stack, and use the debug toolbar at the top to step through the execution. All the things you would expect from an IDE, but in a lightweight text editor. Hit `F5` again to continue execution of the app.
 
@@ -185,7 +185,7 @@ As mentioned, this is a MEAN app, which means it's front-end and back-end are bo
 
 To demonstrate this, switch to the extensions tab and type `chrome` into the search box:
 
-<img src="/images/2017_01_03_Chrome.png" width="300px" />
+<img src="/images/2017_01_03_Chrome.png" width="350px" />
 
 Select the extension named `Debugger for Chrome` and click the `Install` button. After doing this, you'll need to reload VS Code to activate the extension. It will persist your workspace across the restart so don't worry about losing any state.
 
@@ -229,7 +229,7 @@ This change does two things:
 
 To see this in action, switch to the debug tab in VS Code, and change the selected configuration to "Full-Stack" (which is what we called the compound config, you can name it anything you want), and then hit `F5` to run it.
 
-<img src="/images/2017_01_03_FullStackProfile.png" width="200px" />
+<img src="/images/2017_01_03_FullStackProfile.png" width="250px" />
 
 This launches the Node.js app (as can be seen in the debug console output), as well as Chrome, which is configured to navigate to the Node.js app at `http://localhost:8080`.
 
@@ -237,7 +237,7 @@ Type `CTRL+P` and enter/select `todos.js`, which is the main Angular controller 
 
 Go back to the running app, add a new todo, and you'll notice that VS Code has now suspended execution within the Angular code:
 
-<img src="/images/2017_01_03_ChromePause.png" width="300px" />
+<img src="/images/2017_01_03_ChromePause.png" width="350px" />
 
 Just like with the Node.js debugging, you can hover over expressions, view locals/watches, evaluate expressions in the console, etc. However, there are two cools things to consider now:
 
@@ -245,7 +245,7 @@ Just like with the Node.js debugging, you can hover over expressions, view local
 
 2. You can step between front and back-end code! To test this, simply hit `F5`, which will run execution and hit the breakpoint we previously set in our Express route.
 
-With this setup, we can now effeciently debug front, back or full-stack JavaScript code directly within VS Code. Going further, the compound debugger concept isn't limited to just two target processes, and also isn't just limited to JavaScript, so if you're working on a micro-service app, that is potentially polyglot, you can use the exact same workflow we did above, once you've installed the neccesary extensions (e.g. Go, Ruby, PHP).
+With this setup, we can now efficiently debug front, back or full-stack JavaScript code directly within VS Code. Going further, the compound debugger concept isn't limited to just two target processes, and also isn't just limited to JavaScript, so if you're working on a micro-service app, that is potentially polyglot, you can use the exact same workflow we did above, once you've installed the necessary extensions (e.g. Go, Ruby, PHP).
 
 ## Dockerizing Your App
 
@@ -253,15 +253,15 @@ Speaking of microservices, let's take a look at the experience that VS Code prov
 
 Switch back to the extensions tab, search for `docker` and select the `Docker Support` extension. Install it and then reload VS Code, just like we did for the Chrome extension above.
 
-<img src="/images/2017_01_03_DockerSearch.png" width="300px" />
+<img src="/images/2017_01_03_DockerSearch.png" width="350px" />
 
 This extension includes many things, one of which is a simple command for generating a `Dockerfile` and `docker-compose.yml` file for an existing project. To see this in action, type `F1` (to bring up the command palette) and type `docker` to display all of the commands that the Docker extension provides:
 
-<img src="/images/2017_01_03_DockerCommands.png" width="300px" />
+<img src="/images/2017_01_03_DockerCommands.png" width="350px" />
 
 Select the `Docker: Add docker files to workspace` command,  select `Node.js` as the app platform, and specify that the app exposes port `8080`. This generates a complete `Dockerfile` and Docker compose files that you can begin using immediately.
 
-<img src="/images/2017_01_03_Dockerfile.png" width="400px" />
+<img src="/images/2017_01_03_Dockerfile.png" width="450px" />
 
 The Docker extension also provides auto-completion for your `Dockerfiles` and `docker-compose.yml` files, which makes authoring your Docker assets a lot simpler. For example, open up the `Dockerfile` and change line 2 from:
 
@@ -275,19 +275,19 @@ To:
 FROM mhart
 ```
 
-With your cusor after the `t` in `mhart`, hit `CTRL+Space` to view all of the image repositories that `mhart` has published on DockerHub.
+With your cursor after the `t` in `mhart`, hit `CTRL+Space` to view all of the image repositories that `mhart` has published on DockerHub.
 
-<img src="/images/2017_01_03_DockerCompletion.png" width="300px" />
+<img src="/images/2017_01_03_DockerCompletion.png" width="350px" />
 
-Select `mhart/aline-node`, which a very efficient and small Linux distro and provides everything that this app needs, without any additional bloat (Alpine Linux is great for Docker!). Smaller images are typically better since you want your app builds and deployments to be as fast as possible, which makes distribution/scaling/etc. quick.
+Select `mhart/alpine-node`, which a very efficient and small Linux distro and provides everything that this app needs, without any additional bloat (Alpine Linux is great for Docker!). Smaller images are typically better since you want your app builds and deployments to be as fast as possible, which makes distribution/scaling/etc. quick.
 
 Now that we have our `Dockerfile`, we need to build the actual Docker image. Once again, we can use a command that the Docker extension installed, by typing `F1` and entering `dockerb` (using "fuzzy search"). Select the `Docker: Build Image` command, choose the `/Dockerfile` that we just generated/edited, and then give a tag to the image which includes your DockerHub username (e.g. `lostintangent/node`). Hit `<ENTER>`, which will launch the integrated terminal window and display the output of your Docker image being built.
 
-<img src="/images/2017_01_03_DockerBuild.png" width="300xp" />
+<img src="/images/2017_01_03_DockerBuild.png" width="350xp" />
 
 Notice that the command simply automated the process of running `docker build` for you, which is another example of a productivity enhancer that you can either choose to use, or you can just use the Docker CLI directly. Whatever works best for you!
 
-At this point, to make this image easily acquireable for deployments, we just need to push it to DockerHub. To do this, bring up the command palette, enter `dockerpush` and select the `Docker: Push` command. Select the image tag that you just build (e.g. `lostintangent/node`) and hit `<ENTER>`. This will automate calling `docker push` and will display the output in the integrated terminal.
+At this point, to make this image easily acquirable for deployments, we just need to push it to DockerHub. To do this, bring up the command palette, enter `dockerpush` and select the `Docker: Push` command. Select the image tag that you just build (e.g. `lostintangent/node`) and hit `<ENTER>`. This will automate calling `docker push` and will display the output in the integrated terminal.
 
 ## Deploying Your App
 
@@ -297,7 +297,7 @@ Now that we have our app Dockerized and pushed to DockerHub, we need to actually
 
 2. Support for Docker-based deployments, which allow you to simply specify the name of your Docker image, and allow App Service to pull, deploy and scale the image automatically.
 
-To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to manage your Azure account and provision the neccessary infrastructure to run the todo app. Once you've logged into your account from the CLI using the `az login` command (as mentioned in the pre-reqs), perform the following steps in order to provision the App Service instance and deploy the todo app container:
+To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to manage your Azure account and provision the necessary infrastructure to run the todo app. Once you've logged into your account from the CLI using the `az login` command (as mentioned in the pre-reqs), perform the following steps in order to provision the App Service instance and deploy the todo app container:
 
 1. Create a resource group, which you can think of as a "namespace" or "directory" for helping to organize Azure resources. The `-n` flag is the name of the group and can be specified as anything you want.
 
@@ -315,7 +315,7 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
     
     *Note: The `--is-linux` flag is key, since that is what indicates that you want Linux-based VMs. Without it, the CLI will provision Windows-based VMs.*
 
-3. Create the App Service web app, which represents the todo app that will be running within the plan and resource group we just created. You can roughly think of a web app as being synonomous with a process or container, and the plan as being the VM/container host that they're running on.
+3. Create the App Service web app, which represents the todo app that will be running within the plan and resource group we just created. You can roughly think of a web app as being synonymous with a process or container, and the plan as being the VM/container host that they're running on.
 
     ```shell
     az appservice web create -n nina-demo-app -p nina-demo-plan -g nina-demo
@@ -337,7 +337,7 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
 
     *Note: This may take a minute to first load your app, since App Service has to pull your Docker image from DockerHub and then start it up.*
 
-Yay! We just deployed our app. However, the spinning icon indicates that the app can't connect to the database, which makes sense because we were using a local instance of MongoDB during devleopment, which obviously isn't reachable from within the Azure datacenters. Fortunately, since we updated the app to accept the connection string via an environment variable, we just need to spin up a MongoDB server and re-configure the App Service instance to reference it.
+Yay! We just deployed our app. However, the spinning icon indicates that the app can't connect to the database, which makes sense because we were using a local instance of MongoDB during development, which obviously isn't reachable from within the Azure datacenters. Fortunately, since we updated the app to accept the connection string via an environment variable, we just need to spin up a MongoDB server and re-configure the App Service instance to reference it.
 
 ## Using DocumentDB
 
@@ -345,37 +345,37 @@ While we could setup a MongoDB server, or replica set, and manage that infrastru
 
 1. Go to portal.azure.com and log into the same account you were using in the CLI.
 
-    <img src="/images/2017_01_03_AzurePortal.png" width="300px" />
+<img src="/images/2017_01_03_AzurePortal.png" width="350px" />
 
 2. Press the `N` key to create a new Azure resource, and select `Databases` then `NoSQL (DocumentDB)`
 
-    <img src="/images/2017_01_03_CreateDocDB.png" width="250px" />
+<img src="/images/2017_01_03_CreateDocDB.png" width="300px" />
 
-3. Give the instance whatever name you'd like, but configure it's `NoSQL API` to use `MongoDB` and its `Resource Group` to `Use Existing` and select the same resource group that you created for the App Service instance.
+3. Give the instance whatever name you'd like, but configure its `NoSQL API` to use `MongoDB` and its `Resource Group` to `Use Existing` and select the same resource group that you created for the App Service instance.
 
-    <img src="/images/2017_01_03_DocDBCreate.png" width="200px" />
+<img src="/images/2017_01_03_DocDBCreate.png" width="250px" />
 
 4. Click the `Create` button, and wait for the DB to be provisioned.
     
 It will take a few moments to fully create the DocumentDB instance, so wait until you see the deployment successful notification in the upper right-side of the portal. Once completed, navigate to the `All Resources` tab on the left hand navigation bar (the menu item with the green grid icon), and then select the DocumentDB resource you created:
 
-<img src="/images/2017_01_03_AllResources.png" width="300px" />
+<img src="/images/2017_01_03_AllResources.png" width="350px" />
 
 Click the `Connection String` menu item underneath the `Settings` section, and then click copy button next to the `Connection String` field in order to copy the MongoDB connection string to your clipboard.
 
-<img src="/images/2017_01_03_ConnectionString.png" width="400px" />
+<img src="/images/2017_01_03_ConnectionString.png" width="450px" />
 
 Return to the `All Resources` page within the portal, and navigate to the `App Service` instance you previously created. Click the `Application Settings` menu item underneath the `Settings` section, and add a new entry underneath the `App settings` section, whose key is `MONGO_URL` and whose value is the DocumentDB connection string that we previously copied.
 
-<img src="/images/2017_01_03_AppSettings.png" width="400px" />
+<img src="/images/2017_01_03_AppSettings.png" width="450px" />
 
 Hit the `Save` button, and then return to your browser and refresh it. Try adding and removing a todo item, to prove that the app now works without needing to change anything! We simply set the environment variable to our created DocumentDB instance, which is fully emulating a MongoDB database.
 
-<img src="/images/2017_01_03_FinishedDemo.png" width="400px" />
+<img src="/images/2017_01_03_FinishedDemo.png" width="450px" />
 
 When needed, we could switch back to the DocumentDB instance, and scale up (or down) the reserved throughput that our MongoDB instance needs, and benefit from the added traffic without needing to manage any infrastructure manually.
 
-<img src="/images/2017_01_03_DocDBScale.png" width="300px" />
+<img src="/images/2017_01_03_DocDBScale.png" width="350px" />
 
 Additionally, DocumentDB automatically indexes every single document and property for you, so you don't need to worry about  profiling slow queries and/or manually fine-tuning your indexes. Just provision and scale as needed, and let DocumentDB handle the rest!
 
