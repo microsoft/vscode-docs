@@ -60,8 +60,7 @@ To get started, we need to grab the todo sample project so we can start playing 
 
 4. Select the folder you'd like to clone the project into, or create a new one (e.g. called `Todos`). At this point, VS Code will clone the repo, and launch a new workspace that is rooted at the newly cloned project.
 
-<!--<img src="/images/2017_01_03_Explorer.png" width="150px" />-->
-<img src="/images/2017_01_03_Explorer.png" />
+<img src="/images/2017_01_03_Explorer.png" width="150px" />
 
 Alternatively, you could use the Git CLI to clone the sample repo, however, this exercise helps illustrate some of the productivity enhancers that VS Code provides by means of the command palette. I'd encourage you to hit `F1` and browse the various commands it (and any installed extensions) provides, in order to identify what else you can do.
 
@@ -69,8 +68,7 @@ Alternatively, you could use the Git CLI to clone the sample repo, however, this
 
 Since this is a Node.js project, the first thing we need to do is ensure that all of its dependencies are installed from NPM, since they weren't checked into the Git repo. You can perform this step from within your standard terminal (I would recommend [Hyper](https://hyper.is/)!), or, if you prefer, you can also bring up the VS Code integrated terminal by pressing `` CTRL+` `` and then running either `npm install` or `yarn`, depending on which NPM client you prefer. I like Yarn since it's super fast and provides some great workflow improvements, so I'd recommend checking it out if you haven't already.
 
-<!--<img src="/images/2017_01_03_Terminal.png" width="400px" />-->
-<img src="/images/2017_01_03_Terminal.png" />
+<img src="/images/2017_01_03_Terminal.png" width="400px" />
 
 Since VS Code wants to fit naturally into your existing workflow, it's up to you to decide if and when the integrated terminal is useful. I find that if I'm running VS Code full-screen (especially with the new Zen mode!), it's nice to be able to use the integrated terminal for simple/one-off commands. Whereas if I'm doing something more "sophisticated", I'll just switch to a full-screen version of Hyper. Choice and flexibility is key here.
 
