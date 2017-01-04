@@ -323,19 +323,19 @@ In Windows and macOS, you can also open projects and files using the OS' URL han
 Open a project:
 
 ```
-vscode-insiders://file/FULL/PATH/TO/PROJECT/
+vscode://file/FULL/PATH/TO/PROJECT/
 ```
 
 Open a file:
 
 ```
-vscode-insiders://file/FULL/PATH/TO/FILE
+vscode://file/FULL/PATH/TO/FILE
 ```
 
 Open a file to line and column:
 
 ```
-vscode-insiders://file/FULL/PATH/TO/FILE?LINE:COLUMN
+vscode://file/FULL/PATH/TO/FILE?LINE:COLUMN
 ```
 
 ## Window Management
