@@ -318,10 +318,24 @@ If you specify more than one file or folder at the command line, VS Code will op
 
 ## Opening Code with URLs
 
-In Windows and macOS, you can also open files using the OS' URL handling mechanism. Use the following URL format:
+In Windows and macOS, you can also open projects and files using the OS' URL handling mechanism. Use the following URL formats to:
+
+Open a project:
+
+```
+vscode-insiders://file/FULL/PATH/TO/PROJECT/
+```
+
+Open a file:
 
 ```
 vscode-insiders://file/FULL/PATH/TO/FILE
+```
+
+Open a file to line and column:
+
+```
+vscode-insiders://file/FULL/PATH/TO/FILE?LINE:COLUMN
 ```
 
 ## Window Management
