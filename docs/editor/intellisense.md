@@ -54,7 +54,7 @@ VS Code IntelliSense offers different types of completions, including language s
 
 |       |         |
 | ----- | ------- |
-| ![method icon](images/intellisense/Method_16x.svg) | Methods, Functions, or Constructors |
+| ![method icon](images/intellisense/Method_16x.svg) | Methods, Functions and Constructors |
 | ![variable icon](images/intellisense/Field_16x.svg) | Variables and Fields |
 | ![class](images/intellisense/Class_16x.svg) | Classes |
 | ![interface](images/intellisense/Interface_16x.svg) | Interfaces |
