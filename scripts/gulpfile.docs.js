@@ -39,7 +39,7 @@ var areas = {
 gulp.task('copy-images', function () {
 	console.log('Copying over rest of static content files...');
 
-	var images = gulp.src([DOCS_SRC_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG}'])
+	var images = gulp.src([DOCS_SRC_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG,svg,SVG}'])
 					.pipe(imagemin());
 
 	var gifs = gulp.src([DOCS_SRC_ROOT + '/**/images/**/*.{gif,GIF}']);
