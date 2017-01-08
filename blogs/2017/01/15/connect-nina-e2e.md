@@ -39,7 +39,7 @@ In order to effectively run through this demo, you'll need to have the following
 
 2. Docker, which can be downloaded [here](https://www.docker.com/products/docker). Additionally, you will need to have a [DockerHub](https://hub.docker.com/) account in order to publish the Docker images that will be created in the walkthrough.
 
-3. Azure CLI 2.0 preview, which provides installation instructions [here](https://github.com/Azure/azure-cli#installation). Additionally, you will need an Azure account, and be logged in with the Azure CLI by running `az login` and following the interactive login.
+3. Azure CLI 2.0 nightly, which provides installation instructions [here](https://github.com/Azure/azure-cli#nightly-builds). Additionally, you will need an Azure account, and be logged in with the Azure CLI by running `az login` and following the interactive login.
 
 4. Yarn, which provides installation instructions [here](https://yarnpkg.com/en/docs/install). This isn't technically required, however, it's used in place of the NPM client below. I'd recommend it!
 
