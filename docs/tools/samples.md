@@ -7,11 +7,9 @@ PageTitle: Visual Studio Code Extension Samples
 DateApproved: 12/14/2016
 MetaDescription: Learn from existing extension samples.
 ---
-
-
 # VS Code Extension Samples
 
-This is a list to make it easy to see where all the samples are...
+## Extension Basics
 
 We have two walkthroughs that cover many of the core concepts - start with these:
 
@@ -31,8 +29,6 @@ Sample|Description|Type|In Marketplace
 **[Spelling and Grammar Checker](https://github.com/Microsoft/vscode-spell-check)**|Configurable Markdown spelling and grammar checker.  Calls an external web service for checking and supports activation, add to dictionary, error mapping.  Watches for config file changes in real time.|[Extension](/docs/extensions/example-hello-world.md)|Y
 **[Mock Debugger](https://github.com/Microsoft/vscode-mock-debug)**|Helps you build and test a debugger.|[Debuggers](/docs/extensions/example-debuggers.md)|Y
 **[Go Language Support](https://github.com/microsoft/vscode-go)**|Rich language support for [Go Lang](https://golang.org/) - IntelliSense, Debug, Peek, Rename, Syntax, ...|[Extension](/docs/extensionAPI/vscode-api.md#languages)|Y
-
-
 
 ## Tools to Help you build an Extension
 
