@@ -7,22 +7,21 @@ PageTitle: Your First Visual Studio Code Extension - Hello World
 DateApproved: 12/14/2016
 MetaDescription: Create your first Visual Studio extension (plug-in) with a simple Hello Word example.  This walkthrough will take you through the basics of VS Code extensibility.
 ---
-
 # Example - Hello World
 
 ## Your First Extension
 
-This document will take you through creating your first VS Code extension ("Hello World") and will explain the basic VS Code extensibility concepts.  
+This document will take you through creating your first VS Code extension ("Hello World") and will explain the basic VS Code extensibility concepts.
 
 In this walkthrough, you'll add a new command to VS Code which will display a simple "Hello World" message.  Later in the walkthrough, you'll interact with the VS Code editor and query for the user's currently selected text.
 
 ## Prerequisites
 
-You need [node.js](https://nodejs.org/en/) installed and available in your `$PATH`.
+You need [Node.js](https://nodejs.org/en/) installed and available in your `$PATH`.
 
 ## Generate a New Extension
 
-The simplest way to add your own functionality to VS Code is through adding a command. A command registers a callback function which can be invoked from the Command Palette or with a key binding.
+The simplest way to add your own functionality to VS Code is through adding a command. A command registers a callback function which can be invoked from the **Command Palette** or with a key binding.
 
 We have written a Yeoman generator to help get you started. Install Yeoman and the [Yeoman VS Code Extension generator](/docs/tools/yocode.md) and scaffold a new extension:
 
@@ -77,9 +76,6 @@ After running, the generated extension should have the following structure:
 │       └── index.js.map
 ├── package.json                // extension's manifest
 ├── tsconfig.json               // jsconfig.json, in case of JavaScript extension
-├── typings                     // type definition files
-│   ├── node.d.ts               // link to Node.js APIs
-│   └── vscode-typings.d.ts     // link to VS Code APIs
 └── vsc-extension-quickstart.md // extension development quick start
 ```
 
@@ -96,34 +92,34 @@ Let's go through the purpose of all these files and explain what they do:
 
 ```json
 {
-	"name": "myFirstExtension",
-	"description": "",
-	"version": "0.0.1",
-	"publisher": "",
-	"engines": {
-		"vscode": "^0.10.1"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onCommand:extension.sayHello"
-	],
-	"main": "./out/src/extension",
-	"contributes": {
-		"commands": [{
-			"command": "extension.sayHello",
-			"title": "Hello World"
-		}]
-	},
-	"scripts": {
-		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
-	},
-	"devDependencies": {
-		"typescript": "^1.7.5",
-		"vscode": "^0.11.x"
-	}
+    "name": "myFirstExtension",
+    "description": "",
+    "version": "0.0.1",
+    "publisher": "",
+    "engines": {
+        "vscode": "^0.10.1"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:extension.sayHello"
+    ],
+    "main": "./out/src/extension",
+    "contributes": {
+        "commands": [{
+            "command": "extension.sayHello",
+            "title": "Hello World"
+        }]
+    },
+    "scripts": {
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+    },
+    "devDependencies": {
+        "typescript": "^1.7.5",
+        "vscode": "^0.11.x"
+    }
 }
 ```
 
@@ -149,21 +145,21 @@ import * as vscode from 'vscode';
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "my-first-extension" is now active!');
+    // Use the console to output diagnostic information (console.log) and errors (console.error)
+    // This line of code will only be executed once when your extension is activated
+    console.log('Congratulations, your extension "my-first-extension" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	var disposable = vscode.commands.registerCommand('extension.sayHello', () => {
-		// The code you place here will be executed every time your command is executed
+    // The command has been defined in the package.json file
+    // Now provide the implementation of the command with  registerCommand
+    // The commandId parameter must match the command field in package.json
+    var disposable = vscode.commands.registerCommand('extension.sayHello', () => {
+        // The code you place here will be executed every time your command is executed
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
-	});
-	
-	context.subscriptions.push(disposable);
+        // Display a message box to the user
+        vscode.window.showInformationMessage('Hello World!');
+    });
+
+    context.subscriptions.push(disposable);
 }
 ```
 
@@ -222,7 +218,7 @@ In `extension.ts` (or `extension.js`, in a JavaScript extension), try replacing 
 ```javascript
 var editor = vscode.window.activeTextEditor;
 if (!editor) {
-	return; // No open text editor
+    return; // No open text editor
 }
 
 var selection = editor.selection;
