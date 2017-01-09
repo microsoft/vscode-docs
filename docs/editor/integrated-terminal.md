@@ -105,7 +105,6 @@ They are:
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
-* `workbench.action.terminal.clear`: Clear the terminal.
 
 ### Run Selected Text
 
