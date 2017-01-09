@@ -368,3 +368,7 @@ To write your own debugger extension, visit:
 **Q: What Node.js version is required for Node.js debugging?**
 
 **A:** The latest LTS version of [Node.js](https://nodejs.org/) is recommended.
+
+**Q: Can I use nvm (Node Version Manager) with VS Code?**
+
+**A:** Yes. If you are managing Node.js versions with `nvm`, make sure to restart VS Code after you have set a Node.js version with `nvm use ...` because VS Code will not pick up changes to environment variables (for example `PATH`) that occur after it was launched.
