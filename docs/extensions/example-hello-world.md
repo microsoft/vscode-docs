@@ -97,7 +97,7 @@ Let's go through the purpose of all these files and explain what they do:
     "version": "0.0.1",
     "publisher": "",
     "engines": {
-        "vscode": "^0.10.1"
+        "vscode": "^1.5.0"
     },
     "categories": [
         "Other"
@@ -113,13 +113,18 @@ Let's go through the purpose of all these files and explain what they do:
         }]
     },
     "scripts": {
-        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
     },
     "devDependencies": {
-        "typescript": "^1.7.5",
-        "vscode": "^0.11.x"
-    }
+       "typescript": "^2.0.3",
+        "vscode": "^1.5.0",
+        "mocha": "^2.3.3",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+   }
 }
 ```
 

@@ -46,67 +46,67 @@ Here is a complete `package.json`
 
 ```json
 {
-	"name": "spell",
-	"displayName": "Spelling and Grammar Checker",
-	"description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
-	"icon": "images/spellIcon.svg",
-	"version": "0.0.19",
-	"publisher": "seanmcbreen",
-	"galleryBanner": {
-		"color": "#0000FF",
-		"theme": "dark"
-	},
-	"license": "SEE LICENSE IN LICENSE.md",
-	"bugs": {
-		"url": "https://github.com/Microsoft/vscode-spell-check/issues",
-		"email": "smcbreen@microsoft.com"
-	},
-	"homepage": "https://github.com/Microsoft/vscode-spell-check/blob/master/README.md",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Microsoft/vscode-spell-check.git"
-	},
-	"categories": [
-		"Linters", "Languages", "Other"
-	],
-	"engines": {
-		"vscode": "0.10.x"
-	},
-	"main": "./out/extension",
-	"activationEvents": [
-		"onLanguage:markdown"
-	],
-	"contributes": {
-		"commands": [
-			{
-				"command": "Spell.suggestFix",
-				"title": "Spell Checker Suggestions"
-			}
-		],
-		"keybindings": [
-			{
-				"command": "Spell.suggestFix",
-				"key": "Alt+."
-			}
-		]
-	},
-	"badges": [
-		{
-			"url": "https://david-dm.org/Microsoft/vscode-spell-check.svg",
-			"href": "https://david-dm.org/Microsoft/vscode-spell-check",
-			"description": "Dependency Status"
-		}
-	],
-	"scripts": {
-		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
-		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
-	},
-	"dependencies": {
-		"teacher": "^0.0.1"
-	},
-	"devDependencies": {
-		"vscode": "^0.11.x"
-	}
+    "name": "spell",
+    "displayName": "Spelling and Grammar Checker",
+    "description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
+    "icon": "images/spellIcon.svg",
+    "version": "0.0.19",
+    "publisher": "seanmcbreen",
+    "galleryBanner": {
+        "color": "#0000FF",
+        "theme": "dark"
+    },
+    "license": "SEE LICENSE IN LICENSE.md",
+    "bugs": {
+        "url": "https://github.com/Microsoft/vscode-spell-check/issues",
+        "email": "smcbreen@microsoft.com"
+    },
+    "homepage": "https://github.com/Microsoft/vscode-spell-check/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/vscode-spell-check.git"
+    },
+    "categories": [
+        "Linters", "Languages", "Other"
+    ],
+    "engines": {
+        "vscode": "^1.0.0"
+    },
+    "main": "./out/extension",
+    "activationEvents": [
+        "onLanguage:markdown"
+    ],
+    "contributes": {
+        "commands": [
+            {
+                "command": "Spell.suggestFix",
+                "title": "Spell Checker Suggestions"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "Spell.suggestFix",
+                "key": "Alt+."
+            }
+        ]
+    },
+    "badges": [
+        {
+            "url": "https://david-dm.org/Microsoft/vscode-spell-check.svg",
+            "href": "https://david-dm.org/Microsoft/vscode-spell-check",
+            "description": "Dependency Status"
+        }
+    ],
+    "scripts": {
+        "vscode:prepublish": "tsc -p ./",
+        "compile": "tsc -watch -p ./"
+    },
+    "dependencies": {
+        "teacher": "^0.0.1"
+    },
+    "devDependencies": {
+        "vscode": "^1.0.0"
+    }
 }
 ```
 
@@ -126,30 +126,30 @@ Here are a few examples:
 
 Provide a good display name and description. This is important for the Marketplace and in product displays.  These strings are also used for text search in VS Code and having relevant keywords will help a lot.
 ```json
-	"displayName": "Spelling and Grammar Checker",
-	"description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
+    "displayName": "Spelling and Grammar Checker",
+    "description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
 ```
 
 An Icon and a contrasting banner color looks great on the Marketplace page header.  The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
 ```json
-	"icon": "images/spellIcon.svg",
-	"galleryBanner": {
-		"color": "#5c2d91",
-		"theme": "dark"
-	},
+    "icon": "images/spellIcon.svg",
+    "galleryBanner": {
+        "color": "#5c2d91",
+        "theme": "dark"
+    },
 ```
 
 There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed under the **Resources** section of the Marketplace.
 ```json
-	"license": "SEE LICENSE IN LICENSE.md",
-	"bugs": {
-		"url": "https://github.com/Microsoft/vscode-spell-check/issues"
-	},
-	"homepage": "https://github.com/Microsoft/vscode-spell-check/blob/master/README.md",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/Microsoft/vscode-spell-check.git"
-	}
+    "license": "SEE LICENSE IN LICENSE.md",
+    "bugs": {
+        "url": "https://github.com/Microsoft/vscode-spell-check/issues"
+    },
+    "homepage": "https://github.com/Microsoft/vscode-spell-check/blob/master/README.md",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/vscode-spell-check.git"
+    }
 ```
 
 Marketplace Resources link | package.json attribute
@@ -164,9 +164,9 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 >**Note:** Only use the values that make sense for your extension - allowed values are `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other]`
 
 ```json
-	"categories": [
-		"Linters", "Languages", "Other"
-	],
+    "categories": [
+        "Linters", "Languages", "Other"
+    ],
 ```
 
 >**Tip:** The [Extension Manifest Editor](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) extension lets you preview how your extension `README.md` and `package.json` metadata will look when published to the Marketplace.
@@ -181,33 +181,33 @@ Below is an extension manifest which includes a LaTex language definition (langu
 
 ```json
 {
-	"name": "language-latex",
-	"description": "LaTex Language Support",
-	"version": "0.0.1",
-	"publisher": "someone",
-	"engines": {
-		"vscode": "0.10.x"
-	},
-	"categories": [
-		"Languages",
-		"Snippets"
-	],
-	"contributes": {
-		"languages": [{
-			"id": "latex",
-			"aliases": ["LaTeX", "latex"],
-			"extensions": [".tex"]
-		}],
-		"grammars": [{
-			"language": "latex",
-			"scopeName": "text.tex.latex",
-			"path": "./syntaxes/latex.tmLanguage"
-		}],
-		"snippets": [{
-			"language": "latex",
-			"path": "./snippets/snippets.json"
-		}]
-	}
+    "name": "language-latex",
+    "description": "LaTex Language Support",
+    "version": "0.0.1",
+    "publisher": "someone",
+    "engines": {
+        "vscode": "0.10.x"
+    },
+    "categories": [
+        "Languages",
+        "Snippets"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "latex",
+            "aliases": ["LaTeX", "latex"],
+            "extensions": [".tex"]
+        }],
+        "grammars": [{
+            "language": "latex",
+            "scopeName": "text.tex.latex",
+            "path": "./syntaxes/latex.tmLanguage"
+        }],
+        "snippets": [{
+            "language": "latex",
+            "path": "./snippets/snippets.json"
+        }]
+    }
 }
 ```
 
