@@ -94,7 +94,7 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **Q: What if I don't want to create a full language service, can I reuse existing TextMate bundles?**
 
->**A:** Yes, you can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/customization/colorizer.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code. 
+**A:** Yes, you can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/customization/colorizer.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code. 
 
 **Q: Can I map additional file extensions to a language?**
 
