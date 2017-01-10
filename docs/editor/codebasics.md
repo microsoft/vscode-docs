@@ -173,7 +173,7 @@ You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bi
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
-However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easist way to turn on `Auto Save` is with the **File** > **Auto Save** toggle which turns on and off save after a delay.
+However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle which turns on and off save after a delay.
 
 For more control over `Auto Save`, open **User Settings** or **Workspace Settings** and find the associated settings:
 
