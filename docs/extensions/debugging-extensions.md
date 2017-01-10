@@ -36,7 +36,6 @@ The TypeScript compilation is setup as follows in the generated extension:
 
 * A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
 * A TypeScript compiler with the proper version is included inside the node_modules folder.
-* A `typings/vscode-typings.d.ts`: instructs the TypeScript compiler to include the `vscode` API definition.
 * The API definition is included in `node_modules/vscode`.
 
 The TypeScript compilation is triggered before running your extension. This is done with the `preLaunchTask` attribute defined in the
