@@ -58,6 +58,7 @@ If you already have one editor open, there are multiple ways of opening another 
 * **Open to the Side** from the Explorer context menu on a file.
 * Click the **Split Editor** button in the upper right of an editor.
 * Drag and drop a file to the either side of the editor region.
+* `kbstyle(Ctrl+Enter)` (Mac: `kbstyle('Cmd+Enter')`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/codebasics/sidebyside.png)
 
