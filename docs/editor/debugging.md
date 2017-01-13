@@ -139,7 +139,6 @@ You can also reference environment variables through **${env.Name}** syntax (e.g
 {
     "type": "node",
     "request": "launch",
-    "type": "node",
     "name": "Launch Program",
     "program": "${workspaceRoot}/app.js",
     "cwd": "${workspaceRoot}",
