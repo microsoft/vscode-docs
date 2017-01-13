@@ -1,7 +1,7 @@
 ---
-Order: 5
+Order: 6
 Area: extensionapi
-TOCTitle: API vscode namespace
+TOCTitle: vscode namespace API
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
 PageTitle: Visual Studio Code API Reference
 DateApproved: 12/14/2016
