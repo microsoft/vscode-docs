@@ -80,7 +80,7 @@ You can customize the integrated terminal font and line height with the followin
 
 ## Key Bindings
 
-The **View:: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
+The **View: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
 Below are the keyboard shortcuts to quickly navigate within the integreted terminal:
 
