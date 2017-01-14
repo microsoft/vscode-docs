@@ -316,23 +316,23 @@ For both files and folders, you can use absolute or relative paths. Relative pat
 
 If you specify more than one file or folder at the command line, VS Code will open only a single instance.
 
-## Opening Code with URLs
+## Opening VS Code with URLs
 
-In Windows and macOS, you can also open projects and files using the OS' URL handling mechanism. Use the following URL formats to:
+In Windows and macOS, you can also open projects and files using the platform's URL handling mechanism. Use the following URL formats to:
 
-Open a project:
+Open a project
 
 ```
 vscode://file/FULL/PATH/TO/PROJECT/
 ```
 
-Open a file:
+Open a file
 
 ```
 vscode://file/FULL/PATH/TO/FILE
 ```
 
-Open a file to line and column:
+Open a file to line and column
 
 ```
 vscode://file/FULL/PATH/TO/FILE?LINE:COLUMN
