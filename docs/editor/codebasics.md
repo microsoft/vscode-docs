@@ -53,12 +53,12 @@ You can have up to three editors open side by side.
 
 If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
-* `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer.
+* `kbstyle(Ctrl)` (Mac: `kbstyle(Cmd)`) click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** from the Explorer context menu on a file.
 * Click the **Split Editor** button in the upper right of an editor.
 * Drag and drop a file to the either side of the editor region.
-* `kbstyle(Ctrl+Enter)` (Mac: `kbstyle('Cmd+Enter')`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
+* `kbstyle(Ctrl+Enter)` (Mac: `kbstyle(Cmd+Enter)`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/codebasics/sidebyside.png)
 
