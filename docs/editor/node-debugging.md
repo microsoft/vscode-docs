@@ -20,7 +20,7 @@ VS Code includes an experimental Node.js debug extension with debug type `node2`
 
 We recommend using the new experimental debugger `node2` for node.js versions >= 6.3. When debugging Node.js versions < 6.3, you have to use the 'old' debugger `node`.
 
->**Note**: On the Windows operating sytem, we recommend Node.js v6.9 with `node2` because earlier versions are not stable enough.
+>**Note**: On the Windows operating sytem, we recommend Node.js v6.9+ with `node2` because earlier versions are not stable enough.
 
 Here are a few additional reasons for using the `node2` debugger over `node`:
 
@@ -338,7 +338,7 @@ Here are some things to try when your breakpoints turn gray:
 * Do you have `"sourceMaps": true` in your `launch.json`?
 * Did you build with source maps enabled? Are there `.js.map` files, or inlined source maps in your `.js` files?
 * Did you set the `outFiles` property in your `launch.json`? It should be a glob pattern for an absolute path that matches your `.js` files.
-* Try the new experimental `node2` debug adapter. It can handle some more of the more complex source map cases.
+* Try the new experimental [node2](/docs/editor/node-debugging.md#experimental-nodejs-debugger-node2) debug adapter. It can handle some more of the more complex source map cases.
 * Are the `sourceRoot` and `sources` properties in your source map correct? Can they be combined to get the correct path to the `.ts` file?
 * Are you using Webpack? By default, it outputs paths with a `webpack:///` prefix, which the debug adapter can't resolve. You can change this in your Webpack configuration with the `devtoolModuleFilenameTemplate` option, or try using `node2`, which provides some extra options for resolving these paths.
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
@@ -368,3 +368,7 @@ To write your own debugger extension, visit:
 **Q: What Node.js version is required for Node.js debugging?**
 
 **A:** The latest LTS version of [Node.js](https://nodejs.org/) is recommended.
+
+**Q: Can I use nvm (Node Version Manager) with VS Code?**
+
+**A:** Yes. If you are managing Node.js versions with `nvm`, make sure to restart VS Code after you have set a Node.js version with `nvm use ...` because VS Code will not pick up changes to environment variables (for example `PATH`) that occur after it was launched.

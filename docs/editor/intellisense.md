@@ -30,7 +30,7 @@ You can trigger IntelliSense in any editor window by typing `kb(editor.action.tr
 
 ![intellisense in package json](images/intellisense/intellisense_packagejson.gif)
 
-> **Tip:** The suggestions widget supports CamelCase filtering meaning you can type the upper case letters of a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
+> **Tip:** The suggestions widget supports CamelCase filtering meaning you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
 If you prefer, you can turn off IntelliSense while you type. See [Customizing IntelliSense](/docs/editor/intellisense.md#customizing-intellisense) below to learn how to disable or customize VS Code's IntelliSense features.
 
@@ -54,19 +54,21 @@ VS Code IntelliSense offers different types of completions, including language s
 
 |       |         |
 | ----- | ------- |
-| ![method icon](images/intellisense/method_icon.png) | Methods, Functions, or Constructors |
-| ![variable icon](images/intellisense/variable_icon.png) | Variables |
-| ![class](images/intellisense/class_icon.png) | Classes |
-| ![interface](images/intellisense/interface_icon.png) | Interfaces |
-| ![module](images/intellisense/module_icon.png) | Modules |
-| ![property](images/intellisense/property_icon.png) | Properties and Attributes |
-| ![symbol](images/intellisense/enum_icon.png) | Enumerations |
-| ![symbol](images/intellisense/symbol_icon.png) | Symbols |
-| ![keyword](images/intellisense/keyword_icon.png) | Keywords |
-| ![value](images/intellisense/value_icon.png) | Values |
-| ![global identifiers](images/intellisense/file_icon.png) | Global Identifiers |
-| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/snippet_icon.png) | Snippet Prefixes |
-| ![a square with letters abc word completion](images/intellisense/word_completion_icon.png) | Words |
+| ![method icon](images/intellisense/Method_16x.svg) | Methods, Functions and Constructors |
+| ![variable icon](images/intellisense/Field_16x.svg) | Variables and Fields |
+| ![class](images/intellisense/Class_16x.svg) | Classes |
+| ![interface](images/intellisense/Interface_16x.svg) | Interfaces |
+| ![module](images/intellisense/Namespace_16x.svg) | Modules |
+| ![property](images/intellisense/Property_16x.svg) | Properties and Attributes |
+| ![enumeration icon](images/intellisense/EnumItem_16x.svg) | Values and Enumerations |
+| ![color](images/intellisense/Enumerator_16x.svg) | References |
+| ![keyword](images/intellisense/IntelliSenseKeyword_16x.svg) | Keywords |
+| ![global identifiers](images/intellisense/Document_16x.svg) | Global Identifiers |
+| ![color](images/intellisense/ColorPalette_16x.svg) | Colors |
+| ![unit](images/intellisense/Ruler_16x.svg) | Unit |
+| ![a square with ellipses forming the bottom show snippet prefix](images/intellisense/Snippet_16x.svg) | Snippet Prefixes |
+| ![a square with letters abc word completion](images/intellisense/String_16x.svg) | Words |
+| ![Miscellaneous](images/intellisense/Misc_16x.svg) | Miscellaneous |
 
 ## Customizing IntelliSense
 

@@ -278,11 +278,11 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Basic**
 >
->You don't support resolve providers. Completions are computed based on the state saved on disk.
+>You don't support resolve providers.
 
 >**Advanced**
 >
->Completion items are computed based on the un-saved contents of current open editors. You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
+>You support resolve providers that compute additional information for completion proposal the user selects. This information is displayed along-side the selected item.
 
 ## Provide Diagnostics
 

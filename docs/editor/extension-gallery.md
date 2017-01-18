@@ -67,6 +67,18 @@ You can quickly look for extension updates by using the **Show Outdated Extensio
 
 If you would like your installed extensions to be updated automatically, you can use the `extensions.autoUpdate` [setting](/docs/customization/userandworkspace.md). When set to `true`, VS Code will download new versions of outdated extensions automatically and you will just need to restart VS Code when you see the blue **Enable** button in the Installed Extensions list.
 
+## Disable an Extension
+
+Disable an extension by clicking the settings icon next to the extension, as shown in the animation below. 
+
+![disable an extension](images/extension-gallery/extensions-disable.gif)
+
+Alternatively, you can disable all extensions through the command line with the `--disable-extensions` option as shown below. 
+
+```
+code --disable-extensions /path/to/workspace
+```
+
 ## Browse Extensions
 
 Additionally, you can browse and search for VS Code extensions through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site. Below is a sampling of the most popular extensions.
@@ -87,6 +99,7 @@ Example:
 code --list-extensions
 code --install-extension ms-vscode.cpptools
 code --uninstall-extension ms-vscode.csharp
+code --disable-extensions
 ```
 
 ## Workspace Recommended Extensions

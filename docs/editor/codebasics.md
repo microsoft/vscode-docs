@@ -53,11 +53,12 @@ You can have up to three editors open side by side.
 
 If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
-* `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) click on a file in the Explorer.
+* `kbstyle(Ctrl)` (Mac: `kbstyle(Cmd)`) click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** from the Explorer context menu on a file.
 * Click the **Split Editor** button in the upper right of an editor.
 * Drag and drop a file to the either side of the editor region.
+* `kbstyle(Ctrl+Enter)` (Mac: `kbstyle(Cmd+Enter)`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/codebasics/sidebyside.png)
 
@@ -173,7 +174,7 @@ You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bi
 
 By default, VS Code requires an explicit action to save your changes to disk, `kb(workbench.action.files.save)`.
 
-However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easist way to turn on `Auto Save` is with the **File** > **Auto Save** toggle which turns on and off save after a delay.
+However, it's easy to turn on `Auto Save`, which will save your changes after a configured delay or when focus leaves the editor. With this option turned on, there is no need to explicitly save the file. The easiest way to turn on `Auto Save` is with the **File** > **Auto Save** toggle which turns on and off save after a delay.
 
 For more control over `Auto Save`, open **User Settings** or **Workspace Settings** and find the associated settings:
 

@@ -36,7 +36,6 @@ The TypeScript compilation is setup as follows in the generated extension:
 
 * A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
 * A TypeScript compiler with the proper version is included inside the node_modules folder.
-* A `typings/vscode-typings.d.ts`: instructs the TypeScript compiler to include the `vscode` API definition.
 * The API definition is included in `node_modules/vscode`.
 
 The TypeScript compilation is triggered before running your extension. This is done with the `preLaunchTask` attribute defined in the
@@ -60,7 +59,7 @@ This is what happens when pressing `F5`:
 
  1. `.vscode/launch.json` instructs to first run a task named `npm`.
  2. `.vscode/tasks.json` defines the task `npm` as a shell command to `npm run compile`.
- 3. `package.json` defines the script `compile` as `node ./node_modules/vscode/bin/compile -watch -p ./`
+ 3. `package.json` defines the script `compile` as `tsc -watch -p ./`
  4. This eventually invokes the TypeScript compiler included in node_modules, which generates `out/src/extension.js` and `out/src/extension.js.map`.
  5. Once the TypeScript compilation task is finished, the `code --extensionDevelopmentPath=${workspaceRoot}` process is spawned.
  6. The second instance of VS Code is launched in a special mode and it searches for an extension at `${workspaceRoot}`.

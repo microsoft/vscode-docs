@@ -15,7 +15,7 @@ In Visual Studio Code, you can open an integrated terminal, initially starting a
 To open the terminal:
 
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
-* Use the **View** | **Toggle Integrated Terminal** menu command.
+* Use the **View** | **Integrated Terminal** menu command.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
@@ -74,13 +74,13 @@ For example, to enable running bash as a login shell (which runs `.bash_profile`
 
 You can customize the integrated terminal font and line height with the following settings:
 
-* `terminal.integrated.fontFamily` - The font family, this defaults to the `editor.fontFamily` value.
-* `terminal.integrated.fontSize` - The font size.
-* `terminal.integrated.lineHeight` - The line height of the terminal, this defaults to normal.
+* `terminal.integrated.fontFamily`
+* `terminal.integrated.fontSize`
+* `terminal.integrated.lineHeight`
 
 ## Key Bindings
 
-The **View:: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
+The **View: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
 Below are the keyboard shortcuts to quickly navigate within the integreted terminal:
 
@@ -105,7 +105,6 @@ They are:
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
-* `workbench.action.terminal.clear`: Clear the terminal.
 
 ### Run Selected Text
 

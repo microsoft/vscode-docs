@@ -1,16 +1,16 @@
 ---
-Order: 6
+Order: 5
 Area: extensionapi
-TOCTitle: API complex commands
+TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
-PageTitle: Visual Studio Code Commands API Reference
+PageTitle: Visual Studio Code Complex Commands Reference
 DateApproved: 12/14/2016
-MetaDescription: Visual Studio Code extensions (plug-ins) complex commands API Reference.  
+MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.  
 ---
 
-# Complex Commands API
+# Complex Commands
 
-This document lists a set of complex commands that we consider stable. They are called complex commands because they require parameters and often return a value. You can use the commands in conjunction with the `executeCommand` API.
+This document lists the set of Visual Studio Code complex commands. They are called complex commands because they require parameters and often return a value. You can use the commands in conjunction with the `executeCommand` API.
 
 The following is a sample of how to preview a HTML document:
 

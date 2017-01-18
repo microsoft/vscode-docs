@@ -52,7 +52,7 @@ var msg = 'Hello World';
 console.log(msg);
 ```
 
-Note that when you typed `console.` IntelliSense on the `console` object was automatically presented to you. When editing JavaScript files, VS Code will automatically provide you with IntelliSense for the DOM.
+Note that when you typed `console.` [IntelliSense](/docs/editor/intellisense.md) on the `console` object was automatically presented to you. When editing JavaScript files, VS Code will automatically provide you with IntelliSense for the DOM.
 
 ![console IntelliSense](images/nodejs/consoleintellisense.png)
 

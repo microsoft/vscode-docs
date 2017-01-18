@@ -5,3 +5,6 @@ node_modules
 .vscode/spell.json
 
 .idea
+
+*.sublime-project
+*.sublime-workspace

@@ -53,7 +53,7 @@ If you'd prefer to not use preview mode and always create a new Tab, you can con
 
 ## Editor Groups
 
-When you split an editor (using the **Split Editor** or **Open to the Side** commands), a new editor region is created which can hold a group of items.  VS Code allows up to three editor groups which are designed **LEFT**, **CENTER**, and **RIGHT**.
+When you split an editor (using the **Split Editor** or **Open to the Side** commands), a new editor region is created which can hold a group of items.  VS Code allows up to three editor groups which are designated **LEFT**, **CENTER**, and **RIGHT**.
 
 You can see these clearly in the **OPEN EDITORS** section at the top of the Explorer view:
 
@@ -62,6 +62,17 @@ You can see these clearly in the **OPEN EDITORS** section at the top of the Expl
 You can Drag and Drop editor groups on the workbench, move individual Tabs between groups and quickly close entire groups (**Close All**).
 
 >**Note:** VS Code uses editor groups whether or not you have enabled Tabs.  Without Tabs, editor groups are simply a stack of your open items with the most recently selected item visible in the editor pane.
+
+## Horizontal layout
+
+By default, editor groups are laid out in three vertical columns. If you prefer, you can change the layout to be three horizontal rows with editor groups designated **TOP**, **CENTER**, and **BOTTOM**.
+
+You can toggle the editor group layout between vertical and horizontal with:
+
+* **View** > **Toggle Editor Group Layout** menu
+* **View: Toggle Editor Group Vertical/ Layout** command in the **Command Palette** (`kb(workbench.action.showCommands)`)
+* Toggle button in the **OPEN EDITORS** tool bar
+* `kb(workbench.action.toggleEditorGroupLayout)` keyboard shortcut
 
 ## Keyboard Shortcuts
 
