@@ -66,8 +66,8 @@ exports.mapFileToArticle = function(file) {
 
 exports.getLatestContent = function(base, link) {
 	return new Buffer('' +
-		'<meta http-equiv="refresh" content="0; url=' + base + '/' + link + '">' + 
-		'<link rel="canonical" href="' + base + '/' + link + '" />'
+		'<meta http-equiv="refresh" content="0; url=/' + base + '/' + link + '">' + 
+		'<link rel="canonical" href="/' + base + '/' + link + '" />'
 	, 'utf8');
 }
 
