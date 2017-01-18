@@ -64,8 +64,8 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-handlebars', 'copy-rele
     var template = common.swigCompiler('scripts/templates/releasenotes-template.html');
 
     var latest = new File({
-       path: 'latest.handlebars',
-       contents: new Buffer(template(releaseNotes[0]))
+       path: 'latest.html',
+       contents: common.getLatestContent('updates', releaseNotes[0].Link)
     });
     
     es.readArray([latest])
