@@ -64,6 +64,13 @@ exports.mapFileToArticle = function(file) {
 	return article;
 }
 
+exports.getLatestContent = function(base, link) {
+	return new Buffer('' +
+		'<meta http-equiv="refresh" content="0; url=' + base + '/' + link + '">' + 
+		'<link rel="canonical" href="' + base + '/' + link + '" />'
+	, 'utf8');
+}
+
 exports.compileMarkdown = function(file, article) {
 	var md = markdownIt({ html: true, langPrefix: '' });
 	md.use(externalLinks, {
