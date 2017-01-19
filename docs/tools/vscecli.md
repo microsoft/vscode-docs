@@ -182,3 +182,7 @@ This will always invoke the [TypeScript](http://www.typescriptlang.org/) compile
 **Q: I can't unpublish my extension through the `vsce` tool?**
 
 **A:** You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage).  You can update or unpublish your extension from your publisher manage page.
+
+**Q: Why does vsce not preserve file attributes?**
+
+**A:** Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and OS X works as expected.
