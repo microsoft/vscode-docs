@@ -29,6 +29,28 @@ Here is an example with a very simple file.
 
 >**Tip:** You can also right-click on the editor Tab and select **Open Preview** or use the **Command Palette** (`kb(workbench.action.showCommands)`) **Markdown: Open Preview** and **Markdown: Open Preview to the Side** commands.
 
+### Editor and Preview Syncronization
+
+When working with a Markdown preview to the side of your editor, VSCode can syncronize the view of the editor and the preview. By default, the Markdown preview will automatically scroll to reveal the element at the selected line in the editor.
+
+![Markdown Preview editor selection scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
+
+This behavior can be disabled using the `markdown.preview.scrollPreviewWithEditorSelection` setting.
+
+The currently selected line is indicated in the Markdown preview by a light blue bar in the left margin:
+
+![Markdown Preview editor line marker](images/Markdown/preview-selection-marker.png)
+
+Also, when the Markdown preview is scrolled, the editor will scroll along with it:
+
+![Markdown Preview to editor scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
+
+This can be disabled using the `markdown.preview.scrollEditorWithPreview` setting.
+
+Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
+
+![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
+
 ## Using your own CSS
 
 By default, we use a CSS style for the preview that matches the style of VS Code. If you want to use your own CSS for the Markdown preview, update the `"markdown.styles": []` [setting](/docs/customization/userandworkspace.md) with the comma-separated list of URL(s) for your style sheet(s).
