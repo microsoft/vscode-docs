@@ -95,24 +95,22 @@ The `exclude` attribute tells the language service which files are and are not p
 
 You can explicitly set the files in your project using the `files` attribute. If no `files` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `files` attribute is specified, only those files are included.
 
-Here is an example with an explicit `files` attribute:
+Here is an example with an explicit `include` attribute:
 
 ```json
 {
     "compilerOptions": {
         "target": "ES6"
     },
-    "files": [
-        "src/"
+    "include": [
+        "src/**/*"
     ]
 }
 ```
 
-> **Tip:** Best practice, and least error prone route, is to use the `files` attribute with a single `src` folder. 
+The best practice, and least error prone route, is to use the `include` attribute with a single `src` folder. The `include` attribute cannot be used with the `exclude` attribute. If both are specified, the `files` attribute will take precedence.
 
-The `files` attribute cannot be used with the `exclude` attribute. If both are specified, the `files` attribute will take precedence.
-
-> **Tip:** The file paths in `excludes` and `files` are relative to the location of `jsconfig.json`.
+> **Tip:** The file paths in `exclude` and `include` are relative to the location of `jsconfig.json`.
 
 See [here](/docs/languages/jsconfig.md) for the full documentation of `jsconfig.json`.
 
