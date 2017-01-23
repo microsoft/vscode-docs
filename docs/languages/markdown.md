@@ -37,7 +37,7 @@ When working with a Markdown preview to the side of your editor, VSCode can sync
 
 This behavior can be disabled using the `markdown.preview.scrollPreviewWithEditorSelection` setting.
 
-The currently selected line is indicated in the Markdown preview by a light blue bar in the left margin:
+The currently selected line is indicated in the Markdown preview by a light gray bar in the left margin:
 
 ![Markdown Preview editor line marker](images/Markdown/preview-selection-marker.png)
 
