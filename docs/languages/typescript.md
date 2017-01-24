@@ -205,6 +205,19 @@ The directory path can be absolute or relative to the workspace directory. By us
 
 After setting `typescript.tsdk`, restart VS Code and the TypeScript version will be shown in the bottom right of the Status Bar when you open a JavaScript or TypeScript file.
 
+## References Code Lens
+
+The TypeScript references code lens displays an inline count of reference for classes, interfaces, methods, properties, and exported objects:
+
+![TypeScript references code lens](images/typescript/ts-references-code-lens.png)
+
+You can enable this by setting `"typescript.referencesCodeLens.enabled": true`.
+
+Click on the reference count to quickly browse a list of references:
+
+![TypeScript references code lens peek](images/typescript/ts-references-code-lens-peek.png)
+
+
 ## TypeScript Extensions
 
 VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
