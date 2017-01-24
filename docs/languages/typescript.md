@@ -213,7 +213,7 @@ The TypeScript references code lens displays an inline count of reference for cl
 
 You can enable this by setting `"typescript.referencesCodeLens.enabled": true`.
 
-Click on the reference count to view a list of all references and quickly switch to them:
+Click on the reference count to quickly browse a list of references:
 
 ![TypeScript references code lens peek](images/typescript/ts-references-code-lens-peek.png)
 
