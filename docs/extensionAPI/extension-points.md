@@ -86,6 +86,7 @@ Currently extension writers can to contribute to:
 * The editor context menu - `editor/context`
 * The editor title menu - `editor/title`
 * The editor title context menu - `editor/title/context`
+* The debug callstack view context menu - 'debug/callstack/context'
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
