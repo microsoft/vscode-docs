@@ -169,7 +169,7 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 ## Using Newer TypeScript Versions
 
-VS Code ships with a recent stable version of TypeScript, but you can also configure the version of TypeScript VS Code uses or use the version of TypeScript installed in a workspace. The active version of TypeScript that VS Code is using is displayed in the status bar when viewing a TypeScript or JavaScript file:
+VS Code ships with a recent stable version of TypeScript, but you can also configure the version of TypeScript VS Code uses or use the version of TypeScript installed in a workspace. The active version of TypeScript is displayed in the status bar when viewing a TypeScript or JavaScript file:
 
 ![](images/typescript/status-bar-version.png)
 
@@ -195,9 +195,9 @@ Then open a TypeScript or JavaScript file in the workspace and click on the Type
 
 ![](images/typescript/select-ts-version-message.png)
 
-You can switch back to use the version of TypeScript that comes with VSCode by clicking on the TypeScript version in the status bar again.
+You can switch back to the version of TypeScript that comes with VSCode by clicking on the TypeScript version in the status bar again.
 
-After switching to a workspace version of TypeScript or changing `typescript.tsdk`, restart VS Code to apply the change.
+After switching to a workspace version of TypeScript or changing `typescript.tsdk`, restart VS Code to have the change take effect.
 
 ## References Code Lens
 
