@@ -204,7 +204,7 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
 
 The Node debugger supports restarting execution at a stack frame. This can be useful in situations where you have found a problem in your source code and you want to rerun a small portion of the code with modified input values. Stopping and then restarting the full debug session can be very time-consuming. The **Restart Frame** action allows you to re-enter the current function after you have changed variables with the **Set Value** action:
 
-![Restart Frame](images/debugging/restartFrame.gif)
+<img alt="restart frame" src="https://az754404.vo.msecnd.net/public/restartFrame.gif" />
 
 Note that **Restart Frame** won't unroll any state changes, so it may not always work as expected.
 
