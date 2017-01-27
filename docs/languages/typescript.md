@@ -169,21 +169,21 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 ## Using Newer TypeScript Versions
 
-VS Code ships with a recent stable version of TypeScript. It also performs version checking for any version of TypeScript you may have installed globally or locally in your workspace.
+VS Code ships with a recent stable version of TypeScript, but you can also configure the version of TypeScript VS Code uses or use the version of TypeScript installed in a workspace. The active version of TypeScript is displayed in the status bar when viewing a TypeScript or JavaScript file:
 
-By default, VS Code will warn you if your global version is different than VS Code's TypeScript version since this may cause inconsistent compiler errors when building your project within VS Code and in an external terminal. You can disable this check with the **Dont Check Again** button on the warning which sets the `typescript.check.tscVersion` User [setting](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **User Settings**) to false:
+![](images/typescript/status-bar-version.png)
+
+To use a different TypeScript version, configure `typescript.tsdk` in your user settings to point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`, `tsserver.js` is usually under the `lib` folder.
+
+For example:
 
 ```json
 {
-    "typescript.check.tscVersion": false
+   "typescript.tsdk": "/usr/local/lib/node_modules/typescript/lib"
 }
 ```
 
-VS Code will also detect if a local workspace version of TypeScript is different from the bundled version. You can disable this check in either your User or Workspace settings with `typescript.check.workspaceVersion`.
-
-You can also direct VS Code to use your workspace TypeScript version with the `typescript.tsdk` setting pointing to a directory containing the TypeScript `tsserver.js` file.
-
-To install the latest TypeScript version, run:
+You can also configure VS Code to use the version of TypeScript installed in a workspace. To do so, first install TypeScript into your workspace using npm:
 
 ```bash
 npm install typescript@next
@@ -191,19 +191,13 @@ npm install typescript@next
 
 >**Tip:** To get a specific TypeScript version, specify `@version`.  For example for TypeScript 2.0, you would use `npm install typescript@2.0.0`.
 
-You can find the installation location using `npm list typescript`, `tsserver.js` is usually under the `lib` folder.
+Then open a TypeScript or JavaScript file in the workspace and click on the TypeScript version number in the status bar. A message box will appear asking you which version of TypeScript VS Code should use:
 
-For example:
+![](images/typescript/select-ts-version-message.png)
 
-```json
-{
-   "typescript.tsdk": "./node_modules/typescript/lib"
-}
-```
+You can switch back to the version of TypeScript that comes with VSCode by clicking on the TypeScript version in the status bar again.
 
-The directory path can be absolute or relative to the workspace directory. By using a relative path, you can easily share this workspace setting with your team. Refer to this [blog post](https://blogs.msdn.com/b/typescript/archive/2015/07/27/introducing-typescript-nightlies.aspx) for more details on how to install the nightly builds of TypeScript.
-
-After setting `typescript.tsdk`, restart VS Code and the TypeScript version will be shown in the bottom right of the Status Bar when you open a JavaScript or TypeScript file.
+After switching to a workspace version of TypeScript or changing `typescript.tsdk`, restart VS Code to have the change take effect.
 
 ## References Code Lens
 
