@@ -1,4 +1,14 @@
-# Transact-SQL programming with VS Code
+---
+Order: 13
+Area: languages
+TOCTitle: T-SQL
+ContentId: 5325cf50-e4c7-11e6-bf01-fe55135034f3
+PageTitle: Transact-SQL with VS Code
+DateApproved: 1/24/16
+MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Transact-SQL.
+---
+
+# Transact-SQL
 
 Turn Visual Studio Code into a powerful editor for [Transact-SQL]  (T-SQL) development with the [mssql] extension available in the VS Code marketplace. The [mssql] extension is optimized to work with SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse.
 
@@ -13,43 +23,43 @@ Add T-SQL language support to VS Code by installing the [mssql] extension from t
 1. Open the *Extensions* pane from VS Code side bar.
 2. Type *mssql* in the search bar, click *Install*, and reload VS Code when prompted.
 
-    <img src="images/tsql/install-mssql.png" alt="demo" style="width:640px;"/>
+    <img src="/images/tsql_install-mssql.png" alt="demo" style="width:640px;"/>
 
 ## Connect and Execute T-SQL
 
 Easily connect to SQL Server running on-premises, in any cloud, Azure SQL Database, and Azure SQL Data Warehouse. Then, execute your T-SQL statements and batches to view results and messages - all within VS Code. Your recent connections are saved across sessions so you can quickly connect to your databases again.
 
-<img src="images/tsql/execute.gif" alt="execute demo" style="width:640px;"/>
+<img src="/images/tsql_execute.gif" alt="execute demo" style="width:640px;"/>
 
 ## View and Save Results
 
 View results and messages when you execute your T-SQL code. Save results as a JSON or CSV file to use the data in your applications with just a few clicks.
 
-<img src="images/tsql/save.gif" alt="save demo" style="width:640px;"/>
+<img src="/images/tsql_save.gif" alt="save demo" style="width:640px;"/>
 
 ## T-SQL IntelliSense
 
 As you type T-SQL code in the editor, VS Code provides intelligent code completion for T-SQL keywords, suggestions for schema object names (tables, columns, views), and parameter help for functions and procedures when connected to a database.
 
-<img src="images/tsql/intellisense.gif" alt="intellisense demo" style="width:640px;"/>
+<img src="/images/tsql_intellisense.gif" alt="intellisense demo" style="width:640px;"/>
 
 ## Linting
 
 Linting is the analysis of your T-SQL code for potential syntax errors. Use Visual Studio Code to quickly navigate to the errors and warnings in your T-SQL code as you type.
 
-<img src="images/tsql/linting.gif" alt="linting demo" style="width:640px;"/>
+<img src="/images/tsql_linting.gif" alt="linting demo" style="width:640px;"/>
 
 ## Peek Definition/Go to Definition
 
 Use **Peek Definition** and **Go to Definition** to quickly browse the definition of schema objects in your database such as tables, functions, and procedures while typing T-SQL code.
 
-<img src="images/tsql/peekdefinition.gif" alt="peekdefinition demo" style="width:640px;"/>
+<img src="/images/tsql_peekdefinition.gif" alt="peekdefinition demo" style="width:640px;"/>
 
 ## Snippets
 
 T-SQL snippets provide code templates for commonly used T-SQL statements. Type 'sql' to get the list of T-SQL snippets.
 
-<img src="images/tsql/snippets.gif" alt="snippets demo" style="width:640px;"/>
+<img src="/images/tsql_snippets.gif" alt="snippets demo" style="width:640px;"/>
 
 ## Next Steps
 
