@@ -245,7 +245,7 @@ Expressions can be evaluated in the **Debug Console**. To open the Debug Console
 
 To learn about VS Code's Node.js debugging support, take a look at:
 
-* [Node.js](/docs/editor/node-debugger.md) - Node.js debugging is included in VS Code.
+* [Node.js](/docs/editor/node-debugging.md) - Node.js debugging is included in VS Code.
 
 To see a tutorial on the basics of Node.js debugging, check out:
 
