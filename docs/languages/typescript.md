@@ -173,7 +173,7 @@ VS Code ships with a recent stable version of TypeScript, but you can also confi
 
 ![](images/typescript/status-bar-version.png)
 
-To use a different TypeScript version, configure `typescript.tsdk` in your user settings to point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`, `tsserver.js` is usually under the `lib` folder.
+To use a different TypeScript version, configure `typescript.tsdk` in your user settings to point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. `tsserver.js` is usually under the `lib` folder.
 
 For example:
 
