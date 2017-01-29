@@ -158,11 +158,17 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // Controls if the editor should automatically format the line after typing
   "editor.formatOnType": false,
 
+  // Controls if the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
+  "editor.formatOnPaste": false,
+
   // Controls if suggestions should automatically show up when typing trigger characters
   "editor.suggestOnTriggerCharacters": true,
 
-  // Controls if suggestions should be accepted 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
+  // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
   "editor.acceptSuggestionOnEnter": true,
+
+  // Controls if suggestions should be accepted on commit characters. For instance in JavaScript the semi-colon (';') can be a commit character that accepts a suggestion and types that character.
+  "editor.acceptSuggestionOnCommitCharacter": true,
 
   // Controls whether snippets are shown with other suggestions and how they are sorted.
   "editor.snippetSuggestions": "bottom",
@@ -257,15 +263,20 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   "emmet.syntaxProfiles": {},
 
   // An array of languages where emmet abbreviations should not be expanded.
-  "emmet.excludeLanguages": [],
+  "emmet.excludeLanguages": [
+    "markdown"
+  ],
+
+  // Path to a folder containing emmet profiles, snippets and preferences
+  "emmet.extensionsPath": null,
 
 // Workbench
 
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
 
-  // Controls if editor tabs should have a visible close button or not.
-  "workbench.editor.showTabCloseButton": true,
+  // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
+  "workbench.editor.tabCloseButton": "right",
 
   // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
   "workbench.editor.showIcons": true,
@@ -294,10 +305,24 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // Controls the visibility of the activity bar in the workbench.
   "workbench.activityBar.visible": true,
 
+  // When enabled, will show the Welcome experience on startup.
+  "workbench.welcome.enabled": false,
+
 // Window
 
-  // When enabled, will open files in a new window instead of reusing an existing instance.
-  "window.openFilesInNewWindow": true,
+  // Controls if files should open in a new window or the last active window.
+  // - default: files will open in the last active window unless opened via the dock or from finder (macOS only)
+  // - on: files will open in a new window
+  // - off: files will open in the last active window
+  // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
+  "window.openFilesInNewWindow": "default",
+
+  // Controls if folders should open in a new window or replace the last active window.
+  // - default: folders will open in a new window unless a folder is picked from within the application (e.g. via the File menu)
+  // - on: folders will open in a new window
+  // - off: folders will replace the last active window
+  // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
+  "window.openFoldersInNewWindow": "default",
 
   // Controls how folders are being reopened after a restart. Select 'none' to never reopen a folder, 'one' to reopen the last folder you worked on or 'all' to reopen all folders of your last session.
   "window.reopenFolders": "one",
@@ -305,17 +330,20 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // Controls if a window should restore to full screen mode if it was exited in full screen mode.
   "window.restoreFullscreen": false,
 
-  // Controls if turning on Zen Mode also puts the workbench into full screen mode.
-  "window.fullScreenZenMode": true,
-
   // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
   "window.zoomLevel": 0,
 
   // If enabled, will show the full path of opened files in the window title.
   "window.showFullPath": false,
 
-  // Adjust the appearance of the window title bar. Changes require a full restart to apply.
-  "window.titleBarStyle": "custom",
+  // Controls the dimensions of opening a new window. By default, a new window will open in the center of the screen with small dimensions. When set to  'inherit', the window will get the same dimensions as the last active one. When set to 'maximized', the window will open maximized and fullscreen if configured to 'fullscreen'.
+  "window.newWindowDimensions": "default",
+
+  // Control the visibility of the menu bar. A setting of 'toggle' means that the menu bar is hidden and a single press of the Alt key will show it. By default, the menu bar will be visible, unless the window is full screen.
+  "window.menuBarVisibility": "default",
+
+  // If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.
+  "window.autoDetectHighContrast": true,
 
 // Files
 
@@ -353,8 +381,19 @@ Below is a copy of the **Default Settings** that comes with VS Code.
     "**/.git/objects/**": true
   },
 
-  // Controls whether unsaved files are restored after relaunching. If this is enabled there will be no prompt to save when exiting the editor.
-  "files.hotExit": true,
+  // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
+  "files.hotExit": "onExit",
+
+// Zen Mode
+
+  // Controls if turning on Zen Mode also puts the workbench into full screen mode.
+  "zenMode.fullScreen": true,
+
+  // Controls if turning on Zen Mode also hides workbench tabs.
+  "zenMode.hideTabs": true,
+
+  // Controls if turning on Zen Mode also hides the status bar at the bottom of the workbench.
+  "zenMode.hideStatusBar": true,
 
 // File Explorer
 
@@ -364,7 +403,7 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // Controls if the height of the open editors section should adapt dynamically to the number of elements or not.
   "explorer.openEditors.dynamicHeight": true,
 
-  // Controls if the explorer should automatically reveal files when opening them.
+  // Controls if the explorer should automatically reveal and select files when opening them.
   "explorer.autoReveal": true,
 
   // Controls if the explorer should allow to move files and folders via drag and drop.
@@ -406,6 +445,9 @@ Below is a copy of the **Default Settings** that comes with VS Code.
 
   // Controls the git badge counter.
   "git.countBadge": "all",
+
+  // Controls what type of branches are listed.
+  "git.checkoutType": "all",
 
 // HTTP
 
@@ -617,6 +659,9 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // Automatically open explorer view on the end of a debug session
   "debug.openExplorerOnEnd": false,
 
+  // Show variable values inline in editor while debugging
+  "debug.inlineValues": false,
+
 // HTML
 
   // Enable/disable default HTML formatter (requires restart)
@@ -626,7 +671,10 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   "html.format.wrapLineLength": 120,
 
   // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
-  "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, pre, q, samp, select, small, span, strong, sub, sup, textarea, tt, var",
+  "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, select, small, span, strong, sub, sup, textarea, tt, var",
+
+  // List of tags, comma separated, where the content shouldn't be reformatted. 'null' defaults to the 'pre' tag.
+  "html.format.contentUnformatted": "pre",
 
   // Indent <head> and <body> sections.
   "html.format.indentInnerHtml": false,
@@ -646,6 +694,9 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // List of tags, comma separated, that should have an extra newline before them. 'null' defaults to "head, body, /html".
   "html.format.extraLiners": "head, body, /html",
 
+  // Wrap attributes.
+  "html.format.wrapAttributes": "auto",
+
   // Configures if the built-in HTML language support suggests Angular V1 tags and properties.
   "html.suggest.angular1": true,
 
@@ -654,6 +705,12 @@ Below is a copy of the **Default Settings** that comes with VS Code.
 
   // Configures if the built-in HTML language support suggests HTML5 tags, properties and values.
   "html.suggest.html5": true,
+
+  // Configures if the built-in HTML language support validates embedded scripts.
+  "html.validate.scripts": true,
+
+  // Configures if the built-in HTML language support validates embedded styles.
+  "html.validate.styles": true,
 
   // Traces the communication between VS Code and the HTML language server.
   "html.trace.server": "off",
@@ -678,7 +735,7 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   "markdown.previewFrontMatter": "hide",
 
   // Controls the font family used in the markdown preview.
-  "markdown.preview.fontFamily": "'Segoe WPC', 'Segoe UI', 'SFUIText-Light', 'HelveticaNeue-Light'",
+  "markdown.preview.fontFamily": "'Segoe WPC', 'Segoe UI', 'SFUIText-Light', 'HelveticaNeue-Light', sans-serif",
 
   // Controls the font size in pixels used in the markdown preview.
   "markdown.preview.fontSize": 14,
@@ -686,12 +743,28 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // Controls the line height used in the markdown preview. This number is relative to the font size.
   "markdown.preview.lineHeight": 1.6,
 
+  // Scrolls the markdown preview to reveal the currently selected line from the editor.
+  "markdown.preview.scrollPreviewWithEditorSelection": true,
+
+  // Mark the current editor selection in the markdown preview.
+  "markdown.preview.markEditorSelection": true,
+
+  // When the markdown preview is scrolled, update the view of the editor.
+  "markdown.preview.scrollEditorWithPreview": true,
+
+  // Enable double clicking in the markdown preview switches to the editor.
+  "markdown.preview.doubleClickToSwitchToEditor": true,
+
+
 // PHP
 
-  // Whether php validation is enabled or not.
+  // Configures if the built-in PHP language suggestions are enabled. The support suggests PHP globals and variables.
+  "php.suggest.basic": true,
+
+  // Enable/disable built-in PHP validation.
   "php.validate.enable": true,
 
-  // Points to the php executable.
+  // Points to the PHP executable.
   "php.validate.executablePath": null,
 
   // Whether the linter is run on save or on type.
@@ -705,11 +778,11 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // Disables automatic type acquisition. Requires TypeScript >= 2.0.6 and a restart after changing it.
   "typescript.disableAutomaticTypeAcquisition": false,
 
-  // Check if a TypeScript version is available in the workspace.
-  "typescript.check.workspaceVersion": true,
-
   // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
   "typescript.check.tscVersion": true,
+
+  // Enable/disable the references code lens
+  "typescript.referencesCodeLens.enabled": false,
 
   // Enables tracing of messages send to the TS server.
   "typescript.tsserver.trace": "off",
@@ -826,10 +899,13 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   "terminal.integrated.shellArgs.osx": [],
 
   // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
-  "terminal.integrated.shell.windows": "C:\\WINDOWS\\system32\\cmd.exe",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
 
   // The command line arguments to use when on the Windows terminal.
   "terminal.integrated.shellArgs.windows": [],
+
+  // When set, this will prevent the context menu from appearing when right clicking within the terminal, instead it will copy when there is a selection and paste when there is no selection.
+  "terminal.integrated.rightClickCopyPaste": true,
 
   // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
   "terminal.integrated.fontFamily": "",
@@ -846,11 +922,20 @@ Below is a copy of the **Default Settings** that comes with VS Code.
   // Controls whether the terminal cursor blinks.
   "terminal.integrated.cursorBlinking": false,
 
+  // Controls the style of terminal cursor.
+  "terminal.integrated.cursorStyle": "block",
+
   // Controls the maximum amount of lines the terminal keeps in its buffer.
   "terminal.integrated.scrollback": 1000,
 
+  // Controls the whether the terminal emulator will use flow control in order to catch up with the shell process, the main effect of this is that ^C and other signals should be much more responsive when commands give lots of output. You should this disabled if you have custom ^S or ^Q keybindings that override the XOFF and XON signals used.
+  "terminal.integrated.flowControl": true,
+
   // Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.
   "terminal.integrated.setLocaleVariables": false,
+
+  // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
+  "terminal.integrated.cwd": "",
 
   // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
   "terminal.integrated.commandsToSkipShell": [
@@ -889,12 +974,13 @@ Below is a copy of the **Default Settings** that comes with VS Code.
 
 // Telemetry
 
+  // Enable crash reports to be sent to Microsoft.
+  // This option requires restart to take effect.
+  "telemetry.enableCrashReporter": true,
+
   // Enable usage data and errors to be sent to Microsoft.
   "telemetry.enableTelemetry": true,
 
-  // Enable crash reports to be sent to Microsoft.
-  // This option requires restart to take effect.
-  "telemetry.enableCrashReporter": true
 }
 ```
 
