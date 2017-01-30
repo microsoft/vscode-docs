@@ -303,7 +303,7 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
 
 1. Create a resource group, which you can think of as a "namespace" or "directory" for helping to organize Azure resources. The `-n` flag is the name of the group and can be specified as anything you want.
 
-    ```shell
+    ```bash
     az group create -n nina-demo -l westus
     ```
 
@@ -311,7 +311,7 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
 
 2. Create the App Service plan, which will manage creating and scaling the underlying VMs that your app is deployed to. Once again, specify any value that you'd like for the name flag, however, make sure that the `-g` flag references the name that you gave to the resource group above.
 
-    ```shell
+    ```bash
     az appservice plan create -n nina-demo-plan -g nina-demo --is-linux
     ```
     
@@ -319,19 +319,19 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
 
 3. Create the App Service web app, which represents the todo app that will be running within the plan and resource group we just created. You can roughly think of a web app as being synonymous with a process or container, and the plan as being the VM/container host that they're running on.
 
-    ```shell
+    ```bash
     az appservice web create -n nina-demo-app -p nina-demo-plan -g nina-demo
     ```
 
 4. Configure the web app to use our Docker image, making sure to set the `-c` flag to the name of your DockerHub account/image name:
 
-    ```shell
+    ```bash
     az appservice web config container update -n nina-demo-app -g nina-demo -c lostintangent/node
     ```
 
 5. Launch the app to view the container that was just deployed, which will be available at an `*.azurewebsites.net` URL:
 
-    ```shell
+    ```bash
     az appservice web browse -n nina-demo-app -g nina-demo
     ```
 
@@ -385,7 +385,7 @@ Additionally, DocumentDB automatically indexes every single document and propert
 
 To ensure that you don't get charged for any Azure resources you aren't using, simply run the following command from your terminal to delete all of the resources we just provisioned:
 
-```shell
+```bash
 az group delete -n nina-demo
 ```
 
