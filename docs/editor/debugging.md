@@ -221,7 +221,7 @@ Instead of placing breakpoints directly in source code, a debugger can support c
 
 A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name:
 
-![function breakpoint](images/debugging/function-breakpoint.gif)
+<img alt="function breakpoint" src="https://az754404.vo.msecnd.net/public/function-breakpoint.gif" />
 
 ## Data inspection
 
@@ -245,7 +245,7 @@ Expressions can be evaluated in the **Debug Console**. To open the Debug Console
 
 To learn about VS Code's Node.js debugging support, take a look at:
 
-* [Node.js](/docs/editor/node-debugger.md) - Node.js debugging is included in VS Code.
+* [Node.js](/docs/editor/node-debugging.md) - Node.js debugging is included in VS Code.
 
 To see a tutorial on the basics of Node.js debugging, check out:
 
