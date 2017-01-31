@@ -38,7 +38,7 @@ The following attributes are supported in launch configurations of type `launch`
 
 * `port` - debug port to use. See sections 'Attaching to Node.js' and 'Remote Debugging Node.js'.
 * `address` - TCP/IP address of the debug port. See sections 'Attaching to Node.js' and 'Remote Debugging Node.js'.
-* `restart` - restart session on termination. See section 'Attaching to Node.js'.
+* `restart` - restart session on termination. See section 'Restaring debug sessions automatically'.
 * `timeout` - when restarting a session, give up after this number of milliseconds. See section 'Attaching to Node.js'.
 * `stopOnEntry` - break immediately when the program launches.
 * `sourceMaps` - enable source maps by setting this to `true`. See section 'Source Maps'.
@@ -135,22 +135,6 @@ empty=
 lines="foo\nbar"
 ```
 
-## Command variable PickProcess (node)
-
-Node debug supports a command variable `PickProcess` that binds to a process picker.
-
-For example, the 'Attach to Process' launch configuration below uses this variable to let the user pick a Node.js process when running the launch configuration.
-
-```json
-{
-    "name": "Attach to Process",
-    "type": "node",
-    "request": "attach",
-    "processId": "${command.PickProcess}",
-    "port": 5858
-}
-```
-
 ## Attaching to Node.js
 
 If you want to attach the VS Code debugger to a Node.js program, launch Node.js as follows:
@@ -167,38 +151,90 @@ The corresponding launch configuration looks like this:
 
 ```json
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Attach to Node",
-            "type": "node",
-            "request": "attach",
-            "port": 5858,
-            "restart": false
-        }
-    ]
+    "name": "Attach to Process",
+    "type": "node",
+    "request": "attach",
+    "port": 5858
 }
 ```
 
-The `restart` attribute controls whether the Node.js debugger automatically restarts after the debug session has ended. This feature is useful if you use [nodemon](http://nodemon.io) to restart Node.js on file changes. Setting the launch configuration attribute `restart` to `true` makes the node debugger automatically try to re-attach to Node.js after Node.js has terminated.
+If you want to attach to a Node.js process that hasn't been started in debug mode, you can do this by specifying the process ID of the Node.js process as a string:
 
-On the command line, start your Node.js program `server.js` with **nodemon**:
-
-```bash
-nodemon --debug server.js
+```json
+{
+    "name": "Attach to Process",
+    "type": "node",
+    "request": "attach",
+    "processId": "53426",
+    "port": 5858
+}
 ```
 
-In VS Code, set the `restart` attribute to `true` in the 'attach' launch configuration.
+Since it is a bit laborious to repeatedly find the process ID and enter it in the launch configuration, node debug supports a command variable `PickProcess` that binds to a process picker that lets you conveniently pick the process from a list of node or gulp processes:
 
->**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but **nodemon** (and Node.js) will continue to run. To stop **nodemon**, you will have to kill it from the command line.
+![Process picker](images/debugging/process-picker.png)
 
->**Tip:** In case of syntax errors, **nodemon** will not be able to start Node.js successfully until the error has been fixed. In this case, VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this, you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
+By using the `PickProcess` variable the launch configuration looks like this:
 
+```json
+{
+    "name": "Attach to Process",
+    "type": "node",
+    "request": "attach",
+    "processId": "${command.PickProcess}",
+    "port": 5858
+}
+```
 ## Remote debugging
 
 The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. Specify a remote host via the `address` attribute.
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
+
+## Restaring debug sessions automatically when source is edited
+
+The `restart` attribute of a launch configuration controls whether the Node.js debugger automatically restarts after the debug session has ended. This feature is useful if you use [**nodemon**](http://nodemon.io) to restart Node.js on file changes. Setting the launch configuration attribute `restart` to `true` makes the node debugger automatically try to re-attach to Node.js after Node.js has terminated.
+
+If you have started your program `server.js` via **nodemon** on the command line like this:
+```bash
+nodemon --debug server.js
+```
+
+you can attach the VS Code debugger to it with the following launch configuration:
+
+```json
+{
+    "name": "Attach to node",
+    "type": "node",
+    "request": "attach",
+    "restart": true,
+    "port": 5858
+}
+```
+
+Alternatively you can start your program `server.js` via **nodemon** directly with a launch config and attach the VS Code debugger:
+
+```json
+{
+    "name": "Launch server.js via nodemon",
+    "type": "node",
+    "request": "launch",
+    "cwd": "${workspaceRoot}",
+    "runtimeExecutable": "nodemon",
+    "runtimeArgs": [
+        "--debug=5858"
+    ],
+    "program": "${workspaceRoot}/server.js",
+    "restart": true,
+    "port": 5858,
+    "console": "integratedTerminal",
+    "internalConsoleOptions": "neverOpen"
+}
+```
+
+>**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but **nodemon** (and Node.js) will continue to run. To stop **nodemon**, you will have to kill it from the command line (which is easily possible if use the `integratedTerminal` as shown above).
+
+>**Tip:** In case of syntax errors, **nodemon** will not be able to start Node.js successfully until the error has been fixed. In this case, VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this, you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
 
 ## Restart frame (node)
 
