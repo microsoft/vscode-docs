@@ -402,4 +402,39 @@ And they get rendered with:
 ![TM Scopes](../../../images/2017_02_15/monokai-tokens.png)
 
 
-The tokens are returned as an `Uint32Array` and they take 96 bytes. The elements themselves should take only 32 bytes (8 32-bit numbers), but again we're probably observing some v8 metadata.
+The tokens are returned as an [`Uint32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array) straight from the tokenizer. We hold on to the backing [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) and for the example above that takes 96 bytes in Chrome. The elements themselves should take only 32 bytes (8 32-bit numbers), but again we're probably observing some v8 metadata overhead.
+
+### Some numbers
+
+To get the following measurements, I've picked three files:
+
+| File name | File size | Lines count | Language | Obs |
+|---|---|---|---|---|
+| `checker.ts` | 1.18 MB | 22,253 | TypeScript | Actual source file used in TypeScript compiler |
+| `bootstrap.min.css` | 118.36 KB | 12 | CSS | Minified CSS file |
+| `sqlite3.c` | 6.73 MB | 200,904 | C | Concatenated distribution file of SQLite
+
+I've ran the tests on a beefy desktop machine on Windows (which uses Electron 32 bit).
+
+I had to make some changes to the source code in order to compare apples with apples, such as ensuring the exact same grammars are used in both VS Code versions, turning off rich language features in both versions, or lifting the 100 stack depth limitation in VS Code 1.8.1 which no longer exists in VS Code 1.9.0, etc. I also had to split bootstrap.min.css into multiple lines to get each line under 20k chars.
+
+Tokenization runs in a yielding fashion on the UI thread, I had to add some code to force it to run synchronously, in order to measure the following times (median of 10 runs presented):
+
+| File name | File size | VSCode 1.8.1 | VSCode 1.9.0 | Speed-up |
+|---|---|---|---|---|
+| `checker.ts` | 1.18 MB | 4606.80 ms | 3939.00 ms | 14.50% |
+| `bootstrap.min.css` | 118.36 KB | 776.76 ms | 416.28 ms | 46.41% |
+| `sqlite3.c` | 6.73 MB | 16010.42 ms | 10964.42 ms | 31.52% |
+
+
+![Tokenization times](../../../images/2017_02_15/tokenization-times.png)
+
+Folding is consuming a lot of memory, especially for large files (that's an optimization for another time), so I've collected the following Heap Snapshot numbers with folding turned off. This shows the memory held by the Model, without accounting for the original file string:
+
+| File name | File size | VSCode 1.8.1 | VSCode 1.9.0 | Memory savings |
+|---|---|---|---|---|
+| `checker.ts` | 1.18 MB | 3.37 MB | 2.61 MB | 22.60% |
+| `bootstrap.min.css` | 118.36 KB | 267.00 KB | 201.33 KB | 24.60% |
+| `sqlite3.c` | 6.73 MB | 27.49 MB | 21.22 MB | 22.83% |
+
+![Memory usage](../../../images/2017_02_15/tokenization-memory.png)
