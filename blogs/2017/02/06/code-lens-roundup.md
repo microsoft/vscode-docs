@@ -55,7 +55,7 @@ Author - [Kiss Tamás](https://marketplace.visualstudio.com/search?term=publishe
 
 So you have this colleague. He likes to write complex functions. He thinks its cool. Use this extension to show him the complexity of his functions and also to see the complexity of the code you are writing. 
 
-![app insights](2017_02_06_code_lens.gif)
+![app insights](2017_02_06_codemetrics.gif)
 
 As an added bonus, you can customize the descriptions. Here is the config we like to use on our team. As you can see we like emojis. 
 
