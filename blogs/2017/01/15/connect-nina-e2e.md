@@ -14,7 +14,7 @@ January, 4 2017 - Jonathan Carter, [@lostintangent](https://twitter.com/LostInTa
 
 Between Visual Studio Code and Azure, we're trying to contribute to simplifying and improving the overall developer experience of building, debugging and deploying Node.js applications. At [Node Interactive North America 2016](events.linuxfoundation.org/events/node-interactive), I was excited to be able to demo some of the work we've been doing recently based on community feedback, and this article tries to capture that workflow for folks who are interested in trying it out and/or are looking for a little more detail than I was able to cover in my talk.
 
-The demo makes use of a simple todo app created by and published by [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular). It is a single-page MEAN app, and therefore, uses MongoDB as its database, Node/Express for the REST API/web server and Angular.js 1.x for the front-end UI. Use the following ToC to jump to particular sections of interest, otherwise, continue reading ahead.
+The demo makes use of a simple todo app created by and published by [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular). It is a single-page MEAN application, and therefore, uses MongoDB as its database, Node/Express for the REST API/web server and Angular.js 1.x for the front-end UI. Use the following ToC to jump to particular sections of interest, otherwise, continue reading ahead.
 
 * [Pre-requisites](#pre-requisites)
 * [Project Setup](#project-setup)
@@ -67,7 +67,7 @@ Alternatively, you could use the Git CLI to clone the sample repo, however, this
 
 ## Integrated Terminal
 
-Since this is a Node.js project, the first thing we need to do is ensure that all of its dependencies are installed from NPM, since they weren't checked into the Git repo. You can perform this step from within your standard terminal (I would recommend [Hyper](https://hyper.is/)!), or, if you prefer, you can also bring up the VS Code integrated terminal by pressing `` CTRL+` `` and then running either `npm install` or `yarn`, depending on which NPM client you prefer. I like Yarn since it's super fast and provides some great workflow improvements, so I'd recommend checking it out if you haven't already.
+Since this is a Node.js project, the first thing we need to do is ensure that all of its dependencies are installed from NPM, since they weren't checked into the Git repo. You can perform this step from within your standard terminal (I would recommend [Hyper](https://hyper.is/)!), or, if you prefer, you can also bring up the VS Code integrated terminal by pressing `` CTRL+` `` and then running either `npm install` or `yarn`, depending on which NPM client you prefer. I like Yarn since it's very fast and provides some great workflow improvements, so I'd recommend checking it out if you haven't already.
 
 <img src="/images/2017_01_03_Terminal.png" width="400px" />
 
@@ -93,7 +93,7 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
     <img src="/images/2017_01_03_FilePicker.png" width="300px" /><br />
 
-2. Select `server.js`, which is the startup script for the app. 
+2. Select `server.js`, which is the startup script for the app.
 
 3. Hover over the `database` variable that is imported on line 6 in order to see it's "type". This ability to quickly inspect variables/modules/types within a file can come in very handy, especially since we tend to spend more time reading/understanding code than writing it!
 
@@ -251,7 +251,7 @@ With this setup, we can now efficiently debug front, back or full-stack JavaScri
 
 ## Dockerizing Your App
 
-Speaking of microservices, let's take a look at the experience that VS Code provides for developing with Docker. Many Node.js devs are using Docker for providing portable app deployments for both development, CI and production environments. That said, we've heard lots of feedback that while the benefits of Docker are extremely high, the learning curve and cost of getting started can also be fairly high. VS Code provides an extension that tries to help simplify some of that onboarding!
+Speaking of microservices, let's take a look at the experience that VS Code provides for developing with Docker. Many Node.js developers are using Docker for providing portable app deployments for both development, CI and production environments. That said, we've heard lots of feedback that while the benefits of Docker are extremely high, the learning curve and cost of getting started can also be fairly high. VS Code provides an extension that tries to help simplify some of that onboarding!
 
 Switch back to the extensions tab, search for `docker` and select the `Docker Support` extension. Install it and then reload VS Code, just like we did for the Chrome extension above.
 
