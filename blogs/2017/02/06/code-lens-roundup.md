@@ -49,13 +49,23 @@ As you can imagine, this is a popular one on our team. Use this extension to see
 
 ## CodeMetrics
 
-Marketplace - []()
+Marketplace - [CodeMetrics](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-codemetrics)
 
 Author - [Kiss Tamás](https://marketplace.visualstudio.com/search?term=publisher%3A%22Kiss%20Tam%C3%A1s%22&target=VSCode)
 
 So you have this colleague. He likes to write complex functions. He thinks its cool. Use this extension to show him the complexity of his functions and also to see the complexity of the code you are writing. 
 
 ![app insights](2017_02_06_code_lens.gif)
+
+## Regex Prievewer
+
+Marketplace - [Regex Previewer](https://marketplace.visualstudio.com/items?itemName=chrmarti.regex)
+
+Author - [Christof Marti](https://marketplace.visualstudio.com/search?term=publisher%3A%22Christof%20Marti%22&target=VSCode)
+
+Do you write a lot of regex? This is an excellent extension to test your regex right in VS Code. 
+
+![regex](2017_02_06_regex.gif)
 
 ## Version Lens
 
