@@ -57,6 +57,16 @@ So you have this colleague. He likes to write complex functions. He thinks its c
 
 ![app insights](2017_02_06_code_lens.gif)
 
+As an added bonus, you can customize the descriptions. Here is the config we like to use on our team. As you can see we like emojis. 
+
+```
+"codemetrics.basics.ComplexityLevelExtremeDescription": "😱",
+"codemetrics.basics.ComplexityLevelHighDescription": "😳",
+"codemetrics.basics.ComplexityLevelLowDescription": "🤓",
+"codemetrics.basics.ComplexityLevelNormalDescription": "🤔",
+"codemetrics.basics.ComplexityTemplate": "Complexity is {0} {1}"
+```
+
 ## Regex Prievewer
 
 Marketplace - [Regex Previewer](https://marketplace.visualstudio.com/items?itemName=chrmarti.regex)
