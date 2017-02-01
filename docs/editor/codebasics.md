@@ -343,7 +343,11 @@ vscode://file/FULL/PATH/TO/FILE?LINE:COLUMN
 
 VS Code has some options to control how windows should be opened or restored between sessions.
 
-The `window.openFilesInNewWindow` setting controls if files should open in a new window instead of reusing an existing VS Code instance. By default, VS Code will open a new window when you double-click on a file outside VS Code or open a file from the command line. Set this to `false` to reuse the last active instance of VS Code and open files in there.
+The settings `window.openFoldersInNewWindow` and `window.openFilesInNewWindow` are provided to configure opening new windows or reusing the last active window for files or folders and possible values are `default`, `on` and `off`.
+
+If configured to be `default`, we will make the best guess about reusing a window or not based on the context from where the open request was made. Flip this to `on` or `off` to always behave the same. For example, if you feel that picking a file or folder from the **File** menu should always open into a new window, set this to `on`.
+
+Note: There can still be cases where this setting is ignored (for example, when using the `-new-window` or `-reuse-window` command line option).
 
 The `window.reopenFolders` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
 reopen the last opened folder you worked on (setting: `one`). Change this setting to `none` to never reopen any folders and always start with an empty VS Code instance. Change it to `all` to restore all folders you worked on during your previous session.
