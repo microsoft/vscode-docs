@@ -984,6 +984,25 @@ Below is a copy of the **Default Settings** that comes with VS Code.
 }
 ```
 
+## Settings and security
+
+In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
+
+Here is the list of settings we don't support for workspaces:
+
+- git.path
+- terminal.integrated.shell.linux
+- terminal.integrated.shellArgs.linux
+- terminal.integrated.shell.osx
+- terminal.integrated.shellArgs.osx
+- terminal.integrated.shell.windows
+- terminal.integrated.shellArgs.windows
+- terminal.external.windowsExec
+- terminal.external.osxExec
+- terminal.external.linuxExec
+
+The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
+
 ## Common Questions
 
 **Q: When does it make sense to use workspace settings?**
