@@ -25,6 +25,8 @@ VS Code comes with code lens for TypeScript. You can enable it in User Settings 
 
 You can create your own extension with the code lens feature. Get started by checking out the [documentation](/docs/extensions/language-support.md#codelens-show-actionable-context-information-within-source-code). Additionally, you can find popular extensions in the Marketplace that use code lens. Here are some of my favorite. 
 
+> **Tip:** You can install all of these extensions at once by installing [Code Lens Roundup](TODO). How do you bundle extensions together? Check out [extension packs](Docs/extensionAPI/extension-manifest.md#extension-packs). 
+
 ## Git Lens
 
 Marketplace - [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
@@ -35,15 +37,25 @@ This feature rich extension will meet all your git needs. eamodio uses the code 
 
 ![animation showing gitlens](2017_02_06_preview_gitlens.gif)
 
-## TypeLens
+## Azure Application Insights
 
-Marketplace - [Type Lens](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.typelens)
+Marketplace - [Azure Application Insights](https://marketplace.visualstudio.com/items?itemName=VisualStudioOnlineApplicationInsights.application-insights)
 
-Author - [Kiss Tamás](https://marketplace.visualstudio.com/search?term=publisher%3A%22Kiss%20Tam%C3%A1s%22&target=VSCode&sortBy=Relevance)
+Author - [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode)
 
-VS Code now ships with reference counting for TypeScript files (simply set `"typescript.referencesCodeLens.enabled"` to `true`), but do you want reference counting for more than TypeScript files? This extension will reference count JavaScript, SASS, and LESS files. 
+As you can imagine, this is a popular one on our team. Use this extension to see information on your production services right in VS Code!
 
-![animation showing type lens](2017_02_06_typelens.gif)
+![app insights](2017_02_06_appinsights.gif)
+
+## CodeMetrics
+
+Marketplace - []()
+
+Author - [Kiss Tamás](https://marketplace.visualstudio.com/search?term=publisher%3A%22Kiss%20Tam%C3%A1s%22&target=VSCode)
+
+So you have this colleague. He likes to write complex functions. He thinks its cool. Use this extension to show him the complexity of his functions and also to see the complexity of the code you are writing. 
+
+![app insights](2017_02_06_code_lens.gif)
 
 ## Version Lens
 
