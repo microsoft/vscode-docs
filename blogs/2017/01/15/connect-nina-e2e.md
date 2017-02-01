@@ -67,7 +67,7 @@ Alternatively, you could use the Git CLI to clone the sample repo, however, this
 
 ## Integrated Terminal
 
-Since this is a Node.js project, the first thing we need to do is ensure that all of its dependencies are installed from NPM, since they weren't checked into the Git repo. You can perform this step from within your standard terminal (I would recommend [Hyper](https://hyper.is/)!), or, if you prefer, you can also bring up the VS Code integrated terminal by pressing `` CTRL+` `` and then running either `npm install` or `yarn`, depending on which NPM client you prefer. I like Yarn since it's super fast and provides some great workflow improvements, so I'd recommend checking it out if you haven't already.
+Since this is a Node.js project, the first thing we need to do is ensure that all of its dependencies are installed from NPM, since they weren't checked into the Git repo. You can perform this step from within your standard terminal (I would recommend [Hyper](https://hyper.is/)!), or, if you prefer, you can also bring up the VS Code integrated terminal by pressing `` CTRL+` `` and then running either `npm install` or `yarn`, depending on which NPM client you prefer. I like Yarn since it's very fast and provides some great workflow improvements, so I'd recommend checking it out if you haven't already.
 
 <img src="/images/2017_01_03_Terminal.png" width="400px" />
 
@@ -93,7 +93,7 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
     <img src="/images/2017_01_03_FilePicker.png" width="300px" /><br />
 
-2. Select `server.js`, which is the startup script for the app. 
+2. Select `server.js`, which is the startup script for the app.
 
 3. Hover over the `database` variable that is imported on line 6 in order to see it's "type". This ability to quickly inspect variables/modules/types within a file can come in very handy, especially since we tend to spend more time reading/understanding code than writing it!
 
