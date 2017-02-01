@@ -25,7 +25,7 @@ VS Code comes with code lens for TypeScript. You can enable it in User Settings 
 
 You can create your own extension with the code lens feature. Get started by checking out the [documentation](/docs/extensions/language-support.md#codelens-show-actionable-context-information-within-source-code). Additionally, you can find popular extensions in the Marketplace that use code lens. Here are some of my favorite. 
 
-> **Tip:** You can install all of these extensions at once by installing [Code Lens Roundup](TODO). How do you bundle extensions together? Check out [extension packs](Docs/extensionAPI/extension-manifest.md#extension-packs). 
+> **Tip:** You can install all of these extensions at once by installing [Code Lens Roundup](https://marketplace.visualstudio.com/items?itemName=waderyan.code-lens-roundup). How do you bundle extensions together? Check out [extension packs](Docs/extensionAPI/extension-manifest.md#extension-packs). 
 
 ## Git Lens
 
