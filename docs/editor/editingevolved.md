@@ -52,6 +52,14 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 > **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`. 
 
+## Go to Type Definition
+
+Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by pressing `kb(editor.action.goToTypeDefinition)`. This will take you to the definition of the type of a symbol.
+
+## Go to Implementation
+
+[Languages](/docs/languages/overview.md) can also support jumping to the implementation of a symbol by pressing `kb(editor.action.goToImplementation)`. For an interface, this shows all the implementers of that interface and for abstract methods, this shows all concrete implementations of that method.
+
 ## Go to Symbol
 
 You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. By typing `kbstyle(:)` the symbols will be grouped by category. Just press `kbstyle(Up)` or `kbstyle(Down)` and navigate to the place you want.
