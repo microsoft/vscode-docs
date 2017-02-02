@@ -18,7 +18,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 <ul class="video-list">
 	<li class="video">
 		<a href="/docs/introvideos/quicktour">
-			<img src="https://img.youtube.com/vi/SYRwSyjD8oI/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/RAFFF1bIwTk/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Quick Tour using JavaScript</h2>
 				<p class="description">Check out the key features of VS Code in a quick overview.</p>
@@ -28,7 +28,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/basics">
-			<img src="https://img.youtube.com/vi/LUl_WXt8ohA/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/SYRwSyjD8oI/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Setup and Basics</h2>
 				<p class="description">Install and learn the basics of your new editor.</p>
