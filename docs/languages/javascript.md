@@ -61,7 +61,7 @@ Now when you `require` or `import` **lodash**, Visual Studio Code will use the a
 The presence of a [jsconfig.json](/docs/languages/jsconfig.md) file in a directory indicates that the directory is the root of a JavaScript project. `jsconfig.json` specifies the root files and the options for the language features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa). For common setups a `jsconfig.json` file is not required, however, there are situations when you will want to add a `jsconfig.json`. 
 
 - Not all files should be in your JavaScript project (i.e. you want to exclude some files from showing IntelliSense). This situation is common with front-end and back-end code. 
-- Your workspace contains more then one project context. In this situation, you should add a `jsconfig.json` file at the root folder for each project.
+- Your workspace contains more than one project context. In this situation, you should add a `jsconfig.json` file at the root folder for each project.
 - You are using the TypeScript compiler to down-level compile JavaScript source code.
 
 ### Location of jsconfig.json
