@@ -231,8 +231,8 @@ There is much more to explore with Visual Studio Code, please try the following 
 
 For example:
 
-- When not all JavaScript files should be part of the project context, for example, you want to exclude some files, then you can define which files to exclude in the jsconfig.json file.
-- When a workspace contains more then one project context, then you should add a `jsconfig.json` file at the root folder for each project.
+- When not all JavaScript files should be part of the project context, for example, you want to exclude some files, then you can define which files to exclude in the `jsconfig.json` file.
+- When a workspace contains more than one project context, then you should add a `jsconfig.json` file at the root folder for each project.
 - When you are using the TypeScript compiler to down-level compile JavaScript source code.
 
 More information about the configuration options for a `jsconfig.json` can be found in [jsconfig.json reference](/docs/languages/javascript.md#javascript-project-jsconfigjson).
