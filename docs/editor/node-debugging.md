@@ -297,7 +297,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 ![Breakpoint Actions](images/debugging/breakpointstoolbar.png)
 
-## Skipping uninteresting code (`node`, `node2`, [`chrome`](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome))
+## Skipping uninteresting code (node, node2, [chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome))
 
 VS Code Node.js debugging has a feature to avoid code that you don't want to step through (AKA 'Just my Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
 
@@ -312,7 +312,7 @@ For example using:
 
 all code in the `node_modules` and `lib` folders will be skipped.
 
-Builtin **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules but `events.js`:
+Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules but `events.js`:
 
 ```json
   "skipFiles": [
