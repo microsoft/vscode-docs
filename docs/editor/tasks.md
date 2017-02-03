@@ -109,39 +109,31 @@ There are also `tasks` specific properties. One useful property is `isBuildComma
 
 ## Running multiple commands
 
-What if you want to run different command line tools in your workspace? Defining multiple tasks in `tasks.json` is not yet fully supported by VS Code (see [#981](https://github.com/Microsoft/vscode/issues/981)). You can work around this limitation by running your task commands through a shell command (`sh` on Linux and Mac, `cmd` on Windows) or a task runner like `gulp` or `jake` which supports launching external programs.
-
-Here is an example to add two tasks for `make` and `ls`:
+If you want to run multiple different commands you can specify different commands per task. A `tasks.json` file using commands per task looks like this:
 
 ```json
 {
     "version": "0.1.0",
-    "command": "sh",
-    "args": ["-c"],
-    "isShellCommand": true,
-    "showOutput": "always",
-    "suppressTaskName": true,
     "tasks": [
         {
-            "taskName": "make",
-            "args": ["make"]
+            "taskName": "tsc",
+            "command": "tsc",
+            "args": ["-w"],
+            "isShellCommand": true,
+            "isBackground": true,
+            "problemMatcher": "$tsc-watch"
         },
         {
-            "taskName": "ls",
-            "args": ["ls"]
+            "taskName": "build",
+            "command": "gulp",
+            "args": ["build"],
+            "isShellCommand": true
         }
     ]
 }
 ```
 
-Both tasks `make` and `ls` will be visible in the **Tasks: Run Task** dropdown.
-
-For Windows, you will need to pass the '/C' argument to `cmd` so that the tasks arguments are run.
-
-```json
-    "command": "cmd",
-    "args": ["/C"]
-```
+The first task start the TypeScript compiler in watch mode, the second one starts the gulp build. If a tasks specifies a local command to run the task name is not included into the command line (`suppressTaskName` is `true` by default for these tasks). Since a local command can specify local arguments, there is no need for adding it by default. If a `tasks.json` file specifies both global and task local commands, the task local commands win over the global command. There is no merging between a global and a task local command.
 
 ## Variable substitution
 
@@ -201,6 +193,30 @@ In the example below:
 ```
 
 Output from the executed task is never brought to front except for Windows where it is always shown.
+
+Tasks local commands can be made operating specific as well. The syntax is the same as for global commands. Here an example that adds an OS specific argument to a command:
+
+```json
+{
+    "version": "0.1.0",
+    "tasks": [
+        {
+            "taskName": "build",
+            "command": "gulp",
+            "isShellCommand": true,
+            "windows": {
+                "args": ["build", "win32"]
+            },
+            "linux": {
+                "args": ["build", "linux"]
+            },
+            "osx": {
+                "args": ["build", "osx"]
+            }
+        }
+    ]
+}
+```
 
 ## Examples of Tasks in Action
 
