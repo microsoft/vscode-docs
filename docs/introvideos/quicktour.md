@@ -13,13 +13,14 @@ MetaSocialImage: opengraph_introvideos.png
 
 This tutorial gives you an overview of the core features of Visual Studio Code, including IntelliSense, debugging, Git version control integration, and more. You'll see these features as we add an endpoint to a JavaScript web app using [Express web framework](https://expressjs.com/). 
 
-<iframe src="https://www.youtube.com/embed/RAFFF1bIwTk?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/w3Vh2-zjcMo?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 
 * See IntelliSense in action. 
-* Start the debugger and set a breakpoint. 
+* Start the debugger without configuration.
 * Commit code with Git integration. 
+* Run other commands in the integreated terminal.
 * Add new features with VS Code extensions. 
 
 ## Learn More
