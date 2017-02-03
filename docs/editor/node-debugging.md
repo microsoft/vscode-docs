@@ -359,7 +359,11 @@ Source maps can be generated with two kinds of inlining:
 
 VS Code supports both the _inlined source maps_ and the _inlined source_.
 
-The source map feature is enabled by setting the `sourceMaps` attribute to `true` in the launch configuration. With that you can now specify a source file (e.g. app.ts) with the `program` attribute. If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory, you must help the VS Code debugger locating them by setting the `outFiles` attribute. This attribute takes multiple glob patterns for including and excluding files from the set of generated JavaScript files. Whenever you set a breakpoint in the original source, VS Code tries to find the generated JavaScript code in the files specified by `outFiles`.
+The source map feature is controlled by the `sourceMaps` attribute which defaults to `true` starting with VS Code 1.9.0. This means that node debugging always tries to use source maps (if it can find any) and as a consequence you can even specify a source file (e.g. app.ts) with the `program` attribute.
+
+If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
+
+If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory, you must help the VS Code debugger locating them by setting the `outFiles` attribute. This attribute takes multiple glob patterns for including and excluding files from the set of generated JavaScript files. Whenever you set a breakpoint in the original source, VS Code tries to find the generated JavaScript code in the files specified by `outFiles`.
 
 Since source maps are not automatically created, you must configure the transpiler you are using to create them. For TypeScript this can be done in the follwoing way:
 
@@ -378,7 +382,6 @@ This is the corresponding launch configuration for a TypeScript program:
             "type": "node",
             "request": "launch",
             "program": "app.ts",
-            "sourceMaps": true,
             "outFiles": [ "bin/**/*.js" ]
         }
     ]
