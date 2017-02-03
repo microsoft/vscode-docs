@@ -13,19 +13,23 @@ MetaSocialImage: opengraph_introvideos.png
 
 In this tutorial, we walk you through setting up Visual Studio Code and give an overview of the basic features.
 
-<iframe src="https://www.youtube.com/embed/LUl_WXt8ohA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/SYRwSyjD8oI?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 
 * Download and install VS Code.
-* Practice **Quick Open** and using the **Command Palette**.
-* A quick orientation around the editor.
+* Explore VS Code features in the interactive playground. 
+* See an overview of the interface.
+* Customize the way your editor looks with the View menu and change themes. 
+* Change your keyboard shortcuts using a keymap. 
+* Focus with zen mode. 
 
 ## Learn More
 
 * [The Basics](/docs/editor/codebasics.md) - View the documentation for the basics of VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
 * [Keyboard Shortcuts](/docs/customization/keybindings.md) - Customize your own shortcuts, download a reference sheet, or install a Keymap extension. 
+* [Keymaps in the Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) - Install an extension to bring the keybindings from your previous editor to VS Code. 
 
 ## Next Video
 
