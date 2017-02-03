@@ -6,7 +6,7 @@ MetaDescription: TextMate sematics
 Date: 2017-02-15TextMate sematics
 Author: Alexandru Dima
 ---
-# STATUS: NOT DONE
+# STATUS: DONE, FEEDBACK WELCOME
 
 # Tokenization improvements in VS Code 1.9.0
 
@@ -328,13 +328,14 @@ We've changed the way we represent the scope stack in [`vscode-textmate`](https:
 When pushing a new scope onto the scope stack, we will look up the new scope in the theme trie. We can then compute immediately the fully resolved desired foreground or font style for a scope list, based on what we inherit from the scope stack and on what the theme trie returns.
 
 Some examples:
+
 | Scope Stack | Metadata |
 |---|---|
-| `["source.js"]` | foreground is `1`, font style is regular (the default rule without a scope selector)
-| `["source.js","constant"]` | foreground is `4`, fontStyle is `italic`
-| `["source.js","constant","baz"]` | foreground is `4`, fontStyle is `italic`
-| `["source.js","var.identifier"]` | foreground is `2`, fontStyle is `bold`
-| `["source.js","meta","var.identifier"]` | foreground is `3`, fontStyle is `bold`
+| `["source.js"]` | foreground is `1`, font style is regular (the default rule without a scope selector) |
+| `["source.js","constant"]` | foreground is `4`, fontStyle is `italic` |
+| `["source.js","constant","baz"]` | foreground is `4`, fontStyle is `italic` |
+| `["source.js","var.identifier"]` | foreground is `2`, fontStyle is `bold` |
+| `["source.js","meta","var.identifier"]` | foreground is `3`, fontStyle is `bold` |
 
 When popping from the scope stack, there is no need to compute anything, since we can just use the metadata stored with the previous scope list element.
 
@@ -429,6 +430,8 @@ Tokenization runs in a yielding fashion on the UI thread, I had to add some code
 
 ![Tokenization times](../../../images/2017_02_15/tokenization-times.png)
 
+Although tokenization now also does theme matching, the time savings can be explained by now doing a single pass over each line. Whereas before, there would be a tokenization pass, a secondary pass to "approximate" the scopes to a string and a third pass to binary encode the tokens, now the tokens are generated straight in a binary encoded fashion from the TM tokenization engine. The ammount of generated objects that need to be Garbage Collected immediately has been also reduced substantially.
+
 Folding is consuming a lot of memory, especially for large files (that's an optimization for another time), so I've collected the following Heap Snapshot numbers with folding turned off. This shows the memory held by the Model, without accounting for the original file string:
 
 | File name | File size | VSCode 1.8.1 | VSCode 1.9.0 | Memory savings |
@@ -438,3 +441,26 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 | `sqlite3.c` | 6.73 MB | 27.49 MB | 21.22 MB | 22.83% |
 
 ![Memory usage](../../../images/2017_02_15/tokenization-memory.png)
+
+The reduced memory usage can be explained by our no longer holding on to a tokens map, the collapse of consecutive tokens with the same metadata, and the usage of `ArrayBuffer` as the baking store. We could further improve here by always collapsing whitespace only tokens into the previous token, as the color whitespace gets rendered with does not matter (whitespace is invisible).
+
+### New TM Scope Inspector Widget
+
+We've added a new widget to help with authoring themes or grammars, or with debugging things: It sits under `F1 > Developer Tools: Inspect TM Tokens`
+
+
+![TM scope inspector](../../../images/2017_02_15/TM-scope-inspector.gif)
+
+### Before and After
+
+| Theme | VSCode 1.8.1 | VSCode 1.9.0
+|---|---|---|
+| Monokai | ![Monokai before](../../../images/2017_02_15/monokai-before.png) | ![Monokai after](../../../images/2017_02_15/monokai-after.png) |
+| Quiet Light | ![Quiet Light before](../../../images/2017_02_15/quiet-light-before.png) | ![Quiet Light after](../../../images/2017_02_15/quiet-light-after.png) |
+| Red | ![Red before](../../../images/2017_02_15/red-before.png) | ![Red after](../../../images/2017_02_15/red-after.png) |
+
+## In conclusion
+
+I hope you will appreciate the extra CPU time and RAM you get out of using VSCode 1.9.0, and that we can continue to empower you to code in an efficient and pleasant way.
+
+Happy coding!
