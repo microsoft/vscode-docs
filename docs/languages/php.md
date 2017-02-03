@@ -20,6 +20,10 @@ There are many PHP language extensions available on the [VS Code Marketplace](ht
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
+> Tip: The following [setting](/docs/customization/userandworkspace.md) allows to disable the built-in PHP completions in favor of proposals created by installed PHP extensions.
+
+- `php.suggest.basic`: Configures if the built-in PHP language suggestions are enabled. Enabled by default.
+
 ## Snippets
 
 Visual Studio Code includes a set of common snippets for PHP.  To access these, hit `kb(editor.action.triggerSuggest)` to get a context specific list.

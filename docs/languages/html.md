@@ -46,6 +46,21 @@ Move the mouse over HTML tags or embedded styles and JavaScript to get more info
 
 ![HTML Hover](images/html/htmlhover.png)
 
+## Validation
+
+The HTML language support performs validation on all embedded JavaScript and CSS.
+
+You can turn that validation off with the following settings:
+
+```json
+// Configures if the built-in HTML language support validates embedded scripts.
+"html.validate.scripts": true,
+
+// Configures if the built-in HTML language support validates embedded styles.
+"html.validate.styles": true
+```
+
+
 ## Format HTML
 
 To improve the formatting of your HTML source code, press `kb(editor.action.formatSelection)` and the selected area will be reformatted.
