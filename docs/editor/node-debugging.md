@@ -280,7 +280,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 ![Breakpoint Actions](images/debugging/breakpointstoolbar.png)
 
-## Skipping uninteresting code
+## Skipping uninteresting code (`node`, `node2`, [`chrome`](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome))
 
 VS Code Node.js debugging has a feature to avoid code that you don't want to step through (AKA 'Just my Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
 
@@ -295,15 +295,30 @@ For example using:
 
 all code in the `node_modules` and `lib` folders will be skipped.
 
-The exact rules are as follows:
+Builtin **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules but `events.js`:
+
+```json
+  "skipFiles": [
+     "<node_internals>/**/*.js",
+     "!<node_internals>/events.js"
+   ]
+```
+
+The exact 'skipping' rules are as follows:
 
 * If you step into a skipped file, you won't stop there - you will stop on the next executed line that is not in a skipped file.
 * If you have set the option to break on thrown exceptions, then you won't break on exceptions thrown from skipped files.
 * If you set a breakpoint in a skipped file, you will stop at that breakpoint, and you will be able to step through it until you step out of it, at which point normal skipping behavior will resume.
 
-This feature is available in the `node`, `node2`, and [Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) debuggers.
+Skipped source is shown in a 'dimmed' style in the CALL STACK view:
 
->**Note:** The old debugger (`node`) supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set.
+![Skipped source is dimmed in call stack view](images/debugging/dimmed-callstack.png)
+
+Hovering over the dimmed entries explains why the stack frame is dimmed.
+
+A context menu item on the call stack, **Toggle skipping this file** enables you to easily skip a file at runtime without adding it to your launch config (`node2` only). This option only persists for the current debugging session. You can also use it to stop skipping a file that is skipped by the `skipFiles` option in your launch config.
+
+>**Note:** The debugger `node` supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set.
 
 In the following (`node`-only) example all but a 'math' module is skipped:
 
@@ -314,7 +329,7 @@ In the following (`node`-only) example all but a 'math' module is skipped:
 ]
 ```
 
->**Note:** The old debugger (`node`) has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
+>**Note:** The debugger `node` has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
 
 ## Source maps
 
