@@ -20,24 +20,26 @@ VS Code version 1.9 includes a cool performance improvement that we've been work
 
 ## Tokenization
 
-Tokenization is the process of assigning tokens to source code. Tokens are then targeted by a theme, assigned colors, and voilà, your source code is rendered with colors. It is the one feature that turns a text editor into a code editor.
+Tokenization is the process of assigning tokens to parsed source code. Tokens are then targeted by a theme, assigned colors, and voilà, your source code is rendered with colors. It is the one feature that turns a text editor into a code editor.
 
-Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows for an editor to retokenize only a small subset of the lines when the user makes edits.
+Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows an editor to retokenize only a small subset of the lines when the user makes edits.
 
-Most of the times, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens. The following gif shows what lines get repainted in different circumstances:
+Most of the time, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens. 
 
-* most of the times, e.g. when typing `return 1;`, only the current line needs to be retokenized/repainted.
-* more rarely, e.g. when typing `/*`, it is necessary to retokenize/repaint the current line and some of the ones below.
+The following animation shows what lines get repainted in different circumstances:
+
+* Most of the time: For example when typing `return 1;`, only the current line needs to be retokenized/repainted.
+* More rarely. When typing `/*`, it is necessary to retokenize/repaint the current line and some of the ones below.
 
 ![Tokenization](2017_02_15_tokenization.gif)
 
 ---
 
-## How we used to represent tokens
+## How we represent tokens in the past
 
-The code for the editor in VS Code got written long before VS Code existed. It got shipped in the form of the [Monaco Editor](https://microsoft.github.io/monaco-editor/) in various Microsoft projects, including Internet Explorer's F12 tools. One requirement that we got from them was that we needed to reduce memory usage.
+The code for the editor in VS Code was written long before VS Code existed. It was shipped in the form of the [Monaco Editor](https://microsoft.github.io/monaco-editor/) in various Microsoft projects, including Internet Explorer's F12 tools. One requirement for an online editor is reduced memory usage.
 
-Back in the day, we used to write tokenizers by hand (there's no feasible way to interpret TextMate grammars in the browser even today, but that's another story). All in all, for a line like the following we would get the following tokens from our hand-written tokenizers:
+In the past, we wrote tokenizers by hand (there's no feasible way to interpret TextMate grammars in the browser even today, but that's another story). For the line below, we would get the following tokens from our hand-written tokenizers:
 
 ```javascript
 function f1() {
@@ -59,9 +61,9 @@ tokens = [
 ]
 ```
 
-Holding on to that tokens array takes 648 bytes in Chrome, storing an object is quite costly in terms of memory (each object instance must reserve space for pointing to its prototype, to its properties list, etc.). Now, our machines have a lot of RAM, but storing 648 bytes for a 15 characters line is unacceptable.
+Holding on to that tokens array takes 648 bytes in Chrome and so storing an object is quite costly in terms of memory (each object instance must reserve space for pointing to its prototype, to its properties list, etc). Now, our machines have a lot of RAM, but storing 648 bytes for a 15 characters line is unacceptable.
 
-So, at the time, we came up with a binary format to store the tokens, a format that was being used up to and including [VS Code 1.8](https://github.com/Microsoft/vscode/blob/1.8/src/vs/editor/common/model/tokensBinaryEncoding.ts). Given the token types would be repeating a lot, we'd collect them in a separate map (per file), doing something like the following:
+So, at the time, we came up with a binary format to store the tokens, a format that was being used up to and including [VS Code 1.8](https://github.com/Microsoft/vscode/blob/1.8/src/vs/editor/common/model/tokensBinaryEncoding.ts). Given that there would be duplicate token types, we'd collect them in a separate map (per file), doing something like the following:
 
 ```javascript
 //     0        1               2                  3                      4
@@ -77,7 +79,7 @@ tokens = [
 ]
 ```
 
-And then we'd encode the `startIndex` (32 bits) and the `type` (16 bits) in 48 bits of [the 53 mantissa bits](http://stackoverflow.com/a/2803010) a JavaScript number has. Our tokens array would finally look like this, and the map array would be reused for the entire file:
+We'd then encode the `startIndex` (32 bits) and the `type` (16 bits) in 48 bits of [the 53 mantissa bits](http://stackoverflow.com/a/2803010) a JavaScript number has. Our tokens array would finally look like this, and the map array would be reused for the entire file:
 
 ```javascript
 tokens = [
@@ -92,13 +94,13 @@ tokens = [
 ]
 ```
 
-Holding on to this tokens array takes 104 bytes in Chrome. The elements themselves should take only 56 bytes (7 x 64-bit numbers), and the rest is probably explained by v8 storing other metadata with the array, or probably allocating the baking store in power of 2s, etc. However, the memory savings are obvious and do get better with more tokens per line. Anyways, we were happy with that and we've been using this representation ever since.
+Holding on to this tokens array takes 104 bytes in Chrome. The elements themselves should take only 56 bytes (7 x 64-bit numbers), and the rest is probably explained by v8 storing other metadata with the array, or probably allocating the backing store in powers of 2. However, the memory savings are obvious and get better with more tokens per line. We were happy with this approach and we've been using this representation ever since.
 
 ---
 
 ## Tokens <-> Theme matching
 
-We thought it would be a good idea to follow browser best practices, such as leaving the styling up to CSS, so when rendering the above line, we'd decode the binary tokens using the `map`, and we'd render it using the token types like this:
+We thought it would be a good idea to follow browser best practices, such as leaving the styling up to CSS, so when rendering the above line, we'd decode the binary tokens using the `map`, and then render it using the token types like this:
 
 ```html
   <span class="token keyword js">function</span>
@@ -110,7 +112,7 @@ We thought it would be a good idea to follow browser best practices, such as lea
   <span class="token delimiter curly js">{</span>
 ```
 
-And we'd write our themes [in CSS](https://github.com/Microsoft/vscode/blob/1.8.0/src/vs/editor/browser/standalone/media/standalone-tokens.css) (e.g. vs theme):
+And we'd write our themes [in CSS](https://github.com/Microsoft/vscode/blob/1.8.0/src/vs/editor/browser/standalone/media/standalone-tokens.css) (for example the Visual Studio theme):
 
 ```css
 ...
@@ -126,9 +128,11 @@ It turned out quite nicely, we could flip a class name somewhere and immediately
 
 ## TextMate Grammars
 
-For the launch of VS Code, we had something like 10 hand-written tokenizers, mostly for web-ish languages, which would definitely not be sufficient for a general-purpose desktop code editor. Enter [TextMate grammars](https://manual.macromates.com/en/language_grammars), a descriptive form of specifying the tokenization rules, which has been adopted in numerous editors. There was one problem though, TextMate grammars don't work quite like our hand-written tokenizers.
+For the launch of VS Code, we had something like 10 hand-written tokenizers, mostly for web languages, which would definitely not be sufficient for a general-purpose desktop code editor. Enter [TextMate grammars](https://manual.macromates.com/en/language_grammars), a descriptive form of specifying the tokenization rules, which has been adopted in numerous editors. There was one problem though, TextMate grammars didn't work quite like our hand-written tokenizers.
 
-TextMate grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. Here's the same example under a JavaScript TextMate Grammar (ignoring whitespace for brevity):
+TextMate grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. 
+
+Here's the same example under a JavaScript TextMate Grammar (ignoring whitespace for brevity):
 
 ```javascript
 function f1() {
@@ -157,15 +161,15 @@ tokens = [
 ]
 ```
 
-All our token types were strings, and our code was not ready to handle string arrays, not to mention the implications on the binary encoding of tokens. We therefore proceeded to "approximate"[*] the array of scopes into a single string using the following strategy:
+All our token types were strings, and our code was not ready to handle string arrays, not to mention the implications on the binary encoding of tokens. We therefore proceeded to "approximate"* the array of scopes into a single string using the following strategy:
 
-> [*] What we were doing was plain wrong and "approximate" is a very nice word for it :).
+> *: What we were doing was plain wrong and "approximate" is a very nice word for it :).
 
-* ignore the least specific scope (i.e. `source.js`); it is rarely adding any value.
-* split each remaining scope on `"."`.
-* de-duplicate unique pieces
-* sort the remaining pieces with a stable sort function (not necessarily lexicographic sort)
-* join the pieces on `"."`
+* Ignore the least specific scope (i.e. `source.js`); it was rarely adding any value.
+* Split each remaining scope on `"."`.
+* De-duplicate unique pieces.
+* Sort the remaining pieces with a stable sort function (not necessarily lexicographic sort).
+* Join the pieces on `"."`.
 
 ```javascript
 tokens = [
@@ -178,7 +182,7 @@ tokens = [
 ]
 ```
 
-These tokens would then "fit in" and would follow the same code path as the manual written tokenizers (i.e. get binary encoded), and then would render the same way too:
+These tokens would then "fit in" and would follow the same code path as the manual written tokenizers (get binary encoded), and then would render the same way too:
 
 ```html
 <span class="token meta function js storage type">function</span>
@@ -202,7 +206,7 @@ scopes = ['source.js', 'meta.function.js', 'meta.definition.function.js', 'entit
 
 Here are some simple selectors that would match, sorted by their rank (descending):
 
-<table width="100%" >
+<table width="200" >
 <tr>
     <th rowspan="2">Selector</th>
     <th colspan="4">Matches</th>
@@ -276,7 +280,7 @@ Here are some simple selectors that would match, sorted by their rank (descendin
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name.function.js</span></code></td>
 </tr>
-</table><br>
+</table>
 
 > Observation: `entity` wins over `meta.definition.function` because it matches a scope that is more specific (`A` over `B`, respectively).
 
@@ -286,7 +290,7 @@ Here are some simple selectors that would match, sorted by their rank (descendin
 
 To make things a bit more complicated, TextMate themes also support parent selectors. Here are some examples of using both simple selectors and parent selectors (again sorted by their rank descending):
 
-<table width="100%" >
+<table width="200" >
 <tr>
     <th rowspan="2">Selector</th>
     <th colspan="4">Matches</th>
@@ -367,7 +371,7 @@ To make things a bit more complicated, TextMate themes also support parent selec
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
 </tr>
-</table><br>
+</table>
 
 > Observation: `source entity` wins over `entity` because they both match the same scope (`A`), but `source entity` also matches a parent scope (`D`).
 
