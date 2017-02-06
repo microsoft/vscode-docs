@@ -42,7 +42,9 @@ The Debug view displays all information related to debugging and has a top bar w
 
 ## Launch Configurations
 
-To debug your app in VS Code, you'll first need to set up your launch configuration file - `launch.json`. Click on the Configure gear icon on the Debug view top bar, choose your debug environment and VS Code will generate a `launch.json` file under your workspace's `.vscode` folder.
+To debug a simple app in VS Code, you simply have to press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
+
+However, for advanced debugging you first need to set up your launch configuration file - `launch.json`. Click on the Configure gear icon on the Debug view top bar and VS Code will generate a `launch.json` file under your workspace's `.vscode` folder. VS Code will try to automatically detect your debug environment, if unsuccessful you will have to choose your debug environment manually.
 
 Here is the one generated for Node.js debugging:
 
@@ -54,7 +56,7 @@ Here is the one generated for Node.js debugging:
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/app.js",
+            "program": "${file}",
             "cwd": "${workspaceRoot}"
         },
         {
@@ -73,7 +75,7 @@ VS Code debuggers typically support launching a program in debug mode or attachi
 
 Review the generated values and make sure that they make sense for your project and debugging environment.
 
-To add a new configuration to an existing `launch.json` use IntelliSense if your cursor is located inside the configurations array. Or just press the **Add Configuration** button to invoke snippet IntelliSense at the start of the array.
+To add a new configuration to an existing `launch.json` use IntelliSense if your cursor is located inside the configurations array. Or just press the **Add Configuration...** button to invoke snippet IntelliSense at the start of the array. Or simply choose **Add Configuration...** option in the debug dropdown.
 
 ![launch json suggestions](images/debugging/add-config.gif)
 
