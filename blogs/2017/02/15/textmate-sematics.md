@@ -202,7 +202,7 @@ scopes = ['source.js', 'meta.function.js', 'meta.definition.function.js', 'entit
 
 Here are some simple selectors that would match, sorted by their rank (descending):
 
-<table>
+<table width:"100%" >
 <tr>
     <th rowspan="2">Selector</th>
     <th colspan="4">Matches</th>
@@ -286,7 +286,7 @@ Here are some simple selectors that would match, sorted by their rank (descendin
 
 To make things a bit more complicated, TextMate themes also support parent selectors. Here are some examples of using both simple selectors and parent selectors (again sorted by their rank descending):
 
-<table>
+<table width:"100%">
 <tr>
     <th rowspan="2">Selector</th>
     <th colspan="4">Matches</th>
@@ -381,7 +381,7 @@ To make things a bit more complicated, TextMate themes also support parent selec
 
 Here are two Monokai theme rules (as JSON here for brevity; the original is in XML):
 
-```javascript
+```json
 ...
 // Function name
 { "scope": "entity.name.function", "fontStyle": "", "foreground":"#A6E22E" }
@@ -427,7 +427,7 @@ Perhaps the biggest breakthrough we've had is that we **don't need to store toke
 
 Here's how a very simple theme might look like:
 
-```javascript
+```json
 theme = [
   {                                  "foreground": "#F8F8F2"                           },
   { "scope": "var",                  "foreground": "#F8F8F2"                           },
@@ -444,7 +444,7 @@ theme = [
 When loading it, we will generate an id for each unique color that shows up in the theme and store it into a color map (similar as we did for token types above):
 
 
-```javascript
+```json
 //                          1          2          3          4          5           6
 colorMap = ['reserved', '#F8F8F2', '#00FF00', '#0000FF', '#100000', '#200000', '#300000']
 theme = [
