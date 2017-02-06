@@ -3,10 +3,12 @@ Order: 24
 TOCTitle: Improving tokenization
 PageTitle: Improving tokenization
 MetaDescription: Improving tokenization
-Date: 2017-02-15
+Date: 2017-02-07
 Author: Alexandru Dima
 ---
 # Improving tokenization
+
+February 7, 2017 - Alexandru Dima
 
 *A performance engineering episode from the Monaco/VS Code Editor.*
 
@@ -23,10 +25,11 @@ Tokenization is the process of assigning tokens to source code. Tokens are then 
 Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows for an editor to retokenize only a small subset of the lines when the user makes edits.
 
 Most of the times, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens. The following gif shows what lines get repainted in different circumstances:
+
 * most of the times, e.g. when typing `return 1;`, only the current line needs to be retokenized/repainted.
 * more rarely, e.g. when typing `/*`, it is necessary to retokenize/repaint the current line and some of the ones below.
 
-![Tokenization](../../../images/2017_02_15/tokenization.gif)
+![Tokenization](2017_02_15_tokenization.gif)
 
 ---
 
@@ -131,7 +134,7 @@ TextMate grammars, through their use of begin/end states, or while states, can p
 function f1() {
 ```
 
-![TextMate Scopes](../../../images/2017_02_15/TM-scopes.png)
+![TextMate Scopes](2017_02_15_TM-scopes.png)
 
 ---
 
@@ -459,7 +462,7 @@ theme = [
 
 We will then generate a [Trie](https://en.wikipedia.org/wiki/Trie) out of the theme rules, where each node holds on to the resolved theme options:
 
-![TextMate Scopes](../../../images/2017_02_15/trie.svg)
+![TextMate Scopes](2017_02_15_trie.svg)
 
 > Observation: The nodes for `constant.numeric.hex` and `constant.numeric.oct` contain the instruction to change foreground to `5`, as they *inherit* this instruction from `constant.numeric`.
 
@@ -557,8 +560,7 @@ And they get rendered with:
 <span class="mtk1">()&nbsp;{</span>
 ```
 
-![TextMate Scopes](../../../images/2017_02_15/monokai-tokens.png)
-
+![TextMate Scopes](2017_02_15_monokai-tokens.png)
 
 The tokens are returned as an [`Uint32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array) straight from the tokenizer. We hold on to the backing [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) and for the example above that takes 96 bytes in Chrome. The elements themselves should take only 32 bytes (8 x 32-bit numbers), but again we're probably observing some v8 metadata overhead.
 
@@ -587,7 +589,7 @@ Tokenization runs in a yielding fashion on the UI thread, I had to add some code
 | `sqlite3.c` | 6.73 MB | 16010.42 ms | 10964.42 ms | 31.52% |
 
 
-![Tokenization times](../../../images/2017_02_15/tokenization-times.png)
+![Tokenization times](2017_02_15_tokenization-times.png)
 
 > Although tokenization now also does theme matching, the time savings can be explained by now doing a single pass over each line. Whereas before, there would be a tokenization pass, a secondary pass to "approximate" the scopes to a string and a third pass to binary encode the tokens, now the tokens are generated straight in a binary encoded fashion from the TextMate tokenization engine. The amount of generated objects that need to be Garbage Collected has been also reduced substantially.
 
@@ -601,7 +603,7 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 | `bootstrap.min.css` | 118.36 KB | 267.00 KB | 201.33 KB | 24.60% |
 | `sqlite3.c` | 6.73 MB | 27.49 MB | 21.22 MB | 22.83% |
 
-![Memory usage](../../../images/2017_02_15/tokenization-memory.png)
+![Memory usage](2017_02_15_tokenization-memory.png)
 
 > The reduced memory usage can be explained by no longer holding on to a tokens map, the collapse of consecutive tokens with the same metadata, and the usage of `ArrayBuffer` as the baking store. We could further improve here by always collapsing whitespace only tokens into the previous token, as the color whitespace gets rendered with does not matter (whitespace is invisible).
 
@@ -609,7 +611,7 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 
 We've added a new widget to help with authoring themes or grammars, or with debugging things: It sits under **Developer Tools: Inspect TM Tokens** in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-![TextMate scope inspector](../../../images/2017_02_15/TM-scope-inspector.gif)
+![TextMate scope inspector](2017_02_15_TM-scope-inspector.gif)
 
 ### Validating the change
 
@@ -621,15 +623,15 @@ To validate the tokenization change, we've collected colorization results from t
 
 Then, after each change, we'd run the same tests using the new trie-based logic and, using a custom-built visual diff (and patch) tool, we would look into each and every color difference, and we would figure out the root cause of the color change. We caught at least 2 bugs using this technique, and we were able to change our five themes to get minimal color changes across VS Code versions:
 
-![Tokenization validation](../../../images/2017_02_15/tokenization-validation.png)
+![Tokenization validation](2017_02_15_tokenization-validation.png)
 
 ### Before and After
 
 | Theme | VS Code 1.8 | VS Code 1.9
 |---|---|---|
-| Monokai | ![Monokai before](../../../images/2017_02_15/monokai-before.png) | ![Monokai after](../../../images/2017_02_15/monokai-after.png) |
-| Quiet Light | ![Quiet Light before](../../../images/2017_02_15/quiet-light-before.png) | ![Quiet Light after](../../../images/2017_02_15/quiet-light-after.png) |
-| Red | ![Red before](../../../images/2017_02_15/red-before.png) | ![Red after](../../../images/2017_02_15/red-after.png) |
+| Monokai | ![Monokai before](2017_02_15_monokai-before.png) | ![Monokai after](2017_02_15_monokai-after.png) |
+| Quiet Light | ![Quiet Light before](2017_02_15_quiet-light-before.png) | ![Quiet Light after](2017_02_15_quiet-light-after.png) |
+| Red | ![Red before](2017_02_15_red-before.png) | ![Red after](2017_02_15_red-after.png) |
 
 ## In conclusion
 
