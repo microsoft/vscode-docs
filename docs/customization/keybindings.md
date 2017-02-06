@@ -324,6 +324,7 @@ editorHasSelection | Text is selected in the editor.
 editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
 editorReadOnly | The editor is read only.
 editorLangId | True when the editor's associated language Id matches. Example: `"editorLangId == typescript"`.
+textCompareEditorVisible | Diff (compare) view is visible.
 **Mode contexts** |
 inDebugMode | A debug session is running.
 inSnippetMode | The editor is in snippet mode.
