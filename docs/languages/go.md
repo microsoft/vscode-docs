@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Go programming with Visual Studio Code
 
-Using the Go extension for Visual Studio Code, you get language features like intelliSense, code navigation, symbol search, bracket matching, snippets and many more that will help you in [Golang](https://golang.org/) development.
+Using the Go extension for Visual Studio Code, you get language features like IntelliSense, code navigation, symbol search, bracket matching, snippets and many more that will help you in [Golang](https://golang.org/) development.
 
 ![go extension banner](images/go/go-extension.png)
 
@@ -19,11 +19,9 @@ You can install the Go extension from the VS Code [Marketplace](https://marketpl
 
 ### Auto completions
 
-As you type in a Go file, you can see IntelliSense providing you with suggested completions.
-This even works for members in the current, imported and not yet imported packages.
-Just type any package name followed by `.`, and you will get suggestions for the corresponding package members.
+As you type in a Go file, you can see IntelliSense providing you with suggested completions. This even works for members in current, imported, and not yet imported packages. Just type any package name followed by `.`, and you will get suggestions for the corresponding package members.
 
-By setting `go.autocompleteUnimportedPackages` to `true` in your [settings](/docs/customization/userandworkspace.md), you can also get suggestion for packages that you can import. Select one of these suggestions, and an import to the selected package will be added to your file.
+By setting `go.autocompleteUnimportedPackages` to `true` in your [settings](/docs/customization/userandworkspace.md), you can also get suggestion for packages that you could import. Select one of these suggestions and an import to the selected package will be added to your file.
 
 >**Tip**: Use `kb(editor.action.triggerSuggest)` to trigger the suggestions manually.
 
@@ -100,15 +98,15 @@ You can rename symbols using `kb(editor.action.rename)` or by running the **Rena
 
 ## Debugging
 
-The Go extension lets you debug Go code as well. You need to install `delve` manually though. Read [Debugging Go code using VS Code](https://github.com/Microsoft/vscode-go/wiki/Debugging-Go-code-using-VS-Code) for set up steps, remote debugging and troubleshooting.
+The Go extension lets you debug Go code as well. You will need to install the [Delve](https://github.com/derekparker/delve) debugger manually as a prerequisite. Read [Debugging Go code using VS Code](https://github.com/Microsoft/vscode-go/wiki/Debugging-Go-code-using-VS-Code) for setup steps, information on remote debugging and a troubleshooting guide.
 
 ## Next Steps
 
 This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go).
 
-To stay up to date on the latest features/bug fixes for the extension, see the [CHANGELOG](https://github.com/Microsoft/vscode-go/blob/master/CHANGELOG.md).
+To stay up to date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/Microsoft/vscode-go/blob/master/CHANGELOG.md).
 
-If you have any issues or feature requests for the extension, feel free to log the requests in the [repo](https://github.com/Microsoft/vscode-go/issues) for the Go extension.
+If you have any issues or feature requests, feel free to log them in the Go extension [repo](https://github.com/Microsoft/vscode-go/issues).
 
 If you'd like to learn more about VS Code, try these topics:
 
