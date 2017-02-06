@@ -8,18 +8,18 @@ Author: Alexandru Dima
 ---
 # STATUS: DONE, FEEDBACK WELCOME
 
-# Tokenization improvements in VS Code 1.9.0
+# A performance engineering episode from the Monaco/VS Code Editor – Improving tokenization
 
-The upcoming release of VS Code will contain a cool change that has been cooking for a while, and I wanted to tell its story.
+VS Code version 1.9 includes a cool performance improvement that has been cooking for a while, and I wanted to tell its story.
 
-**TL;DR** TM themes will look more like their authors intended in VS Code 1.9.0, while being rendered faster and with less memory consumption.
+**TL;DR** TM themes will look more like their authors intended in VS Code 1.9, while being rendered faster and with less memory consumption.
 
 ---
 ## Tokenization
 
-Tokenization is the process of assigning tokens to source code. Tokens are then targetted by a theme, assigned colors, and voilla, your source code is rendered with colors. It is the one feature that turns a text editor into a code editor.
+Tokenization is the process of assigning tokens to source code. Tokens are then targeted by a theme, assigned colors, and voilà, your source code is rendered with colors. It is the one feature that turns a text editor into a code editor.
 
-Tokenization in VS Code (and in the Monaco Editor) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows for an editor to retokenize only a small subset of the lines when making edits.
+Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows for an editor to retokenize only a small subset of the lines when the user makes edits.
 
 Most of the times, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens. The following gif shows what lines get repainted in different circumstances:
 * most of the times, e.g. when typing `return 1;`, only the current line needs to be retokenized/repainted.
@@ -30,7 +30,7 @@ Most of the times, typing on a line results in only that line being retokenized,
 ---
 ## How we used to represent tokens
 
-The code for the editor in VSCode got written long before VSCode existed. It got shipped in the form of the Monaco Editor in various Microsoft projects, including Internet Explorer's F12 tools. One requirement that we got from them was that we needed to reduce memory usage.
+The code for the editor in VS Code got written long before VS Code existed. It got shipped in the form of the [Monaco Editor](https://microsoft.github.io/monaco-editor/) in various Microsoft projects, including Internet Explorer's F12 tools. One requirement that we got from them was that we needed to reduce memory usage.
 
 Back in the day, we used to write tokenizers by hand (there's no feasible way to interpret TM grammars in the browser even today, but that's another story). All in all, for a line like the following we would get the following tokens from our hand-written tokenizers:
 
@@ -38,9 +38,9 @@ Back in the day, we used to write tokenizers by hand (there's no feasible way to
 function f1() {
 ```
 
-| Offset  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
-|---------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|
 | Content | f | u | n | c | t | i | o | n |   | f |  1 | (  | )  |    | {  |
+|---------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|
+| Offset  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
 
 ```js
 tokens = [
@@ -54,9 +54,9 @@ tokens = [
 ]
 ```
 
-Holding on to that tokens array takes 648 bytes in Chrome, the reason for that is that storing an object is quite costly in terms of memory (each object instance must reserve space for pointing to its prototype, to its properties list, etc.). Now, our machines have a lot of RAM, but storing 648 bytes for a 15 characters long line is unacceptable.
+Holding on to that tokens array takes 648 bytes in Chrome, storing an object is quite costly in terms of memory (each object instance must reserve space for pointing to its prototype, to its properties list, etc.). Now, our machines have a lot of RAM, but storing 648 bytes for a 15 characters line is unacceptable.
 
-So, at the time, we came up with a binary format to store the tokens, a format that was being used up to and including [VS Code 1.8.1](https://github.com/Microsoft/vscode/blob/1.8.1/src/vs/editor/common/model/tokensBinaryEncoding.ts). Given the token types would be repeating a lot, we'd collect them in a separate map (per file), doing something like the following:
+So, at the time, we came up with a binary format to store the tokens, a format that was being used up to and including [VS Code 1.8](https://github.com/Microsoft/vscode/blob/1.8/src/vs/editor/common/model/tokensBinaryEncoding.ts). Given the token types would be repeating a lot, we'd collect them in a separate map (per file), doing something like the following:
 
 ```js
 //     0        1               2                  3                      4
@@ -75,10 +75,19 @@ tokens = [
 And then we'd encode the `startIndex` (32 bits) and the `type` (16 bits) in 48 bits of [the 53 mantissa bits](http://stackoverflow.com/a/2803010) a JavaScript number has. Our tokens array would finally look like this, and the map array would be reused for the entire file:
 
 ```js
-tokens = [4294967296, 8, 8589934601, 12884901899, 12884901900, 13, 17179869198]
+tokens = [
+                 //       type                 startIndex
+     4294967296, // 0000000000000001 00000000000000000000000000000000
+              8, // 0000000000000000 00000000000000000000000000001000
+     8589934601, // 0000000000000010 00000000000000000000000000001001
+    12884901899, // 0000000000000011 00000000000000000000000000001011
+    12884901900, // 0000000000000011 00000000000000000000000000001100
+             13, // 0000000000000000 00000000000000000000000000001101
+    17179869198, // 0000000000000100 00000000000000000000000000001110
+]
 ```
 
-Holding on to this tokens array takes 104 bytes in Chrome. The elements themselves should take only 56 bytes (7 64-bit numbers), and the rest probably is explained by v8 storing other metadata with the array, or probably allocating the baking store in power of 2s, etc. However, the memory savings are obvious and do get better with more tokens per line. Anyways, we were happy with that and we've been using this representation ever since.
+Holding on to this tokens array takes 104 bytes in Chrome. The elements themselves should take only 56 bytes (7 x 64-bit numbers), and the rest is probably explained by v8 storing other metadata with the array, or probably allocating the baking store in power of 2s, etc. However, the memory savings are obvious and do get better with more tokens per line. Anyways, we were happy with that and we've been using this representation ever since.
 
 ---
 ## Tokens <-> Theme matching
@@ -95,7 +104,7 @@ We thought it would be a good idea to follow browser best practices, such as lea
   <span class="token delimiter curly js">{</span>
 ```
 
-And we'd write our themes [in CSS](https://github.com/Microsoft/vscode/blob/1.8.0/src/vs/editor/browser/standalone/media/standalone-tokens.css):
+And we'd write our themes [in CSS](https://github.com/Microsoft/vscode/blob/1.8.0/src/vs/editor/browser/standalone/media/standalone-tokens.css) (e.g. vs theme):
 ```CSS
 ...
 .monaco-editor.vs .token.delimiter          { color: #000000; }
@@ -111,24 +120,23 @@ It turned out quite nicely, we could flip a class name somewhere and immediately
 
 For the launch of VS Code, we had something like 10 hand-written tokenizers, mostly for web-ish languages, which would definitely not be sufficient for a general-purpose desktop code editor. Enter TextMate grammars. There was one problem though, TM grammars don't work quite like our hand-written tokenizers.
 
-TM grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. Here's a very simple example:
+TM grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. Here's the same example under a JS TM Grammar (ignoring whitespace for brevity):
 
 ```js
 function f1() {
 ```
 
-If we were to make a section through the scopes stack, each token basically gets an array of scope names:
 
 ![TM Scopes](../../../images/2017_02_15/TM-scopes.png)
 
 ---
-## TextMate Grammars in VSCode 1.8.1
+## TextMate Grammars in VS Code 1.8
 
-| Offset  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
-|---------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|
 | Content | f | u | n | c | t | i | o | n |   | f |  1 | (  | )  |    | {  |
+|---------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|
+| Offset  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
 
-For the same example, from a JS TM Grammar, we'd get something like the following back from the tokenizer:
+If we were to make a section through the scopes stack, each token basically gets an array of scope names, and we'd get something like the following back from the tokenizer:
 
 ```js
 tokens = [
@@ -141,11 +149,12 @@ tokens = [
 ]
 ```
 
-All our tokens types were strings, and our code was not ready to handle string arrays, not to mention the implications on the binary encoding of tokens. We therefore proceeded to "approximate"[*] the array of scopes into a single string using the following strategy:
+All our token types were strings, and our code was not ready to handle string arrays, not to mention the implications on the binary encoding of tokens. We therefore proceeded to "approximate"[*] the array of scopes into a single string using the following strategy:
 > [*] What we were doing was plain wrong and "approximate" is a very nice word for it :).
-* ignore the least specific scope (i.e. `source.js`). It is rarely adding any value.
+
+* ignore the least specific scope (i.e. `source.js`); it is rarely adding any value.
 * split each remaining scope on `"."`.
-* dedup unique pieces
+* deduplicate unique pieces
 * sort the remaining pieces with a stable sort function (not necessarily lexicographic sort)
 * join the pieces on `"."`
 
@@ -160,7 +169,7 @@ tokens = [
 ]
 ```
 
-These tokens would then follow the same code path as the manual written tokenizers (i.e. get binary encoded), and then would render the same way too:
+These tokens would then "fit in" and would follow the same code path as the manual written tokenizers (i.e. get binary encoded), and then would render the same way too:
 
 ```html
 <span class="token meta function js storage type">function</span>
@@ -174,7 +183,9 @@ These tokens would then follow the same code path as the manual written tokenize
 
 ## TextMate Themes
 
-TextMate Themes work with scope selectors. They're documented quite well [here](https://manual.macromates.com/en/scope_selectors.html). Given a token with the following scopes:
+TextMate Themes work with [scope selectors](https://manual.macromates.com/en/scope_selectors.html) which select tokens with certain scopes and apply theming information to them, such as color, boldness, etc. 
+
+Given a token with the following scopes:
 ```js
 //           D                  C                        B                           A
 scopes = ['source.js', 'meta.function.js', 'meta.definition.function.js', 'entity.name.function.js']
@@ -182,45 +193,182 @@ scopes = ['source.js', 'meta.function.js', 'meta.definition.function.js', 'entit
 
 Here are some simple selectors that would match, sorted by their rank (descending):
 
-| Rank | Selector | Explanation |
-|---|---|---|
-| 12. | <code>source</code> | Partial match on `D`
-| 11. | <code>source.js</code> | Complete match on `D`
-| ... | ... | ... |
-| 6. | <code>meta.definition.function</code> | Partial match on `B`
-| 5. | <code>meta.definition.function.js</code> | Complete match on `B`
-| 4. | <code>entity</code> | Partial match on `A`
-| 3. | <code>entity.name</code> | Partial match on `A`
-| 2. | <code>entity.name.function</code> | Partial match on `A`
-| 1. | <code>entity.name.function.js</code> | Complete match on `A`
+<table>
+<tr>
+    <th rowspan="2">Selector</th>
+    <th colspan="4">Matches</th>
+</tr>
+<tr>
+    <th>D</th>
+    <th>C</th>
+    <th>B</th>
+    <th>A</th>
+</tr>
+<tr>
+    <td><code>source</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>source.js</code></td>
+    <td><code><span style="color:blue">source.js</span></code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>meta</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>meta.definition</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>meta.definition.function</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition.function</span>.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>entity</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>entity.name</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+</tr>
+<tr>
+    <td><code>entity.name.function</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code><span style="color:blue">entity.name.function</span>.js</code></td>
+</tr>
+<tr>
+    <td><code>entity.name.function.js</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code><span style="color:blue">entity.name.function.js</span></code></td>
+</tr>
+</table>
 
-> Rule: `entity` wins over `meta.definition.function.js` because it matches a scope that is more specific (`A` over `B`, respectively).
+> Obs: `entity` wins over `meta.definition.function` because it matches a scope that is more specific (`A` over `B`, respectively).
 
-> Rule: `entity.name` wins over `entity` because they both match the same scope (`A`), but `entity.name` is more specific than `entity`.
+> Obs: `entity.name` wins over `entity` because they both match the same scope (`A`), but `entity.name` is more specific than `entity`.
 
-To make things a bit more complicated, TextMate themes also support parent selectors (also sorted descending by rank):
+### Parent selectors
 
-| Selector | Explanation |
-|---|---|
-| <code>meta</code> | Partial match on `B`
-| <code>source meta</code> | Same partial match on `B`, parent match on `D`.
-| <code>source.js meta</code> | Same partial match on `B`, better parent match on `D`.
-| <code>meta.definition</code> | Better partial match on `B`.
-| <code>source meta.definition</code> | Same partial match on `B`, parent match on `D`.
-| ... | ... |
-| <code>entity</code> | Partial match on `A`.
-| <code>source entity</code> | Partial match on `A`, parent match on `D`.
-| <code>meta.definition entity</code> | Partial match on `A`, parent match on `B`.
+To make things a bit more complicated, TextMate themes also support parent selectors. Here are some examples of using both simple selectors and parent selectors (again sorted by their rank descending):
 
-> Rule: `source entity` wins over `entity` because they both match the same scope (`A`), but `source entity` also matches a parent scope (`B`).
+<table>
+<tr>
+    <th rowspan="2">Selector</th>
+    <th colspan="4">Matches</th>
+</tr>
+<tr>
+    <th>D</th>
+    <th>C</th>
+    <th>B</th>
+    <th>A</th>
+</tr>
+<tr>
+    <td><code>meta</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>source meta</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>source.js meta</code></td>
+    <td><code><span style="color:blue">source.js</span></code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>meta.definition</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>source meta.definition</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
+    <td><code>entity.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>entity</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>source entity</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>meta.definition entity</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
+    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+</tr>
+<tr>
+    <td><code>entity.name</code></td>
+    <td><code>source.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+</tr>
+<tr>
+    <td><code>source entity.name</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code>meta.function.js</code></td>
+    <td><code>meta.definition.function.js</code></td>
+    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+</tr>
+</table>
 
-> Rule `entity.name` wins over `source entity` because they both match the same scope (`A`), but `entity.name` is more specific than `entity`.
+> Obs: `source entity` wins over `entity` because they both match the same scope (`A`), but `source entity` also matches a parent scope (`D`).
+
+> Obs `entity.name` wins over `source entity` because they both match the same scope (`A`), but `entity.name` is more specific than `entity`.
 
 > Note: There is a third kind of selector, one that involves excluding scopes, which we'll not discuss here. We didn't add support for this kind, and we've noticed it is rarely used in the wild.
 
 ---
 
-## TextMate Themes in VSCode 1.8.1
+## TextMate Themes in VS Code 1.8
 
 Here are two Monokai theme rules (as JSON here for brevity; the original is in XML):
 ```js
@@ -233,7 +381,7 @@ Here are two Monokai theme rules (as JSON here for brevity; the original is in X
 ...
 ```
 
-We would simply generate dynamic CSS rules from the selectors:
+In VS Code 1.8, to match our "approximated" scopes, we would generate the following dynamic CSS rules:
 
 ```css
 ...
@@ -245,27 +393,29 @@ We would simply generate dynamic CSS rules from the selectors:
 ...
 ```
 
-We would then leave it up to CSS to match the "approximated" scopes. But the CSS matching rules are very different than the TM selector matching rules, especially when it comes to ranking. That's why TM themes in VSCode would look OK-ish, but never quite like their authors intended. Sometimes, the differences would be small, but sometimes these differences would completely change the feel of a theme.
+We would then leave it up to CSS to match the "approximated" scopes with the "approximated" rules. But the CSS matching rules are different from the TM selector matching rules, especially when it comes to ranking. CSS ranking would be based on the number of class names matched, while TM selector ranking has clear rules regarding scope specificity.
+
+That's why TM themes in VS Code would look OK, but never quite like their authors intended. Sometimes, the differences would be small, but sometimes these differences would completely change the feel of a theme.
 
 ---
 
 ## Some stars ligning up
 
-Over time, we have phased out our hand-written tokenizers (the last one, for HTML, only a couple months ago). So, in VSCode, all our files get today tokenized with TM Grammars. For the Monaco Editor, we've migrated to using Monarch (a descriptive tokenization engine similar at heart with TM Grammars, but a bit more expressive and that can run in a browser) for most of the supported languages, and we've added a wrapper for manual tokenizers. All in all, that means supporting a new tokenization format would require changing 3 tokens providers (TM, Monarch and the manual wrapper) and not more than 10.
+Over time, we have phased out our hand-written tokenizers (the last one, for HTML, only a couple months ago). So, in VS Code, all our files get today tokenized with TM Grammars. For the Monaco Editor, we've migrated to using Monarch (a descriptive tokenization engine similar at heart with TM Grammars, but a bit more expressive and that can run in a browser) for most of the supported languages, and we've added a wrapper for manual tokenizers. All in all, that means supporting a new tokenization format would require changing 3 tokens providers (TM, Monarch and the manual wrapper) and not more than 10.
 
-Already a few months ago, we've reviewed all the code we have in the VSCode core that used to read token types and we figured out that those consumers only cared about strings, regular expressions or comments. e.g. The bracket matching logic skips tokens that contain the scope `"string"`, `"comment"` or `"regex"`.
+Already a few months ago, we've reviewed all the code we have in the VS Code core that used to read token types and we figured out that those consumers only cared about strings, regular expressions or comments. e.g. The bracket matching logic skips tokens that contain the scope `"string"`, `"comment"` or `"regex"`.
 
-Since a few weeks, we've gotten the OK from our internal partners (other teams inside Microsoft consuming the Monaco Editor), that it is OK to drop support for IE9 and IE10 in the Monaco Editor.
+Since a few weeks, we've gotten the OK from our internal partners (other teams inside Microsoft consuming the Monaco Editor), that they no longer need support for IE9 and IE10 in the Monaco Editor.
 
 Probably most important, the number one most voted feature on the editor is [minimap support](https://github.com/Microsoft/vscode/issues/4865). To render a minimap in any decent amount of time, we cannot use DOM nodes and CSS matching. We will probably use a canvas, and we're going to need to know the color of each token in JavaScript, so we can paint those tiny letters with the right colors.
 
 Perhaps the biggest breakthrough we've had is that we **don't need to store tokens, nor their scopes**, since tokens only produce effects in terms of a theme matching them or in terms of bracket matching skipping strings, etc.
 
-## Finally, what's new in VSCode 1.9.0
+## Finally, what's new in VS Code 1.9
 
 ### Representing a TM theme
 
-Here's how a simplified theme might look like:
+Here's how a very simple theme might look like:
 
 ```js
 theme = [
@@ -281,7 +431,7 @@ theme = [
 ];
 ```
 
-When loading a theme, we will generate a numeric id for each unique color that shows up in the theme and store it into a color map (similar as we did for token types above):
+When loading it, we will generate an id for each unique color that shows up in the theme and store it into a color map (similar as we did for token types above):
 
 
 ```js
@@ -300,15 +450,15 @@ theme = [
 ];
 ```
 
-We will then generate a [Trie](https://en.wikipedia.org/wiki/Trie) out of the theme rules:
+We will then generate a [Trie](https://en.wikipedia.org/wiki/Trie) out of the theme rules, where each node holds on to the resolved theme options:
 
 ![TM Scopes](../../../images/2017_02_15/trie.svg)
 
-Each node holds on to the resolved options. e.g. The node for `constant.numeric.hex` contains the instruction to change foreground to `5`, as it inherits it from `constant.numeric`, even if the foreground was not explicitly set in the original theme rule.
+> Obs: The nodes for `constant.numeric.hex` and `constant.numeric.oct` contain the instruction to change foreground to `5`, as they *inherit* this instruction from `constant.numeric`.
 
-Note how the node for `var.identifier` holds on to the extra parent rule `meta var.identifier` and will answer queries accordingly.
+> Obs: The node for `var.identifier` holds on to the extra parent rule `meta var.identifier` and will answer queries accordingly.
 
-When a scope is encountered, we can query this Trie. e.g:
+When we want to find out how a scope should be themed, we can query this Trie. e.g:
 
 | Query     | Results |
 |-----------|---------|
@@ -370,7 +520,6 @@ Finally, instead of emitting tokens as objects from the tokenization engine:
 
 ```js
 // These are generated using the Monokai theme.
-
 tokens_before = [
     { startIndex:  0, scopes: ['source.js', 'meta.function.js', 'storage.type.function.js'] },
     { startIndex:  8, scopes: ['source.js', 'meta.function.js'] },
@@ -381,7 +530,7 @@ tokens_before = [
 ]
 
 // Every even index is the token start index, every odd index is the token metadata.
-// We get less tokens because tokens with the same metadata get collapsed
+// We get fewer tokens because tokens with the same metadata get collapsed
 tokens_now = [
                  // bbbbbbbbb fffffffff FFF TTT LLLLLLLL
     0, 16926743, // 000000010 000001001 001 000 00010111
@@ -403,11 +552,11 @@ And they get rendered with:
 ![TM Scopes](../../../images/2017_02_15/monokai-tokens.png)
 
 
-The tokens are returned as an [`Uint32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array) straight from the tokenizer. We hold on to the backing [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) and for the example above that takes 96 bytes in Chrome. The elements themselves should take only 32 bytes (8 32-bit numbers), but again we're probably observing some v8 metadata overhead.
+The tokens are returned as an [`Uint32Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array) straight from the tokenizer. We hold on to the backing [`ArrayBuffer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) and for the example above that takes 96 bytes in Chrome. The elements themselves should take only 32 bytes (8 x 32-bit numbers), but again we're probably observing some v8 metadata overhead.
 
 ### Some numbers
 
-To get the following measurements, I've picked three files:
+To get the following measurements, I've picked three files with different characteristics and different grammars:
 
 | File name | File size | Lines count | Language | Obs |
 |---|---|---|---|---|
@@ -415,13 +564,15 @@ To get the following measurements, I've picked three files:
 | `bootstrap.min.css` | 118.36 KB | 12 | CSS | Minified CSS file |
 | `sqlite3.c` | 6.73 MB | 200,904 | C | Concatenated distribution file of SQLite
 
-I've ran the tests on a beefy desktop machine on Windows (which uses Electron 32 bit).
+I've run the tests on a beefy desktop machine on Windows (which uses Electron 32 bit).
 
-I had to make some changes to the source code in order to compare apples with apples, such as ensuring the exact same grammars are used in both VS Code versions, turning off rich language features in both versions, or lifting the 100 stack depth limitation in VS Code 1.8.1 which no longer exists in VS Code 1.9.0, etc. I also had to split bootstrap.min.css into multiple lines to get each line under 20k chars.
+I had to make some changes to the source code in order to compare apples with apples, such as ensuring the exact same grammars are used in both VS Code versions, turning off rich language features in both versions, or lifting the 100 stack depth limitation in VS Code 1.8 which no longer exists in VS Code 1.9, etc. I also had to split bootstrap.min.css into multiple lines to get each line under 20k chars.
+
+### Tokenization times
 
 Tokenization runs in a yielding fashion on the UI thread, I had to add some code to force it to run synchronously, in order to measure the following times (median of 10 runs presented):
 
-| File name | File size | VSCode 1.8.1 | VSCode 1.9.0 | Speed-up |
+| File name | File size | VS Code 1.8 | VS Code 1.9 | Speed-up |
 |---|---|---|---|---|
 | `checker.ts` | 1.18 MB | 4606.80 ms | 3939.00 ms | 14.50% |
 | `bootstrap.min.css` | 118.36 KB | 776.76 ms | 416.28 ms | 46.41% |
@@ -430,11 +581,13 @@ Tokenization runs in a yielding fashion on the UI thread, I had to add some code
 
 ![Tokenization times](../../../images/2017_02_15/tokenization-times.png)
 
-Although tokenization now also does theme matching, the time savings can be explained by now doing a single pass over each line. Whereas before, there would be a tokenization pass, a secondary pass to "approximate" the scopes to a string and a third pass to binary encode the tokens, now the tokens are generated straight in a binary encoded fashion from the TM tokenization engine. The ammount of generated objects that need to be Garbage Collected immediately has been also reduced substantially.
+> Although tokenization now also does theme matching, the time savings can be explained by now doing a single pass over each line. Whereas before, there would be a tokenization pass, a secondary pass to "approximate" the scopes to a string and a third pass to binary encode the tokens, now the tokens are generated straight in a binary encoded fashion from the TM tokenization engine. The amount of generated objects that need to be Garbage Collected has been also reduced substantially.
+
+### Memory usage
 
 Folding is consuming a lot of memory, especially for large files (that's an optimization for another time), so I've collected the following Heap Snapshot numbers with folding turned off. This shows the memory held by the Model, without accounting for the original file string:
 
-| File name | File size | VSCode 1.8.1 | VSCode 1.9.0 | Memory savings |
+| File name | File size | VS Code 1.8 | VS Code 1.9 | Memory savings |
 |---|---|---|---|---|
 | `checker.ts` | 1.18 MB | 3.37 MB | 2.61 MB | 22.60% |
 | `bootstrap.min.css` | 118.36 KB | 267.00 KB | 201.33 KB | 24.60% |
@@ -442,7 +595,7 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 
 ![Memory usage](../../../images/2017_02_15/tokenization-memory.png)
 
-The reduced memory usage can be explained by our no longer holding on to a tokens map, the collapse of consecutive tokens with the same metadata, and the usage of `ArrayBuffer` as the baking store. We could further improve here by always collapsing whitespace only tokens into the previous token, as the color whitespace gets rendered with does not matter (whitespace is invisible).
+> The reduced memory usage can be explained by no longer holding on to a tokens map, the collapse of consecutive tokens with the same metadata, and the usage of `ArrayBuffer` as the baking store. We could further improve here by always collapsing whitespace only tokens into the previous token, as the color whitespace gets rendered with does not matter (whitespace is invisible).
 
 ### New TM Scope Inspector Widget
 
@@ -453,7 +606,7 @@ We've added a new widget to help with authoring themes or grammars, or with debu
 
 ### Before and After
 
-| Theme | VSCode 1.8.1 | VSCode 1.9.0
+| Theme | VS Code 1.8 | VS Code 1.9
 |---|---|---|
 | Monokai | ![Monokai before](../../../images/2017_02_15/monokai-before.png) | ![Monokai after](../../../images/2017_02_15/monokai-after.png) |
 | Quiet Light | ![Quiet Light before](../../../images/2017_02_15/quiet-light-before.png) | ![Quiet Light after](../../../images/2017_02_15/quiet-light-after.png) |
@@ -461,6 +614,8 @@ We've added a new widget to help with authoring themes or grammars, or with debu
 
 ## In conclusion
 
-I hope you will appreciate the extra CPU time and RAM you get out of using VSCode 1.9.0, and that we can continue to empower you to code in an efficient and pleasant way.
+I hope you will appreciate the extra CPU time and RAM you get out of using VS Code 1.9, and that we can continue to empower you to code in an efficient and pleasant way.
 
 Happy coding!
+
+Alexandru Dima, VS Code Team Member
