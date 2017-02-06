@@ -468,7 +468,7 @@ theme = [
 
 We will then generate a [Trie](https://en.wikipedia.org/wiki/Trie) data structure out of the theme rules, where each node holds on to the resolved theme options:
 
-![TextMate Scopes](2017_02_15_trie.svg)
+![TextMate Scopes](2017_02_15_trie.png)
 
 > Observation: The nodes for `constant.numeric.hex` and `constant.numeric.oct` contain the instruction to change foreground to `5`, as they *inherit* this instruction from `constant.numeric`.
 
