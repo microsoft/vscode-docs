@@ -202,7 +202,7 @@ scopes = ['source.js', 'meta.function.js', 'meta.definition.function.js', 'entit
 
 Here are some simple selectors that would match, sorted by their rank (descending):
 
-<table width:"100%" >
+<table width="100%" >
 <tr>
     <th rowspan="2">Selector</th>
     <th colspan="4">Matches</th>
@@ -276,7 +276,7 @@ Here are some simple selectors that would match, sorted by their rank (descendin
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name.function.js</span></code></td>
 </tr>
-</table>
+</table><br>
 
 > Observation: `entity` wins over `meta.definition.function` because it matches a scope that is more specific (`A` over `B`, respectively).
 
@@ -286,7 +286,7 @@ Here are some simple selectors that would match, sorted by their rank (descendin
 
 To make things a bit more complicated, TextMate themes also support parent selectors. Here are some examples of using both simple selectors and parent selectors (again sorted by their rank descending):
 
-<table width:"100%">
+<table width="100%" >
 <tr>
     <th rowspan="2">Selector</th>
     <th colspan="4">Matches</th>
@@ -367,7 +367,7 @@ To make things a bit more complicated, TextMate themes also support parent selec
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
 </tr>
-</table>
+</table><br>
 
 > Observation: `source entity` wins over `entity` because they both match the same scope (`A`), but `source entity` also matches a parent scope (`D`).
 
