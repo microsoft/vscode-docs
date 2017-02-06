@@ -7,7 +7,7 @@ PageTitle: Go with Visual Studio Code
 DateApproved: 2/6/2017
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
-# Go programming with Visual Studio Code
+# Go programming in VS Code
 
 Using the Go extension for Visual Studio Code, you get language features like IntelliSense, code navigation, symbol search, bracket matching, snippets and many more that will help you in [Golang](https://golang.org/) development.
 
@@ -53,8 +53,8 @@ Code navigation features are available in the context menu in the editor.
 
 You can navigate via symbol search using the **Go to Symbol** commands from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-- Go to Symbol in File `kb(workbench.action.gotoSymbol)`
-- Go to Symbol in Workspace `kb(workbench.action.showAllSymbols)`
+- Go to Symbol in File - `kb(workbench.action.gotoSymbol)`
+- Go to Symbol in Workspace - `kb(workbench.action.showAllSymbols)`
 
 You can also navigate back and forth between a Go file and its test implementation using the **Go: Toggle Test File** command.
 
