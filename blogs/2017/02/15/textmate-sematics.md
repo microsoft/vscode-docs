@@ -206,14 +206,14 @@ Here are some simple selectors that would match, sorted by their rank (descendin
 </tr>
 <tr>
     <td><code>source</code></td>
-    <td><code style="color:blue">source</code><code>.js</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source.js</code></td>
-    <td><code style="color:blue">source.js</code><code></code></td>
+    <td><code><span style="color:blue">source.js</span></code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
@@ -222,21 +222,21 @@ Here are some simple selectors that would match, sorted by their rank (descendin
     <td><code>meta</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta</code><code>.definition.function.js</code></td>
+    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta.definition</code><code>.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition.function</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta.definition.function</code><code>.js</code></td>
+    <td><code><span style="color:blue">meta.definition.function</span>.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
@@ -244,28 +244,28 @@ Here are some simple selectors that would match, sorted by their rank (descendin
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code style="color:blue">entity</code><code>.name.function.js</code></td>
+    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code style="color:blue">entity.name</code><code>.function.js</code></td>
+    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name.function</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code style="color:blue">entity.name.function</code><code>.js</code></td>
+    <td><code><span style="color:blue">entity.name.function</span>.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name.function.js</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code style="color:blue">entity.name.function.js</code><code></code></td>
+    <td><code><span style="color:blue">entity.name.function.js</span></code></td>
 </tr>
 </table>
 
@@ -292,35 +292,35 @@ To make things a bit more complicated, TextMate themes also support parent selec
     <td><code>meta</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta</code><code>.definition.function.js</code></td>
+    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source meta</code></td>
-    <td><code style="color:blue">source</code><code>.js</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta</code><code>.definition.function.js</code></td>
+    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source.js meta</code></td>
-    <td><code style="color:blue">source.js</code><code></code></td>
+    <td><code><span style="color:blue">source.js</span></code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta</code><code>.definition.function.js</code></td>
+    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta.definition</code><code>.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source meta.definition</code></td>
-    <td><code style="color:blue">source</code><code>.js</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta.definition</code><code>.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
@@ -328,35 +328,35 @@ To make things a bit more complicated, TextMate themes also support parent selec
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code style="color:blue">entity</code><code>.name.function.js</code></td>
+    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source entity</code></td>
-    <td><code style="color:blue">source</code><code>.js</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code style="color:blue">entity</code><code>.name.function.js</code></td>
+    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition entity</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code style="color:blue">meta.definition</code><code>.function.js</code></td>
-    <td><code style="color:blue">entity</code><code>.name.function.js</code></td>
+    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
+    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code style="color:blue">entity.name</code><code>.function.js</code></td>
+    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
 </tr>
 <tr>
     <td><code>source entity.name</code></td>
-    <td><code style="color:blue">source</code><code>.js</code></td>
+    <td><code><span style="color:blue">source</span>.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code style="color:blue">entity.name</code><code>.function.js</code></td>
+    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
 </tr>
 </table>
 
