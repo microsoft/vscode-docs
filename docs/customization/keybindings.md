@@ -213,8 +213,8 @@ Key|Command|Command id
 Key|Command|Command id
 ---|-------|----------
 `kb(editor.debug.action.toggleBreakpoint)`|Toggle Breakpoint|`editor.debug.action.toggleBreakpoint`
-`kb(workbench.action.debug.continue)`|Continue|`workbench.action.debug.continue`
-`kb(workbench.action.debug.start)`|Pause|`workbench.action.debug.start`
+`kb(workbench.action.debug.continue)`|Start, Continue|`workbench.action.debug.continue`
+`kb(workbench.action.debug.pause)`|Pause|`workbench.action.debug.pause`
 `kb(workbench.action.debug.stepInto)`|Step Into|`workbench.action.debug.stepInto`
 `kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
 `kb(workbench.action.debug.stepOver)`|Step Over|`workbench.action.debug.stepOver`
