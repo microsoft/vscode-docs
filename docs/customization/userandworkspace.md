@@ -51,11 +51,11 @@ Default settings are represented in groups so that you can navigate them easily.
 
 ![Settings Groups](images/userandworkspace/settings-groups.png)
 
-Here is the [copy of default settings](#copy-of-default-settings) that comes with VS Code.
+Here is the [copy of default settings](/docs/customization/userandworkspace.md#copy-of-default-settings) that comes with VS Code.
 
 ## Language specific editor settings
 
-To customize your editor by language, run the global command **Preferences: Configure language specific settings...** (id: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Selecting the language you want, opens the Settings editor with the language entry where you can add applicable settings.
+To customize your editor by language, run the global command **Preferences: Configure language specific settings...** (command id: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Selecting the language you want, opens the Settings editor with the language entry where you can add applicable settings.
 
 ![Language mode for File](images/userandworkspace/pref-config-lang-settings.png)
 
