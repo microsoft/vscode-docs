@@ -29,9 +29,9 @@ Here is an example with a very simple file.
 
 >**Tip:** You can also right-click on the editor Tab and select **Open Preview** or use the **Command Palette** (`kb(workbench.action.showCommands)`) **Markdown: Open Preview** and **Markdown: Open Preview to the Side** commands.
 
-### Editor and Preview Syncronization
+### Editor and Preview Synchronization
 
-When working with a Markdown preview to the side of your editor, VSCode can syncronize the view of the editor and the preview. By default, the Markdown preview will automatically scroll to reveal the element at the selected line in the editor.
+When working with a Markdown preview to the side of your editor, VSCode can synchronize the view of the editor and the preview. By default, the Markdown preview will automatically scroll to reveal the element at the selected line in the editor.
 
 ![Markdown Preview editor selection scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
 
