@@ -19,7 +19,7 @@ VS Code provides two different scopes for settings:
 
 ## Creating User and Workspace Settings
 
-The menu under **File** > **Preferences** (**Code** > **Preferences** on Mac) provides entries to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the related `settings.json` file.
+The menu under **File** > **Preferences** (**Code** > **Preferences** on Mac) provides entry to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the related `settings.json` file.
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
@@ -51,8 +51,70 @@ Default settings are represented in groups so that you can navigate them easily.
 
 ![Settings Groups](images/userandworkspace/settings-groups.png)
 
+Here is the [copy of default settings](#copy-of-default-settings) that comes with VS Code.
 
-Below is a copy of the **Default Settings** that comes with VS Code.
+## Language specific editor settings
+
+To customize your editor by language, run the global command **Preferences: Configure language specific settings...** (id: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Selecting the language you want, opens the Settings editor with the language entry where you can add applicable settings.
+
+![Language mode for File](images/userandworkspace/pref-config-lang-settings.png)
+
+![Language mode for File](images/userandworkspace/lang-selection.png)
+
+![Language mode for File](images/userandworkspace/lang-based-settings.png)
+
+If you have a file open and you want to customize the editor for this file type, click on the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings...**. Selecting this opens the Settings editor with the language entry where you can add applicable settings.
+
+You can also configure language based settings by directly opening `settings.json`. You can scope them to the workspace by placing them in the Workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
+
+The following examples customize editor settings for language modes `typescript` and `markdown`.
+
+```json
+{
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.wrappingColumn": 0,
+    "editor.renderWhitespace": "all",
+    "editor.acceptSuggestionOnEnter": false
+  }
+}
+```
+
+You can use IntelliSense in Settings editor to help you find allowed language based settings. All editor settings and some non-editor settings are supported.
+
+**Note**: The following settings are not currently supported but will be in the next release. Please refer to [#19511](https://github.com/Microsoft/vscode/issues/19511) for more information.
+
+```json
+editor.tabSize
+editor.insertSpaces
+editor.detectIndentation
+editor.trimAutoWhitespace
+```
+
+## Settings and security
+
+In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
+
+Here is the list of settings we don't support for workspaces:
+
+- git.path
+- terminal.integrated.shell.linux
+- terminal.integrated.shellArgs.linux
+- terminal.integrated.shell.osx
+- terminal.integrated.shellArgs.osx
+- terminal.integrated.shell.windows
+- terminal.integrated.shellArgs.windows
+- terminal.external.windowsExec
+- terminal.external.osxExec
+- terminal.external.linuxExec
+
+The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
+
+### Copy of default settings
 
 ```json
 {
@@ -984,24 +1046,6 @@ Below is a copy of the **Default Settings** that comes with VS Code.
 }
 ```
 
-## Settings and security
-
-In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
-
-Here is the list of settings we don't support for workspaces:
-
-- git.path
-- terminal.integrated.shell.linux
-- terminal.integrated.shellArgs.linux
-- terminal.integrated.shell.osx
-- terminal.integrated.shellArgs.osx
-- terminal.integrated.shell.windows
-- terminal.integrated.shellArgs.windows
-- terminal.external.windowsExec
-- terminal.external.osxExec
-- terminal.external.linuxExec
-
-The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
 ## Common Questions
 
