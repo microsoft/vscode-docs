@@ -118,7 +118,7 @@ It turned out quite nicely, we could flip a class name somewhere and immediately
 ---
 ## TextMate Grammars
 
-For the launch of VS Code, we had something like 10 hand-written tokenizers, mostly for web-ish languages, which would definitely not be sufficient for a general-purpose desktop code editor. Enter TextMate grammars. There was one problem though, TM grammars don't work quite like our hand-written tokenizers.
+For the launch of VS Code, we had something like 10 hand-written tokenizers, mostly for web-ish languages, which would definitely not be sufficient for a general-purpose desktop code editor. Enter [TextMate grammars](https://manual.macromates.com/en/language_grammars), a descriptive form of specifying the tokenization rules, which has been adopted in numerous editors. There was one problem though, TM grammars don't work quite like our hand-written tokenizers.
 
 TM grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. Here's the same example under a JS TM Grammar (ignoring whitespace for brevity):
 
@@ -206,14 +206,14 @@ Here are some simple selectors that would match, sorted by their rank (descendin
 </tr>
 <tr>
     <td><code>source</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code style="color:blue">source</code><code>.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source.js</code></td>
-    <td><code><span style="color:blue">source.js</span></code></td>
+    <td><code style="color:blue">source.js</code><code></code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
@@ -222,21 +222,21 @@ Here are some simple selectors that would match, sorted by their rank (descendin
     <td><code>meta</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
+    <td><code style="color:blue">meta</code><code>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
+    <td><code style="color:blue">meta.definition</code><code>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition.function</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta.definition.function</span>.js</code></td>
+    <td><code style="color:blue">meta.definition.function</code><code>.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
@@ -244,28 +244,28 @@ Here are some simple selectors that would match, sorted by their rank (descendin
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+    <td><code style="color:blue">entity</code><code>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+    <td><code style="color:blue">entity.name</code><code>.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name.function</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name.function</span>.js</code></td>
+    <td><code style="color:blue">entity.name.function</code><code>.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name.function.js</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name.function.js</span></code></td>
+    <td><code style="color:blue">entity.name.function.js</code><code></code></td>
 </tr>
 </table>
 
@@ -292,35 +292,35 @@ To make things a bit more complicated, TextMate themes also support parent selec
     <td><code>meta</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
+    <td><code style="color:blue">meta</code><code>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source meta</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code style="color:blue">source</code><code>.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
+    <td><code style="color:blue">meta</code><code>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source.js meta</code></td>
-    <td><code><span style="color:blue">source.js</span></code></td>
+    <td><code style="color:blue">source.js</code><code></code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
+    <td><code style="color:blue">meta</code><code>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
+    <td><code style="color:blue">meta.definition</code><code>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source meta.definition</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code style="color:blue">source</code><code>.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
+    <td><code style="color:blue">meta.definition</code><code>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
@@ -328,35 +328,35 @@ To make things a bit more complicated, TextMate themes also support parent selec
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+    <td><code style="color:blue">entity</code><code>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source entity</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code style="color:blue">source</code><code>.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+    <td><code style="color:blue">entity</code><code>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition entity</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
-    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
-    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+    <td><code style="color:blue">meta.definition</code><code>.function.js</code></td>
+    <td><code style="color:blue">entity</code><code>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name</code></td>
     <td><code>source.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+    <td><code style="color:blue">entity.name</code><code>.function.js</code></td>
 </tr>
 <tr>
     <td><code>source entity.name</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
+    <td><code style="color:blue">source</code><code>.js</code></td>
     <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+    <td><code style="color:blue">entity.name</code><code>.function.js</code></td>
 </tr>
 </table>
 
@@ -401,7 +401,9 @@ That's why TM themes in VS Code would look OK, but never quite like their author
 
 ## Some stars ligning up
 
-Over time, we have phased out our hand-written tokenizers (the last one, for HTML, only a couple months ago). So, in VS Code, all our files get today tokenized with TM Grammars. For the Monaco Editor, we've migrated to using Monarch (a descriptive tokenization engine similar at heart with TM Grammars, but a bit more expressive and that can run in a browser) for most of the supported languages, and we've added a wrapper for manual tokenizers. All in all, that means supporting a new tokenization format would require changing 3 tokens providers (TM, Monarch and the manual wrapper) and not more than 10.
+Over time, we have phased out our hand-written tokenizers (the last one, for HTML, only a couple months ago). So, in VS Code, all our files get today tokenized with TM Grammars. For the Monaco Editor, we've migrated to using [Monarch](https://microsoft.github.io/monaco-editor/monarch.html) (a descriptive tokenization engine similar at heart with TM Grammars, but a bit more expressive and that can run in a browser) for most of the supported languages, and we've added a wrapper for manual tokenizers. All in all, that means supporting a new tokenization format would require changing 3 tokens providers (TM, Monarch and the manual wrapper) and not more than 10.
+
+
 
 Already a few months ago, we've reviewed all the code we have in the VS Code core that used to read token types and we figured out that those consumers only cared about strings, regular expressions or comments. e.g. The bracket matching logic skips tokens that contain the scope `"string"`, `"comment"` or `"regex"`.
 
@@ -473,7 +475,7 @@ When we want to find out how a scope should be themed, we can query this Trie. e
 
 ### Changes to tokenization
 
-We've changed the way we represent the scope stack in [`vscode-textmate`](https://github.com/Microsoft/vscode-textmate) to be [an immutable linked list](https://github.com/Microsoft/vscode-textmate/blob/master/src/grammar.ts#L946) that also stores the fully resolved `metadata`.
+All the TextMate tokenization code used in VS Code lives in a separate project, [`vscode-textmate`](https://github.com/Microsoft/vscode-textmate/), which can be used independently of VS Code. We've changed the way we represent the scope stack in [`vscode-textmate`](https://github.com/Microsoft/vscode-textmate) to be [an immutable linked list](https://github.com/Microsoft/vscode-textmate/blob/master/src/grammar.ts#L946) that also stores the fully resolved `metadata`.
 
 When pushing a new scope onto the scope stack, we will look up the new scope in the theme trie. We can then compute immediately the fully resolved desired foreground or font style for a scope list, based on what we inherit from the scope stack and on what the theme trie returns.
 
@@ -487,7 +489,7 @@ Some examples:
 | `["source.js","var.identifier"]` | foreground is `2`, fontStyle is `bold` |
 | `["source.js","meta","var.identifier"]` | foreground is `3`, fontStyle is `bold` |
 
-When popping from the scope stack, there is no need to compute anything, since we can just use the metadata stored with the previous scope list element.
+When popping from the scope stack, there is no need to compute anything, since we can just use the metadata stored with the previous scope list element. Here's the TypeScript class that represents an element in the scope list:
 
 ```ts
 export class ScopeListElement {
@@ -603,6 +605,18 @@ We've added a new widget to help with authoring themes or grammars, or with debu
 
 
 ![TM scope inspector](../../../images/2017_02_15/TM-scope-inspector.gif)
+
+### Validating the change
+
+Making changes in this component of the editor presented some serious risk as any bug in our approach (in the new trie code, in the new binary encoding format, etc.) could potentially result in huge user-visible differences.
+
+In VS Code, we have an integration suite that asserts colors for all languages we ship with across the five themes we author (Light, Light+, Dark, Dark+, High Contrast). These tests are very helpful both when making tweaks to one of our themes, and also when updating a certain grammar. Each of the 73 integration tests consists of a fixture file (e.g. [test.c](https://github.com/Microsoft/vscode/blob/release/1.9/extensions/cpp/test/colorize-fixtures/test.c)) and the expected colors for the five themes (e.g. [test_c.json](https://github.com/Microsoft/vscode/blob/release/1.9/extensions/cpp/test/colorize-results/test_c.json)), and they run on each commit on our [CI build](https://travis-ci.org/Microsoft/vscode/jobs/198766250#L3184).
+
+To validate the tokenization change, we've collected colorization results from these tests, across all the 14 themes we ship with (not just the five themes we author) using the old CSS based approach.
+
+Then, after each change, we'd run the same tests using the new trie-based logic and, using a custom-built visual diff (and patch) tool, we would look into each and every color difference, and we would figure out the root cause of the color change. We caught at least 2 bugs using this technique, and we were able to change our five themes to get minimal color changes across VS Code versions:
+
+![Tokenization validation](../../../images/2017_02_15/tokenization-validation.png)
 
 ### Before and After
 
