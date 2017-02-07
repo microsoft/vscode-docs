@@ -233,6 +233,16 @@ For example, here is an Extension Pack for PHP that includes a debugger, languag
 
 When installing an Extension Pack, VS Code will now also install its extension dependencies.
 
+Extension packs should be categorized in the `Extension Packs` market place category: 
+
+```json
+  "categories": [
+      "Extension Packs"
+  ],
+``` 
+
+To create an extension pack you can use the Code Yeoman generator. Optionally, it can also seed the pack with the set of extensions you have currently installed in your Code instance. In this way you can easily create an Extension Pack with your favorite extensions, publish it to the market place, and share it with others.
+
 ## Next Steps
 To learn more about VS Code extensibility model, try these topic:
 
