@@ -1,10 +1,11 @@
 ---
 Order: 24
-TOCTitle: Improving tokenization
-PageTitle: Improving tokenization
-MetaDescription: Improving tokenization
+TOCTitle: Optimizations in Syntax Highlighting
+PageTitle: Optimizations in Syntax Highlighting, a Visual Studio Code Story
+MetaDescription: Optimizations in tokenization and syntax highlighting in the Visual Studio Code/Monaco editor
 Date: 2017-02-07
 Author: Alexandru Dima
+MetaSocialImage: 2017_02_15_syntax-highlighting-optimizations-social.png
 ---
 # Optimizations in Syntax Highlighting
 
@@ -22,7 +23,7 @@ Syntax Highlighting usually consists of two phases. Tokens are assigned to sourc
 
 Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows an editor to retokenize only a small subset of the lines when the user makes edits.
 
-Most of the time, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens: 
+Most of the time, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens:
 
 <center>
 <img src="/images/2017_02_15_tokenization-1.gif" alt="Tokenization Single Line">
