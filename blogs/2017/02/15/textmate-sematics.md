@@ -6,11 +6,9 @@ MetaDescription: Improving tokenization
 Date: 2017-02-07
 Author: Alexandru Dima
 ---
-# Improving tokenization
+# Optimizations in Syntax Highlighting
 
 February 7, 2017 - Alexandru Dima
-
-*A performance engineering episode from the Monaco/VS Code Editor.*
 
 Visual Studio Code version 1.9 includes a cool performance improvement that we've been working on and I wanted to tell its story.
 
@@ -18,36 +16,35 @@ Visual Studio Code version 1.9 includes a cool performance improvement that we'v
 
 ---
 
-## Tokenization
+## Syntax Highlighting
 
-Tokenization is the process of assigning tokens to source code. Tokens are then targeted by a theme, assigned colors, and voilà, your source code is rendered with color highlights. It turns a simple text editor into a real code editor.
+Syntax Highlighting usually consists of two phases. Tokens are assigned to source code, and then they are targeted by a theme, assigned colors, and voilà, your source code is rendered with colors. It is the one feature that turns a text editor into a code editor.
 
 Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/monaco-editor/)) runs line-by-line, from top to bottom, in a single pass. A tokenizer can store some state at the end of a tokenized line, which will be passed back when tokenizing the next line. This is a technique used by many tokenization engines, including TextMate grammars, that allows an editor to retokenize only a small subset of the lines when the user makes edits.
 
-Most of the time, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens. 
+Most of the time, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens: 
 
-The following animation shows what lines get repainted in different circumstances:
+<center>
+<img src="/images/2017_02_15_tokenization-1.gif" alt="Tokenization Single Line">
+</center>
 
-* Most of the time: When typing `return 1;`, only the current line needs to be retokenized/repainted.
-* More rarely: When typing `/*`, it is necessary to retokenize/repaint the current line and some of the ones below.
+More rarely, typing on a line results in a retokenization/repaint of the current line and some of the ones below (until an equal end state is encountered):
 
-![Tokenization](2017_02_15_tokenization.gif)
+<center>
+<img src="/images/2017_02_15_tokenization-2.gif" alt="Tokenization Multiple Lines">
+</center>
 
 ---
 
 ## How we represented tokens in the past
 
-The code for the editor in VS Code was written long before VS Code existed. It was shipped in the form of the [Monaco Editor](https://microsoft.github.io/monaco-editor/) in various Microsoft projects, including Internet Explorer's F12 tools. One requirement for an online editor is reduced memory usage.
+The code for the editor in VS Code was written long before VS Code existed. It was shipped in the form of the [Monaco Editor](https://microsoft.github.io/monaco-editor/) in various Microsoft projects, including Internet Explorer's F12 tools. One requirement we had was to reduce memory usage.
 
 In the past, we wrote tokenizers by hand (there is no feasible way to interpret TextMate grammars in the browser even today, but that's another story). For the line below, we would get the following tokens from our hand-written tokenizers:
 
-```javascript
-function f1() {
-```
-
-| Content | f | u | n | c | t | i | o | n |   | f |  1 | (  | )  |    | {  |
-|---------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|
-| Offset  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
+<center>
+<img src="/images/2017_02_15_line-offsets.png" alt="Line offsets">
+</center>
 
 ```javascript
 tokens = [
@@ -96,6 +93,8 @@ tokens = [
 
 Holding on to this tokens array takes 104 bytes in Chrome. The elements themselves should take only 56 bytes (7 x 64-bit numbers), and the rest is probably explained by v8 storing other metadata with the array, or probably allocating the backing store in powers of 2. However, the memory savings are obvious and get better with more tokens per line. We were happy with this approach and we've been using this representation ever since.
 
+> Note: There may be more compact ways of storing the tokens, but having them in a binary-searchable linear format gives us the best trade-off in terms of memory usage and access performance.
+
 ---
 
 ## Tokens <-> Theme matching
@@ -130,13 +129,7 @@ It turned out quite nicely, we could flip a class name somewhere and immediately
 
 For the launch of VS Code, we had something like 10 hand-written tokenizers, mostly for web languages, which would definitely not be sufficient for a general-purpose desktop code editor. Enter [TextMate grammars](https://manual.macromates.com/en/language_grammars), a descriptive form of specifying the tokenization rules, which has been adopted in numerous editors. There was one problem though, TextMate grammars didn't work quite like our hand-written tokenizers.
 
-TextMate grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. 
-
-Here's the same example under a JavaScript TextMate Grammar (ignoring whitespace for brevity):
-
-```javascript
-function f1() {
-```
+TextMate grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. Here's the same example under a JavaScript TextMate Grammar (ignoring whitespace for brevity):
 
 ![TextMate Scopes](2017_02_15_TM-scopes.png)
 
@@ -144,20 +137,23 @@ function f1() {
 
 ## TextMate Grammars in VS Code 1.8
 
-| Content | f | u | n | c | t | i | o | n |   | f |  1 | (  | )  |    | {  |
-|---------|---|---|---|---|---|---|---|---|---|---|----|----|----|----|----|
-| Offset  | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 |
-
 If we were to make a section through the scopes stack, each token basically gets an array of scope names, and we'd get something like the following back from the tokenizer:
+
+<center>
+<img src="/images/2017_02_15_line-offsets.png" alt="Line offsets">
+</center>
 
 ```javascript
 tokens = [
-    { startIndex:  0, scopes: ['source.js', 'meta.function.js', 'storage.type.function.js'] },
-    { startIndex:  8, scopes: ['source.js', 'meta.function.js'] },
-    { startIndex:  9, scopes: ['source.js', 'meta.function.js', 'meta.definition.function.js', 'entity.name.function.js'] },
-    { startIndex: 11, scopes: ['source.js', 'meta.function.js', 'meta.parameters.js', 'punctuation.definition.parameters.js'] },
-    { startIndex: 13, scopes: ['source.js', 'meta.function.js'] },
-    { startIndex: 14, scopes: ['source.js', 'meta.function.js', 'meta.block.js', 'punctuation.definition.block.js'] },
+  { startIndex:  0, scopes: ['source.js','meta.function.js','storage.type.function.js'] },
+  { startIndex:  8, scopes: ['source.js','meta.function.js'] },
+  { startIndex:  9, scopes: ['source.js','meta.function.js','meta.definition.function.js',
+                             'entity.name.function.js'] },
+  { startIndex: 11, scopes: ['source.js','meta.function.js','meta.parameters.js',
+                             'punctuation.definition.parameters.js'] },
+  { startIndex: 13, scopes: ['source.js','meta.function.js'] },
+  { startIndex: 14, scopes: ['source.js','meta.function.js','meta.block.js',
+                             'punctuation.definition.block.js'] },
 ]
 ```
 
@@ -206,69 +202,66 @@ scopes = ['source.js', 'meta.definition.function.js', 'entity.name.function.js']
 
 Here are some simple selectors that would match, sorted by their rank (descending):
 
-<table>
+<table class="table table-striped" style="font-size: 80%">
 <tr>
-    <th rowspan="2">Selector</th>
-    <th colspan="3">Matches</th>
-</tr>
-<tr>
+    <th>Selector</th>
     <th>C</th>
     <th>B</th>
     <th>A</th>
 </tr>
 <tr>
-    <td><code>source</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>source</samp></td>
+    <td><samp><span style="color:blue">source</span>.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>source.js</code></td>
-    <td><code><span style="color:blue">source.js</span></code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>source.js</samp></td>
+    <td><samp><span style="color:blue">source.js</span></samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>meta</code></td>
-    <td><code>source.js</code></td>
-    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>meta</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp><span style="color:blue">meta</span>.definition.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>meta.definition</code></td>
-    <td><code>source.js</code></td>
-    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>meta.definition</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp><span style="color:blue">meta.definition</span>.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>meta.definition.function</code></td>
-    <td><code>source.js</code></td>
-    <td><code><span style="color:blue">meta.definition.function</span>.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>meta.definition.function</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp><span style="color:blue">meta.definition.function</span>.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>entity</code></td>
-    <td><code>source.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+    <td><samp>entity</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp><span style="color:blue">entity</span>.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>entity.name</code></td>
-    <td><code>source.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+    <td><samp>entity.name</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp><span style="color:blue">entity.name</span>.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>entity.name.function</code></td>
-    <td><code>source.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name.function</span>.js</code></td>
+    <td><samp>entity.name.function</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp><span style="color:blue">entity.name.function</span>.js</samp></td>
 </tr>
 <tr>
-    <td><code>entity.name.function.js</code></td>
-    <td><code>source.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name.function.js</span></code></td>
+    <td><samp>entity.name.function.js</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp><span style="color:blue">entity.name.function.js</span></samp></td>
 </tr>
 </table>
 <br>
@@ -281,75 +274,72 @@ Here are some simple selectors that would match, sorted by their rank (descendin
 
 To make things a bit more complicated, TextMate themes also support parent selectors. Here are some examples of using both simple selectors and parent selectors (again sorted by their rank descending):
 
-<table>
+<table class="table table-striped" style="font-size: 80%">
 <tr>
-    <th rowspan="2">Selector</th>
-    <th colspan="3">Matches</th>
-</tr>
-<tr>
+    <th>Selector</th>
     <th>C</th>
     <th>B</th>
     <th>A</th>
 </tr>
 <tr>
-    <td><code>meta</code></td>
-    <td><code>source.js</code></td>
-    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>meta</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp><span style="color:blue">meta</span>.definition.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>source meta</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>source meta</samp></td>
+    <td><samp><span style="color:blue">source</span>.js</samp></td>
+    <td><samp><span style="color:blue">meta</span>.definition.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>source.js meta</code></td>
-    <td><code><span style="color:blue">source.js</span></code></td>
-    <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>source.js meta</samp></td>
+    <td><samp><span style="color:blue">source.js</span></samp></td>
+    <td><samp><span style="color:blue">meta</span>.definition.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>meta.definition</code></td>
-    <td><code>source.js</code></td>
-    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>meta.definition</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp><span style="color:blue">meta.definition</span>.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>source meta.definition</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
-    <td><code>entity.name.function.js</code></td>
+    <td><samp>source meta.definition</samp></td>
+    <td><samp><span style="color:blue">source</span>.js</samp></td>
+    <td><samp><span style="color:blue">meta.definition</span>.function.js</samp></td>
+    <td><samp>entity.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>entity</code></td>
-    <td><code>source.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+    <td><samp>entity</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp><span style="color:blue">entity</span>.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>source entity</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+    <td><samp>source entity</samp></td>
+    <td><samp><span style="color:blue">source</span>.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp><span style="color:blue">entity</span>.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>meta.definition entity</code></td>
-    <td><code>source.js</code></td>
-    <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
-    <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
+    <td><samp>meta.definition entity</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp><span style="color:blue">meta.definition</span>.function.js</samp></td>
+    <td><samp><span style="color:blue">entity</span>.name.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>entity.name</code></td>
-    <td><code>source.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+    <td><samp>entity.name</samp></td>
+    <td><samp>source.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp><span style="color:blue">entity.name</span>.function.js</samp></td>
 </tr>
 <tr>
-    <td><code>source entity.name</code></td>
-    <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code>meta.definition.function.js</code></td>
-    <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
+    <td><samp>source entity.name</samp></td>
+    <td><samp><span style="color:blue">source</span>.js</samp></td>
+    <td><samp>meta.definition.function.js</samp></td>
+    <td><samp><span style="color:blue">entity.name</span>.function.js</samp></td>
 </tr>
 </table>
 <br>
@@ -388,7 +378,7 @@ In VS Code 1.8, to match our "approximated" scopes, we would generate the follow
 ...
 ```
 
-We would then leave it up to CSS to match the "approximated" scopes with the "approximated" rules. But the CSS matching rules are different from the TextMate selector matching rules, especially when it comes to ranking. CSS ranking would be based on the number of class names matched, while TextMate selector ranking has clear rules regarding scope specificity.
+We would then leave it up to CSS to match the "approximated" scopes with the "approximated" rules. But the CSS matching rules are different from the TextMate selector matching rules, especially when it comes to ranking. CSS ranking is based on the number of class names matched, while TextMate selector ranking has clear rules regarding scope specificity.
 
 That's why TextMate themes in VS Code would look OK, but never quite like their authors intended. Sometimes, the differences would be small, but sometimes these differences would completely change the feel of a theme.
 
@@ -431,7 +421,7 @@ When loading it, we will generate an id for each unique color that shows up in t
 
 ```json
 //                          1          2          3          4          5           6
-colorMap = ['reserved', '#F8F8F2', '#00FF00', '#0000FF', '#100000', '#200000', '#300000']
+colorMap = ["reserved", "#F8F8F2", "#00FF00", "#0000FF", "#100000", "#200000", "#300000"]
 theme = [
   {                                  "foreground": 1                           },
   { "scope": "var",                  "foreground": 1,                          },
@@ -447,7 +437,9 @@ theme = [
 
 We will then generate a [Trie](https://en.wikipedia.org/wiki/Trie) data structure out of the theme rules, where each node holds on to the resolved theme options:
 
-![TextMate Scopes](2017_02_15_trie.png)
+<center>
+<img src="/images/2017_02_15_trie.png" alt="Theme Trie">
+</center>
 
 > Observation: The nodes for `constant.numeric.hex` and `constant.numeric.oct` contain the instruction to change foreground to `5`, as they *inherit* this instruction from `constant.numeric`.
 
@@ -459,13 +451,13 @@ For example:
 
 | Query     | Results |
 |-----------|---------|
-| `constant`             | set foreground to `4`, fontStyle to `italic` |
-| `constant.numeric`     | set foreground to `5`, fontStyle to `italic` |
-| `constant.numeric.hex` | set foreground to `5`, fontStyle to `bold` |
-| `var`                  | set foreground to `1` |
-| `var.baz`              | set foreground to `1` (matches `var`) |
-| `baz`                  | do nothing (no match) |
-| `var.identifier`       | if there is a parent scope `meta`, then set foreground to `3`, fontStyle to `bold`,<br/> otherwise, set foreground to `2`, fontStyle to `bold` |
+| <samp style="font-size:90%">constant</samp>             | set foreground to <samp style="font-size:90%">4</samp>, fontStyle to <samp style="font-size:90%">italic</samp> |
+| <samp style="font-size:90%">constant.numeric</samp>     | set foreground to <samp style="font-size:90%">5</samp>, fontStyle to <samp style="font-size:90%">italic</samp> |
+| <samp style="font-size:90%">constant.numeric.hex</samp> | set foreground to <samp style="font-size:90%">5</samp>, fontStyle to <samp style="font-size:90%">bold</samp> |
+| <samp style="font-size:90%">var</samp>                  | set foreground to <samp style="font-size:90%">1</samp> |
+| <samp style="font-size:90%">var.baz</samp>              | set foreground to <samp style="font-size:90%">1</samp> (matches <samp style="font-size:90%">var</samp>) |
+| <samp style="font-size:90%">baz</samp>                  | do nothing (no match) |
+| <samp style="font-size:90%">var.identifier</samp>       | if there is a parent scope <samp style="font-size:90%">meta</samp>, then set foreground to <samp style="font-size:90%">3</samp>, fontStyle to <samp style="font-size:90%">bold</samp>,<br/> otherwise, set foreground to <samp style="font-size:90%">2</samp>, fontStyle to <samp style="font-size:90%">bold</samp> |
 
 
 ### Changes to tokenization
@@ -478,11 +470,11 @@ Some examples:
 
 | Scope Stack | Metadata |
 |---|---|
-| `["source.js"]` | foreground is `1`, font style is regular (the default rule without a scope selector) |
-| `["source.js","constant"]` | foreground is `4`, fontStyle is `italic` |
-| `["source.js","constant","baz"]` | foreground is `4`, fontStyle is `italic` |
-| `["source.js","var.identifier"]` | foreground is `2`, fontStyle is `bold` |
-| `["source.js","meta","var.identifier"]` | foreground is `3`, fontStyle is `bold` |
+| <samp style="font-size:90%">["source.js"]</samp> | foreground is <samp style="font-size:90%">1</samp>, font style is regular (the default rule without a scope selector) |
+| <samp style="font-size:90%">["source.js","constant"]</samp> | foreground is <samp style="font-size:90%">4</samp>, fontStyle is <samp style="font-size:90%">italic</samp> |
+| <samp style="font-size:90%">["source.js","constant","baz"]</samp> | foreground is <samp style="font-size:90%">4</samp>, fontStyle is <samp style="font-size:90%">italic</samp> |
+| <samp style="font-size:90%">["source.js","var.identifier"]</samp> | foreground is <samp style="font-size:90%">2</samp>, fontStyle is <samp style="font-size:90%">bold</samp> |
+| <samp style="font-size:90%">["source.js","meta","var.identifier"]</samp> | foreground is <samp style="font-size:90%">3</samp>, fontStyle is <samp style="font-size:90%">bold</samp> |
 
 When popping from the scope stack, there is no need to compute anything, since we can just use the metadata stored with the previous scope list element.
 
@@ -518,15 +510,18 @@ We store 32 bits of metadata:
 
 Finally, instead of emitting tokens as objects from the tokenization engine:
 
-```json
+```javascript
 // These are generated using the Monokai theme.
 tokens_before = [
-    { startIndex:  0, scopes: ['source.js', 'meta.function.js', 'storage.type.function.js'] },
-    { startIndex:  8, scopes: ['source.js', 'meta.function.js'] },
-    { startIndex:  9, scopes: ['source.js', 'meta.function.js', 'meta.definition.function.js', 'entity.name.function.js'] },
-    { startIndex: 11, scopes: ['source.js', 'meta.function.js', 'meta.parameters.js', 'punctuation.definition.parameters.js'] },
-    { startIndex: 13, scopes: ['source.js', 'meta.function.js'] },
-    { startIndex: 14, scopes: ['source.js', 'meta.function.js', 'meta.block.js', 'punctuation.definition.block.js'] },
+  { startIndex:  0, scopes: ['source.js','meta.function.js','storage.type.function.js'] },
+  { startIndex:  8, scopes: ['source.js','meta.function.js'] },
+  { startIndex:  9, scopes: ['source.js','meta.function.js','meta.definition.function.js',
+                             'entity.name.function.js'] },
+  { startIndex: 11, scopes: ['source.js','meta.function.js','meta.parameters.js',
+                             'punctuation.definition.parameters.js'] },
+  { startIndex: 13, scopes: ['source.js','meta.function.js'] },
+  { startIndex: 14, scopes: ['source.js','meta.function.js','meta.block.js',
+                             'punctuation.definition.block.js'] },
 ]
 
 // Every even index is the token start index, every odd index is the token metadata.
@@ -557,13 +552,13 @@ The tokens are returned as an [Uint32Array](https://developer.mozilla.org/en-US/
 
 To get the following measurements, I've picked three files with different characteristics and different grammars:
 
-| File name | File size | Line count | Language | Observation |
+| File name | File size | Lines | Language | Observation |
 |---|---|---|---|---|
-| `checker.ts` | 1.18 MB | 22,253 | TypeScript | Actual source file used in TypeScript compiler |
-| `bootstrap.min.css` | 118.36 KB | 12 | CSS | Minified CSS file |
-| `sqlite3.c` | 6.73 MB | 200,904 | C | Concatenated distribution file of SQLite
+| <samp style="font-size:90%">checker.ts</samp> | 1.18 MB | 22,253 | TypeScript | Actual source file used in TypeScript compiler |
+| <samp style="font-size:90%">bootstrap.min.css</samp> | 118.36 KB | 12 | CSS | Minified CSS file |
+| <samp style="font-size:90%">sqlite3.c</samp> | 6.73 MB | 200,904 | C | Concatenated distribution file of SQLite
 
-I've run the tests on a powerful desktop machine on Windows (which uses Electron 32 bit).
+I've run the tests on a somewhat powerful desktop machine on Windows (which uses Electron 32 bit).
 
 I had to make some changes to the source code in order to compare apples with apples, such as ensuring the exact same grammars are used in both VS Code versions, turning off rich language features in both versions, or lifting the 100 stack depth limitation in VS Code 1.8 which no longer exists in VS Code 1.9, etc. I also had to split bootstrap.min.css into multiple lines to get each line under 20k chars.
 
@@ -573,14 +568,15 @@ Tokenization runs in a yielding fashion on the UI thread, so I had to add some c
 
 | File name | File size | VS Code 1.8 | VS Code 1.9 | Speed-up |
 |---|---|---|---|---|
-| `checker.ts` | 1.18 MB | 4606.80 ms | 3939.00 ms | 14.50% |
-| `bootstrap.min.css` | 118.36 KB | 776.76 ms | 416.28 ms | 46.41% |
-| `sqlite3.c` | 6.73 MB | 16010.42 ms | 10964.42 ms | 31.52% |
+| <samp style="font-size:90%">checker.ts</samp> | 1.18 MB | 4606.80 ms | 3939.00 ms | <span style="color:green">14.50%</span> |
+| <samp style="font-size:90%">bootstrap.min.css</samp> | 118.36 KB | 776.76 ms | 416.28 ms | <span style="color:green">46.41%</span> |
+| <samp style="font-size:90%">sqlite3.c</samp> | 6.73 MB | 16010.42 ms | 10964.42 ms | <span style="color:green">31.52%</span> |
 
+<center>
+<img src="/images/2017_02_15_tokenization-times.png" alt="Tokenization times">
+</center>
 
-![Tokenization times](2017_02_15_tokenization-times.png)
-
-> Although tokenization now also does theme matching, the time savings can be explained by doing a single pass over each line. Whereas before, there would be a tokenization pass, a secondary pass to "approximate" the scopes to a string, and a third pass to binary encode the tokens, now the tokens are generated straight in a binary encoded fashion from the TextMate tokenization engine. The amount of generated objects that need to be Garbage Collected has been also reduced substantially.
+> Although tokenization now also does theme matching, the time savings can be explained by doing a single pass over each line. Whereas before, there would be a tokenization pass, a secondary pass to "approximate" the scopes to a string, and a third pass to binary encode the tokens, now the tokens are generated straight in a binary encoded fashion from the TextMate tokenization engine. The amount of generated objects that need to be garbage collected has been also reduced substantially.
 
 ### Memory usage
 
@@ -588,11 +584,13 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 
 | File name | File size | VS Code 1.8 | VS Code 1.9 | Memory savings |
 |---|---|---|---|---|
-| `checker.ts` | 1.18 MB | 3.37 MB | 2.61 MB | 22.60% |
-| `bootstrap.min.css` | 118.36 KB | 267.00 KB | 201.33 KB | 24.60% |
-| `sqlite3.c` | 6.73 MB | 27.49 MB | 21.22 MB | 22.83% |
+| <samp style="font-size:90%">checker.ts</samp> | 1.18 MB | 3.37 MB | 2.61 MB | <span style="color:green">22.60%</span> |
+| <samp style="font-size:90%">bootstrap.min.css</samp> | 118.36 KB | 267.00 KB | 201.33 KB | <span style="color:green">24.60%</span> |
+| <samp style="font-size:90%">sqlite3.c</samp> | 6.73 MB | 27.49 MB | 21.22 MB | <span style="color:green">22.83%</span> |
 
-![Memory usage](2017_02_15_tokenization-memory.png)
+<center>
+<img src="/images/2017_02_15_tokenization-memory.png" alt="Memory usage">
+</center>
 
 > The reduced memory usage can be explained by no longer holding on to a tokens map, the collapse of consecutive tokens with the same metadata, and the usage of `ArrayBuffer` as the backing store. We could further improve here by always collapsing whitespace-only tokens into the previous token, as it does not matter what color whitespace gets rendered (whitespace is invisible).
 
@@ -626,4 +624,5 @@ I hope you will appreciate the extra CPU time and RAM you get from upgrading to 
 
 Happy coding!
 
-Alexandru Dima, VS Code Team Member
+[Alexandru Dima](https://github.com/alexandrudima/), VS Code Team Member
+[@alexdima123](https://twitter.com/alexdima123)
