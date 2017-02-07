@@ -200,8 +200,8 @@ TextMate Themes work with [scope selectors](https://manual.macromates.com/en/sco
 Given a token with the following scopes:
 
 ```javascript
-//           D                  C                        B                           A
-scopes = ['source.js', 'meta.function.js', 'meta.definition.function.js', 'entity.name.function.js']
+//            C                     B                             A
+scopes = ['source.js', 'meta.definition.function.js', 'entity.name.function.js']
 ```
 
 Here are some simple selectors that would match, sorted by their rank (descending):
@@ -209,10 +209,9 @@ Here are some simple selectors that would match, sorted by their rank (descendin
 <table>
 <tr>
     <th rowspan="2">Selector</th>
-    <th colspan="4">Matches</th>
+    <th colspan="3">Matches</th>
 </tr>
 <tr>
-    <th>D</th>
     <th>C</th>
     <th>B</th>
     <th>A</th>
@@ -220,63 +219,54 @@ Here are some simple selectors that would match, sorted by their rank (descendin
 <tr>
     <td><code>source</code></td>
     <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source.js</code></td>
     <td><code><span style="color:blue">source.js</span></code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition.function</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta.definition.function</span>.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name.function</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name.function</span>.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name.function.js</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name.function.js</span></code></td>
 </tr>
@@ -294,10 +284,9 @@ To make things a bit more complicated, TextMate themes also support parent selec
 <table>
 <tr>
     <th rowspan="2">Selector</th>
-    <th colspan="4">Matches</th>
+    <th colspan="3">Matches</th>
 </tr>
 <tr>
-    <th>D</th>
     <th>C</th>
     <th>B</th>
     <th>A</th>
@@ -305,77 +294,67 @@ To make things a bit more complicated, TextMate themes also support parent selec
 <tr>
     <td><code>meta</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source meta</code></td>
     <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source.js meta</code></td>
     <td><code><span style="color:blue">source.js</span></code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta</span>.definition.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source meta.definition</code></td>
     <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
     <td><code>entity.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>source entity</code></td>
     <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>meta.definition entity</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code><span style="color:blue">meta.definition</span>.function.js</code></td>
     <td><code><span style="color:blue">entity</span>.name.function.js</code></td>
 </tr>
 <tr>
     <td><code>entity.name</code></td>
     <td><code>source.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
 </tr>
 <tr>
     <td><code>source entity.name</code></td>
     <td><code><span style="color:blue">source</span>.js</code></td>
-    <td><code>meta.function.js</code></td>
     <td><code>meta.definition.function.js</code></td>
     <td><code><span style="color:blue">entity.name</span>.function.js</code></td>
 </tr>
 </table>
 <br>
 
-> Observation: `source entity` wins over `entity` because they both match the same scope (`A`), but `source entity` also matches a parent scope (`D`).
+> Observation: `source entity` wins over `entity` because they both match the same scope (`A`), but `source entity` also matches a parent scope (`C`).
 
 > Observation: `entity.name` wins over `source entity` because they both match the same scope (`A`), but `entity.name` is more specific than `entity`.
 
