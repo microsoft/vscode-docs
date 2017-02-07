@@ -613,11 +613,25 @@ To validate the tokenization change, we've collected colorization results from t
 
 ### Before and After
 
-| Theme | VS Code 1.8 | VS Code 1.9
-|---|---|---
-| Monokai | ![Monokai before](2017_02_15_monokai-before.png) | ![Monokai after](2017_02_15_monokai-after.png)
-| Quiet Light | ![Quiet Light before](2017_02_15_quiet-light-before.png) | ![Quiet Light after](2017_02_15_quiet-light-after.png)
-| Red | ![Red before](2017_02_15_red-before.png) | ![Red after](2017_02_15_red-after.png)
+Below are various color themes as they appeared in VS Code 1.8 and now in VS Code 1.9:
+
+Monokai Theme
+
+![Monokai before](2017_02_15_monokai-before.png)
+
+![Monokai after](2017_02_15_monokai-after.png)
+
+Quiet Light Theme
+
+![Quiet Light before](2017_02_15_quiet-light-before.png)
+
+![Quiet Light after](2017_02_15_quiet-light-after.png)
+
+Red Theme
+
+![Red before](2017_02_15_red-before.png)
+
+![Red after](2017_02_15_red-after.png)
 
 ## In conclusion
 
