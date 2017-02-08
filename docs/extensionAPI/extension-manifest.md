@@ -7,7 +7,6 @@ PageTitle: Visual Studio Code Extension Manifest File - package.json
 DateApproved: 2/2/2017
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
-
 # Extension Manifest File - package.json
 
 Every Visual Studio Code extension needs a manifest file `package.json` at the root of the extension directory structure.
@@ -125,12 +124,14 @@ Here are a few examples:
 
 
 Provide a good display name and description. This is important for the Marketplace and in product displays.  These strings are also used for text search in VS Code and having relevant keywords will help a lot.
+
 ```json
     "displayName": "Spelling and Grammar Checker",
     "description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
 ```
 
 An Icon and a contrasting banner color looks great on the Marketplace page header.  The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
+
 ```json
     "icon": "images/spellIcon.svg",
     "galleryBanner": {
@@ -140,6 +141,7 @@ An Icon and a contrasting banner color looks great on the Marketplace page heade
 ```
 
 There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed under the **Resources** section of the Marketplace.
+
 ```json
     "license": "SEE LICENSE IN LICENSE.md",
     "bugs": {
@@ -233,7 +235,18 @@ For example, here is an Extension Pack for PHP that includes a debugger, languag
 
 When installing an Extension Pack, VS Code will now also install its extension dependencies.
 
+Extension packs should be categorized in the `Extension Packs` Marketplace category:
+
+```json
+  "categories": [
+      "Extension Packs"
+  ],
+```
+
+To create an extension pack, you can use the `yo code` Yeoman generator. Optionally, it can also seed the pack with the set of extensions you have currently installed in your VS Code instance. In this way, you can easily create an Extension Pack with your favorite extensions, publish it to the Marketplace, and share it with others.
+
 ## Next Steps
+
 To learn more about VS Code extensibility model, try these topic:
 
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference

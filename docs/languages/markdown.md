@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 11
 Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
@@ -29,13 +29,13 @@ Here is an example with a very simple file.
 
 >**Tip:** You can also right-click on the editor Tab and select **Open Preview** or use the **Command Palette** (`kb(workbench.action.showCommands)`) **Markdown: Open Preview** and **Markdown: Open Preview to the Side** commands.
 
-### Editor and Preview Syncronization
+### Editor and Preview Synchronization
 
-When working with a Markdown preview to the side of your editor, VSCode can syncronize the view of the editor and the preview. By default, the Markdown preview will automatically scroll to reveal the element at the selected line in the editor.
+When working with a Markdown preview to the side of your editor, VS Code can synchronize the view of the editor and the preview. By default, the Markdown preview will automatically scroll to reveal the element at the selected line in the editor.
 
 ![Markdown Preview editor selection scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
 
-This behavior can be disabled using the `markdown.preview.scrollPreviewWithEditorSelection` setting.
+This behavior can be disabled using the `markdown.preview.scrollPreviewWithEditorSelection` [setting](/docs/customization/userandworkspace.md).
 
 The currently selected line is indicated in the Markdown preview by a light gray bar in the left margin:
 
@@ -45,7 +45,7 @@ Also, when the Markdown preview is scrolled, the editor will scroll along with i
 
 ![Markdown Preview to editor scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
 
-This can be disabled using the `markdown.preview.scrollEditorWithPreview` setting.
+This can be disabled using the `markdown.preview.scrollEditorWithPreview` [setting](/docs/customization/userandworkspace.md).
 
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
