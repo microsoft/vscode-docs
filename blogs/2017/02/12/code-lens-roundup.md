@@ -1,31 +1,33 @@
 ---
-Order: 24
-TOCTitle: Extensions Fun with Code Lens
-PageTitle: Extensions Fun with Code Lens
-MetaDescription: Extensions Fun with Code Lens
-Date: 2017-02-06
-ShortDescription: Extensions Fun with Code Lens
+Order: 25
+TOCTitle: Extensions Fun with CodeLens
+PageTitle: Extensions Fun with CodeLens
+MetaDescription: Extensions Fun with CodeLens
+Date: 2017-02-12
+ShortDescription: Visual Studio Code Extensions with CodeLens
 Author: Wade Anderson
 ---
-# Code Lens Extensions
+# CodeLens Extensions
 
-January 28, 2016 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
+February 12, 2016 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
-Code lens is a popular feature in VS Code. The essence of the feature is "actionable contextual information interspersed" in your code. That's quite a mouthful. Let me break it down for you. Code lens are links in your code. 
+CodeLens is a popular feature in Visual Studio Code. The essence of the feature is "actionable contextual information interspersed" in your source code. That's quite a mouthful. Let me break it down for you. 
 
-- **Actionable** - you can click on the link and something happens. 
-- **Contextual** - the links are close to the code they are representing.
-- **Interspersed** - the links can be in different places throughout your code. 
+CodeLens are links in your code:
 
-![animation showing code lens](2017_02_06_code_lens.gif)
+- **Actionable** - You can click on the link and something happens. 
+- **Contextual** - The links are close to the code they are representing.
+- **Interspersed** - The links located throughout your source code. 
 
-VS Code comes with code lens for TypeScript. You can enable it in User Settings with `"typescript.referencesCodeLens.enabled": true`.
+![animation showing CodeLens](2017_02_12_code_lens.gif)
 
-![code lens in TypeScript](2017_02_06_typescript_code_lens.png)
+VS Code comes with CodeLens for TypeScript. You can enable it in User Settings with `"typescript.referencesCodeLens.enabled": true`.
 
-You can create your own extension with the code lens feature. Get started by checking out the [documentation](/docs/extensions/language-support.md#codelens-show-actionable-context-information-within-source-code). Additionally, you can find popular extensions in the Marketplace that use code lens. Here are some of my favorite. 
+![CodeLens in TypeScript](2017_02_12_typescript_code_lens.png)
 
-> **Tip:** You can install all of these extensions at once by installing [Code Lens Roundup](https://marketplace.visualstudio.com/items?itemName=waderyan.code-lens-roundup). How do you bundle extensions together? Check out [extension packs](Docs/extensionAPI/extension-manifest.md#extension-packs). 
+You can create your own extension with the CodeLens feature. Get started by checking out the [documentation](/docs/extensions/language-support.md#codelens-show-actionable-context-information-within-source-code). Additionally, you can find popular extensions in the Marketplace that use CodeLens. Here are some of my favorite. 
+
+> **Tip:** You can install all of these extensions at once by installing [CodeLens Roundup](https://marketplace.visualstudio.com/items?itemName=waderyan.code-lens-roundup). How do you bundle extensions together? Check out [extension packs](Docs/extensionAPI/extension-manifest.md#extension-packs). 
 
 ## Git Lens
 
@@ -33,9 +35,9 @@ Marketplace - [Git Lens](https://marketplace.visualstudio.com/items?itemName=eam
 
 Author - [eamodio](https://marketplace.visualstudio.com/search?term=publisher%3A%22eamodio%22&target=VSCode)
 
-This feature rich extension will meet all your git needs. eamodio uses the code lens UI to show you the most recent commit, number of authors, inline blame annotations, and exposes the peek window for a full history view. See the extension's [README](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) for the full list of features. With 14 five stars, this is a highly rated, excellent extension. 
+This feature rich extension will meet all your git needs. eamodio uses the CodeLens UI to show you the most recent commit, number of authors, inline blame annotations, and exposes the peek window for a full history view. See the extension's [README](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens) for the full list of features. With 14 five stars, this is a highly rated, excellent extension. 
 
-![animation showing gitlens](2017_02_06_preview_gitlens.gif)
+![animation showing gitlens](2017_02_12_preview_gitlens.gif)
 
 ## Azure Application Insights
 
@@ -45,7 +47,7 @@ Author - [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%
 
 As you can imagine, this is a popular one on our team. Use this extension to see information on your production services right in VS Code!
 
-![app insights](2017_02_06_appinsights.gif)
+![app insights](2017_02_12_appinsights.gif)
 
 ## CodeMetrics
 
@@ -55,7 +57,7 @@ Author - [Kiss Tamás](https://marketplace.visualstudio.com/search?term=publishe
 
 So you have this colleague. He likes to write complex functions. He thinks its cool. Use this extension to show him the complexity of his functions and also to see the complexity of the code you are writing. 
 
-![code metrics](2017_02_06_codemetrics.png)
+![code metrics](2017_02_12_codemetrics.png)
 
 As an added bonus, you can customize the descriptions. Here is the config we like to use on our team. As you can see we like emojis. 
 
@@ -75,7 +77,7 @@ Author - [Christof Marti](https://marketplace.visualstudio.com/search?term=publi
 
 Do you write a lot of regex? This is an excellent extension to test your regex right in VS Code. 
 
-![regex](2017_02_06_regex.gif)
+![regex](2017_02_12_regex.gif)
 
 ## Version Lens
 
@@ -85,7 +87,7 @@ Author - [pflannery](https://marketplace.visualstudio.com/search?term=publisher%
 
 With support for many package management systems, including npm, bower, dotnet, and jspm, this extension is very useful. Install the extension and see what packages are out of date. With a quick click of the mouse you can upgrade the version. 
 
-![version lens demo](2017_02_06_versionlens.png)
+![version lens demo](2017_02_12_versionlens.png)
 
 ## Pro Tip - Preview your Extension
 
@@ -95,7 +97,7 @@ Author - [Microsoft DevLabs](https://marketplace.visualstudio.com/search?term=pu
 
 Sometimes when I'm making an extension, I think it would be great to preview the extension in the Marketplace before publishing. Let me present to you the Extension Manifest Editor. This extension allows you to preview your extension's Marketplace presentation within VS Code. 
 
-![manifest preview](2017_02_06_manifest_preview.gif)
+![manifest preview](2017_02_12_manifest_preview.gif)
 
 ## Want to see your extension featured?
 
