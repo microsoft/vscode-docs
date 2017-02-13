@@ -70,6 +70,7 @@ Besides the TextMate language grammar standard scopes, VS Code also has custom t
 - `findMatchHighlight`: Background color of regions matching the search.
 - `currentFindMatchHighlight`: Background color of the current region matching the search.
 - `findRangeHighlight`: Background color of regions selected for search.
+- `linkForeground`: Color of links.
 - `activeLinkForeground`: Color of active links.
 - `hoverHighlight`: Background color when hovered.
 - `referenceHighlight`: Background color of a reference when finding all references.
@@ -78,6 +79,12 @@ Besides the TextMate language grammar standard scopes, VS Code also has custom t
 You can find an example VS Code theme [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) which includes the custom settings.
 
 Authoring a theme is fairly tricky as the grammars all behave a bit differently. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
+
+## New Tools for inspecting TextMate Scopes
+
+ To help with theme authoring, there is a widget to inspect the scopes of a token and the matching theme rule. You can launch the widget with **Developer Tools: Inspect TM Scopes** from the **Command Palette** (`kb(workbench.action.showCommands)`).
+
+![Inspect TM Scopes](images/themes/inspect-tm-scopes.png)
 
 # Icon Themes
 
