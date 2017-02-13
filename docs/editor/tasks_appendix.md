@@ -53,7 +53,7 @@ interface BaseTaskConfiguration {
 	 *
 	 * Defaults to false if omitted.
 	 */
-	isShellCommand?: boolean;
+	isShellCommand?: boolean | ShellConfiguration;
 
 	/**
 	 * Specifies whether a global command is watching the filesystem. A task.json
@@ -110,6 +110,22 @@ interface BaseTaskConfiguration {
 	 * contain a global problemMatcher property or a tasks property but not both.
 	 */
 	tasks?: TaskDescription[];
+}
+
+/**
+ * Configuration of the shell when run in terminal
+ */
+export interface ShellConfiguration {
+
+	/**
+	 * The shell executable.
+	 */
+	executable: string;
+
+	/**
+	 * The arguments to be passed to the shell executable.
+	 */
+	args?: string[];
 }
 
 /**
