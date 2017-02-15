@@ -14,7 +14,7 @@ Lots of tools exist to automate tasks like building, packaging, testing or deplo
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
-These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able run them and analyze their results from within VS Code.
+These tools are mostly run from the command line and automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able to run them and analyze their results from within VS Code.
 
 >Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
 
