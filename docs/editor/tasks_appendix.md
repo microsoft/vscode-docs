@@ -56,11 +56,9 @@ interface BaseTaskConfiguration {
 	isShellCommand?: boolean | ShellConfiguration;
 
 	/**
-	 * Specifies whether a global command is watching the filesystem. A task.json
-	 * file can either contain a global isWatching property or a tasks property
-	 * but not both.
+	 * Specifies whether a global command is a background task.
 	 */
-	isWatching?: boolean;
+	isBackground?: boolean;
 	
 	/**
 	 * The command options used when the command is executed. Can be omitted.
@@ -93,7 +91,7 @@ interface BaseTaskConfiguration {
 
 	/**
 	 * Some commands require that the task argument is highlighted with a special
-	 * prefix (e.g. /t: for msbuild). This property can be used to control such
+	 * prefix (e.g. /t: for MSBuild). This property can be used to control such
 	 * a prefix.
 	 */
 	taskSelector?:string;
@@ -173,9 +171,9 @@ export interface TaskDescription {
 	isTestCommand?: boolean;
 
 	/**
-	 * Whether the executed command is kept alive and is watching the file system.
+	 * Whether the executed command is kept alive and runs in the background.
 	 */
-	isWatching?:boolean;
+	isBackground?: boolean;
 	
 	/**
 	 * Controls whether the output view of the running tasks is brought to front or not.
@@ -242,7 +240,7 @@ export interface ProblemMatcher {
 	fileLocation?: string | string[];
 
 	/**
-	 * The name of a predefined problem pattern, the inline definintion
+	 * The name of a predefined problem pattern, the inline definition
 	 * of a problem pattern or an array of problem patterns to match
 	 * problems spread over multiple lines.
 	 */
@@ -332,7 +330,7 @@ export interface ProblemPattern {
 	severity?: number;
 
 	/**
-	 * The match group index of the problems's code.
+	 * The match group index of the problem's code.
 	 *
 	 * Defaults to undefined. No code is captured.
 	 */
