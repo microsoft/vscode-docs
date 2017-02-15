@@ -27,7 +27,7 @@
     "rimraf": "^2.4.4",
     "run-sequence": "^1.1.5",
     "swig": "^1.4.2",
-    "typedoc": "^0.5.1",
+    "typedoc": "0.5.5",
     "vinyl": "^0.5.1"
   }
 }
