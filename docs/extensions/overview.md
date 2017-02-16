@@ -20,7 +20,7 @@ All VS Code extensions share a common model of contribution (registration), acti
 
 1. [Extensions](/docs/extensions/overview.md#extensions) - the base building block
 2. [Language Servers](/docs/extensions/overview.md#language-servers) - for high cost IO or CPU intensive tasks
-3. [Debuggers](/docs/extensions/overview.md#debuggers) - wire up an external debugger
+3. [Debuggers](/docs/extensions/overview.md#debug-adapter) - wire up an external debugger
 
 
 ## Extensions
