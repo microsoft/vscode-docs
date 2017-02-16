@@ -312,7 +312,6 @@ For this example, select `Gulp` from the list. Given a `gulpfile.js` like the ex
             "taskName": "build",
             "args": [],
             "isBuildCommand": true,
-            "isWatching": false,
             "problemMatcher": [
                 "$lessCompile",
                 "$tsc",
@@ -338,7 +337,6 @@ Several things to note about this `tasks.json`:
 1. We want to run the gulp command in a shell (VS Code directly executing it) so we used **isShellCommand**.
 2. We added an explicit **tasks** property which allowed us to *optionally* augment a task that was in the `gulpfile.js`.
 3. We defined a problem matcher **$msCompile** to process the output - since we are compiling C# using the Mono compiler, the built-in one works as *msc* adheres to the Microsoft compiler pattern.
-4. The `isWatching` property is set to false so we won't automatically run the build on source code file changes.
 
 ## Defining a Problem Matcher
 
@@ -537,7 +535,7 @@ For the tsc compiler, this looks like follows:
 }
 ```
 
-In addition to the `watching` property on the problem matcher ,the task itself has to be marked as watching using the `isWatching` property.
+In addition to the `watching` property on the problem matcher, the task itself has to be marked as `isBackground` so that the task keeps running in the background.
 
 A full handcrafted tasks.json for a tsc task running in watch mode looks like this:
 
@@ -550,7 +548,7 @@ A full handcrafted tasks.json for a tsc task running in watch mode looks like th
         {
             "taskName": "watch",
             "args": ["--watch"],
-            "isWatching": true,
+            "isBackground": true,
             "problemMatcher": {
                 "owner": "typescript",
                 "fileLocation": "relative",

@@ -183,7 +183,7 @@ You can enable tab completions with `editor.tabCompletion` setting. After typing
 
 ### Run Babel inside VS Code
 
-The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `isBuildCommand` switch makes this task the **Task: Run Build Task** gesture.  `isWatching` tells VS Code not to wait for this task to finish. To learn more, go to [Tasks](/docs/editor/tasks.md).
+The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `isBuildCommand` switch makes this task the **Task: Run Build Task** gesture.  `isBackground` tells VS Code to keep running this task in the background. To learn more, go to [Tasks](/docs/editor/tasks.md).
 
 ```json
 {
@@ -196,7 +196,7 @@ The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 Jav
             "taskName": "watch",
             "suppressTaskName": true,
             "isBuildCommand": true,
-            "isWatching": true
+            "isBackground": true
         }
     ]
 }
