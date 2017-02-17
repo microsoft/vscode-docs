@@ -3,12 +3,11 @@ Order: 1
 Area: runtimes
 TOCTitle: Node.js
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
-PageTitle: Node.js and Visual Studio Code End to End
+PageTitle: Node.js and Visual Studio Code Tutorial
 DateApproved: 2/2/2017
-MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications.  At the heart of VS Code is a Node server so we use these features day-in day-out.
+MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: nodejs_runtimes_node.png
 ---
-
 # Node.js Applications with VS Code
 
 [Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [NPM](https://www.npmjs.com/) is the Package Manager for Node.js modules.
@@ -167,7 +166,7 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debugging your Express Application
 
-You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the View Bar and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Again select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the **Launch Program** configuration. A second **Attach to Process** configuration is also created to show you how to attach to a running Node.js application.
+You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the View Bar and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the **Launch Program** configuration. A second **Attach to Process** configuration is also created to show you how to attach to a running Node.js application.
 
 ```json
 {
