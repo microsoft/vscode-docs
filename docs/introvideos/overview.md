@@ -38,9 +38,9 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/configure">
-			<img src="https://img.youtube.com/vi/BzLawuxe3nk/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/4wVF4w_53hs/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h2 class="title faux-h3">Configure and Extend</h2>
+				<h2 class="title faux-h3">Customize</h2>
 				<p class="description">Personalize and extend VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
@@ -58,11 +58,11 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/intellisense">
-			<img src="https://img.youtube.com/vi/jVIe82TdmqE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/lSPHucggmLo/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">IntelliSense</h2>
 				<p class="description">Receive intelligent code completions.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
