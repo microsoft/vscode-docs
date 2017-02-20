@@ -30,4 +30,4 @@ Debugging is a core feature of VS Code. In this tutorial, we will show you how t
 
 ## Next Steps
 
-* [Setup Overview](/docs/setup/setup-overview.md) - Set up and start using VS Code.
+* [Git Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.

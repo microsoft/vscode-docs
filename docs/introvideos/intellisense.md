@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 7
 Area: introvideos
 TOCTitle: IntelliSense
 ContentId: 3e36b1fa-cefc-4a07-9773-e672da5881a2
@@ -34,4 +34,4 @@ In this tutorial, we show you how to set up IntelliSense for a JavaScript projec
 
 ## Next Video
 
-* [Git Version Control](/docs/introvideos/versioncontrol.md) - Learn the basics of Git version control.
+* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug your application, including setting breakpoints and inspecting variables.
