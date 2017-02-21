@@ -13,7 +13,7 @@ MetaSocialImage: opengraph_introvideos.png
 
 Use extensions to add new features, themes and more. In this tutorial, we will show you how to find extensions, install the ones you like, and disable extensions you don't want to use all the time. 
 
-<iframe src="https://www.youtube.com/embed/UrEDnsWYilA?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/Fed01v3yYNE?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 
