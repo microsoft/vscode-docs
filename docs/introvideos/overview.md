@@ -78,7 +78,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/debugging">
-			<img src="https://img.youtube.com/vi/hvPuPi8iG_w/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/6cOsxaNC06c/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Debugging</h2>
 				<p class="description">Debug a simple Node.js application.</p>

@@ -13,15 +13,16 @@ MetaSocialImage: opengraph_introvideos.png
 
 Debugging is a core feature of VS Code. In this tutorial, we will show you how to configure and use the debugging basics. We will walk you through debugging a Node.js application. 
 
-<iframe src="https://www.youtube.com/embed/hvPuPi8iG_w?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/6cOsxaNC06c?rel=0&amp;disablekb=0&amp;modestbranding=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 
 ## Outline
 
-* Configure debugging by creating a `launch.json` file.
-* Set break points.
+* Debugging that "just works" 
+* Using a `launch.json` file.
+* Set regular and conditional breakpoints.
 * Inspect your program's state and variables.
-* Step through your source code.
-* Use the Debug View and Console to inspect variables and call stack information as well as set breakpoints. 
+* Step through your source code and "just your code."
+* Multi target debugging.
 
 ## Learn More
 
