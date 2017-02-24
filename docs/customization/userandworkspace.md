@@ -123,7 +123,7 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Controls the font size in pixels.
   "editor.fontSize": 14,
 
-  // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange" (editor loses focus), "onWindowChange" (window loses focus). If set to "afterDelay", you can configure the delay in "files.autoSaveDelay".
+  // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
   "files.autoSave": "off",
 
   // Controls the font family.
@@ -143,19 +143,22 @@ The first time you open a workspace which defines any of these settings, VS Code
     "**/.DS_Store": true
   },
 
-  // Controls the cursor style, accepted values are 'block', 'line' and 'underline'
+  // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
   "editor.cursorStyle": "line",
 
   // Insert spaces when pressing Tab. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
   "editor.insertSpaces": true,
 
-  // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
-  "editor.wrappingColumn": 300,
+  // Controls how lines should wrap. Can be: 'off' (disable wrapping), 'on' (viewport wrapping), 'fixed' (wrap at `editor.wordWrapColumn`) or 'clamped' (wrap at minimum of viewport and `editor.wordWrapColumn`).
+  "editor.wordWrap": "off",
 
-  // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
-  "files.associations": {},
+  // Configure file associations to languages (e.g. '*.extension': 'html'). These have precedence over the default associations of the languages installed.
+  "files.associations": {}
 
 // Editor
+
+  // Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.
+  "editor.tabCompletion": false,
 
   // Controls the font family.
   "editor.fontFamily": "Consolas, 'Courier New', monospace",
@@ -193,11 +196,17 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": true,
 
-  // Controls after how many characters the editor will wrap to the next line. Setting this to 0 turns on viewport width wrapping (word wrapping). Setting this to -1 forces the editor to never wrap.
-  "editor.wrappingColumn": 300,
+  // Controls if the minimap is shown
+  "editor.minimap.enabled": false,
 
-  // Controls if lines should wrap. The lines will wrap at min(editor.wrappingColumn, viewportWidthInColumns).
-  "editor.wordWrap": false,
+  // Render the actual text on a line (as opposed to color blocks)
+  "editor.minimap.renderText": true,
+
+  // Controls how lines should wrap. Can be: 'off' (disable wrapping), 'on' (viewport wrapping), 'fixed' (wrap at `editor.wordWrapColumn`) or 'clamped' (wrap at minimum of viewport and `editor.wordWrapColumn`).
+  "editor.wordWrap": "off",
+
+  // Controls the wrapping column of the editor when `editor.wordWrap` is 'fixed' or 'clamped'.
+  "editor.wordWrapColumn": 80,
 
   // Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
   "editor.wrappingIndent": "same",
@@ -247,9 +256,6 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Line height for the suggest widget
   "editor.suggestLineHeight": 0,
 
-  // Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.
-  "editor.tabCompletion": false,
-
   // Controls whether the editor should highlight similar matches to the selection
   "editor.selectionHighlight": true,
 
@@ -262,7 +268,7 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Zoom the font of the editor when using mouse wheel and holding Ctrl
   "editor.mouseWheelZoom": false,
 
-  // Controls the cursor style, accepted values are 'block', 'line' and 'underline'
+  // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
   "editor.cursorStyle": "line",
 
   // Enables font ligatures
@@ -289,6 +295,9 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Controls whether the editor has code folding enabled
   "editor.folding": true,
 
+  // Highlight matching brackets when one of them is selected.
+  "editor.matchBrackets": true,
+
   // Controls whether the editor should render the vertical glyph margin. Glyph margin is mostly used for debugging.
   "editor.glyphMargin": true,
 
@@ -300,6 +309,9 @@ The first time you open a workspace which defines any of these settings, VS Code
 
   // Keep peek editors open even when double clicking their content or when hitting Escape.
   "editor.stablePeek": false,
+
+  // Controls if the editor should allow to move selections via drag and drop.
+  "editor.dragAndDrop": false,
 
   // Controls if the diff editor shows the diff side by side or inline
   "diffEditor.renderSideBySide": true,
@@ -334,6 +346,9 @@ The first time you open a workspace which defines any of these settings, VS Code
 
 // Workbench
 
+  // When enabled, will show the Welcome page on startup.
+  "workbench.welcome.enabled": false,
+
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
 
@@ -367,15 +382,18 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Controls the visibility of the activity bar in the workbench.
   "workbench.activityBar.visible": true,
 
-  // When enabled, will show the Welcome experience on startup.
-  "workbench.welcome.enabled": false,
+  // Specifies the color theme used in the workbench.
+  "workbench.colorTheme": "Default Dark+",
+
+  // Specifies the icon theme used in the workbench.
+  "workbench.iconTheme": null,
 
 // Window
 
-  // Controls if files should open in a new window or the last active window.
-  // - default: files will open in the last active window unless opened via the dock or from finder (macOS only)
+  // Controls if files should open in a new window.
+  // - default: files will open in the window with the files' folder open or the last active window unless opened via the dock or from finder (macOS only)
   // - on: files will open in a new window
-  // - off: files will open in the last active window
+  // - off: files will open in the window with the files' folder open or the last active window
   // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
   "window.openFilesInNewWindow": "default",
 
@@ -395,8 +413,16 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
   "window.zoomLevel": 0,
 
-  // If enabled, will show the full path of opened files in the window title.
-  "window.showFullPath": false,
+  // Controls the window title based on the active editor. Variables are substituted based on the context:
+  // ${activeEditorShort}: e.g. myFile.txt
+  // ${activeEditorMedium}: e.g. myFolder/myFile.txt
+  // ${activeEditorLong}: e.g. /Users/Development/myProject/myFolder/myFile.txt
+  // ${rootName}: e.g. myProject
+  // ${rootPath}: e.g. /Users/Development/myProject
+  // ${appName}: e.g. VS Code
+  // ${dirty}: a dirty indicator if the active editor is dirty
+  // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
 
   // Controls the dimensions of opening a new window. By default, a new window will open in the center of the screen with small dimensions. When set to  'inherit', the window will get the same dimensions as the last active one. When set to 'maximized', the window will open maximized and fullscreen if configured to 'fullscreen'.
   "window.newWindowDimensions": "default",
@@ -417,7 +443,7 @@ The first time you open a workspace which defines any of these settings, VS Code
     "**/.DS_Store": true
   },
 
-  // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
+  // Configure file associations to languages (e.g. '*.extension': 'html'). These have precedence over the default associations of the languages installed.
   "files.associations": {},
 
   // The default character set encoding to use when reading and writing files.
@@ -432,15 +458,16 @@ The first time you open a workspace which defines any of these settings, VS Code
   // When enabled, insert a final new line at the end of the file when saving it.
   "files.insertFinalNewline": false,
 
-  // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange" (editor loses focus), "onWindowChange" (window loses focus). If set to "afterDelay", you can configure the delay in "files.autoSaveDelay".
+  // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
   "files.autoSave": "off",
 
-  // Controls the delay in ms after which a dirty file is saved automatically. Only applies when "files.autoSave" is set to "afterDelay"
+  // Controls the delay in ms after which a dirty file is saved automatically. Only applies when 'files.autoSave' is set to 'afterDelay'
   "files.autoSaveDelay": 1000,
 
   // Configure glob patterns of file paths to exclude from file watching. Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
-    "**/.git/objects/**": true
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
   },
 
   // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
@@ -456,6 +483,9 @@ The first time you open a workspace which defines any of these settings, VS Code
 
   // Controls if turning on Zen Mode also hides the status bar at the bottom of the workbench.
   "zenMode.hideStatusBar": true,
+
+  // Controls if a window should restore to zen mode if it was exited in zen mode.
+  "zenMode.restore": false,
 
 // File Explorer
 
@@ -534,6 +564,9 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Enables or disables all validations
   "css.validate": true,
 
+  // Enables or disables color decorators
+  "css.colorDecorators.enable": true,
+
   // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
   "css.lint.compatibleVendorPrefixes": "ignore",
 
@@ -598,6 +631,9 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Enables or disables all validations
   "scss.validate": true,
 
+  // Enables or disables color decorators
+  "scss.colorDecorators.enable": true,
+
   // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
   "scss.lint.compatibleVendorPrefixes": "ignore",
 
@@ -658,6 +694,9 @@ The first time you open a workspace which defines any of these settings, VS Code
 
   // Enables or disables all validations
   "less.validate": true,
+
+  // Enables or disables color decorators
+  "less.colorDecorators.enable": true,
 
   // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
   "less.lint.compatibleVendorPrefixes": "ignore",
@@ -814,7 +853,7 @@ The first time you open a workspace which defines any of these settings, VS Code
   // When the markdown preview is scrolled, update the view of the editor.
   "markdown.preview.scrollEditorWithPreview": true,
 
-  // Enable double clicking in the markdown preview switches to the editor.
+  // Double click in the markdown preview to switch to the editor.
   "markdown.preview.doubleClickToSwitchToEditor": true,
 
 
@@ -843,10 +882,10 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
   "typescript.check.tscVersion": true,
 
-  // Enable/disable the references code lens
+  // Enable/disable references CodeLens.
   "typescript.referencesCodeLens.enabled": false,
 
-  // Enables tracing of messages send to the TS server.
+  // Enables tracing of messages sent to the TS server.
   "typescript.tsserver.trace": "off",
 
   // Complete functions with their parameter signature.
@@ -867,7 +906,7 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Defines space handling after a binary operator.
   "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
 
-  // Defines space handling after keywords in control flow statement.
+  // Defines space handling after keywords in a control flow statement.
   "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
   // Defines space handling after function keyword for anonymous functions.
@@ -906,7 +945,7 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Defines space handling after a binary operator.
   "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
 
-  // Defines space handling after keywords in control flow statement.
+  // Defines space handling after keywords in a control flow statement.
   "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
   // Defines space handling after function keyword for anonymous functions.
@@ -990,9 +1029,6 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Controls the maximum amount of lines the terminal keeps in its buffer.
   "terminal.integrated.scrollback": 1000,
 
-  // Controls the whether the terminal emulator will use flow control in order to catch up with the shell process, the main effect of this is that ^C and other signals should be much more responsive when commands give lots of output. You should this disabled if you have custom ^S or ^Q keybindings that override the XOFF and XON signals used.
-  "terminal.integrated.flowControl": true,
-
   // Controls whether locale variables are set at startup of the terminal, this defaults to true on OS X, false on other platforms.
   "terminal.integrated.setLocaleVariables": false,
 
@@ -1014,11 +1050,21 @@ The first time you open a workspace which defines any of these settings, VS Code
     "workbench.action.terminal.clear",
     "workbench.action.terminal.copySelection",
     "workbench.action.terminal.focus",
+    "workbench.action.terminal.focusAtIndex1",
+    "workbench.action.terminal.focusAtIndex2",
+    "workbench.action.terminal.focusAtIndex3",
+    "workbench.action.terminal.focusAtIndex4",
+    "workbench.action.terminal.focusAtIndex5",
+    "workbench.action.terminal.focusAtIndex6",
+    "workbench.action.terminal.focusAtIndex7",
+    "workbench.action.terminal.focusAtIndex8",
+    "workbench.action.terminal.focusAtIndex9",
     "workbench.action.terminal.focusNext",
     "workbench.action.terminal.focusPrevious",
     "workbench.action.terminal.kill",
     "workbench.action.terminal.new",
     "workbench.action.terminal.paste",
+    "workbench.action.terminal.runActiveFile",
     "workbench.action.terminal.runSelectedText",
     "workbench.action.terminal.scrollDown",
     "workbench.action.terminal.scrollDownPage",
