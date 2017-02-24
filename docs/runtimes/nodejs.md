@@ -3,12 +3,11 @@ Order: 1
 Area: runtimes
 TOCTitle: Node.js
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
-PageTitle: Node.js and Visual Studio Code End to End
+PageTitle: Node.js and Visual Studio Code Tutorial
 DateApproved: 2/2/2017
-MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications.  At the heart of VS Code is a Node server so we use these features day-in day-out.
+MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: nodejs_runtimes_node.png
 ---
-
 # Node.js Applications with VS Code
 
 [Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [NPM](https://www.npmjs.com/) is the Package Manager for Node.js modules.
@@ -90,15 +89,11 @@ To set a breakpoint in `app.js`, put the editor cursor on the first line and pre
 
 ![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
 
-We now need to configure the debugger for this simple workspace.  Select the Debug View in the Side Bar:
+To start debugging, select the Debug View in the Side Bar:
 
 ![Debug icon](images/nodejs/debugicon.png)
 
-Click on the Configure gear icon at the top of the Debug view to create a default `launch.json` configuration file and select **Node.js** as the Debug Environment. This configuration file lets you specify how to start the application, what arguments to pass in, the working directory, and more.  The new `launch.json` file is created in a VS Code specific `.vscode` folder in root of your workspace.
-
-![hello world launch json](images/nodejs/hello-world-launch-json.png)
-
-With the default Node.js **Launch Program** configuration created, you can now click Debug tool bar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that VS Code displays an orange Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
+You can now click Debug tool bar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that VS Code displays an orange Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
 
 ![hello world debugging](images/nodejs/hello-world-debugging.png)
 
@@ -171,7 +166,7 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debugging your Express Application
 
-Just as we did earlier for "Hello World", you will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the View Bar and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Again select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the **Launch Program** configuration. A second **Attach to Process** configuration is also created to show you how to attach to a running Node.js application.
+You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the View Bar and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the **Launch Program** configuration. A second **Attach to Process** configuration is also created to show you how to attach to a running Node.js application.
 
 ```json
 {

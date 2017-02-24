@@ -38,7 +38,7 @@ The following attributes are supported in launch configurations of type `launch`
 
 * `port` - debug port to use. See sections 'Attaching to Node.js' and 'Remote Debugging Node.js'.
 * `address` - TCP/IP address of the debug port. See sections 'Attaching to Node.js' and 'Remote Debugging Node.js'.
-* `restart` - restart session on termination. See section 'Restaring debug sessions automatically'.
+* `restart` - restart session on termination. See section 'Restarting debug sessions automatically'.
 * `timeout` - when restarting a session, give up after this number of milliseconds. See section 'Attaching to Node.js'.
 * `stopOnEntry` - break immediately when the program launches.
 * `sourceMaps` - enable source maps by setting this to `true`. See section 'Source Maps'.
@@ -208,7 +208,7 @@ The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. S
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
-## Restaring debug sessions automatically when source is edited
+## Restarting debug sessions automatically when source is edited
 
 The `restart` attribute of a launch configuration controls whether the Node.js debugger automatically restarts after the debug session has ended. This feature is useful if you use [**nodemon**](http://nodemon.io) to restart Node.js on file changes. Setting the launch configuration attribute `restart` to `true` makes the node debugger automatically try to re-attach to Node.js after Node.js has terminated.
 

@@ -147,7 +147,7 @@ VS Code interprets `node-sass` or `lessc` as an external task runner exposing ex
 
 ### Step 4: Run the Build Task
 
-As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  The sample Sass/Less file should not have any compile problems, so by running the task all that happens is a corresponding `styles.css` file is created.
+As this is the only command in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  The sample Sass/Less file should not have any compile problems, so by running the task all that happens is a corresponding `styles.css` file is created.
 
 >**Note:** If your build fails or you see an error message such as "An output directory must be specified when compiling a directory", be sure the filenames in your `tasks.json` match the filenames on disk. You can always test your build by running `node-sass styles.scss styles.css` from the command line.
 
@@ -221,7 +221,9 @@ What is happening here?
 
 ### Step 3: Modify the configuration in tasks.json for watching
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before, to set a watch on the default Gulp task we just created.  Your tasks configuration should now look like this:
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. We will set `isBackground` to true so that the task is kept running in the background watching for file changes.
+
+Change your tasks configuration to look like this:
 
 ```json
 {
@@ -233,7 +235,7 @@ To complete the tasks integration with VS Code, we will need to modify the task 
             "taskName": "default",
             "isBuildCommand": true,
             "showOutput": "always",
-            "isWatching": true
+            "isBackground": true
         }
     ]
 }
@@ -241,13 +243,9 @@ To complete the tasks integration with VS Code, we will need to modify the task 
 
 ### Step 4: Run the Build Task
 
-Again, as this is the only task in the file you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  But this time, we've set a watch so the Status Bar should indicate that on the left-hand side.
+We marked this task as `isBuildCommand` so you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  But this time since we've set `isBackground` to true, the task keeps running. If you create and/or modify other Less/Sass files, you will see the respective CSS files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-![Task watching spinner](images/css/taskwatching.png)
-
-At this point, if you create and/or modify other Less/Sass files, you will see the respective CSS files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
-
-If you want to stop the watch, you can use the **Tasks: Terminate Running Task** command in the  **Command Palette** (`kb(workbench.action.showCommands)`).
+If you want to stop the task, you can use the **Tasks: Terminate Running Task** command in the  **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ## Customizing CSS, Sass and Less Settings
 
