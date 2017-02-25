@@ -54,7 +54,7 @@ The example below is a `For Loop` snippet for `JavaScript`.
 In the example above:
 
 * `For Loop` is the snippet name
-* `prefix` defines how this snippets is select from IntelliSense and tab completion. In this case `for`. 
+* `prefix` defines how this snippet is selected from IntelliSense and tab completion. In this case `for`. 
 * `body` is the content and either a single string or an array of strings of which each element will be inserted as separate line.
 * `description` is the description used in the IntelliSense drop down
 
