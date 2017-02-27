@@ -79,7 +79,7 @@ To add a new configuration to an existing `launch.json` use IntelliSense if your
 
 ![launch json suggestions](images/debugging/add-config.gif)
 
-Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
+Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`. The other way to run your configuration is through **Command Palette** (`kb(workbench.action.showCommands)`), by filtering on **Debug: Select and Start Debugging** or typing `'debug '`, and selecting the configuration you want to debug.
 
 ## Debug actions
 
@@ -133,6 +133,7 @@ VS Code supports variable substitution inside strings in `launch.json` and has t
 - **${fileDirname}** the current opened file's dirname
 - **${fileExtname}** the current opened file's extension
 - **${cwd}** the task runner's current working directory on startup
+- **${lineNumber}** the current selected line number in the active file
 
 
 You can also reference environment variables through **${env.Name}** syntax (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `${env.Path}` on Windows.
