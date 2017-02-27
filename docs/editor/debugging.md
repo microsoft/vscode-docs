@@ -203,6 +203,7 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 * Breakpoints in the editor margin are normally shown as red filled circles.
 * Disabled breakpoints have a filled gray circle.
+* Column breakpoints are shown inline in the editor
 * When a debugging sessions starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
 
 The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
@@ -217,6 +218,8 @@ You can add a condition and/or hit count either when creating the breakpoint wit
 ![HitCount](images/debugging/hitCount.gif)
 
 If a debugger does not support conditional breakpoints the **Add Conditional Breakpoint** action will be missing.
+
+A **column breakpoint** can be set using `kb(editor.debug.action.toggleColumnBreakpoint)` or via the context menu during a debug session. Column breakpoint will only be hit when the execution reaches that column. This is particularly useful when debugging minified code which contains multiple statements on a single line.
 
 ## Function breakpoints
 
