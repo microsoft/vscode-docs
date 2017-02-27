@@ -102,7 +102,7 @@ There are many `launch.json` attributes to help support different debuggers and 
 
 The following attributes are mandatory for every launch configuration:
 
-* `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type, e.g. `node` and `node2` for the built-in node debuggers, or `php` and `go` for the PHP and Go extensions.
+* `type` - the type of debugger to use for this launch configuration. Every installed debug extension introduces a type, e.g. `node` for the built-in node debugger, or `php` and `go` for the PHP and Go extensions.
 * `request` - the request type of this launch configuration. Currently supported are `launch` and `attach`.
 * `name` - friendly name which appears in the Debug launch configuration dropdown.
 
