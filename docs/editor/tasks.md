@@ -148,6 +148,7 @@ When authoring tasks configurations, it is often useful to have a set of predefi
 - **${fileDirname}** the current opened file's dirname
 - **${fileExtname}** the current opened file's extension
 - **${cwd}** the task runner's current working directory on startup
+- **${lineNumber}** the current selected line number in the active file
 
 You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `env.Path` on Windows.
 
