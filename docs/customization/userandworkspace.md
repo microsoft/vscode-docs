@@ -149,7 +149,11 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Insert spaces when pressing Tab. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
   "editor.insertSpaces": true,
 
-  // Controls how lines should wrap. Can be: 'off' (disable wrapping), 'on' (viewport wrapping), 'fixed' (wrap at `editor.wordWrapColumn`) or 'clamped' (wrap at minimum of viewport and `editor.wordWrapColumn`).
+  // Controls how lines should wrap. Can be:
+  //  - 'off' (disable wrapping),
+  //  - 'on' (viewport wrapping),
+  //  - 'wordWrapColumn' (wrap at `editor.wordWrapColumn`) or
+  //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
   "editor.wordWrap": "off",
 
   // Configure file associations to languages (e.g. '*.extension': 'html'). These have precedence over the default associations of the languages installed.
@@ -199,13 +203,20 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Controls if the minimap is shown
   "editor.minimap.enabled": false,
 
-  // Render the actual text on a line (as opposed to color blocks)
-  "editor.minimap.renderText": true,
+  // Render the actual characters on a line (as opposed to color blocks)
+  "editor.minimap.renderCharacters": true,
 
-  // Controls how lines should wrap. Can be: 'off' (disable wrapping), 'on' (viewport wrapping), 'fixed' (wrap at `editor.wordWrapColumn`) or 'clamped' (wrap at minimum of viewport and `editor.wordWrapColumn`).
+  // Limit the width of the minimap to render at most a certain number of columns
+  "editor.minimap.maxColumn": 120,
+
+  // Controls how lines should wrap. Can be:
+  //  - 'off' (disable wrapping),
+  //  - 'on' (viewport wrapping),
+  //  - 'wordWrapColumn' (wrap at `editor.wordWrapColumn`) or
+  //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
   "editor.wordWrap": "off",
 
-  // Controls the wrapping column of the editor when `editor.wordWrap` is 'fixed' or 'clamped'.
+  // Controls the wrapping column of the editor when `editor.wordWrap` is 'wordWrapColumn' or 'bounded'.
   "editor.wordWrapColumn": 80,
 
   // Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
@@ -856,7 +867,6 @@ The first time you open a workspace which defines any of these settings, VS Code
   // Double click in the markdown preview to switch to the editor.
   "markdown.preview.doubleClickToSwitchToEditor": true,
 
-
 // PHP
 
   // Configures if the built-in PHP language suggestions are enabled. The support suggests PHP globals and variables.
@@ -1075,7 +1085,7 @@ The first time you open a workspace which defines any of these settings, VS Code
     "workbench.action.terminal.toggleTerminal"
   ],
 
-// Problems View
+// Problems Panel
 
   // Controls if Problems view should automatically reveal files when opening them
   "problems.autoReveal": true,
@@ -1087,8 +1097,7 @@ The first time you open a workspace which defines any of these settings, VS Code
   "telemetry.enableCrashReporter": true,
 
   // Enable usage data and errors to be sent to Microsoft.
-  "telemetry.enableTelemetry": true,
-
+  "telemetry.enableTelemetry": true
 }
 ```
 
