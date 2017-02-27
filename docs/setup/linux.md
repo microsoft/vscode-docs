@@ -28,9 +28,9 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
  sudo dnf install <file>.rpm
 ```
 
-3. VS Code should now be available to run through the launcher or the command line by running `code`.
+3. VS Code should now be available to run through the launcher or the command line by running `code-insiders`.
 
->**Tip:** Run `code .` in any folder to start editing files in that folder.
+>**Tip:** Run `code-insiders .` in any folder to start editing files in that folder.
 
 ## Updates
 
