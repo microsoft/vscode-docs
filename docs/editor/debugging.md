@@ -42,9 +42,10 @@ The Debug view displays all information related to debugging and has a top bar w
 
 ## Launch Configurations
 
-To debug a simple app in VS Code, you simply have to press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
+To debug a simple app in VS Code, you simply have to press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file. 
+> Tip: you can debug a simple app even in a no folder VS Code workspace but it is not possible to manage launch configurations and setup advanced debugging. For that you have to open a folder in your workspace.
 
-However, for advanced debugging you first need to open a folder in VS Code and set up your launch configuration file - `launch.json`. Click on the Configure gear icon on the Debug view top bar and VS Code will generate a `launch.json` file under your workspace's `.vscode` folder. VS Code will try to automatically detect your debug environment, if unsuccessful you will have to choose your debug environment manually.
+Thus for advanced debugging you first have to open a folder and then set up your launch configuration file - `launch.json`. Click on the Configure gear icon on the Debug view top bar and VS Code will generate a `launch.json` file under your workspace's `.vscode` folder. VS Code will try to automatically detect your debug environment, if unsuccessful you will have to choose your debug environment manually.
 
 Here is the one generated for Node.js debugging:
 
