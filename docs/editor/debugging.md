@@ -44,7 +44,7 @@ The Debug view displays all information related to debugging and has a top bar w
 
 To debug a simple app in VS Code, you simply have to press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
 
-However, for advanced debugging you first need to set up your launch configuration file - `launch.json`. Click on the Configure gear icon on the Debug view top bar and VS Code will generate a `launch.json` file under your workspace's `.vscode` folder. VS Code will try to automatically detect your debug environment, if unsuccessful you will have to choose your debug environment manually.
+However, for advanced debugging you first need to open a folder in VS Code and set up your launch configuration file - `launch.json`. Click on the Configure gear icon on the Debug view top bar and VS Code will generate a `launch.json` file under your workspace's `.vscode` folder. VS Code will try to automatically detect your debug environment, if unsuccessful you will have to choose your debug environment manually.
 
 Here is the one generated for Node.js debugging:
 
@@ -136,7 +136,7 @@ VS Code supports variable substitution inside strings in `launch.json` and has t
 - **${lineNumber}** the current selected line number in the active file
 
 
-You can also reference environment variables through **${env.Name}** syntax (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `${env.Path}` on Windows.
+You can also reference environment variables through **${env:Name}** syntax (e.g. ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
 ```json
 {
@@ -145,11 +145,11 @@ You can also reference environment variables through **${env.Name}** syntax (e.g
     "name": "Launch Program",
     "program": "${workspaceRoot}/app.js",
     "cwd": "${workspaceRoot}",
-    "args": [ "${env.USERNAME}" ]
+    "args": [ "${env:USERNAME}" ]
 }
 ```
 
-You can also reference VS Code settings using **${config.NAME}** syntax (for example: `${config.editor.fontSize}`). Some debug extensions even introduce additional command variables that can be referenced as **${command.NAME}**.
+You can also reference VS Code settings using **${config:NAME}** syntax (for example: `${config:editor.fontSize}`). Some debug extensions even introduce additional command variables that can be referenced as **${command:NAME}**.
 
 ## Run mode
 
