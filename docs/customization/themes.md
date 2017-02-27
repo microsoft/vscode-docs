@@ -99,18 +99,19 @@ Authoring a theme is fairly tricky as the grammars all behave a bit differently.
 
 # Icon Themes
 
-File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer.
+File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer amd tabbed headings.
 
-## Selecting the Color Theme
+## Selecting the File Icon Theme
 
-The current file icon theme is configured in the [settings](/docs/customization/userandworkspace.md).
+The current File Icon theme is persisted in your user [settings](/docs/customization/userandworkspace.md).
+
 ```javascript
   // Specifies the icon theme used in the workbench.
   "workbench.iconTheme": null
 }
 ```
 
-There is no need to edit the settings directly. Better use the File Icon Theme picker to preview and select a theme.
+There is no need to edit the `settings.json` file directly. It is better to use the File Icon Theme picker to preview and select a theme.
 
 1. Open the Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on Mac)
 2. Use the cursor keys to preview the icons of the theme.
