@@ -50,6 +50,11 @@ As you type, we provide syntax highlighting as well as in context preview of col
 
 ![Syntax and color](images/css/color.png)
 
+>**Note:** You can hide VS Code's color previews by setting the corresponding `.colorDecorators.enable` [settings](/docs/customization/userandworkspace.md).
+>```json
+>    "css.colorDecorators.enable": false
+>```
+
 ## Syntax Verification & Linting
 
 We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
