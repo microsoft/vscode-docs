@@ -16,7 +16,14 @@ Color themes let you modify VS Code's background, text, and language syntax colo
 
 ## Selecting the Color Theme
 
-There are several out-of-the-box color themes in VS Code for you to try.
+The current color theme is configured in the [settings](/docs/customization/userandworkspace.md).
+```javascript
+  // Specifies the color theme used in the workbench.
+  "workbench.colorTheme": "Default Dark+"
+}
+```
+
+However,there is no need to edit the settings directly. Better use the Color Theme Picker to preview and select a theme.
 
 1. Open the Color Theme picker with **File** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on Mac)
 2. Use the cursor keys to preview the colors of the theme.
@@ -24,9 +31,13 @@ There are several out-of-the-box color themes in VS Code for you to try.
 
 ![Themes in the Command Palette](images/themes/colorthemes.png)
 
+> **Tip:** By default, the theme is configured in the user settings and applies to all workspaces. But you can also configure a workspace specific theme. To do so, set a theme in the workspace settings.
+
 ## Adding Themes from the Extension Marketplace
 
-Many themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new theme will be available.
+There are several out-of-the-box color themes in VS Code for you to try. 
+
+Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new theme will be available.
 
 > **Tip:** To search for themes, type 'theme' in the Extensions view (`kb(workbench.view.extensions)`) search box.
 
@@ -90,7 +101,16 @@ Authoring a theme is fairly tricky as the grammars all behave a bit differently.
 
 File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer.
 
-## Select an Icon Theme
+## Selecting the Color Theme
+
+The current file icon theme is configured in the [settings](/docs/customization/userandworkspace.md).
+```javascript
+  // Specifies the icon theme used in the workbench.
+  "workbench.iconTheme": null
+}
+```
+
+There is no need to edit the settings directly. Better use the File Icon Theme picker to preview and select a theme.
 
 1. Open the Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on Mac)
 2. Use the cursor keys to preview the icons of the theme.
