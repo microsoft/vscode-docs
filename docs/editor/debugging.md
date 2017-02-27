@@ -274,4 +274,4 @@ To write your own debugger extension, visit:
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 
-**A:** The most common problem is that you did not set up `launch.json` yet or there is a syntax error in the `launch.json` file.
+**A:** The most common problem is that you did not set up `launch.json` yet or there is a syntax error in the `launch.json` file. Or you might need to open a folder, since no folder debugging does not support launch configurations.
