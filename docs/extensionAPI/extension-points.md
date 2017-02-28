@@ -57,6 +57,25 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 
 ![configuration extension point example](images/extension-points/configuration.png)
 
+## contributes.configurationDefaults
+
+Contribute default language specific editor configurations. This will override default editor configurations for the provided language.
+Following example contributes default editor configurations for `markdown` language.
+
+### Example
+
+```json
+contributes": {
+    "configurationDefaults": {
+        "[markdown]": {
+            "editor.wordWrap": "on",
+            "editor.quickSuggestions": false
+        }
+    }
+}
+```
+
+
 ## contributes.commands
 
 Contribute an entry consisting of a title and a command to invoke to the Command Palette (`kb(workbench.action.showCommands)`).
