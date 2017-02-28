@@ -82,7 +82,7 @@ Contribute a menu item for a command to the editor or Explorer. The menu item de
 
 Currently extension writers can to contribute to:
 
-* The global command palette - `commandPalette`
+* The global Command Palette - `commandPalette`
 * The Explorer context menu - `explorer/context`
 * The editor context menu - `editor/context`
 * The editor title menu - `editor/title`
@@ -91,7 +91,7 @@ Currently extension writers can to contribute to:
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
-The `commandPalette`-menu is special because it contains all commands by default. To make your commands only show in there use the `when`-clause. In addition to a title, commands can also define icons which VS Code will show in the editor menu bar.
+The `commandPalette` menu is special because it contains all commands by default. To make your commands only show in there use the `when`-clause. In addition to a title, commands can also define icons which VS Code will show in the editor menu bar.
 
 ### Example
 
