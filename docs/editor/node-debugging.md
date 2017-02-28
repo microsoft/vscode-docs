@@ -14,32 +14,45 @@ Visual Studio Code has built-in debugging support for the [Node.js](https://node
 
 This document explains the details of Node.js debugging. The general debugging feature are described in [Debugging](/docs/editor/debugging.md).
 
-## Debugging with Inspector Protocol
+## Supported Node-like Runtimes
 
-VS Code supports both the legacy V8 debug protocol (via `--debug`), and the new [Inspector Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/v8/), which Node.js now exposes via the `--inspect` flag, only in Node.js versions 6.3+. This is the same protocol exposed by [Chrome and other targets](https://developer.chrome.com/devtools/docs/debugger-protocol). This extension runs on the [vscode-chrome-debug-core](https://github.com/Microsoft/vscode-chrome-debug-core) library which also powers the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension, and several others.
+Since the VS Code Node.js debugger communicates to the Node.js runtimes through _wire protocols_, the set of supported runtimes is determined by all runtimes supporting the wire protocols.
 
-You can select which debug protocol to use with the `protocol` launch config attribute. It supports the following values:
+Today two wire protocols exist:
+- **legacy**: the original [V8 Debugger Protocol](https://github.com/buggerjs/bugger-v8-client/blob/master/PROTOCOL.md) which is currently supported by all runtimes but will most likely be dropped in Node.js v8.x.
+- **inpector**: the new [V8 Inspector Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/v8/) is exposed via the `--inspect` flag in Node.js versions >= 6.3. It addresses most of the limitations and scalability issues of the legacy protocol.
 
-- **`auto`**: tries to automatically detect the protocol used by the targeted runtime. For configurations of request type `launch` and if no `runtimeExecutable` is specified, we try to determine the version by running node from the PATH with an `--version` argument. If the version is >= 6.9 the 'inspector' protocol is used. For configurations of request type 'attach' we try to connect with the 'inspector' protocol endpoint and if this works, we use the 'inspector' protocol. We only switch to the inspector protocol for versions >= 6.9 because of issues in earlier versions.
-- **`inspector`**: forces the node debugger to use the 'inspector' protocol based implementation (previously 'node2'). This is supported by node versions >= 6.3, but not (yet) by Electron.
-- **`legacy`**: forces the node debugger to use the 'legacy' protocol based implementation. This is supported by node versions < v8.0). This is the default, if `protocol` isn't specified.
+Currently these protocols are supported by specific version ranges of the following runtimes:
 
->**Note**: We recommend using the Inspector Protocol when debugging Node.js versions >= 6.9. When debugging Node.js versions < 6.3, you have to use the legacy protocol.
+Runtime   | 'Legacy Protocol' | 'Inspector Protocol'
+----------|-------------------|----------
+io.js     | all               | no
+node.js   | < 8.x             | >= 6.3 (Windows: >= 6.9)
+Electron  | all               | not yet
+Chakra    | all               | not yet
 
-Here are a few reasons for using 'inspector' over 'legacy':
+Although it appears to be possible that the VS Code Node.js debugger picks the correct protocol always automatically,
+we've decided for a 'pessimistic approach' with an explicit launch configuration attribute `protocol` and the following values:
 
-* It can be more stable when debugging very large JavaScript objects. The 'legacy' protocol can become painfully slow when sending large values between the client and server.
-* If you are using an ES6 Proxy in your app, a Node v7+ runtime might crash when being debugged by the 'legacy' protoocol. This does not happen with 'inspector'. This issue is tracked in [Microsoft/vscode#12749](https://github.com/Microsoft/vscode/issues/12749).
-* 'inspector' can handle some trickier source map setups. If you have trouble setting breakpoints in source mapped files, try using 'inspector'.
+- **`auto`**: tries to automatically detect the protocol used by the targeted runtime. For configurations of request type `launch` and if no `runtimeExecutable` is specified, we try to determine the version by running node from the PATH with an `--version` argument. If the version is >= 6.9 the new 'inspector' protocol is used. For configurations of request type 'attach' we try to connect with the new protocol and if this works, we use the 'inspector' protocol. We only switch to the new inspector protocol for versions >= 6.9 because of severe problems in earlier versions.
+- **`inspector`**: forces the node debugger to use the 'inspector' protocol based implementation. This is supported by node versions >= 6.3, but not (yet) by Electron.
+- **`legacy`**: forces the node debugger to use the 'legacy' protocol based implementation. This is supported by node versions < v8.0) and Electron.
 
->**Note**: See more tips in the 'inspector' implementation repo [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.node-debug2).
+Currently the default value for the `protocol` attribute is `legacy`. We are planning to change this to `auto` in the future as soon as the `auto` switching smartness has matured.
 
-We try to keep feature parity between both protocol implementations but this becomes more and more difficult because the technology underlying `node` (V8 Debugger Protocol) is deprecated (frozen) whereas the new technology (Chrome Debugger Protocol) evolves quickly. For this reason, we specify the supported debugger type if a features is not supported by both 'legacy' and 'inspector'.
+If your runtime supports both protocols, here are a few additional reasons for using the `inspector` protocol over `legacy`:
+
+* It can be more stable when debugging very large JavaScript objects. The legacy protocol can become painfully slow when sending large values between the client and server.
+* If you are using an ES6 Proxy in your app, you can prevent a Node v7+ runtime from crashing when being debugged via the `inspector` protocol. This issue is tracked in [Microsoft/vscode#12749](https://github.com/Microsoft/vscode/issues/12749).
+* Debugging via the `inspector` protocol can handle some trickier source map setups. If you have trouble setting breakpoints in source mapped files, try using `inspector`.
+
+We try to keep feature parity between both protocol implementations but this becomes more and more difficult because the technology underlying `legacy` is deprecated whereas the new `inspector` evolves quickly. For this reason, we specify the supported protocols  if a features is not supported by both `legacy` and `inspector`.
 
 ## Launch configuration attributes
 
 The following attributes are supported in launch configurations of type `launch` and `attach`:
 
+* `protocol` - debug protocol to use. See section 'Supported Node-like Runtimes' above.
 * `port` - debug port to use. See sections 'Attaching to Node.js' and 'Remote Debugging Node.js'.
 * `address` - TCP/IP address of the debug port. See sections 'Attaching to Node.js' and 'Remote Debugging Node.js'.
 * `restart` - restart session on termination. See section 'Restarting debug sessions automatically'.
@@ -410,7 +423,7 @@ Finally, the debug adapter searches for the full path of `app.ts` in this result
 
 Here are some things to try when your breakpoints turn gray:
 
-* Do you have `"sourceMaps": true` in your `launch.json`?
+* Do you have `"sourceMaps": false` in your `launch.json`?
 * Did you build with source maps enabled? Are there `.js.map` files, or inlined source maps in your `.js` files?
 * Did you set the `outFiles` property in your `launch.json`? It should be a glob pattern for an absolute path that matches your `.js` files.
 * Try the new [Inspector Protocol](/docs/editor/node-debugging.md#debugging-with-inspector-protocol) implementation. It can handle some more of the more complex source map cases.
