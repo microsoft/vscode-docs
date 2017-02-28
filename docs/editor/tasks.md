@@ -135,6 +135,18 @@ If you want to run multiple different commands you can specify different command
 
 The first task start the TypeScript compiler in watch mode, the second one starts the gulp build. If a tasks specifies a local command to run the task name is not included into the command line (`suppressTaskName` is `true` by default for these tasks). Since a local command can specify local arguments, there is no need for adding it by default. If a `tasks.json` file specifies both global and task local commands, the task local commands win over the global command. There is no merging between a global and a task local command.
 
+## Binding Keyboard short cuts to tasks
+
+If you need to run a task frequently you can also define a keyboard short cut for a command. To bind `Ctrl+h` to the `build` task from the above example add the following to your `keyindings.json` file:
+
+```json
+{
+    "key": "ctrl+h",
+    "command": "workbench.action.tasks.runTask",
+    "args": "build"
+}
+```
+
 ## Variable substitution
 
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json`  file and has the following predefined variables:
