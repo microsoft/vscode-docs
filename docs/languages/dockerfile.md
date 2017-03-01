@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Dockerfile
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Dockerfiles in Visual Studio Code
-DateApproved: 2/2/2017
+DateApproved: 3/1/2017
 MetaDescription: Find out how to get the best out of Visual Studio Code and Docker.
 ---
 

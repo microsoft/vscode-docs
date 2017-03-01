@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Debugging API
 ContentId: 9C4B10A2-44BE-4ABD-8FF4-F1A8683A90AD
 PageTitle: Visual Studio Code Debugging API
-DateApproved: 2/2/2017
+DateApproved: 3/1/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) Debugging API.
 ---
 

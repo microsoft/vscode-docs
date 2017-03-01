@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Tasks Appendix
-DateApproved: 2/2/2017
+DateApproved: 3/1/2017
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 
