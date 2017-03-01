@@ -12,29 +12,53 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 ## Installation
 
-1. Download Visual Studio Code for your distribution, [.deb](http://go.microsoft.com/fwlink/?LinkID=760868) for Debian-based distributions such as Ubuntu or [.rpm](http://go.microsoft.com/fwlink/?LinkID=760867) for Red Hat-based distributions such as Fedora or CentOS. Note that 32-bit binaries are also available on the [download page](/Download).
-2. Install the package through a GUI package manager by double clicking on the package file, or through the command line:
+### Debian and Ubuntu based distributions
+
+The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
 
 ```bash
- # For .deb
- sudo dpkg -i <file>.deb
- # install dependencies
- sudo apt-get install -f
-
- # For .rpm (Fedora 21 and below)
- sudo yum install <file>.rpm
-
- # For .rpm (Fedora 22 and above)
- sudo dnf install <file>.rpm
+sudo dpkg -i <file>.deb
+sudo apt-get install -f # Install dependencies
 ```
 
-3. VS Code should now be available to run through the launcher or the command line by running `code`.
+Installing the .deb package will automatically install the apt repository and signing key to enable auto-updating using the regular system mechanism. Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
 
->**Tip:** Run `code .` in any folder to start editing files in that folder.
+The repository and key can also be installed manually with the following script:
+
+```bash
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+```
+
+Then update the package cache and install the package using:
+
+```bash
+sudo apt-get update
+sudo apt-get install code # or code-insiders
+```
+
+### RHEL, Fedora and CentOS based distributions
+
+We currently ship the stable 64-bit VS Code in a yum repository, the following script will install the key and repository:
+
+```bash
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+```
+
+Then update the package cache and install the package using:
+
+```bash
+yum check-update
+sudo yum install code
+```
+
+The [.rpm package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Note that 32-bit and .tar.gz binaries are are also available on the [download page](/Download).
 
 ## Updates
 
-VS Code ships monthly and you can see when a new release is available by checking [Updates](/updates).  Unfortunately, VS Code does not yet support auto-update on Linux, so you will need to manually install each new release.
+VS Code ships monthly and you can see when a new release is available by checking [Updates](/updates). If the VS Code repository was installed corrected then your system package manager should handle auto-updating in the same way as other packages on the system.
 
 ## Node.js
 
