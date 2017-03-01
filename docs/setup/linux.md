@@ -69,7 +69,15 @@ sudo zypper refresh
 sudo zypper install code
 ```
 
-The [.rpm package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Note that 32-bit and .tar.gz binaries are are also available on the [download page](/Download).
+### Installing .rpm package manually
+
+The [.rpm package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with yum:
+
+```bash
+sudo yum install <file>.rpm
+```
+
+Note that 32-bit and .tar.gz binaries are are also available on the [download page](/Download).
 
 ## Updates
 
