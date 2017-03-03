@@ -9,7 +9,7 @@ Author: Wade Anderson
 ---
 # Extensions using CodeLens
 
-February 12, 2016 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
+February 12, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 CodeLens is a popular feature in Visual Studio Code. The essence of the feature is "actionable contextual information interspersed" in your source code. That's quite a mouthful. Let me break it down for you. 
 
