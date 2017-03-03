@@ -91,6 +91,9 @@ The settings shown below are the default settings. You can change these settings
 
     // Enable word based suggestions
     "editor.wordBasedSuggestions": true
+    
+    // Enable parameter hints
+    "editor.parameterHints": true
 }
 ```
 

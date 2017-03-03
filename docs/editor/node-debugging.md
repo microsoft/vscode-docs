@@ -31,7 +31,7 @@ node.js   | < 8.x             | >= 6.3 (Windows: >= 6.9)
 Electron  | all               | not yet
 Chakra    | all               | not yet
 
-Although it appears to be possible that the VS Code Node.js debugger picks the correct protocol always automatically,
+Although it appears to be possible that the VS Code Node.js debugger picks the best protocol always automatically,
 we've decided for a 'pessimistic approach' with an explicit launch configuration attribute `protocol` and the following values:
 
 - **`auto`**: tries to automatically detect the protocol used by the targeted runtime. For configurations of request type `launch` and if no `runtimeExecutable` is specified, we try to determine the version by running node from the PATH with an `--version` argument. If the version is >= 6.9 the new 'inspector' protocol is used. For configurations of request type 'attach' we try to connect with the new protocol and if this works, we use the 'inspector' protocol. We only switch to the new inspector protocol for versions >= 6.9 because of severe problems in earlier versions.
@@ -322,12 +322,12 @@ For example using:
 
 ```typescript
   "skipFiles": [
-    "node_modules/**/*.js",
-    "lib/**/*.js"
+    "${workspaceRoot}/node_modules/**/*.js",
+    "${workspaceRoot}/lib/**/*.js"
   ]
 ```
 
-all code in the `node_modules` and `lib` folders will be skipped.
+all code in the `node_modules` and `lib` folders in your project will be skipped.
 
 Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules but `events.js`:
 
@@ -352,18 +352,18 @@ Hovering over the dimmed entries explains why the stack frame is dimmed.
 
 A context menu item on the call stack, **Toggle skipping this file** enables you to easily skip a file at runtime without adding it to your launch config ('inspector' protocol only). This option only persists for the current debugging session. You can also use it to stop skipping a file that is skipped by the `skipFiles` option in your launch config.
 
->**Note:** The debugger `node` supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set.
+>**Note:** The `legacy` protocol debugger supports negative glob patterns, but they must **follow** a positive pattern: positive patterns add to the set of skipped files, while negative patterns subtract from that set.
 
-In the following (`node`-only) example all but a 'math' module is skipped:
+In the following (`legacy` protocol-only) example all but a 'math' module is skipped:
 
 ```typescript
 "skipFiles": [
-    "node_modules/**/*.js",
-    "!node_modules/math/**/*.js"
+    "${workspaceRoot}/node_modules/**/*.js",
+    "!${workspaceRoot}/node_modules/math/**/*.js"
 ]
 ```
 
->**Note:** The debugger `node` has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
+>**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
 
 ## Source maps
 
@@ -399,7 +399,7 @@ This is the corresponding launch configuration for a TypeScript program:
             "type": "node",
             "request": "launch",
             "program": "app.ts",
-            "outFiles": [ "bin/**/*.js" ]
+            "outFiles": [ "${workspaceRoot}/bin/**/*.js" ]
         }
     ]
 }
