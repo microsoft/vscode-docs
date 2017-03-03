@@ -23,7 +23,7 @@ The current color theme is configured in the [settings](/docs/customization/user
 }
 ```
 
-However,there is no need to edit the settings directly. Better use the Color Theme Picker to preview and select a theme.
+However, there is no need to edit the settings directly. It's easier to use the Color Theme Picker to preview and select a theme.
 
 1. Open the Color Theme picker with **File** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on Mac)
 2. Use the cursor keys to preview the colors of the theme.
