@@ -99,7 +99,7 @@ Authoring a theme is fairly tricky as the grammars all behave a bit differently.
 
 # Icon Themes
 
-File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer amd tabbed headings.
+File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer and tabbed headings.
 
 ## Selecting the File Icon Theme
 
@@ -125,7 +125,7 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Adding a new Icon Theme
 
-You can create your own icon theme from icons (preferrably SVG) and from icon fonts. As example, check out the two built-in themes: [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti).
+You can create your own icon theme from icons (preferably SVG) and from icon fonts. As example, check out the two built-in themes: [Minimal](https://github.com/Microsoft/vscode/tree/master/extensions/theme-defaults) and [Seti](https://github.com/Microsoft/vscode/tree/master/extensions/theme-seti).
 
 
 To begin, create a VS Code extension and add the `iconTheme` contribution point.
