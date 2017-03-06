@@ -8,7 +8,6 @@ DateApproved: 3/6/2017
 MetaDescription: Use extensions in Visual Studio Code to add new features, themes, and more. 
 MetaSocialImage: opengraph_introvideos.png
 ---
-
 # Extensions in VS Code
 
 Use extensions to add new features, themes and more. In this tutorial, we will show you how to find extensions, install the ones you like, and disable extensions you don't want to use all the time. 
@@ -30,4 +29,4 @@ Use extensions to add new features, themes and more. In this tutorial, we will s
 
 ## Next Steps
 
-* [Debugging](/docs/introvideos/codeediting.md) - Learn how to debug your application, including setting breakpoints and inspecting variables.
+* [Code Editing Features in VS Code](/docs/introvideos/codeediting.md) - Learn about the advanced code editing features in VS Code.

@@ -33,4 +33,4 @@ In this tutorial, we walk you through setting up Visual Studio Code and give an 
 
 ## Next Video
 
-* [Configure and Extend](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style.
+* [Customize VS Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style.
