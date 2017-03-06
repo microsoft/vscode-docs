@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 9
 Area: introvideos
 TOCTitle: Git Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
@@ -32,4 +32,4 @@ In this tutorial we will learn how to use the basics of Git version control in V
 
 ## Next Video
 
-* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug your application, including setting breakpoints and inspecting variables.
+* [Setup Overview](/docs/setup/setup-overview.md) - Set up and start using VS Code.
