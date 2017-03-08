@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order:
 Area: introvideos
 TOCTitle: Git Version Control
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B

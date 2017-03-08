@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order:
 Area: introvideos
 TOCTitle: Configure and Extend
 ContentId: d9583ed0-aaf6-4ce1-9a27-bbfb0017b6be

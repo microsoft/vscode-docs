@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: extensionapi
 TOCTitle: Debugging API
 ContentId: 9C4B10A2-44BE-4ABD-8FF4-F1A8683A90AD

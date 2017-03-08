@@ -1,11 +1,11 @@
 ---
-Order: 5
-Area: customization
-TOCTitle: Colorizer
+Order: 6
+Area: extensions
+TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
-PageTitle: Visual Studio Code Colorizers
+PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
 DateApproved: 3/1/2017
-MetaDescription: How to add colorization and bracket matching to Visual Studio Code.  TextMate .tmLanguage files are supported.
+MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code.  TextMate .tmLanguage files are supported.
 ---
 
 # Adding Language Colorization

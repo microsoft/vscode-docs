@@ -1,6 +1,6 @@
 ﻿---
 Order: 7
-Area: customization
+Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716

@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order:
 Area: introvideos
 TOCTitle: Setup and Basics
 ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7

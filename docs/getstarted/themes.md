@@ -1,6 +1,6 @@
 ---
-Order: 6
-Area: customization
+Order: 4
+Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes

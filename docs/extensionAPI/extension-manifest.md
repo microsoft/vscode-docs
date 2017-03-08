@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 4
 Area: extensionapi
 TOCTitle: Extension Manifest
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49

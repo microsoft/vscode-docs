@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 6
 Area: extensionapi
 TOCTitle: Activation Events
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE

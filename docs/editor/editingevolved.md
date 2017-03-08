@@ -1,14 +1,13 @@
 ---
 Order: 5
 Area: editor
-TOCTitle: Editing Evolved
+TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
-PageTitle: Editing Evolved
+PageTitle: Code Navigation in Visual Studio Code
 DateApproved: 3/1/2017
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
-
-# Editing Evolved
+# Code Navigation
 
 Visual Studio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
 

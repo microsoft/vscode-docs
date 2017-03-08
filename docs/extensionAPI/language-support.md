@@ -1,6 +1,6 @@
 ---
-Order: 7
-Area: extensions
+Order: 3
+Area: extensionapi
 TOCTitle: Language Extension Guidelines
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
 PageTitle: Visual Studio Code Language Extension Guidelines

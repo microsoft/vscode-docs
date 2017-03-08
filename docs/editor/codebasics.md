@@ -1,15 +1,14 @@
 ---
 Order: 2
 Area: editor
-TOCTitle: The Basics
+TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
-PageTitle: The Basics of Visual Studio Code
+PageTitle: Basic Editing in Visual Studio Code
 DateApproved: 3/1/2017
 MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
-
-# The Basics of Visual Studio Code
+# Basic Editing
 
 At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 

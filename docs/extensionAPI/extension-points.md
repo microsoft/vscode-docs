@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 5
 Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F

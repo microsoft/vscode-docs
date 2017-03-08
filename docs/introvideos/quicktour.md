@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order:
 Area: introvideos
 TOCTitle: Quick Tour using JavaScript
 ContentId: a51b707c-19f7-41af-b5c2-c296e6e9fea2

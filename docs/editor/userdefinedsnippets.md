@@ -1,14 +1,13 @@
 ---
-Order: 4
-Area: customization
-TOCTitle: Snippets
+Order: 11
+Area: editor
+TOCTitle: Creating your own Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
-PageTitle: Snippets in Visual Studio Code
+PageTitle: Creating your own Snippets in Visual Studio Code
 DateApproved: 3/1/2017
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
-
-# Adding Snippets to Visual Studio Code
+# Creating your own Snippets
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
