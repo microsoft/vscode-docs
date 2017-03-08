@@ -229,6 +229,18 @@ or
     "symbolSearchPath": "C:\\path\\to\\symbols;C:\\another\\path\\to\\symbols"
 ```
 
+### Locate source files
+
+If the source files are not located at the compiled in location, the location can be changed. This is done by simple replacement pairs added in the `sourceFileMap` section. The first match in this list will be used.
+
+For example:
+```json
+            "sourceFileMap": {
+                "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include/i686-linux-gnu": "/usr/include/i686-linux-gnu/c++/4.8",
+                "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include": "/usr/include/c++/4.8"
+            }
+```
+
 
 ### GDB, LLDB and MI Commands (GDB/LLDB)
 
