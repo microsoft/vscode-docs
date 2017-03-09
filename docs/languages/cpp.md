@@ -231,7 +231,7 @@ or
 
 ### Locate source files
 
-If the source files are not located at the compiled in location, the location can be changed. This is done by simple replacement pairs added in the `sourceFileMap` section. The first match in this list will be used.
+The source file location can be changed if the source files are not located in the compilation location. This is done by simple replacement pairs added in the `sourceFileMap` section. The first match in this list will be used.
 
 For example:
 ```json
@@ -309,9 +309,5 @@ Read on to find out about:
 **Q: How do I build/run my project?**
 
 **A:** VS Code supports tasks that you can configure to build your application, and natively understands the output of MSBuild, CSC, and XBuild. For more information, see the [Tasks](/docs/editor/tasks.md) documentation.
-
-**Q: Why is there a .browse.VC.db file in my workspace?**
-
-**A:** The C/C++ extension automatically creates a database of symbol information for your workspace and stores it in a `.browse.VC.db` file in your workspace's `.vscode` folder. This improves the extension's performance and this file should not be added to source control.
 
 If you have any other questions or run into any issues, please file an issue on [GitHub](https://github.com/Microsoft/vscode-cpptools/issues).
