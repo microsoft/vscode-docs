@@ -8,7 +8,6 @@ DateApproved: 9/7/2016
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
 MetaSocialImage: cpp_languages_cpp.png
 ---
-
 # C/C++ for VS Code (Preview)
 
 C/C++ support for Visual Studio Code is provided today as a preview of our work to enable cross-platform C and C++ development using VS Code on Windows, Linux, and Mac. Our focus in this preview release is code editing and navigation support for C and C++ code everywhere that VS Code runs, as well as debugging on Linux, Mac, and Windows.
@@ -152,7 +151,7 @@ To peek at a symbol's definition, place your cursor on the symbol anywhere it's 
 
 Currently, the C/C++ extension doesn't parse code in a way that helps it distinguish between competing definitions based on how the symbol is used. These competing definitions arise when the symbol defines different things in different contexts, such as occurs with overloaded functions, classes and their constructors, and other situations. When this happens, each of the competing definitions are listed in the right-hand side of the peek window with the source code of the current selection displayed on the left.
 
-With the peek window open, you browse the list of competing definitions to find the one you're interested in. If you want to navigate to the location of one of the definitions just double-click the definition you're interested in, or by double-clicking anywhere in the source code displayed on the left-hand side of the peek window. 
+With the peek window open, you browse the list of competing definitions to find the one you're interested in. If you want to navigate to the location of one of the definitions just double-click the definition you're interested in, or by double-clicking anywhere in the source code displayed on the left-hand side of the peek window.
 
 ### Go to Definition
 
@@ -223,6 +222,7 @@ For example:
 ```json
     "additionalSOLibSearchPath": "/path/to/symbols;/another/path/to/symbols"
 ```
+
 or
 
 ```json
@@ -234,13 +234,13 @@ or
 The source file location can be changed if the source files are not located in the compilation location. This is done by simple replacement pairs added in the `sourceFileMap` section. The first match in this list will be used.
 
 For example:
-```json
-            "sourceFileMap": {
-                "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include/i686-linux-gnu": "/usr/include/i686-linux-gnu/c++/4.8",
-                "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include": "/usr/include/c++/4.8"
-            }
-```
 
+```json
+"sourceFileMap": {
+    "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include/i686-linux-gnu": "/usr/include/i686-linux-gnu/c++/4.8",
+    "/build/gcc-4.8-fNUjSI/gcc-4.8-4.8.4/build/i686-linux-gnu/libstdc++-v3/include": "/usr/include/c++/4.8"
+}
+```
 
 ### GDB, LLDB and MI Commands (GDB/LLDB)
 
@@ -266,6 +266,7 @@ All platforms:
 ### Debugging
 
 All platforms:
+
 * There is no way to specify the source file mappings from the compiled locations to the current location. This prevents debugging an application in a different file system layout than where it was compiled.
 
 Windows:
