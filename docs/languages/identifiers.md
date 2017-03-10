@@ -72,6 +72,7 @@ Lua | `lua`
 Makefile | `makefile`
 Markdown | `markdown`
 Objective-C | `objective-c`
+Objective-C++ | `objective-cpp`
 Perl | `perl` and `perl6`
 PHP | `php`
 Powershell | `powershell`
