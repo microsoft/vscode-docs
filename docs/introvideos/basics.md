@@ -4,7 +4,7 @@ Area: introvideos
 TOCTitle: Setup and Basics
 ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7
 PageTitle: Setup and Basic Use of Visual Studio Code
-DateApproved: 8/10/2016
+DateApproved: 3/6/2017
 MetaDescription: Download and learn the basics of Visual Studio Code.
 MetaSocialImage: opengraph_introvideos.png
 ---
@@ -33,4 +33,4 @@ In this tutorial, we walk you through setting up Visual Studio Code and give an 
 
 ## Next Video
 
-* [Configure and Extend](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style.
+* [Customize VS Code](/docs/introvideos/configure.md) - Learn how to personalize VS Code to your work style.

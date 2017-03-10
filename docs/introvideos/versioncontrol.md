@@ -32,4 +32,4 @@ In this tutorial we will learn how to use the basics of Git version control in V
 
 ## Next Video
 
-* [Debugging](/docs/introvideos/debugging.md) - Learn how to debug your application, including setting breakpoints and inspecting variables.
+* [Setup Overview](/docs/setup/setup-overview.md) - Set up and start using VS Code.

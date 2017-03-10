@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
 PageTitle: Intro Videos Overview
-DateApproved: 8/10/2016
+DateApproved: 3/6/2017
 MetaDescription: Overview of VS Code's Introductory Videos.
 MetaSocialImage: opengraph_introvideos.png
 ---
@@ -37,10 +37,20 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/configure">
-			<img src="https://img.youtube.com/vi/BzLawuxe3nk/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/4wVF4w_53hs/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h2 class="title faux-h3">Configure and Extend</h2>
-				<p class="description">Personalize and extend VS Code.</p>
+				<h2 class="title faux-h3">Customize</h2>
+				<p class="description">Personalize VS Code through settings, themes, keybindings.</p>
+				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+	</li>
+	<li class="video">
+		<a href="/docs/introvideos/extend">
+			<img src="https://img.youtube.com/vi/Fed01v3yYNE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">Extensions</h2>
+				<p class="description">Extend VS Code with extensions.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
@@ -57,10 +67,20 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/intellisense">
-			<img src="https://img.youtube.com/vi/jVIe82TdmqE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/lSPHucggmLo/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">IntelliSense</h2>
 				<p class="description">Receive intelligent code completions.</p>
+				<span class="duration"><span class="sr-only">Duration </span>6<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+			</div>
+		</a>
+	</li>
+	<li class="video">
+		<a href="/docs/introvideos/debugging">
+			<img src="https://img.youtube.com/vi/6cOsxaNC06c/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<div class="info">
+				<h2 class="title faux-h3">Debugging</h2>
+				<p class="description">Debug a simple Node.js application.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
@@ -72,16 +92,6 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 				<h2 class="title faux-h3">Version Control</h2>
 				<p class="description">Learn how to use Git version control in VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
-		<a href="/docs/introvideos/debugging">
-			<img src="https://img.youtube.com/vi/hvPuPi8iG_w/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Debugging</h2>
-				<p class="description">Debug a simple Node.js application.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
