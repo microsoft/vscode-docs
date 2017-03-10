@@ -197,11 +197,11 @@ Save the new file and make sure **Launch Program** is selected in the configurat
 
 Let's finish up this walkthrough by deploying our application to the cloud. While it is possible to deploy directly to a web site, it is not a best practice. Instead, we will set up continuous deployment from a GitHub repository to an Azure App Service website (Azure's Platform as a Service offering). With this setup, you can use version control to roll back changes, configure different branches to deploy to different development "slots" (e.g. development or production) and more.
 
-If this sounds complicated, don't worrry, it isn't :). 
+If this sounds complicated, don't worry, it isn't :).
 
-> If you do't have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/) for a free 30 day account with $200 in Azure Credits to try out any combination of Azure services.
+> If you don't have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/) for a free 30 day account with $200 in Azure Credits to try out any combination of Azure services.
 
-The first thing we'll need to do is get our source code into a GitHub repostory. Browse to your GitHub account and [create a new public repository](https://github.com/new).
+The first thing we'll need to do is get our source code into a GitHub repository. Browse to your GitHub account and [create a new public repository](https://github.com/new).
 
 ![Create a new GitHub repository](images/nodejs/newgithubrepo.png)
 
