@@ -1,14 +1,14 @@
 ---
-Order: 1
-Area: runtimes
+Order: 2
+Area: nodejs
 TOCTitle: Node.js
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Node.js and Visual Studio Code Tutorial
-DateApproved: 3/1/2017
+DateApproved: 3/10/2017
 MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: nodejs_runtimes_node.png
 ---
-# Node.js Applications with VS Code
+# Node.js Tutorial in VS Code
 
 [Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [NPM](https://www.npmjs.com/) is the Package Manager for Node.js modules.
 
@@ -101,7 +101,7 @@ Now that you've seen VS Code in action with "Hello World", the next section show
 
 >**Note:** We're done with the "Hello World" example so navigate out of that folder before you create an Express app. You can delete the "Hello" folder if you wish as it is not required for the rest of the walkthrough.
 
-## Express
+## Express Tutorial
 
 [Express](http://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
 
@@ -193,21 +193,6 @@ Save the new file and make sure **Launch Program** is selected in the configurat
 
 ![Debug session](images/nodejs/debugsession.png)
 
-## Node.js Extensions
-
-The community is continually developing more and more valuable extensions for Node.js. Here are some of the extensions we have found most useful. 
-
-* [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) - Snippets for JavaScript in ES6 syntax.
-* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Integrates ESLint into VS Code.
-* [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint) - Integrates JSHint into VS Code.
-* [Add JSDoc comments](https://marketplace.visualstudio.com/items?itemName=stevencl.addDocComments) - Adds **JSDoc** @param and @return tags for selected function signatures in JS and TS.
-* [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify) - This extension enables running [js-beautify](http://jsbeautifier.org/) in VS Code.
-
-Here are some popular extensions from the [Marketplace](https://marketplace.visualstudio.com/vscode).
-
-<div class="marketplace-extensions-node"></div>
-
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Next Steps
 
