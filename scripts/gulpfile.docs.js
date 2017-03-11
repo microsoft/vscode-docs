@@ -30,11 +30,11 @@ var areas = {
 	editor: new Area('User Guide', 'editor', true),
 	languages: new Area('Languages', 'languages', true),
 	nodejs: new Area('Node.js / JavaScript', 'nodejs', true),
-	other: new Area('Other', 'other', true),
 	extensions: new Area('Extension Authoring', 'extensions', true),
 	extensionapi: new Area('Extensibility Reference', 'extensionAPI', true),
 	tools: new Area('Tools', 'tools', true),
-	supporting: new Area('Supporting', 'supporting', false)
+	supporting: new Area('Supporting', 'supporting', false),
+	other: new Area('Other', 'other', true)
 };
 
 gulp.task('copy-images', function () {
