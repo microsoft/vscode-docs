@@ -1,6 +1,6 @@
 ---
 Order: 4
-Area: runtimes
+Area: other
 TOCTitle: Office
 ContentId: 8661D491-297F-4778-B10B-588005CCD443
 PageTitle: Office Add-ins with Visual Studio Code
