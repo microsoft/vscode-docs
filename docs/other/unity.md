@@ -1,6 +1,6 @@
 ---
 Order: 3
-Area: runtimes
+Area: other
 TOCTitle: Unity
 ContentId: 75CD2FA6-2F91-428A-A88D-880611AE75A0
 PageTitle: Visual Studio Code and Unity
