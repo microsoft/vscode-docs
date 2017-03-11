@@ -48,27 +48,3 @@ code .
 You can now open any of the Markdown files and easily toggle between preview with the `Open Preview` button in the upper right of the editor. 
 
 ![Markdown Preview Button](images/MDPreviewButton.png)
-
-## Building VS Code Docs
-
-If you'd like to run the VS Code website locally, you can run the gulp tasks to compile the Markdown files into web pages.
-
-You will need both Node.js (with npm) and the gulp task runner installed.
-
-```
-gulp build-website
-cd out/vscode-website
-npm run dev
-npm start
-```
-
-You can now see the website running in a browser at http://localhost:3000.
-
-When you make changes to Markdown files and want to see the result, run the following:
-
-```
-# Compile docs, blog, and release notes
-gulp compile-all
-```
-
-The changes will be reflected in running website.
