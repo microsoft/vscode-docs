@@ -158,7 +158,7 @@ Open the file `app.js` and hover over the Node.js global object `__dirname`. Not
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
-VS Code uses TypeScript definition files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition` you as user do not have to worry about these typings file, VS Code will install them automatically for you.
+VS Code uses TypeScript Type Declaration (typings) files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Type Declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition`, you do not have to worry about downloading these Type Declaration files, VS Code will install them automatically for you.
 
 You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
 
@@ -197,11 +197,11 @@ Save the new file and make sure **Launch Program** is selected in the configurat
 
 Let's finish up this walkthrough by deploying our application to the cloud. While it is possible to deploy directly to a web site, it is not a best practice. Instead, we will set up continuous deployment from a GitHub repository to an Azure App Service website (Azure's Platform as a Service offering). With this setup, you can use version control to roll back changes, configure different branches to deploy to different development "slots" (e.g. development or production) and more.
 
-If this sounds complicated, don't worrry, it isn't :). 
+If this sounds complicated, don't worry, it isn't :).
 
-> If you do't have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/) for a free 30 day account with $200 in Azure Credits to try out any combination of Azure services.
+> If you don't have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/) for a free 30 day account with $200 in Azure Credits to try out any combination of Azure services.
 
-The first thing we'll need to do is get our source code into a GitHub repostory. Browse to your GitHub account and [create a new public repository](https://github.com/new).
+The first thing we'll need to do is get our source code into a GitHub repository. Browse to your GitHub account and [create a new public repository](https://github.com/new).
 
 ![Create a new GitHub repository](images/nodejs/newgithubrepo.png)
 
@@ -227,12 +227,12 @@ The following CLI commands will create our site and set up continuous deployment
 
 ```
 # Follow the login instructions
-az login  
+az login
 
 # Create an Azure Resource Group which is essentially a container for all of your application resources.
 az group create -l westus -n myExpressAppGroup
 
-# Create an Azure App Service Plan which is essentially the machine on which your application will be hosted. 
+# Create an Azure App Service Plan which is essentially the machine on which your application will be hosted.
 # In this walkthrough, we will use a FREE plan which will host your app on a machine with other websites.
 az appservice plan create -n myExpressAppPlan -g myExpressAppGroup -l westus --sku FREE
 
@@ -242,7 +242,7 @@ az appservice web create -n myUniqueName-ExpressApp -g myExpressAppGroup -p myEx
 # Let's test that our site is up and running. It will be a temporary site as we have not deployed any code here yet.
 az appservice web browse -n myUniqueName-ExpressApp -g myExpressAppGroup
 
-# Configure the site for continuous deployment through our github repository.
+# Configure the site for continuous deployment through our GitHub repository.
 az appservice web source-control config --repo-url https://github.com/yourgithubaccount/myExpressApp -n myUniqueName-ExpressApp -g myExpressAppGroup
 ```
 

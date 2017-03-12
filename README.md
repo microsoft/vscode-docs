@@ -44,6 +44,7 @@ If you want to use VS Code, simply navigate to the `vscode-docs` directory and l
 cd vscode-docs
 code .
 ```
+
 You can now open any of the Markdown files and easily toggle between preview with the `Open Preview` button in the upper right of the editor. 
 
 ![Markdown Preview Button](images/MDPreviewButton.png)
