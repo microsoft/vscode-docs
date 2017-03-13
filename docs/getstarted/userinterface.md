@@ -103,9 +103,27 @@ Just click an item in the **OPEN EDITORS** section, and it becomes active in VS 
 
 Once you are done with your task, you can remove files individually from the **OPEN EDITORS** section, or you can remove all files by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
 
+## Command Palette
+
+VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all of the functionality of VS Code, including keyboard shortcuts for the most common operations.
+
+![Command Palette](images/userinterface/commands.png)
+
+The **Command Palette** provides access to many commands. You can execute editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
+
+* `kb(workbench.action.quickOpen)` will let you navigate to any file or symbol by simply typing its name
+* `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` will cycle you through the last set of files opened
+* `kb(workbench.action.showCommands)` will bring you directly to the editor commands
+* `kb(workbench.action.gotoSymbol)` will let you navigate to a specific symbol in a file
+* `kb(workbench.action.gotoLine)` will let you navigate to a specific line in a file
+
+Type `?` into the input field to get a list of available commands you can execute from here:
+
+![Quick Open Help](images/userinterface/quickopenhelp.png)
+
 ## Configuring the Editor
 
-VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/customization/userandworkspace.md#settings-file-locations).
+VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/getstarted/userandworkspace.md#settings-file-locations).
 
 * Select **File** > **Preferences** > **User Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
 
@@ -119,23 +137,125 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 >**Note:** Workspace settings will override User settings and are useful for sharing project specific settings across a team.
 
-## Command Palette
+## Tabs
 
-VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all of the functionality of VS Code, including keyboard shortcuts for the most common operations.
+Visual Studio Code shows open items with Tabs (tabbed headings) in the title area above the editor.
 
-![Command Palette](images/userinterface/commands.png)
+When you open a file, a new Tab is added for that file.
 
-The Command Palette provides access to many commands. You can execute editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
+![tabs hero](images/userinterface/tabs-hero.png)
 
-* `kb(workbench.action.quickOpen)` will let you navigate to any file or symbol by simply typing its name
-* `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` will cycle you through the last set of files opened
-* `kb(workbench.action.showCommands)` will bring you directly to the editor commands
-* `kb(workbench.action.gotoSymbol)` will let you navigate to a specific symbol in a file
-* `kb(workbench.action.gotoLine)` will let you navigate to a specific line in a file
+Tabs let you quickly navigate between items and you can Drag and Drop Tabs to reorder them.
 
-Type `?` into the input field to get a list of available commands you can execute from here:
+When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a dropdown of tabbed items.
 
-![Quick Open Help](images/userinterface/quickopenhelp.png)
+If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/customization/userandworkspace.md) to false:
+
+```json
+    "workbench.editor.showTabs": false
+```
+
+See the section below to optimize VS Code when [working without Tabs](/docs/getstarted/userinterface.md#working-without-tabs).
+
+### Tab ordering
+
+By default, new Tabs are added to the right of the existing Tabs but you can control where you'd like new Tabs to appear with the `workbench.editor.openPositioning` setting.
+
+For example, you might like new tabbed items to appear on the left:
+
+```json
+    "workbench.editor.openPositioning": "left"
+```
+
+## Preview mode
+
+When you simply single-click or select a file in the Explorer, it is shown in a preview mode and reuses an existing Tab. This is useful if you are quickly browsing files and don't want every visited file to have its own Tab. When you start editing the file or use double-click to open the file from the Explorer, a new Tab is dedicated to that file.
+
+Preview mode is indicated by italics in the Tab heading:
+
+![preview mode](images/userinterface/preview-tab.png)
+
+If you'd prefer to not use preview mode and always create a new Tab, you can control the behavior with these settings:
+
+* `workbench.editor.enablePreview` to globally enable or disable preview editors
+* `workbench.editor.enablePreviewFromQuickOpen` to enable or disable preview editors when opened from **Quick Open**
+
+## Editor Groups
+
+When you split an editor (using the **Split Editor** or **Open to the Side** commands), a new editor region is created which can hold a group of items.  VS Code allows up to three editor groups which are designated **LEFT**, **CENTER**, and **RIGHT**.
+
+You can see these clearly in the **OPEN EDITORS** section at the top of the Explorer view:
+
+![tabs editor groups](images/userinterface/tabs-editor-groups.png)
+
+You can Drag and Drop editor groups on the workbench, move individual Tabs between groups and quickly close entire groups (**Close All**).
+
+>**Note:** VS Code uses editor groups whether or not you have enabled Tabs.  Without Tabs, editor groups are simply a stack of your open items with the most recently selected item visible in the editor pane.
+
+### Horizontal layout
+
+By default, editor groups are laid out in three vertical columns. If you prefer, you can change the layout to be three horizontal rows with editor groups designated **TOP**, **CENTER**, and **BOTTOM**.
+
+You can toggle the editor group layout between vertical and horizontal with:
+
+* **View** > **Toggle Editor Group Layout** menu
+* **View: Toggle Editor Group Vertical/ Layout** command in the **Command Palette** (`kb(workbench.action.showCommands)`)
+* Toggle button in the **OPEN EDITORS** tool bar
+* `kb(workbench.action.toggleEditorGroupLayout)` keyboard shortcut
+
+### Keyboard Shortcuts
+
+Here are some handy keyboard shortcuts to quickly navigate between editors and editor groups.
+
+>If you'd like to modify the default keyboard shortcuts, see [Key Bindings](/docs/customization/keybindings.md) for details.
+
+* `kb(workbench.action.nextEditor)` go to the right editor.
+* `kb(workbench.action.previousEditor)` go to the left editor.
+* `kb(workbench.action.openNextRecentlyUsedEditorInGroup)` open the next editor in the editor group MRU list.
+* `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` open the previous editor in the editor group MRU list.
+* `kb(workbench.action.focusFirstEditorGroup)` go to the leftmost editor group.
+* `kb(workbench.action.focusSecondEditorGroup)` go to the center editor group.
+* `kb(workbench.action.focusThirdEditorGroup)` go to the rightmost editor group.
+* `kb(workbench.action.focusPreviousGroup)` go to the previous editor group.
+* `kb(workbench.action.focusNextGroup)` go to the next editor group.
+* `kb(workbench.action.closeActiveEditor)` close the active editor.
+* `kb(workbench.action.closeEditorsInGroup)` close all editors in the editor group.
+* `kb(workbench.action.closeAllEditors)` close all editors.
+
+## Working without Tabs
+
+If you prefer not to use Tabs (tabbed headings), you can disable Tabs (tabbed headings) entirely by setting `workbench.editor.showTabs` to false.
+
+### Disable Preview mode
+
+Without Tabs, the **OPEN EDITORS** section of the File Explorer is a quick way to do file navigation.  With [preview editor mode](/docs/editor/tabs.md#preview-mode), files are not added to the **OPEN EDITOR** list nor editor group on single-click open. You can disable this feature through the `workbench.editor.enablePreview` and `workbench.editor.enablePreviewFromQuickOpen` settings.
+
+### Ctrl+Tab to navigate in entire editor history
+
+You can change keybindings for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history independent from the active editor group.
+
+Edit your [keybindings](/docs/customization/keybindings.md) and add the following:
+
+```json
+{ "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
+{ "key": "ctrl+tab", "command": "workbench.action.quickOpenNavigateNext", "when": "inQuickOpen" },
+```
+
+### Close an entire group instead of a single editor
+
+If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/customization/keybindings.md).
+
+Mac:
+
+```json
+{ "key": "cmd+w", "command": "workbench.action.closeEditorsInGroup" }
+```
+
+Windows/Linux:
+
+```json
+{ "key": "ctrl+w", "command": "workbench.action.closeEditorsInGroup" }
+```
 
 ## Window Management
 
