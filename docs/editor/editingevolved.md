@@ -11,35 +11,17 @@ MetaDescription: Visual Studio Code is a first class editor - but it's also so m
 
 Visual Studio Code has a high productivity code editor which, when combined with programming language services, gives you the power of an IDE and the speed of a text editor. In this topic, we'll first describe VS Code's language intelligence features (suggestions, parameter hints, smart code navigation) and then show the power of the core text editor.
 
-## Editing - Smart
+## Quick File Navigation
 
-VS Code comes with a built-in JavaScript/TypeScript language service so you get JavaScript and TypeScript code intelligence out-of-the-box. For other languages, like Go, Python, and C#, you will need to install an extension for deep language service integration. Language services provide the code understanding necessary for features like IntelliSense (suggestions) and smart code navigation (Go to Definition, Find All References, Rename Symbol).  Different language extensions provide different levels of support for VS Code's language features but rest assured the community is very active adding new languages and great functionality. Learn more about installing VS Code extensions in our [Extensions Marketplace](/docs/editor/extension-gallery.md) topic and visit the [Marketplace](https://marketplace.visualstudio.com/VSCode) to see what's available for your favorite programming languages.
+The Explorer is great for navigating between files when you are exploring a project. However, when you are working on a task, you will find yourself quickly jumping between the same set of files. VS Code provides two powerful commands to navigate in and across files with easy-to-use key bindings.
 
-![IntelliSense](images/editingevolved/javascript-intellisense.png)
+Hold `kbstyle(Ctrl)` and press `kbstyle(Tab)` to view a list of all files open in an editor group. To open one of these files, use `kbstyle(Tab)` again to pick the file you want to navigate to, then release `kbstyle(Ctrl)` to open it.
 
-## IntelliSense
+![Quick Navigation](images/editingevolved/quicknav.png)
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
+Alternatively, you can use `kb(workbench.action.navigateBack)` and `kb(workbench.action.navigateForward)` to navigate between files and edit locations. If you are jumping around between different lines of the same file, these shortcuts allow you to navigate between those locations easily.
 
-> **Tip:** The suggestions filtering supports CamelCase so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
-
-> **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/customization/userandworkspace.md).
-
-JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/runtimes/nodejs#_intellisense-and-typings) walkthrough.
-
-Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
-
-## Parameter Hints
-
-In JavaScript, TypeScript or C#, parameter hints will pop up as you're typing a method invocation. You can navigate between different overloads with `kbstyle(Up)` and `kbstyle(Down)` and the best overload will be presented based on the arguments you pass in.
-
-![Parameter Hints](images/editingevolved/parameterhints.png)
-
-## Hover
-
-For languages that support it, the hover will show useful information, such as types of symbols, or, in the case of CSS below, the shape of the HTML that would match a certain CSS rule:
-
-![Hover](images/editingevolved/hover.png)
+>**Tip:** You can open any file by its name when you type `kb(workbench.action.quickOpen)` (**Quick Open**).
 
 ## Go to Definition
 
@@ -118,20 +100,6 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 > **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.next)` or `kb(editor.action.marker.prev)` which will show an inline zone detailing the problem and possible code actions (if available):
 
 ![Errors and Warnings Inline](images/editingevolved/errorsinline.png)
-
-## Folding
-
-You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions. The folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
-
-You can also use the following actions:
-
- * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
- * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
- * Fold All (`kb(editor.foldAll)`) folds all region in the editor
- * Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
- * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position
-
-![Folding](images/editingevolved/folding.png)
 
 ## Next Steps
 
