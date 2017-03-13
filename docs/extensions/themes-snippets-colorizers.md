@@ -7,20 +7,73 @@ PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
 DateApproved: 3/1/2017
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code.  TextMate .tmLanguage files are supported.
 ---
+# Themes, Snippets and Colizers
 
-# Adding Language Colorization
+TBD
 
-VS Code includes support for [many languages](/docs/languages/overview.md) in the box giving great syntax highlighting (colorization), bracket matching and more. You and the community can also add new languages to VS Code.  This topic explains how to install new languages from the Extension Marketplace as well as create your own.
+## Using TextMate Snippets
 
-## Adding Colorizers from the Marketplace
+You can also add TextMate snippets (.tmSnippets) to your VS Code installation using the [yo code](/docs/tools/yocode.md) extension generator. The generator has an option `New Code Snippets` which lets you point to a folder containing multiple .tmSnippets files and they will be packaged into a VS Code snippet extension.  The generator also supports Sublime snippets (.sublime-snippets). 
 
-Many language colorizers have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new language will be available.
+The final generator output has two files: an extension manifest `package.json` which has metadata to integrate the snippets into VS Code and a `snippets.json` file which includes the snippets converted to the VS Code snippet format.
 
-> **Tip:** To search for language support for a specific language, type the language name in the Extensions view (`kb(workbench.view.extensions)`) search box.
+```bash
+.
+├── snippets                    // VS Code integration
+│   └── snippets.json           // The JSON file w/ the snippets
+└── package.json                // extension's manifest
+```
 
-You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Languages) site directly to find available colorizers and language support.
+Copy the generated snippets folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.
 
-## Adding a New Language
+## Sharing Your Snippets in the Marketplace
+
+Once you have created your snippets and tested them out, you can share them with the community.
+
+To do this, you need to create a snippet extension.  If you've used the `yo code` extension generator, your snippet extension is ready to be published.
+
+If you want to share user snippets, you'll need to package your snippet json file along with an extension manifest which has the necessary metadata to integrate the snippets into VS Code.
+
+Depending on your platform, your user snippets file is located here:
+
+* **Windows** `%APPDATA%\Code\User\snippets\(language).json`
+* **Mac** `$HOME/Library/Application Support/Code/User/snippets/(language).json`
+* **Linux** `$HOME/.config/Code/User/snippets/(language).json`
+
+where `(language).json` depends on the targeted language of the snippets (e.g. `markdown.json` for Markdown snippets).  Create a new folder for your extension and copy your snippet file to a `snippets` subdirectory.
+
+Now add an extension manifest package.json file to the extension folder.  The snippet extension manifest follows the structure defined in the [Extension Manifest](/docs/extensionAPI/extension-manifest.md) reference and provides a [`snippets` contribution](/docs/extensionAPI/extension-points.md#contributessnippets).
+
+Below is an example manifest for Markdown snippets:
+
+```json
+{
+    "name": "DM-Markdown",
+    "publisher": "mscott",
+    "description": "Dunder Mifflin Markdown snippets",
+    "version": "0.1.0",
+    "engines": { "vscode": "0.10.x" },
+    "categories": ["Snippets"], 
+    "contributes": {
+        "snippets": [
+            {
+                "language": "markdown",
+                "path": "./snippets/markdown.json"
+            }
+        ]
+    }
+}
+```
+
+Note that snippets need to be associated with a `language` identifier.  This can be a [language supported](/docs/languages/overview.md) directly by VS Code or a language provided by an extension.  Make sure the `language` identifier is correct.
+
+You then use the [vsce publishing tool](/docs/tools/vscecli.md) to publish the snippet extension to the [VS Code Extension Marketplace](/docs/editor/extension-gallery.md).
+
+> **Tip:** To make it easy for users to find your snippet, include the word "snippet" in the extension description and set the `Category` to `Snippets` in your `package.json`.
+
+We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
+
+## Adding a New Language (Colorizer)
 
 Using the ['code' Yeoman generator](/docs/tools/yocode.md), you can create an extension that adds syntax highlighting and bracket matching for a language to your VS Code installation.
 
@@ -122,6 +175,10 @@ Colorizers are just one way to customize VS Code, If you'd like to learn more ab
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
 
 ## Common Questions
+
+**Q: I created a snippets extension but they aren't showing up in the VS Code editor?**
+
+**A:** Be sure you have correctly specified the `language` identifier for your snippet (e.g. `markdown` for Markdown .md files, `plaintext` for Plain Text .txt files).  Also verify that the relative path to the snippets json file is correct.
 
 **Q: Can I add more file extensions to my colorizer?**
 
