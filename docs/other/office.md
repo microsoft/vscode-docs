@@ -119,7 +119,7 @@ Check out the other pages on the VS Code site to find out how you can leverage m
 - [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what VS Code has to offer.
 - [The Basics](/docs/editor/codebasics.md) - Just starting out with VS Code? This is worth reviewing.
 - [Editing Evolved](/docs/editor/editingevolved.md) - Review all the ways VS Code can help you in editing.
-- [Node.js](/docs/Runtimes/nodejs.md) - Find out more about our Node.js support.
+- [Node.js](/docs/nodejs/nodejs-tutorial.md) - Find out more about our Node.js support.
 
 
 

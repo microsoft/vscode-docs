@@ -77,7 +77,7 @@ Once you have installed and set up VS Code, these topics will help you learn mor
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Go To Definition and more
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
 
-If you'd like to getting something running quickly, try the [Node.js runtime](/docs/runtimes/nodejs.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
+If you'd like to getting something running quickly, try the [Node.js runtime](/docs/nodejs/nodejs-tutorial.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
 
 ## Common Questions
 

@@ -116,7 +116,7 @@ We'll always offer word completion, but for the rich [languages](/docs/languages
 
 > **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/customization/userandworkspace.md).
 
-JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/runtimes/nodejs#_intellisense-and-typings) walkthrough.
+JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial#_intellisense-and-typings) walkthrough.
 
 Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
 

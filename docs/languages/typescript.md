@@ -104,7 +104,7 @@ If you have [Node.js](https://nodejs.org) installed, you can run your simple Hel
 node HelloWorld.js
 ```
 
-> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging node apps in VS Code can be found [here](/docs/runtimes/nodejs#_debugging-your-node-application)
+> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging node apps in VS Code can be found [here](/docs/nodejs/nodejs-tutorial#_debugging-your-node-application)
 
 ### Step 4: Reviewing Build Issues
 

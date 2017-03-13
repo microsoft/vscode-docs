@@ -426,7 +426,7 @@ Here are some things to try when your breakpoints turn gray:
 * Do you have `"sourceMaps": false` in your `launch.json`?
 * Did you build with source maps enabled? Are there `.js.map` files, or inlined source maps in your `.js` files?
 * Did you set the `outFiles` property in your `launch.json`? It should be a glob pattern for an absolute path that matches your `.js` files.
-* Try the new [Inspector Protocol](/docs/editor/node-debugging.md#debugging-with-inspector-protocol) implementation. It can handle some more of the more complex source map cases.
+* Try the new [Inspector Protocol](/docs/nodejs/nodejs-debugging.md#debugging-with-inspector-protocol) implementation. It can handle some more of the more complex source map cases.
 * Are the `sourceRoot` and `sources` properties in your source map correct? Can they be combined to get the correct path to the `.ts` file?
 * Are you using Webpack? By default, it outputs paths with a `webpack:///` prefix, which the debug adapter can't resolve. You can change this in your Webpack configuration with the `devtoolModuleFilenameTemplate` option, or try using the 'inspector' protocol, which provides some extra options for resolving these paths.
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
@@ -437,7 +437,7 @@ Here are some things to try when your breakpoints turn gray:
 
 In case you didn't already read the Node.js section, take a look at:
 
-* [Node.js](/docs/runtimes/nodejs.md) - End to end Node scenario with a sample application
+* [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node scenario with a sample application
 
 To see a tutorial on the basics of Node.js debugging, check out:
 

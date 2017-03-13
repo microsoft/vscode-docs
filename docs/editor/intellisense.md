@@ -128,7 +128,7 @@ A particular language extension may not support all the VS Code IntelliSense fea
 IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 * [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
-* [Node.js](/docs/runtimes/nodejs.md#intellisense-and-typings) - See an example of IntelliSense in action in the Node.js walkthrough.
+* [Node.js](/docs/nodejs/nodejs-tutorial.md#intellisense-and-typings) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 
 ## Common Questions

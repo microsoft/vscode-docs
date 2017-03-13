@@ -124,7 +124,7 @@ You can debug your client side code using a browser debugger such as [Debugger f
 
 ### Debug Server Side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a walk-through for Node.js debugging [here](/docs/runtimes/nodejs.md#debugging-your-express-application).
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a walk-through for Node.js debugging [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application).
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
@@ -266,7 +266,7 @@ Read on to find out about:
 * [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
 * [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
-* [Node.js](/docs/runtimes/nodejs.md) - A walkthrough to create an Express Node.js application.
+* [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript which brings structure and strong typing to your JavaScript code.
 
 Watch these introductory videos:
@@ -309,7 +309,7 @@ When you want to use ES6 style imports but the typings do not yet use ES6 style 
 
 **Q: Can I debug minified/uglified JavaScript?**
 
-**A:** Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/editor/node-debugging.md) topic.
+**A:** Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) topic.
 
 **Q: How do I disable Syntax Validation when using non ES6 constructs?**
 

@@ -416,7 +416,7 @@ Now that you know about our Key binding support, what's next...
 * [Customization](/docs/customization/overview.md) - Configure Code the way you want - Themes, Settings and more
 * [Language Support](/docs/languages/overview.md) - Our Good, Better, Best language grid to see what you can expect
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Node.js](/docs/runtimes/nodejs.md) - End to end Node.js scenario with a sample app
+* [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node.js scenario with a sample app
 
 ## Common Questions
 
