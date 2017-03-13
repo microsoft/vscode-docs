@@ -33,7 +33,7 @@ Each time you start VS Code, it opens up in the same state it was in when you la
 
 ![VS Code Layout](images/userinterface/layout.png)
 
-VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side. The open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/editor/tabs.md) topic.
+VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side. The open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
@@ -86,7 +86,7 @@ You can also navigate to the location of a file or folder in the native Explorer
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
-By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/customization/userandworkspace.md) to configure rules for hiding files and folders from the explorer.
+By default, VS Code excludes some folders from the explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/getstarted/settings.md) to configure rules for hiding files and folders from the explorer.
 
 **Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
@@ -123,7 +123,7 @@ Type `?` into the input field to get a list of available commands you can execut
 
 ## Configuring the Editor
 
-VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/getstarted/userandworkspace.md#settings-file-locations).
+VS Code gives you many options to configure the editor. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/getstarted/settings.md#settings-file-locations).
 
 * Select **File** > **Preferences** > **User Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
 
@@ -131,7 +131,7 @@ VS Code gives you many options to configure the editor. You can set options glob
 
 >**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **User Settings**.
 
-You will see the VS Code [Default Settings](/docs/getstarted/userandworkspace.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily filter settings in the `Default Settings` using the search box at the top. Copy a setting over to the editable `settings.json` on the right by clicking on the edit icon after the setting. Settings with a fixed set values allow you to pick a value as part of their edit icon menu.
+You will see the VS Code [Default Settings](/docs/getstarted/settings.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily filter settings in the `Default Settings` using the search box at the top. Copy a setting over to the editable `settings.json` on the right by clicking on the edit icon after the setting. Settings with a fixed set values allow you to pick a value as part of their edit icon menu.
 
 After editing your settings, type `kb(workbench.action.files.save)` to save your changes. The changes will take effect immediately.
 
@@ -149,7 +149,7 @@ Tabs let you quickly navigate between items and you can Drag and Drop Tabs to re
 
 When you have more open items than can fit in the title area, you can use the **Show Opened Editors** command (available through the `...` More button) to display a dropdown of tabbed items.
 
-If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/customization/userandworkspace.md) to false:
+If you don't want to use Tabs, you can disable the feature by setting the `workbench.editor.showTabs` [setting](/docs/getstarted/settings.md) to false:
 
 ```json
     "workbench.editor.showTabs": false
@@ -207,7 +207,7 @@ You can toggle the editor group layout between vertical and horizontal with:
 
 Here are some handy keyboard shortcuts to quickly navigate between editors and editor groups.
 
->If you'd like to modify the default keyboard shortcuts, see [Key Bindings](/docs/customization/keybindings.md) for details.
+>If you'd like to modify the default keyboard shortcuts, see [Key Bindings](/docs/getstarted/keybindings.md) for details.
 
 * `kb(workbench.action.nextEditor)` go to the right editor.
 * `kb(workbench.action.previousEditor)` go to the left editor.
@@ -228,13 +228,13 @@ If you prefer not to use Tabs (tabbed headings), you can disable Tabs (tabbed he
 
 ### Disable Preview mode
 
-Without Tabs, the **OPEN EDITORS** section of the File Explorer is a quick way to do file navigation.  With [preview editor mode](/docs/editor/tabs.md#preview-mode), files are not added to the **OPEN EDITOR** list nor editor group on single-click open. You can disable this feature through the `workbench.editor.enablePreview` and `workbench.editor.enablePreviewFromQuickOpen` settings.
+Without Tabs, the **OPEN EDITORS** section of the File Explorer is a quick way to do file navigation.  With [preview editor mode](/docs/getstarted/userinterface.md#preview-mode), files are not added to the **OPEN EDITOR** list nor editor group on single-click open. You can disable this feature through the `workbench.editor.enablePreview` and `workbench.editor.enablePreviewFromQuickOpen` settings.
 
 ### Ctrl+Tab to navigate in entire editor history
 
 You can change keybindings for `kbstyle(Ctrl+Tab)` to show you a list of all opened editors from the history independent from the active editor group.
 
-Edit your [keybindings](/docs/customization/keybindings.md) and add the following:
+Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
 
 ```json
 { "key": "ctrl+tab", "command": "workbench.action.openPreviousEditorFromHistory" },
@@ -243,7 +243,7 @@ Edit your [keybindings](/docs/customization/keybindings.md) and add the followin
 
 ### Close an entire group instead of a single editor
 
-If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/customization/keybindings.md).
+If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/getstarted/keybindings.md).
 
 Mac:
 

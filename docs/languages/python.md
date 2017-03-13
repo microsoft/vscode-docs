@@ -57,7 +57,7 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 
 ## Snippets
 
-Snippets will take productivity to the next level. You can configure [your own snippets](/docs/customization/userdefinedsnippets.md) and use snippets provided by an extension. 
+Snippets will take productivity to the next level. You can configure [your own snippets](/docs/editor/userdefinedsnippets.md) and use snippets provided by an extension. 
 
 <video id="python-snippets-video" src="https://az754404.vo.msecnd.net/public/python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
 

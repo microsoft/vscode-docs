@@ -61,7 +61,7 @@ We think there's nothing worse than a big context switch when all you want is to
 
 You can navigate between different references in the peeked editor and make quick edits right there. Clicking on the peeked editor filename or double-clicking in the result list will open the reference in the outer editor.
 
-> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/customization/userandworkspace.md).
+> **Tip:** Additionally, the peek window is closed if you press `kbstyle(Escape)` or double-click in the peek editor region. You can disable this behavior with the `editor.stablePeek` [setting](/docs/getstarted/settings.md).
 
 ## Bracket matching
 
@@ -107,7 +107,6 @@ Now that you know how the editor works, time to try a few other things...
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features. 
 * [The Basics](/docs/editor/codebasics.md) - In case you missed a basic orientation around VS Code.
-* [Customization](/docs/customization/overview.md) - Configure VS Code the way you want - Themes, Settings, Display Language
-* [Key Bindings](/docs/customization/keybindings.md) - Learn how to modify key bindings to your preference.
+* [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 

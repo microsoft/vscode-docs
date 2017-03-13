@@ -15,7 +15,7 @@ Color themes let you modify VS Code's background, text, and language syntax colo
 
 ## Selecting the Color Theme
 
-The current color theme is configured in the [settings](/docs/customization/userandworkspace.md).
+The current color theme is configured in the [settings](/docs/getstarted/settings.md).
 
 ```javascript
   // Specifies the color theme used in the workbench.
@@ -51,7 +51,7 @@ File icon themes can be contributed by extensions and selected by users as their
 
 ## Selecting the File Icon Theme
 
-The current File Icon theme is persisted in your user [settings](/docs/customization/userandworkspace.md).
+The current File Icon theme is persisted in your user [settings](/docs/getstarted/settings.md).
 
 ```javascript
   // Specifies the icon theme used in the workbench.
@@ -76,6 +76,5 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 Themes are just one way to customize VS Code. If you'd like to learn more about VS Code extensibility, try these topics:
 
-* [Colorizers and Bracket Matchers](/docs/customization/colorizer.md) - Learn how to import TextMate colorizers
-* [Snippets](/docs/customization/userdefinedsnippets.md) - Add additional snippets to your favorite language
+* [Snippets](/docs/editor/userdefinedsnippets.md) - Add additional snippets to your favorite language
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code

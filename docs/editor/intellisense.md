@@ -76,7 +76,7 @@ You can customize your IntelliSense experience in settings and key bindings.
 
 ### Settings
 
-The settings shown below are the default settings. You can change these settings in your `settings.json` file as described in [User and Workspace Settings](/docs/customization/userandworkspace.md).
+The settings shown below are the default settings. You can change these settings in your `settings.json` file as described in [User and Workspace Settings](/docs/getstarted/settings.md).
 
 ```javascript
 {
@@ -101,7 +101,7 @@ By default, VS Code shows snippets and completion proposals in one widget. You c
 
 ### Key Bindings
 
-The key binding shown below is the default key binding. You can change this key binding in your `keybindings.json` file as described in [Key Bindings](/docs/customization/keybindings.md).
+The key binding shown below is the default key binding. You can change this key binding in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
 
 > **Note:** There are many more key bindings relating to IntelliSense. Simply open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 
@@ -128,7 +128,7 @@ A particular language extension may not support all the VS Code IntelliSense fea
 IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 * [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
-* [Node.js](/docs/runtimes/nodejs.md#intellisense-and-typings) - See an example of IntelliSense in action in the Node.js walkthrough.
+* [Node.js](/docs/nodejs/nodejs-tutorial.md#intellisense-and-typings) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 
 ## Common Questions

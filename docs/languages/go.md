@@ -21,7 +21,7 @@ You can install the Go extension from the VS Code [Marketplace](https://marketpl
 
 As you type in a Go file, you can see IntelliSense providing you with suggested completions. This even works for members in current, imported, and not yet imported packages. Just type any package name followed by `.`, and you will get suggestions for the corresponding package members.
 
-By setting `go.autocompleteUnimportedPackages` to `true` in your [settings](/docs/customization/userandworkspace.md), you can also get suggestion for packages that you could import. Select one of these suggestions and an import to the selected package will be added to your file.
+By setting `go.autocompleteUnimportedPackages` to `true` in your [settings](/docs/getstarted/settings.md), you can also get suggestion for packages that you could import. Select one of these suggestions and an import to the selected package will be added to your file.
 
 >**Tip**: Use `kb(editor.action.triggerSuggest)` to trigger the suggestions manually.
 

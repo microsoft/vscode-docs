@@ -11,7 +11,7 @@ MetaSocialImage: csharp_languages_csharp.png
 
 # Working with C&#35;
 
-The C# support in VS Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/runtimes/dotnet.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance, many [Unity](/docs/runtimes/unity.md) game developers enjoy using VS Code in place of the MonoDevelop IDE.
+The C# support in VS Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/other/dotnet.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance, many [Unity](/docs/other/unity.md) game developers enjoy using VS Code in place of the MonoDevelop IDE.
 
 ![C# language within VS Code](images/csharp/c_sharp_hero.png)
 
@@ -79,7 +79,7 @@ We have several built-in snippets included in VS Code that will come up as you t
 
 ![Snippets](images/csharp/snippet.png)
 
->**Tip:** You can add in your own User Defined Snippets for C#.  Take a look at [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for C#.  Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
 ## Search for Symbols
 
@@ -95,7 +95,7 @@ Another cool feature is the ability to see the number of references to a method 
 
 ![CodeLens](images/csharp/codelens.png)
 
->**Tip:** You can turn off references information displayed in CodeLens with the `editor.codeLens` [setting](/docs/customization/userandworkspace.md).
+>**Tip:** You can turn off references information displayed in CodeLens with the `editor.codeLens` [setting](/docs/getstarted/settings.md).
 
 ## Find References/Peek Definition
 
@@ -113,7 +113,7 @@ There are some basic quick fixes supported in VS Code.  You will see a lightbulb
 
 Read on to find out about:
 
-* [.NET Core Development](/docs/runtimes/dotnet.md) - get up and running with cross-platform .NET
+* [.NET Core Development](/docs/other/dotnet.md) - get up and running with cross-platform .NET
 * [Editing Evolved](/docs/editor/editingevolved.md) - find out more about advanced editing features
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project

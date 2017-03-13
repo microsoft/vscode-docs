@@ -23,7 +23,7 @@ The menu under **File** > **Preferences** (**Code** > **Preferences** on Mac) pr
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
-![Example Settings](images/userandworkspace/settings.png)
+![Example Settings](images/settings/settings.png)
 
 Changes to settings are reloaded by VS Code after the modified `settings.json` file is saved.
 
@@ -49,19 +49,19 @@ When you open settings, we show **Default Settings** to search and discover sett
 
 Default settings are represented in groups so that you can navigate them easily. It has **Most Commonly Used** group on the top to see the most common customizations done by VS Code users.
 
-![Settings Groups](images/userandworkspace/settings-groups.png)
+![Settings Groups](images/settings/settings-groups.png)
 
-Here is the [copy of default settings](/docs/customization/userandworkspace.md#copy-of-default-settings) that comes with VS Code.
+Here is the [copy of default settings](/docs/getstarted/settings.md#copy-of-default-settings) that comes with VS Code.
 
 ## Language specific editor settings
 
 To customize your editor by language, run the global command **Preferences: Configure language specific settings...** (command id: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Selecting the language you want, opens the Settings editor with the language entry where you can add applicable settings.
 
-![Language mode for File](images/userandworkspace/pref-config-lang-settings.png)
+![Language mode for File](images/settings/pref-config-lang-settings.png)
 
-![Language mode for File](images/userandworkspace/lang-selection.png)
+![Language mode for File](images/settings/lang-selection.png)
 
-![Language mode for File](images/userandworkspace/lang-based-settings.png)
+![Language mode for File](images/settings/lang-based-settings.png)
 
 If you have a file open and you want to customize the editor for this file type, click on the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings...**. Selecting this opens the Settings editor with the language entry where you can add applicable settings.
 

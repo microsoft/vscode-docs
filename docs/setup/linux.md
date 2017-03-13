@@ -89,7 +89,7 @@ Node.js is a popular platform and runtime for easily building and running JavaSc
 
 If you'd like to install Node.js on Linux, see [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your Linux distribution.
 
-To learn more about JavaScript and Node.js, see our [Node.js walkthrough](/docs/runtimes/nodejs.md) where you'll learn about running and debugging Node.js applications with VS Code.
+To learn more about JavaScript and Node.js, see our [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) where you'll learn about running and debugging Node.js applications with VS Code.
 
 ## Setting VS Code as the default text editor
 
@@ -115,7 +115,7 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
 * [The Basics](/docs/editor/codebasics.md) - A quick orientation around VS Code.
-* [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through settings.
+* [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 
 ## Common Questions
 

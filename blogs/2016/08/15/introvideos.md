@@ -20,7 +20,7 @@ To help new users, today we are announcing a set of introductory videos. These v
 
 ## Take a Look
 
-Navigate to [Intro Videos - Overview](/docs/introvideos/overview.md) to get started. 
+Navigate to [Intro Videos - Overview](/docs/getstarted/introvideos.md) to get started. 
 
 Below is the first video covering downloading, installing, and the basics of using VS Code:
 

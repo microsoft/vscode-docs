@@ -64,7 +64,7 @@ You can see the list of currently installed languages and their identifiers in t
 
 ## Adding a file extension to a Language
 
-You can add new file extensions to an existing language with the `files.associations` [setting](/docs/customization/userandworkspace.md).
+You can add new file extensions to an existing language with the `files.associations` [setting](/docs/getstarted/settings.md).
 
 For example, the setting below adds the `.myphp` file extension to the `php` language identifier:
 
@@ -82,9 +82,8 @@ IntelliSense (`kb(editor.action.triggerSuggest)`) will show you the available la
 
 Now you know that VS Code has support for the languages you care about. Read on...
 
-* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Go to Definition and more
+* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Go to Definition and more
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Customization](/docs/customization/overview.md) - themes, settings and keyboard bindings
 
 ## Common Questions
 
@@ -94,11 +93,11 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **Q: What if I don't want to create a full language service, can I reuse existing TextMate bundles?**
 
-**A:** Yes, you can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/customization/colorizer.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code. 
+**A:** Yes, you can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/extensions/thmemes-snippets-colorizers.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code. 
 
 **Q: Can I map additional file extensions to a language?**
 
-**A:** Yes, with the `files.associations` [setting](/docs/customization/userandworkspace.md) you can map file extensions to an existing language either globally or per workspace.
+**A:** Yes, with the `files.associations` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
 
 Here is an example that will associate more file extensions to the PHP language:
 

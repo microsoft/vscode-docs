@@ -67,7 +67,7 @@ In order to support syntax highlighting, your extension needs to registers a Tex
 
 ![Snippets at work](images/language-support/snippets.gif)
 
-With code snippets, you can provide useful source code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file. You can learn about VS Code's snippet schema in [Creating Your Own Snippets](/docs/customization/userdefinedsnippets.md#creating-your-own-snippets).
+With code snippets, you can provide useful source code templates with placeholders. You need to register a file that contains the snippets for your language in your extension's `package.json` file. You can learn about VS Code's snippet schema in [Creating Your Own Snippets](/docs/editor/userdefinedsnippets.md#creating-your-own-snippets).
 
 ```json
 "contributes": {
@@ -902,7 +902,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 Provide the user with support for formatting text as they type.
 
-**Note**: The user [setting](/docs/customization/userandworkspace.md) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
+**Note**: The user [setting](/docs/getstarted/settings.md) `editor.formatOnType` controls whether source code gets formatted or not as the user types.
 
 ![Document Formatting at Work](images/language-support/format-on-type.gif)
 

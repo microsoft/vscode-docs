@@ -65,7 +65,7 @@ You can quickly look for extension updates by using the **Show Outdated Extensio
 
 ## Auto Update Extensions
 
-If you would like your installed extensions to be updated automatically, you can use the `extensions.autoUpdate` [setting](/docs/customization/userandworkspace.md). When set to `true`, VS Code will download new versions of outdated extensions automatically and you will just need to restart VS Code when you see the blue **Enable** button in the Installed Extensions list.
+If you would like your installed extensions to be updated automatically, you can use the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md). When set to `true`, VS Code will download new versions of outdated extensions automatically and you will just need to restart VS Code when you see the blue **Enable** button in the Installed Extensions list.
 
 ## Disable an Extension
 
@@ -133,7 +133,6 @@ VS Code prompts a user to install the recommended extensions when a workspace is
 Here are a few topics you may find interesting...
 
 * [Publishing to the Marketplace](/docs/tools/vscecli.md) - Publish your own customization or extension to the VS Code Marketplace
-* [Customization](/docs/customization/overview.md) - Learn how to integrate TextMate themes, colorizers and snippets into Visual Studio Code.
 * [Yo Code](/docs/tools/yocode.md) - Learn how the Yo Code extension generator can scaffold out new extensions and package existing TextMate files.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension

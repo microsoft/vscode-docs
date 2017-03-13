@@ -127,7 +127,7 @@ To configure Unity to pass this data to VS Code, set the Editor Args to be `. -g
 
 **A:** Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
 
-To do this, add the following JSON to your [workspace settings](/docs/customization/userandworkspace.md).
+To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).
 
 ```json
     // Configure glob patterns for excluding files and folders.

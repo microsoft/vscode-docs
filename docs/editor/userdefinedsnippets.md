@@ -105,10 +105,9 @@ text        ::= .*
 
 TBD
 
-* [Colorizers and Bracket Matchers](/docs/customization/colorizer.md) - Learn how to import TextMate colorizers
-* [Custom themes](/docs/customization/themes.md) - Learn how to import existing TextMate themes.
+* [Custom themes](/docs/extensions/themes-snippets-colorizers.md) - Learn how to import existing TextMate themes.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
-* [Editing Evolved](/docs/editor/editingevolved.md) - Learn more about the VS Code editor's capabilities
+* [Code Navigation](/docs/editor/editingevolved.md) - Learn more about the VS Code editor's capabilities
 
 ## Common Questions
 

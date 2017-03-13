@@ -35,7 +35,7 @@ Below are links to the three platform-specific versions:
 
 ## Basic Editing
 
->**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/customization/keybindings.md#keyboard-layouts).
+>**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts).
 
 Key|Command|Command id
 ---|-------|----------
@@ -413,10 +413,9 @@ There is also a widget that helps input the key binding rule when editing `keybi
 
 Now that you know about our Key binding support, what's next...
 
-* [Customization](/docs/customization/overview.md) - Configure Code the way you want - Themes, Settings and more
 * [Language Support](/docs/languages/overview.md) - Our Good, Better, Best language grid to see what you can expect
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Node.js](/docs/runtimes/nodejs.md) - End to end Node.js scenario with a sample app
+* [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node.js scenario with a sample app
 
 ## Common Questions
 

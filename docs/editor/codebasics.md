@@ -51,7 +51,7 @@ Key|Command|Command id
 `kb(cursorColumnSelectPageDown)`|Column Select Page Down|`cursorColumnSelectPageDown`
 `kb(cursorColumnSelectPageUp)`|Column Select Page Up|`cursorColumnSelectPageUp`
 
-You can [edit](/docs/customization/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
+You can [edit](/docs/getstarted/keybindings.md) your `keybindings.json` to bind them to something more familiar if you wish.
 
 ## Save / Auto Save
 
@@ -110,13 +110,13 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ## IntelliSense
 
-We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/customization/keybindings.md).
+We'll always offer word completion, but for the rich [languages](/docs/languages/overview.md), such as JavaScript, JSON, HTML, CSS, Less, Sass, C# and TypeScript, we offer a true IntelliSense experience. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. You can always manually trigger it with `kb(editor.action.triggerSuggest)`.  By default, `kbstyle(Tab)` or `kbstyle(Enter)` are the accept keyboard triggers but you can also [customize these key bindings](/docs/getstarted/keybindings.md).
 
 > **Tip:** The suggestions filtering supports CamelCase so you can type the letters which are upper cased in a method name to limit the suggestions. For example, "cra" will quickly bring up "createApplication".
 
-> **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/customization/userandworkspace.md).
+> **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/getstarted/settings.md).
 
-JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/runtimes/nodejs#_intellisense-and-typings) walkthrough.
+JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md#_intellisense-and-typings) tutorial.
 
 Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
 
@@ -157,12 +157,11 @@ Then choose an encoding.
 You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
 
 * [Intro Video - Setup and Basics](/docs/introvideos/basics.md) - Watch a tutorial on the basics of VS Code.
-* [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
-* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition, and more
+* [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through user and workspace settings.
+* [Code Navigation](/docs/editor/editingevolved.md) - Peek and Goto Definition, and more
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) - Learn about the integrated terminal for quickly performing command line tasks from within VS Code.
 * [IntelliSense](/docs/editor/intellisense.md) - VS Code brings smart code completions.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Customization](/docs/customization/overview.md) - Themes, settings, and keyboard bindings
 
 ## Common Questions
 
@@ -174,7 +173,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: How do I turn on word wrap?**
 
-**A:** You can control word wrap through the `editor.wrappingColumn` [setting](/docs/customization/userandworkspace.md). By default `editor.wrappingColumn` is set to 300 characters.  You can adjust the column width or set the value to zero to wrap on the editor viewport width:
+**A:** You can control word wrap through the `editor.wrappingColumn` [setting](/docs/getstarted/settings.md). By default `editor.wrappingColumn` is set to 300 characters.  You can adjust the column width or set the value to zero to wrap on the editor viewport width:
 
 ```json
     "editor.wrappingColumn": 0
@@ -186,4 +185,4 @@ You can also add vertical column rulers to the editor with the `editor.rulers` s
 
 **Q: How can I show more files in the OPEN EDITORS section?**
 
-**A:** You can configure the appearance of **OPEN EDITORS** through your [settings](/docs/customization/userandworkspace.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.openEditors.visible` setting and whether the **OPEN EDITORS** section should dynamically set its height via `explorer.openEditors.dynamicHeight`.
+**A:** You can configure the appearance of **OPEN EDITORS** through your [settings](/docs/getstarted/settings.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.openEditors.visible` setting and whether the **OPEN EDITORS** section should dynamically set its height via `explorer.openEditors.dynamicHeight`.

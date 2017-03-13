@@ -26,7 +26,7 @@ For the details of how JavaScript IntelliSense works, including being based on t
 
 When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported. In addition to objects, methods, and properties, the JavaScript IntelliSense window also provides basic word completion for the symbols in your file. 
 
-VS Code ships with the most stable version of the JavaScript language service. The same language service powers both JavaScript and TypeScript, so if you want to use a newer version, you can define the `typescript.tsdk` [setting](/docs/customization/userandworkspace.md) to point to a directory containing the TypeScript `tsserver.js` file. See more details [here](/docs/languages/typescript.md#using-newer-typescript-versions).
+VS Code ships with the most stable version of the JavaScript language service. The same language service powers both JavaScript and TypeScript, so if you want to use a newer version, you can define the `typescript.tsdk` [setting](/docs/getstarted/settings.md) to point to a directory containing the TypeScript `tsserver.js` file. See more details [here](/docs/languages/typescript.md#using-newer-typescript-versions).
 
 ## Automatic Type Acquisition
 
@@ -124,7 +124,7 @@ You can debug your client side code using a browser debugger such as [Debugger f
 
 ### Debug Server Side
 
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a walk-through for Node.js debugging [here](/docs/runtimes/nodejs.md#debugging-your-express-application).
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a tutorial for Node.js debugging [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application).
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
@@ -150,7 +150,7 @@ A linter extension may require an external tool. The steps below show how to set
 
 >**Tip:** You get IntelliSense and hovering inside the `.eslintrc.json` file.
 
->**Tip:** The linter is enabled after installation. You can disable a linter with the corresponding `.enable` [setting](/docs/customization/userandworkspace.md). For ESLint, this would be setting `"eslint.enable" : false`.
+>**Tip:** The linter is enabled after installation. You can disable a linter with the corresponding `.enable` [setting](/docs/getstarted/settings.md). For ESLint, this would be setting `"eslint.enable" : false`.
 
 It is recommended that you enable the linter rules that warn about undefined and unused variables. To do this, put the following options in your `.eslintrc.json` file.
 
@@ -173,9 +173,9 @@ VS Code has several built-in snippets that will come up as you type or you can p
 
 ![built in javascript snippet foreach](images/javascript/javascript_snippets.gif)
 
-> **Tip:** You can add in your own snippets for JavaScript. See [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
+> **Tip:** You can add in your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
-You may not want to show snippets. You can disable them by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/customization/userandworkspace.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+You may not want to show snippets. You can disable them by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
 
 You can enable tab completions with `editor.tabCompletion` setting. After typing the prefix of a snippet, press `kbstyle(Tab)` to insert it.
 
@@ -220,7 +220,7 @@ As with other languages, you can format your JavaScript code in VS Code.
 
 ![formatter](images/javascript/formatter.gif)
 
-VS Code provides several formatting settings for JavaScript. They can all be found in the `javascript.format` [settings](/docs/customization/userandworkspace.md) namespace.
+VS Code provides several formatting settings for JavaScript. They can all be found in the `javascript.format` [settings](/docs/getstarted/settings.md) namespace.
 
 ```typescript
 // Defines space handling after a comma delimiter
@@ -266,7 +266,7 @@ Read on to find out about:
 * [jsconfig.json](/docs/languages/jsconfig.md) - Detailed description of the `jsconfig.json` project file.
 * [IntelliSense](/docs/editor/intellisense.md) - Learn more about IntelliSense and how to use it effectively for your language.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
-* [Node.js](/docs/runtimes/nodejs.md) - A walkthrough to create an Express Node.js application.
+* [Node.js](/docs/nodejs/nodejs-tutorial.md) - A walkthrough to create an Express Node.js application.
 * [TypeScript](/docs/languages/typescript.md) - VS Code has great support for TypeScript which brings structure and strong typing to your JavaScript code.
 
 Watch these introductory videos:
@@ -309,11 +309,11 @@ When you want to use ES6 style imports but the typings do not yet use ES6 style 
 
 **Q: Can I debug minified/uglified JavaScript?**
 
-**A:** Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/editor/node-debugging.md) topic.
+**A:** Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) topic.
 
 **Q: How do I disable Syntax Validation when using non ES6 constructs?**
 
-**A:** Some users want to use syntax constructs like the proposed Object Rest/Spread Properties. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/customization/userandworkspace.md).
+**A:** Some users want to use syntax constructs like the proposed Object Rest/Spread Properties. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 
 With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](http://eslint.org) to validate your source code. Since VS Code's JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
 

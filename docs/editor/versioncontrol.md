@@ -64,7 +64,7 @@ The `git branch` command lets you quickly create a new branch.  Just provide the
 
 Given that your repository is connected to some remote and that your checked out branch has an [upstream link](http://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull** and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the `...` menu.
 
->**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/customization/userandworkspace.md) to reduce the number of prompts you get.
+>**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
 
 ## Gutter indicators
 
@@ -145,7 +145,6 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 * [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Goto Definition and more
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
-* [Customization](/docs/customization/overview.md) - Themes, settings and keyboard bindings
 
 ## Common Questions
 
@@ -194,7 +193,7 @@ Next, assuming you want to remove the unintended repo initialization, look for t
 You can either:
 
 * Add the location of `git.exe` to `PATH` and restart VS Code.
-* Set the `git.path` [setting](/docs/customization/userandworkspace.md) to the location of `git.exe`.
+* Set the `git.path` [setting](/docs/getstarted/settings.md) to the location of `git.exe`.
 
 On a **GitHub Desktop** Windows installation, `git.exe` is usually under `C:\Users\USERNAME\AppData\Local\GitHub\PortableGit_COMMITID\ming32\bin`.  Searching for `git.exe` under AppData\Local\GitHub should find the binary.
 

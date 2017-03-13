@@ -285,6 +285,5 @@ Read on to find out about:
 
 * [Yo Code](/docs/tools/yocode.md) - learn about other options in Yo Code
 * [Extension API](/docs/extensionAPI/overview.md) - Get an overview of the Extension API
-* [Customization](/docs/customization/overview.md) - Themes, settings and keyboard bindings
 * [Publishing Tool](/docs/tools/vscecli.md) - Learn how to publish an extension to the public Marketplace
 * [Editor API](/docs/extensionAPI/vscode-api.md#window) - Learn more about Text Documents, Text Editors and editing text

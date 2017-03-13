@@ -51,7 +51,7 @@ To understand the structure of JSON files, we use [JSON schemas](http://spacetel
 
 Servers like [JSON Schema Store](http://schemastore.org) provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
-The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [Settings](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **User Settings** or **Workspace Settings**) under the property `json.schemas`.
+The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [Settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **User Settings** or **Workspace Settings**) under the property `json.schemas`.
 
 VS Code extensions can also define schemas and schema mapping. That's why VS Code already knows about the schema of some well known JSON files such as `package.json`, `bower.json` and `tsconfig.json`.
 
@@ -82,7 +82,7 @@ The following excerpt from the User Settings shows how `.babelrc` files are mapp
 
 >**Tip:** Additionally to defining a schema for `.babelrc`, also make sure that `.babelrc` is associated to the JSON language mode. This is also done in the settings using the `files.association` array setting.
 
->**Tip:** For an overview on settings, see [User and Workspace Settings](/docs/customization/userandworkspace.md).
+>**Tip:** For an overview on settings, see [User and Workspace Settings](/docs/getstarted/settings.md).
 
 ### Mapping to a Schema in the Workspace
 
@@ -167,9 +167,3 @@ In addition, you can install an extension for greater functionality.
 <div class="marketplace-extensions-json"></div>
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
-
-## Next Steps
-
-Read on to find out about:
-
-* [Customization](/docs/customization/overview.md) - Customize VS Code to work the way you want

@@ -50,7 +50,7 @@ You can now double-click on some resize borders (sashes) in the workbench to qui
 
 The `workbench.action.reopenClosedEditor` command has been added which will reopen the most recent file removed from the working files list. The default key binding for this command is `kb(workbench.action.reopenClosedEditor)`.
 
->**Note:** Previously `kb(workbench.action.reopenClosedEditor)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/customization/keybindings#_customizing-shortcuts) the key bindings and change the behavior back to the previous one if desired.
+>**Note:** Previously `kb(workbench.action.reopenClosedEditor)` had been bound to the **Run: Run Test Task** command. **Run: Run Test Task** is now not bound to any default key binding. You can [customize](https://code.visualstudio.com/docs/getstarted/keybindings#_customizing-shortcuts) the key bindings and change the behavior back to the previous one if desired.
 
 ### Disable Emmet abbreviation expansion on Tab
 

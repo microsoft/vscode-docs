@@ -30,7 +30,7 @@ Below are several popular extension which include debugging support:
 
 The following documentation is based on the built-in [Node.js](https://nodejs.org/) debugger, but most of the concepts and features are applicable to other debuggers as well.
 
-It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/runtimes/nodejs.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application all set up, this page will take you through VS Code debugging features.
+It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application all set up, this page will take you through VS Code debugging features.
 
 ## Debug View
 
@@ -252,7 +252,7 @@ Expressions can be evaluated in the **Debug Console**. To open the Debug Console
 
 To learn about VS Code's Node.js debugging support, take a look at:
 
-* [Node.js](/docs/editor/node-debugging.md) - Node.js debugging is included in VS Code.
+* [Node.js](/docs/nodejs/nodejs-debugging.md) - Node.js debugging is included in VS Code.
 
 To see a tutorial on the basics of Node.js debugging, check out:
 
