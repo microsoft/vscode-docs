@@ -2,7 +2,7 @@
 Order: 5
 Area: nodejs
 TOCTitle: Extensions
-ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
+ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in VS Code
 DateApproved: 3/10/2017
 MetaDescription: 

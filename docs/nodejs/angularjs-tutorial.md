@@ -2,7 +2,7 @@
 Order: 3
 Area: nodejs
 TOCTitle: Tutorial - Angular.js
-ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
+ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 PageTitle: Angular.js Tutorial in VS Code
 DateApproved: 3/10/2017
 MetaDescription: 
