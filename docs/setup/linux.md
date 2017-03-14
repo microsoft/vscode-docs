@@ -114,7 +114,7 @@ sudo update-alternatives --set editor /usr/bin/code
 Once you have installed VS Code, these topics will help you learn more about VS Code:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
-* [The Basics](/docs/editor/codebasics.md) - A quick orientation around VS Code.
+* [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 
 ## Common Questions

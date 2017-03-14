@@ -113,7 +113,8 @@ Using the Office Add-ins dialog you can select Add-ins you've uploaded to your O
 Check out the other pages on the VS Code site to find out how you can leverage more capabilities of the editor when creating custom Office Add-ins:
 
 - [Language Overview](/docs/languages/overview.md) - You can write Office Add-ins in many languages. Find out what VS Code has to offer.
-- [The Basics](/docs/editor/codebasics.md) - Just starting out with VS Code? This is worth reviewing.
+- [User Interface](/docs/getstarted/userinterface.md) - Just starting out with VS Code? This is worth reviewing.
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 
 ## Common Questions
 

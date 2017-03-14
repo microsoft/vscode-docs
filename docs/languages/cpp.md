@@ -293,7 +293,8 @@ OS X:
 
 Read on to find out about:
 
-* [Editing Evolved](/docs/editor/editingevolved.md) - find out more about advanced editing features
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 

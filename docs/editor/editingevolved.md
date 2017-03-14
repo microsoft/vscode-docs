@@ -106,7 +106,7 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 Now that you know how the editor works, time to try a few other things...
 
 * [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features. 
-* [The Basics](/docs/editor/codebasics.md) - In case you missed a basic orientation around VS Code.
+* [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
 * [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
 

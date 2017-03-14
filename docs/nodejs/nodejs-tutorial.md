@@ -289,5 +289,6 @@ There is much more to explore with Visual Studio Code, please try the following 
 
 * [Settings](/docs/getstarted/settings.md) - Learn how to customize VS Code for how you like to work.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Go to Definition and more
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings

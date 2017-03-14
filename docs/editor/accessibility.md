@@ -102,7 +102,8 @@ There is no screen reader support for the editor.
 
 Read on to find out about:
 
-* [Visual Studio Code Basics](/docs/editor/codebasics.md) - a quick orientation of VS Code
-* [Editing Evolved](/docs/editor/editingevolved.md) - from code colorization & multi-cursor to IntelliSense
+* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
 ## Common Questions

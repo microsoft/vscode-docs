@@ -70,7 +70,8 @@ You will need an [extension](/docs/languages/python.md#install-python-extension)
 ## Next Steps
 
 * [Install an Extension](/docs/editor/extension-gallery.md) - Python extension are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Editing Evolved](/docs/editor/editingevolved.md) - Become a power user by mastering tips and tricks.
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
 ## Common Questions
 

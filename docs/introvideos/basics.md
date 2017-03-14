@@ -26,7 +26,7 @@ In this tutorial, we walk you through setting up Visual Studio Code and give an 
 
 ## Learn More
 
-* [The Basics](/docs/editor/codebasics.md) - View the documentation for the basics of VS Code.
+* [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
 * [Keyboard Shortcuts](/docs/getstarted/keybindings.md) - Customize your own shortcuts, download a reference sheet, or install a Keymap extension. 
 * [Keymaps in the Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) - Install a Keymap extension to bring the keybindings from your previous editor to VS Code. 

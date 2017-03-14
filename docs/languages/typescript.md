@@ -228,7 +228,8 @@ OK, read on to find out about:
 
 * [JavaScript](/docs/languages/javascript.md) - we have several JavaScript specific features in VS Code
 * [Tasks](/docs/editor/tasks.md) - we used tasks to transpile your TS file. Read more to find out what else tasks can do
-* [Editing Evolved](/docs/editor/editingevolved.md) - dig into multi-cursor, snippets and more
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - we support debugging TypeScript Node.js apps
 
 ## Common Questions

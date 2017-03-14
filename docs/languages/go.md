@@ -110,8 +110,7 @@ If you have any issues or feature requests, feel free to log them in the Go exte
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Visual Studio Code Basics](/docs/editor/codebasics.md) - A quick introduction to the basics of VS Code.
+* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
 * [Install an Extension](/docs/editor/extension-gallery.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Editing Evolved](/docs/editor/editingevolved.md) - Become a power user by mastering tips and tricks.
-
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
