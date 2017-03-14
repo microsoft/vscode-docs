@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 6
 Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
