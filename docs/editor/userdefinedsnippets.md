@@ -103,11 +103,9 @@ text        ::= .*
 
 ## Next Steps
 
-TBD
-
-* [Custom themes](/docs/extensions/themes-snippets-colorizers.md) - Learn how to import existing TextMate themes.
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
-* [Code Navigation](/docs/editor/editingevolved.md) - Learn more about the VS Code editor's capabilities
+* [Themes, Snippets and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - Learn how to import existing theme, snippet and colorizer files.
+* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
+* [Command line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
 
 ## Common Questions
 
