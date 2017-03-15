@@ -7,7 +7,6 @@ PageTitle: CSS, Sass and Less support in VS Code
 DateApproved: 3/1/2017
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
-
 # CSS, Sass and Less
 
 Visual Studio Code has built-in support for editing style sheets in CSS `.css`, Sass `.scss` and Less `.less`.  In addition, you can install an extension for greater functionality.
@@ -44,7 +43,7 @@ For example, to use Emmet CSS abbreviations inside JavaScript:
 
 We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.md).
 
-## Syntax coloring & Color preview
+## Syntax coloring & color preview
 
 As you type, we provide syntax highlighting as well as in context preview of colors.
 
@@ -266,8 +265,6 @@ scss.validate | Enables or disables all scss validations | true
 
 To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `scss.lint.` and `less.lint.`.
 
->**Note:** In VS Code 1.2 (May 2016) and earlier the Sass settings were prefixed with `sass`. If you have customized settings, rename the prefix from `sass` to `scss` to have them working again.
-
 Set a setting to `warning` or `error` if you want to enable lint checking, use `ignore` to disable it. Lint checks are performed as you type.
 
 Id|Description|Default
@@ -304,7 +301,7 @@ Read on to find out about:
 
 **Q: Do you provide a color picker?**
 
-**A:** No, this is currently not supported. But there are several extensions in the Marketplace supporting the color picker.
+**A:** No, this is currently not supported. There are however several extensions in the Marketplace supporting color pickers.
 
 **Q: Do you support the indentation based Sass syntax (.sass) ?**
 
