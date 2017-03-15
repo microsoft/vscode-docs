@@ -64,7 +64,7 @@ We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 >    "css.validate": false
 >```
 
-## Go to symbol in file
+## Go to Symbol in file
 
 Simply press `kb(workbench.action.gotoSymbol)`.
 
