@@ -10,7 +10,7 @@
 	<h4>Updates</h4>
 	<select id="small-nav-dropdown">
 		{% for article in articles %}
-			<option value="/updates/{$ article.Link $}" {{#ifCond section "{$ article.Link $}"}}"selected"{{/ifCond}}>{$ article.NavTitle $}</option>
+			<option value="/updates/{$ article.Link $}" {{#ifCond section "{$ article.Link $}"}}selected{{/ifCond}}>{$ article.NavTitle $}</option>
 		{% endfor %}
 	</select>
 </nav>
