@@ -390,7 +390,7 @@ The following language features are currently supported in a language server alo
 * _Rename_: project-wide rename of a symbol.
 * _Document Links_: compute and resolve links inside a document.
 
-The [Language Extension Guidelines](/docs/extensions/language-support.md) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
+The [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
 
 ## Incremental Text Document Synchronization
 
@@ -446,7 +446,7 @@ connection.onDidCloseTextDocument((params) => {
 To learn more about VS Code extensibility model, try these topic:
 
 * [vscode API Reference](/docs/extensionAPI/vscode-api.md) - Learn about deep language integration with VS Code language services.
-* [Language Extension Guideline](/docs/extensions/language-support.md) - A guide to implementing VS Code's rich language features.
+* [Language Extension Guideline](/docs/extensionAPI/language-support.md) - A guide to implementing VS Code's rich language features.
 
 ## Common Questions
 

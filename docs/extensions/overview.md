@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code has a rich extensibility model for interacti
 ---
 # Extending Visual Studio Code
 
-If you are interested in extending VS Code, you are in the right place. Here we present an outline of the VS Code extensibility documentation and how to quickly build your first VS Code extension.  If you're curious about our design approach to extensibility for VS Code, you can read about it [here](/docs/extensions/our-approach.md).
+If you are interested in extending VS Code, you are in the right place. Here we present an outline of the VS Code extensibility documentation and how to quickly build your first VS Code extension.  If you're curious about our design approach to extensibility for VS Code, you can read about it [here](/docs/extensionAPI/patterns-and-principles.md).
 
 If you just want to use existing extensions, see the [Extension Marketplace](/docs/editor/extension-gallery.md) topic where we show you how to find and install extensions from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
@@ -37,7 +37,7 @@ We have two end-to-end walkthroughs to get you going on extension basics:
 1. **[Hello World](/docs/extensions/example-hello-world.md)** - generate a basic extension, understand an extension's folder structure, the extension manifest, learn how activation works, run and debug your extension and install it locally.
 2. **[Word Count](/docs/extensions/example-word-count.md)** - activate based on a specific file type, update the status bar, respond to changes in the text editor, and dispose your extension when moving off the file.
 
-Also helpful is [Extensibility Principles and Patterns](/docs/extensions/patterns-and-principles.md) which describes the shared programming patterns used throughout the extensibility API.
+Also helpful is [Extensibility Principles and Patterns](/docs/extensionAPI/patterns-and-principles.md) which describes the shared programming patterns used throughout the extensibility API.
 
 ## Language Servers
 
@@ -57,7 +57,7 @@ The easiest way to see VS Code extensions in action is via the [Extension Market
 
 ## Language Extension Guidelines
 
-To help you decide what language features you'd like to support with your extension, we have a [Language Extension Guidelines](/docs/extensions/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and how to implement them through either the language server protocol or by using the extensibility API directly from your extension.
+To help you decide what language features you'd like to support with your extension, we have a [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and how to implement them through either the language server protocol or by using the extensibility API directly from your extension.
 
 ## Writing an Extension
 

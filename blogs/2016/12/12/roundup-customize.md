@@ -74,7 +74,7 @@ Many language extensions come with snippets included.
 - [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Elm](https://marketplace.visualstudio.com/items?itemName=sbrink.elm) from [Sascha Brink](https://marketplace.visualstudio.com/search?term=publisher%3A%22Sascha%20Brink%22&target=VSCode&sortBy=Relevance)
 
-Want to make your own snippet pack? See the documentation for [how to create a snippet pack extension](https://code.visualstudio.com/docs/extensions/language-support#_source-code-snippets).
+Want to make your own snippet pack? See the documentation for [how to create a snippet pack extension](https://code.visualstudio.com/docs/extensionAPI/language-support#_source-code-snippets).
 
 > **Tip:** You can search for extensions by category or tag in the Extensions view search box, using "category:{category name}" or "tag:{tag name}".
 

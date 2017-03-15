@@ -17,7 +17,7 @@ We realize that this approach may initially feel restrictive to extension develo
 
 ## Core Concepts
 
-When we set out to add extensibility to VS Code, we had a number of considerations in mind.  The following sections provide some context as to a number of our core decisions.  We also have a document that outlines many of the core [patterns we have adopted](/docs/extensions/patterns-and-principles.md) within our APIs.
+When we set out to add extensibility to VS Code, we had a number of considerations in mind.  The following sections provide some context as to a number of our core decisions.
 
 ### Stability - Extension Isolation
 

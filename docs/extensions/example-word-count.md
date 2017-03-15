@@ -253,7 +253,7 @@ to display a [GitHub Octicon](https://octicons.github.com) `pencil` icon to the 
 
 ## Disposing Extension Resources
 
-Now we'll take a deeper look at how extensions should handle VS Code resources through [Disposables](/docs/extensions/patterns-and-principles.md#disposables).
+Now we'll take a deeper look at how extensions should handle VS Code resources through [Disposables](/docs/extensionAPI/patterns-and-principles.md#disposables).
 
 When an extension is activated, it is passed an `ExtensionContext` object which has a `subscriptions` collection of Disposables. Extensions can add their Disposable objects to this collection and VS Code will dispose of those objects when the extension is deactivated.
 

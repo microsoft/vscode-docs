@@ -25,7 +25,7 @@ To make it easier for you to decide what to implement first and what to improve 
 
 ## Configuration Based Language Support
 
-[Syntax highlighting](/docs/extensions/language-support.md#syntax-highlighting), [snippets](/docs/extensions/language-support.md#source-code-snippets), and [smart bracket matching](/docs/extensions/language-support.md#smart-bracket-matching) can be implemented declaratively with configuration files and don't require writing any extension code.
+[Syntax highlighting](/docs/extensionAPI/language-support.md#syntax-highlighting), [snippets](/docs/extensionAPI/language-support.md#source-code-snippets), and [smart bracket matching](/docs/extensionAPI/language-support.md#smart-bracket-matching) can be implemented declaratively with configuration files and don't require writing any extension code.
 
 ### Language identifiers
 

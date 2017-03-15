@@ -16,7 +16,7 @@ September 14, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 I learned JavaScript during an internship in the summer of 2013. Although not a difficult programming language, JavaScript didn't come easy. I used a lightweight editor along with the rest of my team and missed the deep language integration features of Visual Studio (C#) and Eclipse (Java).
 
-Visual Studio Code is not an IDE, but you can extend it to do many of the things an IDE can do. VS Code extensions effectively bridge the gap between an IDE and a lightweight editor (read [here](/docs/extensions/our-approach.md#stability-extension-isolation) to learn how we maintain high performance when extensions are added).
+Visual Studio Code is not an IDE, but you can extend it to do many of the things an IDE can do. VS Code extensions effectively bridge the gap between an IDE and a lightweight editor (read [here](/docs/extensionAPI/patterns-and-principles.md#core-concepts) to learn how we maintain high performance when extensions are added).
 
 Below are some of the essential JavaScript extensions that I and many of you are using every day.
 
