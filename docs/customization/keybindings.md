@@ -331,6 +331,12 @@ textCompareEditorVisible | Diff (compare) view is visible.
 inDebugMode | A debug session is running.
 inSnippetMode | The editor is in snippet mode.
 inQuickOpen | The Quick Open dropdown has focus.
+**Explorer contexts** |
+explorerViewletVisible | True if Explorer view is visible.
+explorerViewletFocus | True if Explorer view has keyboard focus.
+filesExplorerFocus | True if File Explorer section has keyboard focus.
+openEditorsFocus | True if OPEN EDITORS section has keyboard focus.
+explorerResourceIsFolder | True if a folder is selected in the Explorer.
 **Editor widget contexts** |
 findWidgetVisible | Editor Find widget is visible.
 suggestWidgetVisible | Suggestion widget (IntelliSense) is visible.
