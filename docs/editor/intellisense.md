@@ -76,7 +76,7 @@ You can customize your IntelliSense experience in settings and key bindings.
 
 ### Settings
 
-The settings shown below are the default settings. You can change these settings in your `settings.json` file as described in [User and Workspace Settings](/docs/customization/userandworkspace.md).
+The settings shown below are the default settings. You can change these settings in your `settings.json` file as described in [User and Workspace Settings](/docs/getstarted/settings.md).
 
 ```javascript
 {
@@ -101,7 +101,7 @@ By default, VS Code shows snippets and completion proposals in one widget. You c
 
 ### Key Bindings
 
-The key binding shown below is the default key binding. You can change this key binding in your `keybindings.json` file as described in [Key Bindings](/docs/customization/keybindings.md).
+The key binding shown below is the default key binding. You can change this key binding in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
 
 > **Note:** There are many more key bindings relating to IntelliSense. Simply open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 

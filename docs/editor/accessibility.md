@@ -20,7 +20,7 @@ You can increase the Zoom level in VS Code with the **View** > **Zoom In** comma
 
 ## Persisted Zoom Level
 
-When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/customization/userandworkspace.md). The default value is 0 and each increment increases the zoom level by 20%.
+When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment increases the zoom level by 20%.
 
 ## High Contrast Theme
 
@@ -36,7 +36,7 @@ VS Code also has many preset keyboard shortcuts for commands. These are displaye
 
 ![Keyboard shortcuts in Command Palette](images/accessibility/keyboard-shortcuts.png)
 
-You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** brings up the **Default Keyboard Shortcuts** in the left pane and your customizable `keybindings.json` on the right.  See [Key Bindings](/docs/customization/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
+You can also set your own keyboard shortcuts. **File** > **Preferences** > **Keyboard Shortcuts** brings up the **Default Keyboard Shortcuts** in the left pane and your customizable `keybindings.json` on the right.  See [Key Bindings](/docs/getstarted/keybindings.md) for more details on customizing or adding your own keyboard shortcuts.
 
 ## Tab Navigation
 
@@ -102,7 +102,8 @@ There is no screen reader support for the editor.
 
 Read on to find out about:
 
-* [Visual Studio Code Basics](/docs/editor/codebasics.md) - a quick orientation of VS Code
-* [Editing Evolved](/docs/editor/editingevolved.md) - from code colorization & multi-cursor to IntelliSense
+* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
 ## Common Questions

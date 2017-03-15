@@ -91,7 +91,7 @@ These extensions are in preview because we want your feedback. There are still m
 }
 ```
 
-Do you have other editors or IDEs you'd like to make a keymap for? Simply follow the instructions in the [`contributes.keybindings` section](/docs/extensionAPI/extension-points#_contributeskeybindings) and the [Customization -> Keybindings document](/docs/customization/keybindings).
+Do you have other editors or IDEs you'd like to make a keymap for? Simply follow the instructions in the [`contributes.keybindings` section](/docs/extensionAPI/extension-points#_contributeskeybindings) and the [Keybindings document](/docs/getstarted/keybindings).
 
 ## It's raining keyboard shortcuts
 

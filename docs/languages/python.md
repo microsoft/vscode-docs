@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
@@ -57,7 +57,7 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 
 ## Snippets
 
-Snippets will take productivity to the next level. You can configure [your own snippets](/docs/customization/userdefinedsnippets.md) and use snippets provided by an extension. 
+Snippets will take productivity to the next level. You can configure [your own snippets](/docs/editor/userdefinedsnippets.md) and use snippets provided by an extension. 
 
 <video id="python-snippets-video" src="https://az754404.vo.msecnd.net/public/python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
 
@@ -70,7 +70,8 @@ You will need an [extension](/docs/languages/python.md#install-python-extension)
 ## Next Steps
 
 * [Install an Extension](/docs/editor/extension-gallery.md) - Python extension are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Editing Evolved](/docs/editor/editingevolved.md) - Become a power user by mastering tips and tricks.
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
 ## Common Questions
 

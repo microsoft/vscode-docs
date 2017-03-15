@@ -23,10 +23,10 @@ In this tutorial, we show you how to personalize Visual Studio Code.
 
 ## Learn More
 
-* [User and Workspace Settings](/docs/customization/userandworkspace.md) - Configure user and workspace settings.
-* [Key Bindings](/docs/customization/keybindings.md) - See the default keyboard shortcuts (key bindings) for editing, navigation, and more.
-* [Snippets](/docs/customization/userdefinedsnippets.md) - Create your own custom snippets.
-* [Themes](/docs/customization/themes.md) - Change your Color Theme to customize VS Code's background text and language syntax colorization.
+* [User and Workspace Settings](/docs/getstarted/settings.md) - Configure user and workspace settings.
+* [Key Bindings](/docs/getstarted/keybindings.md) - See the default keyboard shortcuts (key bindings) for editing, navigation, and more.
+* [Snippets](/docs/editor/userdefinedsnippets.md) - Create your own custom snippets.
+* [Themes](/docs/getstarted/themes.md) - Change your Color Theme to customize VS Code's background text and language syntax colorization.
 
 ## Next Video
 

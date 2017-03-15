@@ -97,7 +97,7 @@ Contribute an entry consisting of a title and a command to invoke to the Command
 
 ## contributes.menus
 
-Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/customization/keybindings.md#when-clause-contexts). In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while hovering over a menu item. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
+Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts). In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while hovering over a menu item. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
 Currently extension writers can to contribute to:
 
@@ -157,7 +157,7 @@ The order inside a group depends the title or an order-attribute. The group-loca
 
 ## contributes.keybindings
 
-Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/customization/keybindings.md) topic where key bindings are explained in detail.
+Contribute a key binding rule defining what command should be invoked when the user presses a key combination. See the [Key Bindings](/docs/getstarted/keybindings.md) topic where key bindings are explained in detail.
 
 Contributing a key binding will cause the Default Keyboard Shortcuts to display your rule, and every UI representation of the command will now show the key binding you have added. And, of course, when the user presses the key combination the command will be invoked.
 
@@ -355,7 +355,7 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 }
 ```
 
-See [Adding Language Colorization](/docs/customization/colorizer.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
+See [Adding Language Colorization](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
 
 ![grammars extension point example](images/extension-points/grammars.png)
 
@@ -377,7 +377,7 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 
 ![themes extension point example](images/extension-points/themes.png)
 
-See [Changing the Color Theme](/docs/customization/themes.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
+See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
 
 ## contributes.snippets
 

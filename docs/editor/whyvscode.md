@@ -51,6 +51,6 @@ If you prefer a code editor-centric development tool or are building cross-platf
 
 Read on to find out about:
 
-* [Visual Studio Code Basics](/docs/editor/codebasics.md) - a quick orientation of VS Code
-* [Editing Evolved](/docs/editor/editingevolved.md) - from code colorization & multi-cursor to IntelliSense
-* [Debugging](/docs/editor/debugging.md) - OK time for the really fun stuff - break, step, watch
+* [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [Basic Editing](/docs/editor/codebasic.md) - Learn about the VS Code editor features.
+* [Debugging](/docs/editor/debugging.md) - OK time for the really fun stuff - break, step, watch.

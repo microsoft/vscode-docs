@@ -30,11 +30,12 @@ In this tutorial, we cover code editing, including the features outlined below. 
 
 ## Learn More
 
-* [Editing Evolved](/docs/editor/editingevolved.md) - Official documentation for code editing features.
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Emmet Snippets](/docs/languages/html.md#emmet-snippets) - Use Emmet Snippets.
 * [Tasks](/docs/editor/tasks.md) - Create tasks to use external tools inside VS Code.
 * [JavaScript Linters](/docs/languages/javascript.md#javascript-linters) - Install linters for JavaScript.
-* [Code Folding](/docs/editor/editingevolved.md#folding) - See the details of source code folding.
+* [Code Folding](/docs/editor/codebasics.md#folding) - See the details of source code folding.
 * [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks) - A GitHub repository of helpful tips and tricks for VS Code.
 
 ## Next Video

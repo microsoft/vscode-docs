@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 6
 Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
@@ -104,7 +104,8 @@ If you have [Node.js](https://nodejs.org) installed, you can run your simple Hel
 node HelloWorld.js
 ```
 
-> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging node apps in VS Code can be found [here](/docs/nodejs/nodejs-tutorial#_debugging-your-node-application)
+
+> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging node apps in VS Code can be found [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
 
 ### Step 4: Reviewing Build Issues
 
@@ -153,7 +154,7 @@ If generated (transpiled) JavaScript files do not live next to their source, you
 
 ## Hiding Derived JavaScript Files
 
-When you are working with TypeScript, you often don’t want to see generated JavaScript files in the explorer or in search results. VS Code offers filtering capabilities with a `files.exclude` [setting](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **Workspace Settings**) and you can easily create an expression to hide those derived files:
+When you are working with TypeScript, you often don’t want to see generated JavaScript files in the explorer or in search results. VS Code offers filtering capabilities with a `files.exclude` [setting](/docs/getstarted/settings.md) (**File** > **Preferences** > **Workspace Settings**) and you can easily create an expression to hide those derived files:
 
 `"**/*.js": { "when": "$(basename).ts"}`
 
@@ -228,7 +229,8 @@ OK, read on to find out about:
 
 * [JavaScript](/docs/languages/javascript.md) - we have several JavaScript specific features in VS Code
 * [Tasks](/docs/editor/tasks.md) - we used tasks to transpile your TS file. Read more to find out what else tasks can do
-* [Editing Evolved](/docs/editor/editingevolved.md) - dig into multi-cursor, snippets and more
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - we support debugging TypeScript Node.js apps
 
 ## Common Questions

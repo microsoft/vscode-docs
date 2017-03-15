@@ -52,7 +52,7 @@ If you work on a machine where Internet traffic needs to go through a proxy serv
     SET http_proxy=http://10.203.0.1:5187/
 ```
 
-* Configure the ‘http.proxy’ setting in your user [settings](/docs/customization/userandworkspace.md) (**File** > **Preferences** > **User Settings** or **Code** > **Preferences** > **User Settings** on Mac):
+* Configure the ‘http.proxy’ setting in your user [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **User Settings** or **Code** > **Preferences** > **User Settings** on Mac):
 
 ```json
     "http.proxy": "http://10.203.0.1:5187/"
@@ -73,11 +73,12 @@ Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a sel
 Once you have installed and set up VS Code, these topics will help you learn more about VS Code:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
-* [The Basics](/docs/editor/codebasics.md) - Basic orientation around VS Code
-* [Editing Evolved](/docs/editor/editingevolved.md) - Lint, IntelliSense, Lightbulbs, Peek and Go To Definition and more
+* [User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
 
-If you'd like to getting something running quickly, try the [Node.js runtime](/docs/nodejs/nodejs-tutorial.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
+If you'd like to getting something running quickly, try the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
 
 ## Common Questions
 

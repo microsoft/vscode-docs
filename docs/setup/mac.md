@@ -35,15 +35,15 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 ## Preferences Menu
 
-You can configure VS Code through [settings](/docs/customization/userandworkspace.md), [color themes](/docs/customization/themes.md) and [custom keybindings](/docs/customization/keybindings.md) and you will often see mention in our documentation of the **File** > **Preferences** menu group.  On a Mac, the **Preferences** menu group is under **Code**, not **File**.
+You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md) and [custom keybindings](/docs/getstarted/keybindings.md) and you will often see mention in our documentation of the **File** > **Preferences** menu group.  On a Mac, the **Preferences** menu group is under **Code**, not **File**.
 
 ## Next Steps
 
 Once you have installed VS Code, these topics will help you learn more about VS Code:
 
 * [Additional Components](/docs/setup/additional-components.md) - Learn how to install Git, Node.js, TypeScript and tools like Yeoman.
-* [The Basics](/docs/editor/codebasics.md) - A quick orientation around VS Code.
-* [User/Workspace Settings](/docs/customization/userandworkspace.md) - Learn how to configure VS Code to your preferences settings.
+* [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
+* [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences settings.
 
 ## Common Questions
 

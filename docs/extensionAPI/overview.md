@@ -12,7 +12,7 @@ MetaDescription: Learn the details of Visual Studio Code's rich extensibility (p
 
 This section of our documentation goes into detail on the various features of VS Code extensibility.  It's worth reviewing the introduction on the [extensions](/docs/extensions/overview.md) as well as going through the ['Hello World'](/docs/extensions/example-hello-world.md) example before digging in too deeply here.
 
-The easiest way to see VS Code extensions in action is via the [Extension Marketplace](/docs/editor/extension-gallery.md).  Once you have built your first extension or are ready to share a [customization](/docs/customization/overview.md), it can be [published](/docs/tools/vscecli.md) for others to install.
+The easiest way to see VS Code extensions in action is via the [Extension Marketplace](/docs/editor/extension-gallery.md).  Once you have built your first extension, it can be [published](/docs/tools/vscecli.md) for others to install.
 
 ## The Extensibility Reference Documents
 
@@ -30,4 +30,4 @@ Topic|Description
 
 ## Language Extension Guidelines
 
-If you are implementing programming language support, we have a [Language Extension Guidelines](/docs/extensions/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and provides guidance on how to implement them.
+If you are implementing programming language support, we have a [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and provides guidance on how to implement them.

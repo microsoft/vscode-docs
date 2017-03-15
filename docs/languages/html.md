@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 4
 Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
@@ -27,7 +27,7 @@ You can also work with embedded CSS and JavaScript. However, note that script an
 
 You can trigger suggestions at any time by pressing `kb(editor.action.triggerSuggest)`.
 
-You can also control which built-in code completion providers are active. Override these in your user or workspace [settings](/docs/customization/userandworkspace.md) if you prefer not to see the corresponding suggestions.
+You can also control which built-in code completion providers are active. Override these in your user or workspace [settings](/docs/getstarted/settings.md) if you prefer not to see the corresponding suggestions.
 
 ```json
 // Configures if the built-in HTML language suggests Angular V1 tags and properties.
@@ -66,7 +66,7 @@ To improve the formatting of your HTML source code, press `kb(editor.action.form
 
 >**Tip:** The formatter does not format the tags listed in the `html.format.unformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
->**Tip:** Configure the HTML formatter settings in the [User and Workspace Settings](/docs/customization/userandworkspace.md).
+>**Tip:** Configure the HTML formatter settings in the [User and Workspace Settings](/docs/getstarted/settings.md).
 
 ## Emmet snippets
 
@@ -76,7 +76,7 @@ We support Emmet snippet expansion, simply press `kb(editor.emmet.action.expandA
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use HTML Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `html`, `css`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/customization/userandworkspace.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
+If you'd like to use HTML Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `html`, `css`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
 
 For example, to use Emmet HTML abbreviations inside JavaScript:
 
@@ -88,7 +88,7 @@ For example, to use Emmet HTML abbreviations inside JavaScript:
 }
 ```
 
-We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.md).
+We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
 ## Next Steps
 

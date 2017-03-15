@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 7
 Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
@@ -35,7 +35,7 @@ When working with a Markdown preview to the side of your editor, VS Code can syn
 
 ![Markdown Preview editor selection scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
 
-This behavior can be disabled using the `markdown.preview.scrollPreviewWithEditorSelection` [setting](/docs/customization/userandworkspace.md).
+This behavior can be disabled using the `markdown.preview.scrollPreviewWithEditorSelection` [setting](/docs/getstarted/settings.md).
 
 The currently selected line is indicated in the Markdown preview by a light gray bar in the left margin:
 
@@ -45,7 +45,7 @@ Also, when the Markdown preview is scrolled, the editor will scroll along with i
 
 ![Markdown Preview to editor scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
 
-This can be disabled using the `markdown.preview.scrollEditorWithPreview` [setting](/docs/customization/userandworkspace.md).
+This can be disabled using the `markdown.preview.scrollEditorWithPreview` [setting](/docs/getstarted/settings.md).
 
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
@@ -53,7 +53,7 @@ Additionally, double clicking an element in the Markdown preview will automatica
 
 ## Using your own CSS
 
-By default, we use a CSS style for the preview that matches the style of VS Code. If you want to use your own CSS for the Markdown preview, update the `"markdown.styles": []` [setting](/docs/customization/userandworkspace.md) with the comma-separated list of URL(s) for your style sheet(s).
+By default, we use a CSS style for the preview that matches the style of VS Code. If you want to use your own CSS for the Markdown preview, update the `"markdown.styles": []` [setting](/docs/getstarted/settings.md) with the comma-separated list of URL(s) for your style sheet(s).
 
 For instance, in the screen shot above we used a custom CSS that changes the default font for the page and changes the color for the H1 title.
 
@@ -84,7 +84,7 @@ Use **File** > **Preferences** > **Workspace Settings** to bring up the workspac
 
 There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
 
->**Tip:** You can add in your own User Defined Snippets for Markdown.  Take a look at [User Defined Snippets](/docs/customization/userdefinedsnippets.md) to find out how.
+>**Tip:** You can add in your own User Defined Snippets for Markdown.  Take a look at [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
 
 ## Compiling Markdown into HTML
 
@@ -248,9 +248,7 @@ If you want to stop the task, you can use the **Tasks: Terminate Running Task** 
 
 Read on to find out about:
 
-* [Customization](/docs/customization/overview.md) - Dig into additional settings such as word wrap and User Defined Snippets.
 * [CSS, Less and Sass](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, Less and Sass editing.
-
 
 ## Common Questions
 

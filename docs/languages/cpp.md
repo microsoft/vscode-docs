@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 14
 Area: languages
 TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
@@ -79,12 +79,12 @@ If you are debugging with GDB on Windows, see [Windows Debugging on Cygwin/MinGW
 
 The C/C++ extension for Visual Studio Code supports source code formatting using [clang-format](http://clang.llvm.org/docs/ClangFormat.html) which is included with the extension.
 
-You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also configure auto-formatting with the following [settings](/docs/customization/userandworkspace.md):
+You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also configure auto-formatting with the following [settings](/docs/getstarted/settings.md):
 
 * `C_Cpp.clang_format_formatOnSave` - to format when you save your file.
 * `editor.formatOnType` - to format as you type (triggered on the `kbstyle(;)` character).
 
-By default, the clang-format style is set to "file" which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied according to a default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/customization/userandworkspace.md) instead. Currently, the default formatting style is "Visual Studio". Using "Visual Studio" formatting ensures that source code formatting will be compatible in both VS Code and Visual Studio Community.
+By default, the clang-format style is set to "file" which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied according to a default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/getstarted/settings.md) instead. Currently, the default formatting style is "Visual Studio". Using "Visual Studio" formatting ensures that source code formatting will be compatible in both VS Code and Visual Studio Community.
 
 The "Visual Studio" clang-format style is not yet an official OOTB clang-format style but it implies the following clang-format settings:
 
@@ -97,7 +97,7 @@ IndentCaseLabels: false
 ColumnLimit: 0
 ```
 
-If you'd like to use a different version of clang-format than the one that ships with the extension, you can use the `C_Cpp.clang_format_path` [setting](/docs/customization/userandworkspace.md) and set its value to the path where the clang-format binary is installed.
+If you'd like to use a different version of clang-format than the one that ships with the extension, you can use the `C_Cpp.clang_format_path` [setting](/docs/getstarted/settings.md) and set its value to the path where the clang-format binary is installed.
 
 For example on the Windows platform:
 
@@ -293,7 +293,8 @@ OS X:
 
 Read on to find out about:
 
-* [Editing Evolved](/docs/editor/editingevolved.md) - find out more about advanced editing features
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Tasks](/docs/editor/tasks.md) - use tasks to build your project and more
 * [Debugging](/docs/editor/debugging.md) - find out how to use the debugger with your project
 

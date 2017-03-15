@@ -62,7 +62,7 @@ Most of the team now runs on the Seti icons so we decided to include them in the
 
 ## Create your own Icon Theme
 
-It is incredibly easy for extension authors to create your own File Icon Theme packs, check out the raw documentation [here](https://github.com/Microsoft/vscode/issues/10804) and the ["Adding a new Icon Theme"](/docs/customization/themes.md#adding-a-new-icon-theme) topic in the VS Code docs. Looking ahead, we will continue to fill out the API based on your feedback.
+It is incredibly easy for extension authors to create your own File Icon Theme packs, check out the raw documentation [here](https://github.com/Microsoft/vscode/issues/10804) and the ["Adding a new Icon Theme"](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-icon-theme) topic in the VS Code docs. Looking ahead, we will continue to fill out the API based on your feedback.
 
 Thanks again for all of your feedback and thanks to Roberto for building a popular extension and helping us deliver great APIs.
 

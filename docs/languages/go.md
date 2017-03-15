@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
@@ -21,7 +21,7 @@ You can install the Go extension from the VS Code [Marketplace](https://marketpl
 
 As you type in a Go file, you can see IntelliSense providing you with suggested completions. This even works for members in current, imported, and not yet imported packages. Just type any package name followed by `.`, and you will get suggestions for the corresponding package members.
 
-By setting `go.autocompleteUnimportedPackages` to `true` in your [settings](/docs/customization/userandworkspace.md), you can also get suggestion for packages that you could import. Select one of these suggestions and an import to the selected package will be added to your file.
+By setting `go.autocompleteUnimportedPackages` to `true` in your [settings](/docs/getstarted/settings.md), you can also get suggestion for packages that you could import. Select one of these suggestions and an import to the selected package will be added to your file.
 
 >**Tip**: Use `kb(editor.action.triggerSuggest)` to trigger the suggestions manually.
 
@@ -110,8 +110,7 @@ If you have any issues or feature requests, feel free to log them in the Go exte
 
 If you'd like to learn more about VS Code, try these topics:
 
-* [Visual Studio Code Basics](/docs/editor/codebasics.md) - A quick introduction to the basics of VS Code.
+* [Basic Editing](/docs/editor/codebasics.md) - A quick introduction to the basics of the VS Code editor.
 * [Install an Extension](/docs/editor/extension-gallery.md) - Learn about other extensions are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-* [Editing Evolved](/docs/editor/editingevolved.md) - Become a power user by mastering tips and tricks.
-
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 

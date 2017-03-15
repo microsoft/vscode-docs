@@ -1,5 +1,5 @@
 ---
-Order: 12
+Order: 5
 Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
@@ -30,7 +30,7 @@ Press `kb(editor.emmet.action.expandAbbreviation)` to expand the current abbrevi
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use CSS Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `css`, `html`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/customization/userandworkspace.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
+If you'd like to use CSS Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `css`, `html`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
 
 For example, to use Emmet CSS abbreviations inside JavaScript:
 
@@ -42,7 +42,7 @@ For example, to use Emmet CSS abbreviations inside JavaScript:
 }
 ```
 
-We also support [User Defined Snippets](/docs/customization/userdefinedsnippets.md).
+We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
 ## Syntax coloring & Color preview
 
@@ -50,7 +50,7 @@ As you type, we provide syntax highlighting as well as in context preview of col
 
 ![Syntax and color](images/css/color.png)
 
->**Note:** You can hide VS Code's color previews by setting the corresponding `.colorDecorators.enable` [settings](/docs/customization/userandworkspace.md).
+>**Note:** You can hide VS Code's color previews by setting the corresponding `.colorDecorators.enable` [settings](/docs/getstarted/settings.md).
 >```json
 >    "css.colorDecorators.enable": false
 >```
@@ -59,7 +59,7 @@ As you type, we provide syntax highlighting as well as in context preview of col
 
 We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
->**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/customization/userandworkspace.md) to false.
+>**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/getstarted/settings.md) to false.
 >```json
 >    "css.validate": false
 >```
@@ -254,7 +254,7 @@ If you want to stop the task, you can use the **Tasks: Terminate Running Task** 
 
 ## Customizing CSS, Sass and Less Settings
 
-You can configure the following lint warnings as [User and Workspace Settings](/docs/customization/userandworkspace.md).
+You can configure the following lint warnings as [User and Workspace Settings](/docs/getstarted/settings.md).
 
 The `validate` setting allows you turn off the built-in validation. You would do this if you rather use a different linter.
 
@@ -298,7 +298,8 @@ idSelector | Warn when using selectors for an id `#id` as selectors should not c
 Read on to find out about:
 
 * [Configure Tasks](/docs/editor/tasks.md) - Dig into Tasks to help you transpile your Sass and Less to CSS.
-* [Editing Evolved](/docs/editor/editingevolved.md) - Find out about the rich set of features the editor offers for languages such as CSS.
+* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [HTML](/docs/languages/html.md) - CSS is just the start, HTML is also very well supported in VS Code.
 
 ## Common Questions

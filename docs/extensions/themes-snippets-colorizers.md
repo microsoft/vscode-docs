@@ -268,7 +268,7 @@ Central to language support is a TextMate [language specification](https://manua
 
 A good place to look for existing TextMate .tmLanguage files is on GitHub. Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can import either .tmLanguage or .pList files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. http://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage. Make sure that the path points to the content of the file, not the HTML file showing the content.
 
-![yo code language support](images/colorizer/yocodelanguage.png)
+![yo code language support](images/themes-snippets-colorizer/yocodelanguage.png)
 
 The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other extensions) and the language name, aliases and file extensions. You also have to provide the top level scope name of the grammar. That scope name must match the scope name in the tmLanguage file.
 
@@ -304,7 +304,7 @@ The generated `vsc-extension-quickstart.md` file also contains more information 
 
 To use your extension in your stable VS Code installation, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
-![select ant language](images/colorizer/antlanguage.png)
+![select ant language](images/themes-snippets-colorizers/antlanguage.png)
 
 ## Publishing Language Support to the Extension Marketplace
 
@@ -316,7 +316,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 ## Add to your Language Support Extension
 
-When you're adding a new language to VS Code, it is also great to add language [snippets](/docs/customization/userdefinedsnippets.md) to support common editing actions. It is easy to [combine multiple extensions](/docs/extensionAPI/extension-manifest.md#combining-extension-contributions) like snippets and colorizers into the same extension. You can modify the colorizer extension manifest `package.json` to include a `snippets` contribution and the snippets.json.
+When you're adding a new language to VS Code, it is also great to add language [snippets](/docs/editor/userdefinedsnippets.md) to support common editing actions. It is easy to [combine multiple extensions](/docs/extensionAPI/extension-manifest.md#combining-extension-contributions) like snippets and colorizers into the same extension. You can modify the colorizer extension manifest `package.json` to include a `snippets` contribution and the snippets.json.
 
 ```json
 {
@@ -354,17 +354,15 @@ When you're adding a new language to VS Code, it is also great to add language [
 
 ## Next Steps
 
-Colorizers are just one way to customize VS Code, If you'd like to learn more about VS Code extensibility, try these topics:
+If you'd like to learn more about VS Code extensibility, try these topics:
 
-* [Snippets](/docs/customization/userdefinedsnippets) - Learn how to also include snippets in your language extension.
-* [Custom themes](/docs/customization/themes.md) - Learn how to import existing TextMate themes.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
 
 ## Common Questions
 
 **Q: What parts of VS code can I theme with a custom color theme?**
 
-The VS Code color themes affect the editor input area (text foreground, background, selection, lineHighlight, caret, and the syntax tokens) as well as some of the custom UI (see the list in [Creating a Theme](/docs/customization/themes.md#creating-a-custom-theme)). When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-black`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
+The VS Code color themes affect the editor input area (text foreground, background, selection, lineHighlight, caret, and the syntax tokens) as well as some of the custom UI (see the list in [Creating a Theme](/docs/extensions/themes-snippets-colorizers.md#creating-a-custom-theme)). When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-black`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
 
 **Q: Is there a list of scopes that I can use in my custom color theme?**
 
@@ -405,7 +403,7 @@ To learn about what scopes are used where, check out the [TextMate documentation
 
 **Q: Can I add more file extensions to an existing colorizer?**
 
-**A:** Yes. To extend an existing colorizer, you can associate a file extension to an existing language identifier with the `files.associations` [setting](/docs/customization/userandworkspace.md).  IntelliSense will show you the list of currently available language ids.
+**A:** Yes. To extend an existing colorizer, you can associate a file extension to an existing language identifier with the `files.associations` [setting](/docs/getstarted/settings.md).  IntelliSense will show you the list of currently available language ids.
 
 For example, the setting below adds the `.mmd` file extension to the `markdown` colorizer:
 

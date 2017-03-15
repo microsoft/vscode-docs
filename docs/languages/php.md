@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
@@ -20,7 +20,7 @@ There are many PHP language extensions available on the [VS Code Marketplace](ht
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-> Tip: The following [setting](/docs/customization/userandworkspace.md) allows to disable the built-in PHP completions in favor of proposals created by installed PHP extensions.
+> Tip: The following [setting](/docs/getstarted/settings.md) allows to disable the built-in PHP completions in favor of proposals created by installed PHP extensions.
 
 - `php.suggest.basic`: Configures if the built-in PHP language suggestions are enabled. Enabled by default.
 
@@ -34,7 +34,7 @@ Visual Studio Code includes a set of common snippets for PHP.  To access these, 
 
 VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. This allows VS Code to stay current with PHP linter improvements.
 
-There are three [settings](/docs/customization/userandworkspace.md) to control the PHP linter:
+There are three [settings](/docs/getstarted/settings.md) to control the PHP linter:
 
 * `php.validate.enable`: controls whether to enable PHP linting at all. Enabled by default.
 * `php.validate.executablePath`: points to the PHP executable on disk. Set this if the PHP executable is not on the system path.
