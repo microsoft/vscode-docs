@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 
 Area: nodejs
 TOCTitle: Tutorial - React.js
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
