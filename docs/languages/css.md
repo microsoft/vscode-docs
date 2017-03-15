@@ -10,7 +10,7 @@ MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and 
 
 # CSS, Sass and Less
 
-Visual Studio Code has built-in support for editing style sheets in CSS `.css`, Sass `.scss` and Less `.less`.  In addition, you can install an extension for greater functionality. 
+Visual Studio Code has built-in support for editing style sheets in CSS `.css`, Sass `.scss` and Less `.less`.  In addition, you can install an extension for greater functionality.
 
 <div class="marketplace-extensions-css"></div>
 
@@ -64,7 +64,7 @@ We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 >    "css.validate": false
 >```
 
-## Goto symbol in file
+## Go to symbol in file
 
 Simply press `kb(workbench.action.gotoSymbol)`.
 
@@ -74,7 +74,7 @@ Hovering over a selector or property will provide an HTML snippet that is matche
 
 ![Hover in CSS](images/css/hover.png)
 
-## Goto Declaration and Find References
+## Go to Declaration and Find References
 
 This is supported for Sass and Less variables in the same file. [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) per the [draft standards proposal](https://drafts.csswg.org/css-variables/) are also supported.
 
@@ -264,10 +264,9 @@ css.validate | Enables or disables all css validations | true
 less.validate | Enables or disables all less validations | true
 scss.validate | Enables or disables all scss validations | true
 
-To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `less.lint.` and `scss.lint.`.
+To configure an option for CSS, use `css.lint.` as the prefix to the id; for Sass and Less, use `scss.lint.` and `less.lint.`.
 
->**Note:** In VS Code 1.2 (May 2016) and earlier the Sass settings were prefixed with `sass`. If you have customized settings, rename the prefix from `sass` to `scss` to have
-them working again.
+>**Note:** In VS Code 1.2 (May 2016) and earlier the Sass settings were prefixed with `sass`. If you have customized settings, rename the prefix from `sass` to `scss` to have them working again.
 
 Set a setting to `warning` or `error` if you want to enable lint checking, use `ignore` to disable it. Lint checks are performed as you type.
 
@@ -303,9 +302,9 @@ Read on to find out about:
 
 ## Common Questions
 
-**Q: Do you provide a color selector?**
+**Q: Do you provide a color picker?**
 
-**A:** No, this is currently not supported.
+**A:** No, this is currently not supported. But there are several extensions in the Marketplace supporting the color picker.
 
 **Q: Do you support the indentation based Sass syntax (.sass) ?**
 
