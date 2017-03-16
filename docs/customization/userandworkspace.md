@@ -9,7 +9,7 @@ MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
 
-It is easy to configure VS Code to your liking through settings. Nearly every part of the editor, user interface, and its functional behavior have options you can modify.
+It is easy to configure VS Code to your liking through settings. Nearly every part of VS Code's editor, user interface, and functional behavior have options you can modify.
 
 VS Code provides two different scopes for settings:
 
@@ -18,7 +18,7 @@ VS Code provides two different scopes for settings:
 
 ## Creating User and Workspace Settings
 
-The menu command **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on Mac) provides entry to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the related `settings.json` file.
+The menu command **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on Mac) provides entry to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs on the right let you switch quickly between the user and workspace settings files.
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
@@ -43,6 +43,8 @@ The workspace setting file is located under the `.vscode` folder in your project
 When you open settings, we show **Default Settings** to search and discover settings you are looking for. When you search using the big Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
 
 <img alt="settings groups" src="https://az754404.vo.msecnd.net/public/default-settings.gif" />
+
+>**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
 
 ### Settings groups
 
@@ -113,11 +115,9 @@ Here is the list of settings we don't support for workspaces:
 
 The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
-## Copy of default settings
+### Copy of Default Settings
 
 Below are the default settings and their values.
-
->**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
 
 ```json
 {
