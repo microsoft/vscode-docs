@@ -20,6 +20,8 @@ VS Code provides two different scopes for settings:
 
 The menu command **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on Mac) provides entry to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs on the right let you switch quickly between the user and workspace settings files.
 
+You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings**.
+
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
 ![Example Settings](images/userandworkspace/settings.png)
@@ -44,7 +46,7 @@ When you open settings, we show **Default Settings** to search and discover sett
 
 <img alt="settings groups" src="https://az754404.vo.msecnd.net/public/default-settings.gif" />
 
->**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
+**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
 
 ### Settings groups
 
