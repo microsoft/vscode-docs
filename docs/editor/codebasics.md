@@ -5,12 +5,16 @@ TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
 DateApproved: 3/1/2017
-MetaDescription: This topic helps you get acquainted with the Visual Studio Code user interface.
+MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
 # Basic Editing
 
-TDB Introduction
+Visual Studio Code is an editor first and foremost and includes the features you need for highly productive source code editing. This topic takes you through the basics of the editor and helps you get moving with your code.
+
+## Keyboard shortcuts
+
+Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts and a great way to learn them is with the printable cheatsheet (**Help** > **Keyboard Shortcuts Reference**). If you are familiar with the keyboard shortcuts of another editor, you can install a Keymap extension which will bring in the keybindings from other editors such as Sublime Text, Atom, and Vim (**File** > **Keymap Extensions**). You can also customize keyboard shortcuts directly, see our [Key Bindings](/docs/getstarted/keybindings.md) topic to learn how.
 
 ## Multiple selections (multi-cursor)
 
@@ -173,13 +177,13 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: How do I turn on word wrap?**
 
-**A:** You can control word wrap through the `editor.wrappingColumn` [setting](/docs/getstarted/settings.md). By default `editor.wrappingColumn` is set to 300 characters.  You can adjust the column width or set the value to zero to wrap on the editor viewport width:
+**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default `editor.wordwrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
-    "editor.wrappingColumn": 0
+    "editor.wordwrap": "on"
 ```
 
-You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wrappingColumn` value.
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordwrap` value.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
 
