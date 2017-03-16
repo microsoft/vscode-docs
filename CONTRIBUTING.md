@@ -102,7 +102,7 @@ Use Markdown highlight for settings, filename and JSON attributes.
 
 Use '>' to show menu sequence.
 
-    **File** > **Preferences** > **User Settings**
+    **File** > **Preferences** > **Settings**
     **View** > **Command Palette**
 
 ### Links
