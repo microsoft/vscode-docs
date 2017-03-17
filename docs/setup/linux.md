@@ -155,7 +155,7 @@ While 524288 is the maximum number of files that can be watched, if you're in an
 
 ### I can't see Chinese characters in Ubuntu
 
-We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **User Settings**. Then set `editor.fontFamily` as shown:
+We're working on a fix. In the meantime, open the application menu, then choose **File** > **Preferences** > **Settings**. Then set `editor.fontFamily` as shown:
 
 ```json
     "editor.fontFamily": "Droid Sans Mono, Droid Sans Fallback"

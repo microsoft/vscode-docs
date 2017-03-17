@@ -18,12 +18,12 @@
 <nav id="small-nav" class="docs-nav hidden-md hidden-lg">
 	<h4>Topics</h4>
 	<select id="small-nav-dropdown">
-		<option value="/docs" {{#ifCond section "Home"}}"selected"{{/ifCond}}>Overview</option>
+		<option value="/docs" {{#ifCond section "Home"}}selected{{/ifCond}}>Overview</option>
 		{% for area in areas %}
 			{% if area.include %}
 				<optgroup label="{$ area.title $}">
 				{% for article in area.articles %}
-					<option value="/docs/{$ article.Link $}" {{#ifCond section "{$ article.Link $}"}}"selected"{{/ifCond}}>{$ article.NavTitle $}</option>
+					<option value="/docs/{$ article.Link $}" {{#ifCond section "{$ article.Link $}"}}selected{{/ifCond}}>{$ article.NavTitle $}</option>
 				{% endfor %}
 				</optgroup>
 			{% endif %}
