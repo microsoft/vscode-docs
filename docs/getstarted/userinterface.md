@@ -26,22 +26,20 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 * **Editor** The main area to edit your files. You can open up to three editors side by side.
 * **Side Bar** Contains different views like the Explorer to assist you while working on your project.
 * **Status Bar** Information about the opened project and the files you edit.
-* **View Bar** Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
+* **Activity Bar** Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
 * **Panels** You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
 ![VS Code Layout](images/userinterface/layout.png)
 
-VS Code allows up to three visible editors at any one time, allowing you to edit or view up to three files together side by side. The open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
+Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
 >**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
 ## Side by Side Editing
 
-You can have up to three editors open side by side.
-
-If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
+You can have up to three editors open side by side. If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
 * `kbstyle(Ctrl)` (Mac: `kbstyle(Cmd)`) click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
@@ -95,6 +93,19 @@ Just click an item in the **OPEN EDITORS** section, and it becomes active in VS 
 
 Once you are done with your task, you can remove files individually from the **OPEN EDITORS** section, or you can remove all files by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
 
+## Views and the Activity Bar
+
+The File Explorer is just one of the Views available in VS Code. There are also Views for:
+
+* **Search** - Provides global search and replace across your open folder.
+* **SCM** - VS Code includes Git source control management by default.
+* **Debug** - VS Code's Debug View displays variables, call stacks, and breakpoints.
+* **Extensions** - Install and manage your extensions within VS Code.
+
+The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right click **Remove from Activity Bar**).
+
+![activity bar context menu](images/userinterface/activity-bar-context-menu.png)
+
 ## Command Palette
 
 VS Code is equally accessible from the keyboard. The most important key combination to know is `kb(workbench.action.showCommands)`, which brings up the **Command Palette**. From here, you have access to all of the functionality of VS Code, including keyboard shortcuts for the most common operations.
@@ -121,15 +132,18 @@ VS Code gives you many options to configure the editor. From the **View** menu, 
 
 You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command (`kbstyle(Ctrl+U)`). You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.
 
+
 ### Settings
 
 Most editor configurations are kept in settings which can be modified directly. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/getstarted/settings.md#settings-file-locations).
 
-* Select **File** > **Preferences** > **User Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user settings.json file.
+* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user `settings.json` file.
 
-* Select **File** > **Preferences** > **Workspace Settings** (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
+* To edit workspace settings, select **File** > **Preferences** > **Settings** and select the **WORKSPACE SETTINGS** Tab (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
 
->**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **User Settings**.
+>**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
+
+![workspace settings](images/userinterface/workspace-settings.png)
 
 You will see the VS Code [Default Settings](/docs/getstarted/settings.md#default-settings) in the left window and your editable `settings.json` on the right. You can easily filter settings in the `Default Settings` using the search box at the top. Copy a setting over to the editable `settings.json` on the right by clicking on the edit icon to the left of the setting. Settings with a fixed set values allow you to pick a value as part of their edit icon menu.
 
@@ -139,7 +153,7 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Sidebar and Panel) and going to full screen. Zen mode can be toggled using the View menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen` and `zenMode.restore`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel) and going to full screen. Zen mode can be toggled using the View menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen` and `zenMode.restore`.
 
 ## Tabs
 

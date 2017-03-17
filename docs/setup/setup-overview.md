@@ -52,7 +52,7 @@ If you work on a machine where Internet traffic needs to go through a proxy serv
     SET http_proxy=http://10.203.0.1:5187/
 ```
 
-* Configure the ‘http.proxy’ setting in your user [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **User Settings** or **Code** > **Preferences** > **User Settings** on Mac):
+* Configure the ‘http.proxy’ setting in your user [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings** or **Code** > **Preferences** > **Settings** on Mac):
 
 ```json
     "http.proxy": "http://10.203.0.1:5187/"

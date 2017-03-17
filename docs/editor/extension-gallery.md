@@ -16,7 +16,7 @@ The features that VS Code includes out-of-the-box are just the start. VS Code ex
 
 ## Browse and Install Extensions in VS Code
 
-You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the View Bar on the side of VS Code.
+You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code.
 
 ![Extension View icon](images/extension-gallery/extensions-view-icon.png)
 

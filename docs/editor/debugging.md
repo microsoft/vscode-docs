@@ -30,15 +30,11 @@ Below are several popular extension which include debugging support:
 
 The following documentation is based on the built-in [Node.js](https://nodejs.org/) debugger, but most of the concepts and features are applicable to other debuggers as well.
 
-<<<<<<< HEAD
 It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application all set up, this page will take you through VS Code debugging features.
-=======
-It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application all set up, this page will take you through VS Code debugging features.
->>>>>>> 1b08fccb49af9b44e78e93bfcfa4271cc6ae6097
 
 ## Debug View
 
-To bring up the Debug view, click on the Debugging icon in the View Bar on the side of VS Code.
+To bring up the Debug view, click on the Debugging icon in the **Activity Bar** on the side of VS Code.
 
 ![Debug icon](images/debugging/debugicon.png)
 
