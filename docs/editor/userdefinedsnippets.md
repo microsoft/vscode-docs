@@ -101,11 +101,15 @@ int         ::= [0-9]+
 text        ::= .*
 ```
 
+## Using TextMate Snippets
+
+You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) topic in our Extension Authoring section to learn more.
+
 ## Next Steps
 
-* [Themes, Snippets and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - Learn how to import existing theme, snippet and colorizer files.
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
 * [Command line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
+* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
+* [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - You can package themes, snippets and language colorizers for use in VS Code.
 
 ## Common Questions
 

@@ -33,9 +33,9 @@ However, there is no need to edit the settings directly. It's easier to use the 
 
 > **Tip:** By default, the theme is configured in the user settings and applies to all workspaces. But you can also configure a workspace specific theme. To do so, set a theme in the workspace settings.
 
-## Adding Color Themes from the Extension Marketplace
+## Color Themes from the Marketplace
 
-There are several out-of-the-box color themes in VS Code for you to try. 
+There are several out-of-the-box color themes in VS Code for you to try.
 
 Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs/editor/extension-gallery.md) by the community.  If you find one you want to use, simply install it and restart VS Code and the new theme will be available.
 
@@ -44,6 +44,10 @@ Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs
 <div class="marketplace-extensions-themes"></div>
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
+
+## Using existing TextMate Themes
+
+You can add existing TextMate color themes (.tmTheme) to VS Code. For example, the [Color Sublime] site has hundreds of TextMate themes available. See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
 
 # Icon Themes
 
@@ -71,10 +75,15 @@ VS code ships with two icon themes; **Minimal** and **Seti**. To install more ic
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
+## Creating your own File Icon Theme
+
+You can create your own File Icon Theme from icons (preferably SVG), see the [Adding a new Icon Theme](//docs/extensions/themes-snippets-colorizers.md#adding-a-new-icon-theme) topic in our Extension Authoring section for details.
 
 ## Next Steps
 
-Themes are just one way to customize VS Code. If you'd like to learn more about VS Code extensibility, try these topics:
+Themes are just one way to customize VS Code. If you'd like to learn more about VS Code customization and extensibility, try these topics:
 
-* [Snippets](/docs/editor/userdefinedsnippets.md) - Add additional snippets to your favorite language
-* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
+* [Settings](/docs/getstarted/settings) -  Learn how to configure VS Code to your preferences through user and workspace settings.
+* [Snippets](/docs/editor/userdefinedsnippets.md) - Add additional snippets to your favorite language.
+* [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
+* [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - You can package themes, snippets and language colorizers for use in VS Code.

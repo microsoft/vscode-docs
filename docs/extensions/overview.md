@@ -19,7 +19,6 @@ All VS Code extensions share a common model of contribution (registration), acti
 2. [Language Servers](/docs/extensions/overview.md#language-servers) - for high cost IO or CPU intensive tasks
 3. [Debuggers](/docs/extensions/overview.md#debug-adapter) - wire up an external debugger
 
-
 ## Extensions
 
 All extensions when activated run in our shared extension host process.  This separate process for extensions ensures that VS Code remains responsive through-out.
@@ -32,7 +31,7 @@ Extensions include support for:
 * **Eventing** - connect to the editor life-cycle events such as: open, close, change, and more
 * **Evolved editing** - create providers for rich language support including IntelliSense, Peek, Hover, Diagnostics and much, much more
 
-We have two end-to-end walkthroughs to get you going on extension basics:
+We have two end-to-end tutorials to get you going on extension basics:
 
 1. **[Hello World](/docs/extensions/example-hello-world.md)** - generate a basic extension, understand an extension's folder structure, the extension manifest, learn how activation works, run and debug your extension and install it locally.
 2. **[Word Count](/docs/extensions/example-word-count.md)** - activate based on a specific file type, update the status bar, respond to changes in the text editor, and dispose your extension when moving off the file.
@@ -58,6 +57,10 @@ The easiest way to see VS Code extensions in action is via the [Extension Market
 ## Language Extension Guidelines
 
 To help you decide what language features you'd like to support with your extension, we have a [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and how to implement them through either the language server protocol or by using the extensibility API directly from your extension.
+
+## Themes, Snippets, and Colorizers
+
+You can have a great editing experience for your programming language with simple things such as syntax highlighting, useful snippets, and a well designed color theme. TextMate customization files provide this support and VS Code lets you easily package and reuse these so you can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extension. Our [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) topic shows you how to include TextMate files as well as providing guidance on how you can create your own themes, snippets and language colorizers.
 
 ## Writing an Extension
 

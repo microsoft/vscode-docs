@@ -14,7 +14,11 @@ Visual Studio Code is an editor first and foremost and includes the features you
 
 ## Keyboard shortcuts
 
-Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts and a great way to learn them is with the printable cheatsheet (**Help** > **Keyboard Shortcuts Reference**). If you are familiar with the keyboard shortcuts of another editor, you can install a Keymap extension which will bring in the keybindings from other editors such as Sublime Text, Atom, and Vim (**File** > **Keymap Extensions**). You can also customize keyboard shortcuts directly, see our [Key Bindings](/docs/getstarted/keybindings.md) topic to learn how.
+Being able to keep your hands on the keyboard when writing code is crucial for high productivity. VS Code has a rich set of default keyboard shortcuts as well as allowing you to customize them.
+
+* [Keyboard Shortcuts Reference](/docs/getstarted/keybindings.md#keyboard-shortcuts-reference) - Learn the most commonly used and popular keyboard shortcuts by downloading the reference sheet.
+* [Install a Keymap extension](/docs/getstarted/keybindings.md#keymap-extensions) - Use the keyboard shortcuts of your old editor (such as Sublime Text, Atom, and Vim) in VS Code by installing a Keymap extension.
+* [Customize Keyboard Shortcuts](/docs/getstarted/keybindings.md#customizing-shortcuts) - Change the default keyboard shortcuts to fit your style.
 
 ## Multiple selections (multi-cursor)
 

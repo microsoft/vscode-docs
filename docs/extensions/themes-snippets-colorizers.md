@@ -5,11 +5,11 @@ TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
 DateApproved: 3/1/2017
-MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code.  TextMate .tmLanguage files are supported.
+MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
-# Themes, Snippets and Colizers
+# Themes, Snippets and Colorizers
 
-TBD
+Custom themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and VS Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
 
 ## Adding a new Theme
 
@@ -59,7 +59,7 @@ Authoring a theme is fairly tricky as the grammars all behave a bit differently.
 
 ## New Tools for inspecting TextMate Scopes
 
- To help with theme authoring, there is a widget to inspect the scopes of a token and the matching theme rule. You can launch the widget with **Developer Tools: Inspect TM Scopes** from the **Command Palette** (`kb(workbench.action.showCommands)`).
+To help with theme authoring, there is a widget to inspect the scopes of a token and the matching theme rule. You can launch the widget with **Developer Tools: Inspect TM Scopes** from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Inspect TM Scopes](images/themes/inspect-tm-scopes.png)
 
@@ -81,7 +81,7 @@ To begin, create a VS Code extension and add the `iconTheme` contribution point.
 }
 ```
 
-The `id` is the identifier for the icon theme. It is currently only used internally. In the future, it might be used in the settings, so make it unique but also readable. `label` is shown in the icon theme picker dropdown. The `path` points to a file in the extension that defines the icon set. If your icon set name follows the `*icon-theme.json` name scheme, you will get completion support and hovers in VS Code.
+The `id` is the identifier for the icon theme. It is currently only used internally. In the future, it might be used in the settings, so make it unique but also readable. `label` is shown in the icon theme picker drop-down. The `path` points to a file in the extension that defines the icon set. If your icon set name follows the `*icon-theme.json` name scheme, you will get completion support and hovers in VS Code.
 
 ### Icon Set File
 
@@ -198,6 +198,8 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
     }
 ```
 
+---
+
 ## Using TextMate Snippets
 
 You can also add TextMate snippets (.tmSnippets) to your VS Code installation using the [yo code](/docs/tools/yocode.md) extension generator. The generator has an option `New Code Snippets` which lets you point to a folder containing multiple .tmSnippets files and they will be packaged into a VS Code snippet extension.  The generator also supports Sublime snippets (.sublime-snippets).
@@ -260,6 +262,8 @@ You then use the [vsce publishing tool](/docs/tools/vscecli.md) to publish the s
 
 We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
 
+---
+
 ## Adding a New Language (Colorizer)
 
 Using the ['code' Yeoman generator](/docs/tools/yocode.md), you can create an extension that adds syntax highlighting and bracket matching for a language to your VS Code installation.
@@ -302,7 +306,7 @@ For more details check out the [languages contribution point documentation](/doc
 
 The generated `vsc-extension-quickstart.md` file also contains more information on how to run and debug your extension.
 
-To use your extension in your stable VS Code installation, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier dropdown and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
+To use your extension in your stable VS Code installation, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier drop-down and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
 ![select ant language](images/themes-snippets-colorizers/antlanguage.png)
 
