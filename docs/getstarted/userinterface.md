@@ -98,7 +98,7 @@ Once you are done with your task, you can remove files individually from the **O
 The File Explorer is just one of the Views available in VS Code. There are also Views for:
 
 * **Search** - Provides global search and replace across your open folder.
-* **SCM** - VS Code includes Git source control management by default.
+* **Source Control** - VS Code includes Git source control by default.
 * **Debug** - VS Code's Debug View displays variables, call stacks, and breakpoints.
 * **Extensions** - Install and manage your extensions within VS Code.
 

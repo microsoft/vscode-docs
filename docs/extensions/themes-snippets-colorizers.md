@@ -5,11 +5,11 @@ TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
 DateApproved: 3/1/2017
-MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code.  TextMate .tmLanguage files are supported.
+MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
-# Themes, Snippets and Colizers
+# Themes, Snippets and Colorizers
 
-TBD
+Custom themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and VS Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
 
 ## Adding a new Theme
 
@@ -59,7 +59,7 @@ Authoring a theme is fairly tricky as the grammars all behave a bit differently.
 
 ## New Tools for inspecting TextMate Scopes
 
- To help with theme authoring, there is a widget to inspect the scopes of a token and the matching theme rule. You can launch the widget with **Developer Tools: Inspect TM Scopes** from the **Command Palette** (`kb(workbench.action.showCommands)`).
+To help with theme authoring, there is a widget to inspect the scopes of a token and the matching theme rule. You can launch the widget with **Developer Tools: Inspect TM Scopes** from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Inspect TM Scopes](images/themes/inspect-tm-scopes.png)
 
