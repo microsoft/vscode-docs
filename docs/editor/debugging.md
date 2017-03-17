@@ -34,7 +34,7 @@ It is helpful to first create a sample Node.js application before reading about 
 
 ## Debug View
 
-To bring up the Debug view, click on the Debugging icon in the View Bar on the side of VS Code.
+To bring up the Debug view, click on the Debugging icon in the **Activity Bar** on the side of VS Code.
 
 ![Debug icon](images/debugging/debugicon.png)
 

@@ -26,7 +26,7 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 * **Editor** The main area to edit your files. You can open up to three editors side by side.
 * **Side Bar** Contains different views like the Explorer to assist you while working on your project.
 * **Status Bar** Information about the opened project and the files you edit.
-* **View or Activity Bar** Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
+* **Activity Bar** Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
 * **Panels** You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
@@ -98,11 +98,13 @@ Once you are done with your task, you can remove files individually from the **O
 The File Explorer is just one of the Views available in VS Code. There are also Views for:
 
 * **Search** - Provides global search and replace across your open folder.
-* **Source Control Management** - VS Code includes Git version control support by default.
+* **SCM** - VS Code includes Git source control management by default.
 * **Debug** - VS Code's Debug View displays variables, call stacks, and breakpoints.
 * **Extensions** - Install and manage your extensions within VS Code.
 
 The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right click **Remove from Activity Bar**).
+
+![activity bar context menu](images/userinterface/activity-bar-context-menu.png)
 
 ## Command Palette
 
@@ -151,7 +153,7 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Sidebar and Panel) and going to full screen. Zen mode can be toggled using the View menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen` and `zenMode.restore`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel) and going to full screen. Zen mode can be toggled using the View menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen` and `zenMode.restore`.
 
 ## Tabs
 
