@@ -11,7 +11,11 @@ MetaSocialImage: nodejs_javascript_vscode.png
 
 # React.js Tutorial in VS Code
 
+React.js is a popular JavaScript framework developed by Facebook. VS Code supports React.js IntelliSense and code navigation out of the box. 
+
 ## Hello World
+
+
 
 ## Debug Hello World
 
