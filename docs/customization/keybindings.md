@@ -71,7 +71,7 @@ Key|Command|Command id
 `kb(editor.fold)`|Fold (collapse) region|`editor.fold`
 `kb(editor.unfold)`|Unfold (uncollapse) region|`editor.unfold`
 `kb(editor.foldRecursively)`|Fold (collapse) all subregions|`editor.foldRecursively`
-`kb(editor.unfoldRecursively)`|Unfold (uncollapse) all subregions|`editor.unfoldRecursively`
+`kb(editor.unFoldRecursively)`|Unfold (uncollapse) all subregions|`editor.unFoldRecursively`
 `kb(editor.foldAll)`|Fold (collapse) all regions|`editor.foldAll`
 `kb(editor.unfoldAll)`|Unfold (uncollapse) all regions|`editor.unfoldAll`
 `kb(editor.action.addCommentLine)`|Add Line Comment|`editor.action.addCommentLine`
