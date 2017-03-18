@@ -36,7 +36,7 @@ You can define your own snippets for specific languages.  To open up a snippet f
 
 Snippets are defined in a JSON format and stored in a per user `(languageId).json` file. For example, Markdown snippets go in a `markdown.json` file.
 
-The example below is a `For Loop` snippet for `JavaScript`.
+The example below is a `For Loop` snippet for [`JavaScript`](https://github.com/Microsoft/vscode/blob/master/extensions/javascript/snippets/javascript.json).
 
 ```json
     "For Loop": {
