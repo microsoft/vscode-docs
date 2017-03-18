@@ -125,7 +125,7 @@ Here are some tips for making your extension look great on the Marketplace:
 - A `README.md` file at the root of your extension will be used to populate the extension's Marketplace page's contents. `vsce` will modify README links for you in two different ways:
   - If you add a `repository` field to your `package.json` and if it is a public GitHub repository, `vsce` will automatically detect it and adjust the links accordingly.
   - You can override that behavior and/or set it by using the `--baseContentUrl` and `--baseImagesUrl` flags when running `vsce package`. Then publish the extension by passing the path to the packaged `.vsix` file as an argument to `vsce publish`.
-- A `LICENSE` file at the root of your extension will be used as the contents for the extension's license.
+- A `LICENSE.md` file at the root of your extension will be used as the contents for the extension's license.
 - A `CHANGELOG.md` file at the root of your extension will be used as the contents for the extension's changelog.
 - You can set the banner background color by setting `galleryBanner.color` to the intended hex value in `package.json`.
 - You can set an icon by setting `icon` to a relative path to a squared `128px` PNG file included in your extension, in `package.json`.
