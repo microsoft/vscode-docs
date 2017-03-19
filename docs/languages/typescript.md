@@ -165,7 +165,7 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
 
->**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
+>**Tip:** The `tsc` compiler does not detect the presence of a `tsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `tsconfig.json` file, e.g. `tsc -p tsconfig.json`.
 
 ## Using Newer TypeScript Versions
 
