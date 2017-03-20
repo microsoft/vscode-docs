@@ -107,7 +107,7 @@ You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the 
 
 ## Next Steps
 
-* [Command line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
+* [Command Line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code.
 * [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) - You can package themes, snippets and language colorizers for use in VS Code.
 

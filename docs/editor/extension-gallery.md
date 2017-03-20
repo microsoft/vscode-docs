@@ -7,7 +7,6 @@ PageTitle: Managing Extensions in Visual Studio Code
 DateApproved: 3/1/2017
 MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
-
 # VS Code Extension Marketplace
 
 ## Increase the power of VS Code through Extensions
@@ -91,7 +90,7 @@ You can review our handy **Featured**, **Most Popular**, and **Recently Added** 
 
 ## Command Line Extension Management
 
-To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the command line. When identifying an extension, provide the full name of the form `publisher.extension`, for example `donjayamanne.python`.
+To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/editor/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `donjayamanne.python`.
 
 Example:
 
@@ -143,7 +142,7 @@ Here are a few topics you may find interesting...
 
 **A:** Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-An extension's direct download URL is in the form: 
+An extension's direct download URL is in the form:
 
 ```
 https://${publisher}.gallery.vsassets.io/_apis/public/gallery/publisher/${publisher}/extension/${extension name}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
@@ -159,7 +158,7 @@ Once you've downloaded an extension, you can side load it by renaming the `.zip`
 
 **Q: Can VS Code read TextMate bundles directly?**
 
-**A**: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration.  The [Yo Code](/docs/tools/yocode.md) extension generator makes it easy to package these files for use in VS Code.
+**A**: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration. The [Yo Code](/docs/tools/yocode.md) extension generator makes it easy to package these files for use in VS Code. See the [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) topic in the Extension Authoring section for details.
 
 **Q: Can I install Visual Studio Community extensions (shipped in .vsix) in Visual Studio Code?**
 
