@@ -356,6 +356,49 @@ When you're adding a new language to VS Code, it is also great to add language [
 }
 ```
 
+## Language Identifiers
+
+In VS Code, each language mode has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, e.g. when associating file extensions to a language:
+
+```json
+    "files.associations": {
+        "*.myphp": "php"
+    }
+```
+
+Note that casing matters for exact identifier matching ('Markdown' != 'markdown')
+
+The language identifier becomes essential for VS Code extension developers when adding new language capabilities or when replacing a language support.
+
+Every language defines its *id* through the `languages` configuration point:
+
+```json
+    "languages": [{
+        "id": "java",
+        "extensions": [ ".java", ".jav" ],
+        "aliases": [ "Java", "java" ]
+    }]
+```
+
+Language supports are added using the language identifier:
+
+```json
+    "grammars": [{
+        "language": "groovy",
+        "scopeName": "source.groovy",
+        "path": "./syntaxes/Groovy.tmLanguage"
+    }],
+    "snippets": [{
+        "language": "groovy",
+        "path": "./snippets/groovy.json"
+    }]
+```
+
+When defining a new language identifier, use the following guidelines:
+
+- Use the lowercased programming language name.
+- Search for other extensions in the Marketplace to find out if a language identifier has already been used.
+
 ## Next Steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
