@@ -34,13 +34,11 @@ Remove terminal instances by pressing the trash can button.
 
 ## Configuration
 
-The shell used defaults to `$SHELL` on Linux and OS X, and `%COMSPEC%` on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/customization/userandworkspace.md). Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
+The shell used defaults to `$SHELL` on Linux and OS X, and PowerShell on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/customization/userandworkspace.md). Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
 
 ### Windows
 
-Correctly configuring your shell on Windows is a matter of locating the right executable. VS Code defaults to the `%COMSPEC%` environment variable on Windows which typically points to the 32-bit version of `cmd.exe`. 
-
-Below are a list of common shell executables and their default locations:
+Correctly configuring your shell on Windows is a matter of locating the right executable and updating the setting. Below are a list of common shell executables and their default locations:
 
 ```json
 // 64-bit cmd if available, otherwise 32-bit
