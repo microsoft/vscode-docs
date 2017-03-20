@@ -8,7 +8,6 @@ DateApproved: 3/1/2017
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: typescript_Languages_typescript.png
 ---
-
 # Editing TypeScript
 
 TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.

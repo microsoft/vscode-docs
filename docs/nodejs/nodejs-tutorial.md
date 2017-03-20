@@ -210,7 +210,7 @@ The first thing we'll need to do is get our source code into a GitHub repository
 We are going to follow the instructions provided by GitHub to create a new repository on the command line, but with a few changes. 
 It is a good practice to include a `.gitignore` file in your repository that excludes the `node_modules` folder. We'll do this instead of creating a `README.md` file and we'll add and commit all of the files in the workspace (except `node_modules` of course): 
 
-```
+```bash
 echo "node_modules" >> .gitignore
 git init
 git add .
@@ -225,7 +225,7 @@ Next, we will create an Azure Website to host our app. Once we have that, we'll 
 
 The following CLI commands will create our site and set up continuous deployment. Make sure you name your site properly per the comments.
 
-```
+```bash
 # Follow the login instructions
 az login
 

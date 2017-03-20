@@ -8,16 +8,15 @@ DateApproved: 5/9/2016
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
 MetaSocialImage: csharp_languages_csharp.png
 ---
-
 # Working with C&#35;
 
 The C# support in VS Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/other/dotnet.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance, many [Unity](/docs/other/unity.md) game developers enjoy using VS Code in place of the MonoDevelop IDE.
 
 ![C# language within VS Code](images/csharp/c_sharp_hero.png)
 
-VS Code supports debugging of C# applications running on either .NET Core or Mono. 
+VS Code supports debugging of C# applications running on either .NET Core or Mono.
 
-For detailed instructions on: 
+For detailed instructions on:
 
 * .NET Core debugging - see the [Microsoft C# extension's GitHub page](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md).
 * Mono debugging - see the [Mono Debug extension's README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug).
@@ -32,7 +31,7 @@ C# language support is an optional [install from the Marketplace](https://market
 
 [Video Tutorial on Getting Started with C# in VS Code with .NET Core](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-using-CSharp-and-NET-Core)
 
-In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), the community has produced other extensions. 
+In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), the community has produced other extensions.
 
 <div class="marketplace-extensions-csharp"></div>
 

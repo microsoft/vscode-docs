@@ -7,7 +7,6 @@ PageTitle: Language Support in Visual Studio Code
 DateApproved: 3/1/2017
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
-
 # Programming Languages
 
 ## Hundreds of Programming Languages Supported
@@ -38,19 +37,13 @@ The richness of support varies across the different languages and their extensio
 * Debugging
 * Refactoring
 
-## Language Extensions
+## Changing the Language for the selected file
 
-The community is providing VS Code language support for nearly any modern programming language. To see if there are [extensions](/docs/editor/extension-gallery.md) for the language you're interested in, simply bring up the Extensions view (`kb(workbench.view.extensions)`) and filter on the language name in the search box.
-
-![python extensions](images/overview/extensions-python.png)
-
-You can also browse the VS Code Marketplace directly to look for [supported languages](https://marketplace.visualstudio.com/vscode/Languages).
-
-## Changing the Language for the Selected File
-
-In VS Code, we default the language support for a file based on its filename extension.  However at times you may wish to change language modes, to do this click on the language indicator - which is located on the right hand of the status bar.  This will bring up the Command Palette for Select Language Mode.
+In VS Code, we default the language support for a file based on its filename extension.  However, at times you may wish to change language modes, to do this click on the language indicator - which is located on the right hand of the Status Bar.  This will bring up the **Select Language Mode** drop-down where you can select another language for the current file.
 
 ![Language Selector](images/overview/languageselect.png)
+
+**Tip**: You can get the same drop-down by running the **Change Language Mode** command (`kb(workbench.action.editor.changeLanguageMode)`).
 
 ## Language Id
 
@@ -58,9 +51,9 @@ VS Code associates a language mode with a specific language identifier so that v
 
 A language identifier is often (but not always) the lowercased programming language name. Note that casing matters for exact identifier matching ('Markdown' != 'markdown'). Unknown language files have the language identifier `plaintext`.
 
-You can find a list of all known identifiers in the [language identifier reference](/docs/languages/identifiers.md).
+You can see the list of currently installed languages and their identifiers in the **Change Language Mode** (`kb(workbench.action.editor.changeLanguageMode)`) drop-down.
 
-You can see the list of currently installed languages and their identifiers in the **Change Language Mode** (`kb(workbench.action.editor.changeLanguageMode)`) dropdown.
+![language identifiers](images/overview/language-identifiers.png)
 
 ## Adding a file extension to a Language
 
@@ -93,7 +86,7 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 **Q: What if I don't want to create a full language service, can I reuse existing TextMate bundles?**
 
-**A:** Yes, you can also add support for your favorite language through TextMate colorizers.  See [Colorizers](/docs/extensions/thmemes-snippets-colorizers.md) to learn how to integrate TextMate .tmLanguage syntax files into VS Code. 
+**A:** Yes, you can also add support for your favorite language through TextMate colorizers.  See [Themes, Snippets, and Colorizers](/docs/extensions/thmemes-snippets-colorizers.md) topic in the Extension Authoring section to learn how to integrate TextMate `.tmLanguage` syntax files into VS Code. 
 
 **Q: Can I map additional file extensions to a language?**
 
