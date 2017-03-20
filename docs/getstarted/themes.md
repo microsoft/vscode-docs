@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 3/1/2017
+DateApproved: 3/20/2017
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 # Color Themes
@@ -77,7 +77,7 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Creating your own File Icon Theme
 
-You can create your own File Icon Theme from icons (preferably SVG), see the [Adding a new Icon Theme](//docs/extensions/themes-snippets-colorizers.md#adding-a-new-icon-theme) topic in our Extension Authoring section for details.
+You can create your own File Icon Theme from icons (preferably SVG), see the [Adding a new Icon Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-icon-theme) topic in our Extension Authoring section for details.
 
 ## Next Steps
 
