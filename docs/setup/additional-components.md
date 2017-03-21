@@ -18,7 +18,7 @@ If you are used to working with larger, monolithic development tools (IDEs), you
 
 Here are a few commonly installed components:
 
-- [Git](http://git-scm.com/download) - VS Code has built-in support for source code control using Git but requires Git to be installed separately.
+- [Git](https://git-scm.com/download) - VS Code has built-in support for source code control using Git but requires Git to be installed separately.
 - [Node.js (includes NPM)](https://nodejs.org/) - A platform and runtime for building and running JavaScript applications.
 - [TypeScript](http://typescriptlang.org) - The TypeScript compiler, `tsc`, for transpiling TypeScript to JavaScript.
 
@@ -38,11 +38,11 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 
 - [Yeoman](http://yeoman.io/) - An application scaffolding tool, a command line version of **File** > **New Project**.
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - A Yeoman generator for scaffolding **ASP.NET Core** applications.
-- [hottowel](https://github.com/johnpapa/generator-hottowel) - A Yeoman generator for quickly creating **AngularJS** applications.
+- [generator-hottowel](https://github.com/johnpapa/generator-hottowel) - A Yeoman generator for quickly creating **AngularJS** applications.
 - [Express](http://expressjs.com/) - An application framework for Node.js applications using the **Jade** template engine.
-- [gulp](http://gulpjs.com/) - A streaming task runner system which integrates easily with VS Code tasks.
-- [mocha](http://mochajs.org/) - A JavaScript test framework that runs on Node.js.
-- [bower](http://bower.io/) - A client side package manager.
+- [Gulp](http://gulpjs.com/) - A streaming task runner system which integrates easily with VS Code tasks.
+- [Mocha](http://mochajs.org/) - A JavaScript test framework that runs on Node.js.
+- [Bower](https://bower.io/) - A client side package manager.
 
 >**Note:** Most of these tools require Node.js and the NPM package manager to install and use.
 
