@@ -38,13 +38,14 @@ The content in this repository follows the organization of documentation at <htt
 
 This repository contains the following folders:
 
+* \setup
+* \introvideos
+* \getstarted
 * \editor
-* \customization
 * \languages
-* \runtimes
 * \extensions
 * \extensionAPI
-* \tools
+* \other
 * \supporting
 
 Within these folders you'll find the Markdown files used for the content. Each of these folders also contains an \images folder that references the images (such as screenshots) used in the topics.

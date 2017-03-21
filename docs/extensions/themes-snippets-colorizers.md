@@ -19,7 +19,7 @@ You can also add new TextMate theme files (.tmTheme) to your VS Code installatio
 
 ![yo code theme](images/themes/yocodetheme.png)
 
-Copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.
+Copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
 
 Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
 
@@ -213,7 +213,7 @@ The final generator output has two files: an extension manifest `package.json` w
 └── package.json                // extension's manifest
 ```
 
-Copy the generated snippets folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.
+Copy the generated snippets folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
 
 ## Sharing Your Snippets in the Marketplace
 
@@ -306,7 +306,7 @@ For more details check out the [languages contribution point documentation](/doc
 
 The generated `vsc-extension-quickstart.md` file also contains more information on how to run and debug your extension.
 
-To use your extension in your stable VS Code installation, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier drop-down and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
+To use your extension in your stable VS Code installation, copy the complete output folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.  When you restart VS Code, your new language will be visible in the language specifier drop-down and you'll get full colorization and bracket/tag matching for files matching the language's file extension.
 
 ![select ant language](images/themes-snippets-colorizers/antlanguage.png)
 

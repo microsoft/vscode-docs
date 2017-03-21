@@ -64,11 +64,9 @@ You can have a great editing experience for your programming language with simpl
 
 ## Writing an Extension
 
+There is a Yeoman [extension generator](/docs/extensions/yocode.md) which makes it very easy to create simple extension projects. These are great for starting out  and you can also find existing extension [examples](/docs/extensions/samples.md).
+
 Extensions can be written in either TypeScript or JavaScript.  VS Code offers a first class extension development experience where you can [develop, build, run, test and debug](/docs/extensions/debugging-extensions.md) all from within VS Code itself.
-
-## Install and Share
-
-Once you have a working extension, you can [install it or share it with others](/docs/extensions/install-extension.md).   We support local installation, private sharing, or publishing to the public [Extension Marketplace](/docs/editor/extension-gallery.md).
 
 ## Testing Extensions
 
@@ -76,6 +74,6 @@ We also have great support for [writing and running tests](/docs/extensions/test
 
 ## Next Steps
 
-* [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension
-* [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
-* [Samples](/docs/extensions/samples.md) - A list of extension samples you can review and build
+* [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
+* [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs.
+* [Extension Examples](/docs/extensions/samples.md) - A list of extension samples you can review and build.

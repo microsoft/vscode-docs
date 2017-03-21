@@ -113,7 +113,11 @@ You may want to simply package extensions without publishing them to the store. 
 vsce package
 ```
 
-This will package your extension into a `.vsix` file and place it in the current directory. It's possible to install `.vsix` files into Visual Studio Code. See [Installing Extensions](/docs/extensions/install-extension.md) for more details.
+This will package your extension into a `.vsix` file and place it in the current directory. It's possible to install `.vsix` files into Visual Studio Code. See [Install from a VSIX](/docs/editor/extension-gallery.md#install-from-a-vsix) for more details.
+
+### Sharing Privately with Others
+
+If you want to share your extension with others privately, you can simply send them your packaged extension `.vsix` file.
 
 ## Visual Studio Code Compatiblity
 
@@ -192,7 +196,7 @@ This will always invoke the [TypeScript](http://www.typescriptlang.org/) compile
 ## Next Steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
-* [Installing Extensions](/docs/extensions/install-extension.md) - Learn about other options for installing and sharing extensions.
+* [Testing Extensions](/docs/extensions/testing-extensions.md) - Add tests to your extension project to ensure high quality.
 
 ## Common Questions
 

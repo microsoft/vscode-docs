@@ -78,16 +78,6 @@ Alternatively, you can disable all extensions through the command line with the 
 code --disable-extensions /path/to/workspace
 ```
 
-## Browse Extensions
-
-Additionally, you can browse and search for VS Code extensions through the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) site. Below is a sampling of the most popular extensions.
-
-<div class="marketplace-extensions-top"></div>
-
-You can review our handy **Featured**, **Most Popular**, and **Recently Added** extension lists and filter by **Category** (Debuggers, Languages, Linters, etc).
-
-![marketplace-categories](images/extension-gallery/marketplace-categories.png)
-
 ## Command Line Extension Management
 
 To make it easier to automate and configure VS Code, it is possible to list, install, and uninstall extensions from the [command line](/docs/editor/command-line.md). When identifying an extension, provide the full name of the form `publisher.extension`, for example `donjayamanne.python`.
@@ -100,6 +90,20 @@ code --install-extension ms-vscode.cpptools
 code --uninstall-extension ms-vscode.csharp
 code --disable-extensions
 ```
+
+## Install from a VSIX
+
+You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX...** command in the Extensions View command drop-down, or the **Extensions: Install from VSIX...** command in the **Command Palette**, simply point to the `.vsix` file.
+
+You can also install using the VS Code `--install-extension` command line switch providing the path to the `.vsix` file.
+
+```
+code --install-extension myextension.vsix
+```
+
+You may provide the `--install-extension` multiple times on the command line to install multiple extensions at once.
+
+If you'd like to learn more about packaging and publishing extensions, see our [Publishing Extensions](/docs/extensions/publish-extension.md) topic in the Extension Authoring section.
 
 ## Workspace Recommended Extensions
 
@@ -154,7 +158,15 @@ For example, the [ESLint extension](https://marketplace.visualstudio.com/items?i
 https://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
 ```
 
-Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions View command dropdown. See [Installing Extensions](/docs/extensions/install-extension.md#install-a-packaged-extension-vsix) for more details.
+Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions View command drop-down.
+
+**Q: Where are extensions installed?**
+
+**A**: Extensions are installed in your extensions folders. Depending on your platform, the global location is in the following folders:
+
+* **Windows** `%USERPROFILE%\.vscode\extensions`
+* **Mac** `~/.vscode/extensions`
+* **Linux** `~/.vscode/extensions`
 
 **Q: Can VS Code read TextMate bundles directly?**
 

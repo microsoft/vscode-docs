@@ -82,14 +82,20 @@ Creates an extension that contributes new code snippets.
 
 Once created, open VS Code on the created folder and run the extension to test the snippets. Check out `vsc-extension-quickstart.md` for the next steps.
 
-## Loading an Extension
+## Your extensions folder
 
-To load an extension, you need to copy the files to your VS Code extensions folder. We cover this in detail here: [Installing Extensions](/docs/extensions/install-extension.md#your-extensions-folder).
+To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform it is located in the following folders:
+
+* **Windows** `%USERPROFILE%\.vscode\extensions`
+* **Mac** `~/.vscode/extensions`
+* **Linux** `~/.vscode/extensions`
+
+If you want to load your extension each time VS Code runs, copy your project ('side loading') to a new folder under `.vscode/extensions`. For example: `~/.vscode/extensions/myextension`.
 
 ## Next Steps
 
-* [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish your extensions to the VS Code Marketplace
-* [Hello World](/docs/extensions/example-hello-world.md) - Try the 'Hello World' walkthrough to build your first extension 
+* [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish your extensions to the VS Code Marketplace.
+* [Hello World](/docs/extensions/example-hello-world.md) - Try the 'Hello World' walkthrough to build your first extension.
 
 ## Common Questions
 

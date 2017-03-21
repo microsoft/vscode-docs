@@ -32,7 +32,6 @@ var areas = {
 	nodejs: new Area('Node.js / JavaScript', 'nodejs', true),
 	extensions: new Area('Extension Authoring', 'extensions', true),
 	extensionapi: new Area('Extensibility Reference', 'extensionAPI', true),
-	tools: new Area('Tools', 'tools', true),
 	supporting: new Area('Supporting', 'supporting', false),
 	other: new Area('Other', 'other', true)
 };

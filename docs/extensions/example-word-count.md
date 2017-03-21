@@ -273,7 +273,7 @@ Events are another example where `onDid*` event subscriber methods return a Disp
 
 ## Installing your Extension Locally
 
-So far, the extension you have written only runs in a special instance of VS Code, the Extension Development Host instance. To make your extension available to all VS Code instances, copy the extension folder contents to a new folder under [your `.vscode/extensions` folder](/docs/extensions/install-extension.md#your-extensions-folder).
+So far, the extension you have written only runs in a special instance of VS Code, the Extension Development Host instance. To make your extension available to all VS Code instances, copy the extension folder contents to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder).
 
 ## Publishing your Extension
 
