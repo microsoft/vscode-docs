@@ -33,7 +33,7 @@ VS Code is an editor first and foremost and prides itself on a small footprint. 
 
 VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add support for additional:
 
-* Languages - [C++](/docs/languages/cpp.md), [C#](/docs/languages/csharp.md), [Go](https://marketplace.visualstudio.com/items/lukehoban.Go), [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)
+* Languages - [C++](/docs/languages/cpp.md), [C#](/docs/languages/csharp.md), [Go](/docs/languages/go.md), [Python](/docs/languages/python.md)
 * Tools - [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint), [JSHint](https://marketplace.visualstudio.com/items/dbaeumer.jshint) , [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell), [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team)
 * Debuggers - [Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [PHP XDebug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug).
 * Keymaps - [Vim](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim), [Sublime Text](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings), [IntelliJ](https://marketplace.visualstudio.com/items?itemName=k--kato.intellij-idea-keybindings), [Emacs](https://marketplace.visualstudio.com/items?itemName=hiro-sun.vscode-emacs), [Atom](https://marketplace.visualstudio.com/items?itemName=ms-vscode.atom-keybindings), [Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vs-keybindings), [Eclipse](https://marketplace.visualstudio.com/items?itemName=alphabotsec.vscode-eclipse-keybindings)
@@ -42,17 +42,17 @@ Extensions integrate into VS Code's UI, commands, and task running systems so yo
 
 ## Proxy Server Support
 
-Many enterprises require that their computers run behind a proxy server and don't allow direct access to the Internet. A proxy server intermediary can limit access to the VS Code Extension [Marketplace](https://marketplace.visualstudio.com/vscode) and prevent installing VS Code [extensions](/docs/editor/extension-gallery.md). 
+Many enterprises require that their computers run behind a proxy server and don't allow direct access to the Internet. A proxy server intermediary can limit access to the VS Code Extension [Marketplace](https://marketplace.visualstudio.com/vscode) and prevent installing VS Code [extensions](/docs/editor/extension-gallery.md).
 
 If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
 
-* Set the operating system environment variables ‘http_proxy’ and ‘https_proxy’
+* Set the operating system environment variables `http_proxy` and `https_proxy`
 
 ```bash
     SET http_proxy=http://10.203.0.1:5187/
 ```
 
-* Configure the ‘http.proxy’ setting in your user [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings** or **Code** > **Preferences** > **Settings** on Mac):
+* Configure the `http.proxy` setting in your user [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings** or **Code** > **Preferences** > **Settings** on Mac):
 
 ```json
     "http.proxy": "http://10.203.0.1:5187/"
