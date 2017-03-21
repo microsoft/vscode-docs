@@ -136,17 +136,6 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 `vscode.previewHtml` - Render the html of the resource in an editor view.
 
-Links contained in the document will be handled by VS Code whereby it supports `file`-resources and [virtual](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L3295)-resources as well as triggering commands using the `command`-scheme. Use the query part of a command-uri to pass along JSON-encoded arguments - note that URL-encoding must be applied.
-
-The snippet below defines a command-link that calls the _previewHtml_ command and passes along an uri:
-
-```javascript
-  let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
-  let html = '<a href="' + href + '">Show Resource...</a>.';
-```
-
-The body element of the displayed html is dynamically annotated with one of the following CSS classes in order to communicate the kind of color theme VS Code is currently using: `vscode-light`, `vscode-dark`, or `vscode-high-contrast`.
-
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
 * _label_ (optional) An human readable string that is used as title for the preview.
@@ -277,3 +266,74 @@ The body element of the displayed html is dynamically annotated with one of the 
 
 
 
+# Working With the Html Preview
+
+## Styling
+The body element of the displayed html is dynamically annotated with one of the following CSS classes in order to communicate the kind of color theme VS Code is currently using: `vscode-light`, `vscode-dark`, or `vscode-high-contrast`.
+
+
+## Links
+Links contained in the document will be handled by VS Code whereby it supports `file`-resources and [virtual](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L3295)-resources as well as triggering commands using the `command`-scheme. Use the query part of a command-uri to pass along JSON-encoded arguments - note that URL-encoding must be applied.
+
+The snippet below defines a command-link that calls the _previewHtml_ command and passes along an uri:
+
+```javascript
+  let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
+  let html = '<a href="' + href + '">Show Resource...</a>.';
+```
+
+
+## Security Tips
+An extension author, if you use an html preview you are responsible for protecting users from potentially malicious content. The primary danger is that an attacker could craft a malicious workspace that uses your html preview to execute scripts or perform other evil activities. In addition to normal web security best practices, here are a few specific tips and tricks to help protect users.
+
+### Sanitizing Content
+As a first line of defense, when constructing a html document for the preview, make sure to appropriately sanitize all input that comes workspace settings or from files on a user's system. For html content, consider using a whitelist of safe tags and attributes. Libraries such as [sanitize-html](https://www.npmjs.com/package/sanitize-html) can help with this.
+
+### Disabling Scripts
+If your preview does not need to execute javascript, you can further enhance security by disabling script execution entirely. One way to accomplish this is by loading untrusted content inside of an `iframe`  with the `sandbox` attribute set. In this case, the content would be loaded using the `srcdoc` attribute:
+
+```html
+<iframe sandbox srcdoc="<!DOCTYPE html>..."></iframe>
+```
+
+If your preview still needs to load some local resources such as images, try using `sandbox="allow-same-origin"` instead:
+
+```html
+<iframe sandbox="allow-same-origin" srcdoc="<!DOCTYPE html>..."></iframe>
+```
+
+`sandbox="allow-same-origin"` disables script execution inside the `iframe` but allows loading resources from a user's system, such as stylesheets and images. In general, it is best to disable access to local resources unless your preview absolutely needs it.
+
+### Using a Content Security Policy
+If your preview's functionality depends on scripts, consider disabling scripts that come from untrusted user content using a [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP). Content security policy allow fine grained control over which resources may be loaded.
+
+For example, here's a content security policy that allows images from anywhere, allows stylesheets from a user's local system, and disables all scripts:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src *; style-src 'self'; script-src 'none';">
+  <title>...</title>
+</head>
+<body>
+  Content
+</body>
+</html>
+```
+
+To selectively enable scripts, the best approach for the html preview is to use a dynamically generated [nonce](https://developers.google.com/web/fundamentals/security/csp/) to whitelist certain trusted scripts:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src *; style-src 'self'; script-src 'nonce-123456';">
+  <title>...</title>
+</head>
+<body>
+  Content
+  <script nonce="123456" src="file:///path/to/extension/my_trusted_script.js"></script>
+</body>
+</html>
+```
