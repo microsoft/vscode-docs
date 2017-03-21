@@ -7,14 +7,14 @@ PageTitle: Visual Studio Code Extension Examples
 DateApproved: 3/1/2017
 MetaDescription: Learn from existing Visual Studio Code extension examples.
 ---
-# VS Code Extension Samples
+# VS Code Extension Examples
 
 ## Extension Basics
 
 We have two walkthroughs that cover many of the core concepts - start with these:
 
-* **[Your First Extension](/docs/extensions/example-hello-world.md)** - explains the core extensibility concepts with a walkthrough
-* **[Word Count Extension](/docs/extensions/example-word-count.md)** - another walkthrough building on the last
+* **[Your First Extension](/docs/extensions/example-hello-world.md)** - Explains the core extensibility concepts with a walkthrough.
+* **[Word Count Extension](/docs/extensions/example-word-count.md)** - Another walkthrough building on the last.
 
 ## Sample Extensions
 
@@ -38,9 +38,11 @@ Tool|Purpose
 **[Debugging Extensions](/docs/extensions/debugging-extensions.md)**|We have worked hard to provide an easy way to develop, debug and locally test your extensions.
 **[Publishing Tool](/docs/extensions/publish-extension.md)**|Once you have a working extension, it's time to share it in the [extension Marketplace](/docs/editor/extension-gallery.md). We have a simple command line tool for this. You can find the source code [here](https://github.com/Microsoft/vsce).
 
-## Runtime samples
+## Tutorial samples
 
-* [Node.js](https://github.com/Microsoft/vscode-samples)
+Tutorial|Description
+--------|-----------
+**[Node.js](https://github.com/Microsoft/vscode-samples)**|Final output of the Node.js Express [tutorial](/docs/nodejs/nodejs-tutorial.md).
 
 ## Next Steps
 

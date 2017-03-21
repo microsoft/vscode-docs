@@ -447,6 +447,7 @@ To learn more about VS Code extensibility model, try these topic:
 
 * [vscode API Reference](/docs/extensionAPI/vscode-api.md) - Learn about deep language integration with VS Code language services.
 * [Language Extension Guideline](/docs/extensionAPI/language-support.md) - A guide to implementing VS Code's rich language features.
+* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
 
 ## Common Questions
 

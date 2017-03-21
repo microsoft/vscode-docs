@@ -404,6 +404,7 @@ When defining a new language identifier, use the following guidelines:
 If you'd like to learn more about VS Code extensibility, try these topics:
 
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Learn about other ways to extend VS Code
+* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
 
 ## Common Questions
 

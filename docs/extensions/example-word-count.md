@@ -287,3 +287,4 @@ Read on to find out about:
 * [Extension API](/docs/extensionAPI/overview.md) - Get an overview of the Extension API.
 * [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish an extension to the public Marketplace.
 * [Editor API](/docs/extensionAPI/vscode-api.md#window) - Learn more about Text Documents, Text Editors and editing text.
+* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.

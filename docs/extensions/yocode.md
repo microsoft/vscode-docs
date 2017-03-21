@@ -96,6 +96,7 @@ If you want to load your extension each time VS Code runs, copy your project ('s
 
 * [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish your extensions to the VS Code Marketplace.
 * [Hello World](/docs/extensions/example-hello-world.md) - Try the 'Hello World' walkthrough to build your first extension.
+* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
 
 ## Common Questions
 

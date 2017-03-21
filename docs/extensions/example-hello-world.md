@@ -258,3 +258,4 @@ If you'd like to read more generally about the extension APIs, try these topics:
 * [API Principles and Patterns](/docs/extensionAPI/patterns-and-principles.md) - VS Code extensibility is based on several guiding principles and patterns.
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - Details about the various VS Code contribution points.
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
+* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
