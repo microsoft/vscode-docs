@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: extensions
 TOCTitle: Example-Hello World
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
@@ -23,7 +23,7 @@ You need [Node.js](https://nodejs.org/en/) installed and available in your `$PAT
 
 The simplest way to add your own functionality to VS Code is through adding a command. A command registers a callback function which can be invoked from the **Command Palette** or with a key binding.
 
-We have written a Yeoman generator to help get you started. Install Yeoman and the [Yeoman VS Code Extension generator](/docs/tools/yocode.md) and scaffold a new extension:
+We have written a Yeoman generator to help get you started. Install Yeoman and the [Yeoman VS Code Extension generator](/docs/extensions/yocode.md) and scaffold a new extension:
 
 ```sh
 npm install -g yo generator-code
@@ -181,7 +181,7 @@ export function activate(context: vscode.ExtensionContext) {
 * `.vscode/launch.json` defines launching VS Code in the Extension Development mode. It also points with `preLaunchTask` to a task defined in `.vscode/tasks.json` that runs the TypeScript compiler.
 * `.vscode/settings.json` by default excludes the `out` folder.  You can modify which file types you want to hide.
 * `.gitignore` - Tells Git version control which patterns to ignore.
-* [`.vscodeignore`](/docs/tools/vscecli.md#advanced-usage) - Tells the packaging tool which files to ignore when publishing the extension.
+* [`.vscodeignore`](/docs/extensions/publish-extension.md#advanced-usage) - Tells the packaging tool which files to ignore when publishing the extension.
 * `README.md` - README file describing your extension for VS Code users.
 * `vsc-extension-quickstart.md` - A Quick Start guide for you.
 * `test/extension.test.ts` - you can put your extension unit tests in here and run your tests against the VS Code API (see [Testing Your Extension](/docs/extensions/testing-extensions.md))
@@ -246,7 +246,7 @@ So far, the extension you have written only runs in a special instance of VS Cod
 
 ## Publishing your Extension
 
-Read about how to [Share an Extension](/docs/tools/vscecli.md).
+Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
 
 ## Next Steps
 

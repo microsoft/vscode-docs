@@ -39,17 +39,17 @@ If you'd like to dive right in, you can start with our ["Hello World"](/docs/ext
 
 ### Yo Code Extension Scaffolding
 
-We've updated the [`yo code` generator](/docs/tools/yocode.md) to create a basic extension project (TypeScript or JavaScript) which has all the metadata and source files necessary for a working extension. 
+We've updated the [`yo code` generator](/docs/extensions/yocode.md) to create a basic extension project (TypeScript or JavaScript) which has all the metadata and source files necessary for a working extension. 
 
 ![yo code](images/0_10_0/yo-code.png)
 
 ### Extension Publishing
 
-The [`vsce` publishing tool](/docs/tools/vscecli.md) lets you easily package and publish your extension.  You can share your extension with colleagues by distributing a VS Code extension package or publish your extension for the community on the public gallery. 
+The [`vsce` publishing tool](/docs/extensions/publish-extension.md) lets you easily package and publish your extension.  You can share your extension with colleagues by distributing a VS Code extension package or publish your extension for the community on the public gallery. 
 
 ## Extension samples
 
-If you'd rather start your extension by modifying a working example, you can find [extension samples](/docs/tools/samples.md) as well as the source code for many extensions on GitHub ([Go Language Support](https://github.com/microsoft/vscode-go)).
+If you'd rather start your extension by modifying a working example, you can find [extension samples](/docs/extensions/samples/.md) as well as the source code for many extensions on GitHub ([Go Language Support](https://github.com/microsoft/vscode-go)).
 
 ## VS Code is Open Source!
 

@@ -19,7 +19,7 @@ Creating a theme for this blog is a natural fit for a relatively new part of the
 
 ## How do I make an Extension Pack? 
 
-It is very easy to make your own Extension Pack. Follow the instructions on installing the Yeoman VS Code [extension generator](https://code.visualstudio.com/docs/tools/yocode). 
+It is very easy to make your own Extension Pack. Follow the instructions on installing the Yeoman VS Code [extension generator](https://code.visualstudio.com/docs/extensions/yocode). 
 
 Once the Yeoman generator is installed, run the following command:
 

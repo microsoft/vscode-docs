@@ -17,7 +17,7 @@ Name | Required | Type | Details
 ---- |:--------:| ---- | -------
 `name` | Y | `string` | The name of the extension - should be all lowercase with no spaces.
 `version` | Y | `string` | [SemVer](http://semver.org/) compatible version.
-`publisher` | Y | `string` | The [publisher name](/docs/tools/vscecli.md#publishers-and-personal-access-tokens)
+`publisher` | Y | `string` | The [publisher name](/docs/extensions/publish-extension.md#publishers-and-personal-access-tokens)
 `engines` | Y | `object` | An object containing at least the `vscode` key matching the versions of VS Code that the extension is compatible with.  Cannot be `*`. For example: `^0.10.5` indicates compatibility with a minimum VS Code version of `0.10.5`.
 `license` | | `string` | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.
 `displayName` | | `string`| The display name for the extension used in the Marketplace.
@@ -34,7 +34,7 @@ Name | Required | Type | Details
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
-`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/tools/vscecli.md#pre-publish-step).
+`scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/extensions/publish-extension.md#pre-publish-step).
 `icon` | | `string` | The path to a 128x128 pixel icon.
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package.json).

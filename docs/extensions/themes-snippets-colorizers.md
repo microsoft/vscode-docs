@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
@@ -13,7 +13,7 @@ Custom themes, snippets and language syntax colorizers bring an editor to life. 
 
 ## Adding a new Theme
 
-You can also add new TextMate theme files (.tmTheme) to your VS Code installation using VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/tools/yocode.md). The extension generator takes an existing TextMate theme file and packages it for use in VS Code.
+You can also add new TextMate theme files (.tmTheme) to your VS Code installation using VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md). The extension generator takes an existing TextMate theme file and packages it for use in VS Code.
 
 [ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator.  It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
 
@@ -27,7 +27,7 @@ Open the Color Theme picker theme with **File** > **Preferences** > **Color Them
 
 ## Publishing a Theme to the Extension Marketplace
 
-If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/tools/vscecli.md) to package your theme and publish it to the VS Code Marketplace.
+If you'd like to share your new theme with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/extensions/publish-extension.md) to package your theme and publish it to the VS Code Marketplace.
 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Theme` in your `package.json`.
 
@@ -202,7 +202,7 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
 
 ## Using TextMate Snippets
 
-You can also add TextMate snippets (.tmSnippets) to your VS Code installation using the [yo code](/docs/tools/yocode.md) extension generator. The generator has an option `New Code Snippets` which lets you point to a folder containing multiple .tmSnippets files and they will be packaged into a VS Code snippet extension.  The generator also supports Sublime snippets (.sublime-snippets).
+You can also add TextMate snippets (.tmSnippets) to your VS Code installation using the [yo code](/docs/extensions/yocode.md) extension generator. The generator has an option `New Code Snippets` which lets you point to a folder containing multiple .tmSnippets files and they will be packaged into a VS Code snippet extension.  The generator also supports Sublime snippets (.sublime-snippets).
 
 The final generator output has two files: an extension manifest `package.json` which has metadata to integrate the snippets into VS Code and a `snippets.json` file which includes the snippets converted to the VS Code snippet format.
 
@@ -256,7 +256,7 @@ Below is an example manifest for Markdown snippets:
 
 Note that snippets need to be associated with a `language` identifier.  This can be a [language supported](/docs/languages/overview.md) directly by VS Code or a language provided by an extension.  Make sure the `language` identifier is correct.
 
-You then use the [vsce publishing tool](/docs/tools/vscecli.md) to publish the snippet extension to the [VS Code Extension Marketplace](/docs/editor/extension-gallery.md).
+You then use the [vsce publishing tool](/docs/extensions/publish-extension.md) to publish the snippet extension to the [VS Code Extension Marketplace](/docs/editor/extension-gallery.md).
 
 > **Tip:** To make it easy for users to find your snippet, include the word "snippet" in the extension description and set the `Category` to `Snippets` in your `package.json`.
 
@@ -266,7 +266,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 ## Adding a New Language (Colorizer)
 
-Using the ['code' Yeoman generator](/docs/tools/yocode.md), you can create an extension that adds syntax highlighting and bracket matching for a language to your VS Code installation.
+Using the ['code' Yeoman generator](/docs/extensions/yocode.md), you can create an extension that adds syntax highlighting and bracket matching for a language to your VS Code installation.
 
 Central to language support is a TextMate [language specification](https://manual.macromates.com/en/language_grammars) file (.tmLanguage) that describes the colorizer rules. The yeoman generator either takes an existing TextMate language specification file or lets you start with a fresh one.
 
@@ -312,7 +312,7 @@ To use your extension in your stable VS Code installation, copy the complete out
 
 ## Publishing Language Support to the Extension Marketplace
 
-If you'd like to share your new language with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/tools/vscecli.md) to package your extension and publish it to the VS Code Marketplace.
+If you'd like to share your new language with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/extensions/publish-extension.md) to package your extension and publish it to the VS Code Marketplace.
 
 > **Tip:** To make it easy for users to find your language support, include the language name and words "language" or "language support" in the extension description and set the `Category` to `Languages` in your `package.json`.
 

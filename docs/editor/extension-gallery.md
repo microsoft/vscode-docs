@@ -131,8 +131,8 @@ VS Code prompts a user to install the recommended extensions when a workspace is
 
 Here are a few topics you may find interesting...
 
-* [Publishing to the Marketplace](/docs/tools/vscecli.md) - Publish your own customization or extension to the VS Code Marketplace
-* [Yo Code](/docs/tools/yocode.md) - Learn how the Yo Code extension generator can scaffold out new extensions and package existing TextMate files.
+* [Publishing to the Marketplace](/docs/extensions/publish-extension.md) - Publish your own customization or extension to the VS Code Marketplace
+* [Extension Generator](/docs/extensions/yocode.md) - Learn how the Yo Code extension generator can scaffold out new extensions and package existing TextMate files.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension
 
@@ -158,7 +158,7 @@ Once you've downloaded an extension, you can side load it by renaming the `.zip`
 
 **Q: Can VS Code read TextMate bundles directly?**
 
-**A**: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration. The [Yo Code](/docs/tools/yocode.md) extension generator makes it easy to package these files for use in VS Code. See the [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) topic in the Extension Authoring section for details.
+**A**: No, VS Code can read some TextMate files such as .tmTheme and .tmLanguage but can not install full TextMate bundles. Also in order to use TextMate theme and syntax files, VS Code needs extra metadata for integration. The [Yo Code](/docs/extensions/yocode.md) extension generator makes it easy to package these files for use in VS Code. See the [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) topic in the Extension Authoring section for details.
 
 **Q: Can I install Visual Studio Community extensions (shipped in .vsix) in Visual Studio Code?**
 

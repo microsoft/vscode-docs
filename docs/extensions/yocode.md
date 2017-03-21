@@ -1,11 +1,11 @@
 ---
 Order: 2
-Area: tools
+Area: extensions
 TOCTitle: Extension Generator
 ContentId: C733425A-3F06-4DB9-90A0-472EF1DB58D3
 PageTitle: The Yo Code Visual Studio Code Extension Generator
 DateApproved: 3/1/2017
-MetaDescription: Easily create VS Code extensions and customizations with the Yo Code generator.
+MetaDescription: Easily create Visual Studio Code extensions and customizations with the Yo Code generator.
 ---
 # Yo Code - Extension Generator
 
@@ -88,7 +88,7 @@ To load an extension, you need to copy the files to your VS Code extensions fold
 
 ## Next Steps
 
-* [Publishing Tool](/docs/tools/vscecli.md) - Learn how to publish your extensions to the VS Code Marketplace
+* [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish your extensions to the VS Code Marketplace
 * [Hello World](/docs/extensions/example-hello-world.md) - Try the 'Hello World' walkthrough to build your first extension 
 
 ## Common Questions

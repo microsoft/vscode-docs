@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: extensions
 TOCTitle: Example-Word Count
 ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
@@ -277,13 +277,13 @@ So far, the extension you have written only runs in a special instance of VS Cod
 
 ## Publishing your Extension
 
-Read about how to [Share an Extension](/docs/tools/vscecli.md).
+Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
 
 ## Next Steps
 
 Read on to find out about:
 
-* [Yo Code](/docs/tools/yocode.md) - learn about other options in Yo Code
-* [Extension API](/docs/extensionAPI/overview.md) - Get an overview of the Extension API
-* [Publishing Tool](/docs/tools/vscecli.md) - Learn how to publish an extension to the public Marketplace
-* [Editor API](/docs/extensionAPI/vscode-api.md#window) - Learn more about Text Documents, Text Editors and editing text
+* [Extension Generator](/docs/extensions/yocode.md) - Learn about other options in the Yo Code extension generator.
+* [Extension API](/docs/extensionAPI/overview.md) - Get an overview of the Extension API.
+* [Publishing Tool](/docs/extensions/publish-extension.md) - Learn how to publish an extension to the public Marketplace.
+* [Editor API](/docs/extensionAPI/vscode-api.md#window) - Learn more about Text Documents, Text Editors and editing text.

@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: extensions
 TOCTitle: Running and Debugging Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
@@ -20,7 +20,7 @@ You can use VS Code to develop an extension for VS Code and VS Code provides sev
 
 ## Creating an Extension
 
-We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [Yo Code document](/docs/tools/yocode.md).  The generator will ensure everything is set up so you have a great development experience.
+We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [extension generator](/docs/extensions/yocode.md) topic.  The generator will ensure everything is set up so you have a great development experience.
 
 ## Running and Debugging your Extension
 
@@ -77,7 +77,7 @@ your changes. You have two options to do this:
 ## Next Steps
 
 * [Testing your Extension](/docs/extensions/testing-extensions.md) - Learn how to write unit and integration tests for your extension
-* [Publishing Tool](/docs/tools/vscecli.md) - Publish your extension with the vsce command line tool.
+* [Publishing Tool](/docs/extensions/publish-extension.md) - Publish your extension with the vsce command line tool.
 * [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
 * [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs
 

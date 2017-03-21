@@ -355,7 +355,7 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 }
 ```
 
-See [Adding Language Colorization](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
+See [Adding Language Colorization](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmLanguage files as VS Code extensions.
 
 ![grammars extension point example](images/extension-points/grammars.png)
 
@@ -377,7 +377,7 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 
 ![themes extension point example](images/extension-points/themes.png)
 
-See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/tools/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
+See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
 
 ## contributes.snippets
 

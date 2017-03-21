@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order: 11
 Area: extensions
 TOCTitle: Installing Extensions
 ContentId: 8D19F206-8CB3-498D-BDD1-317B4104EDD0
@@ -44,10 +44,9 @@ You can also install a `.vsix` with the **Install from VSIX...** command in the 
 
 ### Sharing Privately with Others
 
-If you want to share your extension or customization with others privately, you can simply send them a copy of the output from the generator and ask them to add it under their `.vscode/extensions` folder. Alternatively, package your extension using the [vsce publishing tool](/docs/tools/vscecli.md) by running `vsce package` and send them the `.vsix` file.
+If you want to share your extension or customization with others privately, you can simply send them a copy of the output from the generator and ask them to add it under their `.vscode/extensions` folder. Alternatively, package your extension using the [vsce publishing tool](/docs/extensions/publish-extension.md) by running `vsce package` and send them the `.vsix` file.
 
 ## Next Steps
 
 * [Extension Marketplace](/docs/editor/extension-gallery.md) - Learn more about VS Code's public extension Marketplace.
 * [Publishing Extensions](/docs/extensions/publish-extension.md) - Put your extension on the Marketplace.
-* [Publishing Tool Reference](/docs/tools/vscecli.md) - Learn how to package and publish your extensions.

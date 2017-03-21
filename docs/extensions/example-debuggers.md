@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 6
 Area: extensions
 TOCTitle: Example-Debuggers
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
@@ -314,4 +314,4 @@ The variable can now be used in any string typed value of a launch configuration
 Once you have created your debug adapter you can publish it to the Marketplace:
 
 * update the attributes in the `package.json` to reflect the naming and purpose of your debug adapter.
-* upload to the Marketplace as described in [Share an Extension](/docs/tools/vscecli.md) section.
+* upload to the Marketplace as described in [Share an Extension](/docs/extensions/publish-extension.md) section.
