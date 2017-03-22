@@ -23,7 +23,7 @@ We're still shaping the C++ experience in VS Code so now is a great time to [pro
 * Open VS Code.
 * Click the Extensions View icon on the Sidebar.
 * Search for `cpptools`.
-* Click **Install**, then click **Enable**.
+* Click **Install**, then click **Reload**.
 * Open a folder that contains your C/C++ code.
 
 **To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file:**
