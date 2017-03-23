@@ -117,7 +117,7 @@ You can create a `.vscodeignore` file to exclude some files from being included 
 
 ## Next Steps
 
-* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
+* [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - Visual Studio Code package.json extension manifest file reference
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
 
