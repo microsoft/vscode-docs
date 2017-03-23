@@ -64,23 +64,23 @@ In most cases the use of promises is optional and when VS Code calls into an ext
 
 ```typescript
 	provideNumber(): number | Thenable<number>
-```	
+```
 
 ## Cancellation Tokens
 
-Often operations are started on volatile state which changes before operations can finish. For instance, computing IntelliSense starts and the user continues to type making the result of that operation obsolete. 
+Often operations are started on volatile state which changes before operations can finish. For instance, computing IntelliSense starts and the user continues to type making the result of that operation obsolete.
 
-APIs that are exposed to such behavior will get passed a `CancellationToken` on which you can check for cancellation (`isCancellationRequested`) or get notified when cancellation occurs (`onCancellationRequested`). The cancellation token is usually the last parameter of a function call and optional. 
+APIs that are exposed to such behavior will get passed a `CancellationToken` on which you can check for cancellation (`isCancellationRequested`) or get notified when cancellation occurs (`onCancellationRequested`). The cancellation token is usually the last parameter of a function call and optional.
 
 ## Disposables
 
-The VS Code API uses the [dispose pattern](https://en.wikipedia.org/wiki/Dispose_pattern) for resources that are obtained from VS Code. This applies to event listening, commands, interacting with the UI, and various language contributions. 
+The VS Code API uses the [dispose pattern](https://en.wikipedia.org/wiki/Dispose_pattern) for resources that are obtained from VS Code. This applies to event listening, commands, interacting with the UI, and various language contributions.
 
 For instance, the `setStatusBarMessage(value: string)` function returns a `Disposable` which upon calling `dispose` removes the message again.
 
 ## Events
 
-Events in the VS Code API are exposed as functions which you call with a listener-function to subscribe. Calls to subscribe return a `Disposable` which removes the event listener upon dispose. 
+Events in the VS Code API are exposed as functions which you call with a listener-function to subscribe. Calls to subscribe return a `Disposable` which removes the event listener upon dispose.
 
 ```javascript
 var listener = function(event) {
@@ -99,9 +99,15 @@ Names of events follow the `on[Will|Did]VerbNoun?` pattern. The name signals if 
 
 An example from the VS Code API is `window.onDidChangeActiveTextEditor` which is an event fired when the active text editor *(noun)* has been (*onDid*) changed (*verb*).
 
+## Strict null
+
+The VS Code API uses the `undefined` and `null` TypeScript types where appropriate to support [strict null checking](https://github.com/Microsoft/TypeScript/pull/7140).
+
 ## Using Node.js Modules with Extensions
 
 Your extension can depend on [Node.js](https://nodejs.org) modules at runtime. Similarly to a node module itself, you can add those dependencies to your [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) using the `dependencies` field.
+
+There are even VS Code specific Node.js modules which are [useful in extension development](/docs/extensionAPI/extension-manifest.md#useful-node-modules).
 
 ### Installation and Packaging
 
