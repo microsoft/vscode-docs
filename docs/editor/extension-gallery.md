@@ -9,13 +9,13 @@ MetaDescription: Find out how to discover, add, update, disable and uninstall Vi
 ---
 # VS Code Extension Marketplace
 
-**Increase the power of VS Code through Extensions**
+**Increase the power of Visual Studio Code through Extensions**
 
-The features that VS Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
+The features that Visual Studio Code includes out-of-the-box are just the start. VS Code extensions let you add languages, debuggers, and tools to your installation to support your development workflow. VS Code's rich extensibility model lets extension authors plug directly into the VS Code UI and contribute functionality through the same APIs used by VS Code.  This topic explains how to find, install, and manage VS Code extensions.
 
 ## Browse and install extensions
 
-You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code.
+You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or the **View: Extensions** command (`kb(workbench.view.extensions)`).
 
 ![Extension View icon](images/extension-gallery/extensions-view-icon.png)
 
@@ -25,21 +25,21 @@ This will show you a list of the most popular VS Code extensions on the [VS Code
 
 Each extension in the list includes a brief description, the publisher, the download count and a five star rating. You can click on the extension item to display the extension's [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) page where you can learn more.
 
-In addition you can also review the extension's:
+In addition, you can also review an extension's:
 
 * **Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
 * **Changelog** - The extension repository CHANGELOG if available.
-* **Dependencies** - Indicates if the extension depends on other extensions.
+* **Dependencies** - Lists if the extension depends on any other extensions. 
 
 ![extension contributions](images/extension-gallery/extension-contributions.png)
 
-If an extension is an Extension Pack, the **Dependencies** tab will display which extensions will be installed. [Extension Packs](/docs/extensions/extension-manifest.md#extension-packs) bundle separate extensions together so they can be installed together.
+If an extension is an Extension Pack, the **Dependencies** section will display which extensions will be installed. [Extension Packs](/docs/extensionAPI/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
 
 ![extension dependencies](images/extension-gallery/extension-dependencies.png)
 
->**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) for details.
+**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) for details.
 
-By clicking on the view's `...` **More** button, it is possible to show:
+By clicking on the Extensions view's `...` **More** button, it is possible to show:
 
 * The list of currently installed extensions
 * The list of outdated extensions that can be updated
