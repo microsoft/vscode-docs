@@ -15,7 +15,7 @@ In Visual Studio Code, we have support for almost every major programming langua
 
 Here are eight of the most popular language extensions:
 
-<div class="marketplace-extensions-languages-curated"></div>
+<div class="marketplace-extensions-languages"></div>
 
 Go to the [Marketplace](https://marketplace.visualstudio.com/vscode) or use our [integrated extension manager](/docs/editor/extension-gallery) and search for your desired programming language to find snippets, code completion/IntelliSense providers, linters, debuggers and more.
 
