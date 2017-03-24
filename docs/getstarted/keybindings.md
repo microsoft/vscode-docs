@@ -21,7 +21,7 @@ Keyboard shortcuts are vital to productivity and changing keyboarding habits can
 
 <div class="marketplace-extensions-curated-keymaps"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Keyboard Shortcuts Reference
 

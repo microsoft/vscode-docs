@@ -218,9 +218,9 @@ Click on the reference count to quickly browse a list of references:
 
 VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
 
-<div class="marketplace-extensions-typescript"></div>
+<div class="marketplace-extensions-typescript-curated"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next Steps
 
