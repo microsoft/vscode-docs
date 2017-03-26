@@ -10,9 +10,9 @@ MetaDescription: Visual Studio Code has integrated Git support for the most comm
 
 # Version Control
 
-Visual Studio Code has integrated [Git](http://git-scm.com/) support for the most common commands. This makes it an excellent choice to manage your code commits while you develop.
+Visual Studio Code has integrated [Git](https://git-scm.com/) support for the most common commands. This makes it an excellent choice to manage your code commits while you develop.
 
->**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](http://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
+>**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
 >**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
@@ -62,7 +62,7 @@ The `git branch` command lets you quickly create a new branch.  Just provide the
 
 ## Remotes
 
-Given that your repository is connected to some remote and that your checked out branch has an [upstream link](http://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull** and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the `...` menu.
+Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull** and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the `...` menu.
 
 >**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
 
@@ -173,7 +173,7 @@ You can always set up a [credential helper](https://help.github.com/articles/cac
 
 **Q: How can I sign into Git with my Team Services account which requires multi-factor authentication?**
 
-**A:** There are now [Git credential helpers](http://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
+**A:** There are now [Git credential helpers](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
 
 **Q: Using Visual Studio Code, I accidentally initialized a Git repo on a folder with a massive number of files, like my entire hard drive. Now VS Code is too slow to use or hangs. What do I do?**
 
@@ -198,4 +198,4 @@ You can either:
 
 On a **GitHub Desktop** Windows installation, `git.exe` is usually under `C:\Users\USERNAME\AppData\Local\GitHub\PortableGit_COMMITID\ming32\bin`.  Searching for `git.exe` under AppData\Local\GitHub should find the binary.
 
-You can also install Git from [git-scm](http://git-scm.com/) and this will not interfere with **GitHub Desktop**.
+You can also install Git from [git-scm](https://git-scm.com/) and this will not interfere with **GitHub Desktop**.
