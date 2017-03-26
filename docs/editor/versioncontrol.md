@@ -94,7 +94,7 @@ Our Git tooling supports viewing of diffs within VS Code.
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you simply get curious. :)
 
-To open the Git output window, run **View** > **Toggle Output** and select `Git` from the dropdown.
+To open the Git output window, run **View** > **Output** and select `Git` from the dropdown.
 
 ## Initialize a Repository
 
