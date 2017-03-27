@@ -35,7 +35,7 @@ Each time you start VS Code, it opens up in the same state it was in when you la
 
 Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
->**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Sidebar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
+>**Tip:** You can move the Side Bar to the right hand side (**View** > **Move Side bar**) or toggle its visibility (`kb(workbench.action.toggleSidebarVisibility)`).
 
 ## Side by Side Editing
 
