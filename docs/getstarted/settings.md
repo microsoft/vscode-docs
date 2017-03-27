@@ -102,7 +102,7 @@ editor.trimAutoWhitespace
 
 In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
 
-Here is the list of settings we don't support at the workspace:
+Here is the list of settings we don't support at the workspace scope:
 
 - git.path
 - terminal.integrated.shell.linux

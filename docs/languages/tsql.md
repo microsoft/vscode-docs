@@ -19,7 +19,7 @@ Connect to SQL databases, type T-SQL code, execute T-SQL code, view results, and
 
 Add T-SQL language support to VS Code by installing the [mssql] extension from the VS Code marketplace as follows:
 
-1. Open the **Extensions** view from VS Code side bar (`kb(workbench.view.extensions)`).
+1. Open the **Extensions** view from VS Code Side Bar (`kb(workbench.view.extensions)`).
 2. Type "mssql" in the search bar, click **Install**, and reload VS Code when prompted.
 
 ![install mssql extension](images/tsql/install-mssql.png)
