@@ -103,25 +103,25 @@ You can differentiate between each resource and resource group in each menu item
 ```ts
 export interface SCMResourceGroup {
 
-	/**
-	 * The context key of the SCM resource group, which will be used to populate
-	 * the value of the `scmResourceGroup` context key.
-	 */
+  /**
+   * The context key of the SCM resource group, which will be used to populate
+   * the value of the `scmResourceGroup` context key.
+   */
   contextKey?: string;
 }
 
 export interface SCMProvider {
-	
-	/**
-	 * The context key of the SCM provider, which will be used to populate
-	 * the value of the `scmProvider` context key.
-	 */
+
+  /**
+  	* The context key of the SCM provider, which will be used to populate
+  	* the value of the `scmProvider` context key.
+  	*/
   contextKey?: string;
 
-	/**
-	 * A state identifier, which will be used to populate the value of the
-	 * `scmProviderState` context key.
-	 */
+  /**
+  	* A state identifier, which will be used to populate the value of the
+  	* `scmProviderState` context key.
+  	*/
   stateContextKey?: string;
 }
 ```
