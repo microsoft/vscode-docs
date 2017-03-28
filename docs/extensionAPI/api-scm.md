@@ -113,15 +113,15 @@ export interface SCMResourceGroup {
 export interface SCMProvider {
 
   /**
-  	* The context key of the SCM provider, which will be used to populate
-  	* the value of the `scmProvider` context key.
-  	*/
+   * The context key of the SCM provider, which will be used to populate
+   * the value of the `scmProvider` context key.
+   */
   contextKey?: string;
 
   /**
-  	* A state identifier, which will be used to populate the value of the
-  	* `scmProviderState` context key.
-  	*/
+   * A state identifier, which will be used to populate the value of the
+   * `scmProviderState` context key.
+   */
   stateContextKey?: string;
 }
 ```
