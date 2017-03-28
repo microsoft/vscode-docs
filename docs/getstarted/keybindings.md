@@ -355,6 +355,8 @@ resourceLangId | True when the Explorer or editor title language Id matches. Exa
 globalMessageVisible | Message box is visible at the top of VS Code.
 searchViewletVisible | Search view is open.
 replaceActive | Search view Replace text box is open.
+**Configuration Setting contexts** |
+config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` is `true`. You can use any setting that evaluates to a boolean here with the prefix `"config."`.
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the `Default Keyboard Shortcuts`.
 
