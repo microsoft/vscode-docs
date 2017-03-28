@@ -7,26 +7,25 @@ PageTitle: Visual Studio Code Source Control API
 DateApproved: 3/27/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
-
 # Source Control in VS Code
 
-Visual Studio Code allows extension authors to define Source Control Management (SCM) features its extension API. There is a slim, yet powerful API surface which allows many different SCM systems to be integrated in Visual Studio Code, while having a common user interface in all of them.
+Visual Studio Code allows extension authors to define Source Control Management (SCM) features through its extension API. There is a slim, yet powerful API surface which allows many different SCM systems to be integrated in VS Code, while having a common user interface in all of them.
 
 ![VS Code SCM](images/api-scm/main.png)
 
-**SCM providers** are the key component to the SCM extensibility story. Code itself ships with one: the Git SCM provider. If you want to integrate another SCM system, you'll want to start by implementing an SCM provider. Let's start with this.
+**SCM providers** are the key component to the SCM extensibility story. VS Code itself ships with one: the Git SCM provider. If you want to integrate another SCM system, you'll want to start by implementing an SCM provider.
 
-Note that you can always refer to the [`vscode` namespace API reference](http://code.visualstudio.com/docs/extensionAPI/vscode-api#_scm) in our docs.
+Note that you can always refer to the [`vscode` namespace API reference](/docs/extensionAPI/vscode-api.md#scm) in our docs.
 
 ## SCM Model
 
-An SCM provider is the entity resposible for populating the SCM model with **resources**. SCM resources are themselves organized in **resource groups**. An SCM provider should return a sorted collection of resource groups.
+An SCM provider is the entity responsible for populating the SCM model with **resources**. SCM resources are themselves organized in **resource groups**. An SCM provider should return a sorted collection of resource groups.
 
 You can register a new SCM provider with `vscode.scm.registerSCMProvider`.
 
 In order to understand those concepts, let's take the [Git provider](https://github.com/Microsoft/vscode/tree/master/extensions/git) as an example as well as the following result of a `git status` call:
 
-```
+```bash
 vsce master* → git status
 On branch master
 Your branch is up-to-date with 'origin/master'.
@@ -66,11 +65,11 @@ export interface SCMProvider {
 }
 ```
 
-The `resources` field is a pointer to the model at any given point in time. A provider is able to let Code know that this model has changed by firing the `onDidChange` event.
+The `resources` field is a pointer to the model at any given point in time. A provider is able to let VS Code know that this model has changed by firing the `onDidChange` event.
 
 ## SCM View
 
-By providing SCM resources, the SCM provider is able to populate the SCM view in Code. SCM resources are customizable using `SCMResourceDecorations`:
+By providing SCM resources, the SCM provider is able to populate the SCM view in VS Code. SCM resources are customizable using `SCMResourceDecorations`:
 
 ```ts
 export interface SCMResource {
@@ -96,7 +95,7 @@ There are three SCM menu ids where you can place menu items, in order to provide
 
 The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` dropdown.
 
-The `scm/resourceGroup/context` and `scm/resource/context` are quite similar. The former will let you customize resource groups, while the latter refers to simple resources. Place menu items in the `inline` group to have them inline. Every other group will be represented in a the context menu usually accessible using the mouse right-click. Commands called from within this menu will have  the respective resources (and groups) on which they should act passed as arguments. Note that the SCM view supports multiple selection thus a command might receive more than one resource at a time in its arguments.
+The `scm/resourceGroup/context` and `scm/resource/context` are quite similar. The former will let you customize resource groups, while the later refers to simple resources. Place menu items in the `inline` group to have them inline. Every other group will be represented in a context menu usually accessible using the mouse right-click. Commands called from within this menu will have the respective resources (and groups) on which they should act passed as arguments. Note that the SCM view supports multiple selection thus a command might receive more than one resource at a time in its arguments.
 
 You can differentiate between each resource and resource group in each menu item's `when` clause, making use of the following fields:
 
@@ -140,7 +139,7 @@ Note the use of the `scmProvider`, `scmProviderState` and `scmResourceGroup` con
 
 ### SCM Input Box
 
-The SCM Input Box, located atop of the SCM view, allows the user to input a message. SCM providers can get (and set) this message in order to achieve fulfill operations. In Git, for example, this is used as the commit box, in which users type in commit messages and git commit commands pick them up.
+The SCM Input Box, located atop of the SCM view, allows the user to input a message. SCM providers can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and git commit commands pick them up.
 
 ```ts
 export interface SCMInputBox {
@@ -164,11 +163,11 @@ Git, for example, listens on this event and creates a commit with the SCM Input 
 
 ## Quick Diff
 
-Code also supports displaying **quick diff** editor gutter decorations.
+VS Code also supports displaying **quick diff** editor gutter decorations.
 
 ![VS Code SCM](images/api-scm/quickdiff.png)
 
-These decorations are computed by Code itself. All you need to do is provide Code with the original contents of any given file.
+These decorations are computed by VS Code itself. All you need to do is provide VS Code with the original contents of any given file.
 
 ```ts
 export interface SCMProvider {
@@ -176,15 +175,15 @@ export interface SCMProvider {
 }
 ```
 
-Using the `provideOriginalResource` method, your provider is able to tell Code what's the `Uri` of the original resource that matches the resource which `Uri` is provided as an argument.
+Using the `provideOriginalResource` method, your provider is able to tell VS Code what's the `Uri` of the original resource that matches the resource which `Uri` is provided as an argument.
 
-You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/docs/extensionAPI/vscode-api#_workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
+You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/docs/extensionAPI/vscode-api.md#workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
 
 ## Misc
 
-Besides having a `scm.activeProvider` field and `scm.onDidChangeActiveProvider` event, which allow you to know what's the currently chosen SCM provider, this documentation pretty much explains the SCM API. Make sure to also check out the [SCM API documentation](/docs/extensionAPI/vscode-api#_scm).
+Besides having a `scm.activeProvider` field and `scm.onDidChangeActiveProvider` event, which allow you to know what's the currently chosen SCM provider, this documentation covers the SCM API. Make sure to also check out the [SCM API documentation](/docs/extensionAPI/vscode-api.md#scm).
 
-Remember to always refer to the [Git provider implementation](https://github.com/Microsoft/vscode/tree/master/extensions/git), it's always a great source of example code against the SCM API.
+Remember you can always refer to the [Git provider implementation](https://github.com/Microsoft/vscode/tree/master/extensions/git) as it's a great resource for source code using the SCM API.
 
 ## Next Steps
 

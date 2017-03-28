@@ -51,7 +51,7 @@ VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/
 
 Open VS Code on an empty folder and create a `HelloWorld.ts` file, place the following code in that file...
 
-``` typescript
+```ts
 class Startup {
     public static main(): number {
         console.log('Hello World');
