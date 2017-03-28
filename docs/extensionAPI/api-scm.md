@@ -116,7 +116,7 @@ The values of the properties above will be used as the values for different cont
 ```json
 {
   "command": "git.stage",
-  "when": "config.git.enabled && scmProvider == git && scmProviderState == idle && scmResourceGroup == merge",
+  "when": "scmProvider == git && scmProviderState == idle && scmResourceGroup == merge",
   "group": "inline"
 }
 ```
