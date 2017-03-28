@@ -11,7 +11,7 @@ MetaDescription: Get the best out of Visual Studio Code for HTML development
 
 VS Code provides basic support for HTML programming out of the box. Install an extension for greater functionality.
 
-<div class="marketplace-extensions-html"></div>
+<div class="marketplace-extensions-html-curated"></div>
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
