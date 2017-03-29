@@ -85,7 +85,7 @@ These attributes are only available for launch configurations of type `attach`:
 
 You can use IntelliSense to add launch configuration snippets for commonly used Node.js debugging scenarios to the launch.json.
 
-![Launch configuration snippets for node.js](images/debugging/launch-snippets.png)
+![Launch configuration snippets for node.js](images/nodejs-debugging/launch-snippets.png)
 
 Here is the list of all snippets:
 
@@ -206,7 +206,7 @@ If you want to attach to a Node.js process that hasn't been started in debug mod
 
 Since it is a bit laborious to repeatedly find the process ID and enter it in the launch configuration, node debug supports a command variable `PickProcess` that binds to a process picker that lets you conveniently pick the process from a list of node or gulp processes:
 
-![Process picker](images/debugging/process-picker.png)
+![Process picker](images/nodejs-debugging/process-picker.png)
 
 By using the `PickProcess` variable the launch configuration looks like this:
 
@@ -308,11 +308,11 @@ Since the `--nolazy` option might increase the start-up time of the debug target
 
 When doing so you will find that some of your breakpoints don't "stick" to the line requested but instead "jump" for the next possible line in already-parsed code. To avoid confusion, VS Code always shows breakpoints at the location where Node.js thinks the breakpoint is. In the **BREAKPOINTS** section, these breakpoints are shown with an arrow between requested and actual line number:
 
-![Breakpoints View](images/debugging/breakpointsvalidation.png)
+![Breakpoints View](images/nodejs-debugging/breakpointsvalidation.png)
 
 This breakpoint validation occurs when a session starts and the breakpoints are registered with Node.js, or when a session is already running and a new breakpoint is set. In this case, the breakpoint may "jump" to a different location. After Node.js has parsed all the code (e.g. by running through it), breakpoints can be easily re-applied to the requested locations with the **Reapply** button in the **BREAKPOINTS** section header. This should make the breakpoints "jump back" to the requested location.
 
-![Breakpoint Actions](images/debugging/breakpointstoolbar.png)
+![Breakpoint Actions](images/nodejs-debugging/breakpointstoolbar.png)
 
 ## Skipping uninteresting code (node, chrome)
 
@@ -346,7 +346,7 @@ The exact 'skipping' rules are as follows:
 
 Skipped source is shown in a 'dimmed' style in the CALL STACK view:
 
-![Skipped source is dimmed in call stack view](images/debugging/dimmed-callstack.png)
+![Skipped source is dimmed in call stack view](images/nodejs-debugging/dimmed-callstack.png)
 
 Hovering over the dimmed entries explains why the stack frame is dimmed.
 
