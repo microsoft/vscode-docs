@@ -95,7 +95,7 @@ var subscription = fsWatcher.onDidDelete(listener);
 subscriptions.dispose(); // stop listening
 ```
 
-Names of events follow the `on[Will|Did]VerbNoun?` pattern. The name signals if the event is going to happens *(onWill)* or already happened *(onDid)*, what happened *(verb)*, and the context *(noun)* unless obvious from the context.
+Names of events follow the `on[Will|Did]VerbNoun?` pattern. The name signals if the event is going to happen *(onWill)* or already happened *(onDid)*, what happened *(verb)*, and the context *(noun)* unless obvious from the context.
 
 An example from the VS Code API is `window.onDidChangeActiveTextEditor` which is an event fired when the active text editor *(noun)* has been (*onDid*) changed (*verb*).
 
