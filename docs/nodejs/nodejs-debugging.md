@@ -67,11 +67,11 @@ The following attributes are supported in launch configurations of type `launch`
 These attributes are only available for launch configurations of type `launch`:
 
 * `program` - an absolute path to the Node.js program to debug.
-* `args` - arguments passed to the program to debug.
+* `args` - arguments passed to the program to debug. This attribute is of type array and expects individual arguments as array elements.
 * `cwd` - launch the program to debug in this directory.
 * `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section 'Launch configuration support for 'npm' and other tools'.
 * `runtimeArgs` - optional arguments passed to the runtime executable.
-* `env` - optional environment variables.
+* `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
 * `envFile` - optional path to a file containing environment variable definitions.
 * `console` - kind of console to launch the program, e.g. `internalConsole`, `integratedTerminal`, `externalTerminal`. See section 'Node Console' below.
 
