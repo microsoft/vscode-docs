@@ -7,7 +7,6 @@ PageTitle: Visual Studio Code Complex Commands Reference
 DateApproved: 3/1/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.  
 ---
-
 # Complex Commands
 
 This document lists the set of Visual Studio Code complex commands. They are called complex commands because they require parameters and often return a value. You can use the commands in conjunction with the `executeCommand` API.
@@ -140,7 +139,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _column_ (optional) Column in which to preview.
 * _label_ (optional) An human readable string that is used as title for the preview.
 
-See [working with the HTML preview](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands#working-with-the-html-preview) for more information about the HTML preview's integration with the editor and for best practices for extension authors.
+See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#working-with-the-html-preview) for more information about the HTML preview's integration with the editor and for best practices for extension authors.
 
 `vscode.openFolder` - Open a folder in the current window or new window depending on the newWindow argument. Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder unless the newWindow parameter is set to true.
 
