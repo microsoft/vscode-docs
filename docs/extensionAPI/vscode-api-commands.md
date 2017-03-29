@@ -134,13 +134,13 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of DocumentLink-instances.
 
 
-`vscode.previewHtml` - Render the html of the resource in an editor view.
+`vscode.previewHtml` - Render the HTML of the resource in an editor view.
 
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
 * _label_ (optional) An human readable string that is used as title for the preview.
 
-
+See [working with the HTML preview](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands#working-with-the-html-preview) for more information about the HTML preview's integration with the editor and for best practices for extension authors.
 
 `vscode.openFolder` - Open a folder in the current window or new window depending on the newWindow argument. Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder unless the newWindow parameter is set to true.
 
@@ -264,32 +264,33 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
   * 'by': String value providing the unit for move. By tab or by group.
   * 'value': Number value providing how many positions or an absolute position to move.
 
+## Working With the HTML Preview
 
+### Styling
 
-# Working With the Html Preview
+The body element of the displayed HTML is dynamically annotated with one of the following CSS classes in order to communicate the kind of color theme VS Code is currently using: `vscode-light`, `vscode-dark`, or `vscode-high-contrast`.
 
-## Styling
-The body element of the displayed html is dynamically annotated with one of the following CSS classes in order to communicate the kind of color theme VS Code is currently using: `vscode-light`, `vscode-dark`, or `vscode-high-contrast`.
+### Links
 
+Links contained in the document will be handled by VS Code whereby it supports `file`-resources and [virtual](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L3295) resources as well as triggering commands using the `command` scheme. Use the query part of a command-uri to pass along JSON encoded arguments. Note that URL encoding must be applied.
 
-## Links
-Links contained in the document will be handled by VS Code whereby it supports `file`-resources and [virtual](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L3295)-resources as well as triggering commands using the `command`-scheme. Use the query part of a command-uri to pass along JSON-encoded arguments - note that URL-encoding must be applied.
-
-The snippet below defines a command-link that calls the _previewHtml_ command and passes along an uri:
+The snippet below defines a command link that calls the _previewHtml_ command and passes along an URI:
 
 ```javascript
   let href = encodeURI('command:vscode.previewHtml?' + JSON.stringify(someUri));
   let html = '<a href="' + href + '">Show Resource...</a>.';
 ```
 
+### Security Tips
 
-## Security Tips
-An extension author, if you use an html preview you are responsible for protecting users from potentially malicious content. The primary danger is that an attacker could craft a malicious workspace that uses your html preview to execute scripts or perform other evil activities. In addition to normal web security best practices, here are a few specific tips and tricks to help protect users.
+As an extension author, if you use an HTML preview, you are responsible for protecting users from potentially malicious content. The primary danger is that an attacker could craft a malicious workspace that uses your HTML preview to execute scripts or perform other insecure activities. In addition to normal web security best practices, here are a few specific tips and tricks to help protect users.
 
 ### Sanitizing Content
-As a first line of defense, when constructing a html document for the preview, make sure to appropriately sanitize all input that comes workspace settings or from files on a user's system. For html content, consider using a whitelist of safe tags and attributes. Libraries such as [sanitize-html](https://www.npmjs.com/package/sanitize-html) can help with this.
+
+As a first line of defense, when constructing an HTML document for the preview, make sure to appropriately sanitize all input that comes from workspace settings or from files on a user's system. For HTML content, consider using a whitelist of safe tags and attributes. Libraries such as [sanitize-html](https://www.npmjs.com/package/sanitize-html) can help with this.
 
 ### Disabling Scripts
+
 If your preview does not need to execute javascript, you can further enhance security by disabling script execution entirely. One way to accomplish this is by loading untrusted content inside of an `iframe`  with the `sandbox` attribute set. In this case, the content would be loaded using the `srcdoc` attribute:
 
 ```html
@@ -305,6 +306,7 @@ If your preview still needs to load some local resources such as images, try usi
 `sandbox="allow-same-origin"` disables script execution inside the `iframe` but allows loading resources from a user's system, such as stylesheets and images. In general, it is best to disable access to local resources unless your preview absolutely needs it.
 
 ### Using a Content Security Policy
+
 If your preview's functionality depends on scripts, consider disabling scripts that come from untrusted user content using a [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP). Content security policy allow fine grained control over which resources may be loaded.
 
 For example, here's a content security policy that allows images from anywhere, allows stylesheets from a user's local system, and disables all scripts:
@@ -322,7 +324,7 @@ For example, here's a content security policy that allows images from anywhere, 
 </html>
 ```
 
-To selectively enable scripts, the best approach for the html preview is to use a dynamically generated [nonce](https://developers.google.com/web/fundamentals/security/csp/) to whitelist certain trusted scripts:
+To selectively enable scripts, the best approach for the HTML preview is to use a dynamically generated [nonce](https://developers.google.com/web/fundamentals/security/csp/) to whitelist certain trusted scripts:
 
 ```html
 <!DOCTYPE html>
