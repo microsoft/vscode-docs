@@ -165,7 +165,7 @@ Below are the default settings and their values.
   // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
   "files.associations": {}
 
-// Editor 
+// Editor
 
   // Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.
   "editor.tabCompletion": false,
@@ -424,8 +424,8 @@ Below are the default settings and their values.
   // Specifies the icon theme used in the workbench.
   "workbench.iconTheme": null,
 
-  // Custom theme.
-  "workbench.customColorTheme": {},
+  // Overrides colors from the currently selected color theme. This setting is experimental as the names of the colors will change in the next release.
+  "workbench.experimental.colorCustomizations": null,
 
 // Window
 
@@ -489,6 +489,9 @@ Below are the default settings and their values.
   // The default character set encoding to use when reading and writing files.
   "files.encoding": "utf8",
 
+  // When enabled, will attempt to guess the character set encoding when opening files
+  "files.autoGuessEncoding": false,
+
   // The default end of line character.
   "files.eol": "\r\n",
 
@@ -512,6 +515,9 @@ Below are the default settings and their values.
 
   // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
   "files.hotExit": "onExit",
+
+  // The default language mode that is assigned to new files.
+  "files.defaultLanguage": "",
 
 // Zen Mode
 
@@ -876,6 +882,9 @@ Below are the default settings and their values.
   // Traces the communication between VS Code and the JSON language server.
   "json.trace.server": "off",
 
+  // Enables or disables color decorators
+  "json.colorDecorators.enable": true,
+
 // Markdown
 
   // A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
@@ -1160,7 +1169,7 @@ Below are the default settings and their values.
 
   // Enable crash reports to be sent to Microsoft.
   // This option requires restart to take effect.
-  "telemetry.enableCrashReporter": true,
+  "telemetry.enableCrashReporter": true
 }
 ```
 
