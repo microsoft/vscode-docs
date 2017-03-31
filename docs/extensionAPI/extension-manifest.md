@@ -245,6 +245,17 @@ Extension packs should be categorized in the `Extension Packs` Marketplace categ
 
 To create an extension pack, you can use the `yo code` Yeoman generator. Optionally, it can also seed the pack with the set of extensions you have currently installed in your VS Code instance. In this way, you can easily create an Extension Pack with your favorite extensions, publish it to the Marketplace, and share it with others.
 
+## Useful Node modules
+
+There are several Node.js modules available on npmjs to help with writing VSCode extensions. You can include these in your extension's `dependencies` section.
+
+* [vscode-nls](https://www.npmjs.com/package/vscode-nls) - Support for externalization and localization.
+* [vscode-uri](https://www.npmjs.com/package/vscode-uri) - The URI implementation used by VS Code and its extensions.
+* [jsonc-parser](https://www.npmjs.com/package/jsonc-parser) - A scanner and fault tolerant parser to process JSON with or without comments.
+* [request-light](https://www.npmjs.com/package/request-light) - A light weight Node.js request library with proxy support
+* [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
+* [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://github.com/Microsoft/language-server-protocol).
+
 ## Next Steps
 
 To learn more about VS Code extensibility model, try these topic:

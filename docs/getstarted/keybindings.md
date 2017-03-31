@@ -8,7 +8,6 @@ DateApproved: 3/20/2017
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: keybinding_customization_keybindings.png
 ---
-
 # Key Bindings for Visual Studio Code
 
 Visual Studio Code lets you perform most tasks directly from the keyboard.  This page lists out the default bindings (keyboard shortcuts) and describes how you can update them.
@@ -19,9 +18,9 @@ Visual Studio Code lets you perform most tasks directly from the keyboard.  This
 
 Keyboard shortcuts are vital to productivity and changing keyboarding habits can be tough. To help with this, **File** > **Preferences** > **Keymap Extensions** shows you a list of popular keymap extensions. These extensions modify the VS Code shortcuts to match those of other editors so you don't need to learn new keyboard shortcuts. There is also a [Keymaps category](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) of extensions in the Marketplace.
 
-<div class="marketplace-extensions-keymaps"></div>
+<div class="marketplace-extensions-curated-keymaps"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Keyboard Shortcuts Reference
 
@@ -319,7 +318,7 @@ Below are the some of the possible `when` clause contexts which evaluate to Bool
 
 Context name | True when
 ------------ | ------------
-**Editor contexts** | 
+**Editor contexts** |
 editorFocus | An editor has focus, either the text or a widget.
 editorTextFocus | The text in an editor has focus (cursor is blinking).
 editorHasSelection | Text is selected in the editor.
@@ -330,7 +329,7 @@ textCompareEditorVisible | Diff (compare) view is visible.
 **Mode contexts** |
 inDebugMode | A debug session is running.
 inSnippetMode | The editor is in snippet mode.
-inQuickOpen | The Quick Open dropdown has focus.
+inQuickOpen | The Quick Open drop-down has focus.
 **Explorer contexts** |
 explorerViewletVisible | True if Explorer view is visible.
 explorerViewletFocus | True if Explorer view has keyboard focus.
@@ -355,6 +354,10 @@ resourceLangId | True when the Explorer or editor title language Id matches. Exa
 globalMessageVisible | Message box is visible at the top of VS Code.
 searchViewletVisible | Search view is open.
 replaceActive | Search view Replace text box is open.
+**Configuration settings contexts** |
+config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` is `true`.
+
+>**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the `Default Keyboard Shortcuts`.
 
@@ -456,4 +459,3 @@ Now that you know about our Key binding support, what's next...
 **Q: I have modified my key bindings in `User/keybindings.json`, why don't they work?**
 
 **A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
-

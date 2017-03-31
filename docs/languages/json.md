@@ -159,10 +159,3 @@ Use the property `defaultSnippets` to specify any number of snippets for the giv
  
 Note that `defaultSnippets` is not part of the JSON schema spec but a VS Code specific schema extension.
 
-## JSON Extensions
-
-In addition, you can install an extension for greater functionality. 
-
-<div class="marketplace-extensions-json"></div>
-
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).

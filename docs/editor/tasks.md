@@ -55,7 +55,7 @@ You can get IntelliSense on `tasks.json` variables and their values with hover a
 Sometimes you will want to control how the output window behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The property **showOutput** controls this and the valid values are:
 
 - **always** - The output window is always brought to front. This is the default.
-- **never** - The user must explicitly bring the output window to the front using the **View** > **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`).
+- **never** - The user must explicitly bring the output window to the front using the **View** > **Output** command (`kb(workbench.action.output.toggleOutput)`).
 - **silent** - The output window is brought to front only if no [problem matchers](/docs/editor/tasks.md#processing-task-output-with-problem-matchers) are set for the task.
 
 ### echoCommand
@@ -139,7 +139,7 @@ The first task start the TypeScript compiler in watch mode, the second one start
 
 If you need to run a task frequently, you can also define a keyboard shortcut for the task. 
 
-For example to bind `ctrl+h` to the `build` task from above, add the following to your `keyindings.json` file:
+For example to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
 
 ```json
 {

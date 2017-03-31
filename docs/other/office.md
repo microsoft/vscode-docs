@@ -43,7 +43,7 @@ Open the project in Visual Studio Code by entering the following on the command 
 code .
 ```
 
-![MyAddin.xml in VS Code](images/office/vscode.png)
+![My-office-add-in-manifest.xml in VS Code](images/office/yoofficemanifest.png)
 
 Open the `manifest.xml` file that was created by Yo Office and locate the `SourceLocation` node. Update this URL to the URL where you will host the Add-in.
 

@@ -161,6 +161,15 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 ![Hiding derived resources](images/typescript/hidingDerivedBefore.png) ![Hiding derived resources](images/typescript/hidingDerivedAfter.png)
 
+To exclude JavaScript files generated from both `.ts` and `.tsx` source files, use this expression:
+
+```json
+"**/*.js": { "when": "$(basename).ts" },
+"**/**.js": { "when": "$(basename).tsx" }
+```
+
+This is a bit of a trick. The search glob pattern is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
+
 ## Mixed TypeScript and JavaScript projects
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
@@ -218,9 +227,9 @@ Click on the reference count to quickly browse a list of references:
 
 VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
 
-<div class="marketplace-extensions-typescript"></div>
+<div class="marketplace-extensions-typescript-curated"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Next Steps
 

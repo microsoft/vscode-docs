@@ -15,9 +15,9 @@ Working with Markdown files in Visual Studio Code is simple, straightforward, an
 
 In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
 
-<div class="marketplace-extensions-markdown"></div>
+<div class="marketplace-extensions-markdown-curated"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Markdown Preview
 

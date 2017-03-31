@@ -101,6 +101,10 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 
 ![Errors and Warnings Inline](images/editingevolved/errorsinline.png)
 
+## Code Action
+
+Warnings and Errors can provide Code Actions (also known as Quick Fixes) to help fix issues. These will be displayed in the editor in the left margin as a lightbulb. Clicking on the lightbulb will either display the Code Action options or perform the action.
+
 ## Next Steps
 
 Now that you know how the editor works, time to try a few other things...

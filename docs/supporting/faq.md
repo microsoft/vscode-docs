@@ -36,7 +36,7 @@ The VS Code version is the first **Version** number listed and has the version f
 
 ## How do I opt out of VS Code auto-updates?
 
-By default, VS Code is set up to auto-update for Mac and Windows users when we release new updates. (Auto-update of VS Code is not supported for Linux.) If you do not want to get automatic updates, you can set the `update.channel` setting from `default` to `none`.
+By default, VS Code is set up to auto-update for Mac and Windows users when we release new updates. If you do not want to get automatic updates, you can set the `update.channel` setting from `default` to `none`.
 
 To modify the update channel, go to **File** > **Preferences** > **Settings** and add the `update.channel` setting with the value `"none"`.
 
@@ -45,6 +45,8 @@ To modify the update channel, go to **File** > **Preferences** > **Settings** an
 ```
 
 You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/updates).
+
+>**Note:** On Linux: If the VS Code repository was installed corrected then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md#updates).
 
 ## Licensing
 

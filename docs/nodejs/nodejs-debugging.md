@@ -12,6 +12,8 @@ MetaSocialImage: debugging_Debugging.png
 
 Visual Studio Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript.
 
+>**Are you new to VS Code?** Learn more and download a [faster Node.js editor here](/nodejs).
+
 This document explains the details of Node.js debugging. The general debugging feature are described in [Debugging](/docs/editor/debugging.md).
 
 ## Supported Node-like Runtimes
@@ -20,7 +22,7 @@ Since the VS Code Node.js debugger communicates to the Node.js runtimes through 
 
 Today two wire protocols exist:
 - **legacy**: the original [V8 Debugger Protocol](https://github.com/buggerjs/bugger-v8-client/blob/master/PROTOCOL.md) which is currently supported by all runtimes but will most likely be dropped in Node.js v8.x.
-- **inpector**: the new [V8 Inspector Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/v8/) is exposed via the `--inspect` flag in Node.js versions >= 6.3. It addresses most of the limitations and scalability issues of the legacy protocol.
+- **inspector**: the new [V8 Inspector Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/v8/) is exposed via the `--inspect` flag in Node.js versions >= 6.3. It addresses most of the limitations and scalability issues of the legacy protocol.
 
 Currently these protocols are supported by specific version ranges of the following runtimes:
 
@@ -67,11 +69,11 @@ The following attributes are supported in launch configurations of type `launch`
 These attributes are only available for launch configurations of type `launch`:
 
 * `program` - an absolute path to the Node.js program to debug.
-* `args` - arguments passed to the program to debug.
+* `args` - arguments passed to the program to debug. This attribute is of type array and expects individual arguments as array elements.
 * `cwd` - launch the program to debug in this directory.
 * `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section 'Launch configuration support for 'npm' and other tools'.
 * `runtimeArgs` - optional arguments passed to the runtime executable.
-* `env` - optional environment variables.
+* `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
 * `envFile` - optional path to a file containing environment variable definitions.
 * `console` - kind of console to launch the program, e.g. `internalConsole`, `integratedTerminal`, `externalTerminal`. See section 'Node Console' below.
 
@@ -85,7 +87,7 @@ These attributes are only available for launch configurations of type `attach`:
 
 You can use IntelliSense to add launch configuration snippets for commonly used Node.js debugging scenarios to the launch.json.
 
-![Launch configuration snippets for node.js](images/debugging/launch-snippets.png)
+![Launch configuration snippets for node.js](images/nodejs-debugging/launch-snippets.png)
 
 Here is the list of all snippets:
 
@@ -206,7 +208,7 @@ If you want to attach to a Node.js process that hasn't been started in debug mod
 
 Since it is a bit laborious to repeatedly find the process ID and enter it in the launch configuration, node debug supports a command variable `PickProcess` that binds to a process picker that lets you conveniently pick the process from a list of node or gulp processes:
 
-![Process picker](images/debugging/process-picker.png)
+![Process picker](images/nodejs-debugging/process-picker.png)
 
 By using the `PickProcess` variable the launch configuration looks like this:
 
@@ -308,11 +310,11 @@ Since the `--nolazy` option might increase the start-up time of the debug target
 
 When doing so you will find that some of your breakpoints don't "stick" to the line requested but instead "jump" for the next possible line in already-parsed code. To avoid confusion, VS Code always shows breakpoints at the location where Node.js thinks the breakpoint is. In the **BREAKPOINTS** section, these breakpoints are shown with an arrow between requested and actual line number:
 
-![Breakpoints View](images/debugging/breakpointsvalidation.png)
+![Breakpoints View](images/nodejs-debugging/breakpointsvalidation.png)
 
 This breakpoint validation occurs when a session starts and the breakpoints are registered with Node.js, or when a session is already running and a new breakpoint is set. In this case, the breakpoint may "jump" to a different location. After Node.js has parsed all the code (e.g. by running through it), breakpoints can be easily re-applied to the requested locations with the **Reapply** button in the **BREAKPOINTS** section header. This should make the breakpoints "jump back" to the requested location.
 
-![Breakpoint Actions](images/debugging/breakpointstoolbar.png)
+![Breakpoint Actions](images/nodejs-debugging/breakpointstoolbar.png)
 
 ## Skipping uninteresting code (node, chrome)
 
@@ -346,7 +348,7 @@ The exact 'skipping' rules are as follows:
 
 Skipped source is shown in a 'dimmed' style in the CALL STACK view:
 
-![Skipped source is dimmed in call stack view](images/debugging/dimmed-callstack.png)
+![Skipped source is dimmed in call stack view](images/nodejs-debugging/dimmed-callstack.png)
 
 Hovering over the dimmed entries explains why the stack frame is dimmed.
 
