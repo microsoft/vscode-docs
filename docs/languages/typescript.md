@@ -161,14 +161,14 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 ![Hiding derived resources](images/typescript/hidingDerivedBefore.png) ![Hiding derived resources](images/typescript/hidingDerivedAfter.png)
 
-To exclude files generated from `.ts` and `.tsx` use this expression:
+To exclude JavaScript files generated from both `.ts` and `.tsx` source files, use this expression:
 
 ```json
 "**/*.js": { "when": "$(basename).ts" },
 "**/**.js": { "when": "$(basename).tsx" }
 ```
 
-This is a bit of a trick. The glob pattern is a key. What the above setting does is uses a different glob pattern to match the same files. 
+This is a bit of a trick. The search glob pattern is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
 
 ## Mixed TypeScript and JavaScript projects
 
