@@ -81,7 +81,7 @@ sudo zypper install code
 The [.rpm package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
 
 ```bash
-sudo `dnf` install <file>.rpm
+sudo dnf install <file>.rpm
 ```
 
 Note that 32-bit and .tar.gz binaries are are also available on the [download page](/Download).
