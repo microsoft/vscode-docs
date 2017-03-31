@@ -161,6 +161,15 @@ This pattern will match on any JavaScript file (`**/*.js`) but only if a sibling
 
 ![Hiding derived resources](images/typescript/hidingDerivedBefore.png) ![Hiding derived resources](images/typescript/hidingDerivedAfter.png)
 
+To exclude files generated from `.ts` and `.tsx` use this expression:
+
+```json
+"**/*.js": { "when": "$(basename).ts" },
+"**/**.js": { "when": "$(basename).tsx" }
+```
+
+This is a bit of a trick. The glob pattern is a key. What the above setting does is uses a different glob pattern to match the same files. 
+
 ## Mixed TypeScript and JavaScript projects
 
 It is now possible to have mixed TypeScript and JavaScript projects. To enable JavaScript inside a TypeScript project, you can set the `allowJs` property to `true` in the `tsconfig.json`.
