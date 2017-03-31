@@ -13,17 +13,17 @@ Visual Studio Code allows extension authors to define Source Control Management 
 
 ![VS Code SCM](images/api-scm/main.png)
 
-**SCM providers** are the key component to the SCM extensibility story. VS Code itself ships with one: the Git SCM provider. If you want to integrate another SCM system, you'll want to start by implementing an SCM provider.
+VS Code itself ships with one Source Control provider: Git. This documentation will help you integrate your own SCM system.
 
-Note that you can always refer to the [`vscode` namespace API reference](/docs/extensionAPI/vscode-api.md#scm) in our docs.
+Note that you can always refer to the [`vscode` namespace API reference](/docs/extensionAPI/vscode-api.md#scm) in our documentation.
 
-## SCM Model
+## Source Control Model
 
-An SCM provider is the entity responsible for populating the SCM model with **resources**. SCM resources are themselves organized in **resource groups**. An SCM provider should return a sorted collection of resource groups.
+An `SourceControl` is the entity responsible for populating the Source Control model with **resource states**, instances of `SourceControlResourceState`. Resource states are themselves organized in **groups**, instances of `SourceControlResourceGroup`.
 
-You can register a new SCM provider with `vscode.scm.registerSCMProvider`.
+You can create a new SourceControl with `vscode.scm.createSourceControl`.
 
-In order to understand those concepts, let's take the [Git provider](https://github.com/Microsoft/vscode/tree/master/extensions/git) as an example as well as the following result of a `git status` call:
+In order to better understand how these three entities correlate with each other, let's take [Git](https://github.com/Microsoft/vscode/tree/master/extensions/git) as an example. Consider the following output of `git status`:
 
 ```bash
 vsce master* → git status
@@ -45,121 +45,105 @@ Changes not staged for commit:
 
 There are many things going on in this workspace. First, the `README.md` file has been modified, staged and then modified once again. The `src/api.ts` file has been moved to `src/test/api.ts` and that move was staged. Finally, the `.travis.yml` file has been deleted.
 
-For this workspace, Git defines two SCM resource groups: the **working tree** and the **index**. Each _file change_ within that group is an SCM resource:
+For this workspace, Git defines two resource groups: the **working tree** and the **index**. Each **file change** within that group is **resource state**:
 
-- **Index** resource group (2 resources)
-  - `README.md`, modified
-  - `src/test/api.ts`, renamed from `src/api.ts`
-- **Working Tree** resource group (2 resources)
-  - `.travis.yml`, deleted
-  - `README.md`, modified
+- **Index** - resource group
+  - `README.md`, modified - resource state
+  - `src/test/api.ts`, renamed from `src/api.ts` - resource state
+- **Working Tree** - resource group
+  - `.travis.yml`, deleted - resource state
+  - `README.md`, modified - resource state
 
-Note how the same file, `README.md`, can be contained within two different SCM resources.
+Note how the same file, `README.md`, is part of two distinct resource states.
 
-Here's how a provider is able to return this model:
+Here's how Git creates this model:
 
 ```ts
-export interface SCMProvider {
-  resources: SCMResourceGroup[];
-  onDidChange?: Event<SCMProvider>;
+function createResourceUri(relativePath: string): string {
+  const absolutePath = path.join(vscode.workspace.rootPath, relativePath);
+  return vscode.Uri.file(absolutePath);
+}
+
+const gitSCM = vscode.scm.createSourceControl('git', "Git");
+
+const index = gitSCM.createResourceGroup('index', "Index");
+index.resourceStates = [
+  { resourceUri: createResourceUri('README.md') },
+  { resourceUri: createResourceUri('src/test/api.ts') }
+];
+
+const workingTree = gitSCM.createResourceGroup('workingTree', "Changes");
+workingTree.resourceStates = [
+  { resourceUri: createResourceUri('.travis.yml') },
+  { resourceUri: createResourceUri('README.md') }
+];
+```
+
+Changes made to the source control and resource groups will be propagated to the Source Control view.
+
+## Source Control View
+
+VS Code is able to populate the Source Control view, as the source control model changes. Resource states are customizable using `SourceControlResourceDecorations`:
+
+```ts
+export interface SourceControlResourceState {
+  readonly decorations?: SourceControlResourceDecorations;
 }
 ```
 
-The `resources` field is a pointer to the model at any given point in time. A provider is able to let VS Code know that this model has changed by firing the `onDidChange` event.
-
-## SCM View
-
-By providing SCM resources, the SCM provider is able to populate the SCM view in VS Code. SCM resources are customizable using `SCMResourceDecorations`:
+The previous example would be sufficient to populate a simple list in the Source Control view, but there are many user interactions that the user might want to perform with each resource. For instance, what happens when the user clicks a resource state? The resource state can optionally provide a command to handle this action:
 
 ```ts
-export interface SCMResource {
-  readonly decorations?: SCMResourceDecorations;
+export interface SourceControlResourceState {
+  readonly command?: Command;
 }
 ```
-
-The previous example would be sufficient to populate a simple list in the SCM view, but there are many user interactions that the user might want to perform with each resource. For instance, what happens when the user clicks a resource? The SCM provider can optionally implement an `open` method to handle this action:
-
-```ts
-export interface SCMProvider {
-  open?(resource: SCMResource): void;
-}
-```
-
-The Git provider simply opens editors when resources are opened.
 
 ### Menus
 
-There are three SCM menu ids where you can place menu items, in order to provide the user with a much richer user interface.
-
-![VS Code SCM](images/api-scm/menus.png)
+There are three Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
 
 The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` dropdown.
 
-The `scm/resourceGroup/context` and `scm/resource/context` are quite similar. The former will let you customize resource groups, while the later refers to simple resources. Place menu items in the `inline` group to have them inline. Every other group will be represented in a context menu usually accessible using the mouse right-click. Commands called from within this menu will have the respective resources (and groups) on which they should act passed as arguments. Note that the SCM view supports multiple selection thus a command might receive more than one resource at a time in its arguments.
+The `scm/resourceGroup/context` and `scm/resourceState/context` are similar. The former will let you customize resource groups, while the later refers to resource states. Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click. Commands called from within these menus will have the respective resource states on passed as arguments. Note that the SCM view supports multiple selection thus a command might receive more than one resource at a time in its arguments.
 
-You can differentiate between each resource and resource group in each menu item's `when` clause, making use of the following fields:
+For exmaple, Git supports staging multiple files by adding the `git.stage` command to the `scm/resourceState/context` menu and using such a method declaration:
 
 ```ts
-export interface SCMResourceGroup {
-
-  /**
-   * The context key of the SCM resource group, which will be used to populate
-   * the value of the `scmResourceGroup` context key.
-   */
-  contextKey?: string;
-}
-
-export interface SCMProvider {
-
-  /**
-   * The context key of the SCM provider, which will be used to populate
-   * the value of the `scmProvider` context key.
-   */
-  contextKey?: string;
-
-  /**
-   * A state identifier, which will be used to populate the value of the
-   * `scmProviderState` context key.
-   */
-  stateContextKey?: string;
-}
+stage(...resourceStates: SourceControlResourceState[]): Promise<void>;
 ```
 
-The values of the properties above will be used as the values for different context keys, which you can rely on, in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
+When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these context keys in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
 
 ```json
 {
   "command": "git.stage",
-  "when": "scmProvider == git && scmProviderState == idle && scmResourceGroup == merge",
+  "when": "scmProvider == git && scmResourceGroup == merge",
   "group": "inline"
 }
 ```
 
-Note the use of the `scmProvider`, `scmProviderState` and `scmResourceGroup` contexts keys. Their values are defined in instances of `SCMResourceGroup` returned by the Git instance of `SCMProvider`.
-
 ### SCM Input Box
 
-The SCM Input Box, located atop of the SCM view, allows the user to input a message. SCM providers can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and git commit commands pick them up.
+The Source Control Input Box, located atop of the Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and git commit commands pick them up.
 
 ```ts
-export interface SCMInputBox {
+export interface SourceControlInputBox {
   value: string;
 }
 
 export namespace scm {
-  export const inputBox: SCMInputBox;
+  export const inputBox: SourceControlInputBox;
 }
 ```
 
-The user can type <kbd>Ctrl+Enter</kbd> (or <kbd>Cmd+Enter</kbd> on macOS) to accept any message. This reflects on the API via the following event:
+The user can type <kbd>Ctrl+Enter</kbd> (or <kbd>Cmd+Enter</kbd> on macOS) to accept any message. You can handle this event by providing a `acceptInputCommand` to your `SourceControl` instance.
 
 ```ts
-export namespace scm {
-  export const onDidAcceptInputValue: Event<SCMInputBox>;
+export interface SourceControl {
+  readonly acceptInputCommand?: Command;
 }
 ```
-
-Git, for example, listens on this event and creates a commit with the SCM Input Box's contents.
 
 ## Quick Diff
 
@@ -170,25 +154,21 @@ VS Code also supports displaying **quick diff** editor gutter decorations.
 These decorations are computed by VS Code itself. All you need to do is provide VS Code with the original contents of any given file.
 
 ```ts
-export interface SCMProvider {
-  provideOriginalResource?(uri: Uri, token: CancellationToken): ProviderResult<Uri>;
+export interface SourceControl {
+  quickDiffProvider?: QuickDiffProvider;
 }
 ```
 
-Using the `provideOriginalResource` method, your provider is able to tell VS Code what's the `Uri` of the original resource that matches the resource which `Uri` is provided as an argument.
+Using a `QuickDiffProvider`, your implementation is able to tell VS Code what's the `Uri` of the original resource that matches the resource which `Uri` is provided as an argument.
 
 You can combine this API with the [`registerTextDocumentContentProvider` method in the `workspace` namespace](/docs/extensionAPI/vscode-api.md#workspace), which lets you provide contents for arbitrary resources, given a `Uri`.
-
-## Misc
-
-Besides having a `scm.activeProvider` field and `scm.onDidChangeActiveProvider` event, which allow you to know what's the currently chosen SCM provider, this documentation covers the SCM API. Make sure to also check out the [SCM API documentation](/docs/extensionAPI/vscode-api.md#scm).
-
-Remember you can always refer to the [Git provider implementation](https://github.com/Microsoft/vscode/tree/master/extensions/git) as it's a great resource for source code using the SCM API.
 
 ## Next Steps
 
 To learn more about VS Code extensibility model, try these topics:
 
+* [SCM API Reference](/docs/extensionAPI/vscode-api.md#scm) - Read the full SCM API documentation
+* [Git Extension](https://github.com/Microsoft/vscode/tree/master/extensions/git) - Learn by reading the Git extension implementation
 * [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
 * [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
