@@ -98,6 +98,7 @@ Key|Command|Command id
 `kb(editor.action.formatDocument)`|Format Document|`editor.action.formatDocument`
 `kb(editor.action.formatSelection)`|Format Selection|`editor.action.formatSelection`
 `kb(editor.action.goToDeclaration)`|Go to Definition|`editor.action.goToDeclaration`
+`kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
 `kb(editor.action.previewDeclaration)`|Peek Definition|`editor.action.previewDeclaration`
 `kb(editor.action.openDeclarationToTheSide)`|Open Definition to the Side|`editor.action.openDeclarationToTheSide`
 `kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
@@ -387,7 +388,7 @@ Here is an example:
 
 The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
 
-* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85))
+* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731)
 * `kbstyle(tab)` for `VK_TAB` (`0x09`)
 * `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
 * `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
@@ -408,7 +409,7 @@ All the key bindings are rendered in the UI using the current system's keyboard 
 
 ![render key binding](images/keybinding/render-key-binding.png)
 
-When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the **Default Keyboard Shortcuts** rules look like when using a French (France) keyboard layout:
 
 ![keybindings.json guidance](images/keybinding/keybindings-json.png)
 
@@ -430,13 +431,13 @@ Now that you know about our Key binding support, what's next...
 
 **Q: How to find out what command is bound to a specific key?**
 
-**A:** In the Default Keyboard Shortcuts, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
+**A:** In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
 
 ![Key bindings quick outline](images/keybinding/outline.png)
 
 **Q: How to add a key binding to an action? E.g. Add Ctrl+D to Delete Lines**
 
-**A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `keybindings.json` file:
+**A:** Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
 ```json
 // Original, in Default Keyboard Shortcuts
