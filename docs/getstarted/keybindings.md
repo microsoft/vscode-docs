@@ -32,9 +32,11 @@ Below are links to the three platform-specific versions:
 * [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
 * [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
 
-## Basic Editing
+## Default Keyboard Shortcuts
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts).
+
+### Basic Editing
 
 Key|Command|Command id
 ---|-------|----------
@@ -89,7 +91,7 @@ Key|Command|Command id
 `kb(toggleRenderWhitespace)`|Toggle Render Whitespace|`toggleRenderWhitespace`
 `kb(editor.action.toggleWordWrap)`|Toggle Word Wrap|`editor.action.toggleWordWrap`
 
-## Rich Languages Editing
+### Rich Languages Editing
 
 Key|Command|Command id
 ---|-------|----------
@@ -111,7 +113,7 @@ Key|Command|Command id
 `kb(editor.action.trimTrailingWhitespace)`|Trim Trailing Whitespace|`editor.action.trimTrailingWhitespace`
 `kb(workbench.action.editor.changeLanguageMode)`|Change Language Mode|`workbench.action.editor.changeLanguageMode`
 
-## Navigation
+### Navigation
 
 Key|Command|Command id
 ---|-------|----------
@@ -127,7 +129,7 @@ Key|Command|Command id
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
 `kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
 
-## Editor/Window Management
+### Editor/Window Management
 
 Key|Command|Command id
 ---|-------|----------
@@ -147,7 +149,7 @@ Key|Command|Command id
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
 `kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
 
-## File Management
+### File Management
 
 Key|Command|Command id
 ---|-------|----------
@@ -172,7 +174,7 @@ Key|Command|Command id
 `kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
 `kb(workbench.files.action.compareFileWith)`|Compare Opened File With|`workbench.files.action.compareFileWith`
 
-## Display
+### Display
 
 Key|Command|Command id
 ---|-------|----------
@@ -197,7 +199,7 @@ Key|Command|Command id
 `kb(markdown.showPreviewToSide)`|Open Preview to the Side|`markdown.showPreviewToSide`
 `kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
 
-## Preferences
+### Preferences
 
 Key|Command|Command id
 ---|-------|----------
@@ -208,7 +210,7 @@ Key|Command|Command id
 `kb(workbench.action.selectTheme)`|Select Color Theme|`workbench.action.selectTheme`
 `kb(workbench.action.configureLocale)`|Configure Display Language|`workbench.action.configureLocale`
 
-## Debug
+### Debug
 
 Key|Command|Command id
 ---|-------|----------
@@ -223,14 +225,14 @@ Key|Command|Command id
 `kb(workbench.action.debug.stop)`|Stop|`workbench.action.debug.stop`
 `kb(editor.debug.action.showDebugHover)`|Show Hover|`editor.debug.action.showDebugHover)`
 
-## Tasks
+### Tasks
 
 Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.tasks.build)`|Run Build Task|`workbench.action.tasks.build`
 `kb(workbench.action.tasks.test)`|Run Test Task|`workbench.action.tasks.test`
 
-## Extensions
+### Extensions
 
 Key|Command|Command id
 ---|-------|----------
@@ -311,7 +313,7 @@ The following keys are accepted:
 * `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(nupad_separator)`
 * `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
-### Key binding command arguments
+## Key binding command arguments
 
 You can invoke command with arguments. This is useful if you often perform the same operation on a specific file or folder. Simply add a custom keyboard shortcut to do exactly what you want.
 
@@ -449,7 +451,7 @@ Now that you know about our Key binding support, what's next...
 
 ![Key bindings quick outline](images/keybinding/outline.png)
 
-**Q: How to add a key binding to an action? E.g. Add Ctrl+D to Delete Lines**
+**Q: How to add a key binding to an action? For example add Ctrl+D to Delete Lines**
 
 **A:** Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
