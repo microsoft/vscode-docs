@@ -136,13 +136,13 @@ Key|Command|Command id
 `kb(workbench.action.closeFolder)`|Close Folder|`workbench.action.closeFolder`
 `kb(workbench.action.navigateEditorGroups)`|Cycle Between Editor Groups|`workbench.action.navigateEditorGroups`
 `kb(workbench.action.splitEditor)`|Split Editor|`workbench.action.splitEditor`
-`kb(workbench.action.focusFirstEditorGroup)`|Focus into Left Editor Group|`workbench.action.focusFirstEditorGroup`
-`kb(workbench.action.focusSecondEditorGroup)`|Focus into Side Editor Group|`workbench.action.focusSecondEditorGroup`
-`kb(workbench.action.focusThirdEditorGroup)`|Focus into Right Editor Group|`workbench.action.focusThirdEditorGroup`
+`kb(workbench.action.focusFirstEditorGroup)`|Focus into First Editor Group|`workbench.action.focusFirstEditorGroup`
+`kb(workbench.action.focusSecondEditorGroup)`|Focus into Second Editor Group|`workbench.action.focusSecondEditorGroup`
+`kb(workbench.action.focusThirdEditorGroup)`|Focus into Third Editor Group|`workbench.action.focusThirdEditorGroup`
 `kb(workbench.action.focusPreviousGroup)`|Focus into Editor Group on the Left|`workbench.action.focusPreviousGroup`
 `kb(workbench.action.focusNextGroup)`|Focus into Editor Group on the Right|`workbench.action.focusNextGroup`
-`kb(workbench.action.moveEditorLeftInGroup)` | Move Editor Left | `workbench.action.moveEditorLeftInGroup`
-`kb(workbench.action.moveEditorRightInGroup)` | Move Editor Right | `workbench.action.moveEditorRightInGroup`
+`kb(workbench.action.moveEditorLeftInGroup)`| Move Editor Left |`workbench.action.moveEditorLeftInGroup`
+`kb(workbench.action.moveEditorRightInGroup)`| Move Editor Right |`workbench.action.moveEditorRightInGroup`
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
 `kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
 
@@ -220,7 +220,7 @@ Key|Command|Command id
 `kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
 `kb(workbench.action.debug.stepOver)`|Step Over|`workbench.action.debug.stepOver`
 `kb(workbench.action.debug.stop)`|Stop|`workbench.action.debug.stop`
-`kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
+`kb(editor.debug.action.showDebugHover)`|Show Hover|`editor.debug.action.showDebugHover)`
 
 ## Tasks
 
