@@ -136,13 +136,13 @@ Key|Command|Command id
 `kb(workbench.action.closeFolder)`|Close Folder|`workbench.action.closeFolder`
 `kb(workbench.action.navigateEditorGroups)`|Cycle Between Editor Groups|`workbench.action.navigateEditorGroups`
 `kb(workbench.action.splitEditor)`|Split Editor|`workbench.action.splitEditor`
-`kb(workbench.action.focusFirstEditorGroup)`|Focus into Left Editor Group|`workbench.action.focusFirstEditorGroup`
-`kb(workbench.action.focusSecondEditorGroup)`|Focus into Side Editor Group|`workbench.action.focusSecondEditorGroup`
-`kb(workbench.action.focusThirdEditorGroup)`|Focus into Right Editor Group|`workbench.action.focusThirdEditorGroup`
+`kb(workbench.action.focusFirstEditorGroup)`|Focus into First Editor Group|`workbench.action.focusFirstEditorGroup`
+`kb(workbench.action.focusSecondEditorGroup)`|Focus into Second Editor Group|`workbench.action.focusSecondEditorGroup`
+`kb(workbench.action.focusThirdEditorGroup)`|Focus into Third Editor Group|`workbench.action.focusThirdEditorGroup`
 `kb(workbench.action.focusPreviousGroup)`|Focus into Editor Group on the Left|`workbench.action.focusPreviousGroup`
 `kb(workbench.action.focusNextGroup)`|Focus into Editor Group on the Right|`workbench.action.focusNextGroup`
-`kb(workbench.action.moveEditorLeftInGroup)` | Move Editor Left | `workbench.action.moveEditorLeftInGroup`
-`kb(workbench.action.moveEditorRightInGroup)` | Move Editor Right | `workbench.action.moveEditorRightInGroup`
+`kb(workbench.action.moveEditorLeftInGroup)`| Move Editor Left |`workbench.action.moveEditorLeftInGroup`
+`kb(workbench.action.moveEditorRightInGroup)`| Move Editor Right |`workbench.action.moveEditorRightInGroup`
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
 `kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
 
@@ -220,7 +220,7 @@ Key|Command|Command id
 `kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
 `kb(workbench.action.debug.stepOver)`|Step Over|`workbench.action.debug.stepOver`
 `kb(workbench.action.debug.stop)`|Stop|`workbench.action.debug.stop`
-`kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
+`kb(editor.debug.action.showDebugHover)`|Show Hover|`editor.debug.action.showDebugHover)`
 
 ## Tasks
 
@@ -242,11 +242,11 @@ Key|Command|Command id
 
 ## Customizing Shortcuts
 
-All keyboard shortcuts in VS Code can be customized via the `User/keybindings.json` file.
+All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
 
 * To configure keyboard shortcuts the way you want, go to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on Mac)
-* This will open the `Default Keyboard Shortcuts` on the left and your `User/keybindings.json` file where you can overwrite the default bindings on the right.
-* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in `Default Keyboard Shortcuts`.
+* This will open the **Default Keyboard Shortcuts** on the left and your `keybindings.json` file where you can overwrite the default bindings on the right.
+* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in **Default Keyboard Shortcuts**.
 
 ## Keyboard Rules
 
@@ -286,7 +286,7 @@ When a key is pressed:
 * no more rules are processed.
 * if a rule is found and has a `command` set, the `command` is executed.
 
-The additional `User/keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `User/keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
+The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
 
 ## Accepted keys
 
@@ -359,7 +359,7 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
-The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the `Default Keyboard Shortcuts`.
+The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
 
 ## Removing a specific key binding rule
 
@@ -387,7 +387,7 @@ Here is an example:
 
 The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
 
-* Reference: https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85)
+* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85))
 * `kbstyle(tab)` for `VK_TAB` (`0x09`)
 * `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
 * `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
@@ -436,7 +436,7 @@ Now that you know about our Key binding support, what's next...
 
 **Q: How to add a key binding to an action? E.g. Add Ctrl+D to Delete Lines**
 
-**A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `User/keybindings.json` file:
+**A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `keybindings.json` file:
 
 ```json
 // Original, in Default Keyboard Shortcuts
@@ -456,6 +456,6 @@ Now that you know about our Key binding support, what's next...
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-**Q: I have modified my key bindings in `User/keybindings.json`, why don't they work?**
+**Q: I have modified my key bindings in `keybindings.json`, why don't they work?**
 
 **A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
