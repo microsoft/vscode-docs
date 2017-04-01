@@ -242,11 +242,11 @@ Key|Command|Command id
 
 ## Customizing Shortcuts
 
-All keyboard shortcuts in VS Code can be customized via the `User/keybindings.json` file.
+All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
 
 * To configure keyboard shortcuts the way you want, go to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on Mac)
-* This will open the `Default Keyboard Shortcuts` on the left and your `User/keybindings.json` file where you can overwrite the default bindings on the right.
-* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in `Default Keyboard Shortcuts`.
+* This will open the `Default Keyboard Shortcuts` on the left and your `keybindings.json` file where you can overwrite the default bindings on the right.
+* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in **Default Keyboard Shortcuts**.
 
 ## Keyboard Rules
 
@@ -286,7 +286,7 @@ When a key is pressed:
 * no more rules are processed.
 * if a rule is found and has a `command` set, the `command` is executed.
 
-The additional `User/keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `User/keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
+The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
 
 ## Accepted keys
 
@@ -436,7 +436,7 @@ Now that you know about our Key binding support, what's next...
 
 **Q: How to add a key binding to an action? E.g. Add Ctrl+D to Delete Lines**
 
-**A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `User/keybindings.json` file:
+**A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `keybindings.json` file:
 
 ```json
 // Original, in Default Keyboard Shortcuts
@@ -456,6 +456,6 @@ Now that you know about our Key binding support, what's next...
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-**Q: I have modified my key bindings in `User/keybindings.json`, why don't they work?**
+**Q: I have modified my key bindings in `keybindings.json`, why don't they work?**
 
 **A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
