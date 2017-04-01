@@ -311,6 +311,20 @@ The following keys are accepted:
 * `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(nupad_separator)`
 * `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
+### Key binding command arguments
+
+You can invoke command with arguments. This is useful if you often perform the same operation on a specific file or folder. Simply add a custom keyboard shortcut to do exactly what you want.
+
+The following is an example overriding the `kbstyle(Enter)` key to print some text:
+
+```json
+  { "key": "enter", "command": "type",
+                    "args": { "text": "Hello World" },
+                    "when": "editorTextFocus" }
+```
+
+The type command will receive `{"text": "Hello World"}` as first argument and add "Hello World" to the file instead of producing the default command.
+
 ## when Clause Contexts
 
 VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If you key binding doesn't have a `when` clause, the key binding is globally available at all times.
