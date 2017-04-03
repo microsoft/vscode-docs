@@ -223,7 +223,7 @@ Key|Command|Command id
 `kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
 `kb(workbench.action.debug.stepOver)`|Step Over|`workbench.action.debug.stepOver`
 `kb(workbench.action.debug.stop)`|Stop|`workbench.action.debug.stop`
-`kb(editor.debug.action.showDebugHover)`|Show Hover|`editor.debug.action.showDebugHover)`
+`kb(editor.debug.action.showDebugHover)`|Show Hover|`editor.debug.action.showDebugHover`
 
 ### Tasks
 
