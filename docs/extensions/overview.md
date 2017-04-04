@@ -56,7 +56,7 @@ The easiest way to see VS Code extensions in action is via the [Extension Market
 
 ## Language Extension Guidelines
 
-To help you decide what language features you'd like to support with your extension, we have a [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic which shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and how to implement them through either the language server protocol or by using the extensibility API directly from your extension.
+The [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic can help you to decide what language features you'd like to support with your extension. It shows the various language features available in VS Code (for example, code suggestions and actions, formatting, renaming) and how to implement them through either the language server protocol or by using the extensibility API directly from your extension.
 
 ## Themes, Snippets, and Colorizers
 

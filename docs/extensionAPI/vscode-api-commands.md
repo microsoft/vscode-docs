@@ -144,7 +144,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 `vscode.openFolder` - Open a folder in the current window or new window depending on the newWindow argument. Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder unless the newWindow parameter is set to true.
 
 * _uri_ (optional) Uri of the folder to open. If not provided, a native dialog will ask the user for the folder
-* _newWindow_ (optional) Wether to open the folder in a new window or the same. Defaults to opening in the same window.
+* _newWindow_ (optional) Whether to open the folder in a new window or the same. Defaults to opening in the same window.
 
 
 

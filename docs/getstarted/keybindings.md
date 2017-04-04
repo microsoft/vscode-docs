@@ -42,9 +42,11 @@ Below are links to the three platform-specific versions:
 * [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
 * [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
 
-## Basic Editing
+## Default Keyboard Shortcuts
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts).
+
+### Basic Editing
 
 Key|Command|Command id
 ---|-------|----------
@@ -99,7 +101,7 @@ Key|Command|Command id
 `kb(toggleRenderWhitespace)`|Toggle Render Whitespace|`toggleRenderWhitespace`
 `kb(editor.action.toggleWordWrap)`|Toggle Word Wrap|`editor.action.toggleWordWrap`
 
-## Rich Languages Editing
+### Rich Languages Editing
 
 Key|Command|Command id
 ---|-------|----------
@@ -108,6 +110,7 @@ Key|Command|Command id
 `kb(editor.action.formatDocument)`|Format Document|`editor.action.formatDocument`
 `kb(editor.action.formatSelection)`|Format Selection|`editor.action.formatSelection`
 `kb(editor.action.goToDeclaration)`|Go to Definition|`editor.action.goToDeclaration`
+`kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
 `kb(editor.action.previewDeclaration)`|Peek Definition|`editor.action.previewDeclaration`
 `kb(editor.action.openDeclarationToTheSide)`|Open Definition to the Side|`editor.action.openDeclarationToTheSide`
 `kb(editor.action.quickFix)`|Quick Fix|`editor.action.quickFix`
@@ -120,7 +123,7 @@ Key|Command|Command id
 `kb(editor.action.trimTrailingWhitespace)`|Trim Trailing Whitespace|`editor.action.trimTrailingWhitespace`
 `kb(workbench.action.editor.changeLanguageMode)`|Change Language Mode|`workbench.action.editor.changeLanguageMode`
 
-## Navigation
+### Navigation
 
 Key|Command|Command id
 ---|-------|----------
@@ -136,7 +139,7 @@ Key|Command|Command id
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`
 `kb(workbench.action.navigateForward)`|Go Forward|`workbench.action.navigateForward`
 
-## Editor/Window Management
+### Editor/Window Management
 
 Key|Command|Command id
 ---|-------|----------
@@ -146,17 +149,17 @@ Key|Command|Command id
 `kb(workbench.action.closeFolder)`|Close Folder|`workbench.action.closeFolder`
 `kb(workbench.action.navigateEditorGroups)`|Cycle Between Editor Groups|`workbench.action.navigateEditorGroups`
 `kb(workbench.action.splitEditor)`|Split Editor|`workbench.action.splitEditor`
-`kb(workbench.action.focusFirstEditorGroup)`|Focus into Left Editor Group|`workbench.action.focusFirstEditorGroup`
-`kb(workbench.action.focusSecondEditorGroup)`|Focus into Side Editor Group|`workbench.action.focusSecondEditorGroup`
-`kb(workbench.action.focusThirdEditorGroup)`|Focus into Right Editor Group|`workbench.action.focusThirdEditorGroup`
+`kb(workbench.action.focusFirstEditorGroup)`|Focus into First Editor Group|`workbench.action.focusFirstEditorGroup`
+`kb(workbench.action.focusSecondEditorGroup)`|Focus into Second Editor Group|`workbench.action.focusSecondEditorGroup`
+`kb(workbench.action.focusThirdEditorGroup)`|Focus into Third Editor Group|`workbench.action.focusThirdEditorGroup`
 `kb(workbench.action.focusPreviousGroup)`|Focus into Editor Group on the Left|`workbench.action.focusPreviousGroup`
 `kb(workbench.action.focusNextGroup)`|Focus into Editor Group on the Right|`workbench.action.focusNextGroup`
-`kb(workbench.action.moveEditorLeftInGroup)` | Move Editor Left | `workbench.action.moveEditorLeftInGroup`
-`kb(workbench.action.moveEditorRightInGroup)` | Move Editor Right | `workbench.action.moveEditorRightInGroup`
+`kb(workbench.action.moveEditorLeftInGroup)`| Move Editor Left |`workbench.action.moveEditorLeftInGroup`
+`kb(workbench.action.moveEditorRightInGroup)`| Move Editor Right |`workbench.action.moveEditorRightInGroup`
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
 `kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
 
-## File Management
+### File Management
 
 Key|Command|Command id
 ---|-------|----------
@@ -181,7 +184,7 @@ Key|Command|Command id
 `kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
 `kb(workbench.files.action.compareFileWith)`|Compare Opened File With|`workbench.files.action.compareFileWith`
 
-## Display
+### Display
 
 Key|Command|Command id
 ---|-------|----------
@@ -206,7 +209,7 @@ Key|Command|Command id
 `kb(markdown.showPreviewToSide)`|Open Preview to the Side|`markdown.showPreviewToSide`
 `kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
 
-## Preferences
+### Preferences
 
 Key|Command|Command id
 ---|-------|----------
@@ -217,7 +220,7 @@ Key|Command|Command id
 `kb(workbench.action.selectTheme)`|Select Color Theme|`workbench.action.selectTheme`
 `kb(workbench.action.configureLocale)`|Configure Display Language|`workbench.action.configureLocale`
 
-## Debug
+### Debug
 
 Key|Command|Command id
 ---|-------|----------
@@ -230,16 +233,16 @@ Key|Command|Command id
 `kb(workbench.action.debug.stepOut)`|Step Out|`workbench.action.debug.stepOut`
 `kb(workbench.action.debug.stepOver)`|Step Over|`workbench.action.debug.stepOver`
 `kb(workbench.action.debug.stop)`|Stop|`workbench.action.debug.stop`
-`kb(editor.action.showHover)`|Show Hover|`editor.action.showHover`
+`kb(editor.debug.action.showDebugHover)`|Show Hover|`editor.debug.action.showDebugHover`
 
-## Tasks
+### Tasks
 
 Key|Command|Command id
 ---|-------|----------
 `kb(workbench.action.tasks.build)`|Run Build Task|`workbench.action.tasks.build`
 `kb(workbench.action.tasks.test)`|Run Test Task|`workbench.action.tasks.test`
 
-## Extensions
+### Extensions
 
 Key|Command|Command id
 ---|-------|----------
@@ -252,11 +255,11 @@ Key|Command|Command id
 
 ## Advanced Customization
 
-All keyboard shortcuts in VS Code can be customized via the `User/keybindings.json` file.
+All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
 
 * To configure keyboard shortcuts the way you want, open **Keyboard Shortcuts** editor and click on the link `keybindings.json`.
-* This will open the `Default Keyboard Shortcuts` on the left and your `User/keybindings.json` file where you can overwrite the default bindings on the right.
-* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in `Default Keyboard Shortcuts`.
+* This will open the **Default Keyboard Shortcuts** on the left and your `keybindings.json` file where you can overwrite the default bindings on the right.
+* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in **Default Keyboard Shortcuts**.
 
 ## Keyboard Rules
 
@@ -296,7 +299,7 @@ When a key is pressed:
 * no more rules are processed.
 * if a rule is found and has a `command` set, the `command` is executed.
 
-The additional `User/keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `User/keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
+The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
 
 ## Accepted keys
 
@@ -320,9 +323,23 @@ The following keys are accepted:
 * `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(nupad_separator)`
 * `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
+## Key binding command arguments
+
+You can invoke a command with arguments. This is useful if you often perform the same operation on a specific file or folder. Simply add a custom keyboard shortcut to do exactly what you want.
+
+The following is an example overriding the `kbstyle(Enter)` key to print some text:
+
+```json
+  { "key": "enter", "command": "type",
+                    "args": { "text": "Hello World" },
+                    "when": "editorTextFocus" }
+```
+
+The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
+
 ## when Clause Contexts
 
-VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If you key binding doesn't have a `when` clause, the key binding is globally available at all times.
+VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
 
 Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false:
 
@@ -369,7 +386,7 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
-The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the `Default Keyboard Shortcuts`.
+The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
 
 ## Removing a specific key binding rule
 
@@ -397,7 +414,7 @@ Here is an example:
 
 The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
 
-* Reference: https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85)
+* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731)
 * `kbstyle(tab)` for `VK_TAB` (`0x09`)
 * `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
 * `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
@@ -418,7 +435,7 @@ All the key bindings are rendered in the UI using the current system's keyboard 
 
 ![render key binding](images/keybinding/render-key-binding.png)
 
-When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the `Default keybindings` rules look like when using a French (France) keyboard layout:
+When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the **Default Keyboard Shortcuts** rules look like when using a French (France) keyboard layout:
 
 ![keybindings.json guidance](images/keybinding/keybindings-json.png)
 
@@ -440,13 +457,13 @@ Now that you know about our Key binding support, what's next...
 
 **Q: How to find out what command is bound to a specific key?**
 
-**A:** In the Default Keyboard Shortcuts, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
+**A:** In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
 
 ![Key bindings quick outline](images/keybinding/outline.png)
 
-**Q: How to add a key binding to an action? E.g. Add Ctrl+D to Delete Lines**
+**Q: How to add a key binding to an action? For example add Ctrl+D to Delete Lines**
 
-**A:** Find a rule that triggers the action in the Default Keyboard Shortcuts and write a modified version of it in your `User/keybindings.json` file:
+**A:** Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
 ```json
 // Original, in Default Keyboard Shortcuts
@@ -466,6 +483,6 @@ Now that you know about our Key binding support, what's next...
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-**Q: I have modified my key bindings in `User/keybindings.json`, why don't they work?**
+**Q: I have modified my key bindings in `keybindings.json`, why don't they work?**
 
 **A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
