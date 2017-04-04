@@ -36,11 +36,11 @@ Chakra    | all               | not yet
 Although it appears to be possible that the VS Code Node.js debugger picks the best protocol always automatically,
 we've decided for a 'pessimistic approach' with an explicit launch configuration attribute `protocol` and the following values:
 
-- **`auto`**: tries to automatically detect the protocol used by the targeted runtime. For configurations of request type `launch` and if no `runtimeExecutable` is specified, we try to determine the version by running node from the PATH with an `--version` argument. If the version is >= 6.9 the new 'inspector' protocol is used. For configurations of request type 'attach' we try to connect with the new protocol and if this works, we use the 'inspector' protocol. We only switch to the new 'inspector' protocol for versions >= 6.9 because of severe problems in earlier versions.
+- **`auto`**: tries to automatically detect the protocol used by the targeted runtime. For configurations of request type `launch` and if no `runtimeExecutable` is specified, we try to determine the version by running node from the PATH with an `--version` argument. If the version is >= 8.0 the new 'inspector' protocol is used. For configurations of request type 'attach' we try to connect with the new protocol and if this works, we use the 'inspector' protocol. We only switch to the new 'inspector' protocol for versions >= 6.9 because of severe problems in earlier versions.
 - **`inspector`**: forces the node debugger to use the 'inspector' protocol based implementation. This is supported by node versions >= 6.3, but not (yet) by Electron.
 - **`legacy`**: forces the node debugger to use the 'legacy' protocol based implementation. This is supported by node versions < v8.0) and Electron.
 
-Currently the default value for the `protocol` attribute is `legacy`. We are planning to change this to `auto` in the future as soon as the `auto` switching smartness has matured.
+Starting with VS Code 1.11 the default value for the `protocol` attribute is `auto`.
 
 If your runtime supports both protocols, here are a few additional reasons for using the `inspector` protocol over `legacy`:
 
