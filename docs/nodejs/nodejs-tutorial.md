@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Node.js Tutorial in VS Code
-DateApproved: 3/10/2017
+DateApproved: 4/5/2017
 MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: nodejs_runtimes_node.png
 ---
