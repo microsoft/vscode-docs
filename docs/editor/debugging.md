@@ -95,7 +95,20 @@ The other way to run your configuration is through **Command Palette** (`kb(work
 
 ### Global Launch Configuration
 
-We support adding a `"launch"` object inside your user settings. This `"launch"` configuration will then be shared across your workspaces - [more details](https://github.com/Microsoft/vscode/issues/18401).
+We support adding a `"launch"` object inside your user settings. This `"launch"` configuration will then be shared across your workspaces. For example:
+```json
+"launch": {
+    "version": "0.2.0",
+    "configurations": [{
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${file}"
+    }]
+}
+```
+
+>**Tip**: If a workspace contains a `"launch.json"` the global launch configuration is ignored.
 
 ## Debug actions
 
@@ -173,7 +186,7 @@ You can also reference VS Code settings using **${config:NAME}** syntax (for exa
 
 In addition to debugging a program, VS Code supports running the program. The **Run** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
 
-Note: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case 'Run' will be the same as 'Debug'.
+>**Tip**: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case 'Run' will be the same as 'Debug'.
 
 ## Multi-target debugging
 
