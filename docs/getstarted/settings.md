@@ -939,10 +939,10 @@ Below are the default settings and their values.
   // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
   "typescript.check.tscVersion": true,
 
-  // Enable/disable references CodeLens.
+  // Enable/disable references CodeLens. Requires TypeScript >= 2.0.6.
   "typescript.referencesCodeLens.enabled": false,
 
-  // Enable/disable implementations CodeLens.
+  // Enable/disable implementations CodeLens. Requires TypeScript >= 2.2.0.
   "typescript.implementationsCodeLens.enabled": false,
 
   // Enables logging of the TS server to a file.
