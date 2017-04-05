@@ -253,7 +253,7 @@ Key|Command|Command id
 `kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
 `kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
 
-## Advanced Customization
+## Advanced customization
 
 All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
 
@@ -323,7 +323,7 @@ The following keys are accepted:
 * `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(nupad_separator)`
 * `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
 
-## Key binding command arguments
+## Command arguments
 
 You can invoke a command with arguments. This is useful if you often perform the same operation on a specific file or folder. Simply add a custom keyboard shortcut to do exactly what you want.
 
@@ -337,7 +337,7 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 
 The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
 
-## when Clause Contexts
+## 'when' clause contexts
 
 VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
 
