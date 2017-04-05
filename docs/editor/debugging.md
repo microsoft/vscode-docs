@@ -89,7 +89,13 @@ To add a new configuration to an existing `launch.json`, use one of the followin
 
 ![launch json suggestions](images/debugging/add-config.gif)
 
-Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`. The other way to run your configuration is through **Command Palette** (`kb(workbench.action.showCommands)`), by filtering on **Debug: Select and Start Debugging** or typing `'debug '`, and selecting the configuration you want to debug.
+Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`. 
+
+The other way to run your configuration is through **Command Palette** (`kb(workbench.action.showCommands)`), by filtering on **Debug: Select and Start Debugging** or typing `'debug '`, and selecting the configuration you want to debug.
+
+### Global Launch Configuration
+
+We support adding a `"launch"` object inside your user settings. This `"launch"` configuration will then be shared across your workspaces - [more details](https://github.com/Microsoft/vscode/issues/18401).
 
 ## Debug actions
 
