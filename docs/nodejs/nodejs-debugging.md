@@ -337,12 +337,11 @@ For example using:
 
 all code in the `node_modules` and `lib` folders in your project will be skipped.
 
-Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules but `events.js`:
+Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules:
 
 ```json
   "skipFiles": [
-     "<node_internals>/**/*.js",
-     "!<node_internals>/events.js"
+     "<node_internals>/**/*.js"
    ]
 ```
 
