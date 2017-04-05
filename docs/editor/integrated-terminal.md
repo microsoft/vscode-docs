@@ -34,7 +34,7 @@ Remove terminal instances by pressing the trash can button.
 
 ## Configuration
 
-The shell used defaults to `$SHELL` on Linux and OS X, and PowerShell on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
+The shell used defaults to `$SHELL` on Linux and OS X, PowerShell on Window 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
 
 ### Windows
 
