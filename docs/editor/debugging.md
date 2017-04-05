@@ -42,7 +42,9 @@ The Debug view displays all information related to debugging and has a top bar w
 
 ## Debug Menu
 
-The top level debug menu has the most common debug commands.
+The top level debug menu has the most common debug commands:
+
+![Debug menu](images/debugging/debug-menu.png)
 
 ## Launch Configurations
 
@@ -83,13 +85,13 @@ Review the generated values and make sure that they make sense for your project 
 
 To add a new configuration to an existing `launch.json`, use one of the following techniques:
 
-* Use IntelliSense if your cursor is located inside the configurations array. 
-* Press the **Add Configuration** button to invoke snippet IntelliSense at the start of the array. 
+* Use IntelliSense if your cursor is located inside the configurations array.
+* Press the **Add Configuration** button to invoke snippet IntelliSense at the start of the array.
 * Choose **Add Configuration...** option in the debug dropdown.
 
 ![launch json suggestions](images/debugging/add-config.gif)
 
-Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`. 
+Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
 
 The other way to run your configuration is through **Command Palette** (`kb(workbench.action.showCommands)`), by filtering on **Debug: Select and Start Debugging** or typing `'debug '`, and selecting the configuration you want to debug.
 
