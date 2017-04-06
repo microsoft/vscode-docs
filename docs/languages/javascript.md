@@ -139,6 +139,7 @@ VS Code provides support for JavaScript linters, including [ESLint](http://eslin
 > **Tip:** In the above example, the error comes from `eslint`. Error messages will be prefixed (see above `[eslint]`) by the originator of the message. Error messages from the JavaScript language service are prefixed `js`.
 
 > **Tip** You may need to disable default JS validation by setting `"javascript.validate.enable": false` in your [settings](/docs/getstarted/settings.md).
+
 <div class="marketplace-extensions-javascript-linters"></div>
 
 > **Tip:** This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
