@@ -13,7 +13,7 @@ April 10, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
 I'm a big fan of Sublime Text. It was my [go to editor](https://www.youtube.com/watch?v=OnkYnm-WiVo&t=15s) for the first few years I programmed. 
 
-Naturally, I like VS Code more now. But sometimes I find I miss things from Sublime Text. I wrote an [extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) a couple months ago to help alleviate some of the pains I felt. 
+Naturally, I like VS Code more now, but sometimes I find I miss things from Sublime Text. We wrote an [extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) a couple months ago to help alleviate some of the pains I felt. 
 
 There is still more work to do (see this [Github issue](https://github.com/Microsoft/vscode/issues/3776)), but the gaps are closing fast. You can install extensions to see almost all of the features you are missing. 
 
