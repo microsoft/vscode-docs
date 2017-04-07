@@ -12,20 +12,18 @@ MetaDescription: Get Visual Studio Code up and running on Mac.
 
 ## Installation
 
-1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for Mac.
-2. Double-click on the downloaded archive to expand the contents.
-3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
-4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
+1. [Download Visual Studio Code for macOS](https://go.microsoft.com/fwlink/?LinkID=534106) and install it.
 
 ### Command Line
 
-You can also run VS Code from the terminal by simply typing `code`.
+You can run VS Code from the terminal after adding it to the path:
 
-To set it up, launch VS Code. Then open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `shell command` to find the **Shell Command: Install 'code' command in PATH** command.
+- Launch VS Code. 
+- Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `shell command` to find the **Shell Command: Install 'code' command in PATH** command.
 
 ![Mac shell commands](images/mac/shell-command.png)
 
-Finally, restart the terminal for the new `$PATH` value to take effect. You'll be able to simply type `code .` in any folder to start editing files in that folder.
+- Restart the terminal for the new `$PATH` value to take effect. You'll be able to type `code .` in any folder to start editing files in that folder.
 
 > **Note:** If you still have the old `code` alias in your `.bash_profile` (or equivalent) from an early VS Code version, remove it and replace it by executing the **Shell Command: Install 'code' command in PATH** command.
 
