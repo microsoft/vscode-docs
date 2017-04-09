@@ -241,8 +241,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   Property-value pairs that can be passed through this argument:
 
   * 'levels': Number of levels to fold
-  * 'up': If 'true' folds given number of levels up otherwise folds down
-
+  * 'up': If 'true', folds given number of levels up otherwise folds down
 
 
 `editor.action.showReferences` - Show references at a position in a file
@@ -290,7 +289,7 @@ As a first line of defense, when constructing an HTML document for the preview, 
 
 ### Disabling Scripts
 
-If your preview does not need to execute javascript, you can further enhance security by disabling script execution entirely. One way to accomplish this is by loading untrusted content inside of an `iframe`  with the `sandbox` attribute set. In this case, the content would be loaded using the `srcdoc` attribute:
+If your preview does not need to execute JavaScript, you can further enhance security by disabling script execution entirely. One way to accomplish this is by loading untrusted content inside of an `iframe`  with the `sandbox` attribute set. In this case, the content would be loaded using the `srcdoc` attribute:
 
 ```html
 <iframe sandbox srcdoc="<!DOCTYPE html>..."></iframe>
