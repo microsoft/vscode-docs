@@ -81,6 +81,17 @@ Creates an extension that contributes new code snippets.
 
 Once created, open VS Code on the created folder and run the extension to test the snippets. Check out `vsc-extension-quickstart.md` for the next steps.
 
+### New Extension Pack
+
+Creates an extension that contributes new extension pack with your favorite extensions.
+
+* Prompts for adding the installed extensions to the extension pack.
+* Prompts for the extension identifier and will create a folder of that name in the current directory.
+
+Review the `extensionDependencies` in the `package.json` file before publishing the extension pack.
+
+Once created, open VS Code on the created folder and run the extension to test the extension pack. Check out `vsc-extension-quickstart.md` for the next steps.
+
 ## Your extensions folder
 
 To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform it is located in the following folders:
