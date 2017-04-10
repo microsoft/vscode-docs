@@ -23,11 +23,11 @@ On top of this, VS Code can read and take advantage of a variety of project file
 
 VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five areas:
 
-* **Editor** The main area to edit your files. You can open up to three editors side by side.
-* **Side Bar** Contains different views like the Explorer to assist you while working on your project.
-* **Status Bar** Information about the opened project and the files you edit.
-* **Activity Bar** Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
-* **Panels** You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal.
+* **Editor** - The main area to edit your files. You can open up to three editors side by side.
+* **Side Bar** - Contains different views like the Explorer to assist you while working on your project.
+* **Status Bar** - Information about the opened project and the files you edit.
+* **Activity Bar** -  Located on the far left-hand side, this lets you switch between views and gives you additional context-specific indicators, like the number of outgoing changes when Git is enabled.
+* **Panels** - You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
 
@@ -130,16 +130,15 @@ VS Code gives you many options to configure the editor. From the **View** menu, 
 
 ### Hide the Menu Bar (Windows, Linux)
 
-You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command (`kbstyle(Ctrl+U)`). You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.
-
+You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command. You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.(`window.menuBarVisibility` setting)
 
 ### Settings
 
 Most editor configurations are kept in settings which can be modified directly. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/getstarted/settings.md#settings-file-locations).
 
-* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `Enter`) to edit the user `settings.json` file.
+* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `kbstyle(Enter)`) to edit the user `settings.json` file.
 
-* To edit workspace settings, select **File** > **Preferences** > **Settings** and select the **WORKSPACE SETTINGS** Tab (or press `kb(workbench.action.showCommands)`, type `worksp` and press `Enter`) to edit the workspace settings.json file.
+* To edit workspace settings, select **File** > **Preferences** > **Settings** and select the **WORKSPACE SETTINGS** Tab (or press `kb(workbench.action.showCommands)`, type `worksp` and press `kbstyle(Enter)`) to edit the workspace settings.json file.
 
 >**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
 
@@ -153,7 +152,7 @@ After editing your settings, type `kb(workbench.action.files.save)` to save your
 
 ### Zen Mode
 
-Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel) and going to full screen. Zen mode can be toggled using the View menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen` and `zenMode.restore`.
+Zen Mode lets you focus on your code by hiding all UI except the editor (no Activity Bar, Status Bar, Side Bar and Panel) and going to full screen. Zen mode can be toggled using **View** menu, **Command Palette** or by the shortcut `kb(workbench.action.toggleZenMode)`. Double `kbstyle(Esc)` exits Zen Mode. The transition to full screen can be disabled via `zenMode.fullScreen`. Zen Mode can be further tuned by the following settings: `zenMode.hideStatusBar`, `zenMode.hideTabs`, `zenMode.fullScreen` and `zenMode.restore`.
 
 ## Tabs
 

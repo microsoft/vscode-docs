@@ -141,17 +141,16 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#working-with-the-html-preview) for more information about the HTML preview's integration with the editor and for best practices for extension authors.
 
+
 `vscode.openFolder` - Open a folder in the current window or new window depending on the newWindow argument. Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder unless the newWindow parameter is set to true.
 
 * _uri_ (optional) Uri of the folder to open. If not provided, a native dialog will ask the user for the folder
 * _newWindow_ (optional) Whether to open the folder in a new window or the same. Defaults to opening in the same window.
 
 
-
 `vscode.startDebug` - Start a debugging session.
 
 * _configuration_ (optional) Name of the debug configuration from 'launch.json' to use. Or a configuration json object to use.
-
 
 
 `vscode.diff` - Opens the provided resources in the diff editor to compare their contents.
@@ -161,17 +160,15 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 * _title_ (optional) Human readable title for the diff editor
 
 
-
 `vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or a http(s) url
 
 * _resource_ Resource to open
 * _column_ (optional) Column in which to open
 
 
-
 `cursorMove` - Move cursor to a logical position in the view
 
-* _Cursor move argument object_ 
+* _Cursor move argument object_
 
   Property-value pairs that can be passed through this argument:
 
@@ -188,7 +185,6 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
     ```
   * 'value': Number of units to move. Default is '1'.
   * 'select': If 'true' makes the selection. Default is 'false'.
-
 
 
 `editorScroll` - Scroll editor in the given direction
@@ -209,7 +205,6 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   * 'revealCursor': If 'true' reveals the cursor if it is outside view port.
 
 
-
 `revealLine` - Reveal the given line at the given logical position
 
 * _Reveal line argument object_
@@ -223,7 +218,6 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
     ```
 
 
-
 `editor.unfold` - Unfold the content in the editor
 
 * _Unfold editor argument_
@@ -233,7 +227,6 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   * 'level': Number of levels to unfold
 
 
-
 `editor.fold` - Fold the content in the editor
 
 * _Fold editor argument_
@@ -241,8 +234,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   Property-value pairs that can be passed through this argument:
 
   * 'levels': Number of levels to fold
-  * 'up': If 'true' folds given number of levels up otherwise folds down
-
+  * 'up': If 'true', folds given number of levels up otherwise folds down
 
 
 `editor.action.showReferences` - Show references at a position in a file
@@ -250,7 +242,6 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 * _uri_ The text document in which to show references
 * _position_ The position at which to show
 * _locations_ An array of locations.
-
 
 
 `moveActiveEditor` - Move the active editor by tabs or groups
@@ -290,7 +281,7 @@ As a first line of defense, when constructing an HTML document for the preview, 
 
 ### Disabling Scripts
 
-If your preview does not need to execute javascript, you can further enhance security by disabling script execution entirely. One way to accomplish this is by loading untrusted content inside of an `iframe`  with the `sandbox` attribute set. In this case, the content would be loaded using the `srcdoc` attribute:
+If your preview does not need to execute JavaScript, you can further enhance security by disabling script execution entirely. One way to accomplish this is by loading untrusted content inside of an `iframe`  with the `sandbox` attribute set. In this case, the content would be loaded using the `srcdoc` attribute:
 
 ```html
 <iframe sandbox srcdoc="<!DOCTYPE html>..."></iframe>

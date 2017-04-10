@@ -89,15 +89,6 @@ The following examples customize editor settings for language modes `typescript`
 
 You can use IntelliSense in Settings editor to help you find allowed language based settings. All editor settings and some non-editor settings are supported.
 
-**Note**: The following settings are not currently supported but will be in the next release. Please refer to [#19511](https://github.com/Microsoft/vscode/issues/19511) for more information.
-
-```json
-editor.tabSize
-editor.insertSpaces
-editor.detectIndentation
-editor.trimAutoWhitespace
-```
-
 ## Settings and security
 
 In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.

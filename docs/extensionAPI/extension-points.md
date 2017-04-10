@@ -60,6 +60,7 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 ## contributes.configurationDefaults
 
 Contribute default language specific editor configurations. This will override default editor configurations for the provided language.
+
 Following example contributes default editor configurations for `markdown` language.
 
 ### Example
