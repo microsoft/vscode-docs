@@ -42,7 +42,7 @@ You should now see a `tasks.json` file in your workspace `.vscode` folder with t
 
 In this example, we are just running the `echo` shell command with "Hello World" as an argument.
 
-Test the `echo` task by running **Tasks: Run Tasks** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
+Test the `echo` task by running **Tasks: Run Task** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
 
 You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`.
 
