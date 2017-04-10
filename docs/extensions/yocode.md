@@ -35,19 +35,19 @@ yo code
 
 The generator can either create an extension skeleton for a new extension or create a ready-to-use extension for languages, themes or snippets based on existing TextMate definition files.
 
-### New Extension in TypeScript
+### New Extension (TypeScript)
 
 Creates an extension skeleton implementing a 'hello world' command. Use this as a starting point for your own extension.
 
-* Prompts for the extension identifier and will create a folder of that name in the current directory
-* Creates a base folder structure with a source, test and output folder
-* Templates out a `package.json` file and an extension main file
-* Sets-up `launch.json` and `tasks.json` so that F5 will compile and run your extension and attach the debugger
-* Optionally sets up a Git repository
+* Prompts for the extension identifier and will create a folder of that name in the current directory.
+* Creates a base folder structure with a source, test and output folder.
+* Templates out a `package.json` file and an extension main file.
+* Sets-up `launch.json` and `tasks.json` so that F5 will compile and run your extension and attach the debugger.
+* Optionally sets up a Git repository.
 
 Once created, open VS Code on the created folder. The folder contains a file `vsc-extension-quickstart.md` as a quick guide with the next steps. The extension is setup so that you get IntelliSense for the extension API.
 
-### New Extension in JavaScript
+### New Extension (JavaScript)
 
 Does the same as `New Extension (TypeScript)`, but for JavaScript. The extension is setup so that you get IntelliSense for the extension API.
 
@@ -56,8 +56,8 @@ Does the same as `New Extension (TypeScript)`, but for JavaScript. The extension
 Creates an extension that contributes a new color theme based on an existing TextMate color theme.
 
 * Prompts for the location (URL or file path) of the existing TextMate color theme (.tmTheme). This file will be imported into the new extension.
-* Prompts for the color theme name as well as the color base theme (light or dark)
-* Prompts for the extension identifier and will create a folder of that name in the current directory
+* Prompts for the color theme name as well as the color base theme (light or dark).
+* Prompts for the extension identifier and will create a folder of that name in the current directory.
 
 Once created, open VS Code on the created folder and run the extension to test the new theme.
 Check out `vsc-extension-quickstart.md`. It's a quick guide with the next steps.
@@ -67,7 +67,7 @@ Check out `vsc-extension-quickstart.md`. It's a quick guide with the next steps.
 Creates an extension that contributes a language with colorizer.
 
 * Prompts for the location (URL or file path) of an existing TextMate language file (.tmLanguage, .plist or .json). This file will be imported to the new extension. To start a new grammar you can skip this by passing an empty name.
-* Prompts for the extension identifier and will create a folder of that name in the current directory
+* Prompts for the extension identifier and will create a folder of that name in the current directory.
 
 Once created, open VS Code on the created folder and run the extension to test the colorization. Check out `vsc-extension-quickstart.md` for the next steps. Have a look at the language configuration file that has been created and defines configuration options such what style of comments and brackets the language uses.
 
@@ -75,15 +75,26 @@ Once created, open VS Code on the created folder and run the extension to test t
 
 Creates an extension that contributes new code snippets.
 
-* Prompts for the folder location that contains TextMate snippets (.tmSnippet) or Sublime snippets (.sublime-snippet). These file are converted to a VS Code snippet file.
-* Prompts for the language for which these snippets will be active
-* Prompts for the extension identifier and will create a folder of that name in the current directory
+* Prompts for the folder location that contains TextMate snippets (.tmSnippet) or Sublime snippets (.sublime-snippet). These files are converted to a VS Code snippet file.
+* Prompts for the language for which these snippets will be active.
+* Prompts for the extension identifier and will create a folder of that name in the current directory.
 
 Once created, open VS Code on the created folder and run the extension to test the snippets. Check out `vsc-extension-quickstart.md` for the next steps.
 
+### New Extension Pack
+
+Creates an extension that contributes new extension pack with your favorite extensions.
+
+* Prompts for adding the installed extensions to the extension pack.
+* Prompts for the extension identifier and will create a folder of that name in the current directory.
+
+Review the `extensionDependencies` in the `package.json` file before publishing the extension pack.
+
+Once created, open VS Code on the created folder and run the extension to test the extension pack. Check out `vsc-extension-quickstart.md` for the next steps.
+
 ## Your extensions folder
 
-To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform it is located in the following folders:
+To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform, it is located in the following folders:
 
 * **Windows** `%USERPROFILE%\.vscode\extensions`
 * **Mac** `~/.vscode/extensions`
