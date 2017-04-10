@@ -11,13 +11,40 @@ Author: Wade Anderson
 
 April 10, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
-I'm a big fan of Sublime Text. It was my [go to editor](https://www.youtube.com/watch?v=OnkYnm-WiVo&t=15s) for the first few years I programmed. 
+I'm a big fan of Sublime Text. It was my [go to editor](https://www.youtube.com/watch?v=OnkYnm-WiVo&t=15s) for my first few programming years. 
 
-Naturally, I like VS Code more now, but sometimes I find I miss things from Sublime Text. We wrote an [extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) a couple months ago to help alleviate some of the pains I felt. 
+I naturally like VS Code more now, but sometimes I miss things from Sublime Text. We wrote an [extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.sublime-keybindings) to help alleviate some of the pains (i.e. keyboard muscle memory) I felt. 
 
 There is still more work to do (see this [Github issue](https://github.com/Microsoft/vscode/issues/3776)), but the gaps are closing fast. You can install extensions to see almost all of the features you are missing. 
 
-If you are coming from Sublime Text, here are a couple extensions I recommend. 
+If you are coming from Sublime Text, I recommend using the following extensions and settings.
+
+>**Tip:** To install all of these at once, check out this [extension pack](https://marketplace.visualstudio.com/items?itemName=waderyan.sublime-text-pack). 
+
+## Sublime Text Settings
+
+### Minimap
+
+VS Code has an excellent minimap, but it requires a setting change. Use the following setting to turn on the minimap:
+
+```json
+"editor.minimap.enabled": true
+```
+### Format on Paste
+
+Format on paste is a fantastic feature when moving code around. Use this setting to enable format on paste:
+
+```json
+"editor.formatOnPaste": true
+```
+
+### Suggestion Ordering
+
+Sublime Text and VS Code suggest snippets at a different place in the code completion widget. To make VS Code work more like Sublime Text, use this setting:
+
+```json
+"editor.snippetSuggestions": "top"
+```
 
 ## Sublime Text Keymap 
 
@@ -28,6 +55,8 @@ Author - [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%
 You have memorized the keyboard shortcuts and you won't need to change your muscle memory to move to VS Code. This extension ports the most popular keyboard shortcuts from Sublime Text to VS Code. 
 
 ![sublime text keymap](2017_04_10_sublime_text_keymap.png)
+
+> **Tip:** There are some conflicts with VS Code and Sublime Text keyboard shortcuts. Currently the extension chooses Sublime Text's shortcut over VS Code's. This means that some VS Code keyboard shortcuts don't work the same (ex. <kbd>F5</kbd> to debug). You can easily modify this yourself in `Preferences -> Keyboard Shortcuts`.
 
 ## Expand Selection To Scope
 
