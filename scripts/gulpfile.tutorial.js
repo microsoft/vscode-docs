@@ -43,11 +43,11 @@ function renderTemplate(file, article) {
     return file;
 }
 
-gulp.task('copy-blog-images', function () {
-	console.log('Copying blog images..');
+gulp.task('copy-tutorial-images', function () {
+	console.log('Copying tutorial images..');
 
-	var images = gulp.src([BLOG_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG,svg,SVG}']).pipe(imagemin());
-	var gifs = gulp.src([BLOG_ROOT + '/**/images/**/*.{gif,GIF}']);
+	var images = gulp.src([TUTORIAL_ROOT + '/**/images/*.{png,PNG,jpg,JPG,svg,SVG}']).pipe(imagemin());
+	var gifs = gulp.src([TUTORIAL_ROOT + '/**/images/*.{gif,GIF}']);
 
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { 
@@ -57,72 +57,55 @@ gulp.task('copy-blog-images', function () {
 		.pipe(gulp.dest(DEST_ROOT + '/dist'));
 ;})
 
-gulp.task('compile-blog-markdown', function () {
+gulp.task('compile-tutorial-markdown', function () {
 	var sources = [
-		BLOG_ROOT + '/**/**/**/*.md',
-        '!' + BLOG_ROOT + '/README.md'
+		TUTORIAL_ROOT + '/**/**/*.md',
+        '!' + TUTORIAL_ROOT + '/README.md'
 	];
 
-	console.log('Parsing blog MD, applying templates...');
+	console.log('Parsing tutorial MD, applying templates...');
 	return gulp.src(sources)
 		.pipe(frontMatter({ 
             property: 'data', 
             remove: true 
         }))
 		.pipe(es.mapSync(function (file) {
-			var blogArticle = mapFileToBlogArticle(file);
-			console.log("Compiling Blog: " + blogArticle.Title);
+			var tutorialArticle = mapFileToTutorialArticle(file);
+			console.log("Compiling Tutorial: " + tutorialArticle.Title);
             
-			blogArticle = common.compileMarkdown(file, blogArticle);
+			tutorialArticle = common.compileMarkdown(file, tutorialArticle);
 
-			if (blogArticle.Order) {
-				blogs.push(blogArticle);
+			if (tutorialArticle.Order) {
+				tutorials.push(tutorialArticle);
 			}
             
-            return renderTemplate(file, blogArticle);
+            return renderTemplate(file, tutorialArticle);
 		}))
 		.pipe(rename({ extname: '.handlebars' }))
-		.pipe(gulp.dest(DEST_ROOT + '/views/blogs'));
+		.pipe(gulp.dest(DEST_ROOT + '/views/tutorials'));
 });
 
-gulp.task('compile-blog', ['compile-blog-markdown', 'copy-blog-images'], function () {
-	console.log('Creating blog index...');
-	var template = common.swigCompiler('scripts/templates/blog-navigation-template.html');
+gulp.task('compile-tutorial', ['compile-tutorial-markdown', 'copy-tutorial-images'], function () {
+	console.log('Creating tutorial index...');
+	var template = common.swigCompiler('scripts/templates/tutorial-navigation-template.html');
 
-	blogs = blogs.sort(function (a, b) {
-		return parseFloat(b.Order) - parseFloat(a.Order);
+	tutorials = tutorials.sort(function (a, b) {
+		return parseFloat(a.Order) - parseFloat(b.Order);
 	});
 
     var latest = new File({
        path: 'latest.html',
-	   contents: common.getLatestContent('blogs', blogs[0].Link)
+	   contents: common.getLatestContent('tutorials', tutorials[0].Link)
     });
     
     es.readArray([latest])
-        .pipe(gulp.dest(DEST_ROOT + '/views/blogs'));
+        .pipe(gulp.dest(DEST_ROOT + '/views/tutorials'));
     
 	var file = new File({
-		path: 'blogNavigation.handlebars',
-		contents: new Buffer(template({ articles: blogs }))
+		path: 'tutorialNavigation.handlebars',
+		contents: new Buffer(template({ articles: tutorials }))
 	});
-    
-    compileAtomFeed();
 
 	return es.readArray([file])
         .pipe(gulp.dest(DEST_ROOT + '/views/partials'));
 });
-
-function compileAtomFeed() {
-    console.log('Creating atom feed...');
-    var feed = common.swigCompiler('scripts/templates/blog-feed.template.xml');
-    
-    var FEED_LIMIT = 20;
-    
-    var feedXml = new File({
-        path: 'feed.xml',
-        contents: new Buffer(feed({articles: blogs.slice(0, FEED_LIMIT), latest: blogs[0]}))
-    })
-    
-    es.readArray([feedXml])
-        .pipe(gulp.dest(DEST_ROOT + '/public'));
-};
