@@ -8,12 +8,11 @@ DateApproved: 4/5/2017
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: quicksetup_QuickSetup.png
 ---
-
 # Setting up Visual Studio Code
 
-Getting up and running with VS Code is quick and easy. It is a small download so you can install in a matter of minutes and give VS Code a try.
+Getting up and running with Visual Studio Code is quick and easy. It is a small download so you can install in a matter of minutes and give VS Code a try.
 
-## Cross Platform
+## Cross platform
 
 VS Code is a free code editor which runs on the Mac, Linux and Windows operating systems.
 
@@ -25,7 +24,17 @@ Follow the platform specific guides below:
 
 VS Code is lightweight and should run on most available hardware and platform versions. You can review the [System Requirements](/docs/supporting/requirements.md) to check if your computer configuration is supported.
 
-## Additional Components
+## Update cadence
+
+VS Code releases a new version [each month](/updates) with new features and important bug fixes. Most platforms support auto updating and you will be prompted to install the new release when it becomes available. You can also manually check for updates by running **Help** > **Check for Updates...**.
+
+>Note: You can [disable auto-update](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates) if you prefer to update VS Code on your own schedule.
+
+## Insiders nightly build
+
+If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the monthly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basic and we really appreciate people trying out new features and providing feedback.
+
+## Additional components
 
 VS Code is an editor first and foremost and prides itself on a small footprint. Unlike traditional IDEs with everything but the kitchen sink, you can tune your installation to the development technologies you care about. Be sure to read the [Additional Components](/docs/setup/additional-components.md) topic after reading the platform guides to learn about customizing your VS Code installation.
 
@@ -40,7 +49,7 @@ VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add su
 
 Extensions integrate into VS Code's UI, commands, and task running systems so you'll find it easy to work with different technologies through VS Code's shared interface. Check out the VS Code extension [Marketplace](https://marketplace.visualstudio.com/vscode) to see what's available.
 
-## Proxy Server Support
+## Proxy server support
 
 Many enterprises require that their computers run behind a proxy server and don't allow direct access to the Internet. A proxy server intermediary can limit access to the VS Code Extension [Marketplace](https://marketplace.visualstudio.com/vscode) and prevent installing VS Code [extensions](/docs/editor/extension-gallery.md).
 
