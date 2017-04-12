@@ -83,7 +83,7 @@ Some languages like C# support inline reference information, that is updated liv
 
 ## Rename symbol
 
-Some languages support rename symbol across files. Simply press `kb(editor.action.rename)` and then type the new desired name and press `kbstyle(Enter)`. All usages of the symbol will be renamed, across files.
+Some languages support rename symbol across files. Press `kb(editor.action.rename)` and then type the new desired name and press `kbstyle(Enter)`. All usages of the symbol will be renamed, across files.
 
 ![Rename](images/editingevolved/rename.png)
 

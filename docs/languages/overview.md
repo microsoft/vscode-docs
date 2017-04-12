@@ -55,6 +55,8 @@ You can see the list of currently installed languages and their identifiers in t
 
 ![language identifiers](images/overview/language-identifiers.png)
 
+You can find a list of known identifiers in the [language identifier reference](/docs/languages/identifiers.md).
+
 ## Adding a file extension to a language
 
 You can add new file extensions to an existing language with the `files.associations` [setting](/docs/getstarted/settings.md).

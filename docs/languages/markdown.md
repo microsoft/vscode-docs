@@ -104,7 +104,7 @@ npm install -g markdown-it
 
 Open VS Code on an empty folder and create a `sample.md` file.
 
-> **Note:** You can open a folder with VS Code by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.
+> **Note:** You can open a folder with VS Code by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing 'code .' at the command line.
 
 Place the following source code in that file:
 
@@ -164,7 +164,7 @@ Under the covers, we interpret **markdown-it** as an external task runner that e
 
 ### Step 4: Run the Build Task
 
-As this is the only command in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point, you should see an additional file show up in the file list `sample.html`.
+As this is the only command in the file, you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point, you should see an additional file show up in the file list `sample.html`.
 
 The sample Markdown file did not have any compile problems, so by running the task all that happened was a corresponding `sample.html` file was created.
 
@@ -240,7 +240,7 @@ Change your tasks configuration to look like this:
 
 ### Step 4: Run the gulp Build Task
 
-We marked this task as `isBuildTask` so you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  But this time since we've set `isBackground` to true, the task keeps running. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
+We marked this task as `isBuildTask` so you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  But this time since we've set `isBackground` to true, the task keeps running. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
 If you want to stop the task, you can use the **Tasks: Terminate Running Task** command in the  **Command Palette** (`kb(workbench.action.showCommands)`).
 
@@ -262,4 +262,4 @@ Read on to find out about:
 
 **Q: In the walkthrough above, I didn't find the Configure Task Runner command in the Command Palette?**
 
-**A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing `code .` at the command line.
+**A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing 'code .' at the command line.

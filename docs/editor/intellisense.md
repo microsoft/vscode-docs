@@ -143,5 +143,5 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
-**A:** This issue is caused by missing type declaration (typings) files in JavaScript. You can check if a type declaration file package is available for a specific library by using the [TypeSearch site](https://microsoft.github.io/TypeSearch). There is more information about this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
+**A:** This issue is caused by missing type declaration (typings) files in JavaScript. You can check if a type declaration file package is available for a specific library by using the [TypeSearch](http://microsoft.github.io/TypeSearch) site. There is more information about this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
 

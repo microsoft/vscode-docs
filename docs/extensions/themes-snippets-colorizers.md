@@ -394,10 +394,14 @@ Language supports are added using the language identifier:
     }]
 ```
 
+### New identifier guidelines
+
 When defining a new language identifier, use the following guidelines:
 
 - Use the lowercased programming language name.
 - Search for other extensions in the Marketplace to find out if a language identifier has already been used.
+
+You can find a list of known language identifiers [language identifier reference](/docs/languages/identifiers.md).
 
 ## Next Steps
 

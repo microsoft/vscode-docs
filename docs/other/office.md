@@ -7,15 +7,13 @@ PageTitle: Office Add-ins with Visual Studio Code
 DateApproved: 4/14/2016
 MetaDescription: This page walks you through how to scaffold out a project for VS Code that extends Office.  See how to use the features of VS Code and integrate your Add-in with Office/Office 365.
 ---
-
 # Office Add-ins with VS Code
+
 [Office Add-ins](https://dev.office.com/getting-started/addins) run inside an Office application and can interact with the contents of the Office document using the rich JavaScript API.
 
 ![Office Add-in overview](images/office/officeaddinoverview.png)
 
-Under the hood, an Office Add-in is simply a web app that you can host anywhere. Using a `manifest.xml` file, you tell the Office application where your web app is located and how you want it to appear. The Office application takes care of hosting it within Office.
-
-
+Under the hood, an Office Add-in is just a web app that you can host anywhere. Using a `manifest.xml` file, you tell the Office application where your web app is located and how you want it to appear. The Office application takes care of hosting it within Office.
 
 ## Step 1: Get set up
 

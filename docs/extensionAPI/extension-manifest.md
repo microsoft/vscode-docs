@@ -177,7 +177,7 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 
 The `yo code` generator lets you easily package TextMate themes, colorizers and snippets and create new extensions.  When the generator is run, it creates a complete standalone extension package for each option.  However it is often more convenient to have a single extension which combines multiple contributions.  For example, if you are adding support for a new language, you'd like to provide users with both the language definition with colorization and also snippets and perhaps even debugging support.
 
-To combine extension contributions, simply edit an existing extension manifest `package.json` and add the new contributions and associated files.
+To combine extension contributions, edit an existing extension manifest `package.json` and add the new contributions and associated files.
 
 Below is an extension manifest which includes a LaTex language definition (language identifier and file extensions), colorization (`grammar`), and snippets.
 
@@ -221,7 +221,7 @@ Notice that the extension manifest `categories` attribute now includes both `Lan
 
 You can also bundle separate extensions together in 'Extension Packs'. An Extension Pack is a set of extensions that can be installed together. This enables easily sharing your favorite extensions with other users or creating a set of extensions for a particular scenario like PHP development to help a PHP developer get started with VS Code quickly.
 
-An Extension Pack can include other contributions or simply be a bundling extension that lists other extensions. This dependency is expressed using the `extensionDependencies` attribute inside the `package.json` file.
+An Extension Pack can include other contributions or be a bundling extension that lists other extensions. This dependency is expressed using the `extensionDependencies` attribute inside the `package.json` file.
 
 For example, here is an Extension Pack for PHP that includes a debugger, language service, and formatter:
 

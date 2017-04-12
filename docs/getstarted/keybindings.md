@@ -325,7 +325,7 @@ The following keys are accepted:
 
 ## Command arguments
 
-You can invoke a command with arguments. This is useful if you often perform the same operation on a specific file or folder. Simply add a custom keyboard shortcut to do exactly what you want.
+You can invoke a command with arguments. This is useful if you often perform the same operation on a specific file or folder. You can add a custom keyboard shortcut to do exactly what you want.
 
 The following is an example overriding the `kbstyle(Enter)` key to print some text:
 
@@ -390,7 +390,7 @@ The list above isn't exhaustive and you may see some `when` contexts for specifi
 
 ## Removing a specific key binding rule
 
-You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, simply add a `-` to the `command` and the rule will be a removal rule.
+You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, add a `-` to the `command` and the rule will be a removal rule.
 
 Here is an example:
 

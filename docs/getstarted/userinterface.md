@@ -114,7 +114,7 @@ VS Code is equally accessible from the keyboard. The most important key combinat
 
 The **Command Palette** provides access to many commands. You can execute editor commands, open files, search for symbols, and see a quick outline of a file, all using the same interactive window. Here are a few tips:
 
-* `kb(workbench.action.quickOpen)` will let you navigate to any file or symbol by simply typing its name
+* `kb(workbench.action.quickOpen)` will let you navigate to any file or symbol by typing its name
 * `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)` will cycle you through the last set of files opened
 * `kb(workbench.action.showCommands)` will bring you directly to the editor commands
 * `kb(workbench.action.gotoSymbol)` will let you navigate to a specific symbol in a file
@@ -186,7 +186,7 @@ For example, you might like new tabbed items to appear on the left:
 
 ## Preview mode
 
-When you simply single-click or select a file in the Explorer, it is shown in a preview mode and reuses an existing Tab. This is useful if you are quickly browsing files and don't want every visited file to have its own Tab. When you start editing the file or use double-click to open the file from the Explorer, a new Tab is dedicated to that file.
+When you single-click or select a file in the Explorer, it is shown in a preview mode and reuses an existing Tab. This is useful if you are quickly browsing files and don't want every visited file to have its own Tab. When you start editing the file or use double-click to open the file from the Explorer, a new Tab is dedicated to that file.
 
 Preview mode is indicated by italics in the Tab heading:
 
@@ -207,7 +207,7 @@ You can see these clearly in the **OPEN EDITORS** section at the top of the Expl
 
 You can Drag and Drop editor groups on the workbench, move individual Tabs between groups and quickly close entire groups (**Close All**).
 
->**Note:** VS Code uses editor groups whether or not you have enabled Tabs.  Without Tabs, editor groups are simply a stack of your open items with the most recently selected item visible in the editor pane.
+>**Note:** VS Code uses editor groups whether or not you have enabled Tabs.  Without Tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
 
 ### Horizontal layout
 

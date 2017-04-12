@@ -50,7 +50,7 @@ You can sort the extension list by **Install Count** or **Rating** in either asc
 
 ## Install an extension
 
-Simply click the **Install** button and after a successful install, you'll see an **Reload** button which will prompt you to restart VS Code to enable the new extension.
+Click the **Install** button and after a successful install, you'll see an **Reload** button which will prompt you to restart VS Code to enable the new extension.
 
 ## Search for an extension
 
@@ -76,7 +76,7 @@ To uninstall an extension, click the **Uninstall** button. This will uninstall t
 
 ### Update an extension
 
-You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Simply click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
 
 ### Auto Update extensions
 
@@ -109,7 +109,7 @@ code --disable-extensions
 
 ## Install from a VSIX
 
-You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX...** command in the Extensions View command drop-down, or the **Extensions: Install from VSIX...** command in the **Command Palette**, simply point to the `.vsix` file.
+You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX...** command in the Extensions View command drop-down, or the **Extensions: Install from VSIX...** command in the **Command Palette**, point to the `.vsix` file.
 
 You can also install using the VS Code `--install-extension` command line switch providing the path to the `.vsix` file.
 
