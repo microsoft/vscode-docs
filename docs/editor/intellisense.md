@@ -103,7 +103,7 @@ By default, VS Code shows snippets and completion proposals in one widget. You c
 
 The key binding shown below is the default key binding. You can change this key binding in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
 
-> **Note:** There are many more key bindings relating to IntelliSense. Simply open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
+> **Note:** There are many more key bindings relating to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 
 ```json
 {
@@ -117,7 +117,7 @@ The key binding shown below is the default key binding. You can change this key 
 
 ## Troubleshooting
 
-If you find IntelliSense has stopped working, the language service may not be running. Simply restart VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
+If you find IntelliSense has stopped working, the language service may not be running. Try restarting VS Code and this should solve the issue. If you are still missing IntelliSense features after installing a language extension, open an issue in the repository of the language extension.
 
 > **Tip:** For configuring and troubleshooting JavaScript IntelliSense see [here](/docs/languages/javascript.md#intellisense).
 
@@ -128,7 +128,7 @@ A particular language extension may not support all the VS Code IntelliSense fea
 IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 * [JavaScript](/docs/languages/javascript.md) - Get the most out of your JavaScript development, including configuring IntelliSense.
-* [Node.js](/docs/nodejs/nodejs-tutorial.md#intellisense-and-typings) - See an example of IntelliSense in action in the Node.js walkthrough.
+* [Node.js](/docs/nodejs/nodejs-tutorial.md) - See an example of IntelliSense in action in the Node.js walkthrough.
 * [Debugging](/docs/editor/debugging.md) - Learn how to set up debugging for your application.
 
 ## Common Questions
@@ -143,5 +143,5 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
-**A:** This issue is caused by missing Typings files in JavaScript. You can learn how to solve this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
+**A:** This issue is caused by missing type declaration (typings) files in JavaScript. You can check if a type declaration file package is available for a specific library by using the [TypeSearch site](http://microsoft.github.io/TypeSearch). There is more information about this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
 

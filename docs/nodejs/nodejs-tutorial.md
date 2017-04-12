@@ -87,7 +87,7 @@ For this walkthrough, you can use either an external terminal or the VS Code int
 
 As mentioned in the introduction, VS Code ships with a debugger for Node.js applications. Let's try debugging our simple Hello World application.
 
-To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter next to the line numbers. A red circle will appear in the gutter.
+To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or click in the editor left gutter next to the line numbers. A red circle will appear in the gutter.
 
 ![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
 
@@ -160,7 +160,7 @@ Open the file `app.js` and hover over the Node.js global object `__dirname`. Not
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
-VS Code uses TypeScript Type Declaration (typings) files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Type Declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition`, you do not have to worry about downloading these Type Declaration files, VS Code will install them automatically for you.
+VS Code uses TypeScript type declaration (typings) files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition`, you do not have to worry about downloading these type declaration files, VS Code will install them automatically for you.
 
 You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
 

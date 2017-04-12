@@ -84,7 +84,7 @@ Hot exit can be disabled by changing the setting `files.hotExit` to `false`.
 
 ## Search Across Files
 
-VS Code allows you to quickly search over all files in the currently-opened folder.  Simply type `kb(workbench.view.search)` and type in your search. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
+VS Code allows you to quickly search over all files in the currently-opened folder.  Press `kb(workbench.view.search)` and enter in your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
 
 ![A simple text search across files](images/codebasics/search.png)
 
@@ -124,7 +124,7 @@ We'll always offer word completion, but for the rich [languages](/docs/languages
 
 > **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/getstarted/settings.md).
 
-JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md#_intellisense-and-typings) tutorial.
+JavaScript and TypeScript developers can take advantage of the [npmjs](https://www.npmjs.com) type declaration (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using type declaration files in the [JavaScript language](/docs/languages/javascript.md#intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md) tutorial.
 
 Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
 

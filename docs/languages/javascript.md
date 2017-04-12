@@ -7,7 +7,6 @@ PageTitle: JavaScript Programming with Visual Studio Code
 DateApproved: 4/5/2017
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
-
 # JavaScript in VS Code
 
 Visual Studio Code provides IntelliSense, debugging, and powerful editor features for JavaScript. VS Code uses the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa) to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
@@ -16,27 +15,27 @@ Visual Studio Code provides IntelliSense, debugging, and powerful editor feature
 
 ## IntelliSense
 
-VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code completion, parameter info, and member lists. VS Code provides IntelliSense using TypeScript definition files (for example node.d.ts) to provide metadata about the JavaScript based frameworks you are consuming in your application. Because TypeScript definition files are written in TypeScript, they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. 
+VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code completion, parameter info, and member lists. VS Code provides IntelliSense using TypeScript type declaration (typings) files (for example `node.d.ts`) to provide metadata about the JavaScript based frameworks you are consuming in your application. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience.
 
-Thanks to a feature called `Automatic Typing Acquisition` you as user do not have to worry about these typings file. VS Code will install them automatically for you.
+Thanks to a feature called `Automatic Typing Acquisition` you as a user do not have to worry about these type declaration file. VS Code will install them automatically for you.
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
-For the details of how JavaScript IntelliSense works, including being based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/Salsa). 
+For the details of how JavaScript IntelliSense works, including being based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/Salsa).
 
-When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported. In addition to objects, methods, and properties, the JavaScript IntelliSense window also provides basic word completion for the symbols in your file. 
+When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported. In addition to objects, methods, and properties, the JavaScript IntelliSense window also provides basic word completion for the symbols in your file.
 
 VS Code ships with the most stable version of the JavaScript language service. The same language service powers both JavaScript and TypeScript, so if you want to use a newer version, you can define the `typescript.tsdk` [setting](/docs/getstarted/settings.md) to point to a directory containing the TypeScript `tsserver.js` file. See more details [here](/docs/languages/typescript.md#using-newer-typescript-versions).
 
 ## Automatic Type Acquisition
 
-VS Code JavaScript IntelliSense for third-party libraries and modules is powered by type definition `*.d.ts` files. TypeScript definition files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide rich IntelliSense.
+VS Code JavaScript IntelliSense for third-party libraries and modules is powered by `*.d.ts` type declaration (typings) files coming from the [npmjs](https://www.npmjs.com) type declaration file repository.
 
 In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation, for a popular library called [lodash](https://lodash.com/).
 
 ![lodash typings](images/javascript/lodash_typings.png)
 
-Typings files are automatically download and managed by Visual Studio Code for packages listed in your project's `package.json`.
+Type declaration files are automatically downloaded and managed by Visual Studio Code for packages listed in your project's `package.json`.
 
 ```json
     "dependencies": {
@@ -44,7 +43,7 @@ Typings files are automatically download and managed by Visual Studio Code for p
     }
 ```
 
-If you are using Visual Studio Code 1.8+, you can alternately explicitly list packages to acquire typings for in your `jsconfig.json`.
+If you are using Visual Studio Code 1.8+, you can alternately explicitly list packages to acquire type declaration files for in your `jsconfig.json`.
 
 ```json
     "typeAcquisition": {
@@ -54,13 +53,13 @@ If you are using Visual Studio Code 1.8+, you can alternately explicitly list pa
     }
 ```
 
-Now when you `require` or `import` **lodash**, Visual Studio Code will use the automatically downloaded typings files for the library to provide rich Intellisense. Most common JavaScript libraries have typings available.
+Now when you `require` or `import` **lodash**, VS Code will use the automatically downloaded type declaration files for the library to provide rich Intellisense. Most common JavaScript libraries have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch site](http://microsoft.github.io/TypeSearch).
 
 ## JavaScript Project (jsconfig.json)
 
-The presence of a [jsconfig.json](/docs/languages/jsconfig.md) file in a directory indicates that the directory is the root of a JavaScript project. `jsconfig.json` specifies the root files and the options for the language features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa). For common setups a `jsconfig.json` file is not required, however, there are situations when you will want to add a `jsconfig.json`. 
+The presence of a [jsconfig.json](/docs/languages/jsconfig.md) file in a directory indicates that the directory is the root of a JavaScript project. `jsconfig.json` specifies the root files and the options for the language features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa). For common setups a `jsconfig.json` file is not required, however, there are situations when you will want to add a `jsconfig.json`.
 
-- Not all files should be in your JavaScript project (i.e. you want to exclude some files from showing IntelliSense). This situation is common with front-end and back-end code. 
+- Not all files should be in your JavaScript project (for example, you want to exclude some files from showing IntelliSense). This situation is common with front-end and back-end code.
 - Your workspace contains more than one project context. In this situation, you should add a `jsconfig.json` file at the root folder for each project.
 - You are using the TypeScript compiler to down-level compile JavaScript source code.
 
@@ -206,7 +205,7 @@ The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 Jav
 
 Once you have added this, you can start **Babel** with the `kb(workbench.action.tasks.build)` (**Run Build Task**) command and it will compile all files from the `src` directory into the `lib` directory.
 
-> **Tip:** For help with Babel CLI see the instructions [here](http://babeljs.io/docs/setup/#installation). The example above uses the CLI option. 
+> **Tip:** For help with Babel CLI see the instructions [here](http://babeljs.io/docs/setup/#installation). The example above uses the CLI option.
 
 ### Use the TypeScript Compiler
 
@@ -218,7 +217,7 @@ Read more about the compiler options for down level compilation [here](/docs/lan
 
 ## Formatting
 
-As with other languages, you can format your JavaScript code in VS Code. 
+As with other languages, you can format your JavaScript code in VS Code.
 
 ![formatter](images/javascript/formatter.gif)
 
@@ -273,7 +272,7 @@ Read on to find out about:
 
 Watch these introductory videos:
 
-* [Quick Tour using JavaScript](/docs/introvideos/quicktour.md) - See a three-minute overview of using JavaScript in VS Code. 
+* [Quick Tour using JavaScript](/docs/introvideos/quicktour.md) - See a three-minute overview of using JavaScript in VS Code.
 * [IntelliSense](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
 * [Debugging](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
 
@@ -281,7 +280,7 @@ Watch these introductory videos:
 
 **Q: Does VS Code support JSX and React Native?**
 
-**A:** VS Code supports **JSX** and **React Native**. To get IntelliSense for **React/JSX**, install the typings for `react` by running `typings install dt~react --global --save` from the terminal. To get IntelliSense for **React Native**, run `typings install dt~react-native --global --save`. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
+**A:** VS Code supports **JSX** and **React Native**. You will get IntelliSense for **React/JSX** and **React Native** from automatically downloaded type declaration (typings) files from the [npmjs](https://www.npmjs.com) type declaration file repository. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
 
 **React Native** examples often use the experimental **Object Rest/Spread** operator. This is not yet supported by VS Code. If you want to use it, it is recommended that you disable the built-in syntax checking (see below).
 
@@ -289,11 +288,11 @@ To enable ES6 import statements for **React Native**, you need to set the `allow
 
 **Q: IntelliSense is not working for external libraries.**
 
-**A:** `Automatic Type Acquisition` works for dependencies downloaded by npm (specified in `package.json`), Bower (specified in `bower.json`), and for many of the most common libraries listed in your folder structure (i.e. `jquery-3.1.1.min.js`). 
+**A:** `Automatic Type Acquisition` works for dependencies downloaded by npm (specified in `package.json`), Bower (specified in `bower.json`), and for many of the most common libraries listed in your folder structure (i.e. `jquery-3.1.1.min.js`).
 
 **ES6 Style imports are not working.**
 
-When you want to use ES6 style imports but the typings do not yet use ES6 style exports, then set the [TypeScript compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports` to true.
+When you want to use ES6 style imports but some type declaration (typings) files do not yet use ES6 style exports, then set the [TypeScript compiler option](https://www.typescriptlang.org/docs/handbook/compiler-options.html) `allowSyntheticDefaultImports` to true.
 
 ```javascript
 {
