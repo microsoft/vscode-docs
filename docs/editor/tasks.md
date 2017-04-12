@@ -10,7 +10,7 @@ MetaDescription: Expand your development workflow with task integration in Visua
 
 # Integrate with External Tools via Tasks
 
-Lots of tools exist to automate tasks like building, packaging, testing or deploying software systems. Examples include [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](http://ant.apache.org/), [Gulp](http://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](http://rake.rubyforge.org/) and [MSBuild](https://github.com/Microsoft/msbuild).
+Lots of tools exist to automate tasks like building, packaging, testing or deploying software systems. Examples include [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](https://gulpjs.com/), [Jake](https://jakejs.com/), [Rake](https://rake.rubyforge.org/) and [MSBuild](https://github.com/Microsoft/msbuild).
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
@@ -259,7 +259,7 @@ The CSS topic provides examples of how to use Tasks to generate CSS files.
 
 VS Code can autodetect tasks from within Gulp, Grunt and Jake files.  This adds their tasks to the task list without requiring additional configuration (unless you need to use a problem matcher, more on that in a moment).
 
-To help make this example more concrete, let's use this simple Gulp file.  This defines two tasks: build and debug. The first compiles C# code using [Mono](http://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
+To help make this example more concrete, let's use this simple Gulp file.  This defines two tasks: build and debug. The first compiles C# code using [Mono](https://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
 
 ```javascript
 var gulp = require("gulp");
@@ -314,7 +314,7 @@ For this example, select `Gulp` from the list. Given a `gulpfile.js` like the ex
 
 ```json
 {
-    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
     "command": "gulp",
@@ -434,7 +434,7 @@ There are a couple more properties that can be used inside a pattern. These are:
 
 ## Defining a Multi-Line Problem Matcher
 
-Some tools spread problems found in a source file over several lines, especially if stylish reporters are used. An example is [ESLint](http://eslint.org/); in stylish mode it produces output like this:
+Some tools spread problems found in a source file over several lines, especially if stylish reporters are used. An example is [ESLint](https://eslint.org/); in stylish mode it produces output like this:
 
 ```bash
 test.js

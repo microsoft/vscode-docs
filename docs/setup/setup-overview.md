@@ -58,19 +58,19 @@ If you work on a machine where Internet traffic needs to go through a proxy serv
 * Set the operating system environment variables `http_proxy` and `https_proxy`
 
 ```bash
-    SET http_proxy=http://10.203.0.1:5187/
+    SET http_proxy=https://10.203.0.1:5187/
 ```
 
 * Configure the `http.proxy` setting in your user [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings** or **Code** > **Preferences** > **Settings** on Mac):
 
 ```json
-    "http.proxy": "http://10.203.0.1:5187/"
+    "http.proxy": "https://10.203.0.1:5187/"
 ```
 
 or for an authenticating proxy
 
 ```json
-    "http.proxy": "http://userid:password@10.203.0.1:5187/"
+    "http.proxy": "https://userid:password@10.203.0.1:5187/"
 ```
 
 Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.
@@ -101,7 +101,7 @@ If you'd like to getting something running quickly, try the [Node.js tutorial](/
 
 **Q: How do I create and run a new project?**
 
-**A:** VS Code doesn't include a traditional **File** > **New Project** dialog or pre-installed project templates. You'll need to add [additional components](/docs/setup/additional-components.md) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
+**A:** VS Code doesn't include a traditional **File** > **New Project** dialog or pre-installed project templates. You'll need to add [additional components](/docs/setup/additional-components.md) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](https://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
 
 **Q: How do I know which version I'm running?**
 

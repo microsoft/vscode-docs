@@ -28,7 +28,7 @@ Marketplace - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeu
 
 Publisher - [Dirk Baeumer](https://marketplace.visualstudio.com/search?term=publisher%3A%22Dirk%20Baeumer%22&target=VSCode)
 
-Easily integrate [ESLint](http://eslint.org/) into your project. Dirk is a member of the VS Code team and he maintains this extension and just released an update. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=shinnn.standard).
+Easily integrate [ESLint](https://eslint.org/) into your project. Dirk is a member of the VS Code team and he maintains this extension and just released an update. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=shinnn.standard).
 
 Read more about setting up JavaScript linters in the VS Code [documentation](/docs/languages/javascript.md#linters).
 

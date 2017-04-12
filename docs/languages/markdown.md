@@ -134,7 +134,7 @@ This generates a `tasks.json` file in your workspace `.vscode` folder with the f
 
 ```json
 {
-    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
     "command": "echo",
@@ -148,7 +148,7 @@ To use **markdown-it** to compile the Markdown file, change the contents as foll
 
 ```json
 {
-    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
     "command": "markdown-it",
@@ -174,7 +174,7 @@ Let's take things a little further and automate Markdown compilation with VS Cod
 
 ### Step 1: Install Gulp and some plug-ins
 
-We use [Gulp](http://gulpjs.com/) to create a task that automates Markdown compilation. We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
+We use [Gulp](https://gulpjs.com/) to create a task that automates Markdown compilation. We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
 
 We need to install gulp both globally (`-g` switch) and locally:
 
@@ -258,7 +258,7 @@ Read on to find out about:
 
 **Q: Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
 
-**A:** No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library.
+**A:** No, VS Code targets the [CommonMark](https://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library.
 
 **Q: In the walkthrough above, I didn't find the Configure Task Runner command in the Command Palette?**
 

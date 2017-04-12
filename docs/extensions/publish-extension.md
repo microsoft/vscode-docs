@@ -69,7 +69,7 @@ vsce create-publisher (publisher name)
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
 
-**Note:** Alternatively, create your publisher in http://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
+**Note:** Alternatively, create your publisher in https://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
 
 ### Login to a Publisher
 
@@ -89,7 +89,7 @@ vsce publish -p <token>
 
 ## Auto-incrementing the Extension Version
 
-You can auto-increment an extension's version number when you publish by specifying the [SemVer](http://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
+You can auto-increment an extension's version number when you publish by specifying the [SemVer](https://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
 
 For example, if you want to update an extension's version from 1.0.0 to 1.1.0, you would specify `minor`:
 
@@ -191,7 +191,7 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 }
 ```
 
-This will always invoke the [TypeScript](http://www.typescriptlang.org/) compiler whenever the extension is packaged.
+This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
 ## Next Steps
 

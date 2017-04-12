@@ -27,7 +27,7 @@ Proposals contain extensive documentation, including a list of browsers that sup
 
 Press `kb(editor.emmet.action.expandAbbreviation)` to expand the current abbreviation.
 
->**Tip:** See the CSS section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
+>**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
 If you'd like to use CSS Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `css`, `html`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
 
@@ -161,7 +161,7 @@ Let's take things a little further and automate Sass/Less compilation with VS Co
 
 ### Step 1: Install Gulp and some plug-ins
 
-We will use [Gulp](http://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
+We will use [Gulp](https://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
 
 We need to install gulp both globally (`-g` switch) and locally:
 

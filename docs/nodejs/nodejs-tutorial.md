@@ -105,7 +105,7 @@ Now that you've seen VS Code in action with "Hello World", the next section show
 
 ## Express Tutorial
 
-[Express](http://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
+[Express](https://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
 
 >**Tip:** To test that you've got `npm` correctly installed on your computer, type `npm --help` from a terminal and you should see the usage documentation.
 
@@ -138,7 +138,7 @@ From a terminal in the Express application folder, run:
 npm start
 ```
 
-The Node.js web server will start and you can browse to `http://localhost:3000` to see the running application.
+The Node.js web server will start and you can browse to `https://localhost:3000` to see the running application.
 
 ![Your first Node Express App](images/nodejs/express.png)
 
@@ -154,7 +154,7 @@ code .
 
 >**Note:** If you've been using the VS Code integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder from your running VS Code instance with the **File** > **Open Folder...** command.
 
-The [Node.js](https://nodejs.org/api/) and [Express](http://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
+The [Node.js](https://nodejs.org/api/) and [Express](https://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
 
 Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how VS Code understands what `__dirname` is. Even more interesting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 
@@ -238,7 +238,7 @@ az group create -l westus -n myExpressAppGroup
 # In this walkthrough, we will use a FREE plan which will host your app on a machine with other websites.
 az appservice plan create -n myExpressAppPlan -g myExpressAppGroup -l westus --sku FREE
 
-# Now create the website and give it a unique name as it will be referenced as http://**myUniqueName-ExpressApp**.azurewebsites.net
+# Now create the website and give it a unique name as it will be referenced as https://**myUniqueName-ExpressApp**.azurewebsites.net
 az appservice web create -n myUniqueName-ExpressApp -g myExpressAppGroup -p myExpressAppPlan
 
 # Let's test that our site is up and running. It will be a temporary site as we have not deployed any code here yet.

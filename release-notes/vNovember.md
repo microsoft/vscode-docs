@@ -53,15 +53,15 @@ If you'd rather start your extension by modifying a working example, you can fin
 
 ## VS Code is Open Source!
 
-You spoke and we listened.  With this release, VS Code development is now open source on [GitHub](http://github.com/microsoft/vscode).
+You spoke and we listened.  With this release, VS Code development is now open source on [GitHub](https://github.com/microsoft/vscode).
 
 ![hello code](images/0_10_0/hello-code.png)
 
 You can now contribute to VS Code:
-* Submit [bugs](http://github.com/microsoft/vscode/issues) and help us verify fixes as they are checked in.
+* Submit [bugs](https://github.com/microsoft/vscode/issues) and help us verify fixes as they are checked in.
 * Review the source code changes.
 * Contribute bug fixes through pull requests.
-* Update and add to the [documentation](http://github.com/microsoft/vscode-docs).
+* Update and add to the [documentation](https://github.com/microsoft/vscode-docs).
 
 ## Add TextMate Snippets
 

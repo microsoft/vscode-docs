@@ -18,7 +18,7 @@ Visual Studio Code is an editor for any developer, no matter what programming la
 
 ## Any Language, Any Tool
 
-Today at the [DevNation](http://www.devnation.org) conference in San Francisco, we’ve announced along with [Red Hat and Codenvy](http://developers.redhat.com/blog/2016/06/27/a-common-interface-for-building-developer-tools) that this language server protocol is now being adopted by tool creators and language providers across the industry. For language creators, this means an enhanced tooling experience for their language across a variety of development tools and operating systems, similar to the experience that [TypeScript](http://typescriptlang.org) developers or C# developers (via [OmniSharp](http://omnisharp.net)) get today.  It also means any developer can have a consistent editing experience for their favorite programming language on any tool – even if that tool isn’t VS Code. 
+Today at the [DevNation](https://www.devnation.org) conference in San Francisco, we’ve announced along with [Red Hat and Codenvy](https://developers.redhat.com/blog/2016/06/27/a-common-interface-for-building-developer-tools) that this language server protocol is now being adopted by tool creators and language providers across the industry. For language creators, this means an enhanced tooling experience for their language across a variety of development tools and operating systems, similar to the experience that [TypeScript](https://typescriptlang.org) developers or C# developers (via [OmniSharp](https://omnisharp.net)) get today.  It also means any developer can have a consistent editing experience for their favorite programming language on any tool – even if that tool isn’t VS Code. 
 
 ## How it works
 
@@ -36,13 +36,13 @@ Here’s an example of how a tool and a language server could communicate semant
 
 * The user closes the document (file): A `didClose` notification is sent from the tool, informing the language server that the document is now no longer in memory and instead maintained by (i.e. stored on) the file system.
 
-This communication, which takes place over [JSON-RPC](http://www.jsonrpc.org/specification), happens many times over the course of a typical session.
+This communication, which takes place over [JSON-RPC](https://www.jsonrpc.org/specification), happens many times over the course of a typical session.
 
 ![language server sequence](2016_06_27_language-server-sequence.png)
 
 This architecture allows for VS Code to interact with multiple language servers, each of which can be implemented in any language (independent of the language the tool was implemented in), and support a variety of features, as long as it utilizes the common JSON-based protocol.
 
-It also enables a given language server to be implemented once and have different tools take advantage of it. That's why it's exciting that the protocol has been adopted by Codenvy, who have added it to the next generation Eclipse IDE, [Eclipse Che](http://che.eclipse.org/eclipse-che-now-strategic-platform-red-hat), as well as by Red Hat, who are working to publish a standalone language server for Java which can be consumed by any tool that utilizes the protocol.
+It also enables a given language server to be implemented once and have different tools take advantage of it. That's why it's exciting that the protocol has been adopted by Codenvy, who have added it to the next generation Eclipse IDE, [Eclipse Che](https://che.eclipse.org/eclipse-che-now-strategic-platform-red-hat), as well as by Red Hat, who are working to publish a standalone language server for Java which can be consumed by any tool that utilizes the protocol.
 
 ## Open Specification
 
@@ -52,7 +52,7 @@ The complete specification for this protocol is available in a [public GitHub re
 
 This is just the start – communities for programming languages like OmniSharp (C#), JSON, C++, xText, JavaFX, and R have made commitments to release language servers for their languages in the future.  A full [list of protocol implementations](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations), including language servers, editors, and SDKs is available on the GitHub repo.
 
-If you want to learn more, [view the keynote](http://www.devnation.org/), check out the blog posts from [Red Hat](http://developers.redhat.com/blog/2016/06/27/a-common-interface-for-building-developer-tools) and the [Eclipse Che](http://che.eclipse.org/eclipse-che-now-strategic-platform-red-hat) team, and visit the [language server protocol repo](https://github.com/microsoft/language-server-protocol) on GitHub.  There is even a [Language Server Walkthrough](/docs/extensions/example-language-server.md) where you can step through the source code of a working language server implemented in TypeScript and Node.js. But of course you can implement a language server in any language!
+If you want to learn more, [view the keynote](https://www.devnation.org/), check out the blog posts from [Red Hat](https://developers.redhat.com/blog/2016/06/27/a-common-interface-for-building-developer-tools) and the [Eclipse Che](https://che.eclipse.org/eclipse-che-now-strategic-platform-red-hat) team, and visit the [language server protocol repo](https://github.com/microsoft/language-server-protocol) on GitHub.  There is even a [Language Server Walkthrough](/docs/extensions/example-language-server.md) where you can step through the source code of a working language server implemented in TypeScript and Node.js. But of course you can implement a language server in any language!
 
 Happy Coding!
 

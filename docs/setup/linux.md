@@ -14,7 +14,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 ### Debian and Ubuntu based distributions
 
-The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
+The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
 
 ```bash
 sudo dpkg -i <file>.deb
@@ -28,7 +28,7 @@ The repository and key can also be installed manually with the following script:
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 ```
 
 Then update the package cache and install the package using:
@@ -78,7 +78,7 @@ sudo zypper install code
 
 ### Installing .rpm package manually
 
-The [.rpm package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
+The [.rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
 
 ```bash
 sudo dnf install <file>.rpm
@@ -158,7 +158,7 @@ fs.inotify.max_user_watches=524288
 
 The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
 
-While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](http://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
+While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
 
 ### I can't see Chinese characters in Ubuntu
 

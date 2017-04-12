@@ -39,7 +39,7 @@ In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com
 
 ## Roslyn and OmniSharp
 
-Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](http://www.omnisharp.net) to offer an enhanced C# experience.  We offer support for both:
+Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](https://www.omnisharp.net) to offer an enhanced C# experience.  We offer support for both:
 
 - .NET Core projects
 - MSBuild projects

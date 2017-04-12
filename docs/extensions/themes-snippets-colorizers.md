@@ -13,9 +13,9 @@ Custom themes, snippets and language syntax colorizers bring an editor to life. 
 
 ## Adding a new Theme
 
-You can also add new TextMate theme files (.tmTheme) to your VS Code installation using VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md). The extension generator takes an existing TextMate theme file and packages it for use in VS Code.
+You can also add new TextMate theme files (.tmTheme) to your VS Code installation using VS Code's [Yeoman](https://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md). The extension generator takes an existing TextMate theme file and packages it for use in VS Code.
 
-[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator.  It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
+[ColorSublime](https://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator.  It will be in a format like `"https://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
 
 ![yo code theme](images/themes/yocodetheme.png)
 
@@ -35,7 +35,7 @@ We also have recommendations on how to make your extension look great on the VS 
 
 ## Creating a Custom Theme
 
-You can also author your own TextMate themes from scratch. Consult the TextMate [theme](http://manual.macromates.com/en/themes) and language grammar [naming conventions](http://manual.macromates.com/en/language_grammars#naming_conventions) documentation for details.
+You can also author your own TextMate themes from scratch. Consult the TextMate [theme](https://manual.macromates.com/en/themes) and language grammar [naming conventions](https://manual.macromates.com/en/language_grammars#naming_conventions) documentation for details.
 
 Besides the TextMate language grammar standard scopes, VS Code also has custom theme settings which you can use to tune your own theme:
 
@@ -270,7 +270,7 @@ Using the ['code' Yeoman generator](/docs/extensions/yocode.md), you can create 
 
 Central to language support is a TextMate [language specification](https://manual.macromates.com/en/language_grammars) file (.tmLanguage) that describes the colorizer rules. The yeoman generator either takes an existing TextMate language specification file or lets you start with a fresh one.
 
-A good place to look for existing TextMate .tmLanguage files is on GitHub. Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can import either .tmLanguage or .pList files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. http://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage. Make sure that the path points to the content of the file, not the HTML file showing the content.
+A good place to look for existing TextMate .tmLanguage files is on GitHub. Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can import either .tmLanguage or .pList files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. https://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage. Make sure that the path points to the content of the file, not the HTML file showing the content.
 
 ![yo code language support](images/themes-snippets-colorizers/yocodelanguage.png)
 
@@ -416,7 +416,7 @@ The VS Code color themes affect the editor input area (text foreground, backgrou
 
 VS Code themes are standard TextMate themes and the tokenizers used in VS code are well established TextMate tokenizers, mostly maintained by the community and in use in other products.
 
-To learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](http://www.apeth.com/nonblog/stories/textmatebundle.html).  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
+To learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](https://www.apeth.com/nonblog/stories/textmatebundle.html).  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
 
 **Q: I created a snippets extension but they aren't showing up in the VS Code editor?**
 

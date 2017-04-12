@@ -76,4 +76,4 @@ You will need an [extension](/docs/languages/python.md#install-python-extension)
 
 **Q: Why won't linting work for me?**
 
-**A:** First make sure you have installed an extension. Next, many extensions have a dependency on an external package. Install the [required packages](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements) using a Python package manager like [pip](https://pypi.python.org/pypi/pip) or [easy_install](http://peak.telecommunity.com/DevCenter/EasyInstall). You can read more about troubleshooting linting issues [here](https://github.com/DonJayamanne/pythonVSCode/wiki/Autocomplete-Intellisense). 
+**A:** First make sure you have installed an extension. Next, many extensions have a dependency on an external package. Install the [required packages](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements) using a Python package manager like [pip](https://pypi.python.org/pypi/pip) or [easy_install](https://peak.telecommunity.com/DevCenter/EasyInstall). You can read more about troubleshooting linting issues [here](https://github.com/DonJayamanne/pythonVSCode/wiki/Autocomplete-Intellisense). 

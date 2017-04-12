@@ -394,13 +394,13 @@ See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) f
 
 ## contributes.jsonValidation
 
-Contributes a validation schema for a specific type of `json` file.  The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
+Contributes a validation schema for a specific type of `json` file.  The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](https://schemastore.org/json).
 
 ```json
 "contributes": {
     "jsonValidation": [{
         "fileMatch": ".jshintrc",
-        "url": "http://json.schemastore.org/jshintrc"
+        "url": "https://json.schemastore.org/jshintrc"
     }]
 }
 ```
