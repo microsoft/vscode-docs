@@ -3,12 +3,12 @@ Order: 8
 Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
-PageTitle: Version Control
+PageTitle: Version Control in VS Code
 DateApproved: 4/5/2017
 MetaDescription: Visual Studio Code has integrated Git support for the most common commands.
 ---
 
-# Version Control
+# Using Version Control in VS Code
 
 Visual Studio Code has integrated [Git](https://git-scm.com/) support for the most common commands. This makes it an excellent choice to manage your code commits while you develop.
 

@@ -7,7 +7,7 @@ PageTitle: Why Visual Studio Code?
 DateApproved: 4/5/2017
 MetaDescription: Visual Studio Code provides developers with a new choice of tool that combines the simplicity of a code editor with the best tooling for their core edit-build-debug cycle. Visual Studio Code is available for macOS, Linux, and Windows.
 ---
-# Why Visual Studio Code?
+# Why did we build Visual Studio Code?
 
 Visual Studio Code combines the simplicity of a source code editor with powerful developer tooling, like IntelliSense code completion and debugging.
 

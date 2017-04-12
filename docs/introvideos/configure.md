@@ -3,7 +3,7 @@ Order:
 Area: introvideos
 TOCTitle: Customize
 ContentId: d9583ed0-aaf6-4ce1-9a27-bbfb0017b6be
-PageTitle: Customize VS Code
+PageTitle: Customize Visual Studio Code
 DateApproved: 3/6/2017
 MetaDescription: Learn how to configure Visual Studio Code, including settings, keybindings, and snippets
 MetaSocialImage: opengraph_introvideos.png
