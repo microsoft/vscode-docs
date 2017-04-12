@@ -15,7 +15,7 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 ## Installation
 
-Make sure you have [Node.js](https://nodejs.org/) installed. Then simply run:
+Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
 
 ```
 npm install -g vsce
@@ -73,7 +73,7 @@ vsce create-publisher (publisher name)
 
 ### Login to a Publisher
 
-If you already created a publisher before and simply want to use it with `vsce`:
+If you already created a publisher before and want to use it with `vsce`:
 
 ```bash
 vsce login (publisher name)
@@ -107,7 +107,7 @@ vsce publish 2.0.1
 
 ## Packaging Extensions
 
-You may want to simply package extensions without publishing them to the store. Extensions will always be packaged into a `.vsix` file. Here's how:
+You may want to package extensions without publishing them to the store. Extensions will always be packaged into a `.vsix` file. Here's how:
 
 ```bash
 vsce package
@@ -117,7 +117,7 @@ This will package your extension into a `.vsix` file and place it in the current
 
 ### Sharing Privately with Others
 
-If you want to share your extension with others privately, you can simply send them your packaged extension `.vsix` file.
+If you want to share your extension with others privately, you can send them your packaged extension `.vsix` file.
 
 ## Visual Studio Code Compatiblity
 

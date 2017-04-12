@@ -23,7 +23,7 @@ npm install -g yo generator-code
 
 The Yeoman generator will walk you through the steps required to create your customization or extension prompting for the required information.
 
-To launch the generator simply type the following in a command prompt:
+To launch the generator, type the following in a command prompt:
 
 ```bash
 yo code

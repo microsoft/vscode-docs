@@ -25,7 +25,7 @@ While here, you can install many other extensions to make you more productive wi
 
 ## Dockerfiles
 
-With Docker, you can build images by specifying the step by step commands needed to build the image in a `Dockerfile`. A Dockerfile is simply a text file that contains the build instructions.
+With Docker, you can build images by specifying the step by step commands needed to build the image in a `Dockerfile`. A Dockerfile is just a text file that contains the build instructions.
 
 VS Code understands the structure of Dockerfiles as well as the available set of instructions, meaning we can give you a great experience when authoring these files in the tool.
 

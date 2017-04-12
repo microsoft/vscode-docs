@@ -92,7 +92,7 @@ Our Git tooling supports viewing of diffs within VS Code.
 
 ## Git Output Window
 
-You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you simply get curious. :)
+You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
 
 To open the Git output window, run **View** > **Output** and select `Git` from the dropdown.
 
@@ -151,7 +151,7 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 **Q: Hey, I initialized my repo but the actions in the `...` menu are all grayed out. What gives?**
 
-**A:** To **push, pull and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you simply need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
+**A:** To **push, pull and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
 
 ```
 > git remote add origin https://<AccountName>.visualstudio.com/DefaultCollection/_git/<RepoName>

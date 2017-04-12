@@ -177,7 +177,7 @@ Below is an example of a configuration that passes the current opened file to th
 
 ## Operating System Specific Properties
 
-The task system supports defining values (for example, the command to be executed) specific to an operating system. To do so, simply put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
+The task system supports defining values (for example, the command to be executed) specific to an operating system. To do so, put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
 
 Below is an example that uses the Node.js executable as a command and is treated differently on Windows and Linux:
 
@@ -306,7 +306,7 @@ You can also create your own problem matcher which we'll talk about soon.
 
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
 
-You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the **Tasks: Run Build Task** command (`kb(workbench.action.tasks.build)`).
+You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than just run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the **Tasks: Run Build Task** command (`kb(workbench.action.tasks.build)`).
 
 If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the **Command Palette** (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from.
 

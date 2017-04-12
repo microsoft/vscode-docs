@@ -70,7 +70,7 @@ To improve the formatting of your HTML source code, press `kb(editor.action.form
 
 ## Emmet snippets
 
-We support Emmet snippet expansion, simply press `kb(editor.emmet.action.expandAbbreviation)`.
+We support Emmet snippet expansion. To expand an Emmet abbreviation, press `kb(editor.emmet.action.expandAbbreviation)`.
 
 ![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
