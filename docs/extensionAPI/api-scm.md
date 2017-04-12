@@ -59,7 +59,7 @@ Note how the same file, `README.md`, is part of two distinct resource states.
 Here's how Git creates this model:
 
 ```ts
-function createResourceUri(relativePath: string): string {
+function createResourceUri(relativePath: string): vscode.Uri {
   const absolutePath = path.join(vscode.workspace.rootPath, relativePath);
   return vscode.Uri.file(absolutePath);
 }
