@@ -88,6 +88,8 @@ Option  | Description
 `target`| Specifies which default library (lib.d.ts) to use. The values are "ES3", "ES5", "ES6".
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.
+`baseUrl`|Base directory to resolve non-relative module names.
+`paths`|Specify path mapping to be computed relative to baseUrl option.
 
 ## Best Practices
 
