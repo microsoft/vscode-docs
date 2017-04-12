@@ -100,7 +100,7 @@ gulp.task('compile-blog', ['compile-blog-markdown', 'copy-blog-images'], functio
 
     var latest = new File({
        path: 'latest.html',
-	   contents: common.getLatestContent('blogs', blogs[0].Link)
+	   contents: common.getLatestContent('blogs', blogs[0].Link, 'VS Code Blogs')
     });
     
     es.readArray([latest])

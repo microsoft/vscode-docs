@@ -64,10 +64,13 @@ exports.mapFileToArticle = function(file) {
 	return article;
 }
 
-exports.getLatestContent = function(base, link) {
+exports.getLatestContent = function(base, link, title) {
 	return new Buffer('' +
-		'<meta http-equiv="refresh" content="0; url=/' + base + '/' + link + '">' + 
-		'<link rel="canonical" href="/' + base + '/' + link + '" />'
+		'<head>' + 
+			'<title>' + title + '</title>' + 
+			'<meta http-equiv="refresh" content="0; url=/' + base + '/' + link + '">' + 
+			'<link rel="canonical" href="/' + base + '/' + link + '" />' +
+		'</head>'
 	, 'utf8');
 }
 

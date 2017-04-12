@@ -65,7 +65,7 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-handlebars', 'copy-rele
 
     var latest = new File({
        path: 'latest.html',
-       contents: common.getLatestContent('updates', releaseNotes[0].Link)
+       contents: common.getLatestContent('updates', releaseNotes[0].Link, 'VS Code Updates')
     });
     
     es.readArray([latest])
