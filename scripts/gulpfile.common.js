@@ -64,13 +64,18 @@ exports.mapFileToArticle = function(file) {
 	return article;
 }
 
-exports.getLatestContent = function(base, link, title) {
+exports.getLatestContent = function(base, link, title, description) {
 	return new Buffer('' +
-		'<head>' + 
-			'<title>' + title + '</title>' + 
-			'<meta http-equiv="refresh" content="0; url=/' + base + '/' + link + '">' + 
-			'<link rel="canonical" href="/' + base + '/' + link + '" />' +
-		'</head>'
+		'<!DOCTYPE html>' +
+		'<html>' +
+			'<head>' + 
+				'<title>' + title + '</title>' + 
+				'<meta http-equiv="refresh" content="0; url=/' + base + '/' + link + '">' + 
+				'<meta name="description" content="' + description + '">' +
+				'<meta name="robots" content="noindex">' + 
+				'<link rel="canonical" href="/' + base + '/' + link + '" />' +
+			'</head>' +
+		'</html>'
 	, 'utf8');
 }
 
