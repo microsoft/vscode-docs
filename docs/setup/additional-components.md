@@ -36,7 +36,7 @@ The extensions shown above are the current most popular on Marketplace. Click on
 
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 
-- [Yeoman](https://yeoman.io/) - An application scaffolding tool, a command line version of **File** > **New Project**.
+- [Yeoman](http://yeoman.io/) - An application scaffolding tool, a command line version of **File** > **New Project**.
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - A Yeoman generator for scaffolding **ASP.NET Core** applications.
 - [generator-hottowel](https://github.com/johnpapa/generator-hottowel) - A Yeoman generator for quickly creating **AngularJS** applications.
 - [Express](https://expressjs.com/) - An application framework for Node.js applications using the **Jade** template engine.
