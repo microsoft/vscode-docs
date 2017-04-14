@@ -134,7 +134,7 @@ This generates a `tasks.json` file in your workspace `.vscode` folder with the f
 
 ```json
 {
-    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
     "command": "echo",
@@ -148,7 +148,7 @@ To use **markdown-it** to compile the Markdown file, change the contents as foll
 
 ```json
 {
-    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
     "command": "markdown-it",

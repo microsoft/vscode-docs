@@ -7,7 +7,7 @@ MetaDescription: See what is new in the Visual Studio Code February Release (0.1
 
 # February 2016 (0.10.11)
 
-February is our last full iteration before we start the end game for the [Build 2016 conference](http://build.microsoft.com/) milestone at the end of March. It comes with many improvements:
+February is our last full iteration before we start the end game for the [Build 2016 conference](https://build.microsoft.com/) milestone at the end of March. It comes with many improvements:
 
 - Salsa is now the default JavaScript language service.
 - Folding, the most requested feature, is now available.

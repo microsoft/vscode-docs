@@ -74,7 +74,7 @@ We support Emmet snippet expansion. To expand an Emmet abbreviation, press `kb(e
 
 ![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
->**Tip:** See the HTML section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
+>**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
 If you'd like to use HTML Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `html`, `css`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
 

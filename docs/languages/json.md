@@ -46,9 +46,9 @@ You can format your JSON document using `kb(editor.action.formatDocument)` or **
 
 ## JSON Schemas & Settings
 
-To understand the structure of JSON files, we use [JSON schemas](http://spacetelescope.github.io/understanding-json-schema/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions.
+To understand the structure of JSON files, we use [JSON schemas](https://spacetelescope.github.io/understanding-json-schema/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions.
 
-Servers like [JSON Schema Store](http://schemastore.org) provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
+Servers like [JSON Schema Store](https://schemastore.org) provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
 The association of a JSON file to a schema can be done either in the JSON file itself using the `$schema` attribute, or in the User or Workspace [Settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) under the property `json.schemas`.
 
@@ -56,18 +56,18 @@ VS Code extensions can also define schemas and schema mapping. That's why VS Cod
 
 ### Mapping in the JSON
 
-In the following example, the JSON file specifies that its contents follow the [CoffeeLint](http://www.coffeelint.org/) schema.
+In the following example, the JSON file specifies that its contents follow the [CoffeeLint](https://www.coffeelint.org/) schema.
 
 ```json
 {
-   "$schema": "http://json.schemastore.org/coffeelint",
+   "$schema": "https://json.schemastore.org/coffeelint",
    "line_endings": "unix"
 }
 ```
 
 ### Mapping in the User Settings
 
-The following excerpt from the User Settings shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on http://json.schemastore.org/babelrc.
+The following excerpt from the User Settings shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on https://json.schemastore.org/babelrc.
 
 ```json
 "json.schemas": [
@@ -75,7 +75,7 @@ The following excerpt from the User Settings shows how `.babelrc` files are mapp
         "fileMatch": [
             "/.babelrc"
         ],
-        "url": "http://json.schemastore.org/babelrc"
+        "url": "https://json.schemastore.org/babelrc"
     },
 ```
 

@@ -3,7 +3,7 @@ Order: 1
 Area: setup
 TOCTitle: Overview
 ContentId: FC5262F3-D91D-4665-A5D2-BCBCCF66E53A
-PageTitle: Setting up Visual Studio Code
+PageTitle: Setup VS Code
 DateApproved: 4/5/2017
 MetaDescription: Get Visual Studio Code up and running.
 MetaSocialImage: quicksetup_QuickSetup.png
@@ -58,19 +58,19 @@ If you work on a machine where Internet traffic needs to go through a proxy serv
 * Set the operating system environment variables `http_proxy` and `https_proxy`
 
 ```bash
-    SET http_proxy=http://10.203.0.1:5187/
+    SET http_proxy=https://10.203.0.1:5187/
 ```
 
 * Configure the `http.proxy` setting in your user [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings** or **Code** > **Preferences** > **Settings** on Mac):
 
 ```json
-    "http.proxy": "http://10.203.0.1:5187/"
+    "http.proxy": "https://10.203.0.1:5187/"
 ```
 
 or for an authenticating proxy
 
 ```json
-    "http.proxy": "http://userid:password@10.203.0.1:5187/"
+    "http.proxy": "https://userid:password@10.203.0.1:5187/"
 ```
 
 Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.

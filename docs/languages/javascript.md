@@ -131,7 +131,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can 
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
 
-VS Code provides support for JavaScript linters, including [ESLint](http://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](http://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
+VS Code provides support for JavaScript linters, including [ESLint](http://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
 
  ![linter warning](images/javascript/eslint_warning.png)
 
@@ -205,7 +205,7 @@ The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 Jav
 
 Once you have added this, you can start **Babel** with the `kb(workbench.action.tasks.build)` (**Run Build Task**) command and it will compile all files from the `src` directory into the `lib` directory.
 
-> **Tip:** For help with Babel CLI see the instructions [here](http://babeljs.io/docs/setup/#installation). The example above uses the CLI option.
+> **Tip:** For help with Babel CLI see the instructions [here](https://babeljs.io/docs/setup/#installation). The example above uses the CLI option.
 
 ### Use the TypeScript Compiler
 

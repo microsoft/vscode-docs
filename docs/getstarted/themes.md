@@ -47,9 +47,9 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Using existing TextMate Themes
 
-You can add existing TextMate color themes (.tmTheme) to VS Code. For example, the [Color Sublime](http://colorsublime.com/) site has hundreds of TextMate themes available. See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
+You can add existing TextMate color themes (.tmTheme) to VS Code. For example, the [Color Sublime](https://colorsublime.com/) site has hundreds of TextMate themes available. See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
 
-# Icon Themes
+## Icon Themes
 
 File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer and tabbed headings.
 

@@ -9,7 +9,7 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and Dock
 ---
 # Working with Docker
 
-[Docker](http://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace.
+[Docker](https://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace.
 
 ## Install the Docker extension
 
@@ -43,7 +43,7 @@ In addition to snippets for authoring your `Dockerfile`, Visual Studio Code will
 ![Dockerfile hover tooltip](images/docker/dockerfiletooltip.png)
 
 For more information on Dockerfiles, check out [Dockerfile best practices](
-https://docs.docker.com/articles/dockerfile_best-practices/) on [docker.com](http://docker.com).
+https://docs.docker.com/articles/dockerfile_best-practices/) on [docker.com](https://docker.com).
 
 ## Docker Compose
 

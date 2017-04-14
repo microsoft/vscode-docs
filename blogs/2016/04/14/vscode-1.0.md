@@ -73,7 +73,7 @@ Seeing the support and help the community has already poured into the product, t
 
 While we’re excited about releasing 1.0 today, we are even more excited about the future.
 
-Of course, we will continue to focus on the fundamentals.  Performance, stability, accessibility, and compatibility are of utmost importance to our users, and they are to us as well. We will continue to invest in improving developer productivity, guided by the great user feedback on [UserVoice](http://go.microsoft.com/fwlink/?LinkID=533482). We will continue to work with partners and the community to expand support for new languages, and platforms, and experiences. And we will continue to work with you, our community, to build a great tool for you, and for every developer.
+Of course, we will continue to focus on the fundamentals.  Performance, stability, accessibility, and compatibility are of utmost importance to our users, and they are to us as well. We will continue to invest in improving developer productivity, guided by the great user feedback on [UserVoice](https://go.microsoft.com/fwlink/?LinkID=533482). We will continue to work with partners and the community to expand support for new languages, and platforms, and experiences. And we will continue to work with you, our community, to build a great tool for you, and for every developer.
 
 If you haven’t tried out Visual Studio Code yet, please [download](/Download) it and let us know what you think!
 

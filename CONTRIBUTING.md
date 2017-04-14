@@ -1,6 +1,6 @@
 # Visual Studio Code Documentation
 
-You've found the GitHub repository that houses the source for the VS Code docs at <http://code.visualstudio.com/docs>.
+You've found the GitHub repository that houses the source for the VS Code docs at <https://code.visualstudio.com/docs>.
 
 ## Contribute to VS Code documentation
 
@@ -17,7 +17,7 @@ Thank you for your interest in VS Code documentation!
 
 ## Contributing
 
-To contribute to [VS Code documentation](http://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
+To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
 
 ## Documentation intent
 
@@ -34,7 +34,7 @@ The documentation should target developers learning to use VS Code or searching 
 
 ## Repository organization
 
-The content in this repository follows the organization of documentation at <http://code.visualstudio.com/docs>.
+The content in this repository follows the organization of documentation at <https://code.visualstudio.com/docs>.
 
 This repository contains the following folders:
 
@@ -60,7 +60,7 @@ We recommend that you create local working branches that target a specific scope
 
 ## Authoring tools
 
-[Visual Studio Code](http://code.visualstudio.com) is a great editor for Markdown!
+[Visual Studio Code](https://code.visualstudio.com) is a great editor for Markdown!
 
 In fact, VS Code itself is developed using VS Code and the core documentation is authored using VS Code.
 

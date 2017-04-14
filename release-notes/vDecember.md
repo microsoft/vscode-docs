@@ -98,7 +98,7 @@ At the same time, the grammar used to colorize JavaScript was also updated to su
 
 ## TypeScript Update
 
-The TypeScript language service was updated to version [1.7.5](http://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
+The TypeScript language service was updated to version [1.7.5](https://blogs.msdn.com/b/typescript/archive/2015/11/30/announcing-typescript-1-7.aspx).
 
 ## JSX Support
 
@@ -204,7 +204,7 @@ Extensions can now contribute JSON schema associations. The `jsonValidation` con
     "contributes": {
         "jsonValidation": [{
             "fileMatch": ".jshintrc",
-            "url": "http://json.schemastore.org/jshintrc"
+            "url": "https://json.schemastore.org/jshintrc"
         }]
     }
 ```
