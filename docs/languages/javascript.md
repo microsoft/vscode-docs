@@ -131,7 +131,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can 
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
 
-VS Code provides support for JavaScript linters, including [ESLint](https://eslint.org/), [JSHint](https://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
+VS Code provides support for JavaScript linters, including [ESLint](http://eslint.org/), [JSHint](https://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
 
  ![linter warning](images/javascript/eslint_warning.png)
 
@@ -164,9 +164,9 @@ You can also control when a linter runs with the linter `.run` setting. The two 
 
 Here are a few useful resources when using ESLint.
 
-* [Complete list of ESLint Rules](https://eslint.org/docs/rules/)
-* [Configuring ESLint](https://eslint.org/docs/user-guide/configuring)
-* [Getting Started with ESLint](https://eslint.org/docs/user-guide/getting-started)
+* [Complete list of ESLint Rules](http://eslint.org/docs/rules/)
+* [Configuring ESLint](http://eslint.org/docs/user-guide/configuring)
+* [Getting Started with ESLint](http://eslint.org/docs/user-guide/getting-started)
 
 ## Snippets
 
@@ -316,5 +316,5 @@ When you want to use ES6 style imports but some type declaration (typings) files
 
 **A:** Some users want to use syntax constructs like the proposed Object Rest/Spread Properties. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 
-With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code. Since VS Code's JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](http://eslint.org) to validate your source code. Since VS Code's JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
 

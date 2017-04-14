@@ -161,7 +161,7 @@ Let's take things a little further and automate Sass/Less compilation with VS Co
 
 ### Step 1: Install Gulp and some plug-ins
 
-We will use [Gulp](https://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
+We will use [Gulp](http://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
 
 We need to install gulp both globally (`-g` switch) and locally:
 
