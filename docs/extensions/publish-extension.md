@@ -89,7 +89,7 @@ vsce publish -p <token>
 
 ## Auto-incrementing the Extension Version
 
-You can auto-increment an extension's version number when you publish by specifying the [SemVer](https://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
+You can auto-increment an extension's version number when you publish by specifying the [SemVer](http://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
 
 For example, if you want to update an extension's version from 1.0.0 to 1.1.0, you would specify `minor`:
 
