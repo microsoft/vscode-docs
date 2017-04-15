@@ -130,9 +130,14 @@ Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
 
 ## Formatting
 
-VS Code has great support for source code formatting. The editor has two explicit format actions: **Format Document** (`kb(editor.action.formatDocument)`) and **Format Selection** (`kb(editor.action.formatSelection)`) which you can invoke from the Command Palette (`kb(workbench.action.showCommands)`) or the editor context menu.
+VS Code has great support for source code formatting. The editor has two explicit format actions:
 
-VS Code has default formatters for JavaScript, TypeScript, JSON, and HTML. Each formatter has specific formatting [options](/docs/getstarted/settings.md) (for example, `html.format.indentInnerHtml`) which you can tune to your preference. You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
+* **Format Document** (`kb(editor.action.formatDocument)`) - Format the entire active file.
+* **Format Selection** (`kb(editor.action.formatSelection)`) - Format the selected text.
+
+You can invoke these from the **Command Palette** (`kb(workbench.action.showCommands)`) or the editor context menu.
+
+VS Code has default formatters for JavaScript, TypeScript, JSON, and HTML. Each language has specific formatting options (for example, `html.format.indentInnerHtml`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
 
 ```json
 "html.format.enable": false
