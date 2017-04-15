@@ -217,10 +217,11 @@ By using the `PickProcess` variable the launch configuration looks like this:
     "name": "Attach to Process",
     "type": "node",
     "request": "attach",
-    "processId": "${command.PickProcess}",
+    "processId": "${command:PickProcess}",
     "port": 5858
 }
 ```
+
 ## Remote debugging
 
 The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. Specify a remote host via the `address` attribute.
