@@ -182,7 +182,10 @@ You can also reference environment variables through **${env:Name}** syntax (for
 }
 ```
 
-You can also reference VS Code settings using **${config:Name}** syntax (for example: `${config:editor.fontSize}`) and commands using **${command:CommandId}** (for example: `${command:explorer.newFolder}`).
+You can reference VS Code settings and commands using the following syntax:
+
+* **${config:Name}** - example: `${config:editor.fontSize}`
+* **${command:CommandID}** - example: `${command:explorer.newFolder}`
 
 ## Run mode
 
