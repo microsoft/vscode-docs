@@ -258,7 +258,7 @@ Read on to find out about:
 
 **Q: Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
 
-**A:** No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library.
+**A:** No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. [Update] https://githubengineering.com/a-formal-spec-for-github-markdown/
 
 **Q: In the walkthrough above, I didn't find the Configure Task Runner command in the Command Palette?**
 
