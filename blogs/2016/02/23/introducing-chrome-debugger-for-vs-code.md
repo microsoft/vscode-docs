@@ -1,5 +1,5 @@
 ---
-Order: 
+Order:
 TOCTitle: Introducing Chrome Debugging
 PageTitle: Introducing Chrome Debugging for VS Code
 MetaDescription: Chrome debugger extension for Visual Studio Code

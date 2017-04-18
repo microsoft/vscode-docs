@@ -401,7 +401,7 @@ We have changed the debug protocol in the following (backward compatible) ways:
 - [2490](https://github.com/Microsoft/vscode/issues/2490): Improve IntelliSense perf
 - [3127](https://github.com/Microsoft/vscode/issues/3127): `code .` opens the current directory, `code ..` also opens the current directory - not the parent
 - [3894](https://github.com/Microsoft/vscode/issues/3894): [Handlebars] Curly braces edit issuess
-- [3899](https://github.com/Microsoft/vscode/issues/3899): [folding] sections are still folded when disabled in preferences 
+- [3899](https://github.com/Microsoft/vscode/issues/3899): [folding] sections are still folded when disabled in preferences
 - [3903](https://github.com/Microsoft/vscode/issues/3903): [js] syntax highlight for 'var' and 'function' not working in Default VS theme
 - [3509](https://github.com/Microsoft/vscode/issues/3509): Smoke Test: Don't get cross file intellisense in JS
 

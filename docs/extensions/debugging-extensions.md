@@ -86,7 +86,7 @@ your changes. You have two options to do this:
 **Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
 
 **A:** If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the
-`engines` field of the `package.json` file of the extension. 
+`engines` field of the `package.json` file of the extension.
 
 Here are the steps:
 
