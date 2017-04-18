@@ -5,7 +5,7 @@ TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
 DateApproved: 4/5/2017
-MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion). 
+MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 
 # IntelliSense
@@ -91,7 +91,7 @@ The settings shown below are the default settings. You can change these settings
 
     // Enable word based suggestions
     "editor.wordBasedSuggestions": true
-    
+
     // Enable parameter hints
     "editor.parameterHints": true
 }
@@ -143,5 +143,5 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 
-**A:** This issue is caused by missing type declaration (typings) files in JavaScript. You can check if a type declaration file package is available for a specific library by using the [TypeSearch](http://microsoft.github.io/TypeSearch) site. There is more information about this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
+**A:** This issue is caused by missing type declaration (typings) files in JavaScript. You can check if a type declaration file package is available for a specific library by using the [TypeSearch](https://microsoft.github.io/TypeSearch) site. There is more information about this issue in the [JavaScript language topic](/docs/languages/javascript.md#intellisense). For other languages, please consult the extension's documentation.
 

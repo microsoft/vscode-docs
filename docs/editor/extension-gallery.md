@@ -29,7 +29,7 @@ In addition, you can also review an extension's:
 
 * **Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
 * **Changelog** - The extension repository CHANGELOG if available.
-* **Dependencies** - Lists if the extension depends on any other extensions. 
+* **Dependencies** - Lists if the extension depends on any other extensions.
 
 ![extension contributions](images/extension-gallery/extension-contributions.png)
 
@@ -84,7 +84,7 @@ If you would like your installed extensions to be updated automatically, you can
 
 ### Disable an extension
 
-Disable an extension by clicking the settings icon next to the extension, as shown in the animation below. 
+Disable an extension by clicking the settings icon next to the extension, as shown in the animation below.
 
 ![disable an extension](images/extension-gallery/extensions-disable.gif)
 
@@ -165,13 +165,13 @@ Here are a few topics you may find interesting...
 An extension's direct download URL is in the form:
 
 ```
-https://${publisher}.gallery.vsassets.io/_apis/public/gallery/publisher/${publisher}/extension/${extension name}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
+http://${publisher}.gallery.vsassets.io/_apis/public/gallery/publisher/${publisher}/extension/${extension name}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
 ```
 
 For example, the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) version `0.10.18` would be:
 
 ```
-https://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
+http://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
 ```
 
 Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions View command drop-down.

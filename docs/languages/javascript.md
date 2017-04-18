@@ -53,7 +53,7 @@ If you are using Visual Studio Code 1.8+, you can alternately explicitly list pa
     }
 ```
 
-Now when you `require` or `import` **lodash**, VS Code will use the automatically downloaded type declaration files for the library to provide rich Intellisense. Most common JavaScript libraries have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](http://microsoft.github.io/TypeSearch) site.
+Now when you `require` or `import` **lodash**, VS Code will use the automatically downloaded type declaration files for the library to provide rich Intellisense. Most common JavaScript libraries have type declaration files available. You can search for a library's type declaration file package using the [TypeSearch](https://microsoft.github.io/TypeSearch) site.
 
 ## JavaScript Project (jsconfig.json)
 
