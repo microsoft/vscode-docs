@@ -138,7 +138,7 @@ From a terminal in the Express application folder, run:
 npm start
 ```
 
-The Node.js web server will start and you can browse to `https://localhost:3000` to see the running application.
+The Node.js web server will start and you can browse to `http://localhost:3000` to see the running application.
 
 ![Your first Node Express App](images/nodejs/express.png)
 
