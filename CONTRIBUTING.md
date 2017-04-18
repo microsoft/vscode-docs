@@ -80,7 +80,7 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **MetaDescription** - The meta description for this page which helps for search
 * **MetaTags** - Further tags for this page again for search
 
-## Formatting 
+## Formatting
 
 ### Headings & Right Nav
 
@@ -117,9 +117,9 @@ For links within our own documentation, use a site relative link like `/docs/edi
 
 ### Bookmarks
 
-To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.  
+To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.
 
-Note the subheading title is lowercase and subheading title words are separated by '-' dashes.  
+Note the subheading title is lowercase and subheading title words are separated by '-' dashes.
 
 >For example: `[More on documentation intent](#documentation-intent)` - links to the **Documentation intent** subheading above.
 
@@ -127,17 +127,17 @@ Note the subheading title is lowercase and subheading title words are separated 
 
 Images are important to bring the product to life - even if people can't try the product these really help them see what they are missing.
 
-For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`. 
+For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
-When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase. 
+When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase.
 
 >For example: `![Debug Breakpoints](images/debugging/breakpoints.png)`
 
 ### Key bindings
 
-The VS Code portal is able to show the correct key bindings depending on the reader's operating system (Mac, Windows or Linux).  
+The VS Code portal is able to show the correct key bindings depending on the reader's operating system (Mac, Windows or Linux).
 
-To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.  
+To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.
 
 >For a list of key bindings and the relevant `Command Ids` review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings).
 

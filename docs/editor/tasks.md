@@ -137,7 +137,7 @@ The first task start the TypeScript compiler in watch mode, the second one start
 
 ## Binding keyboard shortcuts to tasks
 
-If you need to run a task frequently, you can also define a keyboard shortcut for the task. 
+If you need to run a task frequently, you can also define a keyboard shortcut for the task.
 
 For example to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
 
@@ -538,7 +538,7 @@ Looking at the output shows the following pattern:
 - Between those two strings problems are reported.
 - The compiler also runs once the initial start (without printing `File change detected. Starting incremental compilation...` to the console).
 
-To capture this information, a problem matcher can provide a `watching` property. 
+To capture this information, a problem matcher can provide a `watching` property.
 
 For the tsc compiler, this looks like follows:
 

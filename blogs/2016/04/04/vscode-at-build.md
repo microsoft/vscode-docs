@@ -2,7 +2,7 @@
 Order: 6
 TOCTitle: VS Code at //build/
 PageTitle: Visual Studio Code at Build 2016
-MetaDescription: Visual Studio Code at Build 2016. Learn about presentations featuring VS Code. 
+MetaDescription: Visual Studio Code at Build 2016. Learn about presentations featuring VS Code.
 Date: 2016-04-05
 ShortDescription: Visual Studio Code had a great presence at Build 2016.
 Author: Wade Anderson

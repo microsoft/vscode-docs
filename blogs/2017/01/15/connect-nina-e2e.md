@@ -161,7 +161,7 @@ Additionally, this console is actually attached to our newly running app, so you
 
 <img src="/images/2017_01_03_ConsoleCode.png" width="450px" />
 
-If you open a browser, you can navigate to `https://localhost:8080` and see the running app. Type a message into the textbox and add/remove a few todos to get a feel for how the app works.
+If you open a browser, you can navigate to `http://localhost:8080` and see the running app. Type a message into the textbox and add/remove a few todos to get a feel for how the app works.
 
 <img src="/images/2017_01_03_Todo.png" width="350px" />
 
@@ -207,7 +207,7 @@ Type `CTRL+P`, enter/select `launch.json` and replace the contents of that file 
             "name": "Chrome",
             "type": "chrome",
             "request": "launch",
-            "url": "https://localhost:8080",
+            "url": "http://localhost:8080",
             "port": 9222,
             "userDataDir": "${workspaceRoot}/.vscode/chrome",
             "webRoot": "${workspaceRoot}/public"
@@ -233,7 +233,7 @@ To see this in action, switch to the debug tab in VS Code, and change the select
 
 <img src="/images/2017_01_03_FullStackProfile.png" width="250px" />
 
-This launches the Node.js app (as can be seen in the debug console output), as well as Chrome, which is configured to navigate to the Node.js app at `https://localhost:8080`.
+This launches the Node.js app (as can be seen in the debug console output), as well as Chrome, which is configured to navigate to the Node.js app at `http://localhost:8080`.
 
 Type `CTRL+P` and enter/select `todos.js`, which is the main Angular controller for the app's front-end. Set a breakpoint on line 11, which is the entry-point for a new todo being created.
 

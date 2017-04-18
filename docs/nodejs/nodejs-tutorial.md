@@ -209,8 +209,8 @@ The first thing we'll need to do is get our source code into a GitHub repository
 
 ---
 
-We are going to follow the instructions provided by GitHub to create a new repository on the command line, but with a few changes. 
-It is a good practice to include a `.gitignore` file in your repository that excludes the `node_modules` folder. We'll do this instead of creating a `README.md` file and we'll add and commit all of the files in the workspace (except `node_modules` of course): 
+We are going to follow the instructions provided by GitHub to create a new repository on the command line, but with a few changes.
+It is a good practice to include a `.gitignore` file in your repository that excludes the `node_modules` folder. We'll do this instead of creating a `README.md` file and we'll add and commit all of the files in the workspace (except `node_modules` of course):
 
 ```bash
 echo "node_modules" >> .gitignore
@@ -248,7 +248,7 @@ az appservice web browse -n myUniqueName-ExpressApp -g myExpressAppGroup
 az appservice web source-control config --repo-url https://github.com/yourgithubaccount/myExpressApp -n myUniqueName-ExpressApp -g myExpressAppGroup
 ```
 
-Refresh the site and you should see your Express application hosted in the cloud on Azure! 
+Refresh the site and you should see your Express application hosted in the cloud on Azure!
 
 ![Express app running in Azure](images/nodejs/expressinazure.png)
 
@@ -258,11 +258,11 @@ To test continuous deployment, make a change to the `index.jade` file found in t
 
 ![Commit a change](images/nodejs/commitchange.png)
 
-Use the overflow menu to **Sync** the change with the GitHub repository. 
+Use the overflow menu to **Sync** the change with the GitHub repository.
 
 ![Sync the change](images/nodejs/syncchange.png)
 
-Finally, the site will recognize a change has been pushed and the content will automatically be redeployed. 
+Finally, the site will recognize a change has been pushed and the content will automatically be redeployed.
 
 ![VS Code Rocks](images/nodejs/vscoderocks.png)
 

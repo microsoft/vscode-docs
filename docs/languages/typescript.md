@@ -29,7 +29,7 @@ Typically the first step in any new TypeScript project is to add in a `tsconfig.
 
 ![jsconfig.json IntelliSense](images/typescript/jsconfigintellisense.png)
 
-A simple `tsconfig.json` looks like this for ES5, **CommonJS** [modules](https://www.commonjs.org/specs/modules/1.0) and source maps:
+A simple `tsconfig.json` looks like this for ES5, **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0) and source maps:
 
 ```json
 {
