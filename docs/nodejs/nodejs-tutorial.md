@@ -162,7 +162,7 @@ Open the file `app.js` and hover over the Node.js global object `__dirname`. Not
 
 VS Code uses TypeScript type declaration (typings) files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition`, you do not have to worry about downloading these type declaration files, VS Code will install them automatically for you.
 
-You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
+You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `index`, you can see the shape of the `Router` class.
 
 ![Express.Router IntelliSense](images/nodejs/moduleintellisense.png)
 
