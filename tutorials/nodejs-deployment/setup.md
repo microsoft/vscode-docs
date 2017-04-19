@@ -1,7 +1,7 @@
 ---
 Order: 2
-TOCTitle: Set up
-PageTitle: Set up
+TOCTitle: Setup
+PageTitle: Setup
 MetaDescription: 
 MetaSocialImage: 
 Date: 
@@ -60,4 +60,4 @@ git version 2.6.4
 
 ---- 
 
-<a class="tutorial-btn" href="/tutorials/nodejs-deployment/express">I've installed the Azure CLI and the prerequisites</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/express">I've installed the Azure CLI and the prerequisites</a>

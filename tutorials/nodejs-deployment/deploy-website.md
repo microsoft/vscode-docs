@@ -71,8 +71,8 @@ You'll be prompted for the password you provided above. You should then see a se
 
 Browse to the site again and you should see your Express site hosted in Azure!
 
-![Express Site Hosted in Azure](tutorials/nodejs-deployment/images/expressinazure.png)
+![Express Site Hosted in Azure](nodejs-deployment_expressinazure.png)
 
 ---- 
 
-<div class="btn" a href="/tutorials/nodejs-deployment/6.tailing-logs">My site is on Azure</div>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/6.tailing-logs">My site is on Azure</a>

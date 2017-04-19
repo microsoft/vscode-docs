@@ -46,11 +46,12 @@ function renderTemplate(file, article) {
 gulp.task('copy-tutorial-images', function () {
 	console.log('Copying tutorial images..');
 
-	var images = gulp.src([TUTORIAL_ROOT + '/**/images/*.{png,PNG,jpg,JPG,svg,SVG}']).pipe(imagemin());
-	var gifs = gulp.src([TUTORIAL_ROOT + '/**/images/*.{gif,GIF}']);
+	var images = gulp.src([TUTORIAL_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG,svg,SVG}']).pipe(imagemin());
+	var gifs = gulp.src([TUTORIAL_ROOT + '/**/images/**/*.{gif,GIF}']);
 
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { 
+			console.log(path);
             path.basename = path.dirname + '_' + path.basename; 
             path.dirname = ''; 
         }))

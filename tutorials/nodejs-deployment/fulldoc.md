@@ -8,7 +8,7 @@ If this sounds complicated, don't worry, it isn't :).
 
 The first thing we'll need to do is get our source code into a GitHub repository. Browse to your GitHub account and [create a new public repository](https://github.com/new).
 
-![Create a new GitHub repository](images/nodejs/newgithubrepo.png)
+![Create a new GitHub repository](nodejs-deployment_newgithubrepo.png)
 
 ---
 
@@ -53,18 +53,18 @@ az appservice web source-control config --repo-url https://github.com/yourgithub
 
 Refresh the site and you should see your Express application hosted in the cloud on Azure! 
 
-![Express app running in Azure](images/nodejs/expressinazure.png)
+![Express app running in Azure](nodejs-deployment_expressinazure.png)
 
 ---
 
 To test continuous deployment, make a change to the `index.jade` file found in the `views` folder and make a local commit.
 
-![Commit a change](images/nodejs/commitchange.png)
+![Commit a change](nodejs-deployment_commitchange.png)
 
 Use the overflow menu to **Sync** the change with the GitHub repository. 
 
-![Sync the change](images/nodejs/syncchange.png)
+![Sync the change](nodejs-deployment_syncchange.png)
 
 Finally, the site will recognize a change has been pushed and the content will automatically be redeployed. 
 
-![VS Code Rocks](images/nodejs/vscoderocks.png)
+![VS Code Rocks](nodejs-deployment_vscoderocks.png)

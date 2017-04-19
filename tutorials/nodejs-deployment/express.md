@@ -1,7 +1,7 @@
 ---
 Order: 3
-TOCTitle: Create the App
-PageTitle: Create the App
+TOCTitle: Create your Node.js Application
+PageTitle: Create your Node.js Application
 MetaDescription: 
 MetaSocialImage: 
 Date: 
@@ -9,7 +9,7 @@ ShortDescription:
 Author: 
 ---
 
-# The Application
+# Create your Node.js Application
 
 In this step you will create a very simple Node.js application that can be deployed to the Cloud. You will use an application generator to quickly scaffold out the application from a terminal.
 
@@ -50,9 +50,9 @@ $ npm start
 
 You should see something like this:
 
-![Running Express Application](tutorials_nodejs-deployment_images_express.png)
+![Running Express Application](nodejs-deployment_express.png)
 
 ---- 
 
 
-<a class="tutorial-btn" href="/tutorials/nodejs-deployment/create-website">I created the Node.js application</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/create-website">I created the Node.js application</a>

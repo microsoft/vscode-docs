@@ -35,4 +35,4 @@ GET / 304 0.490 ms - -
 
 ---- 
 
-<div class="btn" a href="/tutorials/nodejs-deployment/7.publishing-changes">I can see my logs</div>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/publishing-changes">I can see my logs</a>

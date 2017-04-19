@@ -1,7 +1,7 @@
 ---
 Order: 4
-TOCTitle: Create the WebSite
-PageTitle: Create the WebSite
+TOCTitle: Create the Website
+PageTitle: Create the Website
 MetaDescription: 
 MetaSocialImage: 
 Date: 
@@ -9,7 +9,7 @@ ShortDescription:
 Author: 
 ---
 
-# Create the WebSite
+# Create the Website
 
 In this step you will use the Azure CLI to create an website on Azure.
 
@@ -55,8 +55,8 @@ $ az appservice web browse --name myExpressApp-chrisdias
 
 You should see something like this:
 
-![Empty Azure Website](tutorials/nodejs-deployment/images/emptyazuresite.png)
+![Empty Azure Website](nodejs-deployment_emptyazuresite.png)
 
 ---- 
 
-<div class="btn" a href="/tutorials/nodejs-deployment/5.deploy-website">My site is running</div>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/5.deploy-website">My site is running</a>

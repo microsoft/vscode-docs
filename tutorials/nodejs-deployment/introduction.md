@@ -19,4 +19,4 @@ You'll need [Node.js and npm](https://nodejs.org/en/download/) and [git](https:/
 
 ---- 
 
-<a class="tutorial-btn" href="/tutorials/nodejs-deployment/setup">I'm ready to start!</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/setup">I'm ready to start!</a>
