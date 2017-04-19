@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Hello World
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
 PageTitle: Your First Visual Studio Code Extension - Hello World
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Create your first Visual Studio extension (plug-in) with a simple Hello Word example.  This walkthrough will take you through the basics of VS Code extensibility.
 ---
 # Example - Hello World
@@ -206,7 +206,7 @@ Now that the roles of the files included in the extension are clarified, here is
 
 ## Debugging your Extension
 
-Simply set a breakpoint, for example inside the registered command and run the `"Hello world"` command in the Extension Development VS Code instance.
+Set a breakpoint, for example inside the registered command, and run the `"Hello world"` command in the Extension Development VS Code instance.
 
 ![Debugging the extension](images/example-hello-world/hitbp.png)
 

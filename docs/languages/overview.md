@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Overview
 ContentId: AC888642-FBE5-43E5-9DC2-47B197717940
 PageTitle: Language Support in Visual Studio Code
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: In Visual Studio Code we have support for all common languages including smart code completion and debugging.
 ---
 # Programming Languages
@@ -54,6 +54,8 @@ A language identifier is often (but not always) the lowercased programming langu
 You can see the list of currently installed languages and their identifiers in the **Change Language Mode** (`kb(workbench.action.editor.changeLanguageMode)`) drop-down.
 
 ![language identifiers](images/overview/language-identifiers.png)
+
+You can find a list of known identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
 ## Adding a file extension to a language
 

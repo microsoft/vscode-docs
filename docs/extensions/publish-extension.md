@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Publishing Extensions
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
 PageTitle: Publishing Visual Studio Code Extensions
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
 ---
 # Publishing Extensions
@@ -15,7 +15,7 @@ MetaDescription: Learn how to publish Visual Studio Code extensions to the publi
 
 ## Installation
 
-Make sure you have [Node.js](https://nodejs.org/) installed. Then simply run:
+Make sure you have [Node.js](https://nodejs.org/) installed. Then run:
 
 ```
 npm install -g vsce
@@ -69,11 +69,11 @@ vsce create-publisher (publisher name)
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
 
-**Note:** Alternatively, create your publisher in http://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
+**Note:** Alternatively, create your publisher in https://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
 
 ### Login to a Publisher
 
-If you already created a publisher before and simply want to use it with `vsce`:
+If you already created a publisher before and want to use it with `vsce`:
 
 ```bash
 vsce login (publisher name)
@@ -107,7 +107,7 @@ vsce publish 2.0.1
 
 ## Packaging Extensions
 
-You may want to simply package extensions without publishing them to the store. Extensions will always be packaged into a `.vsix` file. Here's how:
+You may want to package extensions without publishing them to the store. Extensions will always be packaged into a `.vsix` file. Here's how:
 
 ```bash
 vsce package
@@ -117,7 +117,7 @@ This will package your extension into a `.vsix` file and place it in the current
 
 ### Sharing Privately with Others
 
-If you want to share your extension with others privately, you can simply send them your packaged extension `.vsix` file.
+If you want to share your extension with others privately, you can send them your packaged extension `.vsix` file.
 
 ## Visual Studio Code Compatiblity
 
@@ -191,7 +191,7 @@ It's possible to add a pre-publish step to your manifest file. The command will 
 }
 ```
 
-This will always invoke the [TypeScript](http://www.typescriptlang.org/) compiler whenever the extension is packaged.
+This will always invoke the [TypeScript](https://www.typescriptlang.org/) compiler whenever the extension is packaged.
 
 ## Next Steps
 

@@ -4,8 +4,8 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 3/1/2017
-MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.  
+DateApproved: 4/5/2017
+MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 
 # Integrated Terminal
@@ -34,7 +34,7 @@ Remove terminal instances by pressing the trash can button.
 
 ## Configuration
 
-The shell used defaults to `$SHELL` on Linux and OS X, and PowerShell on Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
+The shell used defaults to `$SHELL` on Linux and OS X, PowerShell on Window 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell on Linux and OS X using the `terminal.integrated.shellArgs.*` settings.
 
 ### Windows
 
@@ -57,7 +57,7 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 
 ### Linux & OS X
 
-Typically `$SHELL` is your primary shell on Unix-like systems so you probably won't want to change the shell. You can pass arguments to the shell when it is launched. 
+Typically `$SHELL` is your primary shell on Unix-like systems so you probably won't want to change the shell. You can pass arguments to the shell when it is launched.
 
 For example, to enable running bash as a login shell (which runs `.bash_profile`), pass in the `-l` argument (with double quotes):
 
@@ -114,7 +114,7 @@ The terminal will attempt to run the selected text.
 
 ![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
 
-If no text is selected in the active editor, the entire file contents is run in the terminal. This is useful if you want to run an entire script or batch file. Simply open the file and run **Terminal: Run Selected Text in Active Terminal**.
+If no text is selected in the active editor, the entire file contents is run in the terminal. This is useful if you want to run an entire script or batch file. Open the file and run **Terminal: Run Selected Text in Active Terminal**.
 
 ### Copy & Paste
 

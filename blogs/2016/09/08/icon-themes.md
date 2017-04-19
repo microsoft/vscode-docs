@@ -23,7 +23,7 @@ Fast forward to February 2016. [PR 3200](https://github.com/Microsoft/vscode/pul
 As we planned the August 2016 release, many of the [top feature requests](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request) had been addressed and support for icons bubbled to the top:
 
 * Over [200 thumbs up on GitHub](https://github.com/Microsoft/vscode/issues/211).
-* Number 9 with almost 2500 votes on the [recently retired](http://code.visualstudio.com/blogs/2016/08/19/goodbyeuservoice) User Voice list.
+* Number 9 with almost 2500 votes on the [recently retired](https://code.visualstudio.com/blogs/2016/08/19/goodbyeuservoice) User Voice list.
 * With over 200K downloads, 170 reviews, and a 5 star rating, [Roberto Huertas](https://github.com/robertohuertasm)' [vscode-icons](https://marketplace.visualstudio.com/items?itemName=robertohuertasm.vscode-icons) extension had become the 5th most popular extension in the Marketplace.
 
 ![vscode-icons extension](2016_09_08_vscode-icons.png)

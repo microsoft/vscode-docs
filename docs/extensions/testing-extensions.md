@@ -4,12 +4,12 @@ Area: extensions
 TOCTitle: Testing Extensions
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Testing Visual Studio Code Extensions
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
 # Testing Your Extension
 
-VS Code supports running and debugging tests for your extension that require the VS Code API. These tests will run inside a special instance of VS Code, the `Extension Development Host`, and have access to the full APIs. We refer to these tests as integration tests, because they go beyond unit tests that can run in isolation from a VS Code window. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](http://mochajs.org/) or [Jasmine](http://jasmine.github.io/).
+VS Code supports running and debugging tests for your extension that require the VS Code API. These tests will run inside a special instance of VS Code, the `Extension Development Host`, and have access to the full APIs. We refer to these tests as integration tests, because they go beyond unit tests that can run in isolation from a VS Code window. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](https://mochajs.org/) or [Jasmine](https://jasmine.github.io/).
 
 ## Yo Code Test Scaffolding
 
@@ -25,7 +25,7 @@ With this configuration chosen, when you run `Debug: Start` (`kb(workbench.actio
 
 ![test output](images/testing-extensions/test-output.png)
 
-The generated test uses the [Mocha test framework](http://mochajs.org/) for its test runner and library.
+The generated test uses the [Mocha test framework](https://mochajs.org/) for its test runner and library.
 
 The extension project comes with a `test` folder that includes an `index.ts` file which defines the Mocha test runner configuration and an `extension.test.ts` which has the example `Something 1` test. You can typically leave `index.ts` untouched, but you can modify it to adjust the configuration of Mocha.
 
@@ -76,7 +76,7 @@ test/**
 
 ## Running tests automatically on Travis CI build machines
 
-You can run extension tests automatically on build machines like [Travis CI](http://travis-ci.org).
+You can run extension tests automatically on build machines like [Travis CI](https://travis-ci.org).
 
 In order to enable automated extension tests, the `vscode` npm module provides a test command that will:
 
@@ -128,7 +128,7 @@ There are some optional environment variables to configure the test runner:
 
 ## Running tests on Windows with AppVeyor
 
-You can also run extension tests on Windows with [AppVeyor](http://www.appveyor.com/). To get started, you can review the VS Code integration tests AppVeyor [configuration file](https://github.com/Microsoft/vscode/blob/master/appveyor.yml).
+You can also run extension tests on Windows with [AppVeyor](https://www.appveyor.com/). To get started, you can review the VS Code integration tests AppVeyor [configuration file](https://github.com/Microsoft/vscode/blob/master/appveyor.yml).
 
 ## Next Steps
 

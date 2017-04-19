@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 3/20/2017
+DateApproved: 4/5/2017
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -89,15 +89,6 @@ The following examples customize editor settings for language modes `typescript`
 
 You can use IntelliSense in Settings editor to help you find allowed language based settings. All editor settings and some non-editor settings are supported.
 
-**Note**: The following settings are not currently supported but will be in the next release. Please refer to [#19511](https://github.com/Microsoft/vscode/issues/19511) for more information.
-
-```json
-editor.tabSize
-editor.insertSpaces
-editor.detectIndentation
-editor.trimAutoWhitespace
-```
-
 ## Settings and security
 
 In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
@@ -145,6 +136,7 @@ Below are the default settings and their values.
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
+    "**/CVS": true,
     "**/.DS_Store": true
   },
 
@@ -161,7 +153,7 @@ Below are the default settings and their values.
   //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
   "editor.wordWrap": "off",
 
-  // Configure file associations to languages (e.g. '*.extension': 'html'). These have precedence over the default associations of the languages installed.
+  // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
   "files.associations": {}
 
 // Editor
@@ -230,8 +222,12 @@ Below are the default settings and their values.
   // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
   "editor.mouseWheelScrollSensitivity": 1,
 
-  // Controls if quick suggestions should show up or not while typing
-  "editor.quickSuggestions": true,
+  // Controls if suggestions should automatically show up while typing
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  },
 
   // Controls the delay in ms after which quick suggestions will show up
   "editor.quickSuggestionsDelay": 10,
@@ -263,7 +259,7 @@ Below are the default settings and their values.
   // Controls whether copying without a selection copies the current line.
   "editor.emptySelectionClipboard": true,
 
-  // Enable word based suggestions.
+  // Controls whether completions should be computed based on words in the document.
   "editor.wordBasedSuggestions": true,
 
   // Font size for the suggest widget
@@ -275,8 +271,14 @@ Below are the default settings and their values.
   // Controls whether the editor should highlight similar matches to the selection
   "editor.selectionHighlight": true,
 
+  // Controls whether the editor should highlight semantic symbol occurrences
+  "editor.occurrencesHighlight": true,
+
   // Controls the number of decorations that can show up at the same position in the overview ruler
   "editor.overviewRulerLanes": 3,
+
+  // Controls if a border should be drawn around the overview ruler.
+  "editor.overviewRulerBorder": true,
 
   // Control the cursor animation style, possible values are 'blink', 'smooth', 'phase', 'expand' and 'solid'
   "editor.cursorBlinking": "blink",
@@ -362,9 +364,6 @@ Below are the default settings and their values.
 
 // Workbench
 
-  // When enabled, will show the Welcome page on startup.
-  "workbench.welcome.enabled": false,
-
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
 
@@ -383,6 +382,9 @@ Below are the default settings and their values.
   // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the current active one. Select 'first' or 'last' to open editors independently from the currently active one.
   "workbench.editor.openPositioning": "right",
 
+  // Controls if an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
+  "workbench.editor.revealIfOpen": false,
+
   // Controls if Quick Open should close automatically once it loses focus.
   "workbench.quickOpen.closeOnFocusLost": true,
 
@@ -398,11 +400,23 @@ Below are the default settings and their values.
   // Controls the visibility of the activity bar in the workbench.
   "workbench.activityBar.visible": true,
 
+  // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
+  "workbench.editor.closeOnFileDelete": true,
+
+  // When enabled, will show the watermark tips when no editor is open.
+  "workbench.tips.enabled": true,
+
+  // When enabled, will show the Welcome page on startup.
+  "workbench.welcome.enabled": false,
+
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
 
   // Specifies the icon theme used in the workbench.
   "workbench.iconTheme": null,
+
+  // Overrides colors from the currently selected color theme. This setting is experimental as the names of the colors will change in the next release.
+  "workbench.experimental.colorCustomizations": null,
 
 // Window
 
@@ -456,14 +470,18 @@ Below are the default settings and their values.
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
+    "**/CVS": true,
     "**/.DS_Store": true
   },
 
-  // Configure file associations to languages (e.g. '*.extension': 'html'). These have precedence over the default associations of the languages installed.
+  // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
   "files.associations": {},
 
   // The default character set encoding to use when reading and writing files.
   "files.encoding": "utf8",
+
+  // When enabled, will attempt to guess the character set encoding when opening files
+  "files.autoGuessEncoding": false,
 
   // The default end of line character.
   "files.eol": "\r\n",
@@ -488,6 +506,9 @@ Below are the default settings and their values.
 
   // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
   "files.hotExit": "onExit",
+
+  // The default language mode that is assigned to new files.
+  "files.defaultLanguage": "",
 
 // Zen Mode
 
@@ -524,6 +545,12 @@ Below are the default settings and their values.
     "**/node_modules": true,
     "**/bower_components": true
   },
+
+  // Controls whether to use ripgrep in text search
+  "search.useRipgrep": true,
+
+  // Controls whether to use .gitignore and .ignore files by default when searching in a new workspace.
+  "search.useIgnoreFilesByDefault": false,
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
@@ -779,6 +806,9 @@ Below are the default settings and their values.
   // Show variable values inline in editor while debugging
   "debug.inlineValues": false,
 
+  // Controls if the floating debug action bar should be hidden
+  "debug.hideActionBar": false,
+
 // HTML
 
   // Enable/disable default HTML formatter (requires restart)
@@ -843,6 +873,9 @@ Below are the default settings and their values.
   // Traces the communication between VS Code and the JSON language server.
   "json.trace.server": "off",
 
+  // Enables or disables color decorators
+  "json.colorDecorators.enable": true,
+
 // Markdown
 
   // A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
@@ -897,8 +930,14 @@ Below are the default settings and their values.
   // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
   "typescript.check.tscVersion": true,
 
-  // Enable/disable references CodeLens.
+  // Enable/disable references CodeLens. Requires TypeScript >= 2.0.6.
   "typescript.referencesCodeLens.enabled": false,
+
+  // Enable/disable implementations CodeLens. Requires TypeScript >= 2.2.0.
+  "typescript.implementationsCodeLens.enabled": false,
+
+  // Enables logging of the TS server to a file.
+  "typescript.tsserver.log": "off",
 
   // Enables tracing of messages sent to the TS server.
   "typescript.tsserver.trace": "off",
@@ -926,6 +965,9 @@ Below are the default settings and their values.
 
   // Defines space handling after function keyword for anonymous functions.
   "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+
+  // Defines space handling before function argument parentheses. Requires TypeScript >= 2.1.5.
+  "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
 
   // Defines space handling after opening and before closing non empty parenthesis.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
@@ -965,6 +1007,9 @@ Below are the default settings and their values.
 
   // Defines space handling after function keyword for anonymous functions.
   "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": true,
+
+  // Defines space handling before function argument parentheses. Requires TypeScript >= 2.1.5.
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
 
   // Defines space handling after opening and before closing non empty parenthesis.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
@@ -1012,7 +1057,9 @@ Below are the default settings and their values.
   "terminal.integrated.shell.osx": "sh",
 
   // The command line arguments to use when on the OS X terminal.
-  "terminal.integrated.shellArgs.osx": [],
+  "terminal.integrated.shellArgs.osx": [
+    "-l"
+  ],
 
   // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
@@ -1035,6 +1082,9 @@ Below are the default settings and their values.
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1.2,
 
+  // Whether to enable bold text within the terminal.
+  "terminal.integrated.enableBold": true,
+
   // Controls whether the terminal cursor blinks.
   "terminal.integrated.cursorBlinking": false,
 
@@ -1050,14 +1100,22 @@ Below are the default settings and their values.
   // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
   "terminal.integrated.cwd": "",
 
+  // Whether to confirm on exit if there are active terminal sessions.
+  "terminal.integrated.confirmOnExit": false,
+
   // A set of command IDs whose keybindings will not be sent to the shell and instead always be handled by Code. This allows the use of keybindings that would normally be consumed by the shell to act the same as when the terminal is not focused, for example ctrl+p to launch Quick Open.
   "terminal.integrated.commandsToSkipShell": [
     "editor.action.toggleTabFocusMode",
     "workbench.action.debug.continue",
+    "workbench.action.debug.pause",
     "workbench.action.debug.restart",
     "workbench.action.debug.run",
     "workbench.action.debug.start",
     "workbench.action.debug.stop",
+    "workbench.action.focusActiveEditorGroup",
+    "workbench.action.focusFirstEditorGroup",
+    "workbench.action.focusSecondEditorGroup",
+    "workbench.action.focusThirdEditorGroup",
     "workbench.action.openNextRecentlyUsedEditorInGroup",
     "workbench.action.openPreviousRecentlyUsedEditorInGroup",
     "workbench.action.quickOpen",
@@ -1097,12 +1155,12 @@ Below are the default settings and their values.
 
 // Telemetry
 
+  // Enable usage data and errors to be sent to Microsoft.
+  "telemetry.enableTelemetry": true,
+
   // Enable crash reports to be sent to Microsoft.
   // This option requires restart to take effect.
-  "telemetry.enableCrashReporter": true,
-
-  // Enable usage data and errors to be sent to Microsoft.
-  "telemetry.enableTelemetry": true
+  "telemetry.enableCrashReporter": true
 }
 ```
 

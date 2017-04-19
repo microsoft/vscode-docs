@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: typescript_Languages_typescript.png
 ---
@@ -17,7 +17,7 @@ It offers classes, modules, and interfaces to help you build robust components. 
 
 VS Code's TypeScript support can operate in two different modes:
 
-* **File Scope**: in this mode TypeScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.ts` doesn't reference a file `b.ts` explicitly (either using [/// reference directives](http://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or external modules) there is no common project context between the two files.
+* **File Scope**: in this mode TypeScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.ts` doesn't reference a file `b.ts` explicitly (either using [/// reference directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or external modules) there is no common project context between the two files.
 
 * **Explicit Project**: a TypeScript project is defined via a `tsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a TypeScript project. The file itself lists the files belonging to the project as well as compiler options. Details about the `tsconfig.json` file can be found [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
@@ -25,7 +25,7 @@ VS Code's TypeScript support can operate in two different modes:
 
 ## tsconfig.json
 
-Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file.  This defines the TypeScript project settings such as the compiler options and the files that should be included.  To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`.  Once in this file IntelliSense will help you along the way.
+Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file.  This defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the compiler options and the files that should be included.  To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`.  Once in this file, IntelliSense will help you along the way.
 
 ![jsconfig.json IntelliSense](images/typescript/jsconfigintellisense.png)
 
@@ -51,7 +51,7 @@ VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/
 
 Open VS Code on an empty folder and create a `HelloWorld.ts` file, place the following code in that file...
 
-``` typescript
+```ts
 class Startup {
     public static main(): number {
         console.log('Hello World');
@@ -74,7 +74,7 @@ The content of the tasks.json file looks like this:
 
 ```json
 {
-	// See http://go.microsoft.com/fwlink/?LinkId=733558
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
 	// for the documentation about the tasks.json format
 	"version": "0.1.0",
 	"command": "tsc",
@@ -89,11 +89,11 @@ The content of the tasks.json file looks like this:
 
 Under the covers we interpret `tsc` as an external task runner exposing exactly one task: the compiling of TypeScript files into JavaScript files. The command we run is: `tsc -p .`
 
->**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](http://www.typescriptlang.org/).
+>**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](https://www.typescriptlang.org/).
 
 ### Step 3: Run the Build Task
 
-As this is the only task in the file, you can execute it by simply pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
+As this is the only task in the file, you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
 
 The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` and `HelloWorld.js.map` file was created.
 
@@ -137,7 +137,7 @@ You can also use the keyboard to open the list `kb(workbench.actions.view.proble
 
 ## JSDoc Support
 
-VS Code offers **JSDoc** support for TypeScript. Besides syntax coloring, we help you enter **JSDoc** comments. Simply type `/**` and it will auto insert the closing `*/`. Pressing `kbstyle(Enter)` inside a **JSDoc** block will indent the next line and auto insert a `*`.
+VS Code offers **JSDoc** support for TypeScript. Besides syntax coloring, we help you enter **JSDoc** comments. Type `/**` and it will auto insert the closing `*/`. Pressing `kbstyle(Enter)` inside a **JSDoc** block will indent the next line and auto insert a `*`.
 
 ## JavaScript Source Map Support
 
@@ -178,9 +178,23 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 ## Using Newer TypeScript Versions
 
-VS Code ships with a recent stable version of TypeScript, and you can also configure the version of TypeScript that VS Code uses. The active version of TypeScript is displayed in the status bar when viewing a TypeScript or JavaScript file:
+VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. The active version of the TypeScript language service is displayed in the Status Bar when viewing a TypeScript or JavaScript file:
 
 ![TypeScript status bar version](images/typescript/status-bar-version.png)
+
+When VS Code detects that the TypeScript compiler (tsc) version is different than the active TypeScript language service version, a message is displayed "Version mismatch! global tsc (2.1.5) != VS Code's language service (2.2.1). Inconsistent compiler errors might occur". This message is benign and is meant to alert the user to the possible differences between the compiler and active language service.
+
+You can disable this check with the `typescript.check.tscVersion` user or workspace [setting](/docs/getstarted/settings.md). This will be set to false in your user settings if you click the **Don't Check Again** in the message banner.
+
+```json
+  "typescript.check.tscVersion": false
+```
+
+Another option is to install the matching version of TypeScript in your workspace (`npm install --save-dev typescript`) or globally  on your computer (`npm install -g typescript`). We recommend installing TypeScript locally to avoid possible interactions with other TypeScript projects you may have.
+
+>**Tip:** To get a specific TypeScript version, specify `@version`. For example for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
+
+As VS Code updates the TypeScript language service in subsequent releases, you may see the mismatch message again and want to refresh your installed version of TypeScript.
 
 To use a different TypeScript version by default, configure `typescript.tsdk` in your user settings to point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
 
@@ -200,15 +214,11 @@ You can also configure a specific version of TypeScript in a particular workspac
 }
 ```
 
-If you run `npm install typescript` in your workspace and your workspace does not have a `typescript.tsdk` workspace setting, VS Code will pick up the version of TypeScript that you installed in the workspace.
-
->**Tip:** To get a specific TypeScript version, specify `@version`. For example for TypeScript 2.0, you would use `npm install typescript@2.0.0`. To preview the next version of TypeScript, run `npm install typescript@next`.
-
-If your workspace has a specific TypeScript version, you can switch between the workspace version of TypeScript and the version that VS Code uses by default by opening a TypeScript or JavaScript file in the workspace and clicking on the TypeScript version number in the status bar. A message box will appear asking you which version of TypeScript VS Code should use:
+If your workspace has a specific TypeScript version, you can switch between the workspace version of TypeScript and the version that VS Code uses by default by opening a TypeScript or JavaScript file in the workspace and clicking on the TypeScript version number in the Status Bar. A message box will appear asking you which version of TypeScript VS Code should use:
 
 ![TypeScript version selector](images/typescript/select-ts-version-message.png)
 
-After switching versions of TypeScript or changing `typescript.tsdk`, restart VS Code to have the change take effect. You can switch back to the version of TypeScript that comes with VS Code by clicking on the TypeScript version in the status bar again.
+After switching versions of TypeScript or changing `typescript.tsdk`, restart VS Code to have the change take effect. You can switch back to the version of TypeScript that comes with VS Code by clicking on the TypeScript version in the Status Bar again.
 
 ## References CodeLens
 
@@ -248,3 +258,7 @@ OK, read on to find out about:
 **A**: If you get that error, resolve it by creating a `tsconfig.json` file in the root folder of your project. The tsconfig.json file lets you control how Visual Studio Code compiles your TypeScript code. For more information, see the [tsconfig.json overview](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 Due to a current limitation, you must restart VS Code after adding the `tsconfig.json` file.
+
+**Q: Can I use the version of TypeScript that ships with VS 2015?**
+
+**A**: No, the TypeScript language service which ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).

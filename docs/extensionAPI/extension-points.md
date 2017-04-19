@@ -4,10 +4,9 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
-
 # Contribution Points - package.json
 
 This document covers the various contribution points that are defined in the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md).
@@ -60,7 +59,8 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 ## contributes.configurationDefaults
 
 Contribute default language specific editor configurations. This will override default editor configurations for the provided language.
-Following example contributes default editor configurations for `markdown` language.
+
+The following example contributes default editor configurations for the `markdown` language:
 
 ### Example
 
@@ -74,7 +74,6 @@ contributes": {
     }
 }
 ```
-
 
 ## contributes.commands
 
@@ -107,6 +106,9 @@ Currently extension writers can to contribute to:
 * The editor title menu - `editor/title`
 * The editor title context menu - `editor/title/context`
 * The debug callstack view context menu - `debug/callstack/context`
+* The [SCM title menu](/docs/extensionAPI/api-scm.md#menus) - `scm/title`
+* [SCM resource groups](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resourceGroup/context`
+* [SCM resources](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resource/context`
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 

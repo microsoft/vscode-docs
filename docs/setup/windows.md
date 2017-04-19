@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 
@@ -20,7 +20,7 @@ You can also find a Zip archive [here](/docs/?dv=winzip).
 
 >**Note:** .NET Framework 4.5.2 is required for VS Code.  If you are using Windows 7, please make sure [.NET Framework 4.5.2](https://www.microsoft.com/en-us/download/details.aspx?id=42643) is installed.
 
->**Tip:** Setup will optionally add Visual Studio Code to your `%PATH%`, so from the console you can simply type `code .` to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
+>**Tip:** Setup will optionally add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 
 ## Updates
 

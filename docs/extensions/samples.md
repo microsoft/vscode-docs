@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Additional Examples
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
 PageTitle: Visual Studio Code Extension Examples
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Learn from existing Visual Studio Code extension examples.
 ---
 # VS Code Extension Examples
@@ -34,7 +34,7 @@ Sample|Description|Type|In Marketplace
 
 Tool|Purpose
 ----|-------
-**[Extension Generator](/docs/extensions/yocode.md)**|To help you getting started implementing an extension, we have a [Yeoman](http://yeoman.io/) generator.  This creates all the initial settings you need for the development environment to work well and includes the API Typing files and any relevant modules.  You can find the generator source [here](https://github.com/Microsoft/vscode-generator-code).
+**[Extension Generator](/docs/extensions/yocode.md)**|To help you getting started implementing an extension, we have a [Yeoman](http://yeoman.io/) generator.  This creates all the initial settings you need for the development environment to work well and includes the API Typing files and any relevant modules.  You can find the generator source code [here](https://github.com/Microsoft/vscode-generator-code).
 **[Debugging Extensions](/docs/extensions/debugging-extensions.md)**|We have worked hard to provide an easy way to develop, debug and locally test your extensions.
 **[Publishing Tool](/docs/extensions/publish-extension.md)**|Once you have a working extension, it's time to share it in the [extension Marketplace](/docs/editor/extension-gallery.md). We have a simple command line tool for this. You can find the source code [here](https://github.com/Microsoft/vsce).
 

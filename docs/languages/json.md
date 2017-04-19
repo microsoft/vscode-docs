@@ -4,12 +4,12 @@ Area: languages
 TOCTitle: JSON
 ContentId: FB3B14D9-A59A-4968-ACFC-5FB5D4E9B70E
 PageTitle: JSON editing in Visual Studio Code
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Edit JSON files in Visual Studio Code
 ---
 # Editing JSON with VS Code
- 
-JSON is a data format that is common in configuration files like `package.json` or `project.json`. We also use it extensively in VS Code for our configuration files.  When opening a file that ends with `.json`, VS Code provides features out of the box to make it simpler to write or modify the file's content. 
+
+JSON is a data format that is common in configuration files like `package.json` or `project.json`. We also use it extensively in VS Code for our configuration files.  When opening a file that ends with `.json`, VS Code provides features out of the box to make it simpler to write or modify the file's content.
 
 ![JSON within VS Code](images/json/json_hero.png)
 
@@ -46,7 +46,7 @@ You can format your JSON document using `kb(editor.action.formatDocument)` or **
 
 ## JSON Schemas & Settings
 
-To understand the structure of JSON files, we use [JSON schemas](http://spacetelescope.github.io/understanding-json-schema/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions.
+To understand the structure of JSON files, we use [JSON schemas](https://spacetelescope.github.io/understanding-json-schema/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions.
 
 Servers like [JSON Schema Store](http://schemastore.org) provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
@@ -156,6 +156,6 @@ If you are a schema author and want to provide even more customized completion p
 Use the property `defaultSnippets` to specify any number of snippets for the given JSON object.
 - `label` and `description` will be shown in the completion selection dialog. If no label is provided, a stringified object representation of the snippet will be shown as label instead.
 - `body` is the JSON object that is stringified and inserted when the completion is selected by the user. [Snippet syntax](https://github.com/Microsoft/vscode/blob/master/src/vs/editor/contrib/snippet/common/snippet.md) can be used inside strings literals to define tabstops, placeholders and variables. If a string starts with `^`, the string content will be inserted as-is, not stringified. You can use this to specify snippets for numbers and booleans.
- 
+
 Note that `defaultSnippets` is not part of the JSON schema spec but a VS Code specific schema extension.
 

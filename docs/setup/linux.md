@@ -4,17 +4,16 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
-
 # Running VS Code on Linux
 
 ## Installation
 
 ### Debian and Ubuntu based distributions
 
-The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
+The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
 
 ```bash
 sudo dpkg -i <file>.deb
@@ -28,7 +27,7 @@ The repository and key can also be installed manually with the following script:
 ```bash
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] http://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 ```
 
 Then update the package cache and install the package using:
@@ -55,6 +54,7 @@ sudo dnf install code
 ```
 
 Or on older versions using `yum`:
+
 ```bash
 yum check-update
 sudo yum install code
@@ -76,9 +76,13 @@ sudo zypper refresh
 sudo zypper install code
 ```
 
+### AUR package for Arch Linux
+
+There is a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code).
+
 ### Installing .rpm package manually
 
-The [.rpm package (64-bit)](http://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
+The [.rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
 
 ```bash
 sudo dnf install <file>.rpm
@@ -104,7 +108,7 @@ To learn more about JavaScript and Node.js, see our [Node.js tutorial](/docs/nod
 
 You can set the default text editor for text files (`text/plain`) that is used by `xdg-open` with the following command:
 
-```
+```bash
 xdg-mime default code.desktop text/plain
 ```
 
@@ -112,7 +116,7 @@ xdg-mime default code.desktop text/plain
 
 Debian-based distributions allow setting a default *editor* using the [alternatives system](https://wiki.debian.org/DebianAlternatives), without concern for the mime type. You can set this by running the following and selecting code.
 
-```
+```bash
 sudo update-alternatives --set editor /usr/bin/code
 ```
 
@@ -152,13 +156,13 @@ cat /proc/sys/fs/inotify/max_user_watches
 
 The limit can be increased to its maximum by editing `/etc/sysctl.conf` and adding this line to the end of the file:
 
-```
+```bash
 fs.inotify.max_user_watches=524288
 ```
 
 The new value can then be loaded in by running `sudo sysctl -p`. Note that [Arch Linux](https://www.archlinux.org/) works a little differently, [view this page for advice](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers).
 
-While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](http://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
+While 524288 is the maximum number of files that can be watched, if you're in an environment that is particularly memory constrained, you may wish to lower the number. Each file watch [takes up 540 bytes (32-bit) or ~1kB (64-bit)](https://stackoverflow.com/a/7091897/1156119), so assuming that all 524288 watches are consumed that results in an upper bound of around 256MB (32-bit) or 512MB (64-bit).
 
 ### I can't see Chinese characters in Ubuntu
 
@@ -187,7 +191,7 @@ sudo dnf update
 
 Running 'code .' on Ubuntu when VS Code is already open in the current directory will not bring VS Code into the foreground. This is a feature of the OS which can be disabled using `ccsm`.
 
-```
+```bash
 # Install
 sudo apt-get update
 sudo apt-get install compizconfig-settings-manager

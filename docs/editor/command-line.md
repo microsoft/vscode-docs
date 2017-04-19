@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code Command Line Options
-DateApproved: 3/20/2017
+DateApproved: 4/5/2017
 MetaDescription: Visual Studio Code command line options. Learn to control VS Code startup.  
 ---
 # Command Line
@@ -13,7 +13,7 @@ Visual Studio Code has a powerful command line interface that lets you control h
 
 ## Launching from the command line
 
-You can launch VS Code from the command line to quickly open a file, folder, or project. Typically, you open VS Code within the context of a folder. We find the best way to do this is to simply type:
+You can launch VS Code from the command line to quickly open a file, folder, or project. Typically, you open VS Code within the context of a folder. To do this type:
 
 ```
 code .

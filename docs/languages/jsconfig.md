@@ -4,15 +4,15 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 3/1/2017
-MetaDescription: View the reference for jsconfig.json. 
+DateApproved: 4/5/2017
+MetaDescription: View the reference for jsconfig.json.
 ---
 
 # jsconfig.json
 
 ## What is jsconfig.json?
 
-The presence of `jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript Project. The `jsconfig.json` file specifies the root files and the options for the features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa). 
+The presence of `jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript Project. The `jsconfig.json` file specifies the root files and the options for the features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa).
 
 > **Tip:** If you are not using JavaScript, you do not need to worry about `jsconfig.json`.
 
@@ -22,7 +22,7 @@ The presence of `jsconfig.json` file in a directory indicates that the directory
 
 VS Code's JavaScript support can run in two different modes:
 
-* **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using /// reference [directives](http://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0)), there is no common project context between the two files.
+* **File Scope - no jsconfig.json**: In this mode, JavaScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.js` doesn't reference a file `b.ts` explicitly (either using /// reference [directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or **CommonJS** [modules](http://www.commonjs.org/specs/modules/1.0)), there is no common project context between the two files.
 
 * **Explicit Project - with jsconfig.json**: A JavaScript project is defined via a `jsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a JavaScript project. The file itself can optionally list the files belonging to the project, the files to be excluded from the project, as well as compiler options (see below).
 
@@ -44,7 +44,7 @@ By default the JavaScript language service will analyze and provide IntelliSense
 
 ### Using the `"exclude"` property
 
-The `exclude` attribute tells the language service what files are and are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down). 
+The `exclude` attribute tells the language service what files are and are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
 
 ```json
 {
@@ -88,6 +88,8 @@ Option  | Description
 `target`| Specifies which default library (lib.d.ts) to use. The values are "ES3", "ES5", "ES6".
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.
+`baseUrl`|Base directory to resolve non-relative module names.
+`paths`|Specify path mapping to be computed relative to baseUrl option.
 
 ## Best Practices
 

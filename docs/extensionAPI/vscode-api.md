@@ -6408,7 +6408,7 @@ valid.</p>
 
 <a name="Uri.authority"></a><span class="ts" id=338 data-target="#details-338" data-toggle="collapse"><span class="ident">authority</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-338">
-<div class="comment"><p>Authority is the <code>www.msft.com</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.
+<div class="comment"><p>Authority is the <code>www.msft.com</code> part of <code>https://www.msft.com/some/path?query#fragment</code>.
 The part between the first double slashes and the next slash.</p>
 </div>
 </div>
@@ -6417,7 +6417,7 @@ The part between the first double slashes and the next slash.</p>
 
 <a name="Uri.fragment"></a><span class="ts" id=341 data-target="#details-341" data-toggle="collapse"><span class="ident">fragment</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-341">
-<div class="comment"><p>Fragment is the <code>fragment</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.</p>
+<div class="comment"><p>Fragment is the <code>fragment</code> part of <code>https://www.msft.com/some/path?query#fragment</code>.</p>
 </div>
 </div>
 
@@ -6436,7 +6436,7 @@ invalid characters and semantics. Will <em>not</em> look at the scheme of this U
 
 <a name="Uri.path"></a><span class="ts" id=339 data-target="#details-339" data-toggle="collapse"><span class="ident">path</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-339">
-<div class="comment"><p>Path is the <code>/some/path</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.</p>
+<div class="comment"><p>Path is the <code>/some/path</code> part of <code>https://www.msft.com/some/path?query#fragment</code>.</p>
 </div>
 </div>
 
@@ -6444,7 +6444,7 @@ invalid characters and semantics. Will <em>not</em> look at the scheme of this U
 
 <a name="Uri.query"></a><span class="ts" id=340 data-target="#details-340" data-toggle="collapse"><span class="ident">query</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-340">
-<div class="comment"><p>Query is the <code>query</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.</p>
+<div class="comment"><p>Query is the <code>query</code> part of <code>https://www.msft.com/some/path?query#fragment</code>.</p>
 </div>
 </div>
 
@@ -6452,7 +6452,7 @@ invalid characters and semantics. Will <em>not</em> look at the scheme of this U
 
 <a name="Uri.scheme"></a><span class="ts" id=337 data-target="#details-337" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-instrinct">string</a></span>
 <div class="details collapse" id="details-337">
-<div class="comment"><p>Scheme is the <code>http</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.
+<div class="comment"><p>Scheme is the <code>http</code> part of <code>https://www.msft.com/some/path?query#fragment</code>.
 The part before the first colon.</p>
 </div>
 </div>

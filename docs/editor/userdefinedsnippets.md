@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Creating your own Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own Snippets in Visual Studio Code
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own Snippets
@@ -16,12 +16,12 @@ Snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with ot
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
 
 <video id="snippets-showcase" src="https://az754404.vo.msecnd.net/public/snippets_showcase.mp4" placeholder="/images/userdefinedsnippets_snippets_placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video. 
+    Sorry you're browser doesn't support HTML 5 video.
 </video>
 
 ## Add Snippets from the Marketplace
 
-Many [extensions](/docs/editor/extension-gallery.md) on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, simply install it and restart VS Code and the new snippet will be available (see [here](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
+Many [extensions](/docs/editor/extension-gallery.md) on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [here](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
 
 Below are some popular extensions which include snippets in their language support:
 
@@ -53,7 +53,7 @@ The example below is a `For Loop` snippet for `JavaScript`.
 In the example above:
 
 * `For Loop` is the snippet name
-* `prefix` defines how this snippet is selected from IntelliSense and tab completion. In this case `for`. 
+* `prefix` defines how this snippet is selected from IntelliSense and tab completion. In this case `for`.
 * `body` is the content and either a single string or an array of strings of which each element will be inserted as separate line.
 * `description` is the description used in the IntelliSense drop down
 

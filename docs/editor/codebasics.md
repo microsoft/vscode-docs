@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -84,7 +84,7 @@ Hot exit can be disabled by changing the setting `files.hotExit` to `false`.
 
 ## Search Across Files
 
-VS Code allows you to quickly search over all files in the currently-opened folder.  Simply type `kb(workbench.view.search)` and type in your search. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
+VS Code allows you to quickly search over all files in the currently-opened folder.  Press `kb(workbench.view.search)` and enter in your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
 
 ![A simple text search across files](images/codebasics/search.png)
 
@@ -102,7 +102,7 @@ In the two input boxes below the search box, you can include and exclude files. 
 * `{}` to group conditions (e.g. `{**/*.html,**/*.txt}` matches all HTML and text files)
 * `[]` to declare a range of characters to match (e.g., `example.[0-9]` to match on `example.0`, `example.1`, …)
 
-VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open settings to change these rules under the `files.exclude` and `search.exclude` section.
+VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
 >**Tip:** From the Explorer you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
@@ -124,9 +124,34 @@ We'll always offer word completion, but for the rich [languages](/docs/languages
 
 > **Tip:** IntelliSense suggestions can be configured via the `editor.quickSuggestions` and `editor.suggestOnTriggerCharacters` [settings](/docs/getstarted/settings.md).
 
-JavaScript and TypeScript developers can take advantage of the [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) type definition (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using `typings` files in the [JavaScript language](/docs/languages/javascript#_intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md#_intellisense-and-typings) tutorial.
+JavaScript and TypeScript developers can take advantage of the [npmjs](https://www.npmjs.com) type declaration (typings) file repository to get IntelliSense for common JavaScript libraries (Node.js, React, Angular). You can find a good explanation on using type declaration files in the [JavaScript language](/docs/languages/javascript.md#intellisense) topic and the [Node.js](/docs/nodejs/nodejs-tutorial.md) tutorial.
 
 Learn more in the [IntelliSense document](/docs/editor/intellisense.md).
+
+## Formatting
+
+VS Code has great support for source code formatting. The editor has two explicit format actions:
+
+* **Format Document** (`kb(editor.action.formatDocument)`) - Format the entire active file.
+* **Format Selection** (`kb(editor.action.formatSelection)`) - Format the selected text.
+
+You can invoke these from the **Command Palette** (`kb(workbench.action.showCommands)`) or the editor context menu.
+
+VS Code has default formatters for JavaScript, TypeScript, JSON, and HTML. Each language has specific formatting options (for example, `html.format.indentInnerHtml`) which you can tune to your preference in your user or workspace [settings](/docs/getstarted/settings.md). You can also disable the default language formatter if you have another extension installed that provides formatting for the same language.
+
+```json
+"html.format.enable": false
+```
+
+Along with manually invoking code formatting, you can also trigger formatting based on user gestures such as typing, saving or pasting. These are off by default but you can enable these behaviors through the following [settings](/docs/getstarted/settings.md):
+
+* `editor.formatOnType` - Format the line after typing.
+* `editor.formatOnSave` - Format a file on save.
+* `editor.formatOnPaste` - Format the pasted content.
+
+>Note: Not all formatters support format on paste as to do so they must support formatting a selection or range of text.
+
+In addition to the default formatters, you can find extensions on the Marketplace to support other languages or formatting tools. There is a `Formatters` category so you can easily search and find [formatting extensions](https://marketplace.visualstudio.com/search?target=VSCode&category=Formatters&sortBy=Downloads). In the **Extensions** view search box, type 'formatters' or 'category:formatters' to see a filtered list of extensions within VS Code.
 
 ## Folding
 

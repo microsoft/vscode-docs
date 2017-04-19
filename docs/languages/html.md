@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML Programming in VS Code
@@ -70,11 +70,11 @@ To improve the formatting of your HTML source code, press `kb(editor.action.form
 
 ## Emmet snippets
 
-We support Emmet snippet expansion, simply press `kb(editor.emmet.action.expandAbbreviation)`.
+We support Emmet snippet expansion. To expand an Emmet abbreviation, press `kb(editor.emmet.action.expandAbbreviation)`.
 
 ![Emmet HTML support built-in](images/html/emmetsnippet.gif)
 
->**Tip:** See the HTML section of the [Emmet cheat sheet](http://docs.emmet.io/cheat-sheet) for valid abbreviations.
+>**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
 If you'd like to use HTML Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `html`, `css`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
 

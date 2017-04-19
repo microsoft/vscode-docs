@@ -4,12 +4,12 @@ Area: languages
 TOCTitle: Dockerfile
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Dockerfiles in Visual Studio Code
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Find out how to get the best out of Visual Studio Code and Docker.
 ---
 # Working with Docker
 
-[Docker](http://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace.
+[Docker](https://www.docker.com) is a very popular container platform that lets you easily package, deploy, and consume applications and services. Whether you are a seasoned Docker developer or just getting started, Visual Studio Code makes it easy to author `Dockerfile` and `docker-compose.yml` files in your workspace.
 
 ## Install the Docker extension
 
@@ -17,7 +17,7 @@ Docker support for VS Code is provided by an extension. To install the Docker ex
 
 ![Select Docker extension](images/docker/installdockerextension.png)
 
-While here, you can install many other extensions to make you more productive with VS Code. 
+While here, you can install many other extensions to make you more productive with VS Code.
 
 <div class="marketplace-extensions-docker"></div>
 
@@ -25,7 +25,7 @@ While here, you can install many other extensions to make you more productive wi
 
 ## Dockerfiles
 
-With Docker, you can build images by specifying the step by step commands needed to build the image in a `Dockerfile`. A Dockerfile is simply a text file that contains the build instructions.
+With Docker, you can build images by specifying the step by step commands needed to build the image in a `Dockerfile`. A Dockerfile is just a text file that contains the build instructions.
 
 VS Code understands the structure of Dockerfiles as well as the available set of instructions, meaning we can give you a great experience when authoring these files in the tool.
 
@@ -43,7 +43,7 @@ In addition to snippets for authoring your `Dockerfile`, Visual Studio Code will
 ![Dockerfile hover tooltip](images/docker/dockerfiletooltip.png)
 
 For more information on Dockerfiles, check out [Dockerfile best practices](
-https://docs.docker.com/articles/dockerfile_best-practices/) on [docker.com](http://docker.com).
+https://docs.docker.com/articles/dockerfile_best-practices/) on [docker.com](https://docker.com).
 
 ## Docker Compose
 
@@ -73,7 +73,7 @@ Many of the most common Docker and docker-compose commands are built right into 
 
 ## Dockerfile linting
 
-You can enable linting of Dockerfile files through the `docker.enableLinting` [setting](/docs/getstarted/settings.md). The extension uses the [dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) rules based linter to analyze the Dockerfile. You can provide your own customized rules file by using the `docker.linterRuleFile` setting. You can find [more information](https://github.com/projectatomic/dockerfile_lint#extending-and-customizing-rule-files) on how to create rules files as well as [sample rules files](https://github.com/projectatomic/dockerfile_lint/tree/master/sample_rules) in the [dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) project. 
+You can enable linting of Dockerfile files through the `docker.enableLinting` [setting](/docs/getstarted/settings.md). The extension uses the [dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) rules based linter to analyze the Dockerfile. You can provide your own customized rules file by using the `docker.linterRuleFile` setting. You can find [more information](https://github.com/projectatomic/dockerfile_lint#extending-and-customizing-rule-files) on how to create rules files as well as [sample rules files](https://github.com/projectatomic/dockerfile_lint/tree/master/sample_rules) in the [dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) project.
 
 ![linting](images/docker/dockerfilelinting.gif)
 

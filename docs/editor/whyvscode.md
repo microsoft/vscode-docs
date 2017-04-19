@@ -4,10 +4,10 @@ Area: editor
 TOCTitle: Why VS Code
 ContentId: FF543B32-703C-4894-9A3B-2B5BFAF8B6B8
 PageTitle: Why Visual Studio Code?
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Visual Studio Code provides developers with a new choice of tool that combines the simplicity of a code editor with the best tooling for their core edit-build-debug cycle. Visual Studio Code is available for macOS, Linux, and Windows.
 ---
-# Why Visual Studio Code?
+# Why did we build Visual Studio Code?
 
 Visual Studio Code combines the simplicity of a source code editor with powerful developer tooling, like IntelliSense code completion and debugging.
 
@@ -52,5 +52,5 @@ If you prefer a code editor-centric development tool or are building cross-platf
 Read on to find out about:
 
 * [Visual Studio Code User Interface](/docs/getstarted/userinterface.md) - A quick orientation to VS Code.
-* [Basic Editing](/docs/editor/codebasic.md) - Learn about the VS Code editor features.
+* [Intro Videos](/docs/getstarted/introvideos.md) - Learn about the VS Code editor features.
 * [Debugging](/docs/editor/debugging.md) - OK time for the really fun stuff - break, step, watch.

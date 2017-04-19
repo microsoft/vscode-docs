@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Running and Debugging Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
 PageTitle: Running and Debugging your Visual Studio Code Extension
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: It is easy to debug and test your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension directly in Visual Studio Code.
 ---
 
@@ -86,7 +86,7 @@ your changes. You have two options to do this:
 **Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
 
 **A:** If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the
-`engines` field of the `package.json` file of the extension. 
+`engines` field of the `package.json` file of the extension.
 
 Here are the steps:
 

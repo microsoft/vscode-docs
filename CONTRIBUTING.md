@@ -1,6 +1,6 @@
 # Visual Studio Code Documentation
 
-You've found the GitHub repository that houses the source for the VS Code docs at <http://code.visualstudio.com/docs>.
+You've found the GitHub repository that houses the source for the VS Code docs at <https://code.visualstudio.com/docs>.
 
 ## Contribute to VS Code documentation
 
@@ -17,7 +17,7 @@ Thank you for your interest in VS Code documentation!
 
 ## Contributing
 
-To contribute to [VS Code documentation](http://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
+To contribute to [VS Code documentation](https://code.visualstudio.com/docs), you need to fork this repository and submit a pull request for the Markdown and/or image changes that you're proposing.
 
 ## Documentation intent
 
@@ -34,7 +34,7 @@ The documentation should target developers learning to use VS Code or searching 
 
 ## Repository organization
 
-The content in this repository follows the organization of documentation at <http://code.visualstudio.com/docs>.
+The content in this repository follows the organization of documentation at <https://code.visualstudio.com/docs>.
 
 This repository contains the following folders:
 
@@ -60,7 +60,7 @@ We recommend that you create local working branches that target a specific scope
 
 ## Authoring tools
 
-[Visual Studio Code](http://code.visualstudio.com) is a great editor for Markdown!
+[Visual Studio Code](https://code.visualstudio.com) is a great editor for Markdown!
 
 In fact, VS Code itself is developed using VS Code and the core documentation is authored using VS Code.
 
@@ -80,7 +80,7 @@ Topic metadata enables certain functionalities for the topics such as table of c
 * **MetaDescription** - The meta description for this page which helps for search
 * **MetaTags** - Further tags for this page again for search
 
-## Formatting 
+## Formatting
 
 ### Headings & Right Nav
 
@@ -117,9 +117,9 @@ For links within our own documentation, use a site relative link like `/docs/edi
 
 ### Bookmarks
 
-To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.  
+To provide links to h2 subheadings (Markdown ##), the format is `[Link Text](page#subheading-title)`.
 
-Note the subheading title is lowercase and subheading title words are separated by '-' dashes.  
+Note the subheading title is lowercase and subheading title words are separated by '-' dashes.
 
 >For example: `[More on documentation intent](#documentation-intent)` - links to the **Documentation intent** subheading above.
 
@@ -127,17 +127,17 @@ Note the subheading title is lowercase and subheading title words are separated 
 
 Images are important to bring the product to life - even if people can't try the product these really help them see what they are missing.
 
-For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`. 
+For images you're adding to the repo, store them in the `images` subfolder of the TOC section, for example: `editor\images\debugging`.
 
-When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase. 
+When you link to an image, the path and filename are case-sensitive.  The convention is for image filenames to be all lowercase.
 
 >For example: `![Debug Breakpoints](images/debugging/breakpoints.png)`
 
 ### Key bindings
 
-The VS Code portal is able to show the correct key bindings depending on the reader's operating system (Mac, Windows or Linux).  
+The VS Code portal is able to show the correct key bindings depending on the reader's operating system (Mac, Windows or Linux).
 
-To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.  
+To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.
 
 >For a list of key bindings and the relevant `Command Ids` review the [key bindings document](https://code.visualstudio.com/docs/getstarted/keybindings).
 

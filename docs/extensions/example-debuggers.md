@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Debuggers
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 3/1/2017
+DateApproved: 4/5/2017
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
 
@@ -79,7 +79,7 @@ Now build and launch the Mock Debug extension by selecting the `Extension` launc
 Initially this will do a full transpile of the TypeScript sources into the `out` folder.
 After the full build, a 'watcher task' is started that transpiles any changes you make.
 
-After transpiling the source, a new VS Code window ('[Extenson Development Host]') appears with the Mock Debug extension now running in debug mode. From that window open your `mock test` project with the `readme.md` file, start a debug session with 'F5', and then step through it:
+After transpiling the source, a new VS Code window ('[Extension Development Host]') appears with the Mock Debug extension now running in debug mode. From that window open your `mock test` project with the `readme.md` file, start a debug session with 'F5', and then step through it:
 
 ![Debugging Extension and Server](images/example-debuggers/debug-mock-session.png)
 
