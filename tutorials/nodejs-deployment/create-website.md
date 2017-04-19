@@ -59,4 +59,4 @@ You should see something like this:
 
 ---- 
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/5.deploy-website">My site is running</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/deploy-website">My site is running</a>
