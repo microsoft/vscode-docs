@@ -10,7 +10,7 @@ MetaDescription: Expand your development workflow with task integration in Visua
 
 # Integrate with External Tools via Tasks
 
-Lots of tools exist to automate tasks like building, packaging, testing or deploying software systems. Examples include [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](http://ant.apache.org/), [Gulp](http://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](http://rake.rubyforge.org/) and [MSBuild](https://github.com/Microsoft/msbuild).
+Lots of tools exist to automate tasks like building, packaging, testing or deploying software systems. Examples include [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](http://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](http://rake.rubyforge.org/) and [MSBuild](https://github.com/Microsoft/msbuild).
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
@@ -42,7 +42,7 @@ You should now see a `tasks.json` file in your workspace `.vscode` folder with t
 
 In this example, we are just running the `echo` shell command with "Hello World" as an argument.
 
-Test the `echo` task by running **Tasks: Run Tasks** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
+Test the `echo` task by running **Tasks: Run Task** and selecting `echo` from the dropdown. The **OUTPUT** panel will open and you'll see the text "Hello World".
 
 You can get IntelliSense on `tasks.json` variables and their values with hover and trigger smart completions with `kb(editor.action.triggerSuggest)`.
 
@@ -137,7 +137,7 @@ The first task start the TypeScript compiler in watch mode, the second one start
 
 ## Binding keyboard shortcuts to tasks
 
-If you need to run a task frequently, you can also define a keyboard shortcut for the task. 
+If you need to run a task frequently, you can also define a keyboard shortcut for the task.
 
 For example to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
 
@@ -177,7 +177,7 @@ Below is an example of a configuration that passes the current opened file to th
 
 ## Operating System Specific Properties
 
-The task system supports defining values (for example, the command to be executed) specific to an operating system. To do so, simply put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
+The task system supports defining values (for example, the command to be executed) specific to an operating system. To do so, put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.
 
 Below is an example that uses the Node.js executable as a command and is treated differently on Windows and Linux:
 
@@ -306,7 +306,7 @@ You can also create your own problem matcher which we'll talk about soon.
 
 ## Mapping Gulp, Grunt and Jake Output to Problem Matchers
 
-You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than simply run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the **Tasks: Run Build Task** command (`kb(workbench.action.tasks.build)`).
+You need to configure the tasks in a `tasks.json` file (located under your workspace `.vscode` folder) if you want to do more than just run the task.  For example, you might want to match reported problems and highlight them within VS Code, or to trigger a build task using the **Tasks: Run Build Task** command (`kb(workbench.action.tasks.build)`).
 
 If you don't already have a `tasks.json` under your workspace `.vscode` folder, running the **Tasks: Configure Task Runner** action from the **Command Palette** (`kb(workbench.action.showCommands)`) will offer you a set of templates to pick from.
 
@@ -314,7 +314,7 @@ For this example, select `Gulp` from the list. Given a `gulpfile.js` like the ex
 
 ```json
 {
-    // See http://go.microsoft.com/fwlink/?LinkId=733558
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "0.1.0",
     "command": "gulp",
@@ -538,7 +538,7 @@ Looking at the output shows the following pattern:
 - Between those two strings problems are reported.
 - The compiler also runs once the initial start (without printing `File change detected. Starting incremental compilation...` to the console).
 
-To capture this information, a problem matcher can provide a `watching` property. 
+To capture this information, a problem matcher can provide a `watching` property.
 
 For the tsc compiler, this looks like follows:
 
@@ -590,7 +590,7 @@ A full handcrafted tasks.json for a tsc task running in watch mode looks like th
 
 That was tasks - let's keep going...
 
-* [tasks.json Schema](/docs/editor/tasks_appendix.md) - You can review the full `tasks.json` schema and descriptions.
+* [tasks.json Schema](/docs/editor/tasks-appendix.md) - You can review the full `tasks.json` schema and descriptions.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.* [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.

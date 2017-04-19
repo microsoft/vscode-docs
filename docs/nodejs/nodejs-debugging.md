@@ -3,7 +3,7 @@ Order: 4
 Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
-PageTitle: Node.js Debugging in VS Code
+PageTitle: Debug Node.js Apps using VS Code
 DateApproved: 4/5/2017
 MetaDescription: Visual Studio Code includes Node.js debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: debugging_Debugging.png
@@ -217,10 +217,11 @@ By using the `PickProcess` variable the launch configuration looks like this:
     "name": "Attach to Process",
     "type": "node",
     "request": "attach",
-    "processId": "${command.PickProcess}",
+    "processId": "${command:PickProcess}",
     "port": 5858
 }
 ```
+
 ## Remote debugging
 
 The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. Specify a remote host via the `address` attribute.
@@ -235,7 +236,7 @@ If you need to set a breakpoint in a script that is not part of your workspace a
 
 ## Restarting debug sessions automatically when source is edited
 
-The `restart` attribute of a launch configuration controls whether the Node.js debugger automatically restarts after the debug session has ended. This feature is useful if you use [**nodemon**](http://nodemon.io) to restart Node.js on file changes. Setting the launch configuration attribute `restart` to `true` makes the node debugger automatically try to re-attach to Node.js after Node.js has terminated.
+The `restart` attribute of a launch configuration controls whether the Node.js debugger automatically restarts after the debug session has ended. This feature is useful if you use [**nodemon**](https://nodemon.io) to restart Node.js on file changes. Setting the launch configuration attribute `restart` to `true` makes the node debugger automatically try to re-attach to Node.js after Node.js has terminated.
 
 If you have started your program `server.js` via **nodemon** on the command line like this:
 ```bash
@@ -337,12 +338,11 @@ For example using:
 
 all code in the `node_modules` and `lib` folders in your project will be skipped.
 
-Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules but `events.js`:
+Built-in **core modules** of Node.js can be referred to by the 'magic name' `<node_internals>` in a glob pattern. The following example skips all internal modules:
 
 ```json
   "skipFiles": [
-     "<node_internals>/**/*.js",
-     "!<node_internals>/events.js"
+     "<node_internals>/**/*.js"
    ]
 ```
 

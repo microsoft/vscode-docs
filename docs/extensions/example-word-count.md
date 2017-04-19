@@ -36,7 +36,7 @@ npm install -g yo generator-code
 yo code
 ```
 
-This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, simply fill in the fields the same way you see them completed in the image below (using 'WordCount' as the extension name and your own name as the publisher).
+This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, fill in the fields the same way you see them completed in the image below (using 'WordCount' as the extension name and your own name as the publisher).
 
 ![Yo Code Word Count Example Output](images/example-word-count/yo1.png)
 
@@ -137,7 +137,7 @@ class WordCounter {
 
 Now let's try our updates to the extension.
 
-We have the compilation of the TypeScript file set on a watch (in the extension's .vscode\tasks.json file) so there is no need to re-build.  Simply hit `kbstyle(Ctrl+R)` in the **[Extension Development Host]** window where your code is running and the extension will reload (you can also just `kb(workbench.action.debug.start)` from your primary development window).  We still need to activate the code in the same way as before with the "Hello World" command.  Assuming you are in a Markdown file, your Status Bar will display the word count.
+We have the compilation of the TypeScript file set on a watch (in the extension's .vscode\tasks.json file) so there is no need to re-build.  Hit `kbstyle(Ctrl+R)` in the **[Extension Development Host]** window where your code is running and the extension will reload (you can also just `kb(workbench.action.debug.start)` from your primary development window).  We still need to activate the code in the same way as before with the "Hello World" command.  Assuming you are in a Markdown file, your Status Bar will display the word count.
 
 ![Working Word Count](images/example-word-count/wordcount2.png)
 
@@ -235,7 +235,7 @@ If you set a breakpoint on the `activate` function, you'll notice that it is onl
 
 ## Customizing the Status Bar
 
-We've seen how you can display formatted text on the Status Bar.  VS Code allows you to customize your Status Bar additions even further with color, icons, tooltips and more.  Using IntelliSense, you can see the various `StatusBarItem` fields.  Another great resource for learning about the VS Code extensibility APIs is the `vscode.d.ts` typings file included in your generated Extension project.  Open `node_modules\vscode\vscode.d.ts` in the editor, you'll see the complete VS Code extensibility API with comments.
+We've seen how you can display formatted text on the Status Bar.  VS Code allows you to customize your Status Bar additions even further with color, icons, tooltips and more.  Using IntelliSense, you can see the various `StatusBarItem` fields.  Another great resource for learning about the VS Code extensibility APIs is the `vscode.d.ts` type declaration file included in your generated Extension project.  Open `node_modules\vscode\vscode.d.ts` in the editor, you'll see the complete VS Code extensibility API with comments.
 
 ![vscode-d-ts file](images/example-word-count/vscode-d-ts.png)
 

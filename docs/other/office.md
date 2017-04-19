@@ -7,15 +7,13 @@ PageTitle: Office Add-ins with Visual Studio Code
 DateApproved: 4/14/2016
 MetaDescription: This page walks you through how to scaffold out a project for VS Code that extends Office.  See how to use the features of VS Code and integrate your Add-in with Office/Office 365.
 ---
-
 # Office Add-ins with VS Code
+
 [Office Add-ins](https://dev.office.com/getting-started/addins) run inside an Office application and can interact with the contents of the Office document using the rich JavaScript API.
 
 ![Office Add-in overview](images/office/officeaddinoverview.png)
 
-Under the hood, an Office Add-in is simply a web app that you can host anywhere. Using a `manifest.xml` file, you tell the Office application where your web app is located and how you want it to appear. The Office application takes care of hosting it within Office.
-
-
+Under the hood, an Office Add-in is just a web app that you can host anywhere. Using a `manifest.xml` file, you tell the Office application where your web app is located and how you want it to appear. The Office application takes care of hosting it within Office.
 
 ## Step 1: Get set up
 
@@ -47,7 +45,7 @@ code .
 
 Open the `manifest.xml` file that was created by Yo Office and locate the `SourceLocation` node. Update this URL to the URL where you will host the Add-in.
 
->**Tip:** If you are using an Azure Web App as the host, the URL will look something like `https://[name-of-your-web-app].azurewebsites.net/[path-to-add-in]`. If you are using the self-hosted option listed above, it will be `https://localhost:3000/[path-to-add-in]`.
+>**Tip:** If you are using an Azure Web App as the host, the URL will look something like `https://[name-of-your-web-app].azurewebsites.net/[path-to-add-in]`. If you are using the self-hosted option listed above, it will be `http://localhost:3000/[path-to-add-in]`.
 
 
 ### Debugging your Office Add-in
@@ -90,7 +88,7 @@ Select the Add-in and see it appear in the Task Pane:
 
 
 ### Deploying Add-ins to the Office 365 Tenancy's App Catalog
-All Office Add-ins (including Mail Add-ins) can be installed from your Office 365 tenancy's App Catalog site. Log in to your [Office 365 Portal](https://portal.office365.com). In the left-hand navigation, towards the bottom, select the **Admin / SharePoint** option:
+All Office Add-ins (including Mail Add-ins) can be installed from your Office 365 tenancy's App Catalog site. Log in to your [Office 365 Portal](http://portal.office365.com). In the left-hand navigation, towards the bottom, select the **Admin / SharePoint** option:
 
 ![Office SharePoint Admin](images/office/o365spadmin.png)
 

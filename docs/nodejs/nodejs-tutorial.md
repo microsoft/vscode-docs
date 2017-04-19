@@ -3,7 +3,7 @@ Order: 2
 Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
-PageTitle: Node.js Tutorial in VS Code
+PageTitle: Build Node.js Apps with VS Code
 DateApproved: 4/5/2017
 MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: nodejs_runtimes_node.png
@@ -87,7 +87,7 @@ For this walkthrough, you can use either an external terminal or the VS Code int
 
 As mentioned in the introduction, VS Code ships with a debugger for Node.js applications. Let's try debugging our simple Hello World application.
 
-To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or simply click in the editor left gutter next to the line numbers. A red circle will appear in the gutter.
+To set a breakpoint in `app.js`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or click in the editor left gutter next to the line numbers. A red circle will appear in the gutter.
 
 ![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
 
@@ -105,7 +105,7 @@ Now that you've seen VS Code in action with "Hello World", the next section show
 
 ## Express Tutorial
 
-[Express](http://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
+[Express](https://expressjs.com/) is a very popular application framework for building and running Node.js applications. You can scaffold (create) a new Express application using the Express Generator tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
 
 >**Tip:** To test that you've got `npm` correctly installed on your computer, type `npm --help` from a terminal and you should see the usage documentation.
 
@@ -154,15 +154,15 @@ code .
 
 >**Note:** If you've been using the VS Code integrated terminal to install the Express generator and scaffold the app, you can open the `myExpressApp` folder from your running VS Code instance with the **File** > **Open Folder...** command.
 
-The [Node.js](https://nodejs.org/api/) and [Express](http://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
+The [Node.js](https://nodejs.org/api/) and [Express](https://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
 
 Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how VS Code understands what `__dirname` is. Even more interesting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
-VS Code uses TypeScript Type Declaration (typings) files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Type Declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition`, you do not have to worry about downloading these Type Declaration files, VS Code will install them automatically for you.
+VS Code uses TypeScript type declaration (typings) files (for example `node.d.ts`) to provide metadata to VS Code about the JavaScript based frameworks you are consuming in your application. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience. Thanks to a feature called `Automatic Typing Acquisition`, you do not have to worry about downloading these type declaration files, VS Code will install them automatically for you.
 
-You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `routes`, you can see the shape of the `Router` class.
+You can also write code that references modules in other files. For example, in `app.js` we require the `./routes/index` module, which exports an `Express.Router` class. If you bring up IntelliSense on `index`, you can see the shape of the `Router` class.
 
 ![Express.Router IntelliSense](images/nodejs/moduleintellisense.png)
 
@@ -209,8 +209,8 @@ The first thing we'll need to do is get our source code into a GitHub repository
 
 ---
 
-We are going to follow the instructions provided by GitHub to create a new repository on the command line, but with a few changes. 
-It is a good practice to include a `.gitignore` file in your repository that excludes the `node_modules` folder. We'll do this instead of creating a `README.md` file and we'll add and commit all of the files in the workspace (except `node_modules` of course): 
+We are going to follow the instructions provided by GitHub to create a new repository on the command line, but with a few changes.
+It is a good practice to include a `.gitignore` file in your repository that excludes the `node_modules` folder. We'll do this instead of creating a `README.md` file and we'll add and commit all of the files in the workspace (except `node_modules` of course):
 
 ```bash
 echo "node_modules" >> .gitignore
@@ -238,7 +238,7 @@ az group create -l westus -n myExpressAppGroup
 # In this walkthrough, we will use a FREE plan which will host your app on a machine with other websites.
 az appservice plan create -n myExpressAppPlan -g myExpressAppGroup -l westus --sku FREE
 
-# Now create the website and give it a unique name as it will be referenced as http://**myUniqueName-ExpressApp**.azurewebsites.net
+# Now create the website and give it a unique name as it will be referenced as https://**myUniqueName-ExpressApp**.azurewebsites.net
 az appservice web create -n myUniqueName-ExpressApp -g myExpressAppGroup -p myExpressAppPlan
 
 # Let's test that our site is up and running. It will be a temporary site as we have not deployed any code here yet.
@@ -248,7 +248,7 @@ az appservice web browse -n myUniqueName-ExpressApp -g myExpressAppGroup
 az appservice web source-control config --repo-url https://github.com/yourgithubaccount/myExpressApp -n myUniqueName-ExpressApp -g myExpressAppGroup
 ```
 
-Refresh the site and you should see your Express application hosted in the cloud on Azure! 
+Refresh the site and you should see your Express application hosted in the cloud on Azure!
 
 ![Express app running in Azure](images/nodejs/expressinazure.png)
 
@@ -258,11 +258,11 @@ To test continuous deployment, make a change to the `index.jade` file found in t
 
 ![Commit a change](images/nodejs/commitchange.png)
 
-Use the overflow menu to **Sync** the change with the GitHub repository. 
+Use the overflow menu to **Sync** the change with the GitHub repository.
 
 ![Sync the change](images/nodejs/syncchange.png)
 
-Finally, the site will recognize a change has been pushed and the content will automatically be redeployed. 
+Finally, the site will recognize a change has been pushed and the content will automatically be redeployed.
 
 ![VS Code Rocks](images/nodejs/vscoderocks.png)
 

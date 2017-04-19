@@ -29,7 +29,7 @@ In addition, you can also review an extension's:
 
 * **Contributions** - The extension's additions to VS Code such as settings, commands and keyboard shortcuts, language grammars, debugger, etc.
 * **Changelog** - The extension repository CHANGELOG if available.
-* **Dependencies** - Lists if the extension depends on any other extensions. 
+* **Dependencies** - Lists if the extension depends on any other extensions.
 
 ![extension contributions](images/extension-gallery/extension-contributions.png)
 
@@ -50,7 +50,7 @@ You can sort the extension list by **Install Count** or **Rating** in either asc
 
 ## Install an extension
 
-Simply click the **Install** button and after a successful install, you'll see an **Reload** button which will prompt you to restart VS Code to enable the new extension.
+Click the **Install** button and after a successful install, you'll see an **Reload** button which will prompt you to restart VS Code to enable the new extension.
 
 ## Search for an extension
 
@@ -76,7 +76,7 @@ To uninstall an extension, click the **Uninstall** button. This will uninstall t
 
 ### Update an extension
 
-You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Simply click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
 
 ### Auto Update extensions
 
@@ -84,7 +84,7 @@ If you would like your installed extensions to be updated automatically, you can
 
 ### Disable an extension
 
-Disable an extension by clicking the settings icon next to the extension, as shown in the animation below. 
+Disable an extension by clicking the settings icon next to the extension, as shown in the animation below.
 
 ![disable an extension](images/extension-gallery/extensions-disable.gif)
 
@@ -109,7 +109,7 @@ code --disable-extensions
 
 ## Install from a VSIX
 
-You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX...** command in the Extensions View command drop-down, or the **Extensions: Install from VSIX...** command in the **Command Palette**, simply point to the `.vsix` file.
+You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX...** command in the Extensions View command drop-down, or the **Extensions: Install from VSIX...** command in the **Command Palette**, point to the `.vsix` file.
 
 You can also install using the VS Code `--install-extension` command line switch providing the path to the `.vsix` file.
 
@@ -165,13 +165,13 @@ Here are a few topics you may find interesting...
 An extension's direct download URL is in the form:
 
 ```
-https://${publisher}.gallery.vsassets.io/_apis/public/gallery/publisher/${publisher}/extension/${extension name}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
+http://${publisher}.gallery.vsassets.io/_apis/public/gallery/publisher/${publisher}/extension/${extension name}/${version}/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
 ```
 
 For example, the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) version `0.10.18` would be:
 
 ```
-https://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
+http://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
 ```
 
 Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions View command drop-down.

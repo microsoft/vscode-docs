@@ -7,7 +7,6 @@ PageTitle: Visual Studio Code Extension Contribution Points - package.json
 DateApproved: 4/5/2017
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
-
 # Contribution Points - package.json
 
 This document covers the various contribution points that are defined in the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md).
@@ -60,7 +59,8 @@ You can read these values from your extension using `vscode.workspace.getConfigu
 ## contributes.configurationDefaults
 
 Contribute default language specific editor configurations. This will override default editor configurations for the provided language.
-Following example contributes default editor configurations for `markdown` language.
+
+The following example contributes default editor configurations for the `markdown` language:
 
 ### Example
 
@@ -74,7 +74,6 @@ contributes": {
     }
 }
 ```
-
 
 ## contributes.commands
 

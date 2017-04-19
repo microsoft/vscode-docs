@@ -3,7 +3,7 @@ Order: 1
 Area: extensions
 TOCTitle: Overview
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
-PageTitle: Extending Visual Studio Code
+PageTitle: Building extensions for VS Code
 DateApproved: 4/5/2017
 MetaDescription: Visual Studio Code has a rich extensibility model for interacting with and adding to the tool.  Learn how to create your own extensions (plug-ins) for Visual Studio Code.
 ---

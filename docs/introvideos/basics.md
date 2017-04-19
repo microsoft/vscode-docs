@@ -18,18 +18,18 @@ In this tutorial, we walk you through setting up Visual Studio Code and give an 
 ## Outline
 
 * Download and install VS Code.
-* Explore VS Code features in the **Interactive Editor Playground**. 
+* Explore VS Code features in the **Interactive Editor Playground**.
 * See an overview of the user interface.
-* Customize your editor with the **View** menu and by changing the color theme. 
-* Change your keyboard shortcuts using a Keymap extension. 
-* Focus on your source code with Zen Mode. 
+* Customize your editor with the **View** menu and by changing the color theme.
+* Change your keyboard shortcuts using a Keymap extension.
+* Focus on your source code with Zen Mode.
 
 ## Learn More
 
 * [User Interface](/docs/getstarted/userinterface.md) - View the documentation for VS Code.
 * [Setup Overview](/docs/setup/setup-overview.md) - Documentation for getting up and running with VS Code, including platform specific setup.
-* [Keyboard Shortcuts](/docs/getstarted/keybindings.md) - Customize your own shortcuts, download a reference sheet, or install a Keymap extension. 
-* [Keymaps in the Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) - Install a Keymap extension to bring the keybindings from your previous editor to VS Code. 
+* [Keyboard Shortcuts](/docs/getstarted/keybindings.md) - Customize your own shortcuts, download a reference sheet, or install a Keymap extension.
+* [Keymaps in the Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) - Install a Keymap extension to bring the keybindings from your previous editor to VS Code.
 
 ## Next Video
 
