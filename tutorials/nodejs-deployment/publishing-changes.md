@@ -17,11 +17,11 @@ In this step you will make changes to your application, commit them to the local
 
 Open the `myExpressApp` folder in Visual Studio Code (or your favorite text editor).
 
-![Open VS Code](nodejs-deployment/images/openvscode.png)
+![Open VS Code](/images/openvscode.png)
 
 Open `views/index.pug` and change line `5` to say somethign fun such as `VS Code Rocks!!` and then save the file (Ctrl+S).
 
-![Edit pug file](nodejs-deployment/images/editpugfile.png)
+![Edit pug file](/images/editpugfile.png)
 
 > Pro Tip: Turn on "AutoSave" from the `File | AutoSave` menu!
 

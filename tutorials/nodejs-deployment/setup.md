@@ -60,4 +60,4 @@ git version 2.6.4
 
 ---- 
 
-<div class="btn" a href="/tutorials/nodejs-deployment/3.express">I've installed the Azure CLI and the prerequisites</div>
+<a class="tutorial-btn" href="/tutorials/nodejs-deployment/express">I've installed the Azure CLI and the prerequisites</a>

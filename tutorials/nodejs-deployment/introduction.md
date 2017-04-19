@@ -1,7 +1,7 @@
 ---
 Order: 1
 TOCTitle: Introduction
-PageTitle: Introduction
+PageTitle: Intro to VS Code and Azure
 MetaDescription: 
 MetaSocialImage: 
 Date: 
@@ -9,7 +9,7 @@ ShortDescription:
 Author: 
 ---
 
-# Introduction
+# Introduction to VS Code and Azure
 
 This walkthrough will have you deploying a Node.js application to the Azure cloud, all in a matter of minutes. 
 
@@ -19,4 +19,4 @@ You'll need [Node.js and npm](https://nodejs.org/en/download/) and [git](https:/
 
 ---- 
 
-<div class="btn" a href="/tutorials/nodejs-deployment/2.setup">I'm ready to start!</div>
+<a class="tutorial-btn" href="/tutorials/nodejs-deployment/setup">I'm ready to start!</a>

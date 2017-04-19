@@ -50,8 +50,9 @@ $ npm start
 
 You should see something like this:
 
-![Running Express Application](tutorials/nodejs-deployment/images/express.png)
+![Running Express Application](tutorials_nodejs-deployment_images_express.png)
 
 ---- 
 
-<div class="btn" a href="/tutorials/nodejs-deployment/4.create-website">I created the Node.js application</div>
+
+<a class="tutorial-btn" href="/tutorials/nodejs-deployment/create-website">I created the Node.js application</a>
