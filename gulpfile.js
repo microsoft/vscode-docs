@@ -83,6 +83,15 @@ gulp.task('checkout-master', function (cb) {
 	});
 });
 
+gulp.task('sync-master', ['commit'], function(cb) {
+		git.push(URL, 'master', { args: "-f" }, function (error) {
+		if (!error) {
+			console.log('successfully pushed to branch: master');
+		}
+		cb(error);
+	});
+});
+
 gulp.task('sync', function (cb) {
 	runSequence('commit', 'push');
 });
