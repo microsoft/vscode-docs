@@ -515,7 +515,7 @@
 { "key": "ctrl+shift+u",          "command": "workbench.action.output.toggleOutput" },
 { "key": "ctrl+pageup",           "command": "workbench.action.previousEditor" },
 { "key": "ctrl+e",                "command": "workbench.action.quickOpen" },
-{ "key": "ctrl+p",                "command": "workbench.action.quickOpen" },
+{ "key": "ctrl+shift+p",                "command": "workbench.action.quickOpen" },
 { "key": "ctrl+q",                "command": "workbench.action.quickOpenView" },
 { "key": "ctrl+shift+t",          "command": "workbench.action.reopenClosedEditor" },
 { "key": "ctrl+shift+h",          "command": "workbench.action.replaceInFiles" },
