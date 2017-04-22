@@ -16,47 +16,15 @@ Visual Studio Code can be a great companion to Unity for editing and debugging C
 
 Read on to find out how to configure Unity and your project to get the best possible experience.
 
-## Connecting Unity and VS Code
+## Setup VS Code as Unity Script Editor
 
-The easiest way to get going is to leverage a [Unity plug-in](https://github.com/dotBunny/VSCode/) maintained by [@Reapazor](https://twitter.com/reapazor).  This plug-in streamlines the integration process significantly by performing the following tasks:
+Simply open up *Unity Preferences*, *External Tools*, then browse **Visual Studio Code** executable as *External Script Editor*.
 
-1. Sets VS Code as the default editor - opening a script now opens it in VS Code
-2. Configures Unity to pass file and line numbers and reuse the existing window - so VS Code opens in the correct context
-3. Scrubs the Unity project file to ensure that OmniSharp can work with it - to get the best editing experience
-4. Configures VS Code to ignore certain Unity file types - removing clutter from the VS Code file explorer
-5. Configures a `launch.json` file with the correct debug port - to enable debugging. However, installing the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) is recommended to get debugging support.
+![Unity Preferences](images/unity/Unity_Preferences_External_Script_Editor.gif)
 
-### Step 1: Download the plug-in code
+> The Visual Studio Code executable can be found at `/Applications/Visual Studio Code.app` on OSX, `C:\Program Files (x86)\Microsoft VS Code\Code.exe` on Windows by default.
 
-Open up a console and do a clone of the repo to get the plug-in source code.
-
-```
-git clone https://github.com/dotBunny/VSCode.git
-```
-
-### Step 2: Add the plug-in to your project
-
-Go to the folder where you downloaded the plug-in source code and copy the `Plugins\Editor\dotBunny` folder to your Unity project.
-
->**Tip:** You may need to create a `Plugins` folder. Typically this should be stored under `Assets`.
-
-To turn on the use of the provided integration, you will need to go to `Unity Preferences` and select the newly created `VSCode` tab.
-
-![VSCode Preferences](images/unity/plugin-preferences.png)
-
-Toggle on `Enable Integration` and you are ready to get going.
-
-Additionally, you can toggle `Output Messages To Console` which will echo output to the Unity console e.g. whether the debug port was found.  This is useful for debugging any issues with the integration.
-
-Clicking the `Write Workspace Settings` button will configure the workspace settings to filter out non-code assets created by Unity e.g. `.meta` files.
-
-### Step 3: Open the Project
-
-Now available in the `Assets` menu is `Open C# Project In Code`. This will open the project in VS Code in the context of the root folder of your project.  This enables VS Code to find your Unity project's solution file.
-
-![VSCode Menu](images/unity/plugin-menu.png)
-
->**Tip:**  You probably want to leave a VS Code window open with the project context established.  That way when you open a file from Unity it will have all the required context.
+**Unity now has built-in support for opening scripts in Visual Studio Code** as an external script editor on Windows and OSX. Unity will now detect when Visual Studio Code is selected an external script editor and pass the correct arguments to it when opening scripts from Unity and setup a default `.vscode/settings.json` with file excludes, if it does not already exist (from [Unity 5.5 Release notes](https://unity3d.com/unity/whats-new/unity-5.5.0)).
 
 ## Editing Evolved
 
@@ -79,11 +47,11 @@ Two topics that will help you are [Basic Editing](/docs/editor/codebasics.md) an
 
 ## Unity Extensions
 
-The community is continually developing more and more valuable extensions for Unity. Here are some popular extensions that you might find useful. You can find more extensions in the VS Code [Extension Marketplace](https://marketplace.visualstudio.com/VSCode).
+The community is continually developing more and more valuable extensions for Unity. Here are some popular extensions that you might find useful. You can search for more extensions in the [VS Code Extension Marketplace](https://marketplace.visualstudio.com/search?term=Unity&target=VSCode).
 
 <div class="marketplace-extensions-unity"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+External Tools Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Next Steps
 
