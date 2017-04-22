@@ -43,7 +43,7 @@ Changes not staged for commit:
         modified:   README.md
 ```
 
-There are many things going on in this workspace. First, the `README.md` file has been modified, staged and then modified once again. The `src/api.ts` file has been moved to `src/test/api.ts` and that move was staged. Finally, the `.travis.yml` file has been deleted.
+There are many things going on in this workspace. First, the `README.md` file has been modified, staged and then modified once again. Second, the `src/api.ts` file has been moved to `src/test/api.ts` and that move was staged. Finally, the `.travis.yml` file has been deleted.
 
 For this workspace, Git defines two resource groups: the **working tree** and the **index**. Each **file change** within that group is **resource state**:
 
@@ -83,7 +83,7 @@ Changes made to the source control and resource groups will be propagated to the
 
 ## Source Control View
 
-VS Code is able to populate the Source Control view, as the source control model changes. Resource states are customizable using `SourceControlResourceDecorations`:
+VS Code is able to populate the Source Control view, as the Source Control model changes. Resource states are customizable using `SourceControlResourceDecorations`:
 
 ```ts
 export interface SourceControlResourceState {
@@ -125,7 +125,7 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 
 ### SCM Input Box
 
-The Source Control Input Box, located atop of the Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and git commit commands pick them up.
+The Source Control Input Box, located atop of the Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and `git commit` commands pick them up.
 
 ```ts
 export interface SourceControlInputBox {
