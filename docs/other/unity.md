@@ -74,24 +74,6 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 ![Choose Solution](images/unity/selectsln.png)
 
-**Q: How can I manually configure Editor Settings?**
-
-**A:**  To set VS Code as the External Editor for Unity go to the **Edit** > **Preferences...** menu.  From there move to the **External Tools** tab where you should see a screen like the following:
-
-![External Editor settings](images/unity/editorsettings.png)
-
- Click the browse button and set the VS Code executable (under `Program Files (x86)\Microsoft VS Code\Code.exe`) as the External Script Editor.
-
- This will enable Unity to launch VS Code whenever you open a script.
-
-**Q: I want to set the command line arguments when I launch VS Code.**
-
-**A:**  The workflow between Unity and VS Code is much smoother if you reopen an existing editor window and pass in context so that the editor lands on the exact line number and column location (for example to navigate to a compile bug).
-
->**Note:** This option is only available in the Windows version of Unity.  For Mac users, the Unity plug-in described above handles setting up the command line arguments.
-
-To configure Unity to pass this data to VS Code, set the Editor Args to be `. -g "$(File):$(Line)"`.  You can see this step completed in the image above.
-
 **Q: How can I change the file exclusions?**
 
 **A:** Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
@@ -124,10 +106,6 @@ As you can see below this will clean things up a lot...
 Before|After
 ------|-----
 ![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
-
-**Q: VS Code did not go to the correct position in my file.**
-
-**A:** For Mac, make sure you have installed the Unity plug-in described above.  For Windows, ensure you have set the additional command line arguments when you launch VS Code from Unity.
 
 **Q: How can I debug Unity?**
 
