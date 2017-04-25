@@ -7,10 +7,9 @@ PageTitle: Visual Studio Code and Unity
 DateApproved: 3/7/2016
 MetaDescription: Visual Studio Code can replace MonoDevelop as the editor for Unity
 ---
-
 # Unity Development with VS Code
 
-Visual Studio Code can be a great companion to Unity for editing and debugging C# files.  All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
+Visual Studio Code can be a great companion to Unity for editing and debugging C# files.  All of the [C#](/docs/languages/csharp.md) features are supported and more.  In the screen below, you can see code colorization, bracket matching, IntelliSense, CodeLens and that's just the start.
 
 ![Unity Example](images/unity/wow.gif)
 
@@ -18,13 +17,13 @@ Read on to find out how to configure Unity and your project to get the best poss
 
 ## Setup VS Code as Unity Script Editor
 
-Simply open up *Unity Preferences*, *External Tools*, then browse **Visual Studio Code** executable as *External Script Editor*.
+Simply open up **Unity Preferences**, **External Tools**, then browse for the Visual Studio Code executable as **External Script Editor**.
 
 ![Unity Preferences](images/unity/Unity_Preferences_External_Script_Editor.gif)
 
 > The Visual Studio Code executable can be found at `/Applications/Visual Studio Code.app` on OSX, `C:\Program Files (x86)\Microsoft VS Code\Code.exe` on Windows by default.
 
-**Unity now has built-in support for opening scripts in Visual Studio Code** as an external script editor on Windows and OSX. Unity will now detect when Visual Studio Code is selected an external script editor and pass the correct arguments to it when opening scripts from Unity and setup a default `.vscode/settings.json` with file excludes, if it does not already exist (from [Unity 5.5 Release notes](https://unity3d.com/unity/whats-new/unity-5.5.0)).
+**Unity has built-in support for opening scripts in Visual Studio Code** as an external script editor on Windows and OSX. Unity will detect when Visual Studio Code is selected as an external script editor and pass the correct arguments to it when opening scripts from Unity. Unity will also set up a default `.vscode/settings.json` with file excludes, if it does not already exist (from [Unity 5.5 Release notes](https://unity3d.com/unity/whats-new/unity-5.5.0)).
 
 ## Editing Evolved
 
@@ -51,7 +50,7 @@ The community is continually developing more and more valuable extensions for Un
 
 <div class="marketplace-extensions-unity"></div>
 
-External Tools Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Next Steps
 
@@ -88,7 +87,7 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 **A:**  The workflow between Unity and VS Code is much smoother if you reopen an existing editor window and pass in context so that the editor lands on the exact line number and column location (for example to navigate to a compile bug).
 
->**Note:** This option is only available in the Windows version of Unity.  For Mac users, the Unity plug-in described above handles setting up the command line arguments.
+>**Note:** This option is only available in the Windows version of Unity.  For Mac users, Unity handles setting up the command line arguments.
 
 To configure Unity to pass this data to VS Code, set the Editor Args to be `. -g "$(File):$(Line)"`.  You can see this step completed in the image above.
 
@@ -127,7 +126,7 @@ Before|After
 
 **Q: VS Code did not go to the correct position in my file.**
 
-**A:** For Mac, make sure you have installed the Unity plug-in described above.  For Windows, ensure you have set the additional command line arguments when you launch VS Code from Unity.
+**A:** For Windows, ensure you have set the additional command line arguments when you launch VS Code from Unity.
 
 **Q: How can I debug Unity?**
 
