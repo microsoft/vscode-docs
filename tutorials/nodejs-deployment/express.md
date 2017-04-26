@@ -2,15 +2,14 @@
 Order: 3
 TOCTitle: Create the Application
 PageTitle: Create the Application
-MetaDescription: 
-MetaSocialImage: 
-Date: 
-ShortDescription: 
-Author: 
+MetaDescription:
+MetaSocialImage:
+DateApproved: 4/26/2017
+ShortDescription:
 ---
 # Create your Node.js Application
 
-In this step you will create a very simple Node.js application that can be deployed to the Cloud. You will use an application generator to quickly scaffold out the application from a terminal.
+In this step, you will create a very simple Node.js application that can be deployed to the Cloud. You will use an application generator to quickly scaffold out the application from a terminal.
 
 ## Install the Express Generator
 
@@ -51,7 +50,6 @@ You should see something like this:
 
 ![Running Express Application](nodejs-deployment_express.png)
 
----- 
-
+----
 
 <a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/create-website">I created the Node.js application</a>

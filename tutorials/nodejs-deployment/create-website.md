@@ -4,18 +4,16 @@ TOCTitle: Create the Website
 PageTitle: Create the Website
 MetaDescription:
 MetaSocialImage:
-Date:
+DateApproved: 4/26/2017
 ShortDescription:
-Author:
 ---
-
 # Create the Website
 
-In this step you will use the Azure CLI to create an website on Azure.
+In this step, you will use the Azure CLI to create a website on Azure.
 
 ## Create a Resource Group
 
-A "Resource Group" is essentially a named collection of all our application's resources in Azure. For example, Resource Group can contain a reference to a website, a database, and a function.
+A "Resource Group" is essentially a named collection of all our application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure function.
 
 ```bash
 $ az group create --name myResourceGroup --location westus

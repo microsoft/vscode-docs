@@ -4,13 +4,12 @@ TOCTitle: Deploy the Website
 PageTitle: Deploy the Website
 MetaDescription:
 MetaSocialImage:
-Date:
+DateApproved: 4/26/2017
 ShortDescription:
-Author:
 ---
 # Deploy the Website
 
-In this step you will deploy your Node.js website using Git and the Azure CLI. You will use the most basic deployment model where you push your local Git repository to the Website. Later in this walkthrough you will set up a more robust Continuous Delivery pipeline.
+In this step, you will deploy your Node.js website using Git and the Azure CLI. You will use the most basic deployment model where you push your local Git repository to the Website. Later in this walkthrough, you will set up a more robust Continuous Delivery pipeline.
 
 ## Initialize the Git Repository
 
