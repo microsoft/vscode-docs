@@ -15,19 +15,19 @@ In this step you will "tail" the logs from the running Website. Any calls to `co
 
 Run the following Azure CLI command.
 
-``` bash
+```bash
 $ az appservice web log tail --name myExpressApp-chrisdias
 ```
 
 After a few seconds you should see a message indicating that you are connected to the log-streaming service.
 
-``` bash
+```bash
 2017-04-17T19:55:35  Welcome, you are now connected to log-streaming service.
 ```
 
 Refresh the page a few times in the browser and you'll see log output.
 
-``` bash
+```bash
 GET / 304 1.704 ms - -
 GET / 304 0.935 ms - -
 GET / 304 0.490 ms - -

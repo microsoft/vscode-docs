@@ -30,7 +30,7 @@ Once installed, you can use the `az` command from your favorite terminal.
 
 Following the instructions, browse to [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and paste in the 9 character code. When prompted, use the email address and password you used when creating your Azure account.
 
-``` bash
+```bash
 $ az login
 To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code BF9BUDLGR to authenticate.
 ```
@@ -39,21 +39,21 @@ To sign in, use a web browser to open the page https://aka.ms/devicelogin and en
 
 Make sure you've got the latest CLI components installed by telling the CLI to update itself. This is useful if you have not run the CLI in a while.
 
-``` bash
+```bash
 $ az component update
 ```
 ## Prerequisite Check
 
 Before we continue, ensure that you have all of the prerequisites properly installed. Type each command and ensure it displays the version you have installed. If your Node.js version is less than 6, please [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long Term Stable") release.
 
-``` bash
+```bash
 $ node -v
 6.10.2
 ```
 
 Now check that you have `git` installed. If not, [install](https://git-scm.com/downloads) it and test again.
 
-``` bash
+```bash
 $ git --version
 git version 2.6.4
 ```
