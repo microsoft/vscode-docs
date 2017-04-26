@@ -1,7 +1,7 @@
 ---
 Order: 3
-TOCTitle: Create your Node.js Application
-PageTitle: Create your Node.js Application
+TOCTitle: Create the Application
+PageTitle: Create the Application
 MetaDescription: 
 MetaSocialImage: 
 Date: 

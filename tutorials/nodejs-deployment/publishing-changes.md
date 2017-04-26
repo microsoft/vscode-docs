@@ -47,4 +47,4 @@ Your changes will then be deployed to the Website. Refresh your application and 
 
 ---- 
 
-<a class="tutorial-next-btn" href="/docs">I'm Done!</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/extensions">I can see my changes!</a>
