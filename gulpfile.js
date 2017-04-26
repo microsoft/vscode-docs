@@ -14,11 +14,12 @@ require('./scripts/gulpfile.docs.js');
 require('./scripts/gulpfile.releasenotes.js');
 require('./scripts/gulpfile.api.js');
 require('./scripts/gulpfile.blog.js');
+require('./scripts/gulpfile.tutorial.js');
 
 var BRANCH = process.env["branch"] ? process.env["branch"] : "master"; 
 var URL = process.env["token"] ? 'https://' + process.env["token"] + '@github.com/microsoft/vscode-website': 'https://github.com/microsoft/vscode-website';
 
-gulp.task('compile-all', ['compile-docs', 'compile-releasenotes', 'compile-blog']);
+gulp.task('compile-all', ['compile-docs', 'compile-releasenotes', 'compile-blog', 'compile-tutorial']);
 
 gulp.task('clean-out-folder', common.rimraf('out'));
 
