@@ -19,7 +19,7 @@ VS Code has a rich ecosystem of extensions found in the [Extension Marketplace](
 
 Here you will also find a rich collection of extensions that make it easy to build and host applications on Azure. 
 
-<div class="marketplace-extensions-azure"></div>
+<div class="marketplace-extensions-azure-curated"></div>
 
 > **Tip** Click on an extension tile above to read the description and reviews in the Marketplace. 
 
