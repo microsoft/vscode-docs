@@ -25,7 +25,7 @@ Open `views/index.pug` and change line 5 to say something fun such as 'VS Code R
 
 ## Commit Changes
 
-Open the **Source Control** view (`kb(workbench.view.scm)`, enter a commit message, and press `kbstyle(Ctrl+Enter)` to commit the change (`kbstyle(Cmd+Enter)` on macOS).
+Open the **Source Control** view (`kb(workbench.view.scm)`), enter a commit message, and press `kbstyle(Ctrl+Enter)` to commit the change (`kbstyle(Cmd+Enter)` on macOS).
 
 ![Commit Changes](nodejs-deployment_commitchanges.png)
 

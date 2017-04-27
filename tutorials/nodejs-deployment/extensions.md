@@ -19,7 +19,7 @@ Here you will also find a rich collection of extensions that make it easy to bui
 
 <div class="marketplace-extensions-azure-curated"></div>
 
-> **Tip::** Click on an extension tile above to read the description and reviews in the Marketplace.
+> **Tip:** Click on an extension tile above to read the description and reviews in the Marketplace.
 
 ## Browsing Extensions
 
