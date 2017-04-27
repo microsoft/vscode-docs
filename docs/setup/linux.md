@@ -11,6 +11,12 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 
 ## Installation
 
+### Ubuntu and [snap supported distros](https://snapcraft.io/docs/core/install) 
+
+Install the snap on [snap supported](https://snapcraft.io/docs/core/install) systems from the store.
+
+    snap install vscode --beta --classic
+
 ### Debian and Ubuntu based distributions
 
 The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
