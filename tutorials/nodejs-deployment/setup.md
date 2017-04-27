@@ -30,7 +30,7 @@ Following the instructions, browse to [https://aka.ms/devicelogin](https://aka.m
 
 ```bash
 $ az login
-To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code BF9BUDLGR to authenticate.
+To sign in, go to https://aka.ms/devicelogin and enter the code BF9BUDLGR to authenticate.
 ```
 
 ### Update the CLI

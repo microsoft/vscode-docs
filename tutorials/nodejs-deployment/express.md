@@ -19,7 +19,7 @@ In this step, you will create a very simple Node.js application that can be depl
 $ npm install -g express-generator
 ```
 
-The -g switch installs the Express Generator globally on your machine so you can run it from anywhere.
+The `-g` switch installs the Express Generator globally on your machine so you can run it from anywhere.
 
 ## Scaffold a New Application
 

@@ -17,7 +17,7 @@ Open the `myExpressApp` folder in Visual Studio Code (or your favorite text edit
 
 ![Open VS Code](nodejs-deployment_openvscode.png)
 
-Open `views/index.pug` and change line `5` to say something fun such as `VS Code Rocks!!` and then save the file (`kb(workbench.action.files.save)`).
+Open `views/index.pug` and change line 5 to say something fun such as 'VS Code Rocks!!' and then save the file (`kb(workbench.action.files.save)`).
 
 ![Edit pug file](nodejs-deployment_editpugfile.png)
 
@@ -25,7 +25,7 @@ Open `views/index.pug` and change line `5` to say something fun such as `VS Code
 
 ## Commit Changes
 
-Open the **Source Control** view (`kb(workbench.view.scm)`, enter a commit message, and press `kbstyle(Ctrl+Enter)` (`kbstyle(Cmd+Enter)` on macOS) to commit the change.
+Open the **Source Control** view (`kb(workbench.view.scm)`, enter a commit message, and press `kbstyle(Ctrl+Enter)` to commit the change (`kbstyle(Cmd+Enter)` on macOS).
 
 ![Commit Changes](nodejs-deployment_commitchanges.png)
 

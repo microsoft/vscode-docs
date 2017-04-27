@@ -19,7 +19,7 @@ Here you will also find a rich collection of extensions that make it easy to bui
 
 <div class="marketplace-extensions-azure-curated"></div>
 
-> **Tip** Click on an extension tile above to read the description and reviews in the Marketplace.
+> **Tip::** Click on an extension tile above to read the description and reviews in the Marketplace.
 
 ## Browsing Extensions
 
@@ -31,11 +31,11 @@ Enter `Azure` in the search box and press `kbstyle(Enter)` to query the Marketpl
 
 ## Install the MS SQL Extension
 
-Scroll to find the `mssql` extension and click on it to review the README. Click the `Install` button to download and install the extension. You'll be prompted to restart VS Code to load the extension.
+Scroll to find the **mssql** extension and click on it to review the README. Click the **Install** button to download and install the extension. You'll be prompted to restart VS Code to load the extension.
 
 ![SQL Extension](nodejs-deployment_sqlextension.png)
 
-Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type in `SQL` to search for the newly added commands which will let you connect to a SQL Server, run queries, and more!
+Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type in `sql` to search for the newly added commands which will let you connect to a SQL Server, run queries, and more!
 
 ![SQL Commands](nodejs-deployment_sqlcommands.png)
 
