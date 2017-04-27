@@ -67,8 +67,6 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 * [Build an app] using SQL Server - Get started with SQL Server on macOS, Linux, and Windows using your favorite programming language.
 * Contribute to the mssql extension on [GitHub]. Submit a bug report or a feature suggestion on our [GitHub Issue Tracker].
 
-testing
-
 ## Further Reading
 
 * [SQL Server documentation]
