@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
 # Source Control in VS Code
 
-Visual Studio Code allows extension authors to define Source Control Management (SCM) features through its extension API. There is a slim, yet powerful API surface which allows many different SCM systems to be integrated in VS Code, while having a common user interface in all of them.
+Visual Studio Code allows extension authors to define Source Control Management (SCM) features through its extension API. There is a slim, yet powerful API surface which allows many different SCM systems to be integrated in VS Code, while having a common user interface with all of them.
 
 ![VS Code SCM](images/api-scm/main.png)
 
@@ -43,7 +43,7 @@ Changes not staged for commit:
         modified:   README.md
 ```
 
-There are many things going on in this workspace. First, the `README.md` file has been modified, staged and then modified once again. The `src/api.ts` file has been moved to `src/test/api.ts` and that move was staged. Finally, the `.travis.yml` file has been deleted.
+There are many things going on in this workspace. First, the `README.md` file has been modified, staged and then modified once again. Second, the `src/api.ts` file has been moved to `src/test/api.ts` and that move was staged. Finally, the `.travis.yml` file has been deleted.
 
 For this workspace, Git defines two resource groups: the **working tree** and the **index**. Each **file change** within that group is **resource state**:
 
@@ -83,7 +83,7 @@ Changes made to the source control and resource groups will be propagated to the
 
 ## Source Control View
 
-VS Code is able to populate the Source Control view, as the source control model changes. Resource states are customizable using `SourceControlResourceDecorations`:
+VS Code is able to populate the Source Control view, as the Source Control model changes. Resource states are customizable using `SourceControlResourceDecorations`:
 
 ```ts
 export interface SourceControlResourceState {
@@ -107,7 +107,7 @@ The `scm/title` menu is located to the right of the SCM view title. The menu ite
 
 The `scm/resourceGroup/context` and `scm/resourceState/context` are similar. The former will let you customize resource groups, while the later refers to resource states. Place menu items in the `inline` group to have them inline. All other menu item groups will be represented in a context menu usually accessible using the mouse right-click. Commands called from within these menus will have the respective resource states on passed as arguments. Note that the SCM view supports multiple selection thus a command might receive more than one resource at a time in its arguments.
 
-For exmaple, Git supports staging multiple files by adding the `git.stage` command to the `scm/resourceState/context` menu and using such a method declaration:
+For example, Git supports staging multiple files by adding the `git.stage` command to the `scm/resourceState/context` menu and using such a method declaration:
 
 ```ts
 stage(...resourceStates: SourceControlResourceState[]): Promise<void>;
@@ -125,7 +125,7 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 
 ### SCM Input Box
 
-The Source Control Input Box, located atop of the Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and git commit commands pick them up.
+The Source Control Input Box, located atop of the Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and `git commit` commands pick them up.
 
 ```ts
 export interface SourceControlInputBox {

@@ -197,7 +197,7 @@ Key|Command|Command id
 `kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar Visibility|`workbench.action.toggleSidebarVisibility`
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
 `kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
-`kb(workbench.view.git)`|Show Git|`workbench.view.git`
+`kb(workbench.view.scm)`|Show Source Control|`workbench.view.scm`
 `kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
 `kb(workbench.action.quickOpenView)`|Quick Open View|`workbench.action.quickOpenView`

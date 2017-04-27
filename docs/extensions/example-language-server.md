@@ -30,6 +30,7 @@ Clone the repository and then do:
 > npm install
 > code .
 ```
+The above installs all dependencies and opens two VS Code instances: one for the server code and one for the client code.
 
 ## Explaining the 'Client'
 
