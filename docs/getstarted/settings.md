@@ -558,35 +558,6 @@ Below are the default settings and their values.
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
 
-// Git
-
-  // Is git enabled
-  "git.enabled": true,
-
-  // Path to the git executable
-  "git.path": null,
-
-  // Whether auto refreshing is enabled
-  "git.autorefresh": true,
-
-  // Whether auto fetching is enabled.
-  "git.autofetch": true,
-
-  // Whether long commit messages should be warned about.
-  "git.enableLongCommitWarning": true,
-
-  // Always allow large repositories to be managed by Code.
-  "git.allowLargeRepositories": false,
-
-  // Confirm before synchronizing git repositories.
-  "git.confirmSync": true,
-
-  // Controls the git badge counter.
-  "git.countBadge": "all",
-
-  // Controls what type of branches are listed.
-  "git.checkoutType": "all",
-
 // HTTP
 
   // The proxy setting to use. If not set will be taken from the http_proxy and https_proxy environment variables
