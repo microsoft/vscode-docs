@@ -16,6 +16,7 @@ MetaDescription: Get Visual Studio Code up and running on Linux.
 Install the snap on [snap supported](https://snapcraft.io/docs/core/install) systems from the store.
 
     snap install vscode --beta --classic
+    sudo snap alias vscode code
 
 ### Debian and Ubuntu based distributions
 
