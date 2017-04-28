@@ -68,7 +68,7 @@ gulp.task('build-website', function (cb) {
 
 gulp.task('publish-releasenotes', function (cb) {
 	runSequence('checkout-master',
-		'copy-releasenotes-images',
+		'copy-releasenotes-raw-images',
 		'compile-releasenotes-markdown',
 		'compile-releasenotes-css'
 	);
