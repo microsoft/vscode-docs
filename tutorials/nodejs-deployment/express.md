@@ -11,6 +11,8 @@ ShortDescription:
 
 In this step, you will create a very simple Node.js application that can be deployed to the Cloud. You will use an application generator to quickly scaffold out the application from a terminal.
 
+> **Tip:** If you have already completed the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md), you skip ahead and [Create the Website](/tutorials/nodejs-deployment/create-website.md)
+
 ## Install the Express Generator
 
 [Express](https://www.expressjs.com) is a very popular framework for building and running Node.js applications. You can scaffold (create) a new Express application using the [Express Generator](https://expressjs.com/en/starter/generator.html) tool. The Express Generator is shipped as an NPM module and installed by using the NPM command line tool `npm`.
