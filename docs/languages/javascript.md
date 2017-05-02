@@ -127,6 +127,85 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can 
 
 ![debug data inspection](images/javascript/debug_data_inspection.gif)
 
+## Type Checking and Quick Fixes for JavaScript Files
+
+VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting quickfixes for JavaScript, including *add missing import* and *add missing property*. 
+
+![Using type checking and quick fixes in a JavaScript file](images/javascript/checkjs-example.gif)
+
+Types and function signatures are defined using JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking [here](https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files).
+
+Type checking of JavaScript is optional and opt-in. Existing JavaScript validation tools such as ESLint can be used alongside the new built-in type checking functionality.
+
+You can get started with type checking a few different ways depending on your needs.
+
+**Per file**
+
+The easiest way to enable type checking in a JavaScript file is by adding `// @ts-check` to the top of a file.
+
+```js
+// @ts-check
+let easy = 'abc'
+easy = 123 // Error: Type '123' is not assignable to type 'string'
+```
+
+Using `// @ts-check` is a good approach if you just want to try type checking in a few files but not yet enable it for an entire codebase.
+
+**Using a Setting**
+
+To enable type checking for all Javascript files without changing any code, just add `"javascript.implicitProjectConfig.checkJs": true` to your workspace or user settings. This enables type checking for any JavaScript file that is not part of a `jsconfig.json` or `tsconfig.json` project.
+
+You can opt individual files out of type checking with a `// ts-nocheck` comment at the top of the file:
+
+```js
+// @ts-nocheck
+let easy = 'abc'
+easy = 123 // no error
+```
+
+You can also disable individual errors in a JavaScript file using a `// @ts-ignore` comment on the line before the error:
+
+```js
+let easy = 'abc'
+// @ts-ignore
+easy = 123 // no error
+```
+
+**Using a JSConfig or TSConfig**
+
+To enable type checking for JavaScript files that are part of a `jsconfig.json` or `tsconfig.json`, simply add `"checkJs": true` to the project's compiler options:
+
+`jsconfig.json`:
+
+```json
+{
+    "compilerOptions": {
+        "checkJs": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
+```
+
+`tsconfig.json`:
+
+```json
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "checkJs": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
+```
+
+This enables type checking for all JavaScript files in the project. You can use `// @ts-nocheck` to disable type checking per file.
+
+JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, simply run the **TypeScript: Select TypeScript Version** command to check.
+
 ## Linters
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
