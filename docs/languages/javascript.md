@@ -133,7 +133,7 @@ VS Code allows you to leverage some of TypeScript's advanced type checking and e
 
 ![Using type checking and quick fixes in a JavaScript file](images/javascript/checkjs-example.gif)
 
-Types and function signatures are defined using JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking [here](https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files).
+TypeScript can infer types in .js files same as in .ts files. When types cannot be inferred, they can be specified using JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking [here](https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files).
 
 Type checking of JavaScript is optional and opt-in. Existing JavaScript validation tools such as ESLint can be used alongside the new built-in type checking functionality.
 
