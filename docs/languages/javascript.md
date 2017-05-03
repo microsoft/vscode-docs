@@ -133,7 +133,7 @@ VS Code allows you to leverage some of TypeScript's advanced type checking and e
 
 ![Using type checking and quick fixes in a JavaScript file](images/javascript/checkjs-example.gif)
 
-TypeScript can infer types in .js files same as in .ts files. When types cannot be inferred, they can be specified using JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking [here](https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files).
+TypeScript can infer types in `.js` files same as in `.ts` files. When types cannot be inferred, they can be specified using JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking [here](https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files).
 
 Type checking of JavaScript is optional and opt-in. Existing JavaScript validation tools such as ESLint can be used alongside the new built-in type checking functionality.
 
@@ -153,9 +153,9 @@ Using `// @ts-check` is a good approach if you just want to try type checking in
 
 **Using a Setting**
 
-To enable type checking for all Javascript files without changing any code, just add `"javascript.implicitProjectConfig.checkJs": true` to your workspace or user settings. This enables type checking for any JavaScript file that is not part of a `jsconfig.json` or `tsconfig.json` project.
+To enable type checking for all JavaScript files without changing any code, just add `"javascript.implicitProjectConfig.checkJs": true` to your workspace or user settings. This enables type checking for any JavaScript file that is not part of a `jsconfig.json` or `tsconfig.json` project.
 
-You can opt individual files out of type checking with a `// ts-nocheck` comment at the top of the file:
+You can opt individual files out of type checking with a `// @ts-nocheck` comment at the top of the file:
 
 ```js
 // @ts-nocheck
