@@ -12,7 +12,6 @@ ShortDescription:
 In this step, you will install the Azure Command Line Interface (CLI). You will use the CLI to do the following:
 
 * Create an Azure Website.
-* Create a NoSQL MongoDB database using Azure DocumentDB.
 * Set up a deployment pipeline between a local/remote Git repository and the Website.
 * View your application's logs (`console.log()` output).
 
