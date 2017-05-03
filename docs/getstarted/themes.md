@@ -33,7 +33,6 @@ However, there is no need to edit the settings directly. It's easier to use the 
 
 > **Tip:** By default, the theme is configured in the user settings and applies to all workspaces. But you can also configure a workspace specific theme. To do so, set a theme in the workspace settings.
 
-
 ## Color Themes from the Marketplace
 
 There are several out-of-the-box color themes in VS Code for you to try.
@@ -48,11 +47,11 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Customize a Color Theme
 
-You can also customize your active color theme in your user [settings](/docs/getstarted/settings.md) with `workbench.colorCustomizations`. You can set the colors of VS Code UI elements such as list & trees (in particular the File Explorer and suggestions widget), diff editor, activity bar, notifications, scrollbar, splitview, buttons and more.
+You can also customize your active color theme with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md). You can set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more.
 
 ![activity bar theming](images/themes/theme-activitybar.gif)
 
-For a list of customizable colors, set the [Theme Color Reference](/docs/getstarted/theme-color-reference.md).
+You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/docs/getstarted/theme-color-reference.md).
 
 ## Using existing TextMate Themes
 
