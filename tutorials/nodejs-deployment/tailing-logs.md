@@ -1,15 +1,15 @@
 ---
 Order: 6
-TOCTitle: Tailing Logs
-PageTitle: Tailing Logs
+TOCTitle: Viewing Logs
+PageTitle: Viewing Logs
 MetaDescription:
 MetaSocialImage:
 DateApproved: 4/26/2017
 ShortDescription:
 ---
-# Tailing Logs
+# Viewing Logs
 
-In this step, you will "tail" the logs from the running Website. Any calls to `console.log()` in the site will be displayed in your terminal.
+In this step, you will view (or "tail") the logs from the running Website. Any calls to `console.log()` in the site will be displayed in your terminal.
 
 Run the following Azure CLI command.
 

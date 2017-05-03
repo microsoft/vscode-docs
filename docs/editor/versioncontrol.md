@@ -160,10 +160,7 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 **Q: My team is using Team Foundation version control (TFVC) instead of Git. What should I do?**
 
-**A:** Use the Team Foundation command line tools.
-
-* For cross-platform use: [Cross-Platform Command-Line Client Beginner's Guide](https://msdn.microsoft.com/en-us/library/hh873092.aspx)
-* For Windows: [Use Team Foundation version control commands](https://msdn.microsoft.com/en-us/library/vstudio/cc31bk2e.aspx)
+**A:** Use the [Visual Studio Team Services Extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) and this will light up TFVC support.
 
 **Q: Why do the Pull, Push and Sync actions never finish?**
 
