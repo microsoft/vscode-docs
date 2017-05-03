@@ -1,6 +1,17 @@
 ---
+Order:
+Area: getstarted
+TOCTitle: Theme Color Reference
+ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
+PageTitle: VS Code Theme Color Reference
+DateApproved: 5/4/2017
+MetaDescription: Reference for Visual Studio themable colors.
 ---
-# Themable Colors
+# Theme Color Reference
+
+You can customize your active color theme in your user [settings](/docs/getstarted/settings.md) with `workbench.colorCustomizations`.
+
+Below are the Visual Studio customizable colors grouped by UI region.
 
 ## Contrast Colors
 
@@ -24,7 +35,6 @@ A set of colors for button widgets such as `Open Folder` button in the explorer 
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
 - `button.hoverBackground`: Button background color when hovering.
-
 
 ## Dropdown Control
 
@@ -90,7 +100,6 @@ The side bar contains views like the Explorer and the Search view.
 - `sideBarSectionHeader.background`: Side bar section header background color. The side bar is the container for views like explorer and search.
 - `sideBarTitle.foreground`: Side bar title foreground color. The side bar is the container for views like explorer and search.
 
-
 ## Editor Groups & Tabs
 
 Editor Groups are the containers of tabs. A tab is the container of an editor.
@@ -107,7 +116,7 @@ Editor Groups are the containers of tabs. A tab is the container of an editor.
 - `tab.inactiveBackground`: Inactive tab background color. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 - `tab.inactiveForeground`: Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
 
-# Editor Colors
+## Editor Colors
 
 The most prominent editor colors are the token colors that are based on the language grammar installed. These colors are defined by the color theme and can (currently) not be customized in the settings. All other colors are listed here:
 
@@ -172,7 +181,6 @@ To see the editor indent guides, configure `"editor.renderIndentGuides": true`.
 
 - `editorIndentGuide.background`: Color of the editor indentation guides.
 
-
 ## Diff Editor Colors
 
 For coloring the inserted and removed text parts either a background or a border should be used (not both).
@@ -230,7 +238,6 @@ The editor marker view shows when navigating to errors and warnings in the edito
 - `panelTitle.activeBorder`: Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelTitle.activeForeground`: Title color for the active panel. Panels are shown below the editor area and contain views like output and integrated terminal.
 - `panelTitle.inactiveForeground`: Title color for the inactive panel. Panels are shown below the editor area and contain views like output and integrated terminal.
-
 
 ## Status Bar Colors
 
