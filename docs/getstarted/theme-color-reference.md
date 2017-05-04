@@ -38,7 +38,7 @@ The contrast colors are typically only set be high contrast themes. If set they 
 
 A set of colors for button widgets such as `Open Folder` button in the explorer of a new window
 
-![button control](images/themes/button.png)
+![button control](images/theme-color-reference/button.png)
 
 - `button.background`: Button background color.
 - `button.foreground`: Button foreground color.
@@ -48,7 +48,7 @@ A set of colors for button widgets such as `Open Folder` button in the explorer 
 
 A set of colors for all dropdown widgets such as in the terminal or the output panel.
 
-![drop down control](images/themes/dropdown.png)
+![drop down control](images/theme-color-reference/dropdown.png)
 
 - `dropdown.background`: Dropdown background.
 - `dropdown.border`: Dropdown border.
@@ -58,7 +58,7 @@ A set of colors for all dropdown widgets such as in the terminal or the output p
 
 Colors for input controls such as in the search view or the find/replace dialog.
 
-![input control](images/themes/input.png)
+![input control](images/theme-color-reference/input.png)
 
 - `input.background`: Input box background.
 - `input.border`: Input box border.
@@ -135,7 +135,7 @@ The most prominent editor colors are the token colors that are based on the lang
 
 Selection colors are visible when selecting one or more characters. In addition to the selection also all regions with the same content are highlighted.
 
-![selection highlight](images/themes/selectionhighlight.png)
+![selection highlight](images/theme-color-reference/selectionhighlight.png)
 
 - `editor.selectionBackground`: Color of the editor selection.
 - `editor.selectionHighlightBackground`: Color for regions with the same content as the selection.
@@ -143,14 +143,14 @@ Selection colors are visible when selecting one or more characters. In addition 
 
 Word highlight colors are visible when the cursor is inside a symbol or a word. Depending on the language support available for the file type, all matching references and declarations are highlighted and read and write accesses get different colors. If document symbol language support is not available, this falls back to word highlighting.
 
-![occurrences](images/themes/occurrences.png)
+![occurrences](images/theme-color-reference/occurrences.png)
 
 - `editor.wordHighlightBackground`: Background color of a symbol during read-access, like reading a variable.
 - `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, like writing to a variable.
 
 Find colors depend on the current find string in the Find/Replace dialog.
 
-![Find matches](images/themes/findmatches.png)
+![Find matches](images/theme-color-reference/findmatches.png)
 
 - `editor.findMatchBackground`: Color of the current search match.
 - `editor.findMatchHighlightBackground`: Color of the other search matches.
@@ -158,26 +158,26 @@ Find colors depend on the current find string in the Find/Replace dialog.
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
-![Hover Highlight](images/themes/hoverhighlight.png)
+![Hover Highlight](images/theme-color-reference/hoverhighlight.png)
 
 - `editor.hoverHighlightBackground`: Highlight below the word for which a hover is shown.
 
 The current line is typically shown as either background highlight or a border (not both).
 
-![Line Highlight](images/themes/line.png)
+![Line Highlight](images/theme-color-reference/line.png)
 
 - `editor.lineHighlightBackground`: Background color for the highlight of line at the cursor position.
 - `editor.lineHighlightBorder`: Background color for the border around the line at the cursor position.
 
 The link color is visible when clicking on a link.
 
-![Link](images/themes/link.png)
+![Link](images/theme-color-reference/link.png)
 
 - `editorLink.activeForeground`: Color of active links.
 
 The range highlight is visible when selecting a search result.
 
-![Range Highlight](images/themes/rangehighlight.png)
+![Range Highlight](images/theme-color-reference/rangehighlight.png)
 
 - `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by quick open and find features.
 
