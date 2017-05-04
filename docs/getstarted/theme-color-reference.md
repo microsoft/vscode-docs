@@ -9,7 +9,7 @@ MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
 
-You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes.md) with the with `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md).
+You can customize your active Visual Studio Code [color theme](/docs/getstarted/themes.md) with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md).
 
 ```json
 {
@@ -23,7 +23,7 @@ Below are the customizable colors grouped by UI region.
 
 ## Contrast Colors
 
-The contrast colors are typically only set be high contrast themes. If set they add an additional border around items across the UI to increase the contrast. 
+The contrast colors are typically only set for high contrast themes. If set, they add an additional border around items across the UI to increase the contrast.
 
 - `contrastActiveBorder`: An extra border around active elements to separate them from others for greater contrast.
 - `contrastBorder`: An extra border around elements to separate them from others for greater contrast.
@@ -32,11 +32,11 @@ The contrast colors are typically only set be high contrast themes. If set they 
 
 - `focusBorder`: Overall border color for focused elements. This color is only used if not overridden by a component.
 - `foreground`: Overall foreground color. This color is only used if not overridden by a component.
-- `widget.shadow`: Shadow color of widgets such as find/replace inside the editor.
+- `widget.shadow`: Shadow color of widgets such as Find/Replace inside the editor.
 
 ## Button Control
 
-A set of colors for button widgets such as `Open Folder` button in the explorer of a new window
+A set of colors for button widgets such as **Open Folder** button in the Explorer of a new window.
 
 ![button control](images/theme-color-reference/button.png)
 
@@ -46,7 +46,7 @@ A set of colors for button widgets such as `Open Folder` button in the explorer 
 
 ## Dropdown Control
 
-A set of colors for all dropdown widgets such as in the terminal or the output panel.
+A set of colors for all dropdown widgets such as in the Integrated Terminal or the Output panel.
 
 ![drop down control](images/theme-color-reference/dropdown.png)
 
@@ -56,7 +56,7 @@ A set of colors for all dropdown widgets such as in the terminal or the output p
 
 ## Input Control
 
-Colors for input controls such as in the search view or the find/replace dialog.
+Colors for input controls such as in the Search view or the Find/Replace dialog.
 
 ![input control](images/theme-color-reference/input.png)
 
@@ -71,62 +71,62 @@ Colors for input controls such as in the search view or the find/replace dialog.
 - `inputValidation.warningBackground`: Input validation background color for information warning.
 - `inputValidation.warningBorder`: Input validation border color for warning severity.
 
-## Scrollbar Control
+## Scroll Bar Control
 
-- `scrollbar.shadow`: Scrollbar shadow to indicate that the view is scrolled.
+- `scrollbar.shadow`: Scroll Bar shadow to indicate that the view is scrolled.
 - `scrollbarSlider.activeBackground`: Slider background color when active.
 - `scrollbarSlider.background`: Slider background color.
 - `scrollbarSlider.hoverBackground`: Slider background color when hovering.
 
 ## Lists and Trees
 
-Colors for list and trees like the File Explorer
+Colors for list and trees like the File Explorer. An active list/tree has keyboard focus, an inactive does not.
 
-- `list.activeSelectionBackground`: List/Tree background color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
-- `list.activeSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+- `list.activeSelectionBackground`: List/Tree background color for the selected item when the list/tree is active.
+- `list.activeSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is active.
 - `list.dropBackground`: List/Tree drag and drop background when moving items around using the mouse.
-- `list.focusBackground`: List/Tree background color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+- `list.focusBackground`: List/Tree background color for the focused item when the list/tree is active.
 - `list.highlightForeground`: List/Tree foreground color of the match highlights when searching inside the list/tree.
 - `list.hoverBackground`: List/Tree background when hovering over items using the mouse.
-- `list.inactiveSelectionBackground`: List/Tree background color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+- `list.inactiveSelectionBackground`: List/Tree background color for the selected item when the list/tree is inactive.
 
 ## Activity Bar
 
-The activity bar is showing either on the far left or right.
+The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
 
-- `activityBar.background`: Activity bar background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
-- `activityBar.dropBackground`: Drag and drop feedback color for the activity bar items. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
-- `activityBar.foreground`: Activity bar foreground color (e.g. used for the icons). The activity bar is showing on the far left or right and allows to switch between views of the side bar.
-- `activityBarBadge.background`: Activity notification badge background color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
-- `activityBarBadge.foreground`: Activity notification badge foreground color. The activity bar is showing on the far left or right and allows to switch between views of the side bar.
+- `activityBar.background`: Activity Bar background color.
+- `activityBar.dropBackground`: Drag and drop feedback color for the Activity Bar items.
+- `activityBar.foreground`: Activity bar foreground color (for example used for the icons).
+- `activityBarBadge.background`: Activity notification badge background color.
+- `activityBarBadge.foreground`: Activity notification badge foreground color.
 
 ## Side Bar
 
-The side bar contains views like the Explorer and the Search view.
+The Side Bar contains views like the Explorer and Search.
 
-- `sideBar.background`: Side bar background color. The side bar is the container for views like explorer and search.
-- `sideBarSectionHeader.background`: Side bar section header background color. The side bar is the container for views like explorer and search.
-- `sideBarTitle.foreground`: Side bar title foreground color. The side bar is the container for views like explorer and search.
+- `sideBar.background`: Side Bar background color.
+- `sideBarSectionHeader.background`: Side Bar section header background color.
+- `sideBarTitle.foreground`: Side Bar title foreground color.
 
 ## Editor Groups & Tabs
 
-Editor Groups are the containers of tabs. A tab is the container of an editor.
+Editor Groups are the containers of editors. There can be up to three editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
 
-- `editorGroup.background`: Background color of an editor group. Editor groups are the containers of editors. The background color shows up when dragging editor groups around.
-- `editorGroup.border`: Color to separate multiple editor groups from each other. Editor groups are the containers of editors.
+- `editorGroup.background`: Background color of an editor group. The background color shows up when dragging editor groups around.
+- `editorGroup.border`: Color to separate multiple editor groups from each other.
 - `editorGroup.dropBackground`: Background color when dragging editors around.
-- `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when tabs are disabled. Editor groups are the containers of editors.
-- `editorGroupHeader.tabsBackground`: Background color of the tabs container. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
+- `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when Tabs are disabled.
+- `editorGroupHeader.tabsBackground`: Background color of the Tabs container.
 
-- `tab.activeBackground`: Active tab background color. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
-- `tab.activeForeground`: Active tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
-- `tab.border`: Border to separate tabs from each other. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
-- `tab.inactiveBackground`: Inactive tab background color. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
-- `tab.inactiveForeground`: Inactive tab foreground color in an active group. Tabs are the containers for editors in the editor area. Multiple tabs can be opened in one editor group. There can be multiple editor groups.
+- `tab.activeBackground`: Active Tab background color.
+- `tab.activeForeground`: Active Tab foreground color in an active group.
+- `tab.border`: Border to separate Tabs from each other.
+- `tab.inactiveBackground`: Inactive Tab background color.
+- `tab.inactiveForeground`: Inactive Tab foreground color in an active group.
 
 ## Editor Colors
 
-The most prominent editor colors are the token colors that are based on the language grammar installed. These colors are defined by the color theme and can (currently) not be customized in the settings. All other colors are listed here:
+The most prominent editor colors are the token colors that are based on the language grammar installed. These colors are defined by the Color Theme and can (currently) not be customized in the settings. All other colors are listed here:
 
 - `editor.background`: Editor background color.
 - `editor.foreground`: Editor default foreground color.
@@ -145,8 +145,8 @@ Word highlight colors are visible when the cursor is inside a symbol or a word. 
 
 ![occurrences](images/theme-color-reference/occurrences.png)
 
-- `editor.wordHighlightBackground`: Background color of a symbol during read-access, like reading a variable.
-- `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, like writing to a variable.
+- `editor.wordHighlightBackground`: Background color of a symbol during read-access, for example when reading a variable.
+- `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, for example when writing to a variable.
 
 Find colors depend on the current find string in the Find/Replace dialog.
 
@@ -179,46 +179,46 @@ The range highlight is visible when selecting a search result.
 
 ![Range Highlight](images/theme-color-reference/rangehighlight.png)
 
-- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by quick open and find features.
+- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by Quick Open and Find features.
 
-To see the editor white spaces enable `Toggle Render Whitespaces`.
+To see the editor white spaces, enable **Toggle Render Whitespace**.
 
 - `editorWhitespace.foreground`: Color of whitespace characters in the editor.
 
-To see the editor indent guides, configure `"editor.renderIndentGuides": true`.
+To see the editor indent guides, set `"editor.renderIndentGuides": true`.
 
 - `editorIndentGuide.background`: Color of the editor indentation guides.
 
 ## Diff Editor Colors
 
-For coloring the inserted and removed text parts either a background or a border should be used (not both).
+For coloring inserted and removed text, use either a background or a border color but not both.
 
-- `diffEditor.insertedTextBackground`: Background color for text that got inserted.
-- `diffEditor.insertedTextBorder`: Outline color for the text that got inserted.
-- `diffEditor.removedTextBackground`: Background color for text that got removed.
-- `diffEditor.removedTextBorder`: Outline color for text that got removed.
+- `diffEditor.insertedTextBackground`: Background color for inserted text.
+- `diffEditor.insertedTextBorder`: Outline color for inserted text.
+- `diffEditor.removedTextBackground`: Background color for removed text.
+- `diffEditor.removedTextBorder`: Outline color for removed text.
 
 ## Editor Widget Colors
 
-Editor widget show up in front of the editor content. Examples are the Find/Replace dialog, the suggestion widget or the editor hover.
+The Editor widget is shown in front of the editor content. Examples are the Find/Replace dialog, the suggestion widget, and the editor hover.
 
-- `editorWidget.background`: Background color of editor widgets, such as find/replace.
+- `editorWidget.background`: Background color of editor widgets, such as Find/Replace.
 
-- `editorSuggestWidget.background`: Background color of the suggest widget.
-- `editorSuggestWidget.border`: Border color of the suggest widget.
-- `editorSuggestWidget.foreground`: Foreground color of the suggest widget.
-- `editorSuggestWidget.highlightForeground`: Color of the match highlights in the suggest widget.
-- `editorSuggestWidget.selectedBackground`: Background color of the selected entry in the suggest widget.
+- `editorSuggestWidget.background`: Background color of the suggestion widget.
+- `editorSuggestWidget.border`: Border color of the suggestion widget.
+- `editorSuggestWidget.foreground`: Foreground color of the suggestion widget.
+- `editorSuggestWidget.highlightForeground`: Color of the match highlights in the suggestion widget.
+- `editorSuggestWidget.selectedBackground`: Background color of the selected entry in the suggestion widget.
 
 - `editorHoverWidget.background`: Background color of the editor hover.
 - `editorHoverWidget.border`: Border color of the editor hover.
 
-The debug exception widget is a peek view that shows in the editor when debug stops at an exception.
+The Debug Exception widget is a peek view that shows in the editor when debug stops at an exception.
 
 - `debugExceptionWidget.background`: Exception widget background color.
 - `debugExceptionWidget.border`: Exception widget border color.
 
-The editor marker view shows when navigating to errors and warnings in the editor (`Goto Next Error or Warning` command).
+The editor marker view shows when navigating to errors and warnings in the editor (**Go to Next Error or Warning** command).
 
 - `editorMarkerNavigation.background`: Editor marker navigation widget background.
 - `editorMarkerNavigationError.background`: Editor marker navigation widget error color.
@@ -241,58 +241,63 @@ The editor marker view shows when navigating to errors and warnings in the edito
 
 ## Panel Colors
 
-- `panel.background`: Panel background color. Panels are shown below the editor area and contain views like output and integrated terminal.
-- `panel.border`: Panel border color on the top separating to the editor. Panels are shown below the editor area and contain views like output and integrated terminal.
-- `panelTitle.activeBorder`: Border color for the active panel title. Panels are shown below the editor area and contain views like output and integrated terminal.
-- `panelTitle.activeForeground`: Title color for the active panel. Panels are shown below the editor area and contain views like output and integrated terminal.
-- `panelTitle.inactiveForeground`: Title color for the inactive panel. Panels are shown below the editor area and contain views like output and integrated terminal.
+Panels are shown below the editor area and contain views like Output and Integrated Terminal.
+
+- `panel.background`: Panel background color.
+- `panel.border`: Panel border color on the top separating to the editor.
+- `panelTitle.activeBorder`: Border color for the active panel title.
+- `panelTitle.activeForeground`: Title color for the active panel.
+- `panelTitle.inactiveForeground`: Title color for the inactive panel.
 
 ## Status Bar Colors
 
-- `statusBar.background`: Standard status bar background color. The status bar is shown in the bottom of the window.
-- `statusBar.debuggingBackground`: Status bar background color when a program is being debugged. The status bar is shown in the bottom of the window
-- `statusBar.foreground`: Status bar foreground color. The status bar is shown in the bottom of the window.
-- `statusBar.noFolderBackground`: Status bar background color when no folder is opened. The status bar is shown in the bottom of the window.
-- `statusBarItem.activeBackground`: Status bar item background color when clicking. The status bar is shown in the bottom of the window.
-- `statusBarItem.hoverBackground`: Status bar item background color when hovering. The status bar is shown in the bottom of the window.
-- `statusBarItem.prominentBackground`: Status bar prominent items background color. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.
-- `statusBarItem.prominentHoverBackground`: Status bar prominent items background color when hovering. Prominent items stand out from other status bar entries to indicate importance. The status bar is shown in the bottom of the window.
+The Status Bar is shown in the bottom of the workbench.
+
+- `statusBar.background`: Standard Status Bar background color.
+- `statusBar.debuggingBackground`: Status Bar background color when a program is being debugged.
+- `statusBar.foreground`: Status Bar foreground color.
+- `statusBar.noFolderBackground`: Status Bar background color when no folder is opened. - `statusBarItem.activeBackground`: Status Bar item background color when clicking.
+- `statusBarItem.hoverBackground`: Status Bar item background color when hovering.
+- `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance.
+- `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance.
 
 ## Title Bar Colors (macOS)
 
-- `titleBar.activeBackground`: Title bar background when the window is active. Note that this color is currently only supported on macOS.
-- `titleBar.activeForeground`: Title bar foreground when the window is active. Note that this color is currently only supported on macOS.
-- `titleBar.inactiveBackground`: Title bar background when the window is inactive. Note that this color is currently only supported on macOS.
-- `titleBar.inactiveForeground`: Title bar foreground when the window is inactive. Note that this color is currently only supported on macOS.
+- `titleBar.activeBackground`: Title Bar background when the window is active. Note that this color is currently only supported on macOS.
+- `titleBar.activeForeground`: Title Bar foreground when the window is active. Note that this color is currently only supported on macOS.
+- `titleBar.inactiveBackground`: Title Bar background when the window is inactive. Note that this color is currently only supported on macOS.
+- `titleBar.inactiveForeground`: Title Bar foreground when the window is inactive. Note that this color is currently only supported on macOS.
 
 ## Notification Dialog Colors
 
-- `notification.background`: Notifications background color. Notifications slide in from the top of the window.
-- `notification.foreground`: Notifications foreground color. Notifications slide in from the top of the window.
+Notifications slide in from the top of the workbench.
+
+- `notification.background`: Notifications background color.
+- `notification.foreground`: Notifications foreground color.
 
 ## Quick Picker
 
-- `pickerGroup.border`: Quick picker color for grouping borders.
-- `pickerGroup.foreground`: Quick picker color for grouping labels.
+- `pickerGroup.border`: Quick picker (Quick Open) color for grouping borders.
+- `pickerGroup.foreground`: Quick picker (Quick Open) color for grouping labels.
 
-## Terminal Colors
+## Integrated Terminal Colors
 
-- `terminal.ansiBlack`: 'Black' ansi color in the terminal.
-- `terminal.ansiBlue`: 'Blue' ansi color in the terminal.
-- `terminal.ansiBrightBlack`: 'BrightBlack' ansi color in the terminal.
-- `terminal.ansiBrightBlue`: 'BrightBlue' ansi color in the terminal.
-- `terminal.ansiBrightCyan`: 'BrightCyan' ansi color in the terminal.
-- `terminal.ansiBrightGreen`: 'BrightGreen' ansi color in the terminal.
-- `terminal.ansiBrightMagenta`: 'BrightMagenta' ansi color in the terminal.
-- `terminal.ansiBrightRed`: 'BrightRed' ansi color in the terminal.
-- `terminal.ansiBrightWhite`: 'BrightWhite' ansi color in the terminal.
-- `terminal.ansiBrightYellow`: 'BrightYellow' ansi color in the terminal.
-- `terminal.ansiCyan`: 'Cyan' ansi color in the terminal.
-- `terminal.ansiGreen`: 'Green' ansi color in the terminal.
-- `terminal.ansiMagenta`: 'Magenta' ansi color in the terminal.
-- `terminal.ansiRed`: 'Red' ansi color in the terminal.
-- `terminal.ansiWhite`: 'White' ansi color in the terminal.
-- `terminal.ansiYellow`: 'Yellow' ansi color in the terminal.
+- `terminal.ansiBlack`: 'Black' ANSI color in the terminal.
+- `terminal.ansiBlue`: 'Blue' ANSI color in the terminal.
+- `terminal.ansiBrightBlack`: 'BrightBlack' ANSI color in the terminal.
+- `terminal.ansiBrightBlue`: 'BrightBlue' ANSI color in the terminal.
+- `terminal.ansiBrightCyan`: 'BrightCyan' ANSI color in the terminal.
+- `terminal.ansiBrightGreen`: 'BrightGreen' ANSI color in the terminal.
+- `terminal.ansiBrightMagenta`: 'BrightMagenta' ANSI color in the terminal.
+- `terminal.ansiBrightRed`: 'BrightRed' ANSI color in the terminal.
+- `terminal.ansiBrightWhite`: 'BrightWhite' ANSI color in the terminal.
+- `terminal.ansiBrightYellow`: 'BrightYellow' ANSI color in the terminal.
+- `terminal.ansiCyan`: 'Cyan' ANSI color in the terminal.
+- `terminal.ansiGreen`: 'Green' ANSI color in the terminal.
+- `terminal.ansiMagenta`: 'Magenta' ANSI color in the terminal.
+- `terminal.ansiRed`: 'Red' ANSI color in the terminal.
+- `terminal.ansiWhite`: 'White' ANSI color in the terminal.
+- `terminal.ansiYellow`: 'Yellow' ANSI color in the terminal.
 
 ## Debug
 
