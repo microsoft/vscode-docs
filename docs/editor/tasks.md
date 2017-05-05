@@ -70,7 +70,7 @@ To see the exact command VS Code is running, you can enable the `echoCommand` se
 
 `tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default the `command` will show up in the **Tasks: Run Task** dropdown.
 
-You can also define multiple tasks in a `tasks` array in order to pass different arguments or use different settings when the `command` is run.
+You can also define multiple tasks in a `tasks` array in order to pass different arguments or use different settings when the `command` is running.
 
 Here's a simple example passing different arguments to the `echo` command:
 
