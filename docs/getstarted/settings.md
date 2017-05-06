@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 4/5/2017
+DateApproved: 5/4/2017
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -364,6 +364,9 @@ Below are the default settings and their values.
 
 // Workbench
 
+  // When enabled, will show the watermark tips when no editor is open.
+  "workbench.tips.enabled": true,
+
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
 
@@ -403,9 +406,6 @@ Below are the default settings and their values.
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
 
-  // When enabled, will show the watermark tips when no editor is open.
-  "workbench.tips.enabled": true,
-
   // When enabled, will show the Welcome page on startup.
   "workbench.welcome.enabled": false,
 
@@ -415,8 +415,8 @@ Below are the default settings and their values.
   // Specifies the icon theme used in the workbench.
   "workbench.iconTheme": null,
 
-  // Overrides colors from the currently selected color theme. This setting is experimental as the names of the colors will change in the next release.
-  "workbench.experimental.colorCustomizations": null,
+  // Overrides colors from the currently selected color theme.
+  "workbench.colorCustomizations": {},
 
 // Window
 
@@ -521,6 +521,9 @@ Below are the default settings and their values.
   // Controls if turning on Zen Mode also hides the status bar at the bottom of the workbench.
   "zenMode.hideStatusBar": true,
 
+  // Controls if turning on Zen Mode also hides the activity bar at the left of the workbench.
+  "zenMode.hideActivityBar": true,
+
   // Controls if a window should restore to zen mode if it was exited in zen mode.
   "zenMode.restore": false,
 
@@ -554,35 +557,6 @@ Below are the default settings and their values.
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
-
-// Git
-
-  // Is git enabled
-  "git.enabled": true,
-
-  // Path to the git executable
-  "git.path": null,
-
-  // Whether auto refreshing is enabled
-  "git.autorefresh": true,
-
-  // Whether auto fetching is enabled.
-  "git.autofetch": true,
-
-  // Whether long commit messages should be warned about.
-  "git.enableLongCommitWarning": true,
-
-  // Always allow large repositories to be managed by Code.
-  "git.allowLargeRepositories": false,
-
-  // Confirm before synchronizing git repositories.
-  "git.confirmSync": true,
-
-  // Controls the git badge counter.
-  "git.countBadge": "all",
-
-  // Controls what type of branches are listed.
-  "git.checkoutType": "all",
 
 // HTTP
 
@@ -809,6 +783,9 @@ Below are the default settings and their values.
   // Controls if the floating debug action bar should be hidden
   "debug.hideActionBar": false,
 
+  // Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces
+  "launch": {},
+
 // HTML
 
   // Enable/disable default HTML formatter (requires restart)
@@ -885,7 +862,7 @@ Below are the default settings and their values.
   "markdown.previewFrontMatter": "hide",
 
   // Controls the font family used in the markdown preview.
-  "markdown.preview.fontFamily": "'Segoe WPC', 'Segoe UI', 'SFUIText-Light', 'HelveticaNeue-Light', sans-serif",
+  "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
 
   // Controls the font size in pixels used in the markdown preview.
   "markdown.preview.fontSize": 14,
@@ -904,6 +881,12 @@ Below are the default settings and their values.
 
   // Double click in the markdown preview to switch to the editor.
   "markdown.preview.doubleClickToSwitchToEditor": true,
+
+  // [Experimental] Allow extensions to extend the markdown preview.
+  "markdown.enableExperimentalExtensionApi": false,
+
+  // Enable debug logging for the markdown extension.
+  "markdown.trace": "off",
 
 // PHP
 
@@ -930,16 +913,19 @@ Below are the default settings and their values.
   // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
   "typescript.check.tscVersion": true,
 
+  // Check if NPM is installed for automatic typings acquisition
+  "typescript.check.npmIsInstalled": true,
+
   // Enable/disable references CodeLens. Requires TypeScript >= 2.0.6.
   "typescript.referencesCodeLens.enabled": false,
 
   // Enable/disable implementations CodeLens. Requires TypeScript >= 2.2.0.
   "typescript.implementationsCodeLens.enabled": false,
 
-  // Enables logging of the TS server to a file.
+  // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.log": "off",
 
-  // Enables tracing of messages sent to the TS server.
+  // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.trace": "off",
 
   // Complete functions with their parameter signature.
@@ -974,6 +960,9 @@ Below are the default settings and their values.
 
   // Defines space handling after opening and before closing non empty brackets.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+
+  // Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
   // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
@@ -1017,6 +1006,9 @@ Below are the default settings and their values.
   // Defines space handling after opening and before closing non empty brackets.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
+  // Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+
   // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
 
@@ -1028,6 +1020,12 @@ Below are the default settings and their values.
 
   // Defines whether an open brace is put onto a new line for control blocks or not.
   "javascript.format.placeOpenBraceOnNewLineForControlBlocks": false,
+
+  // Enable/disable auto JSDoc comments
+  "jsDocCompletion.enabled": true,
+
+  // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.
+  "javascript.implicitProjectConfig.checkJs": false,
 
 // Extensions
 
@@ -1082,7 +1080,7 @@ Below are the default settings and their values.
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1.2,
 
-  // Whether to enable bold text within the terminal.
+  // Whether to enable bold text within the terminal, this requires support from the terminal shell.
   "terminal.integrated.enableBold": true,
 
   // Controls whether the terminal cursor blinks.
@@ -1160,7 +1158,77 @@ Below are the default settings and their values.
 
   // Enable crash reports to be sent to Microsoft.
   // This option requires restart to take effect.
-  "telemetry.enableCrashReporter": true
+  "telemetry.enableCrashReporter": true,
+
+// Default Configuration Overrides
+
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
+
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
+
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
+
+// Gulp
+
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
+
+// Grunt
+
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
+
+// Git
+
+  // Whether git is enabled
+  "git.enabled": true,
+
+  // Path to the git executable
+  "git.path": null,
+
+  // Whether auto refreshing is enabled
+  "git.autorefresh": true,
+
+  // Whether auto fetching is enabled
+  "git.autofetch": true,
+
+  // Confirm before synchronizing git repositories
+  "git.confirmSync": true,
+
+  // Controls the git badge counter. `all` counts all changes. `tracked` counts only the tracked changes. `off` turns it off.
+  "git.countBadge": "all",
+
+  // Controls what type of branches are listed when running `Checkout to...`. `all` shows all refs, `local` shows only the local branchs, `tags` shows only tags and `remote` shows only remote branches.
+  "git.checkoutType": "all",
+
+  // Ignores the legacy Git warning
+  "git.ignoreLegacyWarning": false,
+
+  // Ignores the warning when there are too many changes in a repository
+  "git.ignoreLimitWarning": false
 }
 ```
 

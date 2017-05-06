@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 4/5/2017
+DateApproved: 5/4/2017
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 

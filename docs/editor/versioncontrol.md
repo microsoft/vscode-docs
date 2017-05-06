@@ -5,22 +5,29 @@ TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in VS Code
 DateApproved: 4/5/2017
-MetaDescription: Visual Studio Code has integrated Git support for the most common commands.
+MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
-
 # Using Version Control in VS Code
 
-Visual Studio Code has integrated [Git](https://git-scm.com/) support for the most common commands. This makes it an excellent choice to manage your code commits while you develop.
+Visual Studio Code has integrated source control and includes [Git](https://git-scm.com/) support in-the-box. Many other source control providers are available through [extensions](/docs/editor/extension-gallery.md) on the VS Code Marketplace.
+
+<div class="marketplace-extensions-scm-curated"></div>
+
+> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+
+## Git support
+
+VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
+
+>**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
+
+![git overview](images/versioncontrol/overview.png)
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
 >**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
-## Overview
-
-![git overview](images/versioncontrol/overview.png)
-
-The Git icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **unstaged**, **staged** and **unresolved conflicting merge** changes.
+The Source Control icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
 
 Clicking each item will show you in detail **the textual changes within each file**. Note that for unstaged changes, the editor on the right still lets you edit the file: feel free to use it!
 
@@ -30,7 +37,7 @@ You can also find indicators of the **status of your repository** in the bottom 
 
 ## Git Status Bar Actions
 
-There is a **Synchronize** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
+There is a **Synchronize changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
 
 ![git status bar sync](images/versioncontrol/git-status-bar-sync.png)
 
@@ -48,17 +55,19 @@ We've found this to be a great workflow. For example, in the previous screenshot
 
 More specific **commit actions** can be found in the `...` menu on the top of the Git view.
 
+## Cloning a repository
+
+You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). You will be asked for the URL of the remote repository and the parent directory under which to put the local repository.
+
 ## Branches and Tags
 
-You can create and checkout branches directly within VS code through **Quick Open**. Press `kb(workbench.action.quickOpen)`, type `git` and then press `kbstyle(Space)`. You should see the following:
+You can create and checkout branches directly within VS code through the **Git: Create Branch...** and **Git: Checkout to..** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-![Git commands](images/versioncontrol/gitcommands.png)
-
-If you type `checkout` and press `kbstyle(Space)` again, you will see a dropdown containing all of the branches or tags in the current repository.
+If you run **Git: Checkout to...**, you will see a dropdown containing all of the branches or tags in the current repository.
 
 ![Git checkout](images/versioncontrol/gitbranches.png)
 
-The `git branch` command lets you quickly create a new branch.  Just provide the name of your new branch and VS Code will create the branch and switch to it.
+The **Git: Create Branch...** command lets you quickly create a new branch.  Just provide the name of your new branch and VS Code will create the branch and switch to it.
 
 ## Remotes
 
@@ -94,7 +103,7 @@ Our Git tooling supports viewing of diffs within VS Code.
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
 
-To open the Git output window, run **View** > **Output** and select `Git` from the dropdown.
+To open the Git output window, run **View** > **Output** and select **Git** from the dropdown.
 
 ## Initialize a Repository
 
@@ -146,6 +155,7 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
+* [SCM API](/docs/extensionAPI/api-scm.md) - If you want to integrate another Source Control provider into VS Code, see our SCM API.
 
 ## Common Questions
 

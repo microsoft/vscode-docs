@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in VS Code
-DateApproved: 4/5/2017
+DateApproved: 5/4/2017
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in VS Code.
 MetaSocialImage: nodejs_javascript_vscode.png
 ---

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 4/5/2017
+DateApproved: 5/4/2017
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 # Color Themes
@@ -44,6 +44,14 @@ Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs
 <div class="marketplace-extensions-themes"></div>
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
+
+## Customize a Color Theme
+
+You can also customize your active color theme with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md). You can set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more.
+
+![activity bar theming](images/themes/theme-activitybar.gif)
+
+You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/docs/getstarted/theme-color-reference.md).
 
 ## Using existing TextMate Themes
 
