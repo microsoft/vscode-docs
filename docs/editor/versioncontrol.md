@@ -17,13 +17,15 @@ Visual Studio Code has integrated source control and includes [Git](https://git-
 
 ## Git support
 
->**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
+VS Code ships with a Git source control manager (SCM) extension. Most of the Source Control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
 
->**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
+>**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pd). The VS Code documentation assumes you are already familiar with Git.
 
 ![git overview](images/versioncontrol/overview.png)
 
->**Note:** If you are new to Git, [git-scm](https://git-scm.com/documentation) is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pd). The VS Code documentation assumes you are already familiar with Git.
+>**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
+
+>**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 The Source Control icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
 
@@ -53,9 +55,13 @@ We've found this to be a great workflow. For example, in the previous screenshot
 
 More specific **commit actions** can be found in the `...` menu on the top of the Git view.
 
+## Cloning a repository
+
+You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). You will be asked for the URL of the remote repository and the parent directory under which to put the local repository.
+
 ## Branches and Tags
 
-You can create and checkout branches directly within VS code through the **Git: Create Branch...** and **Git: Checkout to..** commands in the **Command Palette** (`kb(workbench.action.showCommands)`.
+You can create and checkout branches directly within VS code through the **Git: Create Branch...** and **Git: Checkout to..** commands in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 If you run **Git: Checkout to...**, you will see a dropdown containing all of the branches or tags in the current repository.
 
@@ -97,7 +103,7 @@ Our Git tooling supports viewing of diffs within VS Code.
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
 
-To open the Git output window, run **View** > **Output** and select `Git` from the dropdown.
+To open the Git output window, run **View** > **Output** and select **Git** from the dropdown.
 
 ## Initialize a Repository
 
