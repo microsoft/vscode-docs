@@ -13,13 +13,13 @@ Visual Studio Code has integrated source control and includes [Git](https://git-
 
 <div class="marketplace-extensions-scm-curated"></div>
 
-> **Tip:** Click on an extension tile above to read the description and reviews in the Marketplace.
+> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
 
 ## Git support
 
-VS Code ships with a Git source control manager (SCM) extension. Most of the Source Control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
+VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
 
->**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pd). The VS Code documentation assumes you are already familiar with Git.
+>**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
 
 ![git overview](images/versioncontrol/overview.png)
 
