@@ -187,6 +187,49 @@ You can reference VS Code settings and commands using the following syntax:
 * **${config:Name}** - example: `${config:editor.fontSize}`
 * **${command:CommandID}** - example: `${command:explorer.newFolder}`
 
+## Operating System Specific Properties
+`Launch.json` supports defining values (for example, arguments to be passed to the program) specific to an operating system. To do so, put an operating system specific literal into the `launch.json` file and specify the corresponding properties inside that literal.
+
+Below is an example that passes `"args"` to the program differently on Windows than on Linux and Mac:
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "./node_modules/gulp/bin/gulpfile.js",
+            "args": ["myFolder/path/app.js"],
+            "windows": {
+                "args": ["myFolder\\path\\app.js"]
+            }
+        }
+    ]
+}
+```
+Valid operating properties are `"windows"` for Windows, `"linux"` for Linux and `"osx"` for Mac. Properties defined in an operating system specific scope override properties defined in the global scope.
+
+In the example below:
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "./node_modules/gulp/bin/gulpfile.js",
+            "stopOnEntry": true,
+            "osx": {
+                "stopOnEntry": false
+            }
+        }
+    ]
+}
+```
+Program is always stopped on entry except for OS X where it does not stop on entry.
+
 ## Run mode
 
 In addition to debugging a program, VS Code supports running the program. The **Run** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
