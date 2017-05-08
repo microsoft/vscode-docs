@@ -116,7 +116,7 @@ From **File** > **Preferences** > **Settings**, add the following option to disa
     "telemetry.enableTelemetry": false
 ```
 
-**Important Notice**: This option requires a restart of VS Code to take effect.  Individual extensions and packages may send addional telemetry and not respect this setting.
+**Important Notice**: This option requires a restart of VS Code to take effect.  Individual extensions and packages may send additional telemetry and not respect this setting.
 
 >**Note:** VS Code gives you the option to install Microsoft and third party extensions.  These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting.  Consult the specific extension’s documentation to learn about its telemetry reporting.
 
