@@ -325,7 +325,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 ## Skipping uninteresting code (node, chrome)
 
-VS Code Node.js debugging has a feature to avoid code that you don't want to step through (AKA 'Just my Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
+VS Code Node.js debugging has a feature to avoid code that you don't want to step through (AKA 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
 
 For example using:
 
