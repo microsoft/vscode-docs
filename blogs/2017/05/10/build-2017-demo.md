@@ -1,3 +1,12 @@
+---
+Order: 
+TOCTitle: Build 2017 Demo
+PageTitle: Build 2017 Demo
+MetaDescription: Build 2017 Demo 
+Date: 2017-05-10
+ShortDescription: Build 2017 Demo
+Author: Chris Dias
+---
 # build2017
 VS Code - Conquring the Cloud with an editor and a CLI
 
@@ -8,15 +17,6 @@ VS Code - Conquring the Cloud with an editor and a CLI
 * [Tour of Heroes](https://github.com/johnpapa/angular-tour-of-heroes)
 * [Sticker App](https://github.com/glimpse/stickerapp)
 
----
-Order: 
-TOCTitle: Build 2017 Demo
-PageTitle: Build 2017 Demo
-MetaDescription: Build 2017 Demo 
-Date: 2017-05-10
-ShortDescription: Build 2017 Demo
-Author: Chris Dias
----
 ## Extensions
 
 ### Tools
