@@ -7,13 +7,14 @@ Date: 2017-05-10
 ShortDescription: Build 2017 Demo
 Author: Chris Dias
 ---
-# build2017
-VS Code - Conquring the Cloud with an editor and a CLI
+# Build 2017 Demo
+
+Visual Studio Code - Conquering the Cloud with an editor and a CLI.
 
 ## Useful Links
 
-* [Debugging configuration Recipes](https://github.com/weinand/vscode-recipes)
-* [Docker Multi-Stage Builds](https://codefresh.io/blog/node_docker_multistage/)
+* [Debugging configuration recipes](https://github.com/weinand/vscode-recipes)
+* [Docker multi-Stage builds](https://codefresh.io/blog/node_docker_multistage/)
 * [Tour of Heroes](https://github.com/johnpapa/angular-tour-of-heroes)
 * [Sticker App](https://github.com/glimpse/stickerapp)
 
@@ -23,14 +24,13 @@ VS Code - Conquring the Cloud with an editor and a CLI
 
 * [NPM (Node Package Manager) Support](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script) provides support for running `npm install` and `npm uninstall` commands from within VS Code. 
 
-
 * [Auto Close HTML tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) automatically adds HTML and XML closing tags.
 
 * [CSS IntelliSense (Completions)](https://marketplace.visualstudio.com/items?itemName=Zignd.html-css-class-completion) provides CSS class name completion for the HTML class attribute based on the CSS files in your workspace as well as React's `className` attribute.
 
 ### Angular
 
-* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) provides a rich editing experience for Angular templates, both inline and external templates including completions lists, AOT diagnostic messages, quick info, and even go to definition.
+* [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) provides a rich editing experience for Angular templates, both inline and external templates including completions lists, AOT diagnostic messages, quick info, and even Go To Definition.
 
 * [Angular Snippets]()
 
@@ -46,14 +46,14 @@ VS Code - Conquring the Cloud with an editor and a CLI
 
 ### NoSQL MongoDB
 
-* [MongoDB Extension](https://code.visualstudio.com/extensions/vscode-mongodb-0.0.1.vsix) **PREVIEW** This extension is in very early preview and leverages proposed APIs in VS Code which have not been released yet. As a result, this extension only runs using Insider builds and you must enable it from the command line.  To install:
+* [MongoDB Extension](https://code.visualstudio.com/demo/vscode-mongodb-0.0.1.vsix) **PREVIEW** This extension is in very early preview and leverages proposed APIs in VS Code which have not been released yet. As a result, this extension only runs on [Insiders](https://code.visualstudio.com/insiders) builds and you must enable it from the command line.  To install:
 
-  * Install the extension 
+  * Install the extension:
   
   ``` bash
   code-insiders --install-extension vscode-mongodb-0.0.1.vsix
   ```
-  * Load code-insiders enabling extensions that use a proposed API
+  * Load code-insiders enabling extensions that use a proposed API:
   
   ``` bash
   code-insiders --enable-proposed-api sandy081.vscode-mongodb
@@ -61,7 +61,7 @@ VS Code - Conquring the Cloud with an editor and a CLI
 
 ### Micro-Services
 
-* The [Docker Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) make it easy to develop and deploy containerized micro-service based applications using Docker containers. 
+* The [Docker Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) make it easy to develop and deploy containerized micro-service based applications using Docker containers.
 
 ### Azure Extensions
 
