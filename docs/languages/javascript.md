@@ -206,6 +206,51 @@ This enables type checking for all JavaScript files in the project. You can use 
 
 JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, simply run the **TypeScript: Select TypeScript Version** command to check.
 
+### Global Variables and Type Checking
+Let's say that you are working in legacy JavaScript code that uses global variables or non-standard DOM APIs:
+
+```ts
+window.onload = function() {
+    if (window.webkitNotifications.requestPermission() === CAN_NOTIFY) {
+        window.webkitNotifications.createNotification(null, 'Woof!', '🐶').show()
+    } else {
+        alert('Could not notify')
+    }
+}
+```
+
+If you try to use `// @ts-check` with the above code, you'll see a number of errors about the use of global variables:
+
+1. `Line 2` - `Property 'webkitNotifications' does not exist on type 'Window'.`
+2. `Line 2` - `Cannot find name 'CAN_NOTIFY'.`
+3. `Line 3` - `Property 'webkitNotifications' does not exist on type 'Window'.`
+
+If you want to continue using `// @ts-check` but are confident that these are not actual issues with your application, you have to let TypeScript know about these global variables. To start, [create a `jsconfig.json`](#_javascript-project-jsconfigjson) at the root of your project:
+
+```json
+{
+    "compilerOptions": { },
+    "exclude": [
+        "node_modules"
+    ]
+}
+```
+
+Then reload VS Code to make sure the change is applied. The presence of a `jsconfig.json` lets TypeScript know that your Javascript files are part of a larger project.
+
+Now create a `globals.d.ts` file somewhere your workspace:
+
+```ts
+interface Window {
+    webkitNotifications: any;
+}
+
+declare var CAN_NOTIFY: number;
+```
+
+`d.ts` files are type declarations. In this case, `globals.d.ts` lets TypeScript know that a global `CAN_NOTIFY` exists and that a `webkitNotifications` property exists on `window`. You can read more about writing `d.ts` [here](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html). `d.ts` files do not change how JavaScript is evaluated, they are used only for providing better JavaScript language support.
+
+
 ## Linters
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
