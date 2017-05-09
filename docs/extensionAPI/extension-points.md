@@ -98,7 +98,7 @@ Contribute an entry consisting of a title and a command to invoke to the Command
 
 Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts). In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while hovering over a menu item. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
-Currently extension writers can to contribute to:
+Currently extension writers can contribute to:
 
 * The global Command Palette - `commandPalette`
 * The Explorer context menu - `explorer/context`
@@ -147,7 +147,7 @@ You can add menu items to these groups or add new groups of menu items in betwee
 
 ### Sorting inside groups
 
-The order inside a group depends the title or an order-attribute. The group-local order of a menu item is specified by appending `@<number>` to the group identifier as shown below:
+The order inside a group depends on the title or an order-attribute. The group-local order of a menu item is specified by appending `@<number>` to the group identifier as shown below:
 
 ```json
 "editor/title": [{
