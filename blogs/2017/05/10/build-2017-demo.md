@@ -11,6 +11,8 @@ Author: Chris Dias
 
 Visual Studio Code - Conquering the Cloud with an editor and a CLI.
 
+Below are links to the samples, tools, and extensions demonstrated in the Build 2017 VS Code talk by Chris Dias, [@chrisdias](https://twitter.com/chrisdias).
+
 ## Useful Links
 
 * [Debugging configuration recipes](https://github.com/weinand/vscode-recipes)
