@@ -14,7 +14,7 @@ Visual Studio Code - Conquering the Cloud with an editor and a CLI.
 ## Useful Links
 
 * [Debugging configuration recipes](https://github.com/weinand/vscode-recipes)
-* [Docker multi-Stage builds](https://codefresh.io/blog/node_docker_multistage/)
+* [Docker multi-stage builds](https://codefresh.io/blog/node_docker_multistage/)
 * [Tour of Heroes](https://github.com/johnpapa/angular-tour-of-heroes)
 * [Sticker App](https://github.com/glimpse/stickerapp)
 
@@ -22,7 +22,7 @@ Visual Studio Code - Conquering the Cloud with an editor and a CLI.
 
 ### Tools
 
-* [NPM (Node Package Manager) Support](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script) provides support for running `npm install` and `npm uninstall` commands from within VS Code. 
+* [NPM (Node Package Manager) Support](https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script) provides support for running `npm install` and `npm uninstall` commands from within VS Code.
 
 * [Auto Close HTML tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag) automatically adds HTML and XML closing tags.
 
@@ -31,8 +31,6 @@ Visual Studio Code - Conquering the Cloud with an editor and a CLI.
 ### Angular
 
 * [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template) provides a rich editing experience for Angular templates, both inline and external templates including completions lists, AOT diagnostic messages, quick info, and even Go To Definition.
-
-* [Angular Snippets]()
 
 ### Debugging
 
@@ -68,4 +66,3 @@ Visual Studio Code - Conquering the Cloud with an editor and a CLI.
 **Note:** If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/?b=16.48) for a **free** 30 day account and get **$200** in Azure Credits to try out any combination of Azure services.
 
 * [Azure CLI](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) wraps the [Azure CLI 2.0](https://aka.ms/GetTheAzureCLI) with a rich editing experience in VS Code.
-
