@@ -20,7 +20,7 @@ VS Code provides two different scopes for settings:
 
 The menu command **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on Mac) provides entry to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs on the right let you switch quickly between the user and workspace settings files.
 
-You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings**.
+You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openGlobalSettings)`).
 
 In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
 
@@ -60,11 +60,11 @@ Here is the [copy of default settings](/docs/getstarted/settings.md#copy-of-defa
 
 To customize your editor by language, run the global command **Preferences: Configure language specific settings...** (command id: `workbench.action.configureLanguageBasedSettings`) from the **Command Palette** (`kb(workbench.action.showCommands)`) which opens the language picker. Selecting the language you want, opens the Settings editor with the language entry where you can add applicable settings.
 
-![Language mode for File](images/settings/pref-config-lang-settings.png)
+![Configure language specific settings command](images/settings/pref-config-lang-settings.png)
 
-![Language mode for File](images/settings/lang-selection.png)
+![Select language drop down](images/settings/lang-selection.png)
 
-![Language mode for File](images/settings/lang-based-settings.png)
+![Add language specific setting](images/settings/lang-based-settings.png)
 
 If you have a file open and you want to customize the editor for this file type, click on the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings...**. Selecting this opens the Settings editor with the language entry where you can add applicable settings.
 
@@ -1233,6 +1233,10 @@ Below are the default settings and their values.
 ```
 
 ## Common Questions
+
+**Q: VS Code says "Unable to write settings."**
+
+**A:** If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on Mac) (`kb(workbench.action.openGlobalSettings)`) and you should see the error highlighted with red squiggles.
 
 **Q: When does it make sense to use workspace settings?**
 
