@@ -2,14 +2,16 @@
 Order: 
 TOCTitle: Build 2017 Demo
 PageTitle: Build 2017 Demo
-MetaDescription: Build 2017 Demo 
+MetaDescription: Build 2017 Demo Visual Studio Code - Conquering the Cloud with an editor and a CLI
 Date: 2017-05-10
-ShortDescription: Build 2017 Demo
+ShortDescription: Build 2017 Demo Visual Studio Code - Conquering the Cloud with an editor and a CLI
 Author: Chris Dias
 ---
 # Build 2017 Demo
 
-Visual Studio Code - Conquering the Cloud with an editor and a CLI.
+May 10, 2017
+
+## Visual Studio Code: Conquering the Cloud with an editor and a CLI
 
 Below are links to the samples, tools, and extensions demonstrated in the Build 2017 VS Code talk by Chris Dias, [@chrisdias](https://twitter.com/chrisdias).
 
@@ -18,7 +20,6 @@ Below are links to the samples, tools, and extensions demonstrated in the Build 
 * [Debugging configuration recipes](https://github.com/weinand/vscode-recipes)
 * [Docker multi-stage builds](https://codefresh.io/blog/node_docker_multistage/)
 * [Tour of Heroes](https://github.com/johnpapa/angular-tour-of-heroes)
-* [Sticker App](https://github.com/glimpse/stickerapp)
 
 ## Extensions
 
