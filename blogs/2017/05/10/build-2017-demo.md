@@ -1,5 +1,5 @@
 ---
-Order: 
+Order: 28
 TOCTitle: Build 2017 Demo
 PageTitle: Build 2017 Demo
 MetaDescription: Build 2017 Demo Visual Studio Code - Conquering the Cloud with an editor and a CLI
@@ -9,11 +9,11 @@ Author: Chris Dias
 ---
 # Build 2017 Demo
 
-May 10, 2017
+May 10, 2017 Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
-## Visual Studio Code: Conquering the Cloud with an editor and a CLI
+## Conquering the Cloud with an editor and a CLI
 
-Below are links to the samples, tools, and extensions demonstrated in the Build 2017 VS Code talk by Chris Dias, [@chrisdias](https://twitter.com/chrisdias).
+Below are links to the samples, tools, and extensions demonstrated in the Build 2017 VS Code talk.
 
 ## Useful Links
 
