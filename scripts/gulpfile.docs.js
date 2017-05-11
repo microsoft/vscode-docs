@@ -2,18 +2,17 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
- 
+
 var gulp = require('gulp');
 var es = require('event-stream');
 var frontMatter = require('gulp-front-matter');
 var slash = require('gulp-slash');
 var rename = require('gulp-rename');
-var imagemin = require('gulp-imagemin');
 var File = require('vinyl');
 var common = require('./gulpfile.common');
 
-var DOCS_SRC_ROOT = 'docs'; 
-var DEST_ROOT = 'out/vscode-website/src'; 
+var DOCS_SRC_ROOT = 'docs';
+var DEST_ROOT = 'out/vscode-website/src';
 
 function Area(title, path, include, articles) {
 	this.title = title || '';
@@ -39,11 +38,10 @@ var areas = {
 gulp.task('copy-images', function () {
 	console.log('Copying over rest of static content files...');
 
-	var images = gulp.src([DOCS_SRC_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG,svg,SVG}'])
-					.pipe(imagemin());
+	var images = gulp.src([DOCS_SRC_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG,svg,SVG}']);
 
 	var gifs = gulp.src([DOCS_SRC_ROOT + '/**/images/**/*.{gif,GIF}']);
-	
+
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
 		.pipe(rename({ dirname: '' }))
@@ -53,7 +51,7 @@ gulp.task('copy-images', function () {
 gulp.task('compile-docs', ['compile-docs-markdown', 'copy-images'], function () {
 	console.log('Creating docs index...');
 	var tpl = common.swigCompiler('scripts/templates/portaldocs-nav-template.html');
-	
+
 	for (var a in areas) {
 		var ar = areas[a].articles;
 		areas[a].articles = ar.sort(function (a, b) {

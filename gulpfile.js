@@ -9,6 +9,7 @@ var fs = require('fs');
 var runSequence = require('run-sequence');
 var rimraf = require('rimraf');
 var common = require('./scripts/gulpfile.common.js');
+var imagemin = require('gulp-imagemin');
 
 require('./scripts/gulpfile.docs.js');
 require('./scripts/gulpfile.releasenotes.js');
@@ -84,8 +85,8 @@ gulp.task('checkout-master', function (cb) {
 	});
 });
 
-gulp.task('sync-master', ['commit'], function(cb) {
-		git.push(URL, 'master', { args: "-f" }, function (error) {
+gulp.task('sync-master', ['commit'], function (cb) {
+	git.push(URL, 'master', { args: "-f" }, function (error) {
 		if (!error) {
 			console.log('successfully pushed to branch: master');
 		}
@@ -95,4 +96,10 @@ gulp.task('sync-master', ['commit'], function(cb) {
 
 gulp.task('sync', function (cb) {
 	runSequence('commit', 'push');
+});
+
+gulp.task('minify-images', function () {
+	return gulp.src(['**/*.{png,jpg,svg}', '!node_modules/**'], { nocase: true })
+		.pipe(imagemin())
+		.pipe(gulp.dest('.'));
 });
