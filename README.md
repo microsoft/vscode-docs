@@ -45,6 +45,10 @@ cd vscode-docs
 code .
 ```
 
-You can now open any of the Markdown files and easily toggle between preview with the `Open Preview` button in the upper right of the editor. 
+You can now open any of the Markdown files and easily toggle between preview with the `Open Preview` button in the upper right of the editor.
 
 ![Markdown Preview Button](images/MDPreviewButton.png)
+
+### Images
+
+You should minify new images you put into the repository. You can run the `gulp minify-images` script to minify all the images in the repository.
