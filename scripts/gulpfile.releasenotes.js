@@ -2,19 +2,18 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
- 
+
 var gulp = require('gulp');
 var es = require('event-stream');
 var markdownIt = require('markdown-it');
 var frontMatter = require('gulp-front-matter');
 var rename = require('gulp-rename');
 var keybindings = require('./keybindings/doc.keybindings');
-var imagemin = require('gulp-imagemin');
 var File = require('vinyl');
 var common = require('./gulpfile.common');
 
-var RN_SRC_ROOT = 'release-notes'; 
-var DEST_ROOT = 'out/vscode-website/src'; 
+var RN_SRC_ROOT = 'release-notes';
+var DEST_ROOT = 'out/vscode-website/src';
 var RAW_ROOT = DEST_ROOT + '/views/raw';
 
 var releaseNotes = [];
@@ -28,10 +27,10 @@ var css = [
 ];
 
 function getStaticContent() {
-	var images = gulp.src([RN_SRC_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG}']).pipe(imagemin());
+	var images = gulp.src([RN_SRC_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG}']);
 
 	var gifs = gulp.src([RN_SRC_ROOT + '/**/images/**/*.{gif,GIF}']);
-	
+
 	return [images, gifs];
 }
 
@@ -39,8 +38,8 @@ gulp.task('copy-releasenotes-images', function () {
 	console.log('Copying over rest of release notes static content files...');
 
 	return es.merge(getStaticContent())
-		.pipe(rename(function (path) { 
-			path.basename = path.dirname + '_' + path.basename; path.dirname = ''; 
+		.pipe(rename(function (path) {
+			path.basename = path.dirname + '_' + path.basename; path.dirname = '';
 		}))
 		.pipe(gulp.dest(DEST_ROOT + '/dist'));
 });
@@ -67,10 +66,10 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-handlebars', 'copy-rele
        path: 'latest.html',
        contents: common.getLatestContent('updates', releaseNotes[0].Link, 'Visual Studio Code Updates', 'The latest release notes from Visual Studio Code')
     });
-    
+
     es.readArray([latest])
         .pipe(gulp.dest(DEST_ROOT + '/views/updates'));
-    
+
 	var file = new File({
 		path: 'updateNav.handlebars',
 		contents: new Buffer(tpl({ articles: releaseNotes }))

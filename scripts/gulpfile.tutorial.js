@@ -4,13 +4,12 @@ var markdownIt = require('markdown-it');
 var frontMatter = require('gulp-front-matter');
 var rename = require('gulp-rename');
 var keybindings = require('./keybindings/doc.keybindings');
-var imagemin = require('gulp-imagemin');
 var File = require('vinyl');
 var common = require('./gulpfile.common');
 var slash = require('gulp-slash');
 
-var TUTORIAL_ROOT = 'tutorials'; 
-var DEST_ROOT = 'out/vscode-website/src'; 
+var TUTORIAL_ROOT = 'tutorials';
+var DEST_ROOT = 'out/vscode-website/src';
 
 var tutorials = [];
 
@@ -46,14 +45,14 @@ function renderTemplate(file, article) {
 gulp.task('copy-tutorial-images', function () {
 	console.log('Copying tutorial images..');
 
-	var images = gulp.src([TUTORIAL_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG,svg,SVG}']).pipe(imagemin());
+	var images = gulp.src([TUTORIAL_ROOT + '/**/images/**/*.{png,PNG,jpg,JPG,svg,SVG}']);
 	var gifs = gulp.src([TUTORIAL_ROOT + '/**/images/**/*.{gif,GIF}']);
 
 	return es.merge([images, gifs])
-		.pipe(rename(function (path) { 
+		.pipe(rename(function (path) {
 			console.log(path);
-            path.basename = path.dirname + '_' + path.basename; 
-            path.dirname = ''; 
+            path.basename = path.dirname + '_' + path.basename;
+            path.dirname = '';
         }))
 		.pipe(gulp.dest(DEST_ROOT + '/dist'));
 ;})
@@ -66,20 +65,20 @@ gulp.task('compile-tutorial-markdown', function () {
 
 	console.log('Parsing tutorial MD, applying templates...');
 	return gulp.src(sources)
-		.pipe(frontMatter({ 
-            property: 'data', 
-            remove: true 
+		.pipe(frontMatter({
+            property: 'data',
+            remove: true
         }))
 		.pipe(es.mapSync(function (file) {
 			var tutorialArticle = mapFileToTutorialArticle(file);
 			console.log("Compiling Tutorial: " + tutorialArticle.Title);
-            
+
 			tutorialArticle = common.compileMarkdown(file, tutorialArticle);
 
 			if (tutorialArticle.Order) {
 				tutorials.push(tutorialArticle);
 			}
-            
+
             return renderTemplate(file, tutorialArticle);
 		}))
 		.pipe(rename({ extname: '.handlebars' }))
@@ -98,10 +97,10 @@ gulp.task('compile-tutorial', ['compile-tutorial-markdown', 'copy-tutorial-image
        path: 'latest.html',
 	   contents: common.getLatestContent('tutorials', tutorials[0].Link)
     });
-    
+
     es.readArray([latest])
         .pipe(gulp.dest(DEST_ROOT + '/views/tutorials'));
-    
+
 	var file = new File({
 		path: 'tutorialNavigation.handlebars',
 		contents: new Buffer(template({ articles: tutorials }))
