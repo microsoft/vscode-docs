@@ -31,7 +31,7 @@ Name | Required | Type | Details
 [`activationEvents`](/docs/extensionAPI/activation-events.md) | | `array` | An array of the [activation events](/docs/extensionAPI/activation-events.md) for this extension.
 `badges` | | `array` | Array of badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.
 `markdown` | | `string` | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.
-`qna` | | `string`, `false` | Controls the QnA link in the Marketplace. Set to `string` to provide a custom QnA site. Set to `false` to disable QnA.
+`qna` | | `marketplace` (default), `string`, `false` | Controls the QnA link in the Marketplace. Set to `marketplace` to enable the default Marketplace QnA site. Set to a `string` to provide a custom QnA site. Set to `false` to disable QnA altogether.
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
