@@ -65,6 +65,8 @@ In the following example, the JSON file specifies that its contents follow the [
 }
 ```
 
+Please note that this syntax is VS Code-specific and not part of the [JSON Schema specification](http://json-schema.org/latest/json-schema-core.html#rfc.section.7). Adding the `$schema` key changes the JSON itself which the consuming code might not expect, the schema validation might fail, etc. It is recommended to use one of the other mapping methods.
+
 ### Mapping in the User Settings
 
 The following excerpt from the User Settings shows how `.babelrc` files are mapped to the [babelrc](https://babeljs.io/docs/usage/babelrc) schema located on http://json.schemastore.org/babelrc.
