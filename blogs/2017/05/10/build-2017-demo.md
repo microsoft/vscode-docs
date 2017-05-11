@@ -11,9 +11,9 @@ Author: Chris Dias
 
 May 10, 2017 Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
-## Watch the video! 
+## Watch the video!
 
-(Visual Studio Code: Conquering the Cloud with an Editor and a CLI](https://channel9.msdn.com/Events/Build/2017/B8094)
+[Visual Studio Code: Conquering the Cloud with an Editor and a CLI](https://channel9.msdn.com/Events/Build/2017/B8094)
 
 Below are links to the samples, tools, and extensions demonstrated in the Build 2017 VS Code talk.
 
@@ -21,7 +21,6 @@ Below are links to the samples, tools, and extensions demonstrated in the Build 
 
 * [Debugging configuration recipes](https://github.com/weinand/vscode-recipes)
 * [Docker multi-stage builds](https://codefresh.io/blog/node_docker_multistage/)
-* [Tour of Heroes](https://github.com/johnpapa/angular-tour-of-heroes)
 
 ## Extensions
 
