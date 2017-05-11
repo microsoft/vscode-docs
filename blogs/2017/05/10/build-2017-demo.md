@@ -11,7 +11,9 @@ Author: Chris Dias
 
 May 10, 2017 Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
-## Conquering the Cloud with an editor and a CLI
+## Watch the video! 
+
+(Visual Studio Code: Conquering the Cloud with an Editor and a CLI](https://channel9.msdn.com/Events/Build/2017/B8094)
 
 Below are links to the samples, tools, and extensions demonstrated in the Build 2017 VS Code talk.
 
@@ -57,7 +59,7 @@ Below are links to the samples, tools, and extensions demonstrated in the Build 
   * Load code-insiders enabling extensions that use a proposed API:
   
   ``` bash
-  code-insiders --enable-proposed-api sandy081.vscode-mongodb
+  code-insiders --enable-proposed-api ms-vscode.vscode-mongodb
   ```
 
 ### Micro-Services
