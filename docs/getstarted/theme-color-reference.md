@@ -19,6 +19,8 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 }
 ```
 
+>**Note**: Requires VS Code version 1.12 or higher.
+
 Below are the customizable colors grouped by UI region.
 
 ## Contrast Colors
