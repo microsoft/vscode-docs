@@ -30,7 +30,7 @@ We're still shaping the C++ experience in VS Code so now is a great time to [pro
 
 * Hover over any green squiggle in a source file (e.g. a #include statement).
 * Click the lightbulb that appears underneath the mouse cursor.
-* Click **Add include path to settings**.
+* Click **Add include path to settings** (currently only absolute paths are supported).
 
 This will generate a `c_cpp_properties.json` file that allows you to add additional include paths to properly enable code navigation and auto-completion.
 
@@ -123,7 +123,7 @@ When the platform indicator returns to its normal appearance, the source code sy
 
 To provide the best experience, the C/C++ extension for VS Code needs to know where it can find each header file referenced in your code. By default, the extension searches the current source directory, its sub-directories, and some platform-specific locations. If a referenced header file can't be found, VS Code displays a green squiggle underneath each #include directive that references it.
 
-To specify additional include directories to be searched, place your cursor over any #include directive that displays a green squiggle, then click the lightbulb action when it appears. This opens the file `c_cpp_properties.json` for editing; here you can specify additional include directories for each platform configuration individually by adding more directories to its 'includePath' property.
+To specify additional include directories to be searched, place your cursor over any #include directive that displays a green squiggle, then click the lightbulb action when it appears. This opens the file `c_cpp_properties.json` for editing; here you can specify additional include directories for each platform configuration individually by adding more directories to its 'includePath' property. Currently only absolute paths are supported.
 
 ![Adding an additional include path](images/cpp/includepath.gif)
 
