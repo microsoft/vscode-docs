@@ -1716,7 +1716,7 @@ invoked with.</p>
 
 <a name="CommentRule.blockComment"></a><span class="ts" id=708 data-target="#details-708" data-toggle="collapse"><span class="ident">blockComment</span><span>?</span><span>: </span><a class="type-ref" href="#CharacterPair">CharacterPair</a></span>
 <div class="details collapse" id="details-708">
-<div class="comment"><p>The block comment character pair, like <code>/* block comment *&amp;#47;</code></p>
+<div class="comment"><p>The block comment character pair, like <code>/* block comment */</code></p>
 </div>
 </div>
 
