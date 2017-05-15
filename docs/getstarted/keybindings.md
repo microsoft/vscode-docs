@@ -378,6 +378,7 @@ parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
 terminalFocus | An integrated terminal has focus.
 **Global UI contexts** |
 resourceLangId | True when the Explorer or editor title language Id matches. Example: `"resourceLangId == markdown"`
+resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 globalMessageVisible | Message box is visible at the top of VS Code.
 searchViewletVisible | Search view is open.
 replaceActive | Search view Replace text box is open.
