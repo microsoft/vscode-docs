@@ -91,7 +91,7 @@ var subscription = fsWatcher.onDidDelete(listener);
 
 // do more stuff
 
-subscriptions.dispose(); // stop listening
+subscription.dispose(); // stop listening
 ```
 
 Names of events follow the `on[Will|Did]VerbNoun?` pattern. The name signals if the event is going to happen *(onWill)* or already happened *(onDid)*, what happened *(verb)*, and the context *(noun)* unless obvious from the context.

@@ -218,7 +218,7 @@ If your workspace has a specific TypeScript version, you can switch between the 
 
 ![TypeScript version selector](images/typescript/select-ts-version-message.png)
 
-After switching versions of TypeScript or changing `typescript.tsdk`, restart VS Code to have the change take effect. You can switch back to the version of TypeScript that comes with VS Code by clicking on the TypeScript version in the Status Bar again.
+You can switch back to the version of TypeScript that comes with VS Code by clicking on the TypeScript version in the Status Bar again.
 
 ## References CodeLens
 
