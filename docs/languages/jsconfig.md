@@ -7,12 +7,11 @@ PageTitle: jsconfig.json Reference
 DateApproved: 5/4/2017
 MetaDescription: View the reference for jsconfig.json.
 ---
-
 # jsconfig.json
 
 ## What is jsconfig.json?
 
-The presence of `jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript Project. The `jsconfig.json` file specifies the root files and the options for the features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa).
+The presence of `jsconfig.json` file in a directory indicates that the directory is the root of a JavaScript Project. The `jsconfig.json` file specifies the root files and the options for the features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
 
 > **Tip:** If you are not using JavaScript, you do not need to worry about `jsconfig.json`.
 
@@ -139,4 +138,3 @@ Option | Description
 `watch`|Watch input files.
 `emitDecoratorMetadata`|Emit design-type metadata for decorated declarations in source.
 `noImplicitUseStrict`|Do not emit "use strict" directives in module output.
-
