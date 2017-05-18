@@ -62,10 +62,11 @@ sudo yum install code
 
 ### openSUSE and SLE based distributions
 
-The yum repository above also works for openSUSE and SLE based systems, the following script will install the key and repository:
+The yum repository above also works for openSUSE and SLE based systems, the following script will install the key and repository: (NOTE: One Line at a time in case system requests password for sudo)
 
 ```bash
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/zypp/repos.d/vscode.repo'
 ```
 
