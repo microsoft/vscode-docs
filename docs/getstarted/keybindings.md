@@ -253,7 +253,7 @@ Key|Command|Command id
 `kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
 `kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
 
-## Advanced customization
+## Advanced customizations
 
 All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
 
