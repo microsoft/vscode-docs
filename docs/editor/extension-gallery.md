@@ -88,11 +88,9 @@ Disable an extension by clicking the settings icon next to the extension, as sho
 
 ![disable an extension](images/extension-gallery/extensions-disable.gif)
 
-Alternatively, you can disable all extensions through the command line with the `--disable-extensions` option as shown below.
+Alternatively, you can disable all extensions as shown in the animation below
 
-```
-code --disable-extensions /path/to/workspace
-```
+![disable an extension](images/extension-gallery/extensions-disable-all.gif)
 
 ## Command line extension management
 
