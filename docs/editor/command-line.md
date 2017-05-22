@@ -35,32 +35,31 @@ Here are optional command line arguments you can use when starting VS Code at th
 
 Argument|Description
 ------------------|-----------
-**Basic**|
 `-h` or `--help` | Print usage
-`-v` or `--version` | Print VS Code version (e.g. 0.10.10)
+`-v` or `--version` | Print VS Code version and GitHub commit id (for example 1.12.2).
 `-n` or `--new-window`| Opens a new session of VS Code instead of restoring the previous session (default).
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
 `-g` or `--goto` | When used with *file:line[:character]*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
 *file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
 *file:line[:character]* | Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line[:character]* specifier.
-*folder* | Name of a folder to open. You can specify multiple folders.
+*folder* | Name of a folder to open. You can specify multiple folders and there will be an instance for each folder.
 `-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
-`-w` or `--wait` | Wait for the window to be closed before returning
-`--locale <locale>` | Set the display language (locale) for the VS Code session.  (e.g. en-US or zh-TW : [display lang](/docs/getstarted/locales.md))
+`-w` or `--wait` | Wait for the window to be closed before returning.
+`--locale <locale>` | Set the [display language](/docs/getstarted/locales.md) (locale) for the VS Code session. (for example `en-US` or `zh-TW`)
 `--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root.
-**Extension**|
+**Extensions**|
 `--install-extension <ext>` | Install an extension. Provide the full extension name `publisher.extension` as an argument.
 `--uninstall-extension <ext>` | Uninstall an extension. Provide the full extension name `publisher.extension` as an argument.
-`--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated.(or `disableExtensions`)
+`--disable-extensions` | Disable all installed extensions. Extensions will still be visible in the `Extensions: Show Installed Extensions` dropdown but they will never be activated. (or `disableExtensions`)
 `--extensions-dir <dir>` | Set the root path for extensions. (or `extensionHomePath`)
 `--list-extensions` | List the installed extensions.
 `--show-versions` | Show versions of installed extensions, when using `--list-extensions`
 `--enable-proposed-api <ext>` | Enables proposed api features for an extension. Provide the full extension name `publisher.extension` as an argument.
 **Performance**|
-`-p, --performance` | Start with the 'Developer: Startup Performance' command enabled.
+`-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
-`--verbose` | Print verbose output (implies --wait).
-`--prof-startup` | Run CPU profiler during startup
+`--verbose` | Print verbose output (implies `--wait`).
+`--prof-startup` | Run CPU profiler during startup.
 
 For both files and folders, you can use absolute or relative paths. Relative paths are relative to the current directory of the command prompt where you run `code`.
 
