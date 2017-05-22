@@ -22,7 +22,7 @@ Visual Studio Code provides a rich and easy keyboard shortcuts editing experienc
 
 Most importantly, you can see keybindings according to your keyboard layout. For example, key binding `cmd+\` in US keyboard layout will be shown as `ctrl+shift+alt+cmd+7` when layout is changed to German. The dialog to enter key binding will assign the correct and desired key binding as per your keyboard layout.
 
-For doing advanced customizations read [Advanced Customizations](/docs/getstarted/keybindings.md#advanced-customizations).
+For doing more advanced keyboard shortcut customization, read [Advanced Customization](/docs/getstarted/keybindings.md#advanced-customization).
 
 ## Keymap Extensions
 
