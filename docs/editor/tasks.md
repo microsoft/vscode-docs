@@ -357,15 +357,13 @@ Several things to note about this `tasks.json`:
 
 VS Code ships some of the most common problem matchers out of the box.  However, there are lots of compilers and linting tools out there, all of which produce their own style of errors and warnings.  So let's talk about how to make your own problem matcher.
 
-We have a `helloWorld.c` program in which the developer mistyped **printf**
-as **prinft**. Compiling it with [gcc](https://gcc.gnu.org/) will produce the following warning:
+We have a `helloWorld.c` program in which the developer mistyped **printf** as **prinft**. Compiling it with [gcc](https://gcc.gnu.org/) will produce the following warning:
 
 ```bash
 helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’
 ```
 
-We want to produce a problem matcher that can capture the message in the output and show a corresponding problem in VS Code.  Problem matchers heavily rely on [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). The section below assumes
-you are familiar with regular expressions.
+We want to produce a problem matcher that can capture the message in the output and show a corresponding problem in VS Code.  Problem matchers heavily rely on [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). The section below assumes you are familiar with regular expressions.
 
 >**Tip:** We have found the [RegEx101 playground](https://regex101.com/) a really good way to develop and test regular expressions.
 
