@@ -176,7 +176,7 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 This usually means there is no credential management configured in Git and you're not getting credential prompts for some reason.
 
-You can always set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
+You can always set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without will VS Code prompt for your credentials each time.
 
 **Q: How can I sign into Git with my Team Services account which requires multi-factor authentication?**
 
@@ -190,11 +190,11 @@ You can always set up a [credential helper](https://help.github.com/articles/cac
 code -n
 ```
 
-which opens VS Code in a new window.
+Which opens VS Code in a new window.
 
 Next, assuming you want to remove the unintended repo initialization, look for the `.git` sub-folder in the large folder where you unintentionally initialized the repo, and then delete it. Note that `.git` is a hidden folder, so you might need to show hidden folders to see it. For example, at a command prompt in Windows you can run `dir .git /ah` to see hidden folders named `.git` in a specific folder. If you are not sure where you created the initial folder, run `dir .git /ah /s` at the root folder to see hidden `.git` folders, including sub-folders.
 
-**Q: I have GitHub Desktop installed on my computer but VS Code ignores it.**
+**Q: I have GitHub Desktop installed on my computer, but VS Code ignores it.**
 
 **A:** VS Code expects `git.exe` to be on the operating system's `PATH` (`$PATH` on Mac or Linux).  **GitHub Desktop** installs isolated git binaries and does not automatically add `git.exe` to `PATH`.
 
