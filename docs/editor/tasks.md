@@ -52,7 +52,7 @@ You can get IntelliSense on `tasks.json` variables and their values with hover a
 
 ## Output Window Behavior
 
-Sometimes you will want to control how the output window behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The property **showOutput** controls this and the valid values are:
+Sometimes you will want to control how the output window behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The property `showOutput` controls this and the valid values are:
 
 - **always** - The output window is always brought to front. This is the default.
 - **never** - The user must explicitly bring the output window to the front using the **View** > **Output** command (`kb(workbench.action.output.toggleOutput)`).
@@ -442,7 +442,7 @@ test.js
 
 Our problem matcher is line-based so we need to capture the file name (test.js) with a different regular expression than the actual problem location and message (1:0   error  Missing "use strict" statement).
 
-To do this we use an array of problem patterns for the **pattern** property. This way you define a pattern per each line you want to match.
+To do this we use an array of problem patterns for the `pattern` property. This way you define a pattern per each line you want to match.
 
 The following problem pattern matches the output from ESLint in stylish mode - but still has one small issue which we will resolve next.  The code below has a first regular expression to capture the file name and the second to capture the line, column, severity, message and error code:
 
@@ -482,7 +482,7 @@ test.js
 
 The pattern's first regular expression will match "test.js", the second "1:0  error ...". The next line "1:9  error ..." is processed but not matched by the first regular expression and so no problem is captured.
 
-To make this work, the last regular expression of a multi-line pattern can specify the **loop** property. If set to **true**, it instructs the task system to apply the last pattern of a multi-line matcher to the lines in the output as long as the regular expression matches.
+To make this work, the last regular expression of a multi-line pattern can specify the `loop` property. If set to true, it instructs the task system to apply the last pattern of a multi-line matcher to the lines in the output as long as the regular expression matches.
 
 The information captured by all previous patterns is combined with the information captured by the last pattern and turned into a problem inside VS Code.
 
@@ -550,7 +550,7 @@ For the tsc compiler, this looks like follows:
 
 In addition to the `watching` property on the problem matcher, the task itself has to be marked as `isBackground` so that the task keeps running in the background.
 
-A full handcrafted tasks.json for a tsc task running in watch mode looks like this:
+A full handcrafted `tasks.json` for a tsc task running in watch mode looks like this:
 
 ```json
 {
