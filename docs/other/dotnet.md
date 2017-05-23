@@ -34,13 +34,13 @@ If you'd like to get started with a simple "Hello World" program on .NET Core, f
 
 2. Resolve the build assets by typing `dotnet restore`.
 
-> Tip: .NET Core Tools are now MSBuild-based. This means a .csproj project file will be created instead of a project.json. [Read more](https://blogs.msdn.microsoft.com/dotnet/2016/11/16/announcing-net-core-tools-msbuild-alpha/).
+> Tip: .NET Core Tools are now MSBuild-based. This means a `.csproj` project file will be created instead of a `project.json`. [Read more](https://blogs.msdn.microsoft.com/dotnet/2016/11/16/announcing-net-core-tools-msbuild-alpha/).
 
   * Running `restore` pulls down the required packages declared in the `project.json` file.
   * You'll see a new `project.lock.json` file in your project folder.
   * This file contains information about your project's dependencies to make subsequent restores quicker.
   
-3. When the project folder is first opened in VS Code a notification will appear at the top of the window asking if you'd like to add the required assets to build and debug your project. Select Yes.
+3. When the project folder is first opened in VS Code, a notification will appear at the top of the window asking if you'd like to add the required assets to build and debug your project. Select **Yes**.
 
 4. Run the "Hello World" program by typing `dotnet run` in the command prompt (or terminal).
 
