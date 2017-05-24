@@ -87,6 +87,8 @@ Open a file to line and column
 vscode://file/FULL/PATH/TO/FILE?LINE:COLUMN
 ```
 
+> Note: You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://file/FULL/PATH/TO/FILE`.
+
 ## Next Steps
 
 Read on to find out about:
