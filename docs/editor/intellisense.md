@@ -90,7 +90,7 @@ The settings shown below are the default settings. You can change these settings
     "editor.quickSuggestionsDelay": 10,
 
     // Enable word based suggestions
-    "editor.wordBasedSuggestions": true
+    "editor.wordBasedSuggestions": true,
 
     // Enable parameter hints
     "editor.parameterHints": true
