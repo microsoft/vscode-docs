@@ -62,7 +62,7 @@ Being independent of a specific promise library is expressed in the API by the `
 In most cases the use of promises is optional and when VS Code calls into an extension, it can handle the _result type_ as well as a `Thenable` of the _result type_. When the use of a promise is optional, the API indicates this by returning `or`-types.
 
 ```typescript
-	provideNumber(): number | Thenable<number>
+provideNumber(): number | Thenable<number>
 ```
 
 ## Cancellation Tokens
