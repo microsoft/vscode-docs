@@ -41,6 +41,8 @@ npm start
 
 You should see "Welcome to React" on `http:localhost:3000` in your browser. We'll leave the web server running while we look at the application with VS Code.
 
+![welcome to react](images/reactjs/welcome-to-react.png)
+
 To open your React application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
 
 ```bash
@@ -50,18 +52,59 @@ code .
 
 ### Markdown Preview
 
-In the File Explorer, on file you'll see is the application `README.md`. This has lots of create information about the application and React in general. A great way to review the README is by using the VS Code Markdown Preview. You can open the preview in either the current editor group (**Markdown: Open Preview** `kb(markdown.showPreview)`) or in a new editor group to the side (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). You'll get nice formatting, hyperlink navigation to headers, and syntax highlighting in code blocks.
+In the File Explorer, one file you'll see is the application `README.md`. This has lots of great information about the application and React in general. A nice way to review the README is by using the VS Code Markdown Preview. You can open the preview in either the current editor group (**Markdown: Open Preview** `kb(markdown.showPreview)`) or in a new editor group to the side (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). You'll get nice formatting, hyperlink navigation to headers, and syntax highlighting in code blocks.
+
+![README markdown preview](images/reactjs/markdown-preview.png)
 
 ### Syntax highlighting and bracket matching
 
-open src\Index.js
-Syntax highlighting, bracket matching
+Now open the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting of the various source code elements and if you put the cursor on a parentheses, the matching bracket is also selected.
+
+![react bracket matching](images/reactjs/bracket-matching.png)
 
 ### IntelliSense
 
-Automatic Type Acquisition (ATA)
+As you start typing in `index.js`, you'll see smart suggestions or completions.
 
-Go to Definition, Peek definition
+![react suggestions](images/reactjs/suggestions.png)
+
+After you select a suggestion and type `.`, you see the types and methods on the object through IntelliSense.
+
+![react intellisense](images/reactjs/intellisense.png)
+
+VS Code uses the TypeScript language service for it's JavaScript code intelligence and it has a feature called Automatic Type Acquisition (ATA) which pulls down the npm Type Definition files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+
+If you select a method, you'll also get parameter help:
+
+![react parameter help](images/reactjs/parameter-help.png)
+
+### Go to Definition, Peek definition
+
+Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or ** and **Peek Defintion** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A Peek window with open showing the `App` definition from `App.js`.
+
+![react peek definition](images/reactjs/peek-definition.png)
+
+Press `kbstyle(Escape)` to close the Peek window.
+
+### Hello World!
+
+Let's update the sample application to "Hello World!". Add the link to declare a new H1 header and replace the `<App />` tag in `ReactDOM.render` with `element'.
+
+```js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import registerServiceWorker from './registerServiceWorker';
+import './index.css';
+
+var element = React.createElement('h1', {className: 'greeting'}, 'Hello, world!');
+ReactDOM.render(element, document.getElementById('root'));
+registerServiceWorker();
+```
+
+Once you save the `index.js`, the running instance of the server will update the web page and you'll see "Hello World!".
+
+![hello world](images/reactjs/hello-world.png)
 
 ## Debug Hello World
 
