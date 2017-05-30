@@ -158,6 +158,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 * _left_ Left-hand side resource of the diff editor
 * _right_ Right-hand side resource of the diff editor
 * _title_ (optional) Human readable title for the diff editor
+* _options_ (optional) Editor options, see vscode.TextDocumentShowOptions
 
 
 `vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or a http(s) url
