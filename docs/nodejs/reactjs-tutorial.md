@@ -10,7 +10,7 @@ MetaSocialImage: nodejs_javascript_vscode.png
 ---
 # React Tutorial in VS Code
 
-[React](https://facebook.github.io/react/).js is a popular JavaScript library for building web application user interfaces developed by Facebook. VS Code supports React.js IntelliSense and code navigation out of the box.
+[React](https://facebook.github.io/react/) is a popular JavaScript library for building web application user interfaces developed by Facebook. VS Code supports React.js IntelliSense and code navigation out of the box.
 
 ## Hello World
 
@@ -108,7 +108,25 @@ Once you save the `index.js`, the running instance of the server will update the
 
 ## Debug Hello World
 
-Install Chrome Debug extension
+To debug the client side React code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+
+>Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS(https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
+
+Open the Extensions view (`kb(workbench.view.showExtensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome. 
+
+![debugger for chrome](images/reactjs/debugger-for-chrome.png)
+
+Press the **Install** button for **Debugger for Chrome**. The button will change to **Installing** then **Reload**. Press **Reload** to restart VS Code and activate the extension.
+
+### Set a breakpoint
+
+To set a breakpoint in `index.js`, click on the gutter to the left of the line numbers. This will set a breakpoint which will be visible as a red circle.
+
+![set a breakpoint](images/reactjs/breakpoint.png)
+
+## Configure the Chrome debugger
+
+We need to initially configure the debugger. To do so, go to the Debug view (`kb(workbench.view.debug)`)
 
 Configuration
 
