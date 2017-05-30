@@ -162,7 +162,6 @@ class WordCounterController {
 
     constructor(wordCounter: WordCounter) {
         this._wordCounter = wordCounter;
-        this._wordCounter.updateWordCount();
 
         // subscribe to selection change and editor activation events
         let subscriptions: Disposable[] = [];
