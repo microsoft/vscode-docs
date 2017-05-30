@@ -9,9 +9,9 @@
 			{$ Content $}
 		</div>
         <div class="hidden-xs col-sm-3 col-md-2">
-            <nav id="docs-subnavbar">
+            <nav id="docs-subnavbar" aria-label="On Page Navigation">
                 {% if Sections.length %}
-				    <h4>In this blog post</h4>
+				    <h4 tabIndex="0"><span class="sr-only">In this blog post there are {$ Sections.length $} sections</span><span aria-hidden="true">In this blog post</span></h4>
                 {% endif %}
                 <ul class="nav">
                 	{% for section in Sections %}

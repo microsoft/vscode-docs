@@ -7,12 +7,11 @@ Date: 2016-10-31
 ShortDescription: Essential JavaScript extensions for Visual Studio Code. 
 Author: Wade Anderson
 ---
-
 # JavaScript Extensions Part 2
 
 October 31, 2016 by Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
-Visual Studio Code has excellent support for JavaScript out of the box. As with other languages, JavaScript is powered by a language service. The [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/Salsa) is implemented by the TypeScript team, allowing JavaScript developers to leverage the best IntelliSense experience.
+Visual Studio Code has excellent support for JavaScript out of the box. As with other languages, JavaScript is powered by a language service. The [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) is implemented by the TypeScript team, allowing JavaScript developers to leverage the best IntelliSense experience.
 
 But what other features can you get with VS Code? VS Code has a rich extensibility model and many features are provided through VS Code extensions. This post is a follow up to my [previous post](/blogs/2016/09/14/js_roundup_1.md) about JavaScript extensions.
 

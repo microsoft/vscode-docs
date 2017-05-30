@@ -45,6 +45,7 @@ h4 {
     border-radius: 50%;
     cursor: pointer;
     box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+    outline: none;
 }
 
 #scroll-to-top:hover {
