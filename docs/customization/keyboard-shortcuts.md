@@ -164,7 +164,7 @@ Key|Command
 `kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar visibility
 `kb(workbench.view.explorer)`|Show Explorer / Toggle focus
 `kb(workbench.view.search)`|Show Search
-`kb(workbench.view.git)`|Show Git
+`kb(workbench.view.scm)`|Show Source Control
 `kb(workbench.view.debug)`|Show Debug
 `kb(workbench.view.extensions)`|Show Extensions
 `kb(workbench.action.replaceInfiles)`|Replace in files

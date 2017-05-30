@@ -173,6 +173,9 @@ Below are the default settings and their values.
   // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
   "editor.lineHeight": 0,
 
+  // Controls the letter spacing in pixels.
+  "editor.letterSpacing": 0,
+
   // Controls the display of line numbers. Possible values are 'on', 'off', and 'relative'. 'relative' shows the line count from the current cursor position.
   "editor.lineNumbers": "on",
 
@@ -198,13 +201,19 @@ Below are the default settings and their values.
   "editor.scrollBeyondLastLine": true,
 
   // Controls if the minimap is shown
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
 
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": true,
 
   // Limit the width of the minimap to render at most a certain number of columns
   "editor.minimap.maxColumn": 120,
+
+  // Controls if we seed the search string in Find Widget from editor selection
+  "editor.find.seedSearchStringFromSelection": true,
+
+  // Controls if Find in Selection flag is turned on when multiple characters or lines of text are selected in the editor
+  "editor.find.autoFindInSelection": false,
 
   // Controls how lines should wrap. Can be:
   //  - 'off' (disable wrapping),
@@ -221,6 +230,9 @@ Below are the default settings and their values.
 
   // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
   "editor.mouseWheelScrollSensitivity": 1,
+
+  // The modifier to be used to add multiple cursors with the mouse.
+  "editor.multicursorModifier": "alt",
 
   // Controls if suggestions should automatically show up while typing
   "editor.quickSuggestions": {
@@ -242,19 +254,19 @@ Below are the default settings and their values.
   "editor.formatOnType": false,
 
   // Controls if the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
-  "editor.formatOnPaste": false,
+  "editor.formatOnPaste": true,
 
   // Controls if suggestions should automatically show up when typing trigger characters
   "editor.suggestOnTriggerCharacters": true,
 
-  // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions.
-  "editor.acceptSuggestionOnEnter": true,
+  // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
+  "editor.acceptSuggestionOnEnter": "on",
 
   // Controls if suggestions should be accepted on commit characters. For instance in JavaScript the semi-colon (';') can be a commit character that accepts a suggestion and types that character.
   "editor.acceptSuggestionOnCommitCharacter": true,
 
   // Controls whether snippets are shown with other suggestions and how they are sorted.
-  "editor.snippetSuggestions": "bottom",
+  "editor.snippetSuggestions": "inline",
 
   // Controls whether copying without a selection copies the current line.
   "editor.emptySelectionClipboard": true,
@@ -302,7 +314,7 @@ Below are the default settings and their values.
   "editor.renderControlCharacters": false,
 
   // Controls whether the editor should render indent guides
-  "editor.renderIndentGuides": false,
+  "editor.renderIndentGuides": true,
 
   // Controls how the editor should render the current line highlight, possibilities are 'none', 'gutter', 'line', and 'all'.
   "editor.renderLineHighlight": "line",
@@ -312,6 +324,9 @@ Below are the default settings and their values.
 
   // Controls whether the editor has code folding enabled
   "editor.folding": true,
+
+  // Controls whether the fold controls on the gutter are automatically hidden.
+  "editor.showFoldingControls": "mouseover",
 
   // Highlight matching brackets when one of them is selected.
   "editor.matchBrackets": true,
@@ -329,7 +344,7 @@ Below are the default settings and their values.
   "editor.stablePeek": false,
 
   // Controls if the editor should allow to move selections via drag and drop.
-  "editor.dragAndDrop": false,
+  "editor.dragAndDrop": true,
 
   // Controls if the diff editor shows the diff side by side or inline
   "diffEditor.renderSideBySide": true,
@@ -362,10 +377,13 @@ Below are the default settings and their values.
   // Path to a folder containing emmet profiles, snippets and preferences
   "emmet.extensionsPath": null,
 
+  // Use the new emmet modules for emmet features than the single emmet library.
+  "emmet.useModules": false,
+
 // Workbench
 
-  // When enabled, will show the watermark tips when no editor is open.
-  "workbench.tips.enabled": true,
+  // When enabled, will show the Welcome page on startup.
+  "workbench.welcome.enabled": false,
 
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
@@ -406,14 +424,14 @@ Below are the default settings and their values.
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
 
-  // When enabled, will show the Welcome page on startup.
-  "workbench.welcome.enabled": false,
+  // When enabled, will show the watermark tips when no editor is open.
+  "workbench.tips.enabled": true,
 
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
 
   // Specifies the icon theme used in the workbench.
-  "workbench.iconTheme": null,
+  "workbench.iconTheme": "vs-seti",
 
   // Overrides colors from the currently selected color theme.
   "workbench.colorCustomizations": {},
@@ -425,7 +443,7 @@ Below are the default settings and their values.
   // - on: files will open in a new window
   // - off: files will open in the window with the files' folder open or the last active window
   // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
-  "window.openFilesInNewWindow": "default",
+  "window.openFilesInNewWindow": "off",
 
   // Controls if folders should open in a new window or replace the last active window.
   // - default: folders will open in a new window unless a folder is picked from within the application (e.g. via the File menu)
@@ -454,11 +472,14 @@ Below are the default settings and their values.
   // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
 
-  // Controls the dimensions of opening a new window. By default, a new window will open in the center of the screen with small dimensions. When set to  'inherit', the window will get the same dimensions as the last active one. When set to 'maximized', the window will open maximized and fullscreen if configured to 'fullscreen'.
+  // Controls the dimensions of opening a new window when at least one window is already opened. By default, a new window will open in the center of the screen with small dimensions. When set to 'inherit', the window will get the same dimensions as the last window that was active. When set to 'maximized', the window will open maximized and fullscreen if configured to 'fullscreen'. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
   "window.newWindowDimensions": "default",
 
   // Control the visibility of the menu bar. A setting of 'toggle' means that the menu bar is hidden and a single press of the Alt key will show it. By default, the menu bar will be visible, unless the window is full screen.
   "window.menuBarVisibility": "default",
+
+  // If enabled, the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
+  "window.enableMenuBarMnemonics": true,
 
   // If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.
   "window.autoDetectHighContrast": true,
@@ -483,7 +504,7 @@ Below are the default settings and their values.
   // When enabled, will attempt to guess the character set encoding when opening files
   "files.autoGuessEncoding": false,
 
-  // The default end of line character.
+  // The default end of line character. Use \n for LF and \r\n for CRLF.
   "files.eol": "\r\n",
 
   // When enabled, will trim trailing whitespace when saving a file.
@@ -501,7 +522,8 @@ Below are the default settings and their values.
   // Configure glob patterns of file paths to exclude from file watching. Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
     "**/.git/objects/**": true,
-    "**/node_modules/**": true
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/*/**": true
   },
 
   // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
@@ -783,6 +805,9 @@ Below are the default settings and their values.
   // Controls if the floating debug action bar should be hidden
   "debug.hideActionBar": false,
 
+  // Controls behavior of the internal debug console.
+  "debug.internalConsoleOptions": "openOnFirstSessionStart",
+
   // Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces
   "launch": {},
 
@@ -862,7 +887,7 @@ Below are the default settings and their values.
   "markdown.previewFrontMatter": "hide",
 
   // Controls the font family used in the markdown preview.
-  "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
+  "markdown.preview.fontFamily": "system-ui, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
 
   // Controls the font size in pixels used in the markdown preview.
   "markdown.preview.fontSize": 14,
@@ -916,8 +941,11 @@ Below are the default settings and their values.
   // Check if NPM is installed for automatic typings acquisition
   "typescript.check.npmIsInstalled": true,
 
-  // Enable/disable references CodeLens. Requires TypeScript >= 2.0.6.
-  "typescript.referencesCodeLens.enabled": false,
+  // Enable/disable references CodeLens in JavaScript files.
+  "javascript.referencesCodeLens.enabled": false,
+
+  // Enable/disable references CodeLens in TypeScript files. Requires TypeScript >= 2.0.6.
+  "typescript.referencesCodeLens.enabled": true,
 
   // Enable/disable implementations CodeLens. Requires TypeScript >= 2.2.0.
   "typescript.implementationsCodeLens.enabled": false,
@@ -1027,10 +1055,19 @@ Below are the default settings and their values.
   // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.
   "javascript.implicitProjectConfig.checkJs": false,
 
+  // Enable/disable including unique names from the file in JavaScript suggestion lists.
+  "javascript.nameSuggestions": true,
+
+  // Controls whether auto detection of tsc tasks is on or off.
+  "typescript.tsc.autoDetect": "on",
+
 // Extensions
 
   // Automatically update extensions
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": true,
+
+  // Ignore extension recommendations
+  "extensions.ignoreRecommendations": false,
 
 // External Terminal
 
@@ -1160,6 +1197,14 @@ Below are the default settings and their values.
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
 
+// Emmet configuration
+
+  // Shows expanded emmet abbreviations as suggestions
+  "emmet.suggestExpandedAbbreviation": true,
+
+  // Shows possible emmet abbreviations as suggestions
+  "emmet.suggestAbbreviations": true,
+
 // Default Configuration Overrides
 
   // Configure editor settings to be overridden for [go] language.
@@ -1191,16 +1236,6 @@ Below are the default settings and their values.
     "editor.tabSize": 2
   },
 
-// Gulp
-
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on",
-
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
-
 // Git
 
   // Whether git is enabled
@@ -1228,7 +1263,41 @@ Below are the default settings and their values.
   "git.ignoreLegacyWarning": false,
 
   // Ignores the warning when there are too many changes in a repository
-  "git.ignoreLimitWarning": false
+  "git.ignoreLimitWarning": false,
+
+  // The default location where to clone a git repository
+  "git.defaultCloneDirectory": null,
+
+  // Commit all changes when there are not staged changes.
+  "git.enableSmartCommit": false,
+
+// Grunt
+
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
+
+// Npm
+
+  // Controls whether auto detection of npm scripts is on or off. Default is on.
+  "npm.autoDetect": "on",
+
+// Merge Conflict
+
+  // Enable/disable merge conflict block CodeLens within editor
+  "merge-conflict.codeLens.enabled": true,
+
+  // Enable/disable merge conflict decorators within editor
+  "merge-conflict.decorators.enabled": true,
+
+// Gulp
+
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
+
+// Jake
+
+  // Controls whether auto detection of Jake tasks is on or off. Default is on.
+  "jake.autoDetect": "on"
 }
 ```
 

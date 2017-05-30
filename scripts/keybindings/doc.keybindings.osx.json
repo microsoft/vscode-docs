@@ -629,7 +629,6 @@
 { "key": "shift+cmd+d",           "command": "workbench.view.debug" },
 { "key": "shift+cmd+e",           "command": "workbench.view.explorer" },
 { "key": "shift+cmd+x",           "command": "workbench.view.extensions" },
-{ "key": "ctrl+shift+g",          "command": "workbench.view.git" },
 { "key": "ctrl+shift+g",          "command": "workbench.view.scm" },
 { "key": "shift+cmd+f",           "command": "workbench.view.search",
                                      "when": "!searchViewletVisible" },
