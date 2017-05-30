@@ -73,7 +73,7 @@ export function activate(context: ExtensionContext) {
     // create a new word counter
     let wordCounter = new WordCounter();
 
-    var disposable = commands.registerCommand('extension.sayHello', () => {
+    let disposable = commands.registerCommand('extension.sayHello', () => {
         wordCounter.updateWordCount();
     });
 
