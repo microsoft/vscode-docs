@@ -153,8 +153,8 @@ To use **markdown-it** to compile the Markdown file, change the contents as foll
     "version": "0.1.0",
     "command": "markdown-it",
     "isShellCommand": true,
-    "args": ["sample.md", "-o", "sample.html"],
-    "showOutput": "always"
+    "args": ["${fileBasenameNoExtension}.md", "-o", "${fileBasenameNoExtension}.html"],
+    "showOutput": "always"
 }
 ```
 
