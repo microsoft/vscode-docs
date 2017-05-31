@@ -14,7 +14,7 @@ MetaSocialImage: nodejs_javascript_vscode.png
 
 ![welcome to react](images/reactjs/welcome-to-react.png)
 
-## Hello World
+## Welcome to React
 
 We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. You can install Node.js from [here](https://nodejs.org/en/download/ and npm is included.
 
@@ -86,7 +86,7 @@ Through the TypeScript language service, VS Code can also provide type definitio
 
 Press `kbstyle(Escape)` to close the Peek window.
 
-### Hello World!
+## Hello World!
 
 Let's update the sample application to "Hello World!". Add the link to declare a new H1 header and replace the `<App />` tag in `ReactDOM.render` with `element'.
 
@@ -102,15 +102,17 @@ ReactDOM.render(element, document.getElementById('root'));
 registerServiceWorker();
 ```
 
-Once you save the `index.js`, the running instance of the server will update the web page and you'll see "Hello World!".
+Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!".
+
+>**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check **File** > **Auto Save** to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 
 ![hello world](images/reactjs/hello-world.png)
 
-## Debug Hello World
+## Debugging React
 
 To debug the client side React code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
 
->Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS(https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
+>Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
 
 Open the Extensions view (`kb(workbench.view.showExtensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome.
 
@@ -156,7 +158,7 @@ Press `kb(workbench.action.debug.start)` or the green arrow to launch the debugg
 
 ![hit breakpoint](images/reactjs/hit-breakpoint.png)
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the callstack of the client side React application.
+You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the call stack of the client side React application.
 
 ![debug variable](images/reactjs/debug-variable.png)
 
@@ -241,4 +243,18 @@ Let's add an error rule for extra semi-colons:
 
 ![extra semicolon error](images/reactjs/extra-semi-error.png)
 
-## [Popular Starter Kit]
+## Popular Starter Kits
+
+In this tutorial, we used the `create-react-app` generator to create a simple React application. There are lots of great samples and starter kits available to help build your first React application.
+
+### VS Code React Sample
+
+This is a [sample](https://github.com/Microsoft/vscode-react-sample) React application used for a [demo](https://channel9.msdn.com/events/Build/2017/T6078) at this year's //Build conference. The sample creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server and uses the [Babel](https://babeljs.io) ES6 transpiler and [webpack](https://webpack.js.org/) to bundle the site assets.
+
+### MERN Starter
+
+If you'd like to see a full MERN (MongoDB, Express, React, Node.js) stack example, look at the [MERN Starter](http://mern.io/). You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/) but you'll quickly have a MERN application running. There is helpful VS Code-specific documentation at [vscode-recipes](https://github.com/weinand/vscode-recipes/tree/master/MERN-Starter) which details setting up Node.js server debugging.
+
+### TypeScript React
+
+If you're curious about TypeScript and React, you can also create a TypeScript version of the `create-react-app` application. See the details at [TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter) on the [TypeScript Quick Start](http://www.typescriptlang.org/samples/index.html) site.
