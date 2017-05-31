@@ -97,7 +97,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
-var element = React.createElement('h1', {className: 'greeting'}, 'Hello, world!');
+var element = React.createElement('h1', { className: 'greeting' }, 'Hello, world!');
 ReactDOM.render(element, document.getElementById('root'));
 registerServiceWorker();
 ```
@@ -164,12 +164,81 @@ The **Debugger for Chrome** extension README has lots of information on other co
 
 ![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
 
-## [Linting]
+## Linting
 
-get js errors by default
+Linters analyze your source code and can warn you about potential problems before you run your application. VS Code include JavaScript language service has syntax error checking support support by default which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.action.view.problems)`).
+
+Try making a small error in your React source code and you'll see a red squiggly and a warning in the **Problems** panel.
+
+![javascript error](images/reactjs/js-error.png)
+
+Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](http://eslint.org/). ESLint when combined with the ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) provides a great in-product linting experience.
+
+First install the ESLint command line tool:
 
 ```bash
 npm install -g eslint
 ```
+
+Then install the ESLint extension by going to the **Extensions** view and typing 'eslint'.
+
+![ESLint extension](images/reactjs/eslint-extension.png)
+
+Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `eslintrc.json`. You can create one using the extension's **ESLint: Create 'eslintrc.json' File** command from the **Command Palette** (`kb(workbench.actions.showCommands)`).
+
+![create eslintrc](images/reactjs/create-eslintrc.png)
+
+The command will create a `.eslintrc.json` file in your project root:
+
+```json
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "no-unreachable": "warn",
+        "no-unused-vars": "warn",
+        "constructor-super": "warn",
+        "valid-typeof": "warn"
+    }
+}
+```
+
+ESLint will now analyze open files and shows a warning in `index.js` about 'App' being defined but never used.
+
+ ![App is unused](images/reactjs/app-is-unused.png)
+
+ You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense.
+
+![eslintrc IntelliSense](images/reactjs/eslintrc-intellisense.png)
+
+Let's add an error rule for extra semi-colons:
+
+```json
+ "rules": {
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "no-unreachable": "warn",
+        "no-unused-vars": "warn",
+        "constructor-super": "warn",
+        "valid-typeof": "warn",
+        "no-extra-semi":"error"
+    }
+```
+
+![extra semicolon error](images/reactjs/extra-semi-error.png)
 
 ## [Popular Starter Kit]
