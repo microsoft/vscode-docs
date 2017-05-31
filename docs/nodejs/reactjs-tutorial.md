@@ -1,5 +1,5 @@
 ---
-Order: 
+Order:
 Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
@@ -11,6 +11,8 @@ MetaSocialImage: nodejs_javascript_vscode.png
 # React Tutorial in VS Code
 
 [React](https://facebook.github.io/react/) is a popular JavaScript library for building web application user interfaces developed by Facebook. VS Code supports React.js IntelliSense and code navigation out of the box.
+
+![welcome to react](images/reactjs/welcome-to-react.png)
 
 ## Hello World
 
@@ -40,8 +42,6 @@ npm start
 ```
 
 You should see "Welcome to React" on `http:localhost:3000` in your browser. We'll leave the web server running while we look at the application with VS Code.
-
-![welcome to react](images/reactjs/welcome-to-react.png)
 
 To open your React application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
 
@@ -112,7 +112,7 @@ To debug the client side React code, we'll need to install the [Debugger for Chr
 
 >Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS(https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
 
-Open the Extensions view (`kb(workbench.view.showExtensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome. 
+Open the Extensions view (`kb(workbench.view.showExtensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome.
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
@@ -124,15 +124,47 @@ To set a breakpoint in `index.js`, click on the gutter to the left of the line n
 
 ![set a breakpoint](images/reactjs/breakpoint.png)
 
-## Configure the Chrome debugger
+### Configure the Chrome debugger
 
-We need to initially configure the debugger. To do so, go to the Debug view (`kb(workbench.view.debug)`)
+We need to initially configure the debugger. To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes configuration to both launch the website or attach to a running instance.
 
-Configuration
+We need to make one change for our example which is runninng on localhost port `3000`, not `8080` as in the generated file. Your `launch.json` should look like this:
 
-shutdown localhost:3000, F5, refresh
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome against localhost",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceRoot}"
+        },
+        {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "webRoot": "${workspaceRoot}"
+        }
+    ]
+}
+```
 
-## Linting
+Press `kb(workbench.action.debug.start)` or the green arrow to launch the debugger and open a new browser instance. The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
+
+![hit breakpoint](images/reactjs/hit-breakpoint.png)
+
+You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the callstack of the client side React application.
+
+![debug variable](images/reactjs/debug-variable.png)
+
+The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting and you can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
+
+![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
+
+## [Linting]
 
 get js errors by default
 

@@ -17,7 +17,7 @@ Visual Studio Code provides IntelliSense, debugging, and powerful editor feature
 
 VS Code [IntelliSense](/docs/editor/intellisense.md) is intelligent code completion, parameter info, and member lists. VS Code provides IntelliSense using TypeScript type declaration (typings) files (for example, `node.d.ts`) to provide metadata about the JavaScript based frameworks you are consuming in your application. Type declaration files are written in TypeScript so they can express the data types of parameters and functions, allowing VS Code to provide a rich IntelliSense experience.
 
-Thanks to a feature called `Automatic Typing Acquisition` you as a user do not have to worry about these type declaration file. VS Code will install them automatically for you.
+Thanks to a feature called `Automatic Type Acquisition` you as a user do not have to worry about these type declaration file. VS Code will install them automatically for you.
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
