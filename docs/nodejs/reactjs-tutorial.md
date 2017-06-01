@@ -114,7 +114,7 @@ To debug the client side React code, we'll need to install the [Debugger for Chr
 
 >Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
 
-Open the Extensions view (`kb(workbench.view.showExtensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome.
+Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome.
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
@@ -168,9 +168,9 @@ The **Debugger for Chrome** extension README has lots of information on other co
 
 ## Linting
 
-Linters analyze your source code and can warn you about potential problems before you run your application. VS Code include JavaScript language service has syntax error checking support support by default which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.action.view.problems)`).
+Linters analyze your source code and can warn you about potential problems before you run your application. VS Code include JavaScript language service has syntax error checking support support by default which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
 
-Try making a small error in your React source code and you'll see a red squiggly and a warning in the **Problems** panel.
+Try making a small error in your React source code and you'll see a green squiggle and a warning in the **Problems** panel.
 
 ![javascript error](images/reactjs/js-error.png)
 
@@ -186,7 +186,7 @@ Then install the ESLint extension by going to the **Extensions** view and typing
 
 ![ESLint extension](images/reactjs/eslint-extension.png)
 
-Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `eslintrc.json`. You can create one using the extension's **ESLint: Create 'eslintrc.json' File** command from the **Command Palette** (`kb(workbench.actions.showCommands)`).
+Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `eslintrc.json`. You can create one using the extension's **ESLint: Create 'eslintrc.json' File** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![create eslintrc](images/reactjs/create-eslintrc.png)
 
@@ -222,7 +222,7 @@ ESLint will now analyze open files and shows a warning in `index.js` about 'App'
 
  ![App is unused](images/reactjs/app-is-unused.png)
 
- You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense.
+ You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `eslintrc.json`.
 
 ![eslintrc IntelliSense](images/reactjs/eslintrc-intellisense.png)
 
@@ -241,6 +241,8 @@ Let's add an error rule for extra semi-colons:
     }
 ```
 
+Now when you mistakenly have multiple semicolons on a line, you'll see an error (red squiggle) in the editor and error entry in the **Problems** panel.
+
 ![extra semicolon error](images/reactjs/extra-semi-error.png)
 
 ## Popular Starter Kits
@@ -249,7 +251,7 @@ In this tutorial, we used the `create-react-app` generator to create a simple Re
 
 ### VS Code React Sample
 
-This is a [sample](https://github.com/Microsoft/vscode-react-sample) React application used for a [demo](https://channel9.msdn.com/events/Build/2017/T6078) at this year's //Build conference. The sample creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server and uses the [Babel](https://babeljs.io) ES6 transpiler and [webpack](https://webpack.js.org/) to bundle the site assets.
+This is a [sample](https://github.com/Microsoft/vscode-react-sample) React application used for a [demo](https://channel9.msdn.com/events/Build/2017/T6078) at this year's //Build conference. The sample creates a simple TODO application and includes the source code for a Node.js [Express](https://expressjs.com/) server. It also shows how to use the [Babel](https://babeljs.io) ES6 transpiler and then use [webpack](https://webpack.js.org/) to bundle the site assets.
 
 ### MERN Starter
 
