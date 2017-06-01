@@ -16,7 +16,7 @@ MetaSocialImage: nodejs_javascript_vscode.png
 
 ## Welcome to React
 
-We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. You can install Node.js from [here](https://nodejs.org/en/download/ and npm is included.
+We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included and you can install Node.js [here](https://nodejs.org/en/download/).
 
 >**Tip**: To test that you have Node.js and npm correctly install on your machine, you can type `node --version` and `npm --version`.
 
@@ -32,7 +32,7 @@ This may take a few minutes to install. You can now create a new React applicati
 create-react-app my-app
 ```
 
-where `my-app` is the name of the folder for your application. This may also take a few minutes to create the React application and install it's dependencies.
+where `my-app` is the name of the folder for your application. This may take a few minutes to create the React application and install it's dependencies.
 
 Let's quickly run our React application by navigating to the new folder and typing `npm start` to start the web server and open the application in a browser:
 
@@ -41,7 +41,7 @@ cd my-app
 npm start
 ```
 
-You should see "Welcome to React" on `http:localhost:3000` in your browser. We'll leave the web server running while we look at the application with VS Code.
+You should see "Welcome to React" on `http://localhost:3000` in your browser. We'll leave the web server running while we look at the application with VS Code.
 
 To open your React application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
 
@@ -58,7 +58,7 @@ In the File Explorer, one file you'll see is the application `README.md`. This h
 
 ### Syntax highlighting and bracket matching
 
-Now open the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting of the various source code elements and if you put the cursor on a parentheses, the matching bracket is also selected.
+Now open the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
 
 ![react bracket matching](images/reactjs/bracket-matching.png)
 
@@ -80,7 +80,7 @@ If you select a method, you'll also get parameter help:
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or ** and **Peek Defintion** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A Peek window with open showing the `App` definition from `App.js`.
+Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Defintion** (`kb(editor.action.peekImplementation)`). Put the cursor over the `App`, right click and select **Peek Definition**. A Peek window will open showing the `App` definition from `App.js`.
 
 ![react peek definition](images/reactjs/peek-definition.png)
 
@@ -118,7 +118,7 @@ Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome` in 
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
-Press the **Install** button for **Debugger for Chrome**. The button will change to **Installing** then **Reload**. Press **Reload** to restart VS Code and activate the extension.
+Press the **Install** button for **Debugger for Chrome**. The button will change to **Installing** then, after completing the installation, it will change to **Reload**. Press **Reload** to restart VS Code and activate the extension.
 
 ### Set a breakpoint
 
@@ -130,7 +130,7 @@ To set a breakpoint in `index.js`, click on the gutter to the left of the line n
 
 We need to initially configure the debugger. To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes configuration to both launch the website or attach to a running instance.
 
-We need to make one change for our example which is runninng on localhost port `3000`, not `8080` as in the generated file. Your `launch.json` should look like this:
+We need to make one change for our example: change the port from `8080` to `3000`. Your `launch.json` should look like this:
 
 ```json
 {
