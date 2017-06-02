@@ -22,6 +22,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`themes`](/docs/extensionAPI/extension-points.md#contributesthemes)
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
 * [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
+* [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
 
 ## contributes.configuration
 
@@ -109,6 +110,8 @@ Currently extension writers can contribute to:
 * The [SCM title menu](/docs/extensionAPI/api-scm.md#menus) - `scm/title`
 * [SCM resource groups](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resourceGroup/context`
 * [SCM resources](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resource/context`
+* The [View title menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/title`
+* The [View item menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/item/context`
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
@@ -404,6 +407,30 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
     }]
 }
 ```
+
+## contributes.views
+
+Contribute a view to Explorer in VS Code. You must specify an identifier and name for the view.
+
+When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below).
+
+```json
+"contributes": {
+    "views": {
+        "explorer": [
+            {
+                "id": "nodeDependencies",
+                "name": "Node Dependencies"
+            }
+        ]
+    }
+}
+```
+
+![views extension point example](images/extension-points/views.png)
+
+Extension writers should register a [provider](/docs/extensionAPI/vscode-api.md#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+
 
 ## Next Steps
 

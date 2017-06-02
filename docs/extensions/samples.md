@@ -29,6 +29,7 @@ Sample|Description|Type|In Marketplace
 **[Spelling and Grammar Checker](https://github.com/Microsoft/vscode-spell-check)**|Configurable Markdown spelling and grammar checker.  Calls an external web service for checking and supports activation, add to dictionary, error mapping.  Watches for config file changes in real time.|[Extension](/docs/extensions/example-hello-world.md)|Y
 **[Mock Debugger](https://github.com/Microsoft/vscode-mock-debug)**|Helps you build and test a debugger.|[Debuggers](/docs/extensions/example-debuggers.md)|Y
 **[Go Language Support](https://github.com/microsoft/vscode-go)**|Rich language support for [Go Lang](https://golang.org/) - IntelliSense, Debug, Peek, Rename, Syntax, ...|[Extension](/docs/extensionAPI/vscode-api.md#languages)|Y
+**[Tree Data Provider](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample)**|Shows how to use `TreeDataProvider` API and contribute a custom view to VS Code|[Extension](/docs/extensionAPI/vscode-api.md#TreeDataProvider)|N
 
 ## Tools to Help you build an Extension
 
