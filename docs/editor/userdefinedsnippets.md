@@ -105,6 +105,24 @@ text        ::= .*
 
 You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) topic in our Extension Authoring section to learn more.
 
+## Assign keybindings to snippets
+
+We already know that snippets can be inserted via IntelliSense, the 'Insert Snippet'-action, or via tab-completion. That's not all. You can create custom keybindings to insert specific snippets. Open `keybindings.json`, which defines all your keybindings, and something add this:
+
+```json
+{
+  "key": "cmd+k 1",
+  "command": "editor.action.insertSnippet",
+  "when": "editorTextFocus",
+  "args": {
+    "snippet": "console.log($1)$0"
+  }
+}
+```
+
+It will invoke the 'Insert Snippet'-action but instead of letting you select a snippet it will run on the provided snippet. Also, instead of `snippet` you can have `langId` and `name` arguments to reference an existing snippet: `{ "langId": "csharp", "name": "myFavSnippet" }`
+
+
 ## Next Steps
 
 * [Command Line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
