@@ -60,13 +60,15 @@ The following attributes are supported in launch configurations of type `launch`
 * `restart` - restart session on termination. See section 'Restarting debug sessions automatically'.
 * `timeout` - when restarting a session, give up after this number of milliseconds. See section 'Attaching to Node.js'.
 * `stopOnEntry` - break immediately when the program launches.
+* `localRoot` - VS Code's root directory. See sections 'Remote Debugging Node.js' below.
+* `remoteRoot` - Node's root directory. See sections 'Remote Debugging Node.js' below.
 * `sourceMaps` - enable source maps by setting this to `true`. See section 'Source Maps'.
 * `outFiles` - array of glob patterns to look for in JavaScript files. See section 'Source Maps'.
 * `smartStep`- try to automatically step over code that doesn't map to source files. See section 'Smart Stepping'.
 * `skipFiles` - automatically skip files covered by these glob patterns. See section 'Skipping Uninteresting Code'.
 * `trace` - enable diagnostic output. Set to `"all"` for verbose output.
 
-These attributes are only available for launch configurations of type `launch`:
+These attributes are only available for launch configurations of request type `launch`:
 
 * `program` - an absolute path to the Node.js program to debug.
 * `args` - arguments passed to the program to debug. This attribute is of type array and expects individual arguments as array elements.
@@ -77,10 +79,8 @@ These attributes are only available for launch configurations of type `launch`:
 * `envFile` - optional path to a file containing environment variable definitions.
 * `console` - kind of console to launch the program, e.g. `internalConsole`, `integratedTerminal`, `externalTerminal`. See section 'Node Console' below.
 
-These attributes are only available for launch configurations of type `attach`:
+This attribute is only available for launch configurations of request type `attach`:
 
-* `localRoot` - VS Code's root directory. See sections 'Remote Debugging Node.js' below.
-* `remoteRoot` - Node's root directory. See sections 'Remote Debugging Node.js' below.
 * `processId` - debugger tries to attach to this process after having sent a USR1 signal. With this setting, the debugger can attach to an already running process that was not started in debug mode.
 
 ### Launch configuration snippets for common scenarios
@@ -226,7 +226,7 @@ By using the `PickProcess` variable the launch configuration looks like this:
 
 The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. Specify a remote host via the `address` attribute.
 
-By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. The `attach` launch configuration supports a `localRoot` and a `remoteRoot` attribute that can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
+By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. A `localRoot` and a `remoteRoot` attribute can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
 
 ## Access Loaded Scripts
 
