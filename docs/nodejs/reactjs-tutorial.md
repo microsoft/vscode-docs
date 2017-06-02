@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 3
 Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
@@ -8,7 +8,7 @@ DateApproved: 3/10/2017
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code.
 MetaSocialImage: nodejs_javascript_vscode.png
 ---
-# React Tutorial in VS Code
+# Using React in VS Code
 
 [React](https://facebook.github.io/react/) is a popular JavaScript library for building web application user interfaces developed by Facebook. VS Code supports React.js IntelliSense and code navigation out of the box.
 
@@ -16,7 +16,7 @@ MetaSocialImage: nodejs_javascript_vscode.png
 
 ## Welcome to React
 
-We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included and you can install Node.js [here](https://nodejs.org/en/download/).
+We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/).
 
 >**Tip**: To test that you have Node.js and npm correctly install on your machine, you can type `node --version` and `npm --version`.
 
