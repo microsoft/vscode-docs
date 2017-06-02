@@ -5,7 +5,7 @@ TOCTitle: Activation Events
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
 PageTitle: Visual Studio Code Activation Events - package.json
 DateApproved: 5/4/2017
-MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events in the package.json extension manifest file. 
+MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events in the package.json extension manifest file.
 ---
 
 # Activation Events - package.json
@@ -16,6 +16,7 @@ Extensions are activated lazily in VS Code.  As a result you need to provide VS 
 * [`onCommand:${command}`](/docs/extensionAPI/activation-events.md#activationeventsoncommand)
 * [`onDebug:${type}`](/docs/extensionAPI/activation-events.md#activationeventsondebug)
 * [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
+* [`onView:${viewId}`](/docs/extensionAPI/activation-events.md#activationeventsonview)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
 We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
@@ -64,6 +65,18 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 "activationEvents": [
     "workspaceContains:.editorconfig"
+]
+...
+```
+
+## activationEvents.onView
+
+This activation event is emitted and interested extensions will be activated whenever a view of the specified id is expanded:
+
+```json
+...
+"activationEvents": [
+    "onView:nodeDependencies"
 ]
 ...
 ```
