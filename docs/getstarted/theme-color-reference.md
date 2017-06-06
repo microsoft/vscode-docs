@@ -214,18 +214,27 @@ To see the editor indent guides, set `"editor.renderIndentGuides": true`.
 
 - `editorIndentGuide.background`: Color of the editor indentation guides.
 
+To see editor rulers, define their location with `"editor.rulers"`
+
+- `editorRuler.foreground`: Color of the editor rulers.
+
 Code Lens:
+
+![Code Lenses](images/theme-color-reference/codelens.png)
 
 - `editorCodeLens.foreground`: Foreground color of an editor CodeLens.
 
 Bracket matches:
+
+![Bracket colors](images/theme-color-reference/bracket-colors.png)
 
 - `editorBracketMatch.background`: Background color behind matching brackets.
 - `editorBracketMatch.border`: Color for matching brackets boxes.
 
 Overview ruler:
 
-- `editorRuler.foreground`: Color of the editor rulers.
+The overview rules in on the editor's right, blow the scrollbar and gives an overview of the decorations in the editor.
+
 - `editorOverviewRuler.border`: Color of the overview ruler border.
 
 Errors and warnings:
@@ -256,7 +265,7 @@ For coloring inserted and removed text, use either a background or a border colo
 The Editor widget is shown in front of the editor content. Examples are the Find/Replace dialog, the suggestion widget, and the editor hover.
 
 - `editorWidget.background`: Background color of editor widgets, such as Find/Replace.
-- `editorWidgetBorder`: Border color of the editor widget.
+- `editorWidgetBorder`: Border color of the editor widget unless the widget does not contain a border or defines its own border color.
 
 - `editorSuggestWidget.background`: Background color of the suggestion widget.
 - `editorSuggestWidget.border`: Border color of the suggestion widget.
@@ -280,6 +289,10 @@ The editor marker view shows when navigating to errors and warnings in the edito
 
 ## Peek View Colors
 
+Peek views are used to show references and declararions as a view inside the editor.
+
+![Peek view](images/theme-color-reference/peek-view.png)
+
 - `peekView.border`: Color of the peek view borders and arrow.
 - `peekViewEditor.background`: Background color of the peek view editor.
 - `peekViewEditorGutter.background`: Background color of the gutter in the peek view editor.
@@ -295,6 +308,10 @@ The editor marker view shows when navigating to errors and warnings in the edito
 - `peekViewTitleLabel.foreground`: Color of the peek view title.
 
 ## Merge Conflicts
+
+Merge conflict deocrations are shown when the editor contains special diff ranges.
+
+![Merge ranges](images/theme-color-reference/merge-ranges.png)
 
 - `merge.currentHeaderBackground`: Current header background in inline merge conflicts.
 - `merge.currentContentBackground`: Current content background in inline merge conflicts.
