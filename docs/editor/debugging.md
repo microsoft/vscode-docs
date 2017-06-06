@@ -161,6 +161,7 @@ VS Code supports variable substitution inside strings in `launch.json` and has t
 - **${workspaceRootFolderName}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
 - **${relativeFile}** - the current opened file relative to `workspaceRoot`
+- **${relativeFileNoExtension}** - the current opened file relative to `workspaceRoot` with no file extension
 - **${fileBasename}** - the current opened file's basename
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
 - **${fileDirname}** - the current opened file's dirname
@@ -228,6 +229,27 @@ An alternative way to start multiple debug session is by using a so-called _comp
         {
             "name": "Server/Client",
             "configurations": ["Server", "Client"]
+        }
+    ]
+}
+```
+
+## Debugging with transpilation
+
+Some test runners may run test codes that are transpiled from your source code. For example, you write your code in TypeScript and the test runner only understand JavaScript (e.g. `ava`). In this case, you can utilize the `${relativeFileNoExtension}` variable:
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Run tests",
+            "program": "${workspaceRoot}/node_modules/ava/profile.js",
+            "args": [
+                "your-outDir/${relativeFileNoExtension}.js"
+            ]
         }
     ]
 }
