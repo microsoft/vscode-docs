@@ -9,21 +9,58 @@ MetaDescription: How to add themes, snippets and colorization and bracket matchi
 ---
 # Themes, Snippets and Colorizers
 
-Custom themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and VS Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
+Custom color and icons themes, snippets and language syntax colorizers bring an editor to life. There are lots of existing TextMate customization files available and VS Code lets you easily package and reuse these. You can directly use `.tmTheme`, `.tmSnippets`, and `.tmLanguage` files in your extensions and share them in the extension [Marketplace](https://marketplace.visualstudio.com/VSCode). This topic describes how to reuse TextMate files as well as create and share your own themes, snippets and colorizers.
 
-## Adding a new Theme
+## Adding a new Color Theme
 
-You can also add new TextMate theme files (.tmTheme) to your VS Code installation using VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md). The extension generator takes an existing TextMate theme file and packages it for use in VS Code.
+Color visible in the VSCode user interface fall in two categories:
+ - Colors used in view and editors, from the actvity bar to the status bar. A complete list of all these colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
+ - Colors used for syntax highlighing. The theming of these colors is different as syntax colorization is based Text Mate grammars and Text Mate themes. 
 
-[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator.  It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
+The easiest way to create a new theme is to start with an existing theme and customize it:
+ 
+- Make changes to view and editor colors using the `workbench.colorCustomizations` settings. Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+- Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
+- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generated a new theme extension.
+- Select 'Start fresh'
 
-![yo code theme](images/themes/yocodetheme.png)
+![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)
+- Copy the theme file generated from your settings to the new extension.
 
-Copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
+To change the syntax highlighting colors, you can tell the extension generator to import a TextMate theme file and package it for use in VS Code.
+Alternativly, if you have already created the theme, replace the `tokenColors` section with a link to the tmThme file to use.
+ 
+```json
+{
+	"type": "dark",
+	"colors": {
+		"editor.background": "#1e1e1e",
+		"editor.foreground": "#d4d4d4",
+		"editorIndentGuide.background": "#404040",
+		"editorRuler.foreground": "#333333",
+		"activityBarBadge.background": "#007acc",
+		"sideBarTitle.foreground": "#bbbbbb"
+	},
+	"tokenColors": "./Diner.tmTheme"
+}
+```
+
+[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
+
+Authoring a syntax theme from scratch is an advanced skill as you need to understand on how TextMate grammars work.
+- read here about the [scopes](https://www.sublimetext.com/docs/3/scope_naming.html) that TextMate grammars generate.
+- Use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token and the matching theme rule.
+
+![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
+- Learn about [scope selectors](https://manual.macromates.com/en/scope_selectors)
+
+To try out the new theme, copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
 
 Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
 
-![select my theme](images/themes/mytheme.png)
+![select my theme](../getstarted/images/themes/mytheme.png)
+
+After making changes to any theme file, it is necessary reload VS Code with `Reload Window`.
 
 ## Publishing a Theme to the Extension Marketplace
 
@@ -32,36 +69,6 @@ If you'd like to share your new theme with the community, you can publish it to 
 > **Tip:** To make it easy for users to find your theme, include the word "theme" in the extension description and set the `Category` to `Theme` in your `package.json`.
 
 We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
-
-## Creating a Custom Theme
-
-You can also author your own TextMate themes from scratch. Consult the TextMate [theme](https://manual.macromates.com/en/themes) and language grammar [naming conventions](https://manual.macromates.com/en/language_grammars#naming_conventions) documentation for details.
-
-Besides the TextMate language grammar standard scopes, VS Code also has custom theme settings which you can use to tune your own theme:
-
-- `rangeHighlight`: Background color of range highlighted, like by Quick open and Find features.
-- `selectionHighlight`: Background color of regions highlighted while selecting.
-- `inactiveSelection`: Background color of selections when not in focus.
-- `wordHighlight`: Background color of a symbol during read-access, like reading a variable.
-- `wordHighlightStrong`: Background color of a symbol during write-access, like writing to a variable.
-- `findMatchHighlight`: Background color of regions matching the search.
-- `currentFindMatchHighlight`: Background color of the current region matching the search.
-- `findRangeHighlight`: Background color of regions selected for search.
-- `linkForeground`: Color of links.
-- `activeLinkForeground`: Color of active links.
-- `hoverHighlight`: Background color when hovered.
-- `referenceHighlight`: Background color of a reference when finding all references.
-- `guide`: Color of the guides displayed to indicate nesting levels.
-
-You can find an example VS Code theme [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/theme-sample) which includes the custom settings.
-
-Authoring a theme is fairly tricky as the grammars all behave a bit differently. Try to follow the TextMate conventions and avoid language specific rules in your theme as grammars can also be replaced by extensions.
-
-## New Tools for inspecting TextMate Scopes
-
-To help with theme authoring, there is a widget to inspect the scopes of a token and the matching theme rule. You can launch the widget with **Developer Tools: Inspect TM Scopes** from the **Command Palette** (`kb(workbench.action.showCommands)`).
-
-![Inspect TM Scopes](images/themes/inspect-tm-scopes.png)
 
 ## Adding a new Icon Theme
 
