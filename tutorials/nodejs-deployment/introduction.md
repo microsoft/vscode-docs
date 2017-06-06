@@ -7,7 +7,7 @@ MetaSocialImage:
 DateApproved: 4/26/2017
 ShortDescription:
 ---
-# Introduction to VS Code and Azure
+# Deploy a Node.js Application to Azure
 
 In this walkthrough, you will deploy a Node.js application to the Azure cloud, all in a matter of minutes.
 

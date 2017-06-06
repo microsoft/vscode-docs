@@ -14,7 +14,7 @@ In this step, you will view (or "tail") the logs from the running Website. Any c
 Run the following Azure CLI command.
 
 ```bash
-$ az appservice web log tail --name myExpressApp-chrisdias
+$ az webapp log tail --name myExpressApp-chrisdias
 ```
 
 After a few seconds, you should see a message indicating that you are connected to the log-streaming service.

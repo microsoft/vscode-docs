@@ -13,7 +13,7 @@ In this step, you will make changes to your application, commit them to the loca
 
 ## Edit Your Application
 
-Open the `myExpressApp` folder in Visual Studio Code (or your favorite text editor).
+Open the `myExpressApp` folder in Visual Studio Code.
 
 ![Open VS Code](nodejs-deployment_openvscode.png)
 

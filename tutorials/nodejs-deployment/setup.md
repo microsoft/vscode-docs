@@ -32,14 +32,6 @@ $ az login
 To sign in, go to https://aka.ms/devicelogin and enter the code BF9BUDLGR to authenticate.
 ```
 
-### Update the CLI
-
-Make sure you've got the latest CLI components installed by telling the CLI to update itself. This is useful if you have not run the CLI in a while.
-
-```bash
-$ az component update
-```
-
 ## Prerequisite Check
 
 Before we continue, ensure that you have all of the prerequisites properly installed. Type each command and ensure it displays the version you have installed. If your Node.js version is less than 6, please [upgrade](https://nodejs.org/en/download/) to the most current LTS ("Long Term Stable") release.

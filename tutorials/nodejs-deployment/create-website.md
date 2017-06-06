@@ -40,7 +40,7 @@ $ az appservice plan create --name myPlan --sku F1
 Now create the website. Make sure to give it a **unique name** as it will be referenced as http://**unique-name**.azurewebsites.net. In this example, we'll call it `myExpressApp-chrisdias`.
 
 ```bash
-$ az appservice web create --name myExpressApp-chrisdias --plan myPlan
+$ az webapp create --name myExpressApp-chrisdias --plan myPlan
 ```
 
 ## Run the Website
@@ -48,7 +48,7 @@ $ az appservice web create --name myExpressApp-chrisdias --plan myPlan
 Finally, let's ensure the site is up and running.
 
 ```bash
-$ az appservice web browse --name myExpressApp-chrisdias
+$ az webapp browse --name myExpressApp-chrisdias
 ```
 
 You should see something like this:
