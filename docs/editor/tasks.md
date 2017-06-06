@@ -157,6 +157,7 @@ When authoring tasks configurations, it is often useful to have a set of predefi
 - **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
 - **${file}** the current opened file
 - **${relativeFile}** the current opened file relative to `workspaceRoot`
+- **${relativeFileNoExtension}** the current opened file relative to `workspaceRoot` without the extension
 - **${fileBasename}** the current opened file's basename
 - **${fileBasenameNoExtension}** the current opened file's basename without the extension
 - **${fileDirname}** the current opened file's dirname
