@@ -648,7 +648,5 @@
 { "key": "alt+m 2",               "command": "merge-conflict.accept.incoming",
                                      "when": "editorTextFocus" },
 { "key": "alt+m 3",               "command": "merge-conflict.accept.both",
-                                     "when": "editorTextFocus" },
-{ "key": "ctrl+f4",               "command": "extension.node-debug.pickLoadedScript",
-                                     "when": "debugType == 'chrome'" }
+                                     "when": "editorTextFocus" }
 ]
