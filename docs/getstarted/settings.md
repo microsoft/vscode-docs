@@ -257,7 +257,7 @@ Below are the default settings and their values.
   "editor.formatOnType": false,
 
   // Controls if the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
-  "editor.formatOnPaste": true,
+  "editor.formatOnPaste": false,
 
   // Controls if suggestions should automatically show up when typing trigger characters
   "editor.suggestOnTriggerCharacters": true,
