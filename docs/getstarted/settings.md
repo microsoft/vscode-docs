@@ -116,11 +116,11 @@ Below are the default settings and their values.
 {
 // Most Commonly Used
 
-  // Controls the font size in pixels.
-  "editor.fontSize": 14,
-
   // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
   "files.autoSave": "off",
+
+  // Controls the font size in pixels.
+  "editor.fontSize": 14,
 
   // Controls the font family.
   "editor.fontFamily": "Consolas, 'Courier New', monospace",
@@ -131,17 +131,11 @@ Below are the default settings and their values.
   // Controls how the editor should render whitespace characters, possibilities are 'none', 'boundary', and 'all'. The 'boundary' option does not render single spaces between words.
   "editor.renderWhitespace": "none",
 
-  // Configure glob patterns for excluding files and folders.
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/CVS": true,
-    "**/.DS_Store": true
-  },
-
   // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
   "editor.cursorStyle": "line",
+
+  // The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on OSX. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
+  "editor.multiCursorModifier": "alt",
 
   // Insert spaces when pressing Tab. This setting is overriden based on the file contents when `editor.detectIndentation` is on.
   "editor.insertSpaces": true,
@@ -152,6 +146,15 @@ Below are the default settings and their values.
   //  - 'wordWrapColumn' (wrap at `editor.wordWrapColumn`) or
   //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
   "editor.wordWrap": "off",
+
+  // Configure glob patterns for excluding files and folders.
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
 
   // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
   "files.associations": {}
@@ -231,8 +234,8 @@ Below are the default settings and their values.
   // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
   "editor.mouseWheelScrollSensitivity": 1,
 
-  // The modifier to be used to add multiple cursors with the mouse.
-  "editor.multicursorModifier": "alt",
+  // The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on OSX. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
+  "editor.multiCursorModifier": "alt",
 
   // Controls if suggestions should automatically show up while typing
   "editor.quickSuggestions": {
@@ -346,6 +349,9 @@ Below are the default settings and their values.
   // Controls if the editor should allow to move selections via drag and drop.
   "editor.dragAndDrop": true,
 
+  // Controls whether the editor should run in a mode where it is optimized for screen readers.
+  "editor.accessibilitySupport": "auto",
+
   // Controls if the diff editor shows the diff side by side or inline
   "diffEditor.renderSideBySide": true,
 
@@ -377,8 +383,8 @@ Below are the default settings and their values.
   // Path to a folder containing emmet profiles, snippets and preferences
   "emmet.extensionsPath": null,
 
-  // Use the new emmet modules for emmet features than the single emmet library.
-  "emmet.useModules": false,
+  // Try out the new emmet modules (which will eventually replace the old single emmet library) for all emmet features.
+  "emmet.useNewEmmet": false,
 
 // Workbench
 
@@ -938,14 +944,17 @@ Below are the default settings and their values.
   // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
   "typescript.check.tscVersion": true,
 
-  // Check if NPM is installed for automatic typings acquisition
+  // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires TypeScript >= 2.3.4.
+  "typescript.npm": null,
+
+  // Check if NPM is installed for Automatic Type Acquisition.
   "typescript.check.npmIsInstalled": true,
 
   // Enable/disable references CodeLens in JavaScript files.
   "javascript.referencesCodeLens.enabled": false,
 
   // Enable/disable references CodeLens in TypeScript files. Requires TypeScript >= 2.0.6.
-  "typescript.referencesCodeLens.enabled": true,
+  "typescript.referencesCodeLens.enabled": false,
 
   // Enable/disable implementations CodeLens. Requires TypeScript >= 2.2.0.
   "typescript.implementationsCodeLens.enabled": false,
@@ -1200,10 +1209,10 @@ Below are the default settings and their values.
 // Emmet configuration
 
   // Shows expanded emmet abbreviations as suggestions
-  "emmet.suggestExpandedAbbreviation": true,
+  "emmet.showExpandedAbbreviation": true,
 
   // Shows possible emmet abbreviations as suggestions
-  "emmet.suggestAbbreviations": true,
+  "emmet.showAbbreviationSuggestions": true,
 
 // Default Configuration Overrides
 
@@ -1296,7 +1305,7 @@ Below are the default settings and their values.
 
 // Jake
 
-  // Controls whether auto detection of Jake tasks is on or off. Default is on.
+// Controls whether auto detection of Jake tasks is on or off. Default is on.
   "jake.autoDetect": "on"
 }
 ```

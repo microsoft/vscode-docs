@@ -235,7 +235,7 @@
 { "key": "shift+f9",              "command": "editor.debug.action.toggleColumnBreakpoint",
                                      "when": "editorTextFocus" },
 { "key": "tab",                   "command": "editor.emmet.action.expandAbbreviation",
-                                     "when": "config.emmet.triggerExpansionOnTab && editorTextFocus && !config.emmet.useModules && !editorHasMultipleSelections && !editorHasSelection && !editorReadonly && !editorTabMovesFocus" },
+                                     "when": "config.emmet.triggerExpansionOnTab && editorTextFocus && !config.emmet.useNewEmmet && !editorHasMultipleSelections && !editorHasSelection && !editorReadonly && !editorTabMovesFocus" },
 { "key": "ctrl+shift+[",          "command": "editor.fold",
                                      "when": "editorTextFocus" },
 { "key": "ctrl+k ctrl+0",         "command": "editor.foldAll",
