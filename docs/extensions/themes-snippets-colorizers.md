@@ -25,11 +25,11 @@ The easiest way to create a new theme is to start with an existing theme and cus
 - Select 'Start fresh'
 
 ![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)
+
 - Copy the theme file generated from your settings to the new extension.
 
-To change the syntax highlighting colors, you can tell the extension generator to import a TextMate theme file and package it for use in VS Code.
-Alternativly, if you have already created the theme, replace the `tokenColors` section with a link to the tmThme file to use.
- 
+To change the syntax highlighting colors, you can tell the extension generator to import a TextMate theme file and package it for use in VS Code. Alternatively, if you have already created the theme, replace the `tokenColors` section with a link to the `.tmTheme` file to use.
+
 ```json
 {
 	"type": "dark",
@@ -48,10 +48,12 @@ Alternativly, if you have already created the theme, replace the `tokenColors` s
 [ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
 
 Authoring a syntax theme from scratch is an advanced skill as you need to understand on how TextMate grammars work.
+
 - read here about the [scopes](https://www.sublimetext.com/docs/3/scope_naming.html) that TextMate grammars generate.
 - Use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token and the matching theme rule.
 
 ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
+
 - Learn about [scope selectors](https://manual.macromates.com/en/scope_selectors)
 
 To try out the new theme, copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
