@@ -36,7 +36,7 @@ If you prefer, you can turn off IntelliSense while you type. See [Customizing In
 
 As provided by the language service, you can see **quick info** for each method by either pressing `kb(toggleSuggestionDetails)` or clicking the info icon. The accompanying documentation for the method will now expand to the side. The expanded documentation will stay so and will update as you navigate the list. You can close this by pressing `kb(toggleSuggestionDetails)` again or by clicking on the close icon.
 
-![quick info](images/intellisense/quick_outline.png)
+![quick info](images/intellisense/intellisense_docs.gif)
 
 After choosing a method you are provided with **parameter info**.
 
