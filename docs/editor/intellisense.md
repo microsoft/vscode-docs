@@ -101,7 +101,7 @@ By default, VS Code shows snippets and completion proposals in one widget. You c
 
 ### Key Bindings
 
-The key binding shown below is the default key binding. You can change this key binding in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
+The key bindings shown below are the default key bindings. You can change these in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
 
 > **Note:** There are many more key bindings relating to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 
@@ -111,8 +111,17 @@ The key binding shown below is the default key binding. You can change this key 
        "key": "ctrl+space",
        "command": "editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
+    },
+    { 
+        "key": "ctrl+space",            
+        "command": "toggleSuggestionDetails",
+        "when": "editorTextFocus && suggestWidgetVisible" 
+    },
+    { 
+        "key": "ctrl+alt+space",        
+        "command": "toggleSuggestionFocus",
+        "when": "editorTextFocus && suggestWidgetVisible" },
     }
-}
 ```
 
 ## Troubleshooting
