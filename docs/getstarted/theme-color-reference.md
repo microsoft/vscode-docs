@@ -233,7 +233,7 @@ Bracket matches:
 
 Overview ruler:
 
-The overview rules in on the editor's right, blow the scrollbar and gives an overview of the decorations in the editor.
+This ruler is located beneath the scrollbar on the right edge of the editor and gives an overview of the decorations in the editor.
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
 
