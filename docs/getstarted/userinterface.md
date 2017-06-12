@@ -56,6 +56,18 @@ When you have more than one editor open you can switch between them quickly by h
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
+## Minimap - outline view
+
+A Minimap (outline view) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown in the right side of the editor. You can click or drap the shaded area to quickly jump to different sections of your file.
+
+![minimap](images/userinterface/minimap.png)
+
+If you would like to disable minimap, you can set `"editor.minimap.enabled": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+
+### Indent Guides
+
+The image above also shows indentation guides (vertical lines) which help you quickly see matching indent levels. If you would like to disable indent guides, you can set `"editor.renderIndentGuides": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+
 ## Explorer
 
 The Explorer is used to browse, open, and manage all of the files and folders in your project.
@@ -292,3 +304,17 @@ reopen the last opened folder you worked on (setting: `one`). Change this settin
 Now that you know the overall layout of VS Code, start to customize the editor to how you like to work by looking at the following topics:
 
 * [Changing the Theme](/docs/getstarted/themes.md) - Set a Color and/or File Icon theme to your preference.
+
+## Common Questions
+
+**Q: How can I change the color of the indent guides?**
+
+**A:** The indent guide colors are customizable as are most VS Code UI elements. To [customize](/docs/getstarted/color-theme-reference.md) the indent guide color for your active color theme, use the `workbench.colorCustomizations` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
+
+For example, to make the indent guides bright blue, add the following to your `settings.json`:
+
+```json
+"workbench.colorCustomizations": {
+    "editorIndentGuide.background": "#0000ff"	
+}
+```
