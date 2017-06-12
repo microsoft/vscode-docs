@@ -37,6 +37,7 @@ Name | Required | Type | Details
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
 `scripts` | | `object` | Exactly the same as [npm's `scripts`](https://docs.npmjs.com/misc/scripts) but with [extra VS Code specific fields](/docs/extensions/publish-extension.md#pre-publish-step).
 `icon` | | `string` | The path to a 128x128 pixel icon.
+`qna` | | `string` | Controls the Q&A section in the Marketplace. If you specify a GitHub repo, by default Q&A will link to your GitHub issues. To enable the Marketplace Q&A set this to true or specify a custom Q&A / support URL. Set this field to false to have no Q&A section on the Marketplace.
 
 Also check [npm's `package.json` reference](https://docs.npmjs.com/files/package.json).
 
