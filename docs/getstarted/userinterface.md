@@ -309,7 +309,7 @@ Now that you know the overall layout of VS Code, start to customize the editor t
 
 **Q: How can I change the color of the indent guides?**
 
-**A:** The indent guide colors are customizable as are most VS Code UI elements. To [customize](/docs/getstarted/color-theme-reference.md) the indent guide color for your active color theme, use the `workbench.colorCustomizations` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
+**A:** The indent guide colors are customizable as are most VS Code UI elements. To [customize](/docs/getstarted/theme-color-reference.md) the indent guides color for your active color theme, use the `workbench.colorCustomizations` [setting](/docs/getstarted/settings.md) and modify the `editorIndentGuide.background` value.
 
 For example, to make the indent guides bright blue, add the following to your `settings.json`:
 
