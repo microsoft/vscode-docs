@@ -279,7 +279,7 @@ An alternative way to start multiple debug session is by using a so-called _comp
 
 ## Debugging with transpilation
 
-Some test runners may run test codes that are transpiled from your source code. For example, you write your code in TypeScript and the test runner only understand JavaScript (e.g. `ava`). In this case, you can utilize the `${relativeFileNoExtension}` variable:
+Some test runners may run tests that are transpiled from your source code. For example, you may write your source code in TypeScript but the test runner only understands JavaScript (for example [AVA](https://github.com/avajs/ava)). In this case, you can utilize the `${relativeFileNoExtension}` variable:
 
 ```json
 {

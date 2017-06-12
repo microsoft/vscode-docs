@@ -19,10 +19,10 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
-If you are using Visual Studio Code Insiders you may type the follow command:
+If you are using the Visual Studio Code [Insiders](/insiders) build, you would type the following command:
 
 ```
-code-insider .
+code-insiders .
 ```
 
 >**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/mac.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable on Windows and Linux automatically during installation.
