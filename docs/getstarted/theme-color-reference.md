@@ -358,8 +358,19 @@ The Status Bar is shown in the bottom of the workbench.
 
 Notifications slide in from the top of the workbench.
 
+![Notification bar](images/theme-color-reference/notification-bar.png)
+
 - `notification.background`: Notifications background color.
 - `notification.foreground`: Notifications foreground color.
+- `notification.buttonBackground`: Notifications button background color.
+- `notification.buttonHoverBackground`: Notifications button hover background color.
+- `notification.buttonForeground`: Notifications button foreground color.
+- `notification.infoBackground`: Notifications info badge background color.
+- `notification.infoForeground`: Notifications info badge foreground color.
+- `notification.warningBackground`: Notifications warning badge background color.
+- `notification.warningForeground`: Notifications warning badge foreground color.
+- `notification.errorBackground`: Notifications error badge background color.
+- `notification.errorForeground`: Notifications error badge foreground color.
 
 ## Extensions
 
