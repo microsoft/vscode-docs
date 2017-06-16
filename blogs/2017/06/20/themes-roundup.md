@@ -51,7 +51,7 @@ What is your favorite theme? Ping me on [Twitter](https://twitter.com/waderyan_
 
 ## File Icon Themes
 
-File icon themes shipped with last August with VS Code 1.5. 
+File icon themes shipped with last August with VS Code 1.5. Here is a screenshot of supported icons from [VSCode Great Icons](https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons).
 
 ![vscode great icons](2017_06_20_vscode-great-icons.jpg)
 
