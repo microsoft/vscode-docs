@@ -46,67 +46,47 @@ Here is a complete `package.json`
 
 ```json
 {
-    "name": "spell",
-    "displayName": "Spelling and Grammar Checker",
-    "description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
-    "icon": "images/spellIcon.svg",
-    "version": "0.0.19",
-    "publisher": "seanmcbreen",
-    "galleryBanner": {
-        "color": "#0000FF",
-        "theme": "dark"
+	"name": "wordcount",
+	"displayName": "Word Count",
+	"version": "0.1.0",
+	"publisher": "ms-vscode",
+	"description": "Markdown Word Count Example - a status bar contribution that reports out the number of works in a Markdown document as you interact with it.",
+	"author": {
+		"name": "seanmcbreen"
+	},
+	"categories": [
+		"Other"
+	],
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#C80000",
+		"theme": "dark"
+	},
+	"activationEvents": [
+		"onLanguage:markdown"
+	],
+	"engines": {
+		"vscode": "^1.0.0"
+	},
+	"main": "./out/extension",
+	"scripts": {
+		"vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+		"compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
+	},
+	"devDependencies": {
+		"vscode": "0.10.x",
+		"typescript": "^1.6.2"
     },
-    "license": "SEE LICENSE IN LICENSE.md",
+	"license": "SEE LICENSE IN LICENSE.txt",
     "bugs": {
-        "url": "https://github.com/Microsoft/vscode-spell-check/issues",
+        "url": "https://github.com/Microsoft/vscode-wordcount/issues",
         "email": "smcbreen@microsoft.com"
     },
-    "homepage": "https://github.com/Microsoft/vscode-spell-check/blob/master/README.md",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Microsoft/vscode-spell-check.git"
-    },
-    "categories": [
-        "Linters", "Languages", "Other"
-    ],
-    "engines": {
-        "vscode": "^1.0.0"
-    },
-    "main": "./out/extension",
-    "activationEvents": [
-        "onLanguage:markdown"
-    ],
-    "contributes": {
-        "commands": [
-            {
-                "command": "Spell.suggestFix",
-                "title": "Spell Checker Suggestions"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "Spell.suggestFix",
-                "key": "Alt+."
-            }
-        ]
-    },
-    "badges": [
-        {
-            "url": "https://david-dm.org/Microsoft/vscode-spell-check.svg",
-            "href": "https://david-dm.org/Microsoft/vscode-spell-check",
-            "description": "Dependency Status"
-        }
-    ],
-    "scripts": {
-        "vscode:prepublish": "tsc -p ./",
-        "compile": "tsc -watch -p ./"
-    },
-    "dependencies": {
-        "teacher": "^0.0.1"
-    },
-    "devDependencies": {
-        "vscode": "^1.0.0"
-    }
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Microsoft/vscode-wordcount.git"
+	},
+    "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md"
 }
 ```
 
@@ -134,25 +114,26 @@ Provide a good display name and description. This is important for the Marketpla
 An Icon and a contrasting banner color looks great on the Marketplace page header.  The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
 
 ```json
-    "icon": "images/spellIcon.svg",
-    "galleryBanner": {
-        "color": "#5c2d91",
-        "theme": "dark"
-    },
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#C80000",
+		"theme": "dark"
+	},
 ```
 
 There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed under the **Resources** section of the Marketplace.
 
 ```json
-    "license": "SEE LICENSE IN LICENSE.md",
+	"license": "SEE LICENSE IN LICENSE.txt",
+    "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md"
     "bugs": {
-        "url": "https://github.com/Microsoft/vscode-spell-check/issues"
+        "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+        "email": "smcbreen@microsoft.com"
     },
-    "homepage": "https://github.com/Microsoft/vscode-spell-check/blob/master/README.md",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Microsoft/vscode-spell-check.git"
-    }
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Microsoft/vscode-wordcount.git"
+	},
 ```
 
 Marketplace Resources link | package.json attribute
