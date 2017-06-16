@@ -22,7 +22,7 @@ VS Code runs on Mac, Linux, and Windows. See [Requirements](requirements) for th
 
 ## Is VS Code free?
 
-Yes, VS Code is a free, [open source](https://github.com/microsoft/vscode) editor.
+Yes, VS Code is [free for private or commercial use](https://code.visualstudio.com/license).
 
 ## How do I find what version of VS Code I am using?
 
