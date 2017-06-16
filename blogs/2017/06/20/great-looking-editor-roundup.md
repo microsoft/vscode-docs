@@ -17,7 +17,7 @@ You have a lot of customization in VS Code to change the look of your environmen
 
 ## Color Themes
 
-The central customization is the ability to change a color theme. A color theme is a set of colors for the editor background, text, language syntax, etc. VS Code comes with a few built in themes, and hundreds you can install in the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3A%22color%20theme%22&target=VSCode&category=Themes&sortBy=Downloads).  
+A central customization is the ability to change a color theme. A color theme is a set of colors for the editor background, text, language syntax, etc. VS Code comes with a few built in themes, and hundreds you can install in the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3A%22color%20theme%22&target=VSCode&category=Themes&sortBy=Downloads).  
 
 <div class="marketplace-popular-color-themes"></div>
 
@@ -47,8 +47,6 @@ Author - [teabyii](https://marketplace.visualstudio.com/search?term=publisher%3A
 
 ![ayu color theme](2017_06_20_themes-ayu.gif)
 
-What is your favorite theme? Ping me on [Twitter](https://twitter.com/waderyan_)!
-
 ## File Icon Themes
 
 File icon themes shipped with last August with VS Code 1.5. Here is a screenshot of supported icons from [VSCode Great Icons](https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons).
@@ -61,13 +59,13 @@ Just as with color themes, there are many popular file icon themes to choose fro
 
 ## Font Ligatures
 
-There are many settings you can tweak to make VS Code look good. One of my favorites is font ligatures. Enable font ligatures by setting `"editor.fontLigatures"` to `true`. You will need to also have a font installed that supports font liagures. [Fira Code](https://github.com/tonsky/FiraCode) is a popular font on the VS Code Team. 
+There are many settings you can tweak to make VS Code look good. One of my favorites is font ligatures. Enable font ligatures by setting `"editor.fontLigatures"` to `true`. You will to have a font installed that supports font liagures, such as [Fira Code](https://github.com/tonsky/FiraCode).
 
 ![font ligatures](2017_06_20_font-ligatures-annotated.png)
 
 ## How do you make your editor look good? 
 
-How do you make your editor look good? Ping me on [Twitter](https://twitter.com/waderyan_) and I'll love to hear what you do. 
+What do you do to make your editor look good? Ping me on [Twitter](https://twitter.com/waderyan_) and I'd love to share your tips in a future blog post. 
 
 Wade Anderson, VS Code Team Member
 [@waderyan_](https://twitter.com/waderyan_)
