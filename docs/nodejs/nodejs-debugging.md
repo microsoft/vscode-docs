@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 3
 Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D

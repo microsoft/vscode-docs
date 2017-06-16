@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 6
 TOCTitle: Publish Changes
 PageTitle: Publish Changes
 MetaDescription:
