@@ -114,6 +114,6 @@ If you want to load your extension each time VS Code runs, copy your project ('s
 
 **A:** Try starting the Yeoman generator with just `yo` and then select the `Code` generator.
 
-**A:** If the arrows keys still do not respond, try starting Yeoman from an elevated shell. To do this, right-click the shell and select `Run as administrator`.
-
 ![yo workaround](images/yocode/yo-workaround.png)
+
+If the arrows keys still do not respond, try starting Yeoman from an elevated shell. To do this, right-click the shell and select **Run as administrator**.
