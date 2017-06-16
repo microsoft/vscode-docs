@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 4
 TOCTitle: Deploy the Website
 PageTitle: Deploy the Website
 MetaDescription:

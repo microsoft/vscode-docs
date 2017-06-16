@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 3
 TOCTitle: Create the Website
 PageTitle: Create the Website
 MetaDescription:
