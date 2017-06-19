@@ -105,6 +105,16 @@ You can also specify a complete SemVer compatible version on the command line:
 vsce publish 2.0.1
 ```
 
+## Unpublishing Extensions
+
+You can unpublish an extension with the vsce tool by specifying the extension id `publisher.extension`.
+
+```bash
+vsce unpublish (publisher name).(extension name)
+```
+
+>**Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
+
 ## Packaging Extensions
 
 You may want to package extensions without publishing them to the store. Extensions will always be packaged into a `.vsix` file. Here's how:

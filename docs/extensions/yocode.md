@@ -11,6 +11,10 @@ MetaDescription: Easily create Visual Studio Code extensions and customizations 
 
 We have written a [Yeoman generator](https://github.com/Microsoft/vscode-generator-code) to help get you started.
 
+## Prerequisites
+
+You need [Node.js](https://nodejs.org/en/) installed and available in your `$PATH`. The Node.js install includes [npm](https://www.npmjs.com/), the Node.js Package Manager, which will be used to install the extension generator.
+
 ## Install the Generator
 
 Install Yeoman and the VS Code Extension generator from the command prompt:
