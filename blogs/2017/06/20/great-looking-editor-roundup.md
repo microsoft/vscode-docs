@@ -2,26 +2,26 @@
 Order: 29
 TOCTitle: Great Looking Editor Roundup
 PageTitle: Great Looking Editor Roundup
-MetaDescription: Learn about the most popular VS Code themes you can install and use today. 
+MetaDescription: Learn about the most popular Visual Studio Code themes you can install and use today. 
 Date: 2017-06-20
-ShortDescription: Learn about the most popular VS Code themes you can install and use today.
+ShortDescription: Learn about the most popular Visual Studio Code themes you can install and use today.
 Author: Wade Anderson
 ---
 # Great Looking Editor Roundup
 
 June 20, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
-Having a great looking editor is a necessity for any full time developer. We look at our code a lot. Let's keep things interesting! 
+Having a great looking editor is a necessity for any full-time developer. We spend a lot of time in our editor and we like to keep things fresh and interesting! 
 
-You have a lot of customization in VS Code to change the look of your environment. In this blog we're going to look at color themes, file icon themes, and other settings to change the look and feel of your code editor. 
+Visual Studio Code supports a lot of customizations, in particular the look of your environment. In this blog, we're going to look at [color themes](/docs/getstarted/themes.md), [file icon themes](/docs/getstarted/themes.md#icon-themes), and other [settings](/docs/getstarted/settings.md) to change the look and feel of the code editor. 
 
 ## Color Themes
 
-A central customization is the ability to change a color theme. A color theme is a set of colors for the editor background, text, language syntax, etc. VS Code comes with a few built in themes, and hundreds you can install in the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3A%22color%20theme%22&target=VSCode&category=Themes&sortBy=Downloads).  
+A powerful customization is the ability to change a color theme. A color theme is a set of colors for the editor background, text, language syntax, etc. VS Code comes with several built-in themes and there are hundreds you can install from the [Marketplace](https://marketplace.visualstudio.com/search?term=tag%3A%22color%20theme%22&target=VSCode&category=Themes&sortBy=Downloads).  
 
 <div class="marketplace-popular-color-themes"></div>
 
-Other favorite teams around the VS Code team are Sapphire, Nord and Ayu, shown below. 
+Some of the favorite themes used the VS Code team are **Sapphire**, **Nord** and **Ayu**, shown below. 
 
 ### Sapphire Theme
 
@@ -49,17 +49,17 @@ Author - [teabyii](https://marketplace.visualstudio.com/search?term=publisher%3A
 
 ## File Icon Themes
 
-File icon themes shipped with last August with VS Code 1.5. Here is a screenshot of supported icons from [VSCode Great Icons](https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons).
+Using a file icon theme helps you quickly see file types in the Explorer and tabs through colorful icons. Here is a screenshot of supported icons from [VSCode Great Icons](https://marketplace.visualstudio.com/items?itemName=emmanuelbeziat.vscode-great-icons).
 
 ![vscode great icons](2017_06_20_vscode-great-icons.jpg)
 
-Just as with color themes, there are many popular file icon themes to choose from. 
+Just as with color themes, there are many popular file icon themes in the Marketplace. 
 
 <div class="marketplace-popular-file-icon-themes"></div>
 
 ## Font Ligatures
 
-There are many settings you can tweak to make VS Code look good. One of my favorites is font ligatures. Enable font ligatures by setting `"editor.fontLigatures"` to `true`. You will to have a font installed that supports font liagures, such as [Fira Code](https://github.com/tonsky/FiraCode).
+There are many settings you can tweak to make VS Code look good. One of my favorites is font ligatures, where two characters are combined into a single expressive character. Enable font ligatures by setting `"editor.fontLigatures"` to `true`. You must have a font installed that supports font ligatures, such as [Fira Code](https://github.com/tonsky/FiraCode).
 
 ![font ligatures](2017_06_20_font-ligatures-annotated.png)
 
