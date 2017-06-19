@@ -5,12 +5,12 @@ TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
 DateApproved: 6/8/2017
-MetaDescription: Visual Studio Code includes Node.js debugging support.  Set breakpoints, step-in, inspect variables and more.
+MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: debugging_Debugging.png
 ---
 # Node.js Debugging in VS Code
 
-Visual Studio Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript.
+The Visual Studio Code editor has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript.
 
 >**Are you new to VS Code?** Learn more and download a [faster Node.js editor here](/nodejs).
 

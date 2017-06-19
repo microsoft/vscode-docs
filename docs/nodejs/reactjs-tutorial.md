@@ -5,12 +5,12 @@ TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in VS Code
 DateApproved: 6/8/2017
-MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in Visual Studio Code.
+MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: nodejs_javascript_vscode.png
 ---
 # Using React in VS Code
 
-[React](https://facebook.github.io/react/) is a popular JavaScript library for building web application user interfaces developed by Facebook. VS Code supports React.js IntelliSense and code navigation out of the box.
+[React](https://facebook.github.io/react/) is a popular JavaScript library for building web application user interfaces developed by Facebook. The Visual Studio Code editor supports React.js IntelliSense and code navigation out of the box.
 
 ![welcome to react](images/reactjs/welcome-to-react.png)
 
