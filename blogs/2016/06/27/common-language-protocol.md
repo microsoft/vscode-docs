@@ -36,7 +36,7 @@ Here’s an example of how a tool and a language server could communicate semant
 
 * The user closes the document (file): A `didClose` notification is sent from the tool, informing the language server that the document is now no longer in memory and instead maintained by (i.e. stored on) the file system.
 
-This communication, which takes place over [JSON-RPC](https://www.jsonrpc.org/specification), happens many times over the course of a typical session.
+This communication, which takes place over [JSON-RPC](http://www.jsonrpc.org/specification), happens many times over the course of a typical session.
 
 ![language server sequence](2016_06_27_language-server-sequence.png)
 
