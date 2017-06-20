@@ -168,9 +168,9 @@ The **Debugger for Chrome** extension README has lots of information on other co
 
 ## Linting
 
-Linters analyze your source code and can warn you about potential problems before you run your application. VS Code include JavaScript language service has syntax error checking support support by default which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
+Linters analyze your source code and can warn you about potential problems before you run your application. The JavaScript language services included with VS Code has syntax error checking support by default which you can see in action in the **Problems** panel (**View** > **Problems** `kb(workbench.actions.view.problems)`).
 
-Try making a small error in your React source code and you'll see a green squiggle and a warning in the **Problems** panel.
+Try making a small error in your React source code and you'll see a red squiggle and an error in the **Problems** panel.
 
 ![javascript error](images/reactjs/js-error.png)
 

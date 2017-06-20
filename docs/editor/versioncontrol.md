@@ -15,6 +15,12 @@ Visual Studio Code has integrated source control and includes [Git](https://git-
 
 > **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
 
+## Switch SCM Providers
+
+By default, VS Code has the Git source control provider enabled but you can install and switch to another SCM provider. Click the **More** (...) button in the **Source Control** view and you will see a command to **Switch SCM Provider...**. This brings up a list of currently installed SCM providers as well as a shortcut to **Install Additional SCM Providers...** from the **Extensions** view.
+
+![switch SCM providers](images/versioncontrol/switch-scm-providers.png)
+
 ## Git support
 
 VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
@@ -163,7 +169,7 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 **A:** To **push, pull and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
 
-```
+```bash
 > git remote add origin https://<AccountName>.visualstudio.com/DefaultCollection/_git/<RepoName>
 > git push -u origin master
 ```
