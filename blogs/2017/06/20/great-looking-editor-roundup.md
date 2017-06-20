@@ -1,13 +1,13 @@
 ---
 Order: 29
-TOCTitle: Great Looking Editor Roundup
-PageTitle: Great Looking Editor Roundup
-MetaDescription: Learn about the most popular Visual Studio Code themes you can install and use today. 
+TOCTitle: Fresh Paint
+PageTitle: Fresh Paint - Give VS Code a New Look
+MetaDescription: Give VS Code a new look with these popular extensions, color themes, file icon themes and more. 
 Date: 2017-06-20
-ShortDescription: Learn about the most popular Visual Studio Code themes you can install and use today.
+ShortDescription: Give VS Code a new look with these popular extensions, color themes, file icon themes and more. 
 Author: Wade Anderson
 ---
-# Great Looking Editor Roundup
+# Fresh Paint - Give VS Code a New Look
 
 June 20, 2017 Wade Anderson, [@waderyan_](https://twitter.com/waderyan_)
 
