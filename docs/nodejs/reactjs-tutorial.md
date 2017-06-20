@@ -264,3 +264,11 @@ If you're curious about TypeScript and React, you can also create a TypeScript v
 ### Angular
 
 [Angular](https://angular.io/) is another popular web framework. If you'd like to see an example of Angular working with VS Code, check out the [Chrome Debugging with Angular CLI](https://github.com/weinand/vscode-recipes/tree/master/Angular-CLI) recipe. It will walk you through creating an Angular application and configuring the `launch.json` file for the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+
+## Common Questions
+
+**Q: Can I get IntelliSense within declarative JSX?**
+
+**A:** Yes. For example, if you open the `create-react-app` project's `app.js` file, you can see IntelliSense within the React JSX in the `render()` method.
+
+![JSX IntelliSense](images/reactjs/jsx-intellisense.png)
