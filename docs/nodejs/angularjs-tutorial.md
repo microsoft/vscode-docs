@@ -1,5 +1,5 @@
 ---
-Order: 
+Order: 6
 Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
@@ -52,9 +52,9 @@ code .
 
 ### Syntax highlighting and bracket matching
 
-Now open the `src` folder and select the `app.component.ts` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
+Now open the `src\app` folder and select the `app.component.ts` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
 
-![react bracket matching](images/angular/bracket-matching.png)
+![angular bracket matching](images/angular/bracket-matching.png)
 
 ### IntelliSense
 
@@ -68,21 +68,17 @@ As you start typing in `app.component.ts`, you'll see smart suggestions or compl
 
 After you select a suggestion and type `.`, you see the types and methods on the object through [IntelliSense](/docs/editor/intellisense.md).
 
-TODO
-
 ![angular intellisense](images/angular/intellisense.png)
 
 VS Code uses the TypeScript language service for code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA) which pulls down the npm Type Definition files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 If you select a method, you'll also get parameter help:
 
-TODO
-
 ![angular parameter help](images/angular/parameter-help.png)
 
 ### Go to Definition, Peek definition
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Defintion** (`kb(editor.action.peekImplementation)`). Open the `app.module.ts` file and put the cursor over `AppComponent` in the `bootstrap` property declaration, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `AppComponent` definition from `app.component.ts`.
+Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Open the `app.module.ts` file and put the cursor over `AppComponent` in the `bootstrap` property declaration, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `AppComponent` definition from `app.component.ts`.
 
 ![angular peek definition](images/angular/peek-definition.png)
 
@@ -90,9 +86,9 @@ Press `kbstyle(Escape)` to close the Peek window.
 
 ## Hello World!
 
-Let's update the sample application to "Hello World". Change the `title` string in `AppComponent` to "Hello World" in `app.component.ts`.
+Let's update the sample application to "Hello World". Go back to the `app.component.ts` file and change the `title` string in `AppComponent` to "Hello World".
 
-```js
+```ts
 import { Component } from '@angular/core';
 
 @Component({
@@ -125,7 +121,7 @@ Press the **Install** button for **Debugger for Chrome**. The button will change
 
 ### Set a breakpoint
 
-To set a breakpoint in `index.js`, click on the gutter to the left of the line numbers. This will set a breakpoint which will be visible as a red circle.
+To set a breakpoint in `app.component.ts`, click on the gutter to the left of the line numbers. This will set a breakpoint which will be visible as a red circle.
 
 ![set a breakpoint](images/angular/breakpoint.png)
 
@@ -161,27 +157,25 @@ Press `kb(workbench.action.debug.start)` or the green arrow to launch the debugg
 
 ![hit breakpoint](images/angular/hit-breakpoint.png)
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `element`, and see the call stack of the client side Angular application.
+You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `AppComponent`, and see the call stack of the client side Angular application.
 
 ![debug variable](images/angular/debug-variable.png)
 
-The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting and you can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
+The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting. You can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
 
 ![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
 
 ## Popular Starter Kits
 
-In this tutorial, we used the Angular CLI to create a simple React application. There are lots of great samples and starter kits available to help build your first Angular application.
+In this tutorial, we used the Angular CLI to create a simple Angular application. There are lots of great samples and starter kits available to help build your first Angular application.
 
-### Recipe
+### Recipes
 
-TODO link to receipt
+The VS Code team has created [recipes](https://github.com/weinand/vscode-recipes) for more complex debugging scenarios. There you'll find the [Chrome Debugging with Angular CLI](https://github.com/weinand/vscode-recipes/tree/master/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
 
 ### MEAN Starter
 
-TODO
-
-If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at the [MERN Starter](http://mern.io/). You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/) but you'll quickly have a MERN application running.
+If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at [MEAN.IO](http://mean.io/). They have documentation and an application generator for a sample MEAN project. You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/) but you'll quickly have a MEAN application running.
 
 ### React
 
