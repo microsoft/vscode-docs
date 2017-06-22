@@ -29,7 +29,7 @@ Name | Required | Type | Details
 `main` | | `string` | The entry point to your extension.
 [`contributes`](/docs/extensionAPI/extension-points.md) | | `object` | An object describing the extension's [contributions](/docs/extensionAPI/extension-points.md).
 [`activationEvents`](/docs/extensionAPI/activation-events.md) | | `array` | An array of the [activation events](/docs/extensionAPI/activation-events.md) for this extension.
-`badges` | | `array` | Array of badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.
+`badges` | | `array` | Array of [approved](#approved-badges) badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.
 `markdown` | | `string` | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.
 `qna` | | `marketplace` (default), `string`, `false` | Controls the QnA link in the Marketplace. Set to `marketplace` to enable the default Marketplace QnA site. Set to a `string` to provide a custom QnA site. Set to `false` to disable QnA altogether.
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
@@ -173,6 +173,29 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 ```
 
 >**Tip:** The [Extension Manifest Editor](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) extension lets you preview how your extension `README.md` and `package.json` metadata will look when published to the Marketplace.
+
+### Approved Badges
+
+Because of security concerns, we only allow badges from trusted services. The following are services that we have approved. If you have other badges you would like to use, please open a Github issue and we're happy to take a look. 
+
+* https://vsmarketplacebadge.apphb.com/
+* https://travis-ci.org/
+* https://david-dm.org/
+* https://badges.gitter.im/
+* https://www.bithound.io/
+* https://img.shields.io/
+* https://gemnasium.com/
+* https://isitmaintained.com/
+* https://coveralls.io/
+* https://api.travis-ci.org/
+* https://codeclimate.com/
+* https://snyk.io/
+* https://badges.greenkeeper.io/
+* https://travis-ci.com/
+* https://badge.fury.io/
+* https://badges.frapsoft.com/
+* https://cdn.travis-ci.org/
+* https://marketplace.visualstudio.com/
 
 ## Combining Extension Contributions
 
