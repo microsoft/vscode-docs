@@ -42,6 +42,18 @@ Below are links to the three platform-specific versions:
 * [macOS](https://go.microsoft.com/fwlink/?linkid=832143)
 * [Linux](https://go.microsoft.com/fwlink/?linkid=832144)
 
+## Detecting keybinding conflicts
+
+If you have many extensions installed or you have [customized](/docs/getstarted/keybindings.md#advanced-customization) your keyboard shortcuts, you can sometimes have keybinding conflicts where the same keyboard shortcut is mapped to several commands. This can result in confusing behavior, especially if different keybindings are going in and out of scope as you move around the editor.
+
+The **Keyboard Shortcuts** editor has a context menu command **Show Conflicts**, which will filter the keybindings based on a keyboard shortcut to display conflicts.
+
+![show keybinding conflicts menu](images/keybinding/show-conflicts-menu.png)
+
+Pick a command with the keybinding you think is overloaded and you can see if multiple commands are defined, the source of the keybindings and when they are active.
+
+![show keybinding conflicts result](images/keybinding/show-conflicts-result.png)
+
 ## Default Keyboard Shortcuts
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts).

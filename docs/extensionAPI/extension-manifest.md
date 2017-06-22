@@ -31,7 +31,7 @@ Name | Required | Type | Details
 [`activationEvents`](/docs/extensionAPI/activation-events.md) | | `array` | An array of the [activation events](/docs/extensionAPI/activation-events.md) for this extension.
 `badges` | | `array` | Array of [approved](#approved-badges) badges to display in the sidebar of the Marketplace's extension page. Each badge is an object containing 3 properties: `url` for the badge's image URL, `href` for the link users will follow when clicking the badge and `description`.
 `markdown` | | `string` | Controls the Markdown rendering engine used in the Marketplace. Either `github` (default) or `standard`.
-`qna` | | `marketplace` (default), `string`, `false` | Controls the QnA link in the Marketplace. Set to `marketplace` to enable the default Marketplace QnA site. Set to a `string` to provide a custom QnA site. Set to `false` to disable QnA altogether.
+`qna` | | `marketplace` (default), `string`, `false` | Controls the **Q & A** link in the Marketplace. Set to `marketplace` to enable the default Marketplace Q & A site. Set to a `string` to provide a custom Q & A site. Set to `false` to disable Q & A altogether.
 `dependencies` | | `object` | Any runtime Node.js dependencies your extensions needs. Exactly the same as [npm's `dependencies`](https://docs.npmjs.com/files/package.json#dependencies).
 `devDependencies` | | `object` | Any development Node.js dependencies your extension needs. Exactly the same as [npm's `devDependencies`](https://docs.npmjs.com/files/package.json#devdependencies).
 `extensionDependencies` | | `array` | An array with the ids of extensions that this extension depends on. These other extensions will be installed when the primary extension is installed. The id of an extension is always `${publisher}.${name}`. For example: `vscode.csharp`.
@@ -46,67 +46,47 @@ Here is a complete `package.json`
 
 ```json
 {
-    "name": "spell",
-    "displayName": "Spelling and Grammar Checker",
-    "description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
-    "icon": "images/spellIcon.svg",
-    "version": "0.0.19",
-    "publisher": "seanmcbreen",
-    "galleryBanner": {
-        "color": "#0000FF",
-        "theme": "dark"
-    },
-    "license": "SEE LICENSE IN LICENSE.md",
-    "bugs": {
-        "url": "https://github.com/Microsoft/vscode-spell-check/issues",
-        "email": "smcbreen@microsoft.com"
-    },
-    "homepage": "https://github.com/Microsoft/vscode-spell-check/blob/master/README.md",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Microsoft/vscode-spell-check.git"
+    "name": "wordcount",
+    "displayName": "Word Count",
+    "version": "0.1.0",
+    "publisher": "ms-vscode",
+    "description": "Markdown Word Count Example - reports out the number of words in a Markdown file.",
+    "author": {
+        "name": "seanmcbreen"
     },
     "categories": [
-        "Linters", "Languages", "Other"
+        "Other"
+    ],
+    "icon": "images/icon.png",
+    "galleryBanner": {
+        "color": "#C80000",
+        "theme": "dark"
+    },
+    "activationEvents": [
+        "onLanguage:markdown"
     ],
     "engines": {
         "vscode": "^1.0.0"
     },
     "main": "./out/extension",
-    "activationEvents": [
-        "onLanguage:markdown"
-    ],
-    "contributes": {
-        "commands": [
-            {
-                "command": "Spell.suggestFix",
-                "title": "Spell Checker Suggestions"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "Spell.suggestFix",
-                "key": "Alt+."
-            }
-        ]
-    },
-    "badges": [
-        {
-            "url": "https://david-dm.org/Microsoft/vscode-spell-check.svg",
-            "href": "https://david-dm.org/Microsoft/vscode-spell-check",
-            "description": "Dependency Status"
-        }
-    ],
     "scripts": {
-        "vscode:prepublish": "tsc -p ./",
-        "compile": "tsc -watch -p ./"
-    },
-    "dependencies": {
-        "teacher": "^0.0.1"
+        "vscode:prepublish": "node ./node_modules/vscode/bin/compile",
+        "compile": "node ./node_modules/vscode/bin/compile -watch -p ./"
     },
     "devDependencies": {
-        "vscode": "^1.0.0"
-    }
+        "vscode": "0.10.x",
+        "typescript": "^1.6.2"
+    },
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "bugs": {
+        "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+        "email": "smcbreen@microsoft.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/vscode-wordcount.git"
+    },
+    "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md"
 }
 ```
 
@@ -116,43 +96,47 @@ Here are some tips and recommendations to make your extension look great when di
 
 Always use the latest `vsce` so `npm install -g vsce` to make sure you have it.
 
-Have a `README.md` Markdown file in your extension's root folder and we will include the contents in the body of the extension details (on the Marketplace).  You can provide relative path image links in the `REAMDE.md`.
+Have a `README.md` Markdown file in your extension's root folder and we will include the contents in the body of the extension details (on the Marketplace).  You can provide relative path image links in the `README.md`.
 
 Here are a few examples:
 
-1. [Spell-Checker](https://marketplace.visualstudio.com/items/seanmcbreen.Spell)
+1. [Word Count](https://marketplace.visualstudio.com/items?itemName=ms-vscode.wordcount)
 2. [MD Tools](https://marketplace.visualstudio.com/items/seanmcbreen.MDTools)
-
 
 Provide a good display name and description. This is important for the Marketplace and in product displays.  These strings are also used for text search in VS Code and having relevant keywords will help a lot.
 
 ```json
-    "displayName": "Spelling and Grammar Checker",
-    "description": "Detect mistakes as you type and suggest fixes - great for Markdown.",
+    "displayName": "Word Count",
+    "description": "Markdown Word Count Example - reports out the number of words in a Markdown file.",
 ```
 
 An Icon and a contrasting banner color looks great on the Marketplace page header.  The `theme` attribute refers to the font to be used in the banner - `dark` or `light`.
 
 ```json
-    "icon": "images/spellIcon.svg",
+{
+    "icon": "images/icon.png",
     "galleryBanner": {
-        "color": "#5c2d91",
+        "color": "#C80000",
         "theme": "dark"
     },
+}
 ```
 
 There are several optional links (`bugs`, `homepage`, `repository`) you can set and these are displayed under the **Resources** section of the Marketplace.
 
 ```json
-    "license": "SEE LICENSE IN LICENSE.md",
+{
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "homepage": "https://github.com/Microsoft/vscode-wordcount/blob/master/README.md",
     "bugs": {
-        "url": "https://github.com/Microsoft/vscode-spell-check/issues"
+        "url": "https://github.com/Microsoft/vscode-wordcount/issues",
+        "email": "smcbreen@microsoft.com"
     },
-    "homepage": "https://github.com/Microsoft/vscode-spell-check/blob/master/README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/Microsoft/vscode-spell-check.git"
-    }
+        "url": "https://github.com/Microsoft/vscode-wordcount.git"
+    },
+}
 ```
 
 Marketplace Resources link | package.json attribute
@@ -167,9 +151,11 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 >**Note:** Only use the values that make sense for your extension - allowed values are `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other, Extension Packs]`
 
 ```json
+{
     "categories": [
         "Linters", "Languages", "Other"
     ],
+}
 ```
 
 >**Tip:** The [Extension Manifest Editor](https://marketplace.visualstudio.com/items?itemName=ms-devlabs.extension-manifest-editor) extension lets you preview how your extension `README.md` and `package.json` metadata will look when published to the Marketplace.
@@ -250,11 +236,13 @@ An Extension Pack can include other contributions or be a bundling extension tha
 For example, here is an Extension Pack for PHP that includes a debugger, language service, and formatter:
 
 ```json
+{
   "extensionDependencies": [
       "felixfbecker.php-debug",
       "felixfbecker.php-intellisense",
       "Kasik96.format-php"
   ]
+}
 ```
 
 When installing an Extension Pack, VS Code will now also install its extension dependencies.
@@ -262,9 +250,11 @@ When installing an Extension Pack, VS Code will now also install its extension d
 Extension packs should be categorized in the `Extension Packs` Marketplace category:
 
 ```json
+{
   "categories": [
       "Extension Packs"
   ],
+}
 ```
 
 To create an extension pack, you can use the `yo code` Yeoman generator. Optionally, it can also seed the pack with the set of extensions you have currently installed in your VS Code instance. In this way, you can easily create an Extension Pack with your favorite extensions, publish it to the Marketplace, and share it with others.

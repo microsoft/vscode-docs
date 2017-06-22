@@ -410,7 +410,7 @@ To make use of incremental document synchronization, a server needs to install t
 * _onDidChangeTextDocument_: is called when the content of a text document changes in VS Code.
 * _onDidCloseTextDocument_: is called when a text document is closed in VS Code.
 
-Below a code snippet that illustrates how to hook these notification handlers on a connection and how to return the right capability on initialize: 
+Below is a code snippet that illustrates how to hook these notification handlers on a connection and how to return the right capability on initialize: 
 
 ```typescript
 connection.onInitialize((params): InitializeResult => {
@@ -444,7 +444,7 @@ connection.onDidCloseTextDocument((params) => {
 
 ## Next Steps
 
-To learn more about VS Code extensibility model, try these topic:
+To learn more about VS Code's extensibility model, try these topics:
 
 * [vscode API Reference](/docs/extensionAPI/vscode-api.md) - Learn about deep language integration with VS Code language services.
 * [Language Extension Guideline](/docs/extensionAPI/language-support.md) - A guide to implementing VS Code's rich language features.

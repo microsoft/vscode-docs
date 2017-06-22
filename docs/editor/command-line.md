@@ -19,6 +19,12 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 code .
 ```
 
+If you are using the Visual Studio Code [Insiders](/insiders) build, you would type the following command:
+
+```
+code-insiders .
+```
+
 >**Tip:** We have instructions for Mac users in our [Setup](/docs/setup/mac.md) topic that enable you to start VS Code from within a terminal.  We add the VS Code executable to the `PATH` environment variable on Windows and Linux automatically during installation.
 
 Sometimes you will want to open or create a file. If the specified file does not exist, VS Code will create them for you:
@@ -84,7 +90,7 @@ vscode://file/FULL/PATH/TO/FILE
 Open a file to line and column
 
 ```
-vscode://file/FULL/PATH/TO/FILE?LINE:COLUMN
+vscode://file/FULL/PATH/TO/FILE:LINE:COLUMN
 ```
 
 > Note: You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://file/FULL/PATH/TO/FILE`.

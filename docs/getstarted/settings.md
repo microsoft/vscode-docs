@@ -157,7 +157,7 @@ Below are the default settings and their values.
   },
 
   // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
-  "files.associations": {}
+  "files.associations": {},
 
 // Editor
 

@@ -17,7 +17,7 @@ In this walkthrough, you'll add a new command to VS Code which will display a si
 
 ## Prerequisites
 
-You need [Node.js](https://nodejs.org/en/) installed and available in your `$PATH`.
+You need [Node.js](https://nodejs.org/en/) installed and available in your `$PATH`. Node.js includes [npm](https://www.npmjs.com/), the Node.js Package Manager, which will be used to install the extension generator.
 
 ## Generate a New Extension
 

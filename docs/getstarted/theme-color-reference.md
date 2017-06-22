@@ -233,7 +233,7 @@ Bracket matches:
 
 Overview ruler:
 
-The overview rules in on the editor's right, blow the scrollbar and gives an overview of the decorations in the editor.
+This ruler is located beneath the scrollbar on the right edge of the editor and gives an overview of the decorations in the editor.
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
 
@@ -289,7 +289,7 @@ The editor marker view shows when navigating to errors and warnings in the edito
 
 ## Peek View Colors
 
-Peek views are used to show references and declararions as a view inside the editor.
+Peek views are used to show references and declarations as a view inside the editor.
 
 ![Peek view](images/theme-color-reference/peek-view.png)
 
@@ -309,7 +309,7 @@ Peek views are used to show references and declararions as a view inside the edi
 
 ## Merge Conflicts
 
-Merge conflict deocrations are shown when the editor contains special diff ranges.
+Merge conflict decorations are shown when the editor contains special diff ranges.
 
 ![Merge ranges](images/theme-color-reference/merge-ranges.png)
 

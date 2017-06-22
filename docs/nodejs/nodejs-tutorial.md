@@ -5,14 +5,14 @@ TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Build Node.js Apps with VS Code
 DateApproved: 6/8/2017
-MetaDescription: Visual Studio Code has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
+MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: nodejs_runtimes_node.png
 ---
 # Node.js Tutorial in VS Code
 
 [Node.js](https://nodejs.org/) is a platform for building fast and scalable server applications using JavaScript. Node.js is the runtime and [NPM](https://www.npmjs.com/) is the Package Manager for Node.js modules.
 
-VS Code has support for the JavaScript and TypeScript languages out-of-the-box as well as Node.js debugging. However, to run a Node.js application, you will need to install the Node.js runtime on your machine.
+Visual Studio Code has support for the JavaScript and TypeScript languages out-of-the-box as well as Node.js debugging. However, to run a Node.js application, you will need to install the Node.js runtime on your machine.
 
 >**Are you new to VS Code?** Learn more and download a [faster Node.js editor here](/nodejs).
 
@@ -197,7 +197,7 @@ Save the new file and make sure **Launch Program** is selected in the configurat
 
 ## Deploying your Application
 
-If you'd like to learn how to deploy your web application, check out the [Node.js Deployment to the Cloud](/nodejs-deployment) tutorial where we show how to run your website in Azure.
+If you'd like to learn how to deploy your web application, check out the [Deploy a Node.js Application to Azure](/docs/nodejs/nodejs-deployment) tutorial where we show how to run your website in Azure.
 
 ---
 

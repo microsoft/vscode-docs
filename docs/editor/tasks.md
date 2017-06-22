@@ -164,7 +164,7 @@ When authoring tasks configurations, it is often useful to have a set of predefi
 - **${cwd}** the task runner's current working directory on startup
 - **${lineNumber}** the current selected line number in the active file
 
-You can also reference environment variables through **${env.Name}** (e.g. ${env.PATH}). Be sure to match the environment variable name's casing, for example `env.Path` on Windows.
+You can also reference environment variables through **${env:Name}** (e.g. ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
 Below is an example of a configuration that passes the current opened file to the TypeScript compiler.
 

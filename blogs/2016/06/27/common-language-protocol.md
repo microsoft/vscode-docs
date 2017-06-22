@@ -36,7 +36,7 @@ Here’s an example of how a tool and a language server could communicate semant
 
 * The user closes the document (file): A `didClose` notification is sent from the tool, informing the language server that the document is now no longer in memory and instead maintained by (i.e. stored on) the file system.
 
-This communication, which takes place over [JSON-RPC](https://www.jsonrpc.org/specification), happens many times over the course of a typical session.
+This communication, which takes place over [JSON-RPC](http://www.jsonrpc.org/specification), happens many times over the course of a typical session.
 
 ![language server sequence](2016_06_27_language-server-sequence.png)
 
@@ -52,7 +52,7 @@ The complete specification for this protocol is available in a [public GitHub re
 
 This is just the start – communities for programming languages like OmniSharp (C#), JSON, C++, xText, JavaFX, and R have made commitments to release language servers for their languages in the future.  A full [list of protocol implementations](https://github.com/Microsoft/language-server-protocol/wiki/Protocol-Implementations), including language servers, editors, and SDKs is available on the GitHub repo.
 
-If you want to learn more, [view the keynote](https://www.devnation.org/), check out the blog posts from [Red Hat](https://developers.redhat.com/blog/2016/06/27/a-common-interface-for-building-developer-tools) and the [Eclipse Che](https://che.eclipse.org/eclipse-che-now-strategic-platform-red-hat) team, and visit the [language server protocol repo](https://github.com/microsoft/language-server-protocol) on GitHub.  There is even a [Language Server Walkthrough](/docs/extensions/example-language-server.md) where you can step through the source code of a working language server implemented in TypeScript and Node.js. But of course you can implement a language server in any language!
+If you want to learn more, [view the breakout session](https://www.youtube.com/watch?v=2GqpdfIAhz8), check out the blog posts from [Red Hat](https://developers.redhat.com/blog/2016/06/27/a-common-interface-for-building-developer-tools) and the [Eclipse Che](https://che.eclipse.org/eclipse-che-now-strategic-platform-red-hat) team, and visit the [language server protocol repo](https://github.com/microsoft/language-server-protocol) on GitHub.  There is even a [Language Server Walkthrough](/docs/extensions/example-language-server.md) where you can step through the source code of a working language server implemented in TypeScript and Node.js. But of course you can implement a language server in any language!
 
 Happy Coding!
 

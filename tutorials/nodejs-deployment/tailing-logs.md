@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 5
 TOCTitle: Viewing Logs
 PageTitle: Viewing Logs
 MetaDescription:
