@@ -13,13 +13,16 @@ Custom color and icons themes, snippets and language syntax colorizers bring an 
 
 ## Adding a new Color Theme
 
-Color visible in the VSCode user interface fall in two categories:
- - Colors used in view and editors, from the actvity bar to the status bar. A complete list of all these colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
- - Colors used for syntax highlighing. The theming of these colors is different as syntax colorization is based Text Mate grammars and Text Mate themes. 
+Colors visible in the VS Code user interface fall in two categories:
 
-The easiest way to create a new theme is to start with an existing theme and customize it:
- 
-- Make changes to view and editor colors using the `workbench.colorCustomizations` settings. Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+- Workbench colors used in views and editors, from the Activity Bar to the Status Bar. A complete list of all these colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
+- Syntax highlighting colors used for source code in the editor. The theming of these colors is different as syntax colorization is based Text Mate grammars and Text Mate themes.
+
+### Workbench colors
+
+The easiest way to create a new workbench color theme is to start with an existing color theme and customize it:
+
+- Make changes to view and editor colors using the `workbench.colorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
 - Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
 - Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generated a new theme extension.
 - Select 'Start fresh'
@@ -28,24 +31,28 @@ The easiest way to create a new theme is to start with an existing theme and cus
 
 - Copy the theme file generated from your settings to the new extension.
 
+### Syntax highlighting colors
+
 To change the syntax highlighting colors, you can tell the extension generator to import a TextMate theme file and package it for use in VS Code. Alternatively, if you have already created the theme, replace the `tokenColors` section with a link to the `.tmTheme` file to use.
 
 ```json
 {
-	"type": "dark",
-	"colors": {
-		"editor.background": "#1e1e1e",
-		"editor.foreground": "#d4d4d4",
-		"editorIndentGuide.background": "#404040",
-		"editorRuler.foreground": "#333333",
-		"activityBarBadge.background": "#007acc",
-		"sideBarTitle.foreground": "#bbbbbb"
-	},
-	"tokenColors": "./Diner.tmTheme"
+    "type": "dark",
+    "colors": {
+        "editor.background": "#1e1e1e",
+        "editor.foreground": "#d4d4d4",
+        "editorIndentGuide.background": "#404040",
+        "editorRuler.foreground": "#333333",
+        "activityBarBadge.background": "#007acc",
+        "sideBarTitle.foreground": "#bbbbbb"
+    },
+    "tokenColors": "./Diner.tmTheme"
 }
 ```
 
 [ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
+
+>**Tip:** If you'd like to edit an existing TextMate theme, you can use the online [TmTheme Editor](http://tmtheme-editor.herokuapp.com/#!/editor/theme/Monokai). You can download an existing .tmTheme file and work on it locally.
 
 Authoring a syntax theme from scratch is an advanced skill as you need to understand on how TextMate grammars work.
 
@@ -60,7 +67,7 @@ To try out the new theme, copy the generated theme folder to a new folder under 
 
 Open the Color Theme picker theme with **File** > **Preferences** > **Color Theme** and you can see your theme in the dropdown.  Arrow up and down to see a live preview of your theme.
 
-![select my theme](../getstarted/images/themes/mytheme.png)
+![select my theme](images/themes-snippets-colorizers/mytheme.png)
 
 After making changes to any theme file, it is necessary reload VS Code with `Reload Window`.
 
