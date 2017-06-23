@@ -58,7 +58,7 @@ In the File Explorer, one file you'll see is the application `README.md` Markdow
 
 ### Syntax highlighting and bracket matching
 
-Now open the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
+Now expand the `src` folder and select the `index.js` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
 
 ![react bracket matching](images/reactjs/bracket-matching.png)
 
@@ -72,7 +72,7 @@ After you select a suggestion and type `.`, you see the types and methods on the
 
 ![react intellisense](images/reactjs/intellisense.png)
 
-VS Code uses the TypeScript language service for it's JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA) which pulls down the npm Type Definition files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code uses the TypeScript language service for it's JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Definition files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 If you select a method, you'll also get parameter help:
 
@@ -104,7 +104,7 @@ registerServiceWorker();
 
 Once you save the `index.js` file, the running instance of the server will update the web page and you'll see "Hello World!".
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check **File** > **Auto Save** to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
+>**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
 
 ![hello world](images/reactjs/hello-world.png)
 
@@ -114,7 +114,7 @@ To debug the client side React code, we'll need to install the [Debugger for Chr
 
 >Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
 
-Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome` in the search box. You'll see several extension which reference Chrome.
+Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome` in the search box. You'll see several extensions which reference Chrome.
 
 ![debugger for chrome](images/reactjs/debugger-for-chrome.png)
 
