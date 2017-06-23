@@ -2,7 +2,7 @@
 Order:
 Area: introvideos
 TOCTitle: Task Automation
-ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
+ContentId: 
 PageTitle: Task Automation in Visual Studio Code
 DateApproved: 
 MetaDescription: Learn how to automate external tasks in VS Code.
