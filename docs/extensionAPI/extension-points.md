@@ -104,7 +104,7 @@ Currently extension writers can contribute to:
 * The global Command Palette - `commandPalette`
 * The Explorer context menu - `explorer/context`
 * The editor context menu - `editor/context`
-* The editor title menu - `editor/title`
+* The editor title menu bar - `editor/title`
 * The editor title context menu - `editor/title/context`
 * The debug callstack view context menu - `debug/callstack/context`
 * The [SCM title menu](/docs/extensionAPI/api-scm.md#menus) - `scm/title`
@@ -115,7 +115,7 @@ Currently extension writers can contribute to:
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 
-The `commandPalette` menu is special because it contains all commands by default. To make your commands only show in there use the `when`-clause. In addition to a title, commands can also define icons which VS Code will show in the editor menu bar.
+In addition to a title, commands can also define icons which VS Code will show in the editor title menu bar.
 
 ### Example
 
@@ -129,6 +129,25 @@ The `commandPalette` menu is special because it contains all commands by default
             "group": "navigation"
         }]
     }
+}
+```
+
+### Context specific visibility of Command Palette menu items
+
+When registering commands in `package.json`, they will automatically be shown in the **Command Palette** (`kb(workbench.action.showCommands)`). To allow more control over command visibility, there is the `commandPalette` menu item. It allows you to define a `when` condition to control if a command should be visible in the **Command Palette** or not.
+
+The snippet below makes the 'Hello World' command only visible in the **Command Palette** when something is selected in the editor:
+
+```json
+"commands": [{
+    "command": "extension.sayHello",
+    "title": "Hello World"
+}],
+"menus": {
+    "commandPalette": [{
+        "command": "extension.sayHello",
+        "when": "editorHasSelection"
+    }]
 }
 ```
 
