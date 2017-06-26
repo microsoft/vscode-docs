@@ -182,6 +182,7 @@ Due to security concerns, we only allow badges from trusted services. We allow b
 * https://badges.greenkeeper.io/
 * https://badge.fury.io/
 * https://badges.frapsoft.com/
+* https://ci.appveyor.com/
 
 If you have other badges you would like to use, please open a Github [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
 
