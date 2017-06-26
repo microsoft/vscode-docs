@@ -171,6 +171,7 @@ Due to security concerns, we only allow badges from trusted services. We allow b
 * https://travis-ci.com/
 * https://cdn.travis-ci.org/
 * https://api.travis-ci.org/
+* https://ci.appveyor.com/
 * https://david-dm.org/
 * https://www.bithound.io/
 * https://gemnasium.com/
