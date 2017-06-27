@@ -162,7 +162,9 @@ Set a `category` for your extension.  Extensions in the same `category` are grou
 
 ### Approved Badges
 
-Due to security concerns, we only allow badges from trusted services. We allow badges from the following URLs:
+Due to security concerns, we only allow badges from trusted services.
+
+We allow badges from the following URL prefixes:
 
 * https://img.shields.io/
 * https://marketplace.visualstudio.com/
