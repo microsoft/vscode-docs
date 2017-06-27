@@ -33,6 +33,19 @@ Successfully published uuid@0.0.1!
 
 For a reference on all the available commands, run `vsce --help`.
 
+---
+
+**Note:** Due to security concerns, `vsce` will not publish extensions which contain user provided SVG images. 
+
+The publishing tool checks the following constraints:
+
+- The icon provided in `package.json` may not be an SVG.
+- The badges provided in the `package.json` may not be SVGs unless they are from [trusted badge providers](/docs/extensionAPI/extension-manifest.md#approved-badges).
+- Image URLs in `README.md` and `CHANGELOG.md` need to resolve to `https` URLs.
+- Images in `README.md` and `CHANGELOG.md` may not be SVGs unless they are from [trusted badge providers](/docs/extensionAPI/extension-manifest.md#approved-badges).
+
+---
+
 ## Publishing Extensions
 
 Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
