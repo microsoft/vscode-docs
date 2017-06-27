@@ -22,11 +22,21 @@ These tools are mostly run from the command line and automate jobs outside the i
 
 Let's start with a simple "Hello World" task which will display text to the **OUTPUT** panel when run.
 
+Create an empty folder "mytask" and start VS Code from that folder.
+
+```bash
+mkdir mytask
+cd mytask
+code .
+```
+
 Tasks are defined in a workspace `tasks.json` file and VS Code has templates for common task runners. In the **Command Palette** (`kb(workbench.action.showCommands)`), you can filter on 'task' and can see the various Task related commands.
 
 ![tasks in command palette](images/tasks/tasks-command-palette.png)
 
 Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates. Select **Others** to create a task which runs an external command.
+
+>**Note:** If you don't see the list of task runner templates, you may already have a `tasks.json` file in your folder and its contents will be open in the editor. Close the file and either delete or rename it for this example.
 
 You should now see a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
