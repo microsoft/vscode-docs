@@ -390,7 +390,7 @@ If you need to disable source maps for some reason, you can set the `sourceMaps`
 
 If the generated (transpiled) JavaScript files do not live next to their source but in a separate directory, you must help the VS Code debugger locating them by setting the `outFiles` attribute. This attribute takes multiple glob patterns for including and excluding files from the set of generated JavaScript files. Whenever you set a breakpoint in the original source, VS Code tries to find the generated JavaScript code in the files specified by `outFiles`.
 
-Since source maps are not automatically created, you must configure the transpiler you are using to create them. For TypeScript this can be done in the follwoing way:
+Since source maps are not automatically created, you must configure the transpiler you are using to create them. For TypeScript this can be done in the following way:
 
 ```
 tsc --sourceMap --outDir bin app.ts
