@@ -206,6 +206,9 @@ Below are the default settings and their values.
   // Controls if the minimap is shown
   "editor.minimap.enabled": true,
 
+  // Controls whether the minimap slider is automatically hidden.
+  "editor.minimap.showSlider": "mouseover",
+
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": true,
 
@@ -247,7 +250,7 @@ Below are the default settings and their values.
   // Controls the delay in ms after which quick suggestions will show up
   "editor.quickSuggestionsDelay": 10,
 
-  // Enables parameter hints
+  // Enables pop-up that shows parameter documentation and type information as you type
   "editor.parameterHints": true,
 
   // Controls if the editor should automatically close brackets after opening them
@@ -258,6 +261,9 @@ Below are the default settings and their values.
 
   // Controls if the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
   "editor.formatOnPaste": false,
+
+  // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation Rules of the language must be available. 
+  "editor.autoIndent": true,
 
   // Controls if suggestions should automatically show up when typing trigger characters
   "editor.suggestOnTriggerCharacters": true,
@@ -352,6 +358,9 @@ Below are the default settings and their values.
   // Controls whether the editor should run in a mode where it is optimized for screen readers.
   "editor.accessibilitySupport": "auto",
 
+  // Controls whether the editor should detect links and make them clickable
+  "editor.links": true,
+
   // Controls if the diff editor shows the diff side by side or inline
   "diffEditor.renderSideBySide": true,
 
@@ -386,10 +395,23 @@ Below are the default settings and their values.
   // Try out the new emmet modules (which will eventually replace the old single emmet library) for all emmet features.
   "emmet.useNewEmmet": false,
 
+  // Shows expanded emmet abbreviations as suggestions
+  "emmet.showExpandedAbbreviation": true,
+
+  // Shows possible emmet abbreviations as suggestions
+  "emmet.showAbbreviationSuggestions": true,
+
+  // Enable emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported syntax.
+  //  Eg: {"php": "html"}
+  "emmet.includeLanguages": {},
+
+  // Variables to be used in emmet snippets
+  "emmet.variables": {},
+
 // Workbench
 
-  // When enabled, will show the Welcome page on startup.
-  "workbench.welcome.enabled": false,
+  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only when not opening a folder).
+  "workbench.startupEditor": "welcomePage",
 
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
@@ -411,6 +433,12 @@ Below are the default settings and their values.
 
   // Controls if an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
   "workbench.editor.revealIfOpen": false,
+
+  // Controls if the number of recently used commands to keep in history for the command palette. Set to 0 to disable command history.
+  "workbench.commandPalette.history": 50,
+
+  // Controls if the last typed input to the command palette should be restored when opening it the next time.
+  "workbench.commandPalette.preserveInput": false,
 
   // Controls if Quick Open should close automatically once it loses focus.
   "workbench.quickOpen.closeOnFocusLost": true,
@@ -436,7 +464,7 @@ Below are the default settings and their values.
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
 
-  // Specifies the icon theme used in the workbench.
+  // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
   "workbench.iconTheme": "vs-seti",
 
   // Overrides colors from the currently selected color theme.
@@ -458,8 +486,8 @@ Below are the default settings and their values.
   // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
   "window.openFoldersInNewWindow": "default",
 
-  // Controls how folders are being reopened after a restart. Select 'none' to never reopen a folder, 'one' to reopen the last folder you worked on or 'all' to reopen all folders of your last session.
-  "window.reopenFolders": "one",
+  // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty window, 'one' to reopen the last window you worked on, 'folders' to reopen all folders you had opened or 'all' to reopen all windows of your last session.
+  "window.restoreWindows": "one",
 
   // Controls if a window should restore to full screen mode if it was exited in full screen mode.
   "window.restoreFullscreen": false,
@@ -471,12 +499,14 @@ Below are the default settings and their values.
   // ${activeEditorShort}: e.g. myFile.txt
   // ${activeEditorMedium}: e.g. myFolder/myFile.txt
   // ${activeEditorLong}: e.g. /Users/Development/myProject/myFolder/myFile.txt
-  // ${rootName}: e.g. myProject
-  // ${rootPath}: e.g. /Users/Development/myProject
+  // ${folderName}: e.g. myFolder
+  // ${folderPath}: e.g. /Users/Development/myFolder
+  // ${rootName}: e.g. myFolder1, myFolder2, myFolder3
+  // ${rootPath}: e.g. /Users/Development/myWorkspace
   // ${appName}: e.g. VS Code
   // ${dirty}: a dirty indicator if the active editor is dirty
   // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
-  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
+  "window.title": "${dirty}${activeEditorShort}${separator}${folderName}${separator}${appName}",
 
   // Controls the dimensions of opening a new window when at least one window is already opened. By default, a new window will open in the center of the screen with small dimensions. When set to 'inherit', the window will get the same dimensions as the last window that was active. When set to 'maximized', the window will open maximized and fullscreen if configured to 'fullscreen'. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
   "window.newWindowDimensions": "default",
@@ -525,7 +555,7 @@ Below are the default settings and their values.
   // Controls the delay in ms after which a dirty file is saved automatically. Only applies when 'files.autoSave' is set to 'afterDelay'
   "files.autoSaveDelay": 1000,
 
-  // Configure glob patterns of file paths to exclude from file watching. Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
+  // Configure glob patterns of file paths to exclude from file watching. Patterns must match on absolute paths (i.e. prefix with ** or the full path to match properly). Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
@@ -534,6 +564,9 @@ Below are the default settings and their values.
 
   // Controls whether unsaved files are remembered between sessions, allowing the save prompt when exiting the editor to be skipped.
   "files.hotExit": "onExit",
+
+  // Use the new experimental file watcher.
+  "files.useExperimentalFileWatcher": false,
 
   // The default language mode that is assigned to new files.
   "files.defaultLanguage": "",
@@ -892,8 +925,11 @@ Below are the default settings and their values.
   // Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.
   "markdown.previewFrontMatter": "hide",
 
+  // Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
+  "markdown.preview.breaks": false,
+
   // Controls the font family used in the markdown preview.
-  "markdown.preview.fontFamily": "system-ui, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
+  "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
 
   // Controls the font size in pixels used in the markdown preview.
   "markdown.preview.fontSize": 14,
@@ -977,6 +1013,9 @@ Below are the default settings and their values.
   // Defines space handling after a comma delimiter.
   "typescript.format.insertSpaceAfterCommaDelimiter": true,
 
+  // Defines space handling after the constructor keyword. Requires TypeScript >= 2.3.0.
+  "typescript.format.insertSpaceAfterConstructor": false,
+
   //  Defines space handling after a semicolon in a for statement.
   "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
 
@@ -1021,6 +1060,9 @@ Below are the default settings and their values.
 
   // Defines space handling after a comma delimiter.
   "javascript.format.insertSpaceAfterCommaDelimiter": true,
+
+  // Defines space handling after the constructor keyword. Requires TypeScript >= 2.3.0.
+  "javascript.format.insertSpaceAfterConstructor": false,
 
   //  Defines space handling after a semicolon in a for statement.
   "javascript.format.insertSpaceAfterSemicolonInForStatements": true,
@@ -1106,7 +1148,7 @@ Below are the default settings and their values.
   ],
 
   // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
-  "terminal.integrated.shell.windows": "C:\\WINDOWS\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
 
   // The command line arguments to use when on the Windows terminal.
   "terminal.integrated.shellArgs.windows": [],
@@ -1160,6 +1202,10 @@ Below are the default settings and their values.
     "workbench.action.focusFirstEditorGroup",
     "workbench.action.focusSecondEditorGroup",
     "workbench.action.focusThirdEditorGroup",
+    "workbench.action.navigateDown",
+    "workbench.action.navigateLeft",
+    "workbench.action.navigateRight",
+    "workbench.action.navigateUp",
     "workbench.action.openNextRecentlyUsedEditorInGroup",
     "workbench.action.openPreviousRecentlyUsedEditorInGroup",
     "workbench.action.quickOpen",
@@ -1176,8 +1222,10 @@ Below are the default settings and their values.
     "workbench.action.terminal.focusAtIndex7",
     "workbench.action.terminal.focusAtIndex8",
     "workbench.action.terminal.focusAtIndex9",
+    "workbench.action.terminal.focusFindWidget",
     "workbench.action.terminal.focusNext",
     "workbench.action.terminal.focusPrevious",
+    "workbench.action.terminal.hideFindWidget",
     "workbench.action.terminal.kill",
     "workbench.action.terminal.new",
     "workbench.action.terminal.paste",
@@ -1189,6 +1237,7 @@ Below are the default settings and their values.
     "workbench.action.terminal.scrollToTop",
     "workbench.action.terminal.scrollUp",
     "workbench.action.terminal.scrollUpPage",
+    "workbench.action.terminal.selectAll",
     "workbench.action.terminal.toggleTerminal"
   ],
 
@@ -1206,13 +1255,8 @@ Below are the default settings and their values.
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
 
-// Emmet configuration
 
-  // Shows expanded emmet abbreviations as suggestions
-  "emmet.showExpandedAbbreviation": true,
 
-  // Shows possible emmet abbreviations as suggestions
-  "emmet.showAbbreviationSuggestions": true,
 
 // Default Configuration Overrides
 
@@ -1277,13 +1321,8 @@ Below are the default settings and their values.
   // The default location where to clone a git repository
   "git.defaultCloneDirectory": null,
 
-  // Commit all changes when there are not staged changes.
+  // Commit all changes when there are no staged changes.
   "git.enableSmartCommit": false,
-
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
 
 // Npm
 
@@ -1297,6 +1336,11 @@ Below are the default settings and their values.
 
   // Enable/disable merge conflict decorators within editor
   "merge-conflict.decorators.enabled": true,
+
+// Grunt
+
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
 
 // Gulp
 

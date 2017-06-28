@@ -296,7 +296,7 @@ If configured to be `default`, we will make the best guess about reusing a windo
 
 Note: There can still be cases where this setting is ignored (for example, when using the `-new-window` or `-reuse-window` command line option).
 
-The `window.reopenFolders` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
+The `window.restoreWindows` setting tells VS Code how to restore the opened windows of your previous session. By default, VS Code will
 reopen the last opened folder you worked on (setting: `one`). Change this setting to `none` to never reopen any folders and always start with an empty VS Code instance. Change it to `all` to restore all folders you worked on during your previous session.
 
 ## Next Steps
