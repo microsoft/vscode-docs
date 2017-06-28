@@ -32,6 +32,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _position_ Position of a symbol
 * _(returns)_ A promise that resolves to an array of Location-instances.
 
+
 `vscode.executeImplementationProvider` - Execute all implementation providers.
 
 * _uri_ Uri of a text document
@@ -138,6 +139,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
 * _label_ (optional) An human readable string that is used as title for the preview.
+* _options_ (optional) Options for controlling webview environment.
 
 See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#working-with-the-html-preview) for more information about the HTML preview's integration with the editor and for best practices for extension authors.
 
