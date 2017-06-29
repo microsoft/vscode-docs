@@ -43,7 +43,7 @@ You can also find indicators of the **status of your repository** in the bottom 
 
 ## Git Status Bar Actions
 
-There is a **Synchronize changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
+There is a **Synchronize Changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured.
 
 ![git status bar sync](images/versioncontrol/git-status-bar-sync.png)
 
