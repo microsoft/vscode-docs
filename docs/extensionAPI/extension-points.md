@@ -23,6 +23,8 @@ This document covers the various contribution points that are defined in the [`p
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
 * [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
 * [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
+* [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
+* [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
 
 ## contributes.configuration
 
@@ -449,6 +451,47 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 ![views extension point example](images/extension-points/views.png)
 
 Extension writers should register a [provider](/docs/extensionAPI/vscode-api.md#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+
+## contributes.problemMatchers
+
+Contribute problem matcher patterns. These contributions work in both the output panel runner and in the terminal runner. Below is an example to contribute a problem matcher for the gcc compiler in an extension:
+
+```json
+"contributes": {
+    "problemMatchers": [
+        {
+            "name": "gcc",
+            "owner": "cpp",
+            "fileLocation": ["relative", "${workspaceRoot}"],
+            "pattern": {
+                "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                "file": 1,
+                "line": 2,
+                "column": 3,
+                "severity": 4,
+                "message": 5
+            }
+        }
+    ]
+}
+```
+
+This problem matcher can now be used in a `tasks.json` file via a name reference `$gcc`. An example looks like this:
+
+```json
+{
+    "version": "0.1.0",
+    "command": "gcc",
+    "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
+    "problemMatcher": "$gcc"
+}
+```
+
+Also see: [Defining a Problem Matcher](/docs/editor/tasks.md#defining-a-problem-matcher)
+
+## contributes.problemPatterns
+
+Contributes named problem patterns that can be used in problem matchers (see above).
 
 ## Next Steps
 
