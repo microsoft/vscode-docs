@@ -433,7 +433,7 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
 
 Contribute a view to Explorer in VS Code. You must specify an identifier and name for the view.
 
-When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below).
+When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
 
 ```json
 "contributes": {
@@ -441,7 +441,8 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
         "explorer": [
             {
                 "id": "nodeDependencies",
-                "name": "Node Dependencies"
+                "name": "Node Dependencies",
+                "when": "workspaceHasPackageJSON"
             }
         ]
     }
