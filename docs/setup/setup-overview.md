@@ -32,7 +32,7 @@ VS Code releases a new version [each month](/updates) with new features and impo
 
 ## Insiders nightly build
 
-If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the monthly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basic and we really appreciate people trying out new features and providing feedback.
+If you'd like to try our nightly builds to see new features early or verify bug fixes, you can install our [Insiders build](/insiders). The Insiders build installs side-by-side with the monthly Stable build and you can freely work with either on the same machine. The Insiders build is the same one the VS Code development team uses on a daily basis and we really appreciate people trying out new features and providing feedback.
 
 ## Additional components
 
@@ -87,7 +87,7 @@ Once you have installed and set up VS Code, these topics will help you learn mor
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
 
-If you'd like to getting something running quickly, try the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
+If you'd like to get something running quickly, try the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
 
 ## Common Questions
 
