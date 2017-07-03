@@ -262,8 +262,8 @@ Below are the default settings and their values.
   // Controls if the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
   "editor.formatOnPaste": false,
 
-  // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation Rules of the language must be available. 
-  "editor.autoIndent": true,
+  // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available. 
+  "editor.autoIndent": false,
 
   // Controls if suggestions should automatically show up when typing trigger characters
   "editor.suggestOnTriggerCharacters": true,
@@ -375,10 +375,10 @@ Below are the default settings and their values.
 
 // Emmet
 
-  // When enabled, emmet abbreviations are expanded when pressing TAB.
+  // When enabled, emmet abbreviations are expanded when pressing TAB. Not applicable when emmet.useNewemmet is set to true.
   "emmet.triggerExpansionOnTab": true,
 
-  // Preferences used to modify behavior of some actions and resolvers of Emmet.
+  // Preferences used to modify behavior of some actions and resolvers of Emmet. Not applicable when emmet.useNewemmet is set to true.
   "emmet.preferences": {},
 
   // Define profile for specified syntax or use your own profile with specific rules.
@@ -389,22 +389,28 @@ Below are the default settings and their values.
     "markdown"
   ],
 
-  // Path to a folder containing emmet profiles, snippets and preferences
+  // Path to a folder containing emmet profiles, snippets and preferences. Only profiles are honored from extensions path when emmet.useNewEmmet is set to true.
   "emmet.extensionsPath": null,
 
   // Try out the new emmet modules (which will eventually replace the old single emmet library) for all emmet features.
   "emmet.useNewEmmet": false,
 
-  // Shows expanded emmet abbreviations as suggestions
-  "emmet.showExpandedAbbreviation": true,
+  // Applicable only when emmet.useNewEmmet is set to true.
+  // Shows expanded emmet abbreviations as suggestions.
+  // The option "inMarkupAndStylesheetFilesOnly" applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
+  // The option "always" applies to all parts of the file regardless of markup/css.
+  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
 
-  // Shows possible emmet abbreviations as suggestions
+  // Applicable only when emmet.useNewEmmet is set to true.
+  // Shows possible emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
   "emmet.showAbbreviationSuggestions": true,
 
-  // Enable emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported syntax.
-  //  Eg: {"php": "html"}
+  // Applicable only when emmet.useNewEmmet is set to true.
+  // Enable emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
+  //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
   "emmet.includeLanguages": {},
 
+  // Applicable only when emmet.useNewEmmet is set to true.
   // Variables to be used in emmet snippets
   "emmet.variables": {},
 
@@ -1046,6 +1052,9 @@ Below are the default settings and their values.
   // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
+  // Defines space handling after type assertions in TypeScript. Requires TypeScript >= 2.4.
+  "typescript.format.insertSpaceAfterTypeAssertion": false,
+
   // Defines whether an open brace is put onto a new line for functions or not.
   "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
 
@@ -1255,10 +1264,7 @@ Below are the default settings and their values.
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
 
-
-
-
-// Default Configuration Overrides
+  // Default Configuration Overrides
 
   // Configure editor settings to be overridden for [go] language.
   "[go]":  {

@@ -265,9 +265,9 @@ The CSS topic provides examples of how to use Tasks to generate CSS files.
 1. [Manually transpiling with a Build task](/docs/languages/css.md#transpiling-sass-and-less-into-css)
 2. [Automation of the compile step with a file watcher](/docs/languages/css.md#automating-sassless-compilation)
 
-## Autodetecting Gulp, Grunt and Jake Tasks
+## Auto-detecting Gulp, Grunt and Jake Tasks
 
-VS Code can autodetect tasks from within Gulp, Grunt and Jake files.  This adds their tasks to the task list without requiring additional configuration (unless you need to use a problem matcher, more on that in a moment).
+VS Code can auto-detect tasks from within Gulp, Grunt and Jake files.  This adds their tasks to the task list without requiring additional configuration (unless you need to use a problem matcher, more on that in a moment).
 
 To help make this example more concrete, let's use this simple Gulp file.  This defines two tasks: build and debug. The first compiles C# code using [Mono](http://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
 
@@ -294,7 +294,7 @@ Pressing `kb(workbench.action.showCommands)` and then typing `Run Task` followed
 
 ![Task list](images/tasks/gulpautodetect.png)
 
->**Note:** Gulp, Grunt and Jake are autodetected only if the corresponding files (for example `gulpfile.js`) are present in the root of the opened folder.
+>**Note:** Gulp, Grunt and Jake are auto-detected only if the corresponding files (for example `gulpfile.js`) are present in the root of the opened folder.
 
 ## Processing Task Output with Problem Matchers
 
