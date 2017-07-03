@@ -47,16 +47,6 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ## Common Questions
 
-### macOS Sierra support
-
-[Some Sierra users](https://github.com/Microsoft/vscode/issues/12473) are seeing bad background artifacts in the VS Code editor. The underlying issue is related to Chrome and can happen when you are using a custom color profile.
-
-There is a workaround, you can run VS Code with forced GPU rasterization to mitigate this issue:
-
-```bash
-code --force-gpu-rasterization
-```
-
 ### Mono and El Capitan
 
 Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
