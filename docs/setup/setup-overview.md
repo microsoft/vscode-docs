@@ -49,34 +49,6 @@ VS Code [extensions](/docs/editor/extension-gallery.md) let third parties add su
 
 Extensions integrate into VS Code's UI, commands, and task running systems so you'll find it easy to work with different technologies through VS Code's shared interface. Check out the VS Code extension [Marketplace](https://marketplace.visualstudio.com/vscode) to see what's available.
 
-## Proxy server support
-
-Many enterprises require that their computers run behind a proxy server and don't allow direct access to the Internet. A proxy server intermediary can limit access to the VS Code Extension [Marketplace](https://marketplace.visualstudio.com/vscode) and prevent installing VS Code [extensions](/docs/editor/extension-gallery.md).
-
-If you work on a machine where Internet traffic needs to go through a proxy server, then configure the proxy server in one of the following ways:
-
-* Set the operating system environment variables `http_proxy` and `https_proxy`
-
-```bash
-    SET http_proxy=https://10.203.0.1:5187/
-```
-
-* Configure the `http.proxy` setting in your user [settings](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings** or **Code** > **Preferences** > **Settings** on Mac):
-
-```json
-    "http.proxy": "https://10.203.0.1:5187/"
-```
-
-or for an authenticating proxy
-
-```json
-    "http.proxy": "https://userid:password@10.203.0.1:5187/"
-```
-
-Additionally, use `"http.proxyStrictSSL": false` if your proxy server uses a self-signed certificate.
-
->**Note:** VS Code supports http and https proxies, but not SOCKS proxies.
-
 ## Next Steps
 
 Once you have installed and set up VS Code, these topics will help you learn more about VS Code:
@@ -86,6 +58,7 @@ Once you have installed and set up VS Code, these topics will help you learn mor
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.
+* [Proxy Server Support](/docs/setup/network.md) - Configure your proxy settings.
 
 If you'd like to getting something running quickly, try the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md) walkthrough which will have you debugging a Node.js web application with VS Code in minutes.
 
