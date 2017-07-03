@@ -133,17 +133,12 @@ the corresponding launch configuration would look like this:
     "request": "launch",
     "cwd": "${workspaceRoot}",
     "runtimeExecutable": "npm",
-    "windows": {
-        "runtimeExecutable": "npm.cmd"
-    },
     "runtimeArgs": [
         "run-script", "debug"
     ],
     "port": 5858
 }
 ```
-
->**Note:** On Windows, make sure to specify the executable with the correct extension, for example use `npm.cmd` instead of just `npm` which exists but is the shell script for Linux and macOS.
 
 ## Load environment variables from external file (node)
 
@@ -264,20 +259,15 @@ Alternatively you can start your program `server.js` via **nodemon** directly wi
     "name": "Launch server.js via nodemon",
     "type": "node",
     "request": "launch",
-    "cwd": "${workspaceRoot}",
     "runtimeExecutable": "nodemon",
-    "runtimeArgs": [
-        "--debug=5858"
-    ],
     "program": "${workspaceRoot}/server.js",
     "restart": true,
-    "port": 5858,
     "console": "integratedTerminal",
     "internalConsoleOptions": "neverOpen"
 }
 ```
 
->**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but **nodemon** (and Node.js) will continue to run. To stop **nodemon**, you will have to kill it from the command line (which is easily possible if use the `integratedTerminal` as shown above).
+>**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but **nodemon** (and Node.js) will continue to run. To stop **nodemon**, you will have to kill it from the command line (which is easily possible if you use the `integratedTerminal` as shown above).
 
 >**Tip:** In case of syntax errors, **nodemon** will not be able to start Node.js successfully until the error has been fixed. In this case, VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this, you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
 
