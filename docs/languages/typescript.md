@@ -62,38 +62,38 @@ class Startup {
 Startup.main();
 ```
 
-### Step 2: Create tasks.json
+### Step 2: Run the TypeScript Build
 
-The next step is to set up the task configuration.  To do this open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it. This shows a selection box with templates you can choose from:
+Execute **Run Build Task...** from the global **Tasks** menu. This should present the following picker:
 
-![Task Runner Selection](images/typescript/taskSelection.png)
+![TypeScript Build](images/typescript/typescript-build.png)
 
-Select TypeScript - tsconfig.json. This will create a `tasks.json` file in the workspace `.vscode` folder.
+Select the entry. This will produce a `HelloWorld.js` and `HelloWorld.js.map` file in the workspace.
 
-The content of the tasks.json file looks like this:
-
-```json
-{
-	// See https://go.microsoft.com/fwlink/?LinkId=733558
-	// for the documentation about the tasks.json format
-	"version": "0.1.0",
-	"command": "tsc",
-	"isShellCommand": true,
-	"args": ["-p", "."],
-	"showOutput": "silent",
-	"problemMatcher": "$tsc"
-}
-```
-
-> **Tip:** While the template is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
-
-Under the covers we interpret `tsc` as an external task runner exposing exactly one task: the compiling of TypeScript files into JavaScript files. The command we run is: `tsc -p .`
+Under the covers we run the TypeScript compiler as a task. The command we use is: `tsc -p .`
 
 >**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](https://www.typescriptlang.org/).
 
-### Step 3: Run the Build Task
+### Step 3: Make the TypeScript Build the default
 
-As this is the only task in the file, you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point you will see an additional file show up in the file list `HelloWorld.js`.
+You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select the TypeScript one which generates the following `tasks.json` file:
+```ts
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "typescript",
+            "tsconfig": "tsconfig.json",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
 
 The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` and `HelloWorld.js.map` file was created.
 
@@ -103,7 +103,6 @@ If you have [Node.js](https://nodejs.org) installed, you can run your simple Hel
 node HelloWorld.js
 ```
 
-
 > **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging node apps in VS Code can be found [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
 
 ### Step 4: Reviewing Build Issues
@@ -112,7 +111,7 @@ Unfortunately, most builds don't go that smoothly and the result is often some a
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the output window (which can be opened using `kb(workbench.action.output.toggleOutput)`) and selecting Tasks in the output view dropdown.  We parse this output for you and highlight detected problems in the Status Bar.
+This would show up in the terminal window (which can be opened using `kb(workbench.action.output.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view dropdown.  We parse this output for you and highlight detected problems in the Status Bar.
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 
