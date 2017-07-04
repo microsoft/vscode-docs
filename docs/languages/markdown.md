@@ -136,11 +136,14 @@ This generates a `tasks.json` file in your workspace `.vscode` folder with the f
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "command": "echo",
-    "isShellCommand": true,
-    "args": ["Hello World"],
-    "showOutput": "always"
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "echo",
+            "type": "shell",
+            "command": "echo Hello"
+        }
+    ]
 }
 ```
 
@@ -150,24 +153,48 @@ To use **markdown-it** to compile the Markdown file, change the contents as foll
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "command": "markdown-it",
-    "isShellCommand": true,
-    "args": ["sample.md", "-o", "sample.html"],
-    "showOutput": "always"
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "Compile Markdown",
+            "type": "shell",
+            "command": "markdown-it sample.md -o sample.html",
+            "group": "build"
+        }
+    ]
 }
 ```
 
 > **Tip:** While the sample is there to help with common configuration settings, IntelliSense is available for the `tasks.json` file as well to help you along.  Use `kb(editor.action.triggerSuggest)` to see the available settings.
 
-Under the covers, we interpret **markdown-it** as an external task runner that exposes exactly one task: the compiling of Markdown files into HTML files. The command we run is `markdown-it sample.md -o sample.html`.
-
 ### Step 4: Run the Build Task
 
-As this is the only command in the file, you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  At this point, you should see an additional file show up in the file list `sample.html`.
+Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition we allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML select **Never scan the build output** from the presented list.
 
-The sample Markdown file did not have any compile problems, so by running the task all that happened was a corresponding `sample.html` file was created.
+At this point, you should see an additional file show up in the file list `sample.html`.
 
+If you want to make the **Compile Markdown** task the default build task run **Configure Default Build Task** from the global **Tasks** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
+
+```json
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "Compile Markdown",
+            "type": "shell",
+            "command": "markdown-it sample.md -o sample.html",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
+ 
 ## Automating Markdown compilation
 
 Let's take things a little further and automate Markdown compilation with VS Code.  We can do so with the same task runner integration as before, but with a few modifications.
@@ -216,33 +243,34 @@ What is happening here?
 2. We take the set of Markdown files that have changed, and run them through our Markdown compiler, i.e. `gulp-markdown-it`.
 3. We now have a set of HTML files, each named respectively after their original Markdown file.  We then put these files in the same directory.
 
-### Step 3: Modify the configuration in tasks.json for watching
+### Step 3: Run the gulp default Task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. We will set `isBackground` to true so that the task is kept running in the background watching for file changes.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Tasks** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML select **Never scan the build output** from the presented list. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-Change your tasks configuration to look like this:
+If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Tasks** menu and select **gulp: default** from the presented list. The final `tasks.json` file will then look like this:
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "gulp",
-    "isShellCommand": true,
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "default",
-            "isBuildCommand": true,
-            "showOutput": "always",
-            "isBackground": true
+            "type": "gulp",
+            "task": "default",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
 ```
 
-### Step 4: Run the gulp Build Task
+### Step 4: Terminate the gulp default Task
 
-We marked this task as `isBuildTask` so you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  But this time since we've set `isBackground` to true, the task keeps running. At this point, if you create and/or modify other Markdown files, you see the respective HTML files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
-
-If you want to stop the task, you can use the **Tasks: Terminate Running Task** command in the  **Command Palette** (`kb(workbench.action.showCommands)`).
+The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
 
 ## Next Steps
 
