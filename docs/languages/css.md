@@ -128,30 +128,48 @@ The next step is to set up the task configuration.  To do this open the **Comman
 This will create a sample `tasks.json` file in the workspace `.vscode` folder.  The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Less/Sass instead:
 
 ```json
-// Sass configuration
+// Less configuration
 {
-    "version": "0.1.0",
-    "command": "node-sass",
-    "isShellCommand": true,
-    "args": ["styles.scss", "styles.css"]
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "Less Compile",
+            "type": "shell",
+            "command": "lessc style.less style.css",
+            "group": "build"
+        }
+    ]
 }
 ```
 
 ```json
-// Less configuration
+// Sass configuration
 {
-    "version": "0.1.0",
-    "command": "lessc",
-    "isShellCommand": true,
-    "args": ["styles.less", "styles.css"]
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "Sass Compile",
+            "type": "shell",
+            "command": "node-sass style.scss style.css",
+            "group": "build"
+        }
+    ]
 }
 ```
-
-VS Code interprets `node-sass` or `lessc` as an external task runner exposing exactly one task: the transpiling of Sass/Less files into CSS files. The command we run is `node-sass styles.scss styles.css` or `lessc styles.less styles.css`.
 
 ### Step 4: Run the Build Task
 
 As this is the only command in the file, you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  The sample Sass/Less file should not have any compile problems, so by running the task all that happens is a corresponding `styles.css` file is created.
+
+Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition we allow you to scan the output for compile problems (errors and warnings). Depending on the compiler select an apropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output select **Never scan the build output** from the presented list.
+
+At this point, you should see an additional file show up in the file list `sample.html`.
+
+If you want to make the task the default build task to run execute **Configure Default Build Task** from the global **Tasks** menu and select the corresponding **Sass** or **Less** task from the presented list.
 
 >**Note:** If your build fails or you see an error message such as "An output directory must be specified when compiling a directory", be sure the filenames in your `tasks.json` match the filenames on disk. You can always test your build by running `node-sass styles.scss styles.css` from the command line.
 
@@ -223,33 +241,15 @@ What is happening here?
 3. It takes the set of Sass/Less files that have changed and runs them through our respective compiler, for example `gulp-sass`, `gulp-less`.
 4. We now have a set of CSS files, each named respectively after their original Sass/Less file.  We then put these files in the same directory.
 
-### Step 3: Modify the configuration in tasks.json for watching
+### Step 3: Run the gulp default task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. We will set `isBackground` to true so that the task is kept running in the background watching for file changes.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Tasks** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler select an apropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
-Change your tasks configuration to look like this:
+If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Tasks** menu and select **gulp: default** from the presented list.
 
-```json
-{
-    "version": "0.1.0",
-    "command": "gulp",
-    "isShellCommand": true,
-    "tasks": [
-        {
-            "taskName": "default",
-            "isBuildCommand": true,
-            "showOutput": "always",
-            "isBackground": true
-        }
-    ]
-}
-```
+### Step 4: Terminate the gulp default Task
 
-### Step 4: Run the Build Task
-
-We marked this task as `isBuildCommand` so you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  But this time since we've set `isBackground` to true, the task keeps running. If you create and/or modify other Less/Sass files, you will see the respective CSS files generated and/or changes reflected on save.  You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
-
-If you want to stop the task, you can use the **Tasks: Terminate Running Task** command in the  **Command Palette** (`kb(workbench.action.showCommands)`).
+The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
 
 ## Customizing CSS, Sass and Less Settings
 

@@ -173,7 +173,7 @@ Since in more complex environments there can be more than one build task we prom
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
-If you want to make the **Compile Markdown** task the default build task run **Configure Default Build Task** from the global **Tasks** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
+If you want to make the **Compile Markdown** task the default build task to run execute **Configure Default Build Task** from the global **Tasks** menu and select **Compile Markdown** from the presented list. The final `tasks.json` file will then look like this:
 
 ```json
 {
