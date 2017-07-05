@@ -15,11 +15,11 @@ If you are using Visual Studio Code version 1.13 or earlier, please refer to the
 
 ---
 
-Lots of tools exist to automate tasks like linting, building, packaging, testing or deploying software systems. Examples include [TypeScript Compiler](https://www.typescriptlang.org/), any kind of linters like [ESLint](http://eslint.org/) or [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](http://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](https://ruby.github.io/rake/) and [MSBuild](https://github.com/Microsoft/msbuild).
+Lots of tools exist to automate tasks like linting, building, packaging, testing or deploying software systems. Examples include the[TypeScript Compiler](https://www.typescriptlang.org/), linters like [ESLint](http://eslint.org/) and [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](http://gulpjs.com/), [Rake](https://ruby.github.io/rake/) and [MSBuild](https://github.com/Microsoft/msbuild).
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
-These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test and debug). Given their importance in the development life-cycle, it is very helpful to be able to run them and analyze their results from within VS Code.
+These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test, and debug). Given their importance in the development life-cycle, it is very helpful to be able to run tools and analyze their results from within VS Code.
 
 >**Note:** Task support is only available when working on a workspace folder. It is not available when editing single files.
 
@@ -53,9 +53,9 @@ Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task...** fro
 
 ![TypeScript Build Task](images/tasks/typescript-build.png)
 
-Selecting the entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished there should be a `HelloWorld.js` file. 
+Selecting the entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file. 
 
-You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select the TypeScript one which generates the following `tasks.json` file:
+You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select **TypeScript** and VS Code will generate the following `tasks.json` file:
 
 ```json
 {
@@ -75,7 +75,7 @@ You can also define the TypeScript build task as the default build task so that 
 }
 ```
 
-Unlike the `0.1.0` version of the `tasks.json` file, this does not define a new task. It annotates the TypeScript compile tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by simply pressing `kb(workbench.action.tasks.build)`.
+Unlike the previous `0.1.0` version of the `tasks.json` file, this does not define a new task. It annotates the TypeScript compile tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by simply pressing `kb(workbench.action.tasks.build)`.
 
 ## Task auto-detection
 
