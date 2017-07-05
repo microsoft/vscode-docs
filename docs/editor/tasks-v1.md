@@ -7,13 +7,17 @@ PageTitle: Tasks in Visual Studio Code
 DateApproved: 6/8/2017
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
-# Integrate with External Tools via Tasks 0.1.0
+# Tasks 0.1.0
 
->This documentation describes the legacy Tasks system on VS Code version 1.13 and earlier. If you want to learn about the latest Tasks 2.0, please refer to the [Tasks](/docs/editor/tasks.md) topic.
+---
+
+This documentation describes the legacy Tasks system in Visual Studio Code version 1.13 and earlier. If you want to learn about the latest Tasks 2.0, please refer to the [Tasks](/docs/editor/tasks.md) topic.
+
+---
 
 Developers use lots of tools, mostly run from the command line, to automate jobs outside the inner software development loop (edit, compile, test and debug).  Given their importance in the development life-cycle, it is very helpful to be able to run them and analyze their results from within Visual Studio Code.
 
->Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
+>**Note:** Task support is only available when working on a workspace folder. It is not available when editing single files.
 
 ## Hello World
 

@@ -9,7 +9,11 @@ MetaDescription: Expand your development workflow with task integration in Visua
 ---
 # Integrate with External Tools via Tasks
 
->If you are using VS Code version 1.13 or earlier, please refer to the previous version of the Tasks [documentation](/docs/editor/tasks-v1.md).
+---
+
+If you are using Visual Studio Code version 1.13 or earlier, please refer to the previous version of the Tasks [documentation](/docs/editor/tasks-v1.md).
+
+---
 
 Lots of tools exist to automate tasks like linting, building, packaging, testing or deploying software systems. Examples include [TypeScript Compiler](https://www.typescriptlang.org/), any kind of linters like [ESLint](http://eslint.org/) or [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](http://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](https://ruby.github.io/rake/) and [MSBuild](https://github.com/Microsoft/msbuild).
 
@@ -17,7 +21,7 @@ Lots of tools exist to automate tasks like linting, building, packaging, testing
 
 These tools are mostly run from the command line and automate jobs inside and outside the inner software development loop (edit, compile, test and debug). Given their importance in the development life-cycle, it is very helpful to be able to run them and analyze their results from within VS Code.
 
->Please note that task support is only available when working on a workspace folder. It is not available when editing single files.
+>**Note:** Task support is only available when working on a workspace folder. It is not available when editing single files.
 
 ## TypeScript Hello World
 
