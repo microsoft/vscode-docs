@@ -8,7 +8,7 @@ MetaDescription: Additional info for using task runners in Visual Studio Code.
 
 # Appendix
 
-This is additional information for [tasks](/docs/editor/tasks.md).
+This is additional information for [tasks](/docs/editor/tasks-v1.md).
 
 ## Schema for tasks.json
 

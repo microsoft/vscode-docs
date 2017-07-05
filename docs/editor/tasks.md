@@ -295,16 +295,16 @@ Executing **Run Task** form the global **Task** menu will show the following pic
 Press the gear icon. This will create the following `tasks.json` file:
 ```json
 {
-	// See https://go.microsoft.com/fwlink/?LinkId=733558
-	// for the documentation about the tasks.json format
-	"version": "2.0.0",
-	"tasks": [
-		{
-			"type": "gulp",
-			"task": "default",
-			"problemMatcher": []
-		}
-	]
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "gulp",
+            "task": "default",
+            "problemMatcher": []
+        }
+    ]
 }
 ```
 Usually you would now add a problem matcher (in this case `$eslint-stylish`) or tweak the presentation settings.
@@ -658,6 +658,68 @@ Since the `2.0.0` version comes with lots of new auto detection features you mig
 - **isTestCommand**: use the `"group": "test"` property instead.
 - **echoCommand**: use the `"presentation" : { "echo": "..." }` property instead.
 - **showOutput**: use the `"presentation" : { "reveal": "..." }` property instead.
+- **suppressTaskName**: by default the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task simply inline the command into the task and specify the arguments accordingly. Consider the following `0.1.0` configuration:
+```json
+{
+    "version": "0.1.0",
+    "isShellCommand": true,
+    "command": "script",
+    "tasks": [
+        {
+            "taskName": "Run tests",
+            "suppressTaskName": true,
+            "args": [
+                "test"
+            ]
+        }
+    ]
+}
+```
+The corresponding `2.0.0` configuration would look like this:
+```
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "Run tests",
+            "type": "shell",
+            "command": "script test"
+        }
+    ]
+}
+```
+- **taskSelector**: move the command into the task and specify the task selector inside the command.
+```json
+{
+    "version": "0.1.0",
+    "command": "msbuild",
+    "args": [
+        "/property:GenerateFullPaths=true"
+    ],
+    "taskSelector": "/t:",
+    "tasks": [
+        {
+            "taskName": "build"
+        }
+    ]
+}
+```
+A corresponding `2.0.0` configuration would look like this:
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "taskName": "build",
+            "command": "msbuild",
+            "args": [
+                "/property:GenerateFullPaths=true",
+                "/t:build"
+            ]
+        }
+    ]
+}
+```
 
 If you simply want to use a `0.1.0` version of the tasks.json file with the new terminal runner then you can add the following property to the tasks.json file: `"runner": "terminal"`.
 
