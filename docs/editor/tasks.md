@@ -48,7 +48,7 @@ Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task...** fro
 
 ![TypeScript Build Task](images/tasks/typescript-build.png)
 
-Selecting the entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished there should be a `HelloWorld.js` file.
+Selecting the entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished there should be a `HelloWorld.js` file. 
 
 You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select the TypeScript one which generates the following `tasks.json` file:
 ```ts
@@ -69,11 +69,11 @@ You can also define the TypeScript build task as the default build task so that 
 }
 ```
 
-It is noteworthy that this doesn't define a new task (as it was the case with the `0.1.0` version of the tasks.json file). It annotates the TypsScript compile tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by simply pressing `kb(workbench.action.tasks.build)`.
+Unlike the `0.1.0` version of the tasks.json file), this does not define a new task. It annotates the TypeScript compile tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by simply pressing `kb(workbench.action.tasks.build)`.
 
 ## Task Auto Detection
 
-VS Code currently auto detects tasks for the following systems: Gulp, Grunt, Jake and npm. We are working with the corresponding extension authors to add support for Maven and the C# dotnet command as well. If you develop a JavaScript application using node as a runtime you usually have a `package.json` file describing you dependencies and the scripts to run. Consider you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter) example. Executing **Run Tasks** from the global menu shows the following list:
+    VS Code currently auto detects tasks for the following systems: Gulp, Grunt, Jake and npm. We are working with the corresponding extension authors to add support for Maven and the C# dotnet command as well. If you develop a JavaScript application using node as a runtime you usually have a `package.json` file describing your dependencies and the scripts to run. If you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter) example, then executing **Run Tasks** from the global menu shows the following list:
 
 ![Tasks ESLint starter](images/tasks/eslint-starter.png)
 
@@ -83,7 +83,7 @@ Now open the server.js file and add a semicolon to the end of a statement (note 
 
 ![Tasks ESLint Problem Matcher Selection](images/tasks/eslint-problem-matcher-selection.png)
 
-Executing the tasks produces one error shown in the **Problems** view
+Executing the task produces one error shown in the **Problems** view
 
 ![Tasks ESLint Problem](images/tasks/eslint-problem.png)
 
@@ -116,13 +116,13 @@ For Gulp, Grunt and Jake the task auto detection works the same. Below is an exa
 
 ## Custom Tasks
 
-Not all kind of tasks can be auto detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is store in a script folder inside your workspace and named `test.sh` for Linux and Mac and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu. This opens the following picker: 
+Not all kind of tasks can be auto detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and Mac and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu. This opens the following picker: 
 
 ![Configure Task Runner](images/tasks/configure-task-runner.png)
 
 >**Note:** If you don't see the list of task runner templates, you may already have a `tasks.json` file in your folder and its contents will be open in the editor. Close the file and either delete or rename it for this example.
 
-As said we are working on more auto detection support. So this list will get smaller and smaller in the future. Since we want to write our own custom task select **Others** from the list. This opens the tasks.json file with a task skeleton. Tweak the content in the following way:
+We are working on more auto detection support, so this list will get smaller and smaller in the future. Since we want to write our own custom task select **Others** from the list. This opens the tasks.json file with a task skeleton. Tweak the content in the following way:
 
 ```ts
 {
@@ -152,7 +152,7 @@ The task's properties have the following semantic:
 - **taskName**: the tasks's name used in the user interface.
 - **type**: the task's type. For a custom task this can either be `shell` or `process`. If `shell` is specified the command is interpreted as a shell command (e.g bash, cmd or powershell). If `process` is specified the command is interpreted as a process to execute. If `shell` is used any arguments to the command should be embedded into the `command` property to support proper argument quoting. If the test script for example would accept a `--debug` argument then the command property should look as follows: `./scripts/test.sh --debug`.
 - **command**: the actual command to execute.
-- **windows**: any windows specific properties. Will be used instead of the default properties when the command is executed on Windows.
+- **windows**: any Windows specific properties. Will be used instead of the default properties when the command is executed on Windows.
 - **group**: defines to which group the task belongs. In the example it belongs to the `test` group. Tasks that belong to the test group can be executed by running **Run Test Task** from the command palette.
 - **presentation**: defines how the task output is handled in the user interface. In this case the terminal showing the ouput is `always` revealed and a `new` terminal is created on every task run.
 
@@ -160,7 +160,7 @@ There are more task properties to tweak. You can use IntelliSense with `kb(edito
 
 ![Tasks IntelliSense](images/tasks/intellisense.png)
 
-Besides the global menu bar tasks can be accessed using the **Command Palette** (`kb(workbench.action.showCommands)`). You can filter on 'task' and can see the various Task related commands.
+In addition to the global menu bar, Tasks can be accessed using the **Command Palette** (`kb(workbench.action.showCommands)`). You can filter on 'task' and can see the various Task related commands.
 
 ![tasks in command palette](images/tasks/command-palette.png)
 
@@ -237,27 +237,9 @@ And of coure you can mix custom tasks with configurations for detected tasks. A 
 
 ```
 
-## Processing Task Output with Problem Matchers
+## Customizing Auto Detected Tasks
 
-VS Code can process the output from a task with a problem matcher and we ship with a number of them 'in the box':
-
-- **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
-- **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
-- **JSHint**: `$jshint` assumes that file names are reported as an absolute path.
-- **JSHint Stylish**: `$jshint-stylish` assumes that file names are reported as an absolute path.
-- **ESLint Compact**: `$eslint-compact` assumes that file names in the output are relative to the opened folder.
-- **ESLint Stylish**: `$eslint-stylish` assumes that file names in the output are relative to the opened folder.
-- **Go**: `$go` matches problems reported from the `go` compiler. Assumes that file names are relative to the opened folder.
-- **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
-- **Less**: `$lessCompile` assumes that file names are reported as absolute path.
-
-Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
-
-You can also create your own problem matcher which we'll talk about soon.
-
-## Configuring auto detected Tasks
-
-As mentioned above you can configure auto detected tasks in the `tasks.json` file. You do so to usually tweak presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. But how do you know what properties to insert to identify the auto detected tasks. You don't. You can use configure a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from https://github.com/adametry/gulp-eslint):
+As mentioned above you can customize auto detected tasks in the `tasks.json` file. You usually do so to tweak presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. You can customize a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from https://github.com/adametry/gulp-eslint):
 
 ```js
 const gulp = require('gulp');
@@ -285,7 +267,7 @@ gulp.task('default', ['lint'], function () {
 });
 ```
 
-Executing **Run Task** form the global **Task** menu will show the following picker:
+Executing **Run Task** from the global **Tasks** menu will show the following picker:
 
 ![Configure Task](images/tasks/configure-tasks.png)
 
@@ -306,7 +288,25 @@ Press the gear icon. This will create the following `tasks.json` file:
 ```
 Usually you would now add a problem matcher (in this case `$eslint-stylish`) or tweak the presentation settings.
 
-## Binding keyboard shortcuts to tasks
+## Processing Task Output with Problem Matchers
+
+VS Code can process the output from a task with a problem matcher and we ship with a number of them 'in the box':
+
+- **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
+- **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
+- **JSHint**: `$jshint` assumes that file names are reported as an absolute path.
+- **JSHint Stylish**: `$jshint-stylish` assumes that file names are reported as an absolute path.
+- **ESLint Compact**: `$eslint-compact` assumes that file names in the output are relative to the opened folder.
+- **ESLint Stylish**: `$eslint-stylish` assumes that file names in the output are relative to the opened folder.
+- **Go**: `$go` matches problems reported from the `go` compiler. Assumes that file names are relative to the opened folder.
+- **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
+- **Less**: `$lessCompile` assumes that file names are reported as absolute path.
+
+Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
+
+You can also create your own problem matcher which we'll discuss [in a later section](## Defining a Problem Matcher).
+
+## Binding Keyboard Shortcuts to Tasks
 
 If you need to run a task frequently, you can also define a keyboard shortcut for the task.
 
@@ -320,7 +320,7 @@ For example to bind `ctrl+h` to the **Run tests** task from above, add the follo
 }
 ```
 
-## Variable substitution
+## Variable Substitution
 
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json`  file and has the following predefined variables:
 
@@ -407,7 +407,7 @@ The [TypeScript topic](/docs/languages/typescript.md#transpiling-typescript-into
 The Markdown topic provides two examples for compiling Markdown to HTML:
 
 1. [Manually compiling with a Build task](/docs/languages/markdown.md#compiling-markdown-into-html)
-2. [Automation of the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
+2. [Automating the compile step with a file watcher](/docs/languages/markdown.md#automating-markdown-compilation)
 
 ### Transpiling Less and Sass into CSS
 
@@ -428,11 +428,11 @@ helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’
 
 We want to produce a problem matcher that can capture the message in the output and show a corresponding problem in VS Code.  Problem matchers heavily rely on [regular expressions](https://en.wikipedia.org/wiki/Regular_expression). The section below assumes you are familiar with regular expressions.
 
->**Tip:** We have found the [RegEx101 playground](https://regex101.com/) a really good way to develop and test regular expressions.
+>**Tip:** We have found the [RegEx101 playground](https://regex101.com/) to be a great way to develop and test regular expressions.
 
-A matcher that captures the above warning (and errors) looks like:
+A matcher that captures the above warning (and errors) looks like this:
 
-```json
+```javascript
 {
     // The problem is owned by the cpp language service.
     "owner": "cpp",
@@ -530,7 +530,7 @@ The following problem pattern matches the output from ESLint in stylish mode - b
 }
 ```
 
-Of course it's never quite that simple, and this pattern will not work if there is more than one problem on a resource. For instance, imagine the following output from ESLint:
+However, this pattern will not work if there is more than one problem on a resource. For instance, imagine the following output from ESLint:
 
 ```bash
 test.js
@@ -573,7 +573,7 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 }
 ```
 
-## Background / Watching tasks
+## Background / Watching Tasks
 
 Some tools support running in the background while watching the file system for changes and then triggering an action when a file changes on disk. With `Gulp` such functionality is provided through the npm module [gulp-watch](https://www.npmjs.com/package/gulp-watch). The TypeScript compiler `tsc` has built in support for this via the `--watch command` line option.
 
@@ -601,7 +601,7 @@ Looking at the output shows the following pattern:
 
 To capture this information, a problem matcher can provide a `watching` property.
 
-For the tsc compiler, this looks like follows:
+For the `tsc` compiler, an appropriate `watching` property looks like this:
 
 ```json
 "watching": {
@@ -613,7 +613,7 @@ For the tsc compiler, this looks like follows:
 
 In addition to the `watching` property on the problem matcher, the task itself has to be marked as `isBackground` so that the task keeps running in the background.
 
-A full handcrafted `tasks.json` for a tsc task running in watch mode looks like this:
+A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks like this:
 
 ```json
 {
@@ -646,9 +646,9 @@ A full handcrafted `tasks.json` for a tsc task running in watch mode looks like 
     ]
 }
 ```
-## Convert a "0.1.0" to "2.0.0" version
+## Convert from "0.1.0" to "2.0.0"
 
-Since the `2.0.0` version comes with lots of new auto detection features you might be happy to simply remove an existing `tasks.json` file to see how happy you are. To do so simple rename the existing tasks.json to tasks.json.off and see how it goes. If you did lots of customizations then you can switch to version `2.0.0` by simply changing the version attribute to `"2.0.0"`. After doing so you might see some warnings in the tasks.json since some of the properties got deprecated. Here is how to get rid of the deprecations:
+Since the `2.0.0` version comes with lots of new auto detection features, you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`. If you have lots of customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so you might encounter warnings because some old properties are now deprecated. Here is how to get rid of the deprecations:
 
 - **isShellCommand**: use the `"type": "shell"` property instead.
 - **isBuildCommand**: use the `"group": "build"` property instead.
