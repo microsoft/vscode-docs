@@ -4,19 +4,14 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 6/8/2017
+DateApproved: 7/4/2017
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
-
 # Integrate with External Tools via Tasks
 
-@greg: is this the right waz to point users to the old task documentation?
-
->If you are using VS Code version 1.13 or earlier please refer to the previous version of the task [documentation](./task-v1.md).
+>If you are using VS Code version 1.13 or earlier, please refer to the previous version of the Tasks [documentation](/docs/editor/tasks-v1.md).
 
 Lots of tools exist to automate tasks like linting, building, packaging, testing or deploying software systems. Examples include [TypeScript Compiler](https://www.typescriptlang.org/), any kind of linters like [ESLint](http://eslint.org/) or [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](http://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](https://ruby.github.io/rake/) and [MSBuild](https://github.com/Microsoft/msbuild).
-
-@greg: can you please update the screen shot to include TypeScript and ESLint.
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
