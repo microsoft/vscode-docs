@@ -39,7 +39,11 @@ Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type in `
 
 ![SQL Commands](nodejs-deployment_sqlcommands.png)
 
-## Congratulations
+## Learn More at [docs.microsoft.com](https://docs.microsoft.com)
+
+The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azure-node-2.0.0) developer center has a number of great articles on how to build and deploy Node.js based functions and applications to Azure. 
+
+## Congratulations!
 
 Congratulations, you've successfully completed this walkthrough!
 
