@@ -15,7 +15,7 @@ If you are using Visual Studio Code version 1.13 or earlier, please refer to the
 
 ---
 
-Lots of tools exist to automate tasks like linting, building, packaging, testing or deploying software systems. Examples include the[TypeScript Compiler](https://www.typescriptlang.org/), linters like [ESLint](http://eslint.org/) and [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](http://gulpjs.com/), [Rake](https://ruby.github.io/rake/) and [MSBuild](https://github.com/Microsoft/msbuild).
+Lots of tools exist to automate tasks like linting, building, packaging, testing or deploying software systems. Examples include the[TypeScript Compiler](https://www.typescriptlang.org/), linters like [ESLint](http://eslint.org/) and [TSLint](https://palantir.github.io/tslint/) as well as build systems like [Make](https://en.wikipedia.org/wiki/Make_software), [Ant](https://ant.apache.org/), [Gulp](http://gulpjs.com/), [Jake](http://jakejs.com/), [Rake](https://ruby.github.io/rake/) and [MSBuild](https://github.com/Microsoft/msbuild).
 
 ![VS Code can talk to a variety of external tools](images/tasks/tasks_hero.png)
 
@@ -79,21 +79,21 @@ Unlike the previous `0.1.0` version of the `tasks.json` file, this does not defi
 
 ## Task auto-detection
 
-VS Code currently auto-detects tasks for the following systems: Gulp, Grunt, Jake and npm. We are working with the corresponding extension authors to add support for Maven and the C# dotnet command as well. If you develop a JavaScript application using node as a runtime you usually have a `package.json` file describing your dependencies and the scripts to run. If you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter) example, then executing **Run Tasks** from the global menu shows the following list:
+VS Code currently auto-detects tasks for the following systems: Gulp, Grunt, Jake and npm. We are working with the corresponding extension authors to add support for Maven and the C# `dotnet` command as well. If you develop a JavaScript application using Node.js as the runtime, you usually have a `package.json` file describing your dependencies and the scripts to run. If you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter) example, then executing **Run Tasks** from the global menu shows the following list:
 
 ![Tasks ESLint starter](images/tasks/eslint-starter.png)
 
-Select **npm: install** to install the necessary node modules. When prompted to select a problem matcher select **Continue without scanning the build output**. This will install all necessary node modules. 
+Select **npm: install** to install the necessary Node.js modules. When prompted to select a problem matcher, select **Continue without scanning the build output**. This will install all necessary Node.js modules. 
 
-Now open the server.js file and add a semicolon to the end of a statement (note the starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: run lint** task. When prompted for the problem matcher to use select **ESLint stylish**
+Now open the `server.js` file and add a semicolon to the end of a statement (note the ESLint starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: run lint** task. When prompted for the problem matcher to use, select **ESLint stylish**
 
 ![Tasks ESLint Problem Matcher Selection](images/tasks/eslint-problem-matcher-selection.png)
 
-Executing the task produces one error shown in the **Problems** view
+Executing the task produces one error shown in the **Problems** view:
 
 ![Tasks ESLint Problem](images/tasks/eslint-problem.png)
 
-In additon VS Code created a `tasks.json` file with the following content:
+In additon, VS Code created a `tasks.json` file with the following content:
 
 ```json
 {
@@ -114,7 +114,7 @@ In additon VS Code created a `tasks.json` file with the following content:
 
 This instructs VS Code to scan the output of the **npm lint** script for problems using the ESLint stylish format. 
 
-For Gulp, Grunt and Jake the task auto-detection works the same. Below is an example of the tasks detected for the [vscode-node-debug](https://github.com/Microsoft/vscode-node-debug) extension.
+For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an example of the tasks detected for the [vscode-node-debug](https://github.com/Microsoft/vscode-node-debug) extension.
 
 ![Gulp task auto-detection](images/tasks/gulp-auto-detect.png)
 
@@ -122,13 +122,13 @@ For Gulp, Grunt and Jake the task auto-detection works the same. Below is an exa
 
 ## Custom tasks
 
-Not all kind of tasks can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and Mac and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu. This opens the following picker: 
+Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu. This opens the following picker: 
 
 ![Configure Task Runner](images/tasks/configure-task-runner.png)
 
 >**Note:** If you don't see the list of task runner templates, you may already have a `tasks.json` file in your folder and its contents will be open in the editor. Close the file and either delete or rename it for this example.
 
-We are working on more auto-detection support, so this list will get smaller and smaller in the future. Since we want to write our own custom task select **Others** from the list. This opens the `tasks.json` file with a task skeleton. Tweak the content in the following way:
+We are working on more auto-detection support, so this list will get smaller and smaller in the future. Since we want to write our own custom task, select **Others** from the list. This opens the `tasks.json` file with a task skeleton. Replace the contents with the following:
 
 ```json
 {
@@ -155,14 +155,14 @@ We are working on more auto-detection support, so this list will get smaller and
 
 The task's properties have the following semantic:
 
-- **taskName**: the tasks's name used in the user interface.
-- **type**: the task's type. For a custom task this can either be `shell` or `process`. If `shell` is specified the command is interpreted as a shell command (for example, bash, cmd, or PowerShell). If `process` is specified the command is interpreted as a process to execute. If `shell` is used any arguments to the command should be embedded into the `command` property to support proper argument quoting. If the test script for example would accept a `--debug` argument then the command property should look as follows: `./scripts/test.sh --debug`.
-- **command**: the actual command to execute.
-- **windows**: any Windows specific properties. Will be used instead of the default properties when the command is executed on Windows.
-- **group**: defines to which group the task belongs. In the example it belongs to the `test` group. Tasks that belong to the test group can be executed by running **Run Test Task** from the command palette.
-- **presentation**: defines how the task output is handled in the user interface. In this case the terminal showing the output is `always` revealed and a `new` terminal is created on every task run.
+- **taskName**: The tasks's name used in the user interface.
+- **type**: The task's type. For a custom task, this can either be `shell` or `process`. If `shell` is specified, the command is interpreted as a shell command (for example: bash, cmd, or PowerShell). If `process` is specified, the command is interpreted as a process to execute. If `shell` is used, any arguments to the command should be embedded into the `command` property to support proper argument quoting. For example, if the test script accepts a `--debug` argument then the command property would be: `./scripts/test.sh --debug`.
+- **command**: The actual command to execute.
+- **windows**: Any Windows specific properties. Will be used instead of the default properties when the command is executed on the Windows operating system.
+- **group**: Defines to which group the task belongs. In the example, it belongs to the `test` group. Tasks that belong to the test group can be executed by running **Run Test Task** from the **Command Palette**.
+- **presentation**: Defines how the task output is handled in the user interface. In this example, the Integrated Terminal showing the output is `always` revealed and a `new` terminal is created on every task run.
 
-There are more task properties to tweak. You can use IntelliSense with `kb(editor.action.triggerSuggest)` to get an overview of the valid properties.
+There are more task properties to configure your workflow. You can use IntelliSense with `kb(editor.action.triggerSuggest)` to get an overview of the valid properties.
 
 ![Tasks IntelliSense](images/tasks/intellisense.png)
 
@@ -172,12 +172,12 @@ In addition to the global menu bar, task commands can be accessed using the **Co
 
 ## Output behavior
 
-Sometimes you will want to control how the terminal window behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The behavior of the terminal can be controled using the `presentation` property of a task. It offers the following properties:
+Sometimes you want to control how the Integrated Terminal panel behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The behavior of the terminal can be controled using the `presentation` property of a task. It offers the following properties:
 
-- **reveal**: Controls whether the terminal is brought to front. Valid values are:
-  - *always* - The output window is always brought to front. This is the default.
-  - *never* - The user must explicitly bring the terminal window to the front using the  **View** > **Integrated Terminal** command (`kb(workbench.action.output.toggleTerminal)`).
-  - *silent* - The output window is brought to front only if the output is not scanned for errors and warnings.
+- **reveal**: Controls whether the Integrated Terminal panel is brought to front. Valid values are:
+  - *always* - The panel is always brought to front. This is the default.
+  - *never* - The user must explicitly bring the terminal panel to the front using the  **View** > **Integrated Terminal** command (`kb(workbench.action.output.toggleTerminal)`).
+  - *silent* - The terminal panel is brought to front only if the output is not scanned for errors and warnings.
 - **focus**: Controls whether the teminal is taking input focus or not. Default is `false`.
 - **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
 - **panel**: Controls whether the terminal instance is shared between task runs. Possible values are:
@@ -185,7 +185,7 @@ Sometimes you will want to control how the terminal window behaves when running 
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However the output of a different task is presented in a different terminal.
   - *new*: Every execution of that task is using a new clean terminal. 
 
-You can tweak the output behavior for auto-detected tasks as well. For example, if you want to tweak the output behavior for the **npm: run lint** from the ESLint example from above, simply add the `presentation` property to it:
+You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, simply add the `presentation` property to it:
 
 ```json
 {
@@ -246,7 +246,8 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
 
 ## Customizing auto-detected tasks
 
-As mentioned above you can customize auto-detected tasks in the `tasks.json` file. You usually do so to tweak presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. You can customize a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from https://github.com/adametry/gulp-eslint):
+As mentioned above, you can customize auto-detected tasks in the `tasks.json` file. You usually do so to modify presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. You can customize a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from https://github.com/adametry/gulp-eslint):
+
 
 ```js
 const gulp = require('gulp');
@@ -295,11 +296,11 @@ Press the gear icon. This will create the following `tasks.json` file:
 }
 ```
 
-Usually you would now add a problem matcher (in this case `$eslint-stylish`) or tweak the presentation settings.
+Usually you would now add a problem matcher (in this case `$eslint-stylish`) or modify the presentation settings.
 
 ## Processing task output with problem matchers
 
-VS Code can process the output from a task with a problem matcher and we ship with a number of them 'in the box':
+VS Code can process the output from a task with a problem matcher and we ship with a number of them 'in-the-box':
 
 - **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
 - **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
@@ -313,11 +314,11 @@ VS Code can process the output from a task with a problem matcher and we ship wi
 
 Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
 
-You can also create your own problem matcher which we'll discuss [in a later section](## Defining a Problem Matcher).
+You can also create your own problem matcher which we'll discuss [in a later section](/docs/editor/tasks.md#defining-a-problem-matcher).
 
-## Binding Keyboard Shortcuts to tasks
+## Binding keyboard shortcuts to tasks
 
-If you need to run a task frequently, you can also define a keyboard shortcut for the task.
+If you need to run a task frequently, you can define a keyboard shortcut for the task.
 
 For example, to bind `Ctrl+H` to the **Run tests** task from above, add the following to your `keybindings.json` file:
 
@@ -405,7 +406,7 @@ Task properties can also be defined in the global scope. If present, they will b
 
 ## Examples of tasks in action
 
-To highlight the power of Tasks, here are a few examples of how VS Code can use Tasks to integrate external tools like linters and compilers.
+To highlight the power of tasks, here are a few examples of how VS Code can use tasks to integrate external tools like linters and compilers.
 
 ### Transpiling TypeScript to JavaScript
 
@@ -427,7 +428,7 @@ The CSS topic provides examples of how to use Tasks to generate CSS files.
 
 ## Defining a problem matcher
 
-VS Code ships some of the most common problem matchers out of the box.  However, there are lots of compilers and linting tools out there, all of which produce their own style of errors and warnings.  So let's talk about how to make your own problem matcher.
+VS Code ships some of the most common problem matchers 'in-the-box'.  However, there are lots of compilers and linting tools out there, all of which produce their own style of errors and warnings so you may want to create your own problem matcher.
 
 We have a `helloWorld.c` program in which the developer mistyped **printf** as **prinft**. Compiling it with [gcc](https://gcc.gnu.org/) will produce the following warning:
 
@@ -699,7 +700,7 @@ The corresponding `2.0.0` configuration would look like this:
 }
 ```
 
-- **taskSelector**: move the command into the task and specify the task selector inside the command.
+- **taskSelector**: Move the command into the task and specify the task selector inside the command.
 
 ```json
 {
