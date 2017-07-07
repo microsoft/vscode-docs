@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 PageTitle: Angular JavaScript Tutorial in VS Code
-DateApproved: 6/20/2017
+DateApproved: 7/10/2017
 MetaDescription: Angular JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: nodejs_javascript_vscode.png
 ---
