@@ -265,7 +265,7 @@ For coloring inserted and removed text, use either a background or a border colo
 The Editor widget is shown in front of the editor content. Examples are the Find/Replace dialog, the suggestion widget, and the editor hover.
 
 - `editorWidget.background`: Background color of editor widgets, such as Find/Replace.
-- `editorWidgetBorder`: Border color of the editor widget unless the widget does not contain a border or defines its own border color.
+- `editorWidget.border`: Border color of the editor widget unless the widget does not contain a border or defines its own border color.
 
 - `editorSuggestWidget.background`: Background color of the suggestion widget.
 - `editorSuggestWidget.border`: Border color of the suggestion widget.
