@@ -69,6 +69,7 @@ On save, the Go extension can run `go build`, `go vet` and your choice of lintin
 - `go.lintOnSave`
 - `go.lintFlags`
 - `go.lintTool`
+- `go.testOnSave`
 
 The errors and warnings from running any/all of the above will be shown red/green squiggly lines in the editor. These also show up in the **Problems** panel  (**View** > **Problems**).
 
