@@ -68,7 +68,7 @@ The following example contributes default editor configurations for the `markdow
 ### Example
 
 ```json
-contributes": {
+"contributes": {
     "configurationDefaults": {
         "[markdown]": {
             "editor.wordWrap": "on",
