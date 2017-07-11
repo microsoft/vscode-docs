@@ -50,13 +50,13 @@ The publishing tool checks the following constraints:
 
 Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
 
-`vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/en-us/news/2015-jul-7-vso.aspx). You need to create at least one in order to publish an extension.
+`vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/en-us/articles/news/2015/jul-07-team-services). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
 First, make sure you have a [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) account.
 
-In the following examples, the account name is `monacotools`. From your account's home page (eg: `https://monacotools.visualstudio.com`), go to the **Security** page:
+In the following examples, the account name is `monacotools`. From your account's home page (e.g.: `https://monacotools.visualstudio.com`), go to the **Security** page:
 
 ![Security page](images/publish-extension/publishers1.png)
 
@@ -82,7 +82,7 @@ vsce create-publisher (publisher name)
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
 
-**Note:** Alternatively, create your publisher in https://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
+**Note:** Alternatively, create your publisher in [manage page](https://marketplace.visualstudio.com/manage) and login in `vsce`, as described in the next section.
 
 ### Login to a Publisher
 
