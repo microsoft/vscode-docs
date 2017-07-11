@@ -50,7 +50,7 @@ register a command handler with the identfier <code>extension.sayHello</code>.</
 
 
 
-<a name="commands.executeCommand"></a><span class="ts" id=905 data-target="#details-905" data-toggle="collapse"><span class="ident">executeCommand</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<a name="commands.executeCommand"></a><span class="ts" id=905 data-target="#details-905" data-toggle="collapse"><span class="ident">executeCommand</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">command</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]<span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
 <div class="details collapse" id="details-905">
 <div class="comment"><p>Executes the command denoted by the given command identifier.</p>
 <p>When executing an editor command not all types are allowed to
@@ -67,7 +67,7 @@ by extensions.</p>
 <tr><td><a name="rest"></a><span class="ts" id=908 data-target="#details-908" data-toggle="collapse"><span>...</span><span class="ident">rest</span><span>: </span><a class="type-instrinct">any</a>[]</span></td><td><div class="comment"><p>Parameters passed to the command function.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the returned value of the given command. <code>undefined</code> when
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the returned value of the given command. <code>undefined</code> when
 the command handler function doesn&#39;t return anything.</p>
 </div></td></tr>
 </table>
@@ -76,7 +76,7 @@ the command handler function doesn&#39;t return anything.</p>
 
 
 
-<a name="commands.getCommands"></a><span class="ts" id=910 data-target="#details-910" data-toggle="collapse"><span class="ident">getCommands</span><span>(</span><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
+<a name="commands.getCommands"></a><span class="ts" id=910 data-target="#details-910" data-toggle="collapse"><span class="ident">getCommands</span><span>(</span><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
 <div class="details collapse" id="details-910">
 <div class="comment"><p>Retrieve the list of all available commands. Commands starting an underscore are
 treated as internal commands.</p>
@@ -87,7 +87,7 @@ treated as internal commands.</p>
 <tr><td><a name="filterInternal"></a><span class="ts" id=911 data-target="#details-911" data-toggle="collapse"><span class="ident">filterInternal</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Set <code>true</code> to not see internal commands (starting with an underscore)</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>Thenable that resolves to a list of command ids.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>Thenable that resolves to a list of command ids.</p>
 </div></td></tr>
 </table>
 </div>
@@ -319,14 +319,14 @@ score is used for determining the order in which providers are asked to particip
 
 
 
-<a name="languages.getLanguages"></a><span class="ts" id=1021 data-target="#details-1021" data-toggle="collapse"><span class="ident">getLanguages</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
+<a name="languages.getLanguages"></a><span class="ts" id=1021 data-target="#details-1021" data-toggle="collapse"><span class="ident">getLanguages</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span>
 <div class="details collapse" id="details-1021">
 <div class="comment"><p>Return the identifiers of all known languages.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>Promise resolving to an array of identifier strings.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>Promise resolving to an array of identifier strings.</p>
 </div></td></tr>
 </table>
 </div>
@@ -880,7 +880,7 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.setStatusBarMessage"></a><span class="ts" id=971 data-target="#details-971" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
+<a name="window.setStatusBarMessage"></a><span class="ts" id=971 data-target="#details-971" data-toggle="collapse"><span class="ident">setStatusBarMessage</span><span>(</span><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;<span>)</span><span>: </span><a class="type-ref" href="#Disposable">Disposable</a></span>
 <div class="details collapse" id="details-971">
 <div class="comment"><p>Set a message to the status bar. This is a short hand for the more powerful
 status bar <a href="#window.createStatusBarItem">items</a>.</p>
@@ -890,7 +890,7 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="text"></a><span class="ts" id=972 data-target="#details-972" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>The message to show, support icon subtitution as in status bar <a href="#StatusBarItem.text">items</a>.</p>
 </div></td></tr>
-<tr><td><a name="hideWhenDone"></a><span class="ts" id=973 data-target="#details-973" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"><p>Thenable on which completion (resolve or reject) the message will be disposed.</p>
+<tr><td><a name="hideWhenDone"></a><span class="ts" id=973 data-target="#details-973" data-toggle="collapse"><span class="ident">hideWhenDone</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">any</a>&gt;</span></td><td><div class="comment"><p>Thenable on which completion (resolve or reject) the message will be disposed.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Disposable">Disposable</a></span></td><td><div class="comment"><p>A disposable which hides the status bar message.</p>
@@ -901,7 +901,7 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.showErrorMessage"></a><span class="ts" id=944 data-target="#details-944" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<a name="window.showErrorMessage"></a><span class="ts" id=944 data-target="#details-944" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
 <div class="details collapse" id="details-944">
 <div class="comment"><p>Show an error message.</p>
 <ul>
@@ -916,7 +916,7 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 <tr><td><a name="items"></a><span class="ts" id=946 data-target="#details-946" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -924,7 +924,7 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.showErrorMessage"></a><span class="ts" id=947 data-target="#details-947" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<a name="window.showErrorMessage"></a><span class="ts" id=947 data-target="#details-947" data-toggle="collapse"><span class="ident">showErrorMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
 <div class="details collapse" id="details-947">
 <div class="comment"><p>Show an error message.</p>
 <ul>
@@ -939,7 +939,7 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 <tr><td><a name="items"></a><span class="ts" id=950 data-target="#details-950" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -947,7 +947,7 @@ status bar <a href="#window.createStatusBarItem">items</a>.</p>
 
 
 
-<a name="window.showInformationMessage"></a><span class="ts" id=928 data-target="#details-928" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<a name="window.showInformationMessage"></a><span class="ts" id=928 data-target="#details-928" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
 <div class="details collapse" id="details-928">
 <div class="comment"><p>Show an information message to users. Optionally provide an array of items which will be presented as
 clickable buttons.</p>
@@ -960,7 +960,7 @@ clickable buttons.</p>
 <tr><td><a name="items"></a><span class="ts" id=930 data-target="#details-930" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -968,7 +968,7 @@ clickable buttons.</p>
 
 
 
-<a name="window.showInformationMessage"></a><span class="ts" id=931 data-target="#details-931" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<a name="window.showInformationMessage"></a><span class="ts" id=931 data-target="#details-931" data-toggle="collapse"><span class="ident">showInformationMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
 <div class="details collapse" id="details-931">
 <div class="comment"><p>Show an information message.</p>
 <ul>
@@ -983,7 +983,7 @@ clickable buttons.</p>
 <tr><td><a name="items"></a><span class="ts" id=934 data-target="#details-934" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -991,7 +991,7 @@ clickable buttons.</p>
 
 
 
-<a name="window.showInputBox"></a><span class="ts" id=960 data-target="#details-960" data-toggle="collapse"><span class="ident">showInputBox</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<a name="window.showInputBox"></a><span class="ts" id=960 data-target="#details-960" data-toggle="collapse"><span class="ident">showInputBox</span><span>(</span><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
 <div class="details collapse" id="details-960">
 <div class="comment"><p>Opens an input box to ask the user for input.</p>
 <p>The returned value will be undefined if the input box was canceled (e.g. pressing ESC). Otherwise the
@@ -1004,7 +1004,7 @@ anything but dismissed the input box with OK.</p>
 <tr><td><a name="options"></a><span class="ts" id=961 data-target="#details-961" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#InputBoxOptions">InputBoxOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the input box.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a string the user provided or to <code>undefined</code> in case of dismissal.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a string the user provided or to <code>undefined</code> in case of dismissal.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1012,19 +1012,19 @@ anything but dismissed the input box with OK.</p>
 
 
 
-<a name="window.showQuickPick"></a><span class="ts" id=952 data-target="#details-952" data-toggle="collapse"><span class="ident">showQuickPick</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<a name="window.showQuickPick"></a><span class="ts" id=952 data-target="#details-952" data-toggle="collapse"><span class="ident">showQuickPick</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
 <div class="details collapse" id="details-952">
 <div class="comment"><p>Shows a selection list.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=953 data-target="#details-953" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>An array of strings, or a promise that resolves to an array of strings.</p>
+<tr><td><a name="items"></a><span class="ts" id=953 data-target="#details-953" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>[]&gt;</span></td><td><div class="comment"><p>An array of strings, or a promise that resolves to an array of strings.</p>
 </div></td></tr>
 <tr><td><a name="options"></a><span class="ts" id=954 data-target="#details-954" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the selection list.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the selection or undefined.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the selection or undefined.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1032,19 +1032,19 @@ anything but dismissed the input box with OK.</p>
 
 
 
-<a name="window.showQuickPick"></a><span class="ts" id=955 data-target="#details-955" data-toggle="collapse"><span class="ident">showQuickPick</span><span>&lt;</span>T extends <a class="type-ref" href="#QuickPickItem">QuickPickItem</a><span>&gt;</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<a name="window.showQuickPick"></a><span class="ts" id=955 data-target="#details-955" data-toggle="collapse"><span class="ident">showQuickPick</span><span>&lt;</span>T extends <a class="type-ref" href="#QuickPickItem">QuickPickItem</a><span>&gt;</span><span>(</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;, <span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
 <div class="details collapse" id="details-955">
 <div class="comment"><p>Shows a selection list.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="items"></a><span class="ts" id=957 data-target="#details-957" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;</span></td><td><div class="comment"><p>An array of items, or a promise that resolves to an array of items.</p>
+<tr><td><a name="items"></a><span class="ts" id=957 data-target="#details-957" data-toggle="collapse"><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>[]&gt;</span></td><td><div class="comment"><p>An array of items, or a promise that resolves to an array of items.</p>
 </div></td></tr>
 <tr><td><a name="options"></a><span class="ts" id=958 data-target="#details-958" data-toggle="collapse"><span class="ident">options</span><span>?</span><span>: </span><a class="type-ref" href="#QuickPickOptions">QuickPickOptions</a></span></td><td><div class="comment"><p>Configures the behavior of the selection list.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the selected item or undefined.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to the selected item or undefined.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1052,7 +1052,7 @@ anything but dismissed the input box with OK.</p>
 
 
 
-<a name="window.showTextDocument"></a><span class="ts" id=920 data-target="#details-920" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
+<a name="window.showTextDocument"></a><span class="ts" id=920 data-target="#details-920" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-920">
 <div class="comment"><p>Show the given document in a text editor. A <a href="#ViewColumn">column</a> can be provided
 to control where the editor is being shown. Might change the <a href="#window.activeTextEditor">active editor</a>.</p>
@@ -1068,7 +1068,7 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 <tr><td><a name="preserveFocus"></a><span class="ts" id=923 data-target="#details-923" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the editor will not take focus.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to an <a href="#TextEditor">editor</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1076,7 +1076,7 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 
 
 
-<a name="window.showWarningMessage"></a><span class="ts" id=936 data-target="#details-936" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<a name="window.showWarningMessage"></a><span class="ts" id=936 data-target="#details-936" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]<span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
 <div class="details collapse" id="details-936">
 <div class="comment"><p>Show a warning message.</p>
 <ul>
@@ -1091,7 +1091,7 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 <tr><td><a name="items"></a><span class="ts" id=938 data-target="#details-938" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">string</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1099,7 +1099,7 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 
 
 
-<a name="window.showWarningMessage"></a><span class="ts" id=939 data-target="#details-939" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<a name="window.showWarningMessage"></a><span class="ts" id=939 data-target="#details-939" data-toggle="collapse"><span class="ident">showWarningMessage</span><span>&lt;</span>T extends <a class="type-ref" href="#MessageItem">MessageItem</a><span>&gt;</span><span>(</span><span class="ident">message</span><span>: </span><a class="type-instrinct">string</a>, <span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]<span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
 <div class="details collapse" id="details-939">
 <div class="comment"><p>Show a warning message.</p>
 <ul>
@@ -1114,7 +1114,7 @@ are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 <tr><td><a name="items"></a><span class="ts" id=942 data-target="#details-942" data-toggle="collapse"><span>...</span><span class="ident">items</span><span>: </span><a class="type-instrinct">T</a>[]</span></td><td><div class="comment"><p>A set of items that will be rendered as actions in the message.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves to the selected item or <code>undefined</code> when being dismissed.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1203,7 +1203,7 @@ has been opened.</p>
 
 
 
-<a name="workspace.applyEdit"></a><span class="ts" id=999 data-target="#details-999" data-toggle="collapse"><span class="ident">applyEdit</span><span>(</span><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
+<a name="workspace.applyEdit"></a><span class="ts" id=999 data-target="#details-999" data-toggle="collapse"><span class="ident">applyEdit</span><span>(</span><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
 <div class="details collapse" id="details-999">
 <div class="comment"><p>Make changes to one or many resources as defined by the given
 <a href="#WorkspaceEdit">workspace edit</a>.</p>
@@ -1217,7 +1217,7 @@ the edit to be rejected.</p>
 <tr><td><a name="edit"></a><span class="ts" id=1000 data-target="#details-1000" data-toggle="collapse"><span class="ident">edit</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a></span></td><td><div class="comment"><p>A workspace edit.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when the edit could be applied.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when the edit could be applied.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1271,7 +1271,7 @@ kinds of events can be provided. To stop listening to events the watcher must be
 
 
 
-<a name="workspace.findFiles"></a><span class="ts" id=990 data-target="#details-990" data-toggle="collapse"><span class="ident">findFiles</span><span>(</span><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">exclude</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span>
+<a name="workspace.findFiles"></a><span class="ts" id=990 data-target="#details-990" data-toggle="collapse"><span class="ident">findFiles</span><span>(</span><span class="ident">include</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">exclude</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">maxResults</span><span>?</span><span>: </span><a class="type-instrinct">number</a>, <span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span>
 <div class="details collapse" id="details-990">
 <div class="comment"><p>Find files in the workspace.</p>
 <ul>
@@ -1290,7 +1290,7 @@ kinds of events can be provided. To stop listening to events the watcher must be
 <tr><td><a name="token"></a><span class="ts" id=994 data-target="#details-994" data-toggle="collapse"><span class="ident">token</span><span>?</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A token that can be used to signal cancellation to the underlying search engine.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span></td><td><div class="comment"><p>A thenable that resolves to an array of resource identifiers.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Uri">Uri</a>[]&gt;</span></td><td><div class="comment"><p>A thenable that resolves to an array of resource identifiers.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1319,7 +1319,7 @@ like <code>{ myExt: { setting: { doIt: true }}}</code> and <code>getConfiguratio
 
 
 
-<a name="workspace.openTextDocument"></a><span class="ts" id=1003 data-target="#details-1003" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
+<a name="workspace.openTextDocument"></a><span class="ts" id=1003 data-target="#details-1003" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1003">
 <div class="comment"><p>Opens the denoted document from disk. Will return early if the
 document is already open, otherwise the document is loaded and the
@@ -1335,7 +1335,7 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 <tr><td><a name="uri"></a><span class="ts" id=1004 data-target="#details-1004" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>Identifies the resource to open.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1343,7 +1343,7 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 
 
 
-<a name="workspace.openTextDocument"></a><span class="ts" id=1005 data-target="#details-1005" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
+<a name="workspace.openTextDocument"></a><span class="ts" id=1005 data-target="#details-1005" data-toggle="collapse"><span class="ident">openTextDocument</span><span>(</span><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1005">
 <div class="comment"><p>A short-hand for <code>openTextDocument(Uri.file(fileName))</code>.</p>
 <ul>
@@ -1356,7 +1356,7 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 <tr><td><a name="fileName"></a><span class="ts" id=1006 data-target="#details-1006" data-toggle="collapse"><span class="ident">fileName</span><span>: </span><a class="type-instrinct">string</a></span></td><td><div class="comment"><p>A name of a file on disk.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves to a <a href="#TextDocument">document</a>.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1385,7 +1385,7 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 
 
 
-<a name="workspace.saveAll"></a><span class="ts" id=996 data-target="#details-996" data-toggle="collapse"><span class="ident">saveAll</span><span>(</span><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
+<a name="workspace.saveAll"></a><span class="ts" id=996 data-target="#details-996" data-toggle="collapse"><span class="ident">saveAll</span><span>(</span><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
 <div class="details collapse" id="details-996">
 <div class="comment"><p>Save all dirty files.</p>
 </div>
@@ -1395,7 +1395,7 @@ untitled: A new file that should be saved on disk, e.g. &#39;untitled:/Users/fro
 <tr><td><a name="includeUntitled"></a><span class="ts" id=997 data-target="#details-997" data-toggle="collapse"><span class="ident">includeUntitled</span><span>?</span><span>: </span><a class="type-instrinct">boolean</a></span></td><td><div class="comment"><p>Also save files that have been created during this session.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when the files have been saved.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A thenable that resolves when the files have been saved.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1523,7 +1523,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-acti
 
 
 
-<a name="CodeActionProvider.provideCodeActions"></a><span class="ts" id=443 data-target="#details-443" data-toggle="collapse"><span class="ident">provideCodeActions</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">context</span><span>: </span><a class="type-ref" href="#CodeActionContext">CodeActionContext</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Command">Command</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Command">Command</a>[]&gt;</span>
+<a name="CodeActionProvider.provideCodeActions"></a><span class="ts" id=443 data-target="#details-443" data-toggle="collapse"><span class="ident">provideCodeActions</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">context</span><span>: </span><a class="type-ref" href="#CodeActionContext">CodeActionContext</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Command">Command</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Command">Command</a>[]&gt;</span>
 <div class="details collapse" id="details-443">
 <div class="comment"><p>Provide commands for the given document and range.</p>
 </div>
@@ -1539,7 +1539,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_code-acti
 <tr><td><a name="token"></a><span class="ts" id=447 data-target="#details-447" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Command">Command</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Command">Command</a>[]&gt;</span></td><td><div class="comment"><p>An array of commands or a thenable of such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#Command">Command</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Command">Command</a>[]&gt;</span></td><td><div class="comment"><p>An array of commands or a thenable of such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -1621,7 +1621,7 @@ as dedicated horizontal lines in between the source text.</p>
 
 
 
-<a name="CodeLensProvider.provideCodeLenses"></a><span class="ts" id=458 data-target="#details-458" data-toggle="collapse"><span class="ident">provideCodeLenses</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CodeLens">CodeLens</a>[]&gt;</span>
+<a name="CodeLensProvider.provideCodeLenses"></a><span class="ts" id=458 data-target="#details-458" data-toggle="collapse"><span class="ident">provideCodeLenses</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CodeLens">CodeLens</a>[]&gt;</span>
 <div class="details collapse" id="details-458">
 <div class="comment"><p>Compute a list of <a href="#CodeLens">lenses</a>. This call should return as fast as possible and if
 computing the commands is expensive implementors should only return code lens objects with the
@@ -1635,7 +1635,7 @@ range set and implement <a href="#CodeLensProvider.resolveCodeLens">resolve</a>.
 <tr><td><a name="token"></a><span class="ts" id=460 data-target="#details-460" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#CodeLens">CodeLens</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CodeLens">CodeLens</a>[]&gt;</span></td><td><div class="comment"><p>An array of code lenses or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#CodeLens">CodeLens</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CodeLens">CodeLens</a>[]&gt;</span></td><td><div class="comment"><p>An array of code lenses or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -1644,7 +1644,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 
 
-<a name="CodeLensProvider.resolveCodeLens"></a><span class="ts" id=462 data-target="#details-462" data-toggle="collapse"><span class="ident">resolveCodeLens</span><span>(</span><span class="ident">codeLens</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CodeLens">CodeLens</a>&gt;</span>
+<a name="CodeLensProvider.resolveCodeLens"></a><span class="ts" id=462 data-target="#details-462" data-toggle="collapse"><span class="ident">resolveCodeLens</span><span>(</span><span class="ident">codeLens</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#CodeLens">CodeLens</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CodeLens">CodeLens</a>&gt;</span>
 <div class="details collapse" id="details-462">
 <div class="comment"><p>This function will be called for each visible code lens, usually when scrolling and after
 calls to <a href="#CodeLensProvider.provideCodeLenses">compute</a>-lenses.</p>
@@ -1657,7 +1657,7 @@ calls to <a href="#CodeLensProvider.provideCodeLenses">compute</a>-lenses.</p>
 <tr><td><a name="token"></a><span class="ts" id=464 data-target="#details-464" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#CodeLens">CodeLens</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CodeLens">CodeLens</a>&gt;</span></td><td><div class="comment"><p>The given, resolved code lens or thenable that resolves to such.</p>
+<tr><td><span class="ts"><a class="type-ref" href="#CodeLens">CodeLens</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CodeLens">CodeLens</a>&gt;</span></td><td><div class="comment"><p>The given, resolved code lens or thenable that resolves to such.</p>
 </div></td></tr>
 </table>
 </div>
@@ -1978,7 +1978,7 @@ the item, like adding <a href="#CompletionItem.documentation">doc-comment</a> or
 
 
 
-<a name="CompletionItemProvider.provideCompletionItems"></a><span class="ts" id=698 data-target="#details-698" data-toggle="collapse"><span class="ident">provideCompletionItems</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CompletionItem">CompletionItem</a>[]&gt; &#124; <a class="type-ref" href="#CompletionList">CompletionList</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CompletionList">CompletionList</a>&gt;</span>
+<a name="CompletionItemProvider.provideCompletionItems"></a><span class="ts" id=698 data-target="#details-698" data-toggle="collapse"><span class="ident">provideCompletionItems</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CompletionItem">CompletionItem</a>[]&gt; &#124; <a class="type-ref" href="#CompletionList">CompletionList</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CompletionList">CompletionList</a>&gt;</span>
 <div class="details collapse" id="details-698">
 <div class="comment"><p>Provide completion items for the given position and document.</p>
 </div>
@@ -1992,7 +1992,7 @@ the item, like adding <a href="#CompletionItem.documentation">doc-comment</a> or
 <tr><td><a name="token"></a><span class="ts" id=701 data-target="#details-701" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#CompletionItem">CompletionItem</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CompletionItem">CompletionItem</a>[]&gt; &#124; <a class="type-ref" href="#CompletionList">CompletionList</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CompletionList">CompletionList</a>&gt;</span></td><td><div class="comment"><p>An array of completions, a <a href="#CompletionList">completion list</a>, or a thenable that resolves to either.
+<tr><td><span class="ts"><a class="type-ref" href="#CompletionItem">CompletionItem</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CompletionItem">CompletionItem</a>[]&gt; &#124; <a class="type-ref" href="#CompletionList">CompletionList</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CompletionList">CompletionList</a>&gt;</span></td><td><div class="comment"><p>An array of completions, a <a href="#CompletionList">completion list</a>, or a thenable that resolves to either.
 The lack of a result can be signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -2001,7 +2001,7 @@ The lack of a result can be signaled by returning <code>undefined</code>, <code>
 
 
 
-<a name="CompletionItemProvider.resolveCompletionItem"></a><span class="ts" id=703 data-target="#details-703" data-toggle="collapse"><span class="ident">resolveCompletionItem</span><span>(</span><span class="ident">item</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CompletionItem">CompletionItem</a>&gt;</span>
+<a name="CompletionItemProvider.resolveCompletionItem"></a><span class="ts" id=703 data-target="#details-703" data-toggle="collapse"><span class="ident">resolveCompletionItem</span><span>(</span><span class="ident">item</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CompletionItem">CompletionItem</a>&gt;</span>
 <div class="details collapse" id="details-703">
 <div class="comment"><p>Given a completion item fill in more data, like <a href="#CompletionItem.documentation">doc-comment</a>
 or <a href="#CompletionItem.detail">details</a>.</p>
@@ -2015,7 +2015,7 @@ or <a href="#CompletionItem.detail">details</a>.</p>
 <tr><td><a name="token"></a><span class="ts" id=705 data-target="#details-705" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#CompletionItem">CompletionItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#CompletionItem">CompletionItem</a>&gt;</span></td><td><div class="comment"><p>The resolved completion item or a thenable that resolves to of such. It is OK to return the given
+<tr><td><span class="ts"><a class="type-ref" href="#CompletionItem">CompletionItem</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#CompletionItem">CompletionItem</a>&gt;</span></td><td><div class="comment"><p>The resolved completion item or a thenable that resolves to of such. It is OK to return the given
 <code>item</code>. When no result is returned, the given <code>item</code> will be used.</p>
 </div></td></tr>
 </table>
@@ -2283,7 +2283,7 @@ and peek definition features.</p>
 
 
 
-<a name="DefinitionProvider.provideDefinition"></a><span class="ts" id=467 data-target="#details-467" data-toggle="collapse"><span class="ident">provideDefinition</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Definition">Definition</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Definition">Definition</a>&gt;</span>
+<a name="DefinitionProvider.provideDefinition"></a><span class="ts" id=467 data-target="#details-467" data-toggle="collapse"><span class="ident">provideDefinition</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Definition">Definition</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Definition">Definition</a>&gt;</span>
 <div class="details collapse" id="details-467">
 <div class="comment"><p>Provide the definition of the symbol at the given position and document.</p>
 </div>
@@ -2297,7 +2297,7 @@ and peek definition features.</p>
 <tr><td><a name="token"></a><span class="ts" id=470 data-target="#details-470" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Definition">Definition</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Definition">Definition</a>&gt;</span></td><td><div class="comment"><p>A definition or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#Definition">Definition</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Definition">Definition</a>&gt;</span></td><td><div class="comment"><p>A definition or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code> or <code>null</code>.</p>
 </div></td></tr>
 </table>
@@ -2647,7 +2647,7 @@ the formatting-feature.</p>
 
 
 
-<a name="DocumentFormattingEditProvider.provideDocumentFormattingEdits"></a><span class="ts" id=614 data-target="#details-614" data-toggle="collapse"><span class="ident">provideDocumentFormattingEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span>
+<a name="DocumentFormattingEditProvider.provideDocumentFormattingEdits"></a><span class="ts" id=614 data-target="#details-614" data-toggle="collapse"><span class="ident">provideDocumentFormattingEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span>
 <div class="details collapse" id="details-614">
 <div class="comment"><p>Provide formatting edits for a whole document.</p>
 </div>
@@ -2661,7 +2661,7 @@ the formatting-feature.</p>
 <tr><td><a name="token"></a><span class="ts" id=617 data-target="#details-617" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A set of text edits or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A set of text edits or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -2755,7 +2755,7 @@ the word-highlight-feature.</p>
 
 
 
-<a name="DocumentHighlightProvider.provideDocumentHighlights"></a><span class="ts" id=497 data-target="#details-497" data-toggle="collapse"><span class="ident">provideDocumentHighlights</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a>[]&gt;</span>
+<a name="DocumentHighlightProvider.provideDocumentHighlights"></a><span class="ts" id=497 data-target="#details-497" data-toggle="collapse"><span class="ident">provideDocumentHighlights</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a>[]&gt;</span>
 <div class="details collapse" id="details-497">
 <div class="comment"><p>Provide a set of document highlights, like all occurrences of a variable or
 all exit-points of a function.</p>
@@ -2770,7 +2770,7 @@ all exit-points of a function.</p>
 <tr><td><a name="token"></a><span class="ts" id=500 data-target="#details-500" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a>[]&gt;</span></td><td><div class="comment"><p>An array of document highlights or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a>[]&gt;</span></td><td><div class="comment"><p>An array of document highlights or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -2789,7 +2789,7 @@ the formatting-feature.</p>
 
 
 
-<a name="DocumentRangeFormattingEditProvider.provideDocumentRangeFormattingEdits"></a><span class="ts" id=620 data-target="#details-620" data-toggle="collapse"><span class="ident">provideDocumentRangeFormattingEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span>
+<a name="DocumentRangeFormattingEditProvider.provideDocumentRangeFormattingEdits"></a><span class="ts" id=620 data-target="#details-620" data-toggle="collapse"><span class="ident">provideDocumentRangeFormattingEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span>
 <div class="details collapse" id="details-620">
 <div class="comment"><p>Provide formatting edits for a range in a document.</p>
 <p>The given range is a hint and providers can decide to format a smaller
@@ -2808,7 +2808,7 @@ of the range to full syntax nodes.</p>
 <tr><td><a name="token"></a><span class="ts" id=624 data-target="#details-624" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A set of text edits or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A set of text edits or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -2845,7 +2845,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_goto-symb
 
 
 
-<a name="DocumentSymbolProvider.provideDocumentSymbols"></a><span class="ts" id=537 data-target="#details-537" data-toggle="collapse"><span class="ident">provideDocumentSymbols</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span>
+<a name="DocumentSymbolProvider.provideDocumentSymbols"></a><span class="ts" id=537 data-target="#details-537" data-toggle="collapse"><span class="ident">provideDocumentSymbols</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span>
 <div class="details collapse" id="details-537">
 <div class="comment"><p>Provide symbol information for the given document.</p>
 </div>
@@ -2857,7 +2857,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_goto-symb
 <tr><td><a name="token"></a><span class="ts" id=539 data-target="#details-539" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span></td><td><div class="comment"><p>An array of document highlights or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span></td><td><div class="comment"><p>An array of document highlights or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -3059,14 +3059,14 @@ to access this field before this extension has been activated.</p>
 
 
 
-<a name="Extension.activate"></a><span class="ts" id=845 data-target="#details-845" data-toggle="collapse"><span class="ident">activate</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
+<a name="Extension.activate"></a><span class="ts" id=845 data-target="#details-845" data-toggle="collapse"><span class="ident">activate</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span>
 <div class="details collapse" id="details-845">
 <div class="comment"><p>Activates this extension and returns its public API.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A promise that will resolve when this extension has been activated.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">T</a>&gt;</span></td><td><div class="comment"><p>A promise that will resolve when this extension has been activated.</p>
 </div></td></tr>
 </table>
 </div>
@@ -3349,7 +3349,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_hover">ho
 
 
 
-<a name="HoverProvider.provideHover"></a><span class="ts" id=480 data-target="#details-480" data-toggle="collapse"><span class="ident">provideHover</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Hover">Hover</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Hover">Hover</a>&gt;</span>
+<a name="HoverProvider.provideHover"></a><span class="ts" id=480 data-target="#details-480" data-toggle="collapse"><span class="ident">provideHover</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Hover">Hover</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Hover">Hover</a>&gt;</span>
 <div class="details collapse" id="details-480">
 <div class="comment"><p>Provide a hover for the given position and document. Multiple hovers at the same
 position will be merged by the editor. A hover can have a range which defaults
@@ -3365,7 +3365,7 @@ to the word range at the position when omitted.</p>
 <tr><td><a name="token"></a><span class="ts" id=483 data-target="#details-483" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Hover">Hover</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Hover">Hover</a>&gt;</span></td><td><div class="comment"><p>A hover or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#Hover">Hover</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Hover">Hover</a>&gt;</span></td><td><div class="comment"><p>A hover or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code> or <code>null</code>.</p>
 </div></td></tr>
 </table>
@@ -3673,7 +3673,7 @@ value (<code>undefined</code>) with the given key.</p>
 
 
 
-<a name="Memento.update"></a><span class="ts" id=864 data-target="#details-864" data-toggle="collapse"><span class="ident">update</span><span>(</span><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">value</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
+<a name="Memento.update"></a><span class="ts" id=864 data-target="#details-864" data-toggle="collapse"><span class="ident">update</span><span>(</span><span class="ident">key</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">value</span><span>: </span><a class="type-instrinct">any</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span>
 <div class="details collapse" id="details-864">
 <div class="comment"><p>Store a value. The value must be JSON-stringifyable.</p>
 </div>
@@ -3685,7 +3685,7 @@ value (<code>undefined</code>) with the given key.</p>
 <tr><td><a name="value"></a><span class="ts" id=866 data-target="#details-866" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-instrinct">any</a></span></td><td><div class="comment"><p>A value. MUST not contain cyclic references.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span></td><td><div class="comment"></div></td></tr>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">void</a>&gt;</span></td><td><div class="comment"></div></td></tr>
 </table>
 </div>
 </div>
@@ -3762,7 +3762,7 @@ the formatting-feature.</p>
 
 
 
-<a name="OnTypeFormattingEditProvider.provideOnTypeFormattingEdits"></a><span class="ts" id=627 data-target="#details-627" data-toggle="collapse"><span class="ident">provideOnTypeFormattingEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">ch</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span>
+<a name="OnTypeFormattingEditProvider.provideOnTypeFormattingEdits"></a><span class="ts" id=627 data-target="#details-627" data-toggle="collapse"><span class="ident">provideOnTypeFormattingEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">ch</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">options</span><span>: </span><a class="type-ref" href="#FormattingOptions">FormattingOptions</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span>
 <div class="details collapse" id="details-627">
 <div class="comment"><p>Provide formatting edits after a character has been typed.</p>
 <p>The given position and character should hint to the provider
@@ -3783,7 +3783,7 @@ when <code>}</code> has been entered.</p>
 <tr><td><a name="token"></a><span class="ts" id=632 data-target="#details-632" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A set of text edits or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#TextEdit">TextEdit</a>[]&gt;</span></td><td><div class="comment"><p>A set of text edits or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -4532,7 +4532,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_peek">fin
 
 
 
-<a name="ReferenceProvider.provideReferences"></a><span class="ts" id=549 data-target="#details-549" data-toggle="collapse"><span class="ident">provideReferences</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">context</span><span>: </span><a class="type-ref" href="#ReferenceContext">ReferenceContext</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Location">Location</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Location">Location</a>[]&gt;</span>
+<a name="ReferenceProvider.provideReferences"></a><span class="ts" id=549 data-target="#details-549" data-toggle="collapse"><span class="ident">provideReferences</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">context</span><span>: </span><a class="type-ref" href="#ReferenceContext">ReferenceContext</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#Location">Location</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Location">Location</a>[]&gt;</span>
 <div class="details collapse" id="details-549">
 <div class="comment"><p>Provide a set of project-wide references for the given position and document.</p>
 </div>
@@ -4547,7 +4547,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_peek">fin
 <tr><td><a name="token"></a><span class="ts" id=553 data-target="#details-553" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Location">Location</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#Location">Location</a>[]&gt;</span></td><td><div class="comment"><p>An array of locations or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#Location">Location</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#Location">Location</a>[]&gt;</span></td><td><div class="comment"><p>An array of locations or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
@@ -4566,7 +4566,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_rename-sy
 
 
 
-<a name="RenameProvider.provideRenameEdits"></a><span class="ts" id=602 data-target="#details-602" data-toggle="collapse"><span class="ident">provideRenameEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">newName</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a>&gt;</span>
+<a name="RenameProvider.provideRenameEdits"></a><span class="ts" id=602 data-target="#details-602" data-toggle="collapse"><span class="ident">provideRenameEdits</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">newName</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a>&gt;</span>
 <div class="details collapse" id="details-602">
 <div class="comment"><p>Provide an edit that describes changes that have to be made to one
 or many resources to rename a symbol to a different name.</p>
@@ -4583,7 +4583,7 @@ or many resources to rename a symbol to a different name.</p>
 <tr><td><a name="token"></a><span class="ts" id=606 data-target="#details-606" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a>&gt;</span></td><td><div class="comment"><p>A workspace edit or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#WorkspaceEdit">WorkspaceEdit</a>&gt;</span></td><td><div class="comment"><p>A workspace edit or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code> or <code>null</code>.</p>
 </div></td></tr>
 </table>
@@ -4853,7 +4853,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_parameter
 
 
 
-<a name="SignatureHelpProvider.provideSignatureHelp"></a><span class="ts" id=654 data-target="#details-654" data-toggle="collapse"><span class="ident">provideSignatureHelp</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#SignatureHelp">SignatureHelp</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#SignatureHelp">SignatureHelp</a>&gt;</span>
+<a name="SignatureHelpProvider.provideSignatureHelp"></a><span class="ts" id=654 data-target="#details-654" data-toggle="collapse"><span class="ident">provideSignatureHelp</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#SignatureHelp">SignatureHelp</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#SignatureHelp">SignatureHelp</a>&gt;</span>
 <div class="details collapse" id="details-654">
 <div class="comment"><p>Provide help for the signature at the given position and document.</p>
 </div>
@@ -4867,7 +4867,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_parameter
 <tr><td><a name="token"></a><span class="ts" id=657 data-target="#details-657" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#SignatureHelp">SignatureHelp</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#SignatureHelp">SignatureHelp</a>&gt;</span></td><td><div class="comment"><p>Signature help or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#SignatureHelp">SignatureHelp</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#SignatureHelp">SignatureHelp</a>&gt;</span></td><td><div class="comment"><p>Signature help or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code> or <code>null</code>.</p>
 </div></td></tr>
 </table>
@@ -5487,14 +5487,14 @@ document are not reflected.</p>
 
 
 
-<a name="TextDocument.save"></a><span class="ts" id=108 data-target="#details-108" data-toggle="collapse"><span class="ident">save</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
+<a name="TextDocument.save"></a><span class="ts" id=108 data-target="#details-108" data-toggle="collapse"><span class="ident">save</span><span>(</span><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
 <div class="details collapse" id="details-108">
 <div class="comment"><p>Save the underlying file.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A promise that will resolve to true when the file
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A promise that will resolve to true when the file
 has been saved.</p>
 </div></td></tr>
 </table>
@@ -5621,7 +5621,7 @@ asked.</p>
 
 
 
-<a name="TextDocumentContentProvider.provideTextDocumentContent"></a><span class="ts" id=408 data-target="#details-408" data-toggle="collapse"><span class="ident">provideTextDocumentContent</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
+<a name="TextDocumentContentProvider.provideTextDocumentContent"></a><span class="ts" id=408 data-target="#details-408" data-toggle="collapse"><span class="ident">provideTextDocumentContent</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span>
 <div class="details collapse" id="details-408">
 <div class="comment"><p>Provide textual content for a given uri.</p>
 <p>The editor will use the returned string-content to create a readonly
@@ -5636,7 +5636,7 @@ the corresponding document has been <a href="#workbench.onDidCloseTextDocument">
 <tr><td><a name="token"></a><span class="ts" id=410 data-target="#details-410" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A string or a thenable that resolves to such.</p>
+<tr><td><span class="ts"><a class="type-instrinct">string</a> &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">string</a>&gt;</span></td><td><div class="comment"><p>A string or a thenable that resolves to such.</p>
 </div></td></tr>
 </table>
 </div>
@@ -5803,7 +5803,7 @@ isn&#39;t one of the three main editors, e.g an embedded editor.</p>
 
 
 
-<a name="TextEditor.edit"></a><span class="ts" id=300 data-target="#details-300" data-toggle="collapse"><span class="ident">edit</span><span>(</span><span class="ident">callback</span><span>: </span>(editBuilder: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
+<a name="TextEditor.edit"></a><span class="ts" id=300 data-target="#details-300" data-toggle="collapse"><span class="ident">edit</span><span>(</span><span class="ident">callback</span><span>: </span>(editBuilder: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a><span>)</span><span>: </span><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span>
 <div class="details collapse" id="details-300">
 <div class="comment"><p>Perform an edit on the document associated with this text editor.</p>
 <p>The given callback-function is invoked with an <a href="#TextEditorEdit">edit-builder</a> which must
@@ -5816,7 +5816,7 @@ callback executes.</p>
 <tr><td><a name="callback"></a><span class="ts" id=301 data-target="#details-301" data-toggle="collapse"><span class="ident">callback</span><span>: </span>(editBuilder: <a class="type-ref" href="#TextEditorEdit">TextEditorEdit</a>) =&gt; <a class="type-instrinct">void</a></span></td><td><div class="comment"><p>A function which can make edits using an <a href="#TextEditorEdit">edit-builder</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves with a value indicating if the edits could be applied.</p>
+<tr><td><span class="ts"><a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-instrinct">boolean</a>&gt;</span></td><td><div class="comment"><p>A promise that resolves with a value indicating if the edits could be applied.</p>
 </div></td></tr>
 </table>
 </div>
@@ -6735,7 +6735,7 @@ the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_open-symb
 
 
 
-<a name="WorkspaceSymbolProvider.provideWorkspaceSymbols"></a><span class="ts" id=542 data-target="#details-542" data-toggle="collapse"><span class="ident">provideWorkspaceSymbols</span><span>(</span><span class="ident">query</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span>
+<a name="WorkspaceSymbolProvider.provideWorkspaceSymbols"></a><span class="ts" id=542 data-target="#details-542" data-toggle="collapse"><span class="ident">provideWorkspaceSymbols</span><span>(</span><span class="ident">query</span><span>: </span><a class="type-instrinct">string</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span>
 <div class="details collapse" id="details-542">
 <div class="comment"><p>Project-wide search for a symbol matching the given query string. It is up to the provider
 how to search given the query string, like substring, indexOf etc.</p>
@@ -6748,7 +6748,7 @@ how to search given the query string, like substring, indexOf etc.</p>
 <tr><td><a name="token"></a><span class="ts" id=544 data-target="#details-544" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
-<tr><td><span class="ts"><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[] &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span></td><td><div class="comment"><p>An array of document highlights or a thenable that resolves to such. The lack of a result can be
+<tr><td><span class="ts"><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[] &#124; <a class="type-ref" href="https://code.visualstudio.com/docs/extensionAPI/patterns-and-principles#_promises">Thenable</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span></td><td><div class="comment"><p>An array of document highlights or a thenable that resolves to such. The lack of a result can be
 signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
 </div></td></tr>
 </table>
