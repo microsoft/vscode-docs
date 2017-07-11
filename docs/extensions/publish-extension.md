@@ -50,13 +50,13 @@ The publishing tool checks the following constraints:
 
 Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
 
-`vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/en-us/news/2015-jul-7-vso.aspx). You need to create at least one in order to publish an extension.
+`vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/en-us/articles/news/2015/jul-07-team-services). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
 First, make sure you have a [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) account.
 
-In the following examples, the account name is `monacotools`. From your account's home page (eg: `https://monacotools.visualstudio.com`), go to the **Security** page:
+In the following examples, the account name is `monacotools`. From your account's home page (e.g.: `https://monacotools.visualstudio.com`), go to the **Security** page:
 
 ![Security page](images/publish-extension/publishers1.png)
 
@@ -82,7 +82,7 @@ vsce create-publisher (publisher name)
 
 `vsce` will remember the provided Personal Access Token for future references to this publisher.
 
-**Note:** Alternatively, create your publisher in https://marketplace.visualstudio.com/manage and login in `vsce`, as described in the next section.
+**Note:** Alternatively, create your publisher in [manage page](https://marketplace.visualstudio.com/manage) and login in `vsce`, as described in the next section.
 
 ### Login to a Publisher
 
@@ -142,7 +142,7 @@ This will package your extension into a `.vsix` file and place it in the current
 
 If you want to share your extension with others privately, you can send them your packaged extension `.vsix` file.
 
-## Visual Studio Code Compatiblity
+## Visual Studio Code Compatibility
 
 When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can done via the `engine.vscode` field inside `package.json`:
 
@@ -154,11 +154,9 @@ When authoring an extension, you will need to describe what is the extension's c
 }
 ```
 
-A value of `1.8.0` means that your extension is compatible only with VS Code `1.8.0`. A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and
-onwards, including `1.8.1`, `1.9.0`, etc.
+A value of `1.8.0` means that your extension is compatible only with VS Code `1.8.0`. A value of `^1.8.0` means that your extension is compatible with VS Code `1.8.0` and onwards, including `1.8.1`, `1.9.0`, etc.
 
-You can use the `engine.vscode` field to make sure the extension only gets installed for clients which contain the API you depend on. This mechanism plays well with the
-Stable release as well as the Insiders one.
+You can use the `engine.vscode` field to make sure the extension only gets installed for clients which contain the API you depend on. This mechanism plays well with the Stable release as well as the Insiders one.
 
 For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version which benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
 
