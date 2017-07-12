@@ -180,3 +180,15 @@ If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack exam
 ### React
 
 [React](https://facebook.github.io/react/) is another popular web framework. If you'd like to see an example of React working with VS Code, check out the [Using React in VS Code](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+
+## Angular Extensions
+
+In addition to the functionality VS Code provides out of the box, you can install VS Code extensions for greater functionality.
+
+<div class="marketplace-extensions-angular-curated"></div>
+
+> Tip: Click on an extension tile above to read the description and reviews. See more in the [Marketplace](https://marketplace.visualstudio.com).
+
+To find other Angular extensions, open the Extensions view (kb`(workbench.view.extensions)) and type "angular" to see a filtered list of Angular extensions.
+
+The community has also created "Extension Packs" which bundle useful extensions together (for example, a linter, debugger, snippets, and color theme) into a single download. To see available Angular extension packs, add the "extension packs" category to your filter ("angular @category:"extension packs")
