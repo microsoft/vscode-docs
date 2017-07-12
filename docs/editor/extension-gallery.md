@@ -37,7 +37,7 @@ If an extension is an Extension Pack, the **Dependencies** section will display 
 
 ![extension dependencies](images/extension-gallery/extension-dependencies.png)
 
-**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) for details.
+**Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
 
 By clicking on the Extensions view's `...` **More** button, it is possible to show:
 
@@ -192,4 +192,4 @@ Once you've downloaded an extension, you can side load it by renaming the `.zip`
 
 **Q: Whenever I try to install any extension, I get a connect ETIMEDOUT error.**
 
-**A:** You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy Server Support](/docs/setup/setup-overview.md#proxy-server-support) section in SETUP topic for details.
+**A:** You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in SETUP topic for details.

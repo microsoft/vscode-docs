@@ -7,11 +7,11 @@ PageTitle: Setup Visual Studio Code's Network Connection
 DateApproved: 6/8/2017
 MetaDescription: Setup VS Code's Network Connection.
 ---
-# Networking in Visual Studio Code
+# Network Connections in Visual Studio Code
 
 Visual Studio Code is built on top of [Electron](https://electron.atom.io/) and benefits from all the networking stack capabilities of [Chromium](https://www.chromium.org/). This also means that VS Code users get much of the networking support available in [Google Chrome](https://www.google.com/chrome/index.html).
 
-## Common Hostnames
+## Common hostnames
 
 A handful of features within VS Code require network communication to work, such as the auto-update mechanism, querying and installing extensions, and telemetry. For these features to work properly in a proxy environment, you must have the product correctly configured.
 
@@ -22,9 +22,9 @@ If you are behind a firewall which needs to whitelist domains used by VS Code, h
 * marketplace.visualstudio.com
 * rink.hockeyapp.net
 
-## Proxy Support
+## Proxy server support
 
-VS Code has exactly the same proxy support as Google Chromium. Here's a snippet from [Chromium's documentation](https://www.chromium.org/developers/design-documents/network-settings):
+VS Code has exactly the same proxy server support as Google Chromium. Here's a snippet from [Chromium's documentation](https://www.chromium.org/developers/design-documents/network-settings):
 
 ```
 "The Chromium network stack uses the system network settings so that users and administrators can control the network settings of all applications easily. The network settings include:
@@ -55,7 +55,7 @@ Otherwise, you can use the following command line arguments to control your prox
 
 [Click here](https://www.chromium.org/developers/design-documents/network-settings) to know more about these command line arguments.
 
-### Authenticated Proxies
+### Authenticated proxies
 
 Authenticated proxies should work seamlessly within VS Code with the addition of [PR #22369](https://github.com/Microsoft/vscode/pull/22369).
 
@@ -80,9 +80,9 @@ Often HTTPS proxies rewrite SSL certificates of the incoming requests. Chromium 
 
 * Since Chromium simply uses the OS's certificate trust infrastructure, the preferred option is to add your proxy's certificate to your OS's trust chain. [Click here](https://www.chromium.org/Home/chromium-security/root-ca-policy) to read more about the Root Certificate Policy in Chromium.
 * If your proxy runs in `localhost`, you can always try the [`--allow-insecure-localhost`](https://peter.sh/experiments/chromium-command-line-switches/#allow-insecure-localhost) command line flag.
-* If all else fails, you can tell VS Code to ignore all certificate errors using the [`--ignore-certificate-errors`](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command line flag. **_Warning:_** This is **dangerous** and **not recommended**, since it opens the door to security issues.
+* If all else fails, you can tell VS Code to ignore all certificate errors using the [`--ignore-certificate-errors`](https://peter.sh/experiments/chromium-command-line-switches/#ignore-certificate-errors) command line flag. **Warning:** This is **dangerous** and **not recommended**, since it opens the door to security issues.
 
-## Legacy Proxy Support
+## Legacy proxy server support
 
 Extensions don't benefit yet from the same proxy support that VS Code supports. You can follow this issue's development in [GitHub](https://github.com/Microsoft/vscode/issues/12588).
 
