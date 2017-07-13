@@ -72,6 +72,10 @@ Extensions can be written in either TypeScript or JavaScript.  VS Code offers a 
 
 We also have great support for [writing and running tests](/docs/extensions/testing-extensions.md) for your extension.  You can easily create integration tests which call the VS Code APIs and test your code in a running VS Code instance.
 
+## Extension Ideas
+
+Lots of great community ideas for VS Code features are better implemented as extensions rather than as part of the core product. This way users can easily pick and choose the functionality they want, by installing the right set of extensions. The VS Code team tracks possible extensions as GitHub issues labeled `extension candidate` in the [vscode repository](https://github.com/Microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Aextension-candidate). If you're looking for an idea of a great extension to build, have a look at the `extension candidate` issues.
+
 ## Next Steps
 
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
