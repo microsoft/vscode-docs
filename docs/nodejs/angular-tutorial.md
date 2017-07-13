@@ -187,10 +187,10 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 <div class="marketplace-extensions-angular-curated"></div>
 
-> Tip: Click on an extension tile above to read the description and reviews on the [Marketplace](https://marketplace.visualstudio.com).
+Click on an extension tile above to read the description and reviews on the [Marketplace](https://marketplace.visualstudio.com).
 
-To find other Angular extensions, open the Extensions view (kb`(workbench.view.extensions)`) and type 'angular' to see a filtered list of Angular extensions.
+To find other Angular extensions, open the Extensions view (`kb(workbench.view.extensions)`) and type 'angular' to see a filtered list of Angular extensions.
 
 ![angular extensions](images/angular/angular-extensions.png)
 
-The community has also created "Extension Packs" which bundle useful extensions together (for example, a linter, debugger, snippets, and color theme) into a single download. To see available Angular extension packs, add the "extension packs" category to your filter (angular @category:"extension packs").
+The community has also created "Extension Packs" which bundle useful extensions together (for example, a linter, debugger, and snippets) into a single download. To see available Angular extension packs, add the "extension packs" category to your filter (angular @category:"extension packs").
