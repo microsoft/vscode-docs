@@ -90,7 +90,12 @@ Option  | Description
 `baseUrl`|Base directory to resolve non-relative module names.
 `paths`|Specify path mapping to be computed relative to baseUrl option.
 
-> **Tip:** For Intellisense to work with webpack aliases you need to specify the paths keys with `glob`. For example for alias 'ClientApp'
+## Using webpack aliases
+
+For IntelliSense to work with webpack aliases, you need to specify the `paths` keys with a glob pattern.
+
+For example, for alias 'ClientApp':
+
 ```json
 {
   "compilerOptions": {
@@ -101,7 +106,9 @@ Option  | Description
   }
 }
 ```
->and then to use the alias
+
+and then to use the alias
+
 ```js
 import Something from 'ClientApp/foo'
 ```
