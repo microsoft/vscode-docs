@@ -12,8 +12,8 @@ MetaDescription: How extensions can extend VS Code's built-in markdown preview.
 
 Markdown extensions allow you to extend and enhance VS Code's built-in markdown preview. This includes changing the look of the preview or adding support for new markdown syntax.
 
-## Changing the look of the markdown preview using css
-Extensions can contribute css to change the look or layout of the markdown preview. Styles are registered using the `markdown.previewStyles` contribution in your extension's `package.json`:
+## Changing the look of the markdown preview with css
+Extensions can contribute css to change the look or layout of the markdown preview. Stylesheets are registered using the `markdown.previewStyles` contribution in your extension's `package.json`:
 
 ```json
 "contributes": {
@@ -23,7 +23,7 @@ Extensions can contribute css to change the look or layout of the markdown previ
 }
 ```
 
-`"markdown.previewStyles"` is a list of files relative to the extension root.
+`"markdown.previewStyles"` is a list of files relative to the extension's root folder.
 
 Contributed styles are added after the built-in markdown preview styles but before a user's `"markdown.styles"`.
 
