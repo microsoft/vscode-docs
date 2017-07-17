@@ -27,6 +27,7 @@ Topic|Description
 **[API complex commands](/docs/extensionAPI/vscode-api-commands.md)**|See the VS Code complex command API reference.
 **[Debugging API](/docs/extensionAPI/api-debugging.md)**|Learn the details about integrating debuggers into VS Code.
 **[API samples](https://github.com/Microsoft/vscode-extension-samples)**|Sample code illustrating the VS Code extension API.
+**[Markdown extensions API](/docs/extensionAPI/api-markdown.md)**|Sample code illustrating the VS Code extension API.
 
 ## Language Extension Guidelines
 
