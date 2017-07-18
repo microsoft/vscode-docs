@@ -337,15 +337,17 @@ The Status Bar is shown in the bottom of the workbench.
 
 - `statusBar.background`: Standard Status Bar background color.
 - `statusBar.foreground`: Status Bar foreground color.
+- `statusBar.border`: Status Bar border color separating the Status Bar and editor.
 - `statusBar.debuggingBackground`: Status Bar background color when a program is being debugged.
 - `statusBar.debuggingForeground`: Status Bar foreground color when a program is being debugged.
+- `statusBar.debuggingBorder`: Status Bar border color separating the Status Bar and editor when a program is being debugged.
 - `statusBar.noFolderForeground`: Status Bar foreground color when no folder is opened.
 - `statusBar.noFolderBackground`: Status Bar background color when no folder is opened. 
+- `statusBar.noFolderBorder`: Status Bar border color separating the Status Bar and editor when no folder is opened.
 - `statusBarItem.activeBackground`: Status Bar item background color when clicking.
 - `statusBarItem.hoverBackground`: Status Bar item background color when hovering.
 - `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance.
-- `statusBar.border`: Status Bar border color separating the Status Bar and editor.
 
 ## Title Bar Colors (macOS)
 
