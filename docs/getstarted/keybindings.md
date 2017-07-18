@@ -170,6 +170,8 @@ Key|Command|Command id
 `kb(workbench.action.moveEditorRightInGroup)`| Move Editor Right |`workbench.action.moveEditorRightInGroup`
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
 `kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
+`kb(workbench.action.moveEditorToNextGroup)`|Move Editor into Next Group|`workbench.action.moveEditorToNextGroup`
+`kb(workbench.action.moveEditorToPreviousGroup)`|Move Editor into Previous Group|`workbench.action.moveEditorToPreviousGroup`
 
 ### File Management
 
