@@ -51,6 +51,21 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe"
 ```
 
+
+#### [Cmder](http://cmder.net/)
+Create a `vscode.bat` file in your cmder path with the following contents:
+```bat
+@echo off
+SET CMDER_ROOT=C:\cmder (your path to cmder)
+"%CMDER_ROOT%\vendor\init.bat"
+```
+
+Then in your vscode settings add the following to your settings.json
+```json
+"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
+"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
+```
+
 >**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr`  can be redirected.
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
