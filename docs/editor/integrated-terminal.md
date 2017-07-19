@@ -7,7 +7,6 @@ PageTitle: Integrated Terminal in Visual Studio Code
 DateApproved: 7/10/2017
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
-
 # Integrated Terminal
 
 In Visual Studio Code, you can open an integrated terminal, initially starting at the root of your workspace. This can be very convenient as you don't have to switch windows or alter the state of an existing terminal to perform a quick command line task.
@@ -49,21 +48,6 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 // Bash on Ubuntu (on Windows)
 "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe"
-```
-
-
-#### [Cmder](http://cmder.net/)
-Create a `vscode.bat` file in your cmder path with the following contents:
-```bat
-@echo off
-SET CMDER_ROOT=C:\cmder (your path to cmder)
-"%CMDER_ROOT%\vendor\init.bat"
-```
-
-Then in your vscode settings add the following to your settings.json
-```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
-"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
 ```
 
 >**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr`  can be redirected.
@@ -135,9 +119,24 @@ If no text is selected in the active editor, the entire file contents is run in 
 
 The keybindings for copy and paste follow platform standards:
 
-- Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`
-- Mac: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
-- Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
+* Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`
+* Mac: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
+* Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
+
+### Find
+
+The Integrated Terminal has basic find functionality which can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
+
+If you want `Ctrl+F` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
+
+```js
+{ "key": "ctrl+f", "command": "-workbench.action.terminal.focusFindWidget",
+                      "when": "terminalFocus" },
+```
+
+### Rename terminal sessions
+
+Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection drop-down.
 
 ### Forcing key bindings to pass through the terminal
 
@@ -152,3 +151,22 @@ Currently the terminal consumes many key bindings, preventing Visual Studio Code
 ### Integrated terminal exited with code 1 on Windows 10
 
 This can happen if you run VS Code in compatibility mode which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
+
+### Can I use Cmder with the terminal on Windows?
+
+Yes, to use the [Cmder](http://cmder.net/) console emulator in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents:
+
+```bat
+@echo off
+SET CMDER_ROOT=C:\cmder (your path to cmder)
+"%CMDER_ROOT%\vendor\init.bat"
+```
+
+then in your VS Code user settings, add the following to your `settings.json` file:
+
+```json
+"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
+"terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
+```
+
+Note: The example above assumes you are running 32 bit VS Code on 64 bit Windows and need to use `sysnative`. If you are running the 64 bit version of VS Code, you would use `System32`.
