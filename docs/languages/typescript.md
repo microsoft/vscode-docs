@@ -31,7 +31,7 @@ tsc --version
 tsc --help
 ```
 
->**Note:** TypeScript may be included with other tools you have installed on your computer such as Visual Studio Community edition with the Node.js development workload.
+Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
 
 ## TypeScript Files and Projects
 
@@ -97,6 +97,7 @@ Under the covers, we run the TypeScript compiler as a task. The command we use i
 ### Step 3: Make the TypeScript Build the default
 
 You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select the TypeScript one which generates the following `tasks.json` file:
+
 ```ts
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
@@ -119,7 +120,7 @@ The example TypeScript file did not have any compile problems, so by running the
 
 If you have [Node.js](https://nodejs.org) installed, you can run your simple Hello World example by opening up a terminal and running:
 
-```
+```bash
 node HelloWorld.js
 ```
 
@@ -195,25 +196,13 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 >**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
 
-## Using Newer TypeScript Versions
+## Using newer TypeScript versions
 
-VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. The active version of the TypeScript language service is displayed in the Status Bar when viewing a TypeScript or JavaScript file:
+VS Code ships with a recent stable version of the TypeScript language service and the active version of the TypeScript language service is displayed in the Status Bar when viewing a TypeScript or JavaScript file:
 
 ![TypeScript status bar version](images/typescript/status-bar-version.png)
 
-When VS Code detects that the TypeScript compiler (tsc) version is different than the active TypeScript language service version, a message is displayed "Using TypeScript (2.4.1) for editor features. TypeScript (2.2.1) is installed globally on your machine. Errors in VS Code may differ from TSC errors". This message is benign and is meant to alert the user to the possible differences between the compiler error output and errors detected by the active language service.
-
-You can disable this check with the `typescript.check.tscVersion` user or workspace [setting](/docs/getstarted/settings.md). This will be set to false in your user settings if you click the **Don't Check Again** in the message banner.
-
-```json
-  "typescript.check.tscVersion": false
-```
-
-Another option is to install the matching version of TypeScript in your workspace (`npm install --save-dev typescript`) or globally on your computer (`npm install -g typescript`). We recommend installing TypeScript locally to avoid possible interactions with other TypeScript projects you may have.
-
->**Tip:** To get a specific TypeScript version, specify `@version`. For example for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
-
-As VS Code updates the TypeScript language service in subsequent releases, you may see the mismatch message again and want to refresh your installed version of TypeScript.
+>**Tip:** To get a specific TypeScript version, specify `@version` during npm install. For example for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
 
 To use a different TypeScript version by default, configure `typescript.tsdk` in your user settings to point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
 
@@ -232,6 +221,8 @@ You can also configure a specific version of TypeScript in a particular workspac
    "typescript.tsdk": "./node_modules/typescript/lib"
 }
 ```
+
+### Using the workspace version of TypeScript
 
 If your workspace has a specific TypeScript version, you can switch between the workspace version of TypeScript and the version that VS Code uses by default by opening a TypeScript or JavaScript file in the workspace and clicking on the TypeScript version number in the Status Bar. A message box will appear asking you which version of TypeScript VS Code should use:
 
@@ -276,6 +267,10 @@ OK, read on to find out about:
 **A**: If you get that error, resolve it by creating a `tsconfig.json` file in the root folder of your project. The tsconfig.json file lets you control how Visual Studio Code compiles your TypeScript code. For more information, see the [tsconfig.json overview](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 Due to a current limitation, you must restart VS Code after adding the `tsconfig.json` file.
+
+**Q: Why do I get different errors and warnings with VS Code than when I compile my TypeScript project?**
+
+VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. For that reason, you may see differences between your compiler output and errors detected by the active TypeScript language service. See [Using newer TypeScript versions](/docs/languages/typescript.md#using-newer-typescript-versions) for details on installing a matching TypeScript version.
 
 **Q: Can I use the version of TypeScript that ships with VS 2015?**
 
