@@ -92,7 +92,7 @@ Note that 32-bit and .tar.gz binaries are are also available on the [download pa
 
 ## Updates
 
-VS Code ships monthly and you can see when a new release is available by checking [Updates](/updates). If the VS Code repository was installed corrected then your system package manager should handle auto-updating in the same way as other packages on the system.
+VS Code ships monthly and you can see when a new release is available by checking [Updates](/updates). If the VS Code repository was installed correctly, then your system package manager should handle auto-updating in the same way as other packages on the system.
 
 ## Node.js
 

@@ -10,22 +10,42 @@ MetaSocialImage: typescript_Languages_typescript.png
 ---
 # Editing TypeScript
 
-TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
-It offers classes, modules, and interfaces to help you build robust components. A language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
+[TypeScript](https://typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The TypeScript language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
 
 ![TypeScript language within VS Code](images/typescript/typescript_hero.png)
 
+## Installing the TypeScript compiler
+
+Visual Studio Code includes TypeScript language support but does not include the TypeScript compiler, `tsc`. You will need to install the TypeScript compiler either globally or in your workspace to transpile TypeScript source code to JavaScript (`tsc HelloWorld.ts`).
+
+The easiest way to install TypeScript is through npm, the [Node.js Package Manager](https://www.npmjs.com/). If you have npm installed, you can install TypeScript globally (`-g`) on your computer by:
+
+```bash
+npm install -g typescript
+```
+
+You can test your install by checking the version or help.
+
+```bash
+tsc --version
+tsc --help
+```
+
+>**Note:** TypeScript may be included with other tools you have installed on your computer such as Visual Studio Community edition with the Node.js development workload.
+
+## TypeScript Files and Projects
+
 VS Code's TypeScript support can operate in two different modes:
 
-* **File Scope**: in this mode TypeScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.ts` doesn't reference a file `b.ts` explicitly (either using [/// reference directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or external modules) there is no common project context between the two files.
+* **File Scope**: In this mode, TypeScript files opened in Visual Studio Code are treated as independent units. As long as a file `a.ts` doesn't reference a file `b.ts` explicitly (either using [/// reference directives](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html) or external modules), there is no common project context between the two files.
 
-* **Explicit Project**: a TypeScript project is defined via a `tsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a TypeScript project. The file itself lists the files belonging to the project as well as compiler options. Details about the `tsconfig.json` file can be found [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+* **Explicit Project**: A TypeScript project is defined via a `tsconfig.json` file. The presence of such a file in a directory indicates that the directory is the root of a TypeScript project. The file itself lists the files belonging to the project as well as compiler options. Details about the `tsconfig.json` file can be found [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 >**Tip:** We recommend that you use explicit projects over file scope projects. Since explicit projects list the files belonging to a project language, features like `Find All References` `kb(editor.action.referenceSearch.trigger)` consider the project scope and not the file scope only.
 
 ## tsconfig.json
 
-Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file.  This defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the compiler options and the files that should be included.  To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`.  Once in this file, IntelliSense will help you along the way.
+Typically the first step in any new TypeScript project is to add in a `tsconfig.json` file.  This defines the TypeScript [project settings](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) such as the compiler options and the files that should be included. To do this, open up the folder where you want to store your source and add in a new file named `tsconfig.json`.  Once in this file, IntelliSense (`kb(editor.action.triggerSuggest)`) will help you along the way.
 
 ![jsconfig.json IntelliSense](images/typescript/jsconfigintellisense.png)
 
@@ -64,13 +84,13 @@ Startup.main();
 
 ### Step 2: Run the TypeScript Build
 
-Execute **Run Build Task...** from the global **Tasks** menu. This should present the following picker:
+Execute **Run Build Task...** from the global **Tasks** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
 
 ![TypeScript Build](images/typescript/typescript-build.png)
 
 Select the entry. This will produce a `HelloWorld.js` and `HelloWorld.js.map` file in the workspace.
 
-Under the covers we run the TypeScript compiler as a task. The command we use is: `tsc -p .`
+Under the covers, we run the TypeScript compiler as a task. The command we use is: `tsc -p .`
 
 >**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](https://www.typescriptlang.org/).
 
@@ -103,7 +123,7 @@ If you have [Node.js](https://nodejs.org) installed, you can run your simple Hel
 node HelloWorld.js
 ```
 
-> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging node apps in VS Code can be found [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
+> **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
 
 ### Step 4: Reviewing Build Issues
 
@@ -111,7 +131,7 @@ Unfortunately, most builds don't go that smoothly and the result is often some a
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the terminal window (which can be opened using `kb(workbench.action.output.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view dropdown.  We parse this output for you and highlight detected problems in the Status Bar.
+This would show up in the terminal window (which can be opened using `kb(workbench.action.terminal.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view drop-down. We parse this output for you and highlight detected problems in the Status Bar.
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 
@@ -150,7 +170,7 @@ In-lined source maps (a source map where the content is stored as a data URL ins
 
 If generated (transpiled) JavaScript files do not live next to their source, you can help the VS Code debugger locate them by setting the `outFiles` attribute in the launch configuration. Whenever you set a breakpoint in the original source, VS Code tries to find the generated source by searching the files specified by glob patterns in `outFiles`.
 
-## Hiding Derived JavaScript Files
+## Hiding derived JavaScript files
 
 When you are working with TypeScript, you often don’t want to see generated JavaScript files in the explorer or in search results. VS Code offers filtering capabilities with a `files.exclude` [workspace setting](/docs/getstarted/settings.md) (**File** > **Preferences** > **Settings**) and you can easily create an expression to hide those derived files:
 
@@ -181,7 +201,7 @@ VS Code ships with a recent stable version of the TypeScript language service an
 
 ![TypeScript status bar version](images/typescript/status-bar-version.png)
 
-When VS Code detects that the TypeScript compiler (tsc) version is different than the active TypeScript language service version, a message is displayed "Version mismatch! global tsc (2.1.5) != VS Code's language service (2.2.1). Inconsistent compiler errors might occur". This message is benign and is meant to alert the user to the possible differences between the compiler and active language service.
+When VS Code detects that the TypeScript compiler (tsc) version is different than the active TypeScript language service version, a message is displayed "Using TypeScript (2.4.1) for editor features. TypeScript (2.2.1) is installed globally on your machine. Errors in VS Code may differ from TSC errors". This message is benign and is meant to alert the user to the possible differences between the compiler error output and errors detected by the active language service.
 
 You can disable this check with the `typescript.check.tscVersion` user or workspace [setting](/docs/getstarted/settings.md). This will be set to false in your user settings if you click the **Don't Check Again** in the message banner.
 
@@ -189,7 +209,7 @@ You can disable this check with the `typescript.check.tscVersion` user or worksp
   "typescript.check.tscVersion": false
 ```
 
-Another option is to install the matching version of TypeScript in your workspace (`npm install --save-dev typescript`) or globally  on your computer (`npm install -g typescript`). We recommend installing TypeScript locally to avoid possible interactions with other TypeScript projects you may have.
+Another option is to install the matching version of TypeScript in your workspace (`npm install --save-dev typescript`) or globally on your computer (`npm install -g typescript`). We recommend installing TypeScript locally to avoid possible interactions with other TypeScript projects you may have.
 
 >**Tip:** To get a specific TypeScript version, specify `@version`. For example for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
 
@@ -230,7 +250,6 @@ You can enable this by setting `"typescript.referencesCodeLens.enabled": true`.
 Click on the reference count to quickly browse a list of references:
 
 ![TypeScript references code lens peek](images/typescript/ts-references-code-lens-peek.png)
-
 
 ## TypeScript Extensions
 

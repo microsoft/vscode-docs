@@ -56,7 +56,7 @@ Pick a command with the keybinding you think is overloaded and you can see if mu
 
 ## Default Keyboard Shortcuts
 
->**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts).
+>**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts). You can view the currently active keyboard shortcuts in VS Code in the **Command Palette** (**View** -> **Command Palette**) or in the **Keyboard Shortcuts** editor (**File** > **Preferences** > **Keyboard Shortcuts**).
 
 ### Basic Editing
 
@@ -170,6 +170,8 @@ Key|Command|Command id
 `kb(workbench.action.moveEditorRightInGroup)`| Move Editor Right |`workbench.action.moveEditorRightInGroup`
 `kb(workbench.action.moveActiveEditorGroupLeft)`|Move Active Editor Group Left|`workbench.action.moveActiveEditorGroupLeft`
 `kb(workbench.action.moveActiveEditorGroupRight)`|Move Active Editor Group Right|`workbench.action.moveActiveEditorGroupRight`
+`kb(workbench.action.moveEditorToNextGroup)`|Move Editor into Next Group|`workbench.action.moveEditorToNextGroup`
+`kb(workbench.action.moveEditorToPreviousGroup)`|Move Editor into Previous Group|`workbench.action.moveEditorToPreviousGroup`
 
 ### File Management
 
