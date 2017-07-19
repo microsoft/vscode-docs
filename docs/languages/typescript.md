@@ -31,7 +31,7 @@ tsc --version
 tsc --help
 ```
 
->**Note:** TypeScript may be included with other tools you have installed on your computer such as Visual Studio Community edition with the Node.js development workload.
+Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have
 
 ## TypeScript Files and Projects
 
@@ -97,6 +97,7 @@ Under the covers, we run the TypeScript compiler as a task. The command we use i
 ### Step 3: Make the TypeScript Build the default
 
 You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select the TypeScript one which generates the following `tasks.json` file:
+
 ```ts
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
@@ -119,7 +120,7 @@ The example TypeScript file did not have any compile problems, so by running the
 
 If you have [Node.js](https://nodejs.org) installed, you can run your simple Hello World example by opening up a terminal and running:
 
-```
+```bash
 node HelloWorld.js
 ```
 
@@ -195,7 +196,7 @@ It is now possible to have mixed TypeScript and JavaScript projects. To enable J
 
 >**Tip:** The `tsc` compiler does not detect the presence of a `jsconfig.json` file automatically. Use the `–p` argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json`.
 
-## Using Newer TypeScript Versions
+## Using newer TypeScript versions
 
 VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. The active version of the TypeScript language service is displayed in the Status Bar when viewing a TypeScript or JavaScript file:
 
@@ -211,7 +212,7 @@ You can disable this check with the `typescript.check.tscVersion` user or worksp
 
 Another option is to install the matching version of TypeScript in your workspace (`npm install --save-dev typescript`) or globally on your computer (`npm install -g typescript`). We recommend installing TypeScript locally to avoid possible interactions with other TypeScript projects you may have.
 
->**Tip:** To get a specific TypeScript version, specify `@version`. For example for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
+>**Tip:** To get a specific TypeScript version, specify `@version` during npm install. For example for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
 
 As VS Code updates the TypeScript language service in subsequent releases, you may see the mismatch message again and want to refresh your installed version of TypeScript.
 
@@ -232,6 +233,8 @@ You can also configure a specific version of TypeScript in a particular workspac
    "typescript.tsdk": "./node_modules/typescript/lib"
 }
 ```
+
+### Using the workspace version of TypeScript
 
 If your workspace has a specific TypeScript version, you can switch between the workspace version of TypeScript and the version that VS Code uses by default by opening a TypeScript or JavaScript file in the workspace and clicking on the TypeScript version number in the Status Bar. A message box will appear asking you which version of TypeScript VS Code should use:
 
