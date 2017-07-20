@@ -69,7 +69,7 @@ h1 {
 }
 ```
 
-Use **File** > **Preferences** > **Workspace Settings** to bring up the workspace `settings.json` file and make this update:
+Use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
 
 ```json
 // Place your settings in this file to overwrite default and user settings.
