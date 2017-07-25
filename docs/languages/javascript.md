@@ -91,7 +91,8 @@ Below is a simple template for `jsconfig.json` file which defines the JavaScript
         "target": "ES6"
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "**/node_modules/*"
     ]
 }
 ```
@@ -189,7 +190,8 @@ To enable type checking for JavaScript files that are part of a `jsconfig.json` 
         "checkJs": true
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "**/node_modules/*"
     ]
 }
 ```
@@ -203,7 +205,8 @@ To enable type checking for JavaScript files that are part of a `jsconfig.json` 
         "checkJs": true
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "**/node_modules/*"
     ]
 }
 ```
@@ -240,7 +243,8 @@ To start, [create a `jsconfig.json`](#_javascript-project-jsconfigjson) at the r
 {
     "compilerOptions": { },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "**/node_modules/*"
     ]
 }
 ```
@@ -435,7 +439,8 @@ When you want to use ES6 style imports but some type declaration (typings) files
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/node_modules/*"
   ]
 }
 ```
