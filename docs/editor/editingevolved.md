@@ -31,15 +31,15 @@ If you press `kbstyle(Ctrl)` and hover over a symbol, a preview of the declarati
 
 ![Ctrl Hover](images/editingevolved/ctrlhover.png)
 
-> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`. 
+> **Tip:** You can jump to the definition with `kbstyle(Ctrl+Click)` or open the definition to the side with `kbstyle(Ctrl+Alt+Click)`.
 
 ## Go to Type Definition
 
-Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by pressing `kb(editor.action.goToTypeDefinition)`. This will take you to the definition of the type of a symbol.
+Some [languages](/docs/languages/overview.md) also support jumping to the type definition of a symbol by running the **Go to Type Definition** command from either the editor context menu or the **Command Palette**. This will take you to the definition of the type of a symbol. The command `editor.action.goToTypeDefinition` is not bound to a keyboard shortcut by default but you can add your own custom [keybinding](/docs/getstarted/keybindings.md).
 
 ## Go to Implementation
 
-[Languages](/docs/languages/overview.md) can also support jumping to the implementation of a symbol by pressing `kb(editor.action.goToImplementation)`. For an interface, this shows all the implementers of that interface and for abstract methods, this shows all concrete implementations of that method.
+[Languages](/docs/languages/overview.md) can also support jumping to the implementation of a symbol by pressing `kb(editor.action.goToImplementation)`. For an interface, this shows all the implementors of that interface and for abstract methods, this shows all concrete implementations of that method.
 
 ## Go to Symbol
 
