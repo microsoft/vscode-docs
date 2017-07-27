@@ -105,8 +105,6 @@ Just click an item in the **OPEN EDITORS** section, and it becomes active in VS 
 
 Once you are done with your task, you can remove files individually from the **OPEN EDITORS** section, or you can remove all files by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
 
-**Tip:** You can hide the **OPEN EDITORS** section with the `explorer.openEditors.visible` [setting](/docs/getstarted/settings.md) which declares how many items to display. Setting `"explorer.openEditors.visible": 0` will hide **OPEN EDITORS** when you have an open folder. The section will still be displayed
-
 ## Views and the Activity Bar
 
 The File Explorer is just one of the Views available in VS Code. There are also Views for:
