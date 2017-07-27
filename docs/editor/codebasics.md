@@ -40,12 +40,12 @@ If you'd like to change the modifier key for applying multiple cursors to `kbsty
 
 The setting can be set to:
 
-* `ctrlCmd` - Maps to `Ctrl` on Windows and `Cmd` on macOS.
-* `alt` - The existing default `Alt`.
+* `ctrlCmd` - Maps to `kbstyle(Ctrl)` on Windows and `kbstyle(Cmd)` on macOS.
+* `alt` - The existing default `kbstyle(Alt)`.
 
 There's also a menu item **Use Ctrl+Click for Multi-Cursor** in the **Selection** menu to quickly toggle this setting.
 
-The **Go To Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `Ctrl/Cmd+Click`, and opening links or going to definition can be invoked with `Alt+Click`.
+The **Go To Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `kbstyle(Ctrl/Cmd+Click)`, and opening links or going to definition can be invoked with `kbstyle(Alt+Click)`.
 
 ### Shrink/expand selection
 
@@ -232,7 +232,3 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordwrap` value.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
-
-**Q: How can I show more files in the OPEN EDITORS section?**
-
-**A:** You can configure the appearance of **OPEN EDITORS** through your [settings](/docs/getstarted/settings.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.openEditors.visible` setting and whether the **OPEN EDITORS** section should dynamically set its height via `explorer.openEditors.dynamicHeight`.
