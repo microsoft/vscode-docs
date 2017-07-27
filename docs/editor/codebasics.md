@@ -34,6 +34,19 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 > **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
 
+### Multi-cursor modifier
+
+If you'd like to change the modifier key for applying multiple cursors to `kbstyle(Cmd+Click)` on macOS and `kbstyle(Ctrl+Click)` on Windows and Linux, you can do so with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md). This lets users coming from other editors such as Sublime Text or Atom continue to use the keyboard modifier they are familiar with.
+
+The setting can be set to:
+
+* `ctrlCmd` - Maps to `Ctrl` on Windows and `Cmd` on macOS.
+* `alt` - The existing default `Alt`.
+
+There's also a menu item **Use Ctrl+Click for Multi-Cursor** in the **Selection** menu to quickly toggle this setting.
+
+The **Go To Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `Ctrl/Cmd+Click`, and opening links or going to definition can be invoked with `Alt+Click`.
+
 ### Shrink/expand selection
 
 Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
