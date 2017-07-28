@@ -373,6 +373,9 @@ Below are the default settings and their values.
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
   "editor.formatOnSave": false,
 
+  // Overrides editor colors and font style from the currently selected color theme.
+  "editor.tokenColorCustomizations": null,
+
 // Emmet
 
   // When enabled, emmet abbreviations are expanded when pressing TAB. Not applicable when emmet.useNewemmet is set to true.
@@ -416,8 +419,8 @@ Below are the default settings and their values.
 
 // Workbench
 
-  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only when not opening a folder).
-  "workbench.startupEditor": "welcomePage",
+  // When enabled, will show the watermark tips when no editor is open.
+  "workbench.tips.enabled": true,
 
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
@@ -464,8 +467,8 @@ Below are the default settings and their values.
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
 
-  // When enabled, will show the watermark tips when no editor is open.
-  "workbench.tips.enabled": true,
+  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
+  "workbench.startupEditor": "welcomePage",
 
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
@@ -492,7 +495,7 @@ Below are the default settings and their values.
   // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
   "window.openFoldersInNewWindow": "default",
 
-  // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all folders you had opened or 'all' to reopen all windows of your last session.
+  // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all windows that had folders opened or 'all' to reopen all windows of your last session.
   "window.restoreWindows": "one",
 
   // Controls if a window should restore to full screen mode if it was exited in full screen mode.
@@ -512,10 +515,13 @@ Below are the default settings and their values.
   // ${appName}: e.g. VS Code
   // ${dirty}: a dirty indicator if the active editor is dirty
   // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
-  "window.title": "${dirty}${activeEditorShort}${separator}${folderName}${separator}${appName}",
+  "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
 
   // Controls the dimensions of opening a new window when at least one window is already opened. By default, a new window will open in the center of the screen with small dimensions. When set to 'inherit', the window will get the same dimensions as the last window that was active. When set to 'maximized', the window will open maximized and fullscreen if configured to 'fullscreen'. Note that this setting does not have an impact on the first window that is opened. The first window will always restore the size and location as you left it before closing.
   "window.newWindowDimensions": "default",
+
+  // Controls if closing the last editor should also close the window. This setting only applies for windows that do not show folders.
+  "window.closeWhenEmpty": false,
 
   // Control the visibility of the menu bar. A setting of 'toggle' means that the menu bar is hidden and a single press of the Alt key will show it. By default, the menu bar will be visible, unless the window is full screen.
   "window.menuBarVisibility": "default",
@@ -607,6 +613,9 @@ Below are the default settings and their values.
 
   // Controls if the explorer should allow to move files and folders via drag and drop.
   "explorer.enableDragAndDrop": true,
+
+  // Controls the way of sorting files and directories in the explorer.
+  "explorer.sortOrder": "default",
 
 // Search
 
@@ -955,9 +964,6 @@ Below are the default settings and their values.
   // Double click in the markdown preview to switch to the editor.
   "markdown.preview.doubleClickToSwitchToEditor": true,
 
-  // [Experimental] Allow extensions to extend the markdown preview.
-  "markdown.enableExperimentalExtensionApi": false,
-
   // Enable debug logging for the markdown extension.
   "markdown.trace": "off",
 
@@ -982,9 +988,6 @@ Below are the default settings and their values.
 
   // Disables automatic type acquisition. Requires TypeScript >= 2.0.6 and a restart after changing it.
   "typescript.disableAutomaticTypeAcquisition": false,
-
-  // Check if a global install TypeScript compiler (e.g. tsc) differs from the used TypeScript language service.
-  "typescript.check.tscVersion": true,
 
   // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires TypeScript >= 2.3.4.
   "typescript.npm": null,
@@ -1131,6 +1134,9 @@ Below are the default settings and their values.
 
 // External Terminal
 
+  // Customizes what kind of terminal to launch.
+  "terminal.explorerKind": "integrated",
+
   // Customizes which terminal to run on Windows.
   "terminal.external.windowsExec": "%COMSPEC%",
 
@@ -1156,7 +1162,7 @@ Below are the default settings and their values.
     "-l"
   ],
 
-  // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu), prefer C:\Windows\sysnative over C:\Windows\System32 to use the 64-bit versions.
+  // The path of the shell that the terminal uses on Windows. When using shells shipped with Windows (cmd, PowerShell or Bash on Ubuntu).
   "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
 
   // The command line arguments to use when on the Windows terminal.
@@ -1221,6 +1227,8 @@ Below are the default settings and their values.
     "workbench.action.showCommands",
     "workbench.action.terminal.clear",
     "workbench.action.terminal.copySelection",
+    "workbench.action.terminal.deleteWordLeft",
+    "workbench.action.terminal.deleteWordRight",
     "workbench.action.terminal.focus",
     "workbench.action.terminal.focusAtIndex1",
     "workbench.action.terminal.focusAtIndex2",
@@ -1250,6 +1258,15 @@ Below are the default settings and their values.
     "workbench.action.terminal.toggleTerminal"
   ],
 
+  // Object with environment variables that will be added to the VS Code process to be used by the terminal on OS X
+  "terminal.integrated.env.osx": {},
+
+  // Object with environment variables that will be added to the VS Code process to be used by the terminal on Linux
+  "terminal.integrated.env.linux": {},
+
+  // Object with environment variables that will be added to the VS Code process to be used by the terminal on Windows
+  "terminal.integrated.env.windows": {},
+
 // Problems Panel
 
   // Controls if Problems view should automatically reveal files when opening them
@@ -1264,7 +1281,7 @@ Below are the default settings and their values.
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
 
-  // Default Configuration Overrides
+// Default Configuration Overrides
 
   // Configure editor settings to be overridden for [go] language.
   "[go]":  {
@@ -1334,6 +1351,9 @@ Below are the default settings and their values.
 
   // Controls whether auto detection of npm scripts is on or off. Default is on.
   "npm.autoDetect": "on",
+
+  // Run npm commands with the `--silent` option
+  "npm.runSilent": false,
 
 // Merge Conflict
 
