@@ -431,7 +431,10 @@ Contributes a validation schema for a specific type of `json` file.  The `url` v
 
 ## contributes.views
 
-Contribute a view to Explorer in VS Code. You must specify an identifier and name for the view.
+Contribute a view to VS Code. You must specify an identifier and name for the view. You can contribute to following locations
+
+- `explorer`: Explorer view in the Side bar
+- `debug`: Debug view in the Side bar
 
 When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
 
@@ -448,6 +451,7 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
     }
 }
 ```
+
 
 ![views extension point example](images/extension-points/views.png)
 
