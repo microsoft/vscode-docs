@@ -75,8 +75,7 @@ Placeholders are tabstops with values, like `${1:foo}`. The placeholder text wil
 
 ### Choice
 
-Placeholders can have choices as values. The syntax is a comma-separated enumeration of values, enclosed with the pipe-character, e.g. `${1|one,two,three|}`. When inserted and selected choices will prompt the user to pick one of the values.
-
+Placeholders can have choices as values. The syntax is a comma separated enumeration of values, enclosed with the pipe-character, for example `${1|one,two,three|}`. When the snippet is inserted and the placeholder selected, choices will prompt the user to pick one of the values.
 
 ### Variables
 
@@ -91,10 +90,9 @@ With `$name` or `${name:default}` you can insert the value of a variable. When a
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
 
-
 ### Grammar
 
-Below is the EBNF for snippets. With `\` (backslash) you can escape `$`, `}` and `\`, within choice elements the backslash also escapes comma and pipe characters.
+Below is the EBNF for snippets. With `\` (backslash), you can escape `$`, `}` and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
 
 ```
 any         ::= tabstop | placeholder | choice | variable | text
@@ -107,7 +105,7 @@ int         ::= [0-9]+
 text        ::= .*
 ```
 
-## Using TextMate Snippets
+## Using TextMate snippets
 
 You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) topic in our Extension Authoring section to learn more.
 
