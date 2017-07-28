@@ -73,6 +73,11 @@ With tabstops you can make the editor cursor move inside a snippet. Use `$1`, `$
 
 Placeholders are tabstops with values, like `${1:foo}`. The placeholder text will be inserted and selected such that it can be easily changed. Placeholders can be nested, like `${1:another ${2:placeholder}}`.
 
+### Choice
+
+Placeholders can have choices as values. The syntax is a comma-separated enumeration of values, enclosed with the pipe-character, e.g. `${1|one,two,three|}`. When inserted and selected choices will prompt the user to pick one of the values.
+
+
 ### Variables
 
 With `$name` or `${name:default}` you can insert the value of a variable. When a variable isn’t set its *default* or the empty string is inserted. When a variable is unknown (that is, its name isn’t defined) the name of the variable is inserted and it is transformed into a placeholder. The following variables can be used:
@@ -89,12 +94,13 @@ With `$name` or `${name:default}` you can insert the value of a variable. When a
 
 ### Grammar
 
-Below is the EBNF for snippets. With `\` (backslash) you can escape `$`, `}` and `\`.
+Below is the EBNF for snippets. With `\` (backslash) you can escape `$`, `}` and `\`, within choice elements the backslash also escapes comma and pipe characters.
 
 ```
-any         ::= tabstop | placeholder | variable | text
+any         ::= tabstop | placeholder | choice | variable | text
 tabstop     ::= '$' int | '${' int '}'
 placeholder ::= '${' int ':' any '}'
+choice      ::= '${' int '|' text (',' text)* '|}'
 variable    ::= '$' var | '${' var }' | '${' var ':' any '}'
 var         ::= [_a-zA-Z] [_a-zA-Z0-9]*
 int         ::= [0-9]+
