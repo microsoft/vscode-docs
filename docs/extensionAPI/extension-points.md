@@ -23,6 +23,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
 * [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
 * [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
+* [`taskDefinitions`](/docs/extensionAPI/extension-points.md#contributestaskdefinitions)
 * [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
 * [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
 
@@ -418,7 +419,7 @@ See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) f
 
 ## contributes.jsonValidation
 
-Contributes a validation schema for a specific type of `json` file.  The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
+Contribute a validation schema for a specific type of `json` file.  The `url` value can be either a local path to a schema file included in the extension or a remote server URL such as a [json schema store](http://schemastore.org/json).
 
 ```json
 "contributes": {
@@ -452,6 +453,51 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 ![views extension point example](images/extension-points/views.png)
 
 Extension writers should register a [provider](/docs/extensionAPI/vscode-api.md#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+
+## contributes.taskDefinitions
+
+Contribute a task definition descibing the task provided by an extension. Below is an example that contributes task auto-detection for the Gulp build system:
+
+```json
+"contributes": {
+    "configuration": {
+      "id": "gulp",
+      "type": "object",
+      "title": "Gulp",
+      "properties": {
+        "grunt.autoDetect": {
+          "type": "string",
+          "enum": [
+            "off",
+            "on"
+          ],
+          "default": "on",
+          "description": "%config.gulp.autoDetect%"
+        }
+      }
+    },
+    "taskDefinitions": [
+      {
+        "type": "gulp",
+        "required": ["task"],
+        "properties": {
+          "task": {
+            "type": "string",
+            "description": "The Gulp task to customize"
+          },
+          "file": {
+            "type": "string",
+            "description": "The Gulp file that provides the task. Can be omitted."
+          }
+        }
+      }
+    ]
+  }
+```
+
+![task definition extension point example](images/extension-points/taskDefinitions.png)
+
+Also see: [Task Auto-Detection](/docs/editor/tasks.md#task-autodetection)
 
 ## contributes.problemMatchers
 
