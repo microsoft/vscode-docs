@@ -163,7 +163,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 * _options_ (optional) Editor options, see vscode.TextDocumentShowOptions
 
 
-`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or a http(s) url
+`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or a http(s) url. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
 
 * _resource_ Resource to open
 * _column_ (optional) Column in which to open
