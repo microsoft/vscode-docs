@@ -88,17 +88,19 @@ You can configure hot exit by setting `files.hotExit` to the following values:
 
 ## Search Across Files
 
-VS Code allows you to quickly search over all files in the currently-opened folder.  Press `kb(workbench.view.search)` and enter in your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
+VS Code allows you to quickly search over all files in the currently-opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
 
 ![A simple text search across files](images/codebasics/search.png)
 
 >**Tip:** We support regular expression searching in the search box, too.
 
-You can configure advanced search options by typing `kb(workbench.action.search.toggleQueryDetails)`. This will show additional fields to configure the search.
+You can configure advanced search options with `kb(workbench.action.search.toggleQueryDetails)`. This will show additional fields to configure the search.
+
+### Advanced Search Options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
-In the two input boxes below the search box, you can include and exclude files. Click on the toggle to the right to enable the glob pattern syntax:
+In the two input boxes below the search box, you can include and exclude files. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. You can also use glob syntax:
 
 * `*` to match one or more characters in a path segment
 * `?` to match on one character in a path segment
@@ -108,7 +110,13 @@ In the two input boxes below the search box, you can include and exclude files. 
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
+Also note the two toggle buttons in the "files to exclude" box. The left one determines whether to exclude files that are ignored by your `.gitignore` file. The right determines whether to exclude files that are matched by your `files.exclude` and `search.exclude` settings.
+
 >**Tip:** From the Explorer you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+
+While VS Code does support regular expression searches, backreferences and lookaround are not supported. This is because VS Code depends on the search tool [ripgrep](https://github.com/BurntSushi/ripgrep), which, while extremely fast, doesn't support these advanced regex features.
+
+### Search and Replace
 
 You can also Search and Replace across files. Expand the Search widget to display the Replace text box.
 
