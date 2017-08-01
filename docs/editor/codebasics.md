@@ -110,9 +110,9 @@ In the two input boxes below the search box, you can include and exclude files. 
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
-Also note the two toggle buttons in the "files to exclude" box. The left one determines whether to exclude files that are ignored by your `.gitignore` file. The right determines whether to exclude files that are matched by your `files.exclude` and `search.exclude` settings.
+Also note the two toggle buttons in the **files to exclude** box. The left one determines whether to exclude files that are ignored by your `.gitignore` file. The right determines whether to exclude files that are matched by your `files.exclude` and `search.exclude` settings.
 
->**Tip:** From the Explorer you can right-click on a folder and select **Find in Folder** to search inside a folder only.
+>**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
 While VS Code does support regular expression searches, backreferences and lookaround are not supported. This is because VS Code depends on the search tool [ripgrep](https://github.com/BurntSushi/ripgrep), which, while extremely fast, doesn't support these advanced regex features.
 
