@@ -32,7 +32,7 @@ Contributed styles are added after the built-in markdown preview styles but befo
 
 ## Adding support for new syntax with markdown-it plugins
 
-The VS Code markdown preview supports [CommonMark markdown](http://spec.commonmark.org). Extension support additional markdown syntax by contributing a [markdown-it plugin.](https://github.com/markdown-it/markdown-it#syntax-extensions)
+The VS Code markdown preview supports [CommonMark markdown](http://spec.commonmark.org). Extensions can  add support for additional markdown syntax by contributing a [markdown-it plugin.](https://github.com/markdown-it/markdown-it#syntax-extensions)
 
 To contribute a *markdown-it* plugin, first add a `"markdown.markdownItPlugins"` contribution in your extension's `package.json`:
 
