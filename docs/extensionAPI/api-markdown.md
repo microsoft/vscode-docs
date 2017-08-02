@@ -56,6 +56,12 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
+To contribute multiple *markdown-it plugins*, simply return multiple `use` statements chained together:
+
+```ts
+return md.use(require('markdown-it-emoji')).use(require('markdown-it-hashtag'));
+```
+
 Extensions that contribute *markdown-it plugins* are activated lazily, when a markdown preview is shown for the first time.
 
 **Next Steps**
