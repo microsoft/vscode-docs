@@ -666,7 +666,9 @@ Since the `2.0.0` version comes with lots of new auto-detection features, you ca
 - **isTestCommand**: Use the `"group": "test"` property instead.
 - **echoCommand**: Use the `"presentation" : { "echo": "..." }` property instead.
 - **showOutput**: Use the `"presentation" : { "reveal": "..." }` property instead.
-- **suppressTaskName**: By default, the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task, simply inline the command into the task and specify the arguments accordingly. Consider the following `0.1.0` configuration:
+- **suppressTaskName**: By default, the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task, simply inline the command into the task and specify the arguments accordingly.
+
+Consider the following `0.1.0` configuration:
 
 ```json
 {
