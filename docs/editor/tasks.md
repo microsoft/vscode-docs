@@ -181,7 +181,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
 - **focus**: Controls whether the teminal is taking input focus or not. Default is `false`.
 - **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
 - **panel**: Controls whether the terminal instance is shared between task runs. Possible values are:
-  - *shared*: The terminal is shared and the ouput of other task runs are added to the same terminal.
+  - *shared*: The terminal is shared and the output of other task runs are added to the same terminal.
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However the output of a different task is presented in a different terminal.
   - *new*: Every execution of that task is using a new clean terminal. 
 
@@ -666,7 +666,9 @@ Since the `2.0.0` version comes with lots of new auto-detection features, you ca
 - **isTestCommand**: Use the `"group": "test"` property instead.
 - **echoCommand**: Use the `"presentation" : { "echo": "..." }` property instead.
 - **showOutput**: Use the `"presentation" : { "reveal": "..." }` property instead.
-- **suppressTaskName**: By default, the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task, simply inline the command into the task and specify the arguments accordingly. Consider the following `0.1.0` configuration:
+- **suppressTaskName**: By default, the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task, simply inline the command into the task and specify the arguments accordingly.
+
+Consider the following `0.1.0` configuration:
 
 ```json
 {
