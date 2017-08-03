@@ -181,7 +181,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
 - **focus**: Controls whether the teminal is taking input focus or not. Default is `false`.
 - **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
 - **panel**: Controls whether the terminal instance is shared between task runs. Possible values are:
-  - *shared*: The terminal is shared and the ouput of other task runs are added to the same terminal.
+  - *shared*: The terminal is shared and the output of other task runs are added to the same terminal.
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However the output of a different task is presented in a different terminal.
   - *new*: Every execution of that task is using a new clean terminal. 
 
