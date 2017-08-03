@@ -54,17 +54,15 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
 
-### Linux & OS X
+### Shell arguments
 
-Typically `$SHELL` is your primary shell on Unix-like systems so you probably won't want to change the shell. You can pass arguments to the shell when it is launched.
+You can pass arguments to the shell when it is launched.
 
 For example, to enable running bash as a login shell (which runs `.bash_profile`), pass in the `-l` argument (with double quotes):
 
 ```json
 // Linux
 "terminal.integrated.shellArgs.linux": ["-l"]
-// OS X
-"terminal.integrated.shellArgs.osx": ["-l"]
 ```
 
 ## Terminal Display Settings
