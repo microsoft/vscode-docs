@@ -176,13 +176,39 @@ You can fold regions of source code using the folding icons on the gutter betwee
 
 You can also use the following actions:
 
- * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
- * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
- * Fold All (`kb(editor.foldAll)`) folds all region in the editor
- * Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
- * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position
+* Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
+* Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
+* Fold All (`kb(editor.foldAll)`) folds all region in the editor
+* Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
+* Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position
 
 ![Folding](images/codebasics/folding.png)
+
+## Indentation
+
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.mg).
+
+```json
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+```
+
+### Auto-detection
+
+VS Code analyzes your open file and determines the indentation used in the document. The auto-detected indentation overrides your default indentation settings. The detected setting is displayed on the right side of the Status Bar:
+
+![auto detect indentation](images/codebasics/indentation-detection.png)
+
+You can click on the Status Bar indentation display to bring up a drop-down with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
+
+![indentation commands](images/codebasics/indentation-commands.png)
+
+>**Note:** VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `editor.detectIndentation` and explicitly set the tab size to 3.
+
+```json
+    "editor.detectIndentation": false,
+    "editor.tabSize": 3,
+```
 
 ## File Encoding Support
 
