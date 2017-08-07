@@ -263,7 +263,7 @@ Below are the default settings and their values.
   "editor.formatOnPaste": false,
 
   // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available. 
-  "editor.autoIndent": false,
+  "editor.autoIndent": true,
 
   // Controls if suggestions should automatically show up when typing trigger characters
   "editor.suggestOnTriggerCharacters": true,
@@ -376,51 +376,14 @@ Below are the default settings and their values.
   // Overrides editor colors and font style from the currently selected color theme.
   "editor.tokenColorCustomizations": null,
 
-// Emmet
-
-  // When enabled, emmet abbreviations are expanded when pressing TAB. Not applicable when emmet.useNewemmet is set to true.
-  "emmet.triggerExpansionOnTab": true,
-
-  // Preferences used to modify behavior of some actions and resolvers of Emmet. Not applicable when emmet.useNewemmet is set to true.
-  "emmet.preferences": {},
-
-  // Define profile for specified syntax or use your own profile with specific rules.
-  "emmet.syntaxProfiles": {},
-
-  // An array of languages where emmet abbreviations should not be expanded.
-  "emmet.excludeLanguages": [
-    "markdown"
-  ],
-
-  // Path to a folder containing emmet profiles, snippets and preferences. Only profiles are honored from extensions path when emmet.useNewEmmet is set to true.
-  "emmet.extensionsPath": null,
-
-  // Try out the new emmet modules (which will eventually replace the old single emmet library) for all emmet features.
-  "emmet.useNewEmmet": false,
-
-  // Applicable only when emmet.useNewEmmet is set to true.
-  // Shows expanded emmet abbreviations as suggestions.
-  // The option "inMarkupAndStylesheetFilesOnly" applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
-  // The option "always" applies to all parts of the file regardless of markup/css.
-  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
-
-  // Applicable only when emmet.useNewEmmet is set to true.
-  // Shows possible emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
-  "emmet.showAbbreviationSuggestions": true,
-
-  // Applicable only when emmet.useNewEmmet is set to true.
-  // Enable emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
-  //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
-  "emmet.includeLanguages": {},
-
-  // Applicable only when emmet.useNewEmmet is set to true.
-  // Variables to be used in emmet snippets
-  "emmet.variables": {},
 
 // Workbench
 
   // When enabled, will show the watermark tips when no editor is open.
   "workbench.tips.enabled": true,
+
+  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
+  "workbench.startupEditor": "welcomePage",
 
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
@@ -466,9 +429,6 @@ Below are the default settings and their values.
 
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
-
-  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
-  "workbench.startupEditor": "welcomePage",
 
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
@@ -943,6 +903,9 @@ Below are the default settings and their values.
   // Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
   "markdown.preview.breaks": false,
 
+  // Enable or disable conversion of URL-like text to links in the markdown preview.
+  "markdown.preview.linkify": true,
+
   // Controls the font family used in the markdown preview.
   "markdown.preview.fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'HelveticaNeue-Light', 'Ubuntu', 'Droid Sans', sans-serif",
 
@@ -1280,6 +1243,34 @@ Below are the default settings and their values.
   // Enable crash reports to be sent to Microsoft.
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
+
+// Emmet
+
+  // Shows expanded emmet abbreviations as suggestions.
+  // The option "inMarkupAndStylesheetFilesOnly" applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
+  // The option "always" applies to all parts of the file regardless of markup/css.
+  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+
+  // Shows possible emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
+  "emmet.showAbbreviationSuggestions": true,
+
+  // Enable emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
+  //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
+  "emmet.includeLanguages": {},
+
+  // Variables to be used in emmet snippets
+  "emmet.variables": {},
+
+  // Define profile for specified syntax or use your own profile with specific rules.
+  "emmet.syntaxProfiles": {},
+
+  // An array of languages where emmet abbreviations should not be expanded.
+  "emmet.excludeLanguages": [
+    "markdown"
+  ],
+
+  // Path to a folder containing emmet profiles and snippets.'
+  "emmet.extensionsPath": null,
 
 // Default Configuration Overrides
 

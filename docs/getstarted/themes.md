@@ -55,18 +55,18 @@ You can also customize your active color theme with the `workbench.colorCustomiz
 
 You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/docs/getstarted/theme-color-reference.md).
 
-In VS Code version 1.15 or higher you can also tune the syntax highlighting colors using the  `workbench.tokenColorCustomizations`:
+In VS Code version 1.15 or higher, you can also tune the syntax highlighting colors using the `workbench.tokenColorCustomizations` setting:
 
 ![Token Color Customization](images/themes/token_color_customization.png)
 
-A preconfigured set of syntax tokens ('comments', 'strings', ...) is available for the most common constructs. If you want more, you can do so by directly specifying TextMate theme color rules:
+A pre-configured set of syntax tokens ('comments', 'strings', ...) is available for the most common constructs. If you want more, you can do so by directly specifying TextMate theme color rules:
 
 ![Advanced Token Color Customization](images/themes/token_color_customization_advanced.png)
 
 >**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work:
->- read here about the [scopes](https://www.sublimetext.com/docs/3/scope_naming.html) that TextMate grammars generate.
->- use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token and the matching theme rule.
->- read here about the operators that [scope selectors](https://manual.macromates.com/en/scope_selectors) support
+>- Read here about the [scopes](https://www.sublimetext.com/docs/3/scope_naming.html) that TextMate grammars generate.
+>- Use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token and the matching theme rule.
+>- Read here about the operators that [scope selectors](https://manual.macromates.com/en/scope_selectors) support
 
 ## Using existing TextMate Themes
 
