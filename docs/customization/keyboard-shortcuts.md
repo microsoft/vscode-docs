@@ -86,7 +86,6 @@ Key|Command
 ---|---
 `kb(editor.action.triggerSuggest)`|Trigger suggestion
 `kb(editor.action.triggerParameterHints)`|Trigger parameter hints
-`kb(editor.emmet.action.expandAbbreviation)`|Emmet expand abbreviation
 `kb(editor.action.formatDocument)`|Format document
 `kb(editor.action.formatSelection)`|Format selection
 `kb(editor.action.goToDeclaration)`|Go to Definition
