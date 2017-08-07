@@ -1,14 +1,12 @@
 # Emmet 2.0 in Visual Studio Code
 
-Emmet (previous known as Zen coding) has been a part of Visual Studio Code from the very beginning. With a simple pressing of a `kbstyle(Tab)` key, you could transform an emmet abbreviation to complex html or css property-value pair. 
+Emmet has been a part of Visual Studio Code from the very beginning. With a simple pressing of a `kbstyle(Tab)` key, you could transform an emmet abbreviation to complex html or css property-value pair. 
 
 > TODO: Insert gif here
 
-In July 2016, the Emmet feature set in VS Code was augmented with commands like `Wrap with abbreviation`, `Select Next/Prev Item`, `Go to Next/Prev Edit Point` etc. See [Emmet Actions](https://docs.emmet.io/actions/) for the full list of Emmet features.
+Over the past year, more [Emmet Actions](https://docs.emmet.io/actions/) like `Wrap with abbreviation`, `Select Next/Prev Item`, `Go to Next/Prev Edit Point` etc. were added.
 
 > TODO: Insert pic of all the Emmet commands
-
-In September 2016, support to enable Emmet abbreviation expansions in any language of your choice was introduced.
 
 While Emmet features grew like this, the basic feature of `kbstyle(Tab)` key triggering emmet expansion had issues of its own.
 
@@ -33,7 +31,7 @@ If you don't like emmet showing up in the suggestion/auto-completion list (conte
 
 In the old model, we enabled users to add a mapping between their choice of file type/language and a supported Emmet mode (like html, css) in the `emmet.syntaxProfiles` setting to get Emmet abbreviation expansions. The `emmet.syntaxProfiles` setting was originally meant to customize the syntax profile of the final output as described in the [Emmet Syntax Profile Customization docs](https://docs.emmet.io/customization/syntax-profiles/). For eg: You can use this setting to change the case of the tag/attribute, use single/double quotes for attributes etc.
 
-In the new model, a new setting `emmet.includeLanguages` is introduced which is to be used to map new file types/languages to known Emmet modes. `emmet.syntaxProfiles` will go back to be used for customizing html output as described above. For more on this new setting, see the section on [Emmet Configuration](##emmet-configuration)
+In the new model, a new setting `emmet.includeLanguages` is introduced which is to be used to map new file types/languages to known Emmet modes. `emmet.syntaxProfiles` will go back to be used for customizing html output as described above. For more on this new setting, see the section on [Emmet Configuration](#emmet-configuration)
 
 ## Can I use custom snippets?
 
