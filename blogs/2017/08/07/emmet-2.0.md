@@ -2,11 +2,7 @@
 
 Emmet has been a part of Visual Studio Code from the very beginning. With a simple pressing of a `kbstyle(Tab)` key, you could transform an emmet abbreviation to complex html or css property-value pair. 
 
-> TODO: Insert gif here
-
 Over the past year, more [Emmet Actions](https://docs.emmet.io/actions/) like `Wrap with abbreviation`, `Select Next/Prev Item`, `Go to Next/Prev Edit Point` etc. were added.
-
-> TODO: Insert pic of all the Emmet commands
 
 While Emmet features grew like this, the basic feature of `kbstyle(Tab)` key triggering emmet expansion had issues of its own.
 
@@ -15,11 +11,21 @@ While Emmet features grew like this, the basic feature of `kbstyle(Tab)` key tri
 
 We are happy to introduce a brand new model for Emmet where we now serve the expanded Emmet abbreviations in the suggestion/auto-completion list (content assist). In this model, the `kbstyle(Tab)` key is no longer bound to the Emmet expansion command and is freed up for what it was meant to do i.e indent.
 
-Under the hood, there have been massive changes as well. In the previous model, the single [Emmet library](https://github.com/emmetio/emmet) was used. Its author, [Sergey Chikuyonok](https://github.com/sergeche) envisioned a new world where Emmet 2.0 is based on a modular system. For eg. there are now different modules for parsing and expanding abbreviations. Different modules for parsing html and css content. Different modules for output rendering based on syntax. So on and so forth. This new model has allowed us to not only provide Emmet abbreviation expansions in the suggestion/auto-completion list (content assist), but also provide multi cursor support for most of the Emmet commands.
+![Emmet abbreviation expansion in autocomplete](images/1_13/emmet.gif)
+
+## Changes under the hood
+
+Under the hood, there have been massive changes as well. 
+
+In the previous model, the single [Emmet library](https://github.com/emmetio/emmet) was used. Its author, [Sergey Chikuyonok](https://github.com/sergeche) envisioned a new world where Emmet 2.0 is based on a modular system. For eg. there are now different modules for parsing and expanding abbreviations. Different modules for parsing html and css content. Different modules for output rendering based on syntax. So on and so forth. 
+
+This new model has allowed us to not only provide Emmet abbreviation expansions in the suggestion/auto-completion list (content assist), but also provide multi cursor support for most of the Emmet commands.
 
 ## How to get Emmet abbreviations expanded in the new model?
 
-If you are working on any of the Emmet supported modes (html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus), you will start seeing the emmet abbreviation expansions in the suggestion/auto-completion list (content assist) as you type. If you have `editor.quickSuggestions` turned off then you will have to press `kb(editor.action.triggerSuggest)` to trigger the suggestion/auto-completion list (content assist) manually.
+If you are working on any of the Emmet supported modes (html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus), you will start seeing the emmet abbreviation expansions in the suggestion/auto-completion list (content assist) as you type. 
+
+If you have `editor.quickSuggestions` turned off then you will have to press `kb(editor.action.triggerSuggest)` to trigger the suggestion/auto-completion list (content assist) manually.
 
 Another way to get your Emmet abbreviations expanded is by using the `Emmet: Expand Abbreviation` command. Since `kbstyle(Tab)` key is no longer bound to this command, you should add a new key binding to the command id `editor.emmet.action.expandAbbreviation`.
 
@@ -29,9 +35,11 @@ If you don't like emmet showing up in the suggestion/auto-completion list (conte
 
 ## How to get Emmet abbreviations expanded in other file types?
 
-In the old model, we enabled users to add a mapping between their choice of file type/language and a supported Emmet mode (like html, css) in the `emmet.syntaxProfiles` setting to get Emmet abbreviation expansions. The `emmet.syntaxProfiles` setting was originally meant to customize the syntax profile of the final output as described in the [Emmet Syntax Profile Customization docs](https://docs.emmet.io/customization/syntax-profiles/). For eg: You can use this setting to change the case of the tag/attribute, use single/double quotes for attributes etc.
+In the old model, we supported the use of `emmet.syntaxProfiles` setting to enable Emmet in other file types. 
 
-In the new model, a new setting `emmet.includeLanguages` is introduced which is to be used to map new file types/languages to known Emmet modes. `emmet.syntaxProfiles` will go back to be used for customizing html output as described above. For more on this new setting, see the section on [Emmet Configuration](#emmet-configuration)
+Since this setting was meant for customizing Emmet output as described in the [Emmet Syntax Profile Customization docs](https://docs.emmet.io/customization/syntax-profiles/), we are introducing a setting `emmet.includeLanguages` to map file types/languages to known Emmet modes. 
+
+For more on this new setting, see the section on [Emmet Configuration](#emmet-configuration)
 
 ## Can I use custom snippets?
 
