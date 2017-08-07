@@ -22,7 +22,7 @@ Colors visible in the VS Code user interface fall in two categories:
 
 The easiest way to create a new workbench color theme is to start with an existing color theme and customize it:
 
-- Make changes to view and editor colors using the `workbench.colorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+- Make changes to view and editor colors using the `workbench.colorCustomizations` and `workbench.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
 - Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
 - Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generated a new theme extension.
 - Select 'Start fresh'
