@@ -227,9 +227,15 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
 
 ## Access Loaded Scripts
 
-If you need to set a breakpoint in a script that is not part of your workspace and therefore cannot be easily located and opened through normal VS Code file browsing, you can access the loaded scripts of a JavaScript runtime by using the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`). In the Quick Pick, you can filter and select the script to open. The script is then loaded into a read-only editor where you can set breakpoints. These breakpoints are remembered across debug sessions but you only have access to the script content while a debug session is running.
+If you need to set a breakpoint in a script that is not part of your workspace and therefore cannot be easily located and opened through normal VS Code file browsing, you can access the loaded scripts via the **LOADED SCRIPTS** view in the debug viewlet:
+
+![Loaded Scripts Explorer](images/nodejs-debugging/loaded-scripts-explorer.gif)
+
+ Alternatively you can use the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`) which opens a Quick Pick, where you can filter and select the script to open.
 
 ![Opening Loaded Script with Quick Pick](images/nodejs-debugging/loaded-scripts.gif)
+
+ Scripts are loaded into a read-only editor where you can set breakpoints. These breakpoints are remembered across debug sessions but you only have access to the script content while a debug session is running.
 
 ## Restarting debug sessions automatically when source is edited
 
