@@ -11,7 +11,7 @@ While Emmet features grew like this, the basic feature of `kbstyle(Tab)` key tri
 
 We are happy to introduce a brand new model for Emmet where we now serve the expanded Emmet abbreviations in the suggestion/auto-completion list (content assist). In this model, the `kbstyle(Tab)` key is no longer bound to the Emmet expansion command and is freed up for what it was meant to do i.e indent.
 
-![Emmet abbreviation expansion in autocomplete](images/1_13/emmet.gif)
+![Emmet abbreviation expansion in autocomplete](../../../../release-notes/images/1_13/emmet.gif)
 
 ## Changes under the hood
 
@@ -37,7 +37,7 @@ If you don't like emmet showing up in the suggestion/auto-completion list (conte
 
 In the old model, we supported the use of `emmet.syntaxProfiles` setting to enable Emmet in other file types. 
 
-Since this setting was meant for customizing Emmet output as described in the [Emmet Syntax Profile Customization docs](https://docs.emmet.io/customization/syntax-profiles/), we are introducing a setting `emmet.includeLanguages` to map file types/languages to known Emmet modes. 
+Since this setting was initially meant for customizing Emmet output as described in the [Emmet Syntax Profile Customization docs](https://docs.emmet.io/customization/syntax-profiles/), we are introducing a setting `emmet.includeLanguages` to map file types/languages to known Emmet modes. 
 
 For more on this new setting, see the section on [Emmet Configuration](#emmet-configuration)
 
