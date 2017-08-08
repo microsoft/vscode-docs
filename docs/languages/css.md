@@ -25,7 +25,7 @@ Proposals contain extensive documentation, including a list of browsers that sup
 
 ## Emmet snippets
 
-Press `kb(editor.emmet.action.expandAbbreviation)` to expand the current abbreviation.
+Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
