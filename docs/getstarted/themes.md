@@ -63,10 +63,7 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 
 ![Advanced Token Color Customization](images/themes/token_color_customization_advanced.png)
 
->**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work:
->- Read here about the [scopes](https://www.sublimetext.com/docs/3/scope_naming.html) that TextMate grammars generate.
->- Use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token and the matching theme rule.
->- Read here about the operators that [scope selectors](https://manual.macromates.com/en/scope_selectors) support
+>**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go [here](/docs/extensions/themes-snippets-colorizers.md#textmate-theme-rules) for more information
 
 ## Using existing TextMate Themes
 

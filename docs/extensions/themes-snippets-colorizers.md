@@ -22,19 +22,66 @@ Colors visible in the VS Code user interface fall in two categories:
 
 The easiest way to create a new workbench color theme is to start with an existing color theme and customize it:
 
-- Make changes to view and editor colors using the `workbench.colorCustomizations` and `workbench.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
-- Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
-- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generated a new theme extension.
-- Select 'Start fresh'
-
-![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)
-
-- Copy the theme file generated from your settings to the new extension.
+- Switch to the color theme that you want to modify 
+- Open the [settings](/docs/getstarted/settings.md) and make changes to view and editor colors using the `workbench.colorCustomizations`. Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+- A complete list of all themable colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
 
 ### Syntax highlighting colors
 
-To change the syntax highlighting colors, you can tell the extension generator to import a TextMate theme file and package it for use in VS Code. Alternatively, if you have already created the theme, replace the `tokenColors` section with a link to the `.tmTheme` file to use.
+For syntax highlighting colors there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it:
 
+- Switch to the color theme to customze and use the `workbench.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+- The setting supports a simple mode with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than than, you need to use textMate theme rules directly. 
+
+### TextMate theme rules
+
+To write TextMate theme rules. you need to understand on how TextMate grammars and scopes.
+
+- `TextMate grammars` consist of a set of regular expression that are used create a syntax tree out of the source code. Each tree node represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators). The hierarchy of scopes is the input for syntax highlighting. 
+- Each scope name consists of segments separated by dot. The last segment is the names the language the symbol belongs to: `entity.name.function.js`
+- See [here](https://www.sublimetext.com/docs/3/scope_naming.html) for a good overview of scopes that TextMate grammars typically generate.
+- Here's an example of the scope hierarchy generated for the JavaScript code snippet `function f1() {`
+
+![TextMate Scopes](images/themes-snippets-colorizers/TM-scopes.png)
+
+
+- You can use the the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor. ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
+- Text Mate themes assign a set of styles to one or more scopes. The styles are the foreground color, the background color and bold, italics and underline. A theme consist of a set of rules. To evaluate the style of a symbol, the rules are processed first to last and each scope selector is matched against to symbols scope and parent scopes. The most specific rule is used for styling the symbol.
+- Scope selector support prefix matching and matching against parent scopes
+```json
+		{
+			"name": "Variables",
+			"scope": "variable",
+			"settings": {
+				"foreground": "#dc3958",
+                "fontStyle": "bold underline"
+			}
+		},
+		{
+			"name": "Functions",
+			"scope": [
+				"entity.name.function",
+				"meta.selector.css entity.name.tag",
+				"entity.name.method - source.java"
+			],
+			"settings": {
+				"foreground": "#8ab1b0",
+			}
+		}
+```
+   - `variable` matches all scopes that start with `variable`: `variable.js`, `variable.parameter.java`...
+   - `meta.selector.css entity.name.tag` matches all scopes that start with `meta.selector.css` and have a parent scope that matches `entity.name.tag`
+   - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but not insiif a parent scope matches `source.java`
+- Learn more about [scope selectors](https://manual.macromates.com/en/scope_selectors)
+
+## Create a new color theme
+- Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
+- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generated a new theme extension.
+- If you customized a theme as described above, select 'Start fresh'.
+![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)
+
+  - Copy the theme file generated from your settings to the new extension.
+- To use a existing TextMate theme, you can tell the extension generator to import a TextMate theme file and package it for use in VS Code. Alternatively, if you have already downloaded the theme, replace the `tokenColors` section with a link to the `.tmTheme` file to use.
 ```json
 {
     "type": "dark",
@@ -49,19 +96,9 @@ To change the syntax highlighting colors, you can tell the extension generator t
     "tokenColors": "./Diner.tmTheme"
 }
 ```
+>**Tip:** [ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"http://colorsublime.com/theme/download/(number)"`
 
-[ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"http://colorsublime.com/theme/download/(number)"`.  The 'code' generator will prompt you for the URL or file location of the .tmTheme file, the theme name, and other information related to the theme.
-
->**Tip:** If you'd like to edit an existing TextMate theme, you can use the online [TmTheme Editor](http://tmtheme-editor.herokuapp.com/#!/editor/theme/Monokai). You can download an existing .tmTheme file and work on it locally.
-
-Authoring a syntax theme from scratch is an advanced skill as you need to understand on how TextMate grammars work.
-
-- read here about the [scopes](https://www.sublimetext.com/docs/3/scope_naming.html) that TextMate grammars generate.
-- Use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token and the matching theme rule.
-
-![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
-
-- Learn about [scope selectors](https://manual.macromates.com/en/scope_selectors)
+## Test a new color theme
 
 To try out the new theme, copy the generated theme folder to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder) and restart VS Code.
 
