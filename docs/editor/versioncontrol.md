@@ -129,7 +129,7 @@ Running **Initialize Git Repository** will create the necessary Git repository m
 
 ## Git patch/diff mode
 
-When you launch VS Code from the command line, you can pass the `--wait` argument to make the launch command wait until you have closed the new VS Code instance. This can be useful when you configure VS Code as your Git external editor.
+When you launch VS Code from the command line, you can pass the `--wait` argument to make the launch command wait until you have closed the new VS Code instance. This can be useful when you configure VS Code as your Git external editor so Git will wait until you close the launched VS Code instance.
 
 Here are the steps to do so:
 
