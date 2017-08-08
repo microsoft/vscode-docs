@@ -25,7 +25,7 @@ Read on to learn how this changes the way you use Emmet in Visual Studio Code.
 
 Previously, the [Emmet library](https://github.com/emmetio/emmet) was a single monolithic codebase that was used for every [Emmet action](https://docs.emmet.io/actions/). The author of Emmet, [Sergey Chikuyonok](https://github.com/sergeche), envisioned a new world for Emmet 2.0 with smaller, re-usable modules.
 
-This was done to allow editor plugins to use the editor specific APIs for a better Emmet integration with editor features like multiple cursors, syntax detection, and others.
+This was done to allow editor plugins to use the editor specific APIs for a better Emmet integration with editor features like multiple cursors and syntax detection.
 
 There are now separate npm modules from [@emmetio](https://github.com/emmetio) for the different parts of the pipeline required to expand an Emmet abbreviation, including parsing an abbreviation, resolving snippets, rendering output as per syntax, and applying transformations. 
 
@@ -34,12 +34,14 @@ There are also separate modules for parsing HTML and CSS documents to aid in imp
 This modular approach has allowed us to:
 
 - Provide Emmet abbreviation expansions in the suggestion/auto-completion list.
-- Provide multi cursor support for most of the Emmet actions
+- Provide multi cursor support for most of the Emmet actions.
 - Provide more efficient parsing of documents using VS Code specific APIs for Emmet actions that need parsed files.
+- Pull the Emmet integration in VS Code from the core to an extension.
+
 
 ## Replacing use of Tab for expanding Emmet abbreviations
 
-Many of our users had two main issues with using the `kbstyle(Tab)` key as a keyboard shortcut for the **Emmet: Expand Abbreviation**:
+Many of our users had two issues with using the `kbstyle(Tab)` key as a keyboard shortcut for the **Emmet: Expand Abbreviation**:
 
 * Unexpected Emmet expansions occurring when the user wanted to just add an indent using the `kbstyle(Tab)` key.
 * Items from the suggestion list getting inserted when the user actually wanted to expand an Emmet abbreviation.
@@ -58,7 +60,7 @@ You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the 
 
 ## Emmet suggestions in other file types
 
-In Emmet 2.0, the commands **Emmet: Expand Abbreviation** and **Emmet: Wrap with Abbreviation** will expand HTML abbreviations on all file types without any configuration or setting updates.
+In Emmet 2.0, the commands **Emmet: Expand Abbreviation** and **Emmet: Wrap with Abbreviation** will expand HTML abbreviations on all file types. No configuration or setting update needed.
 
 If you are working on any of the default Emmet-enabled file types (`html`, `haml`, `jade`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus`), you will see Emmet abbreviation expansions in the suggestion/auto-completion list as you type or when you manually trigger auto-completion.
 
@@ -188,6 +190,10 @@ Setting | Reason for deprecation
 ## Share your thoughts on the new Emmet
 
 Do you miss any of the features from the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/Microsoft/vscode/issues) and we will try our best to help you out.
+
+Also, it is easier than ever to contribute to the Emmet integration in VS Code as it is now an extension. The [emmet folder in VS Code](https://github.com/Microsoft/vscode/tree/master/extensions/emmet) is where all the code you need to get started lives.
+
+Happy Coding!
 
 Ramya Rao, VS Code Team member [@ramyanexus](https://twitter.com/ramyanexus)
 
