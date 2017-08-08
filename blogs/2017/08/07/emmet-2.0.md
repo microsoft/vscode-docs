@@ -186,6 +186,13 @@ Setting | Reason for deprecation
 `emmet.triggerExpansionOnTab` | Obsolete as `kbstyle(Tab)` is no longer bound to the **Emmet: Expand Abbreviation** command.
 `emmet.preferences` | The new modular Emmet does not support [Emmet Preferences](https://docs.emmet.io/customization/preferences/) in the same way as it did before. If you are using preferences today, please log an issue and we'll try to include them in the new Emmet.
 
+## People who made Emmet 2.0 happen
+
+I want to thank [Sergey Chikuyonok](https://github.com/sergeche) for his amazing work on modularizing Emmet and helping us bring these improvements to VS Code.  
+
+Thanks to everyone who used the new Emmet in VS Code when it was in preview and provided feedback through GitHub issues.
+
+Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdorf](https://github.com/jens1o), [Vladimir Sizikov](https://github.com/vvs), [Niichie](https://github.com/Niichie), [Thomas Klepzig](https://github.com/tklepzig) and many more who were using VS Code Insiders testing each of my bug fixes and feature additions. A lot of discussions on Github issues with them has lead to the current user experience.
 
 ## Share your thoughts on the new Emmet
 
