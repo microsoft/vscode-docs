@@ -34,8 +34,9 @@ There are separate modules for parsing HTML and CSS documents as well to aid in 
 This modular approach has allowed us to:
 
 - Provide Emmet abbreviation expansions in the suggestion/auto-completion list.
-- Provide multi cursor support for most of the Emmet actions
+- Provide multi cursor support for most of the Emmet actions.
 - Provide more efficient parsing of documents using VS Code specific APIs for Emmet actions that need parsed files.
+- Pull the Emmet integration in VS Code from the core to an extension.
 
 ## Replacing use of Tab for expanding Emmet abbreviations
 
@@ -188,6 +189,10 @@ Setting | Reason for deprecation
 ## Share your thoughts on the new Emmet
 
 Do you miss any of the features from the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/Microsoft/vscode/issues) and we will try our best to help you out.
+
+Also, it is easier than ever to contribute to the Emmet integration in VS Code as it is now an extension. The [emmet folder in VS Code](https://github.com/Microsoft/vscode/tree/master/extensions/emmet) is where all the code you need to get started lives.
+
+Happy Coding!
 
 Ramya Rao, VS Code Team member [@ramyanexus](https://twitter.com/ramyanexus)
 
