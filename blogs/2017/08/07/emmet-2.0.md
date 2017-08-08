@@ -1,5 +1,7 @@
 # Emmet 2.0 in Visual Studio Code
 
+August 7, 2017 Ramya Rao, [@ramyanexus](https://twitter.com/ramyanexus)
+
 A better Emmet experience, including abbreviation expansions in suggestion/auto-completion lists, multi-cursor support for most [Emmet actions](https://docs.emmet.io/actions/) and updated support for custom snippets are in store as we ship Emmet 2.0 in the July 2017 release of Visual Studio Code (version 1.15).
 
 ![Emmet in suggestion/auto-completion list](2017_08_07_emmet.gif)
@@ -49,7 +51,7 @@ You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the 
 
 In the Emmet 2.0, the commands **Emmet: Expand Abbreviation** and **Emmet: Wrap with Abbreviation** will expand HTML abbreviations on all file types. No configuration or setting update needed.
 
-If you are working on any of the default Emmet-enabled file types (html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus), you will see Emmet abbreviation expansions in the suggestion/auto-completion list as you type or when you manually trigger auto-completion.
+If you are working on any of the default Emmet-enabled file types (html, haml, jade, slim, jsx, xml, xsl, css, scss, sass, less and stylus), you will see Emmet abbreviation expansions in the suggestion/auto-completion list as you type or when you manually trigger auto-completion.
 
 To get Emmet suggestions in a file type that is not enabled for Emmet by default, use the [setting](/docs/getstarted/settings.md) `emmet.includeLanguages`.
 
@@ -172,3 +174,12 @@ Setting | Reason for deprecation
 -------- | ------------------------
 `emmet.triggerExpansionOnTab` | Obsolete as `kbstyle(Tab)` is no longer bound to the **Emmet: Expand Abbreviation** command.
 `emmet.preferences` | The new modular Emmet does not support [Emmet Preferences](https://docs.emmet.io/customization/preferences/) in the same way as it did before. If you are using preferences today, please log an issue and we'll try to include them in the new Emmet.
+
+
+## Share your thoughts on the new Emmet
+
+Do you miss any of the features from the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/Microsoft/vscode/issues) and we will try our best to help you out.
+
+Ramya Rao, VS Code Team member [@ramyanexus](https://twitter.com/ramyanexus)
+
+
