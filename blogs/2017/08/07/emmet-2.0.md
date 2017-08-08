@@ -34,19 +34,19 @@ If you don't like emmet showing up in the suggestion/auto-completion list, set `
 
 You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the `editor.action.emmet.expandAbbreviation` command or use **Emmet: Expand Abbreviation** from the **Command Palette**.
 
-## Emmet suggestions in other files types
+## Emmet suggestions in other file types
 
-In the new Emmet, the commands **Emmet: Expand Abbreviation** and **Emmet: Wrap with Abbreviation** will expand HTML abbreviations on all file types. No configuration or setting update needed.
+In the Emmet 2.0, the commands **Emmet: Expand Abbreviation** and **Emmet: Wrap with Abbreviation** will expand HTML abbreviations on all file types. No configuration or setting update needed.
 
-If you are working on any of the Emmet supported modes (html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus), you will start seeing the emmet abbreviation expansions in the suggestion/auto-completion list as you type or when you manually trigger auto-completion.
+If you are working on any of the default Emmet-enabled file types (html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus), you will see Emmet abbreviation expansions in the suggestion/auto-completion list as you type or when you manually trigger auto-completion.
 
-To get Emmet suggestions in a file type that is not supported by Emmet by default (see above list), use the new setting `emmet.includeLanguages`.
+To get Emmet suggestions in a file type that is not enabled for Emmet by default (see above list), use the new setting `emmet.includeLanguages` to define additional ones.
 
 Read more on this new setting in the section on [Emmet Configuration](#emmet-configuration).
 
 ## Using custom Emmet snippets
 
-Custom snippets need to be in a json file named `snippets.json`. The `emmet.extensionsPath` setting should have the path to the directory containing this file.
+To use custom snippets, snippets need to be defined in a json file named `snippets.json`. The `emmet.extensionsPath` setting should have the path to the directory containing this file.
 
 Below is an example for the contents of this `snippets.json` file.
 
@@ -65,11 +65,11 @@ Below is an example for the contents of this `snippets.json` file.
 }
 ```
 
-In the new Emmet, there are some restrictions on the snippet name and value.
+In the Emmet 2.0, there are some restrictions on the snippet name and value.
 
 ### HTML Emmet snippets
 
-The value for HTML Emmet snippets should be a valid abbreviation.
+Values for HTML Emmet snippets should be a valid abbreviation.
 
 Say you want an unordered list with a list item. Your snippet should be `ul>li` and not `<ul><li></li></ul>`.
 
@@ -77,13 +77,13 @@ These custom snippets are applicable to all other markup flavors like `haml` or 
 
 ### CSS Emmet snippets
 
-The value for CSS Emmet snippets should either be a property value or the complete property value pair.
+Values for CSS Emmet snippets should either be a property value or the complete property value pair.
 
 Make sure that the name of the snippet contains the letters from the snippet value, so that fuzzy matching algorithms can make the right match in the suggestion list.
 
-These custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, dont include a trailing `;` at the end of the snippet value. Emmet will add it if needed based on the whether the language requires it.
+These custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
 
-> Note: After every change to this `snippets.json` file, remember to reload Visual Studio Code for it to take effect.
+> Note: After making changes to the `snippets.json` file, remember to reload Visual Studio Code for it to take effect.
 
 ## Emmet configuration
 
@@ -103,7 +103,7 @@ These custom snippets are applicable to all other stylesheet flavors like `scss`
 
 * `emmet.excludeLanguages`
 
-    If there is any language where you do not want to see Emmet expansions, add it in this setting which takes an array of language id strings.
+    If there is a language where you do not want to see Emmet expansions, add it in this setting which takes an array of language id strings.
 
 * `emmet.syntaxProfiles`
 
