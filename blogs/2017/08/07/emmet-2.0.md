@@ -1,3 +1,12 @@
+---
+Order: 30
+TOCTitle: Emmet 2.0
+PageTitle: Emmet 2.0 in Visual Studio Code
+MetaDescription: New Emmet 2.0 brings a better Emmet experience inside VS Code. 
+Date: 2017-08-07
+ShortDescription: New Emmet 2.0 brings a better Emmet experience inside VS Code. . 
+Author: Ramya Rao
+---
 # Emmet 2.0 in Visual Studio Code
 
 August 7, 2017 Ramya Rao, [@ramyanexus](https://twitter.com/ramyanexus)
