@@ -1,25 +1,27 @@
 # Emmet 2.0 in Visual Studio Code
 
-Emmet abbreviation expansions in suggestion/auto-completion lists, multi-cursor support for [Emmet actions](https://docs.emmet.io/actions/), updated support for custom snippets and more are in store as part of Emmet 2.0 in Visual Studio Code.
+A better Emmet experience, including abbreviation expansions in suggestion/auto-completion lists, multi-cursor support for most [Emmet actions](https://docs.emmet.io/actions/) and updated support for custom snippets are in store as we ship Emmet 2.0 in the July 2017 release of Visual Studio Code (version 1.15).
 
 ![Emmet in suggestion/auto-completion list](2017_08_07_emmet.gif)
 
-With the introduction of Emmet 2.0 in the July 2017 release (VS Code 1.15), we rewrote all of the Emmet actions using new helper npm modules from [emmetio](http://github.com/emmetio). Another important change is that the `kbstyle(Tab)` key is no longer bound to the **Emmet: Expand Abbreviation** command by default.
+With this move, we have re-written all of the Emmet actions using new npm modules from [emmetio](http://github.com/emmetio).
+
+The most important change for VS Code users is that Emmet Abbreviations will now appear in suggestion/auto-completion lists just like any other completion, and no longer need a dedicated keyboard shortcut (kbstyle(Tab)) in order to expand.
 
 Read on to learn how this changes the way you use Emmet in Visual Studio Code.
 
-## New modular Emmet
+## New modular approach to Emmet
 
-Previously, a single [Emmet library](https://github.com/emmetio/emmet) did all the work required for all of the [Emmet actions](https://docs.emmet.io/actions/). The author of Emmet, [Sergey Chikuyonok](https://github.com/sergeche), envisioned a new world for Emmet 2.0 where he has taken a more modular approach.
+Previously, a single [Emmet library](https://github.com/emmetio/emmet) did all the work required for all the different [Emmet actions](https://docs.emmet.io/actions/). The author of Emmet, [Sergey Chikuyonok](https://github.com/sergeche), envisioned a new world for Emmet 2.0 where he has taken a more modular approach.
 
-There are now separate individual npm modules for the different parts of the pipeline required to expand an Emmet abbreviation. From parsing an abbreviation, resolving snippets, rendering output as per syntax, applying transformations as well as parsing HTML/CSS documents. You can find these modules on [npm](https://www.npmjs.com/~emmetio).
+There are now separate npm modules for the different parts of the pipeline required to expand an Emmet abbreviation. From parsing an abbreviation, resolving snippets, rendering output as per syntax, applying transformations. There are separate modules for parsing HTML and CSS documents as well to aid in implementing rest of the Emmet features. You can find these modules on [npm](https://www.npmjs.com/~emmetio).
 
 This modular approach has allowed us to:
 
 - Provide Emmet abbreviation expansions in the suggestion/auto-completion list.
-- Re-write all of the other Emmet Actions, thus enabling us to give multi cursor support for most of them.
+- Re-write all of the Emmet Actions, thus enabling us to give multi cursor support for most of them.
 
-## Expand Emmet with Tab vs suggestion list
+## Replacing use of Tab for expanding Emmet abbreviations
 
 Using the `kbstyle(Tab)` key as a keyboard shortcut for the **Emmet: Expand Abbreviation** command had 2 issues that many of our users saw:
 
@@ -40,7 +42,7 @@ In the Emmet 2.0, the commands **Emmet: Expand Abbreviation** and **Emmet: Wrap 
 
 If you are working on any of the default Emmet-enabled file types (html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus), you will see Emmet abbreviation expansions in the suggestion/auto-completion list as you type or when you manually trigger auto-completion.
 
-To get Emmet suggestions in a file type that is not enabled for Emmet by default (see above list), use the new setting `emmet.includeLanguages` to define additional ones.
+To get Emmet suggestions in a file type that is not enabled for Emmet by default, use the setting `emmet.includeLanguages`.
 
 Read more on this new setting in the section on [Emmet Configuration](#emmet-configuration).
 
@@ -65,7 +67,7 @@ Below is an example for the contents of this `snippets.json` file.
 }
 ```
 
-In the Emmet 2.0, there are some restrictions on the snippet name and value.
+Keep in mind that in Emmet 2.0, there are some restrictions on the snippet name and value.
 
 ### HTML Emmet snippets
 
@@ -80,6 +82,8 @@ These custom snippets are applicable to all other markup flavors like `haml` or 
 Values for CSS Emmet snippets should either be a property value or the complete property value pair.
 
 Make sure that the name of the snippet contains the letters from the snippet value, so that fuzzy matching algorithms can make the right match in the suggestion list.
+
+If you don't, then the **Emmet: Expand Abbreviation** command will work nevertheless. But, these snippets won't show up in the suggesiton list which relies on the fuzzy matching to filter out suggestions.
 
 These custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
 
