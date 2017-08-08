@@ -167,4 +167,4 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 "terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
 ```
 
-Note: The example above assumes you are running 32 bit VS Code on 64 bit Windows and need to use `sysnative`. If you are running the 64 bit version of VS Code, you would use `System32`.
+Note: The example above assumes you are running 32-bit VS Code on 64-bit Windows and need to use `sysnative`. If you are running the 64-bit version of VS Code, you would use `System32`.
