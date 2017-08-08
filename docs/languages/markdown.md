@@ -80,6 +80,31 @@ Use **File** > **Preferences** > **Settings** to bring up the workspace `setting
 }
 ```
 
+## Markdown Preview Security
+
+For security reasons, VS Code restricts the content displayed in the markdown preview. This includes disabling script execution and only allowing resources to be loaded over https.
+
+When the markdown preview blocks content on a page, an alert popup is shown in the top right corner of the preview window:
+
+![](images/Markdown/security-alert.png)
+
+You can change what content is allowed in the markdown preview by clicking on this popup or running the `Markdown: Change preview security settings` command in any markdown file:
+
+![](images/Markdown/security-selector.png)
+
+The markdown preview security settings apply to all files in the workspace. Here's more information about each of these security levels:
+
+### Strict
+This is the default setting. Only loads trusted content and disables script execution. Blocks http images and all SVG images not from one of our [trusted badge providers](/docs/extensionAPI/extension-manifest.md#approved-badges).
+
+It is strongly recommended that you keep `Strict` security enabled unless you have a very good reason to change it AND you trust all markdown files in the workspace.
+
+### Allow insecure content
+Keeps scripts disabled but allows content to be loaded over http. Also enables SVG images.
+
+### Disable
+Disables additional security in the preview window. This allows script execution and also allows content to be loaded over http.
+
 ## Snippets for Markdown
 
 There are several built-in Markdown snippets included in VS Code - press `kb(editor.action.triggerSuggest)` (Trigger Suggest) and you get a context specific list of suggestions.
