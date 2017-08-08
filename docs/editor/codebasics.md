@@ -34,6 +34,19 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 > **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
 
+### Multi-cursor modifier
+
+If you'd like to change the modifier key for applying multiple cursors to `kbstyle(Cmd+Click)` on macOS and `kbstyle(Ctrl+Click)` on Windows and Linux, you can do so with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md). This lets users coming from other editors such as Sublime Text or Atom continue to use the keyboard modifier they are familiar with.
+
+The setting can be set to:
+
+* `ctrlCmd` - Maps to `kbstyle(Ctrl)` on Windows and `kbstyle(Cmd)` on macOS.
+* `alt` - The existing default `kbstyle(Alt)`.
+
+There's also a menu item **Use Ctrl+Click for Multi-Cursor** in the **Selection** menu to quickly toggle this setting.
+
+The **Go To Definition** and **Open Link** gestures will also respect this setting and adapt such that they do not conflict. For example, when the setting is `ctrlCmd`, multiple cursors can be added with `kbstyle(Ctrl/Cmd+Click)`, and opening links or going to definition can be invoked with `kbstyle(Alt+Click)`.
+
 ### Shrink/expand selection
 
 Quickly shrink or expand the current selection. Trigger it with `kb(editor.action.smartSelect.shrink)` and `kb(editor.action.smartSelect.grow)`
@@ -171,13 +184,39 @@ You can fold regions of source code using the folding icons on the gutter betwee
 
 You can also use the following actions:
 
- * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
- * Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
- * Fold All (`kb(editor.foldAll)`) folds all region in the editor
- * Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
- * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position
+* Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
+* Unfold (`kb(editor.unfold)`) unfolds the collapsed region at the cursor
+* Fold All (`kb(editor.foldAll)`) folds all region in the editor
+* Unfold All (`kb(editor.unfoldAll)`) unfolds all regions in the editor
+* Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position
 
 ![Folding](images/codebasics/folding.png)
+
+## Indentation
+
+VS Code lets you control text indentation and whether you'd like to use spaces or tab stops. By default, VS Code inserts spaces and uses 4 spaces per `kbstyle(Tab)` key. If you'd like to use another default, you can modify the `editor.insertSpaces` and `editor.tabSize` [settings](/docs/getstarted/settings.mg).
+
+```json
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4,
+```
+
+### Auto-detection
+
+VS Code analyzes your open file and determines the indentation used in the document. The auto-detected indentation overrides your default indentation settings. The detected setting is displayed on the right side of the Status Bar:
+
+![auto detect indentation](images/codebasics/indentation-detection.png)
+
+You can click on the Status Bar indentation display to bring up a drop-down with indentation commands allowing you to change the default settings for the open file or convert between tab stops and spaces.
+
+![indentation commands](images/codebasics/indentation-commands.png)
+
+>**Note:** VS Code auto-detection checks for indentations of 2, 4, 6 or 8 spaces. If your file uses a different number of spaces, the indentation may not be correctly detected. For example, if your convention is to indent with 3 spaces, you may want to turn off `editor.detectIndentation` and explicitly set the tab size to 3.
+
+```json
+    "editor.detectIndentation": false,
+    "editor.tabSize": 3,
+```
 
 ## File Encoding Support
 
@@ -227,7 +266,3 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordwrap` value.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
-
-**Q: How can I show more files in the OPEN EDITORS section?**
-
-**A:** You can configure the appearance of **OPEN EDITORS** through your [settings](/docs/getstarted/settings.md). For example, you can set the maximum number of visible files before a scroll bar appears via the `explorer.openEditors.visible` setting and whether the **OPEN EDITORS** section should dynamically set its height via `explorer.openEditors.dynamicHeight`.
