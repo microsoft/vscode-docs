@@ -29,7 +29,7 @@ This was done to allow editor plugins to use the editor specific APIs for a bett
 
 There are now separate npm modules from [@emmetio](https://github.com/emmetio) for the different parts of the pipeline required to expand an Emmet abbreviation, including parsing an abbreviation, resolving snippets, rendering output as per syntax, and applying transformations. 
 
-There are also separate modules for parsing HTML and CSS documents to aid in implementing the rest of the Emmet features. You can find these modules on [npm](https://www.npmjs.com/~emmetio).
+There are also separate modules for parsing HTML and CSS documents to aid in implementing the rest of the Emmet features. You can find these modules on npm under [emmetio](https://www.npmjs.com/~emmetio).
 
 This modular approach has allowed us to:
 
