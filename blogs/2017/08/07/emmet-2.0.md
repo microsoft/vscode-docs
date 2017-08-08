@@ -23,24 +23,23 @@ Read on to learn how this changes the way you use Emmet in Visual Studio Code.
 
 ## New modular approach to Emmet
 
-Previously, the [Emmet library](https://github.com/emmetio/emmet) was a single monolithic codebase that was used for every [Emmet action](https://docs.emmet.io/actions/). The author of Emmet, [Sergey Chikuyonok](https://github.com/sergeche), envisioned a new world for Emmet 2.0 where he has taken a more modular approach to create small re-usable modules.
+Previously, the [Emmet library](https://github.com/emmetio/emmet) was a single monolithic codebase that was used for every [Emmet action](https://docs.emmet.io/actions/). The author of Emmet, [Sergey Chikuyonok](https://github.com/sergeche), envisioned a new world for Emmet 2.0 with smaller, re-usable modules.
 
-This was done to allow editor plugins to use the editor specific APIs for a better Emmet integration with editor features. Hint: Multi cursors, syntax detection etc.
+This was done to allow editor plugins to use the editor specific APIs for a better Emmet integration with editor features like multiple cursors, syntax detection, and others.
 
-There are now separate npm modules from [@emmetio](https://github.com/emmetio) for the different parts of the pipeline required to expand an Emmet abbreviation which include parsing an abbreviation, resolving snippets, rendering output as per syntax, applying transformations etc.
+There are now separate npm modules from [@emmetio](https://github.com/emmetio) for the different parts of the pipeline required to expand an Emmet abbreviation, including parsing an abbreviation, resolving snippets, rendering output as per syntax, and applying transformations. 
 
-There are separate modules for parsing HTML and CSS documents as well to aid in implementing rest of the Emmet features. You can find these modules on [npm](https://www.npmjs.com/~emmetio).
+There are also separate modules for parsing HTML and CSS documents to aid in implementing the rest of the Emmet features. You can find these modules on [npm](https://www.npmjs.com/~emmetio).
 
 This modular approach has allowed us to:
 
 - Provide Emmet abbreviation expansions in the suggestion/auto-completion list.
-- Provide multi cursor support for most of the Emmet actions.
+- Provide multi cursor support for most of the Emmet actions
 - Provide more efficient parsing of documents using VS Code specific APIs for Emmet actions that need parsed files.
-- Pull the Emmet integration in VS Code from the core to an extension.
 
 ## Replacing use of Tab for expanding Emmet abbreviations
 
-Using the `kbstyle(Tab)` key as a keyboard shortcut for the **Emmet: Expand Abbreviation** command had 2 issues that many of our users saw:
+Many of our users had two main issues with using the `kbstyle(Tab)` key as a keyboard shortcut for the **Emmet: Expand Abbreviation**:
 
 * Unexpected Emmet expansions occurring when the user wanted to just add an indent using the `kbstyle(Tab)` key.
 * Items from the suggestion list getting inserted when the user actually wanted to expand an Emmet abbreviation.
@@ -53,21 +52,21 @@ With this move, the default keybinding of the `kbstyle(Tab)` key with the `edito
 
 If you have `editor.quickSuggestions` turned off then you will have to press `kb(editor.action.triggerSuggest)` to trigger the suggestion/auto-completion list manually.
 
-If you don't like emmet showing up in the suggestion/auto-completion list, set `emmet.showExpandedAbbreviation` to `never`
+If you don't want Emmet showing up in the suggestion/auto-completion list, set `emmet.showExpandedAbbreviation` to `never`.
 
 You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the `editor.action.emmet.expandAbbreviation` command or use **Emmet: Expand Abbreviation** from the **Command Palette**.
 
 ## Emmet suggestions in other file types
 
-In the Emmet 2.0, the commands **Emmet: Expand Abbreviation** and **Emmet: Wrap with Abbreviation** will expand HTML abbreviations on all file types. No configuration or setting update needed.
+In Emmet 2.0, the commands **Emmet: Expand Abbreviation** and **Emmet: Wrap with Abbreviation** will expand HTML abbreviations on all file types without any configuration or setting updates.
 
-If you are working on any of the default Emmet-enabled file types (html, haml, jade, slim, jsx, xml, xsl, css, scss, sass, less and stylus), you will see Emmet abbreviation expansions in the suggestion/auto-completion list as you type or when you manually trigger auto-completion.
+If you are working on any of the default Emmet-enabled file types (`html`, `haml`, `jade`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus`), you will see Emmet abbreviation expansions in the suggestion/auto-completion list as you type or when you manually trigger auto-completion.
 
 To get Emmet suggestions in a file type that is not enabled for Emmet by default, use the [setting](/docs/getstarted/settings.md) `emmet.includeLanguages`.
 
 Read more on this new setting in the section on [Emmet Configuration](#emmet-configuration).
 
-> Note: You might have used `emmet.syntaxProfiles` previously to map new file types. Please use the new setting `emmet.includeLanguages` from VS Code 1.15 onwards instead. The `emmet.syntaxProfiles` should be solely used for customizing the final output.
+> Note: You might have used `emmet.syntaxProfiles` previously to map new file types. Please use the new setting `emmet.includeLanguages` from VS Code 1.15 onwards instead. The `emmet.syntaxProfiles` should be used solely for customizing the final output.
 
 ## Using custom Emmet snippets
 
@@ -106,11 +105,11 @@ Values for CSS Emmet snippets should either be a property value or the complete 
 
 Make sure that the name of the snippet contains the letters from the snippet value, so that fuzzy matching algorithms can make the right match in the suggestion list.
 
-If you don't, then the **Emmet: Expand Abbreviation** command will work nevertheless. But, these snippets won't show up in the suggesiton list which relies on the fuzzy matching to filter out suggestions.
+If you don't, then the **Emmet: Expand Abbreviation** command will still work. But, these snippets won't show up in the suggestion list which relies on the fuzzy matching to filter out suggestions.
 
 These custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
 
-> Note: After making changes to the `snippets.json` file, remember to reload Visual Studio Code for it to take effect.
+> Note: After making changes to the `snippets.json` file, remember to reload VS Code for it to take effect.
 
 ## Emmet configuration
 
@@ -189,10 +188,6 @@ Setting | Reason for deprecation
 ## Share your thoughts on the new Emmet
 
 Do you miss any of the features from the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/Microsoft/vscode/issues) and we will try our best to help you out.
-
-Also, it is easier than ever to contribute to the Emmet integration in VS Code as it is now an extension. The [emmet folder in VS Code](https://github.com/Microsoft/vscode/tree/master/extensions/emmet) is where all the code you need to get started lives.
-
-Happy Coding!
 
 Ramya Rao, VS Code Team member [@ramyanexus](https://twitter.com/ramyanexus)
 
