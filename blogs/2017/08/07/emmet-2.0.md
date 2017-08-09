@@ -13,17 +13,19 @@ August 7, 2017 Ramya Rao, [@ramyanexus](https://twitter.com/ramyanexus)
 
 In the July 2017 release of Visual Studio Code (version 1.15), we're shipping a better Emmet experience: Emmet 2.0.
 
-It's features include:
+This has been in preview for the past 2 releases. It's features include:
 
 * Emmet abbreviation expansions in suggestion/auto-completion lists.
 * Multi-cursor support for most [Emmet actions](https://docs.emmet.io/actions/).
-* Support for custom Emmet snippets.
+* Updated support for custom Emmet snippets.
 
 ![Emmet in suggestion/auto-completion list](2017_08_07_emmet.gif)
 
-As part of this update, we have re-written all of the Emmet actions using new npm modules from [@emmetio](http://github.com/emmetio).
+As part of this update, we have re-written all of the Emmet actions using new npm modules from [@emmetio](https://www.npmjs.com/~emmetio).
 
-An important change is that because Emmet abbreviations are displayed in the suggestion list, just like any other smart completion, the `kbstyle(Tab)` key is no longer used as the dedicated keyboard shortcut. This may take some getting used to but we think you'll see the benefits of Emmet sharing the same gesture as other smart completions.
+An important change is that the `kbstyle(Tab)` key is no longer the dedicated keyboard shortcut for expanding Emmet abbreviations. Instead, Emmet abbreviations will appear in the suggestion list. They can be selected like any other smart completion and on selection, the abbreviation will be expanded. 
+
+This may take some getting used to but we think you'll see the benefits of Emmet abbreviations being treated as suggestions or smart completions. You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the `editor.action.emmet.expandAbbreviation` command or use **Emmet: Expand Abbreviation** from the **Command Palette**.
 
 Read on to learn about the Emmet 2.0 changes in Visual Studio Code.
 
@@ -31,18 +33,16 @@ Read on to learn about the Emmet 2.0 changes in Visual Studio Code.
 
 Previously, the [Emmet library](https://github.com/emmetio/emmet) was a single monolithic codebase that was used for every [Emmet action](https://docs.emmet.io/actions/). The author of Emmet, [Sergey Chikuyonok](https://github.com/sergeche), envisioned a new world for Emmet 2.0 with smaller, re-usable modules.
 
-This was done to allow editor plugins to use the editor specific APIs for better Emmet integration on features like multiple cursors and syntax detection.
-
 There are now separate npm modules from [@emmetio](https://github.com/emmetio) for the different parts of the pipeline required to expand an Emmet abbreviation. These include steps such as:
 
 * Parsing an abbreviation
-* Resolving snippets
+* Resolving snippets and variables
 * Rendering output as per syntax
 * Applying transformations
 
 There are also separate modules for parsing HTML and CSS documents to aid in implementing the rest of the Emmet features. You can find these modules on npm under [emmetio](https://www.npmjs.com/~emmetio).
 
-This modular approach has allowed us to:
+This modular approach was taken to allow editor plugins to use the editor specific APIs for better Emmet integration with the editor features. For example, this approach has allowed us to:
 
 * Provide Emmet abbreviation expansions in the suggestion/auto-completion list.
 * Provide multi cursor support for most of the Emmet actions.
@@ -51,12 +51,14 @@ This modular approach has allowed us to:
 
 ## Replacing Tab for expanding Emmet abbreviations
 
-There were two problematic issues with using the `kbstyle(Tab)` key as a keyboard shortcut for Emmet expansion:
+There were two issues with using the `kbstyle(Tab)` key as a keyboard shortcut for Emmet expansion:
 
 * Emmet expansions occurred when the user wanted to indent source code using the `kbstyle(Tab)` key.
 * Items from the suggestion list were inserted when the user wanted to expand an Emmet abbreviation.
 
-[Sergey Chikuyonok](https://github.com/sergeche) realized that having Emmet in the suggestion list would be a more pleasant experience. That this helped solve these two issues, was an added bonus. Now that we didn't need a default keybinding for the **Emmet: ExpandAbbreviation** command (command Id `editor.action.emmet.expandAbbreviation`), the `kbstyle(Tab)` key was freed to do what it was meant to: indent.
+[Sergey Chikuyonok](https://github.com/sergeche) realized that having Emmet in the suggestion list would be a more pleasant experience. That it helped us solve the above two issues, was an added bonus. 
+
+With Emmet abbreviations now easily accessible via suggestion list, we were able to remove the association of `kbstyle(Tab)` key with the **Emmet: ExpandAbbreviation** command (command Id `editor.action.emmet.expandAbbreviation`). The `kbstyle(Tab)` key is now free to do what it was meant to do: indent.
 
 If you have the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md) turned off, you will have to press `kb(editor.action.triggerSuggest)` to trigger the suggestion/auto-completion list manually.
 
@@ -74,7 +76,7 @@ To get Emmet suggestions in a file type that is not enabled for Emmet by default
 
 Read more on this new setting in the section on [Emmet Configuration](#emmet-configuration).
 
-> Note: If you used used `emmet.syntaxProfiles` to map new file types, you should use the new setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` should only be used for customizing the final output.
+> Note: If you used `emmet.syntaxProfiles` previously to map new file types, you should now use the new setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` should only be used for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles).
 
 ## Using custom Emmet snippets
 
@@ -105,7 +107,7 @@ Values for HTML Emmet snippets should be a valid abbreviation.
 
 For example, if you want an unordered list with a list item, your snippet should be `ul>li` and not `<ul><li></li></ul>`.
 
-Custom snippets are applicable to all other markup flavors like `haml` or `jade`. When snippet value is an abbreviation and not actual HTML, the appropriate transformations can be applied to get the right output as per the language type.
+HTML custom snippets are applicable to all other markup flavors like `haml` or `jade`. When snippet value is an abbreviation and not actual HTML, the appropriate transformations can be applied to get the right output as per the language type.
 
 ### CSS Emmet snippets
 
@@ -194,9 +196,9 @@ Setting | Reason for deprecation
 
 I want to thank [Sergey Chikuyonok](https://github.com/sergeche) for his amazing work on modularizing Emmet and helping us bring these improvements to VS Code.
 
-Thanks also goes to everyone who used the new Emmet in VS Code when it was in preview and provided great feedback through GitHub issues.
+Thanks also goes to everyone who used the new Emmet in VS Code when it was in preview and provided great feedback through GitHub issues. The discussions in Github issues were very helpful in getting to the current user experience.
 
-Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdorf](https://github.com/jens1o), [Vladimir Sizikov](https://github.com/vvs), [Niichie](https://github.com/Niichie), [Thomas Klepzig](https://github.com/tklepzig) and many more who used the VS Code Insiders builds to test my bug fixes and feature additions. The discussions in Github issues were very helpful in getting to the current user experience.
+Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdorf](https://github.com/jens1o), [Vladimir Sizikov](https://github.com/vvs), [Niichie](https://github.com/Niichie), [Thomas Klepzig](https://github.com/tklepzig) and many more who used the VS Code Insiders builds to test my bug fixes and feature additions. 
 
 ## Share your thoughts on the new Emmet
 
