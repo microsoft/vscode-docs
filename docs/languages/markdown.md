@@ -80,30 +80,35 @@ Use **File** > **Preferences** > **Settings** to bring up the workspace `setting
 }
 ```
 
-## Markdown Preview Security
+## Markdown preview security
 
-For security reasons, VS Code restricts the content displayed in the markdown preview. This includes disabling script execution and only allowing resources to be loaded over https.
+For security reasons, VS Code restricts the content displayed in the Markdown preview. This includes disabling script execution and only allowing resources to be loaded over `https`.
 
-When the markdown preview blocks content on a page, an alert popup is shown in the top right corner of the preview window:
+When the Markdown preview blocks content on a page, an alert popup is shown in the top right corner of the preview window:
 
-![](images/Markdown/security-alert.png)
+![markdown security alert](images/Markdown/security-alert.png)
 
-You can change what content is allowed in the markdown preview by clicking on this popup or running the `Markdown: Change preview security settings` command in any markdown file:
+You can change what content is allowed in the Markdown preview by clicking on this popup or running the **Markdown: Change preview security settings** command in any Markdown file:
 
-![](images/Markdown/security-selector.png)
+![markdown security selector](images/Markdown/security-selector.png)
 
-The markdown preview security settings apply to all files in the workspace. Here's more information about each of these security levels:
+The Markdown preview security settings apply to all files in the workspace.
+
+Here are the details about each of these security levels:
 
 ### Strict
-This is the default setting. Only loads trusted content and disables script execution. Blocks http images and all SVG images not from one of our [trusted badge providers](/docs/extensionAPI/extension-manifest.md#approved-badges).
+
+This is the default setting. Only loads trusted content and disables script execution. Blocks `http` images and all SVG images not from one of our [trusted badge providers](/docs/extensionAPI/extension-manifest.md#approved-badges).
 
 It is strongly recommended that you keep `Strict` security enabled unless you have a very good reason to change it AND you trust all markdown files in the workspace.
 
 ### Allow insecure content
-Keeps scripts disabled but allows content to be loaded over http. Also enables SVG images.
+
+Keeps scripts disabled but allows content to be loaded over `http`. Also enables SVG images.
 
 ### Disable
-Disables additional security in the preview window. This allows script execution and also allows content to be loaded over http.
+
+Disables additional security in the preview window. This allows script execution and also allows content to be loaded over `http`.
 
 ## Snippets for Markdown
 
