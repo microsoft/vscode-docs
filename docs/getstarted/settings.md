@@ -95,16 +95,16 @@ In settings, we allow you to specify some of the executables that VS Code will r
 
 Here is the list of settings we don't support at the workspace scope:
 
-- git.path
-- terminal.integrated.shell.linux
-- terminal.integrated.shellArgs.linux
-- terminal.integrated.shell.osx
-- terminal.integrated.shellArgs.osx
-- terminal.integrated.shell.windows
-- terminal.integrated.shellArgs.windows
-- terminal.external.windowsExec
-- terminal.external.osxExec
-- terminal.external.linuxExec
+- `git.path`
+- `terminal.integrated.shell.linux`
+- `terminal.integrated.shellArgs.linux`
+- `terminal.integrated.shell.osx`
+- `terminal.integrated.shellArgs.osx`
+- `terminal.integrated.shell.windows`
+- `terminal.integrated.shellArgs.windows`
+- `terminal.external.windowsExec`
+- `terminal.external.osxExec`
+- `terminal.external.linuxExec`
 
 The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
