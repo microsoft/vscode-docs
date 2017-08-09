@@ -185,6 +185,8 @@ We allow badges from the following URL prefixes:
 * https://badges.greenkeeper.io/
 * https://badge.fury.io/
 * https://badges.frapsoft.com/
+* https://www.versioneye.com/
+* https://codecov.io/
 
 If you have other badges you would like to use, please open a Github [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
 
