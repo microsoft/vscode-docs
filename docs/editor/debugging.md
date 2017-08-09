@@ -306,7 +306,7 @@ Instead of placing breakpoints directly in source code, a debugger can support c
 
 A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name:
 
-<img alt="function breakpoint" src="https://az754404.vo.msecnd.net/public/function-breakpoint.gif" />
+![function breakpoint](https://az754404.vo.msecnd.net/public/function-breakpoint.gif)
 
 ## Data inspection
 
