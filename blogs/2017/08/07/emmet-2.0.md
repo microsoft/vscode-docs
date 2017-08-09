@@ -11,9 +11,9 @@ Author: Ramya Rao
 
 August 7, 2017 Ramya Rao, [@ramyanexus](https://twitter.com/ramyanexus)
 
-In the July 2017 release of Visual Studio Code (version 1.15), we're shipping a better Emmet experience: Emmet 2.0.
+In the July 2017 release of Visual Studio Code (version 1.15), we're shipping a better Emmet experience which has been in preview for the past 2 releases. 
 
-This has been in preview for the past 2 releases. It's features include:
+It's features include:
 
 * Emmet abbreviation expansions in suggestion/auto-completion lists.
 * Multi-cursor support for most [Emmet actions](https://docs.emmet.io/actions/).
