@@ -44,7 +44,7 @@ The workspace setting file is located under the `.vscode` folder in your project
 
 When you open settings, we show **Default Settings** to search and discover settings you are looking for. When you search using the big Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
 
-<img alt="settings groups" src="https://az754404.vo.msecnd.net/public/default-settings.gif" />
+![settings groups](https://az754404.vo.msecnd.net/public/default-settings.gif)
 
 **Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
 
