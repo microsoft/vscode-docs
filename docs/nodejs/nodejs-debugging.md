@@ -281,7 +281,7 @@ Alternatively you can start your program `server.js` via **nodemon** directly wi
 
 The Node debugger supports restarting execution at a stack frame. This can be useful in situations where you have found a problem in your source code and you want to rerun a small portion of the code with modified input values. Stopping and then restarting the full debug session can be very time-consuming. The **Restart Frame** action allows you to re-enter the current function after you have changed variables with the **Set Value** action:
 
-![restart frame](https://az754404.vo.msecnd.net/public/restartFrame.gif)
+<img alt="restart frame" src="https://az754404.vo.msecnd.net/public/restartFrame.gif" />
 
 Note that **Restart Frame** won't unroll any state changes, so it may not always work as expected.
 
