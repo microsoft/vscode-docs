@@ -113,7 +113,9 @@ HTML custom snippets are applicable to all other markup flavors like `haml` or `
 
 Values for CSS Emmet snippets should either be a property value or the complete property value pair.
 
-Also make sure that the name of the snippet contains the letters from the snippet value, so that the fuzzy matching algorithm of the suggestion list can make the right match. If you don't use similar letters, the **Emmet: Expand Abbreviation** command will still work, but the snippets won't show up as expected in a filtered suggestion list.
+Name the snippet such that it contains the letters from the snippet value in the order that they appear in the latter, so that the fuzzy matching algorithm of the suggestion list can make the right match. If you don't use similar letters, the **Emmet: Expand Abbreviation** command will still work, but the snippets won't show up as expected in a filtered suggestion list.
+
+For example, don't use `bc` or `darkc` as the name for `color: black`. Use `cb` or `cob` instead.
 
 CSS custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
 
