@@ -23,7 +23,7 @@ It's features include:
 
 As part of this update, we have re-written all of the Emmet actions using new npm modules from [@emmetio](https://www.npmjs.com/~emmetio).
 
-An important change is that the `kbstyle(Tab)` key is no longer the dedicated keyboard shortcut for expanding Emmet abbreviations. Instead, Emmet abbreviations will appear in the suggestion list. They can be selected like any other smart completion and on selection, the abbreviation will be expanded. 
+An important change is that the `kbstyle(Tab)` key is no longer the dedicated keyboard shortcut for expanding Emmet abbreviations. Instead, Emmet abbreviations will now appear in the suggestion list. They can be selected like any other smart completion and on selection, the abbreviation will be expanded. 
 
 This may take some getting used to but we think you'll see the benefits of Emmet abbreviations being treated as suggestions or smart completions. You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the `editor.action.emmet.expandAbbreviation` command or use **Emmet: Expand Abbreviation** from the **Command Palette**.
 
@@ -204,7 +204,7 @@ Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdor
 
 Do you miss any features of the old Emmet? Having trouble using the new Emmet? Feel free to create an GitHub [issue](https://github.com/Microsoft/vscode/issues) and we will do our best to help you out.
 
-It is also easier than ever to contribute to Emmet in VS Code as it is now an extension. The [emmet folder] (https://github.com/Microsoft/vscode/tree/master/extensions/emmet) in the VS Code GitHub repo has all the source code you need to get started.
+It is also easier than ever to contribute to Emmet in VS Code as it is now an extension. The [emmet folder](https://github.com/Microsoft/vscode/tree/master/extensions/emmet) in the VS Code GitHub repo has all the source code you need to get started.
 
 Happy Coding!
 
