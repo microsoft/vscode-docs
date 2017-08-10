@@ -2,7 +2,7 @@
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
- 
+
 export type Id = number;
 
 export enum Kind {
@@ -50,11 +50,11 @@ export interface Type {
     id: Id;
     type: string;
     name: string;
-    isArray: boolean;
     types: Type[];
     typeArguments: Type[];
     declaration: Item;
     elements: Type[];
+    elementType: Type;
 }
 
 export interface Group {

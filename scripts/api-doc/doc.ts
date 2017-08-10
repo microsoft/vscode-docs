@@ -9,7 +9,7 @@ import { Item, Type, Kind, Comment } from './model';
 
 function doc(value: string): string {
     let data = <Item>JSON.parse(value);
-    let start = data.children[0].children[0];
+    let start = data.children[0].children[0]; //vscode-docs/issues/162
     let result = Builder.translate(start);
     return result;
 }
@@ -272,7 +272,7 @@ function comment2HtmlString(comment: Comment, useReturn = false): string {
 // --- type to string
 
 function itemName2HtmlString(item: Item, parent: Item): string {
-    let {name, typeParameter} = item;
+    let { name, typeParameter } = item;
     let result: string;
 
     if (!typeParameter) {
@@ -363,9 +363,9 @@ function type2HtmlString(type: Type): string {
 
     let label: string;
     switch (type.type) {
-        case 'instrinct':
+        case 'intrinsic':
         case 'typeParameter':
-            label = `<a class="type-instrinct">${type.name}</a>`;
+            label = `<a class="type-intrinsic">${type.name}</a>`;
             break;
         case 'reference':
             label = `<a class="type-ref" href="#${type.name}">${type.name}</a>`;
@@ -382,13 +382,15 @@ function type2HtmlString(type: Type): string {
         case 'tuple':
             label = '[' + type.elements.map(type2HtmlString).join(', ') + ']';
             break;
+        case 'array':
+            label = type2HtmlString(type.elementType) + '[]'
+            break;
+        case 'unknown':
+            label = `<a class="type-unkwnon">${type.name}</a>`; //https://github.com/TypeStrong/typedoc/pull/365
+            break;
         default:
             label = '!!!MISSING TYPE ' + type.type;
             break;
-    }
-
-    if (type.isArray) {
-        label += '[]';
     }
 
     return label;

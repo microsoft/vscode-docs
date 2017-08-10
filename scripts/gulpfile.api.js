@@ -17,7 +17,7 @@ var VSCODE_PATH = 'out/vscode.d.ts';
 var TEMPLATE = 'docs/extensionAPI/vscode-api.template';
 var DIST = 'docs/extensionAPI/vscode-api.md';
 
-var VSCODE_VERSION = process.env['vscode-lastest'] ? process.env['vscode-lastest'] : '6feff11ed03402cf77e04e74e13c55529fdb4d09' /* 1.15.0 */;
+var VSCODE_VERSION = process.env['vscode-lastest'] ? process.env['vscode-lastest'] : '6feff11ed03402cf77e04e74e13c55529fdb4d09' /* 1.15.0 */ ;
 
 function getVSCodeDefFileURL() {
     if (VSCODE_VERSION === "latest") {
@@ -49,9 +49,9 @@ gulp.task("api-doc-json", ["download-vscode.d.ts"], function () {
             target: "es5",
             json: "../tmp/vscode.api.json",
             includeDeclarations: true,
-            name: "VS Code API"
-        }));
-    ;
+            name: "VS Code API",
+            excludeExternals: true
+        }));;
 });
 
 gulp.task("generate-api-doc", ["api-doc-json"], function () {
@@ -60,11 +60,13 @@ gulp.task("generate-api-doc", ["api-doc-json"], function () {
         .pipe(es.mapSync(function (file) {
             var md = doc(file.contents.toString());
             var tpl = common.swigCompiler(TEMPLATE);
-            // escape @ in cshtml 
+            // escape @ in cshtml
             md = md.replace(/@/g, '@@');
             // add a whiteline before a <pre> to workaround https://github.com/markdown-it/markdown-it/issues/187
             md = md.replace(/<pre>/g, '\n<pre>');
-            var result = tpl({ Content: md });
+            var result = tpl({
+                Content: md
+            });
             var contents = new Buffer(result, 'utf8');
             return new gutil.File({
                 path: DIST,
