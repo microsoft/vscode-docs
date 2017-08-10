@@ -23,7 +23,7 @@
     "markdown-it": "^7.0.1",
     "markdown-it-external-links": "0.0.5",
     "marked": "^0.3.5",
-    "request": "^2.67.0",
+    "request": "^2.81.0",
     "rimraf": "^2.4.4",
     "run-sequence": "^1.1.5",
     "swig": "^1.4.2",
