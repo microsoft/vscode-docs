@@ -351,7 +351,7 @@ function type2HtmlString(type) {
             label = type2HtmlString(type.elementType) + '[]';
             break;
         case 'unknown':
-            label = "<a class=\"type-unkwnon\">" + type.name + "</a>"; //https://github.com/TypeStrong/typedoc/pull/365
+            label = "<a class=\"type-unknown\">" + type.name + "</a>"; //https://github.com/TypeStrong/typedoc/pull/365
             break;
         default:
             label = '!!!MISSING TYPE ' + type.type;

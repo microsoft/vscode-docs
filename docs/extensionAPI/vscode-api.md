@@ -1040,14 +1040,14 @@ has changed.</p>
 
 
 
-<a name="window.createStatusBarItem"></a><span class="ts" id=1430 data-target="#details-1430" data-toggle="collapse"><span class="ident">createStatusBarItem</span><span>(</span><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-unkwnon">StatusBarAlignment.Left</a> &#124; <a class="type-unkwnon">StatusBarAlignment.Right</a>, <span class="ident">priority</span><span>?</span><span>: </span><a class="type-intrinsic">number</a><span>)</span><span>: </span><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span>
+<a name="window.createStatusBarItem"></a><span class="ts" id=1430 data-target="#details-1430" data-toggle="collapse"><span class="ident">createStatusBarItem</span><span>(</span><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-unknown">StatusBarAlignment.Left</a> &#124; <a class="type-unknown">StatusBarAlignment.Right</a>, <span class="ident">priority</span><span>?</span><span>: </span><a class="type-intrinsic">number</a><span>)</span><span>: </span><a class="type-ref" href="#StatusBarItem">StatusBarItem</a></span>
 <div class="details collapse" id="details-1430">
 <div class="comment"><p>Creates a status bar <a href="#StatusBarItem">item</a>.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="alignment"></a><span class="ts" id=1431 data-target="#details-1431" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-unkwnon">StatusBarAlignment.Left</a> &#124; <a class="type-unkwnon">StatusBarAlignment.Right</a></span></td><td><div class="comment"><p>The alignment of the item.</p>
+<tr><td><a name="alignment"></a><span class="ts" id=1431 data-target="#details-1431" data-toggle="collapse"><span class="ident">alignment</span><span>?</span><span>: </span><a class="type-unknown">StatusBarAlignment.Left</a> &#124; <a class="type-unknown">StatusBarAlignment.Right</a></span></td><td><div class="comment"><p>The alignment of the item.</p>
 </div></td></tr>
 <tr><td><a name="priority"></a><span class="ts" id=1432 data-target="#details-1432" data-toggle="collapse"><span class="ident">priority</span><span>?</span><span>: </span><a class="type-intrinsic">number</a></span></td><td><div class="comment"><p>The priority of the item. Higher values mean the item should be shown more to the left.</p>
 </div></td></tr>
@@ -1457,7 +1457,7 @@ anything but dismissed the input box with OK.</p>
 
 
 
-<a name="window.showTextDocument"></a><span class="ts" id=1322 data-target="#details-1322" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">column</span><span>?</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
+<a name="window.showTextDocument"></a><span class="ts" id=1322 data-target="#details-1322" data-toggle="collapse"><span class="ident">showTextDocument</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">column</span><span>?</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TextEditor">TextEditor</a>&gt;</span>
 <div class="details collapse" id="details-1322">
 <div class="comment"><p>Show the given document in a text editor. A <a href="#ViewColumn">column</a> can be provided
 to control where the editor is being shown. Might change the <a href="#window.activeTextEditor">active editor</a>.</p>
@@ -1467,7 +1467,7 @@ to control where the editor is being shown. Might change the <a href="#window.ac
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="document"></a><span class="ts" id=1323 data-target="#details-1323" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>A text document to be shown.</p>
 </div></td></tr>
-<tr><td><a name="column"></a><span class="ts" id=1324 data-target="#details-1324" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a></span></td><td><div class="comment"><p>A view column in which the editor should be shown. The default is the <a href="#ViewColumn.One">one</a>, other values
+<tr><td><a name="column"></a><span class="ts" id=1324 data-target="#details-1324" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a></span></td><td><div class="comment"><p>A view column in which the editor should be shown. The default is the <a href="#ViewColumn.One">one</a>, other values
 are adjusted to be <strong>Min(column, columnCount + 1)</strong>.</p>
 </div></td></tr>
 <tr><td><a name="preserveFocus"></a><span class="ts" id=1325 data-target="#details-1325" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the editor will not take focus.</p>
@@ -2425,7 +2425,7 @@ applied as provided.</p>
 
 
 
-<a name="CompletionItem.new CompletionItem"></a><span class="ts" id=810 data-target="#details-810" data-toggle="collapse"><span class="ident">new CompletionItem</span><span>(</span><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">kind</span><span>?</span><span>: </span><a class="type-unkwnon">CompletionItemKind.Text</a> &#124; <a class="type-unkwnon">CompletionItemKind.Method</a> &#124; <a class="type-unkwnon">CompletionItemKind.Function</a> &#124; <a class="type-unkwnon">CompletionItemKind.Constructor</a> &#124; <a class="type-unkwnon">CompletionItemKind.Field</a> &#124; <a class="type-unkwnon">CompletionItemKind.Variable</a> &#124; <a class="type-unkwnon">CompletionItemKind.Class</a> &#124; <a class="type-unkwnon">CompletionItemKind.Interface</a> &#124; <a class="type-unkwnon">CompletionItemKind.Module</a> &#124; <a class="type-unkwnon">CompletionItemKind.Property</a> &#124; <a class="type-unkwnon">CompletionItemKind.Unit</a> &#124; <a class="type-unkwnon">CompletionItemKind.Value</a> &#124; <a class="type-unkwnon">CompletionItemKind.Enum</a> &#124; <a class="type-unkwnon">CompletionItemKind.Keyword</a> &#124; <a class="type-unkwnon">CompletionItemKind.Snippet</a> &#124; <a class="type-unkwnon">CompletionItemKind.Color</a> &#124; <a class="type-unkwnon">CompletionItemKind.Reference</a> &#124; <a class="type-unkwnon">CompletionItemKind.File</a> &#124; <a class="type-unkwnon">CompletionItemKind.Folder</a> &#124; <a class="type-unkwnon">CompletionItemKind.EnumMember</a> &#124; <a class="type-unkwnon">CompletionItemKind.Constant</a> &#124; <a class="type-unkwnon">CompletionItemKind.Struct</a> &#124; <a class="type-unkwnon">CompletionItemKind.Event</a> &#124; <a class="type-unkwnon">CompletionItemKind.Operator</a> &#124; <a class="type-unkwnon">CompletionItemKind.TypeParameter</a><span>)</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a></span>
+<a name="CompletionItem.new CompletionItem"></a><span class="ts" id=810 data-target="#details-810" data-toggle="collapse"><span class="ident">new CompletionItem</span><span>(</span><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">kind</span><span>?</span><span>: </span><a class="type-unknown">CompletionItemKind.Text</a> &#124; <a class="type-unknown">CompletionItemKind.Method</a> &#124; <a class="type-unknown">CompletionItemKind.Function</a> &#124; <a class="type-unknown">CompletionItemKind.Constructor</a> &#124; <a class="type-unknown">CompletionItemKind.Field</a> &#124; <a class="type-unknown">CompletionItemKind.Variable</a> &#124; <a class="type-unknown">CompletionItemKind.Class</a> &#124; <a class="type-unknown">CompletionItemKind.Interface</a> &#124; <a class="type-unknown">CompletionItemKind.Module</a> &#124; <a class="type-unknown">CompletionItemKind.Property</a> &#124; <a class="type-unknown">CompletionItemKind.Unit</a> &#124; <a class="type-unknown">CompletionItemKind.Value</a> &#124; <a class="type-unknown">CompletionItemKind.Enum</a> &#124; <a class="type-unknown">CompletionItemKind.Keyword</a> &#124; <a class="type-unknown">CompletionItemKind.Snippet</a> &#124; <a class="type-unknown">CompletionItemKind.Color</a> &#124; <a class="type-unknown">CompletionItemKind.Reference</a> &#124; <a class="type-unknown">CompletionItemKind.File</a> &#124; <a class="type-unknown">CompletionItemKind.Folder</a> &#124; <a class="type-unknown">CompletionItemKind.EnumMember</a> &#124; <a class="type-unknown">CompletionItemKind.Constant</a> &#124; <a class="type-unknown">CompletionItemKind.Struct</a> &#124; <a class="type-unknown">CompletionItemKind.Event</a> &#124; <a class="type-unknown">CompletionItemKind.Operator</a> &#124; <a class="type-unknown">CompletionItemKind.TypeParameter</a><span>)</span><span>: </span><a class="type-ref" href="#CompletionItem">CompletionItem</a></span>
 <div class="details collapse" id="details-810">
 <div class="comment"><p>Creates a new completion item.</p>
 <p>Completion items must have at least a <a href="#CompletionItem.label">label</a> which then
@@ -2436,7 +2436,7 @@ will be used as insert text as well as for sorting and filtering.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="label"></a><span class="ts" id=811 data-target="#details-811" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The label of the completion.</p>
 </div></td></tr>
-<tr><td><a name="kind"></a><span class="ts" id=812 data-target="#details-812" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unkwnon">CompletionItemKind.Text</a> &#124; <a class="type-unkwnon">CompletionItemKind.Method</a> &#124; <a class="type-unkwnon">CompletionItemKind.Function</a> &#124; <a class="type-unkwnon">CompletionItemKind.Constructor</a> &#124; <a class="type-unkwnon">CompletionItemKind.Field</a> &#124; <a class="type-unkwnon">CompletionItemKind.Variable</a> &#124; <a class="type-unkwnon">CompletionItemKind.Class</a> &#124; <a class="type-unkwnon">CompletionItemKind.Interface</a> &#124; <a class="type-unkwnon">CompletionItemKind.Module</a> &#124; <a class="type-unkwnon">CompletionItemKind.Property</a> &#124; <a class="type-unkwnon">CompletionItemKind.Unit</a> &#124; <a class="type-unkwnon">CompletionItemKind.Value</a> &#124; <a class="type-unkwnon">CompletionItemKind.Enum</a> &#124; <a class="type-unkwnon">CompletionItemKind.Keyword</a> &#124; <a class="type-unkwnon">CompletionItemKind.Snippet</a> &#124; <a class="type-unkwnon">CompletionItemKind.Color</a> &#124; <a class="type-unkwnon">CompletionItemKind.Reference</a> &#124; <a class="type-unkwnon">CompletionItemKind.File</a> &#124; <a class="type-unkwnon">CompletionItemKind.Folder</a> &#124; <a class="type-unkwnon">CompletionItemKind.EnumMember</a> &#124; <a class="type-unkwnon">CompletionItemKind.Constant</a> &#124; <a class="type-unkwnon">CompletionItemKind.Struct</a> &#124; <a class="type-unkwnon">CompletionItemKind.Event</a> &#124; <a class="type-unkwnon">CompletionItemKind.Operator</a> &#124; <a class="type-unkwnon">CompletionItemKind.TypeParameter</a></span></td><td><div class="comment"><p>The <a href="#CompletionItemKind">kind</a> of the completion.</p>
+<tr><td><a name="kind"></a><span class="ts" id=812 data-target="#details-812" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unknown">CompletionItemKind.Text</a> &#124; <a class="type-unknown">CompletionItemKind.Method</a> &#124; <a class="type-unknown">CompletionItemKind.Function</a> &#124; <a class="type-unknown">CompletionItemKind.Constructor</a> &#124; <a class="type-unknown">CompletionItemKind.Field</a> &#124; <a class="type-unknown">CompletionItemKind.Variable</a> &#124; <a class="type-unknown">CompletionItemKind.Class</a> &#124; <a class="type-unknown">CompletionItemKind.Interface</a> &#124; <a class="type-unknown">CompletionItemKind.Module</a> &#124; <a class="type-unknown">CompletionItemKind.Property</a> &#124; <a class="type-unknown">CompletionItemKind.Unit</a> &#124; <a class="type-unknown">CompletionItemKind.Value</a> &#124; <a class="type-unknown">CompletionItemKind.Enum</a> &#124; <a class="type-unknown">CompletionItemKind.Keyword</a> &#124; <a class="type-unknown">CompletionItemKind.Snippet</a> &#124; <a class="type-unknown">CompletionItemKind.Color</a> &#124; <a class="type-unknown">CompletionItemKind.Reference</a> &#124; <a class="type-unknown">CompletionItemKind.File</a> &#124; <a class="type-unknown">CompletionItemKind.Folder</a> &#124; <a class="type-unknown">CompletionItemKind.EnumMember</a> &#124; <a class="type-unknown">CompletionItemKind.Constant</a> &#124; <a class="type-unknown">CompletionItemKind.Struct</a> &#124; <a class="type-unknown">CompletionItemKind.Event</a> &#124; <a class="type-unknown">CompletionItemKind.Operator</a> &#124; <a class="type-unknown">CompletionItemKind.TypeParameter</a></span></td><td><div class="comment"><p>The <a href="#CompletionItemKind">kind</a> of the completion.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#CompletionItem">CompletionItem</a></span></td><td><div class="comment"></div></td></tr>
@@ -2515,7 +2515,7 @@ is used.</p>
 
 
 
-<a name="CompletionItem.kind"></a><span class="ts" id=798 data-target="#details-798" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unkwnon">CompletionItemKind.Text</a> &#124; <a class="type-unkwnon">CompletionItemKind.Method</a> &#124; <a class="type-unkwnon">CompletionItemKind.Function</a> &#124; <a class="type-unkwnon">CompletionItemKind.Constructor</a> &#124; <a class="type-unkwnon">CompletionItemKind.Field</a> &#124; <a class="type-unkwnon">CompletionItemKind.Variable</a> &#124; <a class="type-unkwnon">CompletionItemKind.Class</a> &#124; <a class="type-unkwnon">CompletionItemKind.Interface</a> &#124; <a class="type-unkwnon">CompletionItemKind.Module</a> &#124; <a class="type-unkwnon">CompletionItemKind.Property</a> &#124; <a class="type-unkwnon">CompletionItemKind.Unit</a> &#124; <a class="type-unkwnon">CompletionItemKind.Value</a> &#124; <a class="type-unkwnon">CompletionItemKind.Enum</a> &#124; <a class="type-unkwnon">CompletionItemKind.Keyword</a> &#124; <a class="type-unkwnon">CompletionItemKind.Snippet</a> &#124; <a class="type-unkwnon">CompletionItemKind.Color</a> &#124; <a class="type-unkwnon">CompletionItemKind.Reference</a> &#124; <a class="type-unkwnon">CompletionItemKind.File</a> &#124; <a class="type-unkwnon">CompletionItemKind.Folder</a> &#124; <a class="type-unkwnon">CompletionItemKind.EnumMember</a> &#124; <a class="type-unkwnon">CompletionItemKind.Constant</a> &#124; <a class="type-unkwnon">CompletionItemKind.Struct</a> &#124; <a class="type-unkwnon">CompletionItemKind.Event</a> &#124; <a class="type-unkwnon">CompletionItemKind.Operator</a> &#124; <a class="type-unkwnon">CompletionItemKind.TypeParameter</a></span>
+<a name="CompletionItem.kind"></a><span class="ts" id=798 data-target="#details-798" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unknown">CompletionItemKind.Text</a> &#124; <a class="type-unknown">CompletionItemKind.Method</a> &#124; <a class="type-unknown">CompletionItemKind.Function</a> &#124; <a class="type-unknown">CompletionItemKind.Constructor</a> &#124; <a class="type-unknown">CompletionItemKind.Field</a> &#124; <a class="type-unknown">CompletionItemKind.Variable</a> &#124; <a class="type-unknown">CompletionItemKind.Class</a> &#124; <a class="type-unknown">CompletionItemKind.Interface</a> &#124; <a class="type-unknown">CompletionItemKind.Module</a> &#124; <a class="type-unknown">CompletionItemKind.Property</a> &#124; <a class="type-unknown">CompletionItemKind.Unit</a> &#124; <a class="type-unknown">CompletionItemKind.Value</a> &#124; <a class="type-unknown">CompletionItemKind.Enum</a> &#124; <a class="type-unknown">CompletionItemKind.Keyword</a> &#124; <a class="type-unknown">CompletionItemKind.Snippet</a> &#124; <a class="type-unknown">CompletionItemKind.Color</a> &#124; <a class="type-unknown">CompletionItemKind.Reference</a> &#124; <a class="type-unknown">CompletionItemKind.File</a> &#124; <a class="type-unknown">CompletionItemKind.Folder</a> &#124; <a class="type-unknown">CompletionItemKind.EnumMember</a> &#124; <a class="type-unknown">CompletionItemKind.Constant</a> &#124; <a class="type-unknown">CompletionItemKind.Struct</a> &#124; <a class="type-unknown">CompletionItemKind.Event</a> &#124; <a class="type-unknown">CompletionItemKind.Operator</a> &#124; <a class="type-unknown">CompletionItemKind.TypeParameter</a></span>
 <div class="details collapse" id="details-798">
 <div class="comment"><p>The kind of this completion item. Based on the kind
 an icon is chosen by the editor.</p>
@@ -3323,7 +3323,7 @@ Better use &#39;outline&#39; for setting one or more of the individual outline p
 
 
 
-<a name="DecorationRenderOptions.overviewRulerLane"></a><span class="ts" id=283 data-target="#details-283" data-toggle="collapse"><span class="ident">overviewRulerLane</span><span>?</span><span>: </span><a class="type-unkwnon">OverviewRulerLane.Left</a> &#124; <a class="type-unkwnon">OverviewRulerLane.Center</a> &#124; <a class="type-unkwnon">OverviewRulerLane.Right</a> &#124; <a class="type-unkwnon">OverviewRulerLane.Full</a></span>
+<a name="DecorationRenderOptions.overviewRulerLane"></a><span class="ts" id=283 data-target="#details-283" data-toggle="collapse"><span class="ident">overviewRulerLane</span><span>?</span><span>: </span><a class="type-unknown">OverviewRulerLane.Left</a> &#124; <a class="type-unknown">OverviewRulerLane.Center</a> &#124; <a class="type-unknown">OverviewRulerLane.Right</a> &#124; <a class="type-unknown">OverviewRulerLane.Full</a></span>
 <div class="details collapse" id="details-283">
 <div class="comment"><p>The position in the overview ruler where the decoration should be rendered.</p>
 </div>
@@ -3331,7 +3331,7 @@ Better use &#39;outline&#39; for setting one or more of the individual outline p
 
 
 
-<a name="DecorationRenderOptions.rangeBehavior"></a><span class="ts" id=282 data-target="#details-282" data-toggle="collapse"><span class="ident">rangeBehavior</span><span>?</span><span>: </span><a class="type-unkwnon">DecorationRangeBehavior.OpenOpen</a> &#124; <a class="type-unkwnon">DecorationRangeBehavior.ClosedClosed</a> &#124; <a class="type-unkwnon">DecorationRangeBehavior.OpenClosed</a> &#124; <a class="type-unkwnon">DecorationRangeBehavior.ClosedOpen</a></span>
+<a name="DecorationRenderOptions.rangeBehavior"></a><span class="ts" id=282 data-target="#details-282" data-toggle="collapse"><span class="ident">rangeBehavior</span><span>?</span><span>: </span><a class="type-unknown">DecorationRangeBehavior.OpenOpen</a> &#124; <a class="type-unknown">DecorationRangeBehavior.ClosedClosed</a> &#124; <a class="type-unknown">DecorationRangeBehavior.OpenClosed</a> &#124; <a class="type-unknown">DecorationRangeBehavior.ClosedOpen</a></span>
 <div class="details collapse" id="details-282">
 <div class="comment"><p>Customize the growing behavior of the decoration when edits occur at the edges of the decoration&#39;s range.
 Defaults to <code>DecorationRangeBehavior.OpenOpen</code>.</p>
@@ -3405,7 +3405,7 @@ are only valid in the scope of a file.</p>
 
 
 
-<a name="Diagnostic.new Diagnostic"></a><span class="ts" id=941 data-target="#details-941" data-toggle="collapse"><span class="ident">new Diagnostic</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">message</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">severity</span><span>?</span><span>: </span><a class="type-unkwnon">DiagnosticSeverity.Error</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Warning</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Information</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Hint</a><span>)</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a></span>
+<a name="Diagnostic.new Diagnostic"></a><span class="ts" id=941 data-target="#details-941" data-toggle="collapse"><span class="ident">new Diagnostic</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">message</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">severity</span><span>?</span><span>: </span><a class="type-unknown">DiagnosticSeverity.Error</a> &#124; <a class="type-unknown">DiagnosticSeverity.Warning</a> &#124; <a class="type-unknown">DiagnosticSeverity.Information</a> &#124; <a class="type-unknown">DiagnosticSeverity.Hint</a><span>)</span><span>: </span><a class="type-ref" href="#Diagnostic">Diagnostic</a></span>
 <div class="details collapse" id="details-941">
 <div class="comment"><p>Creates a new diagnostic object.</p>
 </div>
@@ -3416,7 +3416,7 @@ are only valid in the scope of a file.</p>
 </div></td></tr>
 <tr><td><a name="message"></a><span class="ts" id=943 data-target="#details-943" data-toggle="collapse"><span class="ident">message</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The human-readable message.</p>
 </div></td></tr>
-<tr><td><a name="severity"></a><span class="ts" id=944 data-target="#details-944" data-toggle="collapse"><span class="ident">severity</span><span>?</span><span>: </span><a class="type-unkwnon">DiagnosticSeverity.Error</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Warning</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Information</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Hint</a></span></td><td><div class="comment"><p>The severity, default is <a href="#DiagnosticSeverity.Error">error</a>.</p>
+<tr><td><a name="severity"></a><span class="ts" id=944 data-target="#details-944" data-toggle="collapse"><span class="ident">severity</span><span>?</span><span>: </span><a class="type-unknown">DiagnosticSeverity.Error</a> &#124; <a class="type-unknown">DiagnosticSeverity.Warning</a> &#124; <a class="type-unknown">DiagnosticSeverity.Information</a> &#124; <a class="type-unknown">DiagnosticSeverity.Hint</a></span></td><td><div class="comment"><p>The severity, default is <a href="#DiagnosticSeverity.Error">error</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#Diagnostic">Diagnostic</a></span></td><td><div class="comment"></div></td></tr>
@@ -3454,7 +3454,7 @@ providing <a href="#CodeActionContext">code actions</a>.</p>
 
 
 
-<a name="Diagnostic.severity"></a><span class="ts" id=938 data-target="#details-938" data-toggle="collapse"><span class="ident">severity</span><span>: </span><a class="type-unkwnon">DiagnosticSeverity.Error</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Warning</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Information</a> &#124; <a class="type-unkwnon">DiagnosticSeverity.Hint</a></span>
+<a name="Diagnostic.severity"></a><span class="ts" id=938 data-target="#details-938" data-toggle="collapse"><span class="ident">severity</span><span>: </span><a class="type-unknown">DiagnosticSeverity.Error</a> &#124; <a class="type-unknown">DiagnosticSeverity.Warning</a> &#124; <a class="type-unknown">DiagnosticSeverity.Information</a> &#124; <a class="type-unknown">DiagnosticSeverity.Hint</a></span>
 <div class="details collapse" id="details-938">
 <div class="comment"><p>The severity, default is <a href="#DiagnosticSeverity.Error">error</a>.</p>
 </div>
@@ -3831,7 +3831,7 @@ the background color of its range.</p>
 
 
 
-<a name="DocumentHighlight.new DocumentHighlight"></a><span class="ts" id=561 data-target="#details-561" data-toggle="collapse"><span class="ident">new DocumentHighlight</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">kind</span><span>?</span><span>: </span><a class="type-unkwnon">DocumentHighlightKind.Text</a> &#124; <a class="type-unkwnon">DocumentHighlightKind.Read</a> &#124; <a class="type-unkwnon">DocumentHighlightKind.Write</a><span>)</span><span>: </span><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a></span>
+<a name="DocumentHighlight.new DocumentHighlight"></a><span class="ts" id=561 data-target="#details-561" data-toggle="collapse"><span class="ident">new DocumentHighlight</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">kind</span><span>?</span><span>: </span><a class="type-unknown">DocumentHighlightKind.Text</a> &#124; <a class="type-unknown">DocumentHighlightKind.Read</a> &#124; <a class="type-unknown">DocumentHighlightKind.Write</a><span>)</span><span>: </span><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a></span>
 <div class="details collapse" id="details-561">
 <div class="comment"><p>Creates a new document highlight object.</p>
 </div>
@@ -3840,7 +3840,7 @@ the background color of its range.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="range"></a><span class="ts" id=562 data-target="#details-562" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>The range the highlight applies to.</p>
 </div></td></tr>
-<tr><td><a name="kind"></a><span class="ts" id=563 data-target="#details-563" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unkwnon">DocumentHighlightKind.Text</a> &#124; <a class="type-unkwnon">DocumentHighlightKind.Read</a> &#124; <a class="type-unkwnon">DocumentHighlightKind.Write</a></span></td><td><div class="comment"><p>The highlight kind, default is <a href="#DocumentHighlightKind.Text">text</a>.</p>
+<tr><td><a name="kind"></a><span class="ts" id=563 data-target="#details-563" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unknown">DocumentHighlightKind.Text</a> &#124; <a class="type-unknown">DocumentHighlightKind.Read</a> &#124; <a class="type-unknown">DocumentHighlightKind.Write</a></span></td><td><div class="comment"><p>The highlight kind, default is <a href="#DocumentHighlightKind.Text">text</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#DocumentHighlight">DocumentHighlight</a></span></td><td><div class="comment"></div></td></tr>
@@ -3852,7 +3852,7 @@ the background color of its range.</p>
 
 
 
-<a name="DocumentHighlight.kind"></a><span class="ts" id=559 data-target="#details-559" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unkwnon">DocumentHighlightKind.Text</a> &#124; <a class="type-unkwnon">DocumentHighlightKind.Read</a> &#124; <a class="type-unkwnon">DocumentHighlightKind.Write</a></span>
+<a name="DocumentHighlight.kind"></a><span class="ts" id=559 data-target="#details-559" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unknown">DocumentHighlightKind.Text</a> &#124; <a class="type-unknown">DocumentHighlightKind.Read</a> &#124; <a class="type-unknown">DocumentHighlightKind.Write</a></span>
 <div class="details collapse" id="details-559">
 <div class="comment"><p>The highlight kind, default is <a href="#DocumentHighlightKind.Text">text</a>.</p>
 </div>
@@ -4160,7 +4160,7 @@ signaled by returning <code>undefined</code>, <code>null</code>, or an empty arr
 
 
 
-<a name="EnterAction.indentAction"></a><span class="ts" id=860 data-target="#details-860" data-toggle="collapse"><span class="ident">indentAction</span><span>: </span><a class="type-unkwnon">IndentAction.None</a> &#124; <a class="type-unkwnon">IndentAction.Indent</a> &#124; <a class="type-unkwnon">IndentAction.IndentOutdent</a> &#124; <a class="type-unkwnon">IndentAction.Outdent</a></span>
+<a name="EnterAction.indentAction"></a><span class="ts" id=860 data-target="#details-860" data-toggle="collapse"><span class="ident">indentAction</span><span>: </span><a class="type-unknown">IndentAction.None</a> &#124; <a class="type-unknown">IndentAction.Indent</a> &#124; <a class="type-unknown">IndentAction.IndentOutdent</a> &#124; <a class="type-unknown">IndentAction.Outdent</a></span>
 <div class="details collapse" id="details-860">
 <div class="comment"><p>Describe what to do with the indentation.</p>
 </div>
@@ -5296,7 +5296,7 @@ to the channel.</p>
 
 
 
-<a name="OutputChannel.show"></a><span class="ts" id=992 data-target="#details-992" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">column</span><span>?</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<a name="OutputChannel.show"></a><span class="ts" id=992 data-target="#details-992" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">column</span><span>?</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a>, <span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 <div class="details collapse" id="details-992">
 <div class="comment"><p><del>Reveal this channel in the UI.</del></p>
 <ul>
@@ -5306,7 +5306,7 @@ to the channel.</p>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="column"></a><span class="ts" id=993 data-target="#details-993" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a></span></td><td><div class="comment"><p>This argument is <strong>deprecated</strong> and will be ignored.</p>
+<tr><td><a name="column"></a><span class="ts" id=993 data-target="#details-993" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a></span></td><td><div class="comment"><p>This argument is <strong>deprecated</strong> and will be ignored.</p>
 </div></td></tr>
 <tr><td><a name="preserveFocus"></a><span class="ts" id=994 data-target="#details-994" data-toggle="collapse"><span class="ident">preserveFocus</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>When <code>true</code> the channel will not take focus.</p>
 </div></td></tr>
@@ -5814,7 +5814,7 @@ location how progress is visually represented.</p>
 
 
 
-<a name="ProgressOptions.location"></a><span class="ts" id=1185 data-target="#details-1185" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-unkwnon">ProgressLocation.SourceControl</a> &#124; <a class="type-unkwnon">ProgressLocation.Window</a></span>
+<a name="ProgressOptions.location"></a><span class="ts" id=1185 data-target="#details-1185" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-unknown">ProgressLocation.SourceControl</a> &#124; <a class="type-unknown">ProgressLocation.Window</a></span>
 <div class="details collapse" id="details-1185">
 <div class="comment"><p>The location at which progress should show.</p>
 </div>
@@ -7181,7 +7181,7 @@ show text and icons and run a command on click.</p>
 
 
 
-<a name="StatusBarItem.alignment"></a><span class="ts" id=1003 data-target="#details-1003" data-toggle="collapse"><span class="ident">alignment</span><span>: </span><a class="type-unkwnon">StatusBarAlignment.Left</a> &#124; <a class="type-unkwnon">StatusBarAlignment.Right</a></span>
+<a name="StatusBarItem.alignment"></a><span class="ts" id=1003 data-target="#details-1003" data-toggle="collapse"><span class="ident">alignment</span><span>: </span><a class="type-unknown">StatusBarAlignment.Left</a> &#124; <a class="type-unknown">StatusBarAlignment.Right</a></span>
 <div class="details collapse" id="details-1003">
 <div class="comment"><p>The alignment of this item.</p>
 </div>
@@ -7289,7 +7289,7 @@ interfaces etc.</p>
 
 
 
-<a name="SymbolInformation.new SymbolInformation"></a><span class="ts" id=603 data-target="#details-603" data-toggle="collapse"><span class="ident">new SymbolInformation</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">kind</span><span>: </span><a class="type-unkwnon">SymbolKind.File</a> &#124; <a class="type-unkwnon">SymbolKind.Module</a> &#124; <a class="type-unkwnon">SymbolKind.Namespace</a> &#124; <a class="type-unkwnon">SymbolKind.Package</a> &#124; <a class="type-unkwnon">SymbolKind.Class</a> &#124; <a class="type-unkwnon">SymbolKind.Method</a> &#124; <a class="type-unkwnon">SymbolKind.Property</a> &#124; <a class="type-unkwnon">SymbolKind.Field</a> &#124; <a class="type-unkwnon">SymbolKind.Constructor</a> &#124; <a class="type-unkwnon">SymbolKind.Enum</a> &#124; <a class="type-unkwnon">SymbolKind.Interface</a> &#124; <a class="type-unkwnon">SymbolKind.Function</a> &#124; <a class="type-unkwnon">SymbolKind.Variable</a> &#124; <a class="type-unkwnon">SymbolKind.Constant</a> &#124; <a class="type-unkwnon">SymbolKind.String</a> &#124; <a class="type-unkwnon">SymbolKind.Number</a> &#124; <a class="type-unkwnon">SymbolKind.Boolean</a> &#124; <a class="type-unkwnon">SymbolKind.Array</a> &#124; <a class="type-unkwnon">SymbolKind.Object</a> &#124; <a class="type-unkwnon">SymbolKind.Key</a> &#124; <a class="type-unkwnon">SymbolKind.Null</a> &#124; <a class="type-unkwnon">SymbolKind.EnumMember</a> &#124; <a class="type-unkwnon">SymbolKind.Struct</a> &#124; <a class="type-unkwnon">SymbolKind.Event</a> &#124; <a class="type-unkwnon">SymbolKind.Operator</a> &#124; <a class="type-unkwnon">SymbolKind.TypeParameter</a>, <span class="ident">containerName</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">location</span><span>: </span><a class="type-ref" href="#Location">Location</a><span>)</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span>
+<a name="SymbolInformation.new SymbolInformation"></a><span class="ts" id=603 data-target="#details-603" data-toggle="collapse"><span class="ident">new SymbolInformation</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">kind</span><span>: </span><a class="type-unknown">SymbolKind.File</a> &#124; <a class="type-unknown">SymbolKind.Module</a> &#124; <a class="type-unknown">SymbolKind.Namespace</a> &#124; <a class="type-unknown">SymbolKind.Package</a> &#124; <a class="type-unknown">SymbolKind.Class</a> &#124; <a class="type-unknown">SymbolKind.Method</a> &#124; <a class="type-unknown">SymbolKind.Property</a> &#124; <a class="type-unknown">SymbolKind.Field</a> &#124; <a class="type-unknown">SymbolKind.Constructor</a> &#124; <a class="type-unknown">SymbolKind.Enum</a> &#124; <a class="type-unknown">SymbolKind.Interface</a> &#124; <a class="type-unknown">SymbolKind.Function</a> &#124; <a class="type-unknown">SymbolKind.Variable</a> &#124; <a class="type-unknown">SymbolKind.Constant</a> &#124; <a class="type-unknown">SymbolKind.String</a> &#124; <a class="type-unknown">SymbolKind.Number</a> &#124; <a class="type-unknown">SymbolKind.Boolean</a> &#124; <a class="type-unknown">SymbolKind.Array</a> &#124; <a class="type-unknown">SymbolKind.Object</a> &#124; <a class="type-unknown">SymbolKind.Key</a> &#124; <a class="type-unknown">SymbolKind.Null</a> &#124; <a class="type-unknown">SymbolKind.EnumMember</a> &#124; <a class="type-unknown">SymbolKind.Struct</a> &#124; <a class="type-unknown">SymbolKind.Event</a> &#124; <a class="type-unknown">SymbolKind.Operator</a> &#124; <a class="type-unknown">SymbolKind.TypeParameter</a>, <span class="ident">containerName</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">location</span><span>: </span><a class="type-ref" href="#Location">Location</a><span>)</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span>
 <div class="details collapse" id="details-603">
 <div class="comment"><p>Creates a new symbol information object.</p>
 </div>
@@ -7298,7 +7298,7 @@ interfaces etc.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="name"></a><span class="ts" id=604 data-target="#details-604" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The name of the symbol.</p>
 </div></td></tr>
-<tr><td><a name="kind"></a><span class="ts" id=605 data-target="#details-605" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-unkwnon">SymbolKind.File</a> &#124; <a class="type-unkwnon">SymbolKind.Module</a> &#124; <a class="type-unkwnon">SymbolKind.Namespace</a> &#124; <a class="type-unkwnon">SymbolKind.Package</a> &#124; <a class="type-unkwnon">SymbolKind.Class</a> &#124; <a class="type-unkwnon">SymbolKind.Method</a> &#124; <a class="type-unkwnon">SymbolKind.Property</a> &#124; <a class="type-unkwnon">SymbolKind.Field</a> &#124; <a class="type-unkwnon">SymbolKind.Constructor</a> &#124; <a class="type-unkwnon">SymbolKind.Enum</a> &#124; <a class="type-unkwnon">SymbolKind.Interface</a> &#124; <a class="type-unkwnon">SymbolKind.Function</a> &#124; <a class="type-unkwnon">SymbolKind.Variable</a> &#124; <a class="type-unkwnon">SymbolKind.Constant</a> &#124; <a class="type-unkwnon">SymbolKind.String</a> &#124; <a class="type-unkwnon">SymbolKind.Number</a> &#124; <a class="type-unkwnon">SymbolKind.Boolean</a> &#124; <a class="type-unkwnon">SymbolKind.Array</a> &#124; <a class="type-unkwnon">SymbolKind.Object</a> &#124; <a class="type-unkwnon">SymbolKind.Key</a> &#124; <a class="type-unkwnon">SymbolKind.Null</a> &#124; <a class="type-unkwnon">SymbolKind.EnumMember</a> &#124; <a class="type-unkwnon">SymbolKind.Struct</a> &#124; <a class="type-unkwnon">SymbolKind.Event</a> &#124; <a class="type-unkwnon">SymbolKind.Operator</a> &#124; <a class="type-unkwnon">SymbolKind.TypeParameter</a></span></td><td><div class="comment"><p>The kind of the symbol.</p>
+<tr><td><a name="kind"></a><span class="ts" id=605 data-target="#details-605" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-unknown">SymbolKind.File</a> &#124; <a class="type-unknown">SymbolKind.Module</a> &#124; <a class="type-unknown">SymbolKind.Namespace</a> &#124; <a class="type-unknown">SymbolKind.Package</a> &#124; <a class="type-unknown">SymbolKind.Class</a> &#124; <a class="type-unknown">SymbolKind.Method</a> &#124; <a class="type-unknown">SymbolKind.Property</a> &#124; <a class="type-unknown">SymbolKind.Field</a> &#124; <a class="type-unknown">SymbolKind.Constructor</a> &#124; <a class="type-unknown">SymbolKind.Enum</a> &#124; <a class="type-unknown">SymbolKind.Interface</a> &#124; <a class="type-unknown">SymbolKind.Function</a> &#124; <a class="type-unknown">SymbolKind.Variable</a> &#124; <a class="type-unknown">SymbolKind.Constant</a> &#124; <a class="type-unknown">SymbolKind.String</a> &#124; <a class="type-unknown">SymbolKind.Number</a> &#124; <a class="type-unknown">SymbolKind.Boolean</a> &#124; <a class="type-unknown">SymbolKind.Array</a> &#124; <a class="type-unknown">SymbolKind.Object</a> &#124; <a class="type-unknown">SymbolKind.Key</a> &#124; <a class="type-unknown">SymbolKind.Null</a> &#124; <a class="type-unknown">SymbolKind.EnumMember</a> &#124; <a class="type-unknown">SymbolKind.Struct</a> &#124; <a class="type-unknown">SymbolKind.Event</a> &#124; <a class="type-unknown">SymbolKind.Operator</a> &#124; <a class="type-unknown">SymbolKind.TypeParameter</a></span></td><td><div class="comment"><p>The kind of the symbol.</p>
 </div></td></tr>
 <tr><td><a name="containerName"></a><span class="ts" id=606 data-target="#details-606" data-toggle="collapse"><span class="ident">containerName</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The name of the symbol containing the symbol.</p>
 </div></td></tr>
@@ -7312,7 +7312,7 @@ interfaces etc.</p>
 
 
 
-<a name="SymbolInformation.new SymbolInformation"></a><span class="ts" id=608 data-target="#details-608" data-toggle="collapse"><span class="ident">new SymbolInformation</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">kind</span><span>: </span><a class="type-unkwnon">SymbolKind.File</a> &#124; <a class="type-unkwnon">SymbolKind.Module</a> &#124; <a class="type-unkwnon">SymbolKind.Namespace</a> &#124; <a class="type-unkwnon">SymbolKind.Package</a> &#124; <a class="type-unkwnon">SymbolKind.Class</a> &#124; <a class="type-unkwnon">SymbolKind.Method</a> &#124; <a class="type-unkwnon">SymbolKind.Property</a> &#124; <a class="type-unkwnon">SymbolKind.Field</a> &#124; <a class="type-unkwnon">SymbolKind.Constructor</a> &#124; <a class="type-unkwnon">SymbolKind.Enum</a> &#124; <a class="type-unkwnon">SymbolKind.Interface</a> &#124; <a class="type-unkwnon">SymbolKind.Function</a> &#124; <a class="type-unkwnon">SymbolKind.Variable</a> &#124; <a class="type-unkwnon">SymbolKind.Constant</a> &#124; <a class="type-unkwnon">SymbolKind.String</a> &#124; <a class="type-unkwnon">SymbolKind.Number</a> &#124; <a class="type-unkwnon">SymbolKind.Boolean</a> &#124; <a class="type-unkwnon">SymbolKind.Array</a> &#124; <a class="type-unkwnon">SymbolKind.Object</a> &#124; <a class="type-unkwnon">SymbolKind.Key</a> &#124; <a class="type-unkwnon">SymbolKind.Null</a> &#124; <a class="type-unkwnon">SymbolKind.EnumMember</a> &#124; <a class="type-unkwnon">SymbolKind.Struct</a> &#124; <a class="type-unkwnon">SymbolKind.Event</a> &#124; <a class="type-unkwnon">SymbolKind.Operator</a> &#124; <a class="type-unkwnon">SymbolKind.TypeParameter</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">uri</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">containerName</span><span>?</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span>
+<a name="SymbolInformation.new SymbolInformation"></a><span class="ts" id=608 data-target="#details-608" data-toggle="collapse"><span class="ident">new SymbolInformation</span><span>(</span><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">kind</span><span>: </span><a class="type-unknown">SymbolKind.File</a> &#124; <a class="type-unknown">SymbolKind.Module</a> &#124; <a class="type-unknown">SymbolKind.Namespace</a> &#124; <a class="type-unknown">SymbolKind.Package</a> &#124; <a class="type-unknown">SymbolKind.Class</a> &#124; <a class="type-unknown">SymbolKind.Method</a> &#124; <a class="type-unknown">SymbolKind.Property</a> &#124; <a class="type-unknown">SymbolKind.Field</a> &#124; <a class="type-unknown">SymbolKind.Constructor</a> &#124; <a class="type-unknown">SymbolKind.Enum</a> &#124; <a class="type-unknown">SymbolKind.Interface</a> &#124; <a class="type-unknown">SymbolKind.Function</a> &#124; <a class="type-unknown">SymbolKind.Variable</a> &#124; <a class="type-unknown">SymbolKind.Constant</a> &#124; <a class="type-unknown">SymbolKind.String</a> &#124; <a class="type-unknown">SymbolKind.Number</a> &#124; <a class="type-unknown">SymbolKind.Boolean</a> &#124; <a class="type-unknown">SymbolKind.Array</a> &#124; <a class="type-unknown">SymbolKind.Object</a> &#124; <a class="type-unknown">SymbolKind.Key</a> &#124; <a class="type-unknown">SymbolKind.Null</a> &#124; <a class="type-unknown">SymbolKind.EnumMember</a> &#124; <a class="type-unknown">SymbolKind.Struct</a> &#124; <a class="type-unknown">SymbolKind.Event</a> &#124; <a class="type-unknown">SymbolKind.Operator</a> &#124; <a class="type-unknown">SymbolKind.TypeParameter</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">uri</span><span>?</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">containerName</span><span>?</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span>
 <div class="details collapse" id="details-608">
 <div class="comment"><p><del>Creates a new symbol information object.</del></p>
 <ul>
@@ -7324,7 +7324,7 @@ interfaces etc.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="name"></a><span class="ts" id=609 data-target="#details-609" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The name of the symbol.</p>
 </div></td></tr>
-<tr><td><a name="kind"></a><span class="ts" id=610 data-target="#details-610" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-unkwnon">SymbolKind.File</a> &#124; <a class="type-unkwnon">SymbolKind.Module</a> &#124; <a class="type-unkwnon">SymbolKind.Namespace</a> &#124; <a class="type-unkwnon">SymbolKind.Package</a> &#124; <a class="type-unkwnon">SymbolKind.Class</a> &#124; <a class="type-unkwnon">SymbolKind.Method</a> &#124; <a class="type-unkwnon">SymbolKind.Property</a> &#124; <a class="type-unkwnon">SymbolKind.Field</a> &#124; <a class="type-unkwnon">SymbolKind.Constructor</a> &#124; <a class="type-unkwnon">SymbolKind.Enum</a> &#124; <a class="type-unkwnon">SymbolKind.Interface</a> &#124; <a class="type-unkwnon">SymbolKind.Function</a> &#124; <a class="type-unkwnon">SymbolKind.Variable</a> &#124; <a class="type-unkwnon">SymbolKind.Constant</a> &#124; <a class="type-unkwnon">SymbolKind.String</a> &#124; <a class="type-unkwnon">SymbolKind.Number</a> &#124; <a class="type-unkwnon">SymbolKind.Boolean</a> &#124; <a class="type-unkwnon">SymbolKind.Array</a> &#124; <a class="type-unkwnon">SymbolKind.Object</a> &#124; <a class="type-unkwnon">SymbolKind.Key</a> &#124; <a class="type-unkwnon">SymbolKind.Null</a> &#124; <a class="type-unkwnon">SymbolKind.EnumMember</a> &#124; <a class="type-unkwnon">SymbolKind.Struct</a> &#124; <a class="type-unkwnon">SymbolKind.Event</a> &#124; <a class="type-unkwnon">SymbolKind.Operator</a> &#124; <a class="type-unkwnon">SymbolKind.TypeParameter</a></span></td><td><div class="comment"><p>The kind of the symbol.</p>
+<tr><td><a name="kind"></a><span class="ts" id=610 data-target="#details-610" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-unknown">SymbolKind.File</a> &#124; <a class="type-unknown">SymbolKind.Module</a> &#124; <a class="type-unknown">SymbolKind.Namespace</a> &#124; <a class="type-unknown">SymbolKind.Package</a> &#124; <a class="type-unknown">SymbolKind.Class</a> &#124; <a class="type-unknown">SymbolKind.Method</a> &#124; <a class="type-unknown">SymbolKind.Property</a> &#124; <a class="type-unknown">SymbolKind.Field</a> &#124; <a class="type-unknown">SymbolKind.Constructor</a> &#124; <a class="type-unknown">SymbolKind.Enum</a> &#124; <a class="type-unknown">SymbolKind.Interface</a> &#124; <a class="type-unknown">SymbolKind.Function</a> &#124; <a class="type-unknown">SymbolKind.Variable</a> &#124; <a class="type-unknown">SymbolKind.Constant</a> &#124; <a class="type-unknown">SymbolKind.String</a> &#124; <a class="type-unknown">SymbolKind.Number</a> &#124; <a class="type-unknown">SymbolKind.Boolean</a> &#124; <a class="type-unknown">SymbolKind.Array</a> &#124; <a class="type-unknown">SymbolKind.Object</a> &#124; <a class="type-unknown">SymbolKind.Key</a> &#124; <a class="type-unknown">SymbolKind.Null</a> &#124; <a class="type-unknown">SymbolKind.EnumMember</a> &#124; <a class="type-unknown">SymbolKind.Struct</a> &#124; <a class="type-unknown">SymbolKind.Event</a> &#124; <a class="type-unknown">SymbolKind.Operator</a> &#124; <a class="type-unknown">SymbolKind.TypeParameter</a></span></td><td><div class="comment"><p>The kind of the symbol.</p>
 </div></td></tr>
 <tr><td><a name="range"></a><span class="ts" id=611 data-target="#details-611" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>The range of the location of the symbol.</p>
 </div></td></tr>
@@ -7350,7 +7350,7 @@ interfaces etc.</p>
 
 
 
-<a name="SymbolInformation.kind"></a><span class="ts" id=600 data-target="#details-600" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-unkwnon">SymbolKind.File</a> &#124; <a class="type-unkwnon">SymbolKind.Module</a> &#124; <a class="type-unkwnon">SymbolKind.Namespace</a> &#124; <a class="type-unkwnon">SymbolKind.Package</a> &#124; <a class="type-unkwnon">SymbolKind.Class</a> &#124; <a class="type-unkwnon">SymbolKind.Method</a> &#124; <a class="type-unkwnon">SymbolKind.Property</a> &#124; <a class="type-unkwnon">SymbolKind.Field</a> &#124; <a class="type-unkwnon">SymbolKind.Constructor</a> &#124; <a class="type-unkwnon">SymbolKind.Enum</a> &#124; <a class="type-unkwnon">SymbolKind.Interface</a> &#124; <a class="type-unkwnon">SymbolKind.Function</a> &#124; <a class="type-unkwnon">SymbolKind.Variable</a> &#124; <a class="type-unkwnon">SymbolKind.Constant</a> &#124; <a class="type-unkwnon">SymbolKind.String</a> &#124; <a class="type-unkwnon">SymbolKind.Number</a> &#124; <a class="type-unkwnon">SymbolKind.Boolean</a> &#124; <a class="type-unkwnon">SymbolKind.Array</a> &#124; <a class="type-unkwnon">SymbolKind.Object</a> &#124; <a class="type-unkwnon">SymbolKind.Key</a> &#124; <a class="type-unkwnon">SymbolKind.Null</a> &#124; <a class="type-unkwnon">SymbolKind.EnumMember</a> &#124; <a class="type-unkwnon">SymbolKind.Struct</a> &#124; <a class="type-unkwnon">SymbolKind.Event</a> &#124; <a class="type-unkwnon">SymbolKind.Operator</a> &#124; <a class="type-unkwnon">SymbolKind.TypeParameter</a></span>
+<a name="SymbolInformation.kind"></a><span class="ts" id=600 data-target="#details-600" data-toggle="collapse"><span class="ident">kind</span><span>: </span><a class="type-unknown">SymbolKind.File</a> &#124; <a class="type-unknown">SymbolKind.Module</a> &#124; <a class="type-unknown">SymbolKind.Namespace</a> &#124; <a class="type-unknown">SymbolKind.Package</a> &#124; <a class="type-unknown">SymbolKind.Class</a> &#124; <a class="type-unknown">SymbolKind.Method</a> &#124; <a class="type-unknown">SymbolKind.Property</a> &#124; <a class="type-unknown">SymbolKind.Field</a> &#124; <a class="type-unknown">SymbolKind.Constructor</a> &#124; <a class="type-unknown">SymbolKind.Enum</a> &#124; <a class="type-unknown">SymbolKind.Interface</a> &#124; <a class="type-unknown">SymbolKind.Function</a> &#124; <a class="type-unknown">SymbolKind.Variable</a> &#124; <a class="type-unknown">SymbolKind.Constant</a> &#124; <a class="type-unknown">SymbolKind.String</a> &#124; <a class="type-unknown">SymbolKind.Number</a> &#124; <a class="type-unknown">SymbolKind.Boolean</a> &#124; <a class="type-unknown">SymbolKind.Array</a> &#124; <a class="type-unknown">SymbolKind.Object</a> &#124; <a class="type-unknown">SymbolKind.Key</a> &#124; <a class="type-unknown">SymbolKind.Null</a> &#124; <a class="type-unknown">SymbolKind.EnumMember</a> &#124; <a class="type-unknown">SymbolKind.Struct</a> &#124; <a class="type-unknown">SymbolKind.Event</a> &#124; <a class="type-unknown">SymbolKind.Operator</a> &#124; <a class="type-unknown">SymbolKind.TypeParameter</a></span>
 <div class="details collapse" id="details-600">
 <div class="comment"><p>The kind of this symbol.</p>
 </div>
@@ -7814,7 +7814,7 @@ in the user interface.</p>
 
 
 
-<a name="TaskPresentationOptions.panel"></a><span class="ts" id=1080 data-target="#details-1080" data-toggle="collapse"><span class="ident">panel</span><span>?</span><span>: </span><a class="type-unkwnon">TaskPanelKind.Shared</a> &#124; <a class="type-unkwnon">TaskPanelKind.Dedicated</a> &#124; <a class="type-unkwnon">TaskPanelKind.New</a></span>
+<a name="TaskPresentationOptions.panel"></a><span class="ts" id=1080 data-target="#details-1080" data-toggle="collapse"><span class="ident">panel</span><span>?</span><span>: </span><a class="type-unknown">TaskPanelKind.Shared</a> &#124; <a class="type-unknown">TaskPanelKind.Dedicated</a> &#124; <a class="type-unknown">TaskPanelKind.New</a></span>
 <div class="details collapse" id="details-1080">
 <div class="comment"><p>Controls if the task panel is used for this task only (dedicated),
 shared between tasks (shared) or if a new panel is created on
@@ -7824,7 +7824,7 @@ every task execution (new). Defaults to <code>TaskInstanceKind.Shared</code></p>
 
 
 
-<a name="TaskPresentationOptions.reveal"></a><span class="ts" id=1077 data-target="#details-1077" data-toggle="collapse"><span class="ident">reveal</span><span>?</span><span>: </span><a class="type-unkwnon">TaskRevealKind.Always</a> &#124; <a class="type-unkwnon">TaskRevealKind.Silent</a> &#124; <a class="type-unkwnon">TaskRevealKind.Never</a></span>
+<a name="TaskPresentationOptions.reveal"></a><span class="ts" id=1077 data-target="#details-1077" data-toggle="collapse"><span class="ident">reveal</span><span>?</span><span>: </span><a class="type-unknown">TaskRevealKind.Always</a> &#124; <a class="type-unknown">TaskRevealKind.Silent</a> &#124; <a class="type-unknown">TaskRevealKind.Never</a></span>
 <div class="details collapse" id="details-1077">
 <div class="comment"><p>Controls whether the task output is reveal in the user interface.
 Defaults to <code>RevealKind.Always</code>.</p>
@@ -8051,7 +8051,7 @@ depending on the platform. This defaults to <code>true</code>.</p>
 
 
 
-<a name="TextDocument.eol"></a><span class="ts" id=48 data-target="#details-48" data-toggle="collapse"><span class="ident">eol</span><span>: </span><a class="type-unkwnon">EndOfLine.LF</a> &#124; <a class="type-unkwnon">EndOfLine.CRLF</a></span>
+<a name="TextDocument.eol"></a><span class="ts" id=48 data-target="#details-48" data-toggle="collapse"><span class="ident">eol</span><span>: </span><a class="type-unknown">EndOfLine.LF</a> &#124; <a class="type-unknown">EndOfLine.CRLF</a></span>
 <div class="details collapse" id="details-48">
 <div class="comment"><p>The <a href="#EndOfLine">end of line</a> sequence that is predominately
 used in this document.</p>
@@ -8484,7 +8484,7 @@ with the next editor or if it will be kept.</p>
 
 
 
-<a name="TextDocumentShowOptions.viewColumn"></a><span class="ts" id=240 data-target="#details-240" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a></span>
+<a name="TextDocumentShowOptions.viewColumn"></a><span class="ts" id=240 data-target="#details-240" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a></span>
 <div class="details collapse" id="details-240">
 <div class="comment"><p>An optional view column in which the <a href="#TextEditor">editor</a> should be shown.
 The default is the <a href="#ViewColumn.One">one</a>, other values are adjusted to
@@ -8514,7 +8514,7 @@ that resolves to an array of <a href="#TextEdit">text edits</a>.</p>
 
 
 
-<a name="TextDocumentWillSaveEvent.reason"></a><span class="ts" id=1200 data-target="#details-1200" data-toggle="collapse"><span class="ident">reason</span><span>: </span><a class="type-unkwnon">TextDocumentSaveReason.Manual</a> &#124; <a class="type-unkwnon">TextDocumentSaveReason.AfterDelay</a> &#124; <a class="type-unkwnon">TextDocumentSaveReason.FocusOut</a></span>
+<a name="TextDocumentWillSaveEvent.reason"></a><span class="ts" id=1200 data-target="#details-1200" data-toggle="collapse"><span class="ident">reason</span><span>: </span><a class="type-unknown">TextDocumentSaveReason.Manual</a> &#124; <a class="type-unknown">TextDocumentSaveReason.AfterDelay</a> &#124; <a class="type-unknown">TextDocumentSaveReason.FocusOut</a></span>
 <div class="details collapse" id="details-1200">
 <div class="comment"><p>The reason why save was triggered.</p>
 </div>
@@ -8640,14 +8640,14 @@ to a document.</p>
 
 
 
-<a name="TextEdit.setEndOfLine"></a><span class="ts" id=650 data-target="#details-650" data-toggle="collapse"><span class="ident">setEndOfLine</span><span>(</span><span class="ident">eol</span><span>: </span><a class="type-unkwnon">EndOfLine.LF</a> &#124; <a class="type-unkwnon">EndOfLine.CRLF</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a></span>
+<a name="TextEdit.setEndOfLine"></a><span class="ts" id=650 data-target="#details-650" data-toggle="collapse"><span class="ident">setEndOfLine</span><span>(</span><span class="ident">eol</span><span>: </span><a class="type-unknown">EndOfLine.LF</a> &#124; <a class="type-unknown">EndOfLine.CRLF</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a></span>
 <div class="details collapse" id="details-650">
 <div class="comment"><p>Utility to create an eol-edit.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="eol"></a><span class="ts" id=651 data-target="#details-651" data-toggle="collapse"><span class="ident">eol</span><span>: </span><a class="type-unkwnon">EndOfLine.LF</a> &#124; <a class="type-unkwnon">EndOfLine.CRLF</a></span></td><td><div class="comment"><p>An eol-sequence</p>
+<tr><td><a name="eol"></a><span class="ts" id=651 data-target="#details-651" data-toggle="collapse"><span class="ident">eol</span><span>: </span><a class="type-unknown">EndOfLine.LF</a> &#124; <a class="type-unknown">EndOfLine.CRLF</a></span></td><td><div class="comment"><p>An eol-sequence</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a></span></td><td><div class="comment"><p>A new text edit object.</p>
@@ -8681,7 +8681,7 @@ to a document.</p>
 
 
 
-<a name="TextEdit.newEol"></a><span class="ts" id=654 data-target="#details-654" data-toggle="collapse"><span class="ident">newEol</span><span>: </span><a class="type-unkwnon">EndOfLine.LF</a> &#124; <a class="type-unkwnon">EndOfLine.CRLF</a></span>
+<a name="TextEdit.newEol"></a><span class="ts" id=654 data-target="#details-654" data-toggle="collapse"><span class="ident">newEol</span><span>: </span><a class="type-unknown">EndOfLine.LF</a> &#124; <a class="type-unknown">EndOfLine.CRLF</a></span>
 <div class="details collapse" id="details-654">
 <div class="comment"><p>The eol-sequence used in the document.</p>
 <p><em>Note</em> that the eol-sequence will be applied to the
@@ -8748,7 +8748,7 @@ whole document.</p>
 
 
 
-<a name="TextEditor.viewColumn"></a><span class="ts" id=323 data-target="#details-323" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a></span>
+<a name="TextEditor.viewColumn"></a><span class="ts" id=323 data-target="#details-323" data-toggle="collapse"><span class="ident">viewColumn</span><span>?</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a></span>
 <div class="details collapse" id="details-323">
 <div class="comment"><p>The column in which this editor shows. Will be <code>undefined</code> in case this
 isn&#39;t one of the three main editors, e.g an embedded editor.</p>
@@ -8825,7 +8825,7 @@ that the snippet is completely filled-in or accepted.</p>
 
 
 
-<a name="TextEditor.revealRange"></a><span class="ts" id=347 data-target="#details-347" data-toggle="collapse"><span class="ident">revealRange</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">revealType</span><span>?</span><span>: </span><a class="type-unkwnon">TextEditorRevealType.Default</a> &#124; <a class="type-unkwnon">TextEditorRevealType.InCenter</a> &#124; <a class="type-unkwnon">TextEditorRevealType.InCenterIfOutsideViewport</a> &#124; <a class="type-unkwnon">TextEditorRevealType.AtTop</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<a name="TextEditor.revealRange"></a><span class="ts" id=347 data-target="#details-347" data-toggle="collapse"><span class="ident">revealRange</span><span>(</span><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">revealType</span><span>?</span><span>: </span><a class="type-unknown">TextEditorRevealType.Default</a> &#124; <a class="type-unknown">TextEditorRevealType.InCenter</a> &#124; <a class="type-unknown">TextEditorRevealType.InCenterIfOutsideViewport</a> &#124; <a class="type-unknown">TextEditorRevealType.AtTop</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 <div class="details collapse" id="details-347">
 <div class="comment"><p>Scroll as indicated by <code>revealType</code> in order to reveal the given range.</p>
 </div>
@@ -8834,7 +8834,7 @@ that the snippet is completely filled-in or accepted.</p>
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="range"></a><span class="ts" id=348 data-target="#details-348" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>A range.</p>
 </div></td></tr>
-<tr><td><a name="revealType"></a><span class="ts" id=349 data-target="#details-349" data-toggle="collapse"><span class="ident">revealType</span><span>?</span><span>: </span><a class="type-unkwnon">TextEditorRevealType.Default</a> &#124; <a class="type-unkwnon">TextEditorRevealType.InCenter</a> &#124; <a class="type-unkwnon">TextEditorRevealType.InCenterIfOutsideViewport</a> &#124; <a class="type-unkwnon">TextEditorRevealType.AtTop</a></span></td><td><div class="comment"><p>The scrolling strategy for revealing <code>range</code>.</p>
+<tr><td><a name="revealType"></a><span class="ts" id=349 data-target="#details-349" data-toggle="collapse"><span class="ident">revealType</span><span>?</span><span>: </span><a class="type-unknown">TextEditorRevealType.Default</a> &#124; <a class="type-unknown">TextEditorRevealType.InCenter</a> &#124; <a class="type-unknown">TextEditorRevealType.InCenterIfOutsideViewport</a> &#124; <a class="type-unknown">TextEditorRevealType.AtTop</a></span></td><td><div class="comment"><p>The scrolling strategy for revealing <code>range</code>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -8867,7 +8867,7 @@ the given <a href="#TextEditorDecorationType">decoration type</a>, they will be 
 
 
 
-<a name="TextEditor.show"></a><span class="ts" id=351 data-target="#details-351" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">column</span><span>?</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<a name="TextEditor.show"></a><span class="ts" id=351 data-target="#details-351" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">column</span><span>?</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 <div class="details collapse" id="details-351">
 <div class="comment"><p><del>Show the text editor.</del></p>
 <ul>
@@ -8877,7 +8877,7 @@ the given <a href="#TextEditorDecorationType">decoration type</a>, they will be 
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="column"></a><span class="ts" id=352 data-target="#details-352" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a></span></td><td><div class="comment"><p>The <a href="#ViewColumn">column</a> in which to show this editor.
+<tr><td><a name="column"></a><span class="ts" id=352 data-target="#details-352" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a></span></td><td><div class="comment"><p>The <a href="#ViewColumn">column</a> in which to show this editor.
 instead. This method shows unexpected behavior and will be removed in the next major update.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
@@ -9044,14 +9044,14 @@ You can use \r\n or \n in <code>value</code> and they will be normalized to the 
 
 
 
-<a name="TextEditorEdit.setEndOfLine"></a><span class="ts" id=371 data-target="#details-371" data-toggle="collapse"><span class="ident">setEndOfLine</span><span>(</span><span class="ident">endOfLine</span><span>: </span><a class="type-unkwnon">EndOfLine.LF</a> &#124; <a class="type-unkwnon">EndOfLine.CRLF</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<a name="TextEditorEdit.setEndOfLine"></a><span class="ts" id=371 data-target="#details-371" data-toggle="collapse"><span class="ident">setEndOfLine</span><span>(</span><span class="ident">endOfLine</span><span>: </span><a class="type-unknown">EndOfLine.LF</a> &#124; <a class="type-unknown">EndOfLine.CRLF</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
 <div class="details collapse" id="details-371">
 <div class="comment"><p>Set the end of line sequence.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">
 <tr><th>Parameter</th><th>Description</th></tr>
-<tr><td><a name="endOfLine"></a><span class="ts" id=372 data-target="#details-372" data-toggle="collapse"><span class="ident">endOfLine</span><span>: </span><a class="type-unkwnon">EndOfLine.LF</a> &#124; <a class="type-unkwnon">EndOfLine.CRLF</a></span></td><td><div class="comment"><p>The new end of line for the <a href="#TextDocument">document</a>.</p>
+<tr><td><a name="endOfLine"></a><span class="ts" id=372 data-target="#details-372" data-toggle="collapse"><span class="ident">endOfLine</span><span>: </span><a class="type-unknown">EndOfLine.LF</a> &#124; <a class="type-unknown">EndOfLine.CRLF</a></span></td><td><div class="comment"><p>The new end of line for the <a href="#TextDocument">document</a>.</p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
@@ -9100,7 +9100,7 @@ You can use \r\n or \n in <code>value</code> and they will be normalized to the 
 
 
 
-<a name="TextEditorOptions.cursorStyle"></a><span class="ts" id=218 data-target="#details-218" data-toggle="collapse"><span class="ident">cursorStyle</span><span>?</span><span>: </span><a class="type-unkwnon">TextEditorCursorStyle.Line</a> &#124; <a class="type-unkwnon">TextEditorCursorStyle.Block</a> &#124; <a class="type-unkwnon">TextEditorCursorStyle.Underline</a> &#124; <a class="type-unkwnon">TextEditorCursorStyle.LineThin</a> &#124; <a class="type-unkwnon">TextEditorCursorStyle.BlockOutline</a> &#124; <a class="type-unkwnon">TextEditorCursorStyle.UnderlineThin</a></span>
+<a name="TextEditorOptions.cursorStyle"></a><span class="ts" id=218 data-target="#details-218" data-toggle="collapse"><span class="ident">cursorStyle</span><span>?</span><span>: </span><a class="type-unknown">TextEditorCursorStyle.Line</a> &#124; <a class="type-unknown">TextEditorCursorStyle.Block</a> &#124; <a class="type-unknown">TextEditorCursorStyle.Underline</a> &#124; <a class="type-unknown">TextEditorCursorStyle.LineThin</a> &#124; <a class="type-unknown">TextEditorCursorStyle.BlockOutline</a> &#124; <a class="type-unknown">TextEditorCursorStyle.UnderlineThin</a></span>
 <div class="details collapse" id="details-218">
 <div class="comment"><p>The rendering style of the cursor in this editor.
 When getting a text editor&#39;s options, this property will always be present.
@@ -9120,7 +9120,7 @@ When setting a text editor&#39;s options, this property is optional and it can b
 
 
 
-<a name="TextEditorOptions.lineNumbers"></a><span class="ts" id=219 data-target="#details-219" data-toggle="collapse"><span class="ident">lineNumbers</span><span>?</span><span>: </span><a class="type-unkwnon">TextEditorLineNumbersStyle.Off</a> &#124; <a class="type-unkwnon">TextEditorLineNumbersStyle.On</a> &#124; <a class="type-unkwnon">TextEditorLineNumbersStyle.Relative</a></span>
+<a name="TextEditorOptions.lineNumbers"></a><span class="ts" id=219 data-target="#details-219" data-toggle="collapse"><span class="ident">lineNumbers</span><span>?</span><span>: </span><a class="type-unknown">TextEditorLineNumbersStyle.Off</a> &#124; <a class="type-unknown">TextEditorLineNumbersStyle.On</a> &#124; <a class="type-unknown">TextEditorLineNumbersStyle.Relative</a></span>
 <div class="details collapse" id="details-219">
 <div class="comment"><p>Render relative line numbers w.r.t. the current line number.
 When getting a text editor&#39;s options, this property will always be present.
@@ -9215,7 +9215,7 @@ When setting a text editor&#39;s options, this property is optional and it can b
 
 
 
-<a name="TextEditorSelectionChangeEvent.kind"></a><span class="ts" id=197 data-target="#details-197" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unkwnon">TextEditorSelectionChangeKind.Keyboard</a> &#124; <a class="type-unkwnon">TextEditorSelectionChangeKind.Mouse</a> &#124; <a class="type-unkwnon">TextEditorSelectionChangeKind.Command</a></span>
+<a name="TextEditorSelectionChangeEvent.kind"></a><span class="ts" id=197 data-target="#details-197" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-unknown">TextEditorSelectionChangeKind.Keyboard</a> &#124; <a class="type-unknown">TextEditorSelectionChangeKind.Mouse</a> &#124; <a class="type-unknown">TextEditorSelectionChangeKind.Command</a></span>
 <div class="details collapse" id="details-197">
 <div class="comment"><p>The <a href="#TextEditorSelectionChangeKind">change kind</a> which has triggered this
 event. Can be <code>undefined</code>.</p>
@@ -9287,7 +9287,7 @@ event. Can be <code>undefined</code>.</p>
 
 
 
-<a name="TextEditorViewColumnChangeEvent.viewColumn"></a><span class="ts" id=203 data-target="#details-203" data-toggle="collapse"><span class="ident">viewColumn</span><span>: </span><a class="type-unkwnon">ViewColumn.One</a> &#124; <a class="type-unkwnon">ViewColumn.Two</a> &#124; <a class="type-unkwnon">ViewColumn.Three</a></span>
+<a name="TextEditorViewColumnChangeEvent.viewColumn"></a><span class="ts" id=203 data-target="#details-203" data-toggle="collapse"><span class="ident">viewColumn</span><span>: </span><a class="type-unknown">ViewColumn.One</a> &#124; <a class="type-unknown">ViewColumn.Two</a> &#124; <a class="type-unknown">ViewColumn.Three</a></span>
 <div class="details collapse" id="details-203">
 <div class="comment"><p>The new value for the <a href="#TextEditor.viewColumn">text editor&#39;s view column</a>.</p>
 </div>
@@ -9740,7 +9740,7 @@ To signal that root has changed, do not pass any argument or pass <code>undefine
 
 
 
-<a name="TreeItem.new TreeItem"></a><span class="ts" id=1170 data-target="#details-1170" data-toggle="collapse"><span class="ident">new TreeItem</span><span>(</span><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-unkwnon">TreeItemCollapsibleState.None</a> &#124; <a class="type-unkwnon">TreeItemCollapsibleState.Collapsed</a> &#124; <a class="type-unkwnon">TreeItemCollapsibleState.Expanded</a><span>)</span><span>: </span><a class="type-ref" href="#TreeItem">TreeItem</a></span>
+<a name="TreeItem.new TreeItem"></a><span class="ts" id=1170 data-target="#details-1170" data-toggle="collapse"><span class="ident">new TreeItem</span><span>(</span><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-unknown">TreeItemCollapsibleState.None</a> &#124; <a class="type-unknown">TreeItemCollapsibleState.Collapsed</a> &#124; <a class="type-unknown">TreeItemCollapsibleState.Expanded</a><span>)</span><span>: </span><a class="type-ref" href="#TreeItem">TreeItem</a></span>
 <div class="details collapse" id="details-1170">
 <div class="comment"></div>
 <div class="signature">
@@ -9748,7 +9748,7 @@ To signal that root has changed, do not pass any argument or pass <code>undefine
 <tr><th>Parameter</th><th>Description</th></tr>
 <tr><td><a name="label"></a><span class="ts" id=1171 data-target="#details-1171" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A human-readable string describing this item</p>
 </div></td></tr>
-<tr><td><a name="collapsibleState"></a><span class="ts" id=1172 data-target="#details-1172" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-unkwnon">TreeItemCollapsibleState.None</a> &#124; <a class="type-unkwnon">TreeItemCollapsibleState.Collapsed</a> &#124; <a class="type-unkwnon">TreeItemCollapsibleState.Expanded</a></span></td><td><div class="comment"><p>(#TreeItemCollapsibleState) of the tree item. Default is <a href="#TreeItemCollapsibleState.None">TreeItemCollapsibleState.None</a></p>
+<tr><td><a name="collapsibleState"></a><span class="ts" id=1172 data-target="#details-1172" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-unknown">TreeItemCollapsibleState.None</a> &#124; <a class="type-unknown">TreeItemCollapsibleState.Collapsed</a> &#124; <a class="type-unknown">TreeItemCollapsibleState.Expanded</a></span></td><td><div class="comment"><p>(#TreeItemCollapsibleState) of the tree item. Default is <a href="#TreeItemCollapsibleState.None">TreeItemCollapsibleState.None</a></p>
 </div></td></tr>
 <tr><th>Returns</th><th>Description</th></tr>
 <tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a></span></td><td><div class="comment"></div></td></tr>
@@ -9760,7 +9760,7 @@ To signal that root has changed, do not pass any argument or pass <code>undefine
 
 
 
-<a name="TreeItem.collapsibleState"></a><span class="ts" id=1167 data-target="#details-1167" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-unkwnon">TreeItemCollapsibleState.None</a> &#124; <a class="type-unkwnon">TreeItemCollapsibleState.Collapsed</a> &#124; <a class="type-unkwnon">TreeItemCollapsibleState.Expanded</a></span>
+<a name="TreeItem.collapsibleState"></a><span class="ts" id=1167 data-target="#details-1167" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-unknown">TreeItemCollapsibleState.None</a> &#124; <a class="type-unknown">TreeItemCollapsibleState.Collapsed</a> &#124; <a class="type-unknown">TreeItemCollapsibleState.Expanded</a></span>
 <div class="details collapse" id="details-1167">
 <div class="comment"><p><a href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a> of the tree item.</p>
 </div>
@@ -10186,7 +10186,7 @@ for more information.</p>
 
 
 
-<a name="WorkspaceConfiguration.update"></a><span class="ts" id=916 data-target="#details-916" data-toggle="collapse"><span class="ident">update</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">value</span><span>: </span><a class="type-intrinsic">any</a>, <span class="ident">configurationTarget</span><span>?</span><span>: </span><a class="type-unkwnon">ConfigurationTarget.Global</a> &#124; <a class="type-unkwnon">ConfigurationTarget.Workspace</a> &#124; <a class="type-unkwnon">ConfigurationTarget.WorkspaceFolder</a> &#124; <a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">void</a>&gt;</span>
+<a name="WorkspaceConfiguration.update"></a><span class="ts" id=916 data-target="#details-916" data-toggle="collapse"><span class="ident">update</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">value</span><span>: </span><a class="type-intrinsic">any</a>, <span class="ident">configurationTarget</span><span>?</span><span>: </span><a class="type-unknown">ConfigurationTarget.Global</a> &#124; <a class="type-unknown">ConfigurationTarget.Workspace</a> &#124; <a class="type-unknown">ConfigurationTarget.WorkspaceFolder</a> &#124; <a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">void</a>&gt;</span>
 <div class="details collapse" id="details-916">
 <div class="comment"><p>Update a configuration value. The updated configuration values are persisted.</p>
 <p>A value can be changed in</p>
@@ -10218,7 +10218,7 @@ under respective <a href="#workspace.workspaceFolders">folder</a>, but in others
 </div></td></tr>
 <tr><td><a name="value"></a><span class="ts" id=918 data-target="#details-918" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-intrinsic">any</a></span></td><td><div class="comment"><p>The new value.</p>
 </div></td></tr>
-<tr><td><a name="configurationTarget"></a><span class="ts" id=919 data-target="#details-919" data-toggle="collapse"><span class="ident">configurationTarget</span><span>?</span><span>: </span><a class="type-unkwnon">ConfigurationTarget.Global</a> &#124; <a class="type-unkwnon">ConfigurationTarget.Workspace</a> &#124; <a class="type-unkwnon">ConfigurationTarget.WorkspaceFolder</a> &#124; <a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>The <a href="#ConfigurationTarget">configuration target</a> or a boolean value.
+<tr><td><a name="configurationTarget"></a><span class="ts" id=919 data-target="#details-919" data-toggle="collapse"><span class="ident">configurationTarget</span><span>?</span><span>: </span><a class="type-unknown">ConfigurationTarget.Global</a> &#124; <a class="type-unknown">ConfigurationTarget.Workspace</a> &#124; <a class="type-unknown">ConfigurationTarget.WorkspaceFolder</a> &#124; <a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>The <a href="#ConfigurationTarget">configuration target</a> or a boolean value.
     If <code>undefined</code> or <code>null</code> or <code>false</code> configuration target is <code>ConfigurationTarget.Workspace</code>.
     If <code>true</code> configuration target is <code>ConfigurationTarget.Global</code>.</p>
 </div></td></tr>
