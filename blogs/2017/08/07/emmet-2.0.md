@@ -25,7 +25,7 @@ As part of this update, we have re-written all of the Emmet actions using new np
 
 An important change is that the `kbstyle(Tab)` key is no longer the dedicated keyboard shortcut for expanding Emmet abbreviations. Instead, Emmet abbreviations will now appear in the suggestion list. They can be selected like any other smart completion and on selection, the abbreviation will be expanded. 
 
-This may take some getting used to but we think you'll see the benefits of Emmet abbreviations being treated as suggestions or smart completions. You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the `editor.action.emmet.expandAbbreviation` command or use **Emmet: Expand Abbreviation** from the **Command Palette**.
+This may take some getting used to but we think you'll see the benefits of Emmet abbreviations being treated as suggestions or smart completions. You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the `editor.emmet.action.expandAbbreviation` command or use **Emmet: Expand Abbreviation** from the **Command Palette**.
 
 Read on to learn about the Emmet 2.0 changes in Visual Studio Code.
 
@@ -58,13 +58,13 @@ There were two issues with using the `kbstyle(Tab)` key as a keyboard shortcut f
 
 [Sergey Chikuyonok](https://github.com/sergeche) realized that having Emmet in the suggestion list would be a more pleasant experience. That it helped us solve the above two issues, was an added bonus. 
 
-With Emmet abbreviations now easily accessible via suggestion list, we were able to remove the association of `kbstyle(Tab)` key with the **Emmet: ExpandAbbreviation** command (command Id `editor.action.emmet.expandAbbreviation`). The `kbstyle(Tab)` key is now free to do what it was meant to do: indent.
+With Emmet abbreviations now easily accessible via suggestion list, we were able to remove the association of `kbstyle(Tab)` key with the **Emmet: ExpandAbbreviation** command (command Id `editor.emmet.action.expandAbbreviation`). The `kbstyle(Tab)` key is now free to do what it was meant to do: indent.
 
 If you have the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md) turned off, you will have to press `kb(editor.action.triggerSuggest)` to trigger the suggestion/auto-completion list manually.
 
 If you don't want Emmet showing up in the suggestion/auto-completion list, set `emmet.showExpandedAbbreviation` to `never`.
 
-You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the `editor.action.emmet.expandAbbreviation` command or use **Emmet: Expand Abbreviation** from the **Command Palette**.
+You can still bind any keyboard shortcut (other than `kbstyle(Tab)` key) to the `editor.emmet.action.expandAbbreviation` command or use **Emmet: Expand Abbreviation** from the **Command Palette**.
 
 ## Emmet suggestions in other file types
 
