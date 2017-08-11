@@ -31,7 +31,7 @@ Follow the instructions to [Create an Office Add-in using any editor](https://gi
 
 ## Use VS Code to Develop Your Office Add-in!
 
-VS Code is a great tool to help you develop your custom Office Add-ins regardless if they are for Outlook, Word, Excel, PowerPoint and run in the web clients, Windows clients, iOS clients or on OS X!
+VS Code is a great tool to help you develop your custom Office Add-ins regardless if they are for Outlook, Word, Excel, PowerPoint and run in the web clients, Windows clients, iOS clients or on macOS!
 
 ### Getting Started
 

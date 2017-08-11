@@ -98,6 +98,7 @@ The other way to run your configuration is through **Command Palette** (`kb(work
 ### Global Launch Configuration
 
 We support adding a `"launch"` object inside your user settings. This `"launch"` configuration will then be shared across your workspaces. For example:
+
 ```json
 "launch": {
     "version": "0.2.0",
@@ -168,7 +169,6 @@ VS Code supports variable substitution inside strings in `launch.json` and has t
 - **${cwd}** - the task runner's current working directory on startup
 - **${lineNumber}** - the current selected line number in the active file
 
-
 You can also reference environment variables through **${env:Name}** syntax (for example, ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
 ```json
@@ -188,9 +188,11 @@ You can reference VS Code settings and commands using the following syntax:
 * **${command:CommandID}** - example: `${command:explorer.newFolder}`
 
 ## Operating System Specific Properties
+
 `Launch.json` supports defining values (for example, arguments to be passed to the program) specific to an operating system. To do so, put an operating system specific literal into the `launch.json` file and specify the corresponding properties inside that literal.
 
-Below is an example that passes `"args"` to the program differently on Windows than on Linux and Mac:
+Below is an example that passes `"args"` to the program differently on Windows than on Linux and macOS:
+
 ```json
 {
     "version": "0.2.0",
@@ -208,9 +210,11 @@ Below is an example that passes `"args"` to the program differently on Windows t
     ]
 }
 ```
+
 Valid operating properties are `"windows"` for Windows, `"linux"` for Linux and `"osx"` for Mac. Properties defined in an operating system specific scope override properties defined in the global scope.
 
 In the example below:
+
 ```json
 {
     "version": "0.2.0",
@@ -228,7 +232,8 @@ In the example below:
     ]
 }
 ```
-Program is always stopped on entry except for OS X where it does not stop on entry.
+
+Program is always stopped on entry except for macOS where it does not stop on entry.
 
 ## Run mode
 

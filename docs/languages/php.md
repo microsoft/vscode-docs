@@ -53,7 +53,7 @@ To set the PHP executable path, open your **User or Workspace Settings** and add
 }
 ```
 
-### Linux and OS X
+### Linux and macOS
 
 ```json
 {

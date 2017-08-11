@@ -237,7 +237,7 @@ Since VS Code runs on different platforms, we have to make sure that the debug a
     }]
     ```
 
-1. A combination of both approaches is possible too. The following example is from the Mono Debug adapter which is implemented as a mono application that needs a runtime on OS X and Linux but not on Windows:
+1. A combination of both approaches is possible too. The following example is from the Mono Debug adapter which is implemented as a mono application that needs a runtime on macOS and Linux but not on Windows:
 
     ```json
     "debuggers": [{

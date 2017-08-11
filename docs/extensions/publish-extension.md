@@ -231,4 +231,4 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 **Q: Why does vsce not preserve file attributes?**
 
-**A:** Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and OS X works as expected.
+**A:** Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.
