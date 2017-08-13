@@ -48,14 +48,5 @@ The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azur
 Congratulations, you've successfully completed this walkthrough!
 
 ----
-<script>
-    function closeReportIssue() {
-        $('#surveypopup').remove();
-    }
-
-    function reportIssue(tutorial, page) {
-        $('body').append('<div id="surveypopup" class="overlay visible"><div class="surveypopup"><div id="surveytitle">Tell us more<a href="javascript:void(0)" onclick="closeReportIssue()">X</a></div><div id="surveydiv"><iframe frameBorder="0" scrolling="0" src="https://www.research.net/r/PWZWZ52?tutorial='+tutorial+'&step='+page+'"></iframe></div></div></div>');  
-    }
-</script>
 
 <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'extensions')" href="javascript:void(0)">I ran into an issue</a> <a class="tutorial-next-btn" href="/docs">I'm Done!</a>
