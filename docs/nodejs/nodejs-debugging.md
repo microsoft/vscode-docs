@@ -173,12 +173,12 @@ lines="foo\nbar"
 If you want to attach the VS Code debugger to a Node.js program, launch Node.js as follows:
 
 ```
-node --debug program.js
+node --inspect program.js
 or
-node --debug-brk program.js
+node --inspect-brk program.js
 ```
 
-With the `--debug-brk` option, Node.js stops on the first line of the program.
+With the `--inspect-brk` option, Node.js stops on the first line of the program.
 
 The corresponding launch configuration looks like this:
 
@@ -187,7 +187,8 @@ The corresponding launch configuration looks like this:
     "name": "Attach to Process",
     "type": "node",
     "request": "attach",
-    "port": 5858
+    "protocol": "inspector",
+    "port": 9229
 }
 ```
 
