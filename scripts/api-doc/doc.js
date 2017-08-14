@@ -1,13 +1,13 @@
+"use strict";
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-"use strict";
-var marked = require('marked');
-var model_1 = require('./model');
+var marked = require("marked");
+var model_1 = require("./model");
 function doc(value) {
     var data = JSON.parse(value);
-    var start = data.children[0].children[0];
+    var start = data.children[0].children[0]; //vscode-docs/issues/162
     var result = Builder.translate(start);
     return result;
 }
@@ -328,9 +328,9 @@ function ident(value) {
 function type2HtmlString(type) {
     var label;
     switch (type.type) {
-        case 'instrinct':
+        case 'intrinsic':
         case 'typeParameter':
-            label = "<a class=\"type-instrinct\">" + type.name + "</a>";
+            label = "<a class=\"type-intrinsic\">" + type.name + "</a>";
             break;
         case 'reference':
             label = "<a class=\"type-ref\" href=\"#" + type.name + "\">" + type.name + "</a>";
@@ -347,12 +347,15 @@ function type2HtmlString(type) {
         case 'tuple':
             label = '[' + type.elements.map(type2HtmlString).join(', ') + ']';
             break;
+        case 'array':
+            label = type2HtmlString(type.elementType) + '[]';
+            break;
+        case 'unknown':
+            label = "<a class=\"type-unknown\">" + type.name + "</a>"; //https://github.com/TypeStrong/typedoc/pull/365
+            break;
         default:
             label = '!!!MISSING TYPE ' + type.type;
             break;
-    }
-    if (type.isArray) {
-        label += '[]';
     }
     return label;
 }
