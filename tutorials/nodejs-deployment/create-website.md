@@ -57,4 +57,4 @@ You should see something like this:
 
 ----
 
-<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'create-website')" href="javascript:void(0)">I ran into an issue</a> <a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/deploy-website">My site is running</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/deploy-website">My site is running</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'create-website')" href="javascript:void(0)">I ran into an issue</a>
