@@ -73,4 +73,4 @@ Browse to the site again and you should see your Express site hosted in Azure!
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/tailing-logs">My site is on Azure</a>
+<a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'deploy-website')" href="javascript:void(0)">I ran into an issue</a> <a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/tailing-logs">My site is on Azure</a>
