@@ -172,7 +172,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 Prior to VS Code 1.15, you could use the `emmet.preferences` setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). The new modular Emmet 2.0 does not support these Emmet Preferences in the same way as it did before. 
 
-In the August 2017 release of VS Code, we will be getting back support for the below preferences. 
+In the upcoming August 2017 release of VS Code (1.16), we are working on getting back support for the below preferences. 
 - css.propertyEnd
 - css.valueSeparator
 - sass.propertyEnd
