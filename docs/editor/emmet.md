@@ -5,35 +5,34 @@ TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
 DateApproved: 8/14/2017
-MetaDescription: Using Emmet abbreviations inside VS Code. 
+MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
 
-Visual Studio Code supports most of the the [Emmet Actions](https://docs.emmet.io/actions/) including expanding of [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
+Visual Studio Code supports most of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
 
-In the July 2017 (v1.15) release of VS Code, we introduced Emmet 2.0, which enabled features like Emmet in the suggestions/auto-completion list, and multi-cursor support.
-Read more on the why's and how's of this major overhaul in [Emmet 2.0 blog post](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0).
+In the July 2017 (v1.15) release of VS Code, we introduced Emmet 2.0, which enabled features like Emmet in the suggestions/auto-completion list, and multi-cursor support. Read more on the why's and how's of this major overhaul in the [Emmet 2.0 blog post](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0).
 
 ## How to expand Emmet abbreviations and snippets
 
 Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `jade`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files. As well as any language that inherits from any of the above like `handlebars` and `php`.
 
-Just start typing an Emmet abbreviation and you will see the same show up in the suggestion list. Keep the suggestions docs expanded as you type, and you will see a preview of the expansion of the abbreviation you are typing.
-If you are in a stylesheet file, then the expanded abbreviation shows up in the suggestion list sorted among the other css suggestions.
+When you start typing an Emmet abbreviation, you will see the abbreviation displayed in the suggestion list. If you have the suggestion documentation fly-out open, you will see a preview of the expansion as you type. If you are in a stylesheet file, the expanded abbreviation shows up in the suggestion list sorted among the other CSS suggestions.
 
 ![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
 
-If you have disabled `editor.quickSuggestions`, then you wont see the suggestions show up as you type. You can still trigger it manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
+If you have disabled `editor.quickSuggestions`, you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
 
 If you don't want to use suggestions at all, then use the command `Emmet: Expand Abbreviation` to expand your abbreviations. You can bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
 
-If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the [setting](/docs/getstarted/settings.md)  `emmet.triggerExpansionOnTab` and set it to `true`. We use this setting to provide the appropriate fallback to provide indentation when there is no abbreviation to expand.
+If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the [setting](/docs/getstarted/settings.md)  `emmet.triggerExpansionOnTab` and set it to `true`. This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
 
 ## Emmet abbreviations in other file types
 
 To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use language ids for both sides of the mapping.
 
 For example:
+
 ```json
 "emmet.includeLanguages": {
     "javascript": "javascriptreact",
@@ -152,13 +151,12 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.showAbbreviationSuggestions`
 
-    Shows possible emmet abbreviations as suggestions. Its `true` by default. 
+    Shows possible emmet abbreviations as suggestions. Its `true` by default.
 
     For example, when you type `li`, you get suggestions for all emmet snippets starting with `li` like `link`, `link:css` , `link:favicon` etc.
     This is helpful in learning Emmet snippets that you never knew existed unless you knew the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) by heart.
-    
-    Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
-   
+
+    Not applicable in stylesheets or when `emmet.showExpandedAbbreviation` is set to `never`.
 
 * `emmet.extensionsPath`
 
@@ -168,12 +166,12 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
     Set this to true to enable expanding Emmet abbreviations with `kbstyle(Tab)` key. We use this setting to provide the appropriate fallback to provide indentation when there is no abbreviation to expand.
 
-    
 ## Emmet preferences
 
-Prior to VS Code 1.15, you could use the `emmet.preferences` setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). Emmet 2.0's modular nature does not support these Emmet Preferences in the same way as it did before. 
+Prior to VS Code 1.15, you could use the `emmet.preferences` setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). Emmet 2.0's modular nature does not support these Emmet Preferences in the same way as it did before.
 
-In the upcoming August 2017 release of VS Code (1.16), we are working on getting back support for the below preferences. 
+In the upcoming August 2017 release of VS Code (1.16), we are working on bringing back support for the following preferences:
+
 - css.propertyEnd
 - css.valueSeparator
 - sass.propertyEnd
@@ -189,16 +187,12 @@ In the upcoming August 2017 release of VS Code (1.16), we are working on getting
 - bem.elementSeparator
 - bem.modifierSeparator
 
-
-If you happen to use any of the other preferences and want them to be supported in the new Emmet, please add a comment in the [issue #32496](https://github.com/Microsoft/vscode/issues/32496) 
+If you use any other Emmet preferences and want them to be supported in the new Emmet, please add a comment in the [issue #32496](https://github.com/Microsoft/vscode/issues/32496)
 
 ## Known issues in Emmet 2.0
 
 Below are some of the upstream issues with Emmet 2.0 that we are working on fixing. Any help in these areas is appreciated.
 
-- Support to customize formatters for stylesheets like `css.propertyEnd`, `css.valueSeparator`, `css.UnitAliases`, `css.intUnit` and `css.floatUnit`. [Issue: emmetio/expand-abbreviation#8](https://github.com/emmetio/expand-abbreviation/issues/8)
-- Use of `@-` to get numbering in descending order in repeaters is not supported. [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2) 
-- Html snippets ending with `+` like `select+`, `ul+` etc from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
-
-
-
+* Support to customize formatters for stylesheets like `css.propertyEnd`, `css.valueSeparator`, `css.UnitAliases`, `css.intUnit` and `css.floatUnit`. [Issue: emmetio/expand-abbreviation#8](https://github.com/emmetio/expand-abbreviation/issues/8)
+* Use of `@-` to get numbering in descending order in repeaters is not supported. [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
+* HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)

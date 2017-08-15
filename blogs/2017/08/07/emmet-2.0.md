@@ -2,16 +2,16 @@
 Order: 30
 TOCTitle: Emmet 2.0
 PageTitle: Emmet 2.0 in Visual Studio Code
-MetaDescription: New Emmet 2.0 brings a better Emmet experience inside VS Code. 
+MetaDescription: New Emmet 2.0 brings a better Emmet experience inside VS Code.
 Date: 2017-08-07
-ShortDescription: New Emmet 2.0 brings a better Emmet experience inside VS Code. . 
+ShortDescription: New Emmet 2.0 brings a better Emmet experience inside VS Code.
 Author: Ramya Rao
 ---
 # Emmet 2.0 in Visual Studio Code
 
 August 7, 2017 Ramya Rao, [@ramyanexus](https://twitter.com/ramyanexus)
 
-In the July 2017 release of Visual Studio Code (version 1.15), we're shipping a better Emmet experience which has been in preview for the past 2 releases. 
+In the July 2017 release of Visual Studio Code (version 1.15), we're shipping a better Emmet experience which has been in preview for the past 2 releases.
 
 Its features include:
 
@@ -23,9 +23,9 @@ Its features include:
 
 As part of this update, we have re-written all of the Emmet actions using new npm modules from [@emmetio](https://www.npmjs.com/~emmetio).
 
-An important change is that the `kbstyle(Tab)` key is no longer the default way to expand Emmet abbreviations. Instead, Emmet abbreviations will now appear in the suggestion list. They can be selected like any other smart completion and on selection, the abbreviation will be expanded. 
+An important change is that the `kbstyle(Tab)` key is no longer the default way to expand Emmet abbreviations. Instead, Emmet abbreviations will now appear in the suggestion list. They can be selected like any other smart completion and on selection, the abbreviation will be expanded.
 
-> Note: To continue to expand Emmet abbreviations and snippets using the `kbstyle(Tab)` key, set `emmet.triggerExpansionOnTab` to `true`.
+>**Note**: To continue to expand Emmet abbreviations and snippets using the `kbstyle(Tab)` key, set `emmet.triggerExpansionOnTab` to `true`.
 
 Read on to learn about the Emmet 2.0 changes in Visual Studio Code.
 
@@ -49,16 +49,16 @@ This modular approach was taken to allow editor plugins to use the editor specif
 * Provide more efficient parsing of documents using VS Code specific APIs for Emmet actions that need parsed files.
 * Pull the Emmet integration out of the VS Code core and into an extension.
 
-## Tab no longer the default key for expanding Emmet abbreviations
+## Tab no longer the default Emmet expansion key
 
 There were two issues with using the `kbstyle(Tab)` key as a keyboard shortcut for Emmet expansion:
 
 * Emmet expansions occurred when the user wanted to indent source code using the `kbstyle(Tab)` key.
 * Items from the suggestion list were inserted when the user wanted to expand an Emmet abbreviation.
 
-[Sergey Chikuyonok](https://github.com/sergeche) realized that having Emmet in the suggestion list would be a more pleasant experience. That it helped us solve the above two issues, was an added bonus. 
+[Sergey Chikuyonok](https://github.com/sergeche) realized that having Emmet in the suggestion list would be a more pleasant experience. That it helped us solve the above two issues, was an added bonus.
 
-With Emmet abbreviations now easily accessible via suggestion list, we were able to remove the default association of `kbstyle(Tab)` key with the **Emmet: ExpandAbbreviation** command (command Id `editor.emmet.action.expandAbbreviation`). The `kbstyle(Tab)` key is now free to do what it was meant to do: indent.
+With Emmet abbreviations now easily accessible via suggestion list, we were able to remove the default association of `kbstyle(Tab)` key with the **Emmet: ExpandAbbreviation** command. The `kbstyle(Tab)` key is now free to do what it was meant to do: indent.
 
 If you have the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md) turned off, you will have to press `kb(editor.action.triggerSuggest)` to trigger the suggestion/auto-completion list manually.
 
@@ -70,11 +70,12 @@ If you prefer the `kbstyle(Tab)` key for expanding your abbreviations, then add 
 
 ## Other changes
 
-There are a few other changes that we have documented in the new Emmet docs
-- Use `emmet.includeLanguages` instead of `emmet.syntaxProfiles` setting to [enable Emmet in other file types](/docs/editor/emmet.md#emmet-abbreviations-in-other-file-types)
-- Changes to how you write [custom snippets in Emmet](/docs/editor/emmet.md#using-custom-emmet-snippets)
-- Changes to available [Emmet settings](/docs/editor/emmet.md#emmet-configuration)
-- [Known issues in Emmet 2.0](/docs/editor/emmet.md#known-issues-in-emmet-2.0) that we are working on in August 2017
+There are a few other changes that we have documented in the new Emmet [page](/docs/editor/emmet.md):
+
+* Use `emmet.includeLanguages` instead of `emmet.syntaxProfiles` setting to [enable Emmet in other file types](/docs/editor/emmet.md#emmet-abbreviations-in-other-file-types)
+* Changes to how you write [custom snippets in Emmet](/docs/editor/emmet.md#using-custom-emmet-snippets)
+* Changes to available [Emmet settings](/docs/editor/emmet.md#emmet-configuration)
+* [Known issues in Emmet 2.0](/docs/editor/emmet.md#known-issues-in-emmet-20) that we are working on in August 2017
 
 ## People who made Emmet 2.0 happen
 
@@ -82,7 +83,7 @@ I want to thank [Sergey Chikuyonok](https://github.com/sergeche) for his amazing
 
 Thanks also goes to everyone who used the new Emmet in VS Code when it was in preview and provided great feedback through GitHub issues. The discussions in Github issues were very helpful in getting to the current user experience.
 
-Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdorf](https://github.com/jens1o), [Vladimir Sizikov](https://github.com/vvs), [Niichie](https://github.com/Niichie), [Thomas Klepzig](https://github.com/tklepzig) and many more who used the VS Code Insiders builds to test my bug fixes and feature additions. 
+Special thanks to [Steve Lombardi](https://github.com/smlombardi), [Jens Hausdorf](https://github.com/jens1o), [Vladimir Sizikov](https://github.com/vvs), [Niichie](https://github.com/Niichie), [Thomas Klepzig](https://github.com/tklepzig) and many more who used the VS Code Insiders builds to test my bug fixes and feature additions.
 
 ## Share your thoughts on the new Emmet
 
