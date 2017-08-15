@@ -25,7 +25,7 @@ As part of this update, we have re-written all of the Emmet actions using new np
 
 An important change is that the `kbstyle(Tab)` key is no longer the default way to expand Emmet abbreviations. Instead, Emmet abbreviations will now appear in the suggestion list. They can be selected like any other smart completion and on selection, the abbreviation will be expanded. 
 
-> Note: To expand Emmet abbreviations and snippets using the `kbstyle(Tab)` key, set `emmet.triggerExpansionOnTab` to `true`. We use this setting to provide the appropriate fallback to provide indentation when there is no abbreviation to expand.
+> Note: To continue to expand Emmet abbreviations and snippets using the `kbstyle(Tab)` key, set `emmet.triggerExpansionOnTab` to `true`.
 
 Read on to learn about the Emmet 2.0 changes in Visual Studio Code.
 

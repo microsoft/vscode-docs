@@ -9,12 +9,12 @@ MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
 
-Visual Studio Code supports most of the the [Emmet Actions](https://docs.emmet.io/actions/) including expanding of [Emmet abbbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
+Visual Studio Code supports most of the the [Emmet Actions](https://docs.emmet.io/actions/) including expanding of [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
 
-In the July 2017 release of VS Code, we introduced Emmet 2.0 that has enabled us to give you features like Emmet in the suggestions/auto-completion list and multi-cursor support.
+In the July 2017 (v1.15) release of VS Code, we introduced Emmet 2.0, which enabled features like Emmet in the suggestions/auto-completion list, and multi-cursor support.
 Read more on the why's and how's of this major overhaul in [Emmet 2.0 blog post](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0).
 
-## How to expand Emmet abbreviations and snippets?
+## How to expand Emmet abbreviations and snippets
 
 Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `jade`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files. As well as any language that inherits from any of the above like `handlebars` and `php`.
 
@@ -171,7 +171,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     
 ## Emmet preferences
 
-Prior to VS Code 1.15, you could use the `emmet.preferences` setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). The new modular Emmet 2.0 does not support these Emmet Preferences in the same way as it did before. 
+Prior to VS Code 1.15, you could use the `emmet.preferences` setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). Emmet 2.0's modular nature does not support these Emmet Preferences in the same way as it did before. 
 
 In the upcoming August 2017 release of VS Code (1.16), we are working on getting back support for the below preferences. 
 - css.propertyEnd
@@ -194,9 +194,9 @@ If you happen to use any of the other preferences and want them to be supported 
 
 ## Known issues in Emmet 2.0
 
-Below are some of the upstream issues with Emmet 2.0 that we are working on fixing. Any help in these areas is appreicated.
+Below are some of the upstream issues with Emmet 2.0 that we are working on fixing. Any help in these areas is appreciated.
 
-- Support to customize formatters for stylesheet like `css.propertyEnd`, `css.valueSeparator`, `css.UnitAliases`, `css.intUnit` and `css.floatUnit`. [Issue: emmetio/expand-abbreviation#8](https://github.com/emmetio/expand-abbreviation/issues/8)
+- Support to customize formatters for stylesheets like `css.propertyEnd`, `css.valueSeparator`, `css.UnitAliases`, `css.intUnit` and `css.floatUnit`. [Issue: emmetio/expand-abbreviation#8](https://github.com/emmetio/expand-abbreviation/issues/8)
 - Use of `@-` to get numbering in descending order in repeaters is not supported. [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2) 
 - Html snippets ending with `+` like `select+`, `ul+` etc from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
 
