@@ -23,7 +23,7 @@ When you start typing an Emmet abbreviation, you will see the abbreviation displ
 
 If you have disabled `editor.quickSuggestions`, you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
 
-If you don't want to use suggestions at all, then use the command `Emmet: Expand Abbreviation` to expand your abbreviations. You can bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+If you don't want to use suggestions at all, then set `emmet.showExpandedAbbreviation` to `never` and use the command `Emmet: Expand Abbreviation` to expand your abbreviations. You can bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
 
 If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the [setting](/docs/getstarted/settings.md)  `emmet.triggerExpansionOnTab` and set it to `true`. This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
 
@@ -79,7 +79,7 @@ HTML custom snippets are applicable to all other markup flavors like `haml` or `
 
 ### CSS Emmet snippets
 
-Values for CSS Emmet snippets should either be a property value or the complete property value pair.
+Values for CSS Emmet snippets should either be a property value or the complete property name and value pair.
 
 Name the snippet such that it contains the letters from the snippet value in the order that they appear in the latter, so that the fuzzy matching algorithm of the suggestion list can make the right match. If you don't use similar letters, the **Emmet: Expand Abbreviation** command will still work, but the snippets won't show up as expected in a filtered suggestion list.
 
