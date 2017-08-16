@@ -100,6 +100,7 @@ They are:
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
+* `workbench.action.terminal.runActiveFile`: Run the active file in the terminal instance.
 
 ### Run Selected Text
 
@@ -111,7 +112,7 @@ The terminal will attempt to run the selected text.
 
 ![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
 
-If no text is selected in the active editor, the entire file contents is run in the terminal. This is useful if you want to run an entire script or batch file. Open the file and run **Terminal: Run Selected Text in Active Terminal**.
+If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
 
 ### Copy & Paste
 
