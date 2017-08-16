@@ -41,6 +41,8 @@ For example:
 }
 ```
 
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. For example, `this.someproperty` in `javascript` will get treated as an abbreviation and Emmet will suggest `<this class="someproperty"></this>`. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.  
+
 > Note: If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
 
 ## Using custom Emmet snippets
