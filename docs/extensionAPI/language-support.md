@@ -34,7 +34,7 @@ VS Code maps different language configurations and providers to specific program
 
 ![syntax highlighting](images/language-support/syntax-highlighting.png)
 
-In order to support syntax highlighting, your extension needs to registers a TextMate grammar `.tmLanguage` for its language in its `package.json` file.
+In order to support syntax highlighting, your extension needs to register a TextMate grammar `.tmLanguage` for its language in its `package.json` file.
 
 ```json
 "contributes": {
