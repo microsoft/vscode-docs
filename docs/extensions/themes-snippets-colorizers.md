@@ -16,7 +16,7 @@ Custom color and icons themes, snippets and language syntax colorizers bring an 
 Colors visible in the VS Code user interface fall in two categories:
 
 - Workbench colors used in views and editors, from the Activity Bar to the Status Bar. A complete list of all these colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
-- Syntax highlighting colors used for source code in the editor. The theming of these colors is different as syntax colorization is based Text Mate grammars and Text Mate themes.
+- Syntax highlighting colors used for source code in the editor. The theming of these colors is different as syntax colorization is based on TextMate grammars and TextMate themes.
 
 ### Workbench colors
 
@@ -46,7 +46,7 @@ To write TextMate theme rules. you need to understand on how TextMate grammars a
 
 
 - You can use the the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor. ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
-- Text Mate themes assign a set of styles to one or more scopes. The styles are the foreground color, the background color and bold, italics and underline. A theme consist of a set of rules. To evaluate the style of a symbol, the rules are processed first to last and each scope selector is matched against to symbols scope and parent scopes. The most specific rule is used for styling the symbol.
+- TextMate themes assign a set of styles to one or more scopes. The styles are the foreground color, the background color and bold, italics and underline. A theme consist of a set of rules. To evaluate the style of a symbol, the rules are processed first to last and each scope selector is matched against to symbols scope and parent scopes. The most specific rule is used for styling the symbol.
 - Scope selector support prefix matching and matching against parent scopes
 ```json
 		{
@@ -217,7 +217,7 @@ The `light` and the `highContrast` section have the same file association proper
 ### Font definitions
 
 The 'fonts' section lets you declare any number of glyph fonts that you want to use.
-You can later reference these font in the icon definitions. The font declared first will be used as by default if an icon definition does not specify a font id.
+You can later reference these font in the icon definitions. The font declared first will be used as the default if an icon definition does not specify a font id.
 
 Copy the font file into your extension and set the path accordingly.
 It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) fonts.
@@ -454,7 +454,7 @@ When defining a new language identifier, use the following guidelines:
 - Use the lowercased programming language name.
 - Search for other extensions in the Marketplace to find out if a language identifier has already been used.
 
-You can find a list of known language identifiers [language identifier reference](/docs/languages/identifiers.md).
+You can find a list of known language identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
 ## Next Steps
 
