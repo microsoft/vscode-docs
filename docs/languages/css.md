@@ -302,7 +302,7 @@ Read on to find out about:
 
 **Q: Do you provide a color picker?**
 
-**A:** No, this is currently not supported. There are however several extensions in the Marketplace supporting color pickers.
+**A:** Yes, color picker has been added in version 1.15.
 
 **Q: Do you support the indentation based Sass syntax (.sass) ?**
 
