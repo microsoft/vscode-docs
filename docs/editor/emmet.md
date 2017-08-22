@@ -56,7 +56,7 @@ Below is an example for the contents of this `snippets.json` file.
     "html": {
         "snippets": {
             "ull": "ul>li",
-            "ran": "{This is random text not markup or abbreviation}"
+            "ran": "{Use this format to get the snippet value as is}"
         }
     },
     "css": {
@@ -87,7 +87,16 @@ For example, don't use `bc` or `darkc` as the name for `color: black`. Use `cb` 
 
 CSS custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
 
+Do not use `:` in the snippet name. `:` is used to separate property name and value when Emmet tries to fuzzy match the abbreviation to one of the snippets.
+
 > Note: After making changes to the `snippets.json` file, remember to reload VS Code for it to take effect.
+
+### Tab stops and cursors in custom snippets
+
+The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets). 
+- Use `${1}`, `${2}` for tab stops and `${1:placeholder}` for tab stops with placeholders.
+- Previously, `|` was used to denote the cursor location in the custom Emmet snippet. This is no longer supported. Use `${1}` instead
+
 
 ## Emmet configuration
 
