@@ -65,7 +65,7 @@ remote: Generated deployment script files
 ...
 ```
 
-You'll be prompted for the password you provided above. You should then see a series of messages from the remote host (the Website) as the code is being deployed.
+You'll be prompted for the password you provided above. You should then see a series of messages from the remote host (the Website) as the code is being deployed. If you specified the node runtime version to use in your `package.json` you will see that being set as well.
 
 Browse to the site again and you should see your Express site hosted in Azure!
 

@@ -40,8 +40,18 @@ $ az appservice plan create --name myPlan --sku F1
 Now create the website. Make sure to give it a **unique name** as it will be referenced as http://**unique-name**.azurewebsites.net. In this example, we'll call it `myExpressApp-chrisdias`.
 
 ```bash
-$ az webapp create --name myExpressApp-chrisdias --plan myPlan
+$ az webapp create --name myExpressApp-chrisdias --plan myPlan --runtime "node|6.9"
 ```
+
+Note that we also set the default version of the node runtime we want to use, in this example 6.9. If you have the node version specified in your `package.json`, Azure will attempt to use the version specified  when we deploy the application. For example,
+
+ ``` json
+  "engines": {
+    "node": ">6.9.1"
+    },
+ ```
+
+ Will tell Azure to use node version 6.9.1 or greater.
 
 ## Run the Website
 
