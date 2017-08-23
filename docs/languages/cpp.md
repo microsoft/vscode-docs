@@ -22,14 +22,14 @@ We're still shaping the C++ experience in VS Code so now is a great time to [pro
 
 * Open VS Code.
 * Click the Extensions View icon on the Sidebar.
-* Search for `cpptools`.
+* Search for `c++`.
 * Click **Install**, then click **Reload**.
 * Open a folder that contains your C/C++ code.
 
 **To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file:**
 
-* Hover over any green squiggle in a source file (e.g. a #include statement).
-* Click the lightbulb that appears underneath the mouse cursor.
+* Find any green squiggle in a source file (for example, an #include statement) and set the cursor on the line.
+* Click the lightbulb that appears in the left gutter.
 * Click **Add include path to settings**.
 
 This will generate a `c_cpp_properties.json` file that allows you to add additional include paths to properly enable code navigation and auto-completion.
@@ -303,10 +303,6 @@ Read on to find out about:
 **Q: My project won't load.**
 
 **A:** VS Code doesn't currently support C++ project files, instead it considers a directory of your choosing to be the workspace of your project. Source code files inside that directory and its sub-directories are part of the workspace.
-
-**Q: IntelliSense isn't working.**
-
-**A:** In this release, IntelliSense isn't supported. We plan to enable this and other features in future releases.
 
 **Q: How do I build/run my project?**
 
