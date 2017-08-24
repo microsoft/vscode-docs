@@ -29,11 +29,13 @@ If you run into any issues or have suggestions for us, please file [issues and s
 
 With the C/C++ extension installed, open a folder that contains your C/C++ source code. VS Code will place various settings files into a `.vscode` subfolder.
 
+>**Note**: The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer. Popular C++ compilers are [MinGW](http://www.mingw.org/) for Windows, [XCode](https://developer.apple.com/xcode/) for macOS, and [GCC](https://gcc.gnu.org/) on Linux. Also make sure your compiler executable is on your platform path for VS Code to find.
+
 **To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file:**
 
 * Find any green squiggle in a source file (for example, an #include statement) and set the cursor on the line.
 * Click the lightbulb that appears in the left gutter.
-* Click **Update "browse.path" setting`**.
+* Click **Update "browse.path" setting**.
 
 This will generate a `c_cpp_properties.json` file that allows you to add additional browse paths to properly enable code navigation and auto-completion. The generated `c_cpp_properties.json` file has sections for different operating systems, make sure you update the appropriate settings for your current platform.
 
