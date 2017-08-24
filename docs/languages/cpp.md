@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order: 8
 Area: languages
 TOCTitle: C++
 ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
@@ -12,11 +12,11 @@ MetaSocialImage: cpp_languages_cpp.png
 
 C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) to enable cross-platform C and C++ development using VS Code on Windows, Linux, and macOS. The extension is still in preview and our focus is code editing, navigation, and debugging support for C and C++ code everywhere that VS Code runs.
 
+![cpp hero](images/cpp/cpp-hero.png)
+
 If you just want a lightweight tool to edit your C++ files, Visual Studio Code is a great choice but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of Visual Studio such as [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
 If you run into any issues or have suggestions for us, please file [issues and suggestions on GitHub](https://github.com/Microsoft/vscode-cpptools/issues). If you haven’t already provided us feedback, please take this [quick survey](https://www.research.net/r/VBVV6C6) to help shape this extension for your needs.
-
-![cpp hero](images/cpp/cpp-hero.png)
 
 ## Getting Started
 
@@ -32,6 +32,8 @@ If you run into any issues or have suggestions for us, please file [issues and s
 With the C/C++ extension installed, open a folder that contains your C/C++ source code. VS Code will place various settings files into a `.vscode` subfolder.
 
 >**Note**: The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer. Popular C++ compilers are [MinGW](http://www.mingw.org/) for Windows, [XCode](https://developer.apple.com/xcode/) for macOS, and [GCC](https://gcc.gnu.org/) on Linux. Also make sure your compiler executable is on your platform path for VS Code to find.
+
+### IntelliSense
 
 **To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file:**
 
@@ -66,6 +68,8 @@ Below you can see that the MinGW C++ include path has been added to `browse.path
 ```
 
 >**Note:** You can also generate or edit a `c_cpp_properties.json` file with the **C/Cpp: Edit Configurations** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+
+### Building your code
 
 **If you want to build your application from VS Code, you will need to generate a `tasks.json` file:**
 
@@ -118,6 +122,8 @@ If you'd like to be able to build your application with **Tasks: Run Build Task*
 ```
 
 For more information on tasks, see [Integrate with External Tools via Tasks](/docs/editor/tasks.md).
+
+### Debugging your code
 
 **To enable debugging, you will need to generate a `launch.json` file:**
 
