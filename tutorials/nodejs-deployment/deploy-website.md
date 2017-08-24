@@ -71,6 +71,12 @@ Browse to the site again and you should see your Express site hosted in Azure!
 
 ![Express Site Hosted in Azure](nodejs-deployment_expressinazure.png)
 
+> Are you seeing the error `Object #<eventemitter> has no method 'hrtime'`? If so, you probably need to set the node runtime version on the site. The following command will tell the site to use node version `6.9.1`. If your site requires a different or later version of node, specify the **full** semantic version `major.minor.patch`.
+
+```bash
+$ az webapp config appsettings set --name myExpressApp-chrisdias --settings WEBSITE_NODE_DEFAULT_VERSION=6.9.1
+```
+
 ----
 
 <a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/tailing-logs">My site is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'deploy-website')" href="javascript:void(0)">I ran into an issue</a>

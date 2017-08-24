@@ -43,15 +43,16 @@ Now create the website. Make sure to give it a **unique name** as it will be ref
 $ az webapp create --name myExpressApp-chrisdias --plan myPlan --runtime "node|6.9"
 ```
 
-Note that we also set the default version of the node runtime we want to use, in this example 6.9. If you have the node version specified in your `package.json`, Azure will attempt to use the version specified  when we deploy the application. For example,
 
- ``` json
+Notice the `--runtime "node|6.9"` parameter at the end of the command. This tells Azure to use node version 6.9.x when running this application. You can also state the desired node version in your `package.json`. During deployment Azure will recognize this and attempt to use that version instead.
+
+For example, the following `package.json` entry will tell Azure this application requires at least node 7.0.0 to run.
+
+``` json
   "engines": {
-    "node": ">6.9.1"
+    "node": ">7.0.0"
     },
- ```
-
- Will tell Azure to use node version 6.9.1 or greater.
+```
 
 ## Run the Website
 

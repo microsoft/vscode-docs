@@ -93,7 +93,7 @@ To do this, add the following JSON to your [workspace settings](/docs/getstarted
         "**/*.FBX": true,
         "**/*.tga": true,
         "**/*.cubemap": true,
-        "**/**.prefab": true,
+        "**/*.prefab": true,
         "**/Library": true,
         "**/ProjectSettings": true,
         "**/Temp": true
