@@ -16,6 +16,8 @@ If you just want a lightweight tool to edit your C++ files, Visual Studio Code i
 
 If you run into any issues or have suggestions for us, please file [issues and suggestions on GitHub](https://github.com/Microsoft/vscode-cpptools/issues). If you haven’t already provided us feedback, please take this [quick survey](https://www.research.net/r/VBVV6C6) to help shape this extension for your needs.
 
+![cpp hero](images/cpp/cpp-hero.png)
+
 ## Getting Started
 
 **To install the Microsoft C/C++ extension:**
