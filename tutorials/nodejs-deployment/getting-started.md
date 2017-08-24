@@ -11,7 +11,7 @@ DateApproved: 6/16/2017
 In this walkthrough, you will deploy a Node.js application to the Azure cloud, all in a matter of minutes.
 
 ## Prerequisites
-If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/) for a free 30 day account with $200 in Azure credits to try out any combination of services.
+If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-tutorial-node-git&mktingSource=vscode-tutorial-node-git) for a free 30 day account with $200 in Azure credits to try out any combination of services.
 
 You'll need [Node.js and npm](https://nodejs.org/en/download/) and [Git](https://git-scm.com/downloads) installed locally.
 
