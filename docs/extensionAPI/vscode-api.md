@@ -1732,7 +1732,7 @@ has been opened.</del></p>
 <div class="details collapse" id="details-1491">
 <div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is changed. This usually happens
 when the <a href="#TextDocument.getText">contents</a> changes but also when other things like the
-<a href="TextDocument#isDirty">dirty</a>-state changes.</p>
+<a href="#TextDocument.isDirty">dirty</a>-state changes.</p>
 </div>
 </div>
 
