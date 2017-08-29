@@ -41,7 +41,7 @@ For example:
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. For example, `this.someproperty` in `javascript` will get treated as an abbreviation and Emmet will suggest `<this class="someproperty"></this>`. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.  
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. For example, `this.someproperty` in `javascript` will get treated as an abbreviation and Emmet will suggest `<this class="someproperty"></this>`. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.
 
 > Note: If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
 
@@ -93,7 +93,7 @@ Do not use `:` in the snippet name. `:` is used to separate property name and va
 
 ### Tab stops and cursors in custom snippets
 
-The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets). 
+The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets).
 - Use `${1}`, `${2}` for tab stops and `${1:placeholder}` for tab stops with placeholders.
 - Previously, `|` was used to denote the cursor location in the custom Emmet snippet. This is no longer supported. Use `${1}` instead
 

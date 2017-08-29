@@ -112,13 +112,13 @@ The key bindings shown below are the default key bindings. You can change these 
        "command": "editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
     },
-    { 
-        "key": "ctrl+space",            
+    {
+        "key": "ctrl+space",
         "command": "toggleSuggestionDetails",
-        "when": "editorTextFocus && suggestWidgetVisible" 
+        "when": "editorTextFocus && suggestWidgetVisible"
     },
-    { 
-        "key": "ctrl+alt+space",        
+    {
+        "key": "ctrl+alt+space",
         "command": "toggleSuggestionFocus",
         "when": "editorTextFocus && suggestWidgetVisible" },
     }
