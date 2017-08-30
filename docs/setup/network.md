@@ -17,10 +17,10 @@ A handful of features within VS Code require network communication to work, such
 
 If you are behind a firewall which needs to whitelist domains used by VS Code, here's the list of hostnames you should allow communication to go through:
 
-* vscode-update.azurewebsites.net
-* vscode.blob.core.windows.net
-* marketplace.visualstudio.com
-* rink.hockeyapp.net
+* `vscode-update.azurewebsites.net`
+* `vscode.blob.core.windows.net`
+* `marketplace.visualstudio.com`
+* `rink.hockeyapp.net`
 
 ## Proxy server support
 
