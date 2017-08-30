@@ -183,20 +183,20 @@ Prior to VS Code 1.15, you could use the `emmet.preferences` setting to customiz
 
 In the upcoming August 2017 release of VS Code (1.16), we are working on bringing back support for the following preferences:
 
-- css.propertyEnd
-- css.valueSeparator
-- sass.propertyEnd
-- sass.valueSeparator
-- stylus.propertyEnd
-- stylus.valueSeparator
-- css.unitAliases
-- css.intUnit
-- css.floatUnit
-- filter.commentAfter
-- filter.commentBefore
-- filter.commentTrigger
-- bem.elementSeparator
-- bem.modifierSeparator
+- `css.propertyEnd`
+- `css.valueSeparator`
+- `sass.propertyEnd`
+- `sass.valueSeparator`
+- `stylus.propertyEnd`
+- `stylus.valueSeparator`
+- `css.unitAliases`
+- `css.intUnit`
+- `css.floatUnit`
+- `filter.commentAfter`
+- `filter.commentBefore`
+- `filter.commentTrigger`
+- `bem.elementSeparator`
+- `bem.modifierSeparator`
 
 If you use any other Emmet preferences and want them to be supported in the new Emmet, please add a comment in the [issue #32496](https://github.com/Microsoft/vscode/issues/32496)
 
