@@ -242,6 +242,7 @@ This ruler is located beneath the scrollbar on the right edge of the editor and 
 - `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for range highlights.
 - `editorOverviewRuler.selectionHighlightForeground`: Overview ruler marker color for selection highlights.
 - `editorOverviewRuler.wordHighlightForeground`: Overview ruler marker color for symbol highlights.
+- `editorOverviewRuler.wordHighlightStrongForeground`: Overview ruler marker color for write-access symbol highlights.
 - `editorOverviewRuler.modifiedForeground`: Overview ruler marker color for modified content.
 - `editorOverviewRuler.addedForeground`: Overview ruler marker color for added content.
 - `editorOverviewRuler.deletedForeground`: Overview ruler marker color for deleted content.
