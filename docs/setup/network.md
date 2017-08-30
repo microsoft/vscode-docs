@@ -20,6 +20,7 @@ If you are behind a firewall which needs to whitelist domains used by VS Code, h
 * `vscode-update.azurewebsites.net`
 * `vscode.blob.core.windows.net`
 * `marketplace.visualstudio.com`
+* `*.gallerycdn.vsassets.io`
 * `rink.hockeyapp.net`
 
 ## Proxy server support
