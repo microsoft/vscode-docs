@@ -322,6 +322,7 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `merge.border`: Border color on headers and the splitter in inline merge conflicts.
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
+- `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge-conflicts.
 
 ## Panel Colors
 
