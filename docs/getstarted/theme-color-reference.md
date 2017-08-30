@@ -238,6 +238,13 @@ Overview ruler:
 This ruler is located beneath the scrollbar on the right edge of the editor and gives an overview of the decorations in the editor.
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
+- `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches.
+- `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for range highlights.
+- `editorOverviewRuler.selectionHighlightForeground`: Overview ruler marker color for selection highlights.
+- `editorOverviewRuler.wordHighlightForeground`: Overview ruler marker color for symbol highlights.
+- `editorOverviewRuler.modifiedForeground`: Overview ruler marker color for modified content.
+- `editorOverviewRuler.addedForeground`: Overview ruler marker color for added content.
+- `editorOverviewRuler.deletedForeground`: Overview ruler marker color for deleted content.
 
 Errors and warnings:
 
