@@ -11,6 +11,10 @@ ShortDescription:
 
 In this step, you will use the Azure CLI to create a website on Azure.
 
+> Tip! The [Azure CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) for VS Code provides syntax colorization, IntelliSense (completions) and snippets when writing Azure CLI scripts
+>
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode.azurecli">Install the Azure CLI extension</a>
+
 ## Create a Resource Group
 
 A "Resource Group" is essentially a named collection of all our application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure function.
