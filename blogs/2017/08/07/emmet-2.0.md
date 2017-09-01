@@ -75,6 +75,7 @@ There are a few other changes that we have documented in the new Emmet [page](/d
 * Use `emmet.includeLanguages` instead of `emmet.syntaxProfiles` setting to [enable Emmet in other file types](/docs/editor/emmet.md#emmet-abbreviations-in-other-file-types)
 * Changes to how you write [custom snippets in Emmet](/docs/editor/emmet.md#using-custom-emmet-snippets)
 * Changes to available [Emmet settings](/docs/editor/emmet.md#emmet-configuration)
+* To wrap individual lines in a single selection in separate tags use the command `Emmet: Wrap Individual Lines with Abbreviation` instead of `Emmet: Wrap with Abbreviation`
 * [Known issues in Emmet 2.0](/docs/editor/emmet.md#known-issues-in-emmet-20) that we are working on in August 2017
 
 ## People who made Emmet 2.0 happen
