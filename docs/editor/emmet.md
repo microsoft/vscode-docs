@@ -173,6 +173,10 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
     Set this to true to enable expanding Emmet abbreviations with `kbstyle(Tab)` key. We use this setting to provide the appropriate fallback to provide indentation when there is no abbreviation to expand.
 
+* `emmet.showSuggestionsAsSnippets`
+
+    If set to `true`, then Emmet suggestions will be grouped along with other snippets allowing you to order them as per `editor.snippetSuggestions` setting. Set this to `true` and `editor.snippetSuggestions` to `top`, to ensure that Emmet suggestions always show up on top among other suggestions.
+
 * `emmet.preferences`
 
     You can use this setting to customize Emmet as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/). The below customizations are currently supported:
