@@ -70,7 +70,7 @@ To write TextMate theme rules. you need to understand on how TextMate grammars a
 		}
 ```
    - `variable` matches all scopes that start with `variable`: `variable.js`, `variable.parameter.java`...
-   - `meta.selector.css entity.name.tag` matches all scopes that start with `meta.selector.css` and have a parent scope that matches `entity.name.tag`
+   - `meta.selector.css entity.name.tag` matches all scopes that start with `entity.name.tag` and have a parent scope that matches `meta.selector.css`
    - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but not insiif a parent scope matches `source.java`
 - Learn more about [scope selectors](https://manual.macromates.com/en/scope_selectors)
 
