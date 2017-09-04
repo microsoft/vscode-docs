@@ -294,7 +294,6 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 * `configurationSnippets` lists launch configurations that are available through IntelliSense when editing a launch.json.
 * `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
 * `languages` those languages for which the debug extension could be considered the "default debugger".
-* `startSessionCommand` the command ID which VS Code calls for any "debug" or "run" action targeted for this extension. If a launch configuration was selected, it is passed as an argument to the command. If "debug" or "run" is executed without a launch configuration, an empty launch config is passed to the `startSessionCommand` and the extension is expected to "fill in" missing attributes.
 * `adapterExecutableCommand` the command ID where the debug adapters executable path and arguments are dynamically calculated. The command returns a structure with this format:
   ```json
   command: "<executable>",
