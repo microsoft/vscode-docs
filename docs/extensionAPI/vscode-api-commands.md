@@ -150,11 +150,6 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 * _newWindow_ (optional) Whether to open the folder in a new window or the same. Defaults to opening in the same window.
 
 
-`vscode.startDebug` - Start a debugging session.
-
-* _configuration_ (optional) Name of the debug configuration from 'launch.json' to use. Or a configuration json object to use.
-
-
 `vscode.diff` - Opens the provided resources in the diff editor to compare their contents.
 
 * _left_ Left-hand side resource of the diff editor
