@@ -312,6 +312,8 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
         "program": "./out/node/nodeDebug.js",
         "runtime": "node",
 
+        "languages": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
+
         "configurationAttributes": {
             "launch": {
                 "required": [ "program" ],
