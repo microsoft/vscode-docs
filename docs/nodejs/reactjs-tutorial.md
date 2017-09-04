@@ -10,7 +10,7 @@ MetaSocialImage: nodejs_javascript_vscode.png
 ---
 # Using React in VS Code
 
-[React](https://facebook.github.io/react/) is a popular JavaScript library for building web application user interfaces developed by Facebook. The Visual Studio Code editor supports React.js IntelliSense and code navigation out of the box.
+[React](https://facebook.github.io/react/) is a popular JavaScript library developed by Facebook for building web application user interfaces. The Visual Studio Code editor supports React.js IntelliSense and code navigation out of the box.
 
 ![welcome to react](images/reactjs/welcome-to-react.png)
 

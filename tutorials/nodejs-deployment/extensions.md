@@ -49,4 +49,4 @@ Congratulations, you've successfully completed this walkthrough!
 
 ----
 
-<a class="tutorial-next-btn" href="/docs">I'm Done!</a>
+<a class="tutorial-next-btn" href="/docs">I'm Done!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'extensions')" href="javascript:void(0)">I ran into an issue</a>

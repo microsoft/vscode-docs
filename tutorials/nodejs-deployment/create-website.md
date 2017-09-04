@@ -11,6 +11,10 @@ ShortDescription:
 
 In this step, you will use the Azure CLI to create a website on Azure.
 
+> Tip! The [Azure CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) for VS Code provides syntax colorization, IntelliSense (completions) and snippets when writing Azure CLI scripts
+>
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode.azurecli">Install the Azure CLI extension</a>
+
 ## Create a Resource Group
 
 A "Resource Group" is essentially a named collection of all our application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure function.
@@ -40,7 +44,18 @@ $ az appservice plan create --name myPlan --sku F1
 Now create the website. Make sure to give it a **unique name** as it will be referenced as http://**unique-name**.azurewebsites.net. In this example, we'll call it `myExpressApp-chrisdias`.
 
 ```bash
-$ az webapp create --name myExpressApp-chrisdias --plan myPlan
+$ az webapp create --name myExpressApp-chrisdias --plan myPlan --runtime "node|6.9"
+```
+
+
+Notice the `--runtime "node|6.9"` parameter at the end of the command. This tells Azure to use node version 6.9.x when running this application. You can also state the desired node version in your `package.json`. During deployment Azure will recognize this and attempt to use that version instead.
+
+For example, the following `package.json` entry will tell Azure this application requires at least node 7.0.0 to run.
+
+``` json
+  "engines": {
+    "node": ">7.0.0"
+    },
 ```
 
 ## Run the Website
@@ -57,4 +72,4 @@ You should see something like this:
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/deploy-website">My site is running</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/deploy-website">My site is running</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'create-website')" href="javascript:void(0)">I ran into an issue</a>

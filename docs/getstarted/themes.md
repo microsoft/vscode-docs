@@ -55,7 +55,7 @@ You can also customize your active color theme with the `workbench.colorCustomiz
 
 You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/docs/getstarted/theme-color-reference.md).
 
-In VS Code version 1.15 or higher, you can also tune the syntax highlighting colors using the `workbench.tokenColorCustomizations` setting:
+In VS Code version 1.15 or higher, you can also tune the syntax highlighting colors using the `editor.tokenColorCustomizations` setting:
 
 ![Token Color Customization](images/themes/token_color_customization.png)
 

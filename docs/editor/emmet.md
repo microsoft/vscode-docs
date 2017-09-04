@@ -41,7 +41,7 @@ For example:
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.  
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. For example, `this.someproperty` in `javascript` will get treated as an abbreviation and Emmet will suggest `<this class="someproperty"></this>`. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.  
 
 > Note: If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
 
@@ -71,15 +71,19 @@ Keep in mind that there are some restrictions on the snippet name and value.
 
 ### HTML Emmet snippets
 
-HTML custom snippets are applicable to all other markup flavors like `haml` or `jade`. When snippet value is an abbreviation and not actual HTML, the appropriate transformations can be applied to get the right output as per the language type.
-
-For example, for an unordered list with a list item, if your snippet value is `ul>li`, you can use the same snippet in `html`, `haml`, `jade` or `slim`, but if your snippet value is `<ul><li></li></ul>`, then it will work only in `html files.
+Values for HTML Emmet snippets should be a valid abbreviation. For example, if you want an unordered list with a list item, your snippet should be `ul>li` and not `<ul><li></li></ul>`.
 
 If you want to have just text and not markup in your snippet then use the `{}` notation as shown in the example above.
 
+HTML custom snippets are applicable to all other markup flavors like `haml` or `jade`. When snippet value is an abbreviation and not actual HTML, the appropriate transformations can be applied to get the right output as per the language type.
+
 ### CSS Emmet snippets
 
-Values for CSS Emmet snippets should be a complete property name and value pair.
+Values for CSS Emmet snippets should either be a property value or the complete property name and value pair.
+
+Name the snippet such that it contains the letters from the snippet value in the order that they appear in the latter, so that the fuzzy matching algorithm of the suggestion list can make the right match. If you don't use similar letters, the **Emmet: Expand Abbreviation** command will still work, but the snippets won't show up as expected in a filtered suggestion list.
+
+For example, don't use `bc` or `darkc` as the name for `color: black`. Use `cb` or `cob` instead.
 
 CSS custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
 
@@ -196,5 +200,6 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 Below are some of the upstream issues with Emmet 2.0 that we are working on fixing. Any help in these areas is appreciated.
 
+* Support to customize formatters for stylesheets like `css.propertyEnd`, `css.valueSeparator`, `css.UnitAliases`, `css.intUnit` and `css.floatUnit`. [Issue: emmetio/expand-abbreviation#8](https://github.com/emmetio/expand-abbreviation/issues/8)
 * Use of `@-` to get numbering in descending order in repeaters is not supported. [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
 * HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)

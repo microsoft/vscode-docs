@@ -29,13 +29,13 @@ Emmet abbreviations are listed along with other suggestions and snippets in the 
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use CSS Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `css`, `html`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
+If you'd like to use CSS Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with the language id of an Emmet supported mode.
 
 For example, to use Emmet CSS abbreviations inside JavaScript:
 
 ```json
 {
-    "emmet.syntaxProfiles": {
+    "emmet.includeLanguages": {
         "javascript": "css"
      }
 }
@@ -302,7 +302,7 @@ Read on to find out about:
 
 **Q: Do you provide a color picker?**
 
-**A:** No, this is currently not supported. There are however several extensions in the Marketplace supporting color pickers.
+**A:** Yes, color picker has been added in version 1.15.
 
 **Q: Do you support the indentation based Sass syntax (.sass) ?**
 

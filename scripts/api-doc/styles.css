@@ -28,7 +28,9 @@ span.ts span.ident {
     color: rgb(128, 128, 128)
 }
 /* A reference to a primitive like string, number etc */
-span.ts span.type-instrinct {
+
+span.ts span.type-intrinsic {
+    cursor: default;
     color: rgb(43, 145, 175);
 }
 /* A reference to a type */

@@ -49,9 +49,9 @@ gulp.task("api-doc-json", ["download-vscode.d.ts"], function () {
             target: "es5",
             json: "../tmp/vscode.api.json",
             includeDeclarations: true,
-            name: "VS Code API"
-        }));
-    ;
+            name: "VS Code API",
+            excludeExternals: true
+        }));;
 });
 
 gulp.task("generate-api-doc", ["api-doc-json"], function () {
@@ -60,11 +60,13 @@ gulp.task("generate-api-doc", ["api-doc-json"], function () {
         .pipe(es.mapSync(function (file) {
             var md = doc(file.contents.toString());
             var tpl = common.swigCompiler(TEMPLATE);
-            // escape @ in cshtml 
+            // escape @ in cshtml
             md = md.replace(/@/g, '@@');
             // add a whiteline before a <pre> to workaround https://github.com/markdown-it/markdown-it/issues/187
             md = md.replace(/<pre>/g, '\n<pre>');
-            var result = tpl({ Content: md });
+            var result = tpl({
+                Content: md
+            });
             var contents = new Buffer(result, 'utf8');
             return new gutil.File({
                 path: DIST,

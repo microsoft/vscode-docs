@@ -76,13 +76,13 @@ We support Emmet snippet expansion. Emmet abbreviations are listed along with ot
 
 >**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use HTML Emmet abbreviations with other languages, you can associate an Emmet syntax profile (such as `html`, `css`) with other languages with the `emmet.syntaxProfiles` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with an Emmet profile.
+If you'd like to use HTML Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with the language id of an Emmet supported mode.
 
 For example, to use Emmet HTML abbreviations inside JavaScript:
 
 ```json
 {
-    "emmet.syntaxProfiles": {
+    "emmet.includeLanguages": {
         "javascript": "html"
      }
 }

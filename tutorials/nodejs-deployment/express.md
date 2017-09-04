@@ -42,16 +42,17 @@ $ npm install
 
 ## Run the Application
 
-Last, let's ensure that the application runs. From the terminal, start the application using the `npm start` command and then browse to [http://localhost:3000](http://localhost:3000).
+Last, let's ensure that the application runs. From the terminal, start the application using the `npm start` command to start the server.
+
 
 ```bash
 $ npm start
 ```
 
-You should see something like this:
+Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
 
 ![Running Express Application](nodejs-deployment_express.png)
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/create-website">I created the Node.js application</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment/create-website">I created the Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment', 'express')" href="javascript:void(0)">I ran into an issue</a>

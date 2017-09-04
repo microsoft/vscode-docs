@@ -29,7 +29,4 @@ In this tutorial we will learn how to use the basics of Git version control in V
 ## Learn More
 
 * [Version Control](/docs/editor/versioncontrol.md) - Read more about integrated Git support. 
-
-## Next Video
-
 * [Setup Overview](/docs/setup/setup-overview.md) - Set up and start using VS Code.

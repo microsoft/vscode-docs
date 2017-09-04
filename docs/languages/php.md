@@ -1,5 +1,5 @@
 ---
-Order: 8
+Order: 9
 Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
@@ -33,6 +33,8 @@ Visual Studio Code includes a set of common snippets for PHP.  To access these, 
 
 VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. This allows VS Code to stay current with PHP linter improvements.
 
+> Tip: Using XAMPP? Install the full version of PHP in order to obtain the development libraries. 
+
 There are three [settings](/docs/getstarted/settings.md) to control the PHP linter:
 
 * `php.validate.enable`: controls whether to enable PHP linting at all. Enabled by default.
@@ -43,9 +45,19 @@ There are three [settings](/docs/getstarted/settings.md) to control the PHP lint
 
 To set the PHP executable path, open your **User or Workspace Settings** and add the `php.validate.executablePath`:
 
+### Windows
+
 ```json
 {
     "php.validate.executablePath": "c:/php/php.exe"
+}
+```
+
+### Linux and macOS
+
+```json
+{
+    "php.validate.executablePath": "/usr/bin/php"
 }
 ```
 

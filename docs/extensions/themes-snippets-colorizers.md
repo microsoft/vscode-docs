@@ -16,7 +16,7 @@ Custom color and icons themes, snippets and language syntax colorizers bring an 
 Colors visible in the VS Code user interface fall in two categories:
 
 - Workbench colors used in views and editors, from the Activity Bar to the Status Bar. A complete list of all these colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
-- Syntax highlighting colors used for source code in the editor. The theming of these colors is different as syntax colorization is based Text Mate grammars and Text Mate themes.
+- Syntax highlighting colors used for source code in the editor. The theming of these colors is different as syntax colorization is based on TextMate grammars and TextMate themes.
 
 ### Workbench colors
 
@@ -30,7 +30,7 @@ The easiest way to create a new workbench color theme is to start with an existi
 
 For syntax highlighting colors there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it:
 
-- Switch to the color theme to customze and use the `workbench.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+- Switch to the color theme to customze and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
 - The setting supports a simple mode with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than than, you need to use textMate theme rules directly. 
 
 ### TextMate theme rules
@@ -59,6 +59,11 @@ To evaluate the style of a symbol at a given offset, the scopes at that offset a
 
 Here are some example theming rules. The  `scope` property lists the rules scope selectors. The `setting` property describes the styles to apply when the rule wins. The `name` is just used for documentation.
 
+- You can use the the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor. ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
+- TextMate themes assign a set of styles to one or more scopes. The styles are the foreground color, the background color and bold, italics and underline. A theme consist of a set of rules. To evaluate the style of a symbol, the rules are processed first to last and each scope selector is matched against to symbols scope and parent scopes. The most specific rule is used for styling the symbol.
+
+- Scope selector support prefix matching and matching against parent scopes
+
 ```json
 {
     "name": "Variables",
@@ -80,6 +85,7 @@ Here are some example theming rules. The  `scope` property lists the rules scope
     }
 }
 ```
+
 - `variable` matches all scopes that start with `variable`: `variable.js`, `variable.parameter.java`...
 - `meta.selector.css entity.name.tag` matches all scopes that start with `meta.selector.css` and have a parent scope that matches `entity.name.tag`.
 - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but are not inside a parent scope that matches `source.java`
@@ -230,7 +236,7 @@ The `light` and the `highContrast` section have the same file association proper
 ### Font definitions
 
 The 'fonts' section lets you declare any number of glyph fonts that you want to use.
-You can later reference these font in the icon definitions. The font declared first will be used as by default if an icon definition does not specify a font id.
+You can later reference these font in the icon definitions. The font declared first will be used as the default if an icon definition does not specify a font id.
 
 Copy the font file into your extension and set the path accordingly.
 It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) fonts.
@@ -467,7 +473,7 @@ When defining a new language identifier, use the following guidelines:
 - Use the lowercased programming language name.
 - Search for other extensions in the Marketplace to find out if a language identifier has already been used.
 
-You can find a list of known language identifiers [language identifier reference](/docs/languages/identifiers.md).
+You can find a list of known language identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
 ## Next Steps
 
