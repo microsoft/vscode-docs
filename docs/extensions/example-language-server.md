@@ -18,23 +18,27 @@ The remaining document assumes that you are familiar with normal [extension deve
 
 ## Implement your own Language Server
 
-Language servers can be implemented in any language and follow the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol). However, right now VS Code only provides libraries for Node.js. Additional libraries will follow in the future. A good starting point for a language server implementation in Node.js is the example repository [Language Server Node Example](https://github.com/Microsoft/vscode-languageserver-node-example.git). 
+Language servers can be implemented in any language and follow the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol). However, right now VS Code only provides libraries for Node.js. Additional libraries will follow in the future. A good starting point for a language server implementation in Node.js is the example repository [VS Cdode extension samples](https://github.com/Microsoft/vscode-extension-samples). This repository contains 3 different Language Server samples:
 
-Clone the repository and then do:
+- **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Demos how to write a basic lanugae server. 
+- **[lsp-multi-root-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-root-sample)**: Demos how to write a language server which is multi workspace folder aware.
+- **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: Demos how to write a language server that start a different server instance per workspace folder.
+
+The reminder of the document explains the code in the lsp-sample. The other two examples add additional aspects using the same code base as explained in this example.
+
+Clone the [repository](https://github.com/Microsoft/vscode-extension-samples) and then do:
 
 ```bash
-> cd client
-> npm install
-> code .
-> cd ../server
+> cd lsp-sample
 > npm install
 > code .
 ```
-The above installs all dependencies and opens two VS Code instances: one for the server code and one for the client code.
+
+The above installs all dependencies and opens one VS Code instances containing both the client and server code.
 
 ## Explaining the 'Client'
 
-The client is actually a normal VS Code extension. It contains a `package.json` file in the root of the workspace folder. There are three interesting sections of that file.  
+The client is actually a normal VS Code extension. It contains a `package.json` file in the client folder of the workspace. There are three interesting sections of that file.  
 
 First look the `activationEvents`:
 
@@ -53,7 +57,7 @@ Next look at the `configuration` section:
     "type": "object",
     "title": "Example configuration",
     "properties": {
-        "languageServerExample.maxNumberOfProblems": {
+        "lspSample.maxNumberOfProblems": {
             "type": "number",
             "default": 100,
             "description": "Controls the maximum number of problems produced by the server."
@@ -64,11 +68,12 @@ Next look at the `configuration` section:
 
 This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings. 
 
-The last part adds a dependency to the `vscode-languageclient` library:
+The last part adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
 
 ```json
 "dependencies": {
-    "vscode-languageclient": "^2.6.3"
+    "vscode": "^1.1.5",
+    "vscode-languageclient": "^3.3.0"
 }
 ```
 
@@ -85,15 +90,15 @@ Below is the content of the corresponding extension.ts file:
 
 import * as path from 'path';
 
-import { workspace, Disposable, ExtensionContext } from 'vscode';
-import { LanguageClient, LanguageClientOptions, SettingMonitor, ServerOptions, TransportKind } from 'vscode-languageclient';
+import { workspace, ExtensionContext } from 'vscode';
+import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient';
 
 export function activate(context: ExtensionContext) {
 
 	// The server is implemented in node
 	let serverModule = context.asAbsolutePath(path.join('server', 'server.js'));
 	// The debug options for the server
-	let debugOptions = { execArgv: ["--nolazy", "--debug=6004"] };
+	let debugOptions = { execArgv: ["--nolazy", "--debug=6009"] };
 	
 	// If the extension is launched in debug mode then the debug server options are used
 	// Otherwise the run options are used
@@ -105,17 +110,17 @@ export function activate(context: ExtensionContext) {
 	// Options to control the language client
 	let clientOptions: LanguageClientOptions = {
 		// Register the server for plain text documents
-		documentSelector: ['plaintext'],
+		documentSelector: [{scheme: 'file', language: 'plaintext'}],
 		synchronize: {
 			// Synchronize the setting section 'languageServerExample' to the server
-			configurationSection: 'languageServerExample',
+			configurationSection: 'lspSample',
 			// Notify the server about file changes to '.clientrc files contain in the workspace
 			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
 		}
 	}
 	
 	// Create the language client and start the client.
-	let disposable = new LanguageClient('languageServerExample', 'Language Server Example', serverOptions, clientOptions).start();
+	let disposable = new LanguageClient('lspSample', 'Language Server Example', serverOptions, clientOptions).start();
 	
 	// Push the disposable to the context's subscriptions so that the 
 	// client can be deactivated on extension deactivation
@@ -133,7 +138,7 @@ The interesting section in the server's `package.json` file is:
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "^2.6.2"
+    "vscode-languageserver": "^3.3.0"
 }
 ```
 
@@ -149,10 +154,9 @@ Below is a server implementation that uses the provided simple text document man
 'use strict';
 
 import {
-    IPCMessageReader, IPCMessageWriter,
-	createConnection, IConnection,
-	TextDocuments, TextDocument, Diagnostic, DiagnosticSeverity, 
-	InitializeParams, InitializeResult
+	IPCMessageReader, IPCMessageWriter, createConnection, IConnection, TextDocuments, TextDocument, 
+	Diagnostic, DiagnosticSeverity, InitializeResult, TextDocumentPositionParams, CompletionItem, 
+	CompletionItemKind
 } from 'vscode-languageserver';
 
 // Create a connection for the server. The connection uses Node's IPC as a transport
@@ -165,18 +169,132 @@ let documents: TextDocuments = new TextDocuments();
 // for open, change and close text document events
 documents.listen(connection);
 
-// After the server has started the client sends an initialize request. The server receives
-// in the passed params the rootPath of the workspace plus the client capabilities. 
+// After the server has started the client sends an initilize request. The server receives
+// in the passed params the rootPath of the workspace plus the client capabilites. 
 let workspaceRoot: string;
 connection.onInitialize((params): InitializeResult => {
 	workspaceRoot = params.rootPath;
 	return {
 		capabilities: {
 			// Tell the client that the server works in FULL text document sync mode
-			textDocumentSync: documents.syncKind
+			textDocumentSync: documents.syncKind,
+			// Tell the client that the server support code complete
+			completionProvider: {
+				resolveProvider: true
 			}
 		}
+	}
 });
+
+// The content of a text document has changed. This event is emitted
+// when the text document first opened or when its content has changed.
+documents.onDidChangeContent((change) => {
+	validateTextDocument(change.document);
+});
+
+// The settings interface describe the server relevant settings part
+interface Settings {
+	lspSample: ExampleSettings;
+}
+
+// These are the example settings we defined in the client's package.json
+// file
+interface ExampleSettings {
+	maxNumberOfProblems: number;
+}
+
+// hold the maxNumberOfProblems setting
+let maxNumberOfProblems: number;
+// The settings have changed. Is send on server activation
+// as well.
+connection.onDidChangeConfiguration((change) => {
+	let settings = <Settings>change.settings;
+	maxNumberOfProblems = settings.lspSample.maxNumberOfProblems || 100;
+	// Revalidate any open text documents
+	documents.all().forEach(validateTextDocument);
+});
+
+function validateTextDocument(textDocument: TextDocument): void {
+	let diagnostics: Diagnostic[] = [];
+	let lines = textDocument.getText().split(/\r?\n/g);
+	let problems = 0;
+	for (var i = 0; i < lines.length && problems < maxNumberOfProblems; i++) {
+		let line = lines[i];
+		let index = line.indexOf('typescript');
+		if (index >= 0) {
+			problems++;
+			diagnostics.push({
+				severity: DiagnosticSeverity.Warning,
+				range: {
+					start: { line: i, character: index },
+					end: { line: i, character: index + 10 }
+				},
+				message: `${line.substr(index, 10)} should be spelled TypeScript`,
+				source: 'ex'
+			});
+		}
+	}
+	// Send the computed diagnostics to VSCode.
+	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+}
+
+connection.onDidChangeWatchedFiles((_change) => {
+	// Monitored files have change in VSCode
+	connection.console.log('We recevied an file change event');
+});
+
+
+// This handler provides the initial list of the completion items.
+connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
+	// The pass parameter contains the position of the text document in 
+	// which code complete got requested. For the example we ignore this
+	// info and always provide the same completion items.
+	return [
+		{
+			label: 'TypeScript',
+			kind: CompletionItemKind.Text,
+			data: 1
+		},
+		{
+			label: 'JavaScript',
+			kind: CompletionItemKind.Text,
+			data: 2
+		}
+	]
+});
+
+// This handler resolve additional information for the item selected in
+// the completion list.
+connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
+	if (item.data === 1) {
+		item.detail = 'TypeScript details',
+			item.documentation = 'TypeScript documentation'
+	} else if (item.data === 2) {
+		item.detail = 'JavaScript details',
+			item.documentation = 'JavaScript documentation'
+	}
+	return item;
+});
+
+/*
+connection.onDidOpenTextDocument((params) => {
+	// A text document got opened in VSCode.
+	// params.uri uniquely identifies the document. For documents store on disk this is a file URI.
+	// params.text the initial full content of the document.
+	connection.console.log(`${params.textDocument.uri} opened.`);
+});
+connection.onDidChangeTextDocument((params) => {
+	// The content of a text document did change in VSCode.
+	// params.uri uniquely identifies the document.
+	// params.contentChanges describe the content changes to the document.
+	connection.console.log(`${params.textDocument.uri} changed: ${JSON.stringify(params.contentChanges)}`);
+});
+connection.onDidCloseTextDocument((params) => {
+	// A text document got closed in VSCode.
+	// params.uri uniquely identifies the document.
+	connection.console.log(`${params.textDocument.uri} closed.`);
+});
+*/
 
 // Listen on the connection
 connection.listen();
@@ -218,8 +336,8 @@ documents.onDidChangeContent((change) => {
 
 To test the language server do the following:
 
-* Go to the VS Code instance containing the server code (see above) and press `kb(workbench.action.tasks.build)` to start the build task. The task compiles the server code and installs (e.g. copies) it into the extension folder.
-* Now go back to the VS Code instance with the extension (client) and press `kb(workbench.action.debug.start)` to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
+* press `kb(workbench.action.tasks.build)` to start the build task. The task compiles both the client and the server.
+* open the debug viewlet, select the `Launch Client` launch configuration and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 * Create a test.txt file in the root folder and paste the following content:
 
 ```txt
@@ -234,11 +352,11 @@ The `Extension Development Host` instance will then look like this:
 
 ## Debugging both Client and Server
 
-Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the VS Code instance that contains the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Running and Debugging Your Extension](/docs/extensions/debugging-extensions.md).
+Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Running and Debugging Your Extension](/docs/extensions/debugging-extensions.md).
 
 ![Debugging the client](images/example-language-server/debugging-client.png)
 
-Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the VS Code instance containing the server code and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server. Use the normal Debug View to interact with the running server.
+Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Debug viewlet and select the launch configuration `Attach to Server` and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server. 
 
 ![Debugging the server](images/example-language-server/debugging-server.png)
 
@@ -249,7 +367,7 @@ When writing the client part of the extension, we already defined a setting to c
 ```typescript
 synchronize: {
     // Synchronize the setting section 'languageClientExample' to the server
-    configurationSection: 'languageServerExample',
+    configurationSection: 'lspSample',
     // Notify the server about file changes to '.clientrc files contain in the workspace
     fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
 }
@@ -288,7 +406,7 @@ The handling of the configuration change is done by adding a notification handle
 ```typescript
 // The settings interface describe the server relevant settings part
 interface Settings {
-    languageServerExample: ExampleSettings;
+    lspSample: ExampleSettings;
 }
 
 // These are the example settings we defined in the client's package.json
