@@ -43,7 +43,7 @@ For example:
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.  
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.
 
 > Note: If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
 
@@ -81,13 +81,12 @@ CSS snippet names | Can contain `:` | Do not use `:` when defining snippet names
 CSS snippet values | Can end with `;` | Do not add `;` at end of snippet value. Emmet will add the trailing `;` based on the file type (css/less/scss vs sass/stylus) or the emmet preference set for `css.propertyEnd`, `sass.propertyEnd`, `stylus.propertyEnd`
 Cursor location | `${cursor}` or `|` can be used | Use only textmate syntax like `${1}` for tab stops and cursor locations
 
-
 ### HTML Emmet snippets
 
 HTML custom snippets are applicable to all other markup flavors like `haml` or `jade`. When snippet value is an abbreviation and not actual HTML, the appropriate transformations can be applied to get the right output as per the language type.
 
 For example, for an unordered list with a list item, if your snippet value is `ul>li`, you can use the same snippet in `html`, `haml`, `jade` or `slim`, but if your snippet value is `<ul><li></li></ul>`, then it will work only in `html` files.
-  		  
+
 If you want a snippet for plain text, then surround the text with the `{}`.
 
 ### CSS Emmet snippets
@@ -102,10 +101,10 @@ Do not use `:` in the snippet name. `:` is used to separate property name and va
 
 ### Tab stops and cursors in custom snippets
 
-The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets). 
+The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets).
+
 - Use `${1}`, `${2}` for tab stops and `${1:placeholder}` for tab stops with placeholders.
 - Previously, `|` or `${cursor}` was used to denote the cursor location in the custom Emmet snippet. This is no longer supported. Use `${1}` instead.
-
 
 ## Emmet configuration
 
