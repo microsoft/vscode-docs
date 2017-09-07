@@ -64,13 +64,23 @@ Below is an example for the contents of this `snippets.json` file.
     },
     "css": {
         "snippets": {
-            "cb": "color: black"
+            "cb": "color: black",
+            "bsd": "border: 1px solid ${1:red}",
+            "ls": "list-style: ${1}"
         }
     }
 }
 ```
 
-Keep in mind that there are some restrictions on the snippet name and value.
+Authoring of Custom Snippets in Emmet 2.0 via the `snippets.json` file differs from the old way of doing the same in a few ways:
+
+Topic | Old Emmet | Emmet 2.0
+------ | -------- | ---------
+Snippets vs Abbreviations | Supports both in 2 separate properties called `snippets` and `abbreviations` | The 2 have been combined into a single property called snippets. See default [html snippets](https://github.com/emmetio/snippets/blob/master/html.json) and [css snippets](https://github.com/emmetio/snippets/blob/master/css.json)
+Css snippet names | Can contain `:` | Do not use `:` when defining snippet names. It is used to separate property name and value when Emmet tries to fuzzy match the given abbreviation to one of the snippets.
+CSS snippet values | Can end with `;` | Do not add `;` at end of snippet value. Emmet will add the trailing `;` based on the file type (css/less/scss vs sass/stylus) or the emmet preference set for `css.propertyEnd`, `sass.propertyEnd`, `stylus.propertyEnd`
+Cursor location | `${cursor}` or `|` can be used | Use only textmate syntax like `${1}` for tab stops and cursor locations
+
 
 ### HTML Emmet snippets
 
@@ -78,15 +88,11 @@ HTML custom snippets are applicable to all other markup flavors like `haml` or `
 
 For example, for an unordered list with a list item, if your snippet value is `ul>li`, you can use the same snippet in `html`, `haml`, `jade` or `slim`, but if your snippet value is `<ul><li></li></ul>`, then it will work only in `html` files.
   		  
-If you want a snippet for plain text, then use the `{}` notation as shown in the example above.
+If you want a snippet for plain text, then surround the text with the `{}`.
 
 ### CSS Emmet snippets
 
 Values for CSS Emmet snippets should be a complete property name and value pair.
-
-Name the snippet such that it contains the letters from the snippet value in the order that they appear in the latter, so that the fuzzy matching algorithm of the suggestion list can make the right match. If you don't use similar letters, the **Emmet: Expand Abbreviation** command will still work, but the snippets won't show up as expected in a filtered suggestion list.
-
-For example, don't use `bc` or `darkc` as the name for `color: black`. Use `cb` or `cob` instead.
 
 CSS custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
 
