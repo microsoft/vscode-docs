@@ -24,9 +24,9 @@ VS Code runs on macOS, Linux, and Windows. See [Requirements](requirements) for 
 
 Yes, VS Code is [free for private or commercial use](https://code.visualstudio.com/license).
 
-## I would like to report an issue with an Extension
+## I would like to report an issue with an VS Code extension
 
-For bugs, feature requests and to contact an extension author you should use the links available in the VS Code marketplace.  However, if there is an issue where an extension does not follow our code of conduct e.g. includes profanity, ponography or presents a risk to the user - then we have an alias where you can [contact us to report the issue](mailto:VSMarketplace@microsoft.com) once the mail is received our Marketplace team will look into an appropriate course of action up-to and including unpublishing the extnesion.
+For bugs, feature requests or to contact an extension author, you should use the links available in the Visual Studio Code [Marketplace](https://marketplace.visualstudio.com/vscode).  However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have an email alias where you can [contact us to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
 
 ## How do I find what version of VS Code I am using?
 
