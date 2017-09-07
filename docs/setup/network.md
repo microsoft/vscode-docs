@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Network
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Setup Visual Studio Code's Network Connection
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -17,10 +17,11 @@ A handful of features within VS Code require network communication to work, such
 
 If you are behind a firewall which needs to whitelist domains used by VS Code, here's the list of hostnames you should allow communication to go through:
 
-* vscode-update.azurewebsites.net
-* vscode.blob.core.windows.net
-* marketplace.visualstudio.com
-* rink.hockeyapp.net
+* `vscode-update.azurewebsites.net`
+* `vscode.blob.core.windows.net`
+* `marketplace.visualstudio.com`
+* `*.gallerycdn.vsassets.io`
+* `rink.hockeyapp.net`
 
 ## Proxy server support
 

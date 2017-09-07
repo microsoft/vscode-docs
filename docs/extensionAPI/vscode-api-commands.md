@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Complex Commands Reference
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.
 ---
 # Complex Commands
@@ -148,11 +148,6 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 
 * _uri_ (optional) Uri of the folder to open. If not provided, a native dialog will ask the user for the folder
 * _newWindow_ (optional) Whether to open the folder in a new window or the same. Defaults to opening in the same window.
-
-
-`vscode.startDebug` - Start a debugging session.
-
-* _configuration_ (optional) Name of the debug configuration from 'launch.json' to use. Or a configuration json object to use.
 
 
 `vscode.diff` - Opens the provided resources in the diff editor to compare their contents.

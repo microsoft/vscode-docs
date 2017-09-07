@@ -3,7 +3,7 @@ Order: 1
 TOCTitle: Getting Started
 PageTitle: Node.js Deployment with Visual Studio Code
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
-DateApproved: 6/16/2017
+DateApproved: 9/7/2017
 ---
 
 # Deploy a Node.js Application to Azure

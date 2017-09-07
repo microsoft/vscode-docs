@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -205,10 +205,13 @@ Below are the default settings and their values.
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": true,
 
+  // Controls if the editor will scroll using an animation
+  "editor.smoothScrolling": false,
+
   // Controls if the minimap is shown
   "editor.minimap.enabled": true,
 
-  // Controls whether the minimap slider is automatically hidden.
+  // Controls whether the minimap slider is automatically hidden. Possible values are 'always' and 'mouseover'
   "editor.minimap.showSlider": "mouseover",
 
   // Render the actual characters on a line (as opposed to color blocks)
@@ -363,6 +366,9 @@ Below are the default settings and their values.
   // Controls whether the editor should detect links and make them clickable
   "editor.links": true,
 
+  // Controls whether the editor should render the inline color decorators and color picker.
+  "editor.colorDecorators": true,
+
   // Controls if the diff editor shows the diff side by side or inline
   "diffEditor.renderSideBySide": true,
 
@@ -376,16 +382,10 @@ Below are the default settings and their values.
   "editor.formatOnSave": false,
 
   // Overrides editor colors and font style from the currently selected color theme.
-  "editor.tokenColorCustomizations": null,
+  "editor.tokenColorCustomizations": {},
 
 
 // Workbench
-
-  // When enabled, will show the watermark tips when no editor is open.
-  "workbench.tips.enabled": true,
-
-  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
-  "workbench.startupEditor": "welcomePage",
 
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
@@ -431,6 +431,12 @@ Below are the default settings and their values.
 
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
+
+  // When enabled, will show the watermark tips when no editor is open.
+  "workbench.tips.enabled": true,
+
+  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
+  "workbench.startupEditor": "welcomePage",
 
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
@@ -576,7 +582,7 @@ Below are the default settings and their values.
   // Controls if the explorer should allow to move files and folders via drag and drop.
   "explorer.enableDragAndDrop": true,
 
-  // Controls the way of sorting files and directories in the explorer.
+  // Controls sorting order of files and folders in the explorer. In addition to the default sorting, you can set the order to 'mixed' (files and folders sorted combined), 'type' (by file type), 'modified' (by last modified date) or 'filesFirst' (sort files before folders).
   "explorer.sortOrder": "default",
 
 // Search
@@ -618,9 +624,6 @@ Below are the default settings and their values.
 
   // Enables or disables all validations
   "css.validate": true,
-
-  // Enables or disables color decorators
-  "css.colorDecorators.enable": true,
 
   // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
   "css.lint.compatibleVendorPrefixes": "ignore",
@@ -686,9 +689,6 @@ Below are the default settings and their values.
   // Enables or disables all validations
   "scss.validate": true,
 
-  // Enables or disables color decorators
-  "scss.colorDecorators.enable": true,
-
   // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
   "scss.lint.compatibleVendorPrefixes": "ignore",
 
@@ -749,9 +749,6 @@ Below are the default settings and their values.
 
   // Enables or disables all validations
   "less.validate": true,
-
-  // Enables or disables color decorators
-  "less.colorDecorators.enable": true,
 
   // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
   "less.lint.compatibleVendorPrefixes": "ignore",
@@ -829,7 +826,7 @@ Below are the default settings and their values.
 
 // HTML
 
-  // Enable/disable default HTML formatter (requires restart)
+  // Enable/disable default HTML formatter
   "html.format.enable": true,
 
   // Maximum amount of characters per line (0 = disable).
@@ -877,6 +874,9 @@ Below are the default settings and their values.
   // Configures if the built-in HTML language support validates embedded styles.
   "html.validate.styles": true,
 
+  // Enable/disable autoclosing of HTML tags.
+  "html.autoClosingTags": true,
+
   // Traces the communication between VS Code and the HTML language server.
   "html.trace.server": "off",
 
@@ -891,8 +891,6 @@ Below are the default settings and their values.
   // Traces the communication between VS Code and the JSON language server.
   "json.trace.server": "off",
 
-  // Enables or disables color decorators
-  "json.colorDecorators.enable": true,
 
 // Markdown
 
@@ -951,7 +949,7 @@ Below are the default settings and their values.
   // Specifies the folder path containing the tsserver and lib*.d.ts files to use.
   "typescript.tsdk": null,
 
-  // Disables automatic type acquisition. Requires TypeScript >= 2.0.6 and a restart after changing it.
+  // Disables automatic type acquisition. Requires TypeScript >= 2.0.6.
   "typescript.disableAutomaticTypeAcquisition": false,
 
   // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires TypeScript >= 2.3.4.
@@ -1189,11 +1187,14 @@ Below are the default settings and their values.
     "workbench.action.openNextRecentlyUsedEditorInGroup",
     "workbench.action.openPreviousRecentlyUsedEditorInGroup",
     "workbench.action.quickOpen",
+    "workbench.action.quickOpenView",
     "workbench.action.showCommands",
     "workbench.action.terminal.clear",
     "workbench.action.terminal.copySelection",
     "workbench.action.terminal.deleteWordLeft",
     "workbench.action.terminal.deleteWordRight",
+    "workbench.action.terminal.findWidget.history.showNext",
+    "workbench.action.terminal.findWidget.history.showPrevious",
     "workbench.action.terminal.focus",
     "workbench.action.terminal.focusAtIndex1",
     "workbench.action.terminal.focusAtIndex2",
@@ -1251,7 +1252,7 @@ Below are the default settings and their values.
   // Shows expanded emmet abbreviations as suggestions.
   // The option "inMarkupAndStylesheetFilesOnly" applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
   // The option "always" applies to all parts of the file regardless of markup/css.
-  "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly",
+  "emmet.showExpandedAbbreviation": "always",
 
   // Shows possible emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
   "emmet.showAbbreviationSuggestions": true,
@@ -1273,6 +1274,15 @@ Below are the default settings and their values.
 
   // Path to a folder containing emmet profiles and snippets.'
   "emmet.extensionsPath": null,
+
+  // When enabled, emmet abbreviations are expanded when pressing TAB.
+  "emmet.triggerExpansionOnTab": false,
+
+  // Preferences used to modify behavior of some actions and resolvers of Emmet.
+  "emmet.preferences": {},
+
+  // If true, then emmet suggestions will show up as snippets allowing you to order them as per editor.snippetSuggestions setting.
+  "emmet.showSuggestionsAsSnippets": false,
 
 // Default Configuration Overrides
 
@@ -1340,6 +1350,9 @@ Below are the default settings and their values.
   // Commit all changes when there are no staged changes.
   "git.enableSmartCommit": false,
 
+  // Enables commit signing with GPG.
+  "git.enableCommitSigning": false,
+
 // Npm
 
   // Controls whether auto detection of npm scripts is on or off. Default is on.
@@ -1365,7 +1378,7 @@ Below are the default settings and their values.
 
   // Controls whether auto detection of Gulp tasks is on or off. Default is on.
   "gulp.autoDetect": "on",
-
+  
 // Jake
 
 // Controls whether auto detection of Jake tasks is on or off. Default is on.

@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -294,7 +294,6 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 * `configurationSnippets` lists launch configurations that are available through IntelliSense when editing a launch.json.
 * `variables` introduces substitution variables and binds them to commands implemented by the debugger extension.
 * `languages` those languages for which the debug extension could be considered the "default debugger".
-* `startSessionCommand` the command ID which VS Code calls for any "debug" or "run" action targeted for this extension. If a launch configuration was selected, it is passed as an argument to the command. If "debug" or "run" is executed without a launch configuration, an empty launch config is passed to the `startSessionCommand` and the extension is expected to "fill in" missing attributes.
 * `adapterExecutableCommand` the command ID where the debug adapters executable path and arguments are dynamically calculated. The command returns a structure with this format:
   ```json
   command: "<executable>",
@@ -312,6 +311,8 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 
         "program": "./out/node/nodeDebug.js",
         "runtime": "node",
+
+        "languages": ["javascript", "typescript", "javascriptreact", "typescriptreact"],
 
         "configurationAttributes": {
             "launch": {

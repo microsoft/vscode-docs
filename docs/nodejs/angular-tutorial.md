@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 PageTitle: Angular JavaScript Tutorial in VS Code
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: Angular JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: nodejs_javascript_vscode.png
 ---
@@ -167,7 +167,7 @@ In this tutorial, we used the Angular CLI to create a simple Angular application
 
 ### Recipes
 
-The VS Code team has created [recipes](https://github.com/weinand/vscode-recipes) for more complex debugging scenarios. There you'll find the [Chrome Debugging with Angular CLI](https://github.com/weinand/vscode-recipes/tree/master/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
+The VS Code team has created [recipes](https://github.com/Microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Chrome Debugging with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
 
 ### MEAN Starter
 
