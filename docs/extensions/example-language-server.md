@@ -18,7 +18,7 @@ The remaining document assumes that you are familiar with normal [extension deve
 
 ## Implement your own Language Server
 
-Language servers can be implemented in any language and follow the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol). However, right now VS Code only provides libraries for Node.js. Additional libraries will follow in the future. A good starting point for a language server implementation in Node.js is the example repository [VS Cdode extension samples](https://github.com/Microsoft/vscode-extension-samples). This repository contains 3 different Language Server samples:
+Language servers can be implemented in any language and follow the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol). However, right now VS Code only provides libraries for Node.js. Additional libraries will follow in the future. A good starting point for a language server implementation in Node.js is the example repository [VS Code extension samples](https://github.com/Microsoft/vscode-extension-samples). This repository contains 3 different Language Server samples:
 
 - **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Demos how to write a basic lanugae server. 
 - **[lsp-multi-root-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-root-sample)**: Demos how to write a language server which is multi workspace folder aware.
