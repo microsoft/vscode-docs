@@ -21,13 +21,40 @@ When you start typing an Emmet abbreviation, you will see the abbreviation displ
 
 ![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
 
-If you have disabled `editor.quickSuggestions`, you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
+### Emmet when quickSuggestions are disabled
 
-If you don't want to use suggestions at all, then set `emmet.showExpandedAbbreviation` to `never` and use the command `Emmet: Expand Abbreviation` to expand your abbreviations. You can bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
 
-If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the [setting](/docs/getstarted/settings.md)  `emmet.triggerExpansionOnTab` and set it to `true`. This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
+### Disable Emmet in suggestions
 
-Emmet suggestions may not always show up at the top of the suggestion list. This can be either because you have set `editor.snippetSuggestions` to `top` or if you are on a stylesheet file, it is sorted among other CSS suggestions. To ensure Emmet suggestions are always on top you can set `emmet.showSuggestionsAsSnippets` to `true` and `editor.snippetSuggestions` to `top`.
+If you don't want to see Emmet abbreviations in suggestions at all, then set `emmet.showExpandedAbbreviation` to `never` and use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+
+```json
+{
+    "emmet.showExpandedAbbreviation": "never"
+}
+```
+
+### Using Tab for Emmet expansions
+
+If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the setting `emmet.triggerExpansionOnTab` and set it to `true`. This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
+
+```json
+{
+    "emmet.triggerExpansionOnTab": true
+}
+```
+
+### Emmet suggestion ordering
+
+Emmet suggestions may not always show up at the top of the suggestion list. This can be either because you have set `editor.snippetSuggestions` to `top` or if you are on a stylesheet file, it is sorted among other CSS suggestions. To ensure Emmet suggestions are always on top, you can set `emmet.showSuggestionsAsSnippets` to `true` and `editor.snippetSuggestions` to `top`.
+
+```json
+{
+    "emmet.showSuggestionsAsSnippets": true,
+    "editor.snippetSuggestions": "top"
+}
+```
 
 ## Emmet abbreviations in other file types
 
@@ -57,9 +84,9 @@ Below is an example for the contents of this `snippets.json` file.
 {
     "html": {
         "snippets": {
-            "ull": "ul>li[id=${1} class=${2}]*2{ This will work across syntaxes like html, jade, haml and slim }",
-            "oll": "<ol><li id=${1} class=${2}>This will work only in html but not in jade, haml, slim files</ol>",
-            "ran": "{Wrap text with curly braces to use it as is}"
+            "ull": "ul>li[id=${1} class=${2}]*2{ Will work with html, jade, haml and slim }",
+            "oll": "<ol><li id=${1} class=${2}> Will only work in html </ol>",
+            "ran": "{ Wrap plain text in curly braces }"
         }
     },
     "css": {
