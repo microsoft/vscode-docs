@@ -57,9 +57,9 @@ Below is an example for the contents of this `snippets.json` file.
 {
     "html": {
         "snippets": {
-            "ull": "ul>li{ This is a valid emmet abbreviation and will work across syntaxes like html, jade, haml and slim }",
-            "ran": "{Use this format to get the snippet text as is}",
-            "oll": "<ol>This will work only in html but not in jade, haml, slim etc</ol>"
+            "ull": "ul>li[id=${1} class=${2}]*2{ This will work across syntaxes like html, jade, haml and slim }",
+            "oll": "<ol><li id=${1} class=${2}>This will work only in html but not in jade, haml, slim files</ol>",
+            "ran": "{Wrap text with curly braces to use it as is}"
         }
     },
     "css": {
