@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Source Control API
 ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
 PageTitle: Visual Studio Code Source Control API
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
 # Source Control in VS Code
@@ -125,15 +125,15 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 
 ### SCM Input Box
 
-The Source Control Input Box, located atop of the Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and `git commit` commands pick them up.
+The Source Control Input Box, located atop of each Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and `git commit` commands pick them up.
 
 ```ts
 export interface SourceControlInputBox {
   value: string;
 }
 
-export namespace scm {
-  export const inputBox: SourceControlInputBox;
+export interface SourceControl {
+  readonly inputBox: SourceControlInputBox;
 }
 ```
 

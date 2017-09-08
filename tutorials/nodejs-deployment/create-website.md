@@ -4,12 +4,16 @@ TOCTitle: Create the Website
 PageTitle: Create the Website
 MetaDescription:
 MetaSocialImage:
-DateApproved: 4/26/2017
+DateApproved: 9/7/2017
 ShortDescription:
 ---
 # Create the Website
 
 In this step, you will use the Azure CLI to create a website on Azure.
+
+> Tip! The [Azure CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) for VS Code provides syntax colorization, IntelliSense (completions) and snippets when writing Azure CLI scripts
+>
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-vscode.azurecli">Install the Azure CLI extension</a>
 
 ## Create a Resource Group
 

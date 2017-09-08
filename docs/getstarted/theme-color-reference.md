@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -144,6 +144,8 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 - `tab.activeBackground`: Active Tab background color.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.
+- `tab.activeBorder`: Bottom border for the active tab.
+- `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.inactiveBackground`: Inactive Tab background color.
 - `tab.inactiveForeground`: Inactive Tab foreground color in an active group.
 - `tab.unfocusedActiveForeground`: Active tab foreground color in an inactive editor group.
@@ -236,6 +238,17 @@ Overview ruler:
 This ruler is located beneath the scrollbar on the right edge of the editor and gives an overview of the decorations in the editor.
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
+- `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches.
+- `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for range highlights.
+- `editorOverviewRuler.selectionHighlightForeground`: Overview ruler marker color for selection highlights.
+- `editorOverviewRuler.wordHighlightForeground`: Overview ruler marker color for symbol highlights.
+- `editorOverviewRuler.wordHighlightStrongForeground`: Overview ruler marker color for write-access symbol highlights.
+- `editorOverviewRuler.modifiedForeground`: Overview ruler marker color for modified content.
+- `editorOverviewRuler.addedForeground`: Overview ruler marker color for added content.
+- `editorOverviewRuler.deletedForeground`: Overview ruler marker color for deleted content.
+- `editorOverviewRuler.errorForeground`: Overview ruler marker color for errors.
+- `editorOverviewRuler.warningForeground`: Overview ruler marker color for warnings.
+- `editorOverviewRuler.infoForeground`: Overview ruler marker color for infos.
 
 Errors and warnings:
 
@@ -320,6 +333,7 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `merge.border`: Border color on headers and the splitter in inline merge conflicts.
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
+- `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
 
 ## Panel Colors
 

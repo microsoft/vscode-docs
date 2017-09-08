@@ -4,7 +4,7 @@ TOCTitle: Viewing Logs
 PageTitle: Viewing Logs
 MetaDescription:
 MetaSocialImage:
-DateApproved: 4/26/2017
+DateApproved: 9/7/2017
 ShortDescription:
 ---
 # Viewing Logs

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Creating your own Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own Snippets in Visual Studio Code
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own Snippets
@@ -87,6 +87,7 @@ With `$name` or `${name:default}` you can insert the value of a variable. When a
 * `TM_LINE_INDEX` The zero-index based line number
 * `TM_LINE_NUMBER` The one-index based line number
 * `TM_FILENAME` The filename of the current document
+* `TM_FILENAME_BASE` The filename of the current document without its extensions
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
 

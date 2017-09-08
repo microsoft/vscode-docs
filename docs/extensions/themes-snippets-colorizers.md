@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
 # Themes, Snippets and Colorizers
@@ -35,44 +35,63 @@ For syntax highlighting colors there are two approaches. You just simply referen
 
 ### TextMate theme rules
 
-To write TextMate theme rules. you need to understand on how TextMate grammars and scopes.
+To write TextMate theme rules, you need to know about TextMate grammars and scopes.
 
-- `TextMate grammars` consist of a set of regular expression that are used create a syntax tree out of the source code. Each tree node represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators). The hierarchy of scopes is the input for syntax highlighting. 
-- Each scope name consists of segments separated by dot. The last segment is the names the language the symbol belongs to: `entity.name.function.js`
-- See [here](https://www.sublimetext.com/docs/3/scope_naming.html) for a good overview of scopes that TextMate grammars typically generate.
-- Here's an example of the scope hierarchy generated for the JavaScript code snippet `function f1() {`
+`TextMate grammars` consist of a set of regular expression that are used create a syntax tree out of the source code. Each tree node spans a source range and represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators). 
+
+Here's an example of the scope hierarchy generated for a JavaScript code sample: 
+
+```javascript 
+function f1() {
+```
 
 ![TextMate Scopes](images/themes-snippets-colorizers/TM-scopes.png)
 
+Each scope name consists of segments separated by dots. The last segment is the name of the language the symbol belongs to: `entity.name.function.js`.
+
+A good overview of scope names that TextMate grammars typically generate can be found [here](https://www.sublimetext.com/docs/3/scope_naming.html).
+
+The list of scope names active at a given offset are the input for syntax highlighting.
+
+Text Mate themes describe the theming rules used for syntax highlighting. Each rule consists of one or more scope selectors and a set of styles: colors (foreground & background) and font styles (bold, italics and underline).
+
+To evaluate the style of a symbol at a given offset, the scopes at that offset are computed. The theming rules are then processed first to last. The rule's scope selectors are matched against that set of scopes. The rule with the most specific match wins. 
+
+Here are some example theming rules. The  `scope` property lists the rules scope selectors. The `setting` property describes the styles to apply when the rule wins. The `name` is just used for documentation.
 
 - You can use the the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor. ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 - TextMate themes assign a set of styles to one or more scopes. The styles are the foreground color, the background color and bold, italics and underline. A theme consist of a set of rules. To evaluate the style of a symbol, the rules are processed first to last and each scope selector is matched against to symbols scope and parent scopes. The most specific rule is used for styling the symbol.
+
 - Scope selector support prefix matching and matching against parent scopes
+
 ```json
-		{
-			"name": "Variables",
-			"scope": "variable",
-			"settings": {
-				"foreground": "#dc3958",
-                "fontStyle": "bold underline"
-			}
-		},
-		{
-			"name": "Functions",
-			"scope": [
-				"entity.name.function",
-				"meta.selector.css entity.name.tag",
-				"entity.name.method - source.java"
-			],
-			"settings": {
-				"foreground": "#8ab1b0",
-			}
-		}
+{
+    "name": "Variables",
+    "scope": "variable",
+    "settings": {
+        "foreground": "#dc3958",
+        "fontStyle": "bold underline"
+    }
+},
+{
+    "name": "Functions",
+    "scope": [
+        "entity.name.function",
+        "meta.selector.css entity.name.tag",
+        "entity.name.method - source.java"
+    ],
+    "settings": {
+        "foreground": "#8ab1b0",
+    }
+}
 ```
-   - `variable` matches all scopes that start with `variable`: `variable.js`, `variable.parameter.java`...
-   - `meta.selector.css entity.name.tag` matches all scopes that start with `meta.selector.css` and have a parent scope that matches `entity.name.tag`
-   - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but not insiif a parent scope matches `source.java`
-- Learn more about [scope selectors](https://manual.macromates.com/en/scope_selectors)
+
+- `variable` matches all scopes that start with `variable`: `variable.js`, `variable.parameter.java`...
+- `meta.selector.css entity.name.tag` matches all scopes that start with `entity.name.tag` and have a parent scope that matches `meta.selector.css`
+- `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but are not inside a parent scope that matches `source.java`
+- Learn more about scope selectors [here](https://manual.macromates.com/en/scope_selectors).
+
+You can use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied. ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 
 ## Create a new color theme
 - Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**

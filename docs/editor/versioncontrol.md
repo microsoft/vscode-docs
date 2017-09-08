@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in VS Code
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
 # Using Version Control in VS Code
@@ -220,3 +220,11 @@ You can either:
 On a **GitHub Desktop** Windows installation, `git.exe` is usually under `C:\Users\USERNAME\AppData\Local\GitHub\PortableGit_COMMITID\ming32\bin`.  Searching for `git.exe` under AppData\Local\GitHub should find the binary.
 
 You can also install Git from [git-scm](https://git-scm.com/) and this will not interfere with **GitHub Desktop**.
+
+**Q: I keep getting Git authentication dialogs whenever VS Code is running.**
+
+**A:** VS Code automatically fetches changes from the server in order to present you with a summary of incoming changes. The Git authentication dialog is independent from VS Code itself and is a part of your current Git credential helper.
+
+One way to avoid these prompts is to set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) which remembers your credentials.
+
+Another option is to disable the auto fetch feature by changing the following setting: `"git.autofetch": false`.

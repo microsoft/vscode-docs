@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
-DateApproved: 8/9/2017
+DateApproved: 9/7/2017
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -26,11 +26,11 @@ Today two wire protocols exist:
 
 Currently these protocols are supported by specific version ranges of the following runtimes:
 
-Runtime   | 'Legacy Protocol' | 'Inspector Protocol'
+Runtime   | 'Legacy' Protocol | 'Inspector' Protocol
 ----------|-------------------|----------
 io.js     | all               | no
 node.js   | < 8.x             | >= 6.3 (Windows: >= 6.9)
-Electron  | all               | not yet
+Electron  | < 7.4             | >= 7.4
 Chakra    | all               | not yet
 
 Although it appears to be possible that the VS Code Node.js debugger picks the best protocol always automatically,
@@ -38,7 +38,7 @@ we've decided for a 'pessimistic approach' with an explicit launch configuration
 
 - **`auto`**: tries to automatically detect the protocol used by the targeted runtime. For configurations of request type `launch` and if no `runtimeExecutable` is specified, we try to determine the version by running node from the PATH with an `--version` argument. If the version is >= 8.0 the new 'inspector' protocol is used. For configurations of request type 'attach' we try to connect with the new protocol and if this works, we use the 'inspector' protocol. We only switch to the new 'inspector' protocol for versions >= 6.9 because of severe problems in earlier versions.
 - **`inspector`**: forces the node debugger to use the 'inspector' protocol based implementation. This is supported by node versions >= 6.3, but not (yet) by Electron.
-- **`legacy`**: forces the node debugger to use the 'legacy' protocol based implementation. This is supported by node versions < v8.0) and Electron.
+- **`legacy`**: forces the node debugger to use the 'legacy' protocol based implementation. This is supported by node versions < v8.0 and Electron versions < 7.4.
 
 Starting with VS Code 1.11 the default value for the `protocol` attribute is `auto`.
 
@@ -81,7 +81,7 @@ These attributes are only available for launch configurations of request type `l
 
 This attribute is only available for launch configurations of request type `attach`:
 
-* `processId` - debugger tries to attach to this process after having sent a USR1 signal. With this setting, the debugger can attach to an already running process that was not started in debug mode.
+* `processId` - the debugger tries to attach to this process after having sent a USR1 signal. With this setting, the debugger can attach to an already running process that was not started in debug mode. When using the `processId` attribute the debug port is determined automatically based on the node.js version (and the used protocol) and cannot be configured explicitely. So don't specify a `port` attribute.
 
 ### Launch configuration snippets for common scenarios
 
