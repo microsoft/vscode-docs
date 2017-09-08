@@ -259,7 +259,7 @@ Errors and warnings:
 
 The gutter contains the glyph margins and the line numbers:
 
-- `editorGutter.background`: Background color of the editor gutter. 
+- `editorGutter.background`: Background color of the editor gutter.
 - `editorGutter.modifiedBackground`: Editor gutter background color for lines that are modified.
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
@@ -356,7 +356,7 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBar.debuggingForeground`: Status Bar foreground color when a program is being debugged.
 - `statusBar.debuggingBorder`: Status Bar border color separating the Status Bar and editor when a program is being debugged.
 - `statusBar.noFolderForeground`: Status Bar foreground color when no folder is opened.
-- `statusBar.noFolderBackground`: Status Bar background color when no folder is opened. 
+- `statusBar.noFolderBackground`: Status Bar background color when no folder is opened.
 - `statusBar.noFolderBorder`: Status Bar border color separating the Status Bar and editor when no folder is opened.
 - `statusBarItem.activeBackground`: Status Bar item background color when clicking.
 - `statusBarItem.hoverBackground`: Status Bar item background color when hovering.

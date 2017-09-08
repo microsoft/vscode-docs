@@ -1,4 +1,5 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-"editor.wordWrap": "on"
+    "editor.wordWrap": "on",
+    "files.trimTrailingWhitespace": true
 }
