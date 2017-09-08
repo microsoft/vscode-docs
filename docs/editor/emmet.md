@@ -235,6 +235,5 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 Below are some of the upstream issues with Emmet 2.0 that we are working on fixing. Any help in these areas is appreciated.
 
-* Support to customize formatters for stylesheets like `css.propertyEnd`, `css.valueSeparator`, `css.UnitAliases`, `css.intUnit` and `css.floatUnit`. [Issue: emmetio/expand-abbreviation#8](https://github.com/emmetio/expand-abbreviation/issues/8)
 * Use of `@-` to get numbering in descending order in repeaters is not supported. [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
 * HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
