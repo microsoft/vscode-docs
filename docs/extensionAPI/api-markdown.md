@@ -27,7 +27,7 @@ Extensions can contribute CSS to change the look or layout of the Markdown previ
 
 Contributed styles are added after the built-in Markdown preview styles but before a user's `"markdown.styles"`.
 
-The [VS Code Github Style extension](https://github.com/mjbvz/vscode-github-markdown-preview-style) is a good example that demonstrates using a stylesheet to make the Markdown preview look like Github's rendered Markdown.
+The [Markdown Preview GitHub Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles) extension is a good example that demonstrates using a stylesheet to make the Markdown preview look like GitHub's rendered Markdown. You can review the extension's source code on [GitHub](https://github.com/mjbvz/vscode-github-markdown-preview-style).
 
 ## Adding support for new syntax with markdown-it plugins
 
@@ -63,7 +63,7 @@ return md.use(require('markdown-it-emoji')).use(require('markdown-it-hashtag'));
 
 Extensions that contribute markdown-it plugins are activated lazily, when a Markdown preview is shown for the first time.
 
-The [VS Code Markdown Emoji extension](https://github.com/mjbvz/vscode-markdown-emoji) demonstrates using a markdown-it plugin to add emoji support to the markdown preview.
+The [markdown-emoji](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-emoji) extension demonstrates using a markdown-it plugin to add emoji support to the markdown preview. You can review the Emoji extension's source code on [GitHub](https://github.com/mjbvz/vscode-markdown-emoji).
 
 You may also want to review:
 
@@ -84,4 +84,4 @@ For advanced functionality, extensions may contribute scripts that are executed 
 
 Contributed scripts are loaded asynchronously and reloaded on every content change.
 
-The [VS Code Markdown Mermaid extension](https://github.com/mjbvz/vscode-markdown-mermaid) demonstrates using scripts to add [mermaid](http://knsv.github.io/mermaid/index.html) diagrams and flowchart support to the markdown preview.
+The [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension demonstrates using scripts to add [mermaid](http://knsv.github.io/mermaid/index.html) diagrams and flowchart support to the markdown preview. You can review the Mermaid extension's source code on [GitHub](https://github.com/mjbvz/vscode-markdown-mermaid).
