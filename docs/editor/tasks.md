@@ -66,6 +66,9 @@ You can also define the TypeScript build task as the default build task so that 
         {
             "type": "typescript",
             "tsconfig": "tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
