@@ -114,13 +114,13 @@ Instead of launching the Node.js program directly with node, you can use 'npm' s
 
 - Any program available on the PATH (for example 'npm', 'mocha', 'gulp', etc.) can be used for the `runtimeExecutable` attribute and arguments can be passed via `runtimeArgs`.
 - You do not have to set the `program` attribute if your npm script or other tool implicitly specifies the program to launch.
-- If you specify a debug port via the `port` attribute, VS Code will not automatically add the `--debug-brk=nnnn` attribute because the debug port is typically specified by the npm script or other tool as well.
+- If you specify a debug port via the `port` attribute, VS Code will not automatically add the `--inspect-brk=nnnn` attribute because the debug port is typically specified by the npm script or other tool as well.
 
 Let's look at an 'npm' example. If your `package.json` has a 'debug' script, for example:
 
 ```json
   "scripts": {
-    "debug": "node --nolazy --debug-brk=5858 myProgram.js"
+    "debug": "node --nolazy --inspect-brk=9229 myProgram.js"
   },
 ```
 
@@ -136,7 +136,7 @@ the corresponding launch configuration would look like this:
     "runtimeArgs": [
         "run-script", "debug"
     ],
-    "port": 5858
+    "port": 9229
 }
 ```
 
@@ -187,7 +187,6 @@ The corresponding launch configuration looks like this:
     "name": "Attach to Process",
     "type": "node",
     "request": "attach",
-    "protocol": "inspector",
     "port": 9229
 }
 ```
@@ -200,7 +199,7 @@ If you want to attach to a Node.js process that hasn't been started in debug mod
     "type": "node",
     "request": "attach",
     "processId": "53426",
-    "port": 5858
+    "port": 9229
 }
 ```
 
@@ -216,7 +215,7 @@ By using the `PickProcess` variable the launch configuration looks like this:
     "type": "node",
     "request": "attach",
     "processId": "${command:PickProcess}",
-    "port": 5858
+    "port": 9229
 }
 ```
 
@@ -243,8 +242,9 @@ If you need to set a breakpoint in a script that is not part of your workspace a
 The `restart` attribute of a launch configuration controls whether the Node.js debugger automatically restarts after the debug session has ended. This feature is useful if you use [**nodemon**](https://nodemon.io) to restart Node.js on file changes. Setting the launch configuration attribute `restart` to `true` makes the node debugger automatically try to re-attach to Node.js after Node.js has terminated.
 
 If you have started your program `server.js` via **nodemon** on the command line like this:
+
 ```bash
-nodemon --debug server.js
+nodemon --inspect server.js
 ```
 
 you can attach the VS Code debugger to it with the following launch configuration:
@@ -255,7 +255,7 @@ you can attach the VS Code debugger to it with the following launch configuratio
     "type": "node",
     "request": "attach",
     "restart": true,
-    "port": 5858
+    "port": 9229
 }
 ```
 
