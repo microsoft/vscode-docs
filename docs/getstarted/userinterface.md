@@ -114,7 +114,7 @@ The File Explorer is just one of the Views available in VS Code. There are also 
 * **Debug** - VS Code's Debug View displays variables, call stacks, and breakpoints.
 * **Extensions** - Install and manage your extensions within VS Code.
 
-The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right click **Remove from Activity Bar**).
+The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right click **Hide from Activity Bar**).
 
 ![activity bar context menu](images/userinterface/activity-bar-context-menu.png)
 
