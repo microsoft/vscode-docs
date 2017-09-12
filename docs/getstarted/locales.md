@@ -1,4 +1,4 @@
-﻿---
+---
 Order: 7
 Area: getstarted
 TOCTitle: Display Language
