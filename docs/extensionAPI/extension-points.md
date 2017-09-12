@@ -134,6 +134,8 @@ In addition to a title, commands can also define icons which VS Code will show i
 }
 ```
 
+![menus extension point example](images/extension-points/menus.png)
+
 ### Context specific visibility of Command Palette menu items
 
 When registering commands in `package.json`, they will automatically be shown in the **Command Palette** (`kb(workbench.action.showCommands)`). To allow more control over command visibility, there is the `commandPalette` menu item. It allows you to define a `when` condition to control if a command should be visible in the **Command Palette** or not.
@@ -152,8 +154,6 @@ The snippet below makes the 'Hello World' command only visible in the **Command 
     }]
 }
 ```
-
-![menus extension point example](images/extension-points/menus.png)
 
 ### Sorting of groups
 
@@ -353,7 +353,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
 }
 ```
 
-For a full walkthrough on how to integrate a `debugger` go to [Debuggers](/docs/extensions/example-debuggers.md).
+For a full walkthrough on how to integrate a `debugger`, go to [Debuggers](/docs/extensions/example-debuggers.md).
 
 ## contributes.breakpoints
 
@@ -460,7 +460,6 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
     }
 }
 ```
-
 
 ![views extension point example](images/extension-points/views.png)
 
