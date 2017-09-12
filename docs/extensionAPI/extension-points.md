@@ -80,9 +80,9 @@ The following example contributes default editor configurations for the `markdow
 
 ## contributes.commands
 
-Contribute an entry consisting of a title and a command to invoke to the Command Palette (`kb(workbench.action.showCommands)`).
+Contribute an entry consisting of a title and a command to invoke to the **Command Palette** (`kb(workbench.action.showCommands)`). You can also optionally define a `category` string which will prefix the command title and allow easy grouping within the **Command Palette** drop-down.
 
->**Note:** When a command is invoked (from a key binding or from the Command Palette), VS Code will emit an activationEvent `onCommand:${command}`.
+>**Note:** When a command is invoked (from a key binding or from the **Command Palette**), VS Code will emit an activationEvent `onCommand:${command}`.
 
 ### Example
 
@@ -90,7 +90,8 @@ Contribute an entry consisting of a title and a command to invoke to the Command
 "contributes": {
     "commands": [{
         "command": "extension.sayHello",
-        "title": "Hello World"
+        "title": "Hello World",
+        "category": "Hello"
     }]
 }
 ```
