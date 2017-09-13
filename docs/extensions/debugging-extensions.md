@@ -7,7 +7,6 @@ PageTitle: Running and Debugging your Visual Studio Code Extension
 DateApproved: 9/7/2017
 MetaDescription: It is easy to debug and test your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension directly in Visual Studio Code.
 ---
-
 # Running and Debugging Your Extension
 
 You can use VS Code to develop an extension for VS Code and VS Code provides several tools that simplify extension development:
@@ -73,6 +72,20 @@ your changes. You have two options to do this:
 
 * Click on the debug restart action to relaunch the Extension Development Host window.
 * Press `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`) in the Extension Development Host window.
+
+## Profiling your extension
+
+You can profile your extension using the Chrome DevTools Memory and CPU profiler.
+
+Do the following:
+
+1. Start VS Code from the command line the with `--inspect-extensions=<port>`-flag, for example `code --inspect-extensions=9333`.
+2. In VS Code, from the **Command Palette** (`kb(workbench.action.showCommands)`), select **Developer: Toggle Developer Tools**, hit `Enter`.
+3. Select the **Console** tab and find a message that starts with `"Debugger listening on port 9333"` and that ends with a `chrome-devtools` link.
+4. Open that link in a Chrome browser for dedicated DevTools for the extension host.
+5. Use the Memory and CPU profiler to understand how memory and compute resources are being used.
+
+![chrome devtools](images/debugging-extensions/chrome-devtools.png)
 
 ## Next Steps
 
