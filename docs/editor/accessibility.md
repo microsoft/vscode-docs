@@ -7,7 +7,6 @@ PageTitle: Accessibility in Visual Studio Code
 DateApproved: 9/7/2017
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
-
 # Accessibility
 
 Visual Studio Code has many features to help make the editor accessible to all users. Zoom and High Contrast colors improve editor visibility, keyboard-only navigation allows use without a mouse and the editor has been optimized for screen readers.
@@ -18,7 +17,7 @@ You can increase the Zoom level in VS Code with the **View** > **Zoom In** comma
 
 ![Zoomed in editor](images/accessibility/zoomed-in.png)
 
-## Persisted Zoom Level
+### Persisted Zoom Level
 
 When you adjust the zoom level with the **View** > **Zoom In / Out** commands, the zoom level is persisted in the `window.zoomLevel` [setting](/docs/getstarted/settings.md). The default value is 0 and each increment increases the zoom level by 20%.
 

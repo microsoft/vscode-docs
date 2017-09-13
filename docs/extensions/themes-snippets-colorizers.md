@@ -22,26 +22,26 @@ Colors visible in the VS Code user interface fall in two categories:
 
 The easiest way to create a new workbench color theme is to start with an existing color theme and customize it:
 
-- Switch to the color theme that you want to modify 
+- Switch to the color theme that you want to modify.
 - Open the [settings](/docs/getstarted/settings.md) and make changes to view and editor colors using the `workbench.colorCustomizations`. Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
 - A complete list of all themable colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
 
 ### Syntax highlighting colors
 
-For syntax highlighting colors there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it:
+For syntax highlighting colors, there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it:
 
-- Switch to the color theme to customze and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
-- The setting supports a simple mode with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than than, you need to use textMate theme rules directly. 
+- Switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
+- The setting supports a simple mode with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than than, you need to use textMate theme rules directly.
 
 ### TextMate theme rules
 
 To write TextMate theme rules, you need to know about TextMate grammars and scopes.
 
-`TextMate grammars` consist of a set of regular expression that are used create a syntax tree out of the source code. Each tree node spans a source range and represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators). 
+`TextMate grammars` consist of a set of regular expression that are used create a syntax tree out of the source code. Each tree node spans a source range and represents a `scope`. Scopes have a name and stand for either code sections (such as functions, blocks, comments) or symbols (for example keywords, numbers, operators).
 
-Here's an example of the scope hierarchy generated for a JavaScript code sample: 
+Here's an example of the scope hierarchy generated for a JavaScript code sample:
 
-```javascript 
+```javascript
 function f1() {
 ```
 
@@ -55,11 +55,10 @@ The list of scope names active at a given offset are the input for syntax highli
 
 Text Mate themes describe the theming rules used for syntax highlighting. Each rule consists of one or more scope selectors and a set of styles: colors (foreground & background) and font styles (bold, italics and underline).
 
-To evaluate the style of a symbol at a given offset, the scopes at that offset are computed. The theming rules are then processed first to last. The rule's scope selectors are matched against that set of scopes. The rule with the most specific match wins. 
+To evaluate the style of a symbol at a given offset, the scopes at that offset are computed. The theming rules are then processed first to last. The rule's scope selectors are matched against that set of scopes. The rule with the most specific match wins.
 
 Here are some example theming rules. The  `scope` property lists the rules scope selectors. The `setting` property describes the styles to apply when the rule wins. The `name` is just used for documentation.
 
-- You can use the the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor. ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 - TextMate themes assign a set of styles to one or more scopes. The styles are the foreground color, the background color and bold, italics and underline. A theme consist of a set of rules. To evaluate the style of a symbol, the rules are processed first to last and each scope selector is matched against to symbols scope and parent scopes. The most specific rule is used for styling the symbol.
 
 - Scope selector support prefix matching and matching against parent scopes
@@ -91,16 +90,21 @@ Here are some example theming rules. The  `scope` property lists the rules scope
 - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but are not inside a parent scope that matches `source.java`
 - Learn more about scope selectors [here](https://manual.macromates.com/en/scope_selectors).
 
-You can use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied. ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
+You can use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
+
+![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 
 ## Create a new color theme
+
 - Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
 - Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generated a new theme extension.
 - If you customized a theme as described above, select 'Start fresh'.
+
 ![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)
 
-  - Copy the theme file generated from your settings to the new extension.
+- Copy the theme file generated from your settings to the new extension.
 - To use a existing TextMate theme, you can tell the extension generator to import a TextMate theme file and package it for use in VS Code. Alternatively, if you have already downloaded the theme, replace the `tokenColors` section with a link to the `.tmTheme` file to use.
+
 ```json
 {
     "type": "dark",
@@ -115,6 +119,7 @@ You can use the **Developer Tools: Inspect TM Scopes** command from the **Comman
     "tokenColors": "./Diner.tmTheme"
 }
 ```
+
 >**Tip:** [ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"http://colorsublime.com/theme/download/(number)"`
 
 ## Test a new color theme
@@ -342,7 +347,7 @@ Using the ['code' Yeoman generator](/docs/extensions/yocode.md), you can create 
 
 Central to language support is a TextMate [language specification](https://manual.macromates.com/en/language_grammars) file (.tmLanguage) that describes the colorizer rules. The yeoman generator either takes an existing TextMate language specification file or lets you start with a fresh one.
 
-A good place to look for existing TextMate .tmLanguage files is on GitHub. Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can import either .tmLanguage or .pList files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file e.g. https://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage. Make sure that the path points to the content of the file, not the HTML file showing the content.
+A good place to look for existing TextMate .tmLanguage files is on GitHub. Search for a TextMate bundle for the language you are interested in and then navigate to the `Syntaxes` folder.  The 'code' Yeoman generator can import either .tmLanguage or .pList files.  When prompted for the URL or file location, pass the raw path to the .tmLanguage file, for example https://raw.githubusercontent.com/textmate/ant.tmbundle/master/Syntaxes/Ant.tmLanguage. Make sure that the path points to the content of the file, not the HTML file showing the content.
 
 ![yo code language support](images/themes-snippets-colorizers/yocodelanguage.png)
 
