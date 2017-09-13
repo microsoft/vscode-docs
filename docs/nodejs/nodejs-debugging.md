@@ -12,8 +12,6 @@ MetaSocialImage: debugging_Debugging.png
 
 The Visual Studio Code editor has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript.
 
->**Are you new to VS Code?** Learn more and download a [faster Node.js editor here](/nodejs).
-
 This document explains the details of Node.js debugging. The general debugging feature are described in [Debugging](/docs/editor/debugging.md).
 
 ## Supported Node-like Runtimes
