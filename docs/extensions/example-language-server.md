@@ -421,7 +421,7 @@ let maxNumberOfProblems: number;
 // as well.
 connection.onDidChangeConfiguration((change) => {
     let settings = <Settings>change.settings;
-    maxNumberOfProblems = settings.languageServerExample.maxNumberOfProblems || 100;
+    maxNumberOfProblems = settings.lspSample.maxNumberOfProblems || 100;
     // Revalidate any open text documents
     documents.all().forEach(validateTextDocument);
 });
