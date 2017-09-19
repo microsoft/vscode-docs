@@ -5,7 +5,7 @@ TOCTitle: Electron Debugging
 ContentId:
 PageTitle: Debug Electron Apps using VS Code
 DateApproved: 9/19/2017
-MetaDescription: The Visual Studio Code editor supports debuggig of Electron apps. Set breakpoints, step-in, inspect variables and more.
+MetaDescription: The Visual Studio Code editor supports debugging of Electron apps. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: debugging_Debugging.png
 ---
 # Electron Debugging in VS Code
