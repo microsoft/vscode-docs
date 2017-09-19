@@ -9,7 +9,7 @@ var common = require('./gulpfile.common');
 var slash = require('gulp-slash');
 
 var TUTORIAL_ROOT = 'tutorials';
-var DEST_ROOT = 'out/vscode-website/src';
+var DEST_ROOT = 'out/vscode-website';
 
 var tutorials = [];
 
@@ -54,7 +54,7 @@ gulp.task('copy-tutorial-images', function () {
             path.basename = path.dirname + '_' + path.basename;
             path.dirname = '';
         }))
-		.pipe(gulp.dest(DEST_ROOT + '/dist'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/assets'));
 ;})
 
 gulp.task('compile-tutorial-markdown', function () {
@@ -82,7 +82,7 @@ gulp.task('compile-tutorial-markdown', function () {
             return renderTemplate(file, tutorialArticle);
 		}))
 		.pipe(rename({ extname: '.handlebars' }))
-		.pipe(gulp.dest(DEST_ROOT + '/views/tutorials'));
+		.pipe(gulp.dest(DEST_ROOT + '/server/views/tutorials'));
 });
 
 gulp.task('compile-tutorial', ['compile-tutorial-markdown', 'copy-tutorial-images'], function () {
@@ -99,7 +99,7 @@ gulp.task('compile-tutorial', ['compile-tutorial-markdown', 'copy-tutorial-image
     });
 
     es.readArray([latest])
-        .pipe(gulp.dest(DEST_ROOT + '/views/tutorials'));
+        .pipe(gulp.dest(DEST_ROOT + '/server/views/tutorials'));
 
 	var file = new File({
 		path: 'tutorialNavigation.handlebars',
@@ -107,5 +107,5 @@ gulp.task('compile-tutorial', ['compile-tutorial-markdown', 'copy-tutorial-image
 	});
 
 	return es.readArray([file])
-        .pipe(gulp.dest(DEST_ROOT + '/views/partials'));
+        .pipe(gulp.dest(DEST_ROOT + '/server/views/partials'));
 });
