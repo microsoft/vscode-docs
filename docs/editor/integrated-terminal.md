@@ -153,19 +153,26 @@ This can happen if you run VS Code in compatibility mode which may be turned on 
 
 ### Can I use Cmder with the terminal on Windows?
 
-Yes, to use the [Cmder](http://cmder.net/) console emulator in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents:
+It is possible to use your [Cmder](http://cmder.net/) environment in the integrated terminal in VS Code. You need to create a `vscode.bat` file in your cmder root directory and add one of the following scripts to the `vscode.bat` file:
 
+For a standard command prompt:
 ```bat
 @echo off
-SET CMDER_ROOT=C:\cmder (your path to cmder)
+SET CMDER_ROOT=%~dp0
 "%CMDER_ROOT%\vendor\init.bat"
 ```
 
-then in your VS Code user settings, add the following to your `settings.json` file:
+Or if you want a powershell prompt:
+```bat
+@echo off
+SET CMDER_ROOT=%~dp0
+PowerShell -ExecutionPolicy Bypass -NoLogo -NoProfile -NoExit -Command "Invoke-Expression '. ''%CMDER_ROOT%\vendor\profile.ps1'''"
+```
 
+Then in your VS Code user settings, add the following to your `settings.json` file:
 ```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
+"terminal.integrated.shell.windows": "cmd.exe",
 "terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
 ```
 
-Note: The example above assumes you are running 32-bit VS Code on 64-bit Windows and need to use `sysnative`. If you are running the 64-bit version of VS Code, you would use `System32`.
+Note: If using 32-bit VS Code on 64-bit windows, change `"cmd.exe"` to `"C:\\WINDOWS\\sysnative\\cmd.exe"`.
