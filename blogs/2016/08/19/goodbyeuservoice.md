@@ -1,10 +1,10 @@
 ---
-Order: 14
+Order:
 TOCTitle: Goodbye User Voice
 PageTitle: Goodbye User Voice
-MetaDescription: Visual Studio Code is closing User Voice in favor of GitHub reactions.  
+MetaDescription: Visual Studio Code is closing User Voice in favor of GitHub reactions.
 Date: 2016-08-23
-ShortDescription: Visual Studio Code is closing User Voice in favor of GitHub reactions. 
+ShortDescription: Visual Studio Code is closing User Voice in favor of GitHub reactions.
 Author: Wade Anderson
 ---
 
