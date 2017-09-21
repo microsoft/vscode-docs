@@ -60,7 +60,7 @@ Otherwise, you can use the following command line arguments to control your prox
 
 Authenticated proxies should work seamlessly within VS Code with the addition of [PR #22369](https://github.com/Microsoft/vscode/pull/22369).
 
-The authentication methods supported are: 
+The authentication methods supported are:
 
 * Basic
 * Digest

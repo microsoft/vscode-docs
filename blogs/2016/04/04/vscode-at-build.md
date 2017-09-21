@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order:
 TOCTitle: VS Code at //build/
 PageTitle: Visual Studio Code at Build 2016
 MetaDescription: Visual Studio Code at Build 2016. Learn about presentations featuring VS Code.

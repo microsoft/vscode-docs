@@ -1,5 +1,5 @@
 ---
-Order: 19
+Order:
 TOCTitle: 1.7 Rollback Incident Report
 PageTitle: Visual Studio Code 1.7 Rollback Incident Report
 MetaDescription: Visual Studio Code 1.7 Rollback Incident Report

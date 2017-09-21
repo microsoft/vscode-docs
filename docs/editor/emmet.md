@@ -21,13 +21,40 @@ When you start typing an Emmet abbreviation, you will see the abbreviation displ
 
 ![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
 
-If you have disabled `editor.quickSuggestions`, you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
+### Emmet when quickSuggestions are disabled
 
-If you don't want to use suggestions at all, then set `emmet.showExpandedAbbreviation` to `never` and use the command `Emmet: Expand Abbreviation` to expand your abbreviations. You can bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
 
-If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the [setting](/docs/getstarted/settings.md)  `emmet.triggerExpansionOnTab` and set it to `true`. This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
+### Disable Emmet in suggestions
 
-Emmet suggestions may not always show up at the top of the suggestion list. This can be either because you have set `editor.snippetSuggestions` to `top` or if you are on a stylesheet file, it is sorted among other CSS suggestions. To ensure Emmet suggestions are always on top you can set `emmet.showSuggestionsAsSnippets` to `true` and `editor.snippetSuggestions` to `top`.
+If you don't want to see Emmet abbreviations in suggestions at all, then set `emmet.showExpandedAbbreviation` to `never` and use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+
+```json
+{
+    "emmet.showExpandedAbbreviation": "never"
+}
+```
+
+### Using Tab for Emmet expansions
+
+If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the setting `emmet.triggerExpansionOnTab` and set it to `true`. This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
+
+```json
+{
+    "emmet.triggerExpansionOnTab": true
+}
+```
+
+### Emmet suggestion ordering
+
+Emmet suggestions may not always show up at the top of the suggestion list. This can be either because you have set `editor.snippetSuggestions` to `top` or if you are on a stylesheet file, it is sorted among other CSS suggestions. To ensure Emmet suggestions are always on top, you can set `emmet.showSuggestionsAsSnippets` to `true` and `editor.snippetSuggestions` to `top`.
+
+```json
+{
+    "emmet.showSuggestionsAsSnippets": true,
+    "editor.snippetSuggestions": "top"
+}
+```
 
 ## Emmet abbreviations in other file types
 
@@ -43,7 +70,7 @@ For example:
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.  
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.
 
 > Note: If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
 
@@ -57,36 +84,41 @@ Below is an example for the contents of this `snippets.json` file.
 {
     "html": {
         "snippets": {
-            "ull": "ul>li{ This is a valid emmet abbreviation and will work across syntaxes like html, jade, haml and slim }",
-            "ran": "{Use this format to get the snippet text as is}",
-            "oll": "<ol>This will work only in html but not in jade, haml, slim etc</ol>"
+            "ull": "ul>li[id=${1} class=${2}]*2{ Will work with html, jade, haml and slim }",
+            "oll": "<ol><li id=${1} class=${2}> Will only work in html </ol>",
+            "ran": "{ Wrap plain text in curly braces }"
         }
     },
     "css": {
         "snippets": {
-            "cb": "color: black"
+            "cb": "color: black",
+            "bsd": "border: 1px solid ${1:red}",
+            "ls": "list-style: ${1}"
         }
     }
 }
 ```
 
-Keep in mind that there are some restrictions on the snippet name and value.
+Authoring of Custom Snippets in Emmet 2.0 via the `snippets.json` file differs from the old way of doing the same in a few ways:
+
+Topic | Old Emmet | Emmet 2.0
+------ | -------- | ---------
+Snippets vs Abbreviations | Supports both in 2 separate properties called `snippets` and `abbreviations` | The 2 have been combined into a single property called snippets. See default [html snippets](https://github.com/emmetio/snippets/blob/master/html.json) and [css snippets](https://github.com/emmetio/snippets/blob/master/css.json)
+CSS snippet names | Can contain `:` | Do not use `:` when defining snippet names. It is used to separate property name and value when Emmet tries to fuzzy match the given abbreviation to one of the snippets.
+CSS snippet values | Can end with `;` | Do not add `;` at end of snippet value. Emmet will add the trailing `;` based on the file type (css/less/scss vs sass/stylus) or the emmet preference set for `css.propertyEnd`, `sass.propertyEnd`, `stylus.propertyEnd`
+Cursor location | `${cursor}` or `|` can be used | Use only textmate syntax like `${1}` for tab stops and cursor locations
 
 ### HTML Emmet snippets
 
 HTML custom snippets are applicable to all other markup flavors like `haml` or `jade`. When snippet value is an abbreviation and not actual HTML, the appropriate transformations can be applied to get the right output as per the language type.
 
 For example, for an unordered list with a list item, if your snippet value is `ul>li`, you can use the same snippet in `html`, `haml`, `jade` or `slim`, but if your snippet value is `<ul><li></li></ul>`, then it will work only in `html` files.
-  		  
-If you want a snippet for plain text, then use the `{}` notation as shown in the example above.
+
+If you want a snippet for plain text, then surround the text with the `{}`.
 
 ### CSS Emmet snippets
 
 Values for CSS Emmet snippets should be a complete property name and value pair.
-
-Name the snippet such that it contains the letters from the snippet value in the order that they appear in the latter, so that the fuzzy matching algorithm of the suggestion list can make the right match. If you don't use similar letters, the **Emmet: Expand Abbreviation** command will still work, but the snippets won't show up as expected in a filtered suggestion list.
-
-For example, don't use `bc` or `darkc` as the name for `color: black`. Use `cb` or `cob` instead.
 
 CSS custom snippets are applicable to all other stylesheet flavors like `scss`, `less` or `sass`. Therefore, don't include a trailing `;` at the end of the snippet value. Emmet will add it as needed based on the whether the language requires it.
 
@@ -96,10 +128,10 @@ Do not use `:` in the snippet name. `:` is used to separate property name and va
 
 ### Tab stops and cursors in custom snippets
 
-The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets). 
+The syntax for tab stops in custom Emmet snippets follows the [Textmate snippets syntax](https://manual.macromates.com/en/snippets).
+
 - Use `${1}`, `${2}` for tab stops and `${1:placeholder}` for tab stops with placeholders.
 - Previously, `|` or `${cursor}` was used to denote the cursor location in the custom Emmet snippet. This is no longer supported. Use `${1}` instead.
-
 
 ## Emmet configuration
 
@@ -203,6 +235,5 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 Below are some of the upstream issues with Emmet 2.0 that we are working on fixing. Any help in these areas is appreciated.
 
-* Support to customize formatters for stylesheets like `css.propertyEnd`, `css.valueSeparator`, `css.UnitAliases`, `css.intUnit` and `css.floatUnit`. [Issue: emmetio/expand-abbreviation#8](https://github.com/emmetio/expand-abbreviation/issues/8)
 * Use of `@-` to get numbering in descending order in repeaters is not supported. [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
 * HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)

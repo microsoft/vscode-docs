@@ -25,7 +25,7 @@ These tools are mostly run from the command line and automate jobs inside and ou
 
 ## TypeScript Hello World
 
-Let's start with a simple "Hello World" TypeScript program that we want to compile to JavaScript. 
+Let's start with a simple "Hello World" TypeScript program that we want to compile to JavaScript.
 
 Create an empty folder "mytask", generate a `tsconfig.json` file and start VS Code from that folder.
 
@@ -53,7 +53,7 @@ Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task...** fro
 
 ![TypeScript Build Task](images/tasks/typescript-build.png)
 
-Selecting the entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file. 
+Selecting the entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file.
 
 You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select **TypeScript** and VS Code will generate the following `tasks.json` file:
 
@@ -66,6 +66,9 @@ You can also define the TypeScript build task as the default build task so that 
         {
             "type": "typescript",
             "tsconfig": "tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -83,7 +86,7 @@ VS Code currently auto-detects tasks for the following systems: Gulp, Grunt, Jak
 
 ![Tasks ESLint starter](images/tasks/eslint-starter.png)
 
-Select **npm: install** to install the necessary Node.js modules. When prompted to select a problem matcher, select **Continue without scanning the build output**. This will install all necessary Node.js modules. 
+Select **npm: install** to install the necessary Node.js modules. When prompted to select a problem matcher, select **Continue without scanning the build output**. This will install all necessary Node.js modules.
 
 Now open the `server.js` file and add a semicolon to the end of a statement (note the ESLint starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: run lint** task. When prompted for the problem matcher to use, select **ESLint stylish**
 
@@ -112,7 +115,7 @@ In additon, VS Code created a `tasks.json` file with the following content:
 }
 ```
 
-This instructs VS Code to scan the output of the **npm lint** script for problems using the ESLint stylish format. 
+This instructs VS Code to scan the output of the **npm lint** script for problems using the ESLint stylish format.
 
 For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an example of the tasks detected for the [vscode-node-debug](https://github.com/Microsoft/vscode-node-debug) extension.
 
@@ -122,7 +125,7 @@ For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an e
 
 ## Custom tasks
 
-Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu. This opens the following picker: 
+Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu. This opens the following picker:
 
 ![Configure Task Runner](images/tasks/configure-task-runner.png)
 
@@ -183,7 +186,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
 - **panel**: Controls whether the terminal instance is shared between task runs. Possible values are:
   - *shared*: The terminal is shared and the output of other task runs are added to the same terminal.
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However the output of a different task is presented in a different terminal.
-  - *new*: Every execution of that task is using a new clean terminal. 
+  - *new*: Every execution of that task is using a new clean terminal.
 
 You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, simply add the `presentation` property to it:
 
@@ -202,7 +205,7 @@ You can modify the terminal panel behavior for auto-detected tasks as well. For 
             "presentation": {
                 "reveal": "never"
             }
-        }        
+        }
     ]
 }
 

@@ -83,8 +83,8 @@ The settings shown below are the default settings. You can change these settings
     // Controls if quick suggestions should show up while typing
     "editor.quickSuggestions": true,
 
-    // Controls if suggestions should be accepted with "Enter" - in addition to "Tab". Helps to avoid ambiguity between inserting new lines and accepting suggestions.
-    "editor.acceptSuggestionOnEnter": true,
+    // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
+    "editor.acceptSuggestionOnEnter": "on",
 
     // Controls the delay in ms after which quick suggestions will show up.
     "editor.quickSuggestionsDelay": 10,
@@ -112,13 +112,13 @@ The key bindings shown below are the default key bindings. You can change these 
        "command": "editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
     },
-    { 
-        "key": "ctrl+space",            
+    {
+        "key": "ctrl+space",
         "command": "toggleSuggestionDetails",
-        "when": "editorTextFocus && suggestWidgetVisible" 
+        "when": "editorTextFocus && suggestWidgetVisible"
     },
-    { 
-        "key": "ctrl+alt+space",        
+    {
+        "key": "ctrl+alt+space",
         "command": "toggleSuggestionFocus",
         "when": "editorTextFocus && suggestWidgetVisible" },
     }

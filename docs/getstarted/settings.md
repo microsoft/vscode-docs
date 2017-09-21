@@ -84,7 +84,7 @@ The following examples customize editor settings for language modes `typescript`
     "editor.formatOnSave": true,
     "editor.wordwrap": "on",
     "editor.renderWhitespace": "all",
-    "editor.acceptSuggestionOnEnter": false
+    "editor.acceptSuggestionOnEnter": "off"
   }
 }
 ```
@@ -267,7 +267,7 @@ Below are the default settings and their values.
   // Controls if the editor should automatically format the pasted content. A formatter must be available and the formatter should be able to format a range in a document.
   "editor.formatOnPaste": false,
 
-  // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available. 
+  // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available.
   "editor.autoIndent": true,
 
   // Controls if suggestions should automatically show up when typing trigger characters
@@ -1378,7 +1378,7 @@ Below are the default settings and their values.
 
   // Controls whether auto detection of Gulp tasks is on or off. Default is on.
   "gulp.autoDetect": "on",
-  
+
 // Jake
 
 // Controls whether auto detection of Jake tasks is on or off. Default is on.

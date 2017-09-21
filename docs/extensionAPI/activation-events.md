@@ -59,12 +59,12 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## activationEvents.workspaceContains
 
-This activation event is emitted and interested extensions will be activated whenever a folder is opened and the folder contains a top-level file.
+This activation event is emitted and interested extensions will be activated whenever a folder is opened and the folder contains at least one file that matches a glob pattern.
 
 ```json
 ...
 "activationEvents": [
-    "workspaceContains:.editorconfig"
+    "workspaceContains:**/.editorconfig"
 ]
 ...
 ```

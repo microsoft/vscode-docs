@@ -43,6 +43,8 @@ With the C/C++ extension installed, open a folder that contains your C/C++ sourc
 * Click the lightbulb that appears in the left gutter.
 * Click **Update "browse.path" setting**.
 
+![browse path light bulb](images/cpp/cpp-lightbulb.png)
+
 This will generate a `c_cpp_properties.json` file that allows you to add additional browse paths to properly enable code navigation and auto-completion. The generated `c_cpp_properties.json` file has sections for different operating systems, make sure you update the appropriate settings for your current platform.
 
 Below you can see that the MinGW C++ include path has been added to `browse.path` for Windows:
@@ -222,9 +224,7 @@ When the platform indicator returns to its normal appearance, the source code sy
 
 To provide the best experience, the C/C++ extension for VS Code needs to know where it can find each header file referenced in your code. By default, the extension searches the current source directory, its sub-directories, and some platform-specific locations. If a referenced header file can't be found, VS Code displays a green squiggle underneath each #include directive that references it.
 
-To specify additional include directories to be searched, place your cursor over any #include directive that displays a green squiggle, then click the lightbulb action when it appears. This opens the file `c_cpp_properties.json` for editing; here you can specify additional include directories for each platform configuration individually by adding more directories to its 'includePath' property.
-
-![Adding an additional include path](images/cpp/includepath.gif)
+To specify additional include directories to be searched, place your cursor over any #include directive that displays a green squiggle, then click the lightbulb action when it appears. This opens the file `c_cpp_properties.json` for editing; here you can specify additional include directories for each platform configuration individually by adding more directories to the 'browse.path' property.
 
 ### Search for Symbols
 

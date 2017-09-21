@@ -14,7 +14,7 @@ var common = require('./gulpfile.common');
 var slash = require('gulp-slash');
 
 var BLOG_ROOT = 'blogs';
-var DEST_ROOT = 'out/vscode-website/src';
+var DEST_ROOT = 'out/vscode-website';
 
 var blogs = [];
 
@@ -58,7 +58,7 @@ gulp.task('copy-blog-images', function () {
 			path.basename = path.dirname + '_' + path.basename;
 			path.dirname = '';
 		}))
-		.pipe(gulp.dest(DEST_ROOT + '/dist'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/dist'));
 	;
 })
 
@@ -87,7 +87,7 @@ gulp.task('compile-blog-markdown', function () {
 			return renderTemplate(file, blogArticle);
 		}))
 		.pipe(rename({ extname: '.handlebars' }))
-		.pipe(gulp.dest(DEST_ROOT + '/views/blogs'));
+		.pipe(gulp.dest(DEST_ROOT + '/server/views/blogs'));
 });
 
 gulp.task('compile-blog', ['compile-blog-markdown', 'copy-blog-images'], function () {
@@ -104,7 +104,7 @@ gulp.task('compile-blog', ['compile-blog-markdown', 'copy-blog-images'], functio
 	});
 
 	es.readArray([latest])
-		.pipe(gulp.dest(DEST_ROOT + '/views/blogs'));
+		.pipe(gulp.dest(DEST_ROOT + '/server/views/blogs'));
 
 	var file = new File({
 		path: 'blogNavigation.handlebars',
@@ -114,7 +114,7 @@ gulp.task('compile-blog', ['compile-blog-markdown', 'copy-blog-images'], functio
 	compileAtomFeed();
 
 	return es.readArray([file])
-		.pipe(gulp.dest(DEST_ROOT + '/views/partials'));
+		.pipe(gulp.dest(DEST_ROOT + '/server/views/partials'));
 });
 
 function compileAtomFeed() {
@@ -129,5 +129,5 @@ function compileAtomFeed() {
 	})
 
 	es.readArray([feedXml])
-		.pipe(gulp.dest(DEST_ROOT + '/public'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/public'));
 };

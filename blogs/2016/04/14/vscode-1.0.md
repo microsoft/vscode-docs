@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order:
 TOCTitle: 1.0 Release
 PageTitle: Visual Studio Code 1.0 Release
 MetaDescription: Visual Studio Code releases 1.0.

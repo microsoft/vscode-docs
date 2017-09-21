@@ -1,10 +1,10 @@
 ---
-Order: 13
+Order:
 TOCTitle: Intro Videos
 PageTitle: Visual Studio Code Introductory Videos
-MetaDescription: We want to help people get going with VS Code. Watch our new introductory videos to jump start your work with VS Code. 
+MetaDescription: We want to help people get going with VS Code. Watch our new introductory videos to jump start your work with VS Code.
 Date: 2016-08-15
-ShortDescription: Watch our new intro videos to jump start your work with VS Code. 
+ShortDescription: Watch our new intro videos to jump start your work with VS Code.
 Author: Wade Anderson
 ---
 
@@ -20,7 +20,7 @@ To help new users, today we are announcing a set of introductory videos. These v
 
 ## Take a Look
 
-Navigate to [Intro Videos - Overview](/docs/getstarted/introvideos.md) to get started. 
+Navigate to [Intro Videos - Overview](/docs/getstarted/introvideos.md) to get started.
 
 Below is the first video covering downloading, installing, and the basics of using VS Code:
 
@@ -28,7 +28,7 @@ Below is the first video covering downloading, installing, and the basics of usi
 
 You can see the video outline [here](/docs/introvideos/basics.md) as well as additional introductory learning resources.
 
-We want your feedback. What other videos would you like to see? Leave feedback in [this survey](https://www.surveymonkey.com/r/H9W7K8J) or ping me on [Twitter](https://twitter.com/waderyan_). 
+We want your feedback. What other videos would you like to see? Leave feedback in [this survey](https://www.surveymonkey.com/r/H9W7K8J) or ping me on [Twitter](https://twitter.com/waderyan_).
 
 Wade Anderson, VS Code Team Member <br>
 [@waderyan_](https://twitter.com/waderyan_)
