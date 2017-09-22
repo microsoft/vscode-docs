@@ -353,7 +353,7 @@ A good place to look for existing TextMate .tmLanguage files is on GitHub. Searc
 
 The generator will prompt you for other information such a unique name (this should be unique to avoid clashing with other extensions) and the language name, aliases and file extensions. You also have to provide the top level scope name of the grammar. That scope name must match the scope name in the tmLanguage file.
 
-When the generator is finished, open the created folder in Visual Studio Code. Have a look at the generated `<languageid>.configuration.json` file: It contains more language settings such as the tokens used for comments and brackets.  Make sure the configurations are accurate.
+When the generator is finished, open the created folder in Visual Studio Code. Have a look at the generated `language-configuration.json` file: It contains more language settings such as the tokens used for comments and brackets.  Make sure the configurations are accurate.
 
 Here is an example for a language with XML-like brackets:
 

@@ -10,7 +10,7 @@ MetaSocialImage: csharp_languages_csharp.png
 ---
 # Working with C&#35;
 
-The C# support in VS Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/other/dotnet.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.  For instance, many [Unity](/docs/other/unity.md) game developers enjoy using VS Code in place of the MonoDevelop IDE.
+The C# support in VS Code is optimized for cross-platform .NET Core development (see [working with .NET Core and VS Code](/docs/other/dotnet.md) for another relevant article).  Our focus with VS Code is to be a great editor for cross-platform C# development.
 
 ![C# language within VS Code](images/csharp/c_sharp_hero.png)
 

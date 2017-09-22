@@ -12,7 +12,7 @@
     "event-stream": "^3.3.1",
     "gulp": "^3.9.0",
     "gulp-front-matter": "^1.2.3",
-    "gulp-git": "^1.6.0",
+    "gulp-git": "^2.4.2",
     "gulp-imagemin": "^2.3.0",
     "gulp-rename": "^1.2.2",
     "gulp-slash": "^1.1.3",

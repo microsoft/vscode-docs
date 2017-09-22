@@ -365,7 +365,7 @@ editorTextFocus | The text in an editor has focus (cursor is blinking).
 editorHasSelection | Text is selected in the editor.
 editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
 editorReadOnly | The editor is read only.
-editorLangId | True when the editor's associated language Id matches. Example: `"editorLangId == typescript"`.
+editorLangId | True when the editor's associated [language Id](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
 textCompareEditorVisible | Diff (compare) view is visible.
 **Mode contexts** |
 inDebugMode | A debug session is running.
@@ -391,7 +391,7 @@ parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
 **Integrated terminal contexts** |
 terminalFocus | An integrated terminal has focus.
 **Global UI contexts** |
-resourceLangId | True when the Explorer or editor title language Id matches. Example: `"resourceLangId == markdown"`
+resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
 resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 globalMessageVisible | Message box is visible at the top of VS Code.
 searchViewletVisible | Search view is open.

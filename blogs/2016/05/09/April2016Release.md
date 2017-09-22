@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order:
 TOCTitle: April 2016 Release
 PageTitle: Visual Studio April 2016 Release
 MetaDescription: Announcing the Visual Studio Code April 2016 Release

@@ -1,5 +1,5 @@
 ---
-Order: 10
+Order:
 TOCTitle: Evolution of VS Code Insiders
 PageTitle: Evolution of VS Code Insiders
 MetaDescription: Evolution of the Visual Studio Code Insiders Build

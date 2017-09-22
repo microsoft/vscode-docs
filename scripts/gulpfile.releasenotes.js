@@ -13,8 +13,8 @@ var File = require('vinyl');
 var common = require('./gulpfile.common');
 
 var RN_SRC_ROOT = 'release-notes';
-var DEST_ROOT = 'out/vscode-website/src';
-var RAW_ROOT = DEST_ROOT + '/views/raw';
+var DEST_ROOT = 'out/vscode-website';
+var RAW_ROOT = DEST_ROOT + '/server/views/raw';
 
 var releaseNotes = [];
 
@@ -41,7 +41,7 @@ gulp.task('copy-releasenotes-images', function () {
 		.pipe(rename(function (path) {
 			path.basename = path.dirname + '_' + path.basename; path.dirname = '';
 		}))
-		.pipe(gulp.dest(DEST_ROOT + '/dist'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/assets'));
 });
 
 gulp.task('copy-releasenotes-raw-images', function () {
@@ -68,7 +68,7 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-handlebars', 'copy-rele
     });
 
     es.readArray([latest])
-        .pipe(gulp.dest(DEST_ROOT + '/views/updates'));
+        .pipe(gulp.dest(DEST_ROOT + '/server/views/updates'));
 
 	var file = new File({
 		path: 'updateNav.handlebars',
@@ -76,7 +76,7 @@ gulp.task('compile-releasenotes', ['compile-releasenotes-handlebars', 'copy-rele
 	});
 
 	return es.readArray([file])
-		.pipe(gulp.dest(DEST_ROOT + '/views/partials'));
+		.pipe(gulp.dest(DEST_ROOT + '/server/views/partials'));
 });
 
 function applyHtmlTemplate(file) {
@@ -104,7 +104,7 @@ gulp.task('compile-releasenotes-handlebars', function () {
 		.pipe(frontMatter({ property: 'data', remove: true }))
 		.pipe(es.mapSync(applyHtmlTemplate))
 		.pipe(rename({ extname: '.handlebars' }))
-		.pipe(gulp.dest(DEST_ROOT + '/views/updates'));
+		.pipe(gulp.dest(DEST_ROOT + '/server/views/updates'));
 });
 
 gulp.task('compile-releasenotes-markdown', function() {

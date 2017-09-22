@@ -12,7 +12,7 @@ var File = require('vinyl');
 var common = require('./gulpfile.common');
 
 var DOCS_SRC_ROOT = 'docs';
-var DEST_ROOT = 'out/vscode-website/src';
+var DEST_ROOT = 'out/vscode-website';
 
 function Area(title, path, include, articles) {
 	this.title = title || '';
@@ -45,7 +45,7 @@ gulp.task('copy-images', function () {
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
 		.pipe(rename({ dirname: '' }))
-		.pipe(gulp.dest(DEST_ROOT + '/dist/images'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/assets'));
 ;})
 
 gulp.task('compile-docs', ['compile-docs-markdown', 'copy-images'], function () {
@@ -65,7 +65,7 @@ gulp.task('compile-docs', ['compile-docs-markdown', 'copy-images'], function () 
 	});
 
 	return es.readArray([file])
-		.pipe(gulp.dest(DEST_ROOT + '/views/partials'));
+		.pipe(gulp.dest(DEST_ROOT + '/server/views/partials'));
 });
 
 gulp.task('compile-docs-markdown', function () {
@@ -103,5 +103,5 @@ gulp.task('compile-docs-markdown', function () {
 			return file;
 		}))
 		.pipe(rename({ extname: '.handlebars' }))
-		.pipe(gulp.dest(DEST_ROOT + '/views/docs'));
+		.pipe(gulp.dest(DEST_ROOT + '/server/views/docs'));
 });

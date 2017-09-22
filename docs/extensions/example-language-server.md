@@ -20,7 +20,7 @@ The remaining document assumes that you are familiar with normal [extension deve
 
 Language servers can be implemented in any language and follow the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol). However, right now VS Code only provides libraries for Node.js. Additional libraries will follow in the future. A good starting point for a language server implementation in Node.js is the example repository [VS Code extension samples](https://github.com/Microsoft/vscode-extension-samples). This repository contains 3 different Language Server samples:
 
-- **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Demos how to write a basic language server. 
+- **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Demos how to write a basic language server.
 - **[lsp-multi-root-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-root-sample)**: Demos how to write a language server which is multi workspace folder aware.
 - **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: Demos how to write a language server that start a different server instance per workspace folder.
 
@@ -38,7 +38,7 @@ The above installs all dependencies and opens one VS Code instances containing b
 
 ## Explaining the 'Client'
 
-The client is actually a normal VS Code extension. It contains a `package.json` file in the client folder of the workspace. There are three interesting sections of that file.  
+The client is actually a normal VS Code extension. It contains a `package.json` file in the client folder of the workspace. There are three interesting sections of that file.
 
 First look the `activationEvents`:
 
@@ -48,7 +48,7 @@ First look the `activationEvents`:
 ]
 ```
 
-This section tells VS Code to activate the extension as soon as a plain text file is opened (e.g. a file with the extension `.txt`). 
+This section tells VS Code to activate the extension as soon as a plain text file is opened (e.g. a file with the extension `.txt`).
 
 Next look at the `configuration` section:
 
@@ -66,7 +66,7 @@ Next look at the `configuration` section:
 }
 ```
 
-This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings. 
+This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings.
 
 The last part adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
 
@@ -99,30 +99,30 @@ export function activate(context: ExtensionContext) {
 	let serverModule = context.asAbsolutePath(path.join('server', 'server.js'));
 	// The debug options for the server
 	let debugOptions = { execArgv: ["--nolazy", "--debug=6009"] };
-	
+
 	// If the extension is launched in debug mode then the debug server options are used
 	// Otherwise the run options are used
 	let serverOptions: ServerOptions = {
 		run : { module: serverModule, transport: TransportKind.ipc },
 		debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
 	}
-	
+
 	// Options to control the language client
 	let clientOptions: LanguageClientOptions = {
 		// Register the server for plain text documents
 		documentSelector: [{scheme: 'file', language: 'plaintext'}],
 		synchronize: {
-			// Synchronize the setting section 'languageServerExample' to the server
+			// Synchronize the setting section 'lspSample' to the server
 			configurationSection: 'lspSample',
 			// Notify the server about file changes to '.clientrc files contain in the workspace
 			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
 		}
 	}
-	
+
 	// Create the language client and start the client.
 	let disposable = new LanguageClient('lspSample', 'Language Server Example', serverOptions, clientOptions).start();
-	
-	// Push the disposable to the context's subscriptions so that the 
+
+	// Push the disposable to the context's subscriptions so that the
 	// client can be deactivated on extension deactivation
 	context.subscriptions.push(disposable);
 }
@@ -132,7 +132,7 @@ export function activate(context: ExtensionContext) {
 
 >**Note:** The 'Server' implementation cloned from the GitHub repository has the final walkthrough implementation. To follow the walkthrough, you can create a new `server.ts` or modify the contents of the cloned version.
 
-In the example, the server is also implemented in TypeScript and executed using Node.js. Since VS Code already ships with a Node.js runtime, there is no need to provide your own, unless you have very specific requirements for the runtime. 
+In the example, the server is also implemented in TypeScript and executed using Node.js. Since VS Code already ships with a Node.js runtime, there is no need to provide your own, unless you have very specific requirements for the runtime.
 
 The interesting section in the server's `package.json` file is:
 
@@ -154,8 +154,8 @@ Below is a server implementation that uses the provided simple text document man
 'use strict';
 
 import {
-	IPCMessageReader, IPCMessageWriter, createConnection, IConnection, TextDocuments, TextDocument, 
-	Diagnostic, DiagnosticSeverity, InitializeResult, TextDocumentPositionParams, CompletionItem, 
+	IPCMessageReader, IPCMessageWriter, createConnection, IConnection, TextDocuments, TextDocument,
+	Diagnostic, DiagnosticSeverity, InitializeResult, TextDocumentPositionParams, CompletionItem,
 	CompletionItemKind
 } from 'vscode-languageserver';
 
@@ -170,7 +170,7 @@ let documents: TextDocuments = new TextDocuments();
 documents.listen(connection);
 
 // After the server has started the client sends an initilize request. The server receives
-// in the passed params the rootPath of the workspace plus the client capabilites. 
+// in the passed params the rootPath of the workspace plus the client capabilites.
 let workspaceRoot: string;
 connection.onInitialize((params): InitializeResult => {
 	workspaceRoot = params.rootPath;
@@ -246,7 +246,7 @@ connection.onDidChangeWatchedFiles((_change) => {
 
 // This handler provides the initial list of the completion items.
 connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-	// The pass parameter contains the position of the text document in 
+	// The pass parameter contains the position of the text document in
 	// which code complete got requested. For the example we ignore this
 	// info and always provide the same completion items.
 	return [
@@ -356,7 +356,7 @@ Debugging the client code is as easy as debugging a normal extension. Set a brea
 
 ![Debugging the client](images/example-language-server/debugging-client.png)
 
-Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Debug viewlet and select the launch configuration `Attach to Server` and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server. 
+Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Debug viewlet and select the launch configuration `Attach to Server` and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
 
 ![Debugging the server](images/example-language-server/debugging-server.png)
 
@@ -421,7 +421,7 @@ let maxNumberOfProblems: number;
 // as well.
 connection.onDidChangeConfiguration((change) => {
     let settings = <Settings>change.settings;
-    maxNumberOfProblems = settings.languageServerExample.maxNumberOfProblems || 100;
+    maxNumberOfProblems = settings.lspSample.maxNumberOfProblems || 100;
     // Revalidate any open text documents
     documents.all().forEach(validateTextDocument);
 });
@@ -438,7 +438,7 @@ The first interesting feature a language server usually implements is validation
 ```typescript
 // This handler provides the initial list of the completion items.
 connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-    // The pass parameter contains the position of the text document in 
+    // The pass parameter contains the position of the text document in
     // which code complete got requested. For the example we ignore this
     // info and always provide the same completion items.
     return [
@@ -520,7 +520,7 @@ This has two drawbacks:
 * Lots of data transfer since the whole content of a text document is sent to the server repeatedly.
 * If an existing language library is used, such libraries usually support incremental document updates to avoid unnecessary parsing and abstract syntax tree creation.
 
-The protocol therefore supports incremental document synchronization as well. 
+The protocol therefore supports incremental document synchronization as well.
 
 To make use of incremental document synchronization, a server needs to install three notification handlers:
 
@@ -528,7 +528,7 @@ To make use of incremental document synchronization, a server needs to install t
 * _onDidChangeTextDocument_: is called when the content of a text document changes in VS Code.
 * _onDidCloseTextDocument_: is called when a text document is closed in VS Code.
 
-Below is a code snippet that illustrates how to hook these notification handlers on a connection and how to return the right capability on initialize: 
+Below is a code snippet that illustrates how to hook these notification handlers on a connection and how to return the right capability on initialize:
 
 ```typescript
 connection.onInitialize((params): InitializeResult => {
