@@ -137,7 +137,7 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
         {
             "taskName": "Less Compile",
             "type": "shell",
-            "command": "lessc style.less style.css",
+            "command": "lessc styles.less styles.css",
             "group": "build"
         }
     ]
@@ -154,7 +154,7 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
         {
             "taskName": "Sass Compile",
             "type": "shell",
-            "command": "node-sass style.scss style.css",
+            "command": "node-sass styles.scss styles.css",
             "group": "build"
         }
     ]
