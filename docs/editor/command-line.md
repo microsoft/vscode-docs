@@ -9,7 +9,7 @@ MetaDescription: Visual Studio Code command line options. Learn to control VS Co
 ---
 # Command Line
 
-Visual Studio Code has a powerful command line interface that lets you control how your launch the editor. You can open or diff files, install extensions, even change the display language on startup.
+Visual Studio Code has a powerful command line interface that lets you control how you launch the editor. You can open or diff files, install extensions, even change the display language on startup.
 
 ## Launching from the command line
 
