@@ -168,9 +168,7 @@ The **Debugger for Chrome** extension README has lots of information on other co
 
 ### Live editing and debugging
 
-If you are using Webpack together with your React app, you can have a more efficient workflow by taking advantage of Webpack's HMR mechanism which enables you to have live editing and debugging directly from VS Code.
-
-Read more in this Medium post: https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f
+If you are using [webpack](https://webpack.js.org/) together with your React app, you can have a more efficient workflow by taking advantage of webpack's HMR mechanism which enables you to have live editing and debugging directly from VS Code. You can learn more in this [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) blog post.
 
 ## Linting
 

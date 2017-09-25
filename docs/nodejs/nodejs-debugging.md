@@ -442,9 +442,7 @@ Here are some things to try when your breakpoints turn gray:
 
 ## Node.js in Docker debugging
 
-If you are running Node.js inside a Docker container, you need a bit of additional configuration to make Debugging work. We have created a recipe that walks you through on how to setup Node.js in Docker with TypeScript.
-
-Read more here: https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript
+If you are running Node.js inside a [Docker](https://www.docker.com) container, you need a bit of additional configuration to make debugging work. We have created a "recipe" on [GitHub](https://github.com/Microsoft/vscode-recipes) that walks you through on how to set up [Node.js in Docker with TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript).
 
 ## Next Steps
 
