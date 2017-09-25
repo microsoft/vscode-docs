@@ -80,7 +80,7 @@ Here are some example theming rules. The  `scope` property lists the rules scope
         "entity.name.method - source.java"
     ],
     "settings": {
-        "foreground": "#8ab1b0",
+        "foreground": "#8ab1b0"
     }
 }
 ```
