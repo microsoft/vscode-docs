@@ -59,6 +59,10 @@ An important part of the new renderer is that it only draws what has *changed*. 
 
 Compare this to before where the entire line was being removed from the DOM, reconstructed and re-added, even if nothing changed.
 
+![](../../../images/2017_09_28/paint-flashing.gif)
+
+*The green rectangles in the image above indicate the regions that were drawn to.*
+
 
 
 ## The Texture Atlas
@@ -66,6 +70,8 @@ Compare this to before where the entire line was being removed from the DOM, rec
 A texture atlas is used to boost rendering time even further. Behind the scenes, there is an [`ImageBitmap`](https://developer.mozilla.org/en-US/docs/Web/API/ImageBitmap) which contains all ascii characters laid out on a grid with the default background color, typically the most common styles of text drawn to terminals.
 
 When drawing these styles of text, the texture atlas is used instead of a regular call to [`CanvasRenderingContext2D.fillText`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText). This speeds things up considerably because the `ImageBitmap` is co-located on the GPU.
+
+![](../../../images/2017_09_28/texture-atlas.png)
 
 
 
@@ -75,11 +81,13 @@ Due to the speed of rendering in the DOM, there was additional frame skipping ad
 
 With the new renderer this restriction has been removed and you can now enjoy up to 60 FPS in the terminal.
 
+![](../../../images/2017_09_28/60fps.gif)
+
 
 
 ## The Results
 
-Our benchmarks have measured that the terminal now renders approximately 5-45 times faster than before, depending on the situation. Even if you don't notice the increased responsiveness and frame rate, faster rendering also means less battery usage! We hope you enjoy the performance improvements, they are coming to v1.17 of VS Code in a few days and are available to test in the [Insiders build](https://code.visualstudio.com/insiders) right now.
+Our benchmarks have measured that the terminal now renders approximately **5 to 45 times faster than before**, depending on the situation. Even if you don't notice the increased responsiveness and frame rate, faster rendering also means less battery usage! We hope you enjoy the performance improvements, they are coming to v1.17 of VS Code in a few days and are available to test in the [Insiders build](https://code.visualstudio.com/insiders) right now.
 
 You can also check out the [original pull request](https://github.com/sourcelair/xterm.js/pull/938) that added the feature on the [xterm.js GitHub repository](https://github.com/sourcelair/xterm.js/pull/938).
 
