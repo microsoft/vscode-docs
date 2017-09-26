@@ -20,7 +20,7 @@ The rendering engine of the integrated terminal has been completely re-written w
 
 Somewhat surprisingly, rendering an interactive terminal was totally doable in a system designed for displaying static documents. It was certainly not without its problems though. We found that in order to fix many issues, certain parts of the DOM needed to be overridden:
 
-**Selection**: There was a lot of fighting against the DOM's selection system to cover the terminal use case. Since we always only rendered what was visible to the DOM this meant that you could not select multiple pages of content without reimplementing selection (added in v1.5 ***CHECK THIS***)
+**Selection**: There was a lot of fighting against the DOM's selection system to cover the terminal use case. Since we always only rendered what was visible to the DOM this meant that you could not select multiple pages of content without reimplementing selection (added in [v1.14](https://code.visualstudio.com/updates/v1_14#_selection-reimplemented))
 
 **Misaligned characters**: Due to many monospace fonts not being strictly monospace for many unicode characters, leading to situations like this:
 
