@@ -45,7 +45,7 @@ gulp.task('copy-images', function () {
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
 		.pipe(rename({ dirname: '' }))
-		.pipe(gulp.dest(DEST_ROOT + '/client/assets/images'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/assets'));
 ;})
 
 gulp.task('compile-docs', ['compile-docs-markdown', 'copy-images'], function () {

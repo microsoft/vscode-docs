@@ -58,7 +58,7 @@ gulp.task('copy-blog-images', function () {
 			path.basename = path.dirname + '_' + path.basename;
 			path.dirname = '';
 		}))
-		.pipe(gulp.dest(DEST_ROOT + '/client/assets/images'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/assets'));
 	;
 })
 

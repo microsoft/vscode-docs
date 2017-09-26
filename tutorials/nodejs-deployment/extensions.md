@@ -24,7 +24,7 @@ Here you will also find a rich collection of extensions that make it easy to bui
 ## Browsing Extensions
 
 You can browse and install extensions from within VS Code. Bring up the **Extensions** view by using the **View: Extensions** command (`kb(workbench.view.extensions)`).
-/
+
 Enter `Azure` in the search box and press `kbstyle(Enter)` to query the Marketplace. You'll see a number of Azure related extensions.
 
 ![Search for Extensions](nodejs-deployment_searchforextension.png)

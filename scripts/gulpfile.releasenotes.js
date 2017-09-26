@@ -41,7 +41,7 @@ gulp.task('copy-releasenotes-images', function () {
 		.pipe(rename(function (path) {
 			path.basename = path.dirname + '_' + path.basename; path.dirname = '';
 		}))
-		.pipe(gulp.dest(DEST_ROOT + '/client/assets/images'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/assets'));
 });
 
 gulp.task('copy-releasenotes-raw-images', function () {
