@@ -257,12 +257,12 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: How do I turn on word wrap?**
 
-**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default `editor.wordwrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
+**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
-    "editor.wordwrap": "on"
+    "editor.wordWrap": "on"
 ```
 
-You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordwrap` value.
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordWrap` value.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.

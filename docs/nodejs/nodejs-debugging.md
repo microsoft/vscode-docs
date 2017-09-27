@@ -440,6 +440,10 @@ Here are some things to try when your breakpoints turn gray:
 * Try searching for help with your particular setup on Stack Overflow or by filing an issue on GitHub.
 * Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a GitHub issue.
 
+## Node.js in Docker debugging
+
+If you are running Node.js inside a [Docker](https://www.docker.com) container, you need a bit of additional configuration to make debugging work. We have created a "recipe" on [GitHub](https://github.com/Microsoft/vscode-recipes) that walks you through on how to set up [Node.js in Docker with TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript).
+
 ## Next Steps
 
 In case you didn't already read the Node.js section, take a look at:
