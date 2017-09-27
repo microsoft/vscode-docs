@@ -82,7 +82,7 @@ The following examples customize editor settings for language modes `typescript`
   },
   "[markdown]": {
     "editor.formatOnSave": true,
-    "editor.wordwrap": "on",
+    "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     "editor.acceptSuggestionOnEnter": "off"
   }
