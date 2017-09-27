@@ -20,14 +20,14 @@ VS Code is a fast editor and ships with only the basic features. Add Java langua
 1. In Visual Studio Code, go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing "java".
 
-Among the extensions, we're also providing a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains below popular extensions and can be installed in just 1-click:
+To help set up Java on VS Code, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains two popular extensions:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-This document will use the extension pack mentioned above.
+This document describes the features included in the Java Extension Pack.
 
 ## Java Project Support
 
@@ -79,14 +79,16 @@ Other code editing features include:
 
 ## Debugging
 
-[Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users debugging Java code using Visual Studio Code (VS Code). It supports following features
+[Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users debugging Java code using Visual Studio Code (VS Code).
 
-- Launch/Attach. You can either launch the Java project within VS Code or attach to any running JVM process in debug mode, locally or remotely.
-- Breakpoints. Conditional breakpoints by Expressions and Hit are supported and can easily be set using the inline breakpoint settings window, which allows you to conveniently add conditional breakpoints to your code directly in the source viewer without requiring a modal window. Break on exceptions are also supported.
-- Control flow. Including Pause, Continue (with F5), Step over [F10], Step into [F11], Step out [Shift+F11]
-- Data inspection. When you're stopped at a breakpoint, the debugger has access to the variable names and values that are currently stored in memory. Inspect/Watch/Set Variables are supported.
-- Diagnostics. Call stack view shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
-- Debug console (stdout/err)
+The Java Debugger supports following features:
+
+- **Launch/Attach** - You can either launch the Java project within VS Code or attach to any running JVM process in debug mode, locally or remotely.
+- **Breakpoints** - Conditional breakpoints by Expressions and Hit are supported and can easily be set using the inline breakpoint settings window, which allows you to conveniently add conditional breakpoints to your code directly in the source viewer without requiring a modal window. Break on exceptions are also supported.
+- **Control flow** - Including Pause, Continue `F5`, Step over `F10`, Step into `F11`, Step out `Shift+F11`
+- **Data inspection** - When you're stopped at a breakpoint, the debugger has access to the variable names and values that are currently stored in memory. Inspect/Watch/Set Variables are supported.
+- **Diagnostics** - Call stack view shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
+- **Debug Console** - See information from both stdout/err.
 
 ![Debugging Features](images/java/debug-features.png)
 

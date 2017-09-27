@@ -11,11 +11,11 @@ Author: Xiaokai He
 
 September, 28 2017 - Xiaokai He
 
-For Java developers on VS Code, the [Language Support for Java(TM) by Red Hat] has been a good place to get language features such as IntelliSense and project support. At the same time, we've also heard feedbacks about lacking of debugging. Today, we're excited to announce our ongoing collaboration with Red Hat and enabling Java developers to debug Java applications with a new lightweight [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug) based on [Java Debug Server](https://github.com/Microsoft/java-debug).
+For Java developers on Visual Studio Code, the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) has been a good place to get language features such as IntelliSense and project support. At the same time, we've also heard feedbacks about lacking of debugging. Today, we're excited to announce our ongoing collaboration with Red Hat and enabling Java developers to debug Java applications with a new lightweight [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug) based on [Java Debug Server](https://github.com/Microsoft/java-debug).
 
 ![Java debug extension](2017_09_28_java-debug-extension.png)
 
-> Both the Java Debugger for Visual Studio Code and Java Debug Server will be open sourced shortly after the initial release.
+>**Note**: Both the Java Debugger for Visual Studio Code and Java Debug Server will be open sourced shortly after the initial release.
 
 To help Java developers to get started with VS Code quickly, we also created a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which includes both the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug) so you won't need to search for them individually. This is the just our start to create a modern workflow for Java, more features and extensions will be added to the extension pack in the future.
 
@@ -44,12 +44,12 @@ After reloading VS Code, open a folder that contains a Java project and follow b
 
 In this release, we support the following features:
 
-- Launch/Attach. You can either launch the Java project within VS Code or attach to any running JVM process in debug mode, locally or remotely.
-- Breakpoints. Conditional breakpoints by Expressions and Hit are supported and can easily be set using the inline breakpoint settings window, which allows you to conveniently add conditional breakpoints to your code directly in the source viewer without requiring a modal window. Break on exceptions are also supported.
-- Control flow. Including Pause, Continue (with `F5`), Step over `F10`, Step into `F11`, Step out `Shift+F11`
-- Data inspection. When you're stopped at a breakpoint, the debugger has access to the variable names and values that are currently stored in memory. Inspect/Watch/Set Variables are supported.
-- Diagnostics. Call stack view shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
-- Debug console (stdout/err)
+- **Launch/Attach** - You can either launch the Java project within VS Code or attach to any running JVM process in debug mode, locally or remotely.
+- **Breakpoints** - Conditional breakpoints by Expressions and Hit are supported and can easily be set using the inline breakpoint settings window, which allows you to conveniently add conditional breakpoints to your code directly in the source viewer without requiring a modal window. Break on exceptions are also supported.
+- **Control flow** - Including Pause, Continue `F5`, Step over `F10`, Step into `F11`, Step out `Shift+F11`
+- **Data inspection** - When you're stopped at a breakpoint, the debugger has access to the variable names and values that are currently stored in memory. Inspect/Watch/Set Variables are supported.
+- **Diagnostics** - Call stack view shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
+- **Debug Console** - See information from both stdout/err.
 
 ![Debugging Features](2017_09_28_debug-features.png)
 
@@ -57,12 +57,6 @@ In this release, we support the following features:
 
 - Checkout more about [Java on VS Code](/docs/languages/java.md)
 
-## Feedbacks
+## Feedback
 
-Please share your feedbacks and ask questions to help us improve. See you [here](https://gitter.im/Microsoft/vscode-java-debug).
-
-[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-[Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
-[Java Debug Server](https://github.com/Microsoft/java-debug)
-[Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-[Java on VS Code](https://code.visualstudio.com/docs/languages/java)
+Please share your feedback and ask questions to help us improve. You can contact us on [Gitter](https://gitter.im/Microsoft/vscode-java-debug).
