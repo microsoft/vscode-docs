@@ -20,13 +20,13 @@ For Java developers on VS Code, the [Language Support for Java(TM) by Red Hat] h
 
 To help Java developers to get started with VS Code quickly, we also created a [Java Extension Pack] which includes both the [Language Support for Java(TM) by Red Hat] and [Java Debugger for Visual Studio Code] so you won't need to search for them individually. This is the start of us looking to create a modern workflow for Java, more features and extensions will join the pack in future.
 
-[<img src="2017_09_28_java-extensions-pack.png">](https://marketplace.visualstudio.com/items?itemName=microsoft.java-extension-pack)
+[<img src="2017_09_28_java-extensions-pack.png">](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 
 ## Getting started
 
 To get started, you simply open the **Command Palette** (`kb(workbench.action.showCommands)`) inside VS Code and type "ext install" to run the **Extensions: Install Extension** command. When the extension list appears, type "java" to filter the list and install the [Java Extension Pack] or standalone [Java Debugger for Visual Studio Code] extension if you already have [Language Support for Java(TM) by Red Hat] installed.
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-extensionpack">Install the Java Extension Pack</a>
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
 After reloading VS Code, simply open a folder that contains a Java project and follow below steps
 1. Prepare the project. Open a .java file, and then the Java extensions would be activated. Maven, Gradle and Ecliopse projects are supported. Build is automatically handled by the extensions, no need to be triggered manually.
@@ -47,17 +47,15 @@ In this release, we support the following features:
 ![Debugging Features](2017_09_28_debug-features.png)
 
 ## Next Steps
- - Try the new debugger extension using some [preconfigured samples]
  - Checkout more about [Java on VS Code]
 
 ## Feedbacks
 
-Please share your feedbacks and ask questions to help us improve. See you [here](https://github.com/Microsoft/vscode-java-debug/).
+Please share your feedbacks and ask questions to help us improve. See you [here](https://gitter.im/Microsoft/vscode-java-debug).
 
 [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 [Java Debug Server](https://github.com/Microsoft/java-debug)
-[Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-extensionpack)
+[Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
 [Java on VS Code](https://code.visualstudio.com/docs/languages/java)
-[preconfigured samples]()
 

@@ -24,13 +24,13 @@ VS Code is a fast editor and ships with only the basic features. Add Java langua
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-Among the extensions, we're also providing a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-extensionpack) which contains below popular extensions and could be installed in just 1-click:
+Among the extensions, we're also providing a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains below popular extensions and could be installed in just 1-click:
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug)
 
-<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-extensionpack">Install the Java Extension Pack</a>
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-Our samples below will use the extension pack mentioned above.
+This document will use the extension pack mentioned above.
 
 ## Java Project Support
 Maven, Eclipse and Gradle Java project are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](http://www.eclipse.org/m2e/) which provides Maven support and [Buildship](https://github.com/eclipse/buildship) which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
