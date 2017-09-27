@@ -62,3 +62,5 @@ In this release, we support the following features:
 ## Feedback
 
 Please share your feedback and ask questions to help us improve. You can contact us on [Gitter](https://gitter.im/Microsoft/vscode-java-debug).
+
+Xiaokai He, [@JavaOnAzure](https://twitter.com/JavaOnAzure)
