@@ -94,7 +94,7 @@ The Java Debugger supports following features:
 
 You can launch the debugger following steps below:
 
-1. Switch to the Debug view (`kb(workbench.view.debug)`).
+1. Switch to the **Debug** view (`kb(workbench.view.debug)`).
 2. Open `launch.json` to add a debug configuration for Java
 3. Fill in the `mainClass` for `Launch` setting or `hostName` and `port` for `Attach`.
 4. Click **Start** button or press `F5` to start debugging.
