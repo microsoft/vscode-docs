@@ -9,13 +9,13 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in VS Code
 
-Java is fully supported in Visual Studio Code through [extensions](/docs/editor/extension-gallery.md). Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide project support, code completion, linting, debugging, code formatting, snippets, and more.
+The Java support in VS Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide project support, code completion, linting, debugging, code formatting, snippets, and more.
 
 > [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, Mac, Linux).
 
 ## Install Java Extensions
 
-VS Code is a fast editor and ships with only the basic features. Add Java language support to VS Code by installing the popular Python extensions.
+VS Code is a fast editor and ships with only the basic features. Add Java language support to VS Code by installing the popular Java extensions.
 
 1. Select an extension.
 2. Install the extension by typing `ext install` into the Command Palette `kb(workbench.action.showCommands)`.
@@ -24,33 +24,28 @@ VS Code is a fast editor and ships with only the basic features. Add Java langua
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-The examples in this document will use
+Among the extensions, we're also providing a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-extensionpack) which contains below popular extensions and could be installed in just 1-click:
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug)
+
+<a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-extensionpack">Install the Java Extension Pack</a>
+
+Our samples below will use the extension pack mentioned above.
 
 ## Java Project Support
 Maven, Eclipse and Gradle Java project are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](http://www.eclipse.org/m2e/) which provides Maven support and [Buildship](https://github.com/eclipse/buildship) which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
 
 Please note that [Gradle-based Android projects are not supported](https://github.com/redhat-developer/vscode-java/issues/10#issuecomment-268834749).
 
-## Editing Code
+## Editing and Navigating Code
+
+![Java Code Editing](images/java/vscode-java.0.0.1.gif)
 
 ### Linting
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) provides this feature to report parsing and compliation errors as you type, so you can fix them inside VS Code.
 
-### Code completion
-[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) also supports code completion and Intellisense. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules.
-
-![Linting and Intellisense](images/java/intellisense.png)
-
-Other code editing features provided by [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) include
-- Code formatting
-- Code lens (references)
-- Javadoc hovers
-- Rename
-- Highlights
-
-## Navigating Code
+### Intellisense
+VS Code also supports code completion and Intellisense for Java through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java). [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules.
 
 ### Search for symbols
 You can search for symbols in the current file or workspace to navigate your code more quickly.
@@ -65,35 +60,39 @@ You can take a quick look at how a symbol was defined by using the Peek Definiti
 
 To peek at a symbol's definition, place your cursor on the symbol anywhere it's used in your source code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__).
 
-![Peek definition](images/java/peekdefn.png)
-
 ### Go to Definition
 
 You can also quickly navigate to where a symbol is defined by using the Go to Definition feature.
 
 To go to a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press `kb(editor.action.goToDeclaration)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
 
+Other code editing features include
+- Code formatting
+- Code snippets
+- Code outline
+- Code lens (references)
+- Javadoc hovers
+- Rename
+- Highlights
+
 ## Debugging
 [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=microsoft.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users debugging Java code using Visual Studio Code (VS Code). It supports following features
-- Launch/Attach
-- Breakpoints
-- Exceptions
-- Pause & Continue
-- Step In/Out/Over
-- Variables
-- Callstacks
-- Threads
-- Debug console
+
+- Launch/Attach. You can either launch the Java project within VS Code or attach to any runnning JVM process in debug mode, locally or remotely.
+- Breakpoints. Conditional breakpoints by Expressions and Hit are supported and can easily be set using the inline breakpoint settings window, which allows you to conveniently add conditional breakpoints to your code directly in the source viewer without requireing a modal window. Break on exceptions are also supported.
+- Control flow. Including Pause, Continue (with F5), Step over [F10], Step into [F11], Step out [Shift+F11]
+- Data inspection. When you're stopped at a breakpoint, the debugger has access to the variable names and values that arecurrently stored in memory. Inspect/Watch/Set Variables are supported.
+- Diagnostics. Call stack view shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
+- Debug console (stdout/err)
+
+![Debugging Features](images/java/debug-features.png)
 
 You can launch the debugger following steps below
 1. Switch to the Debug tab
-2. Add Java debug configurations
-3. In the _Debug (Launch)_ section in `launch.json`, specify the _mainClass_ and save
-4. Click _start_ button or press _F5_ to start debugging
+2. Open `launch.json` to add a debug configuratoin for Java. you will need to either fill in the _mainClass_ for _Launch_ setting or _hostName_ and _port_ for _Attach_.
+3. Click _start_ button or press _F5_ to start debugging
 
 ![Debugging Java Application](images/java/java-debug.gif)
-
-To attach the debugger to a running JVM, you may specify the _hostName_ and _port_ in the _Debug (Attach)_ section in `launch.json`. See a quick demo for [Developing Azure Functions in Java with VS Code]()
 
 ## Next Steps
 
