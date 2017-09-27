@@ -17,7 +17,7 @@ The Java support in VS Code is provided through [extensions](/docs/editor/extens
 
 VS Code is a fast editor and ships with only the basic features. Add Java language support to VS Code by installing the popular Java extensions.
 
-1. In Visual Studio Code, go to the Extensions view (`kb(workbench.view.extensions)`).
+1. In Visual Studio Code, go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing "java".
 
 Among the extensions, we're also providing a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains below popular extensions and can be installed in just 1-click:
