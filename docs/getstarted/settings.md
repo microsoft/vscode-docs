@@ -149,7 +149,7 @@ Below are the default settings and their values.
   //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
   "editor.wordWrap": "off",
 
-  // Configure glob patterns for excluding files and folders.
+  // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -184,7 +184,7 @@ Below are the default settings and their values.
   // Controls the display of line numbers. Possible values are 'on', 'off', and 'relative'. 'relative' shows the line count from the current cursor position.
   "editor.lineNumbers": "on",
 
-  // Columns at which to show vertical rulers
+  // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty
   "editor.rulers": [],
 
   // Characters that will be used as word separators when doing word related navigations or operations
@@ -369,6 +369,9 @@ Below are the default settings and their values.
   // Controls whether the editor should render the inline color decorators and color picker.
   "editor.colorDecorators": true,
 
+  // Enables the code action lightbulb
+  "editor.lightbulb.enabled": true,
+
   // Controls if the diff editor shows the diff side by side or inline
   "diffEditor.renderSideBySide": true,
 
@@ -387,8 +390,15 @@ Below are the default settings and their values.
 
 // Workbench
 
-  // Controls if opened editors should show in tabs or not.
+// Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
+
+  // Controls the format of the label for an editor. Changing this setting can for example make it easier to understand the location of a file:
+  // - short:   'parent'
+  // - medium:  'workspace/src/parent'
+  // - long:    '/home/user/workspace/src/parent'
+  // - default: '.../parent', when another tab shares the same title, or the relative workspace path if tabs are disabled
+  "workbench.editor.labelFormat": "default",
 
   // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
   "workbench.editor.tabCloseButton": "right",
@@ -396,7 +406,7 @@ Below are the default settings and their values.
   // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
   "workbench.editor.showIcons": true,
 
-  // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
+  // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing) and show up with an italic font style.
   "workbench.editor.enablePreview": true,
 
   // Controls if opened editors from Quick Open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
@@ -432,11 +442,11 @@ Below are the default settings and their values.
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
 
-  // When enabled, will show the watermark tips when no editor is open.
-  "workbench.tips.enabled": true,
-
   // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
   "workbench.startupEditor": "welcomePage",
+
+  // When enabled, will show the watermark tips when no editor is open.
+  "workbench.tips.enabled": true,
 
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
@@ -502,7 +512,7 @@ Below are the default settings and their values.
 
 // Files
 
-  // Configure glob patterns for excluding files and folders.
+  // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -514,10 +524,10 @@ Below are the default settings and their values.
   // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
   "files.associations": {},
 
-  // The default character set encoding to use when reading and writing files.
+  // The default character set encoding to use when reading and writing files. This setting can be configured per language too.
   "files.encoding": "utf8",
 
-  // When enabled, will attempt to guess the character set encoding when opening files
+  // When enabled, will attempt to guess the character set encoding when opening files. This setting can be configured per language too.
   "files.autoGuessEncoding": false,
 
   // The default end of line character. Use \n for LF and \r\n for CRLF.
@@ -528,6 +538,9 @@ Below are the default settings and their values.
 
   // When enabled, insert a final new line at the end of the file when saving it.
   "files.insertFinalNewline": false,
+
+  // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
+  "files.trimFinalNewlines": false,
 
   // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
   "files.autoSave": "off",
@@ -618,191 +631,6 @@ Below are the default settings and their values.
   // Configure whether you receive automatic updates from an update channel. Requires a restart after change.
   "update.channel": "default",
 
-// CSS
-
-  // Controls CSS validation and problem severities.
-
-  // Enables or disables all validations
-  "css.validate": true,
-
-  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-  "css.lint.compatibleVendorPrefixes": "ignore",
-
-  // When using a vendor-specific prefix also include the standard property
-  "css.lint.vendorPrefix": "warning",
-
-  // Do not use duplicate style definitions
-  "css.lint.duplicateProperties": "ignore",
-
-  // Do not use empty rulesets
-  "css.lint.emptyRules": "warning",
-
-  // Import statements do not load in parallel
-  "css.lint.importStatement": "ignore",
-
-  // Do not use width or height when using padding or border
-  "css.lint.boxModel": "ignore",
-
-  // The universal selector (*) is known to be slow
-  "css.lint.universalSelector": "ignore",
-
-  // No unit for zero needed
-  "css.lint.zeroUnits": "ignore",
-
-  // @font-face rule must define 'src' and 'font-family' properties
-  "css.lint.fontFaceProperties": "warning",
-
-  // Hex colors must consist of three or six hex numbers
-  "css.lint.hexColorLength": "error",
-
-  // Invalid number of parameters
-  "css.lint.argumentsInColorFunction": "error",
-
-  // Unknown property.
-  "css.lint.unknownProperties": "warning",
-
-  // IE hacks are only necessary when supporting IE7 and older
-  "css.lint.ieHack": "ignore",
-
-  // Unknown vendor specific property.
-  "css.lint.unknownVendorSpecificProperties": "ignore",
-
-  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-  "css.lint.propertyIgnoredDueToDisplay": "warning",
-
-  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-  "css.lint.important": "ignore",
-
-  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-  "css.lint.float": "ignore",
-
-  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-  "css.lint.idSelector": "ignore",
-
-  // Traces the communication between VS Code and the CSS language server.
-  "css.trace.server": "off",
-
-// SCSS (Sass)
-
-  // Controls SCSS validation and problem severities.
-
-  // Enables or disables all validations
-  "scss.validate": true,
-
-  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-  "scss.lint.compatibleVendorPrefixes": "ignore",
-
-  // When using a vendor-specific prefix also include the standard property
-  "scss.lint.vendorPrefix": "warning",
-
-  // Do not use duplicate style definitions
-  "scss.lint.duplicateProperties": "ignore",
-
-  // Do not use empty rulesets
-  "scss.lint.emptyRules": "warning",
-
-  // Import statements do not load in parallel
-  "scss.lint.importStatement": "ignore",
-
-  // Do not use width or height when using padding or border
-  "scss.lint.boxModel": "ignore",
-
-  // The universal selector (*) is known to be slow
-  "scss.lint.universalSelector": "ignore",
-
-  // No unit for zero needed
-  "scss.lint.zeroUnits": "ignore",
-
-  // @font-face rule must define 'src' and 'font-family' properties
-  "scss.lint.fontFaceProperties": "warning",
-
-  // Hex colors must consist of three or six hex numbers
-  "scss.lint.hexColorLength": "error",
-
-  // Invalid number of parameters
-  "scss.lint.argumentsInColorFunction": "error",
-
-  // Unknown property.
-  "scss.lint.unknownProperties": "warning",
-
-  // IE hacks are only necessary when supporting IE7 and older
-  "scss.lint.ieHack": "ignore",
-
-  // Unknown vendor specific property.
-  "scss.lint.unknownVendorSpecificProperties": "ignore",
-
-  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-  "scss.lint.propertyIgnoredDueToDisplay": "warning",
-
-  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-  "scss.lint.important": "ignore",
-
-  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-  "scss.lint.float": "ignore",
-
-  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-  "scss.lint.idSelector": "ignore",
-
-// LESS
-
-  // Controls LESS validation and problem severities.
-
-  // Enables or disables all validations
-  "less.validate": true,
-
-  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-  "less.lint.compatibleVendorPrefixes": "ignore",
-
-  // When using a vendor-specific prefix also include the standard property
-  "less.lint.vendorPrefix": "warning",
-
-  // Do not use duplicate style definitions
-  "less.lint.duplicateProperties": "ignore",
-
-  // Do not use empty rulesets
-  "less.lint.emptyRules": "warning",
-
-  // Import statements do not load in parallel
-  "less.lint.importStatement": "ignore",
-
-  // Do not use width or height when using padding or border
-  "less.lint.boxModel": "ignore",
-
-  // The universal selector (*) is known to be slow
-  "less.lint.universalSelector": "ignore",
-
-  // No unit for zero needed
-  "less.lint.zeroUnits": "ignore",
-
-  // @font-face rule must define 'src' and 'font-family' properties
-  "less.lint.fontFaceProperties": "warning",
-
-  // Hex colors must consist of three or six hex numbers
-  "less.lint.hexColorLength": "error",
-
-  // Invalid number of parameters
-  "less.lint.argumentsInColorFunction": "error",
-
-  // Unknown property.
-  "less.lint.unknownProperties": "warning",
-
-  // IE hacks are only necessary when supporting IE7 and older
-  "less.lint.ieHack": "ignore",
-
-  // Unknown vendor specific property.
-  "less.lint.unknownVendorSpecificProperties": "ignore",
-
-  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-  "less.lint.propertyIgnoredDueToDisplay": "warning",
-
-  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-  "less.lint.important": "ignore",
-
-  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-  "less.lint.float": "ignore",
-
-  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-  "less.lint.idSelector": "ignore",
 
 // Debug
 
@@ -833,10 +661,10 @@ Below are the default settings and their values.
   "html.format.wrapLineLength": 120,
 
   // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
-  "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, select, small, span, strong, sub, sup, textarea, tt, var",
+  "html.format.unformatted": "",
 
   // List of tags, comma separated, where the content shouldn't be reformatted. 'null' defaults to the 'pre' tag.
-  "html.format.contentUnformatted": "pre",
+  "html.format.contentUnformatted": "pre,code,textarea",
 
   // Indent <head> and <body> sections.
   "html.format.indentInnerHtml": false,
@@ -891,10 +719,9 @@ Below are the default settings and their values.
   // Traces the communication between VS Code and the JSON language server.
   "json.trace.server": "off",
 
-
 // Markdown
 
-  // A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
+// A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
   "markdown.styles": [],
 
   // Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.
@@ -1087,6 +914,186 @@ Below are the default settings and their values.
   // Controls whether auto detection of tsc tasks is on or off.
   "typescript.tsc.autoDetect": "on",
 
+// CSS
+
+  // Enables or disables all validations
+  "css.validate": true,
+
+  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+  "css.lint.compatibleVendorPrefixes": "ignore",
+
+  // When using a vendor-specific prefix also include the standard property
+  "css.lint.vendorPrefix": "warning",
+
+  // Do not use duplicate style definitions
+  "css.lint.duplicateProperties": "ignore",
+
+  // Do not use empty rulesets
+  "css.lint.emptyRules": "warning",
+
+  // Import statements do not load in parallel
+  "css.lint.importStatement": "ignore",
+
+  // Do not use width or height when using padding or border
+  "css.lint.boxModel": "ignore",
+
+  // The universal selector (*) is known to be slow
+  "css.lint.universalSelector": "ignore",
+
+  // No unit for zero needed
+  "css.lint.zeroUnits": "ignore",
+
+  // @font-face rule must define 'src' and 'font-family' properties
+  "css.lint.fontFaceProperties": "warning",
+
+  // Hex colors must consist of three or six hex numbers
+  "css.lint.hexColorLength": "error",
+
+  // Invalid number of parameters
+  "css.lint.argumentsInColorFunction": "error",
+
+  // Unknown property.
+  "css.lint.unknownProperties": "warning",
+
+  // IE hacks are only necessary when supporting IE7 and older
+  "css.lint.ieHack": "ignore",
+
+  // Unknown vendor specific property.
+  "css.lint.unknownVendorSpecificProperties": "ignore",
+
+  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+  "css.lint.propertyIgnoredDueToDisplay": "warning",
+
+  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+  "css.lint.important": "ignore",
+
+  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+  "css.lint.float": "ignore",
+
+  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+  "css.lint.idSelector": "ignore",
+
+  // Traces the communication between VS Code and the CSS language server.
+  "css.trace.server": "off",
+
+// LESS
+
+  // Enables or disables all validations
+  "less.validate": true,
+
+  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+  "less.lint.compatibleVendorPrefixes": "ignore",
+
+  // When using a vendor-specific prefix also include the standard property
+  "less.lint.vendorPrefix": "warning",
+
+  // Do not use duplicate style definitions
+  "less.lint.duplicateProperties": "ignore",
+
+  // Do not use empty rulesets
+  "less.lint.emptyRules": "warning",
+
+  // Import statements do not load in parallel
+  "less.lint.importStatement": "ignore",
+
+  // Do not use width or height when using padding or border
+  "less.lint.boxModel": "ignore",
+
+  // The universal selector (*) is known to be slow
+  "less.lint.universalSelector": "ignore",
+
+  // No unit for zero needed
+  "less.lint.zeroUnits": "ignore",
+
+  // @font-face rule must define 'src' and 'font-family' properties
+  "less.lint.fontFaceProperties": "warning",
+
+  // Hex colors must consist of three or six hex numbers
+  "less.lint.hexColorLength": "error",
+
+  // Invalid number of parameters
+  "less.lint.argumentsInColorFunction": "error",
+
+  // Unknown property.
+  "less.lint.unknownProperties": "warning",
+
+  // IE hacks are only necessary when supporting IE7 and older
+  "less.lint.ieHack": "ignore",
+
+  // Unknown vendor specific property.
+  "less.lint.unknownVendorSpecificProperties": "ignore",
+
+  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+  "less.lint.propertyIgnoredDueToDisplay": "warning",
+
+  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+  "less.lint.important": "ignore",
+
+  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+  "less.lint.float": "ignore",
+
+  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+  "less.lint.idSelector": "ignore",
+
+// SCSS (Sass)
+
+  // Enables or disables all validations
+  "scss.validate": true,
+
+  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+  "scss.lint.compatibleVendorPrefixes": "ignore",
+
+  // When using a vendor-specific prefix also include the standard property
+  "scss.lint.vendorPrefix": "warning",
+
+  // Do not use duplicate style definitions
+  "scss.lint.duplicateProperties": "ignore",
+
+  // Do not use empty rulesets
+  "scss.lint.emptyRules": "warning",
+
+  // Import statements do not load in parallel
+  "scss.lint.importStatement": "ignore",
+
+  // Do not use width or height when using padding or border
+  "scss.lint.boxModel": "ignore",
+
+  // The universal selector (*) is known to be slow
+  "scss.lint.universalSelector": "ignore",
+
+  // No unit for zero needed
+  "scss.lint.zeroUnits": "ignore",
+
+  // @font-face rule must define 'src' and 'font-family' properties
+  "scss.lint.fontFaceProperties": "warning",
+
+  // Hex colors must consist of three or six hex numbers
+  "scss.lint.hexColorLength": "error",
+
+  // Invalid number of parameters
+  "scss.lint.argumentsInColorFunction": "error",
+
+  // Unknown property.
+  "scss.lint.unknownProperties": "warning",
+
+  // IE hacks are only necessary when supporting IE7 and older
+  "scss.lint.ieHack": "ignore",
+
+  // Unknown vendor specific property.
+  "scss.lint.unknownVendorSpecificProperties": "ignore",
+
+  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+  "scss.lint.propertyIgnoredDueToDisplay": "warning",
+
+  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+  "scss.lint.important": "ignore",
+
+  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+  "scss.lint.float": "ignore",
+
+  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+  "scss.lint.idSelector": "ignore",
+
 // Extensions
 
   // Automatically update extensions
@@ -1137,17 +1144,11 @@ Below are the default settings and their values.
   // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
   "terminal.integrated.fontFamily": "",
 
-  // Controls whether font ligatures are enabled in the terminal.
-  "terminal.integrated.fontLigatures": false,
-
   // Controls the font size in pixels of the terminal.
   "terminal.integrated.fontSize": 14,
 
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
-  "terminal.integrated.lineHeight": 1.2,
-
-  // Whether to enable bold text within the terminal, this requires support from the terminal shell.
-  "terminal.integrated.enableBold": true,
+  "terminal.integrated.lineHeight": 1,
 
   // Controls whether the terminal cursor blinks.
   "terminal.integrated.cursorBlinking": false,
@@ -1221,7 +1222,8 @@ Below are the default settings and their values.
     "workbench.action.terminal.scrollUp",
     "workbench.action.terminal.scrollUpPage",
     "workbench.action.terminal.selectAll",
-    "workbench.action.terminal.toggleTerminal"
+    "workbench.action.terminal.toggleTerminal",
+    "workbench.action.togglePanel"
   ],
 
   // Object with environment variables that will be added to the VS Code process to be used by the terminal on OS X
@@ -1246,6 +1248,44 @@ Below are the default settings and their values.
   // Enable crash reports to be sent to Microsoft.
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
+
+// Default Configuration Overrides
+
+  // Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
+
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
+
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
+
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2
+  },
 
 // Emmet
 
@@ -1284,36 +1324,31 @@ Below are the default settings and their values.
   // If true, then emmet suggestions will show up as snippets allowing you to order them as per editor.snippetSuggestions setting.
   "emmet.showSuggestionsAsSnippets": false,
 
-// Default Configuration Overrides
+// Grunt
 
-  // Configure editor settings to be overridden for [go] language.
-  "[go]":  {
-    "editor.insertSpaces": false
-  },
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
 
-  // Configure editor settings to be overridden for [json] language.
-  "[json]":  {
-    "editor.quickSuggestions": {
-        "strings": true
-    }
-  },
+// Gulp
 
-  // Configure editor settings to be overridden for [makefile] language.
-  "[makefile]":  {
-    "editor.insertSpaces": false
-  },
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
 
-  // Configure editor settings to be overridden for [markdown] language.
-  "[markdown]":  {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
+//NPM
 
-  // Configure editor settings to be overridden for [yaml] language.
-  "[yaml]":  {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
+// Controls whether auto detection of npm scripts is on or off. Default is on.
+  "npm.autoDetect": "on",
+
+  // Run npm commands with the `--silent` option
+  "npm.runSilent": false,
+
+// Merge Conflict
+
+// Enable/disable merge conflict block CodeLens within editor
+  "merge-conflict.codeLens.enabled": true,
+
+  // Enable/disable merge conflict decorators within editor
+  "merge-conflict.decorators.enabled": true,
 
 // Git
 
@@ -1353,35 +1388,9 @@ Below are the default settings and their values.
   // Enables commit signing with GPG.
   "git.enableCommitSigning": false,
 
-// Npm
-
-  // Controls whether auto detection of npm scripts is on or off. Default is on.
-  "npm.autoDetect": "on",
-
-  // Run npm commands with the `--silent` option
-  "npm.runSilent": false,
-
-// Merge Conflict
-
-  // Enable/disable merge conflict block CodeLens within editor
-  "merge-conflict.codeLens.enabled": true,
-
-  // Enable/disable merge conflict decorators within editor
-  "merge-conflict.decorators.enabled": true,
-
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
-
-// Gulp
-
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on",
-
 // Jake
 
-// Controls whether auto detection of Jake tasks is on or off. Default is on.
+  // Controls whether auto detection of Jake tasks is on or off. Default is on.
   "jake.autoDetect": "on"
 }
 ```
