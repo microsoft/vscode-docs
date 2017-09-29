@@ -166,7 +166,7 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debugging your Express Application
 
-You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the **Activity Bar** and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the **Launch Program** configuration. A second **Attach to Process** configuration is also created to show you how to attach to a running Node.js application.
+You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the **Activity Bar** and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceFolder}/bin/www`) for the **Launch Program** configuration. A second **Attach to Process** configuration is also created to show you how to attach to a running Node.js application.
 
 ```json
 {
@@ -176,8 +176,8 @@ You will need to create a debugger configuration file `launch.json` for your Exp
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/bin/www",
-            "cwd": "${workspaceRoot}"
+            "program": "${workspaceFolder}/bin/www",
+            "cwd": "${workspaceFolder}"
         },
         {
             "type": "node",

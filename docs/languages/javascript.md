@@ -136,7 +136,7 @@ Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can 
 
 ## Type Checking and Quick Fixes for JavaScript Files
 
-VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting quickfixes for JavaScript, including *add missing import* and *add missing property*. 
+VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting quickfixes for JavaScript, including *add missing import* and *add missing property*.
 
 ![Using type checking and quick fixes in a JavaScript file](images/javascript/checkjs-example.gif)
 
@@ -325,7 +325,7 @@ The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 Jav
 ```json
 {
     "version": "0.1.0",
-    "command": "${workspaceRoot}/node_modules/.bin/babel",
+    "command": "${workspaceFolder}/node_modules/.bin/babel",
     "isShellCommand": true,
     "tasks": [
         {

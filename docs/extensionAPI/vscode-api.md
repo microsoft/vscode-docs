@@ -5,7 +5,7 @@ TOCTitle: vscode namespace API
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
 PageTitle: Visual Studio Code API Reference
 DateApproved: 9/7/2017
-MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.  
+MetaDescription: Visual Studio Code extensions (plug-ins) API Reference.
 ---
 
 # vscode namespace API
@@ -211,7 +211,7 @@ to <code>undefined</code>.</p>
 or by directly passing a <a href="#DebugConfiguration">DebugConfiguration</a>.
 The named configurations are looked up in &#39;.vscode/launch.json&#39; found in the given folder.
 Before debugging starts, all unsaved files are saved and the launch configurations are brought up-to-date.
-Folder specific variables used in the configuration (e.g. &#39;${workspaceRoot}&#39;) are resolved against the given folder.</p>
+Folder specific variables used in the configuration (e.g. &#39;${workspaceFolder}&#39;) are resolved against the given folder.</p>
 </div>
 <div class="signature">
 <table class="table table-bordered">

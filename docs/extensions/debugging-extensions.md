@@ -60,8 +60,8 @@ This is what happens when pressing `F5`:
  2. `.vscode/tasks.json` defines the task `npm` as a shell command to `npm run compile`.
  3. `package.json` defines the script `compile` as `tsc -watch -p ./`
  4. This eventually invokes the TypeScript compiler included in node_modules, which generates `out/src/extension.js` and `out/src/extension.js.map`.
- 5. Once the TypeScript compilation task is finished, the `code --extensionDevelopmentPath=${workspaceRoot}` process is spawned.
- 6. The second instance of VS Code is launched in a special mode and it searches for an extension at `${workspaceRoot}`.
+ 5. Once the TypeScript compilation task is finished, the `code --extensionDevelopmentPath=${workspaceFolder}` process is spawned.
+ 6. The second instance of VS Code is launched in a special mode and it searches for an extension at `${workspaceFolder}`.
 
 ## Changing and Reloading your Extension
 

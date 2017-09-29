@@ -331,7 +331,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/app.js"
+            "program": "${workspaceFolder}/app.js"
         }],
 
         "configurationSnippets": [
@@ -476,7 +476,7 @@ Contribute problem matcher patterns. These contributions work in both the output
         {
             "name": "gcc",
             "owner": "cpp",
-            "fileLocation": ["relative", "${workspaceRoot}"],
+            "fileLocation": ["relative", "${workspaceFolder}"],
             "pattern": {
                 "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
                 "file": 1,

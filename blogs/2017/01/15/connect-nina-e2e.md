@@ -209,15 +209,15 @@ Type `CTRL+P`, enter/select `launch.json` and replace the contents of that file 
             "request": "launch",
             "url": "http://localhost:8080",
             "port": 9222,
-            "userDataDir": "${workspaceRoot}/.vscode/chrome",
-            "webRoot": "${workspaceRoot}/public"
+            "userDataDir": "${workspaceFolder}/.vscode/chrome",
+            "webRoot": "${workspaceFolder}/public"
         },
         {
             "name": "Node",
             "type": "node2",
             "request": "launch",
-            "program": "${workspaceRoot}/server.js",
-            "cwd": "${workspaceRoot}"
+            "program": "${workspaceFolder}/server.js",
+            "cwd": "${workspaceFolder}"
         }
     ]
 }
@@ -314,7 +314,7 @@ To get started, open up your terminal, and we'll use the new Azure CLI 2.0 to ma
     ```bash
     az appservice plan create -n nina-demo-plan -g nina-demo --is-linux
     ```
-    
+
     *Note: The `--is-linux` flag is key, since that is what indicates that you want Linux-based VMs. Without it, the CLI will provision Windows-based VMs.*
 
 3. Create the App Service web app, which represents the todo app that will be running within the plan and resource group we just created. You can roughly think of a web app as being synonymous with a process or container, and the plan as being the VM/container host that they're running on.
@@ -358,7 +358,7 @@ While we could setup a MongoDB server, or replica set, and manage that infrastru
 <img src="/images/2017_01_03_DocDBCreate.png" width="250px" />
 
 4. Click the `Create` button, and wait for the DB to be provisioned.
-    
+
 It will take a few moments to fully create the DocumentDB instance, so wait until you see the deployment successful notification in the upper right-side of the portal. Once completed, navigate to the `All Resources` tab on the left hand navigation bar (the menu item with the green grid icon), and then select the DocumentDB resource you created:
 
 <img src="/images/2017_01_03_AllResources.png" width="350px" />

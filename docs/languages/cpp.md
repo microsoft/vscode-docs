@@ -53,7 +53,7 @@ Below you can see that the MinGW C++ include path has been added to `browse.path
 {
     "name": "Win32",
     "includePath": [
-        "${workspaceRoot}"
+        "${workspaceFolder}"
     ],
     "defines": [
         "_DEBUG",
@@ -62,7 +62,7 @@ Below you can see that the MinGW C++ include path has been added to `browse.path
     "intelliSenseMode": "msvc-x64",
     "browse": {
         "path": [
-            "${workspaceRoot}",
+            "${workspaceFolder}",
             "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include\\c++"
         ],
         "limitSymbolsToIncludedHeaders": true,
@@ -149,10 +149,10 @@ Below is an example using the MinGW GDB debugger:
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceRoot}/a.exe",
+            "program": "${workspaceFolder}/a.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceRoot}",
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",

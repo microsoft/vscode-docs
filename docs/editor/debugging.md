@@ -65,7 +65,7 @@ Here is the one generated for Node.js debugging:
             "request": "launch",
             "name": "Launch Program",
             "program": "${file}",
-            "cwd": "${workspaceRoot}"
+            "cwd": "${workspaceFolder}"
         },
         {
             "type": "node",
@@ -158,7 +158,7 @@ Many debuggers support some of the following attributes:
 
 VS Code supports variable substitution inside strings in `launch.json` and has the following predefined variables:
 
-- **${workspaceRoot}** - the path of the folder opened in VS Code
+- **${workspaceFolder}** - the path of the folder opened in VS Code
 - **${workspaceRootFolderName}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
 - **${relativeFile}** - the current opened file relative to `workspaceRoot`
@@ -176,8 +176,8 @@ You can also reference environment variables through **${env:Name}** syntax (for
     "type": "node",
     "request": "launch",
     "name": "Launch Program",
-    "program": "${workspaceRoot}/app.js",
-    "cwd": "${workspaceRoot}",
+    "program": "${workspaceFolder}/app.js",
+    "cwd": "${workspaceFolder}",
     "args": [ "${env:USERNAME}" ]
 }
 ```
@@ -263,15 +263,15 @@ An alternative way to start multiple debug session is by using a so-called _comp
             "type": "node",
             "request": "launch",
             "name": "Server",
-            "program": "${workspaceRoot}/server.js",
-            "cwd": "${workspaceRoot}"
+            "program": "${workspaceFolder}/server.js",
+            "cwd": "${workspaceFolder}"
         },
         {
             "type": "node",
             "request": "launch",
             "name": "Client",
-            "program": "${workspaceRoot}/client.js",
-            "cwd": "${workspaceRoot}"
+            "program": "${workspaceFolder}/client.js",
+            "cwd": "${workspaceFolder}"
         }
     ],
     "compounds": [

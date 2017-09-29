@@ -104,7 +104,7 @@ Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mo
             "type": "mock",
             "request": "launch",
             "name": "mock test",
-            "program": "${workspaceRoot}/readme.md",
+            "program": "${workspaceFolder}/readme.md",
             "stopOnEntry": true,
             "debugServer": 4711
         }
@@ -164,7 +164,7 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
                         "program": {
                             "type": "string",
                             "description": "Absolute path to a text file.",
-                            "default": "${workspaceRoot}/readme.md"
+                            "default": "${workspaceFolder}/readme.md"
                         },
                         "stopOnEntry": {
                             "type": "boolean",
@@ -193,7 +193,7 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
                         "type": "mock",
                         "request": "launch",
                         "name": "${2:Launch Program}",
-                        "program": "^\"\\${workspaceRoot}/${1:Program}\""
+                        "program": "^\"\\${workspaceFolder}/${1:Program}\""
                     }
                 }
             ],
@@ -278,7 +278,7 @@ const initialConfigurations = {
             type: 'mock',
             request: 'launch',
             name: 'Mock Debug',
-            program: '${workspaceRoot}/readme.md',
+            program: '${workspaceFolder}/readme.md',
             stopOnEntry: true
         }
     ]

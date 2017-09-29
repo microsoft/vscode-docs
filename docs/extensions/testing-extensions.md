@@ -47,10 +47,10 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
     "type": "extensionHost",
     "request": "launch",
     "runtimeExecutable": "${execPath}",
-    "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
+    "args": ["--extensionDevelopmentPath=${workspaceFolder}", "--extensionTestsPath=${workspaceFolder}/out/test" ],
     "stopOnEntry": false,
     "sourceMaps": true,
-    "outFiles": ["${workspaceRoot}/out/test/**/*.js"],
+    "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
     "preLaunchTask": "npm"
 }
 ```
@@ -60,7 +60,7 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
 You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
 
 ```json
-"args": ["file or folder name", "--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
+"args": ["file or folder name", "--extensionDevelopmentPath=${workspaceFolder}", "--extensionTestsPath=${workspaceFolder}/out/test" ],
 ```
 
 This way you can run your tests with predictable content and folder structure.

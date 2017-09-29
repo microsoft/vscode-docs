@@ -42,7 +42,7 @@ Create a `launch.json` file in `.vscode` folder and add the following:
           "name": "Ruby Debug",
           "type": "Ruby",
           "request": "launch",
-          "program": "${workspaceRoot}/hello_world.rb",
+          "program": "${workspaceFolder}/hello_world.rb",
           "stopOnEntry": false
       }
   ]

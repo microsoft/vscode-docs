@@ -129,7 +129,7 @@ the corresponding launch configuration would look like this:
     "name": "Launch via NPM",
     "type": "node",
     "request": "launch",
-    "cwd": "${workspaceRoot}",
+    "cwd": "${workspaceFolder}",
     "runtimeExecutable": "npm",
     "runtimeArgs": [
         "run-script", "debug"
@@ -144,7 +144,7 @@ The VS Code Node debugger supports loading environment variables from a file and
 
 ```json
    //...
-   "envFile": "${workspaceRoot}/.env",
+   "envFile": "${workspaceFolder}/.env",
    "env": { "USER": "john doe" }
    //...
 ````
@@ -265,7 +265,7 @@ Alternatively you can start your program `server.js` via **nodemon** directly wi
     "type": "node",
     "request": "launch",
     "runtimeExecutable": "nodemon",
-    "program": "${workspaceRoot}/server.js",
+    "program": "${workspaceFolder}/server.js",
     "restart": true,
     "console": "integratedTerminal",
     "internalConsoleOptions": "neverOpen"
@@ -330,8 +330,8 @@ For example using:
 
 ```typescript
   "skipFiles": [
-    "${workspaceRoot}/node_modules/**/*.js",
-    "${workspaceRoot}/lib/**/*.js"
+    "${workspaceFolder}/node_modules/**/*.js",
+    "${workspaceFolder}/lib/**/*.js"
   ]
 ```
 
@@ -365,8 +365,8 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 
 ```typescript
 "skipFiles": [
-    "${workspaceRoot}/node_modules/**/*.js",
-    "!${workspaceRoot}/node_modules/math/**/*.js"
+    "${workspaceFolder}/node_modules/**/*.js",
+    "!${workspaceFolder}/node_modules/math/**/*.js"
 ]
 ```
 
@@ -406,7 +406,7 @@ This is the corresponding launch configuration for a TypeScript program:
             "type": "node",
             "request": "launch",
             "program": "app.ts",
-            "outFiles": [ "${workspaceRoot}/bin/**/*.js" ]
+            "outFiles": [ "${workspaceFolder}/bin/**/*.js" ]
         }
     ]
 }
