@@ -55,7 +55,7 @@ In this release, we support the following features:
 
 ![Debugging Features](2017_09_28_debug-features.png)
 
-Future releases would include expression evaluation and hot code replacement as next major features.
+Future releases will include expression evaluation and hot code replacement.
 
 ## Next Steps
 
