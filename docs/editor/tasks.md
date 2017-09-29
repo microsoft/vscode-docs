@@ -337,10 +337,10 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` file and has the following predefined variables:
 
-- **${workspaceRoot}** the path of the folder opened in VS Code
+- **${workspaceFolder}** the path of the workspace folder that contains the tasks.json file
 - **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
 - **${file}** the current opened file
-- **${relativeFile}** the current opened file relative to `workspaceRoot`
+- **${relativeFile}** the current opened file relative to the workspace folder containing the file
 - **${fileBasename}** the current opened file's basename
 - **${fileBasenameNoExtension}** the current opened file's basename without the extension
 - **${fileDirname}** the current opened file's dirname
@@ -450,7 +450,7 @@ A matcher that captures the above warning (and errors) looks like this:
     // The problem is owned by the cpp language service.
     "owner": "cpp",
     // The file name for reported problems is relative to the opened folder.
-    "fileLocation": ["relative", "${workspaceRoot}"],
+    "fileLocation": ["relative", "${workspaceFolder}"],
     // The actual pattern to match problems in the output.
     "pattern": {
         // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’ [-Wimplicit-function-declaration]
@@ -480,7 +480,7 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
     "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
     "problemMatcher": {
         "owner": "cpp",
-        "fileLocation": ["relative", "${workspaceRoot}"],
+        "fileLocation": ["relative", "${workspaceFolder}"],
         "pattern": {
             "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
             "file": 1,
@@ -525,7 +525,7 @@ The following problem pattern matches the output from ESLint in stylish mode - b
 ```json
 {
     "owner": "javascript",
-    "fileLocation": ["relative", "${workspaceRoot}"],
+    "fileLocation": ["relative", "${workspaceFolder}"],
     "pattern": [
         {
             "regexp": "^([^\\s].*)$",
@@ -567,7 +567,7 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 ```json
 {
     "owner": "javascript",
-    "fileLocation": ["relative", "${workspaceRoot}"],
+    "fileLocation": ["relative", "${workspaceFolder}"],
     "pattern": [
         {
             "regexp": "^([^\\s].*)$",
