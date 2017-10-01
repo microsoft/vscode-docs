@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 6
 Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
@@ -82,7 +82,7 @@ The following examples customize editor settings for language modes `typescript`
   },
   "[markdown]": {
     "editor.formatOnSave": true,
-    "editor.wordwrap": "on",
+    "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     "editor.acceptSuggestionOnEnter": "off"
   }

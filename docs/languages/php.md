@@ -1,5 +1,5 @@
 ---
-Order: 9
+Order: 10
 Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
@@ -33,7 +33,7 @@ Visual Studio Code includes a set of common snippets for PHP.  To access these, 
 
 VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. This allows VS Code to stay current with PHP linter improvements.
 
-> Tip: Using XAMPP? Install the full version of PHP in order to obtain the development libraries. 
+> Tip: Using XAMPP? Install the full version of PHP in order to obtain the development libraries.
 
 There are three [settings](/docs/getstarted/settings.md) to control the PHP linter:
 
