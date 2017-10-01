@@ -63,7 +63,7 @@ Repeat the **Quick Open** keyboard shortcut to cycle quickly between recently op
 
 You can open multiple files from **Quick Open** by pressing the Right arrow key. This will open the currently selected file in the background and you can continue selecting files from **Quick Open**.
 
-## Command line interface
+## Command line
 
 VS Code has a powerful command line interface (CLI) to help you customize the editor launch your specific scenarios.
 
@@ -95,11 +95,11 @@ code --help
 code --disable-extensions .
 ```
 
-## .vscode folder
+### .vscode folder
 
 Workspace specific files are in a `.vscode` folder at the root. For example, `tasks.json` for the Task Runner and `launch.json` for the debugger.
 
-## Status Bar decorations
+## Status Bar
 
 ### Errors and Warnings
 
@@ -357,7 +357,7 @@ Are you interested in creating your own extension? You can learn how to do this 
 * snippets
 * jsonValidation
 
-## File and folder management
+## Files and Folders
 
 ### Integrated Terminal
 
@@ -426,19 +426,13 @@ You can quickly open a file or image or create a new file by moving the cursor t
 
 Keyboard Shortcut: `kb(workbench.action.closeActiveEditor)`
 
-### History
+### Navigation history
 
-Navigate entire history
+Navigate entire history: `kb(workbench.action.openNextRecentlyUsedEditorInGroup)`
 
-Keyboard Shortcut: `kb(workbench.action.openNextRecentlyUsedEditorInGroup)`
+Navigate back: `kb(workbench.action.navigateBack)`
 
-Navigate back.
-
-Keyboard Shortcut: `kb(workbench.action.navigateBack)`
-
-Navigate Forward.
-
-Keyboard Shortcut: `kb(workbench.action.navigateForward)`
+Navigate forward: `kb(workbench.action.navigateForward)`
 
 ![navigate history](images/tips-and-tricks/navigate_history.gif)
 
@@ -450,7 +444,7 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 ### File associations
 
-Create language associations for files that aren't detected accurately (for example, many config files are JSON).
+Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
 
 ```json
 "file.associations": {
@@ -458,9 +452,9 @@ Create language associations for files that aren't detected accurately (for exam
 }
 ```
 
-## Editing hacks
+## Editing Hacks
 
-Here are a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [Keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
+Here are a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
 
 **Tip**: You can see recommended keymap extensions in the **Extensions** view with `kb(workbench.extensions.action.showRecommendedKeymapExtensions)` which filters the search to `@recommended:keymaps`.
 
@@ -478,7 +472,7 @@ Add more cursors to current selection.
 
 > Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
 
-## Join line
+### Join line
 
 Keyboard Shortcut: `kb(editor.action.joinLines)`
 
@@ -769,9 +763,7 @@ Stage a portion of a file by selecting that file (using the arrows) and then cho
 
 VS Code makes it easy to see what Git commands are actually running. This is helpful when learning Git or debugging a difficult source control issue.
 
-Keyboard Shortcut: `kb(workbench.action.output.toggleOutput)`
-
-to run `toggleOutput`. Select **Git** in the drop-down.
+Use the **Toggle Output** command (`kb(workbench.action.output.toggleOutput)`) and select **Git** in the drop-down.
 
 ### Gutter indicators
 
@@ -846,7 +838,7 @@ Select **Tasks** from the top-level menu, run the command **Run Task...**, and s
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
 
-## Insiders version of VS Code
+## Insiders builds
 
 The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can use this same version by [downloading here](/insiders).
 
