@@ -132,7 +132,7 @@ There are many things you can do to customize VS Code.
 * Create snippets
 * Install extensions
 
-Check out the full [Settings](/docs/getstarted/settings.md) documentation].
+Check out the full [Settings](/docs/getstarted/settings.md) documentation.
 
 ### Change your theme
 
@@ -258,7 +258,7 @@ And many, many [other customizations](/docs/getstarted/settings.md).
 
 ### Language specific settings
 
-For those settings you only want for specific languages, you can scope the settings by the language identifier. You can find a list of commonly used language ids in the [Language Identifier](/docs/languages/identifiers.md) reference.
+For those settings you only want for specific languages, you can scope the settings by the language identifier. You can find a list of commonly used language ids in the [Language Identifiers](/docs/languages/identifiers.md) reference.
 
 ```json
 "[languageid]": {
@@ -318,7 +318,7 @@ or a custom schema
     },
 ```
 
-See more in the [documentation](/docs/languages/json.md).
+See more in the [JSON](/docs/languages/json.md) documentation.
 
 ## Extensions
 
@@ -367,7 +367,7 @@ Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
 
 Further reading:
 
-* [Official documentation](/docs/editor/integrated-terminal.md)
+* [Integrated Terminal](/docs/editor/integrated-terminal.md) documentation
 * [Mastering VS Code's Terminal article](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
 
 ### Auto Save
@@ -490,11 +490,11 @@ Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.co
 
 ### Shrink / expand selection
 
-More in [documentation](/docs/editor/codebasics.md#multiple-selections-multicursorr)
-
 Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.smartSelect.grow)`
 
 ![shrink expand selection](images/tips-and-tricks/shrink_expand_selection.gif)
+
+You can learn more in the [Basic Editing](/docs/editor/codebasics.md#shrinkexpand-selection) documentation.
 
 ### Go to Symbol in File
 
@@ -538,13 +538,9 @@ Keyboard Shortcut: `kb(editor.action.trimTrailingWhitespace)`
 
 ### Code formatting
 
-**Currently selected source code**
+Currently selected source code: `kb(editor.action.formatSelection)`
 
-Keyboard Shortcut: `kb(editor.action.formatSelection)`
-
-**Whole document format**
-
-Keyboard Shortcut:  `kb(editor.action.formatDocument)`
+Whole document format: `kb(editor.action.formatDocument)`
 
 ![code formatting](images/tips-and-tricks/code_formatting.gif)
 
@@ -621,7 +617,7 @@ Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use
 ### .eslintrc.json
 
 Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). Configure
-your linter however you'd like. Specification is [here](http://eslint.org/docs/user-guide/configuring).
+your linter however you'd like. Consult the [ESLint specification](http://eslint.org/docs/user-guide/configuring) for details on it's linting rules and options.
 
 Here is configuration to use ES6.
 
@@ -720,8 +716,6 @@ Default is side by side diff.
 
 Toggle inline view by clicking the **More** (...) button in the top right and selecting **Switch to Inline View**.
 
-![more git button](images/tips-and-tricks/more_button.png)
-
 ![git inline](images/tips-and-tricks/git_inline.png)
 
 If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
@@ -810,7 +804,7 @@ You can set `"debug.inlineValues": true` to see variable values inline in the de
 ### Auto detect tasks
 
 Select **Tasks** from the top-level menu, run the command **Configure Tasks...**, then select the type of task you'd like to run.
-This will generate a `task.json` file with content like the following. See the Tasks [documentation](/docs/editor/tasks.md) for more details.
+This will generate a `task.json` file with content like the following. See the [Tasks](/docs/editor/tasks.md) documentation for more details.
 
 ```json
 {
@@ -840,7 +834,7 @@ Select **Tasks** from the top-level menu, run the command **Run Task...**, and s
 
 ## Insiders builds
 
-The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can use this same version by [downloading here](/insiders).
+The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading here](/insiders).
 
 * For Early Adopters - Insiders has the most recent code changes for users and extension authors to try out.
 * Frequent Builds - New builds everyday with the latest bug fixes and features.
