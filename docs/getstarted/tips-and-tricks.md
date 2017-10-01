@@ -406,7 +406,7 @@ You can use drag and drop editors to create new editor groups and move editors b
 
 ### Switch between editors
 
-Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondtEditorGroup)`, `kb(workbench.action.focusThirdtEditorGroup3)`
+Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondEditorGroup)`, `kb(workbench.action.focusThirdEditorGroup3)`
 
 ![navigate editors](images/tips-and-tricks/navigate_editors.gif)
 
