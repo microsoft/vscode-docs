@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
@@ -315,7 +315,7 @@ For example, to make the indent guides bright blue, add the following to your `s
 
 ```json
 "workbench.colorCustomizations": {
-    "editorIndentGuide.background": "#0000ff"	
+    "editorIndentGuide.background": "#0000ff"
 }
 ```
 
