@@ -406,7 +406,7 @@ You can use drag and drop editors to create new editor groups and move editors b
 
 ### Switch between editors
 
-Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondEditorGroup)`, `kb(workbench.action.focusThirdEditorGroup3)`
+Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondEditorGroup)`, `kb(workbench.action.focusThirdEditorGroup)`
 
 ![navigate editors](images/tips-and-tricks/navigate_editors.gif)
 
@@ -482,7 +482,7 @@ Add more cursors to current selection.
 
 Keyboard Shortcut: `kb(editor.action.joinLines)`
 
-> Windows / Linux: Not bound by default. Open Keyboard Shortcuts and bind `editor.action.joinLines` to a shortcut of your choice.
+> Windows / Linux: Not bound by default. Open **Keyboard Shortcuts** (`kb(workbench.action.openGlobalKeybindings)`) and bind `editor.action.joinLines` to a shortcut of your choice.
 
 ![Join lines](images/tips-and-tricks/JoinLines.gif)
 
