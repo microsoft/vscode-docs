@@ -3,14 +3,14 @@ Order: 31
 TOCTitle: Integrated Terminal Performance Improvements
 PageTitle: Integrated Terminal Performance Improvements
 MetaDescription: Explore the performance improvements to the integrated terminal renderer in Visual Studio Code
-Date: 2017-09-28
+Date: 2017-10-03
 ShortDescription: Explore the performance improvements to the integrated terminal renderer in Visual Studio Code
 Author: Daniel Imms
 ---
 
 # Integrated Terminal Performance Improvements
 
-September 28, 2017 Daniel Imms, [@Tyriar](https://twitter.com/Tyriar)
+October 3, 2017 Daniel Imms, [@Tyriar](https://twitter.com/Tyriar)
 
 The rendering engine of the integrated terminal has been completely re-written with performance in mind in the upcoming version 1.17 of VS Code, moving away from a completely DOM-based rendering system to using canvas.
 
