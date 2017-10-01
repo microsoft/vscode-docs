@@ -9,7 +9,7 @@ Author: Xiaokai He
 ---
 # Using VS Code to Debug Java Applications
 
-September 28, 2017 - Xiaokai He
+September 28, 2017 Xiaokai He
 
 For Java developers on Visual Studio Code, the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension has been great for providing language features such as IntelliSense and project support. At the same time, we've also heard feedback that users would also like Java debugging. Today, we're excited to announce our ongoing collaboration with Red Hat and enabling Java developers to debug Java applications with a new lightweight [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) based on [Java Debug Server](https://github.com/Microsoft/java-debug).
 
@@ -47,13 +47,15 @@ After reloading VS Code, open a folder that contains a Java project and follow b
 In this release, we support the following features:
 
 - **Launch/Attach** - You can either launch the Java project within VS Code or attach to any running JVM process in debug mode, locally or remotely.
-- **Breakpoints** - Conditional breakpoints by Expressions and Hit are supported and can easily be set using the inline breakpoint settings window. This allows you to conveniently add conditional breakpoints to your code, directly in the source viewer, without requiring a modal window. Break on exceptions is also supported.
+- **Breakpoints** - Conditional breakpoints by Hit Count is supported and can easily be set using the inline breakpoint settings window. This allows you to conveniently add conditional breakpoints to your code, directly in the source viewer, without requiring a modal window. Break on exceptions is also supported.
 - **Control flow** - Including **Pause**, **Continue** `F5`, **Step over** `F10`, **Step into** `F11`, **Step out** `Shift+F11`
 - **Data inspection** - When you're stopped at a breakpoint, the debugger has access to the variable names and values that are currently stored in memory. Inspect/Watch/Set Variables are supported.
 - **Diagnostics** - The **CALL STACK** panel shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
 - **Debug Console** - The Debug Console lets you see information from both stdout and stderr.
 
 ![Debugging Features](2017_09_28_debug-features.png)
+
+Future releases will include expression evaluation and hot code replacement.
 
 ## Next Steps
 
