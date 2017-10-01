@@ -29,7 +29,7 @@ Includes the **Interactive Playground**.
 
 Access all available commands based on your current context.
 
-> Keyboard Shortcut: `kb(workbench.action.showCommands)`
+Keyboard Shortcut: `kb(workbench.action.showCommands)`
 
 ![command palette](images/tips-and-tricks/OpenCommandPalatte.gif)
 
@@ -45,15 +45,15 @@ Download the keyboard shortcut reference sheet for your platform ([macOS](https:
 
 ![Keyboard Reference Sheet](images/tips-and-tricks/KeyboardReferenceSheet.png)
 
-### Quick open
+### Quick Open
 
 Quickly open files.
 
-> Keyboard Shortcut: `kb(workbench.action.quickOpen)`
+Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 ![Quick Open](images/tips-and-tricks/QuickOpen.gif)
 
-> **Tip:** Type "?" to view help suggestions.
+**Tip:** Type `kbstyle(?)` to view help suggestions.
 
 ### Navigate between recently opened files
 
@@ -67,7 +67,7 @@ You can open multiple files from **Quick Open** by pressing the Right arrow key.
 
 VS Code has a powerful command line interface (CLI) to help you customize the editor launch your specific scenarios.
 
-> Make sure the VS Code binary is on your path so you can simply type `code` to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md))
+> Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 
 ```bash
 # open code with current directory
@@ -103,7 +103,7 @@ Workspace specific files are in a `.vscode` folder at the root. For example, `ta
 
 ### Errors and Warnings
 
-> Keyboard Shortcut: `kb(workbench.actions.view.problems)`
+Keyboard Shortcut: `kb(workbench.actions.view.problems)`
 
 Quickly jump to errors and warnings in the project.
 
@@ -115,7 +115,7 @@ You can filter problems by type ('errors', 'warnings') or text matching.
 
 ### Change language mode
 
-> Keyboard Shortcut: `kb(workbench.action.editor.changeLanguageMode)`
+Keyboard Shortcut: `kb(workbench.action.editor.changeLanguageMode)`
 
 ![change syntax](images/tips-and-tricks/change_syntax.gif)
 
@@ -132,11 +132,11 @@ There are many things you can do to customize VS Code.
 * Create snippets
 * Install extensions
 
-Check out the full [documentation](/docs/getstarted/settings.md).
+Check out the full [Settings](/docs/getstarted/settings.md) documentation].
 
 ### Change your theme
 
-> Keyboard Shortcut: `kb(workbench.action.selectTheme)`
+Keyboard Shortcut: `kb(workbench.action.selectTheme)`
 
 You can install more themes from the extension Marketplace.
 
@@ -157,7 +157,7 @@ Are you used to keyboard shortcuts from another editor? You can install a Keymap
 
 ### Customize your keyboard shortcuts
 
-> Keyboard Shortcut: `kb(workbench.action.openGlobalKeybindings)`
+Keyboard Shortcut: `kb(workbench.action.openGlobalKeybindings)`
 
 ![keyboard shortcuts](images/tips-and-tricks/keyboard-shortcuts.png)
 
@@ -171,27 +171,27 @@ See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.m
 
 Open User Settings `settings.json`
 
-> Keyboard Shortcut: `kb(workbench.action.openGlobalSettings)`
+Keyboard Shortcut: `kb(workbench.action.openGlobalSettings)`
 
-*Format on paste*
+Format on paste
 
 ```json
 "editor.formatOnPaste": true
 ```
 
-*Change the font size*
+Change the font size
 
 ```json
 "editor.fontSize": 18
 ```
 
-*Change the zoom level*
+Change the zoom level
 
 ```json
 "window.zoomLevel": 5
 ```
 
-*Font ligatures*
+Font ligatures
 
 ```json
 "editor.fontFamily": "Fira Code",
@@ -202,7 +202,7 @@ Open User Settings `settings.json`
 
 ![font ligatures](images/tips-and-tricks/font-ligatures-annotated.png)
 
-*Auto Save*
+Auto Save
 
 ```json
 "files.autoSave": "afterDelay"
@@ -210,31 +210,31 @@ Open User Settings `settings.json`
 
 You can also toggle Auto Save from the top-level menu with the **File** > **Auto Save**.
 
-*Format on save*
+Format on save
 
 ```json
 "editor.formatOnSave": true,
 ```
 
-*Change the size of tab characters*
+Change the size of Tab characters
 
 ```json
 "editor.tabSize": 4
 ```
 
-*Spaces or tabs*
+Spaces or Tabs
 
 ```json
 "editor.insertSpaces": true
 ```
 
-*Render whitespace*
+Render whitespace
 
 ```json
 "editor.renderWhitespace": "all"
 ```
 
-*Ignore files / folders*
+Ignore files / folders
 
 Removes these files / folders from your editor window.
 
@@ -270,7 +270,7 @@ For those settings you only want for specific languages, you can scope the setti
 
 ![language based settings](images/tips-and-tricks/lang-based-settings.png)
 
-### Add JSON Validation
+### Add JSON validation
 
 Enabled by default for many file types. Create your own schema and validation in `settings.json`
 
@@ -322,7 +322,7 @@ See more in the [documentation](/docs/languages/json.md).
 
 ## Extensions
 
-> Keyboard Shortcut: `kb(workbench.view.extensions)`
+Keyboard Shortcut: `kb(workbench.view.extensions)`
 
 ### Find extensions
 
@@ -359,9 +359,9 @@ Are you interested in creating your own extension? You can learn how to do this 
 
 ## File and folder management
 
-### Integrated terminal
+### Integrated Terminal
 
-> Windows / Linux / Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
+Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
 
 ![Integrated terminal](images/tips-and-tricks/integrated_terminal.png)
 
@@ -382,13 +382,13 @@ You can also toggle Auto Save from the top-level menu with the **File** > **Auto
 
 ### Toggle Sidebar
 
-> Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
+Keyboard Shortcut: `kb(workbench.action.toggleSidebarVisibility)`
 
 ![toggle side bar](images/tips-and-tricks/toggle_side_bar.gif)
 
 ### Zen Mode
 
-> Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
+Keyboard Shortcut: `kb(workbench.action.toggleZenMode)`
 
 ![zen mode](images/tips-and-tricks/zen_mode.gif)
 
@@ -396,7 +396,7 @@ Enter distraction free Zen mode.
 
 ### Side by side editing
 
-> Keyboard Shortcut: `kb(workbench.action.splitEditor)`
+Keyboard Shortcut: `kb(workbench.action.splitEditor)`
 
 You can also use `kbstyle(Ctrl)` then click a file from the File Explorer (`kbstyle(Cmd+click)` on macOS).
 
@@ -406,17 +406,17 @@ You can use drag and drop editors to create new editor groups and move editors b
 
 ### Switch between editors
 
-> Keyboard Shortcut: `kb(editor.foldLevel1)`, `kb(editor.foldLevel2)`, `kb(editor.foldLevel3)`
+Keyboard Shortcut: `kb(workbench.action.focusFirstEditorGroup)`, `kb(workbench.action.focusSecondtEditorGroup)`, `kb(workbench.action.focusThirdtEditorGroup3)`
 
 ![navigate editors](images/tips-and-tricks/navigate_editors.gif)
 
 ### Move to Explorer window
 
-> Keyboard Shortcut: `kb(workbench.view.explorer)`
+Keyboard Shortcut: `kb(workbench.view.explorer)`
 
 ### Create or open a file
 
-> Keyboard Shortcut: `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS)
+Keyboard Shortcut: `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS)
 
 You can quickly open a file or image or create a new file by moving the cursor to the file link and using `kbstyle(Ctrl+click)`.
 
@@ -424,25 +424,27 @@ You can quickly open a file or image or create a new file by moving the cursor t
 
 ### Close the currently opened folder
 
-> Keyboard Shortcut: `kb(workbench.action.closeActiveEditor)`
+Keyboard Shortcut: `kb(workbench.action.closeActiveEditor)`
 
 ### History
 
-Navigate entire history with `kb(workbench.action.openNextRecentlyUsedEditorInGroup)`
+Navigate entire history
+
+Keyboard Shortcut: `kb(workbench.action.openNextRecentlyUsedEditorInGroup)`
 
 Navigate back.
 
-> Keyboard Shortcut: `kb(workbench.action.navigateBack)`
+Keyboard Shortcut: `kb(workbench.action.navigateBack)`
 
 Navigate Forward.
 
-> Keyboard Shortcut: `kb(workbench.action.navigateForward)`
+Keyboard Shortcut: `kb(workbench.action.navigateForward)`
 
 ![navigate history](images/tips-and-tricks/navigate_history.gif)
 
 ### Navigate to a file
 
-> Keyboard Shortcut: `kb(workbench.action.quickOpen)`
+Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 
 ![navigate to file](images/tips-and-tricks/navigate_to_file.gif)
 
@@ -460,11 +462,11 @@ Create language associations for files that aren't detected accurately (for exam
 
 Here are a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [Keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
 
-> Tips: You can see recommended keymap extensions in the **Extensions** view with `kb(workbench.extensions.action.showRecommendedKeymapExtensions)` which filters the search to `@recommended:keymaps`.
+**Tip**: You can see recommended keymap extensions in the **Extensions** view with `kb(workbench.extensions.action.showRecommendedKeymapExtensions)` which filters the search to `@recommended:keymaps`.
 
 ### Multi cursor selection
 
-> Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
+Keyboard Shortcut: `kb(editor.action.insertCursorAbove)` or `kb(editor.action.insertCursorBelow)`
 
 ![multi cursor](images/tips-and-tricks/multi_cursor.gif)
 
@@ -474,20 +476,20 @@ Add more cursors to current selection.
 
 ![add cursor to all occurrences of current selection](images/tips-and-tricks/add_cursor_current_selection.gif)
 
-> Note: about Linux and alt modifier instead
+> Note: You can also change the modifier to `kbstyle(Ctrl/Cmd)` for applying multiple cursors with the `editor.multiCursorModifier` [setting](/docs/getstarted/settings.md) . See [Multi-cursor Modifier](/docs/editor/codebasics.md#multicursor-modifier) for details.
 
 ## Join line
 
-> Keyboard Shortcut: `kb(editor.action.joinLines)`
->
+Keyboard Shortcut: `kb(editor.action.joinLines)`
+
 > Windows / Linux: Not bound by default. Open Keyboard Shortcuts and bind `editor.action.joinLines` to a shortcut of your choice.
 
 ![Join lines](images/tips-and-tricks/JoinLines.gif)
 
 ### Copy line up / down
 
-> Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
->
+Keyboard Shortcut: `kb(editor.action.copyLinesUpAction)` or `kb(editor.action.copyLinesDownAction)`
+
 > The commands **Copy Line Up/Down** are unbound on Linux because the VS Code default keybindings would conflict with Ubuntu keybindings, see [Issue #509](https://github.com/Microsoft/vscode/issues/509). You can still set the commands `editor.action.copyLinesUpAction` and `editor.action.copyLinesUpAction` to your own preferred keyboard shortcuts.
 
 ![copy line down](images/tips-and-tricks/copy_line_down.gif)
@@ -496,13 +498,13 @@ Add more cursors to current selection.
 
 More in [documentation](/docs/editor/codebasics.md#multiple-selections-multicursorr)
 
-> Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.smartSelect.grow)`
+Keyboard Shortcut: `kb(editor.action.smartSelect.shrink)` or `kb(editor.action.smartSelect.grow)`
 
 ![shrink expand selection](images/tips-and-tricks/shrink_expand_selection.gif)
 
 ### Go to Symbol in File
 
-> Keyboard Shortcut: `kb(workbench.action.gotoSymbol)`
+Keyboard Shortcut: `kb(workbench.action.gotoSymbol)`
 
 ![Find by symbol](images/tips-and-tricks/find_by_symbol.gif)
 
@@ -512,31 +514,31 @@ You can group the symbols by kind by adding a colon, `@:`.
 
 ### Go to Symbol in Workspace
 
-> Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
+Keyboard Shortcut: `kb(workbench.action.showAllSymbols)`
 
 ![go to symbol in workspace](images/tips-and-tricks/go_to_symbol_in_workspace.png)
 
 ### Navigate to a specific line
 
-> Keyboard Shortcut: `kb(workbench.action.gotoLine)`
+Keyboard Shortcut: `kb(workbench.action.gotoLine)`
 
 ![navigate to line](images/tips-and-tricks/navigate_to_line.gif)
 
 ### Undo cursor position
 
-> Keyboard Shortcut: `kb(cursorUndo)`
+Keyboard Shortcut: `kb(cursorUndo)`
 
 ![undo cursor position](images/tips-and-tricks/undo_cursor_position.gif)
 
 ### Move line up and down
 
-> Keyboard Shortcut: `kb(editor.action.moveLinesUpAction)` or `kb(editor.action.moveLinesDownAction)`
+Keyboard Shortcut: `kb(editor.action.moveLinesUpAction)` or `kb(editor.action.moveLinesDownAction)`
 
 ![move line up and down](images/tips-and-tricks/move_line.gif)
 
 ### Trim trailing whitespace
 
-> Keyboard Shortcut: `kb(editor.action.trimTrailingWhitespace)`
+Keyboard Shortcut: `kb(editor.action.trimTrailingWhitespace)`
 
 ![trailing whitespace](images/tips-and-tricks/trim_whitespace.gif)
 
@@ -544,29 +546,29 @@ You can group the symbols by kind by adding a colon, `@:`.
 
 **Currently selected source code**
 
-> Keyboard Shortcut: `kb(editor.action.formatSelection)`
+Keyboard Shortcut: `kb(editor.action.formatSelection)`
 
 **Whole document format**
 
-> Keyboard Shortcut:  `kb(editor.action.formatDocument)`
+Keyboard Shortcut:  `kb(editor.action.formatDocument)`
 
 ![code formatting](images/tips-and-tricks/code_formatting.gif)
 
 ### Code folding
 
-> Keyboard Shortcut: `kb(editor.fold)` and `kb(editor.unfold)`
+Keyboard Shortcut: `kb(editor.fold)` and `kb(editor.unfold)`
 
 ![code folding](images/tips-and-tricks/code_folding.gif)
 
 ### Select current line
 
-> Keyboard Shortcut: `kb(expandLineSelection)`
+Keyboard Shortcut: `kb(expandLineSelection)`
 
 ![select current line](images/tips-and-tricks/select_current_line.gif)
 
 ### Navigate to beginning and end of file
 
-> Keyboard Shortcut: `kb(cursorTop)` and `kb(cursorBottom)`
+Keyboard Shortcut: `kb(cursorTop)` and `kb(cursorBottom)`
 
 ![navigate to beginning and end of file](images/tips-and-tricks/beginning_end_file.gif)
 
@@ -574,7 +576,7 @@ You can group the symbols by kind by adding a colon, `@:`.
 
 In a Markdown file, use
 
-> Keyboard Shortcut: `kb(markdown.showPreview)`
+Keyboard Shortcut: `kb(markdown.showPreview)`
 
 ![toggle readme preview](images/tips-and-tricks/toggle_preview.gif)
 
@@ -582,7 +584,7 @@ In a Markdown file, use
 
 In a Markdown file, use
 
-> Keyboard Shortcut: `kb(markdown.showPreviewToSide)`
+Keyboard Shortcut: `kb(markdown.showPreviewToSide)`
 
 Special bonus: The preview will now sync.
 
@@ -590,7 +592,7 @@ Special bonus: The preview will now sync.
 
 ## IntelliSense
 
-Anytime, try `kb(editor.action.triggerSuggest)` to trigger the Suggestions widget.
+`kb(editor.action.triggerSuggest)` to trigger the Suggestions widget.
 
 ![intellisense](images/tips-and-tricks/intellisense.gif)
 
@@ -702,9 +704,9 @@ See IntelliSense for your `package.json` file.
 
 See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippets.md).
 
-## Git Integration
+## Git integration
 
-> Keyboard Shortcut: `kb(workbench.view.scm)`
+Keyboard Shortcut: `kb(workbench.view.scm)`
 
 Git integration comes with VS Code "in-the-box". You can install other SCM provider from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
 
@@ -730,7 +732,7 @@ Toggle inline view by clicking the **More** (...) button in the top right and se
 
 If you prefer the inline view, you can set `"diffEditor.renderSideBySide": false`.
 
-**Review Pane**
+**Review pane**
 
 Navigate through diffs with `kb(editor.action.diffReview.next)` and `kb(editor.action.diffReview.prev)`. This will present them in a unified patch format.
 Lines can be navigated with arrow keys and pressing `kbstyle(Enter)` will jump back in the diff editor and the selected line.
@@ -759,8 +761,6 @@ Hover over the number of files and click the plus button.
 
 Stage a portion of a file by selecting that file (using the arrows) and then choosing **Stage Selected Ranges** from the **Command Palette**.
 
-![git stage selected](https://cloud.githubusercontent.com/assets/1926584/23407797/ebeefbb4-fdc5-11e6-8ca1-c4c6c056a8fd.png)
-
 ### Undo last commit
 
 ![undo last commit](images/tips-and-tricks/undo_last_commit.gif)
@@ -769,7 +769,7 @@ Stage a portion of a file by selecting that file (using the arrows) and then cho
 
 VS Code makes it easy to see what Git commands are actually running. This is helpful when learning Git or debugging a difficult source control issue.
 
-> Keyboard Shortcut: `kb(workbench.action.output.toggleOutput)`
+Keyboard Shortcut: `kb(workbench.action.output.toggleOutput)`
 
 to run `toggleOutput`. Select **Git** in the drop-down.
 
@@ -782,8 +782,6 @@ View diff decorations in editor. See [documentation](/docs/editor/versioncontrol
 ### Resolve merge conflicts
 
 During a merge, go to the **Source Control** view (`kb(workbench.view.scm)`) and make changes in the diff view.
-
-![git icon](images/tips-and-tricks/git_icon.png)
 
 ### Setup VS Code as default merge tool
 
@@ -848,10 +846,10 @@ Select **Tasks** from the top-level menu, run the command **Run Task...**, and s
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
 
-## Insider Version of VS Code
+## Insiders version of VS Code
 
 The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can use this same version by [downloading here](/insiders).
 
-* For Early Adopters - Insiders has the most recent code changes and may lead to the occasional broken build.
+* For Early Adopters - Insiders has the most recent code changes for users and extension authors to try out.
 * Frequent Builds - New builds everyday with the latest bug fixes and features.
 * Side-by-side install - Insiders installs next to the Stable build allowing you to use either independently.
