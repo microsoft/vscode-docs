@@ -28,7 +28,7 @@ So we found a way to emulate port forwarding by adding the option to start an in
 
 ## Getting started
 
-To get started, you simply open the **Command Palette** (`kb(workbench.action.showCommands)`) inside VS Code and type "ext install" to run the **Extensions: Install Extension** command. When the extension list appears, type "ios" to filter the list and install the Debugger for iOS Web extension. You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-ios-web-debug).
+To get started, open the **Extensions** view (`kb(workbench.view.extensions)`). When the extension list appears, type "ios" to filter the list and install the Debugger for iOS Web extension. You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-ios-web-debug).
 
 ## Supported features
 
