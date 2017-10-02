@@ -182,6 +182,17 @@ In addition to the default formatters, you can find extensions on the Marketplac
 
 You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions. The folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
+Folding also supports region markers. Markers are defined by the language in the language configuration.
+
+The following languages currently have markers defined:
+
+* TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
+* C#: `#region` and `#endregion`
+* C/C++: `#pragma region` and `#pragma endregion`
+* F#: `//#region` and `//#endregion`
+* Powershell: `#region` and `#endregion`
+* VB: `#Region` and `#End Region`
+
 You can also use the following actions:
 
 * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
