@@ -228,6 +228,13 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     - `css.unitAliases`
     - `css.intUnit`
     - `css.floatUnit`
+    - `bem.elementSeparator`
+    - `bem.modifierSeparator`
+    - `filter.commentBefore`
+    - `filter.commentTrigger`
+    - `filter.commentAfter`
+
+    The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0. For example, instead of the older `"\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"`,the simpler `"\n<!-- /[#ID][.CLASS] -->"` is to be used.
 
     If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/Microsoft/vscode/issues/new) for the same.
 
