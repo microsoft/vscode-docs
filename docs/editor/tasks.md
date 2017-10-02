@@ -660,6 +660,10 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 }
 ```
 
+### Tasks in multi Folder Workspaces
+
+If you have setup a workspace that consist out of multiple folders then only version `2.0.0` tasks are detected and shown in the `Tasks > Run Task` picker. See the section below on how to convert `0.1.0` tasks into `2.0.0` tasks to get access to all tasks.
+
 ## Convert from "0.1.0" to "2.0.0"
 
 Since the `2.0.0` version comes with lots of new auto-detection features, you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`. If you have lots of customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings because some old properties are now deprecated. Here is how to get rid of the deprecations:
