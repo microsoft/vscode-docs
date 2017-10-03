@@ -11,7 +11,7 @@ Author: Daniel Imms
 
 October 3, 2017 Daniel Imms, [@Tyriar](https://twitter.com/Tyriar)
 
-The rendering engine of the Integrated Terminal has been completely re-written with performance in mind for the upcoming version 1.17 of Visual Studio Code. In this version, we move away from a DOM-based rendering system to using [canvas](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas).
+The rendering engine of the Integrated Terminal has been completely re-written with performance in mind for the upcoming version 1.17 of Visual Studio Code. In this version, we move away from a DOM-based rendering system to using the HTML [canvas](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas) element.
 
 ## DOM Rendering
 
@@ -19,7 +19,7 @@ It's somewhat surprising, but rendering an interactive terminal was possible in 
 
 **Selection**: There was a lot of working against the DOM's selection system to cover the terminal use case. Since we always rendered only what was visible to the DOM, you could not select multiple pages of content without reimplementing selection. Scrolling would also cause the selection to be dropped. In order to resolve these issues, custom selection logic was added in VS Code version [1.14](https://code.visualstudio.com/updates/v1_14#_selection-reimplemented).
 
-**Misaligned characters**: Due to many monospace fonts not being strictly monospace for some Unicode characters, this could lead to situations like in the right-side of this image:
+**Misaligned characters**: Due to many monospace fonts not being strictly monospace for some Unicode characters, this could lead to situations like the one seen on the right-side of the image below:
 
 ![Characters to the right of the terminal could become misaligned when Unicode was used](2017_10_03_misaligned.png)
 
@@ -76,7 +76,7 @@ With the new renderer, this restriction has been removed and you can now enjoy u
 
 ## The Results
 
-Our benchmarks have measured that the terminal now renders approximately **5 to 45 times faster than before**, depending on the situation. Even if you don't notice the increased responsiveness and frame rate, faster rendering also means less battery usage! We hope you enjoy the performance improvements, they are coming to version 1.17 of VS Code in a few days and are available to test in the [Insiders build](https://code.visualstudio.com/insiders) right now.
+Our benchmarks have measured that the Integrated Terminal now renders approximately **5 to 45 times faster than before**, depending on the situation. Even if you don't notice the increased responsiveness and frame rate, faster rendering also means less battery usage! We hope you enjoy the performance improvements, they are coming to version 1.17 of VS Code in a few days and are available to test in the [Insiders build](https://code.visualstudio.com/insiders) right now.
 
 You can also jump into the [original xterm.js pull request](https://github.com/sourcelair/xterm.js/pull/938) that added the feature for a more detailed look.
 
