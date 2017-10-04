@@ -234,9 +234,25 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     - `filter.commentTrigger`
     - `filter.commentAfter`
 
-    The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0. For example, instead of the older `"\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"`,the simpler `"\n<!-- /[#ID][.CLASS] -->"` is to be used.
+    The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
 
-    If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/Microsoft/vscode/issues/new) for the same.
+    For example, instead of the older format
+
+    ```json
+    "emmet.preferences": {
+        "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
+    }
+    ```
+
+    you would use
+
+    ```json
+    "emmet.preferences": {
+        "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
+    }
+    ```
+
+    If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/Microsoft/vscode/issues/new).
 
 ## Known issues in Emmet 2.0
 
