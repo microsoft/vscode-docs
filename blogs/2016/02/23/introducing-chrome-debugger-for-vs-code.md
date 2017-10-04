@@ -30,7 +30,7 @@ For now, Chrome needs to be started with remote debugging enabled, and only supp
 
 ## To get started
 
-To get started, you simply open the Command Palette (`kb(workbench.action.showCommands)`) inside VS Code and type `ext install` to run the `Extensions: Install Extension` command.  When the extension list appears, type 'chrome' to filter the list and install the `Debugger for Chrome` extension.  You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-chrome-debug).
+To get started, open the **Extensions** view (`kb(workbench.view.extensions)`).  When the extension list appears, type 'chrome' to filter the list and install the `Debugger for Chrome` extension.  You'll then create a launch-configuration file which we explain in detail in our README [right here](https://github.com/Microsoft/vscode-chrome-debug).
 
 You can either setup VS Code to connect to an already running Chrome instance or simply start a new one with remote debugging enabled, but read more about that in our [README](https://github.com/Microsoft/vscode-chrome-debug).
 
