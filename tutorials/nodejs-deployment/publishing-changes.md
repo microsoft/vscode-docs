@@ -4,7 +4,7 @@ TOCTitle: Publish Changes
 PageTitle: Publish Changes
 MetaDescription:
 MetaSocialImage:
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 ShortDescription:
 ---
 # Publish Changes to your Application

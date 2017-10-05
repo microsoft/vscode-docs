@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Build Node.js Apps with VS Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: nodejs_runtimes_node.png
 ---

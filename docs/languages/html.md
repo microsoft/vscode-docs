@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
 # HTML Programming in VS Code

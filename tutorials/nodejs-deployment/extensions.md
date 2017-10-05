@@ -4,7 +4,7 @@ TOCTitle: Extensions
 PageTitle: Extensions
 MetaDescription:
 MetaSocialImage:
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 ShortDescription:
 ---
 # Azure Extensions
