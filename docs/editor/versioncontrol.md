@@ -17,10 +17,11 @@ Visual Studio Code has integrated source control and includes [Git](https://git-
 
 ## SCM Providers
 
-VS Code has support for handling multiple Source Control providers simultaneously. You can open multiple
-Git repositories alongside your TFS local workspace and seamlessly work across your projects, for example.
+VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your TFS local workspace and seamlessly work across your projects. The **SOURCE CONTROL PROVIDERS** region of the **Source Control** view (`kb(workbench.view.scm)`) lists the detected providers and repositories and you can scope the display of your changes by selecting a specific provider.
 
 ![scm](images/versioncontrol/scm.png)
+
+If you would like to install an additional SCM provider, the **Install Additional SCM Providers...** command in the **Source Control** view **More** (...) dropdown will show a list of avaiable SCM provider extensions.
 
 ## Git support
 
