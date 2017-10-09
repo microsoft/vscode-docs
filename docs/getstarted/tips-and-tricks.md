@@ -683,9 +683,9 @@ See IntelliSense for your `package.json` file.
     "body": [
         "class $1 extends React.Component {",
         "",
-        "   render() {",
-        "      return ($2);",
-        "   }",
+        "	render() {",
+        "		return ($2);",
+        "	}",
         "",
         "}"
     ]
