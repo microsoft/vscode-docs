@@ -95,9 +95,9 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 
 ## Merge Conflicts
 
-![Git merge](images/versioncontrol/merge.png)
+![Git merge](images/versioncontrol/merge-conflict.png)
 
-Merge conflicts are recognized by VS Code; we try to provide useful coloring markers to help you with resolving them. Once resolved, stage the conflicting file so you can commit those changes.
+Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
 
 ## Viewing Diffs
 
