@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python with Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Python.
 ---
 # Python on Visual Studio Code
@@ -17,8 +17,8 @@ Python is fully supported in Visual Studio Code through [extensions](/docs/edito
 
 VS Code is a fast editor and ships with only the basic features. Add Python language support to VS Code by installing one of the popular Python extensions.
 
-1. Select an extension.
-2. Install the extension by typing `ext install` into the Command Palette `kb(workbench.action.showCommands)`.
+1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
+2. Filter the extension list by typing 'python'.
 
 <div class="marketplace-extensions-python"></div>
 

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 PageTitle: Go with Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go programming in VS Code

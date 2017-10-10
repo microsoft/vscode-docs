@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -659,6 +659,10 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
     ]
 }
 ```
+
+### Tasks in multi Folder Workspaces
+
+If you have setup a workspace that consist out of multiple folders then only version `2.0.0` tasks are detected and shown in the `Tasks > Run Task` picker. See the section below on how to convert `0.1.0` tasks into `2.0.0` tasks to get access to all tasks.
 
 ## Convert from "0.1.0" to "2.0.0"
 

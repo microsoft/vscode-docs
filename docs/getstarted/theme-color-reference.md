@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -256,6 +256,8 @@ Errors and warnings:
 - `editorError.border`: Border color of error squigglies in the editor.
 - `editorWarning.foreground`: Foreground color of warning squigglies in the editor.
 - `editorWarning.border`: Border color of warning squigglies in the editor.
+- `editorInfo.foreground`: Foreground color of info squigglies in the editor.
+- `editorInfo.border`: Border color of info squigglies in the editor.
 
 The gutter contains the glyph margins and the line numbers:
 
@@ -299,6 +301,7 @@ The editor marker view shows when navigating to errors and warnings in the edito
 - `editorMarkerNavigation.background`: Editor marker navigation widget background.
 - `editorMarkerNavigationError.background`: Editor marker navigation widget error color.
 - `editorMarkerNavigationWarning.background`: Editor marker navigation widget warning color.
+- `editorMarkerNavigationInfo.background`: Editor marker navigation widget info color.
 
 ## Peek View Colors
 

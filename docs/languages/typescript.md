@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: typescript_Languages_typescript.png
 ---
@@ -185,7 +185,7 @@ To exclude JavaScript files generated from both `.ts` and `.tsx` source files, u
 
 ```json
 "**/*.js": { "when": "$(basename).ts" },
-"**/*.js": { "when": "$(basename).tsx" }
+"**/**.js": { "when": "$(basename).tsx" }
 ```
 
 This is a bit of a trick. The search glob pattern is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.

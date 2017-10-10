@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
 # Themes, Snippets and Colorizers
@@ -31,7 +31,7 @@ The easiest way to create a new workbench color theme is to start with an existi
 For syntax highlighting colors, there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it:
 
 - Switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
-- The setting supports a simple mode with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than than, you need to use textMate theme rules directly.
+- The setting supports a simple model with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than that, you need to use textMate theme rules directly.
 
 ### TextMate theme rules
 

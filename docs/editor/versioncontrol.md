@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in VS Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
 # Using Version Control in VS Code
@@ -15,11 +15,12 @@ Visual Studio Code has integrated source control and includes [Git](https://git-
 
 > **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
 
-## Switch SCM Providers
+## SCM Providers
 
-By default, VS Code has the Git source control provider enabled but you can install and switch to another SCM provider. Click the **More** (...) button in the **Source Control** view and you will see a command to **Switch SCM Provider...**. This brings up a list of currently installed SCM providers as well as a shortcut to **Install Additional SCM Providers...** from the **Extensions** view.
+VS Code has support for handling multiple Source Control providers simultaneously. You can open multiple
+Git repositories alongside your TFS local workspace and seamlessly work across your projects, for example.
 
-![switch SCM providers](images/versioncontrol/switch-scm-providers.png)
+![scm](images/versioncontrol/scm.png)
 
 ## Git support
 

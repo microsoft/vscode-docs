@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Hello World
 ContentId: DC915D6C-13D4-4022-9101-57C4A4118B07
 PageTitle: Your First Visual Studio Code Extension - Hello World
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Create your first Visual Studio extension (plug-in) with a simple Hello Word example.  This walkthrough will take you through the basics of VS Code extensibility.
 ---
 # Example - Hello World
@@ -233,7 +233,9 @@ var text = editor.document.getText(selection);
 vscode.window.showInformationMessage('Selected characters: ' + text.length);
 ```
 
-> **Tip:** Once you make changes to the extension source code, you need to restart the Extension Development instance of VS Code. You can do that by using `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`) in the second instance or by clicking the Restart button at the top of your primary VS Code instance.
+> **Tip:** Once you make changes to the extension source code, you need to restart the **Extension Development Host** instance of VS Code. You can do that by using `kbstyle(Ctrl+R)` (macOS: `kbstyle(Cmd+R)`) in the **Extension Development Host** instance or by clicking the **Restart** button at the top of your primary VS Code instance.
+
+Create a file (**File** > **New File**), type some text and select it. When you run the **Hello World** command, you should now see the count of selected characters.
 
 ![Running the modified extension](images/example-hello-world/selection-length.png)
 

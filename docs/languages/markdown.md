@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and VS Code
@@ -224,7 +224,7 @@ If you want to make the **Compile Markdown** task the default build task to run 
     ]
 }
 ```
- 
+
 ## Automating Markdown compilation
 
 Let's take things a little further and automate Markdown compilation with VS Code.  We can do so with the same task runner integration as before, but with a few modifications.

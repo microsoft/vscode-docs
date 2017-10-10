@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in VS Code
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: nodejs_javascript_vscode.png
 ---
