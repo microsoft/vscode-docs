@@ -233,6 +233,9 @@ The `configuration` property specifies a path to the language configuration file
 * `brackets` - Defines the bracket symbols that influence the indentation of code between the brackets. Used by the editor to determine or correct the new indentation level when entering a new line.
 * `autoClosingPairs` - Defines the open and close symbols for the auto-close functionality. When an open symbol is entered, the editor will insert the close symbol automatically. Auto closing pairs optionally take a `notIn` parameter to deactivate a pair inside strings or comments.
 * `surroundingPairs` - Defines the open and close pairs used to surround a selected string.
+* `folding` - Defines when and how code should be folded in the editor
+  * `offSide` - Empty lines trailing a code section belong to the next folding section (used for indentation based languages such as Python or F#)
+  * `markers` - Regex for identifying markers for custom folding regions in the code
 
 If your language configuration file name is or ends with `language-configuration.json`, you will get validation and editing support in VS Code.
 
@@ -278,7 +281,14 @@ language-configuration.json
         ["(", ")"],
         ["<", ">"],
         ["'", "'"]
-    ]
+    ],
+    "folding": {
+        "offSide": true,
+        "markers": {
+			"start": "^\\s*//#region",
+			"end": "^\\s*//#endregion"
+		}
+    }
 }
 ```
 
