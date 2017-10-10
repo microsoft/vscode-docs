@@ -15,9 +15,7 @@ Snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with ot
 
 The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
 
-<video id="snippets-showcase" src="https://az754404.vo.msecnd.net/public/snippets_showcase.mp4" placeholder="/images/userdefinedsnippets_snippets_placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
-</video>
+![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
 
 ## Add Snippets from the Marketplace
 
