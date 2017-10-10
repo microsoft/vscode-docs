@@ -17,10 +17,13 @@ Visual Studio Code has integrated source control and includes [Git](https://git-
 
 ## SCM Providers
 
-VS Code has support for handling multiple Source Control providers simultaneously. You can open multiple
-Git repositories alongside your TFS local workspace and seamlessly work across your projects, for example.
+VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your TFS local workspace and seamlessly work across your projects. The **SOURCE CONTROL PROVIDERS** list of the **Source Control** view (`kb(workbench.view.scm)`) shows the detected providers and repositories and you can scope the display of your changes by selecting a specific provider.
 
-![scm](images/versioncontrol/scm.png)
+![source control providers](images/versioncontrol/scm.png)
+
+If you would like to install an additional SCM provider, the **Install Additional SCM Providers...** command in the **Source Control** view **More** (...) dropdown will show a list of available SCM provider extensions.
+
+![install additional scm providers](images/versioncontrol/additional-scm-providers.png)
 
 ## Git support
 
@@ -94,9 +97,9 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 
 ## Merge Conflicts
 
-![Git merge](images/versioncontrol/merge.png)
+![Git merge](images/versioncontrol/merge-conflict.png)
 
-Merge conflicts are recognized by VS Code; we try to provide useful coloring markers to help you with resolving them. Once resolved, stage the conflicting file so you can commit those changes.
+Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
 
 ## Viewing Diffs
 

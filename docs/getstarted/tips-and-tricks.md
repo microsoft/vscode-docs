@@ -683,9 +683,9 @@ See IntelliSense for your `package.json` file.
     "body": [
         "class $1 extends React.Component {",
         "",
-        "   render() {",
-        "      return ($2);",
-        "   }",
+        "\trender() {",
+        "\t\treturn ($2);",
+        "\t}",
         "",
         "}"
     ]
