@@ -181,7 +181,7 @@ Find colors depend on the current find string in the Find/Replace dialog.
 
 - `editor.findMatchBackground`: Color of the current search match.
 - `editor.findMatchHighlightBackground`: Color of the other search matches.
-- `editor.findRangeHighlightBackground`: Color the range limiting the search.
+- `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget)
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
@@ -206,7 +206,7 @@ The range highlight is visible when selecting a search result.
 
 ![Range Highlight](images/theme-color-reference/rangehighlight.png)
 
-- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by Quick Open and Find features.
+- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by like by the Quick Open, Symbol in File and Find features.
 
 To see the editor white spaces, enable **Toggle Render Whitespace**.
 
@@ -239,7 +239,7 @@ This ruler is located beneath the scrollbar on the right edge of the editor and 
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
 - `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches.
-- `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for range highlights.
+- `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for highlighted ranges, like by the Quick Open, Symbol in File and Find features.
 - `editorOverviewRuler.selectionHighlightForeground`: Overview ruler marker color for selection highlights.
 - `editorOverviewRuler.wordHighlightForeground`: Overview ruler marker color for symbol highlights.
 - `editorOverviewRuler.wordHighlightStrongForeground`: Overview ruler marker color for write-access symbol highlights.
