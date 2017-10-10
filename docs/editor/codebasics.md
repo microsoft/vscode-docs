@@ -189,8 +189,9 @@ The following languages currently have markers defined:
 * TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
 * C#: `#region` and `#endregion`
 * C/C++: `#pragma region` and `#pragma endregion`
-* F#: `//#region` and `//#endregion`
+* F#: `//#region` and `//#endregion` and `(#region)` and (#endregion)`
 * Powershell: `#region` and `#endregion`
+* Python: `#region` and `#endregion`
 * VB: `#Region` and `#End Region`
 
 You can also use the following actions:
