@@ -25,7 +25,7 @@ This topic will first start with general troubleshooting of extensions and then 
 
 If an extension you installed isn't working correctly, a good first step is to look at the **Developer Tools** console. Hopefully the extension author added instructive logging when they developed their extension. VS Code is running on Electron using web technology so you get the power of the Chrome **Developer Tools** within VS Code.
 
-To open the **Developer Tools** console, use the **Help** > **Toggle Developer Tools** command and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code extension host as well as details of any thrown exceptions.
+To open the **Developer Tools** console, use the **Help** > **Toggle Developer Tools** command (Windows/Linux: `Ctrl+Shift+I`, macOS: `Cmd+Shift+I`) and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code Extension Host as well as details of any thrown exceptions.
 
 ![devtools console output](images/debugging-extensions/devtools-console.png)
 
