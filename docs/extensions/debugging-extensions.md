@@ -29,6 +29,8 @@ To open the **Developer Tools** console, use the **Help** > **Toggle Developer T
 
 ![devtools console output](images/debugging-extensions/devtools-console.png)
 
+>**Tip for extension authors**: Help out your users by providing helpful logging when you create your extension. The more information you give users, the more likely they will be able to solve dependency and configuration problems on their own. Good logging will also help you more quickly resolve real issues.
+
 ### Extension README
 
 Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)`), select the extension under **INSTALLED** section, and look at the **Details** tab.
