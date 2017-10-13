@@ -27,9 +27,13 @@ If an extension you installed isn't working correctly, a good first step is to l
 
 To open the **Developer Tools** console, use the **Help** > **Toggle Developer Tools** command and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code extension host as well as details of any thrown exceptions.
 
+![devtools console output](images/debugging-extensions/devtools-console.png)
+
 ### Extension README
 
-Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)), select the extension under **INSTALLED** section, and look at the **Details** tab. You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
+Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)`), select the extension under **INSTALLED** section, and look at the **Details** tab. You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
+
+![eslint readme](images/debugging-extensions/eslint-readme.png)
 
 ## Creating your own extension
 
