@@ -7,7 +7,31 @@ PageTitle: Running and Debugging your Visual Studio Code Extension
 DateApproved: 10/5/2017
 MetaDescription: It is easy to debug and test your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension directly in Visual Studio Code.
 ---
-# Running and Debugging Your Extension
+# Running and Debugging Extensions
+
+This topic explains how to run and debug Visual Studio Code extensions, both extensions that you created or those you installed from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
+
+If you are looking for general information on debugging in VS Code or installing additional debuggers, try these topics:
+
+* [Debugging in VS Code](/docs/editor/debugging.md) - Learn about VS Code's support for debugging, including the built-in Node.js debugger.
+* [Debugger Extensions](https://code.visualstudio.com/docs/editor/debugging.md#debugger-extensions) - Install other language debuggers through extensions to support languages such Python, C++, and C#.
+* [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) - The VS Code Marketplace has thousands of useful extensions you can install for free to increase your productivity.
+
+This topic will first start with general troubleshooting of extensions and then move on to running and debugging your own extensions.
+
+## Troubleshooting extensions
+
+### Developer Tools console
+
+If an extension you installed isn't working correctly, a good first step is to look at the **Developer Tools** console. Hopefully the extension author added instructive logging when they developed their extension. VS Code is running on Electron using web technology so you get the power of the Chrome **Developer Tools** within VS Code.
+
+To open the **Developer Tools** console, use the **Help** > **Toggle Developer Tools** command and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code extension host as well as details of any thrown exceptions.
+
+### Extension README
+
+Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)), select the extension under **INSTALLED** section, and look at the **Details** tab. You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
+
+## Creating your own extension
 
 You can use VS Code to develop an extension for VS Code and VS Code provides several tools that simplify extension development:
 
@@ -17,9 +41,7 @@ You can use VS Code to develop an extension for VS Code and VS Code provides sev
 * Running and debugging an extension
 * Publishing an extension
 
-## Creating an Extension
-
-We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [extension generator](/docs/extensions/yocode.md) topic.  The generator will ensure everything is set up so you have a great development experience.
+We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [extension generator](/docs/extensions/yocode.md) topic.  The generator will ensure everything is set up so you have a great development experience. The following sections assume you used the Yeoman extension generator to create an extension project with the appropriate `launch.json` and `task.json`.
 
 ## Running and Debugging your Extension
 
@@ -27,9 +49,14 @@ You can easily run your extension under the debugger by pressing `F5`. This open
 
 ![Debugging extensions](images/debugging-extensions/debug.png)
 
-Let's peek at what is going on behind the scenes. If you are writing your extension in TypeScript then your code must first be compiled to JavaScript.
+Depending on your extension, you may need more specific instruction on configuring debugging. There are extension walkthroughs which have additional details for debug adapter and language service extensions:
+
+* [Example - Language Server](/docs/extensions/example-language-server.md) - Learn how to implement a language server extension.
+* [Example - Debuggers](docs/extensions/example-debuggers.md) - Integrate a debugger through the VS Code Debug Protocol.
 
 ## Compiling TypeScript
+
+If you are writing your extension in TypeScript then your code must first be compiled to JavaScript.
 
 The TypeScript compilation is setup as follows in the generated extension:
 
@@ -42,13 +69,13 @@ The TypeScript compilation is triggered before running your extension. This is d
 
 > **Note:** The TypeScript compiler is started in watch mode, so that it compiles the files as you make changes.
 
-## Launching your Extension
+## Launching your extension
 
 Your extension is launched in a new window with the title `Extension Development Host`. This window runs VS Code or more
 precisely the `Extension Host` with your extension under development.
 
 You can accomplish the same from the command line using the `extensionDevelopmentPath` option. This option tells VS Code in what
-other locations it should look for extensions, e.g.,
+other locations it should look for extensions, for example:
 
 >`code --extensionDevelopmentPath=_my_extension_folder`.
 
@@ -61,16 +88,16 @@ This is what happens when pressing `F5`:
  3. `package.json` defines the script `compile` as `tsc -watch -p ./`
  4. This eventually invokes the TypeScript compiler included in node_modules, which generates `out/src/extension.js` and `out/src/extension.js.map`.
  5. Once the TypeScript compilation task is finished, the `code --extensionDevelopmentPath=${workspaceFolder}` process is spawned.
- 6. The second instance of VS Code is launched in a special mode and it searches for an extension at `${workspaceFolder}`.
+ 6. The second instance of VS Code is launched in a special **Extension Host** mode and it searches for an extension at `${workspaceFolder}`.
 
-## Changing and Reloading your Extension
+## Changing and reloading your extension
 
 Since the TypeScript compiler is run in watch mode, the TypeScript files are automatically compiled as you make changes. You can observe
-the compilation progress on the left side of the VS Code status bar. On the status bar you can also see the error and warning counts of a
-compilation. When the compilation is complete with no errors, you must reload the `Extension Development Host` so that it picks up
+the compilation progress on the left side of the VS Code Status Bar. On the Status Bar you can also see the error and warning counts of a
+compilation. When the compilation is complete with no errors, you must reload the **Extension Development Host** so that it picks up
 your changes. You have two options to do this:
 
-* Click on the debug restart action to relaunch the Extension Development Host window.
+* Click on the Debug view **Restart** action to relaunch the **Extension Development Host** window.
 * Press `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`) in the Extension Development Host window.
 
 ## Profiling your extension
