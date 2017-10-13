@@ -31,9 +31,11 @@ To open the **Developer Tools** console, use the **Help** > **Toggle Developer T
 
 ### Extension README
 
-Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)`), select the extension under **INSTALLED** section, and look at the **Details** tab. You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
+Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)`), select the extension under **INSTALLED** section, and look at the **Details** tab.
 
 ![eslint readme](images/debugging-extensions/eslint-readme.png)
+
+You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
 
 ## Creating your own extension
 
@@ -45,9 +47,11 @@ You can use VS Code to develop an extension for VS Code and VS Code provides sev
 * Running and debugging an extension
 * Publishing an extension
 
-We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [extension generator](/docs/extensions/yocode.md) topic.  The generator will ensure everything is set up so you have a great development experience. The following sections assume you used the Yeoman extension generator to create an extension project with the appropriate `launch.json` and `task.json`.
+We suggest you start your extension by scaffolding out the basic files. You can use the `yo code` Yeoman generator to do this and we cover the details in the [extension generator](/docs/extensions/yocode.md) topic.  The generator will ensure everything is set up so you have a great development experience.
 
-## Running and Debugging your Extension
+> **Note**: The following sections assume you used the `yo code` Yeoman extension generator to create an extension project with the appropriate `launch.json` and `task.json`.
+
+## Running and Debugging your extension
 
 You can easily run your extension under the debugger by pressing `F5`. This opens a new VS Code window with your extension loaded. Output from your extension shows up in the `Debug Console`. You can set break points, step through your code, and inspect variables either in the `Debug` view or the `Debug Console`.
 
@@ -56,7 +60,7 @@ You can easily run your extension under the debugger by pressing `F5`. This open
 Depending on your extension, you may need more specific instruction on configuring debugging. There are extension walkthroughs which have additional details for debug adapter and language service extensions:
 
 * [Example - Language Server](/docs/extensions/example-language-server.md) - Learn how to implement a language server extension.
-* [Example - Debuggers](docs/extensions/example-debuggers.md) - Integrate a debugger through the VS Code Debug Protocol.
+* [Example - Debuggers](/docs/extensions/example-debuggers.md) - Integrate a debugger through the VS Code Debug Protocol.
 
 ## Compiling TypeScript
 
