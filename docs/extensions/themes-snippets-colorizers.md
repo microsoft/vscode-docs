@@ -130,7 +130,7 @@ Open the Color Theme picker theme with **File** > **Preferences** > **Color Them
 
 ![select my theme](images/themes-snippets-colorizers/mytheme.png)
 
-After making changes to any theme file, it is necessary reload VS Code with `Reload Window`.
+After making changes to any theme file, it is necessary to reload VS Code with `Reload Window`.
 
 ## Publishing a Theme to the Extension Marketplace
 
