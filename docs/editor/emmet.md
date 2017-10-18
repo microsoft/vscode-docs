@@ -58,7 +58,7 @@ Emmet suggestions may not always show up at the top of the suggestion list. This
 
 ## Emmet abbreviations in other file types
 
-To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use language ids for both sides of the mapping.
+To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language ids](https://code.visualstudio.com/docs/languages/identifiers) for both sides of the mapping.
 
 For example:
 
