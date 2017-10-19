@@ -11,15 +11,24 @@ MetaDescription: It is easy to debug and test your Visual Studio Code extension 
 
 This topic explains how to run and debug Visual Studio Code extensions, both extensions that you created or those you installed from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
+### General debugging topics
+
 If you are looking for general information on debugging in VS Code or installing additional debuggers, try these topics:
 
 * [Debugging in VS Code](/docs/editor/debugging.md) - Learn about VS Code's support for debugging, including the built-in Node.js debugger.
 * [Debugger Extensions](https://code.visualstudio.com/docs/editor/debugging.md#debugger-extensions) - Install other language debuggers through extensions to support languages such Python, C++, and C#.
 * [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) - The VS Code Marketplace has thousands of useful extensions you can install for free to increase your productivity.
 
-This topic will first start with general troubleshooting of extensions and then move on to running and debugging your own extensions.
+### Extension authors
+
+For information about creating your own extension to integrate a debugger into VS Code, see these topics:
+
+* [Example - Debuggers](/docs/extensions/example-debuggers.md) - This tutorial explains the [VS Code Debug Protocol](https://github.com/Microsoft/vscode-debugadapter-node) through a [Mock Debug Adaptor](https://github.com/Microsoft/vscode-mock-debug) example.
+* [VS Code Debug Protocol](/docs/extensionAPI/api-debugging.md) - A detailed reference on the VS Code Debug Protocol.
 
 ## Troubleshooting extensions
+
+This topic will first start with general troubleshooting of extensions and then move on to running and debugging your own extensions.
 
 ### Developer Tools console
 
