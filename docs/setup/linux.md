@@ -96,7 +96,7 @@ The [.rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760867) can 
 sudo dnf install <file>.rpm
 ```
 
-Note that 32-bit and .tar.gz binaries are are also available on the [download page](/Download).
+Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
 
 ## Updates
 
