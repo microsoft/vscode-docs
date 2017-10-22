@@ -24,7 +24,7 @@ If you are looking for general information on debugging in VS Code or installing
 For information about creating your own extension to integrate a debugger into VS Code, see these topics:
 
 * [Example - Debuggers](/docs/extensions/example-debuggers.md) - This tutorial explains the [VS Code Debug Protocol](https://github.com/Microsoft/vscode-debugadapter-node) through a [Mock Debug Adaptor](https://github.com/Microsoft/vscode-mock-debug) example.
-* [VS Code Debug Protocol](/docs/extensionAPI/api-debugging.md) - A detailed reference on the VS Code Debug Protocol.
+* [Debugging API](/docs/extensionAPI/api-debugging.md) - A detailed reference on the VS Code Debug Protocol.
 
 ## Troubleshooting extensions
 
