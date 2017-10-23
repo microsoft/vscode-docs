@@ -13,7 +13,7 @@ Visual Studio Code has built-in support for editing style sheets in CSS `.css`, 
 
 <div class="marketplace-extensions-css-curated"></div>
 
-> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> **Tip:** Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 
 
@@ -25,7 +25,6 @@ We have support for selectors, properties and values. Use `kb(editor.action.trig
 
 Proposals contain extensive documentation, including a list of browsers that support the property. To see the full description text of the selected entry, use `kb(toggleSuggestionDetails)`.
 
-We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
 ## Syntax coloring & color preview
 
@@ -33,34 +32,25 @@ As you type, we provide syntax highlighting as well as in context preview of col
 
 ![Syntax and color](images/css/color.png)
 
->**Note:** You can hide VS Code's color previews by setting the corresponding `.colorDecorators.enable` [settings](/docs/getstarted/settings.md).
->```json
->"css.colorDecorators.enable": false
->```
-
-Clicking on a color swatch will launch the integrated color picker which supports configuration of hue, saturation and opacity.
+Clicking on a color preview will launch the integrated color picker which supports configuration of hue, saturation and opacity.
 
 ![Color picker in CSS](images/css/css-color-picker.png)
 
 > **Tip:** You can  trigger between different color modes by clicking on the color string at the top of the picker.
 
+You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md).
+```json
+"css.colorDecorators.enable": false
+```
+
 ## Emmet snippets
 
-Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
+[Emmet abbreviation support](/docs/editor/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-If you'd like to use CSS Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with the language id of an Emmet supported mode.
+We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
-For example, to use Emmet CSS abbreviations inside JavaScript:
-
-```json
-{
-    "emmet.includeLanguages": {
-        "javascript": "css"
-     }
-}
-```
 
 ## Syntax Verification & Linting
 
@@ -73,7 +63,7 @@ We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
 ## Go to Symbol in file
 
-Press `kb(workbench.action.gotoSymbol)`.
+Yuo can quickly navigate the a relevant CSS symbol from any file by pressing `kb(workbench.action.gotoSymbol)`.
 
 ## Hovers
 
