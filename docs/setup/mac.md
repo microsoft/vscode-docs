@@ -16,7 +16,7 @@ MetaDescription: Get Visual Studio Code up and running on Mac.
 3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
 4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
 
-### Command Line
+## Launching from the Command Line
 
 You can also run VS Code from the terminal by typing 'code' after adding it to the path:
 
@@ -38,9 +38,17 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 EOF
 ```
 
+## Touch Bar Support
+
+Out of the box VS Code adds actions to navigate in editor history as well as the full debug tool bar to control the debugger on your Touch Bar:
+
+![Mac Touch Bar](images/mac/touchbar.gif)
+
+
 ## Updates
 
-VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits). If you'd rather control VS Code updates manually, see [How do I opt out of auto-updates](/docs/supporting/faq.md#how-do-i-opt-out-of-vs-code-autoupdates).
+VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits).
+
 
 ## Preferences Menu
 
@@ -54,11 +62,12 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences settings.
 
+
 ## Common Questions
 
-### Mono and El Capitan
+**Q. Mono and El Capitan**
 
-Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
+**A:** Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
 
 Run these commands:
 
