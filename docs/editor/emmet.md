@@ -9,17 +9,16 @@ MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
 
-Visual Studio Code supports most of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
-
-In the July 2017 (v1.15) release of VS Code, we introduced Emmet 2.0, which enabled features like Emmet in the suggestions/auto-completion list, and multi-cursor support. Read more on the why's and how's of this major overhaul in the [Emmet 2.0 blog post](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0).
+Emmet 2.0 support is built right into VS Code **no extension is required** to leveraget he vast majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
 
 ## How to expand Emmet abbreviations and snippets
 
 Emmet abbreviation and snippet expansions are enabled by default in `html`, `haml`, `jade`, `slim`, `jsx`, `xml`, `xsl`, `css`, `scss`, `sass`, `less` and `stylus` files. As well as any language that inherits from any of the above like `handlebars` and `php`.
 
+![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
+
 When you start typing an Emmet abbreviation, you will see the abbreviation displayed in the suggestion list. If you have the suggestion documentation fly-out open, you will see a preview of the expansion as you type. If you are in a stylesheet file, the expanded abbreviation shows up in the suggestion list sorted among the other CSS suggestions.
 
-![Emmet in suggestion/auto-completion list](images/emmet/emmet.gif)
 
 ### Emmet when quickSuggestions are disabled
 
@@ -27,40 +26,38 @@ If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/se
 
 ### Disable Emmet in suggestions
 
-If you don't want to see Emmet abbreviations in suggestions at all, then set `emmet.showExpandedAbbreviation` to `never` and use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+If you don't want to see Emmet abbreviations in suggestions at all, then ass the following setting:
 
 ```json
-{
-    "emmet.showExpandedAbbreviation": "never"
-}
+"emmet.showExpandedAbbreviation": "never"
 ```
+
+With this setting enabled you can use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+
 
 ### Using Tab for Emmet expansions
 
-If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the setting `emmet.triggerExpansionOnTab` and set it to `true`. This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
+If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the following setting.
 
 ```json
-{
-    "emmet.triggerExpansionOnTab": true
-}
+"emmet.triggerExpansionOnTab": true
 ```
+
+This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
+
 
 ### Emmet suggestion ordering
 
-Emmet suggestions may not always show up at the top of the suggestion list. This can be either because you have set `editor.snippetSuggestions` to `top` or if you are on a stylesheet file, it is sorted among other CSS suggestions. To ensure Emmet suggestions are always on top, you can set `emmet.showSuggestionsAsSnippets` to `true` and `editor.snippetSuggestions` to `top`.
+To ensure Emmet suggestions are always on top in the suggestion list add the following settings:
 
 ```json
-{
-    "emmet.showSuggestionsAsSnippets": true,
-    "editor.snippetSuggestions": "top"
-}
+"emmet.showSuggestionsAsSnippets": true,
+"editor.snippetSuggestions": "top"
 ```
 
 ## Emmet abbreviations in other file types
 
-To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping.
-
-For example:
+To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping.  For example:
 
 ```json
 "emmet.includeLanguages": {
@@ -70,9 +67,13 @@ For example:
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can set `emmet.showExpandedAbbreviation` to `inMarkupAndStylesheetFilesOnly`.
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can use the following setting.
 
-> Note: If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
+```json
+"emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly"
+```
+
+> **Note:** If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
 
 ## Using custom Emmet snippets
 
@@ -254,9 +255,23 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
     If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/Microsoft/vscode/issues/new).
 
-## Known issues in Emmet 2.0
 
-Below are some of the upstream issues with Emmet 2.0 that we are working on fixing. Any help in these areas is appreciated.
 
-* Use of `@-` to get numbering in descending order in repeaters is not supported. [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
-* HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
+## Next Steps
+
+You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
+
+* [HTML](/docs/languages/html) - Emmet is just one of the great features we have for HTML review the HTML doc to find more.
+* [CSS](/docs/languages/css) - we offer rich support for CSS, Sass and Less read that doc to find out more.
+
+
+## Common Questions
+
+**Q. Why does `@-` to get numbering in descending order not work**
+
+**A:** Use of `@-` to get numbering in descending order in repeaters is not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
+
+
+**Q: My HTML snippets ending with `+` does not work**
+
+**A:** HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
