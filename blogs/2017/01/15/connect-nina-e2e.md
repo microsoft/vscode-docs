@@ -53,7 +53,7 @@ To get started, we need to grab the todo sample project so we can start playing 
 
 2. Type `gitcl` to find the `Git: Clone` command and hit `ENTER`.
 
-<img src="/images/2017_01_03_GitClone.png" width="250px" />
+<img src="/images/2017_01_03_gitclone.png" width="250px" />
 
 > Note: The VS Code **Command Palette** supports "fuzzy search", which allows you to type fewer keystrokes to find commonly used commands.
 

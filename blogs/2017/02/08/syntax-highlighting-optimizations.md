@@ -5,7 +5,7 @@ PageTitle: Optimizations in Syntax Highlighting, a Visual Studio Code Story
 MetaDescription: Optimizations in tokenization and syntax highlighting in the Visual Studio Code/Monaco editor
 Date: 2017-02-08
 Author: Alexandru Dima
-MetaSocialImage: 2017_02_08_syntax-highlighting-optimizations-social.png
+MetaSocialImage: syntax-highlighting-optimizations-social.png
 ---
 # Optimizations in Syntax Highlighting
 
@@ -132,7 +132,7 @@ For the launch of VS Code, we had something like 10 hand-written tokenizers, mos
 
 TextMate grammars, through their use of begin/end states, or while states, can push scopes that can span multiple tokens. Here's the same example under a JavaScript TextMate Grammar (ignoring whitespace for brevity):
 
-![TextMate Scopes](2017_02_08_TM-scopes.png)
+![TextMate Scopes](TM-scopes.png)
 
 ---
 
@@ -545,7 +545,7 @@ And they get rendered with:
 <span class="mtk1">()&nbsp;{</span>
 ```
 
-![TextMate Scopes](2017_02_08_monokai-tokens.png)
+![TextMate Scopes](monokai-tokens.png)
 
 The tokens are returned as an [Uint32Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array) straight from the tokenizer. We hold on to the backing [ArrayBuffer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) and for the example above that takes 96 bytes in Chrome. The elements themselves should take only 32 bytes (8 x 32-bit numbers), but again we're probably observing some v8 metadata overhead.
 
@@ -599,7 +599,7 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 
 We've added a new widget to help with authoring and debugging themes or grammars: You can run it with **Developer Tools: Inspect TM Tokens** in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-![TextMate scope inspector](2017_02_08_TM-scope-inspector.gif)
+![TextMate scope inspector](TM-scope-inspector.gif)
 
 ### Validating the change
 
@@ -609,7 +609,7 @@ In VS Code, we have an integration suite that asserts colors for all the program
 
 To validate the tokenization change, we've collected colorization results from these tests, across all the 14 themes we ship with (not just the five themes we author) using the old CSS based approach. Then, after each change, we ran the same tests using the new trie-based logic and, using a custom-built visual diff (and patch) tool, we would look into each and every color difference and figure out the root cause of the color change. We caught at least 2 bugs using this technique and we were able to change our five themes to get minimal color changes across VS Code versions:
 
-![Tokenization validation](2017_02_08_tokenization-validation.png)
+![Tokenization validation](tokenization-validation.png)
 
 ### Before and After
 
@@ -617,21 +617,21 @@ Below are various color themes as they appeared in VS Code 1.8 and now in VS Cod
 
 Monokai Theme
 
-![Monokai before](2017_02_08_monokai-before.png)
+![Monokai before](monokai-before.png)
 
-![Monokai after](2017_02_08_monokai-after.png)
+![Monokai after](monokai-after.png)
 
 Quiet Light Theme
 
-![Quiet Light before](2017_02_08_quiet-light-before.png)
+![Quiet Light before](quiet-light-before.png)
 
-![Quiet Light after](2017_02_08_quiet-light-after.png)
+![Quiet Light after](quiet-light-after.png)
 
 Red Theme
 
-![Red before](2017_02_08_red-before.png)
+![Red before](red-before.png)
 
-![Red after](2017_02_08_red-after.png)
+![Red after](red-after.png)
 
 ## In conclusion
 

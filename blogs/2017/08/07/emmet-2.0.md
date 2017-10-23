@@ -19,7 +19,7 @@ Its features include:
 * Multi-cursor support for most [Emmet actions](https://docs.emmet.io/actions/).
 * Updated support for custom Emmet snippets.
 
-![Emmet in suggestion/auto-completion list](2017_08_07_emmet.gif)
+![Emmet in suggestion/auto-completion list](emmet.gif)
 
 As part of this update, we have re-written all of the Emmet actions using new npm modules from [@emmetio](https://www.npmjs.com/~emmetio).
 
