@@ -15,6 +15,8 @@ Visual Studio Code has built-in support for editing style sheets in CSS `.css`, 
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
+
+
 ## IntelliSense
 
 We have support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
@@ -22,6 +24,25 @@ We have support for selectors, properties and values. Use `kb(editor.action.trig
 ![IntelliSense in CSS](images/css/intellisense.png)
 
 Proposals contain extensive documentation, including a list of browsers that support the property. To see the full description text of the selected entry, use `kb(toggleSuggestionDetails)`.
+
+We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
+
+## Syntax coloring & color preview
+
+As you type, we provide syntax highlighting as well as in context preview of colors.
+
+![Syntax and color](images/css/color.png)
+
+>**Note:** You can hide VS Code's color previews by setting the corresponding `.colorDecorators.enable` [settings](/docs/getstarted/settings.md).
+>```json
+>"css.colorDecorators.enable": false
+>```
+
+Clicking on a color swatch will launch the integrated color picker which supports configuration of hue, saturation and opacity.
+
+![Color picker in CSS](images/css/css-color-picker.png)
+
+> **Tip:** You can  trigger between different color modes by clicking on the color string at the top of the picker.
 
 ## Emmet snippets
 
@@ -41,26 +62,13 @@ For example, to use Emmet CSS abbreviations inside JavaScript:
 }
 ```
 
-We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
-
-## Syntax coloring & color preview
-
-As you type, we provide syntax highlighting as well as in context preview of colors.
-
-![Syntax and color](images/css/color.png)
-
->**Note:** You can hide VS Code's color previews by setting the corresponding `.colorDecorators.enable` [settings](/docs/getstarted/settings.md).
->```json
->    "css.colorDecorators.enable": false
->```
-
 ## Syntax Verification & Linting
 
 We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
 >**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/getstarted/settings.md) to false.
 >```json
->    "css.validate": false
+>"css.validate": false
 >```
 
 ## Go to Symbol in file
