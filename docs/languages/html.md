@@ -38,21 +38,39 @@ You can also control which built-in code completion providers are active. Overri
 
 ## Close tags
 
-Tag elements are automatically closed when `>` of the opening tag is typed and the matching closing tag is inserted when `/` of the closing tag is entered
+Tag elements are automatically closed when `>` of the opening tag is typed
 
-The new behavior is enabled by default and can be turned off with the `html.autoClosingTags` setting.
+![HTML Close1](images/html/auto-close1.gif)
 
-## Hover
+The matching closing tag is inserted when `/` of the closing tag is entered
 
-Move the mouse over HTML tags or embedded styles and JavaScript to get more information on the symbol under the cursor.
+![HTML Close2](images/html/auto-close2.gif)
 
-![HTML Hover](images/html/htmlhover.png)
+You can turn off autoclosing tags with the following [setting](/docs/getstarted/settings.md):
+
+```json
+"html.autoClosingTags": false
+```
 
 ## Color picker
 
 The VS Code color picker UI is now available in HTML style sections.
 
 ![color picker in HTML](images/html/color-picker-html.png)
+
+## Emmet snippets
+
+[Emmet abbreviation support](/docs/editor/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
+
+>**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
+
+We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
+
+## Hover
+
+Move the mouse over HTML tags or embedded styles and JavaScript to get more information on the symbol under the cursor.
+
+![HTML Hover](images/html/htmlhover.png)
 
 ## Validation
 
@@ -125,6 +143,7 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 Read on to find out about:
 
 * [CSS, Less and Sass](/docs/languages/css.md) - VS Code has first class support for CSS including Less and Sass.
+* [Emmet](/docs/editor/emmet.md) - Find out just how powerful the inbuilt Emmet support in VS Code is.
 
 ## Common Questions
 
