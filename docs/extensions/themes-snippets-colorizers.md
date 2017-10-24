@@ -97,7 +97,7 @@ You can use the **Developer Tools: Inspect TM Scopes** command from the **Comman
 ## Create a new color theme
 
 - Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
-- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generated a new theme extension.
+- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension.
 - If you customized a theme as described above, select 'Start fresh'.
 
 ![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)
@@ -120,7 +120,7 @@ You can use the **Developer Tools: Inspect TM Scopes** command from the **Comman
 }
 ```
 
->**Tip:** [ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"http://colorsublime.com/theme/download/(number)"`
+>**Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
 
 ## Test a new color theme
 
@@ -130,7 +130,7 @@ Open the Color Theme picker theme with **File** > **Preferences** > **Color Them
 
 ![select my theme](images/themes-snippets-colorizers/mytheme.png)
 
-After making changes to any theme file, it is necessary reload VS Code with `Reload Window`.
+After making changes to any theme file, it is necessary to reload VS Code with `Reload Window`.
 
 ## Publishing a Theme to the Extension Marketplace
 

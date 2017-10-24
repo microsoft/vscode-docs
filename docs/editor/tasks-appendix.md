@@ -94,7 +94,7 @@ export interface CommandOptions {
 
     /**
      * The current working directory of the executed program or shell.
-     * If omitted Ticino's current workspace root is used.
+     * If omitted the current workspace's root is used.
      */
     cwd?: string;
 

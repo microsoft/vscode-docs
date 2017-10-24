@@ -80,6 +80,14 @@ sudo zypper install code
 
 There is a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code).
 
+### Nix package for NixOS (or any Linux distribution using Nix package manager)
+
+There is a community maintained [Nix package](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/editors/vscode/default.nix) in the nixpkgs repository. In order to install it using Nix, set `allowUnfree` option to true in your `config.nix` and execute:
+
+```bash
+nix-env -i vscode
+```
+
 ### Installing .rpm package manually
 
 The [.rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760867) can also be manually downloaded and installed, however auto-updating won't work unless the repository above is installed. Once downloaded it can be installed using your package manager, for example with `dnf`:
@@ -88,7 +96,7 @@ The [.rpm package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760867) can 
 sudo dnf install <file>.rpm
 ```
 
-Note that 32-bit and .tar.gz binaries are are also available on the [download page](/Download).
+Note that 32-bit and .tar.gz binaries are also available on the [download page](/Download).
 
 ## Updates
 
