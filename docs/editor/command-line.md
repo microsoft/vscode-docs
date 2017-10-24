@@ -25,7 +25,7 @@ code-insiders .
 
 ## Core CLI options
 
-Here are optional command line arguments you can use when starting VS Code at the command line via `code`:
+Here are optional arguments you can use when starting VS Code at the command line via `code`:
 
 Argument|Description
 ------------------|-----------
