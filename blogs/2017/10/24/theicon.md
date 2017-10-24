@@ -8,9 +8,11 @@ Date: 2017-10-24
 ShortDescription: Summary of feedback about the new icons and next steps
 Author: Chris Dias
 ---
+# The Icon Journey
+
 October 24, 2017 Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
-# TL;DR
+## TL;DR
 
 Thanks for all the passionate feedback. It has been very helpful, painful, and entertaining all at the same time. We're changing the orange icon to blue for Stable and keeping green for Insiders.
 
@@ -18,9 +20,9 @@ Thanks for all the passionate feedback. It has been very helpful, painful, and e
 
 ## What is your favorite color?
 
-*In [Monty Python and the Holy Grail](https://en.wikipedia.org/wiki/Monty_Python_and_the_Holy_Grail), the bridge keeper asks Sir Lancelot three questions before allowing him to cross the Bridge of Death. Answer all three correctly and Sir Lancelot can pass. Answer incorrectly and it's an untimely death. [Sir Lancelot answered blue when asked his favorite color and was allowed to cross](https://www.youtube.com/watch?v=qry9IeJnbNU).*
+In [Monty Python and the Holy Grail](https://en.wikipedia.org/wiki/Monty_Python_and_the_Holy_Grail), the bridge keeper asks Sir Lancelot three questions before allowing him to cross the Bridge of Death. Answer all three correctly and Sir Lancelot can pass. Answer incorrectly and it's an untimely death. [Sir Lancelot answered blue when asked his favorite color and was allowed to cross](https://www.youtube.com/watch?v=qry9IeJnbNU).
 
-*We answered "orange".*
+We answered "orange".
 
 ## Apologies and Transparency
 
@@ -30,7 +32,7 @@ For complete transparency, we want to share some history as we think it helps to
 
 ## Welcome to the family
 
-Back in [March](https://blogs.msdn.microsoft.com/visualstudio/2017/03/08/iterations-on-infinity/) we (the broader Visual Studio team) set out to create a "family" feel across all of the developer tools we produce. If you read that blog post again, you can see that we had to work within a set of "challenging" corporate branding guidelines (e.g. a single color).
+Back in [March](https://blogs.msdn.microsoft.com/visualstudio/2017/03/08/iterations-on-infinity/), we (the broader Visual Studio team) set out to create a "family" feel across all of the developer tools we produce. If you read that blog post again, you can see that we had to work within a set of "challenging" corporate branding guidelines (e.g. a single color).
 
 It is easy to blame the guidelines, but at the same time, having a set of products that are easily and broadly recognizable is a valuable asset. Instead, we took on the challenge of working within the constraints while also working across the company to evolve the guidelines and address the problems we faced.
 
@@ -76,7 +78,7 @@ To combat this problem, we also tried the macOS version on Windows and that simp
 
 Voila, Insiders:
 
-![Insiders with the green macOS icon](2017_10_24_insidersgreen.png)
+![Insiders with the green macOS icon](2017_10_24_insidersgreen.png) | 
 ![Insiders with the green Windows icon](2017_10_24_insidersgreenwindows.png)
 
 ## Icon Squatting
@@ -85,7 +87,7 @@ Before VS Code existed, there was [Visual Studio Online Monaco](https://azure.mi
 
 When we first released VS Code, everything was happening so quickly, and the icon was the least of our concerns. Regardless of what you think about the new icon, [the old one looks pretty bad](https://github.com/Microsoft/vscode/issues/11274) on the desktop and in the Taskbar and Dock, it was really meant to be a favicon.
 
-![Orignial blue infinity icon](2017_10_24_orginalblueicon.png)
+![Original blue infinity icon](2017_10_24_originalblueicon.png)
 
 Later on, when we decided that each product in the family would have its own color, it made sense that VSTS would keep its blue and we'd have to come up with something else. Plus, we stole it from them, so it seemed right to give it back :).
 
@@ -105,7 +107,7 @@ And then the issues and comments started rolling in.
 
 ![GitHub issue 35783](2017_10_24_vscodenewlogoissue.png)
 
-> I must give credit to the author named "[badass-icon](https://github.com/badass-icon)", I see what you did there, well played.
+(I must give credit to the author named "[badass-icon](https://github.com/badass-icon)", I see what you did there, well played.)
 
 Each day there were additional comments, each expressing a dislike of the new icon in new and interesting ways. After the first couple of days, we thought the feedback would slow and we would be able to address the individual issues. Turns out, we were wrong. The feedback just kept coming in. New issues were opened, comments came in faster than we could respond. Hacker News, Visual Studio Magazine. High School friends posted comments on FaceBook. Awesome.
 
