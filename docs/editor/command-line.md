@@ -11,21 +11,19 @@ MetaDescription: Visual Studio Code command line options. Learn to control VS Co
 
 Visual Studio Code has a powerful command line interface that lets you control how you launch the editor. You can open or diff files, install extensions, even change the display language on startup.
 
+**Note:** Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS Setup guide](/docs/setup/mac.md) for help.
 
-## Launching from the CLI
+## Launching from command line
 
->**Note:** For Mac users you must first run a command to add VS Code executable to the `PATH` environment variable. Read the [macOS Setup guide](/docs/setup/mac.md) for help.
-
-You can launch VS Code from the command line to quickly open a file, folder, or project. Typically, you open VS Code within the context of a folder. To do this type one fo the following commands for Stable and insiders respectively:
+You can launch VS Code from the command line to quickly open a file, folder, or project. Typically, you open VS Code within the context of a folder. To do this, type one of the following commands for Stable and Insiders respectively:
 
 ```bash
 code .
+
 code-insiders .
 ```
 
-
-
-## Core CLI Options
+## Core CLI options
 
 Here are optional command line arguments you can use when starting VS Code at the command line via `code`:
 
@@ -40,10 +38,8 @@ Argument|Description
 `-w` or `--wait` | Wait for the window to be closed before returning.
 `--locale <locale>` | Set the [display language](/docs/getstarted/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
 
+## Opening Files and Folders
 
-
-
-## Opening Files and Folders from the CLI
 Sometimes you will want to open or create a file. If the specified file does not exist, VS Code will create them for you:
 
 ```bash
@@ -60,9 +56,8 @@ Argument|Description
 *file:line[:character]* | Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line[:character]* specifier.
 *folder* | Name of a folder to open. You can specify multiple folders and there will be an instance for each folder.
 
+## Working with extensions
 
-
-## Working with Extensions from the CLI
 You can install extensions, disable extensions and more from the command line.
 
 Argument|Description
@@ -74,8 +69,8 @@ Argument|Description
 `--show-versions` | Show versions of installed extensions, when using `--list-extensions`
 `--enable-proposed-api <ext>` | Enables proposed api features for an extension. Provide the full extension name `publisher.extension` as an argument.
 
+## Advanced CLI options
 
-## Advanced CLI Options
 There are several CLI options that help with reproducing errors and advanced set-ups.
 
 Argument|Description
@@ -86,7 +81,6 @@ Argument|Description
 `--disable-gpu` | Disable GPU hardware acceleration.
 `--verbose` | Print verbose output (implies `--wait`).
 `--prof-startup` | Run CPU profiler during startup.
-
 
 ## Opening VS Code with URLs
 
@@ -111,7 +105,6 @@ vscode://file/FULL/PATH/TO/FILE:LINE:COLUMN
 ```
 
 > **Note:** You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://file/FULL/PATH/TO/FILE`.
-
 
 ## Next Steps
 

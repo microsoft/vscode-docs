@@ -146,8 +146,7 @@ While focus is in the integrated terminal, many key bindings will not work as th
 The basics of the terminal have been covered in this document, read on to find out more about:
 
 * [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
-* [Mastering the Terminal](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
-
+* [Mastering VS Code's Terminal](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
 
 ## Common Questions
 
@@ -155,7 +154,7 @@ The basics of the terminal have been covered in this document, read on to find o
 
 **A:** Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
 
-**Q: Integrated terminal exited with code 1 on Windows 10**
+**Q: Integrated terminal exited with code 1 on Windows 10.**
 
 **A:** This can happen if you run VS Code in compatibility mode which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
 

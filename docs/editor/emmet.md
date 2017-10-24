@@ -9,7 +9,7 @@ MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
 
-Emmet 2.0 support is built right into VS Code, **no extension is required**. There is support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
+Emmet support is built right into VS Code, **no extension is required**. [Emmet 2.0](https://code.visualstudio.com/blogs/2017/08/07/emmet-2.0) has support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
 
 ## How to expand Emmet abbreviations and snippets
 
@@ -31,11 +31,11 @@ If you don't want to see Emmet abbreviations in suggestions at all, then use the
 "emmet.showExpandedAbbreviation": "never"
 ```
 
-With this setting enabled you can use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+With this setting enabled, you can use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
 
 ### Using Tab for Emmet expansions
 
-If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the following setting.
+If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the following setting:
 
 ```json
 "emmet.triggerExpansionOnTab": true
@@ -45,7 +45,7 @@ This setting allows using the `kbstyle(Tab)` key for indentation when text is no
 
 ### Emmet suggestion ordering
 
-To ensure Emmet suggestions are always on top in the suggestion list add the following settings:
+To ensure Emmet suggestions are always on top in the suggestion list, add the following settings:
 
 ```json
 "emmet.showSuggestionsAsSnippets": true,
@@ -54,7 +54,9 @@ To ensure Emmet suggestions are always on top in the suggestion list add the fol
 
 ## Emmet abbreviations in other file types
 
-To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping.  For example:
+To enable the Emmet abbreviation expansion in file types where it is not available by default, use the `emmet.includeLanguages` setting. Make sure to use [language identifiers](/docs/languages/identifiers.md) for both sides of the mapping.
+
+For example:
 
 ```json
 "emmet.includeLanguages": {
@@ -259,13 +261,11 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 * [HTML](/docs/languages/html.md) - VS Code supports HTML with IntelliSense, closing tags, and formatting.
 * [CSS](/docs/languages/css.md) - We offer rich support for CSS, Sass and Less.
 
-
 ## Common Questions
 
-**Q. Why does `@-` to get numbering in descending order not work?**
+**Q. `@-` doesn't work for numbering in descending order.**
 
 **A:** Use of `@-` to get numbering in descending order in repeaters is not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
-
 
 **Q: My HTML snippets ending with `+` does not work?**
 

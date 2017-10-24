@@ -15,20 +15,17 @@ Visual Studio Code has built-in support for editing style sheets in CSS `.css`, 
 
 > **Tip:** Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-
-
 ## IntelliSense
 
-We have support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
+VS Code has support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
 
 ![IntelliSense in CSS](images/css/intellisense.png)
 
 Proposals contain extensive documentation, including a list of browsers that support the property. To see the full description text of the selected entry, use `kb(toggleSuggestionDetails)`.
 
-
 ## Syntax coloring & color preview
 
-As you type, we provide syntax highlighting as well as in context preview of colors.
+As you type, there is syntax highlighting as well as in context preview of colors.
 
 ![Syntax and color](images/css/color.png)
 
@@ -38,7 +35,8 @@ Clicking on a color preview will launch the integrated color picker which suppor
 
 > **Tip:** You can  trigger between different color modes by clicking on the color string at the top of the picker.
 
-You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md).
+You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md):
+
 ```json
 "css.colorDecorators.enable": false
 ```
@@ -49,12 +47,11 @@ You can hide VS Code's color previews by setting the following [setting](/docs/g
 
 >**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
 
-We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
-
+VS Code also supports [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
 ## Syntax Verification & Linting
 
-We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
+There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
 >**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/getstarted/settings.md) to false.
 >```json
@@ -63,7 +60,7 @@ We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
 ## Go to Symbol in file
 
-Yuo can quickly navigate the a relevant CSS symbol from any file by pressing `kb(workbench.action.gotoSymbol)`.
+You can quickly navigate to the relevant CSS symbol from any file by pressing `kb(workbench.action.gotoSymbol)`.
 
 ## Hovers
 

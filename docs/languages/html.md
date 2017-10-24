@@ -38,11 +38,11 @@ You can also control which built-in code completion providers are active. Overri
 
 ## Close tags
 
-Tag elements are automatically closed when `>` of the opening tag is typed
+Tag elements are automatically closed when `>` of the opening tag is typed.
 
 ![HTML Close1](images/html/auto-close1.gif)
 
-The matching closing tag is inserted when `/` of the closing tag is entered
+The matching closing tag is inserted when `/` of the closing tag is entered.
 
 ![HTML Close2](images/html/auto-close2.gif)
 

@@ -14,21 +14,23 @@ If these steps don't help you, you probably hit a bug. You can check our [report
 
 ## 20002
 
->**Error:** Cannot find '/usr/bin/gnome-terminal' for launching your Node.js program
+**Error:** Cannot find '/usr/bin/gnome-terminal' for launching your Node.js program
 
-On Linux the VS Code Node.js debugger requires the **gnome-terminal** for launching the Node.js program.
+On Linux, the VS Code Node.js debugger requires the [gnome-terminal](https://help.gnome.org/users/gnome-terminal/stable/) emulator for launching the Node.js program.
 If gnome-terminal is not installed, the VS Code debugger cannot launch your program for debugging.
 
 There are two options for solving this problem:
 
-* Install the gnome-terminal by running the command `sudo apt-get install gnome-terminal` (or the equivalent of your Linux distribution)
+* Install the gnome-terminal by running the command `sudo apt-get install gnome-terminal` (or the equivalent of your Linux distribution).
 * Manually launch your program in debug mode by passing a `--inspect` or `--inspect-brk` option to Node.js and then attach the VS Code debugger to port 9229 on 'localhost'.
 
 ## 20003
 
->**Error:** Attribute 'program' is not absolute; consider adding '${workspaceFolder}/' as a prefix to make it absolute.
+**Error:** Attribute 'program' is not absolute; consider adding '${workspaceFolder}/' as a prefix to make it absolute.
 
-The workspace root is the folder where your code is located on disk e.g. `c:\src\helloworld`.  Before VS Code release 0.10.11, it was possible to use relative paths in launch configurations. VS Code would silently convert them to absolute paths.
+This error occurs when you have an absolute path in your debug configuration `launch.json` files.
+
+The workspace root is the folder where your code is located on disk, for example, `c:\src\helloworld`.  Before VS Code release 0.10.11, it was possible to use relative paths in launch configurations. VS Code would silently convert them to absolute paths.
 
 There were two problems with this:
 

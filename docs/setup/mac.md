@@ -38,17 +38,15 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 EOF
 ```
 
-## Touch Bar Support
+## Touch Bar support
 
-Out of the box VS Code adds actions to navigate in editor history as well as the full debug tool bar to control the debugger on your Touch Bar:
+Out of the box VS Code adds actions to navigate in editor history as well as the full Debug tool bar to control the debugger on your Touch Bar:
 
 ![Mac Touch Bar](images/mac/touchbar.gif)
-
 
 ## Updates
 
 VS Code ships monthly [releases](/updates) and supports auto-update when a new release is available. If you're prompted by VS Code, accept the newest update and it will get installed (you won't need to do anything else to get the latest bits).
-
 
 ## Preferences Menu
 
@@ -62,7 +60,6 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 * [User Interface](/docs/getstarted/userinterface.md) - A quick orientation around VS Code.
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences settings.
 
-
 ## Common Questions
 
 **Q. Mono and El Capitan**
@@ -75,4 +72,3 @@ Run these commands:
 brew update
 brew reinstall mono
 ```
-
