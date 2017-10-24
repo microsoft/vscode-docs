@@ -78,8 +78,7 @@ To combat this problem, we also tried the macOS version on Windows and that simp
 
 Voila, Insiders:
 
-![Insiders with the green macOS icon](2017_10_24_insidersgreen.png) | 
-![Insiders with the green Windows icon](2017_10_24_insidersgreenwindows.png)
+![Insiders with the green macOS icon](2017_10_24_insidersgreen.png)
 
 ## Icon Squatting
 
