@@ -58,14 +58,6 @@ The VS Code color picker UI is now available in HTML style sections.
 
 ![color picker in HTML](images/html/color-picker-html.png)
 
-## Emmet snippets
-
-[Emmet abbreviation support](/docs/editor/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
-
->**Tip:** See the HTML section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
-
-We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
-
 ## Hover
 
 Move the mouse over HTML tags or embedded styles and JavaScript to get more information on the symbol under the cursor.
@@ -143,7 +135,7 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 Read on to find out about:
 
 * [CSS, Less and Sass](/docs/languages/css.md) - VS Code has first class support for CSS including Less and Sass.
-* [Emmet](/docs/editor/emmet.md) - Find out just how powerful the inbuilt Emmet support in VS Code is.
+* [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
 
 ## Common Questions
 

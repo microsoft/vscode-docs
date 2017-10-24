@@ -9,7 +9,7 @@ MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
 
-Emmet 2.0 support is built right into VS Code **no extension is required** to leveraget he vast majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
+Emmet 2.0 support is built right into VS Code, **no extension is required**. There is support for the majority of the [Emmet Actions](https://docs.emmet.io/actions/) including expanding [Emmet abbreviations and snippets](https://docs.emmet.io/cheat-sheet/).
 
 ## How to expand Emmet abbreviations and snippets
 
@@ -19,21 +19,19 @@ Emmet abbreviation and snippet expansions are enabled by default in `html`, `ham
 
 When you start typing an Emmet abbreviation, you will see the abbreviation displayed in the suggestion list. If you have the suggestion documentation fly-out open, you will see a preview of the expansion as you type. If you are in a stylesheet file, the expanded abbreviation shows up in the suggestion list sorted among the other CSS suggestions.
 
-
 ### Emmet when quickSuggestions are disabled
 
 If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
 
 ### Disable Emmet in suggestions
 
-If you don't want to see Emmet abbreviations in suggestions at all, then ass the following setting:
+If you don't want to see Emmet abbreviations in suggestions at all, then use the following setting:
 
 ```json
 "emmet.showExpandedAbbreviation": "never"
 ```
 
 With this setting enabled you can use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
-
 
 ### Using Tab for Emmet expansions
 
@@ -44,7 +42,6 @@ If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations,
 ```
 
 This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
-
 
 ### Emmet suggestion ordering
 
@@ -255,23 +252,21 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
     If you want support for any of the other preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/), please log a [feature request](https://github.com/Microsoft/vscode/issues/new).
 
-
-
 ## Next Steps
 
-You've covered the basic user interface - there is a lot more to VS Code.  Read on to find out about:
+Emmet is just one of the great web developer features in VS Code.  Read on to find out about:
 
-* [HTML](/docs/languages/html) - Emmet is just one of the great features we have for HTML review the HTML doc to find more.
-* [CSS](/docs/languages/css) - we offer rich support for CSS, Sass and Less read that doc to find out more.
+* [HTML](/docs/languages/html.md) - VS Code supports HTML with IntelliSense, closing tags, and formatting.
+* [CSS](/docs/languages/css.md) - We offer rich support for CSS, Sass and Less.
 
 
 ## Common Questions
 
-**Q. Why does `@-` to get numbering in descending order not work**
+**Q. Why does `@-` to get numbering in descending order not work?**
 
 **A:** Use of `@-` to get numbering in descending order in repeaters is not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
 
 
-**Q: My HTML snippets ending with `+` does not work**
+**Q: My HTML snippets ending with `+` does not work?**
 
 **A:** HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
