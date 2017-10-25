@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 12
 Area: editor
 TOCTitle: Creating your own Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6

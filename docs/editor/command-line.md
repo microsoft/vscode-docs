@@ -1,5 +1,5 @@
 ---
-Order: 13
+Order: 14
 Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
@@ -81,6 +81,8 @@ Argument|Description
 `--disable-gpu` | Disable GPU hardware acceleration.
 `--verbose` | Print verbose output (implies `--wait`).
 `--prof-startup` | Run CPU profiler during startup.
+**Multi-root**|
+`--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
 
 ## Opening VS Code with URLs
 
