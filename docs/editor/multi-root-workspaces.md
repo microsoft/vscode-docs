@@ -102,9 +102,13 @@ You can override the display name of your folders with the `name` attribute for 
 }
 ```
 
+which will result in the following Explorer display:
+
 ![named folders](images/multi-root-workspaces/named-folders.png)
 
-The Workspace file also contains Workspace [global settings](#settings) under `settings` and [extension recommendations](#extensions) under `extensions` which we will discuss below.
+As you can see from the example above, you can add comments to your Workspace files.
+
+The Workspace file can also contain Workspace [global settings](#settings) under `settings` and [extension recommendations](#extensions) under `extensions` which we will discuss below.
 
 ![workspace file schema](images/multi-root-workspaces/workspace-file-schema.png)
 
