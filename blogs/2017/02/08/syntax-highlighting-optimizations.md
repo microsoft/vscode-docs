@@ -26,13 +26,13 @@ Tokenization in VS Code (and in the [Monaco Editor](https://microsoft.github.io/
 Most of the time, typing on a line results in only that line being retokenized, as the tokenizer returns the same end state and the editor can assume the following lines are not getting new tokens:
 
 <center>
-<img src="/images/2017_02_08_tokenization-1.gif" alt="Tokenization Single Line">
+<img src="/assets/blogs/2017/02/08/tokenization-1.gif" alt="Tokenization Single Line">
 </center>
 
 More rarely, typing on a line results in a retokenization/repaint of the current line and some of the ones below (until an equal end state is encountered):
 
 <center>
-<img src="/images/2017_02_08_tokenization-2.gif" alt="Tokenization Multiple Lines">
+<img src="/assets/blogs/2017/02/08/tokenization-2.gif" alt="Tokenization Multiple Lines">
 </center>
 
 ---
@@ -44,7 +44,7 @@ The code for the editor in VS Code was written long before VS Code existed. It w
 In the past, we wrote tokenizers by hand (there is no feasible way to interpret TextMate grammars in the browser even today, but that's another story). For the line below, we would get the following tokens from our hand-written tokenizers:
 
 <center>
-<img src="/images/2017_02_08_line-offsets.png" alt="Line offsets">
+<img src="/assets/blogs/2017/02/08/line-offsets.png" alt="Line offsets">
 </center>
 
 ```javascript
@@ -141,7 +141,7 @@ TextMate grammars, through their use of begin/end states, or while states, can p
 If we were to make a section through the scopes stack, each token basically gets an array of scope names, and we'd get something like the following back from the tokenizer:
 
 <center>
-<img src="/images/2017_02_08_line-offsets.png" alt="Line offsets">
+<img src="/assets/blogs/2017/02/08/line-offsets.png" alt="Line offsets">
 </center>
 
 ```javascript
@@ -439,7 +439,7 @@ theme = [
 We will then generate a [Trie](https://en.wikipedia.org/wiki/Trie) data structure out of the theme rules, where each node holds on to the resolved theme options:
 
 <center>
-<img src="/images/2017_02_08_trie.png" alt="Theme Trie">
+<img src="/assets/blogs/2017/02/08/trie.png" alt="Theme Trie">
 </center>
 
 > Observation: The nodes for `constant.numeric.hex` and `constant.numeric.oct` contain the instruction to change foreground to `5`, as they *inherit* this instruction from `constant.numeric`.
@@ -574,7 +574,7 @@ Tokenization runs in a yielding fashion on the UI thread, so I had to add some c
 | <samp style="font-size:90%">sqlite3.c</samp> | 6.73 MB | 16010.42 ms | 10964.42 ms | <span style="color:green">31.52%</span> |
 
 <center>
-<img src="/images/2017_02_08_tokenization-times.png" alt="Tokenization times">
+<img src="/assets/blogs/2017/02/08/tokenization-times.png" alt="Tokenization times">
 </center>
 
 > Although tokenization now also does theme matching, the time savings can be explained by doing a single pass over each line. Whereas before, there would be a tokenization pass, a secondary pass to "approximate" the scopes to a string, and a third pass to binary encode the tokens, now the tokens are generated straight in a binary encoded fashion from the TextMate tokenization engine. The amount of generated objects that need to be garbage collected has been also reduced substantially.
@@ -590,7 +590,7 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 | <samp style="font-size:90%">sqlite3.c</samp> | 6.73 MB | 27.49 MB | 21.22 MB | <span style="color:green">22.83%</span> |
 
 <center>
-<img src="/images/2017_02_08_tokenization-memory.png" alt="Memory usage">
+<img src="/assets/blogs/2017/02/08/tokenization-memory.png" alt="Memory usage">
 </center>
 
 > The reduced memory usage can be explained by no longer holding on to a tokens map, the collapse of consecutive tokens with the same metadata, and the usage of `ArrayBuffer` as the backing store. We could further improve here by always collapsing whitespace-only tokens into the previous token, as it does not matter what color whitespace gets rendered (whitespace is invisible).

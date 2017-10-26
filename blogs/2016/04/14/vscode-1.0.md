@@ -67,7 +67,7 @@ The community responded, with huge growth in the number of extensions and the wa
 
 Seeing the support and help the community has already poured into the product, the potential for VS Code has never been greater.
 
-<img src="/images/Hundreds-of-extensions.png" style="width: 69%;display: block;margin-left: auto;margin-right: auto">
+<img src="/assets/images/Hundreds-of-extensions.png" style="width: 69%;display: block;margin-left: auto;margin-right: auto">
 
 ## Looking Ahead
 
