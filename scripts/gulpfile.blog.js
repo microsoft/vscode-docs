@@ -53,7 +53,7 @@ gulp.task('copy-blog-images', function() {
   console.log('Copying blog images..');
 
   return gulp.src([BLOG_ROOT + '/**/*.{png,PNG,jpg,JPG,svg,SVG,gif,GIF}'])
-    .pipe(gulp.dest(DEST_ROOT + '/client/assets/blog'));
+    .pipe(gulp.dest(DEST_ROOT + '/client/assets/blogs'));
 });
 
 gulp.task('compile-blog-markdown', function() {
@@ -72,7 +72,7 @@ gulp.task('compile-blog-markdown', function() {
         var blogArticle = mapFileToBlogArticle(file);
 
         const fileDir = path.parse(file.relative).dir;
-        blogArticle = common.compileMarkdownWithImagePrefix(file, blogArticle, path.join('/assets/blog', fileDir));
+        blogArticle = common.compileMarkdownWithImagePrefix(file, blogArticle, path.join('/assets/blogs', fileDir));
 
         if (blogArticle.Order) {
           blogs.push(blogArticle);
