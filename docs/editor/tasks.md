@@ -338,7 +338,7 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` file and has the following predefined variables:
 
 - **${workspaceFolder}** the path of the workspace folder that contains the tasks.json file
-- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
+- **${workspaceFolderBasename}** the name of the workspace folder that contains the tasks.json file without any slashes (/)
 - **${file}** the current opened file
 - **${relativeFile}** the current opened file relative to the workspace folder containing the file
 - **${fileBasename}** the current opened file's basename
