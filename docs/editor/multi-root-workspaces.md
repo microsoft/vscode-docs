@@ -14,16 +14,20 @@ You can work with multiple project folders in Visual Studio Code with multi-root
 ![multi-root hero](images/multi-root-workspaces/hero.png)
 
 >**Note**: Currently multi-root workspaces are only supported on the [Insiders](/insiders) build. The feature will be available in Stable builds soon.
+>
+>Multi-root workspace mode is still a relatively new feature and some extensions may not have adopted the new APIs. If some of your extensions do not handle multiple folders, you may need to limit their use to a single folder.
 
 ## Adding folders
 
 It is easy to add another folder to your existing workspace. There are several gestures for adding folders:
 
-* **File** > **Add Folder to Workspace** - Brings up an Open Folder dialog to select the new folder.
+### Add Folder to Workspace...
+
+The **File** > **Add Folder to Workspace...** command brings up an Open Folder dialog to select the new folder.
 
 ![Add Root Folder](images/multi-root-workspaces/add-root-folder.png)
 
-Once a root folder is added, the Explorer will show the new folder as a root in the File Explorer. You can right click on any of the root folders to add more root folders or to remove it.
+Once a root folder is added, the Explorer will show the new folder as a root in the File Explorer. You can right click on any of the root folders and use the context menu to add or remove folders.
 
 ![Remove Root Folder](images/multi-root-workspaces/explorer-context.png)
 
@@ -33,9 +37,9 @@ Settings like `files.exclude` are supported for each root folder if configured a
 
 ### Drag and drop
 
-You can use drag and drop to add folders to a workspace. Drag a folder to the File Explorer to add it to the workspace. You can even select and drag multiple folders.
+You can use drag and drop to add folders to a workspace. Drag a folder to the File Explorer to add it to the current workspace. You can even select and drag multiple folders.
 
->**Note**: Dropping a folder into the editor region of VS Code will still open the folder in single folder mode.
+>**Note**: Dropping a single folder into the editor region of VS Code will still open the folder in single folder mode. If you drag and drop multiple folders into the editor region, a new multi-root workspace will be created.
 
 ### Multiple selection native file open dialogs
 
@@ -60,6 +64,10 @@ When you add multiple folders, they are initially placed in a Workspace titled *
 ![save workspace dialog](images/multi-root-workspaces/save-workspace.png)
 
 When you save your workspace, it will create a `.code-workspace` file and the file name will be displayed in the File Explorer.
+
+### Save Workspace As...
+
+If you want to move your Workspace file to a new location, you can use the **File** > **Save Workspace As...** command which will automatically set the correct folder paths relative to the new Workspace file location.
 
 ### Opening workspace files
 
@@ -130,6 +138,12 @@ VS Code UI such as the **OPEN EDITORS** or **Quick Open** (`kb(workbench.action.
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
+If you using an [Icon Theme](/docs/getstarted/themes.md#icon-themes) and the active theme supports it, you will see a special Workspace icon.
+
+Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** icon theme:
+
+![custom workspace icon](images/multi-root-workspaces/workspace-icon.png)
+
 ### Search
 
 VS Code features like global search work across all folders and group the search results by folder.
@@ -164,7 +178,9 @@ User settings are supported as with single folder project and you can also set g
 }
 ```
 
-You can easily modify the different settings files through the Settings editor. The Settings editor dropdown lets you select your User settings, global Workspace settings and individual folder settings.
+When you go from a single folder instance to multiples folders, VS Code will add the appropriate editor-wide settings from the first folder to the new global Workspace settings.
+
+You can easily review and modify the different settings files through the Settings editor. The Settings editor dropdown lets you select your User settings, global Workspace settings and individual folder settings.
 
 ![settings dropdown](images/multi-root-workspaces/settings-dropdown.png)
 
@@ -178,7 +194,7 @@ Global Workspace settings override User settings and folder settings can overrid
 
 ### Unsupported folder settings
 
-Unsupported folder settings will show as grayed out in your folder settings and are filtered out of the **DEFAULT FOLDER SETTINGS** list. You will also see an information icon in front of the setting.
+Unsupported editor-wide folder settings will show as grayed out in your folder settings and are filtered out of the **DEFAULT FOLDER SETTINGS** list. You will also see an information icon in front of the setting.
 
 ![unsupported setting information](images/multi-root-workspaces/unsupported-setting-info.png)
 
@@ -196,7 +212,7 @@ With multi-root workspaces there is a **SOURCE CONTROL PROVIDERS** section which
 
 ![multiple scm providers](images/multi-root-workspaces/multiple-scm-providers.png)
 
-You can use <kbd>ctrl+click</kbd> or <kbd>shift+click</kbd> to select multiple repositories. Their details will appear as separate regions underneath.
+You can use `kbstyle(Ctrl+Click)` or `kbstyle(Shift+Click)` to select multiple repositories. Their details will appear as separate regions underneath.
 
 ## Extensions
 
