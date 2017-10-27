@@ -340,7 +340,7 @@ To test the language server do the following:
 * open the debug viewlet, select the `Launch Client` launch configuration and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 * Create a test.txt file in the root folder and paste the following content:
 
-```txt
+```
 typescript lets you write JavaScript the way you really want to.
 typescript is a typed superset of JavaScript that compiles to plain JavaScript.
 Any browser. Any host. Any OS. Open Source.
