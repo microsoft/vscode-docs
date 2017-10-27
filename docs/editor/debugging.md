@@ -64,14 +64,7 @@ Here is the one generated for Node.js debugging:
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${file}",
-            "cwd": "${workspaceFolder}"
-        },
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Attach to Process",
-            "port": 5858
+            "program": "${file}"
         }
     ]
 }
