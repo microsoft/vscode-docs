@@ -285,9 +285,9 @@ language-configuration.json
     "folding": {
         "offSide": true,
         "markers": {
-			"start": "^\\s*//#region",
-			"end": "^\\s*//#endregion"
-		}
+		"start": "^\\s*//#region",
+		"end": "^\\s*//#endregion"
+	}
     }
 }
 ```
