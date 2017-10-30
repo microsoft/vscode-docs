@@ -21,7 +21,7 @@ It's somewhat surprising, but rendering an interactive terminal was possible in 
 
 **Misaligned characters**: Due to many monospace fonts not being strictly monospace for some Unicode characters, this could lead to situations like the one seen on the right-side of the image below:
 
-![Characters to the right of the terminal could become misaligned when Unicode was used](2017_10_03_misaligned.png)
+![Characters to the right of the terminal could become misaligned when Unicode was used](misaligned.png)
 
 A workaround for this would be to wrap all Unicode characters in fixed width spans, however this increases the time it takes to render a frame.
 
@@ -54,7 +54,7 @@ An important part of the new renderer is that it only draws what has *changed*. 
 
 This is compared to the previous rendering engine where the entire line would be removed from the DOM, reconstructed and re-added, even when nothing changed.
 
-![Only individual character changes are now drawn to the screen](2017_10_03_paint-flashing.gif)
+![Only individual character changes are now drawn to the screen](paint-flashing.gif)
 
 *The green rectangles in the image above indicate the regions that are redrawn.*
 
@@ -64,7 +64,7 @@ A texture atlas is used to boost rendering time even further. There is an [`Imag
 
 When drawing these styles of text, the texture atlas is used instead of a regular call to [`CanvasRenderingContext2D.fillText`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillText). As the `ImageBitmap` is co-located on the GPU, the speed of drawing is improved considerably.
 
-![Behind the scenes an image is maintained containing the most common characters](2017_10_03_texture-atlas.png)
+![Behind the scenes an image is maintained containing the most common characters](texture-atlas.png)
 
 ## Forced Frame Skipping
 
@@ -72,7 +72,7 @@ Due to the speed of rendering in the DOM, it was necessary to skip extra frames 
 
 With the new renderer, this restriction has been removed and you can now enjoy up to 60 FPS in the terminal.
 
-![60 frames per second is now possible in the terminal](2017_10_03_60fps.gif)
+![60 frames per second is now possible in the terminal](60fps.gif)
 
 ## The Results
 

@@ -22,7 +22,7 @@ The challenge with User Voice is that it is a separate feedback channel for the 
 
 Recently, GitHub introduced the ability to [add reactions to issues](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments). This feature replaces the key value proposition of User Voice, which has been the ability to vote on a request. It is now possible for the community to not only comment on an issue in GitHub, but also provide a thumbs up/thumbs down vote. This means we can use the same tools and workflows to sort and manage feature requests as we do to manage bugs.
 
-![github reactions animation](2016_08_19_github_reaction.gif)
+![github reactions animation](github_reaction.gif)
 
 ## Retiring User Voice
 

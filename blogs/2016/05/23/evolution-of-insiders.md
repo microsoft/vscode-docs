@@ -17,7 +17,7 @@ Today over five thousand developers use the Visual Studio Code [Insiders Build](
 
 Initially, we released an Insiders build once per month, a few days before the Stable release. Over time, we increased the frequency of Insiders builds and today we ship new Insiders builds roughly once a week.
 
-![value prop of insiders](2016_05_16_value_props.svg)
+![value prop of insiders](value_props.svg)
 
 ## Nightly Builds
 

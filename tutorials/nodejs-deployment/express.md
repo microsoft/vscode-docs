@@ -51,7 +51,7 @@ $ npm start
 
 Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
 
-![Running Express Application](nodejs-deployment_express.png)
+![Running Express Application](images/nodejs-deployment/express.png)
 
 ----
 

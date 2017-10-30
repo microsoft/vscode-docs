@@ -6,14 +6,14 @@ MetaDescription: Visual Studio Code releases 1.0.
 Date: 2016-04-14
 ShortDescription: Visual Studio Code releases 1.0.
 Author: PJ Meyer
-MetaSocialImage: 2016_04_14_header.png
+MetaSocialImage: header.png
 ---
 
 # Visual Studio Code 1.0!
 
 April 14, 2016 by The VS Code Team, [@code](https://twitter.com/code)
 
-![header graphic](2016_04_14_header.png)
+![header graphic](header.png)
 
 Today we’re very proud to release version 1.0 of Visual Studio Code. Since our initial launch one year ago, 2 million developers have installed VS Code. Today, we’re excited to report that more than 500,000 developers actively use VS Code each month.
 
@@ -27,7 +27,7 @@ And we have strived to make VS Code 1.0 a great editor for every developer. VS C
 
 We could not have reached this important milestone without the help of all our contributors. Since committing to doing development in the open less than four months ago, we’ve consumed over [300 pull requests](https://github.com/Microsoft/vscode/pulls?q=is%3Apr+is%3Aclosed).  Whether you created a PR, filed an issue, gave a thumbs up, tweeted, or simply used VS Code in your day-to-day, you’re a part of the team. **Thank you!**
 
-![installs graphic](2016_04_14_installs.png)
+![installs graphic](installs.png)
 
 ## The History of VS Code
 
@@ -51,7 +51,7 @@ Keeping our principle of using VS Code the way our customers do, we decided that
 
 And at the same time, we open-sourced the VS Code [repository](https://github.com/Microsoft/vscode) and many of our own extensions, and moved to developing Visual Studio Code in the open.
 
-![timeline graphic](2016_04_14_timeline.png)
+![timeline graphic](timeline.png)
 
 ## Being "1.0"
 
@@ -67,7 +67,7 @@ The community responded, with huge growth in the number of extensions and the wa
 
 Seeing the support and help the community has already poured into the product, the potential for VS Code has never been greater.
 
-<img src="/images/Hundreds-of-extensions.png" style="width: 69%;display: block;margin-left: auto;margin-right: auto">
+<img src="/assets/images/Hundreds-of-extensions.png" style="width: 69%;display: block;margin-left: auto;margin-right: auto">
 
 ## Looking Ahead
 

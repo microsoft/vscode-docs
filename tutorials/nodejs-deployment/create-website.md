@@ -68,7 +68,7 @@ $ az webapp browse --name myExpressApp-chrisdias
 
 You should see something like this:
 
-![Empty Azure Website](nodejs-deployment_emptyazuresite.png)
+![Empty Azure Website](images/nodejs-deployment/emptyazuresite.png)
 
 ----
 
