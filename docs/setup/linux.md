@@ -53,7 +53,7 @@ dnf check-update
 sudo dnf install code
 ```
 
-Or an older versions using `yum`:
+Or on older versions using `yum`:
 
 ```bash
 yum check-update
