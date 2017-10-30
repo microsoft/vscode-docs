@@ -158,9 +158,9 @@ The basics of the terminal have been covered in this document, read on to find o
 
 **A:** This can happen if you run VS Code in compatibility mode which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
 
-**Q: Can I use Cmder with the terminal on Windows?**
+**Q: Can I use Cmder's shell with the terminal on Windows?**
 
-**A:** Yes, to use the [Cmder](http://cmder.net/) console emulator in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents:
+**A:** Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents:
 
 ```bat
 @echo off
@@ -176,3 +176,11 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 ```
 
 > **Note:** The example above assumes you are running 32-bit VS Code on 64-bit Windows and need to use `sysnative`. If you are running the 64-bit version of VS Code, you would use `System32`.
+
+**Q: How do I fix Powershell on macOS complaining about a "-l" argument?**
+
+When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
+
+```js
+"terminal.integrated.shellArgs.osx": []
+```
