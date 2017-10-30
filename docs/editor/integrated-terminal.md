@@ -177,7 +177,7 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 
 > **Note:** The example above assumes you are running 32-bit VS Code on 64-bit Windows and need to use `sysnative`. If you are running the 64-bit version of VS Code, you would use `System32`.
 
-**Q: How do I fix Powershell on macOS complaining about a "-l" argument?**
+**Q: Powershell on macOS is complaining about a "-l" argument, how do I fix it?**
 
 When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
 
