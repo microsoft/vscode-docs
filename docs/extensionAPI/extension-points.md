@@ -352,7 +352,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
                     "type": "node",
                     "request": "attach",
                     "name": "${2:Attach to Port}",
-                    "port": 5858
+                    "port": 9229
                 }
             }
         ],
