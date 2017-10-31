@@ -223,6 +223,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   Property-value pairs that can be passed through this argument:
 
   * 'level': Number of levels to unfold
+  * 'direction': If 'up', unfold given number of levels up otherwise unfolds down
 
 
 `editor.fold` - Fold the content in the editor
@@ -232,7 +233,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   Property-value pairs that can be passed through this argument:
 
   * 'levels': Number of levels to fold
-  * 'up': If 'true', folds given number of levels up otherwise folds down
+  * 'direction': If 'up', folds given number of levels up otherwise folds down
 
 
 `editor.action.showReferences` - Show references at a position in a file
