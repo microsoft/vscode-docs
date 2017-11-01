@@ -330,9 +330,8 @@ The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 Jav
     "tasks": [
         {
             "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
-            "taskName": "watch",
-            "suppressTaskName": true,
-            "isBuildCommand": true,
+            "label": "watch",
+            "group": "build",
             "isBackground": true
         }
     ]

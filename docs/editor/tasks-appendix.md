@@ -130,7 +130,7 @@ interface TaskDescription {
     /**
      * The task's name
      */
-    taskName: string;
+    label: string;
 
     /**
      * The type of a custom task. Tasks of type "shell" are executed

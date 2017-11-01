@@ -156,9 +156,7 @@ Things you'll need:
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration file `tasks.json`.  To do this, open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it.
-
-VS Code then presents a list of possible `tasks.json` templates to choose from. Select `Others` since we want to run an external command.
+The next step is to set up the task configuration file `tasks.json`.  To do this, run **Tasks** > **Configure Tasks** and click **Create tasks.json file from templates**. VS Code then presents a list of possible `tasks.json` templates to choose from. Select **Others** since we want to run an external command.
 
 This generates a `tasks.json` file in your workspace `.vscode` folder with the following content:
 
@@ -169,7 +167,7 @@ This generates a `tasks.json` file in your workspace `.vscode` folder with the f
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "echo",
+            "label": "echo",
             "type": "shell",
             "command": "echo Hello"
         }
@@ -186,7 +184,7 @@ To use **markdown-it** to compile the Markdown file, change the contents as foll
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "Compile Markdown",
+            "label": "Compile Markdown",
             "type": "shell",
             "command": "markdown-it sample.md -o sample.html",
             "group": "build"
@@ -212,7 +210,7 @@ If you want to make the **Compile Markdown** task the default build task to run 
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "Compile Markdown",
+            "label": "Compile Markdown",
             "type": "shell",
             "command": "markdown-it sample.md -o sample.html",
             "problemMatcher": [],
