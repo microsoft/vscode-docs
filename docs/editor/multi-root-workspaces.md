@@ -50,7 +50,7 @@ Opening multiple folders with your platform's native file open dialog will creat
 Add a folder or multiple folders to the last active VS Code instance for a multi-root workspace.
 
 ```bash
-  code -add vscode vscode-docs
+  code --add vscode vscode-docs
 ```
 
 ### Removing folders
