@@ -8,4 +8,16 @@ DateApproved:
 MetaDescription:
 MetaSocialImage: TBD
 ---
-# Spring Boot in VS Code
+#
+
+Same spring boot app
+
+dockerize it
+
+using docker extension
+
+deploy to web app on linux
+
+reference docs tutorial and spring boot tutorial
+
+memory and swap size
