@@ -17,6 +17,8 @@ You can work with multiple project folders in Visual Studio Code with multi-root
 >
 >Multi-root workspace mode is still a relatively new feature and some extensions may not have adopted the new APIs. If some of your extensions do not handle multiple folders, you may need to limit their use to a single folder.
 
+<div class="marketplace-extensions-multi-root-ready"></div>
+
 ## Adding folders
 
 It is easy to add another folder to your existing workspace. There are several gestures for adding folders:
