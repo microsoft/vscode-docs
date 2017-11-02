@@ -1,7 +1,7 @@
 ---
 Order: 3
 Area: python
-TOCTitle: Linting Code
+TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python Code in Visual Studio Code
 DateApproved: 10/30/2017
@@ -19,13 +19,13 @@ To change the linting behavior across all enabled linters, modify the following 
 
 | Feature | Setting | Default value |
 | --- | --- | --- |
-| Linting in general | python.linting.enabled | true |
-| Perform linting without a workspace open | python.linting.enabledWithoutWorkspace |  true  |
-| Linting as you type | python.linting.lintOnTextChange | true |
-| Linting on file save | python.linting.lintOnSave | false |
-| Maximum number of linting messages | python.linting.maxNumberOfProblems | 100 |
-| Output window in which to display messages | python.linting.outputWindow | "Python" |
-| Exclude file and folder patterns | python.linting.ignorePatterns | [".vscode/*.py", "**/site-packages/**/*.py"]  |
+| Linting in general | python.linting.enabled | `true` |
+| Perform linting without a workspace open | python.linting.enabledWithoutWorkspace | `true` |
+| Linting as you type | python.linting.lintOnTextChange | `true` |
+| Linting on file save | python.linting.lintOnSave | `false` |
+| Maximum number of linting messages | python.linting.maxNumberOfProblems | `100` |
+| Output window in which to display messages | python.linting.outputWindow | `"Python"` |
+| Exclude file and folder patterns | python.linting.ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
 
 ## Specific linters
 
@@ -41,9 +41,9 @@ A custom path is generally unnecessary as the Python extension resolve the path 
 | [Pep8](#pep8) | pep8 | Disabled | python.linting.pep8Enabled | python.linting.pep8Args |python.linting.pep8Path |
 | [Flake8](#flake8) | flake8 | Disabled | python.linting.flake8Enabled | python.linting.flake8Args |python.linting.flake8Path |
 | [mypy](#mypy) | mypy-lang | Disabled | python.linting.mypyEnabled | python.linting.mypyArgs |python.linting.mypyPath |
-| pydocstyle | pydocstyle | Disabled |  python.linting.pydocstyleArgs | python.linting.pydocstyleEnabled | python.linting.pydocstylePath |
-| prospector | prospector | Disabled |  python.linting.prospectorArgs | python.linting.prospectorEnabled | python.linting.prospectorPath |
-| [pylama] | pylama | Disabled | python.linting.pylamaArgs | python.linting.pylamaPath |
+| pydocstyle | pydocstyle | Disabled | python.linting.pydocstyleEnabled | python.linting.pydocstyleArgs | python.linting.pydocstylePath |
+| prospector | prospector | Disabled | python.linting.prospectorEnabled | python.linting.prospectorArgs | python.linting.prospectorPath |
+| [pylama] | pylama | Disabled | python.linting.pylamaEnabled | python.linting.pylamaArgs | python.linting.pylamaPath |
 
 
 The sections that follow provide additional details for those individual linters linked in the table.

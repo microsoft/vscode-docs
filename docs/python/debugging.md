@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
@@ -50,6 +50,7 @@ Standard configuration for launch.json:
 }
 ```
 
+<br/>
 Custom configurations for various settings are described in the following sections.
 
 #### pythonPath
@@ -66,7 +67,7 @@ Provides the fully qualified path to the python program's entry module. The reco
 
 You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/PokemonGo-Bot` then you can use the following:
 ```json
-    "program": "${workspaceRoot}/pokemongo_bot/event_handlers/__init__.py",
+"program": "${workspaceRoot}/pokemongo_bot/event_handlers/__init__.py",
 ```
 
 #### args
@@ -74,9 +75,9 @@ You can also rely on a relative path from the workspace root. For example, if th
 Specifies arguments to pass to the python program, for example:
 
 ```json
-    "args": [
-        "--quiet", "--norepeat"
-    ],
+"args": [
+    "--quiet", "--norepeat"
+],
 ```
 
 #### stopOnEntry
@@ -89,9 +90,9 @@ Specifies how program output is displayed.
 
 | Value | Where output is displayed |
 |--- | --- |
-| "none" (default) | No output |
-| "integratedTerminal" | VS Code debug console |
-| "externalTerminal" | Separate console window |
+| `"none"` (default) | No output |
+| `"integratedTerminal"` | VS Code debug console |
+| `"externalTerminal"` | Separate console window |
 
 
 #### cwd
@@ -104,12 +105,12 @@ An array of additional options that may contain the following:
 
 | Option | Description |
 | --- | --- |
-| "WaitOnAbnormalExit" | Prevents an external console window from automatically closing when a program terminates due to an error. |
-| "WaitOnNormalExit" | Prevents an external console window from automatically closing when a program completes normally. |
-| "RedirectOutput" | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using  `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
-| "DebugStdLib" | Enabled debugging of standard library functions. |
-| "DjangoDebugging" | Activates debugging features specific to Django. |
-| "Sudo" | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
+| `"WaitOnAbnormalExit"` | Prevents an external console window from automatically closing when a program terminates due to an error. |
+| `"WaitOnNormalExit"` | Prevents an external console window from automatically closing when a program completes normally. |
+| `"RedirectOutput"` | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using  `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
+| `"DebugStdLib"` | Enabled debugging of standard library functions. |
+| `"DjangoDebugging"` | Activates debugging features specific to Django. |
+| `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
 
 #### env
 
@@ -138,7 +139,7 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 Remote debugging allows you to step through a program locally within VS Code while it's executed on a remote computer. In this case it's necessary to have the code on both computers.
 
-1. On both development and remote computers, install the ptvsd library from https://pypi.python.org/pypi/ptvsd.
+1. On both development and remote computers, install the ptvsd library from [https://pypi.python.org/pypi/ptvsd[(https://pypi.python.org/pypi/ptvsd).
 2. In the code on both computers, add the following lines, replacing *my_secret* with the appropriate passphrase to authenticate remote debugging, and replacing *address* with the appropriate IP address (or `localhost`) and port number:
 
     ```python
@@ -170,9 +171,10 @@ Remote debugging allows you to step through a program locally within VS Code whi
 Windows:
 1. Enable ssh port forwarding on the remote computer using sshd_config or similar.
 2. Establish a Putty SSH tunnel:
-    a. http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html (until Open the session section).
-    b. On the Tunnels screen, using a local mode, source port (which is the port which will be the entry point on the local computer) can be different from the destination port (the end point on the server).
-    c. Destination address should be the localhost or 127.0.0.1 address (which is the address that the remote ssh server will use to establish the tunnel).
+    <ol>
+    <li>http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html (until Open the session section).</li>
+    <li>On the Tunnels screen, using a local mode, source port (which is the port which will be the entry point on the local computer) can be different from the destination port (the end point on the server).</li>
+    <li>Destination address should be the localhost or 127.0.0.1 address (which is the address that the remote ssh server will use to establish the tunnel).</li></ol>
 
 Linux:
 1. Run `ssh -L sourceport:localhost:destinationport user@remoteaddress`
@@ -187,6 +189,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 
 ![Debugging Google App Engine](images/debugging/debugGAE.gif)
 
+<br/>
 1. Download ptvsd from https://pypi.python.org/pypi/ptvsd and extract its files into a ptvsd folder in your working folder. (If using a different folder, modify the path in the pydev_startup.py file created in step 4)).
 2. Create a tasks.json file with the following contents:
 

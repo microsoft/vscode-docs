@@ -36,11 +36,11 @@ Each framework also has specific configuration settings as described in the foll
 
 | Setting | Default | Description |
 | --- | --- | --- |
-| "python.unitTest.unittestEnabled" | false | Specifies whether UnitTest is enabled for unit testing. |
+| "python.unitTest.unittestEnabled" | `false` | Specifies whether UnitTest is enabled for unit testing. |
 |  "python.unitTest.unittestArgs" | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, with each argument specified as an item in the array. See below for a description of the defaults. |
 | "python.unitTest.outputWindow" | `"Python Test Log"` | The window to use for unit test output. |
-| "python.unitTest.promptToConfigure" | true | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
-| "python.unitTest.debugPort" | 3000 | Port number used for debugging of UnitTest tests. |
+| "python.unitTest.promptToConfigure" | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
+| "python.unitTest.debugPort" | `3000` | Port number used for debugging of UnitTest tests. |
 
 The default arguments for UnitTest as as follows:
 - `-v` sets default verbosity. Remove this argument for simpler output.
@@ -55,7 +55,7 @@ See [UnitTest command-line interface](https://docs.python.org/2/library/unittest
 
 | Setting | Default | Description |
 | --- | --- | --- |
-| "python.unitTest.pyTestEnabled" | false | Specifies whether PyTest is enabled for unit testing. |
+| "python.unitTest.pyTestEnabled" | `false` | Specifies whether PyTest is enabled for unit testing. |
 | "python.unitTest.pyTestPath" | `"py.test"` | Path to PyTest. Use a full path if PyTest is located outside the current environment. |
 |  "python.unitTest.pyTestArgs" | `[]` | Arguments to pass to PyTest, with each argument specified as an item in the array. See [PyTest command line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
 
@@ -65,7 +65,7 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 
 | Setting | Default | Description |
 | --- | --- | --- |
-| "python.unitTest.nosetestsEnabled" | false | Specifies whether Nose  is enabled for unit testing. |
+| "python.unitTest.nosetestsEnabled" | `false` | Specifies whether Nose  is enabled for unit testing. |
 | "python.unitTest.nosetestPath" | `"nosetests"` | Path to Nose. Use a full path if PyTest is located outside the current environment. |
 |  "python.unitTest.nodetestArgs" | `[]` | Arguments to pass to Nose, with each argument specified as an item in the array. See [Nose usage options](http://nose.readthedocs.io/en/latest/usage.html#options). |
 

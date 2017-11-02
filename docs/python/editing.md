@@ -39,11 +39,13 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     TODO ]
 ```
 
+
 The `python.autoComplete.preloadModules` setting also allows you speed up autocomplete for specific packages by preloading their information. For example:
 
 ```json
 "python.autoComplete.preloadModules": ["numpy", "pandas", "matplotlib"],
 ```
+
 
 Finally, the `python.autocomplete.addBrackets` setting (default false) determines whether VS Code automatically adds parentheses (`()`)when autocompleting a function name. For example, if you set `addBrackets` to true:
 
@@ -55,7 +57,7 @@ and then write `import os` followed by `os.getc`, you'll see autocomplete for `o
 
 ### Troubleshooting
 
-If autocomplete and IntelliSense are not working for a custom module, check the following possible causes:
+If autocomplete and IntelliSense are not working for a custom module, check the following causes:
 
 | Cause | Solution |
 | --- | --- |
@@ -72,9 +74,9 @@ The Python extension supports code formatting using either autopep8 (the default
 
 | Setting | Default value | Description |
 | --- | --- | --- |
-| python.formatting.formatOnSave | false | Applies formatting on document save. |
-| python.formatting.outputWindow | "Python" | The name of the output window for formatting messages. |
-| python.formatting.provider | "autopep8" | Specifies the formatter to use, either "autopep8" or "yapf". |
+| python.formatting.formatOnSave | `false` | Applies formatting on document save. |
+| python.formatting.outputWindow | `"Python"` | The name of the output window for formatting messages. |
+| python.formatting.provider | `"autopep8"` | Specifies the formatter to use, either "autopep8" or "yapf". |
 
 
 ### Formatter-specific settings
@@ -117,6 +119,7 @@ Invoked by:
 - Command Palette: ⇧⌘P or Ctrl+Shift+P, then **Python Refactor: Extract Variable**.
 - Assign a keyboard shortcut to the `python.refactorExtractVariable` command.
 
+<br/>
 ![Refactoring a variable](images/editing/refactorExtractVar.gif)
 
 ### Extract Method
@@ -128,6 +131,7 @@ Invoked by:
 - Command Palette: ⇧⌘P or Ctrl+Shift+P, then **Python Refactor: Extract Method**.
 - Assign a keyboard shortcut to the `python.refactorExtractMethod` command.
 
+<br/>
 ![Refactoring code into a method](images/editing/refactorExtractMethod.gif)
 
 ### Sort Imports
@@ -139,7 +143,9 @@ Invoked by:
 - Command Palette (⇧⌘P or Ctrl+Shift+P): **Python Refactor: Sort Imports**
 - Assign a keyboard shortcut to the `python.sortImports` command
 
+<br/>
 ![Sorting import statements](images/editing/sortImports.gif)
+<br/>
 
 Custom arguments to isort can be specified in the `python.sortImports.args` setting, with each argument as a separate item in the array:
 

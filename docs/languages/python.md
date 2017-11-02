@@ -4,29 +4,14 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python with Visual Studio Code
-DateApproved: 10/5/2017
+DateApproved: 11/2/2017
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Python.
 ---
 # Python on Visual Studio Code
 
-Python is fully supported in Visual Studio Code through [extensions](/docs/editor/extension-gallery.md). Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide code completion, linting, debugging, code formatting, snippets, and more.
+Python is fully supported in Visual Studio Code through the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) including auto complete, linting, debugging, and unit testing.
 
-> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, Mac, Linux).
-
-## Install Python Extension
-
-VS Code is a fast editor and ships with only the basic features. Add Python language support to VS Code by installing one of the popular Python extensions.
-
-1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
-2. Filter the extension list by typing 'python'.
-
-<div class="marketplace-extensions-python"></div>
-
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
-
-The examples in this document will use Don Jayamanne's popular and full featured [Python Extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python).
-
-## Code Completion
+## Autocomplete and IntelliSense
 
 Python extensions support code completion and Intellisense. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules.
 
@@ -38,11 +23,14 @@ Quickly see methods, class members, and documentation.
 
 ## Linting
 
-Linting is the analysis of your Python code for potential errors. Use Visual Studio Code to quickly navigate to the errors and warnings in your code.
+Linting is the analysis of your Python code for potential errors, making it easy to navigate to and correct different problems.
+
+The Python extension can apply a number of different linters including Pylint, Pep8, Flake8, mypy, pydocstule, prospector, and pylama.
+
 
 <video id="python-linting-video" src="https://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
 
-> Tip: [Don Jayamanne's Python extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) gives you the option of using three different linters - [Pylint](https://www.pylint.org/), [Pep8](https://pypi.python.org/pypi/pep8), and [Flake8](https://flake8.readthedocs.io/en/latest/). See the [wiki](https://github.com/DonJayamanne/pythonVSCode/wiki/Linting) for more details.
+See [Linting](../python/linting.md).
 
 ## Debugging
 
@@ -64,7 +52,20 @@ Snippets will take productivity to the next level. You can configure [your own s
 
 ## Configuration
 
-You will need an [extension](/docs/languages/python.md#install-python-extension) and [Python](https://www.python.org/downloads/) installed. Other dependencies are optional and depend on the features you want to use. Read through the requirements on the [extension's README](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements).
+The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code])(../python/editing.md), [Linting](../python/linting.md), [Debugging](../python/debugging.md), and [Unit Testing](../python/unit-testing.md). The complete list is found on the [Settings reference](../python/settings-reference.md).
+
+
+## Other popular Python extensions
+
+Additional Python language support can be added to to VS Code by installing other popular Python extensions.
+
+1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
+2. Filter the extension list by typing 'python'.
+
+<div class="marketplace-extensions-python"></div>
+
+> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+
 
 ## Next Steps
 
@@ -72,8 +73,3 @@ You will need an [extension](/docs/languages/python.md#install-python-extension)
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 
-## Common Questions
-
-**Q: Why won't linting work for me?**
-
-**A:** First make sure you have installed an extension. Next, many extensions have a dependency on an external package. Install the [required packages](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python#requirements) using a Python package manager like [pip](https://pypi.python.org/pypi/pip) or [easy_install](http://peak.telecommunity.com/DevCenter/EasyInstall). You can read more about troubleshooting linting issues [here](https://github.com/DonJayamanne/pythonVSCode/wiki/Autocomplete-Intellisense).
