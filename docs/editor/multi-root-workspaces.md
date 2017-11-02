@@ -15,9 +15,7 @@ You can work with multiple project folders in Visual Studio Code with multi-root
 
 >**Note**: Currently multi-root workspaces are only supported on the [Insiders](/insiders) build. The feature will be available in Stable builds soon.
 >
->Multi-root workspace mode is still a relatively new feature and some extensions may not have adopted the new APIs. If some of your extensions do not handle multiple folders, you may need to limit their use to a single folder.
-
-<div class="marketplace-extensions-multi-root-ready"></div>
+>Multi-root workspace mode is still a relatively new feature and some extensions may not have adopted the new APIs. Many extensions such as themes and snippets don't require any changes. If some of your extensions do not handle multiple folders, you may need to limit their use to a single folder.
 
 ## Adding folders
 
@@ -219,6 +217,12 @@ You can use `kbstyle(Ctrl+Click)` or `kbstyle(Shift+Click)` to select multiple r
 ## Extensions
 
 Multi-root workspaces have been available as a preview on Insiders build since the June 2017 [1.14 release](/updates/v1_14.md#preview-multi-root-workspaces) and we've been working with extension authors to help them get ready for the release to Stable. If you are an extension author, you can review our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Extension-Authoring:-Adopting-Multi-Root-Workspace-APIs) guide to learn about VS Code API changes and how to make your extension work well across multiple folders.
+
+Below are some of the top extensions which have already adopted the multi-root workspace APs.
+
+<div class="marketplace-extensions-multi-root-ready"></div>
+
+**Note**: If an extension doesn't yet support multiple folders, it will still work in the first folder of your multi-root workspace.
 
 ### Extension recommendations
 
