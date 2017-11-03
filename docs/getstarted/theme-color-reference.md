@@ -433,3 +433,10 @@ Notifications slide in from the top of the workbench.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 
+## Git Colors
+
+- `gitDecoration.modifiedResourceForeground`: Color for modified git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.deletedResourceForeground`: Color for deleted git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.untrackedResourceForeground`: Color for untracked git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.ignoredResourceForeground`: Color for ignored git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.conflictingResourceForeground`: Color for conflicting git resources. Used file labels and the SCM viewlet.
