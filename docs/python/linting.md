@@ -33,7 +33,7 @@ The following table provides a summary of available Python linters and their bas
 
 Custom arguments can be specified in the appropriate arguments setting for each linter, with each argument given as a separate item in the array.
 
-A custom path is generally unnecessary as the Python extension resolve the path to the linter based on the Python interpreter being used (see [Environments](environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting.
+A custom path is generally unnecessary as the Python extension resolve the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting.
 
 | Linter | pip install package name | Default state | Enabling setting (true/false) | Arguments setting | Custom path setting |
 | --- | --- | --- | --- | --- | --- |
@@ -142,7 +142,7 @@ The Python extension maps flake8 message categories to VS Code categories throug
 | Error message | Cause | Solution |
 | --- | --- | --- |
 | ... unable to import \<module_name\> | The Python extension is using the wrong version of Pylint. | Enture that the `pythonPath` setting points to a valid Python installation where Pylint is installed. Alternately, set the `python.linting.pylintPath` to an appropriate version of Pylint for the Python interpreter being used. |
-| Linting with \<linter\> failed ... | The path to the Python interpreter is incorrect. | Check the `pythonPath` setting (see [Environments](environments.md). |
+| Linting with \<linter\> failed ... | The path to the Python interpreter is incorrect. | Check the `pythonPath` setting (see [Environments](/docs/python/environments.md). |
 | | The linter has not been installed in the current Python environment. | Open a command window, navigate to the location of the Python interpreter in the `pythonPath` setting, and run `pip install` for the linter. |
 | | The path to the linter is incorrect. | Ensure that the appropriate `python.linting.<linter>Path` setting for the linter is correct. |
 | | Custom arguments are defined incorrectly. | Check the appropriate `python.linting.<linter>Args` settings, and that the value of the setting is an array of separate argument items. For example, `"python.linting.pylintPath": "pylint --load-plugins pylint_django"` is incorrect. The correct syntax is `"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]`. |

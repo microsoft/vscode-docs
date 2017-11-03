@@ -131,7 +131,7 @@ The configuration drop-down provides a variety of different options for general 
 | Watson | Specifies `"program": "${workspaceRoot}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Attach (Remote Debug) | See [Remote debugging](#remote-debugging) below. |
 
-Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](unit-testing.md).
+Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
 To debug an app that requires administrator privileges, use `"console": "externalTerminal"` and include "Sudo" in `debugOptions`.
 

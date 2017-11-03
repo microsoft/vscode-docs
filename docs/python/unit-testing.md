@@ -11,7 +11,7 @@ MetaSocialImage: TBD
 
 # Unit testing Python in VS Code
 
-The Python extension supports unit testing with Python's built-in [UnitTest](https://docs.python.org/2/library/unittest.html) framework as well as [PyTest](http://docs.pytest.org/en/latest/) and [Nose](http://nose.readthedocs.io/en/latest/). PyTest and Node must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](environments.md)).
+The Python extension supports unit testing with Python's built-in [UnitTest](https://docs.python.org/2/library/unittest.html) framework as well as [PyTest](http://docs.pytest.org/en/latest/) and [Nose](http://nose.readthedocs.io/en/latest/). PyTest and Node must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
 
 Unit test output is displayed in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 

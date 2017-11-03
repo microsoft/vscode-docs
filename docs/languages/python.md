@@ -29,7 +29,7 @@ The Python extension can apply a number of different linters including Pylint, P
 
 <video id="python-linting-video" src="https://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
 
-See [Linting](../python/linting.md).
+See [Linting](/docs/python/linting.md).
 
 ## Debugging
 
@@ -37,7 +37,7 @@ No more `print` statement debugging! Set breakpoints, inspect data, and use the 
 
 <video id="python-debugging-video" src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
 
-> **Tip**: Follow the instructions in [Debugging](../python/debugging.md) for getting started with debugging, including setting up your `launch.json` debugging configuration and troubleshooting common issues.
+> **Tip**: Follow the instructions in [Debugging](/docs/python/debugging.md) for getting started with debugging, including setting up your `launch.json` debugging configuration and troubleshooting common issues.
 >
 > Read more about general information about debugging in Visual Studio Code in the [debugging document](/docs/editor/debugging.md).
 
@@ -51,7 +51,7 @@ Snippets take productivity to the next level. You can configure [your own snippe
 
 ## Configuration
 
-The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](../python/editing.md), [Linting](../python/linting.md), [Debugging](../python/debugging.md), [Jupyter](../python/jupyter.md), and [Unit Testing](../python/unit-testing.md). The complete list is found in the [Settings reference](../python/settings-reference.md).
+The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), [Jupyter](/docs/python/jupyter.md), and [Unit Testing](/docs/python/unit-testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
 
 ## TODO: Unit Testing
 
@@ -71,7 +71,7 @@ Additional Python language support can be added to to VS Code by installing othe
 
 ## Next Steps
 
-- [Python tutorial](../python/python-tutorial.md)
+- [Python tutorial](/docs/python/python-tutorial.md)
 - [Install an Extension](/docs/editor/extension-gallery.md) - Python extension are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

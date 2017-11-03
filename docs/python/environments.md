@@ -105,7 +105,7 @@ To use a different interpreter for debugging, specify its path directly in the `
 
 > **Note:** The debugger settings don't support relative paths, including when relying on the main `python.pythonPath` setting. To work around this, use an environment variable, or create a variable such as `${workspaceRoot}` that resolves to your project folder, then use that variable in the path, as in `"python.pythonPath": "${workspaceRoot}/venv/bin/python"`.
 
-For information on general debugging configuration, see [Debugging](Debugging.md).
+For information on general debugging configuration, see [Debugging](/docs/python/debugging.md).
 
 ## Next Steps
 

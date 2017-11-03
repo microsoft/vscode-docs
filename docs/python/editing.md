@@ -17,7 +17,7 @@ The Python extension provides many services for editing Python code:
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
 
-Also see [Linting](linting.md).
+Also see [Linting](/docs/python/linting.md).
 
 ## Autocomplete and IntelliSense
 

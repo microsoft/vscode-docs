@@ -49,7 +49,7 @@ IntelliSense and auto-completions work for standard Python modules as well as ot
 
 Feel free to experiment with IntelliSense some more, but then revert changes so you have only the `msg` variable and the `print` statement, and save the file (`kb(workbench.action.files.save)`).
 
-For full details on editing, formatting, and refactoring, see [Editing code](editing.md). The Python extension also has full support for [Linting](linting.md).
+For full details on editing, formatting, and refactoring, see [Editing code](/docs/python/editing.md). The Python extension also has full support for [Linting](/docs/python/linting.md).
 
 ## Running Hello World
 
@@ -58,8 +58,6 @@ It's simple to run `hello.py` with Python. From an external terminal, just type 
 You can also use the VS Code [integrated terminal](/docs/editor/integrated-terminal.md), opened using **View > Integrated Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character), to stay within the context of VS Code. Then you can just run `python hello.py` directly:
 
 ![Running Python in the integrated terminal](images/tutorial/integrated-terminal.png)
-
-For the remainder of this walkthrough, you can use the integrated terminal or an external console.
 
 ## Debugging Hello World
 
@@ -81,7 +79,7 @@ This command automatically creates a launch.json with a number of Python configu
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
-These different configurations are fully explained in [Debugging](debugging.md); for now, just select "Python," which runs the current file using the current Python environment, and automatically stops the debugger when the program starts. (See the `stopOnEntry` setting in the configuration).
+These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python," which runs the current file using the current Python environment, and automatically stops the debugger when the program starts. (See the `stopOnEntry` setting in the configuration).
 
 Run the debugger by clicking the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true in the configuration, the debugger stops on the first line of the file. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
@@ -98,7 +96,7 @@ Click the green arrow again to run the program to completion. "Hello World" appe
 > **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` methods. In those cases it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:
 > ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
 
-For full details, see [Debugging](debugging.md).
+For full details, see [Debugging](/docs/python/debugging.md).
 
 ## Installing packages
 
@@ -125,16 +123,16 @@ Rerun the program now and a plot window appears with the output:
 
 ![matplotlib output](images/tutorial/plot-output.png)
 
-You can configure VS Code to use any Python environment you have installed, including virtual environments. You can also use a separate environment for debugging. For full details, see [Environments](environments.md).
+You can configure VS Code to use any Python environment you have installed, including virtual environments. You can also use a separate environment for debugging. For full details, see [Environments](/docs/python/environments.md).
 
 ## Next Steps
 
 There is much more to explore with Python in Visual Studio Code:
 
-- [Python environments](environments.md)
-- [Editing code](editing.md)
-- [Linting](linting.md)
-- [Debugging](debugging.md)
-- [Unit testing](unit-testing.md)
-- [Jupyter](jupyter.md)
-- [Settings reference](settings-reference.md)
+- [Python environments](/docs/python/environments.md)
+- [Editing code](/docs/python/editing.md)
+- [Linting](/docs/python/linting.md)
+- [Debugging](/docs/python/debugging.md)
+- [Unit testing](/docs/python/unit-testing.md)
+- [Jupyter](/docs/python/jupyter.md)
+- [Settings reference](/docs/python/settings-reference.md)
