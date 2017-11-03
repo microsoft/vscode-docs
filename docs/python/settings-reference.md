@@ -153,14 +153,14 @@ MetaSocialImage: TBD
 
 
 
-## Jupytr settings
+## Jupyter settings
 
 | Setting | Default | Description | See also |
 | --- | --- | --- | --- |
-| python.promptToInstallJupyter | `true` | Display prompt to install Jupyter Extension. | |
-| "python.jupyter.appendResults" | `true` | Specifies whether to append the results to results window. When false, results are cleared with each run. | |
-| "python.jupyter.defaultKernel" | `""` | Default kernel, defaulting to the first available kernel. | |
-| "python.jupyter.startupCode" | `["%matplotlib inline"]` | The code to run when the kernel starts. Each item in the array is a separate line of code. | |
+| python.promptToInstallJupyter | `true` | Display prompt to install Jupyter Extension. | [Jupyter](jupyter.md) |
+| "python.jupyter.appendResults" | `true` | Specifies whether to append the results to results window. When false, results are cleared with each run. | [Jupyter](jupyter.md) |
+| "python.jupyter.defaultKernel" | `""` | Default kernel, defaulting to the first available kernel. | [Jupyter](jupyter.md) |
+| "python.jupyter.startupCode" | `["%matplotlib inline"]` | The code to run when the kernel starts, where each item in the array is a separate line of code. | [Jupyter](jupyter.md) |
 
 
 ## Unit testing settings
