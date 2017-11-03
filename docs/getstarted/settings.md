@@ -387,10 +387,15 @@ Below are the default settings and their values.
   // Overrides editor colors and font style from the currently selected color theme.
   "editor.tokenColorCustomizations": {},
 
-
 // Workbench
 
-// Controls if opened editors should show in tabs or not.
+  // When enabled, will show the watermark tips when no editor is open.
+  "workbench.tips.enabled": true,
+
+  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
+  "workbench.startupEditor": "welcomePage",
+
+  // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
 
   // Controls the format of the label for an editor. Changing this setting can for example make it easier to understand the location of a file:
@@ -412,13 +417,13 @@ Below are the default settings and their values.
   // Controls if opened editors from Quick Open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
   "workbench.editor.enablePreviewFromQuickOpen": true,
 
-  // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the current active one. Select 'first' or 'last' to open editors independently from the currently active one.
+  // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the currently active one. Select 'first' or 'last' to open editors independently from the currently active one.
   "workbench.editor.openPositioning": "right",
 
   // Controls if an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
   "workbench.editor.revealIfOpen": false,
 
-  // Controls if the number of recently used commands to keep in history for the command palette. Set to 0 to disable command history.
+  // Controls the number of recently used commands to keep in history for the command palette. Set to 0 to disable command history.
   "workbench.commandPalette.history": 50,
 
   // Controls if the last typed input to the command palette should be restored when opening it the next time.
@@ -430,8 +435,20 @@ Below are the default settings and their values.
   // Controls if opening settings also opens an editor showing all default settings.
   "workbench.settings.openDefaultSettings": true,
 
+  // Indicates the endpoint to use for the experimental settings search.
+  "workbench.settings.experimentalFuzzySearchEndpoint": "",
+
+  // Indicates the key to use for the experimental settings search.
+  "workbench.settings.experimentalFuzzySearchKey": "",
+
+  // Indicates the amount to boost the "literal" component of the query. Temporary.
+  "workbench.settings.experimentalFuzzySearchBoost": 10,
+
   // Controls the location of the sidebar. It can either show on the left or right of the workbench.
   "workbench.sideBar.location": "left",
+
+  // Controls the location of the panel. It can either show on the bottom or right of the workbench.
+  "workbench.panel.location": "bottom",
 
   // Controls the visibility of the status bar at the bottom of the workbench.
   "workbench.statusBar.visible": true,
@@ -441,12 +458,6 @@ Below are the default settings and their values.
 
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
-
-  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
-  "workbench.startupEditor": "welcomePage",
-
-  // When enabled, will show the watermark tips when no editor is open.
-  "workbench.tips.enabled": true,
 
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
@@ -483,13 +494,13 @@ Below are the default settings and their values.
   "window.zoomLevel": 0,
 
   // Controls the window title based on the active editor. Variables are substituted based on the context:
-  // ${activeEditorShort}: e.g. myFile.txt
-  // ${activeEditorMedium}: e.g. myFolder/myFile.txt
-  // ${activeEditorLong}: e.g. /Users/Development/myProject/myFolder/myFile.txt
-  // ${folderName}: e.g. myFolder
-  // ${folderPath}: e.g. /Users/Development/myFolder
-  // ${rootName}: e.g. myFolder1, myFolder2, myFolder3
-  // ${rootPath}: e.g. /Users/Development/myWorkspace
+  // ${activeEditorShort}: the file name (e.g. myFile.txt)
+  // ${activeEditorMedium}: the path of the file relative to the workspace folder (e.g. myFolder/myFile.txt)
+  // ${activeEditorLong}: the full path of the file (e.g. /Users/Development/myProject/myFolder/myFile.txt)
+  // ${folderName}: name of the workspace folder the file is contained in (e.g. myFolder)
+  // ${folderPath}: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder)
+  // ${rootName}: name of the workspace (e.g. myFolder or myWorkspace)
+  // ${rootPath}: file path of the workspace (e.g. /Users/Development/myWorkspace)
   // ${appName}: e.g. VS Code
   // ${dirty}: a dirty indicator if the active editor is dirty
   // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
@@ -595,9 +606,20 @@ Below are the default settings and their values.
   // Controls if the explorer should allow to move files and folders via drag and drop.
   "explorer.enableDragAndDrop": true,
 
+  // Controls if the explorer should ask for confirmation to move files and folders via drag and drop.
+  "explorer.confirmDragAndDrop": true,
+
+  // Controls if the explorer should ask for confirmation when deleting a file via the trash.
+  "explorer.confirmDelete": true,
+
   // Controls sorting order of files and folders in the explorer. In addition to the default sorting, you can set the order to 'mixed' (files and folders sorted combined), 'type' (by file type), 'modified' (by last modified date) or 'filesFirst' (sort files before folders).
   "explorer.sortOrder": "default",
 
+// Controls if file decorations should use colors.
+  "explorer.decorations.colors": true,
+
+  // Controls if file decorations should use badges.
+  "explorer.decorations.badges": true,
 // Search
 
   // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
@@ -606,14 +628,20 @@ Below are the default settings and their values.
     "**/bower_components": true
   },
 
-  // Controls whether to use ripgrep in text search
+  // Controls whether to use ripgrep in text and file search
   "search.useRipgrep": true,
 
-  // Controls whether to use .gitignore and .ignore files by default when searching in a new workspace.
+  // Controls whether to use .gitignore and .ignore files by default when searching for text in a new workspace.
   "search.useIgnoreFilesByDefault": false,
+
+  // Controls whether to use .gitignore and .ignore files when searching for files.
+  "search.useIgnoreFiles": false,
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
+
+  // Controls whether to follow symlinks while searching.
+  "search.followSymlinks": true,
 
 // HTTP
 
@@ -631,10 +659,9 @@ Below are the default settings and their values.
   // Configure whether you receive automatic updates from an update channel. Requires a restart after change.
   "update.channel": "default",
 
-
 // Debug
 
-  // Allows setting breakpoint in any file
+// Allows setting breakpoint in any file
   "debug.allowBreakpointsEverywhere": false,
 
   // Automatically open explorer view on the end of a debug session
@@ -661,7 +688,7 @@ Below are the default settings and their values.
   "html.format.wrapLineLength": 120,
 
   // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
-  "html.format.unformatted": "",
+  "html.format.unformatted": "wbr",
 
   // List of tags, comma separated, where the content shouldn't be reformatted. 'null' defaults to the 'pre' tag.
   "html.format.contentUnformatted": "pre,code,textarea",
@@ -721,7 +748,7 @@ Below are the default settings and their values.
 
 // Markdown
 
-// A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
+  // A list of URLs or local paths to CSS style sheets to use from the markdown preview. Relative paths are interpreted relative to the folder open in the explorer. If there is no open folder, they are interpreted relative to the location of the markdown file. All '\' need to be written as '\\'.
   "markdown.styles": [],
 
   // Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.
@@ -908,11 +935,23 @@ Below are the default settings and their values.
   // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.
   "javascript.implicitProjectConfig.checkJs": false,
 
+  // Enable/disable 'experimentalDecorators' for JavaScript files that are not part of a project. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.
+  "javascript.implicitProjectConfig.experimentalDecorators": false,
+
   // Enable/disable including unique names from the file in JavaScript suggestion lists.
   "javascript.nameSuggestions": true,
 
-  // Controls whether auto detection of tsc tasks is on or off.
+  // Controls auto detection of tsc tasks. 'off' disables this feature. 'build' only creates single run compile tasks. 'watch' only creates compile and watch tasks. 'on' creates both build and watch tasks. Default is 'on'.
   "typescript.tsc.autoDetect": "on",
+
+// Enable/disable quick suggestions when typing out an import path.
+  "typescript.quickSuggestionsForPaths": true,
+
+  // Enable/disable auto import suggestions. Requires TypeScript >=2.6.1
+  "typescript.autoImportSuggestions.enabled": true,
+
+  // Sets the locale used to report TypeScript errors. Requires TypeScript >= 2.6.0. Default of 'null' uses VS Code's locale for TypeScript errors.
+  "typescript.locale": null,
 
 // CSS
 
@@ -1150,6 +1189,9 @@ Below are the default settings and their values.
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1,
 
+  // Whether to enable bold text within the terminal, note that this requires support from the terminal shell.
+  "terminal.integrated.enableBold": true,
+
   // Controls whether the terminal cursor blinks.
   "terminal.integrated.cursorBlinking": false,
 
@@ -1188,8 +1230,16 @@ Below are the default settings and their values.
     "workbench.action.openNextRecentlyUsedEditorInGroup",
     "workbench.action.openPreviousRecentlyUsedEditorInGroup",
     "workbench.action.quickOpen",
+    "workbench.action.quickOpenPreviousEditor",
     "workbench.action.quickOpenView",
     "workbench.action.showCommands",
+    "workbench.action.tasks.build",
+    "workbench.action.tasks.restartTask",
+    "workbench.action.tasks.runTask",
+    "workbench.action.tasks.showLog",
+    "workbench.action.tasks.showTasks",
+    "workbench.action.tasks.terminate",
+    "workbench.action.tasks.test",
     "workbench.action.terminal.clear",
     "workbench.action.terminal.copySelection",
     "workbench.action.terminal.deleteWordLeft",
@@ -1237,17 +1287,20 @@ Below are the default settings and their values.
 
 // Problems Panel
 
+  // Show Errors & Warnings on files and folder.
+  "problems.decorations.enabled": false,
+
   // Controls if Problems view should automatically reveal files when opening them
   "problems.autoReveal": true,
 
 // Telemetry
 
-  // Enable usage data and errors to be sent to Microsoft.
-  "telemetry.enableTelemetry": true,
-
   // Enable crash reports to be sent to Microsoft.
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
+
+  // Enable usage data and errors to be sent to Microsoft.
+  "telemetry.enableTelemetry": true,
 
 // Default Configuration Overrides
 
@@ -1289,39 +1342,39 @@ Below are the default settings and their values.
 
 // Emmet
 
-  // Shows expanded emmet abbreviations as suggestions.
+  // Shows expanded Emmet abbreviations as suggestions.
   // The option "inMarkupAndStylesheetFilesOnly" applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
   // The option "always" applies to all parts of the file regardless of markup/css.
   "emmet.showExpandedAbbreviation": "always",
 
-  // Shows possible emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
+  // Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
   "emmet.showAbbreviationSuggestions": true,
 
-  // Enable emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
+  // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
   //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
   "emmet.includeLanguages": {},
 
-  // Variables to be used in emmet snippets
+  // Variables to be used in Emmet snippets
   "emmet.variables": {},
 
   // Define profile for specified syntax or use your own profile with specific rules.
   "emmet.syntaxProfiles": {},
 
-  // An array of languages where emmet abbreviations should not be expanded.
+  // An array of languages where Emmet abbreviations should not be expanded.
   "emmet.excludeLanguages": [
     "markdown"
   ],
 
-  // Path to a folder containing emmet profiles and snippets.'
+  // Path to a folder containing Emmet profiles and snippets.'
   "emmet.extensionsPath": null,
 
-  // When enabled, emmet abbreviations are expanded when pressing TAB.
+  // When enabled, Emmet abbreviations are expanded when pressing TAB.
   "emmet.triggerExpansionOnTab": false,
 
   // Preferences used to modify behavior of some actions and resolvers of Emmet.
   "emmet.preferences": {},
 
-  // If true, then emmet suggestions will show up as snippets allowing you to order them as per editor.snippetSuggestions setting.
+  // If true, then Emmet suggestions will show up as snippets allowing you to order them as per editor.snippetSuggestions setting.
   "emmet.showSuggestionsAsSnippets": false,
 
 // Grunt
@@ -1334,17 +1387,19 @@ Below are the default settings and their values.
   // Controls whether auto detection of Gulp tasks is on or off. Default is on.
   "gulp.autoDetect": "on",
 
-//NPM
-
-// Controls whether auto detection of npm scripts is on or off. Default is on.
+// NPM
+  // Controls whether auto detection of npm scripts is on or off. Default is on.
   "npm.autoDetect": "on",
 
   // Run npm commands with the `--silent` option
   "npm.runSilent": false,
 
+  // The package manager used to run scripts
+  "npm.packageManager": "npm",
+
 // Merge Conflict
 
-// Enable/disable merge conflict block CodeLens within editor
+  // Enable/disable merge conflict block CodeLens within editor
   "merge-conflict.codeLens.enabled": true,
 
   // Enable/disable merge conflict decorators within editor
@@ -1387,6 +1442,9 @@ Below are the default settings and their values.
 
   // Enables commit signing with GPG.
   "git.enableCommitSigning": false,
+
+  // Controls if Git contributes colors and badges to the explorer and the open editors view.
+  "git.decorations.enabled": true,
 
 // Jake
 
