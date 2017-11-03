@@ -10,12 +10,6 @@ MetaSocialImage: TBD
 ---
 # Python Tutorial in VS Code
 
-(Talk about Python itself, as this is the landing page)
-
-## Install the Python extension
-
-# Hello World
-
 Let's get started by creating the simplest "Hello World" Python application.
 
 Create an empty folder called "hello", navigate into it, and open VS Code:
@@ -32,77 +26,115 @@ From the File Explorer tool bar, press the New File button:
 
 ![File Explorer New File](images/tutorial/toolbar-new-file.png)
 
-and name the file `hello.py`:
+Name the file `hello.py`, and it will automatically open in the editor:
 
 ![File Explorer hello.py](images/tutorial/hello-py-file-created.png)
 
 By using the `.py` file extension, VS Code interprets this file as Python and evaluates the contents with the Python extension.
 
-Create a simple string variable in `hello.py` and send the contents of the string to the console:
+Next, start entering the following code:
 
 ```python
-var msg = 'Hello World';
+msg = 'Hello World'
 print(msg)
 ```
 
-Note that when you start typing `print`, [IntelliSense](/docs/editor/intellisense.md) presents auto-completion options.
+When you start typing `print`, notice how [IntelliSense](/docs/editor/intellisense.md) presents auto-completion options.
 
-![console IntelliSense](images/nodejs/consoleintellisense.png)
+![IntelliSense appearing for Python code](images/tutorial/intellisense01.png)
 
-Also notice that VS Code knows that `msg` is a string based on the initialization to `'Hello World'`.  If you type `msg.` IntelliSense shows methods functions available a string.
+IntelliSense and auto-completions work for standard Python modules as well as other packages you've installed into your Python environment. It also provides completions for methods available on object types. For example, because the `msg` variable contains a string, IntelliSense provides string methods then you type `msg.`:
 
-![string IntelliSense](images/nodejs/stringintellisense.png)
+![IntelliSense appearing for a variable whose type provides methods](images/tutorial/intellisense02.png)
 
-After experimenting with IntelliSense, revert any extra changes from the source code example above and save the file (`kb(workbench.action.files.save)`).
+Feel free to experiment with IntelliSense some more, but then revert changes so you have only the `msg` variable and the `print` statement, and save the file (`kb(workbench.action.files.save)`).
 
+For full details on editing, formatting, and refactoring, see [Editing code](editing.md). The Python extension also has full support for [Linting](linting.md).
 
-### Running Hello World
+## Running Hello World
 
-It's simple to run `hello.py` with Python. From a terminal, just type:
+It's simple to run `hello.py` with Python. From an external terminal, just type `python hello.py`, and you should see "Hello World" as output.
 
-```bash
-python hello.py
+You can also use the VS Code [integrated terminal](/docs/editor/integrated-terminal.md), opened using **View > Integrated Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character), to stay within the context of VS Code. Then you can just run `python hello.py` directly:
+
+![Running Python in the integrated terminal](images/tutorial/integrated-terminal.png)
+
+For the remainder of this walkthrough, you can use the integrated terminal or an external console.
+
+## Debugging Hello World
+
+Let's now try debugging our simple Hello World application.
+
+First, set a breakpoint in `hello.py` by placing the cursor on the `print` statement and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, just click in the editor left gutter next to the line numbers. A red circle  appears in the gutter.
+
+![Setting a breakpoint in hello.py](images/tutorial/breakpoint-set.png)
+
+Next, select the Debug View in the Side Bar:
+
+![Debug icon](images/tutorial/debug-icon.png)
+
+Now you need to configure launch.json for Python by clicking the settings icon on the debug toolbar:
+
+![Debug toolbar settings command](images/tutorial/debug-settings.png)
+
+This command automatically creates a launch.json with a number of Python configurations, which appear in the configurations drop-down:
+
+![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
+
+These different configurations are fully explained in [Debugging](debugging.md); for now, just select "Python," which runs the current file using the current Python environment, and automatically stops the debugger when the program starts. (See the `stopOnEntry` setting in the configuration).
+
+Run the debugger by clicking the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true in the configuration, the debugger stops on the first line of the file. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
+
+![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
+
+Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the status bar changes to an orange color to indicate debug mode. The **Debug Console** also appears automatically.
+
+Click the green arrow to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the debug console:
+
+![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
+
+Click the green arrow again to run the program to completion. "Hello World" appears in the debug console and VS Code exits debugging mode once the program is complete.
+
+> **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` methods. In those cases it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:
+> ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
+
+For full details, see [Debugging](debugging.md).
+
+## Installing packages
+
+Let's now run code that's a little more interesting, using matplotlib and numpy.
+
+Return to **Explorer**, create a new file called `standardplot.py`, and paste in the following code:
+
+```python
+#%%
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import numpy as np
+
+x = np.linspace(0, 20, 100)
+plt.plot(x, np.sin(x))
+plt.show()
 ```
 
-You should see "Hello World" output to the terminal and then Python returns.
+Try running the file in the debugger as described in the last section. If you run the program to completion, it may fail if matplotlib and numpy are not installed in the current environment.
 
-### Integrated Terminal
+This is easy to remedy. Go to the **Terminal** and enter `pip install matplotlib`, and VS Code installs that package into your project along with its dependencies (including numpy).
 
-VS Code has an [integrated terminal](/docs/editor/integrated-terminal.md) which you can use to run shell commands. You can run Python directly from there and avoid switching out of VS Code while running command line tools.
+Rerun the program now and a plot window appears with the output:
 
-**View** > **Integrated Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character) opens the integrated terminal and you can run `python hello.py` there:
+![matplotlib output](images/tutorial/plot-output.png)
 
-![integrated terminal](images/nodejs/integrated-terminal.png)
-
-For this walkthrough, you can use either an external terminal or the VS Code integrated terminal for running the command line tools.
-
-### Debugging Hello World
-
-As mentioned in the introduction, the Python extension provides support for debugging Python. Let's try debugging our simple Hello World application.
-
-To set a breakpoint in `hello.py`, put the editor cursor on the first line and press `kb(editor.debug.action.toggleBreakpoint)` or click in the editor left gutter next to the line numbers. A red circle  appears in the gutter.
-
-![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
-
-To start debugging, select the Debug View in the Side Bar:
-
-![Debug icon](images/nodejs/debugicon.png)
-
-You can now click Debug tool bar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint is hit and you can view and step through the simple application.  Notice that VS Code displays an orange Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
-
-![hello world debugging](images/nodejs/hello-world-debugging.png)
-
-
-
+You can configure VS Code to use any Python environment you have installed, including virtual environments. You can also use a separate environment for debugging. For full details, see [Environments](environments.md).
 
 ## Next Steps
 
 There is much more to explore with Python in Visual Studio Code:
 
-* [Advanced Configurations](/docs/python/advanced-config.md) - Learn how to customize VS Code for how you like to work.
-
-## Common Questions
-
-**Q: How can I blah with Python?**
-
-**A**: The answer.
+- [Python environments](environments.md)
+- [Editing code](editing.md)
+- [Linting](linting.md)
+- [Debugging](debugging.md)
+- [Unit testing](unit-testing.md)
+- [Jupyter](jupyter.md)
+- [Settings reference](settings-reference.md)
