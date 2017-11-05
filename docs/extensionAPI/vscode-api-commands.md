@@ -233,7 +233,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 
   Property-value pairs that can be passed through this argument:
 
-  * 'levels': Number of levels to fold. Defauts to 1.
+  * 'levels': Number of levels to fold. Defaults to 1.
   * 'direction': If 'up', folds given number of levels up otherwise folds down.
   * 'selectionLines': The start lines (0-based) of the editor selections to apply the fold action to. If not set, the active selection(s) will be used.
 
