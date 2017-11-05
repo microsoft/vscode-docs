@@ -90,7 +90,7 @@ Here are some example theming rules. The  `scope` property lists the rules scope
 - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but are not inside a parent scope that matches `source.java`
 - Learn more about scope selectors [here](https://manual.macromates.com/en/scope_selectors).
 
-You can use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
+You can use the **Developer: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
 
 ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 
