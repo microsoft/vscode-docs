@@ -29,7 +29,7 @@ You can create multiple terminals open to different locations and easily navigat
 
 Remove terminal instances by pressing the trash can button.
 
->**Tip:** If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#key-bindings) to allow navigation between them using only the keyboard.
+>**Tip:** If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#terminal-key-bindings) to allow navigation between them using only the keyboard.
 
 ## Configuration
 
