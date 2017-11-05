@@ -204,6 +204,12 @@ With multi-root workspaces, VS Code search across all folders for debugging `lau
 
 ![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
+The example above shows the debugging configurations for the [TSLint extension](https://marketplace.visualstudio.com/items?itemName=eg2.tslint). There is a `launch` configuration from the `tslint` extension folder to start the extension running in the VS Code Extension Host and also an `attach` configuration from the `tslint-server` folder to attach the debugger to a running TSLint server.
+
+You can also see the three **Add Config** commands for the folders, `tslint`, `tslint-server`, and `tslint-tests`, in the vscode-tslint [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace). The **Add Config** command will either open an existing `launch.json` file in the folder's `.vscode` subfolder or create a new one and display the debugging configuration template dropdown.
+
+![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
+
 Variables used in a configuration (for example `${workspaceRoot}`) are resolved relative to the folder they belongs to.
 
 ## Source Control
