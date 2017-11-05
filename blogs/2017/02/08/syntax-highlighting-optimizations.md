@@ -597,7 +597,7 @@ Folding is consuming a lot of memory, especially for large files (that's an opti
 
 ### New TextMate Scope Inspector Widget
 
-We've added a new widget to help with authoring and debugging themes or grammars: You can run it with **Developer Tools: Inspect TM Tokens** in the **Command Palette** (`kb(workbench.action.showCommands)`).
+We've added a new widget to help with authoring and debugging themes or grammars: You can run it with **Developer: Inspect TM Scopes** in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![TextMate scope inspector](TM-scope-inspector.gif)
 
