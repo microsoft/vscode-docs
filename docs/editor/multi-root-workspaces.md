@@ -212,6 +212,14 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 Variables used in a configuration (for example `${workspaceRoot}`) are resolved relative to the folder they belongs to.
 
+## Tasks
+
+Similar to how VS Code searches for debugging configurations, VS Code will also try to autodetect tasks from gulp, grunt, npm, and TypeScript project files across all folders in a workspace as well as search for tasks defined in `tasks.json` files. The location of tasks is indicated by a folder name suffix. Note that tasks defined in `tasks.json` must be version 2.0.0.
+
+![tasks dropdown](images/multi-root-workspaces/tasks-dropdown.png)
+
+From the TSList extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslist-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
+
 ## Source Control
 
 With multi-root workspaces there is a **SOURCE CONTROL PROVIDERS** section which gives you an overview when you have multiple active repositories. These can be contributed by several SCM providers; for example, you can have Git repositories side-by-side with TFS workspaces. As you select repositories in this view, you can see the source control details below.
