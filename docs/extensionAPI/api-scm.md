@@ -123,6 +123,12 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 }
 ```
 
+The `scm/change/title` allows you to contribute commands to the title bar of an inline change. The command will be passed as arguments the URI of the document, the array of changes within it and the index of the change which the inline change affordance is currently focused on. For example, here's the declaration of the `stageChange` git command, which is contributed to this menu:
+
+```ts
+async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;
+```
+
 ### SCM Input Box
 
 The Source Control Input Box, located atop of each Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and `git commit` commands pick them up.

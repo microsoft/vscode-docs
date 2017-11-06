@@ -113,6 +113,7 @@ Currently extension writers can contribute to:
 * The [SCM title menu](/docs/extensionAPI/api-scm.md#menus) - `scm/title`
 * [SCM resource groups](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resourceGroup/context`
 * [SCM resources](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resource/context`
+* [SCM change title](/docs/extensionAPI/api-scm.md#menus) menus - `scm/change/title`
 * The [View title menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/title`
 * The [View item menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/item/context`
 
