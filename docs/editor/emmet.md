@@ -233,6 +233,9 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     - `filter.commentBefore`
     - `filter.commentTrigger`
     - `filter.commentAfter`
+    - `format.noIndentTags`
+    - `format.forceIndentationForTags`
+    - `profile.allowCompactBoolean`
 
     The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
 
