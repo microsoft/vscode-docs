@@ -123,7 +123,7 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
 }
 ```
 
-The `scm/change/title` allows you to contribute commands to the title bar of an inline change. The command will be passed as arguments the URI of the document, the array of changes within it and the index of the change which the inline change affordance is currently focused on. For example, here's the declaration of the `stageChange` git command, which is contributed to this menu:
+The `scm/change/title` allows you to contribute commands to the title bar of an inline change. The command will be passed as arguments the URI of the document, the array of changes within it, and the index of the change which the inline change affordance is currently focused on. For example, here's the declaration of the `stageChange` Git command, which is contributed to this menu:
 
 ```ts
 async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;

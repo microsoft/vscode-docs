@@ -246,12 +246,17 @@ By default, VS Code will stream the debugged source from the remote Node.js fold
 ```
 
 Two frequently used applications of remote debugging are:
-- **debugging Node.js in a Docker container:**<BR>
-If you are running Node.js inside a [Docker](https://www.docker.com) container, you can use the approach from above to debug Node.js inside the Docker container and map back the remote source to files in your workspace. We have created a "recipe" on [GitHub](https://github.com/Microsoft/vscode-recipes) that walks you through on how to set this up [Node.js in Docker with TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript).
 
-- **debugging Node.js in the Linux subsystem on Windows:**<BR>
-If you want to run Node.js in the Linux subsystem on Windows (WSL), you can use the approach from above as well. However to make this even simpler, we've introduced a `useWSL` flag to automatically configure everything so that Node.js runs in the Linux subsystem and source is mapped to files in your workspace.<BR>
-Here is the simplest debug configuration for debugging `hello.js` in WSL:
+* **debugging Node.js in a Docker container:**
+
+  If you are running Node.js inside a [Docker](https://www.docker.com) container, you can use the approach from above to debug Node.js inside the Docker container and map back the remote source to files in your workspace. We have created a "recipe" on [GitHub](https://github.com/Microsoft/vscode-recipes) that walks you through on how to set this up [Node.js in Docker with TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript).
+
+* **debugging Node.js in the Linux subsystem on Windows:**
+
+  If you want to run Node.js in the Linux subsystem on Windows (WSL), you can use the approach from above as well. However to make this even simpler, we've introduced a `useWSL` flag to automatically configure everything so that Node.js runs in the Linux subsystem and source is mapped to files in your workspace.
+
+  Here is the simplest debug configuration for debugging `hello.js` in WSL:
+
   ```json
   {
       "type": "node",

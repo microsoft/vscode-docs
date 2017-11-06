@@ -121,13 +121,11 @@ If you'd like to learn more about packaging and publishing extensions, see our [
 
 ## Workspace Recommended Extensions
 
-Often you have a set of extensions that makes working with a particular workspace or programming language more productive and you'd like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Recommended Extensions (Workspace)** command.
+A good set of extensions can make working with a particular workspace or programming language more productive and you'd often like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Recommended Extensions (Workspace)** command.
 
-In a non multi root setup, this creates a `extensions.json` file located in the workspace `.vscode` folder where you can list extensions.
+In a single folder workspace, the command creates an `extensions.json` file located in the workspace `.vscode` folder where you can add a list of extensions identifiers ({publisherName}.{extensionName}).
 
-In a multi root setup, this will open your `.code-workspace` file where you can list extensions.
-
-Use **Extensions: Configure Recommended Extensions (Workspace Folder)** to add recommendations to the individual folders in the multi root set up.
+In a [multi-root workspace](/docs/editor/multi-root-workspaces.md), the command will open your `.code-workspace` file where you can list extensions under `extensions.recommendations`. You can still add extension recommendations to individual folders in a multi-root workspace by using the **Extensions: Configure Recommended Extensions (Workspace Folder)** command.
 
 An example `extensions.json` could be:
 
