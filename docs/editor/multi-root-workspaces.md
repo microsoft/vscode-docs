@@ -200,7 +200,7 @@ Unsupported editor-wide folder settings will show as grayed out in your folder s
 
 ## Debugging
 
-With multi-root workspaces, VS Code search across all folders for debugging `launch.json` configuration files and displays them with the folder name as a suffix.
+With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix.
 
 ![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
@@ -210,7 +210,7 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
-Variables used in a configuration (for example `${workspaceRoot}`) are resolved relative to the folder they belongs to.
+Variables used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to.
 
 ## Tasks
 
