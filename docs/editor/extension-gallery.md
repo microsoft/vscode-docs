@@ -121,7 +121,13 @@ If you'd like to learn more about packaging and publishing extensions, see our [
 
 ## Workspace Recommended Extensions
 
-Often you have a set of extensions that makes working with a particular workspace or programming language more productive and you'd like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Workspace Recommended Extensions** command. This creates a `extensions.json` file located in the workspace `.vscode` folder where you can list extensions.
+Often you have a set of extensions that makes working with a particular workspace or programming language more productive and you'd like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Recommended Extensions (Workspace)** command.
+
+In a non multi root setup, this creates a `extensions.json` file located in the workspace `.vscode` folder where you can list extensions.
+
+In a multi root setup, this will open your `.code-workspace` file where you can list extensions.
+
+Use **Extensions: Configure Recommended Extensions (Workspace Folder)** to add recommendations to the individual folders in the multi root set up.
 
 An example `extensions.json` could be:
 
@@ -141,7 +147,7 @@ An extension is identified using its publisher name and extension identifier `pu
 
 ![Extension identifier](images/extension-gallery/extension-identifier.png).
 
-VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Workspace Recommended Extensions** command.
+VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Recommended Extensions** command.
 
 ![Show Recommendations](images/extension-gallery/recommendations.png)
 
