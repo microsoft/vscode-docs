@@ -35,8 +35,8 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 **Mac/Linux:**
 ```json
 "python.autoComplete.extraPaths": [
-    ~/.local/lib/Google/google_appengine,
-    ~/.local/lib/Google/google_appengine/lib ]
+    "~/.local/lib/Google/google_appengine",
+    "~/.local/lib/Google/google_appengine/lib" ]
 ```
 
 
@@ -47,7 +47,7 @@ The `python.autoComplete.preloadModules` setting also allows you speed up autoco
 ```
 
 
-Finally, the `python.autocomplete.addBrackets` setting (default false) determines whether VS Code automatically adds parentheses (`()`)when autocompleting a function name. For example, if you set `addBrackets` to true:
+Finally, the `python.autocomplete.addBrackets` setting (default false) determines whether VS Code automatically adds parentheses (`()`) when autocompleting a function name. For example, if you set `addBrackets` to true:
 
 ```json
   "python.autoComplete.addBrackets": true,
@@ -110,7 +110,7 @@ If formatting fails, check the following possible causes:
 
 ## Refactoring
 
-The Python extension adds the following refactoring commands: Extract Variable, Extract Method, and Sort Imports.
+The Python extension adds the following refactoring commands: **Extract Variable**, **Extract Method**, and **Sort Imports**.
 
 ### Extract Variable
 
@@ -121,7 +121,6 @@ Invoked by:
 - Command Palette: ⇧⌘P or Ctrl+Shift+P, then **Python Refactor: Extract Variable**.
 - Assign a keyboard shortcut to the `python.refactorExtractVariable` command.
 
-<br/>
 ![Refactoring a variable](images/editing/refactorExtractVar.gif)
 
 ### Extract Method
@@ -133,7 +132,6 @@ Invoked by:
 - Command Palette: ⇧⌘P or Ctrl+Shift+P, then **Python Refactor: Extract Method**.
 - Assign a keyboard shortcut to the `python.refactorExtractMethod` command.
 
-<br/>
 ![Refactoring code into a method](images/editing/refactorExtractMethod.gif)
 
 ### Sort Imports
@@ -145,9 +143,7 @@ Invoked by:
 - Command Palette (⇧⌘P or Ctrl+Shift+P): **Python Refactor: Sort Imports**
 - Assign a keyboard shortcut to the `python.sortImports` command
 
-<br/>
 ![Sorting import statements](images/editing/sortImports.gif)
-<br/>
 
 Custom arguments to isort can be specified in the `python.sortImports.args` setting, with each argument as a separate item in the array:
 
