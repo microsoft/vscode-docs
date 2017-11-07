@@ -23,7 +23,7 @@ The Python extension supports debugging of a number of types of python apps, inc
 - Pausing (breaking into) running programs
 - Custom startup directory
 
-The default launch.json includes a number of specific debug configurations available from the configuration drop-down. The default "Python" selection provides the standard configuration. See [Standard configuration and options](#standard-configuration-and-options) for a description of this configuration and the debug settings...
+The default launch.json includes a number of specific debug configurations available from the configuration drop-down. The default "Python" selection provides the standard configuration. See [Standard configuration and options](#standard-configuration-and-options) for a description of this configuration and the debug settings.
 
 Additional configurations are described in [Debugging specific app types](#debugging-specific-app-types).
 
@@ -172,7 +172,7 @@ Windows:
 1. Enable ssh port forwarding on the remote computer using sshd_config or similar.
 2. Establish a Putty SSH tunnel:
     <ol>
-    <li>http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html (until Open the session section).</li>
+    <li><a href="http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html">http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html</a> (until Open the session section).</li>
     <li>On the Tunnels screen, using a local mode, source port (which is the port which will be the entry point on the local computer) can be different from the destination port (the end point on the server).</li>
     <li>Destination address should be the localhost or 127.0.0.1 address (which is the address that the remote ssh server will use to establish the tunnel).</li></ol>
 
@@ -190,11 +190,12 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 ![Debugging Google App Engine](images/debugging/debugGAE.gif)
 
 <br/>
-1. Download ptvsd from https://pypi.python.org/pypi/ptvsd and extract its files into a ptvsd folder in your working folder. (If using a different folder, modify the path in the pydev_startup.py file created in step 4)).
+1. Download ptvsd from [https://pypi.python.org/pypi/ptvsd](https://pypi.python.org/pypi/ptvsd) and extract its files into a ptvsd folder in your working folder. (If using a different folder, modify the path in the pydev_startup.py file created in step 4)).
+
 2. Create a tasks.json file with the following contents:
 
     ```json
-        {
+    {
         "version": "0.1.0",
         "command": "python",
         "isShellCommand": true,
@@ -208,6 +209,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
         ]
     }
     ```
+
 3. On Windows and Linux, replace the first item in `args` with the path to wherever Google App Engine is installed (the path shown in the code above is for Mac).
 
 4. Create a file named pydev_startup.py in your project root with the following contents, modified as noted:
