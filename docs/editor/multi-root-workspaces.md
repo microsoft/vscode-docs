@@ -204,7 +204,7 @@ With multi-root workspaces, VS Code search across all folders for debugging `lau
 
 ![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
-Variables used in a configuration (for example `${workspaceRoot}`) are resolved relative to the folder they belongs to.
+Variables used in a configuration (for example `${workspaceFolder}`) are resolved relative to the folder they belongs to.
 
 ## Source Control
 

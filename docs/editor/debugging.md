@@ -160,7 +160,7 @@ VS Code supports variable substitution inside strings in `launch.json` and has t
 - **${workspaceFolder}** - the path of the folder opened in VS Code
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
-- **${relativeFile}** - the current opened file relative to `workspaceRoot`
+- **${relativeFile}** - the current opened file relative to `workspaceFolder`
 - **${fileBasename}** - the current opened file's basename
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
 - **${fileDirname}** - the current opened file's dirname

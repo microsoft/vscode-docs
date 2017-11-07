@@ -164,7 +164,7 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
                         "program": {
                             "type": "string",
                             "description": "Absolute path to a text file.",
-                            "default": "${workspaceRoot}/${command:AskForProgramName}"
+                            "default": "${workspaceFolder}/${command:AskForProgramName}"
                         },
                         "stopOnEntry": {
                             "type": "boolean",
