@@ -100,7 +100,7 @@ For full details, see [Debugging](/docs/python/debugging.md).
 
 ## Installing packages
 
-Let's now run code that's a little more interesting, using [matplotlib](https://matplotlib.org/) and [NumPy](http://www.numpy.org/).
+Let's now run code that's a little more interesting, using matplotlib and NumPy.
 
 Return to **Explorer**, create a new file called `standardplot.py`, and paste in the following code:
 
