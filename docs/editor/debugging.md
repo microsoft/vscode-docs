@@ -106,6 +106,12 @@ We support adding a `"launch"` object inside your user settings. This `"launch"`
 
 >**Tip**: If a workspace contains a `"launch.json"` the global launch configuration is ignored.
 
+### Debug in Status Bar
+
+Once a debug session is started the debug status is shown in the Status Bar showing the active debug launch configuration. By clicking on the debug status, a user can change the active launch configuration and then start debugging without the need to open the Debug view.
+
+![Debug status](images/debugging/debug-status.png)
+
 ## Debug actions
 
 Once a debug session starts, the **Debug actions pane** will appear on the top of the editor.
