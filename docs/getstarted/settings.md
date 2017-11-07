@@ -620,6 +620,7 @@ Below are the default settings and their values.
 
   // Controls if file decorations should use badges.
   "explorer.decorations.badges": true,
+
 // Search
 
   // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
