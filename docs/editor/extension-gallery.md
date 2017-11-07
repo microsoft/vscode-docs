@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Find out how to discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # VS Code Extension Marketplace
@@ -121,7 +121,11 @@ If you'd like to learn more about packaging and publishing extensions, see our [
 
 ## Workspace Recommended Extensions
 
-Often you have a set of extensions that makes working with a particular workspace or programming language more productive and you'd like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Workspace Recommended Extensions** command. This creates a `extensions.json` file located in the workspace `.vscode` folder where you can list extensions.
+A good set of extensions can make working with a particular workspace or programming language more productive and you'd often like to share this list with your team or colleagues. You can create a recommended list of extensions for a workspace with the **Extensions: Configure Recommended Extensions (Workspace)** command.
+
+In a single folder workspace, the command creates an `extensions.json` file located in the workspace `.vscode` folder where you can add a list of extensions identifiers ({publisherName}.{extensionName}).
+
+In a [multi-root workspace](/docs/editor/multi-root-workspaces.md), the command will open your `.code-workspace` file where you can list extensions under `extensions.recommendations`. You can still add extension recommendations to individual folders in a multi-root workspace by using the **Extensions: Configure Recommended Extensions (Workspace Folder)** command.
 
 An example `extensions.json` could be:
 
@@ -141,7 +145,7 @@ An extension is identified using its publisher name and extension identifier `pu
 
 ![Extension identifier](images/extension-gallery/extension-identifier.png).
 
-VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Workspace Recommended Extensions** command.
+VS Code prompts a user to install the recommended extensions when a workspace is opened for the first time. The user can also review the list with the **Extensions: Show Recommended Extensions** command.
 
 ![Show Recommendations](images/extension-gallery/recommendations.png)
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -189,8 +189,9 @@ The following languages currently have markers defined:
 * TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
 * C#: `#region` and `#endregion`
 * C/C++: `#pragma region` and `#pragma endregion`
-* F#: `//#region` and `//#endregion`
+* F#: `//#region` and `//#endregion` and `(#region)` and (#endregion)`
 * Powershell: `#region` and `#endregion`
+* Python: `#region` and `#endregion`
 * VB: `#Region` and `#End Region`
 
 You can also use the following actions:

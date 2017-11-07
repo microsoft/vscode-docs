@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code Command Line Options
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Visual Studio Code command line options. Learn to control VS Code startup.
 ---
 # Command Line Interface (CLI)

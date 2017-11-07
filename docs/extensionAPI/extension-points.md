@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -113,6 +113,7 @@ Currently extension writers can contribute to:
 * The [SCM title menu](/docs/extensionAPI/api-scm.md#menus) - `scm/title`
 * [SCM resource groups](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resourceGroup/context`
 * [SCM resources](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resource/context`
+* [SCM change title](/docs/extensionAPI/api-scm.md#menus) menus - `scm/change/title`
 * The [View title menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/title`
 * The [View item menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/item/context`
 

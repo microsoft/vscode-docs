@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Complex Commands Reference
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.
 ---
 # Complex Commands
@@ -222,7 +222,9 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 
   Property-value pairs that can be passed through this argument:
 
-  * 'level': Number of levels to unfold
+  * 'level': Number of levels to unfold. If not set, defaults to 1.
+  * 'direction': If 'up', unfold given number of levels up otherwise unfolds down.
+  * 'selectionLines': The start lines (0-based) of the editor selections to apply the unfold action to. If not set, the active selection(s) will be used.
 
 
 `editor.fold` - Fold the content in the editor
@@ -231,8 +233,9 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 
   Property-value pairs that can be passed through this argument:
 
-  * 'levels': Number of levels to fold
-  * 'up': If 'true', folds given number of levels up otherwise folds down
+  * 'levels': Number of levels to fold. Defaults to 1.
+  * 'direction': If 'up', folds given number of levels up otherwise folds down.
+  * 'selectionLines': The start lines (0-based) of the editor selections to apply the fold action to. If not set, the active selection(s) will be used.
 
 
 `editor.action.showReferences` - Show references at a position in a file

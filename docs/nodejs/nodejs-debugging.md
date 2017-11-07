@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -219,9 +219,53 @@ By using the `PickProcess` variable the launch configuration looks like this:
 
 ## Remote debugging
 
-The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. Specify a remote host via the `address` attribute.
+The Node.js debugger supports remote debugging for versions of Node.js >= 4.x. Specify a remote host via the `address` attribute. Here is an example:
+
+```json
+{
+    "type": "node",
+    "request": "attach",
+    "name": "Attach to remote",
+    "address": "TCP/IP address of process to be debugged",
+    "port": "9229"
+}
+```
 
 By default, VS Code will stream the debugged source from the remote Node.js folder to the local VS Code and show it in a read-only editor. You can step through this code, but cannot modify it. If you want VS Code to open the editable source from your workspace instead, you can setup a mapping between the remote and local locations. A `localRoot` and a `remoteRoot` attribute can be used to map paths between a local VS Code project and a (remote) Node.js folder. This works even locally on the same system or across different operating systems. Whenever a code path needs to be converted from the remote Node.js folder to a local VS Code path, the `remoteRoot` path is stripped off the path and replaced by `localRoot`. For the reverse conversion, the `localRoot` path is replaced by the `remoteRoot`.
+
+```json
+{
+    "type": "node",
+    "request": "attach",
+    "name": "Attach to remote",
+    "address": "TCP/IP address of process to be debugged",
+    "port": "9229",
+    "localRoot": "${workspaceFolder}",
+    "remoteRoot": "C:\\Users\\John\\project\\server"
+}
+```
+
+Two frequently used applications of remote debugging are:
+
+* **debugging Node.js in a Docker container:**
+
+  If you are running Node.js inside a [Docker](https://www.docker.com) container, you can use the approach from above to debug Node.js inside the Docker container and map back the remote source to files in your workspace. We have created a "recipe" on [GitHub](https://github.com/Microsoft/vscode-recipes) that walks you through on how to set this up [Node.js in Docker with TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript).
+
+* **debugging Node.js in the Linux subsystem on Windows:**
+
+  If you want to run Node.js in the Linux subsystem on Windows (WSL), you can use the approach from above as well. However to make this even simpler, we've introduced a `useWSL` flag to automatically configure everything so that Node.js runs in the Linux subsystem and source is mapped to files in your workspace.
+
+  Here is the simplest debug configuration for debugging `hello.js` in WSL:
+
+  ```json
+  {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch in WSL",
+      "useWSL": true,
+      "program": "${workspaceFolder}/hello.js"
+  }
+  ```
 
 ## Access Loaded Scripts
 
@@ -439,10 +483,6 @@ Here are some things to try when your breakpoints turn gray:
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
 * Try searching for help with your particular setup on Stack Overflow or by filing an issue on GitHub.
 * Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a GitHub issue.
-
-## Node.js in Docker debugging
-
-If you are running Node.js inside a [Docker](https://www.docker.com) container, you need a bit of additional configuration to make debugging work. We have created a "recipe" on [GitHub](https://github.com/Microsoft/vscode-recipes) that walks you through on how to set up [Node.js in Docker with TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript).
 
 ## Next Steps
 

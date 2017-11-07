@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Tasks Appendix
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -20,7 +20,7 @@ interface TaskConfiguration extends BaseTaskConfiguration {
     /**
      * The configuration's version number
      */
-    version: "0.2.0";
+    version: "2.0.0";
 
     /**
      * Windows specific task configuration
@@ -130,7 +130,7 @@ interface TaskDescription {
     /**
      * The task's name
      */
-    taskName: string;
+    label: string;
 
     /**
      * The type of a custom task. Tasks of type "shell" are executed

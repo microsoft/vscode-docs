@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Network
 ContentId: 84F36EDE-4D66-4A2E-B4D1-F020C73EB2AD
 PageTitle: Setup Visual Studio Code's Network Connection
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Setup VS Code's Network Connection.
 ---
 # Network Connections in Visual Studio Code
@@ -22,6 +22,7 @@ If you are behind a firewall which needs to whitelist domains used by VS Code, h
 * `marketplace.visualstudio.com`
 * `*.gallerycdn.vsassets.io`
 * `rink.hockeyapp.net`
+* `vscode.search.windows.net`
 
 ## Proxy server support
 

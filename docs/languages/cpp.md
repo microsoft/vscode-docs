@@ -78,11 +78,11 @@ Below you can see that the MinGW C++ include path has been added to `browse.path
 **If you want to build your application from VS Code, you will need to generate a `tasks.json` file:**
 
 * Open the **Command Palette** (`kb(workbench.action.showCommands)`).
-* Select the **Tasks: Configure Task Runner** command and you will see a list of task runner templates.
+* Select the **Tasks: Configure Tasks...** command, click **Create tasks.json file from templates**, and you will see a list of task runner templates.
 * Select **Others** to create a task which runs an external command.
 * Change the `command` to the command line expression you use to build your application (for example `g++`).
 * Add any required args (for example `-g` to build for debugging).
-* You can also change the `taskName` to be more descriptive.
+* You can also change the `label` to be more descriptive.
 
 You should now see a `tasks.json` file in your workspace `.vscode` folder that looks something like:
 
@@ -91,7 +91,7 @@ You should now see a `tasks.json` file in your workspace `.vscode` folder that l
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build hello world",
+            "label": "build hello world",
             "type": "shell",
             "command": "g++",
             "args": [
@@ -109,7 +109,7 @@ If you'd like to be able to build your application with **Tasks: Run Build Task*
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build hello world",
+            "label": "build hello world",
             "type": "shell",
             "command": "g++",
             "args": [

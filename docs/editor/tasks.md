@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -140,7 +140,7 @@ We are working on more auto-detection support, so this list will get smaller and
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "Run tests",
+            "label": "Run tests",
             "type": "shell",
             "command": "./scripts/test.sh",
             "windows": {
@@ -158,7 +158,7 @@ We are working on more auto-detection support, so this list will get smaller and
 
 The task's properties have the following semantic:
 
-- **taskName**: The tasks's name used in the user interface.
+- **label**: The tasks's label used in the user interface.
 - **type**: The task's type. For a custom task, this can either be `shell` or `process`. If `shell` is specified, the command is interpreted as a shell command (for example: bash, cmd, or PowerShell). If `process` is specified, the command is interpreted as a process to execute. If `shell` is used, any arguments to the command should be embedded into the `command` property to support proper argument quoting. For example, if the test script accepts a `--debug` argument then the command property would be: `./scripts/test.sh --debug`.
 - **command**: The actual command to execute.
 - **windows**: Any Windows specific properties. Will be used instead of the default properties when the command is executed on the Windows operating system.
@@ -230,7 +230,7 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
             },
         },
         {
-            "taskName": "Run tests",
+            "label": "Run tests",
             "type": "shell",
             "command": "./scripts/test.sh",
             "windows": {
@@ -338,7 +338,7 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` file and has the following predefined variables:
 
 - **${workspaceFolder}** the path of the workspace folder that contains the tasks.json file
-- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
+- **${workspaceFolderBasename}** the name of the workspace folder that contains the tasks.json file without any slashes (/)
 - **${file}** the current opened file
 - **${relativeFile}** the current opened file relative to the workspace folder containing the file
 - **${fileBasename}** the current opened file's basename
@@ -354,7 +354,7 @@ Below is an example of a custom task configuration that passes the current opene
 
 ```json
 {
-    "taskName": "TypeScript compile",
+    "label": "TypeScript compile",
     "type": "shell",
     "command": "tsc ${file}",
     "problemMatcher": [
@@ -371,7 +371,7 @@ Below is an example that uses the Node.js executable as a command and is treated
 
 ```json
 {
-    "taskName": "Run Node",
+    "label": "Run Node",
     "type": "process",
     "windows": {
         "command": "C:\\Program Files\\nodejs\\node.exe"
@@ -396,7 +396,7 @@ Task properties can also be defined in the global scope. If present, they will b
     },
     "tasks": [
         {
-            "taskName": "TS - Compile current file",
+            "label": "TS - Compile current file",
             "type": "shell",
             "command": "tsc ${file}",
             "problemMatcher": [
@@ -632,10 +632,9 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 {
     "version": "0.1.0",
     "command": "tsc",
-    "suppressTaskName": true,
     "tasks": [
         {
-            "taskName": "watch",
+            "label": "watch",
             "args": ["--watch"],
             "isBackground": true,
             "problemMatcher": {
@@ -668,6 +667,7 @@ If you have setup a workspace that consist out of multiple folders then only ver
 
 Since the `2.0.0` version comes with lots of new auto-detection features, you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`. If you have lots of customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings because some old properties are now deprecated. Here is how to get rid of the deprecations:
 
+- **taskName**: Use the `label` property instead.
 - **isShellCommand**: Use the `"type": "shell"` property instead.
 - **isBuildCommand**: Use the `"group": "build"` property instead.
 - **isTestCommand**: Use the `"group": "test"` property instead.
@@ -701,7 +701,7 @@ The corresponding `2.0.0` configuration would look like this:
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "Run tests",
+            "label": "Run tests",
             "type": "shell",
             "command": "script test"
         }
@@ -721,7 +721,7 @@ The corresponding `2.0.0` configuration would look like this:
     "taskSelector": "/t:",
     "tasks": [
         {
-            "taskName": "build"
+            "label": "build"
         }
     ]
 }
@@ -733,7 +733,7 @@ A corresponding `2.0.0` configuration would look like this:
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build",
+            "label": "build",
             "command": "msbuild",
             "args": [
                 "/property:GenerateFullPaths=true",

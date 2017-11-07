@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 # JavaScript in VS Code
@@ -330,9 +330,8 @@ The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 Jav
     "tasks": [
         {
             "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
-            "taskName": "watch",
-            "suppressTaskName": true,
-            "isBuildCommand": true,
+            "label": "watch",
+            "group": "build",
             "isBackground": true
         }
     ]

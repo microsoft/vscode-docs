@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: debugging_Debugging.png
 ---
@@ -106,6 +106,12 @@ We support adding a `"launch"` object inside your user settings. This `"launch"`
 
 >**Tip**: If a workspace contains a `"launch.json"` the global launch configuration is ignored.
 
+### Debug in Status Bar
+
+Once a debug session is started the debug status is shown in the Status Bar showing the active debug launch configuration. By clicking on the debug status, a user can change the active launch configuration and then start debugging without the need to open the Debug view.
+
+![Debug status](images/debugging/debug-status.png)
+
 ## Debug actions
 
 Once a debug session starts, the **Debug actions pane** will appear on the top of the editor.
@@ -152,9 +158,9 @@ Many debuggers support some of the following attributes:
 VS Code supports variable substitution inside strings in `launch.json` and has the following predefined variables:
 
 - **${workspaceFolder}** - the path of the folder opened in VS Code
-- **${workspaceRootFolderName}** - the name of the folder opened in VS Code without any slashes (/)
+- **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
-- **${relativeFile}** - the current opened file relative to `workspaceRoot`
+- **${relativeFile}** - the current opened file relative to `workspaceFolder`
 - **${fileBasename}** - the current opened file's basename
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
 - **${fileDirname}** - the current opened file's dirname
@@ -230,7 +236,7 @@ Program is always stopped on entry except for macOS where it does not stop on en
 
 ## Run mode
 
-In addition to debugging a program, VS Code supports running the program. The **Run** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
+In addition to debugging a program, VS Code supports running the program. The **Debug: Start Without Debugging** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
 
 >**Tip**: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case 'Run' will be the same as 'Debug'.
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
@@ -233,6 +233,9 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     - `filter.commentBefore`
     - `filter.commentTrigger`
     - `filter.commentAfter`
+    - `format.noIndentTags`
+    - `format.forceIndentationForTags`
+    - `profile.allowCompactBoolean`
 
     The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
 

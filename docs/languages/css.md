@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, Sass and Less support in VS Code
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
 # CSS, Sass and Less
@@ -118,26 +118,9 @@ For the Less version of the above file, just change `$padding` to `@padding`.
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration.  To do this open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it. In the selection dialog that shows up, select `Others`.
+The next step is to set up the task configuration.  To do this, run **Tasks** > **Configure Tasks** and click **Create tasks.json file from templates**. In the selection dialog that shows up, select **Others**.
 
-This will create a sample `tasks.json` file in the workspace `.vscode` folder.  The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Less/Sass instead:
-
-```json
-// Less configuration
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "taskName": "Less Compile",
-            "type": "shell",
-            "command": "lessc styles.less styles.css",
-            "group": "build"
-        }
-    ]
-}
-```
+This will create a sample `tasks.json` file in the workspace `.vscode` folder.  The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Sass/Less instead:
 
 ```json
 // Sass configuration
@@ -147,9 +130,26 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "Sass Compile",
+            "label": "Sass Compile",
             "type": "shell",
             "command": "node-sass styles.scss styles.css",
+            "group": "build"
+        }
+    ]
+}
+```
+
+```json
+// Less configuration
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Less Compile",
+            "type": "shell",
+            "command": "lessc styles.less styles.css",
             "group": "build"
         }
     ]
@@ -164,7 +164,7 @@ Since in more complex environments there can be more than one build task we prom
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
-If you want to make the task the default build task to run execute **Configure Default Build Task** from the global **Tasks** menu and select the corresponding **Sass** or **Less** task from the presented list.
+If you want to make the task the default build task to run execute **Configure Default Build Task...** from the global **Tasks** menu and select the corresponding **Sass** or **Less** task from the presented list.
 
 >**Note:** If your build fails or you see an error message such as "An output directory must be specified when compiling a directory", be sure the filenames in your `tasks.json` match the filenames on disk. You can always test your build by running `node-sass styles.scss styles.css` from the command line.
 
