@@ -6,7 +6,7 @@ ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
 DateApproved: 11/08/2017
 MetaDescription: Unit Testing Python in Visual Studio Code
-MetaSocialImage: TBD
+MetaSocialImage: social.png
 ---
 
 # Unit testing Python in VS Code
