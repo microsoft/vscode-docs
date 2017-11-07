@@ -134,5 +134,4 @@ There is much more to explore with Python in Visual Studio Code:
 - [Linting](/docs/python/linting.md)
 - [Debugging](/docs/python/debugging.md)
 - [Unit testing](/docs/python/unit-testing.md)
-- [Jupyter](/docs/python/jupyter.md)
 - [Settings reference](/docs/python/settings-reference.md)

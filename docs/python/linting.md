@@ -151,3 +151,6 @@ The Python extension maps flake8 message categories to VS Code categories throug
 
 - [Debugging Python](/docs/python/debugging.md)
 - [Unit testing Python](/docs/python/unit-testing.md)
+
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

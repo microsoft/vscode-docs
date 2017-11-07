@@ -49,17 +49,30 @@ Snippets take productivity to the next level. You can configure [your own snippe
 
 > **Tip**: Snippets appear in the same way as code completion `kb(editor.action.triggerSuggest)`.
 
+# Execute in Python Terminal
+
+The Python extension provides shortcuts to run Python code in the current interpreter:
+
+- From the editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
+- From Explorer: right-click a Python file and select **Run Python File in Terminal**.
+
+## Unit Testing
+
+The Python extension supports [unit testing](/docs/python/unit-testing.md) with the unittest, PyTest, and Nose test frameworks.
+
+To run unit tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
+
+Once discovered, VS Code provides a variety of commands (on the status bar, the command palette, and elsewhere) to run and debug tests, including ability to run individual test files and individual methods.
+
+
 ## Configuration
 
-The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), [Jupyter](/docs/python/jupyter.md), and [Unit Testing](/docs/python/unit-testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
-
-## [TODO: Unit Testing]
-
+The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), and [Unit Testing](/docs/python/unit-testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
 
 
 ## Other popular Python extensions
 
-Additional Python language support can be added to to VS Code by installing other popular Python extensions.
+Additional Python language support can be added to to VS Code by installing other popular Python extensions. For Jupyter support, we recommend the "Jupyter" extension from Don Jayamanne.
 
 1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extension list by typing 'python'.
@@ -75,4 +88,3 @@ Additional Python language support can be added to to VS Code by installing othe
 - [Install an Extension](/docs/editor/extension-gallery.md) - Python extension are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-

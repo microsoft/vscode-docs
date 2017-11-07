@@ -109,7 +109,7 @@ For information on general debugging configuration, see [Debugging](/docs/python
 
 ## Next Steps
 
-- [Editing code](/docs/python/editing.md)
-- [Debugging](/docs/python/debugging.md)
-- [Unit testing](/docs/python/unit-testing.md)
+- [Editing Python code](/docs/python/editing.md)
+- [Debugging Python](/docs/python/debugging.md)
+- [Unit testing Python](/docs/python/unit-testing.md)
 - [Settings reference](/docs/python/settings-reference.md)

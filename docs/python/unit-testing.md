@@ -15,6 +15,7 @@ The Python extension supports unit testing with Python's built-in [UnitTest](htt
 
 Unit test output is displayed in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
+> **Tip**: a useful repository containing a variety of unit tests, applied to different sorting algorithms, is [https://github.com/gwtw/py-sorting](https://github.com/gwtw/py-sorting).
 
 ## Enabling and configuring a test framework
 
@@ -131,9 +132,7 @@ The **Python: Debug All Tests** and **Python: Debug Unit Test Method...** comman
     ```
 2. Add a breakpoint in you test you wish to debug and start debugging.
 
-
 ## Next steps
 
 - [Python environments](/docs/python/environments.md)
-- [Jupyter](/docs/python/jupyter.md)
 - [Settings reference](/docs/python/settings-reference.md)

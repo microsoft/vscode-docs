@@ -11,7 +11,7 @@ MetaSocialImage: TBD
 
 # Debugging Python with VS Code
 
-The Python extension supports debugging of a number of types of python apps, including the following [general capabilities](../editor/debugging.md):
+The Python extension supports debugging of a number of types of python apps, including the following [general capabilities](/docs/editor/debugging.md):
 
 - Watch window
 - Evaluating expressions
@@ -270,3 +270,5 @@ Capturing user input while debugging is possible only when using the `"console":
 - [Python environments](/docs/python/environments.md)
 - [Unit testing](/docs/python/unit-testing.md)
 - [Settings reference](/docs/python/settings-reference.md)
+
+- [General debugging](/docs/editor/debugging.md)

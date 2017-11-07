@@ -23,7 +23,7 @@ Also see [Linting](/docs/python/linting.md).
 
 Autocomplete and IntelliSense are provided for all code within the current working folder and for Python packages that are installed in standard locations.
 
-To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). The following examples show the appropriate settings for Google App Engine.
+To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, in which case you'd specify those locations as follows:
 
 **Windows:**
 ```json
@@ -35,8 +35,8 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 **Mac/Linux:**
 ```json
 "python.autoComplete.extraPaths": [
-    [TODO],
-    [TODO] ]
+    ~/.local/lib/Google/google_appengine,
+    ~/.local/lib/Google/google_appengine/lib ]
 ```
 
 
@@ -54,6 +54,8 @@ Finally, the `python.autocomplete.addBrackets` setting (default false) determine
 ```
 
 and then write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that auto-complete will add `os.getcwd()` to your code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the code.
+
+For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
 ### Troubleshooting
 
@@ -162,3 +164,7 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [C
 - [Linting](/docs/python/linting.md)
 - [Debugging Python](/docs/python/debugging.md)
 - [Unit testing Python](/docs/python/unit-testing.md)
+
+- [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
+- [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+- [IntelliSense](/docs/editor/intellisense.md) - Learn about IntelliSense features.
