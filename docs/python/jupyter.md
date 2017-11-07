@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Jupyter
 ContentId: 81681d53-6d06-486a-af96-0cc98cc4a273
 PageTitle: Using Jupyter and Python in Visual Studio Code
-DateApproved: 11/02/2017
+DateApproved: 11/09/2017
 MetaDescription: Using Jupyter and Python in Visual Studio Code
 MetaSocialImage: TBD
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: TBD
 
 The Python extension supports running Python code directly in Jupyter and IPython kernels. Features include:
 
-- Running a line, a selection, or a block of Python code (cell) (TODO: LINK) in a kernel. Note that code lenses automatically appear for cells that give you a shortcut to running code in a kernel.
+- Running a line, a selection, or a block of Python code (cell) [TODO: LINK] in a kernel. Note that code lenses automatically appear for cells that give you a shortcut to running code in a kernel.
 - Select, restart, interrupt and shut down a kernel. This allows you to easily switch between Python 2.7 and Python 3.6.
 - Viewing output within Visual Studio Code (Images, Html, Graphs, Latex, SVG, and more).
 
@@ -156,3 +156,7 @@ c.InteractiveShellApp.extensions = ['autoreload']
 c.InteractiveShellApp.exec_lines = ['%autoreload 2']
 c.InteractiveShellApp.exec_lines.append('print("Warning: disable autoreload in ipython_config.py to improve performance.")')
 ```
+
+## Next steps
+
+- [Python settings reference](/docs/python/settings-reference.md)

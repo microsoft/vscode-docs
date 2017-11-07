@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 11/01/2017
+DateApproved: 11/08/2017
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: TBD
 ---
@@ -72,6 +72,19 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 You can also configure Nose wuth a `.noserc` or `nose.cfg` file as described on [Nose configuration](http://nose.readthedocs.io/en/latest/usage.html#configuration).
 
 
+## Test discovery
+
+VS Code uses the currently enabled unit testing framework in to discover tests by applying the respective discovery patterns specified in the arguments option for that framework.
+
+For example, the default arguments for unittest include `-s . -p *_test.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the "*_test.py" pattern (`-p *_test.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
+
+PyTest, for its part, has an algorithm for determining its root folder and patterns, as described on [PyTest Configuration](https://docs.pytest.org/en/latest/customize.html).
+
+For Nose, use the `-w=<folder>` and `-m=<regex>` switches to specify a starting folder and a regular expression for pattern matching (see [Nose options](http://nose.readthedocs.io/en/latest/usage.html#options)).
+
+> **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files are not importable. To make them important, place an empty file named `__init__.py` in that folder.
+
+
 ## Running tests
 
 Tests are run using any of the following actions:
@@ -118,3 +131,9 @@ The **Python: Debug All Tests** and **Python: Debug Unit Test Method...** comman
     ```
 2. Add a breakpoint in you test you wish to debug and start debugging.
 
+
+## Next steps
+
+- [Python environments](/docs/python/environments.md)
+- [Jupyter](/docs/python/jupyter.md)
+- [Settings reference](/docs/python/settings-reference.md)

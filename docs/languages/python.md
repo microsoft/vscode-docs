@@ -53,9 +53,9 @@ Snippets take productivity to the next level. You can configure [your own snippe
 
 The Python extension provides a wide variety of settings for its various features. These are described on their relevant topics, such as [Editing code](/docs/python/editing.md), [Linting](/docs/python/linting.md), [Debugging](/docs/python/debugging.md), [Jupyter](/docs/python/jupyter.md), and [Unit Testing](/docs/python/unit-testing.md). The complete list is found in the [Settings reference](/docs/python/settings-reference.md).
 
-## TODO: Unit Testing
+## [TODO: Unit Testing]
 
-## TODO: Jupyter
+
 
 ## Other popular Python extensions
 

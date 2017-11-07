@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 10/30/2017
+DateApproved: 11/08/2017
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: TBD
 ---
@@ -109,5 +109,7 @@ For information on general debugging configuration, see [Debugging](/docs/python
 
 ## Next Steps
 
-- [Debugging](/docs/python/debugging.md) - Learn how to debug Python in VS Code.
-- [Advanced Configurations](/docs/python/advanced-config.md) - Learn how to customize VS Code for how you like to work.
+- [Editing code](/docs/python/editing.md)
+- [Debugging](/docs/python/debugging.md)
+- [Unit testing](/docs/python/unit-testing.md)
+- [Settings reference](/docs/python/settings-reference.md)

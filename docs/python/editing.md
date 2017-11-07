@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 11/01/2017
+DateApproved: 11/08/2017
 MetaDescription: Editing Python Code in Visual Studio Code
 MetaSocialImage: TBD
 ---
@@ -35,8 +35,8 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
 **Mac/Linux:**
 ```json
 "python.autoComplete.extraPaths": [
-    TODO,
-    TODO ]
+    [TODO],
+    [TODO] ]
 ```
 
 
@@ -156,3 +156,9 @@ Custom arguments to isort can be specified in the `python.sortImports.args` sett
 To use a custom isort script, use the `python.sortImports.path` setting to specify the path:
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
+
+## Next steps
+
+- [Linting](/docs/python/linting.md)
+- [Debugging Python](/docs/python/debugging.md)
+- [Unit testing Python](/docs/python/unit-testing.md)

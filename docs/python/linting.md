@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python Code in Visual Studio Code
-DateApproved: 10/30/2017
+DateApproved: 11/08/2017
 MetaDescription: Linting Python Code in Visual Studio Code
 MetaSocialImage: TBD
 ---
@@ -146,3 +146,8 @@ The Python extension maps flake8 message categories to VS Code categories throug
 | | The linter has not been installed in the current Python environment. | Open a command window, navigate to the location of the Python interpreter in the `pythonPath` setting, and run `pip install` for the linter. |
 | | The path to the linter is incorrect. | Ensure that the appropriate `python.linting.<linter>Path` setting for the linter is correct. |
 | | Custom arguments are defined incorrectly. | Check the appropriate `python.linting.<linter>Args` settings, and that the value of the setting is an array of separate argument items. For example, `"python.linting.pylintPath": "pylint --load-plugins pylint_django"` is incorrect. The correct syntax is `"python.linting.pylintArgs": ["--load-plugins", "pylint_django"]`. |
+
+## Next steps
+
+- [Debugging Python](/docs/python/debugging.md)
+- [Unit testing Python](/docs/python/unit-testing.md)

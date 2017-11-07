@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 11/01/2017
+DateApproved: 11/08/2017
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: TBD
 ---
@@ -59,7 +59,7 @@ Points to the python interpreter to be used for debugging purposes. The standard
 
 #### program
 
-Provides the fully qualified path to the python program's entry module. The recommended value for this is `${file}`, which uses the active file in the editor. For programs withi multiple files, however, you can specify the program's startup file. For example:
+Provides the fully qualified path to the python program's entry module. The recommended value for this is `${file}`, which uses the active file in the editor. For programs with multiple files, however, you can specify the program's startup file. For example:
 
 ```json
 "program": "/Users/Me/Projects/PokemonGo-Bot/pokemongo_bot/event_handlers/__init__.py",
@@ -264,3 +264,9 @@ RuntimeError: release unlocked lock
 ### Unable to capture user input while debugging
 
 Capturing user input while debugging is possible only when using the `"console": "externalTerminal"` configuration. The integrated terminal does not support capturing user input.
+
+## Next steps
+
+- [Python environments](/docs/python/environments.md)
+- [Unit testing](/docs/python/unit-testing.md)
+- [Settings reference](/docs/python/settings-reference.md)
