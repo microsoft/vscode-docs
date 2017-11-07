@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 10/5/2017
+DateApproved: 11/8/2017
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Running VS Code on Linux
