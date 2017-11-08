@@ -6,7 +6,7 @@ ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
 DateApproved: 11/08/2017
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
-MetaSocialImage: TBD
+MetaSocialImage: tutorial_social.png
 ---
 
 # Python Settings Reference

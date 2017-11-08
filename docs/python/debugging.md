@@ -6,7 +6,7 @@ ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
 DateApproved: 11/08/2017
 MetaDescription: Debugging Python with Visual Studio Code
-MetaSocialImage: TBD
+MetaSocialImage: tutorial_social.png
 ---
 
 # Debugging Python with VS Code
@@ -50,12 +50,11 @@ Standard configuration for launch.json:
 }
 ```
 
-<br/>
 Custom configurations for various settings are described in the following sections.
 
 #### pythonPath
 
-Points to the python interpreter to be used for debugging purposes. The standard configuration uses the  interpreter identified in the `python.pythonPath` setting by referring to `${config.python.pythonPath}`. To use a different interpreter, specify its path instead.
+Points to the Python interpreter to be used for debugging purposes. The standard configuration uses the interpreter identified in the `python.pythonPath` setting by referring to `${config.python.pythonPath}`. To use a different interpreter, specify its path instead.
 
 #### program
 
