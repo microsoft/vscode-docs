@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 11/08/2017
+DateApproved: 11/10/2017
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
@@ -12,8 +12,6 @@ MetaSocialImage: tutorial_social.png
 # Unit testing Python in VS Code
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](http://docs.pytest.org/en/latest/) and [Nose](http://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
-
-TODO: I would include an image showing the Code Lenses for tests and with a successful run done.
 
 Unit test output is displayed in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
@@ -37,13 +35,13 @@ Each framework also has specific configuration settings as described in the foll
 
 ### Unittest configuration settings
 
-| Setting | Default | Description |
+| Setting<br/>(python.unitTest.) | Default | Description |
 | --- | --- | --- |
-| "python.unitTest.unittestEnabled" | `false` | Specifies whether UnitTest is enabled for unit testing. |
-|  "python.unitTest.unittestArgs" | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, with each argument specified as an item in the array. See below for a description of the defaults. |
-| "python.unitTest.outputWindow" | `"Python Test Log"` | The window to use for unit test output. |
-| "python.unitTest.promptToConfigure" | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
-| "python.unitTest.debugPort" | `3000` | Port number used for debugging of UnitTest tests. |
+| unittestEnabled | `false` | Specifies whether UnitTest is enabled for unit testing. |
+| unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, with each argument specified as an item in the array. See below for a description of the defaults. |
+| outputWindow | `"Python Test Log"` | The window to use for unit test output. |
+| promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
+| debugPort | `3000` | Port number used for debugging of UnitTest tests. |
 
 The default arguments for UnitTest as as follows:
 - `-v` sets default verbosity. Remove this argument for simpler output.
@@ -56,21 +54,21 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 
 ### Pytest configuration settings
 
-| Setting | Default | Description |
+| Setting<br/>(python.unitTest.) | Default | Description |
 | --- | --- | --- |
-| "python.unitTest.pyTestEnabled" | `false` | Specifies whether PyTest is enabled for unit testing. |
-| "python.unitTest.pyTestPath" | `"py.test"` | Path to PyTest. Use a full path if PyTest is located outside the current environment. |
-|  "python.unitTest.pyTestArgs" | `[]` | Arguments to pass to PyTest, with each argument specified as an item in the array. See [PyTest command line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
+| pyTestEnabled | `false` | Specifies whether PyTest is enabled for unit testing. |
+| pyTestPath | `"py.test"` | Path to PyTest. Use a full path if PyTest is located outside the current environment. |
+| pyTestArgs | `[]` | Arguments to pass to PyTest, with each argument specified as an item in the array. See [PyTest command line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
 
 You can also configure pytest using a `pytest.ini` file as described on [PyTest Configuration](https://docs.pytest.org/en/latest/customize.html).
 
 ### Nose configuration settings
 
-| Setting | Default | Description |
+| Setting<br/>(python.unitTest.) | Default | Description |
 | --- | --- | --- |
-| "python.unitTest.nosetestsEnabled" | `false` | Specifies whether Nose  is enabled for unit testing. |
-| "python.unitTest.nosetestPath" | `"nosetests"` | Path to Nose. Use a full path if PyTest is located outside the current environment. |
-|  "python.unitTest.nodetestArgs" | `[]` | Arguments to pass to Nose, with each argument specified as an item in the array. See [Nose usage options](http://nose.readthedocs.io/en/latest/usage.html#options). |
+| nosetestsEnabled | `false` | Specifies whether Nose  is enabled for unit testing. |
+| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if PyTest is located outside the current environment. |
+| nosetestArgs | `[]` | Arguments to pass to Nose, with each argument specified as an item in the array. See [Nose usage options](http://nose.readthedocs.io/en/latest/usage.html#options). |
 
 You can also configure nose wuth a `.noserc` or `nose.cfg` file as described on [Nose configuration](http://nose.readthedocs.io/en/latest/usage.html#configuration).
 
@@ -92,24 +90,15 @@ For nose, use the `-w=<folder>` and `-m=<regex>` switches to specify a starting 
 
 Tests are run using any of the following actions:
 - Select `Run Tests` on the status bar, then select one a command like `Run All Tests` or `Run Failed Unit Tests`.
-
-TODO: this is a good screenshot candidate.
-
 - Right-click a file in Explorer and select `Run Unit Tests`, which runs the tests in that one file.
-
-TODO: this is a good screenshot candidate.
-
 - Open a test file and select the `Test` code lens that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
-
-TODO: this is a good screenshot candidate.
-
 - From the Command Palette, select any of the unit test commands:
 
     ![Python unit testing commands on the command palette](images/unit-testing/commands.png)
 
 | Command | Description |
 | --- | --- |
-| Run All Unit Test | Searches for an runs all unit tests in the workspace and its subfolders. |
+| Run All Unit Tests | Searches for an runs all unit tests in the workspace and its subfolders. |
 | Run Current Unit Test File | Runs the test in the file that's currently viewed in the editor. |
 | Run Failed Unit Tests | Re-runs any tests that failed in a previous test run. Runs all test if no tests have been run yet. |
 | Run Unit Test File... | Prompts for a specific test filename, then runs the test in that file. |
@@ -145,7 +134,5 @@ The **Python: Debug All Tests** and **Python: Debug Unit Test Method...** comman
 
 ## Next steps
 
-TODO: Add a short one-liner for each
-
-- [Python environments](/docs/python/environments.md)
-- [Settings reference](/docs/python/settings-reference.md)
+- [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
+- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.

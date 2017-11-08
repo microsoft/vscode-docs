@@ -3,31 +3,29 @@ Order: 3
 Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
-PageTitle: Linting Python Code in Visual Studio Code
-DateApproved: 11/08/2017
-MetaDescription: Linting Python Code in Visual Studio Code
+PageTitle: Linting Python in Visual Studio Code
+DateApproved: 11/10/2017
+MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
 
-# Linting Python Code in VS Code
+# Linting Python in VS Code
 
 Linting highlights syntactical and stylistic errors in your Python code.  By default, linting for Python code is enabled in VS Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
-
-TODO: I would show an image of a linting error and use F8 to show the inline error description (or a GIf incl the problems view)
 
 ## General linting settings
 
 To change the linting behavior across all enabled linters, modify the following settings:
 
-| Feature | Setting | Default value |
+| Feature | Setting<br/>(python.linting.) | Default value |
 | --- | --- | --- |
-| Linting in general | python.linting.enabled | `true` |
-| Perform linting without a workspace open | python.linting.enabledWithoutWorkspace | `true` |
-| Linting as you type | python.linting.lintOnTextChange | `true` |
-| Linting on file save | python.linting.lintOnSave | `false` |
-| Maximum number of linting messages | python.linting.maxNumberOfProblems | `100` |
-| Output window in which to display messages | python.linting.outputWindow | `"Python"` |
-| Exclude file and folder patterns | python.linting.ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
+| Linting in general | enabled | `true` |
+| Perform linting without a workspace open | enabledWithoutWorkspace | `true` |
+| Linting as you type | lintOnTextChange | `true` |
+| Linting on file save | lintOnSave | `false` |
+| Maximum number of linting messages | maxNumberOfProblems | `100` |
+| Output window in which to display messages | outputWindow | `"Python"` |
+| Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
 
 ## Specific linters
 
@@ -37,22 +35,22 @@ Custom arguments can be specified in the appropriate arguments setting for each 
 
 A custom path is generally unnecessary as the Python extension resolve the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting.
 
-| Linter | pip install package name | Default state | Enabling setting (true/false) | Arguments setting | Custom path setting |
+| Linter | pip install package name | Default state | True/false enable setting<br/>(python.linting.) | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
 | --- | --- | --- | --- | --- | --- |
-| [Pylint](#pylint) (default) | pylint | Enabled | python.linting.pylintEnabled | python.linting.pylintArgs |python.linting.pylintPath |
-| [Pep8](#pep8) | pep8 | Disabled | python.linting.pep8Enabled | python.linting.pep8Args |python.linting.pep8Path |
-| [Flake8](#flake8) | flake8 | Disabled | python.linting.flake8Enabled | python.linting.flake8Args |python.linting.flake8Path |
-| [mypy](#mypy) | mypy-lang | Disabled | python.linting.mypyEnabled | python.linting.mypyArgs |python.linting.mypyPath |
-| pydocstyle | pydocstyle | Disabled | python.linting.pydocstyleEnabled | python.linting.pydocstyleArgs | python.linting.pydocstylePath |
-| prospector | prospector | Disabled | python.linting.prospectorEnabled | python.linting.prospectorArgs | python.linting.prospectorPath |
-| [pylama] | pylama | Disabled | python.linting.pylamaEnabled | python.linting.pylamaArgs | python.linting.pylamaPath |
+| [Pylint](#pylint) (default) | pylint | Enabled | pylintEnabled | pylintArgs | pylintPath |
+| [Pep8](#pep8) | pep8 | Disabled | pep8Enabled | pep8Args | pep8Path |
+| [Flake8](#flake8) | flake8 | Disabled | flake8Enabled | flake8Args | flake8Path |
+| [mypy](#mypy) | mypy-lang | Disabled | mypyEnabled | mypyArgs | mypyPath |
+| pydocstyle | pydocstyle | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
+| prospector | prospector | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
+| [pylama] | pylama | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
 
 
 The sections that follow provide additional details for those individual linters linked in the table.
 
-### Pylint
+## Pylint
 
-#### Command-line arguments and configuration files
+### Command-line arguments and configuration files
 
 See [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command line arguments can be used to load Pylint plugins, such as that for Django:
 
@@ -80,63 +78,63 @@ To control which Pylint messages are shown, add the following contents to an opt
 ```
 
 
-#### Message category mapping
+### Message category mapping
 
 The Python extension maps Pylint message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
 
-| Pylint category | Applicable setting | VS Code category mapping |
+| Pylint category | Applicable setting<br/>(python.linting.) | VS Code category mapping |
 | --- | --- | --- |
-| convention | python.linting.pylintCategorySeverity.convention | Information |
-| refactor | python.linting.pylintCategorySeverity.refactor | Hint |
-| warning | python.linting.pylintCategorySeverity.warning | Warning |
-| error | python.linting.pylintCategorySeverity.error | Error |
-| fatal | python.linting.pylintCategorySeverity.fatal | Error |
+| convention | pylintCategorySeverity.convention | Information |
+| refactor | pylintCategorySeverity.refactor | Hint |
+| warning | pylintCategorySeverity.warning | Warning |
+| error | pylintCategorySeverity.error | Error |
+| fatal | pylintCategorySeverity.fatal | Error |
 
 
-### Pep8
+## Pep8
 
-#### Command-line arguments and configuration files
+### Command-line arguments and configuration files
 
 Pep8 options are read from the `[pep8]` section of a `tox.ini` or `setup.cfg` file located in any parent folder of the path(s) being processed. For details, see [pep8 Options](http://pep8.readthedocs.org/en/latest/intro.html).
 
-#### Message category mapping
+### Message category mapping
 
 The Python extension maps pep8 message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
 
-| Pep8 category | Applicable setting | VS Code category mapping |
+| Pep8 category | Applicable setting<br/>(python.linting.) | VS Code category mapping |
 | --- | --- | --- |
-| W | python.linting.pep8CategorySeverity.W | Warning |
-| E | python.linting.pep8CategorySeverity.E | Error |
+| W | pep8CategorySeverity.W | Warning |
+| E | pep8CategorySeverity.E | Error |
 
-### Flake8
+## Flake8
 
-#### Command-line arguments and configuration files
+### Command-line arguments and configuration files
 
 Flake8 user options are read from the `.flake8` (Windows) or `~/.config/flake8` (Mac/Linux) file.
 
 At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered. For details, see [flake8 Configuration](http://flake8.readthedocs.org/en/latest/config.html).
 
-#### Message category mapping
+### Message category mapping
 
 The Python extension maps flake8 message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
 
-| Flake8 category | Applicable setting | VS Code category mapping |
+| Flake8 category | Applicable setting<br/>(python.liting.) | VS Code category mapping |
 | --- | --- | --- |
-| F | python.linting.flake8CategorySeverity.F | Error |
-| E | python.linting.flake8CategorySeverity.E | Error |
-| W | python.linting.flake8CategorySeverity.W | Warning |
+| F | flake8CategorySeverity.F | Error |
+| E | flake8CategorySeverity.E | Error |
+| W | flake8CategorySeverity.W | Warning |
 
 
-### mypy
+## mypy
 
-#### Message category mapping
+### Message category mapping
 
 The Python extension maps flake8 message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
 
-| mypy category | Applicable setting | VS Code category mapping |
+| mypy category | Applicable setting<br/>(python.linting.) | VS Code category mapping |
 | --- | --- | --- |
-| error | python.linting.mypyCategorySeverity.error | Error |
-| note | python.linting.mypyCategorySeverity.note | Information |
+| error | mypyCategorySeverity.error | Error |
+| note | mypyCategorySeverity.note | Information |
 
 
 ## Troubleshooting linting
@@ -151,9 +149,8 @@ The Python extension maps flake8 message categories to VS Code categories throug
 
 ## Next steps
 
-TODO: a short description for each/single line on why go there.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python code both locally and remotely.
+- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
 
-- [Debugging Python](/docs/python/debugging.md)
-- [Unit testing Python](/docs/python/unit-testing.md)
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
