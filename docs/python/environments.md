@@ -21,7 +21,7 @@ This command automatically looks for and displays a list of available Python int
 
 ![List of interpreters](images/environments/interpreters-list.png)
 
-Selecting an interpreter from the list configures the `settings.json` file accordingly. The statusbar also shows the selected interpreter, which brings up a list of available interpreters when selected. The statusbar also reflects when no interpreter is selected.
+Selecting an interpreter from the list configures the `settings.json` file accordingly. The statusbar shows the current  interpreter and when selected brings up a list of available interpreters. The statusbar also reflects when no interpreter is selected.
 
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
