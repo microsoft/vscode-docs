@@ -52,7 +52,7 @@ The sections that follow provide additional details for those individual linters
 
 #### Command-line arguments and configuration files
 
-See [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command line arguments can be used to load Pylint plugins, such that for Django:
+See [Pylint command line arguments](https://pylint.readthedocs.io/en/latest/user_guide/run.html#command-line-options) for general switches. Command line arguments can be used to load Pylint plugins, such as that for Django:
 
 ```json
 "python.linting.pylintArgs": ["--load-plugins", "pylint_django"]
@@ -112,7 +112,7 @@ The Python extension maps pep8 message categories to VS Code categories through 
 
 Flake8 user options are read from the `.flake8` (Windows) or `~/.config/flake8` (Mac/Linux) file.
 
-At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered. For details, seef [flake8 Configuration](http://flake8.readthedocs.org/en/latest/config.html).
+At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered. For details, see [flake8 Configuration](http://flake8.readthedocs.org/en/latest/config.html).
 
 #### Message category mapping
 

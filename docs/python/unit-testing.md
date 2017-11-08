@@ -46,7 +46,7 @@ Each framework also has specific configuration settings as described in the foll
 The default arguments for UnitTest as as follows:
 - `-v` sets default verbosity. Remove this argument for simpler output.
 - `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, you can change this to `-s test` (meaning `"-s", "test"` in the arguments array).
-- `-p test*.py` is the discovery pattern used to look for tests. In this case, it's any .py file that includes the word "test". If you name test files differently, such as appending "\_test" to every filename, then use a pattern like `*_test.py` in the appropriate argument of the array.
+- `-p *test*.py` is the discovery pattern used to look for tests. In this case, it's any `.py` file that includes the word "test". If you name test files differently, such as appending "\_test" to every filename, then use a pattern like `*_test.py` in the appropriate argument of the array.
 
 To stop a test run on the first failure, add the fail fast option `"-f"` to the arguments array.
 
@@ -77,7 +77,7 @@ You can also configure nose wuth a `.noserc` or `nose.cfg` file as described on 
 
 VS Code uses the currently enabled unit testing framework to discover tests by applying the respective discovery patterns specified in the arguments option for that framework.
 
-For example, the default arguments for unittest include `-s . -p test*.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the "*_test.py" pattern (`-p *_test.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
+For example, the default arguments for unittest include `-s . -p *test*.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the `*test*.py` pattern (`-p *test*.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
 
 Pytest, for its part, has an algorithm for determining its root folder and patterns, as described on [pytest Configuration](https://docs.pytest.org/en/latest/customize.html).
 

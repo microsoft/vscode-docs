@@ -53,7 +53,7 @@ For full details on editing, formatting, and refactoring, see [Editing code](/do
 
 ## Running Hello World
 
-It's simple to run `hello.py` with Python. From an external terminal, just type `python3 hello.py`, and you should see "Hello World" as output.
+It's simple to run `hello.py` with Python. From an external terminal, just type `python3 hello.py`, and you should see "Hello World" as output (if the `python3` command is not available, try `python` or `py`).
 
 You can also use the VS Code [integrated terminal](/docs/editor/integrated-terminal.md), opened using **View > Integrated Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character), to stay within the context of VS Code. Then you can just run `python hello.py` directly:
 
