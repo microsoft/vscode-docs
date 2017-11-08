@@ -11,7 +11,7 @@ MetaSocialImage: tutorial_social.png
 
 # Unit testing Python in VS Code
 
-The Python extension supports unit testing with Python's built-in [UnitTest](https://docs.python.org/2/library/unittest.html) framework as well as [PyTest](http://docs.pytest.org/en/latest/) and [Nose](http://nose.readthedocs.io/en/latest/). PyTest and Node must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
+The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](http://docs.pytest.org/en/latest/) and [Nose](http://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
 
 Unit test output is displayed in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
@@ -29,11 +29,11 @@ Unit testing is disabled by default. To enable unit testing, set one of the foll
 
 > **Caution**: enable only one test framework at a time.
 
-The example above enabled PyTest, leaving UnitTest and Nose disabled.
+The example above enabled pytest, leaving unittest and nose disabled.
 
 Each framework also has specific configuration settings as described in the following sections:
 
-### UnitTest configuration settings
+### Unittest configuration settings
 
 | Setting | Default | Description |
 | --- | --- | --- |
@@ -46,13 +46,13 @@ Each framework also has specific configuration settings as described in the foll
 The default arguments for UnitTest as as follows:
 - `-v` sets default verbosity. Remove this argument for simpler output.
 - `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, you can change this to `-s test` (meaning `"-s", "test"` in the arguments array).
-- `-p *test*.py` is the discovery pattern used to look for tests. In this case, it's any .py file that includes the word "test". If you name test files differently, such as appending "\_test" to every filename, then use a pattern like `*_test.py` in the appropriate argument of the array.
+- `-p *test*.py` is the discovery pattern used to look for tests. In this case, it's any `.py` file that includes the word "test". If you name test files differently, such as appending "\_test" to every filename, then use a pattern like `*_test.py` in the appropriate argument of the array.
 
 To stop a test run on the first failure, add the fail fast option `"-f"` to the arguments array.
 
-See [UnitTest command-line interface](https://docs.python.org/2/library/unittest.html#command-line-interface) for the full set of available options.
+See [unittest command-line interface](https://docs.python.org/3/library/unittest.html#command-line-interface) for the full set of available options.
 
-### PyTest configuration settings
+### Pytest configuration settings
 
 | Setting | Default | Description |
 | --- | --- | --- |
@@ -70,20 +70,20 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 | "python.unitTest.nosetestPath" | `"nosetests"` | Path to Nose. Use a full path if PyTest is located outside the current environment. |
 |  "python.unitTest.nodetestArgs" | `[]` | Arguments to pass to Nose, with each argument specified as an item in the array. See [Nose usage options](http://nose.readthedocs.io/en/latest/usage.html#options). |
 
-You can also configure Nose wuth a `.noserc` or `nose.cfg` file as described on [Nose configuration](http://nose.readthedocs.io/en/latest/usage.html#configuration).
+You can also configure nose wuth a `.noserc` or `nose.cfg` file as described on [Nose configuration](http://nose.readthedocs.io/en/latest/usage.html#configuration).
 
 
 ## Test discovery
 
-VS Code uses the currently enabled unit testing framework in to discover tests by applying the respective discovery patterns specified in the arguments option for that framework.
+VS Code uses the currently enabled unit testing framework to discover tests by applying the respective discovery patterns specified in the arguments option for that framework.
 
-For example, the default arguments for unittest include `-s . -p *_test.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the "*_test.py" pattern (`-p *_test.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
+For example, the default arguments for unittest include `-s . -p *test*.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the `*test*.py` pattern (`-p *test*.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
 
-PyTest, for its part, has an algorithm for determining its root folder and patterns, as described on [PyTest Configuration](https://docs.pytest.org/en/latest/customize.html).
+Pytest, for its part, has an algorithm for determining its root folder and patterns, as described on [pytest Configuration](https://docs.pytest.org/en/latest/customize.html).
 
-For Nose, use the `-w=<folder>` and `-m=<regex>` switches to specify a starting folder and a regular expression for pattern matching (see [Nose options](http://nose.readthedocs.io/en/latest/usage.html#options)).
+For nose, use the `-w=<folder>` and `-m=<regex>` switches to specify a starting folder and a regular expression for pattern matching (see [Nose options](http://nose.readthedocs.io/en/latest/usage.html#options)).
 
-> **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files are not importable. To make them important, place an empty file named `__init__.py` in that folder.
+> **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, try placing an empty file named `__init__.py` in that folder.
 
 
 ## Running tests

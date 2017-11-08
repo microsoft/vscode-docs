@@ -21,11 +21,13 @@ This command automatically looks for and displays a list of available Python int
 
 ![List of interpreters](images/environments/interpreters-list.png)
 
-Selecting an interpreter from the list configures the `settings.json` file accordingly.
+Selecting an interpreter from the list configures the `settings.json` file accordingly. The statusbar also shows the selected interpreter, which brings up a list of available interpreters when selected. The statusbar also reflects when no interpreter is selected.
+
+![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
 The extension looks for interpreters in the following locations:
 
-- Standard paths such as /usr/local/bin, /usr/sbin, /sbin, c:\\python27, c:\\python36, etc.
+- Standard paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
 - Virtual environments located under the workspace (project) folder
 - Conda environments
 
@@ -33,7 +35,7 @@ The extension looks for interpreters in the following locations:
 
 If the interpreter you want to use is not located automatically, you can set the path to it directly in `settings.json`:
 
-- Select the **File > Preferences > Settings ** command.
+- Select the **File > Preferences > Settings** command.
 - Create or modify an entry for `python.pythonPath` with the full path to the Python executable. For example:
 
     Windows:
@@ -65,7 +67,7 @@ To use a Python interpreter that's installed in a virtual environment:
     Windows:
     ```json
     {
-        "python.pythonPath": "c:/dev/ala/venv/bin/python.exe"
+        "python.pythonPath": "c:/dev/ala/venv/Scripts/python.exe"
     }
     ```
 

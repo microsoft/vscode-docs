@@ -49,7 +49,7 @@ Snippets take productivity to the next level. You can configure [your own snippe
 
 > **Tip**: Snippets appear in the same way as code completion `kb(editor.action.triggerSuggest)`.
 
-# Execute in Python Terminal
+# Execute Python in the Terminal
 
 The Python extension provides shortcuts to run Python code in the current interpreter:
 
@@ -58,7 +58,7 @@ The Python extension provides shortcuts to run Python code in the current interp
 
 ## Unit Testing
 
-The Python extension supports [unit testing](/docs/python/unit-testing.md) with the unittest, PyTest, and Nose test frameworks.
+The Python extension supports [unit testing](/docs/python/unit-testing.md) with the unittest, pytest, and Nose test frameworks.
 
 To run unit tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
 

@@ -20,9 +20,9 @@ cd hello
 code .
 ```
 
->**Tip:** You can open files or folders directly from the command line.  The period '.' refers to the current folder, therefore VS Code will start and open the `Hello` folder.
+> **Tip:** You can open files or folders directly from the command line.  The period '.' refers to the current folder, therefore VS Code will start and open the `Hello` folder.
 
-From the File Explorer tool bar, press the New File button:
+From the File Explorer toolbar, press the New File button:
 
 ![File Explorer New File](images/tutorial/toolbar-new-file.png)
 
@@ -35,7 +35,7 @@ By using the `.py` file extension, VS Code interprets this file as Python and ev
 Next, start entering the following code:
 
 ```python
-msg = 'Hello World'
+msg = "Hello World"
 print(msg)
 ```
 
@@ -47,13 +47,13 @@ IntelliSense and auto-completions work for standard Python modules as well as ot
 
 ![IntelliSense appearing for a variable whose type provides methods](images/tutorial/intellisense02.png)
 
-Feel free to experiment with IntelliSense some more, but then revert changes so you have only the `msg` variable and the `print` statement, and save the file (`kb(workbench.action.files.save)`).
+Feel free to experiment with IntelliSense some more, but then revert changes so you have only the `msg` variable and the `print` call, and save the file (`kb(workbench.action.files.save)`).
 
 For full details on editing, formatting, and refactoring, see [Editing code](/docs/python/editing.md). The Python extension also has full support for [Linting](/docs/python/linting.md).
 
 ## Running Hello World
 
-It's simple to run `hello.py` with Python. From an external terminal, just type `python hello.py`, and you should see "Hello World" as output.
+It's simple to run `hello.py` with Python. From an external terminal, just type `python3 hello.py`, and you should see "Hello World" as output (if the `python3` command is not available, try `python` or `py`).
 
 You can also use the VS Code [integrated terminal](/docs/editor/integrated-terminal.md), opened using **View > Integrated Terminal** (`kb(workbench.action.terminal.toggleTerminal)` with the backtick character), to stay within the context of VS Code. Then you can just run `python hello.py` directly:
 
@@ -63,11 +63,11 @@ You can also use the VS Code [integrated terminal](/docs/editor/integrated-termi
 
 Let's now try debugging our simple Hello World application.
 
-First, set a breakpoint in `hello.py` by placing the cursor on the `print` statement and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, just click in the editor left gutter next to the line numbers. A red circle  appears in the gutter.
+First, set a breakpoint in `hello.py` by placing the cursor on the `print` call and pressing `kb(editor.debug.action.toggleBreakpoint)`. Alternately, just click in the editor left gutter next to the line numbers. A red circle  appears in the gutter.
 
 ![Setting a breakpoint in hello.py](images/tutorial/breakpoint-set.png)
 
-Next, select the Debug View in the Side Bar:
+Next, select the Debug View in the sidebar:
 
 ![Debug icon](images/tutorial/debug-icon.png)
 
@@ -93,14 +93,14 @@ Click the green arrow to continue running the program (`kb(workbench.action.debu
 
 Click the green arrow again to run the program to completion. "Hello World" appears in the debug console and VS Code exits debugging mode once the program is complete.
 
-> **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` methods. In those cases it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:
+> **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:
 > ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
 
 For full details, see [Debugging](/docs/python/debugging.md).
 
 ## Installing packages
 
-Let's now run code that's a little more interesting, using matplotlib and numpy.
+Let's now run code that's a little more interesting, using matplotlib and NumPy.
 
 Return to **Explorer**, create a new file called `standardplot.py`, and paste in the following code:
 
@@ -117,7 +117,9 @@ plt.show()
 
 Try running the file in the debugger as described in the last section. If you run the program to completion, it may fail if matplotlib and numpy are not installed in the current environment.
 
-This is easy to remedy. Go to the **Terminal** and enter `pip install matplotlib`, and VS Code installs that package into your project along with its dependencies (including numpy).
+This is easy to remedy. Go to the **Terminal** and enter `pip3 install matplotlib`, and VS Code installs that package into your project along with its dependencies (including NumPy).
+
+> **Tip**: If you don't want to install matlotlib and its dependencies globally then use a [virtual environment](https://docs.python.org/3/tutorial/venv.html).
 
 Rerun the program now and a plot window appears with the output:
 
