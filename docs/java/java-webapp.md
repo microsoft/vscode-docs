@@ -12,7 +12,7 @@ MetaSocialImage: TBD
 
 This 10 minutes quickstart shows you how to create a simple Java web app, run it locally, and eventually run it on cloud.
 
-## **Scenario**
+## Scenario
 
 A simple Spring Boot Getting Started web app
 <br><br>
@@ -35,51 +35,32 @@ Before running and deploying this sample, you must have JDK and Maven on your lo
 <a class="tutorial-next-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Instal Apache Maven</a>
 <br>
 
-## Download the Spring Boot app
-The following steps will walk you through the steps that are required to create a simple Spring Boot web application.
-1. Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine:
+## Download and test the Spring Boot app
+1. Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste https://github.com/microsoft/gs-spring-boot.git as the URL of the remote repository and the decide the parent directory under which to put the local repository. After that, you can open the cloned repository in your VS Code.
 
-   ```
-   git clone https://github.com/microsoft/gs-spring-boot.git
-   ```
-2. Go to the directory that contains the sample code and open VS Code:
+![Clone Spring Repository](imgages/CloneRepository.gif)
 
-   ```
-   cd gs-spring-boot/complete
-   code .
-   ```
+2. Then you can open any of the Java file in the repository. If you haven't got the Java related extensions installed with your VS Code, you would be recommended to install the Java extension pack. Just follow the instruction and install the Java Extension Pack from Microsoft.
 
-## Test your app locally
-1. Using [Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code
+![Install Java Extensions](imgages/InstallExtensions.gif)
 
-To open the terminal:
+3. Once you have the Extensions installed, it will automatically build the project for you, and then you can simply run it within VS Code. VS Code can generate the correct launch file for you automatically too
 
-* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
-* Use the **View** | **Integrated Terminal** menu command.
-* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
+![Run Spring Boot](imgages/RunSpringBoot.gif)
 
-2. Build the JAR file using Maven.
-
-   ```
-   mvn package
-   ```
-3. Once the web app has been created, change directory to the JAR file and start the web app
-
-   ```
-   mvn spring-boot:run
-   ```
 4. Test the web app by browsing to http://localhost:8080 using a web browser. You should see the following message displayed: *Greetings from Spring Boot!*
 <br><br>
 ![Greeting from Spring](images/GreetingFromSpring.png)
 
 ## Make a change
 1. Try it now, edit *HelloController.java* to change *Greetings from Spring Boot!* to something else.
-2. Build the JAR file again using Maven (skip some unit tests)
+2. Simply click the Restart button on the top of the editor to reload the app and see result by reload the browser.
 
-   ```
-   mvn clean package -Dmaven.test.skip=true
-   ```
-3. Follow step 3 and 4 in above [Test your app locally](#test-your-app-locally) section to reload the app and see the results.
+![Restart Application](images/RestartApplication.PNG)
+
+## Debug the application
+1. You can also set a breakpoint in the application code, and reload your browser to hit the breakpoint.
+![Debug Application](images/Debugging.PNG)
 
 Congratulations, now you have your first Spring Boot web app running locally! Now let's try host it on Cloud.
 
@@ -96,7 +77,14 @@ Before running this sample on [Azure](http://www.azure.com), you need to
 <br>
 
 ## Create an Azure service principal
-1. Sign into your Azure account by using the Azure CLI:
+1. Using the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code, to open the terminal:
+
+* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
+* Use the **View** | **Integrated Terminal** menu command.
+* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
+
+> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on Mac or Linux) if you prefer to work outside VS Code.
+2. Sign into your Azure account by using the Azure CLI:
    ```
    az login
    ```
@@ -194,5 +182,5 @@ You have successfully built a Java web app on cloud!
 ![Greeting Cloud](GreetingCloud.PNG)
 
 ## Next steps
-*
-*
+* To see how you can containerize the app and deploy to the Cloud, check out [Java Container Tutorial](docs/java/java-container)
+* To learn more about Java Debugging features, see [Java Debugging Tutorial](docs/java/java-debugging)
