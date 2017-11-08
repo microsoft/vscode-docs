@@ -13,6 +13,8 @@ MetaSocialImage: tutorial_social.png
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](http://docs.pytest.org/en/latest/) and [Nose](http://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
 
+TODO: I would include an image showing the Code Lenses for tests and with a successful run done.
+
 Unit test output is displayed in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
 > **Tip**: a useful repository containing a variety of unit tests, applied to different sorting algorithms, is [https://github.com/gwtw/py-sorting](https://github.com/gwtw/py-sorting).
@@ -29,7 +31,7 @@ Unit testing is disabled by default. To enable unit testing, set one of the foll
 
 > **Caution**: enable only one test framework at a time.
 
-The example above enabled pytest, leaving unittest and nose disabled.
+The example above enabled pytest, leaving unittest and Nose disabled.
 
 Each framework also has specific configuration settings as described in the following sections:
 
@@ -90,8 +92,17 @@ For nose, use the `-w=<folder>` and `-m=<regex>` switches to specify a starting 
 
 Tests are run using any of the following actions:
 - Select `Run Tests` on the status bar, then select one a command like `Run All Tests` or `Run Failed Unit Tests`.
+
+TODO: this is a good screenshot candidate.
+
 - Right-click a file in Explorer and select `Run Unit Tests`, which runs the tests in that one file.
+
+TODO: this is a good screenshot candidate.
+
 - Open a test file and select the `Test` code lens that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
+
+TODO: this is a good screenshot candidate.
+
 - From the Command Palette, select any of the unit test commands:
 
     ![Python unit testing commands on the command palette](images/unit-testing/commands.png)
@@ -133,6 +144,8 @@ The **Python: Debug All Tests** and **Python: Debug Unit Test Method...** comman
 2. Add a breakpoint in you test you wish to debug and start debugging.
 
 ## Next steps
+
+TODO: Add a short one-liner for each
 
 - [Python environments](/docs/python/environments.md)
 - [Settings reference](/docs/python/settings-reference.md)

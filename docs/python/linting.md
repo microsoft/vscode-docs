@@ -11,7 +11,9 @@ MetaSocialImage: tutorial_social.png
 
 # Linting Python Code in VS Code
 
-By default, linting for Python code is enabled in VS Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
+Linting highlights syntactical and stylistic errors in your Python code.  By default, linting for Python code is enabled in VS Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
+
+TODO: I would show an image of a linting error and use F8 to show the inline error description (or a GIf incl the problems view)
 
 ## General linting settings
 
@@ -149,8 +151,9 @@ The Python extension maps flake8 message categories to VS Code categories throug
 
 ## Next steps
 
+TODO: a short description for each/single line on why go there.
+
 - [Debugging Python](/docs/python/debugging.md)
 - [Unit testing Python](/docs/python/unit-testing.md)
-
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

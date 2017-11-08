@@ -12,6 +12,8 @@ MetaSocialImage: tutorial_social.png
 
 Let's get started by creating the simplest "Hello World" Python application.
 
+> **Note:** To successfully complete this tutorial you will need to install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+
 Create an empty folder called "hello", navigate into it, and open VS Code:
 
 ```bash
@@ -85,15 +87,19 @@ Run the debugger by clicking the green arrow in the Debug toolbar or pressing `k
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
+TODO: Crop status bar out so Gauntlet toolbar is not visible.
+
 Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the status bar changes to an orange color to indicate debug mode. The **Debug Console** also appears automatically.
 
 Click the green arrow to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the debug console:
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
+TODO: Crop status bar out so Gauntlet toolbar is not visible.
+
 Click the green arrow again to run the program to completion. "Hello World" appears in the debug console and VS Code exits debugging mode once the program is complete.
 
-> **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:
+> **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:<br>
 > ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
 
 For full details, see [Debugging](/docs/python/debugging.md).
@@ -130,6 +136,8 @@ You can configure VS Code to use any Python environment you have installed, incl
 ## Next Steps
 
 There is much more to explore with Python in Visual Studio Code:
+
+TODO: would be good to have a single sentence for each describing what they will learn.
 
 - [Python environments](/docs/python/environments.md)
 - [Editing code](/docs/python/editing.md)

@@ -23,6 +23,8 @@ Also see [Linting](/docs/python/linting.md).
 
 Autocomplete and IntelliSense are provided for all code within the current working folder and for Python packages that are installed in standard locations.
 
+TODO: I would include an image of intellisense - perhaps a Gif.
+
 To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, in which case you'd specify those locations as follows:
 
 **Windows:**

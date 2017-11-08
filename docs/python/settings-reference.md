@@ -11,6 +11,10 @@ MetaSocialImage: tutorial_social.png
 
 # Python Settings Reference
 
+The [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for VS Code is highly configurable.  This page describes the key settings you will want to work with.
+
+> **Tip:** Head over to [this document](/docs/getstarted/settings) to find our more about working with settings in VS Code.
+
 ## General settings
 
 | Setting | Default | Description |
@@ -195,6 +199,8 @@ These settings are deprecated; for Jupyter support, we recommend the "Jupyter" e
 
 
 ## Next steps
+
+TODO: Short description/why click
 
 - [Python environments](/docs/python/environments.md)
 - [Editing code](/docs/python/editing.md)

@@ -23,7 +23,7 @@ The Python extension supports debugging of a number of types of python apps, inc
 - Pausing (breaking into) running programs
 - Custom startup directory
 
-The default launch.json includes a number of specific debug configurations available from the configuration drop-down. The default "Python" selection provides the standard configuration. See [Standard configuration and options](#standard-configuration-and-options) for a description of this configuration and the debug settings.
+The default `launch.json` (which is where VS Code stores the debugger configurations) includes a number of starter debug configurations, these are available from the configuration drop-down. The default "Python" selection provides the standard configuration. See [Standard configuration and options](#standard-configuration-and-options) for a description of this configuration and the debug settings.
 
 Additional configurations are described in [Debugging specific app types](#debugging-specific-app-types).
 
@@ -52,11 +52,11 @@ Standard configuration for launch.json:
 
 Custom configurations for various settings are described in the following sections.
 
-#### pythonPath
+#### `pythonPath`
 
 Points to the Python interpreter to be used for debugging purposes. The standard configuration uses the interpreter identified in the `python.pythonPath` setting by referring to `${config.python.pythonPath}`. To use a different interpreter, specify its path instead.
 
-#### program
+#### `program`
 
 Provides the fully qualified path to the python program's entry module. The recommended value for this is `${file}`, which uses the active file in the editor. For programs with multiple files, however, you can specify the program's startup file. For example:
 
@@ -69,7 +69,7 @@ You can also rely on a relative path from the workspace root. For example, if th
 "program": "${workspaceRoot}/pokemongo_bot/event_handlers/__init__.py",
 ```
 
-#### args
+#### `args`
 
 Specifies arguments to pass to the python program, for example:
 
@@ -79,11 +79,11 @@ Specifies arguments to pass to the python program, for example:
 ],
 ```
 
-#### stopOnEntry
+#### `stopOnEntry`
 
-When set to true, breaks the debugger tat the first line of the program being debugged. Setting to false will run the program to the first breakpoint.
+When set to true, breaks the debugger at the first line of the program being debugged. Setting to false will run the program to the first breakpoint.
 
-#### console
+#### `console`
 
 Specifies how program output is displayed.
 
@@ -94,11 +94,11 @@ Specifies how program output is displayed.
 | `"externalTerminal"` | Separate console window |
 
 
-#### cwd
+#### `cwd`
 
 Specifies the current working directly for the program being debugged, defaulting to the current folder. The standard configuration uses `${workspaceRoot}` to use the project folder.
 
-#### debugOptions
+#### `debugOptions`
 
 An array of additional options that may contain the following:
 
@@ -111,7 +111,7 @@ An array of additional options that may contain the following:
 | `"DjangoDebugging"` | Activates debugging features specific to Django. |
 | `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
 
-#### env
+#### `env`
 
 Sets custom environment variables for the debugger process beyond system environment variables, which the debugger always inherits.
 
@@ -269,5 +269,4 @@ Capturing user input while debugging is possible only when using the `"console":
 - [Python environments](/docs/python/environments.md)
 - [Unit testing](/docs/python/unit-testing.md)
 - [Settings reference](/docs/python/settings-reference.md)
-
 - [General debugging](/docs/editor/debugging.md)
