@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python with Visual Studio Code
-DateApproved: 11/2/2017
+DateApproved: 11/10/2017
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Python.
 ---
 # Python on Visual Studio Code
@@ -84,7 +84,7 @@ Additional Python language support can be added to to VS Code by installing othe
 
 ## Next Steps
 
-- [Python tutorial](/docs/python/python-tutorial.md)
+- [Python tutorial](/docs/python/python-tutorial.md) - Walk through the core features of Python in VS Code.
 - [Install an Extension](/docs/editor/extension-gallery.md) - Python extension are available in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Python Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial with Python in Visual Studio Code
-DateApproved: 11/08/2017
+DateApproved: 11/10/2017
 MetaDescription: Tutorial for the Python extension in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: tutorial_social.png
 
 Let's get started by creating the simplest "Hello World" Python application.
 
-> **Note:** To successfully complete this tutorial you will need to install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+> **Note:** To successfully complete this tutorial you must install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 Create an empty folder called "hello", navigate into it, and open VS Code:
 
@@ -87,15 +87,11 @@ Run the debugger by clicking the green arrow in the Debug toolbar or pressing `k
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
-TODO: Crop status bar out so Gauntlet toolbar is not visible.
-
 Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the status bar changes to an orange color to indicate debug mode. The **Debug Console** also appears automatically.
 
 Click the green arrow to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the debug console:
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
-
-TODO: Crop status bar out so Gauntlet toolbar is not visible.
 
 Click the green arrow again to run the program to completion. "Hello World" appears in the debug console and VS Code exits debugging mode once the program is complete.
 
@@ -137,11 +133,9 @@ You can configure VS Code to use any Python environment you have installed, incl
 
 There is much more to explore with Python in Visual Studio Code:
 
-TODO: would be good to have a single sentence for each describing what they will learn.
-
-- [Python environments](/docs/python/environments.md)
-- [Editing code](/docs/python/editing.md)
-- [Linting](/docs/python/linting.md)
-- [Debugging](/docs/python/debugging.md)
-- [Unit testing](/docs/python/unit-testing.md)
-- [Settings reference](/docs/python/settings-reference.md)
+- [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
+- [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
+- [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python code both locally and remotely.
+- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
+- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.

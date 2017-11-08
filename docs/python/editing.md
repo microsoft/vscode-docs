@@ -4,12 +4,12 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 11/08/2017
-MetaDescription: Editing Python Code in Visual Studio Code
+DateApproved: 11/10/2017
+MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
 
-# Editing Python Code in VS Code
+# Editing Python in VS Code
 
 The Python extension provides many services for editing Python code:
 
@@ -23,7 +23,7 @@ Also see [Linting](/docs/python/linting.md).
 
 Autocomplete and IntelliSense are provided for all code within the current working folder and for Python packages that are installed in standard locations.
 
-TODO: I would include an image of intellisense - perhaps a Gif.
+<video id="python-code-completion-video" src="https://az754404.vo.msecnd.net/public/python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
 
 To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, in which case you'd specify those locations as follows:
 
@@ -76,21 +76,21 @@ The Python extension supports code formatting using either autopep8 (the default
 
 ### General formatting settings
 
-| Setting | Default value | Description |
+| Setting<br/>(python.formatting.) | Default value | Description |
 | --- | --- | --- |
-| python.formatting.formatOnSave | `false` | Applies formatting on document save. |
-| python.formatting.outputWindow | `"Python"` | The name of the output window for formatting messages. |
-| python.formatting.provider | `"autopep8"` | Specifies the formatter to use, either "autopep8" or "yapf". |
+| formatOnSave | `false` | Applies formatting on document save. |
+| outputWindow | `"Python"` | The name of the output window for formatting messages. |
+| provider | `"autopep8"` | Specifies the formatter to use, either "autopep8" or "yapf". |
 
 
 ### Formatter-specific settings
 
 The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting.
 
-| Formatter | Install steps | Arguments setting | Custom path setting |
+| Formatter | Install steps | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
 | --- | --- | --- | --- |
-| autopep8 | pip install pep8<br/>pip install --upgrade autopep8 | python.formatting.autopep8Args | python.formatting.autopep8Path |
-| yapf | pip install yapf | python.formatting.yapfArgs | python.formatting.yapfPath |
+| autopep8 | pip install pep8<br/>pip install --upgrade autopep8 | autopep8Args | autopep8Path |
+| yapf | pip install yapf | yapfArgs | yapfPath |
 
 Example custom arguments:
 ```json
@@ -159,9 +159,9 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [C
 
 ## Next steps
 
-- [Linting](/docs/python/linting.md)
-- [Debugging Python](/docs/python/debugging.md)
-- [Unit testing Python](/docs/python/unit-testing.md)
+- [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python code both locally and remotely.
+- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
 
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

@@ -4,12 +4,12 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 11/08/2017
+DateApproved: 11/10/2017
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
 
-# Configuring Python Environments in VS Code
+# Configuring Python Environments
 
 By default, the Python extension relies on the first Python interpreter it finds in the path. The extension uses that interpreter for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging.
 
@@ -111,9 +111,8 @@ For information on general debugging configuration, see [Debugging](/docs/python
 
 ## Next Steps
 
-TODO: single line summary of what is in each page and why use should go there.
+- [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python code both locally and remotely.
+- [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
+- [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
 
-- [Editing Python code](/docs/python/editing.md)
-- [Debugging Python](/docs/python/debugging.md)
-- [Unit testing Python](/docs/python/unit-testing.md)
-- [Settings reference](/docs/python/settings-reference.md)
