@@ -98,7 +98,7 @@ Tests are run using any of the following actions:
 
 | Command | Description |
 | --- | --- |
-| Run All Unit Test | Searches for an runs all unit tests in the workspace and its subfolders. |
+| Run All Unit Tests | Searches for an runs all unit tests in the workspace and its subfolders. |
 | Run Current Unit Test File | Runs the test in the file that's currently viewed in the editor. |
 | Run Failed Unit Tests | Re-runs any tests that failed in a previous test run. Runs all test if no tests have been run yet. |
 | Run Unit Test File... | Prompts for a specific test filename, then runs the test in that file. |

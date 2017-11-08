@@ -165,7 +165,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
     }
     ```
 
-#### Debugging over SSH
+**Debugging over SSH**
 
 Windows:
 1. Enable ssh port forwarding on the remote computer using sshd_config or similar.

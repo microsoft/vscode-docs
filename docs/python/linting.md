@@ -17,15 +17,15 @@ Linting highlights syntactical and stylistic errors in your Python code.  By def
 
 To change the linting behavior across all enabled linters, modify the following settings:
 
-| Feature | Setting | Default value |
+| Feature | Setting<br/>(python.linting.) | Default value |
 | --- | --- | --- |
-| Linting in general | python.linting.enabled | `true` |
-| Perform linting without a workspace open | python.linting.enabledWithoutWorkspace | `true` |
-| Linting as you type | python.linting.lintOnTextChange | `true` |
-| Linting on file save | python.linting.lintOnSave | `false` |
-| Maximum number of linting messages | python.linting.maxNumberOfProblems | `100` |
-| Output window in which to display messages | python.linting.outputWindow | `"Python"` |
-| Exclude file and folder patterns | python.linting.ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
+| Linting in general | enabled | `true` |
+| Perform linting without a workspace open | enabledWithoutWorkspace | `true` |
+| Linting as you type | lintOnTextChange | `true` |
+| Linting on file save | lintOnSave | `false` |
+| Maximum number of linting messages | maxNumberOfProblems | `100` |
+| Output window in which to display messages | outputWindow | `"Python"` |
+| Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
 
 ## Specific linters
 

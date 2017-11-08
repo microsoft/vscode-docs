@@ -193,9 +193,9 @@ These settings are deprecated; for Jupyter support, we recommend the "Jupyter" e
 | Setting | Default | Description |
 | --- | --- | --- |
 | python.promptToInstallJupyter | `true` | Display prompt to install Jupyter. |
-| "python.jupyter.appendResults" | `true` | Specifies whether to append the results to results window. When false, results are cleared with each run. |
-| "python.jupyter.defaultKernel" | `""` | Default kernel, defaulting to the first available kernel. |
-| "python.jupyter.startupCode" | `["%matplotlib inline"]` | The code to run when the kernel starts, where each item in the array is a separate line of code. |
+| python.jupyter.appendResults | `true` | Specifies whether to append the results to results window. When false, results are cleared with each run. |
+| python.jupyter.defaultKernel | `""` | Default kernel, defaulting to the first available kernel. |
+| python.jupyter.startupCode | `["%matplotlib inline"]` | The code to run when the kernel starts, where each item in the array is a separate line of code. |
 
 
 ## Next steps

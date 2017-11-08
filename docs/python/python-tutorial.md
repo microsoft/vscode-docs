@@ -8,7 +8,7 @@ DateApproved: 11/10/2017
 MetaDescription: Tutorial for the Python extension in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
-# Python Tutorial in VS Code
+# Getting Started with Python
 
 Let's get started by creating the simplest "Hello World" Python application.
 
