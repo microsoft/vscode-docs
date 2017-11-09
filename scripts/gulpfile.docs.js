@@ -30,7 +30,7 @@ var areas = {
 	languages: new Area('Languages', 'languages', true),
 	nodejs: new Area('Node.js / JavaScript', 'nodejs', true),
 	python: new Area('Python', 'python', true),
-	Java: new Area('Java', 'java', true),
+	java: new Area('Java', 'java', true),
 	extensions: new Area('Extension Authoring', 'extensions', true),
 	extensionapi: new Area('Extensibility Reference', 'extensionAPI', true),
 	supporting: new Area('Supporting', 'supporting', false),
