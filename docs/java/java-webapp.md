@@ -114,23 +114,23 @@ Maven will deploy your web app to Azure; if the web app does not already exist, 
 
 3. When your web has been deployed, you will see a success message from command Line
 <br><br>
-![Deploy Success](DeploySuccess.png)
+![Deploy Success](images/DeploySuccess.png)
 by pasting the URL to browser, you will see the sample web app running on Cloud!
 <br><br>
-![Greeting Cloud](GreetingCloud.png)
+![Greeting Cloud](images/GreetingCloud.png)
 You will also be able to manage it by using the [Azure portal](https://portal.azure.com/).
 
 4. Your web app will be listed in **App Services**:
 <br><br>
-![App Service View](AppServiceView.png)
+![App Service View](images/AppServiceView.png)
 
 5. And the URL for your web app will be listed in the **Overview** for your web app:
 <br><br>
-![Overview](Overview.png)
+![Overview](images/Overview.png)
 
 You have successfully built a Java web app on cloud!
 
-![Greeting Cloud](GreetingCloud.PNG)
+![Greeting Cloud](images/GreetingCloud.PNG)
 
 ## Next steps
 * To see how you can containerize the app and deploy to the Cloud, check out [Java Container Tutorial](/docs/java/java-container)

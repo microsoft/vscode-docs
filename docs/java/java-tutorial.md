@@ -16,7 +16,7 @@ This 5 minutes quickstart shows you how to create a simple Java web app, run and
 
 A simple Spring Boot Getting Started web app
 <br><br>
-![Greeting from Java](imgages/GreetingFromSpring.png)
+![Greeting from Java](images/GreetingFromSpring.png)
 
 ## Before you begin
 
@@ -38,15 +38,15 @@ Before running and deploying this sample, you must have JDK and Maven on your lo
 ## Download and test the Spring Boot app
 1. Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste https://github.com/microsoft/gs-spring-boot.git as the URL of the remote repository and the decide the parent directory under which to put the local repository. After that, you can open the cloned repository in your VS Code.
 
-![Clone Spring Repository](imgages/CloneRepository.gif)
+![Clone Spring Repository](images/CloneRepository.gif)
 
 2. Then you can open any of the Java file in the repository. If you haven't got the Java related extensions installed with your VS Code, you would be recommended to install the Java extension pack. Just follow the instruction and install the Java Extension Pack from Microsoft.
 
-![Install Java Extensions](imgages/InstallExtensions.gif)
+![Install Java Extensions](images/InstallExtensions.gif)
 
 3. Once you have the Extensions installed, it will automatically build the project for you, and then you can simply run it within VS Code. VS Code will generate the correct launch file for you automatically as well
 
-![Run Spring Boot](imgages/RunSpringBoot.gif)
+![Run Spring Boot](images/RunSpringBoot.gif)
 
 4. Test the web app by browsing to http://localhost:8080 using a web browser. You should see the following message displayed: *Greetings from Spring Boot!*
 <br><br>

@@ -24,7 +24,7 @@ You would also need to have your [Azure](http://www.azure.com) account ready for
 ## Install Docker Extension
 To enable fully integrated docker experience, you can install the [Docker extension](https://github.com/Microsoft/vscode-docker) for VS Code. This extension makes it easy to build and dploy contianerized application from Visual Studio Code. To install the Docker extension, open the Extension Viewlet by pressing `kb(workbench.view.extensions)` and search for `vscode-docker` to filter the results. Select the [Docker Support](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension.
 
-![Install Docker](InstallDocker.png)
+![Install Docker](images/InstallDocker.png)
 
 For more information, please check [Work with Docker](/docs/language/dockerfile).
 
@@ -45,12 +45,12 @@ ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /ap
 ```
 After that, just right click the DockerFile from the explorer, and choose build image. You will be prompted to name your image and once it's done, you can see the image in your Docker explorer provided by the Docker Extension.
 
-![Build Image](BuildImage.png)
+![Build Image](images/BuildImage.png)
 
 ## Run your container image locally
 Simply click the Run from right clicking the image you just built, now your docker image would be running locally.
 
-![Run Container](DockerRun.png)
+![Run Container](images/DockerRun.png)
 
 Test the web app by browsing to http://localhost:8080 using a web browser. You should see the following message displayed: *Greetings from Spring Boot!*
 <br><br>

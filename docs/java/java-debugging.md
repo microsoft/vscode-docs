@@ -10,8 +10,6 @@ MetaSocialImage:
 ---
 # Debugging Java in VS Code
 
-![Java debugging](images/debugging/debugging.png)
-
 ## Overview
 To enable debugging Java code using VS Code, user would need to install [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
