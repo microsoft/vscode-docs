@@ -184,3 +184,21 @@ When configuring the integrated terminal to use Powershell on macOS you may hit 
 ```js
 "terminal.integrated.shellArgs.osx": []
 ```
+
+**Q: I changed my default terminal from powershell to bash or or another one?**
+
+Whenver you changed your default terminal by mistake you can return it
+or you want to customize it to a path that isn't in options
+follow through these steps
+1: file > preferences > settings
+2: enter this block of code into the right side window
+
+{
+    "guides.enabled": false,
+    "typescript.check.npmIsInstalled": false,
+    "terminal.integrated.shell.windows": "C:\\Windows\\Sysnative\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "workbench.panel.location": "bottom"
+}
+
+> **Note:** this code cutstomizes the default terminal to powershell if you want another one you can easily change path written above
+3: click "ctrl+s" and close settings.json
