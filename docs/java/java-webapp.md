@@ -1,68 +1,16 @@
 ---
-Order: 1
+Order: 2
 Area: java
-TOCTitle: Java Web App Tutorial
-ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
-PageTitle: Java Web App Tutorial in VS Code
+TOCTitle: Java Web App
+ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
+PageTitle: Deploy Java Web App to Azure
 DateApproved:
-MetaDescription: Java web app tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
+MetaDescription: Java web app tutorial showing how to deploy a Java web app to Azure
 MetaSocialImage: TBD
 ---
-# Java in VS Code
+# Deploy a Java Web App to Azure
 
-This 10 minutes quickstart shows you how to create a simple Java web app, run it locally, and eventually run it on cloud.
-
-## Scenario
-
-A simple Spring Boot Getting Started web app
-<br><br>
-![Greeting from Java](imgages/GreetingFromSpring.png)
-
-## Before you begin
-
-Before running and deploying this sample, you must have JDK and Maven on your local development environment. If not, please
-
-1. Download and install the Java SE Development Kit (JDK):
-<br>
-<a class="tutorial-next-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" style="background-color:#68217A">Download JDK</a>
-<br>
-2. Download Apache Maven version 3 or greater:
-<br>
-<a class="tutorial-next-btn" href="https://maven.apache.org/download.cgi" target="_blank" style="background-color:#68217A">Download Apache Maven</a>
-<br>
-3. Install Apache Maven for your local development environment
-<br>
-<a class="tutorial-next-btn" href="https://maven.apache.org/install" target="_blank" style="background-color:#68217A">Instal Apache Maven</a>
-<br>
-
-## Download and test the Spring Boot app
-1. Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste https://github.com/microsoft/gs-spring-boot.git as the URL of the remote repository and the decide the parent directory under which to put the local repository. After that, you can open the cloned repository in your VS Code.
-
-![Clone Spring Repository](imgages/CloneRepository.gif)
-
-2. Then you can open any of the Java file in the repository. If you haven't got the Java related extensions installed with your VS Code, you would be recommended to install the Java extension pack. Just follow the instruction and install the Java Extension Pack from Microsoft.
-
-![Install Java Extensions](imgages/InstallExtensions.gif)
-
-3. Once you have the Extensions installed, it will automatically build the project for you, and then you can simply run it within VS Code. VS Code can generate the correct launch file for you automatically too
-
-![Run Spring Boot](imgages/RunSpringBoot.gif)
-
-4. Test the web app by browsing to http://localhost:8080 using a web browser. You should see the following message displayed: *Greetings from Spring Boot!*
-<br><br>
-![Greeting from Spring](images/GreetingFromSpring.png)
-
-## Make a change
-1. Try it now, edit *HelloController.java* to change *Greetings from Spring Boot!* to something else.
-2. Simply click the Restart button on the top of the editor to reload the app and see result by reload the browser.
-
-![Restart Application](images/RestartApplication.PNG)
-
-## Debug the application
-1. You can also set a breakpoint in the application code, and reload your browser to hit the breakpoint.
-![Debug Application](images/Debugging.PNG)
-
-Congratulations, now you have your first Spring Boot web app running locally! Now let's try host it on Cloud.
+In our [first tutorial](/docs/java/java-tutorial), we've build a Java web app running locally. This tutorial will show you how to run it on cloud.
 
 ## Prepare your Azure account
 Before running this sample on [Azure](http://www.azure.com), you need to
@@ -75,6 +23,9 @@ Before running this sample on [Azure](http://www.azure.com), you need to
 <br>
 <a class="tutorial-next-btn" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli" target="_blank" style="background-color:#68217A">Install Azure CLI 2.0</a>
 <br>
+
+[comment]: <> (Replace it with using App Service Extension once Java support is ready)
+
 
 ## Create an Azure service principal
 1. Using the [integrated terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) in VS Code, to open the terminal:
@@ -182,5 +133,5 @@ You have successfully built a Java web app on cloud!
 ![Greeting Cloud](GreetingCloud.PNG)
 
 ## Next steps
-* To see how you can containerize the app and deploy to the Cloud, check out [Java Container Tutorial](docs/java/java-container)
-* To learn more about Java Debugging features, see [Java Debugging Tutorial](docs/java/java-debugging)
+* To see how you can containerize the app and deploy to the Cloud, check out [Java Container Tutorial](/docs/java/java-container)
+* To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging)

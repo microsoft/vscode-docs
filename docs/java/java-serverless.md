@@ -1,7 +1,7 @@
 ---
-Order: 3
+Order: 4
 Area: java
-TOCTitle: Serverless with Java
+TOCTitle: Java Serverless Tutorial
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
 PageTitle: Wring Serverless Java Application with VS Code
 DateApproved:
@@ -10,11 +10,13 @@ MetaSocialImage: TBD
 ---
 # Create your first Serverless Java Application with VS Code
 
-Serverless, as its name indicates, allows you to execute your code in a environment without having to first create a VM or publish even a web application.
+[comment]: <> (Update the steps with Azure Functions Extension once available)
+
+Serverless, as indicated by its name, allows you to execute your code in a environment without having to firstly create a VM or publish even a web application.
 
 This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with VS Code and Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
 
- ![Access a Hello World function from the command line with cURL](images/hello-azure.png)
+![Access a Hello World function from the command line with cURL](images/hello-azure.png)
 
 If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/
 ).
@@ -50,7 +52,6 @@ npm install -g azure-functions-core-tools@core
 In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
 
 ### Linux/MacOS
-
 ```bash
 mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
@@ -157,5 +158,5 @@ You have created a Java function app with a simple HTTP trigger and deployed it 
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 - Debug functions locally with Visual Studio Code. With the [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed and with your Functions project open in Visual Studio Code, [attach the debugger](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations) to port 5005. Then set a breakpoint in the editor and trigger your function while it's running locally:
     ![Debug functions in Visual Studio Code](images/vscode-debug.png)
-
+- To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging)
 
