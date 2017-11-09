@@ -56,11 +56,11 @@ Before running and deploying this sample, you must have JDK and Maven on your lo
 1. Try it now, edit *HelloController.java* to change *Greetings from Spring Boot!* to something else. VS Code provide great doce editing experience for Java as well. Check out [Editing and Navigating Code](https://code.visualstudio.com/docs/languages/java#_editing-and-navigating-code).
 2. Simply click the Restart button on the top of the editor to reload the app and see result by reloading the browser.
 
-![Restart Application](images/RestartApplication.PNG)
+![Restart Application](images/RestartApplication.png)
 
 ## Debug the application
 1. You can also set a breakpoint in the application code, and reload your browser to hit the breakpoint.
-![Debug Application](images/Debugging.PNG)
+![Debug Application](images/Debugging.png)
 
 If you would like to learn more about debugging Java with VS Code, please read [Java Debugging](/docs/java/java-debugging).
 

@@ -130,7 +130,7 @@ You will also be able to manage it by using the [Azure portal](https://portal.az
 
 You have successfully built a Java web app on cloud!
 
-![Greeting Cloud](images/GreetingCloud.PNG)
+![Greeting Cloud](images/GreetingCloud.png)
 
 ## Next steps
 * To see how you can containerize the app and deploy to the Cloud, check out [Java Container Tutorial](/docs/java/java-container)
