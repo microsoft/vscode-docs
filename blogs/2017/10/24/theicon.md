@@ -3,7 +3,7 @@ Order: 33
 TOCTitle: The Icon Journey
 PageTitle: The Icon Journey
 MetaDescription: Summary of feedback about the new icons and next steps
-MetaSocialImage: 2017_10_24_blueicon.png
+MetaSocialImage: /assets/blogs/2017/10/24/blueicon.png
 Date: 2017-10-24
 ShortDescription: Summary of feedback about the new icons and next steps
 Author: Chris Dias

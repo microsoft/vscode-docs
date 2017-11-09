@@ -6,7 +6,7 @@ MetaDescription: Visual Studio Code releases 1.0.
 Date: 2016-04-14
 ShortDescription: Visual Studio Code releases 1.0.
 Author: PJ Meyer
-MetaSocialImage: header.png
+MetaSocialImage: /assets/blogs/2016/04/14/header.png
 ---
 
 # Visual Studio Code 1.0!
