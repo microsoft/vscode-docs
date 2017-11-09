@@ -8,10 +8,9 @@ DateApproved: 11/10/2017
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
-
 # Linting Python in VS Code
 
-Linting highlights syntactical and stylistic errors in your Python code.  By default, linting for Python code is enabled in VS Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
+Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in VS Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
 
 ## General linting settings
 
@@ -45,7 +44,6 @@ A custom path is generally unnecessary as the Python extension resolve the path 
 | prospector | prospector | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | [pylama] | pylama | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
 
-
 The sections that follow provide additional details for those individual linters linked in the table.
 
 ## Pylint
@@ -77,7 +75,6 @@ To control which Pylint messages are shown, add the following contents to an opt
 #disable=
 ```
 
-
 ### Message category mapping
 
 The Python extension maps Pylint message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
@@ -89,7 +86,6 @@ The Python extension maps Pylint message categories to VS Code categories throug
 | warning | pylintCategorySeverity.warning | Warning |
 | error | pylintCategorySeverity.error | Error |
 | fatal | pylintCategorySeverity.fatal | Error |
-
 
 ## Pep8
 
@@ -124,7 +120,6 @@ The Python extension maps flake8 message categories to VS Code categories throug
 | E | flake8CategorySeverity.E | Error |
 | W | flake8CategorySeverity.W | Warning |
 
-
 ## mypy
 
 ### Message category mapping
@@ -135,7 +130,6 @@ The Python extension maps flake8 message categories to VS Code categories throug
 | --- | --- | --- |
 | error | mypyCategorySeverity.error | Error |
 | note | mypyCategorySeverity.note | Information |
-
 
 ## Troubleshooting linting
 
@@ -149,7 +143,7 @@ The Python extension maps flake8 message categories to VS Code categories throug
 
 ## Next steps
 
-- [Debugging](/docs/python/debugging.md) - Learn to debug Python code both locally and remotely.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
 
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.

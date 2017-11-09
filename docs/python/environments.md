@@ -8,12 +8,11 @@ DateApproved: 11/10/2017
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
-
 # Configuring Python Environments
 
 By default, the Python extension relies on the first Python interpreter it finds in the path. The extension uses that interpreter for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging.
 
-To select a specific interpreter, select the **Python: Select Workspace Interpreter** command (on the [command palette](/editor/codebasics#_command-palette)):
+To select a specific interpreter, select the **Python: Select Workspace Interpreter** command (on the [Command Palette](/editor/codebasics#_command-palette)):
 
 ![Python: Select Workspace Interpreter command](images/environments/select-interpreters-command.png)
 
@@ -82,7 +81,6 @@ To use a Python interpreter that's installed in a virtual environment:
 3. Ensure that the the libraries and modules you plan on using for linting are installed within the virtual environment.
 4. Restart VS Code.
 
-
 ## Python interpreter for debugging
 
 By default, the debugger uses the same `python.pythonPath` setting as for other features of VS Code. Specifically, the value for `pythonPath` in the debugger settings simply refers to the main interpreter setting as follows:
@@ -112,7 +110,6 @@ For information on general debugging configuration, see [Debugging](/docs/python
 ## Next Steps
 
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
-- [Debugging](/docs/python/debugging.md) - Learn to debug Python code both locally and remotely.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-

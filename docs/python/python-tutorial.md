@@ -34,7 +34,7 @@ Name the file `hello.py`, and it will automatically open in the editor:
 
 By using the `.py` file extension, VS Code interprets this file as Python and evaluates the contents with the Python extension.
 
-Next, start entering the following code:
+Next, start entering the following source code:
 
 ```python
 msg = "Hello World"
@@ -73,11 +73,11 @@ Next, select the Debug View in the sidebar:
 
 ![Debug icon](images/tutorial/debug-icon.png)
 
-Now you need to configure launch.json for Python by clicking the settings icon on the debug toolbar:
+Now you need to configure `launch.json` for Python by clicking the settings icon on the debug toolbar:
 
 ![Debug toolbar settings command](images/tutorial/debug-settings.png)
 
-This command automatically creates a launch.json with a number of Python configurations, which appear in the configurations drop-down:
+This command automatically creates a `launch.json` with a number of Python configurations, which appear in the configurations drop-down:
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
@@ -87,7 +87,7 @@ Run the debugger by clicking the green arrow in the Debug toolbar or pressing `k
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
-Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the status bar changes to an orange color to indicate debug mode. The **Debug Console** also appears automatically.
+Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the Status Bar changes to an orange color to indicate debug mode. The **Debug Console** also appears automatically.
 
 Click the green arrow to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the debug console:
 
@@ -102,9 +102,9 @@ For full details, see [Debugging](/docs/python/debugging.md).
 
 ## Installing packages
 
-Let's now run code that's a little more interesting, using matplotlib and NumPy.
+Let's now run an example that's a little more interesting, using matplotlib and NumPy.
 
-Return to **Explorer**, create a new file called `standardplot.py`, and paste in the following code:
+Return to **Explorer**, create a new file called `standardplot.py`, and paste in the following source code:
 
 ```python
 #%%
@@ -136,6 +136,6 @@ There is much more to explore with Python in Visual Studio Code:
 - [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
-- [Debugging](/docs/python/debugging.md) - Learn to debug Python code both locally and remotely.
+- [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.

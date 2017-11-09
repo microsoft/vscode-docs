@@ -8,10 +8,9 @@ DateApproved: 11/10/2017
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
-
 # Debugging Python with VS Code
 
-The Python extension supports debugging of a number of types of python apps, including the following [general capabilities](/docs/editor/debugging.md):
+The Python extension supports debugging of a number of types of Python applications, including the following [general capabilities](/docs/editor/debugging.md):
 
 - Watch window
 - Evaluating expressions
@@ -29,7 +28,7 @@ Additional configurations are described in [Debugging specific app types](#debug
 
 ## Standard configuration and options
 
-Standard configuration for launch.json:
+Standard configuration for `launch.json`:
 
 ```json
 {
@@ -65,6 +64,7 @@ Provides the fully qualified path to the python program's entry module. The reco
 ```
 
 You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/PokemonGo-Bot` then you can use the following:
+
 ```json
 "program": "${workspaceRoot}/pokemongo_bot/event_handlers/__init__.py",
 ```
@@ -92,7 +92,6 @@ Specifies how program output is displayed.
 | `"none"` (default) | No output |
 | `"integratedTerminal"` | VS Code debug console |
 | `"externalTerminal"` | Separate console window |
-
 
 ### `cwd`
 
@@ -136,21 +135,21 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 ### Remote debugging
 
-Remote debugging allows you to step through a program locally within VS Code while it's executed on a remote computer. In this case it's necessary to have the code on both computers.
+Remote debugging allows you to step through a program locally within VS Code while it's executed on a remote computer. In this case, it's necessary to have the source code on both computers.
 
 1. On both development and remote computers, install the [ptvsd library](https://pypi.python.org/pypi/ptvsd).
-2. In the code on both computers, add the following lines, replacing *my_secret* with the appropriate passphrase to authenticate remote debugging, and replacing *address* with the appropriate IP address (or `localhost`) and port number:
+2. In the source code on both computers, add the following lines, replacing *my_secret* with the appropriate passphrase to authenticate remote debugging, and replacing *address* with the appropriate IP address (or `localhost`) and port number:
 
     ```python
     import ptvsd
     ptvsd.enable_attach("my_secret", address = ('0.0.0.0', 3000))
 
-    # Enable the below line of code only if you want the application to wait until the debugger has attached to it
+    # Enable the line of source code below only if you want the application to wait until the debugger has attached to it
     #ptvsd.wait_for_attach()
     ```
-3. On the remote computer only, uncomment the last line above. You want to preserve the commented line on the development machine to ensure that the code on both machines match line for line.
+3. On the remote computer only, uncomment the last line above. You want to preserve the commented line on the development machine to ensure that source code on both machines match line for line.
 4. Start the remote program.
-5. Select the **Attach (Remote Debug)** configuration (below), then modify `remoteRoot` to point to the program's location on the remote computer, and modify `host`, `port`, and `secret` to match the values in the code added above.
+5. Select the **Attach (Remote Debug)** configuration (below), then modify `remoteRoot` to point to the program's location on the remote computer, and modify `host`, `port`, and `secret` to match the values in the source code added above.
 
     ```json
     {
@@ -168,6 +167,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 **Debugging over SSH**
 
 Windows:
+
 1. Enable ssh port forwarding on the remote computer using sshd_config or similar.
 2. Establish a PuTTY SSH tunnel:
     1. Read [Setting up an SSH tunnel with PuTTY](http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html) (until "Open the session" section).
@@ -175,6 +175,7 @@ Windows:
     3. Destination address should be the localhost or `127.0.0.1` address (which is the address that the remote SSH server will use to establish the tunnel).
 
 Linux:
+
 1. Run `ssh -L sourceport:localhost:destinationport user@remoteaddress`
 
 Next, verify that you can see a prompt in the SSH session. Then open VS Code and configure the port to the debug port shown on the Tunnels screen.
@@ -207,7 +208,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     }
     ```
 
-3. On Windows and Linux, replace the first item in `args` with the path to wherever Google App Engine is installed (the path shown in the code above is for macOS).
+3. On Windows and Linux, replace the first item in `args` with the path to wherever Google App Engine is installed (the path shown in the source code above is for macOS).
 
 4. Create a file named pydev_startup.py in your project root with the following contents, modified as noted:
     ```python
@@ -225,12 +226,11 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     #The debug server has started and you can now use VS Code to attach to the application for debugging
     print("Google App Engine has started, ready to attach the debugger")
     ```
-5. Create a launch.json configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the secret and port values match what's in the code above.
-6. Add `"preLaunchTask": "python"` to launch.json.
+5. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the secret and port values match what's in the source code above.
+6. Add `"preLaunchTask": "python"` to `launch.json`.
 7. From the Command Palette, run the **Run Build Task** command. This opens the Tasks output window where you see various messages.
 8. Once you see the message "Google App Engine has started, ready to attach the debugger", start the VS Code debugger using the remote debugging configuration.
 9. Set breakpoints where you want, then start the browser to start the app.
-
 
 ## Troubleshooting
 
@@ -240,7 +240,7 @@ There are many reasons why the debugger may not work; oftentimes the debug conso
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python executable is incorrect | Check the value in the `pythonPath` setting of launch.json, restarting VS Code if you make a change. |
+| The path to the python executable is incorrect | Check the value in the `pythonPath` setting of `launch.json`, restarting VS Code if you make a change. |
 | Invalid expressions in watch window (see detailed output below) | Clear all expressions from the Watch window restart the debugger. |
 
 Detailed output for invalid expressions:

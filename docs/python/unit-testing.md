@@ -8,7 +8,6 @@ DateApproved: 11/10/2017
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
-
 # Unit testing Python in VS Code
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](http://docs.pytest.org/en/latest/) and [Nose](http://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
@@ -44,6 +43,7 @@ Each framework also has specific configuration settings as described in the foll
 | debugPort | `3000` | Port number used for debugging of UnitTest tests. |
 
 The default arguments for UnitTest as as follows:
+
 - `-v` sets default verbosity. Remove this argument for simpler output.
 - `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, you can change this to `-s test` (meaning `"-s", "test"` in the arguments array).
 - `-p *test*.py` is the discovery pattern used to look for tests. In this case, it's any `.py` file that includes the word "test". If you name test files differently, such as appending "\_test" to every filename, then use a pattern like `*_test.py` in the appropriate argument of the array.
@@ -72,7 +72,6 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 
 You can also configure nose wuth a `.noserc` or `nose.cfg` file as described on [Nose configuration](http://nose.readthedocs.io/en/latest/usage.html#configuration).
 
-
 ## Test discovery
 
 VS Code uses the currently enabled unit testing framework to discover tests by applying the respective discovery patterns specified in the arguments option for that framework.
@@ -85,16 +84,16 @@ For nose, use the `-w=<folder>` and `-m=<regex>` switches to specify a starting 
 
 > **Tip**: Sometimes unit tests placed in subfolders aren't discovered because such test files cannot be imported. To make them importable, try placing an empty file named `__init__.py` in that folder.
 
-
 ## Running tests
 
 Tests are run using any of the following actions:
-- Select `Run Tests` on the status bar, then select one a command like `Run All Tests` or `Run Failed Unit Tests`.
-- Right-click a file in Explorer and select `Run Unit Tests`, which runs the tests in that one file.
-- Open a test file and select the `Test` code lens that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
-- From the Command Palette, select any of the unit test commands:
 
-    ![Python unit testing commands on the command palette](images/unit-testing/commands.png)
+- Select `Run Tests` on the Status Bar, then select one a command like `Run All Tests` or `Run Failed Unit Tests`.
+- Right-click a file in Explorer and select `Run Unit Tests`, which runs the tests in that one file.
+- Open a test file and select the `Test` Code Lens that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
+- From the **Command Palette**, select any of the unit test commands:
+
+    ![Python unit testing commands on the Command Palette](images/unit-testing/commands.png)
 
 | Command | Description |
 | --- | --- |
@@ -105,32 +104,32 @@ Tests are run using any of the following actions:
 | Run Unit Test Method... | Prompts for the name of a test to run, providing auto-completion for test names. |
 | Show Unit Test Output | Opens the Python Test Log panel with information about passing and failing tests, as well as errors and skipped tests. |
 
-
 ## Debugging tests
 
-Because unit tests themselves are code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through unit tests in the debugger.
+Because unit tests themselves are source code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through unit tests in the debugger.
 
-The **Python: Debug All Tests** and **Python: Debug Unit Test Method...** commands (on the command palette and status bar menu) launch the debugger for all tests and a single test method, respectively. For PyTest and Nose, additional configuration is necessary as described in the sections that follow.
-
+The **Python: Debug All Tests** and **Python: Debug Unit Test Method...** commands (on the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively. For PyTest and Nose, additional configuration is necessary as described in the sections that follow.
 
 ### pytest debugging
 
-1. Create a file named `xyz.py` (or some other arbitrary name) in the root directory that contains the following code:
+1. Create a file named `xyz.py` (or some other arbitrary name) in the root directory that contains the following source code:
+
     ```python
     import pytest
     pytest.main()
     ```
-2. Ensure that you're *not* using the `pytest-cov` option, as this prevents the debugger from working correctly.
-3. Add a breakpoint in you test you wish to debug and start debugging.
+2. Ensure that you're **not** using the `pytest-cov` option, as this prevents the debugger from working correctly.
+3. Add a breakpoint in the test you wish to debug and start debugging.
 
 ### nosetest debugging
 
-1. Create a file named `xyz.py` (or some other arbitrary name) in the root directory that contains the following code:
+1. Create a file named `xyz.py` (or some other arbitrary name) in the root directory that contains the following source code:
+
     ```python
     import nose
     nose.run()
     ```
-2. Add a breakpoint in you test you wish to debug and start debugging.
+2. Add a breakpoint in the test you wish to debug and start debugging.
 
 ## Next steps
 
