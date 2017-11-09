@@ -2,9 +2,9 @@
 Order: 12
 TOCTitle: Extensions Roundup - Fun with Git
 PageTitle: Visual Studio Code Extensions Roundup - Git August 2016
-MetaDescription: Extensions to super power your Git workflow.  
+MetaDescription: Extensions to super power your Git workflow.
 Date: 2016-08-02
-ShortDescription: Extensions to super power your Git workflow.  
+ShortDescription: Extensions to super power your Git workflow.
 Author: Wade Anderson
 ---
 # Extensions Roundup - Fun with Git
@@ -30,8 +30,6 @@ This extension takes "blame" information to the next level. You can see all the 
 Marketplace - [Git History](https://marketplace.visualstudio.com/items?itemName=donjayamanne.githistory)
 
 Publisher - [Don Jayamanne](https://marketplace.visualstudio.com/search?term=publisher%3A%22Don%20Jayamanne%22&target=VSCode)
-
-Don Jayamanne has created some of the most popular extensions in the Marketplace (see the [Python extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)) and he has built a great Git extension.
 
 With this extension, you will find a very rich feature set for your Git workflow:
 

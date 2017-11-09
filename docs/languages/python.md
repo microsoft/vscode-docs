@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Python on Visual Studio Code
 
-Python is fully supported in Visual Studio Code through the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) including auto complete, linting, debugging, and unit testing.
+Python is fully supported in Visual Studio Code through the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) including auto complete, linting, debugging, and unit testing.
 
 ## Autocomplete and IntelliSense
 
