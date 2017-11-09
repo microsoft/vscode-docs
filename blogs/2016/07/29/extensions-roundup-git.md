@@ -31,8 +31,6 @@ Marketplace - [Git History](https://marketplace.visualstudio.com/items?itemName=
 
 Publisher - [Don Jayamanne](https://marketplace.visualstudio.com/search?term=publisher%3A%22Don%20Jayamanne%22&target=VSCode)
 
-Don Jayamanne has created some of the most popular extensions in the Marketplace (see the [Python extension](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python)) and he has built a great Git extension.
-
 With this extension, you will find a very rich feature set for your Git workflow:
 
 - View history of a file or line.

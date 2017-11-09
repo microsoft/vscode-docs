@@ -68,7 +68,7 @@ When you start using a new library or framework, check the Marketplace to see if
 
 Many language extensions come with snippets included.
 
-- [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) from [Don Jayamanne](https://marketplace.visualstudio.com/search?term=publisher%3A%22Don%20Jayamanne%22&target=VSCode&sortBy=Relevance)
+- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Power Shell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) from [Peng Lv](https://marketplace.visualstudio.com/search?term=publisher%3A%22Peng%20Lv%22&target=VSCode&sortBy=Relevance)
 - [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
