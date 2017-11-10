@@ -26,7 +26,7 @@ You would also need to have your [Azure](http://www.azure.com) account ready for
 
 ## Install the Docker extension
 
-To enable fully integrated Docker experience, you can install the [Docker extension](https://github.com/Microsoft/vscode-docker) for VS Code. This extension makes it easy to build and deploy containerized application from Visual Studio Code. To install the Docker extension, open the Extension view by pressing `kb(workbench.view.extensions)` and search for `vscode-docker` to filter the results. Select the [Docker Support](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension.
+To enable fully integrated Docker experience, you can install the [Docker extension](https://github.com/Microsoft/vscode-docker) for VS Code. This extension makes it easy to build and deploy containerized applications from Visual Studio Code. To install the Docker extension, open the Extension view by pressing `kb(workbench.view.extensions)` and search for `vscode-docker` to filter the results. Select the [Docker Support](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension.
 
 ![Install Docker](images/java-container/install-docker.png)
 
@@ -34,13 +34,13 @@ For more information, please check [Working with Docker](/docs/language/dockerfi
 
 ## Containerize the application
 
-Build your project. Navigate to the `complete` folder of the Sprint Boot application, and run below maven command in terminal to create the Java assembly files.
+Build your project. Navigate to the `complete` folder of the Sprint Boot application, and run below Maven command in the terminal to create the Java assembly files.
 
 ```bash
 mvn clean package
 ```
 
-Docker has a simple [Dockerfile](https://docs.docker.com/reference/builder/) file format that it uses to specify the "layers" of an image. So let's go ahead and create a Dockerfile in our project under the `complete` folder.
+Docker has a simple [Dockerfile](https://docs.docker.com/reference/builder/) file format that it uses to specify the "layers" of an image. Now create a Dockerfile in our project under the `complete` folder with the following content:
 
 ```docker
 FROM openjdk:8-jdk-alpine
@@ -51,13 +51,13 @@ ENV JAVA_OPTS=""
 ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
 ```
 
-After that, just right click the DockerFile from the explorer, and choose build image. You will be prompted to name your image and once it's done, you can see the image in your Docker explorer provided by the Docker Extension.
+Now right click the DockerFile from the Explorer, and choose the **Build Image** command from the context menu. You will be prompted to name your image and once it's done, you can see the image in your Docker Explorer provided by the Docker Extension.
 
 ![Build Image](images/java-container/build-image.png)
 
 ## Run your container image locally
 
-Simply click the Run from right clicking the image you just built, now your Docker image would be running locally.
+Click the **Run** command by right clicking the image you just built and your Docker image will start running locally.
 
 ![Run Container](images/java-container/docker-run.png)
 
@@ -67,15 +67,15 @@ Test the web app by browsing to `http://localhost:8080` using a web browser. You
 
 ## Deploying images to Azure App Service
 
-With the Docker Explorer you can deploy images from DockerHub Registries or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
+With the Docker Explorer, you can deploy images from DockerHub Registries or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-The first time you expand the DockerHub node you'll be prompted to log into your DockerHub account.
+The first time you expand the DockerHub node, you'll be prompted to log into your DockerHub account.
 
 ![DockerHub Login](images/java-container/docker-hub-login.gif)
 
-Your user name and password are stored in your operating system credentials vault (e.g. MacOS keychain, Windows Credential Store) so that you don't need to log in every time. You can log out of DockerHub by right clicking on the DockerHub label and choosing log out. This will delete the credentials from the OS store.
+Your user name and password are stored in your operating system credentials vault (for example, MacOS keychain or Windows Credential Store) so that you don't need to log in every time. You can log out of DockerHub by right clicking on the DockerHub label and choosing **Log Out**. This will delete the credentials from the OS store.
 
-To log into Azure, press `F1` and search for `Azure Login`. You will then sign into your account using the Device Login flow. Click on "Copy & Open" to open your default browser.
+To log into Azure, run **Azure Login** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
 
 ![Azure Login](images/java-container/device-login.png)
 
@@ -83,11 +83,11 @@ Paste in the access code and continue the sign in process.
 
 ![Azure Login](images/java-container/device-login2.png)
 
-You can now right click on an image in DockerHub or an Azure Container Registry and choose "Deploy Image to Azure App Service".
+You can now right click on an image in DockerHub or an Azure Container Registry and choose **Deploy Image to Azure App Service**.
 
 ![Deploy to Azure](images/java-container/deploy-to-azure.png)
 
-From here you will be prompted for a Resource Group, location, an App Service Plan, and a globally unique website name. Once it's deployed to Azure App Service, you will get a URL for the web app running on the Cloud!
+From here you will be prompted for a Resource Group, location, an App Service Plan, and a globally unique website name. Once it's deployed to Azure App Service, you will get a URL for the web app running in the Cloud!
 
 ## Next steps
 

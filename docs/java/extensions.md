@@ -18,8 +18,8 @@ Visual Studio Code provides many features as an editor. In addition to that, you
 
 To help set up Java on VS Code, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains two popular extensions:
 
-1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+[Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
+[Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
@@ -27,7 +27,7 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 
 [comment]: <> (Replace it with Java Azure Pack once available)
 
-Along with the language supports, if your applications are targeting cloud, especially Azure. There is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Servcies:
+Along with the language support, if you are deploying your applications to the Cloud, especially Azure, there is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services:
 
 ### App Services (Websites)
 

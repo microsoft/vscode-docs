@@ -5,7 +5,7 @@ TOCTitle: Debugging
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
 PageTitle: Debugging Java in VS Code
 DateApproved:
-MetaDescription: See how you can debug your Java code locally, and on the cloud.
+MetaDescription: See how you can debug your Java code locally, and in the Cloud.
 MetaSocialImage:
 ---
 # Debugging Java in VS Code
@@ -30,8 +30,8 @@ Here's a list of supported debugging features:
 
 Just like VS Code, the debugger is an open source project which welcomes contributors to collaborate with us through our GitHub repositories:
 
-1. [Debugger for Java Extension](https://github.com/Microsoft/vscode-java-debug)
-2. [Java Debugger Server for Visual Studio Code](https://github.com/Microsoft/java-debug)
+[Debugger for Java Extension](https://github.com/Microsoft/vscode-java-debug)
+[Java Debugger Server for Visual Studio Code](https://github.com/Microsoft/java-debug)
 
 ## Install
 
@@ -47,21 +47,21 @@ It's very easy to run and debug your Java application:
 - Open a Java project (Maven/Gradle/Eclipse).
 - Open a Java file to activate the extensions.
 - (Optional) Add debug configurations and edit the `launch.json` configuration file.
-- Press F5.
+- Press `kbstyle(F5)`.
 
 ![Java Debugging](images/java-debugging/java-debug.gif)
 
-If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for your to launch your application.
+If there's no debug configuration file `launch.json` in your project, the debugger will automatically find the main class and generate the configuration for you to launch your application.
 
 ![Resolving Main Class](images/java-debugging/resolve-main.gif)
 
 You can also configure the `launch.json` by yourself to set your customized settings or attach to another Java process.
 
-Even if there's just a single Java file without any project, you can also use VS Code to run and debug the file.
+Even if there's just a single Java file without any project, you can use VS Code to run and debug the file.
 
 ![Debug Single File](images/java-debugging/single-file.gif)
 
-The Java debugger also supports external source files. This lets you debug third party classes, even when they are inside a JAR or a source attachment. Just set your breakpoints in those classes ahead of debugging. Java 9 is supported with VS Code as well.
+The Java debugger also supports external source files. This lets you debug third party classes when they are inside a JAR or a source attachment. Just set your breakpoints in those classes before you start debugging. Java 9 is supported with VS Code as well.
 
 Please also check the documentation of [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) if you have trouble setting up your project.
 

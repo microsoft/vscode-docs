@@ -14,25 +14,21 @@ In our [first tutorial](/docs/java/java-tutorial.md), we've build a Java web app
 
 ## Prepare your Azure account
 
-Before running this sample on [Azure](http://www.azure.com), you need to:
+Before running this sample on [Azure](http://www.azure.com), you need to have an Azure subscription and the command line tools.
 
-1. Have an [Azure](http://www.azure.com) subscription. If you don't already have one, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/).
+If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/):
 
-<br>
 <a class="tutorial-next-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style="background-color:#68217A">Create your free Azure account</a>
-<br>
 
-2. The [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/overview).
+The [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/overview):
 
-<br>
 <a class="tutorial-next-btn" href="https://docs.microsoft.com//cli/azure/install-azure-cli" target="_blank" style="background-color:#68217A">Install Azure CLI 2.0</a>
-<br>
 
 [comment]: <> (Replace it with using App Service Extension once Java support is ready)
 
 ## Create an Azure service principal
 
-1. Using the [Integrated Terminal](/docs/editor/integrated-terminal.md) in VS Code, to open the terminal:
+We'll use the [Integrated Terminal](/docs/editor/integrated-terminal.md) in VS Code. To open the terminal you can either:
 
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
 * Use the **View** | **Integrated Terminal** menu command.
@@ -40,23 +36,23 @@ Before running this sample on [Azure](http://www.azure.com), you need to:
 
 > **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on Mac or Linux) if you prefer to work outside VS Code.
 
-2. Sign into your Azure account by using the Azure CLI:
+Sign into your Azure account by using the Azure CLI:
 
-  ```bash
-  az login
-  ```
+```bash
+az login
+```
 
-   Follow the instructions to complete the sign-in process.
+Follow the instructions to complete the sign-in process.
 
-2. Create an Azure service principal:
+Create an Azure service principal:
 
-   ```bash
-   az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp"
-   ```
+```bash
+az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp"
+```
 
-   where `uuuuuuuu` is the user name and `pppppppp` is the password for the service principal.
+where `uuuuuuuu` is the user name and `pppppppp` is the password for the service principal.
 
-3. Azure responds with JSON that resembles the following example:
+Azure responds with JSON that resembles the following example:
 
    ```bash
    {
@@ -72,81 +68,81 @@ Before running this sample on [Azure](http://www.azure.com), you need to:
 
 ## Configure Maven to use your Azure service principal
 
-1. Open your Maven `settings.xml` file in a text editor. There are two locations where the `settings.xml` file may live:
+Open your Maven `settings.xml` file in a text editor. There are two locations where the `settings.xml` file may live:
 
-  * The Maven install: ${maven.home}/conf/settings.xml
-  * A user’s install: ${user.home}/.m2/settings.xml
+* The Maven install: ${maven.home}/conf/settings.xml
+* A user’s install: ${user.home}/.m2/settings.xml
 
-    Below are some examples:
+  Below are some examples:
 
   * Windows: `%ProgramFiles%\apache-maven\3.5.0\conf\settings.xml`
   * Mac installed by Homebrew: `/usr/local/Cellar/maven/3.5.0/libexec/conf`
 
-2. Add your Azure service principal settings from the previous section of this tutorial to the `<servers>` collection in the `settings.xml` file.
+Add your Azure service principal settings from the previous section of this tutorial to the `<servers>` collection in the `settings.xml` file.
 
-  For example:
+For example:
 
-   ```bash
-   <servers>
-      <server>
-        <id>azure-auth</id>
-         <configuration>
-            <client>aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa</client>
-            <tenant>tttttttt-tttt-tttt-tttt-tttttttttttt</tenant>
-            <key>pppppppp</key>
-            <environment>AZURE</environment>
-         </configuration>
-      </server>
-   </servers>
-   ```
+```bash
+<servers>
+  <server>
+    <id>azure-auth</id>
+      <configuration>
+        <client>aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa</client>
+        <tenant>tttttttt-tttt-tttt-tttt-tttttttttttt</tenant>
+        <key>pppppppp</key>
+        <environment>AZURE</environment>
+      </configuration>
+  </server>
+</servers>
+```
 
-   Where:
+Where:
 
-   Element | Description
-   ---|---|---
-   `<id>` | Specifies a unique name which Maven uses to look up your security settings when you deploy your web app to Azure.
-   `<client>` | Contains the `appId` value from your service principal.
-   `<tenant>` | Contains the `tenant` value from your service principal.
-   `<key>` | Contains the `password` value from your service principal.
-   `<environment>` | Defines the target Azure cloud environment, which is `AZURE` in this example. (A full list of environments is available in the [Maven Plugin for Azure Web Apps](TBD) documentation)
+Element | Description
+---|---|---
+`<id>` | Specifies a unique name which Maven uses to look up your security settings when you deploy your web app to Azure.
+`<client>` | Contains the `appId` value from your service principal.
+`<tenant>` | Contains the `tenant` value from your service principal.
+`<key>` | Contains the `password` value from your service principal.
+`<environment>` | Defines the target Azure cloud environment, which is `AZURE` in this example. (A full list of environments is available in the [Maven Plugin for Azure Web Apps](TBD) documentation)
 
-3. Save and close the `settings.xml` file.
+Save and close the `settings.xml` file.
 
 ## Build and deploy your web app to Azure
 
-1. From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the `pom.xml` file; for example:
+From the command prompt or terminal window that you were using earlier, rebuild the JAR file using Maven if you made any changes to the `pom.xml` file; for example:
 
-   ```bash
-   mvn clean package
-   ```
+```bash
+mvn clean package
+```
 
-2. Deploy your web app to Azure by using Maven; for example:
+Deploy your web app to Azure by using Maven; for example:
 
-   ```bash
-   mvn azure-webapp:deploy
-   ```
+```bash
+mvn azure-webapp:deploy
+```
 
 Maven will deploy your web app to Azure; if the web app does not already exist, it will be created.
 
-3. When your web has been deployed, you will see a success message from command Line
+When your web has been deployed, you will see a success message from command Line
 
 ![Deploy Success](images/java-webapp/deploy-success.png)
 
-by pasting the URL to browser, you will see the sample web app running on Cloud!
+by pasting the URL to browser, you will see the sample web app running on Azure!
 
 ![Greeting Cloud](images/java-webapp/greeting-cloud.png)
 
 You will also be able to manage it by using the [Azure portal](https://portal.azure.com/).
 
-4. Your web app will be listed in **App Services**:
+Your web app will be listed in **App Services**:
 
-![App Service View](images/AppServiceView.png)
+![App Service View](images/java-webapp/app-service-view.png)
 
-5. And the URL for your web app will be listed in the **Overview** for your web app:
+And the URL for your web app will be listed in the **Overview** for your web app:
 
-![Overview](images/Overview.png)
+![Overview](images/java-webapp/overview.png)
 
-You have successfully built a Java web app on cloud!
+You have successfully built a Java web application running in the Cloud!
 
 ![Greeting Cloud](images/java-webapp/greeting-cloud.png)
 

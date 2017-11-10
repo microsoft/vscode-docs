@@ -8,22 +8,20 @@ DateApproved:
 MetaDescription: Using VS Code for developing, debugging and deploying your serverless application.
 MetaSocialImage: TBD
 ---
-# Create your first serverless Java Application with VS Code
+# serverless Java Apps with VS Code
 
 [comment]: <> (Update the steps with Azure Functions Extension once available)
 
 Serverless, as indicated by its name, allows you to execute your code in a environment without having to first create a VM or publish a web application.
 
-This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with VS Code and Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
+This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with VS Code and Maven. You be able to test it locally, and deploy it to Azure Functions. When you're done, you'll have a HTTP-triggered function app running in Azure.
 
 ![Access a Hello World function from the command line with cURL](images/java-serverless/hello-azure.png)
 
 If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/
 ).
 
-<br>
 <a class="tutorial-next-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style="background-color:#68217A">Create your free Azure account</a>
-<br>
 
 ## Prerequisites
 
@@ -35,7 +33,7 @@ To develop functions app with Java, you must have the following installed:
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 - [Node.js](https://nodejs.org/download/), version 8.6 or higher.
 
->**Important**: The JAVA_HOME environment variable must be set to the install location of the JDK to complete this tutorial.
+>**Important**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
 ## Install the Azure Functions Core Tools
 
@@ -148,6 +146,8 @@ Test the function app running on Azure using curl:
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
+You should see:
+
 ```Output
 Hello AzureFunctions!
 ```
@@ -160,6 +160,6 @@ You have created a Java function app with a simple HTTP trigger and deployed it 
 - Add additional functions with different triggers to your project using the `azure-functions:add` Maven target.
 - Debug functions locally with Visual Studio Code. With the [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) installed and with your Functions project open in Visual Studio Code, [attach the debugger](/docs/editor/debugging.md#launch-configurations) to port 5005. Then set a breakpoint in the editor and trigger your function while it's running locally:
 
-    ![Debug functions in Visual Studio Code](images/java-serverless/vscode-debug.png)
+  ![Debug functions in Visual Studio Code](images/java-serverless/vscode-debug.png)
 
 - To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)
