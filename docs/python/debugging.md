@@ -6,7 +6,7 @@ ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
 DateApproved: 11/10/2017
 MetaDescription: Debugging Python with Visual Studio Code
-MetaSocialImage: tutorial_social.png
+MetaSocialImage: images/tutorial/social.png
 ---
 # Debugging Python with VS Code
 
