@@ -8,7 +8,7 @@ DateApproved: 11/10/2017
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: tutorial_social.png
 ---
-# Python Settings Reference
+# Python settings reference
 
 The [Python Extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for VS Code is highly configurable.  This page describes the key settings you will want to work with.
 

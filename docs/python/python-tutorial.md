@@ -129,7 +129,7 @@ Rerun the program now and a plot window appears with the output:
 
 You can configure VS Code to use any Python environment you have installed, including virtual environments. You can also use a separate environment for debugging. For full details, see [Environments](/docs/python/environments.md).
 
-## Next Steps
+## Next steps
 
 There is much more to explore with Python in Visual Studio Code:
 
