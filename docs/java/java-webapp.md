@@ -99,7 +99,7 @@ For example:
 Where:
 
 Element | Description
----|---|---
+---|---
 `<id>` | Specifies a unique name which Maven uses to look up your security settings when you deploy your web app to Azure.
 `<client>` | Contains the `appId` value from your service principal.
 `<tenant>` | Contains the `tenant` value from your service principal.
