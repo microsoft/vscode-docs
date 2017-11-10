@@ -4,13 +4,13 @@ Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
 PageTitle: Deploy Java Web App to Azure
-DateApproved:
+DateApproved: 11/14/2017
 MetaDescription: Java web app tutorial showing how to deploy a Java web app to Azure
 MetaSocialImage: TBD
 ---
 # Deploy a Java Web App to Azure
 
-In our [first tutorial](/docs/java/java-tutorial.md), we've build a Java web app running locally. This tutorial will show you how to run it in the Cloud.
+In our [first tutorial](/docs/java/java-tutorial.md), we've build a Java web app running locally. This tutorial will show you how to run it in the cloud.
 
 ## Prepare your Azure account
 
@@ -130,7 +130,7 @@ When your web has been deployed, you will see a success message from command Lin
 
 by pasting the URL to browser, you will see the sample web app running on Azure!
 
-![Greeting Cloud](images/java-webapp/greeting-cloud.png)
+![Greeting cloud](images/java-webapp/greeting-cloud.png)
 
 You will also be able to manage it by using the [Azure portal](https://portal.azure.com/).
 
@@ -142,11 +142,11 @@ And the URL for your web app will be listed in the **Overview** for your web app
 
 ![Overview](images/java-webapp/overview.png)
 
-You have successfully built a Java web application running in the Cloud!
+You have successfully built a Java web application running in the cloud!
 
-![Greeting Cloud](images/java-webapp/greeting-cloud.png)
+![Greeting cloud](images/java-webapp/greeting-cloud.png)
 
 ## Next steps
 
-* To see how you can containerize the app and deploy to the Cloud, check out [Java Container Tutorial](/docs/java/java-container.md)
+* To see how you can containerize the app and deploy to the cloud, check out [Java Container Tutorial](/docs/java/java-container.md)
 * To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)

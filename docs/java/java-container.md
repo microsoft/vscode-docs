@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Java with Container
 ContentId: 4fee9404-306a-4d60-8a7e-94f7d59c2fc3
 PageTitle: Java with Docker in VS Code
-DateApproved:
+DateApproved: 11/14/2017
 MetaDescription:
 MetaSocialImage: TBD
 ---
@@ -16,7 +16,7 @@ This 15 minutes tutorial will walk you through the process of building a [Docker
 
 We will continue using the same Spring Boot application we built in our first [Java Tutorial](/docs/java/java-tutorial.md).
 
-[Docker](https://docker.com/) is a Linux container management toolkit which allows users to publish container images and consume those published by others. A Docker image is a recipe for running a containerized process. In this tutorial, we will build an Docker image for the web app, run the image locally and then finally deploy it to the Cloud.
+[Docker](https://docker.com/) is a Linux container management toolkit which allows users to publish container images and consume those published by others. A Docker image is a recipe for running a containerized process. In this tutorial, we will build an Docker image for the web app, run the image locally and then finally deploy it to the cloud.
 
 ## Before you begin
 
@@ -87,7 +87,7 @@ You can now right click on an image in DockerHub or an Azure Container Registry 
 
 ![Deploy to Azure](images/java-container/deploy-to-azure.png)
 
-From here you will be prompted for a Resource Group, location, an App Service Plan, and a globally unique website name. Once it's deployed to Azure App Service, you will get a URL for the web app running in the Cloud!
+From here you will be prompted for a Resource Group, location, an App Service Plan, and a globally unique website name. Once it's deployed to Azure App Service, you will get a URL for the web app running in the cloud!
 
 ## Next steps
 

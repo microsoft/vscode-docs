@@ -4,13 +4,13 @@ Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Java Web App Tutorial in VS Code
-DateApproved:
+DateApproved: 11/14/2017
 MetaDescription: Java tutorial showing Java language support in the Visual Studio Code editor.
 MetaSocialImage: TBD
 ---
 # Build a Java web app in VS Code
 
-This 5 minutes tutorial shows you how to create a simple Java web application with Visual Studio Code. You'll learn how to run and debug it locally, and prepare for running it in the Cloud.
+This 5 minutes tutorial shows you how to create a simple Java web application with Visual Studio Code. You'll learn how to run and debug it locally, and prepare for running it in the cloud.
 
 ## Scenario
 
@@ -68,10 +68,10 @@ Set a breakpoint in the application source code, and reload your browser to hit 
 
 If you would like to learn more about debugging Java with VS Code, please read [Java Debugging](/docs/java/java-debugging.md).
 
-Congratulations, now you have your first Spring Boot web app running locally! Now let's try host it on Cloud.
+Congratulations, now you have your first Spring Boot web app running locally! Now let's try host it on cloud.
 
 ## Next steps
 
-* If you'd like to learn how to deploy your web application, checkout out the [Deploy a Java Application to Azure Web App](/docs/java/java-webapp.md) tutorial where we show how to run your web app in the Cloud.
-* To see how you can containerize the web app and deploy to the Cloud as a container, check out [Java Container Tutorial](/docs/java/java-container.md)
+* If you'd like to learn how to deploy your web application, checkout out the [Deploy a Java Application to Azure Web App](/docs/java/java-webapp.md) tutorial where we show how to run your web app in the cloud.
+* To see how you can containerize the web app and deploy to the cloud as a container, check out [Java Container Tutorial](/docs/java/java-container.md)
 * To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)

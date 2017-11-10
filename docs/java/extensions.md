@@ -4,17 +4,17 @@ Area: java
 TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
 PageTitle: Java Extensions for VS Code
-DateApproved:
+DateApproved: 11/14/2017
 MetaDescription: Popular Java Extensions for VS Code
 MetaSocialImage: TBD
 ---
-# Java Extensions for VS Code
+# Java extensions for VS Code
 
 Visual Studio Code provides many features as an editor. In addition to that, you can install some high quality extensions to add features to VS Code for Java development.
 
 > **Tip:** To see how to install and manage your extensions, please refer to the [extension documentation](/docs/editor/extension-gallery.md).
 
-## Recommended Extensions
+## Recommended extensions
 
 To help set up Java on VS Code, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains two popular extensions:
 
@@ -23,11 +23,11 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-## Recommended Extensions for Cloud (Azure) Development
+## Recommended extensions for cloud (Azure) development
 
 [comment]: <> (Replace it with Java Azure Pack once available)
 
-Along with the language support, if you are deploying your applications to the Cloud, especially Azure, there is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services:
+Along with the language support, if you are deploying your applications to the cloud, especially Azure, there is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services:
 
 ### App Services (Websites)
 
@@ -51,7 +51,7 @@ Along with the language support, if you are deploying your applications to the C
 
 * The [Microsoft SQL](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) extension provides support for developing [Microsoft SQL Server](https://www.microsoft.com//sql-server/sql-server-2016), [Azure SQL Database](https://docs.microsoft.com//azure/sql-database/) and [SQL Data Warehouse](https://docs.microsoft.com//azure/sql-data-warehouse/) with a rich set of functionalities. For example, create and manage connection profiles and most recently used connections. Write T-SQL script with IntelliSense, snippets, syntax colorizations, error validations and GO batch separator. Execute scripts, view the results in a document, and save results to json or csv file format and view in the editor.
 
-### Team Development
+### Team development
 
 * The [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Team Services and Team Foundation Servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
 
@@ -59,7 +59,7 @@ Along with the language support, if you are deploying your applications to the C
 
 * The [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) for VS Code makes it easy to develop and connect your [IoT applications to Azure](https://docs.microsoft.com//azure/index#pivot=services&panel=iot). With this extension, you can interact with Azure IoT Hub, manage devices connected to Azure IoT Hub, and develop with code snippets for Azure IoT Hub.
 
-### General Tools
+### General tools
 
 * The [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=bradygaster.azuretoolsforvscode) adds commands to the Command Palette (F1) that make it easy to create and access Azure resources directly from VS Code. For example, you can create App Service Web Apps and Functions, Storage accounts, and browse to any number of resources in the Azure Portal.
 
