@@ -3,12 +3,12 @@ Order: 2
 Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
-PageTitle: Deploy Java Web App to Azure
+PageTitle: Deploy Java Web App to Cloud
 DateApproved: 11/14/2017
 MetaDescription: Java web app tutorial showing how to deploy a Java web app to Azure
 MetaSocialImage: TBD
 ---
-# Deploy a Java Web App to Azure
+# Deploy Java Web App to Cloud
 
 In our [first tutorial](/docs/java/java-tutorial.md), we've build a Java web app running locally. This tutorial will show you how to run it in the cloud.
 
@@ -22,11 +22,11 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 
 The [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/overview):
 
-<a class="tutorial-next-btn" href="https://docs.microsoft.com//cli/azure/install-azure-cli" target="_blank" style="background-color:#68217A">Install Azure CLI 2.0</a>
+<a class="tutorial-next-btn" href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank" style="background-color:#68217A">Install Azure CLI 2.0</a>
 
 [comment]: <> (Replace it with using App Service Extension once Java support is ready)
 
-## Create an Azure service principal
+## Login with Azure CLI
 
 We'll use the [Integrated Terminal](/docs/editor/integrated-terminal.md) in VS Code. To open the terminal you can either:
 
@@ -44,69 +44,13 @@ az login
 
 Follow the instructions to complete the sign-in process.
 
-Create an Azure service principal:
+## Update your project to use Azure CLI for authentication
 
-```bash
-az ad sp create-for-rbac --name "uuuuuuuu" --password "pppppppp"
-```
+Open your `pom.xml` file in your project folder (complete). Find and remove the below snippet in azure-webapp-maven-plugin configuration section so we will authenticate with Azure using Azure CLI, which we've already logged in with.
 
-where `uuuuuuuu` is the user name and `pppppppp` is the password for the service principal.
+![Remove Authentication](images/java-webapp/remove-auth.png)
 
-Azure responds with JSON that resembles the following example:
-
-   ```bash
-   {
-      "appId": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-      "displayName": "uuuuuuuu",
-      "name": "http://uuuuuuuu",
-      "password": "pppppppp",
-      "tenant": "tttttttt-tttt-tttt-tttt-tttttttttttt"
-   }
-   ```
-
-   > You will use the values from this JSON response when you configure the Maven plugin to deploy your web app to Azure. The `aaaaaaaa`, `uuuuuuuu`, `pppppppp`, and `tttttttt` are placeholder values, which are used in this example to make it easier to map these values to their respective elements when you configure your Maven `settings.xml` file in the next section.
-
-## Configure Maven to use your Azure service principal
-
-Open your Maven `settings.xml` file in a text editor. There are two locations where the `settings.xml` file may live:
-
-* The Maven install: ${maven.home}/conf/settings.xml
-* A user’s install: ${user.home}/.m2/settings.xml
-
-  Below are some examples:
-
-  * Windows: `%ProgramFiles%\apache-maven\3.5.0\conf\settings.xml`
-  * Mac installed by Homebrew: `/usr/local/Cellar/maven/3.5.0/libexec/conf`
-
-Add your Azure service principal settings from the previous section of this tutorial to the `<servers>` collection in the `settings.xml` file.
-
-For example:
-
-```bash
-<servers>
-  <server>
-    <id>azure-auth</id>
-      <configuration>
-        <client>aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa</client>
-        <tenant>tttttttt-tttt-tttt-tttt-tttttttttttt</tenant>
-        <key>pppppppp</key>
-        <environment>AZURE</environment>
-      </configuration>
-  </server>
-</servers>
-```
-
-Where:
-
-Element | Description
----|---
-`<id>` | Specifies a unique name which Maven uses to look up your security settings when you deploy your web app to Azure.
-`<client>` | Contains the `appId` value from your service principal.
-`<tenant>` | Contains the `tenant` value from your service principal.
-`<key>` | Contains the `password` value from your service principal.
-`<environment>` | Defines the target Azure cloud environment, which is `AZURE` in this example. (A full list of environments is available in the [Maven Plugin for Azure Web Apps](TBD) documentation)
-
-Save and close the `settings.xml` file.
+>**Note**: This specific configuration will instead using Service Principal for authentication. More details could be found at [Configure Maven to use your Azure Service Principal](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-deploy-spring-boot-app-with-maven-plugin#configure-maven-to-use-your-azure-service-principal)
 
 ## Build and deploy your web app to Azure
 

@@ -1,10 +1,9 @@
-"use strict";
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-var marked = require("marked");
-var model_1 = require("./model");
+var marked = require('marked');
+var model_1 = require('./model');
 function doc(value) {
     var data = JSON.parse(value);
     var start = data.children[0].children[0]; //vscode-docs/issues/162
@@ -50,14 +49,14 @@ var Builder = (function () {
             }
         }
         // Namespaces
-        for (var _b = 0, namespaces_1 = namespaces; _b < namespaces_1.length; _b++) {
-            var item = namespaces_1[_b];
+        for (var _b = 0; _b < namespaces.length; _b++) {
+            var item = namespaces[_b];
             this._onContainerType(item, true);
         }
         // Types
         types.sort(function (a, b) { return a.name.localeCompare(b.name); });
-        for (var _c = 0, types_1 = types; _c < types_1.length; _c++) {
-            var item = types_1[_c];
+        for (var _c = 0; _c < types.length; _c++) {
+            var item = types[_c];
             this._onContainerType(item);
         }
         return this._builder.join('');
@@ -97,15 +96,15 @@ var Builder = (function () {
                 'Static', 'Constructors', 'Properties', 'Methods',
                 'Enumeration members'
             ];
-            for (var _d = 0, titles_1 = titles; _d < titles_1.length; _d++) {
-                var title = titles_1[_d];
+            for (var _d = 0; _d < titles.length; _d++) {
+                var title = titles[_d];
                 var items = groups[title];
                 if (!items || items.length === 0) {
                     continue;
                 }
                 this._h4(title);
-                for (var _e = 0, items_1 = items; _e < items_1.length; _e++) {
-                    var child = items_1[_e];
+                for (var _e = 0; _e < items.length; _e++) {
+                    var child = items[_e];
                     switch (child.kind) {
                         case model_1.Kind.Variable:
                         case model_1.Kind.Property:
@@ -196,7 +195,7 @@ var Builder = (function () {
         this._builder.push('\n\n' + value + '\n\n');
     };
     return Builder;
-}());
+})();
 // ---- helpers to get html from md-comments and type & item info
 function md(value, bucket) {
     if (value) {
@@ -231,8 +230,8 @@ function comment2HtmlString(comment, useReturn) {
             // as list items
             for (var key in tags) {
                 var values = tags[key];
-                for (var _b = 0, values_1 = values; _b < values_1.length; _b++) {
-                    var value = values_1[_b];
+                for (var _b = 0; _b < values.length; _b++) {
+                    var value = values[_b];
                     if (value) {
                         md("* *" + key + "* - " + value, parts);
                     }
@@ -254,8 +253,8 @@ function itemName2HtmlString(item, parent) {
     }
     else {
         var parts = [];
-        for (var _i = 0, typeParameter_1 = typeParameter; _i < typeParameter_1.length; _i++) {
-            var typeParam = typeParameter_1[_i];
+        for (var _i = 0; _i < typeParameter.length; _i++) {
+            var typeParam = typeParameter[_i];
             parts.push(typeParam.name);
         }
         result = name + '&lt;' + parts.join(', ') + '&gt;';
