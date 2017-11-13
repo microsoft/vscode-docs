@@ -12,17 +12,33 @@ MetaSocialImage: tutorial_social.png
 
 Let's get started by creating the simplest "Hello World" Python application.
 
-> **Note:** To successfully complete this tutorial you must install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+## Pre-requisites
 
-Create an empty folder called "hello", navigate into it, and open VS Code:
+To successfully complete this tutorial you must do the following:
+
+1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+
+1. Install whichever version of Python you want to use. Options include:
+- The built-in Python installation on Linux.
+- An installation through Homebrew on Linux or macOS.
+- A download from [python.org](https://www.python.org/)
+- A download from [Anaconda](https://www.anaconda.com/download/).
+
+1. Select a version of Python using the **Python: Select Workspace Interpreter** command on the Command Palette, or by using the **Select Python Environment** option on the statusbar if available:
+
+    ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
+
+    The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](environments.md).
+
+## Create a folder and code file
+
+Create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`):
 
 ```bash
 mkdir hello
 cd hello
 code .
 ```
-
-> **Tip:** You can open files or folders directly from the command line.  The period '.' refers to the current folder, therefore VS Code will start and open the `Hello` folder.
 
 From the File Explorer toolbar, press the New File button:
 
@@ -119,9 +135,7 @@ plt.show()
 
 Try running the file in the debugger as described in the last section. If you run the program to completion, it may fail if matplotlib and numpy are not installed in the current environment.
 
-This is easy to remedy. Go to the **Terminal** and enter `pip3 install matplotlib`, and VS Code installs that package into your project along with its dependencies (including NumPy).
-
-> **Tip**: If you don't want to install matlotlib and its dependencies globally then use a [virtual environment](https://docs.python.org/3/tutorial/venv.html).
+This is easy to remedy. Go to the **Terminal** and enter `pip3 install matplotlib`, and VS Code installs that package into your project along with its dependencies (including NumPy). Note that if you don't want to install matlotlib and its dependencies globally then use a [virtual environment](https://docs.python.org/3/tutorial/venv.html).
 
 Rerun the program now and a plot window appears with the output:
 
