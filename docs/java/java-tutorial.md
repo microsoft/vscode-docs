@@ -3,12 +3,12 @@ Order: 1
 Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
-PageTitle: Java Web App Tutorial in VS Code
+PageTitle: Build Java Web App With VS Code
 DateApproved: 11/14/2017
 MetaDescription: Java tutorial showing Java language support in the Visual Studio Code editor.
 MetaSocialImage: TBD
 ---
-# Build a Java web app in VS Code
+# Build Java Web App With VS Code
 
 This 5 minutes tutorial shows you how to create a simple Java web application with Visual Studio Code. You'll learn how to run and debug it locally, and prepare for running it in the cloud.
 
@@ -22,9 +22,11 @@ A simple Spring Boot Getting Started web app
 
 Before running and deploying this sample, you must have JDK and Maven on your local development environment. If not, please install them.
 
-Download and install the Java SE Development Kit (JDK):
+Download and install the Java SE Development Kit (JDK), version 8:
 
-<a class="tutorial-next-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" style="background-color:#68217A">Download JDK</a>
+<a class="tutorial-next-btn" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" style="background-color:#68217A">Download JDK</a>
+
+>**Note**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
 Download Apache Maven version 3 or greater:
 
@@ -38,9 +40,11 @@ Install Apache Maven for your local development environment:
 
 Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/microsoft/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, you can open the cloned repository in VS Code.
 
+>**Note**: You can install Visual Studio Code from https://code.visualstudio.com/ and Git from https://code.visualstudio.com/.
+
 ![Clone Spring Repository](images/java-tutorial/clone-repository.gif)
 
-Open any of the Java files in the repository. If you haven't got the Java related extensions installed with your VS Code, you would be recommended to install the Java extension pack. Just follow the instruction and install the Java Extension Pack from Microsoft.
+Open any of the Java files in the repository. If you haven't got the Java related extensions installed with your VS Code, you would be recommended to install the Java extension pack. Just follow the instruction and install the Java Extension Pack from Microsoft. Reload VS Code after the installation.
 
 ![Install Java Extensions](images/java-tutorial/install-extensions.gif)
 

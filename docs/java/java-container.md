@@ -12,8 +12,6 @@ MetaSocialImage: TBD
 
 This 15 minutes tutorial will walk you through the process of building a [Docker](https://docker.com/) image for running a Java application in Visual Studio Code.
 
-## Scenario
-
 We will continue using the same Spring Boot application we built in our first [Java Tutorial](/docs/java/java-tutorial.md).
 
 [Docker](https://docker.com/) is a Linux container management toolkit which allows users to publish container images and consume those published by others. A Docker image is a recipe for running a containerized process. In this tutorial, we will build an Docker image for the web app, run the image locally and then finally deploy it to the cloud.
@@ -65,15 +63,23 @@ Test the web app by browsing to `http://localhost:8080` using a web browser. You
 
 ![Greeting from Spring](images/java-tutorial/greeting-from-spring.png)
 
-## Deploying images to Azure App Service
+## Push your image to Docker Hub
 
-With the Docker Explorer, you can deploy images from DockerHub Registries or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
+You can deploy your docker image to Azure from either public or private container registory. In this tutorial, we will use Docker Hub. If you do not have a DockerHub account, create one from [Docker Hub](https://hub.docker.com/)
 
-The first time you expand the DockerHub node, you'll be prompted to log into your DockerHub account.
+The first time you expand the DockerHub node in Docker Explorer, you'll be prompted to log into your DockerHub account.
 
 ![DockerHub Login](images/java-container/docker-hub-login.gif)
 
 Your user name and password are stored in your operating system credentials vault (for example, MacOS keychain or Windows Credential Store) so that you don't need to log in every time. You can log out of DockerHub by right clicking on the DockerHub label and choosing **Log Out**. This will delete the credentials from the OS store.
+
+Then push your image to DockHub. Make sure the name of your image starts with your Docker ID.
+
+![Push Image](images/java-container/docker-push.png)
+
+## Deploying images to Azure App Service
+
+With the Docker Explorer, you can deploy images from DockerHub Registries or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
 To log into Azure, run **Azure Login** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
 

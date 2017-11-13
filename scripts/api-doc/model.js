@@ -1,10 +1,7 @@
-"use strict";
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-Object.defineProperty(exports, "__esModule", { value: true });
-var Kind;
 (function (Kind) {
     Kind[Kind["ExternalModule"] = 1] = "ExternalModule";
     Kind[Kind["Module"] = 2] = "Module";
@@ -20,4 +17,5 @@ var Kind;
     Kind[Kind["Constructor"] = 512] = "Constructor";
     Kind[Kind["Method"] = 2048] = "Method";
     Kind[Kind["Property"] = 1024] = "Property";
-})(Kind = exports.Kind || (exports.Kind = {}));
+})(exports.Kind || (exports.Kind = {}));
+var Kind = exports.Kind;
