@@ -3,12 +3,12 @@ Order: 2
 Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
-PageTitle: Deploy Java Web App to Cloud
+PageTitle: Deploy Java Web Apps to the cloud
 DateApproved: 11/14/2017
 MetaDescription: Java web app tutorial showing how to deploy a Java web app to Azure
 MetaSocialImage: TBD
 ---
-# Deploy Java Web App to Cloud
+# Deploy Java Web Apps to the cloud
 
 In our [first tutorial](/docs/java/java-tutorial.md), we've build a Java web app running locally. This tutorial will show you how to run it in the cloud.
 
@@ -46,7 +46,7 @@ Follow the instructions to complete the sign-in process.
 
 ## Update your project to use Azure CLI for authentication
 
-Open your `pom.xml` file in your project folder (complete). Find and remove the below snippet in azure-webapp-maven-plugin configuration section so we will authenticate with Azure using Azure CLI, which we've already logged in with.
+Open your `pom.xml` file in your project folder (complete). Find and remove the snippet below in azure-webapp-maven-plugin `configuration` section so we will authenticate with Azure using Azure CLI, which we've already logged in with.
 
 ![Remove Authentication](images/java-webapp/remove-auth.png)
 
