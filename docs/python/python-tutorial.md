@@ -14,23 +14,24 @@ Let's get started by creating the simplest "Hello World" Python application.
 
 ## Pre-requisites
 
-To successfully complete this tutorial you must do the following:
+To successfully complete this tutorial, you must do the following:
 
 1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
-1. Install whichever version of Python you want to use. Options include:
-- The built-in Python installation on Linux.
-- An installation through Homebrew on Linux or macOS.
-- A download from [python.org](https://www.python.org/)
-- A download from [Anaconda](https://www.anaconda.com/download/).
+2. Install whichever version of Python you want to use. Options include:
 
-1. Select a version of Python using the **Python: Select Workspace Interpreter** command on the Command Palette, or by using the **Select Python Environment** option on the statusbar if available:
+  - The built-in Python installation on Linux.
+  - An installation through Homebrew on Linux or macOS.
+  - A download from [python.org](https://www.python.org/)
+  - A download from [Anaconda](https://www.anaconda.com/download/).
+
+3. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette**, or by using the **Select Python Environment** option on the Status Bar if available:
 
     ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
-    The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](environments.md).
+    The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
-## Create a folder and code file
+## Create a folder and source code file
 
 Create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`):
 
