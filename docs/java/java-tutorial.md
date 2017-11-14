@@ -8,7 +8,7 @@ DateApproved: 11/14/2017
 MetaDescription: Java tutorial showing Java language support in the Visual Studio Code editor.
 MetaSocialImage: TBD
 ---
-# Build Java Web Apps With VS Code
+# Build Java Web Apps with VS Code
 
 This 5 minutes tutorial shows you how to create a simple Java web application with Visual Studio Code. You'll learn how to run and debug it locally, and prepare for running it in the cloud.
 

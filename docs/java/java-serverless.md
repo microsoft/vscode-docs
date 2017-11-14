@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order:
 Area: java
 TOCTitle: Java serverless Tutorial
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
