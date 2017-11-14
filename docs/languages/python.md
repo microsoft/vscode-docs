@@ -9,7 +9,9 @@ MetaDescription: Learn about Visual Studio Code features (code completion, debug
 ---
 # Python on Visual Studio Code
 
-Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, productive. The extension leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with control over your Python environments.
+Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with control over your Python environments.
+
+Note that the Python extension depends on a separate installation of Python itself. For details, see [Tutorial - Pre-requisites](../python/python-tutorial.md#pre-requisites).
 
 ## Autocomplete and IntelliSense
 
@@ -65,11 +67,11 @@ The Python extension provides a wide variety of settings for its various feature
 Additional Python language support can be added to to VS Code by installing other popular Python extensions. For Jupyter support, we recommend the "Jupyter" extension from Don Jayamanne.
 
 1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
-2. Filter the extension list by typing 'python'.
+1. Filter the extension list by typing 'python'.
 
 <div class="marketplace-extensions-python"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 ## Next Steps
 
