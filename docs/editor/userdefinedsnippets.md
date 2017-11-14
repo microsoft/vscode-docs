@@ -102,7 +102,7 @@ Transformations allow you to modify the value of a variable before it is inserte
 The following example inserts the name of the current file without its ending, so from `foo.txt` it makes `foo`.
 
 ```
-${TM_FILENAME/(.*)\..+$/$1/}
+${TM_FILENAME/(.*)\\..+$/$1/}
   |           |         | |
   |           |         | |-> no options
   |           |         |
