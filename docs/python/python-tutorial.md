@@ -12,7 +12,7 @@ MetaSocialImage: tutorial_social.png
 
 Let's get started by creating the simplest "Hello World" Python application.
 
-## Pre-requisites
+## Prerequisites
 
 To successfully complete this tutorial, you must do the following:
 

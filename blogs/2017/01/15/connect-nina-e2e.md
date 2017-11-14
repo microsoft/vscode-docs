@@ -7,7 +7,6 @@ Date: 2017-01-15
 ShortDescription: Node.js Development with Visual Studio Code and Azure
 Author: Jonathan Carter
 ---
-
 # Node.js Development with Visual Studio Code and Azure
 
 January, 4 2017 - Jonathan Carter, [@lostintangent](https://twitter.com/LostInTangent)
@@ -16,7 +15,7 @@ Between Visual Studio Code and Azure, we're trying to contribute to simplifying 
 
 The demo makes use of a simple todo app created by and published by [Scotch.io](https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular). It is a single-page MEAN application, and therefore, uses MongoDB as its database, Node/Express for the REST API/web server and Angular.js 1.x for the front-end UI. Use the following ToC to jump to particular sections of interest, otherwise, continue reading ahead.
 
-* [Pre-requisites](#pre-requisites)
+* [Prerequisites](#prerequisites)
 * [Project Setup](#project-setup)
 * [Integrated Terminal](#integrated-terminal)
 * [Integrated Git version control](#integrated-git-version-control)
@@ -31,7 +30,7 @@ The demo makes use of a simple todo app created by and published by [Scotch.io](
 * [Clean-up](#clean-up)
 * [Conclusion](#conclusion)
 
-## Pre-requisites
+## Prerequisites
 
 In order to effectively run through this demo, you'll need to have the following software installed:
 
