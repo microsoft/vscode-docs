@@ -25,8 +25,6 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 
 ## Recommended extensions for cloud (Azure) development
 
-[comment]: <> (Replace it with Java Azure Pack once available)
-
 Along with the language support, if you are deploying your applications to the cloud, especially Azure, there is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services:
 
 ### App Services (Websites)

@@ -105,8 +105,8 @@ You can launch the debugger following steps below:
 
 Learn more about Java in VS Code
 
-* [Java Tutorial with VS Code](/docs/java/java-tutorial)
-* [Java Debugging](/docs/java/java-debugging)
+* [Java Tutorial with VS Code](/docs/java/java-tutorial.md)
+* [Java Debugging](/docs/java/java-debugging.md)
 
 Read on to find out about:
 

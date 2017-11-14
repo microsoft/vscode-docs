@@ -10,8 +10,6 @@ MetaSocialImage: TBD
 ---
 # Serverless Java Apps with VS Code
 
-[comment]: <> (Update the steps with Azure Functions Extension once available)
-
 Serverless, as indicated by its name, allows you to execute your code in a environment without having to first create a VM or publish a web application.
 
 This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with VS Code and Maven. You be able to test it locally, and deploy it to Azure Functions. When you're done, you'll have a HTTP-triggered function app running in Azure.

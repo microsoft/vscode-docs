@@ -24,8 +24,6 @@ The [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/ov
 
 <a class="tutorial-next-btn" href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank" style="background-color:#68217A">Install Azure CLI 2.0</a>
 
-[comment]: <> (Replace it with using App Service Extension once Java support is ready)
-
 ## Login with Azure CLI
 
 We'll use the [Integrated Terminal](/docs/editor/integrated-terminal.md) in VS Code. To open the terminal you can either:
