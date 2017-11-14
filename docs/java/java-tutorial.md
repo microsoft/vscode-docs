@@ -44,11 +44,11 @@ Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spri
 
 ![Clone Spring Repository](images/java-tutorial/clone-repository.gif)
 
-Open any of the Java files in the repository. If you haven't got the Java related extensions installed with your VS Code, you would be recommended to install the Java extension pack. Just follow the instruction and install the Java Extension Pack from Microsoft. Reload VS Code after the installation.
+After cloning the repo, navigate to the *complete* folder that contains the project which is ready to run. Open any of the Java files in the repository. If you haven't got the Java related extensions installed with your VS Code, you would be recommended to install the Java extension pack. Just follow the instruction and install the Java Extension Pack from Microsoft. Reload VS Code after the installation.
 
 ![Install Java Extensions](images/java-tutorial/install-extensions.gif)
 
-Once you have the Extension Pack installed, it will automatically build the project for you, and then you can run it within VS Code. VS Code will generate the correct `launch.json` debugging configuration file for you automatically as well.
+Once you have the Extension Pack installed, it will automatically build the project for you, and then you can run it within VS Code by simply press `kb(workbench.action.debug.start)`. You can learn more about how VS Code launch your app at [Launch Configurations](/docs/editor/debugging#_launch-configurations).
 
 ![Run Spring Boot](images/java-tutorial/run-spring-boot.gif)
 
