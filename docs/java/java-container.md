@@ -97,6 +97,5 @@ From here you will be prompted for a Resource Group, location, an App Service Pl
 
 ## Next steps
 
-* If you're interested in another hot topic, serverless, please take a look at our [Java serverless Tutorial](/docs/java/java-serverless.md)
 * To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)
 * To learn more about Java on Azure, check out [Azure for Java developers](https://docs.microsoft.com//java/azure/)
