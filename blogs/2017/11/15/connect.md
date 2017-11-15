@@ -17,7 +17,7 @@ On the day of our annual developer conference ([tune in here](https://www.micros
 * Over 15,000 of you contributed to VS Code, making us the #1 project in the [2017 GitHub Octoverse](https://octoverse.github.com/).
 * More than 2,600,000 people use VS Code every month, up by over 160% in the last year.
  
->![1.0 image](2017_11_15_metrics.svg)
+>![1.0 image](metrics.svg)
  
 We have come a long way and a big reason is the amazing support we have from the community. We'd like to start with a big **THANK YOU!**
  
@@ -51,7 +51,7 @@ Many of the new features have come from the community; through issues, pull requ
  
 In each monthly release, we've added features and improvements that we hope you love. Across the last 12 months, there's been a lot of them but here is a small sampling...
  
-![Roadmap](2017_11_15_roadmap.svg)
+![Roadmap](roadmap.svg)
  
 Release|Features|Foundation
 -------|----------|---------
