@@ -7,9 +7,27 @@ MetaDescription: Find out more about VS Live share.
 ---
 
 # Visual Studio Live Share FAQ
+Updated November 16, 2017
 
 ## What is Live Share?
-Live Share allows developers to share a codebase and its context so you get instant, bi-directional, collaboration using your tools (Visual Studio 2017 or Visual Studio Code). With Live Share, your teammate can read, navigate, edit, and debug the workspace you’ve shared with them seamlessly and securely.  To see a demo of Live Share and sign-up for the preview visit the [Live Share overview page](/visual-studio-live-share).
+Live Share allows developers to share a codebase and its context so you get instant, bi-directional, collaboration using your tools (Visual Studio 2017 or Visual Studio Code). With Live Share, your teammate can read, navigate, edit, and importantly debug the workspace you’ve shared with them seamlessly and securely.  To see a demo of Live Share and sign-up for the preview visit the [Live Share overview page](/visual-studio-live-share).
+
+## What are the core capabilities of Live Share?
+Live Share enables you to share your codebase with your team members via a secure connection. With Live Share, you are able to collaboratively edit multiple files in a workspace and more importantly debug your application with your teammates. During co-editing your edits are immediately seen by your teammates. During co-debugging you are sharing the same debug session of your application. This means you and your teammates can control the program execution with breakpoints and steps, but you can independently inspect variables, watches, locals, and REPLs (e.g. Immediate Window in Visual Studio).
+
+Live Share has a wide variety of use cases such as: resolving a bug together, showing an issue that won't repro on another person's machine, solving design issues, pair programming, conducting a coding interview, mentoring other members on a team, or performing ad-hoc code reviews.
+
+## By using Live Share, is my code stored on a Microsoft server?
+No, the shared code resides on the machine of the person that initiated the share. It is not stored or uploaded to the cloud in any way. Rather, Live Share establishes a connection between you and your teammate Live Share does not inspect or collect any data on the code that is shared.
+
+## Does this remote-based model work anywhere? Is it peer-to-peer?
+Live Share's only requirement is that the person sharing and their teammate each have internet access. Secure communication between team members during a live share session is facilitated by an Azure relay. Your workspace (i.e. source files) is not stored in the cloud. No special peer-to-peer connection is required though one might be used to reduce latency.
+
+## What is shared during a Live Share session?
+Live Share doesn't transfer all keyboard and mouse inputs. It only communicates the data needed for each collaboration activity to your teammates' machines. For example, when you share your workspace your folder structure is shared. When you collaboratively edit a file, that file's contents are shared. When you are collaboratively debugging, debug actions like step and debug state like call stack and locals are shared.
+
+## When will this be released?
+We will have a limited, US-only private preview in early 2018. We are taking signups for it [here](/visual-studio-live-share).
 
 ## How is my code shared with other teammates?
 When using Live Share, you’re making the code you’re working on available so that your teammate can access it via a secure cloud service that remotes commands from your editor. Your teammate can open and edit the files without needing to store them in the cloud or permanently store them on your teammate’s machine.
