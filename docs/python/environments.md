@@ -12,15 +12,15 @@ MetaSocialImage: images/tutorial/social.png
 
 By default, the Python extension relies on the first Python interpreter it finds in the path. The extension uses that interpreter for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging.
 
-To select a specific interpreter, select the **Python: Select Workspace Interpreter** command (on the [Command Palette](/editor/codebasics#_command-palette)):
+To select a specific interpreter, select the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-![Python: Select Workspace Interpreter command](images/environments/select-interpreters-command.png)
+![Python: Select Interpreter command](images/environments/select-interpreters-command.png)
 
 This command automatically looks for and displays a list of available Python interpreters.
 
 ![List of interpreters](images/environments/interpreters-list.png)
 
-Selecting an interpreter from the list configures the `settings.json` file accordingly. The statusbar shows the current  interpreter and when selected brings up a list of available interpreters. The statusbar also reflects when no interpreter is selected.
+Selecting an interpreter from the list configures your User [Settings](/docs/getstarted/settings.md) accordingly. The Status Bar shows the current interpreter and when selected brings up a list of available interpreters. The Status Bar also reflects when no interpreter is selected.
 
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
@@ -32,10 +32,12 @@ The extension looks for interpreters in the following locations:
 
 ## Manually specifying an interpreter
 
-If the interpreter you want to use is not located automatically, you can set the path to it directly in `settings.json`:
+If the interpreter you want to use is not located automatically, you can set the path to it manually in your User Settings `settings.json` file:
 
-- Select the **File > Preferences > Settings** command.
-- Create or modify an entry for `python.pythonPath` with the full path to the Python executable. For example:
+- Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openGlobalSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
+- Create or modify an entry for `python.pythonPath` with the full path to the Python executable.
+
+For example:
 
     Windows:
     ```json

@@ -25,7 +25,7 @@ To successfully complete this tutorial, you must do the following:
   - A download from [python.org](https://www.python.org/)
   - A download from [Anaconda](https://www.anaconda.com/download/).
 
-3. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette**, or by using the **Select Python Environment** option on the Status Bar if available:
+3. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
 
     ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
