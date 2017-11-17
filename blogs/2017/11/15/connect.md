@@ -3,7 +3,7 @@ Order: 35
 TOCTitle: Connect 2017
 PageTitle: Visual Studio Code 2.6M Users, 12 months of momentum and more to come.
 MetaDescription: Visual Studio Code 2.6M Users, 12 months of momentum and more to come.
-MetaSocialImage: connect-social.png
+MetaSocialImage: /assets/blogs/2017/11/15/connect-social.png
 Date: 2017-11-15
 ShortDescription: Visual Studio Code 2.6M Users, 12 months of momentum and more to come. A summary of news from Connect(); 2017
 Author: Sean McBreen

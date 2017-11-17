@@ -4,6 +4,7 @@ ContentId: TODO
 PageTitle: Live Share Frequently Asked Questions
 DateApproved: 11/15/2017
 MetaDescription: Find out more about VS Live share.
+MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.png
 ---
 
 # Visual Studio Live Share FAQ

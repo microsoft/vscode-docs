@@ -4,7 +4,6 @@ TOCTitle: January 2016
 PageTitle: Visual Studio Code January 2016 0.10.9
 MetaDescription: See what is new in the Visual Studio Code January Release (0.10.9)
 ---
-
 # January 2016 (0.10.9)
 
 Hi,
