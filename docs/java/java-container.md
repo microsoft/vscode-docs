@@ -6,7 +6,6 @@ ContentId: 4fee9404-306a-4d60-8a7e-94f7d59c2fc3
 PageTitle: Java with Docker in VS Code
 DateApproved: 11/14/2017
 MetaDescription:
-MetaSocialImage: TBD
 ---
 # Java with Docker in VS Code
 

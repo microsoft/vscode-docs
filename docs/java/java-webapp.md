@@ -6,7 +6,6 @@ ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
 PageTitle: Deploy Java Web Apps to the cloud
 DateApproved: 11/14/2017
 MetaDescription: Java web app tutorial showing how to deploy a Java web app to Azure
-MetaSocialImage: TBD
 ---
 # Deploy Java Web Apps to the cloud
 
