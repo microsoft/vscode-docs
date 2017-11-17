@@ -5,7 +5,7 @@ PageTitle: Optimizations in Syntax Highlighting, a Visual Studio Code Story
 MetaDescription: Optimizations in tokenization and syntax highlighting in the Visual Studio Code/Monaco editor
 Date: 2017-02-08
 Author: Alexandru Dima
-MetaSocialImage: syntax-highlighting-optimizations-social.png
+MetaSocialImage: /assets/blogs/2017/02/08/syntax-highlighting-optimizations-social.png
 ---
 # Optimizations in Syntax Highlighting
 

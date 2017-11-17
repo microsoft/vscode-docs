@@ -6,7 +6,7 @@ ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
 DateApproved: 11/8/2017
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
-MetaSocialImage: typescript_Languages_typescript.png
+MetaSocialImage: images/typescript/Languages_typescript.png
 ---
 # Editing TypeScript
 

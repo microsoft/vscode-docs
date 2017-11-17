@@ -6,7 +6,7 @@ ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
 DateApproved: 11/8/2017
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
-MetaSocialImage: debugging_Debugging.png
+MetaSocialImage: images/debugging/Debugging.png
 ---
 # Debugging
 

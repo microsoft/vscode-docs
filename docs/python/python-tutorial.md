@@ -6,7 +6,7 @@ ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial with Python in Visual Studio Code
 DateApproved: 11/10/2017
 MetaDescription: Tutorial for the Python extension in Visual Studio Code
-MetaSocialImage: tutorial_social.png
+MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python
 

@@ -6,7 +6,7 @@ ContentId: D06C8C5C-2D3A-4B2E-B31F-12F1907E6402
 PageTitle: C++ programming with Visual Studio Code
 DateApproved: 8/22/2017
 MetaDescription: Find out how to get the best out of Visual Studio Code and C++.
-MetaSocialImage: cpp_languages_cpp.png
+MetaSocialImage: images/cpp/languages_cpp.png
 ---
 # C/C++ for VS Code (Preview)
 

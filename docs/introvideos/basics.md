@@ -6,7 +6,7 @@ ContentId: baf150cd-6daf-4604-87db-a7c70a6706a7
 PageTitle: Setup and Basic Use of Visual Studio Code
 DateApproved: 3/6/2017
 MetaDescription: Download and learn the basics of Visual Studio Code.
-MetaSocialImage: opengraph_introvideos.png
+MetaSocialImage: images/opengraph/introvideos.png
 ---
 
 # Setup and Basics of VS Code

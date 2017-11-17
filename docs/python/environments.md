@@ -6,7 +6,7 @@ ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
 DateApproved: 11/10/2017
 MetaDescription: Configuring Python Environments in Visual Studio Code
-MetaSocialImage: tutorial_social.png
+MetaSocialImage: images/tutorial/social.png
 ---
 # Configuring Python environments
 
