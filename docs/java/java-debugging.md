@@ -35,7 +35,7 @@ Just like VS Code, the debugger is an open source project which welcomes contrib
 
 ## Install
 
-For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) with your VS Code installed. To make it easier, we provide a [Java Extension Pack](hhttps://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which bundles both the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
+For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) with your VS Code installed. To make it easier, we provide a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which bundles both the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
 
 The first time you edit a Java file, you will be prompted to install the extension pack. You can also install it manually from the Extension view (`kb(workbench.view.extensions)`). In the Extension view search box, type `vscode-java-pack`.
 
