@@ -1,4 +1,4 @@
-﻿﻿---
+---
 Order:
 Area: editor
 TOCTitle: Tasks
