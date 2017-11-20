@@ -1,10 +1,10 @@
----
-Order: 10
+﻿---
+Order: 11
 Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -140,7 +140,7 @@ We are working on more auto-detection support, so this list will get smaller and
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "Run tests",
+            "label": "Run tests",
             "type": "shell",
             "command": "./scripts/test.sh",
             "windows": {
@@ -158,7 +158,7 @@ We are working on more auto-detection support, so this list will get smaller and
 
 The task's properties have the following semantic:
 
-- **taskName**: The tasks's name used in the user interface.
+- **label**: The tasks's label used in the user interface.
 - **type**: The task's type. For a custom task, this can either be `shell` or `process`. If `shell` is specified, the command is interpreted as a shell command (for example: bash, cmd, or PowerShell). If `process` is specified, the command is interpreted as a process to execute. If `shell` is used, any arguments to the command should be embedded into the `command` property to support proper argument quoting. For example, if the test script accepts a `--debug` argument then the command property would be: `./scripts/test.sh --debug`.
 - **command**: The actual command to execute.
 - **windows**: Any Windows specific properties. Will be used instead of the default properties when the command is executed on the Windows operating system.
@@ -230,7 +230,7 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
             },
         },
         {
-            "taskName": "Run tests",
+            "label": "Run tests",
             "type": "shell",
             "command": "./scripts/test.sh",
             "windows": {
@@ -337,10 +337,10 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` file and has the following predefined variables:
 
-- **${workspaceRoot}** the path of the folder opened in VS Code
-- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
+- **${workspaceFolder}** the path of the workspace folder that contains the tasks.json file
+- **${workspaceFolderBasename}** the name of the workspace folder that contains the tasks.json file without any slashes (/)
 - **${file}** the current opened file
-- **${relativeFile}** the current opened file relative to `workspaceRoot`
+- **${relativeFile}** the current opened file relative to the workspace folder containing the file
 - **${fileBasename}** the current opened file's basename
 - **${fileBasenameNoExtension}** the current opened file's basename without the extension
 - **${fileDirname}** the current opened file's dirname
@@ -354,7 +354,7 @@ Below is an example of a custom task configuration that passes the current opene
 
 ```json
 {
-    "taskName": "TypeScript compile",
+    "label": "TypeScript compile",
     "type": "shell",
     "command": "tsc ${file}",
     "problemMatcher": [
@@ -371,7 +371,7 @@ Below is an example that uses the Node.js executable as a command and is treated
 
 ```json
 {
-    "taskName": "Run Node",
+    "label": "Run Node",
     "type": "process",
     "windows": {
         "command": "C:\\Program Files\\nodejs\\node.exe"
@@ -396,7 +396,7 @@ Task properties can also be defined in the global scope. If present, they will b
     },
     "tasks": [
         {
-            "taskName": "TS - Compile current file",
+            "label": "TS - Compile current file",
             "type": "shell",
             "command": "tsc ${file}",
             "problemMatcher": [
@@ -450,7 +450,7 @@ A matcher that captures the above warning (and errors) looks like this:
     // The problem is owned by the cpp language service.
     "owner": "cpp",
     // The file name for reported problems is relative to the opened folder.
-    "fileLocation": ["relative", "${workspaceRoot}"],
+    "fileLocation": ["relative", "${workspaceFolder}"],
     // The actual pattern to match problems in the output.
     "pattern": {
         // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’ [-Wimplicit-function-declaration]
@@ -480,7 +480,7 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
     "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
     "problemMatcher": {
         "owner": "cpp",
-        "fileLocation": ["relative", "${workspaceRoot}"],
+        "fileLocation": ["relative", "${workspaceFolder}"],
         "pattern": {
             "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
             "file": 1,
@@ -525,7 +525,7 @@ The following problem pattern matches the output from ESLint in stylish mode - b
 ```json
 {
     "owner": "javascript",
-    "fileLocation": ["relative", "${workspaceRoot}"],
+    "fileLocation": ["relative", "${workspaceFolder}"],
     "pattern": [
         {
             "regexp": "^([^\\s].*)$",
@@ -567,7 +567,7 @@ Here is a problem matcher to fully capture ESLint stylish problems:
 ```json
 {
     "owner": "javascript",
-    "fileLocation": ["relative", "${workspaceRoot}"],
+    "fileLocation": ["relative", "${workspaceFolder}"],
     "pattern": [
         {
             "regexp": "^([^\\s].*)$",
@@ -632,10 +632,9 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 {
     "version": "0.1.0",
     "command": "tsc",
-    "suppressTaskName": true,
     "tasks": [
         {
-            "taskName": "watch",
+            "label": "watch",
             "args": ["--watch"],
             "isBackground": true,
             "problemMatcher": {
@@ -660,10 +659,15 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 }
 ```
 
+### Tasks in multi Folder Workspaces
+
+If you have setup a workspace that consist out of multiple folders then only version `2.0.0` tasks are detected and shown in the `Tasks > Run Task` picker. See the section below on how to convert `0.1.0` tasks into `2.0.0` tasks to get access to all tasks.
+
 ## Convert from "0.1.0" to "2.0.0"
 
 Since the `2.0.0` version comes with lots of new auto-detection features, you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`. If you have lots of customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings because some old properties are now deprecated. Here is how to get rid of the deprecations:
 
+- **taskName**: Use the `label` property instead.
 - **isShellCommand**: Use the `"type": "shell"` property instead.
 - **isBuildCommand**: Use the `"group": "build"` property instead.
 - **isTestCommand**: Use the `"group": "test"` property instead.
@@ -697,7 +701,7 @@ The corresponding `2.0.0` configuration would look like this:
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "Run tests",
+            "label": "Run tests",
             "type": "shell",
             "command": "script test"
         }
@@ -717,7 +721,7 @@ The corresponding `2.0.0` configuration would look like this:
     "taskSelector": "/t:",
     "tasks": [
         {
-            "taskName": "build"
+            "label": "build"
         }
     ]
 }
@@ -729,7 +733,7 @@ A corresponding `2.0.0` configuration would look like this:
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build",
+            "label": "build",
             "command": "msbuild",
             "args": [
                 "/property:GenerateFullPaths=true",
@@ -748,5 +752,6 @@ That was tasks - let's keep going...
 
 * [tasks.json Schema](/docs/editor/tasks-appendix.md) - You can review the full `tasks.json` schema and descriptions.
 * [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.* [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
+* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
+* [Language Support](/docs/languages/overview.md) - Learn about our supported programming languages, both shipped with VS Code and through community extensions.
 * [Debugging](/docs/editor/debugging.md) - Debug your source code directly in the VS Code editor.

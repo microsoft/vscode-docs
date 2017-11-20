@@ -48,7 +48,3 @@ code .
 You can open any of the Markdown files and see a preview with the **Open Preview to the Side** button in the upper right of the editor.
 
 ![Markdown Preview Button](images/MDPreviewButton.png)
-
-### Images
-
-You should minify new images you put into the repository. You can run the `gulp minify-images` script to minify all the images in the repository.

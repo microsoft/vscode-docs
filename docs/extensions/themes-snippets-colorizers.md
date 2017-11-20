@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
 # Themes, Snippets and Colorizers
@@ -31,7 +31,7 @@ The easiest way to create a new workbench color theme is to start with an existi
 For syntax highlighting colors, there are two approaches. You just simply reference an existing TextMate theme (`.tmTheme` file) from the community, or you can come up with your own theming rules. The easiest way is to start with an existing theme and customize it:
 
 - Switch to the color theme to customize and use the `editor.tokenColorCustomizations` [settings](/docs/getstarted/settings.md). Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
-- The setting supports a simple mode with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than than, you need to use textMate theme rules directly.
+- The setting supports a simple model with a set of common token types such as 'comments', 'strings' and 'numbers' available. If you want to color more than that, you need to use textMate theme rules directly.
 
 ### TextMate theme rules
 
@@ -80,7 +80,7 @@ Here are some example theming rules. The  `scope` property lists the rules scope
         "entity.name.method - source.java"
     ],
     "settings": {
-        "foreground": "#8ab1b0",
+        "foreground": "#8ab1b0"
     }
 }
 ```
@@ -90,14 +90,14 @@ Here are some example theming rules. The  `scope` property lists the rules scope
 - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but are not inside a parent scope that matches `source.java`
 - Learn more about scope selectors [here](https://manual.macromates.com/en/scope_selectors).
 
-You can use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
+You can use the **Developer: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
 
 ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 
 ## Create a new color theme
 
 - Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
-- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generated a new theme extension.
+- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension.
 - If you customized a theme as described above, select 'Start fresh'.
 
 ![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)
@@ -120,7 +120,7 @@ You can use the **Developer Tools: Inspect TM Scopes** command from the **Comman
 }
 ```
 
->**Tip:** [ColorSublime](http://colorsublime.com) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"http://colorsublime.com/theme/download/(number)"`
+>**Tip:** [ColorSublime](https://colorsublime.github.io) has hundreds of existing TextMate themes to choose from.  Pick a theme you like and copy the Download link to use in the Yeoman generator or into your extension. It will be in a format like `"https://raw.githubusercontent.com/Colorsublime/Colorsublime-Themes/master/themes/(name).tmTheme"`
 
 ## Test a new color theme
 
@@ -130,7 +130,7 @@ Open the Color Theme picker theme with **File** > **Preferences** > **Color Them
 
 ![select my theme](images/themes-snippets-colorizers/mytheme.png)
 
-After making changes to any theme file, it is necessary reload VS Code with `Reload Window`.
+After making changes to any theme file, it is necessary to reload VS Code with `Reload Window`.
 
 ## Publishing a Theme to the Extension Marketplace
 

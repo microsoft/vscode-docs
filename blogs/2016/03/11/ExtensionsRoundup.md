@@ -42,7 +42,7 @@ Create a `launch.json` file in `.vscode` folder and add the following:
           "name": "Ruby Debug",
           "type": "Ruby",
           "request": "launch",
-          "program": "${workspaceRoot}/hello_world.rb",
+          "program": "${workspaceFolder}/hello_world.rb",
           "stopOnEntry": false
       }
   ]
@@ -53,19 +53,19 @@ Create a `launch.json` file in `.vscode` folder and add the following:
 
 Below is an example session debugging a simple Hello World Ruby script. You can see setting a breakpoint, starting the debugger, hitting the breakpoint, and single stepping through the code.
 
-![Ruby Debugging](2016_03_11_ruby_debugging.gif)
+![Ruby Debugging](ruby_debugging.gif)
 
 ## yo by Sam Verschueren
 
 This extension lets you use the Yeoman scaffolding tool from within VS Code in the Command Palette. Your installed Yeoman generators are displayed in a drop down and you answer the Yeoman terminal prompts right from within VS Code. [See more details at the Marketplace](https://marketplace.visualstudio.com/items?itemName=samverschueren.yo).
 
-![Yo Demo](2016_03_11_yo_demo.gif)
+![Yo Demo](yo_demo.gif)
 
 ## change-case by wmaurer
 
 Change the case of the currently selected word or selection. This [extension](https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case) is implemented as a wrapper around the [node-change-case](https://github.com/blakeembrey/node-change-case) npm module.
 
-![change-case demo](2016_03_11_change-case_demo.gif)
+![change-case demo](change-case_demo.gif)
 
 ## Subscribe
 

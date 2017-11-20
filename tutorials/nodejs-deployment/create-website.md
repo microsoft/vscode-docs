@@ -4,7 +4,7 @@ TOCTitle: Create the Website
 PageTitle: Create the Website
 MetaDescription:
 MetaSocialImage:
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 ShortDescription:
 ---
 # Create the Website
@@ -68,7 +68,7 @@ $ az webapp browse --name myExpressApp-chrisdias
 
 You should see something like this:
 
-![Empty Azure Website](nodejs-deployment_emptyazuresite.png)
+![Empty Azure Website](images/nodejs-deployment/emptyazuresite.png)
 
 ----
 

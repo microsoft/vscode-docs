@@ -4,9 +4,9 @@ Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in VS Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
-MetaSocialImage: nodejs_javascript_vscode.png
+MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
 # Using React in VS Code
 
@@ -141,14 +141,14 @@ We need to make one change for our example: change the port from `8080` to `3000
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "attach",
             "name": "Attach to Chrome",
             "port": 9222,
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }
@@ -165,6 +165,10 @@ You can step through your source code (`kb(workbench.action.debug.stepOver)`), i
 The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting. You can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
 
 ![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
+
+### Live editing and debugging
+
+If you are using [webpack](https://webpack.js.org/) together with your React app, you can have a more efficient workflow by taking advantage of webpack's HMR mechanism which enables you to have live editing and debugging directly from VS Code. You can learn more in this [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f) blog post.
 
 ## Linting
 

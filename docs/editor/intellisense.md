@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: IntelliSense
 ContentId: 80f4fa1e-d4c5-42cf-8b12-4b8e88c41c3e
 PageTitle: IntelliSense in Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription:  Learn about Visual Studio Code IntelliSense (intelligent code completion).
 ---
 
@@ -20,7 +20,7 @@ VS Code IntelliSense is provided for JavaScript, TypeScript, JSON, HTML, CSS, Le
 
 Below are the most popular language extensions in the [Marketplace](https://marketplace.visualstudio.com/vscode). Click on an extension tile below to read the description and reviews to decide which extension is best for you.
 
-<div class="marketplace-extensions-languages"></div>
+<div class="marketplace-extensions-languages-curated"></div>
 
 ## IntelliSense Features
 

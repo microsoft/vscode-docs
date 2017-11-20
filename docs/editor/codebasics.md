@@ -4,9 +4,9 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
-MetaSocialImage: codebasics_CodeBasics.png
+MetaSocialImage: images/codebasics/CodeBasics.png
 ---
 # Basic Editing
 
@@ -182,6 +182,18 @@ In addition to the default formatters, you can find extensions on the Marketplac
 
 You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Move the mouse over the gutter to fold and unfold regions. The folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
 
+Folding also supports region markers. Markers are defined by the language in the language configuration.
+
+The following languages currently have markers defined:
+
+* TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
+* C#: `#region` and `#endregion`
+* C/C++: `#pragma region` and `#pragma endregion`
+* F#: `//#region` and `//#endregion` and `(#region)` and (#endregion)`
+* Powershell: `#region` and `#endregion`
+* Python: `#region` and `#endregion`
+* VB: `#Region` and `#End Region`
+
 You can also use the following actions:
 
 * Fold (`kb(editor.fold)`) folds the innermost uncollapsed region at the cursor
@@ -257,12 +269,12 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: How do I turn on word wrap?**
 
-**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default `editor.wordwrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
+**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
-    "editor.wordwrap": "on"
+    "editor.wordWrap": "on"
 ```
 
-You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordwrap` value.
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordWrap` value.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -109,7 +109,7 @@ Warnings and Errors can provide Code Actions (also known as Quick Fixes) to help
 
 Now that you know how the editor works, time to try a few other things...
 
-* [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features. 
+* [Intro Video - Code Editing](/docs/introvideos/codeediting.md) - Watch an introductory video on code editing features.
 * [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
 * [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.

@@ -1,12 +1,12 @@
 ---
-Order: 14
+Order: 15
 Area: languages
 TOCTitle: C#
 ContentId: 40C8AAC1-C00D-4E91-8877-737A598346B6
 PageTitle: C# programming with Visual Studio Code
 DateApproved: 5/9/2016
 MetaDescription: Find out how to get the best out of Visual Studio Code and C#.
-MetaSocialImage: csharp_languages_csharp.png
+MetaSocialImage: images/csharp/languages_csharp.png
 ---
 # Working with C&#35;
 
@@ -27,9 +27,9 @@ Due to this focus, many standard C# project types are not recognized by VS Code.
 
 ## Installing C&#35; support
 
-C# language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). You can install it from within VS Code by searching for 'C#' in the **Extensions: Install Extension** dropdown (`kb(workbench.action.showCommands)` and type `ext install`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
+C# language support is an optional [install from the Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). You can install it from within VS Code by searching for 'C#' in the **Extensions** view (`kb(workbench.view.extensions)`) or if you already have a project with C# files, VS Code will prompt you to install the extension as soon as you open a C# file.
 
-[Video Tutorial on Getting Started with C# in VS Code with .NET Core](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-using-CSharp-and-NET-Core)
+[Video Tutorial on Getting Started with C# in VS Code with .NET Core](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows)
 
 In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), the community has produced other extensions.
 

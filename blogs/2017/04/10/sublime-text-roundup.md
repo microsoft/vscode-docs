@@ -2,7 +2,7 @@
 Order: 27
 TOCTitle: Sublime Text Extension Roundup
 PageTitle: Sublime Text Extension Roundup
-MetaDescription: Learn about VS Code extensions to add features that are missing from Sublime Text. 
+MetaDescription: Learn about VS Code extensions to add features that are missing from Sublime Text.
 Date: 2017-04-10
 ShortDescription: Learn about VS Code extensions to add features that are missing from Sublime Text.
 Author: Wade Anderson
@@ -59,7 +59,7 @@ Author - [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%
 
 You have memorized the keyboard shortcuts and you won't need to change your muscle memory to move to VS Code. This extension ports the most popular keyboard shortcuts from Sublime Text to VS Code.
 
-![sublime text keymap](2017_04_10_sublime_text_keymap.png)
+![sublime text keymap](sublime_text_keymap.png)
 
 > **Tip:** There are some conflicts with VS Code and Sublime Text keyboard shortcuts. Currently the extension chooses Sublime Text's shortcuts over VS Code's. This means that some VS Code keyboard shortcuts don't work the same after installing the extension (for example, `kbstyle(F5)` to debug). You can easily modify any shortcut yourself with **Preferences** > **Keyboard Shortcuts**.
 
@@ -71,7 +71,7 @@ Author - [Vittorio Romeo](https://marketplace.visualstudio.com/search?term=publi
 
 VS Code has existing support for expanding text selection, but this extension hits a nice sweet spot. Expand your selection to the scope incrementally, including for multiple cursors.
 
-![expand selection](2017_04_10_expand_selection.gif)
+![expand selection](expand_selection.gif)
 
 ## Close HTML / XML Tag
 
@@ -81,7 +81,7 @@ Author - [Compulim](https://marketplace.visualstudio.com/search?term=publisher%3
 
 Adds a keyboard shortcut to add the closing tag for XML and HTML.
 
-![close html xml tag](2017_04_10_close_html_xml_tag.gif)
+![close html xml tag](close_html_xml_tag.gif)
 
 ## Sublime Commands
 

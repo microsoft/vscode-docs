@@ -4,7 +4,6 @@ TOCTitle: April 2016
 PageTitle: Visual Studio Code April 2016 1.1
 MetaDescription: See what is new in the Visual Studio Code April 2016 Release (1.1)
 ---
-
 # April 2016 (1.1)
 
 The April 1.1 release is our first monthly release after announcing 1.0. We have been overwhelmed by the positive response to that release and the excitement in the community for VS Code and the rapidly growing ecosystem of new languages and extensions.

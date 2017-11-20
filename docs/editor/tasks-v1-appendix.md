@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 91d666bc-6f1a-4b9e-8476-4f1bcd24e75b
 PageTitle: Tasks Appendix
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -58,7 +58,7 @@ interface BaseTaskConfiguration {
 	 * Specifies whether a global command is a background task.
 	 */
 	isBackground?: boolean;
-	
+
 	/**
 	 * The command options used when the command is executed. Can be omitted.
 	 */
@@ -132,7 +132,7 @@ export interface CommandOptions {
 
 	/**
 	 * The current working directory of the executed program or shell.
-	 * If omitted Ticino's current workspace root is used.
+	 * If omitted the current workspace's root is used.
 	 */
 	cwd?: string;
 
@@ -173,7 +173,7 @@ export interface TaskDescription {
 	 * Whether the executed command is kept alive and runs in the background.
 	 */
 	isBackground?: boolean;
-	
+
 	/**
 	 * Controls whether the output view of the running tasks is brought to front or not.
 	 * See BaseTaskConfiguration#showOutput for details.

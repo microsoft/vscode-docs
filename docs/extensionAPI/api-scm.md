@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Source Control API
 ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
 PageTitle: Visual Studio Code Source Control API
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
 # Source Control in VS Code
@@ -121,6 +121,12 @@ When creating them, `SourceControl` and `SourceControlResourceGroup` instances r
   "when": "scmProvider == git && scmResourceGroup == merge",
   "group": "inline"
 }
+```
+
+The `scm/change/title` allows you to contribute commands to the title bar of an inline change. The command will be passed as arguments the URI of the document, the array of changes within it, and the index of the change which the inline change affordance is currently focused on. For example, here's the declaration of the `stageChange` Git command, which is contributed to this menu:
+
+```ts
+async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;
 ```
 
 ### SCM Input Box

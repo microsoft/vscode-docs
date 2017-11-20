@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Tasks Appendix
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -20,7 +20,7 @@ interface TaskConfiguration extends BaseTaskConfiguration {
     /**
      * The configuration's version number
      */
-    version: "0.2.0";
+    version: "2.0.0";
 
     /**
      * Windows specific task configuration
@@ -56,7 +56,7 @@ interface BaseTaskConfiguration {
      * Specifies whether a global command is a background task.
      */
     isBackground?: boolean;
-    
+
     /**
      * The command options used when the command is executed. Can be omitted.
      */
@@ -94,7 +94,7 @@ export interface CommandOptions {
 
     /**
      * The current working directory of the executed program or shell.
-     * If omitted Ticino's current workspace root is used.
+     * If omitted the current workspace's root is used.
      */
     cwd?: string;
 
@@ -106,9 +106,9 @@ export interface CommandOptions {
 
     /**
       * Configuration of the shell when task type is `shell`
-      */    
+      */
      shell: {
-         
+
         /**
         * The shell to use.
         */
@@ -130,7 +130,7 @@ interface TaskDescription {
     /**
      * The task's name
      */
-    taskName: string;
+    label: string;
 
     /**
      * The type of a custom task. Tasks of type "shell" are executed
@@ -148,7 +148,7 @@ interface TaskDescription {
      * Whether the executed command is kept alive and runs in the background.
      */
     isBackground?: boolean;
-    
+
     /**
      * Additional arguments passed to the command. Should be used if type
      * is "process".

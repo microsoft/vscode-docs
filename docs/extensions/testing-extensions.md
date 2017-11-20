@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Testing Extensions
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Testing Visual Studio Code Extensions
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
 # Testing Your Extension
@@ -47,10 +47,10 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
     "type": "extensionHost",
     "request": "launch",
     "runtimeExecutable": "${execPath}",
-    "args": ["--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
+    "args": ["--extensionDevelopmentPath=${workspaceFolder}", "--extensionTestsPath=${workspaceFolder}/out/test" ],
     "stopOnEntry": false,
     "sourceMaps": true,
-    "outFiles": ["${workspaceRoot}/out/test/**/*.js"],
+    "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
     "preLaunchTask": "npm"
 }
 ```
@@ -60,7 +60,7 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
 You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
 
 ```json
-"args": ["file or folder name", "--extensionDevelopmentPath=${workspaceRoot}", "--extensionTestsPath=${workspaceRoot}/out/test" ],
+"args": ["file or folder name", "--extensionDevelopmentPath=${workspaceFolder}", "--extensionTestsPath=${workspaceFolder}/out/test" ],
 ```
 
 This way you can run your tests with predictable content and folder structure.
@@ -92,7 +92,7 @@ To enable this test command, open your `package.json` and add the following entr
 
 You can then enable Travis CI easily with a top-level `.travis.yml` configuration like this:
 
-```yml
+```yaml
 sudo: false
 
 os:

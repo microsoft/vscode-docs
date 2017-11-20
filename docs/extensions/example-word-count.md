@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Word Count
 ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
 PageTitle: Visual Studio Code Example - Word Count Extension
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
 
@@ -109,7 +109,7 @@ class WordCounter {
             // Update the status bar
             this._statusBarItem.text = wordCount !== 1 ? `${wordCount} Words` : '1 Word';
             this._statusBarItem.show();
-        } else { 
+        } else {
             this._statusBarItem.hide();
         }
     }
@@ -185,7 +185,7 @@ class WordCounterController {
 }
 ```
 
-We no longer want the Word Count extension to be loaded when a command is invoked but instead be available for each *Markdown* file. 
+We no longer want the Word Count extension to be loaded when a command is invoked but instead be available for each *Markdown* file.
 
 First, replace the body of the `activate` function with this:
 
@@ -230,7 +230,7 @@ Run the extension by either doing a window reload `kbstyle(Ctrl+R)` or with `kb(
 
 ![Word Count Updating on Events](images/example-word-count/wordcountevent2.gif)
 
-If you set a breakpoint on the `activate` function, you'll notice that it is only called once when the first Markdown file is opened.  The `WordCountController` constructor runs and subscribes to the editor events so that the `updateWordCount` function is called as Markdown files are opened and their text changes. 
+If you set a breakpoint on the `activate` function, you'll notice that it is only called once when the first Markdown file is opened.  The `WordCountController` constructor runs and subscribes to the editor events so that the `updateWordCount` function is called as Markdown files are opened and their text changes.
 
 ## Customizing the Status Bar
 

@@ -1,10 +1,10 @@
 ---
-Order: 11
+Order: 12
 Area: editor
 TOCTitle: Creating your own Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own Snippets in Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own Snippets
@@ -13,11 +13,9 @@ Code snippets are templates that make it easier to enter repeating code patterns
 
 Snippets show in IntelliSense (`kb(editor.action.triggerSuggest)`) mixed with other suggestions as well as in a dedicated snippet picker (**Insert Snippet** in the Command Palette). There is also support for tab-completion: Enable it with `"editor.tabCompletion": true`, type a *snippet prefix*, and press `kb(insertSnippet)` to insert a snippet.
 
-The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'regular expression replacements', 'interpolated shell code' and 'transformations', which are not supported.
+The snippet syntax follows the [TextMate snippet syntax](https://manual.macromates.com/en/snippets) with the exception of 'interpolated shell code', which is not supported.
 
-<video id="snippets-showcase" src="https://az754404.vo.msecnd.net/public/snippets_showcase.mp4" placeholder="/images/userdefinedsnippets_snippets_placeholder.png" autoplay loop controls muted>
-    Sorry you're browser doesn't support HTML 5 video.
-</video>
+![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
 
 ## Add Snippets from the Marketplace
 
@@ -67,7 +65,7 @@ The `body` of a snippet can use special constructs to control cursors and the te
 
 ### Tabstops
 
-With tabstops you can make the editor cursor move inside a snippet. Use `$1`, `$2` to specify cursor locations. The number is the order in which tabstops will be visited, whereas `$0` denotes the final cursor position. Multiple tabstops are linked and updated in sync.
+With tabstops, you can make the editor cursor move inside a snippet. Use `$1`, `$2` to specify cursor locations. The number is the order in which tabstops will be visited, whereas `$0` denotes the final cursor position. Multiple tabstops are linked and updated in sync.
 
 ### Placeholders
 
@@ -79,7 +77,9 @@ Placeholders can have choices as values. The syntax is a comma separated enumera
 
 ### Variables
 
-With `$name` or `${name:default}` you can insert the value of a variable. When a variable isn’t set its *default* or the empty string is inserted. When a variable is unknown (that is, its name isn’t defined) the name of the variable is inserted and it is transformed into a placeholder. The following variables can be used:
+With `$name` or `${name:default}` you can insert the value of a variable. When a variable isn’t set, its *default* or the empty string is inserted. When a variable is unknown (that is, its name isn’t defined) the name of the variable is inserted and it is transformed into a placeholder.
+
+The following variables can be used:
 
 * `TM_SELECTED_TEXT` The currently selected text or the empty string
 * `TM_CURRENT_LINE` The contents of the current line
@@ -91,16 +91,49 @@ With `$name` or `${name:default}` you can insert the value of a variable. When a
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
 
+### Variable Transforms
+
+Transformations allow you to modify the value of a variable before it is inserted. The definition of a transformation consists of three parts:
+
+1. A regular expression that is matched against the value of a variable, or the empty string when the variable cannot be resolved.
+2. A "format string" that allows to reference matching groups from the regular expression. The format string allows for conditional inserts and simple modifications.
+3. Options that are passed to the regular expression.
+
+The following example inserts the name of the current file without its ending, so from `foo.txt` it makes `foo`.
+
+```
+${TM_FILENAME/(.*)\\..+$/$1/}
+  |           |         | |
+  |           |         | |-> no options
+  |           |         |
+  |           |         |-> references the contents of the first
+  |           |             capture group
+  |           |
+  |           |-> regex to capture everything before
+  |               the final `.suffix`
+  |
+  |-> resolves to the filename
+```
+
 ### Grammar
 
-Below is the EBNF for snippets. With `\` (backslash), you can escape `$`, `}` and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
+Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form)) for snippets. With `\` (backslash), you can escape `$`, `}` and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
 
 ```
 any         ::= tabstop | placeholder | choice | variable | text
 tabstop     ::= '$' int | '${' int '}'
 placeholder ::= '${' int ':' any '}'
 choice      ::= '${' int '|' text (',' text)* '|}'
-variable    ::= '$' var | '${' var }' | '${' var ':' any '}'
+variable    ::= '$' var | '${' var }'
+                | '${' var ':' any '}'
+                | '${' var '/' regex '/' (format | text)+ '/' options '}'
+format      ::= '$' int | '${' int '}'
+                | '${' int ':' '/upcase' | '/downcase' | '/capitalize' '}'
+                | '${' int ':+' if '}'
+                | '${' int ':?' if ':' else '}'
+                | '${' int ':-' else '}' | '${' int ':' else '}'
+regex       ::= JavaScript Regular Expression value (ctor-string)
+options     ::= JavaScript Regular Expression option (ctor-options)
 var         ::= [_a-zA-Z] [_a-zA-Z0-9]*
 int         ::= [0-9]+
 text        ::= .*

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -181,7 +181,7 @@ Find colors depend on the current find string in the Find/Replace dialog.
 
 - `editor.findMatchBackground`: Color of the current search match.
 - `editor.findMatchHighlightBackground`: Color of the other search matches.
-- `editor.findRangeHighlightBackground`: Color the range limiting the search.
+- `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget)
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
@@ -206,7 +206,7 @@ The range highlight is visible when selecting a search result.
 
 ![Range Highlight](images/theme-color-reference/rangehighlight.png)
 
-- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by Quick Open and Find features.
+- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by like by the Quick Open, Symbol in File and Find features.
 
 To see the editor white spaces, enable **Toggle Render Whitespace**.
 
@@ -239,7 +239,7 @@ This ruler is located beneath the scrollbar on the right edge of the editor and 
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
 - `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches.
-- `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for range highlights.
+- `editorOverviewRuler.rangeHighlightForeground`: Overview ruler marker color for highlighted ranges, like by the Quick Open, Symbol in File and Find features.
 - `editorOverviewRuler.selectionHighlightForeground`: Overview ruler marker color for selection highlights.
 - `editorOverviewRuler.wordHighlightForeground`: Overview ruler marker color for symbol highlights.
 - `editorOverviewRuler.wordHighlightStrongForeground`: Overview ruler marker color for write-access symbol highlights.
@@ -256,6 +256,8 @@ Errors and warnings:
 - `editorError.border`: Border color of error squigglies in the editor.
 - `editorWarning.foreground`: Foreground color of warning squigglies in the editor.
 - `editorWarning.border`: Border color of warning squigglies in the editor.
+- `editorInfo.foreground`: Foreground color of info squigglies in the editor.
+- `editorInfo.border`: Border color of info squigglies in the editor.
 
 The gutter contains the glyph margins and the line numbers:
 
@@ -299,6 +301,7 @@ The editor marker view shows when navigating to errors and warnings in the edito
 - `editorMarkerNavigation.background`: Editor marker navigation widget background.
 - `editorMarkerNavigationError.background`: Editor marker navigation widget error color.
 - `editorMarkerNavigationWarning.background`: Editor marker navigation widget warning color.
+- `editorMarkerNavigationInfo.background`: Editor marker navigation widget info color.
 
 ## Peek View Colors
 
@@ -430,3 +433,10 @@ Notifications slide in from the top of the workbench.
 - `welcomePage.buttonHoverBackground`: Hover background color for the buttons on the Welcome page.
 - `walkThrough.embeddedEditorBackground`: Background color for the embedded editors on the Interactive Playground.
 
+## Git Colors
+
+- `gitDecoration.modifiedResourceForeground`: Color for modified git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.deletedResourceForeground`: Color for deleted git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.untrackedResourceForeground`: Color for untracked git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.ignoredResourceForeground`: Color for ignored git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.conflictingResourceForeground`: Color for conflicting git resources. Used file labels and the SCM viewlet.

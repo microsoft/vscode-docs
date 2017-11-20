@@ -24,7 +24,7 @@ Publisher - [Shan Khan](https://marketplace.visualstudio.com/search?term=publish
 
 Do you use VS Code on multiple machines and wish you could easily share settings? Even using VS Code in a VM on the same machine will make it so your settings, snippets, etc. aren't the same. This extension solves this synchronization problem and is one of the highest rated in the Marketplace. The extension uses a private Gist on GitHub to share your VS Code settings, snippets, keybindings, etc across different machines. You can also make the Gist public to share your settings with others.
 
-![setting sync](2016_12_12_settings_sync.png)
+![setting sync](settings_sync.png)
 
 ## Themes Galore
 
@@ -37,7 +37,7 @@ Some of my favorite themes are:
 - [Hopscotch (Official)](https://marketplace.visualstudio.com/items?itemName=idleberg.hopscotch) from [idleberg](https://marketplace.visualstudio.com/search?term=publisher%3A%22idleberg%22&target=VSCode&sortBy=Relevance)
 - [One Monokai Theme](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai) from [Joshua Azemoh](https://marketplace.visualstudio.com/search?term=publisher%3A%22Joshua%20Azemoh%22&target=VSCode&sortBy=Relevance)
 
-![animation showing my favorite themes](2016_12_12_theme-preview.gif)
+![animation showing my favorite themes](theme-preview.gif)
 
 > **Tip:** Color themes are tagged `color-theme` on their Marketplace page.
 
@@ -68,7 +68,7 @@ When you start using a new library or framework, check the Marketplace to see if
 
 Many language extensions come with snippets included.
 
-- [Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) from [Don Jayamanne](https://marketplace.visualstudio.com/search?term=publisher%3A%22Don%20Jayamanne%22&target=VSCode&sortBy=Relevance)
+- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Power Shell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)
 - [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby) from [Peng Lv](https://marketplace.visualstudio.com/search?term=publisher%3A%22Peng%20Lv%22&target=VSCode&sortBy=Relevance)
 - [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from [Microsoft](https://marketplace.visualstudio.com/search?term=publisher%3A%22Microsoft%22&target=VSCode&sortBy=Relevance)

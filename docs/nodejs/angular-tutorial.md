@@ -4,9 +4,9 @@ Area: nodejs
 TOCTitle: Angular Tutorial
 ContentId: f6b7b0c2-ccbe-4e5f-8f2e-6c1ecea52f69
 PageTitle: Angular JavaScript Tutorial in VS Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Angular JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
-MetaSocialImage: nodejs_javascript_vscode.png
+MetaSocialImage: images/angular/Welcome-to-app.png
 ---
 # Using Angular in VS Code
 
@@ -136,14 +136,14 @@ We need to make one change for our example: change the port from `8080` to `4200
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceFolder}"
         },
         {
             "type": "chrome",
             "request": "attach",
             "name": "Attach to Chrome",
             "port": 9222,
-            "webRoot": "${workspaceRoot}"
+            "webRoot": "${workspaceFolder}"
         }
     ]
 }

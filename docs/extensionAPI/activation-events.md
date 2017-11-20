@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Activation Events
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
 PageTitle: Visual Studio Code Activation Events - package.json
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events in the package.json extension manifest file.
 ---
 
@@ -14,7 +14,7 @@ Extensions are activated lazily in VS Code.  As a result you need to provide VS 
 
 * [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage)
 * [`onCommand:${command}`](/docs/extensionAPI/activation-events.md#activationeventsoncommand)
-* [`onDebug:${type}`](/docs/extensionAPI/activation-events.md#activationeventsondebug)
+* [`onDebug`](/docs/extensionAPI/activation-events.md#activationeventsondebug)
 * [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
 * [`onView:${viewId}`](/docs/extensionAPI/activation-events.md#activationeventsonview)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
@@ -47,12 +47,12 @@ This activation event is emitted and interested extensions will be activated whe
 
 ## activationEvents.onDebug
 
-This activation event is emitted and interested extensions will be activated whenever a debug session of the specified type is started:
+This activation event is emitted and interested extensions will be activated before a debug session is started:
 
 ```json
 ...
 "activationEvents": [
-    "onDebug:node"
+    "onDebug"
 ]
 ...
 ```

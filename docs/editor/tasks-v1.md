@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: 8cdc7d99-6339-49ac-9a31-55f6563fab5c
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 # Tasks 0.1.0
@@ -164,10 +164,10 @@ For example to bind `ctrl+h` to the `build` task from above, add the following t
 
 When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json`  file and has the following predefined variables:
 
-- **${workspaceRoot}** the path of the folder opened in VS Code
-- **${workspaceRootFolderName}** the name of the folder opened in VS Code without any slashes (/)
+- **${workspaceFolder}** the path of the folder opened in VS Code
+- **${workspaceFolderBasename}** the name of the folder opened in VS Code without any slashes (/)
 - **${file}** the current opened file
-- **${relativeFile}** the current opened file relative to `workspaceRoot`
+- **${relativeFile}** the current opened file relative to `workspaceFolder`
 - **${fileBasename}** the current opened file's basename
 - **${fileBasenameNoExtension}** the current opened file's basename without the extension
 - **${fileDirname}** the current opened file's dirname

@@ -4,7 +4,7 @@ TOCTitle: Create the Application
 PageTitle: Create the Application
 MetaDescription:
 MetaSocialImage:
-DateApproved: 9/7/2017
+DateApproved: 10/5/2017
 ShortDescription:
 ---
 # Create your Node.js Application
@@ -51,7 +51,7 @@ $ npm start
 
 Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
 
-![Running Express Application](nodejs-deployment_express.png)
+![Running Express Application](images/nodejs-deployment/express.png)
 
 ----
 

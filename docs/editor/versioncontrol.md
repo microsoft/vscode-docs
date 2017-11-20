@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in VS Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
 # Using Version Control in VS Code
@@ -15,11 +15,15 @@ Visual Studio Code has integrated source control and includes [Git](https://git-
 
 > **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
 
-## Switch SCM Providers
+## SCM Providers
 
-By default, VS Code has the Git source control provider enabled but you can install and switch to another SCM provider. Click the **More** (...) button in the **Source Control** view and you will see a command to **Switch SCM Provider...**. This brings up a list of currently installed SCM providers as well as a shortcut to **Install Additional SCM Providers...** from the **Extensions** view.
+VS Code has support for handling multiple Source Control providers simultaneously. For example, you can open multiple Git repositories alongside your TFS local workspace and seamlessly work across your projects. The **SOURCE CONTROL PROVIDERS** list of the **Source Control** view (`kb(workbench.view.scm)`) shows the detected providers and repositories and you can scope the display of your changes by selecting a specific provider.
 
-![switch SCM providers](images/versioncontrol/switch-scm-providers.png)
+![source control providers](images/versioncontrol/scm.png)
+
+If you would like to install an additional SCM provider, the **Install Additional SCM Providers...** command in the **Source Control** view **More** (...) dropdown will show a list of available SCM provider extensions.
+
+![install additional scm providers](images/versioncontrol/additional-scm-providers.png)
 
 ## Git support
 
@@ -93,9 +97,9 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 
 ## Merge Conflicts
 
-![Git merge](images/versioncontrol/merge.png)
+![Git merge](images/versioncontrol/merge-conflict.png)
 
-Merge conflicts are recognized by VS Code; we try to provide useful coloring markers to help you with resolving them. Once resolved, stage the conflicting file so you can commit those changes.
+Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
 
 ## Viewing Diffs
 

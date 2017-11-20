@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, Sass and Less support in VS Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
 # CSS, Sass and Less
@@ -13,59 +13,54 @@ Visual Studio Code has built-in support for editing style sheets in CSS `.css`, 
 
 <div class="marketplace-extensions-css-curated"></div>
 
-> Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
+> **Tip:** Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## IntelliSense
 
-We have support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
+VS Code has support for selectors, properties and values. Use `kb(editor.action.triggerSuggest)` to get a list of context specific options.
 
 ![IntelliSense in CSS](images/css/intellisense.png)
 
 Proposals contain extensive documentation, including a list of browsers that support the property. To see the full description text of the selected entry, use `kb(toggleSuggestionDetails)`.
 
-## Emmet snippets
-
-Emmet abbreviations are listed along with other suggestions and snippets in the editor auto-completion list.
-
->**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
-
-If you'd like to use CSS Emmet abbreviations with other languages, you can associate one of the Emmet modes (such as `css`, `html`) with other languages with the `emmet.includeLanguages` [setting](/docs/getstarted/settings.md). The setting takes a [language id](/docs/languages/overview.md#language-id) and associates it with the language id of an Emmet supported mode.
-
-For example, to use Emmet CSS abbreviations inside JavaScript:
-
-```json
-{
-    "emmet.includeLanguages": {
-        "javascript": "css"
-     }
-}
-```
-
-We also support [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
-
 ## Syntax coloring & color preview
 
-As you type, we provide syntax highlighting as well as in context preview of colors.
+As you type, there is syntax highlighting as well as in context preview of colors.
 
 ![Syntax and color](images/css/color.png)
 
->**Note:** You can hide VS Code's color previews by setting the corresponding `.colorDecorators.enable` [settings](/docs/getstarted/settings.md).
->```json
->    "css.colorDecorators.enable": false
->```
+Clicking on a color preview will launch the integrated color picker which supports configuration of hue, saturation and opacity.
+
+![Color picker in CSS](images/css/css-color-picker.png)
+
+> **Tip:** You can  trigger between different color modes by clicking on the color string at the top of the picker.
+
+You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md):
+
+```json
+"css.colorDecorators.enable": false
+```
+
+## Emmet snippets
+
+[Emmet abbreviation support](/docs/editor/emmet.md) is built into VS Code, suggestions are listed along with other suggestions and snippets in the editor auto-completion list.
+
+>**Tip:** See the CSS section of the [Emmet cheat sheet](https://docs.emmet.io/cheat-sheet) for valid abbreviations.
+
+VS Code also supports [User Defined Snippets](/docs/editor/userdefinedsnippets.md).
 
 ## Syntax Verification & Linting
 
-We support CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
+There is support for CSS version <= 2.1, Sass version <= 3.2 and Less version <= 2.3.
 
 >**Note:** You can disable VS Code's default CSS, Sass or Less validation by setting the corresponding `.validate` User or Workspace [setting](/docs/getstarted/settings.md) to false.
 >```json
->    "css.validate": false
+>"css.validate": false
 >```
 
 ## Go to Symbol in file
 
-Press `kb(workbench.action.gotoSymbol)`.
+You can quickly navigate to the relevant CSS symbol from any file by pressing `kb(workbench.action.gotoSymbol)`.
 
 ## Hovers
 
@@ -123,26 +118,9 @@ For the Less version of the above file, just change `$padding` to `@padding`.
 
 ### Step 3: Create tasks.json
 
-The next step is to set up the task configuration.  To do this open the **Command Palette** with `kb(workbench.action.showCommands)` and type in **Configure Task Runner**, press `kbstyle(Enter)` to select it. In the selection dialog that shows up, select `Others`.
+The next step is to set up the task configuration.  To do this, run **Tasks** > **Configure Tasks** and click **Create tasks.json file from templates**. In the selection dialog that shows up, select **Others**.
 
-This will create a sample `tasks.json` file in the workspace `.vscode` folder.  The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Less/Sass instead:
-
-```json
-// Less configuration
-{
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "taskName": "Less Compile",
-            "type": "shell",
-            "command": "lessc style.less style.css",
-            "group": "build"
-        }
-    ]
-}
-```
+This will create a sample `tasks.json` file in the workspace `.vscode` folder.  The initial version of file has an example to run an arbitrary command. We will modify that configuration for transpiling Sass/Less instead:
 
 ```json
 // Sass configuration
@@ -152,9 +130,26 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
     "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "Sass Compile",
+            "label": "Sass Compile",
             "type": "shell",
-            "command": "node-sass style.scss style.css",
+            "command": "node-sass styles.scss styles.css",
+            "group": "build"
+        }
+    ]
+}
+```
+
+```json
+// Less configuration
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Less Compile",
+            "type": "shell",
+            "command": "lessc styles.less styles.css",
             "group": "build"
         }
     ]
@@ -169,7 +164,7 @@ Since in more complex environments there can be more than one build task we prom
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
-If you want to make the task the default build task to run execute **Configure Default Build Task** from the global **Tasks** menu and select the corresponding **Sass** or **Less** task from the presented list.
+If you want to make the task the default build task to run execute **Configure Default Build Task...** from the global **Tasks** menu and select the corresponding **Sass** or **Less** task from the presented list.
 
 >**Note:** If your build fails or you see an error message such as "An output directory must be specified when compiling a directory", be sure the filenames in your `tasks.json` match the filenames on disk. You can always test your build by running `node-sass styles.scss styles.css` from the command line.
 

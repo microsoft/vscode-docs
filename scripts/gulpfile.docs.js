@@ -29,6 +29,7 @@ var areas = {
 	editor: new Area('User Guide', 'editor', true),
 	languages: new Area('Languages', 'languages', true),
 	nodejs: new Area('Node.js / JavaScript', 'nodejs', true),
+	python: new Area('Python', 'python', true),
 	extensions: new Area('Extension Authoring', 'extensions', true),
 	extensionapi: new Area('Extensibility Reference', 'extensionAPI', true),
 	supporting: new Area('Supporting', 'supporting', false),
@@ -45,7 +46,7 @@ gulp.task('copy-images', function () {
 	return es.merge([images, gifs])
 		.pipe(rename(function (path) { path.basename = path.dirname + '_' + path.basename; path.dirname = ''; }))
 		.pipe(rename({ dirname: '' }))
-		.pipe(gulp.dest(DEST_ROOT + '/client/assets'));
+		.pipe(gulp.dest(DEST_ROOT + '/client/assets/images'));
 ;})
 
 gulp.task('compile-docs', ['compile-docs-markdown', 'copy-images'], function () {

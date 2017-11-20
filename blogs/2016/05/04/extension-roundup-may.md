@@ -22,7 +22,7 @@ If you are new to VS Code extensions, check out the [docs](https://code.visualst
 
 The same folks who created the very popular [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension have published [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) for the Microsoft Edge browser. They were able to reuse the same debugger using the [Chrome Debugger protocol](https://developer.chrome.com/devtools/docs/debugger-protocol). You can learn more about the details in their recent [blog post](https://blogs.windows.com/msedgedev/2016/04/27/introducing-edge-diagnostics-adapter/).
 
-![debugger for edge](2016_05_04_debugger-for-edge.gif)
+![debugger for edge](debugger-for-edge.gif)
 
 ## SVG Viewer by cssho
 
@@ -30,7 +30,7 @@ The same folks who created the very popular [Debugger for Chrome](https://market
 
 This highly rated extension lets you view Scalable Vector Graphics (SVG) right from within VS Code. [See more details in the Marketplace](https://marketplace.visualstudio.com/items?itemName=cssho.vscode-svgviewer).
 
-![SVG viewer](2016_05_04_svg-viewer.gif)
+![SVG viewer](svg-viewer.gif)
 
 ## CodeMetrics by Kiss Tamas
 
@@ -38,7 +38,7 @@ This highly rated extension lets you view Scalable Vector Graphics (SVG) right f
 
 Curious if your TypeScript source code is getting a little too clever and hard for others to maintain? This [extension](https://marketplace.visualstudio.com/items?itemName=kisstkondoros.vscode-codemetrics) computes the complexity of your code and displays a rating in a CodeLens decoration in the editor. Clicking on the rating brings up the rules used to arrive at the complexity score.
 
-![complexity CodeLens](2016_05_04_complexity-codelens.gif)
+![complexity CodeLens](complexity-codelens.gif)
 
 ## npm IntelliSense by Christian Kohler
 
@@ -46,7 +46,7 @@ Curious if your TypeScript source code is getting a little too clever and hard f
 
 Bring quick auto completion into the editor for your workspace's npm modules with this handy [extension](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense).
 
-![npm IntelliSense](2016_05_04_auto-complete.gif)
+![npm IntelliSense](auto-complete.gif)
 
 ## Let us know what extensions you're using
 

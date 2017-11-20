@@ -1,10 +1,10 @@
 ---
-Order: 5
+Order: 6
 Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -82,7 +82,7 @@ The following examples customize editor settings for language modes `typescript`
   },
   "[markdown]": {
     "editor.formatOnSave": true,
-    "editor.wordwrap": "on",
+    "editor.wordWrap": "on",
     "editor.renderWhitespace": "all",
     "editor.acceptSuggestionOnEnter": "off"
   }
@@ -149,7 +149,7 @@ Below are the default settings and their values.
   //  - 'bounded' (wrap at minimum of viewport and `editor.wordWrapColumn`).
   "editor.wordWrap": "off",
 
-  // Configure glob patterns for excluding files and folders.
+  // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -184,7 +184,7 @@ Below are the default settings and their values.
   // Controls the display of line numbers. Possible values are 'on', 'off', and 'relative'. 'relative' shows the line count from the current cursor position.
   "editor.lineNumbers": "on",
 
-  // Columns at which to show vertical rulers
+  // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty
   "editor.rulers": [],
 
   // Characters that will be used as word separators when doing word related navigations or operations
@@ -369,6 +369,9 @@ Below are the default settings and their values.
   // Controls whether the editor should render the inline color decorators and color picker.
   "editor.colorDecorators": true,
 
+  // Enables the code action lightbulb
+  "editor.lightbulb.enabled": true,
+
   // Controls if the diff editor shows the diff side by side or inline
   "diffEditor.renderSideBySide": true,
 
@@ -384,11 +387,23 @@ Below are the default settings and their values.
   // Overrides editor colors and font style from the currently selected color theme.
   "editor.tokenColorCustomizations": {},
 
-
 // Workbench
+
+  // When enabled, will show the watermark tips when no editor is open.
+  "workbench.tips.enabled": true,
+
+  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
+  "workbench.startupEditor": "welcomePage",
 
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
+
+  // Controls the format of the label for an editor. Changing this setting can for example make it easier to understand the location of a file:
+  // - short:   'parent'
+  // - medium:  'workspace/src/parent'
+  // - long:    '/home/user/workspace/src/parent'
+  // - default: '.../parent', when another tab shares the same title, or the relative workspace path if tabs are disabled
+  "workbench.editor.labelFormat": "default",
 
   // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
   "workbench.editor.tabCloseButton": "right",
@@ -396,19 +411,19 @@ Below are the default settings and their values.
   // Controls if opened editors should show with an icon or not. This requires an icon theme to be enabled as well.
   "workbench.editor.showIcons": true,
 
-  // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
+  // Controls if opened editors show as preview. Preview editors are reused until they are kept (e.g. via double click or editing) and show up with an italic font style.
   "workbench.editor.enablePreview": true,
 
   // Controls if opened editors from Quick Open show as preview. Preview editors are reused until they are kept (e.g. via double click or editing).
   "workbench.editor.enablePreviewFromQuickOpen": true,
 
-  // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the current active one. Select 'first' or 'last' to open editors independently from the currently active one.
+  // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the currently active one. Select 'first' or 'last' to open editors independently from the currently active one.
   "workbench.editor.openPositioning": "right",
 
   // Controls if an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
   "workbench.editor.revealIfOpen": false,
 
-  // Controls if the number of recently used commands to keep in history for the command palette. Set to 0 to disable command history.
+  // Controls the number of recently used commands to keep in history for the command palette. Set to 0 to disable command history.
   "workbench.commandPalette.history": 50,
 
   // Controls if the last typed input to the command palette should be restored when opening it the next time.
@@ -420,8 +435,20 @@ Below are the default settings and their values.
   // Controls if opening settings also opens an editor showing all default settings.
   "workbench.settings.openDefaultSettings": true,
 
+  // Indicates the endpoint to use for the experimental settings search.
+  "workbench.settings.experimentalFuzzySearchEndpoint": "",
+
+  // Indicates the key to use for the experimental settings search.
+  "workbench.settings.experimentalFuzzySearchKey": "",
+
+  // Indicates the amount to boost the "literal" component of the query. Temporary.
+  "workbench.settings.experimentalFuzzySearchBoost": 10,
+
   // Controls the location of the sidebar. It can either show on the left or right of the workbench.
   "workbench.sideBar.location": "left",
+
+  // Controls the location of the panel. It can either show on the bottom or right of the workbench.
+  "workbench.panel.location": "bottom",
 
   // Controls the visibility of the status bar at the bottom of the workbench.
   "workbench.statusBar.visible": true,
@@ -431,12 +458,6 @@ Below are the default settings and their values.
 
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
-
-  // When enabled, will show the watermark tips when no editor is open.
-  "workbench.tips.enabled": true,
-
-  // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
-  "workbench.startupEditor": "welcomePage",
 
   // Specifies the color theme used in the workbench.
   "workbench.colorTheme": "Default Dark+",
@@ -473,13 +494,13 @@ Below are the default settings and their values.
   "window.zoomLevel": 0,
 
   // Controls the window title based on the active editor. Variables are substituted based on the context:
-  // ${activeEditorShort}: e.g. myFile.txt
-  // ${activeEditorMedium}: e.g. myFolder/myFile.txt
-  // ${activeEditorLong}: e.g. /Users/Development/myProject/myFolder/myFile.txt
-  // ${folderName}: e.g. myFolder
-  // ${folderPath}: e.g. /Users/Development/myFolder
-  // ${rootName}: e.g. myFolder1, myFolder2, myFolder3
-  // ${rootPath}: e.g. /Users/Development/myWorkspace
+  // ${activeEditorShort}: the file name (e.g. myFile.txt)
+  // ${activeEditorMedium}: the path of the file relative to the workspace folder (e.g. myFolder/myFile.txt)
+  // ${activeEditorLong}: the full path of the file (e.g. /Users/Development/myProject/myFolder/myFile.txt)
+  // ${folderName}: name of the workspace folder the file is contained in (e.g. myFolder)
+  // ${folderPath}: file path of the workspace folder the file is contained in (e.g. /Users/Development/myFolder)
+  // ${rootName}: name of the workspace (e.g. myFolder or myWorkspace)
+  // ${rootPath}: file path of the workspace (e.g. /Users/Development/myWorkspace)
   // ${appName}: e.g. VS Code
   // ${dirty}: a dirty indicator if the active editor is dirty
   // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
@@ -502,7 +523,7 @@ Below are the default settings and their values.
 
 // Files
 
-  // Configure glob patterns for excluding files and folders.
+  // Configure glob patterns for excluding files and folders. For example, the files explorer decides which files and folders to show or hide based on this setting.
   "files.exclude": {
     "**/.git": true,
     "**/.svn": true,
@@ -514,10 +535,10 @@ Below are the default settings and their values.
   // Configure file associations to languages (e.g. "*.extension": "html"). These have precedence over the default associations of the languages installed.
   "files.associations": {},
 
-  // The default character set encoding to use when reading and writing files.
+  // The default character set encoding to use when reading and writing files. This setting can be configured per language too.
   "files.encoding": "utf8",
 
-  // When enabled, will attempt to guess the character set encoding when opening files
+  // When enabled, will attempt to guess the character set encoding when opening files. This setting can be configured per language too.
   "files.autoGuessEncoding": false,
 
   // The default end of line character. Use \n for LF and \r\n for CRLF.
@@ -528,6 +549,9 @@ Below are the default settings and their values.
 
   // When enabled, insert a final new line at the end of the file when saving it.
   "files.insertFinalNewline": false,
+
+  // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
+  "files.trimFinalNewlines": false,
 
   // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
   "files.autoSave": "off",
@@ -582,8 +606,20 @@ Below are the default settings and their values.
   // Controls if the explorer should allow to move files and folders via drag and drop.
   "explorer.enableDragAndDrop": true,
 
+  // Controls if the explorer should ask for confirmation to move files and folders via drag and drop.
+  "explorer.confirmDragAndDrop": true,
+
+  // Controls if the explorer should ask for confirmation when deleting a file via the trash.
+  "explorer.confirmDelete": true,
+
   // Controls sorting order of files and folders in the explorer. In addition to the default sorting, you can set the order to 'mixed' (files and folders sorted combined), 'type' (by file type), 'modified' (by last modified date) or 'filesFirst' (sort files before folders).
   "explorer.sortOrder": "default",
+
+// Controls if file decorations should use colors.
+  "explorer.decorations.colors": true,
+
+  // Controls if file decorations should use badges.
+  "explorer.decorations.badges": true,
 
 // Search
 
@@ -593,14 +629,20 @@ Below are the default settings and their values.
     "**/bower_components": true
   },
 
-  // Controls whether to use ripgrep in text search
+  // Controls whether to use ripgrep in text and file search
   "search.useRipgrep": true,
 
-  // Controls whether to use .gitignore and .ignore files by default when searching in a new workspace.
+  // Controls whether to use .gitignore and .ignore files by default when searching for text in a new workspace.
   "search.useIgnoreFilesByDefault": false,
+
+  // Controls whether to use .gitignore and .ignore files when searching for files.
+  "search.useIgnoreFiles": false,
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
+
+  // Controls whether to follow symlinks while searching.
+  "search.followSymlinks": true,
 
 // HTTP
 
@@ -618,195 +660,9 @@ Below are the default settings and their values.
   // Configure whether you receive automatic updates from an update channel. Requires a restart after change.
   "update.channel": "default",
 
-// CSS
-
-  // Controls CSS validation and problem severities.
-
-  // Enables or disables all validations
-  "css.validate": true,
-
-  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-  "css.lint.compatibleVendorPrefixes": "ignore",
-
-  // When using a vendor-specific prefix also include the standard property
-  "css.lint.vendorPrefix": "warning",
-
-  // Do not use duplicate style definitions
-  "css.lint.duplicateProperties": "ignore",
-
-  // Do not use empty rulesets
-  "css.lint.emptyRules": "warning",
-
-  // Import statements do not load in parallel
-  "css.lint.importStatement": "ignore",
-
-  // Do not use width or height when using padding or border
-  "css.lint.boxModel": "ignore",
-
-  // The universal selector (*) is known to be slow
-  "css.lint.universalSelector": "ignore",
-
-  // No unit for zero needed
-  "css.lint.zeroUnits": "ignore",
-
-  // @font-face rule must define 'src' and 'font-family' properties
-  "css.lint.fontFaceProperties": "warning",
-
-  // Hex colors must consist of three or six hex numbers
-  "css.lint.hexColorLength": "error",
-
-  // Invalid number of parameters
-  "css.lint.argumentsInColorFunction": "error",
-
-  // Unknown property.
-  "css.lint.unknownProperties": "warning",
-
-  // IE hacks are only necessary when supporting IE7 and older
-  "css.lint.ieHack": "ignore",
-
-  // Unknown vendor specific property.
-  "css.lint.unknownVendorSpecificProperties": "ignore",
-
-  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-  "css.lint.propertyIgnoredDueToDisplay": "warning",
-
-  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-  "css.lint.important": "ignore",
-
-  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-  "css.lint.float": "ignore",
-
-  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-  "css.lint.idSelector": "ignore",
-
-  // Traces the communication between VS Code and the CSS language server.
-  "css.trace.server": "off",
-
-// SCSS (Sass)
-
-  // Controls SCSS validation and problem severities.
-
-  // Enables or disables all validations
-  "scss.validate": true,
-
-  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-  "scss.lint.compatibleVendorPrefixes": "ignore",
-
-  // When using a vendor-specific prefix also include the standard property
-  "scss.lint.vendorPrefix": "warning",
-
-  // Do not use duplicate style definitions
-  "scss.lint.duplicateProperties": "ignore",
-
-  // Do not use empty rulesets
-  "scss.lint.emptyRules": "warning",
-
-  // Import statements do not load in parallel
-  "scss.lint.importStatement": "ignore",
-
-  // Do not use width or height when using padding or border
-  "scss.lint.boxModel": "ignore",
-
-  // The universal selector (*) is known to be slow
-  "scss.lint.universalSelector": "ignore",
-
-  // No unit for zero needed
-  "scss.lint.zeroUnits": "ignore",
-
-  // @font-face rule must define 'src' and 'font-family' properties
-  "scss.lint.fontFaceProperties": "warning",
-
-  // Hex colors must consist of three or six hex numbers
-  "scss.lint.hexColorLength": "error",
-
-  // Invalid number of parameters
-  "scss.lint.argumentsInColorFunction": "error",
-
-  // Unknown property.
-  "scss.lint.unknownProperties": "warning",
-
-  // IE hacks are only necessary when supporting IE7 and older
-  "scss.lint.ieHack": "ignore",
-
-  // Unknown vendor specific property.
-  "scss.lint.unknownVendorSpecificProperties": "ignore",
-
-  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-  "scss.lint.propertyIgnoredDueToDisplay": "warning",
-
-  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-  "scss.lint.important": "ignore",
-
-  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-  "scss.lint.float": "ignore",
-
-  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-  "scss.lint.idSelector": "ignore",
-
-// LESS
-
-  // Controls LESS validation and problem severities.
-
-  // Enables or disables all validations
-  "less.validate": true,
-
-  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
-  "less.lint.compatibleVendorPrefixes": "ignore",
-
-  // When using a vendor-specific prefix also include the standard property
-  "less.lint.vendorPrefix": "warning",
-
-  // Do not use duplicate style definitions
-  "less.lint.duplicateProperties": "ignore",
-
-  // Do not use empty rulesets
-  "less.lint.emptyRules": "warning",
-
-  // Import statements do not load in parallel
-  "less.lint.importStatement": "ignore",
-
-  // Do not use width or height when using padding or border
-  "less.lint.boxModel": "ignore",
-
-  // The universal selector (*) is known to be slow
-  "less.lint.universalSelector": "ignore",
-
-  // No unit for zero needed
-  "less.lint.zeroUnits": "ignore",
-
-  // @font-face rule must define 'src' and 'font-family' properties
-  "less.lint.fontFaceProperties": "warning",
-
-  // Hex colors must consist of three or six hex numbers
-  "less.lint.hexColorLength": "error",
-
-  // Invalid number of parameters
-  "less.lint.argumentsInColorFunction": "error",
-
-  // Unknown property.
-  "less.lint.unknownProperties": "warning",
-
-  // IE hacks are only necessary when supporting IE7 and older
-  "less.lint.ieHack": "ignore",
-
-  // Unknown vendor specific property.
-  "less.lint.unknownVendorSpecificProperties": "ignore",
-
-  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
-  "less.lint.propertyIgnoredDueToDisplay": "warning",
-
-  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
-  "less.lint.important": "ignore",
-
-  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
-  "less.lint.float": "ignore",
-
-  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
-  "less.lint.idSelector": "ignore",
-
 // Debug
 
-  // Allows setting breakpoint in any file
+// Allows setting breakpoint in any file
   "debug.allowBreakpointsEverywhere": false,
 
   // Automatically open explorer view on the end of a debug session
@@ -833,10 +689,10 @@ Below are the default settings and their values.
   "html.format.wrapLineLength": 120,
 
   // List of tags, comma separated, that shouldn't be reformatted. 'null' defaults to all tags listed at https://www.w3.org/TR/html5/dom.html#phrasing-content.
-  "html.format.unformatted": "a, abbr, acronym, b, bdo, big, br, button, cite, code, dfn, em, i, img, input, kbd, label, map, object, q, samp, select, small, span, strong, sub, sup, textarea, tt, var",
+  "html.format.unformatted": "wbr",
 
   // List of tags, comma separated, where the content shouldn't be reformatted. 'null' defaults to the 'pre' tag.
-  "html.format.contentUnformatted": "pre",
+  "html.format.contentUnformatted": "pre,code,textarea",
 
   // Indent <head> and <body> sections.
   "html.format.indentInnerHtml": false,
@@ -890,7 +746,6 @@ Below are the default settings and their values.
 
   // Traces the communication between VS Code and the JSON language server.
   "json.trace.server": "off",
-
 
 // Markdown
 
@@ -1081,11 +936,203 @@ Below are the default settings and their values.
   // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.
   "javascript.implicitProjectConfig.checkJs": false,
 
+  // Enable/disable 'experimentalDecorators' for JavaScript files that are not part of a project. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.
+  "javascript.implicitProjectConfig.experimentalDecorators": false,
+
   // Enable/disable including unique names from the file in JavaScript suggestion lists.
   "javascript.nameSuggestions": true,
 
-  // Controls whether auto detection of tsc tasks is on or off.
+  // Controls auto detection of tsc tasks. 'off' disables this feature. 'build' only creates single run compile tasks. 'watch' only creates compile and watch tasks. 'on' creates both build and watch tasks. Default is 'on'.
   "typescript.tsc.autoDetect": "on",
+
+// Enable/disable quick suggestions when typing out an import path.
+  "typescript.quickSuggestionsForPaths": true,
+
+  // Enable/disable auto import suggestions. Requires TypeScript >=2.6.1
+  "typescript.autoImportSuggestions.enabled": true,
+
+  // Sets the locale used to report TypeScript errors. Requires TypeScript >= 2.6.0. Default of 'null' uses VS Code's locale for TypeScript errors.
+  "typescript.locale": null,
+
+// CSS
+
+  // Enables or disables all validations
+  "css.validate": true,
+
+  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+  "css.lint.compatibleVendorPrefixes": "ignore",
+
+  // When using a vendor-specific prefix also include the standard property
+  "css.lint.vendorPrefix": "warning",
+
+  // Do not use duplicate style definitions
+  "css.lint.duplicateProperties": "ignore",
+
+  // Do not use empty rulesets
+  "css.lint.emptyRules": "warning",
+
+  // Import statements do not load in parallel
+  "css.lint.importStatement": "ignore",
+
+  // Do not use width or height when using padding or border
+  "css.lint.boxModel": "ignore",
+
+  // The universal selector (*) is known to be slow
+  "css.lint.universalSelector": "ignore",
+
+  // No unit for zero needed
+  "css.lint.zeroUnits": "ignore",
+
+  // @font-face rule must define 'src' and 'font-family' properties
+  "css.lint.fontFaceProperties": "warning",
+
+  // Hex colors must consist of three or six hex numbers
+  "css.lint.hexColorLength": "error",
+
+  // Invalid number of parameters
+  "css.lint.argumentsInColorFunction": "error",
+
+  // Unknown property.
+  "css.lint.unknownProperties": "warning",
+
+  // IE hacks are only necessary when supporting IE7 and older
+  "css.lint.ieHack": "ignore",
+
+  // Unknown vendor specific property.
+  "css.lint.unknownVendorSpecificProperties": "ignore",
+
+  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+  "css.lint.propertyIgnoredDueToDisplay": "warning",
+
+  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+  "css.lint.important": "ignore",
+
+  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+  "css.lint.float": "ignore",
+
+  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+  "css.lint.idSelector": "ignore",
+
+  // Traces the communication between VS Code and the CSS language server.
+  "css.trace.server": "off",
+
+// LESS
+
+  // Enables or disables all validations
+  "less.validate": true,
+
+  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+  "less.lint.compatibleVendorPrefixes": "ignore",
+
+  // When using a vendor-specific prefix also include the standard property
+  "less.lint.vendorPrefix": "warning",
+
+  // Do not use duplicate style definitions
+  "less.lint.duplicateProperties": "ignore",
+
+  // Do not use empty rulesets
+  "less.lint.emptyRules": "warning",
+
+  // Import statements do not load in parallel
+  "less.lint.importStatement": "ignore",
+
+  // Do not use width or height when using padding or border
+  "less.lint.boxModel": "ignore",
+
+  // The universal selector (*) is known to be slow
+  "less.lint.universalSelector": "ignore",
+
+  // No unit for zero needed
+  "less.lint.zeroUnits": "ignore",
+
+  // @font-face rule must define 'src' and 'font-family' properties
+  "less.lint.fontFaceProperties": "warning",
+
+  // Hex colors must consist of three or six hex numbers
+  "less.lint.hexColorLength": "error",
+
+  // Invalid number of parameters
+  "less.lint.argumentsInColorFunction": "error",
+
+  // Unknown property.
+  "less.lint.unknownProperties": "warning",
+
+  // IE hacks are only necessary when supporting IE7 and older
+  "less.lint.ieHack": "ignore",
+
+  // Unknown vendor specific property.
+  "less.lint.unknownVendorSpecificProperties": "ignore",
+
+  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+  "less.lint.propertyIgnoredDueToDisplay": "warning",
+
+  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+  "less.lint.important": "ignore",
+
+  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+  "less.lint.float": "ignore",
+
+  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+  "less.lint.idSelector": "ignore",
+
+// SCSS (Sass)
+
+  // Enables or disables all validations
+  "scss.validate": true,
+
+  // When using a vendor-specific prefix make sure to also include all other vendor-specific properties
+  "scss.lint.compatibleVendorPrefixes": "ignore",
+
+  // When using a vendor-specific prefix also include the standard property
+  "scss.lint.vendorPrefix": "warning",
+
+  // Do not use duplicate style definitions
+  "scss.lint.duplicateProperties": "ignore",
+
+  // Do not use empty rulesets
+  "scss.lint.emptyRules": "warning",
+
+  // Import statements do not load in parallel
+  "scss.lint.importStatement": "ignore",
+
+  // Do not use width or height when using padding or border
+  "scss.lint.boxModel": "ignore",
+
+  // The universal selector (*) is known to be slow
+  "scss.lint.universalSelector": "ignore",
+
+  // No unit for zero needed
+  "scss.lint.zeroUnits": "ignore",
+
+  // @font-face rule must define 'src' and 'font-family' properties
+  "scss.lint.fontFaceProperties": "warning",
+
+  // Hex colors must consist of three or six hex numbers
+  "scss.lint.hexColorLength": "error",
+
+  // Invalid number of parameters
+  "scss.lint.argumentsInColorFunction": "error",
+
+  // Unknown property.
+  "scss.lint.unknownProperties": "warning",
+
+  // IE hacks are only necessary when supporting IE7 and older
+  "scss.lint.ieHack": "ignore",
+
+  // Unknown vendor specific property.
+  "scss.lint.unknownVendorSpecificProperties": "ignore",
+
+  // Property is ignored due to the display. E.g. with 'display: inline', the width, height, margin-top, margin-bottom, and float properties have no effect
+  "scss.lint.propertyIgnoredDueToDisplay": "warning",
+
+  // Avoid using !important. It is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored.
+  "scss.lint.important": "ignore",
+
+  // Avoid using 'float'. Floats lead to fragile CSS that is easy to break if one aspect of the layout changes.
+  "scss.lint.float": "ignore",
+
+  // Selectors should not contain IDs because these rules are too tightly coupled with the HTML.
+  "scss.lint.idSelector": "ignore",
 
 // Extensions
 
@@ -1137,16 +1184,13 @@ Below are the default settings and their values.
   // Controls the font family of the terminal, this defaults to editor.fontFamily's value.
   "terminal.integrated.fontFamily": "",
 
-  // Controls whether font ligatures are enabled in the terminal.
-  "terminal.integrated.fontLigatures": false,
-
   // Controls the font size in pixels of the terminal.
   "terminal.integrated.fontSize": 14,
 
   // Controls the line height of the terminal, this number is multipled by the terminal font size to get the actual line-height in pixels.
-  "terminal.integrated.lineHeight": 1.2,
+  "terminal.integrated.lineHeight": 1,
 
-  // Whether to enable bold text within the terminal, this requires support from the terminal shell.
+  // Whether to enable bold text within the terminal, note that this requires support from the terminal shell.
   "terminal.integrated.enableBold": true,
 
   // Controls whether the terminal cursor blinks.
@@ -1187,8 +1231,16 @@ Below are the default settings and their values.
     "workbench.action.openNextRecentlyUsedEditorInGroup",
     "workbench.action.openPreviousRecentlyUsedEditorInGroup",
     "workbench.action.quickOpen",
+    "workbench.action.quickOpenPreviousEditor",
     "workbench.action.quickOpenView",
     "workbench.action.showCommands",
+    "workbench.action.tasks.build",
+    "workbench.action.tasks.restartTask",
+    "workbench.action.tasks.runTask",
+    "workbench.action.tasks.showLog",
+    "workbench.action.tasks.showTasks",
+    "workbench.action.tasks.terminate",
+    "workbench.action.tasks.test",
     "workbench.action.terminal.clear",
     "workbench.action.terminal.copySelection",
     "workbench.action.terminal.deleteWordLeft",
@@ -1221,7 +1273,8 @@ Below are the default settings and their values.
     "workbench.action.terminal.scrollUp",
     "workbench.action.terminal.scrollUpPage",
     "workbench.action.terminal.selectAll",
-    "workbench.action.terminal.toggleTerminal"
+    "workbench.action.terminal.toggleTerminal",
+    "workbench.action.togglePanel"
   ],
 
   // Object with environment variables that will be added to the VS Code process to be used by the terminal on OS X
@@ -1235,56 +1288,29 @@ Below are the default settings and their values.
 
 // Problems Panel
 
+  // Show Errors & Warnings on files and folder.
+  "problems.decorations.enabled": false,
+
   // Controls if Problems view should automatically reveal files when opening them
   "problems.autoReveal": true,
 
 // Telemetry
 
-  // Enable usage data and errors to be sent to Microsoft.
-  "telemetry.enableTelemetry": true,
-
   // Enable crash reports to be sent to Microsoft.
   // This option requires restart to take effect.
   "telemetry.enableCrashReporter": true,
 
-// Emmet
-
-  // Shows expanded emmet abbreviations as suggestions.
-  // The option "inMarkupAndStylesheetFilesOnly" applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
-  // The option "always" applies to all parts of the file regardless of markup/css.
-  "emmet.showExpandedAbbreviation": "always",
-
-  // Shows possible emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
-  "emmet.showAbbreviationSuggestions": true,
-
-  // Enable emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
-  //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
-  "emmet.includeLanguages": {},
-
-  // Variables to be used in emmet snippets
-  "emmet.variables": {},
-
-  // Define profile for specified syntax or use your own profile with specific rules.
-  "emmet.syntaxProfiles": {},
-
-  // An array of languages where emmet abbreviations should not be expanded.
-  "emmet.excludeLanguages": [
-    "markdown"
-  ],
-
-  // Path to a folder containing emmet profiles and snippets.'
-  "emmet.extensionsPath": null,
-
-  // When enabled, emmet abbreviations are expanded when pressing TAB.
-  "emmet.triggerExpansionOnTab": false,
-
-  // Preferences used to modify behavior of some actions and resolvers of Emmet.
-  "emmet.preferences": {},
-
-  // If true, then emmet suggestions will show up as snippets allowing you to order them as per editor.snippetSuggestions setting.
-  "emmet.showSuggestionsAsSnippets": false,
+  // Enable usage data and errors to be sent to Microsoft.
+  "telemetry.enableTelemetry": true,
 
 // Default Configuration Overrides
+
+  // Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
 
   // Configure editor settings to be overridden for [go] language.
   "[go]":  {
@@ -1314,6 +1340,71 @@ Below are the default settings and their values.
     "editor.insertSpaces": true,
     "editor.tabSize": 2
   },
+
+// Emmet
+
+  // Shows expanded Emmet abbreviations as suggestions.
+  // The option "inMarkupAndStylesheetFilesOnly" applies to html, haml, jade, slim, xml, xsl, css, scss, sass, less and stylus.
+  // The option "always" applies to all parts of the file regardless of markup/css.
+  "emmet.showExpandedAbbreviation": "always",
+
+  // Shows possible Emmet abbreviations as suggestions. Not applicable in stylesheets or when emmet.showExpandedAbbreviation is set to "never".
+  "emmet.showAbbreviationSuggestions": true,
+
+  // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
+  //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
+  "emmet.includeLanguages": {},
+
+  // Variables to be used in Emmet snippets
+  "emmet.variables": {},
+
+  // Define profile for specified syntax or use your own profile with specific rules.
+  "emmet.syntaxProfiles": {},
+
+  // An array of languages where Emmet abbreviations should not be expanded.
+  "emmet.excludeLanguages": [
+    "markdown"
+  ],
+
+  // Path to a folder containing Emmet profiles and snippets.'
+  "emmet.extensionsPath": null,
+
+  // When enabled, Emmet abbreviations are expanded when pressing TAB.
+  "emmet.triggerExpansionOnTab": false,
+
+  // Preferences used to modify behavior of some actions and resolvers of Emmet.
+  "emmet.preferences": {},
+
+  // If true, then Emmet suggestions will show up as snippets allowing you to order them as per editor.snippetSuggestions setting.
+  "emmet.showSuggestionsAsSnippets": false,
+
+// Grunt
+
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
+
+// Gulp
+
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
+
+// NPM
+  // Controls whether auto detection of npm scripts is on or off. Default is on.
+  "npm.autoDetect": "on",
+
+  // Run npm commands with the `--silent` option
+  "npm.runSilent": false,
+
+  // The package manager used to run scripts
+  "npm.packageManager": "npm",
+
+// Merge Conflict
+
+  // Enable/disable merge conflict block CodeLens within editor
+  "merge-conflict.codeLens.enabled": true,
+
+  // Enable/disable merge conflict decorators within editor
+  "merge-conflict.decorators.enabled": true,
 
 // Git
 
@@ -1353,35 +1444,12 @@ Below are the default settings and their values.
   // Enables commit signing with GPG.
   "git.enableCommitSigning": false,
 
-// Npm
-
-  // Controls whether auto detection of npm scripts is on or off. Default is on.
-  "npm.autoDetect": "on",
-
-  // Run npm commands with the `--silent` option
-  "npm.runSilent": false,
-
-// Merge Conflict
-
-  // Enable/disable merge conflict block CodeLens within editor
-  "merge-conflict.codeLens.enabled": true,
-
-  // Enable/disable merge conflict decorators within editor
-  "merge-conflict.decorators.enabled": true,
-
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
-
-// Gulp
-
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on",
+  // Controls if Git contributes colors and badges to the explorer and the open editors view.
+  "git.decorations.enabled": true,
 
 // Jake
 
-// Controls whether auto detection of Jake tasks is on or off. Default is on.
+  // Controls whether auto detection of Jake tasks is on or off. Default is on.
   "jake.autoDetect": "on"
 }
 ```

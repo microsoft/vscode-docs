@@ -1,10 +1,10 @@
 ---
-Order: 4
+Order: 5
 Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 # Color Themes
@@ -67,7 +67,7 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 
 ## Using existing TextMate Themes
 
-You can add existing TextMate color themes (.tmTheme) to VS Code. For example, the [Color Sublime](http://colorsublime.com/) site has hundreds of TextMate themes available. See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
+You can add existing TextMate color themes (.tmTheme) to VS Code. For example, the [ColorSublime](https://colorsublime.github.io/) site has hundreds of TextMate themes available. See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
 
 ## Icon Themes
 

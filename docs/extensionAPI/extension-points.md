@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -113,6 +113,7 @@ Currently extension writers can contribute to:
 * The [SCM title menu](/docs/extensionAPI/api-scm.md#menus) - `scm/title`
 * [SCM resource groups](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resourceGroup/context`
 * [SCM resources](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resource/context`
+* [SCM change title](/docs/extensionAPI/api-scm.md#menus) menus - `scm/change/title`
 * The [View title menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/title`
 * The [View item menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/item/context`
 
@@ -233,6 +234,9 @@ The `configuration` property specifies a path to the language configuration file
 * `brackets` - Defines the bracket symbols that influence the indentation of code between the brackets. Used by the editor to determine or correct the new indentation level when entering a new line.
 * `autoClosingPairs` - Defines the open and close symbols for the auto-close functionality. When an open symbol is entered, the editor will insert the close symbol automatically. Auto closing pairs optionally take a `notIn` parameter to deactivate a pair inside strings or comments.
 * `surroundingPairs` - Defines the open and close pairs used to surround a selected string.
+* `folding` - Defines when and how code should be folded in the editor
+  * `offSide` - Empty lines trailing a code section belong to the next folding section (used for indentation based languages such as Python or F#)
+  * `markers` - Regex for identifying markers for custom folding regions in the code
 
 If your language configuration file name is or ends with `language-configuration.json`, you will get validation and editing support in VS Code.
 
@@ -278,7 +282,14 @@ language-configuration.json
         ["(", ")"],
         ["<", ">"],
         ["'", "'"]
-    ]
+    ],
+    "folding": {
+        "offSide": true,
+        "markers": {
+            "start": "^\\s*//#region",
+            "end": "^\\s*//#endregion"
+        }
+    }
 }
 ```
 
@@ -331,7 +342,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/app.js"
+            "program": "${workspaceFolder}/app.js"
         }],
 
         "configurationSnippets": [
@@ -342,7 +353,7 @@ Contribute a debugger to VS Code. A debugger contribution has the following prop
                     "type": "node",
                     "request": "attach",
                     "name": "${2:Attach to Port}",
-                    "port": 5858
+                    "port": 9229
                 }
             }
         ],
@@ -476,7 +487,7 @@ Contribute problem matcher patterns. These contributions work in both the output
         {
             "name": "gcc",
             "owner": "cpp",
-            "fileLocation": ["relative", "${workspaceRoot}"],
+            "fileLocation": ["relative", "${workspaceFolder}"],
             "pattern": {
                 "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
                 "file": 1,

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -29,7 +29,7 @@ You can create multiple terminals open to different locations and easily navigat
 
 Remove terminal instances by pressing the trash can button.
 
->**Tip:** If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#key-bindings) to allow navigation between them using only the keyboard.
+>**Tip:** If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#terminal-key-bindings) to allow navigation between them using only the keyboard.
 
 ## Configuration
 
@@ -73,7 +73,7 @@ You can customize the integrated terminal font and line height with the followin
 * `terminal.integrated.fontSize`
 * `terminal.integrated.lineHeight`
 
-## Key Bindings
+## Terminal Key Bindings
 
 The **View: Toggle Integrated Terminal** command is bound to `kb(workbench.action.terminal.toggleTerminal)` to quickly toggle the integrated terminal panel in and out of view.
 
@@ -141,19 +141,26 @@ Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (
 
 While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default this includes all terminal key bindings in addition to a select few commonly used key bindings.
 
+## Next Steps
+
+The basics of the terminal have been covered in this document, read on to find out more about:
+
+* [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
+* [Mastering VS Code's Terminal](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+
 ## Common Questions
 
-### Why is VS Code shortcut X not working when the terminal has focus?
+**Q. Why is VS Code shortcut X not working when the terminal has focus?**
 
-Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
+**A:** Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
 
-### Integrated terminal exited with code 1 on Windows 10
+**Q: Integrated terminal exited with code 1 on Windows 10.**
 
-This can happen if you run VS Code in compatibility mode which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
+**A:** This can happen if you run VS Code in compatibility mode which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
 
-### Can I use Cmder with the terminal on Windows?
+**Q: Can I use Cmder's shell with the terminal on Windows?**
 
-Yes, to use the [Cmder](http://cmder.net/) console emulator in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents:
+**A:** Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents:
 
 ```bat
 @echo off
@@ -168,4 +175,12 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 "terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
 ```
 
-Note: The example above assumes you are running 32-bit VS Code on 64-bit Windows and need to use `sysnative`. If you are running the 64-bit version of VS Code, you would use `System32`.
+> **Note:** The example above assumes you are running 32-bit VS Code on 64-bit Windows and need to use `sysnative`. If you are running the 64-bit version of VS Code, you would use `System32`.
+
+**Q: Powershell on macOS is complaining about a "-l" argument, how do I fix it?**
+
+When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
+
+```js
+"terminal.integrated.shellArgs.osx": []
+```

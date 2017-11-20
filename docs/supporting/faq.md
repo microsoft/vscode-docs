@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 
@@ -50,7 +50,7 @@ To modify the update channel, go to **File** > **Preferences** > **Settings** an
 
 You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/updates).
 
->**Note:** On Linux: If the VS Code repository was installed corrected then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md#updates).
+>**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md#updates).
 
 ## Licensing
 

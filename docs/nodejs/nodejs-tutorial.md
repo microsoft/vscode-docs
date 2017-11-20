@@ -4,9 +4,9 @@ Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Build Node.js Apps with VS Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
-MetaSocialImage: nodejs_runtimes_node.png
+MetaSocialImage: images/nodejs/runtimes_node.png
 ---
 # Node.js Tutorial in VS Code
 
@@ -89,7 +89,7 @@ To set a breakpoint in `app.js`, put the editor cursor on the first line and pre
 
 ![app.js breakpoint set](images/nodejs/app-js-breakpoint-set.png)
 
-To start debugging, select the Debug View in the Side Bar:
+To start debugging, select the Debug View in the Activity Bar:
 
 ![Debug icon](images/nodejs/debugicon.png)
 
@@ -154,7 +154,7 @@ code .
 
 The [Node.js](https://nodejs.org/api/) and [Express](https://expressjs.com/api.html) documentation does a great job explaining how to build rich applications using the platform and framework. Visual Studio Code will make you more productive developing these types of applications by providing great code editing and navigation experiences.
 
-Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how VS Code understands what `__dirname` is. Even more interesting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
+Open the file `app.js` and hover over the Node.js global object `__dirname`. Notice how VS Code understands that `__dirname` is a string. Even more interesting, you can get full IntelliSense against the Node.js framework. For example, you can require `http` and get full IntelliSense against the `http` class as you type in Visual Studio Code.
 
 ![http IntelliSense](images/nodejs/intellisense.png)
 
@@ -166,7 +166,7 @@ You can also write code that references modules in other files. For example, in 
 
 ## Debugging your Express Application
 
-You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the **Activity Bar** and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Select the **Node.js** environment.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `${workspaceRoot}/bin/www`) for the **Launch Program** configuration. A second **Attach to Process** configuration is also created to show you how to attach to a running Node.js application.
+You will need to create a debugger configuration file `launch.json` for your Express application. Click on the Debug icon in the **Activity Bar** and then the Configure gear icon at the top of the Debug view to create a default `launch.json` file.  Select the **Node.js** environment by ensuring that the `type` property in `configurations` is set to `"node"`.  When the file is first created, VS Code will look in `package.json` for a `start` script and will use that value as the `program` (which in this case is `"${workspaceFolder}\\bin\\www`) for the **Launch Program** configuration.
 
 ```json
 {
@@ -176,14 +176,7 @@ You will need to create a debugger configuration file `launch.json` for your Exp
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceRoot}/bin/www",
-            "cwd": "${workspaceRoot}"
-        },
-        {
-            "type": "node",
-            "request": "attach",
-            "name": "Attach to Process",
-            "port": 5858
+            "program": "${workspaceFolder}\\bin\\www"
         }
     ]
 }

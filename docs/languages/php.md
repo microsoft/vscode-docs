@@ -1,10 +1,10 @@
 ---
-Order: 9
+Order: 10
 Area: languages
 TOCTitle: PHP
 ContentId: DD4E5A59-1586-4A5D-8047-3D58B2FE6937
 PageTitle: PHP Programming with Visual Studio Code
-DateApproved: 9/7/2017
+DateApproved: 11/8/2017
 MetaDescription: Learn about Visual Studio Code editor features (syntax highlighting, snippets, linting) and extensions for PHP.
 ---
 # PHP Programming in VS Code
@@ -13,7 +13,7 @@ Visual Studio Code is a great editor for PHP development. You get features like 
 
 ## PHP Extensions
 
-There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created.  You can search for PHP extensions from within VS Code by running the **Extensions: Install Extension** command (`kb(workbench.action.showCommands)` and type `ext install`) then filter the extensions drop down list by typing `php`.
+There are many PHP language extensions available on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) and more are being created.  You can search for PHP extensions from within VS Code in the **Extensions** view (`kb(workbench.view.extensions)`) then filter the extensions drop down list by typing `php`.
 
 <div class="marketplace-extensions-php"></div>
 
@@ -33,7 +33,7 @@ Visual Studio Code includes a set of common snippets for PHP.  To access these, 
 
 VS Code uses the official PHP linter (`php -l`) for PHP language diagnostics. This allows VS Code to stay current with PHP linter improvements.
 
-> Tip: Using XAMPP? Install the full version of PHP in order to obtain the development libraries. 
+> Tip: Using XAMPP? Install the full version of PHP in order to obtain the development libraries.
 
 There are three [settings](/docs/getstarted/settings.md) to control the PHP linter:
 
