@@ -184,3 +184,15 @@ When configuring the integrated terminal to use Powershell on macOS you may hit 
 ```js
 "terminal.integrated.shellArgs.osx": []
 ```
+
+**Q: How can I change my default Windows terminal back to PowerShell?**
+
+If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), you can remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openGlobalSettings)`).
+
+For example, if you have set your default terminal to bash, you will find `terminal.integrated.shell.windows` in your `settings.json` pointing to your bash location.
+
+```json
+"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\bash.exe",
+```
+
+Remove the entry to use the built-in VS Code default or set it to another shell executable path.
