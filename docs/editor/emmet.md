@@ -66,7 +66,7 @@ For example:
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can use the following setting.
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non HTML/CSS context. To avoid this you can use the following setting.
 
 ```json
 "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly"
@@ -103,7 +103,7 @@ Authoring of Custom Snippets in Emmet 2.0 via the `snippets.json` file differs f
 
 Topic | Old Emmet | Emmet 2.0
 ------ | -------- | ---------
-Snippets vs Abbreviations | Supports both in 2 separate properties called `snippets` and `abbreviations` | The 2 have been combined into a single property called snippets. See default [html snippets](https://github.com/emmetio/snippets/blob/master/html.json) and [css snippets](https://github.com/emmetio/snippets/blob/master/css.json)
+Snippets vs Abbreviations | Supports both in 2 separate properties called `snippets` and `abbreviations` | The 2 have been combined into a single property called snippets. See default [HTML snippets](https://github.com/emmetio/snippets/blob/master/html.json) and [CSS snippets](https://github.com/emmetio/snippets/blob/master/css.json)
 CSS snippet names | Can contain `:` | Do not use `:` when defining snippet names. It is used to separate property name and value when Emmet tries to fuzzy match the given abbreviation to one of the snippets.
 CSS snippet values | Can end with `;` | Do not add `;` at end of snippet value. Emmet will add the trailing `;` based on the file type (css/less/scss vs sass/stylus) or the emmet preference set for `css.propertyEnd`, `sass.propertyEnd`, `stylus.propertyEnd`
 Cursor location | `${cursor}` or `|` can be used | Use only textmate syntax like `${1}` for tab stops and cursor locations
@@ -281,7 +281,8 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 **Q: Any tips and tricks?**
 
 **A:** Of course!
-- In css abbreviations, when you use `:`, the left part is used to fuzzy match with the css property name and the right part is used to match with css property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b` etc.
-- Use the new command `Emmet: Wrap Individual Lines with Abbreviation` instead of `Emmet: Wrap with Abbreviation` when you want to each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.
+
+- In CSS abbreviations, when you use `:`, the left part is used to fuzzy match with the CSS property name and the right part is used to match with CSS property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b`, etc.
+- Use the new command **Emmet: Wrap Individual Lines with Abbreviation** instead of **Emmet: Wrap with Abbreviation** when you want to each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.
 - Explore all other Emmet features as documented in [Emmet Actions](https://docs.emmet.io/actions/).
-- Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets)
+- Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets).
