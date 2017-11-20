@@ -266,10 +266,22 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 
 ## Common Questions
 
-**Q. `@-` doesn't work for numbering in descending order.**
+**Q: `@-` doesn't work for numbering in descending order.**
 
 **A:** Use of `@-` to get numbering in descending order in repeaters is not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
 
 **Q: My HTML snippets ending with `+` does not work?**
 
 **A:** HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
+
+**Q: Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)**
+
+**A:** You can set the preferences using the setting `emmet.preferences`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
+
+**Q: Any tips and tricks?**
+
+**A:** Of course!
+- In css abbreviations, when you use `:`, the left part is used to fuzzy match with the css property name and the right part is used to match with css property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b` etc.
+- Use the new command `Emmet: Wrap Individual Lines with Abbreviation` instead of `Emmet: Wrap with Abbreviation` when you want to each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.
+- Explore all other Emmet features as documented in [Emmet Actions](https://docs.emmet.io/actions/).
+- Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets)
