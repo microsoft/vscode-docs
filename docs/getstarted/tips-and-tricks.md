@@ -602,7 +602,7 @@ Select a symbol then type `kb(editor.action.goToDeclaration)`. Alternatively, yo
 
 You can go back to your previous location with the **Go** > **Back** command or `kb(workbench.action.navigateBack)`.
 
-You can also see the type definition if you press `kbstyle(Ctrl+click)` (`kbstyle(Cmd+click)` on macOS) when you are hovering over the type.
+You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) when you are hovering over the type.
 
 ### Find All References
 
