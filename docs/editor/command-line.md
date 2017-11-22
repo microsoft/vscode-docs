@@ -19,9 +19,11 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 
 ```bash
 code .
-
+or
 code-insiders .
 ```
+
+**Note**: Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the Path/$PATH environment variable. For example on Windows, VS Code is installed under `Program Files\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
 ## Core CLI options
 
@@ -50,11 +52,13 @@ For both files and folders, you can use absolute or relative paths. Relative pat
 
 If you specify more than one file at the command line, VS Code will open only a single instance.
 
+If you specify more than one folder at the command line, VS Code will create a [Multi-root Workspace](/docs/editor/multi-root-workspace.md) including each folder.
+
 Argument|Description
 ------------------|-----------
 *file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
 *file:line[:character]* | Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line[:character]* specifier.
-*folder* | Name of a folder to open. You can specify multiple folders and there will be an instance for each folder.
+*folder* | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspace.md) is created.
 
 ## Working with extensions
 
