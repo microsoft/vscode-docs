@@ -210,18 +210,31 @@ Key|Command|Command id
 `kb(workbench.action.zoomReset)`|Reset Zoom|`workbench.action.zoomReset`
 `kb(workbench.action.toggleSidebarVisibility)`|Toggle Sidebar Visibility|`workbench.action.toggleSidebarVisibility`
 `kb(workbench.view.explorer)`|Show Explorer / Toggle Focus|`workbench.view.explorer`
-`kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
+`kb(workbench.view.search)`|Show Search|`workbench.view.search`
 `kb(workbench.view.scm)`|Show Source Control|`workbench.view.scm`
+`kb(workbench.view.debug)`|Show Debug|`workbench.view.debug`
 `kb(workbench.view.extensions)`|Show Extensions|`workbench.view.extensions`
 `kb(workbench.action.output.toggleOutput)`|Show Output|`workbench.action.output.toggleOutput`
 `kb(workbench.action.quickOpenView)`|Quick Open View|`workbench.action.quickOpenView`
-`kb(workbench.view.search)`|Show Search|`workbench.view.search`
-`kb(workbench.action.replaceInFiles)`|Replace in Files|`workbench.action.replaceInFiles`
-`kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
 `kb(workbench.action.terminal.openNativeConsole)`|Open New Command Prompt|`workbench.action.terminal.openNativeConsole`
 `kb(markdown.showPreview)`|Toggle Markdown Preview|`markdown.showPreview`
 `kb(markdown.showPreviewToSide)`|Open Preview to the Side|`markdown.showPreviewToSide`
 `kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
+
+## Search
+
+Key|Command|Command id
+---|-------|----------
+`kb(workbench.view.search)`|Show Search|`workbench.view.search`
+`kb(workbench.action.replaceInFiles)`|Replace in Files|`workbench.action.replaceInFiles`
+`kb(toggleSearchCaseSensitive)`|Toggle Match Case|`toggleSearchCaseSensitive`
+`kb(toggleSearchWholeWord)`|Toggle Match Whole Word|`toggleSearchWholeWord`
+`kb(toggleSearchRegex)`|Toggle Use Regular Expression|`toggleSearchRegex`
+`kb(workbench.action.search.toggleQueryDetails)`|Toggle Search Details|`workbench.action.search.toggleQueryDetails`
+`kb(search.action.focusNextSearchResult)`|Focus Next Search Result|`search.action.focusNextSearchResult`
+`kb(search.action.focusPreviousSearchResult)`|Focus Previous Search Result|`search.action.focusPreviousSearchResult`
+`kb(search.history.showNext)`|Show Next Search Term|`search.history.showNext`
+`kb(search.history.showPrevious)`|Show Previous Search Term|`search.history.showPrevious`
 
 ### Preferences
 
@@ -395,6 +408,7 @@ resourceLangId | True when the Explorer or editor title [language Id](/docs/lang
 resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 globalMessageVisible | Message box is visible at the top of VS Code.
 searchViewletVisible | Search view is open.
+sidebarVisible | Side Bar is displayed.
 replaceActive | Search view Replace text box is open.
 **Configuration settings contexts** |
 config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` is `true`.
