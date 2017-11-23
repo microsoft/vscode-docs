@@ -221,7 +221,7 @@ Key|Command|Command id
 `kb(markdown.showPreviewToSide)`|Open Preview to the Side|`markdown.showPreviewToSide`
 `kb(workbench.action.terminal.toggleTerminal)`|Toggle Integrated Terminal|`workbench.action.terminal.toggleTerminal`
 
-## Search
+### Search
 
 Key|Command|Command id
 ---|-------|----------
