@@ -51,11 +51,11 @@ For example:
 
 ## Environment variables in the interpreter path
 
-An environment variable can be used in the path setting using the syntax `${env.VARIABLE}`. For example:
+An environment variable can be used in the path setting using the syntax `${env:VARIABLE}`. For example:
 
 ```json
 {
-    "python.pythonPath": "${env.PYTHONPATH}/venv/bin/python"
+    "python.pythonPath": "${env:PYTHONPATH}/venv/bin/python"
 }
 ```
 
@@ -94,7 +94,7 @@ By default, the debugger uses the same `python.pythonPath` setting as for other 
     "request": "launch",
     "stopOnEntry": true,
     "program": "${file}",
-    "pythonPath": "${config.python.pythonPath}",
+    "pythonPath": "${config:python.pythonPath}",
     "debugOptions": [
         "WaitOnAbnormalExit",
         "WaitOnNormalExit",

@@ -34,7 +34,7 @@ Standard configuration for `launch.json`:
 {
     "name": "Python",
     "type": "python",
-    "pythonPath":"${config.python.pythonPath}",
+    "pythonPath":"${config:python.pythonPath}",
     "request": "launch",
     "stopOnEntry": true,
     "console": "none",
@@ -53,7 +53,7 @@ Custom configurations for various settings are described in the following sectio
 
 ### `pythonPath`
 
-Points to the Python interpreter to be used for debugging purposes. The standard configuration uses the interpreter identified in the `python.pythonPath` setting by referring to `${config.python.pythonPath}`. To use a different interpreter, specify its path instead.
+Points to the Python interpreter to be used for debugging purposes. The standard configuration uses the interpreter identified in the `python.pythonPath` setting by referring to `${config:.python.pythonPath}`. To use a different interpreter, specify its path instead.
 
 ### `program`
 

@@ -102,7 +102,7 @@ ColorSublime Batman Theme in 0.10.0:
 ![theme-0-10-0](images/0_10_0/theme-0-10-0.png)
 
 ## Environment Variable Substitution
-You can now reference environment variables directly in your `launch.json` and `tasks.json` files through `${env.Name}` (e.g. `${env.PATH}`).
+You can now reference environment variables directly in your `launch.json` and `tasks.json` files through `${env:Name}` (e.g. `${env:PATH}`).
 
 ## Language - PHP
 VS Code is now using the official PHP linter (`php -l`) for PHP language diagnostics. VS Code will now stay current with PHP linter improvements.
