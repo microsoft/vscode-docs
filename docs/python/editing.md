@@ -92,7 +92,7 @@ The following settings apply to the individual formatters. The Python extension 
 Example custom arguments:
 
 ```json
-"python.formatting.autopep8Args": ["--max-line-length 120", "--experimental"],
+"python.formatting.autopep8Args": ["--max-line-length=120", "--experimental"],
 "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]
 ```
 
