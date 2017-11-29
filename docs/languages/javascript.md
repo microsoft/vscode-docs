@@ -29,7 +29,7 @@ VS Code ships with the most stable version of the JavaScript language service. T
 
 ## Automatic Type Acquisition
 
-VS Code JavaScript IntelliSense for third-party libraries and modules is powered by `*.d.ts` type declaration (typings) files coming from the [npmjs](https://www.npmjs.com) type declaration file repository.
+VS Code JavaScript IntelliSense for third-party libraries and modules is powered by `*.d.ts` type declaration (typings) files coming from the [npmjs](https://www.npmjs.com) type declaration file repository and requires npm, the Node.js package manager, included with the [Node.js](https://nodejs.org) runtime.
 
 In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation, for a popular library called [lodash](https://lodash.com/).
 
@@ -57,9 +57,19 @@ Now when you `require` or `import` **lodash**, VS Code will use the automaticall
 
 ### Fixing NPM not installed warning for Automatic Type Acquisition
 
-Automatic Type Acquisition (ATA) uses [npm](https://www.npmjs.com) to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
+Automatic Type Acquisition (ATA) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
 
-If you have npm installed but still see a warning message, you can explicitly tell VS Code where npm is installed with the `"typescript.npm"` setting. This should be set to the full path of the npm executable on your machine, and this does not have to match the version of npm you are using to manage packages in your workspace. `typescript.npm` requires TypeScript 2.3.4+.
+A quick check that npm is installed and available is to run `npm --version` from a terminal or command prompt.
+
+npm is installed with the Node.js runtime, which is available for download from [Nodejs.org](https://nodejs.org). Install the current LTS (Long Term Support) version and the npm executable will be added by default to your system path.
+
+If you have npm installed but still see a warning message, you can explicitly tell VS Code where npm is installed with the `typescript.npm` [setting](/docs/getstarted/settings.md). This should be set to the full path of the npm executable on your machine, and this does not have to match the version of npm you are using to manage packages in your workspace. `typescript.npm` requires TypeScript 2.3.4+.
+
+For example on Windows, you would add a path like this to your `settings.json` file:
+
+```json
+  "typescript.npm": "C:\\Program Files\\nodejs\\npm.cmd"
+```
 
 ## JavaScript Project (jsconfig.json)
 
