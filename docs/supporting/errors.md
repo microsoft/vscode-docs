@@ -61,7 +61,7 @@ The fix is to use an absolute path or better use the `${workspaceFolder}` variab
 
 By using the `${workspaceFolder}` variable, you won't need to update the absolute path if the project is moved or shared with other developers.
 
-In previous versions of VS Code, you were allowed to use relative paths in your launch configurations but this was problematic. VS Code now warns you about relative paths when you start a debugging session and recommends prefixing the relative path with `${workspaceFolder}/`.
+In previous versions of VS Code, you were allowed to use relative paths in your launch configurations but this was problematic. VS Code now warns you about relative paths when you start a debugging session and recommends prefixing the relative path with `${workspaceFolder}/`. VS Code also checks other path attributes, such as `cwd` (current working directory), `outFiles` (location of other JavaScript files), and `runtimeExecutable`.
 
 > **Tip:** See the VS Code [debugging](/docs/editor/debugging.md) documentation for more information about `launch.json`, [debugger configuration](/docs/editor/debugging.md#launch-configurations), and [variable substitution](/docs/editor/debugging.md#variable-substitution).
 
