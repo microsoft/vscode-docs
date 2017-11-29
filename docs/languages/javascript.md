@@ -29,7 +29,7 @@ VS Code ships with the most stable version of the JavaScript language service. T
 
 ## Automatic Type Acquisition
 
-VS Code JavaScript IntelliSense for third-party libraries and modules is powered by `*.d.ts` type declaration (typings) files coming from the [npmjs](https://www.npmjs.com) type declaration file repository and requires npm, the Node.js package manager, included with the [Node.js](https://nodejs.org) runtime.
+VS Code JavaScript IntelliSense for third-party libraries and modules is powered by `*.d.ts` type declaration (typings) files coming from the [npmjs](https://www.npmjs.com) type declaration file repository and requires **npm**, the Node.js package manager, included with the [Node.js](https://nodejs.org) runtime.
 
 In this image you can see IntelliSense, including the method signature, parameter info, and the method's documentation, for a popular library called [lodash](https://lodash.com/).
 
@@ -57,7 +57,7 @@ Now when you `require` or `import` **lodash**, VS Code will use the automaticall
 
 ### Fixing NPM not installed warning for Automatic Type Acquisition
 
-Automatic Type Acquisition (ATA) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
+[Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA) uses [npm](https://www.npmjs.com), the Node.js package manager, to install and manage Type Declaration (typings) files. To ensure that Automatic Type Acquisition works properly, first ensure that you have npm installed on your machine.
 
 A quick check that npm is installed and available is to run `npm --version` from a terminal or command prompt.
 
