@@ -428,6 +428,10 @@ See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) f
 
 ## contributes.snippets
 
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers.md) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
+
+The example below shows adding snippets for the Go language.
+
 ```json
 "contributes": {
     "snippets": [{
