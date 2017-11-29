@@ -200,7 +200,7 @@ Below is an example that passes `"args"` to the program differently on Windows t
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "./node_modules/gulp/bin/gulpfile.js",
+            "program": "${workspaceFolder}/node_modules/gulp/bin/gulpfile.js",
             "args": ["myFolder/path/app.js"],
             "windows": {
                 "args": ["myFolder\\path\\app.js"]
@@ -222,7 +222,7 @@ In the example below:
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "./node_modules/gulp/bin/gulpfile.js",
+            "program": "${workspaceFolder}/node_modules/gulp/bin/gulpfile.js",
             "stopOnEntry": true,
             "osx": {
                 "stopOnEntry": false
