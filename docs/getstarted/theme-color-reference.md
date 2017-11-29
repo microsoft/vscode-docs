@@ -235,7 +235,7 @@ Bracket matches:
 
 Overview ruler:
 
-This ruler is located beneath the scrollbar on the right edge of the editor and gives an overview of the decorations in the editor.
+This ruler is located beneath the scroll bar on the right edge of the editor and gives an overview of the decorations in the editor.
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
 - `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches.
