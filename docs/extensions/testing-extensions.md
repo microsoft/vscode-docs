@@ -92,7 +92,7 @@ To enable this test command, open your `package.json` and add the following entr
 
 You can then enable Travis CI easily with a top-level `.travis.yml` configuration like this:
 
-```yaml
+```yml
 sudo: false
 
 os:

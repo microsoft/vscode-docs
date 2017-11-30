@@ -64,7 +64,7 @@ mvn archetype:generate ^
 
 Maven prompts you for values needed to finish generating the project. For `groupId`, `artifactId`, and `version` values, see the [Maven naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html) reference. The `appName` value must be unique across Azure, so Maven generates an app name based on the previously entered `artifactId`  as a default. The `packageName` value determines the Java package for the generated function code.
 
-```Output
+```bash
 Define value for property 'groupId': com.fabrikam.functions
 Define value for property 'artifactId' : fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT :
@@ -97,7 +97,7 @@ mvn azure-functions:run
 
 You see this output when the function is running:
 
-```Output
+```bash
 Listening on http://localhost:7071
 Hit `kbstyle(Ctrl+C)` to exit.
 
@@ -112,7 +112,7 @@ Trigger the function from the command line using curl in a new terminal:
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 ```
 
-```Output
+```bash
 Hello LocalFunction!
 ```
 
@@ -129,7 +129,7 @@ mvn azure-functions:deploy
 
 When the deploy is complete, you see the URL you can use to access your Azure function app:
 
-```output
+```bash
 [INFO] Successfully deployed Function App with package.
 [INFO] Deleting deployment package from Azure Storage...
 [INFO] Successfully deleted deployment package fabrikam-function-20170920120101928.20170920143621915.zip
@@ -145,7 +145,7 @@ curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/h
 
 You should see:
 
-```Output
+```bash
 Hello AzureFunctions!
 ```
 
