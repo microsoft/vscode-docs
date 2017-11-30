@@ -275,10 +275,9 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
     }
 ```
 
-### Twisties-Less File Icon Themes
+### Folder icons in File Icon Themes
 
-File icon themes can instruct the file explorer not to show twisties when the folder icons are good enough to indicate the expansion state of a folder.
-This mode can be enabled by having `"hidesExplorerArrows":true` in the file icon theme definition file.
+File Icon themes can instruct the File Explorer not to show the default folder icon (the rotating triangles or "twisties") when the folder icons are good enough to indicate the expansion state of a folder. This mode is enabled by setting `"hidesExplorerArrows":true` in the File Icon theme definition file.
 
 ---
 
