@@ -14,7 +14,7 @@ Since Visual Studio Code implements a generic (language agnostic) debug UI, it c
 
 These debug extensions differ from other extensions in that their implementation is not running in the extension host, but as a separate standalone program, a so-called _debug adapter_. We call these programs adapters because they "adapt" the API or protocol of a concrete debugger or runtime to the _Debug Adapter Protocol_ (DAP) used by VS Code.
 
-![Debugger Architecture](images/example-debuggers/debug-arch.png)
+![VS Code extensibility architecture](images/example-debuggers/extensibility-architecture.png)
 
 The reasons for implementing the debug adapters as standalone excutables are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if this is required by the underlying debugger or runtime.
 
@@ -22,6 +22,8 @@ In order to avoid problems with local firewalls, VS Code communicates with the a
 
 Every debug extension defines a debug `type` which is referenced from a VS Code launch configuration.
 When a debug session is started, VS Code looks up the debug extension based on the debug type and launches the extension's debug adapter executable as a separate process. When the debug session ends, the adapter is stopped.
+
+![Debugger Architecture](images/example-debuggers/debug-arch.png)
 
 Visual Studio Code ships with two debug extensions for Node.js: `node-debug` uses the (deprecated) v8 Debugger Protocol for node versions < 6.3 and `node-debug2` uses the Chrome Debugger Protocol (CDP) supported by node versions >= 6.3. Many more debugger extensions are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debugger extension yourself.
 

@@ -13,11 +13,13 @@ If you are interested in extending VS Code, you are in the right place. Here we 
 
 If you just want to use existing extensions, see the [Extension Marketplace](/docs/editor/extension-gallery.md) topic where we show you how to find and install extensions from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
-All VS Code extensions share a common model of contribution (registration), activation (loading) and access to the VS Code extensibility API.  There are however two special flavors of VS Code extensions, language servers and debuggers, which have their own additional protocols and are covered in their own sections of the documentation.
+All VS Code extensions share a common model of contribution (registration), activation (loading) and access to the VS Code extensibility API. There are however two special flavors of VS Code extensions, language servers and debuggers, which have their own additional protocols and are covered in their own sections of the documentation.
 
 1. [Extensions](/docs/extensions/overview.md#extensions) - the base building block
 2. [Language Servers](/docs/extensions/overview.md#language-servers) - for high cost IO or CPU intensive tasks
-3. [Debuggers](/docs/extensions/overview.md#debug-adapter) - wire up an external debugger
+3. [Debuggers](/docs/extensions/overview.md#debug-adapter) - wire up an external debugger through a Debug Adapter
+
+![VS Code extensibility architecture](images/overview/extensibility-architecture.png)
 
 ## Extensions
 
