@@ -11,6 +11,69 @@ MetaDescription: Get the best out of Visual Studio Code for Markdown
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
 
+## Markdown Syntax
+
+We are using the [marked](https://github.com/chjj/marked) library with the `gfm` option set to [true](https://github.com/chjj/marked#gfm).
+
+You should be aware of one particular interaction between the editor and fenced code blocks:
+
+````markdown
+```js
+  let x = 1;
+```  
+````
+
+You may notice the syntax identifier after the first three backticks... if you identify the language in this way the code will be highlighted inside the markdown file in your editor.
+
+The following languages are supported:
+
+| Language | Identifier |
+| :--- | :--- |
+| basic | html, htm, shtml, xhtml, inc, tmpl, tpl |
+| c | c, h |
+| clojure | clj, cljs, clojure |
+| coffee | coffee, Cakefile |
+| cpp | cpp, c++, cxx |
+| csharp | cs, csharp, c# |
+| css | css |
+| diff | patch, diff, rej |
+| dockerfile | dockerfile, Dockerfile |
+| dosbatch | bat, batch |
+| fsharp | fs, fsharp, f# |
+| git_commit | COMMIT_EDITMSG, MERGE_MSG |
+| git_rebase | git-rebase-todo |
+| go | go, golang |
+| groovy | groovy, gvy |
+| ini | ini, conf |
+| jade | jade, pug |
+| java | java, bsh |
+| js | js, jsx, javascript, es6, mjs |
+| js_regexp | regexp |
+| json | json, sublime-settings, sublime-menu, sublime-keymap, sublime-mousemap, sublime-theme, sublime-build, sublime-project, sublime-completions |
+| less | less |
+| lua | lua |
+| makefile | Makefile, makefile, GNUmakefile, OCamlMakefile |
+| objc | objectivec, objective-c, mm, objc, obj-c, m, h |
+| perl | perl, pl, pm, pod, t, PL, psgi, vcl |
+| perl6 | perl6, p6, pl6, pm6, nqp |
+| php | php, php3, php4, php5, phpt, phtml, aw, ctp |
+| powershell | powershell, ps1, psm1, psd1 |
+| python | python, py, py3, rpy, pyw, cpy, SConstruct, Sconstruct, sconstruct, SConscript, gyp, gypi |
+| r | R, r, s, S, Rprofile |
+| regexp_python | re |
+| ruby | ruby, rb, rbx, rjs, Rakefile, rake, cgi, fcgi, gemspec, irbrc, Capfile, ru, prawn, Cheffile, Gemfile, Guardfile, Hobofile, Vagrantfile, Appraisals, Rantfile, Berksfile, Berksfile.lock, Thorfile, Puppetfile |
+| rust | rust, rs |
+| scala | scala, sbt |
+| scss | scss |
+| shell | shell, sh, bash, zsh, bashrc, bash_profile, bash_login, profile, bash_logout, | .textmate_init |
+| sql | sql, ddl, dml |
+| ts | typescript, ts |
+| tsx | tsx |
+| vs_net | vb |
+| xml | xml, xsd, tld, jsp, pt, cpt, dtml, rss, opml |
+| xsl | xsl, xslt |
+| yaml | yaml, yml |
+
 ## Markdown Extensions
 
 In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
