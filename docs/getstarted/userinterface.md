@@ -13,12 +13,6 @@ At its heart, Visual Studio Code is a code editor. Like many other code editors,
 
 ![code basics hero](images/userinterface/hero.png)
 
-## Files, Folders & Projects
-
-VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
-
-On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or .NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
-
 ## Basic Layout
 
 VS Code comes with a simple and intuitive layout that maximizes the space provided for the editor while leaving ample room to browse and access the full context of your folder or project. The UI is divided into five areas:
@@ -30,8 +24,6 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 * **Panels** - You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal. Panel can also be moved to the right for more vertical space.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
-
-![VS Code Layout](images/userinterface/layout.png)
 
 Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
@@ -70,7 +62,8 @@ The image above also shows indentation guides (vertical lines) which help you qu
 
 ## Explorer
 
-The Explorer is used to browse, open, and manage all of the files and folders in your project.
+The Explorer is used to browse, open, and manage all of the files and folders in your project. VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
+
 
 After opening a folder in VS Code, the contents of the folder are shown in the Explorer. You can do many things from here:
 
