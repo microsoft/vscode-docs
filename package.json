@@ -7,5 +7,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/Microsoft/vscode-docs.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "shelljs": "^0.7.8"
   }
 }
