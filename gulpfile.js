@@ -23,8 +23,12 @@ gulp.task('clone-repo', done => {
   $.cd('_build')
 
   // Clone prod branch of vscode-website
+  // If it exists, upgrade to latest
   if (!$.test('-e', 'vscode-website')) {
     $.exec(`git clone --depth=1 --branch=prod ${URL}`)
+  } else {
+    $.cd('vscode-website')
+    $.exec('git pull origin prod')
   }
 
   // Copy over MD/asset files
