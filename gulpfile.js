@@ -47,5 +47,5 @@ gulp.task('build-dist', done => {
   // Run setup to fetch vscode-website-dist
   $.exec(`scripts/setup.sh ${GITHUB_TOKEN} ${BUILD_SOURCEBRANCHNAME}`)
   // Run build to sync changes to vscode-website-dist
-  $.exec(`scripts/build.sh`)
+  $.exec(`scripts/build.sh ${BUILD_SOURCEBRANCHNAME}`)
 })
