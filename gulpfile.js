@@ -9,7 +9,13 @@ if (!GITHUB_TOKEN) {
 
 const URL = `https://${GITHUB_TOKEN}@github.com/microsoft/vscode-website`
 
-gulp.task('clone-repo', done => {
+/**
+ * This task
+ * - Clones vscode-website
+ * - Clones vscode-website-dist
+ * - Uses vscode-docs:[current-branch] + vscode-website:prod to build to vscode-website-dist:[current-branch]
+ */
+gulp.task('build-dist', done => {
   if (!$.which('git')) {
     $.echo('This command requires git')
     $.exit(1)
