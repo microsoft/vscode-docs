@@ -1,6 +1,7 @@
 const gulp = require('gulp')
 const $ = require('shelljs')
 
+console.log(JSON.stringify(process.env, null, 2))
 const GITHUB_TOKEN = process.env['GITHUB_TOKEN']
 if (!GITHUB_TOKEN) {
   $.echo('This script clones vscode-website and requires access token')
