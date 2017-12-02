@@ -29,6 +29,7 @@ gulp.task('clone-repo', done => {
   } else {
     $.cd('vscode-website')
     $.exec('git pull origin prod')
+    $.cd('..')
   }
 
   // Copy over MD/asset files
