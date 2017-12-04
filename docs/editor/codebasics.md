@@ -26,11 +26,11 @@ VS Code supports multiple cursors for fast simultaneous edits. You can add secon
 
 > **Note:** Your graphics card driver (for example NVIDIA) might overwrite these default shortcuts.
 
-![Multi-cursor](images/editingevolved/multicursor.gif)
+![Multi-cursor](images/codebasics/multicursor.gif)
 
 `kb(editor.action.addSelectionToNextFindMatch)` selects the word at the cursor, or the next occurrence of the current selection.
 
-![Multi-cursor-next-word](images/editingevolved/multicursor-word.gif)
+![Multi-cursor-next-word](images/codebasics/multicursor-word.gif)
 
 > **Tip:** You can also add more cursors with `kb(editor.action.selectHighlights)`, which will add a selection at each occurrence of the current selected text.
 
@@ -53,13 +53,13 @@ Quickly shrink or expand the current selection. Trigger it with `kb(editor.actio
 
 Here's an example of expanding the selection with `kb(editor.action.smartSelect.grow)`:
 
-![Expand selection](images/editingevolved/expandselection.gif)
+![Expand selection](images/codebasics/expandselection.gif)
 
 ## Column (box) selection
 
 Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column selection:
 
-![Column text selection](images/editingevolved/column-select.gif)
+![Column text selection](images/codebasics/column-select.gif)
 
 There are also default key bindings for column selection on Mac and Windows, but not on Linux.
 
