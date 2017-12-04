@@ -447,7 +447,7 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
 
 ```json
-"file.associations": {
+"files.associations": {
     ".database": "json"
 }
 ```
