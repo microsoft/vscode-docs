@@ -19,9 +19,10 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
-3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
+
+There's also a [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which runs JUnit tests for your Java code.
 
 In case you're working on Spring Boot, there's also a [Spring Boot Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack) developed by Pivotal.
 
