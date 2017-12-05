@@ -42,7 +42,7 @@ You can read more about how our Debugger for Chrome works in this introduction [
 
 **Recipes:**
 - [Debugging AngularJS apps with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI)
-- [Debugging next.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/next-js)
+- [Debugging Next.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
 - [Debugging Meteor apps](https://github.com/Microsoft/vscode-recipes/tree/master/meteor)
 
 **Blog posts**:
