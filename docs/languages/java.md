@@ -9,7 +9,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 ---
 # Java in VS Code
 
-The Java support in VS Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide project support, code completion, linting, debugging, code formatting, snippets, and more.
+The Java support in VS Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide project support, code completion, linting, debugging, testing, code formatting, snippets, and more.
 
 > [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, Mac, Linux).
 
@@ -27,7 +27,10 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-This document describes the features included in the Java Extension Pack.
+There's also a [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which runs JUnit tests for your Java code.
+
+This document describes the features included in those Java extensions.
+
 
 ## Java Project Support
 
