@@ -1,7 +1,7 @@
 ---
 Order: 4
 Area: java
-TOCTitle: Java serverless Tutorial
+TOCTitle: Java serverless
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
 PageTitle: Writing serverless Java Application with VS Code
 DateApproved: 11/14/2017
@@ -32,7 +32,7 @@ To develop Functions apps with Java, you must have the following installed:
 
 >**Important**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
-## Install the Azure Functions Extension
+## Install the Azure Functions extension
 
 [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension provides an easy way for you to manage your serverless functions with Azure. It supports both Java and JavaScript Functions with features including:
 
@@ -47,7 +47,9 @@ In this tutorial, we will leverage this extension to create the serverless funct
 
 To install the Functions extension, open the Extension view by pressing `kb(workbench.view.extensions)` and search for `azure functions` to filter the results. Select the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension.
 
-## Install the Azure Functions Core Tools (Optional, for local debugging)
+## Install the Azure Functions Core Tools
+
+**Note:**: This step is optional and only required for local debugging.
 
 The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with the [npm](https://www.npmjs.com/) package manager, included with [Node.js](https://nodejs.org/).
 
@@ -96,7 +98,7 @@ public class Function {
 }
 ```
 
-## Run and Debug the function locally
+## Run and debug the function locally
 
 Once the function is created, you can easily hit `kbstyle(F5)` to start the function. Behind the scene, we've configured the `launch.json` debugger configuration file to build the functions project and then start the local runtime provided by [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools).  If you would like to debug your function, set a break point and then send a request to trigger the HTTP function.
 
@@ -138,18 +140,18 @@ You should see:
 Hello AzureFunctions!
 ```
 
-## Add additional functions to the function project (Optional)
+## Add additional functions to the project
 
-The extension also supports adding new function to the existing project. You only need to:
+The extension also supports adding new functions to the existing project. You only need to:
 
-1. Click Add Function shortcut
-2. Select project folder
-3. Select function type
-4. Fill the parameters for this function type
+1. Click Add Function button on the **AZURE FUNCTIONS** Explorer bar.
+2. Select project folder.
+3. Select function type.
+4. Fill in the parameters for this function type.
 
 ![Add Functions](images/java-serverless/add-functions.gif)
 
-## Remote debug the functions running on cloud (Bonus)
+## Remote debug functions running in the cloud
 
 Although the local core tool from Azure Functions is running the same code as in the cloud, sometimes environment differences may cause your function to behave differently. With remote debugging, can troubleshoot those issues.
 
