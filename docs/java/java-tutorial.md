@@ -43,11 +43,15 @@ Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spri
 
 ![Clone Spring Repository](images/java-tutorial/clone-repository.gif)
 
-After cloning the repo, navigate to the `complete` folder that contains the project which is ready to run. Open any of the Java files in the repository. If you haven't got the Java related extensions installed with your VS Code, you would be recommended to install the Java extension pack. Just follow the instruction and install the Java Extension Pack from Microsoft. Reload VS Code after the installation.
+After cloning the repo, navigate to the `complete` folder that contains the project which is ready to run. Open any of the Java files in the repository (for example `complete\src\main\java\hello\Application.java`). If you haven't got the Java related extensions installed with your VS Code, you will be prompted to install the Java Extension Pack. Just follow the instruction and install the Java Extension Pack from Microsoft. Reload VS Code after the installation.
 
 ![Install Java Extensions](images/java-tutorial/install-extensions.gif)
 
-Once you have the Extension Pack installed, it will automatically build the project for you, and then you can run it within VS Code by pressing `kb(workbench.action.debug.start)`. You can learn more about how VS Code launch your app at [Launch Configurations](/docs/editor/debugging.md#launch-configurations).
+Once you have the Extension Pack installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see the progress in the VS Code Status Bar and see the final active debug configuration displayed.
+
+![debug configuration in the Status Bar](images/java-tutorial/debugging-status-bar.png)
+
+You can learn more about how VS Code launches your app at [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
 
 ![Run Spring Boot](images/java-tutorial/run-spring-boot.gif)
 
