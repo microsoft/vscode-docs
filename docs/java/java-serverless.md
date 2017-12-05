@@ -68,7 +68,7 @@ Once you've installed the Azure Functions extension, you can easily create a new
 
 The extension will leverage [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) to create the function project in the folder you specified.
 
-![Create Functions Project](images/java-serverless/create-functions.gif)
+![Create Functions Project](images/java-serverless/create-functions.png)
 
 Within the created project, there's a simple HTTP triggered 'Hello World' Function which reads the input from HTTP query string or body and returns it back immediately.
 
@@ -107,8 +107,6 @@ curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 ```bash
 Hello LocalFunction!
 ```
-
-![Debug Functions Project](images/java-serverless/debug-functions.gif)
 
 Use `kbstyle(Ctrl+C)` in the terminal to stop the function code.
 
