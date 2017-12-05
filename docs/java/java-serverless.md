@@ -11,7 +11,7 @@ MetaDescription: Using VS Code for developing, debugging and deploying your serv
 
 Serverless, as indicated by its name, allows you to execute your code in a environment without having to first create a VM or publish a web application.
 
-This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with VS Code and [Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). You be able to test it locally, and deploy it to Azure Functions. When you're done, you'll have a HTTP-triggered function app running in Azure.
+This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with VS Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You be able to test it locally and deploy it to Azure Functions. When you're done, you'll have a HTTP-triggered function app running in Azure.
 
 ![Access a Hello World function from the command line with cURL](images/java-serverless/hello-azure.png)
 
@@ -22,7 +22,7 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
 
 ## Prerequisites
 
-To develop functions app with Java, you must have the following installed:
+To develop Functions apps with Java, you must have the following installed:
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/), version 1.8.
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
@@ -33,39 +33,42 @@ To develop functions app with Java, you must have the following installed:
 >**Important**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
 
 ## Install the Azure Functions Extension
-[Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) provides an easy way for you to manage your serverless functions with Azure. It supports both Java and JavaScript functions with features including
-- Create new project
-- Create new function from template
-- Debug function projects locally
-- View Azure Function Apps
-- Create, delete, start, stop and restart Azure Function Apps
-- JSON Intellisense for function.json, host.json and proxies.json
 
-In this tutorial, we will leverage this extension to create the serverless function. For a more command line Maven centric experience, you can also check out [Maven Functions Tutorial](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-create-first-java-maven), the Java support of this extension actually leverages a lot from our [Maven Plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-functions-maven-plugin).
+[Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension provides an easy way for you to manage your serverless functions with Azure. It supports both Java and JavaScript Functions with features including:
 
-To install the Functions extension, open the Extension view by pressing `kb(workbench.view.extensions)` and search for `azure functions` to filter the results. Select the [Azure Functions Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
+- Create new project.
+- Create new Function from template.
+- Debug Function projects locally.
+- View Azure Function Apps.
+- Create, delete, start, stop and restart Azure Function Apps.
+- JSON Intellisense for `function.json`, `host.json` and `proxies.json` files.
+
+In this tutorial, we will leverage this extension to create the serverless function. For a more command line Maven-centric experience, you can also check out the  [Maven Functions Tutorial](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-create-first-java-maven). The Java support of this extension leverages a lot from our [Maven Plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-functions-maven-plugin).
+
+To install the Functions extension, open the Extension view by pressing `kb(workbench.view.extensions)` and search for `azure functions` to filter the results. Select the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension.
 
 ## Install the Azure Functions Core Tools (Optional, for local debugging)
 
-The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with [npm](https://www.npmjs.com/), included with [Node.js](https://nodejs.org/).
+The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with the [npm](https://www.npmjs.com/) package manager, included with [Node.js](https://nodejs.org/).
 
 ```bash
 npm install -g azure-functions-core-tools@core
 ```
 
-> **Note**: If you have trouble installing Azure Functions Core Tools version 2.0, see [Version 2.x runtime](/azure/azure-functions/functions-run-local#version-2x-runtime).
+> **Note**: If you have trouble installing Azure Functions Core Tools version 2.0, see [Version 2.x runtime](https://docs.microsoft.com/azure/azure-functions/functions-run-local#version-2x-runtime).
 
 ## Generate a new Functions project
 
-Once you've installed the Azure Functions extension, you can easily create a new project by
-1. Click Create Function Project shortcut
+Once you've installed the Azure Functions extension, you can easily create a new project by:
+
+1. Click **Azure Functions: Create Function Project** shortcut
 2. Select target folder
 3. Select Javaas the target language
 4. fill the parameters
 
 The extension will leverage [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) to create the function project in the folder you specified.
 
-![Create Functions Project](images/java-serverless/create-functions.png)
+![Create Functions Project](images/java-serverless/create-functions.gif)
 
 Within the created project, there's a simple HTTP triggered Hello World Function which reads the input from HTTP query string or body and returns it back immediately.
 
@@ -105,25 +108,25 @@ curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 Hello LocalFunction!
 ```
 
-![Debug Functions Project](images/java-serverless/debug-functions.png)
+![Debug Functions Project](images/java-serverless/debug-functions.gif)
 
 Use `kbstyle(Ctrl+C)` in the terminal to stop the function code.
 
 ## Deploy the function to Azure
 
-The deploy proecess leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure Functions extension as an dependency) and you would need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
+The deploy process leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure Functions extension as an dependency) and you would need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
 To log into Azure, run **Azure Login** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
 
-![Azure Login](images/java-container/device-login.png)
+![Azure Login](images/java-serverless/device-login.png)
 
 Paste in the access code and continue the sign in process.
 
-![Azure Login](images/java-container/device-login2.png)
+![Azure Login](images/java-serverless/device-login2.png)
 
 After signing in, you can just click deploy function shortcut, select the folder of the project you would like to deploy from and easily follow the prompt hint to configure your function project
 
-![Deploy Functions](images/java-serverless/deploy-functions.png)
+![Deploy Functions](images/java-serverless/deploy-functions.gif)
 
 Once the deploy is completed, test the function app running on Azure using curl:
 
@@ -138,15 +141,18 @@ Hello AzureFunctions!
 ```
 
 ## Add additional functions to the function project (Optional)
-The extension also supports adding new function to the existing project. You only need to
+
+The extension also supports adding new function to the existing project. You only need to:
+
 1. Click Add Function shortcut
 2. Select project folder
 3. Select function type
 4. Fill the parameters for this function type
 
-![Add Functions](images/java-serverless/add-functions.png)
+![Add Functions](images/java-serverless/add-functions.gif)
 
 ## Remote debug the functions running on cloud (Bonus)
+
 Sometimes, although the local core tool fromAzureFunctions is running the same code as the one onthe cloud, some of the environment difference might still cause your function to behave differently. With remote debugging it would be much easier for you to troubleshoot those issues.
 
 We've released a special [Remote Debugging Tool](https://www.npmjs.com/package/cloud-debug-tools) to help you set up the remote debugging session. You can easily install it via
