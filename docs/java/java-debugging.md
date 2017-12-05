@@ -33,7 +33,7 @@ Just like VS Code, the debugger is an open source project which welcomes contrib
  - [Debugger for Java Extension](https://github.com/Microsoft/vscode-java-debug)
  - [Java Debugger Server for Visual Studio Code](https://github.com/Microsoft/java-debug)
 
-To run and debug JUnit test, you can install [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which is another lightweight extension we developed. You can also view test log from the extension.
+To run and debug JUnit test, you can install [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which is another lightweight extension we developed. You can also view test logs from the extension.
 
 ## Install
 
@@ -67,11 +67,11 @@ The Java debugger also supports external source files. This lets you debug third
 
 ![Java 9 Support](images/java-debugging/java9.gif)
 
-The default Debug Console in VS Code doesn't support inputs. In case your program need inputs from terminal, you can use integrated terminal within VS Code or external terminal to launch it.
+The default Debug Console in VS Code doesn't support inputs. In case your program need inputs from terminal, you can use Integrated Terminal within VS Code or external terminal to launch it.
 
 ![Launch in Terminal](images/java-debugging/launch-in-terminal.gif)
 
-There're a lot of different [options and settings](#_options) available with this Debugger. For example, configuring cwd and environment variables could be easily done with launch options.
+There're a lot of different [options and settings](#_options) available with this Debugger. For example, configuring the current working directory (cwd) and environment variables could be easily done with launch options.
 
 ![Configure Variables](images/java-debugging/cwd-env.gif)
 
@@ -94,7 +94,7 @@ Please also check the documentation of [Language Support for Java by Red Hat](ht
 - `stopOnEntry` - Automatically pause the program after launching.
 - `console` - The specified console to launch the program. Defaults to `internalConsole`.
   - `internalConsole` - VS Code debug console (input stream not supported).
-  - `integratedTerminal` - VS Code integrated terminal.
+  - `integratedTerminal` - VS Code Integrated Terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
 
 ### Attach
@@ -108,16 +108,17 @@ Please also check the documentation of [Language Support for Java by Red Hat](ht
 ### User Settings
 
 - `java.debug.logLevel`: minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
-- `java.debug.settings.showHex`: show numbers in hex format in "Variables" viewlet, defaults to `false`.
-- `java.debug.settings.showStaticVariables`: show static variables in "Variables" viewlet, defaults to `true`.
-- `java.debug.settings.showQualifiedNames`: show fully qualified class names in "Variables" viewlet, defaults to `false`.
-- `java.debug.settings.maxStringLength`: the maximum length of string displayed in "Variables" or "Debug Console" viewlet, the string longer than this length will be trimmed, defaults to `0` which means no trim is performed.
+- `java.debug.settings.showHex`: show numbers in hex format in **VARIABLES**, defaults to `false`.
+- `java.debug.settings.showStaticVariables`: show static variables in **VARIABLES**, defaults to `true`.
+- `java.debug.settings.showQualifiedNames`: show fully qualified class names in **VARIABLES**, defaults to `false`.
+- `java.debug.settings.maxStringLength`: the maximum length of string displayed in **VARIABLES** or **Debug Console**, the string longer than this length will be trimmed, defaults to `0` which means no trim is performed.
 
 ## Feedback and Questions
 
 You can find the full list of issues at [Issue Tracker](https://github.com/Microsoft/vscode-java-debug/issues). You can submit a [bug or feature suggestion](https://github.com/Microsoft/vscode-java-debug/issues/new), and participate in the community driven [Gitter](https://gitter.im/Microsoft/vscode-java-debug) channel.
 
 ## Run JUnit Tests
+
 [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) allows you to run and debug your test cases.
 
 ![JUnit support](images/java-debugging/junit.gif)
