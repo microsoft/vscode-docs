@@ -435,15 +435,6 @@ Below are the default settings and their values.
   // Controls if opening settings also opens an editor showing all default settings.
   "workbench.settings.openDefaultSettings": true,
 
-  // Indicates the endpoint to use for the experimental settings search.
-  "workbench.settings.experimentalFuzzySearchEndpoint": "",
-
-  // Indicates the key to use for the experimental settings search.
-  "workbench.settings.experimentalFuzzySearchKey": "",
-
-  // Indicates the amount to boost the "literal" component of the query. Temporary.
-  "workbench.settings.experimentalFuzzySearchBoost": 10,
-
   // Controls the location of the sidebar. It can either show on the left or right of the workbench.
   "workbench.sideBar.location": "left",
 
