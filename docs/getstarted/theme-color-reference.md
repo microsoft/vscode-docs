@@ -373,6 +373,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `titleBar.inactiveBackground`: Title Bar background when the window is inactive. Note that this color is currently only supported on macOS.
 - `titleBar.inactiveForeground`: Title Bar foreground when the window is inactive. Note that this color is currently only supported on macOS.
 
+> Windows: Track progress [#17060](https://github.com/Microsoft/vscode/issues/17060)
+
 ## Notification Dialog Colors
 
 Notifications slide in from the top of the workbench.
