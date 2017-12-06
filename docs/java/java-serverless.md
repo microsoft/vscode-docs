@@ -46,7 +46,7 @@ To install the Functions extension, open the Extension view by pressing `kb(work
 
 ## Install the Azure Functions Core Tools
 
-**Note**: This step is optional and only required for locally run and debug your Java Functions code.
+**Note**: This step is optional and only required to locally run and debug your Java Functions source code.
 
 The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provide a local development environment for writing, running, and debugging Azure Functions. Install the tools with the [npm](https://www.npmjs.com/) package manager, included with [Node.js](https://nodejs.org/) (version 8.6 or higher).
 
