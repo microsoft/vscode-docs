@@ -80,13 +80,13 @@ Then push your image to DockHub. Make sure the name of your image starts with yo
 
 With the Docker Explorer, you can deploy images from DockerHub Registries or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To log into Azure, run **Azure Login** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
+To log into Azure, run **Azure: Sign in** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
 
-![Azure Login](images/java-container/device-login.png)
+![Azure Sign In code](images/java-container/device-login.png)
 
 Paste in the access code and continue the sign in process.
 
-![Azure Login](images/java-container/device-login2.png)
+![Azure Device Login](images/java-container/device-login2.png)
 
 You can now right click on an image in DockerHub or an Azure Container Registry and choose **Deploy Image to Azure App Service**.
 

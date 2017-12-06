@@ -19,6 +19,16 @@ Emmet abbreviation and snippet expansions are enabled by default in `html`, `ham
 
 When you start typing an Emmet abbreviation, you will see the abbreviation displayed in the suggestion list. If you have the suggestion documentation fly-out open, you will see a preview of the expansion as you type. If you are in a stylesheet file, the expanded abbreviation shows up in the suggestion list sorted among the other CSS suggestions.
 
+### Using Tab for Emmet expansions
+
+If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the following setting:
+
+```json
+"emmet.triggerExpansionOnTab": true
+```
+
+This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
+
 ### Emmet when quickSuggestions are disabled
 
 If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
@@ -32,16 +42,6 @@ If you don't want to see Emmet abbreviations in suggestions at all, then use the
 ```
 
 With this setting enabled, you can use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
-
-### Using Tab for Emmet expansions
-
-If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the following setting:
-
-```json
-"emmet.triggerExpansionOnTab": true
-```
-
-This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
 
 ### Emmet suggestion ordering
 
@@ -266,13 +266,22 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 
 ## Common Questions
 
+**Q: Custom tags do not get expanded in the suggestion list**
+**A:** Custom tags when used in an expression like `MyTag>YourTag` or `MyTag.someclass` do show up in the suggestion list. But when these are used on their own like `MyTag`, they do not appear in the suggestion list. This is designed so to avoid noise in the suggestion list as every word is a potential custom tag.
+
+Add the following setting to enable expanding of Emmet abbreviations using tab which will expand custom tags in all cases.
+
+```json
+"emmet.triggerExpansionOnTab": true
+```
+
 **Q: `@-` doesn't work for numbering in descending order.**
 
-**A:** Use of `@-` to get numbering in descending order in repeaters is not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
+**A:** Use of `@-` to get numbering in descending order in repeaters is not yet supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2). PRs are welcome to fix this upstream issue.
 
 **Q: My HTML snippets ending with `+` does not work?**
 
-**A:** HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
+**A:** HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
 
 **Q: Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)**
 

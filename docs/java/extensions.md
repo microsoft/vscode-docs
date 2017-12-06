@@ -22,6 +22,10 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
+There's also a [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which runs JUnit tests for your Java code.
+
+In case you're working on Spring Boot, there's also a [Spring Boot Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack) developed by Pivotal.
+
 ## Recommended extensions for cloud (Azure) development
 
 Along with the language support, if you are deploying your applications to the cloud, especially Azure, there is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services:
