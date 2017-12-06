@@ -106,6 +106,8 @@ Once the function is created, you can easily hit `kbstyle(F5)` to start the func
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
 ```
 
+You should see:
+
 ```bash
 Hello LocalFunction!
 ```
@@ -124,7 +126,7 @@ Paste in the access code and continue the sign in process.
 
 ![Azure Device Login](images/java-serverless/device-login2.png)
 
-After signing in, you can just click deploy function shortcut, select the folder of the project you would like to deploy from and easily follow the prompt hint to configure your function project
+After signing in, you can just click **Deploy to Function App** button, select the folder of the project you would like to deploy from, and easily follow the prompt hint to configure your function project.
 
 ![Deploy Functions](images/java-serverless/deploy-functions.gif)
 
@@ -144,7 +146,7 @@ Hello AzureFunctions!
 
 The extension also supports adding new functions to the existing project. You only need to:
 
-1. Click Add Function button on the **AZURE FUNCTIONS** Explorer bar.
+1. Click **Add Function** button on the **AZURE FUNCTIONS** Explorer bar.
 2. Select project folder.
 3. Select function type.
 4. Fill in the parameters for this function type.
