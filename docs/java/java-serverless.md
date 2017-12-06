@@ -1,7 +1,7 @@
 ---
 Order: 4
 Area: java
-TOCTitle: Java serverless
+TOCTitle: Java Serverless
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
 PageTitle: Writing serverless Java Application with VS Code
 DateApproved: 11/14/2017
@@ -111,6 +111,8 @@ You should see:
 ```bash
 Hello LocalFunction!
 ```
+
+![Debug Functions Project](images/java-serverless/debug-functions.gif)
 
 Use `kbstyle(Ctrl+C)` in the terminal to stop the function code.
 
