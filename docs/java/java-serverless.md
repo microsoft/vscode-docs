@@ -195,5 +195,5 @@ Now you can set a break point and attach to your cloud function using VS Code. W
 
 You have created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
-- Review the [Java Functions developer guide](functions-reference-java.md) for more information on developing Java functions.
+- Review the [Java Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-java) for more information on developing Java functions.
 - To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)
