@@ -42,7 +42,7 @@ gulp.task('build-dist', done => {
 
   // Copy over MD/asset files
   $.mkdir('vscode-website/vscode-docs')
-  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../tutorials'], 'vscode-website/vscode-docs')
+  $.cp('-R', ['../blogs', '../docs', '../images', '../release-notes', '../tutorials', '../build'], 'vscode-website/vscode-docs')
 
   // Go to vscode-website
   $.cd('vscode-website')
