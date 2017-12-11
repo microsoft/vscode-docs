@@ -147,7 +147,7 @@ Many debuggers support some of the following attributes:
 
 * `program` - executable or file to run when launching the debugger
 * `args` - arguments passed to the program to debug
-* `env` - environment variables
+* `env` - environment variables (the value `null` can be used to "undefine" a variable)
 * `cwd` - current working directory for finding dependencies and other files
 * `port` - port when attaching to a running process
 * `stopOnEntry` - break immediately when the program launches
