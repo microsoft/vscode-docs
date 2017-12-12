@@ -63,6 +63,22 @@ A simple `tsconfig.json` looks like this for ES5, **CommonJS** [modules](http://
 
 Now when you create a `.ts` file as part of the project we will offer up rich editing experiences and syntax validation.
 
+### typescript.reportStyleChecksAsWarnings
+
+By default, VS Code TypeScript displays code style issues as warnings instead of errors. This applies to:
+
+- Variable is declared but never used
+- Property is declared but its value is never read
+- Unreachable code detected
+- Unused label
+- Fall through case in switch
+- Not all code paths return a value
+
+Treating these as warnings is consistent with other tools, such as TSLint. These will still be displayed as errors when you run `tsc` from the command line.
+
+You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false`.
+
+
 ## Transpiling TypeScript into JavaScript
 
 VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Let's walk through transpiling a simple TypeScript Hello World program.
