@@ -20,7 +20,6 @@ To change the linting behavior across all enabled linters, modify the following 
 | --- | --- | --- |
 | Linting in general | enabled | `true` |
 | Perform linting without a workspace open | enabledWithoutWorkspace | `true` |
-| Linting as you type | lintOnTextChange | `true` |
 | Linting on file save | lintOnSave | `false` |
 | Maximum number of linting messages | maxNumberOfProblems | `100` |
 | Output window in which to display messages | outputWindow | `"Python"` |
