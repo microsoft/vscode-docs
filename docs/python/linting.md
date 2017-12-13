@@ -25,6 +25,8 @@ To change the linting behavior across all enabled linters, modify the following 
 | Output window in which to display messages | outputWindow | `"Python"` |
 | Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
 
+When enabling `lintOnSave` you might also want to enable on the generic `files.autoSave` option (see [Save / Auto Save](/docs/editor/codebasics.md#_save-auto-save)). The combination provides frequent linting feedback in your code as you type.
+
 ## Specific linters
 
 The following table provides a summary of available Python linters and their basic settings. Only Pylint is enabled by default.
