@@ -211,6 +211,9 @@ Below are the default settings and their values.
   // Controls if Find in Selection flag is turned on when multiple characters or lines of text are selected in the editor
   "editor.find.autoFindInSelection": false,
 
+  // Controls if the Find Widget should read or modify the shared find clipboard on macOS
+  "editor.find.globalFindClipboard": true,
+
   // Controls if we seed the search string in Find Widget from editor selection
   "editor.find.seedSearchStringFromSelection": true,
 
@@ -1136,7 +1139,7 @@ Below are the default settings and their values.
   // Automatically update extensions
   "extensions.autoUpdate": true,
 
-  // Ignore extension recommendations
+  // If set to true, the notifications for extension recommendations will stop showing up.
   "extensions.ignoreRecommendations": false,
 
 // External Terminal
