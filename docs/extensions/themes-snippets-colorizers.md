@@ -97,7 +97,11 @@ You can use the **Developer: Inspect TM Scopes** command from the **Command Pale
 ## Create a new color theme
 
 - Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
-- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension.
+- Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension:
+  ```
+  npm install -g yo generator-code
+  yo code
+  ```
 - If you customized a theme as described above, select 'Start fresh'.
 
 ![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)
