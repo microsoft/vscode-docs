@@ -85,6 +85,7 @@ Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
 `target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es2015", "es2016", "es2017".
+`checkJs` | Enable type checking on javascript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.
 `baseUrl`|Base directory to resolve non-relative module names.
