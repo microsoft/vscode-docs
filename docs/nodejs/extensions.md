@@ -4,9 +4,9 @@ Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in VS Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
-MetaSocialImage: nodejs_javascript_vscode.png
+MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
 # JavaScript Extensions for VS Code
 
@@ -38,11 +38,11 @@ Marketplace - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeu
 
 Publisher - [Dirk Baeumer](https://marketplace.visualstudio.com/search?term=publisher%3A%22Dirk%20Baeumer%22&target=VSCode)
 
-Easily integrate [ESLint](http://eslint.org/) into your project. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=shinnn.standard).
+Easily integrate [ESLint](http://eslint.org/) into your project. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs).
 
 Read more about setting up JavaScript linters in the VS Code [documentation](/docs/languages/javascript.md#linters).
 
-![eslint animation](2016_09_14_eslint.gif)
+![eslint animation](images/extensions/eslint.gif)
 
 ### JavaScript (ES6) code snippets
 
@@ -52,7 +52,7 @@ Publisher - [charalampos karypidis](https://marketplace.visualstudio.com/search?
 
 VS Code comes with many built-in code snippets. The **JavaScript (ES6) code snippets** extension adds snippets for ES6 (ECMAScript 6) syntax. Here is a small sampling of the snippets provided by this extension. See the extension's [README](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets) to see the dozens of snippets this pack gives you.
 
-![javascript snippets](2016_09_14_javascript_snippets.png)
+![javascript snippets](images/extensions/javascript_snippets.png)
 
 You can read more about JavaScript snippets in the VS Code [documentation](/docs/languages/javascript.md#snippets). For additional snippet packs, including [Angular 1](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular1), [Angular 2](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2), [Bootstrap 3](https://marketplace.visualstudio.com/items?itemName=wcwhitehead.bootstrap-3-snippets), [ReactJs](https://marketplace.visualstudio.com/items?itemName=xabikos.ReactSnippets), and [jQuery](https://marketplace.visualstudio.com/items?itemName=donjayamanne.jquerysnippets), check out the Marketplace's [Snippets category](https://marketplace.visualstudio.com/vscode/Snippets?sortBy=Downloads).
 
@@ -64,7 +64,7 @@ Publisher - [Christian Kohler](https://marketplace.visualstudio.com/search?term=
 
 This extension provides IntelliSense for npm modules when using `require` or `import`.
 
-![npm intellisense](2016_09_14_npm_intellisense.gif)
+![npm intellisense](images/extensions/npm_intellisense.gif)
 
 ### Debugger for Chrome
 
@@ -76,7 +76,7 @@ When you develop for the front end, you might not see the value of an integrated
 
 Prefer to debug using a different browser? You can find extensions for [Safari](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web), [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge), and [Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug) as well.
 
-![debugger for chrome image](2016_10_31_chrome_debugger.png)
+![debugger for chrome image](images/extensions/chrome_debugger.png)
 
 ### Document This
 
@@ -86,7 +86,7 @@ Publisher - [Joel Day](https://marketplace.visualstudio.com/search?term=publishe
 
 This extension will automatically generate detailed JSDoc comments for your code.
 
-![document this](2016_10_31_document_this.gif)
+![document this](images/extensions/document_this.gif)
 
 
 

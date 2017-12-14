@@ -4,9 +4,9 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
-MetaSocialImage: debugging_Debugging.png
+MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
 # Node.js Debugging in VS Code
 
@@ -362,7 +362,7 @@ When doing so you will find that some of your breakpoints don't "stick" to the l
 
 ![Breakpoints View](images/nodejs-debugging/breakpointsvalidation.png)
 
-This breakpoint validation occurs when a session starts and the breakpoints are registered with Node.js, or when a session is already running and a new breakpoint is set. In this case, the breakpoint may "jump" to a different location. After Node.js has parsed all the code (e.g. by running through it), breakpoints can be easily re-applied to the requested locations with the **Reapply** button in the **BREAKPOINTS** section header. This should make the breakpoints "jump back" to the requested location.
+This breakpoint validation occurs when a session starts and the breakpoints are registered with Node.js, or when a session is already running and a new breakpoint is set. In this case, the breakpoint may "jump" to a different location. After Node.js has parsed all the code (e.g. by running through it), breakpoints can be easily re-applied to the requested locations with the **Reapply** button in the **BREAKPOINTS** section header. This should make the breakpoints "jump back" to the requested location.
 
 ![Breakpoint Actions](images/nodejs-debugging/breakpointstoolbar.png)
 

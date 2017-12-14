@@ -6,7 +6,7 @@ ContentId: 826efeef-6803-49bd-a500-06c6c42cda19
 PageTitle: Code Editing Features in Visual Studio Code
 DateApproved: 3/6/2017
 MetaDescription: Take coding to the next level of speed and efficiency with these code editing features.
-MetaSocialImage: opengraph_introvideos.png
+MetaSocialImage: images/opengraph/introvideos.png
 ---
 
 # Code Editing Features in VS Code
@@ -36,7 +36,7 @@ In this tutorial, we cover code editing, including the features outlined below. 
 * [Tasks](/docs/editor/tasks.md) - Create tasks to use external tools inside VS Code.
 * [JavaScript Linters](/docs/languages/javascript.md#javascript-linters) - Install linters for JavaScript.
 * [Code Folding](/docs/editor/codebasics.md#folding) - See the details of source code folding.
-* [Tips and Tricks](https://github.com/Microsoft/vscode-tips-and-tricks) - A GitHub repository of helpful tips and tricks for VS Code.
+* [Tips and Tricks](/docs/getstarted/tips-and-tricks.md) - Helpful tips and tricks for VS Code.
 
 ## Next Video
 

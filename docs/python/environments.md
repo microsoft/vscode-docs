@@ -6,21 +6,21 @@ ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
 DateApproved: 11/10/2017
 MetaDescription: Configuring Python Environments in Visual Studio Code
-MetaSocialImage: tutorial_social.png
+MetaSocialImage: images/tutorial/social.png
 ---
-# Configuring Python Environments
+# Configuring Python environments
 
 By default, the Python extension relies on the first Python interpreter it finds in the path. The extension uses that interpreter for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging.
 
-To select a specific interpreter, select the **Python: Select Workspace Interpreter** command (on the [Command Palette](/editor/codebasics#_command-palette)):
+To select a specific interpreter, select the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-![Python: Select Workspace Interpreter command](images/environments/select-interpreters-command.png)
+![Python: Select Interpreter command](images/environments/select-interpreters-command.png)
 
 This command automatically looks for and displays a list of available Python interpreters.
 
 ![List of interpreters](images/environments/interpreters-list.png)
 
-Selecting an interpreter from the list configures the `settings.json` file accordingly. The statusbar shows the current  interpreter and when selected brings up a list of available interpreters. The statusbar also reflects when no interpreter is selected.
+Selecting an interpreter from the list configures your User [Settings](/docs/getstarted/settings.md) accordingly. The Status Bar shows the current interpreter and when selected brings up a list of available interpreters. The Status Bar also reflects when no interpreter is selected.
 
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
@@ -32,10 +32,12 @@ The extension looks for interpreters in the following locations:
 
 ## Manually specifying an interpreter
 
-If the interpreter you want to use is not located automatically, you can set the path to it directly in `settings.json`:
+If the interpreter you want to use is not located automatically, you can set the path to it manually in your User Settings `settings.json` file:
 
-- Select the **File > Preferences > Settings** command.
-- Create or modify an entry for `python.pythonPath` with the full path to the Python executable. For example:
+- Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openGlobalSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
+- Create or modify an entry for `python.pythonPath` with the full path to the Python executable.
+
+For example:
 
     Windows:
     ```json
@@ -49,11 +51,11 @@ If the interpreter you want to use is not located automatically, you can set the
 
 ## Environment variables in the interpreter path
 
-An environment variable can be used in the path setting using the syntax `${env.VARIABLE}`. For example:
+An environment variable can be used in the path setting using the syntax `${env:VARIABLE}`. For example:
 
 ```json
 {
-    "python.pythonPath": "${env.PYTHONPATH}/venv/bin/python"
+    "python.pythonPath": "${env:PYTHONPATH}/venv/bin/python"
 }
 ```
 
@@ -92,7 +94,7 @@ By default, the debugger uses the same `python.pythonPath` setting as for other 
     "request": "launch",
     "stopOnEntry": true,
     "program": "${file}",
-    "pythonPath": "${config.python.pythonPath}",
+    "pythonPath": "${config:python.pythonPath}",
     "debugOptions": [
         "WaitOnAbnormalExit",
         "WaitOnNormalExit",
@@ -103,11 +105,11 @@ By default, the debugger uses the same `python.pythonPath` setting as for other 
 
 To use a different interpreter for debugging, specify its path directly in the `pythonPath` setting.
 
-> **Note:** The debugger settings don't support relative paths, including when relying on the main `python.pythonPath` setting. To work around this, use an environment variable, or create a variable such as `${workspaceRoot}` that resolves to your project folder, then use that variable in the path, as in `"python.pythonPath": "${workspaceRoot}/venv/bin/python"`.
+> **Note:** The debugger settings don't support relative paths, including when relying on the main `python.pythonPath` setting. To work around this, use an environment variable, or create a variable such as `${workspaceFolder}` that resolves to your project folder, then use that variable in the path, as in `"python.pythonPath": "${workspaceFolder}/venv/bin/python"`.
 
 For information on general debugging configuration, see [Debugging](/docs/python/debugging.md).
 
-## Next Steps
+## Next steps
 
 - [Editing code](/docs/python/editing.md) - Learn about autocomplete, IntelliSense, formatting, and refactoring for Python.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.

@@ -3,21 +3,18 @@ Order:
 TOCTitle: Error Codes
 ContentId: 343B5C4D-3473-4454-AD22-084F405D6905
 PageTitle: Visual Studio Code workarounds for errors you might hit in the product.
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Several error conditions can easily be resolved by the user this page is designed to help un-block you.
 ---
 # Common Error Cases
 
-Some errors that happen in Visual Studio Code can be worked around or resolved by you.  This topic describes several of the most common error conditions, and what you can do to resolve them.
-
-If these steps don't help you, you probably hit a bug. You can check our [reported issues](https://github.com/microsoft/vscode/issues) list to see if others have had the same issue.
+Some errors that occur when using Visual Studio Code can be worked around or resolved by you. This topic describes several common error conditions, listed by error code number, and what you can do to resolve them.
 
 ## 20002
 
 **Error:** Cannot find '/usr/bin/gnome-terminal' for launching your Node.js program
 
-On Linux, the VS Code Node.js debugger requires the [gnome-terminal](https://help.gnome.org/users/gnome-terminal/stable/) emulator for launching the Node.js program.
-If gnome-terminal is not installed, the VS Code debugger cannot launch your program for debugging.
+On Linux, the VS Code Node.js debugger requires the [gnome-terminal](https://help.gnome.org/users/gnome-terminal/stable/) emulator for launching the Node.js program. If gnome-terminal is not installed, the VS Code debugger cannot launch your program for debugging.
 
 There are two options for solving this problem:
 
@@ -28,15 +25,56 @@ There are two options for solving this problem:
 
 **Error:** Attribute 'program' is not absolute; consider adding '${workspaceFolder}/' as a prefix to make it absolute.
 
-This error occurs when you have an absolute path in your debug configuration `launch.json` files.
+This error occurs when you have a relative path in your [debug configuration](/docs/editor/debugging.md#launch-configurations) `launch.json` file (located in your workspace `.vscode` directory).
 
-The workspace root is the folder where your code is located on disk, for example, `c:\src\helloworld`.  Before VS Code release 0.10.11, it was possible to use relative paths in launch configurations. VS Code would silently convert them to absolute paths.
+In the example below, the `program` attribute has a relative path to `app.js` at the root of the workspace (project folder).
 
-There were two problems with this:
+```json
+{
+"version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "./app.js"
+        }
+    ]
+}
+```
 
-* VS Code would only fix paths for some well-known attributes like `program`, `cwd`, or `outFiles`. Relative paths passed as an argument or set as an environment variable would not be fixed and this behavior was not transparent.
-* VS Code would only fix paths in the `launch.json` configuration file. It would not touch paths in `tasks.json` and this inconsistency was difficult to understand.
+The fix is to use an absolute path or better use the `${workspaceFolder}` variable which will resolve to the absolute path of the project folder.
 
-Starting with release 0.10.11, VS Code no longer modifies launch configuration paths.  If you are using relative paths in your launch configurations, you'll need to fix them by prefixing the relative path with `${workspaceFolder}/`.
+```json
+{
+"version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "program": "${workspaceFolder}/app.js"
+        }
+    ]
+}
+```
 
-> **Tip:** Documentation on `launch.json` and [debugger configuration](/docs/editor/debugging#_launch-configurations) provides several examples for the `program` attribute.
+By using the `${workspaceFolder}` variable, you won't need to update the absolute path if the project is moved or shared with other developers.
+
+In previous versions of VS Code, you were allowed to use relative paths in your launch configurations but this was problematic. VS Code now warns you about relative paths when you start a debugging session and recommends prefixing the relative path with `${workspaceFolder}/`. VS Code also checks other path attributes, such as `cwd` (current working directory), `outFiles` (location of other JavaScript files), and `runtimeExecutable`.
+
+> **Tip:** See the VS Code [debugging](/docs/editor/debugging.md) documentation for more information about `launch.json`, [debugger configuration](/docs/editor/debugging.md#launch-configurations), and [variable substitution](/docs/editor/debugging.md#variable-substitution).
+
+## Didn't find a solution?
+
+### GitHub issues
+
+If the steps above don't help you, you may have hit a bug. You can check our [reported issues](https://github.com/microsoft/vscode/issues) to see if others have reported the same issue.
+
+### Online search
+
+You can also search the rest of our online [documentation](/docs) for answers in our main topics and **Common Questions** sections. The online **Search** control is located in the upper right of the [code.visualstudio.com](/docs) website.
+
+### Stack Overflow
+
+There is also an active VS Code [Stack Overflow channel](https://go.microsoft.com/fwlink/?LinkID=536384) where you can browse answers or ask a question.

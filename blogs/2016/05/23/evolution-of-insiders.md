@@ -3,7 +3,7 @@ Order:
 TOCTitle: Evolution of VS Code Insiders
 PageTitle: Evolution of VS Code Insiders
 MetaDescription: Evolution of the Visual Studio Code Insiders Build
-MetaSocialImage: 2016_11_30_opengraph_insiders.png
+MetaSocialImage: /assets/blogs/2016/11/30/opengraph_insiders.png
 Date: 2016-05-23
 ShortDescription: Evolution of the Insiders Build
 Author: Wade Anderson
@@ -17,7 +17,7 @@ Today over five thousand developers use the Visual Studio Code [Insiders Build](
 
 Initially, we released an Insiders build once per month, a few days before the Stable release. Over time, we increased the frequency of Insiders builds and today we ship new Insiders builds roughly once a week.
 
-![value prop of insiders](2016_05_16_value_props.svg)
+![value prop of insiders](value_props.svg)
 
 ## Nightly Builds
 

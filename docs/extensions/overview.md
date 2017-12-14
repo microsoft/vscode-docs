@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Overview
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
 PageTitle: Building extensions for VS Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Visual Studio Code has a rich extensibility model for interacting with and adding to the tool.  Learn how to create your own extensions (plug-ins) for Visual Studio Code.
 ---
 # Extending Visual Studio Code
@@ -13,11 +13,13 @@ If you are interested in extending VS Code, you are in the right place. Here we 
 
 If you just want to use existing extensions, see the [Extension Marketplace](/docs/editor/extension-gallery.md) topic where we show you how to find and install extensions from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
-All VS Code extensions share a common model of contribution (registration), activation (loading) and access to the VS Code extensibility API.  There are however two special flavors of VS Code extensions, language servers and debuggers, which have their own additional protocols and are covered in their own sections of the documentation.
+All VS Code extensions share a common model of contribution (registration), activation (loading) and access to the VS Code extensibility API. There are however two special flavors of VS Code extensions, language servers and debuggers, which have their own additional protocols and are covered in their own sections of the documentation.
 
 1. [Extensions](/docs/extensions/overview.md#extensions) - the base building block
 2. [Language Servers](/docs/extensions/overview.md#language-servers) - for high cost IO or CPU intensive tasks
-3. [Debuggers](/docs/extensions/overview.md#debug-adapter) - wire up an external debugger
+3. [Debuggers](/docs/extensions/overview.md#debug-adapter) - wire up an external debugger through a Debug Adapter
+
+![VS Code extensibility architecture](images/overview/extensibility-architecture.png)
 
 ## Extensions
 

@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -286,9 +286,9 @@ language-configuration.json
     "folding": {
         "offSide": true,
         "markers": {
-			"start": "^\\s*//#region",
-			"end": "^\\s*//#endregion"
-		}
+            "start": "^\\s*//#region",
+            "end": "^\\s*//#endregion"
+        }
     }
 }
 ```
@@ -427,6 +427,10 @@ Contribute a TextMate theme to VS Code. You must specify a label, whether the th
 See [Changing the Color Theme](/docs/extensions/themes-snippets-colorizers.md) for instructions on using the [yo code extension generator](/docs/extensions/yocode.md) to quickly package TextMate .tmTheme files as VS Code extensions.
 
 ## contributes.snippets
+
+Contribute snippets for a specific language. The `language` attribute is the [language identifier](/docs/languages/identifiers.md) and the `path` is the relative path to the snippet file, which defines snippets in the [VS Code snippet format](/docs/editor/userdefinedsnippets.md#snippet-syntax).
+
+The example below shows adding snippets for the Go language.
 
 ```json
 "contributes": {

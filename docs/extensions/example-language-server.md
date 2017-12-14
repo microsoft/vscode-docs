@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Language Server
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
 PageTitle: Creating Language Servers for Visual Studio Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
 
@@ -13,6 +13,8 @@ MetaDescription: Learn how to create Language Servers for Visual Studio Code.  T
 Language servers allow you to add your own validation logic to files open in VS Code. Typically you just validate programming languages. However validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
 
 In general, validating a programming language can be expensive. Especially when validation requires parsing multiple files and building up abstract syntax trees. To avoid that performance cost, language servers in VS Code are executed in a separate process. This architecture also makes it possible that language servers can be written in other languages besides TypeScript/JavaScript and that they can support expensive additional language features like code completion or `Find All References`.
+
+![VS Code extensibility architecture](images/example-language-server/extensibility-architecture.png)
 
 The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview.md) for VS Code.
 
@@ -340,7 +342,7 @@ To test the language server do the following:
 * open the debug viewlet, select the `Launch Client` launch configuration and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 * Create a test.txt file in the root folder and paste the following content:
 
-```txt
+```
 typescript lets you write JavaScript the way you really want to.
 typescript is a typed superset of JavaScript that compiles to plain JavaScript.
 Any browser. Any host. Any OS. Open Source.

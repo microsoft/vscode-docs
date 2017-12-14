@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Tips and Tricks
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -447,7 +447,7 @@ Keyboard Shortcut: `kb(workbench.action.quickOpen)`
 Create language associations for files that aren't detected correctly. For example, many configuration files with custom file extensions are actually JSON.
 
 ```json
-"file.associations": {
+"files.associations": {
     ".database": "json"
 }
 ```
@@ -601,6 +601,8 @@ Select a symbol then type `kb(editor.action.goToDeclaration)`. Alternatively, yo
 ![go to definition](images/tips-and-tricks/goto_definition.gif)
 
 You can go back to your previous location with the **Go** > **Back** command or `kb(workbench.action.navigateBack)`.
+
+You can also see the type definition if you press `kbstyle(Ctrl)` (`kbstyle(Cmd)` on macOS) when you are hovering over the type.
 
 ### Find All References
 

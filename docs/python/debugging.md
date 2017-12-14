@@ -6,7 +6,7 @@ ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
 DateApproved: 11/10/2017
 MetaDescription: Debugging Python with Visual Studio Code
-MetaSocialImage: tutorial_social.png
+MetaSocialImage: images/tutorial/social.png
 ---
 # Debugging Python with VS Code
 
@@ -34,12 +34,12 @@ Standard configuration for `launch.json`:
 {
     "name": "Python",
     "type": "python",
-    "pythonPath":"${config.python.pythonPath}",
+    "pythonPath":"${config:python.pythonPath}",
     "request": "launch",
     "stopOnEntry": true,
     "console": "none",
     "program": "${file}",
-    "cwd": "${workspaceRoot}",
+    "cwd": "${workspaceFolder}",
     "debugOptions": [
         "WaitOnAbnormalExit",
         "WaitOnNormalExit",
@@ -53,7 +53,7 @@ Custom configurations for various settings are described in the following sectio
 
 ### `pythonPath`
 
-Points to the Python interpreter to be used for debugging purposes. The standard configuration uses the interpreter identified in the `python.pythonPath` setting by referring to `${config.python.pythonPath}`. To use a different interpreter, specify its path instead.
+Points to the Python interpreter to be used for debugging purposes. The standard configuration uses the interpreter identified in the `python.pythonPath` setting by referring to `${config:python.pythonPath}`. To use a different interpreter, specify its path instead.
 
 ### `program`
 
@@ -66,7 +66,7 @@ Provides the fully qualified path to the python program's entry module. The reco
 You can also rely on a relative path from the workspace root. For example, if the root is `/Users/Me/Projects/PokemonGo-Bot` then you can use the following:
 
 ```json
-"program": "${workspaceRoot}/pokemongo_bot/event_handlers/__init__.py",
+"program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py",
 ```
 
 ### `args`
@@ -95,7 +95,7 @@ Specifies how program output is displayed.
 
 ### `cwd`
 
-Specifies the current working directly for the program being debugged, defaulting to the current folder. The standard configuration uses `${workspaceRoot}` to use the project folder.
+Specifies the current working directly for the program being debugged, defaulting to the current folder. The standard configuration uses `${workspaceFolder}` to use the project folder.
 
 ### `debugOptions`
 
@@ -124,9 +124,9 @@ The configuration drop-down provides a variety of different options for general 
 | Python Module | Adds the setting `"module": "module.name"` to debug a specific module. When using this configuration, replace the value with the desired module name. |
 | Integrated Terminal/Console | Specifies `"console": "integratedTerminal"` and removes the `RedirectOutput` option. |
 | External Terminal/Console | Specifies `"console": "externalTerminal"` and removes the `RedirectOutput` option. |
-| Django | Specifies `"program": "${workspaceRoot}/manage.py"` and `"args": ["runserver", "--noreload"]`, and adds "DjangoDebugging" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, just add breakpoints to `templates`. |
-| Flask | Specifies `"stopOnEntry": false`, `"env": {"FLASK_APP": "${workspaceRoot}/quickstart/app.py"}` and `"args": ["run", "--no-debugger","--no-reload"]`; note that you must modify the `program` setting to point to the flask executable, which is typically located with the Python interpreter. |
-| Watson | Specifies `"program": "${workspaceRoot}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
+| Django | Specifies `"program": "${workspaceFolder}/manage.py"` and `"args": ["runserver", "--noreload"]`, and adds "DjangoDebugging" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, just add breakpoints to `templates`. |
+| Flask | Specifies `"stopOnEntry": false`, `"env": {"FLASK_APP": "${workspaceFolder}/quickstart/app.py"}` and `"args": ["run", "--no-debugger","--no-reload"]`; note that you must modify the `program` setting to point to the flask executable, which is typically located with the Python interpreter. |
+| Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Attach (Remote Debug) | See [Remote debugging](#remote-debugging) below. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
@@ -137,7 +137,7 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 Remote debugging allows you to step through a program locally within VS Code while it's executed on a remote computer. In this case, it's necessary to have the source code on both computers.
 
-1. On both development and remote computers, install the [ptvsd library](https://pypi.python.org/pypi/ptvsd).
+1. On both development and remote computers, install the [ptvsd library](https://pypi.org/project/ptvsd/) (version `3.0.0` or later).
 2. In the source code on both computers, add the following lines, replacing *my_secret* with the appropriate passphrase to authenticate remote debugging, and replacing *address* with the appropriate IP address (or `localhost`) and port number:
 
     ```python
@@ -156,8 +156,8 @@ Remote debugging allows you to step through a program locally within VS Code whi
         "name": "Attach (Remote Debug)",
         "type": "python",
         "request": "attach",
-        "localRoot": "${workspaceRoot}",
-        "remoteRoot": "${workspaceRoot}",
+        "localRoot": "${workspaceFolder}",
+        "remoteRoot": "${workspaceFolder}",
         "port": 3000,
         "secret": "my_secret",
         "host": "localhost"
@@ -200,10 +200,10 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
         "showOutput": "always",
         "args": [
             "/usr/local/google_appengine/dev_appserver.py",
-            "--python_startup_script=${workspaceRoot}/pydev_startup.py",
+            "--python_startup_script=${workspaceFolder}/pydev_startup.py",
             "--automatic_restart=no",
             "--max_module_instances=default:1",
-            "${workspaceRoot}/app.yaml"
+            "${workspaceFolder}/app.yaml"
         ]
     }
     ```

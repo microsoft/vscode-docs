@@ -69,7 +69,7 @@ You'll be prompted for the password you provided above. You should then see a se
 
 Browse to the site again and you should see your Express site hosted in Azure!
 
-![Express Site Hosted in Azure](nodejs-deployment_expressinazure.png)
+![Express Site Hosted in Azure](images/nodejs-deployment/expressinazure.png)
 
 > Are you seeing the error `Object #<eventemitter> has no method 'hrtime'`? If so, you probably need to set the node runtime version on the site. The following command will tell the site to use node version `6.9.1`. If your site requires a different or later version of node, specify the **full** semantic version `major.minor.patch`.
 

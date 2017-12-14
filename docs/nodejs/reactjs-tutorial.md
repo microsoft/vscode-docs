@@ -4,9 +4,9 @@ Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in VS Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
-MetaSocialImage: nodejs_javascript_vscode.png
+MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
 # Using React in VS Code
 
@@ -72,7 +72,7 @@ After you select a suggestion and type `.`, you see the types and methods on the
 
 ![react intellisense](images/reactjs/intellisense.png)
 
-VS Code uses the TypeScript language service for it's JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+VS Code uses the TypeScript language service for its JavaScript code intelligence and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
 
 If you select a method, you'll also get parameter help:
 

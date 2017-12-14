@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -235,7 +235,7 @@ Bracket matches:
 
 Overview ruler:
 
-This ruler is located beneath the scrollbar on the right edge of the editor and gives an overview of the decorations in the editor.
+This ruler is located beneath the scroll bar on the right edge of the editor and gives an overview of the decorations in the editor.
 
 - `editorOverviewRuler.border`: Color of the overview ruler border.
 - `editorOverviewRuler.findMatchForeground`: Overview ruler marker color for find matches.

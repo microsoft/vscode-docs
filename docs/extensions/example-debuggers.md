@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Debuggers
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
 
@@ -14,7 +14,7 @@ Since Visual Studio Code implements a generic (language agnostic) debug UI, it c
 
 These debug extensions differ from other extensions in that their implementation is not running in the extension host, but as a separate standalone program, a so-called _debug adapter_. We call these programs adapters because they "adapt" the API or protocol of a concrete debugger or runtime to the _Debug Adapter Protocol_ (DAP) used by VS Code.
 
-![Debugger Architecture](images/example-debuggers/debug-arch.png)
+![VS Code extensibility architecture](images/example-debuggers/extensibility-architecture.png)
 
 The reasons for implementing the debug adapters as standalone excutables are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if this is required by the underlying debugger or runtime.
 
@@ -22,6 +22,8 @@ In order to avoid problems with local firewalls, VS Code communicates with the a
 
 Every debug extension defines a debug `type` which is referenced from a VS Code launch configuration.
 When a debug session is started, VS Code looks up the debug extension based on the debug type and launches the extension's debug adapter executable as a separate process. When the debug session ends, the adapter is stopped.
+
+![Debugger Architecture](images/example-debuggers/debug-arch.png)
 
 Visual Studio Code ships with two debug extensions for Node.js: `node-debug` uses the (deprecated) v8 Debugger Protocol for node versions < 6.3 and `node-debug2` uses the Chrome Debugger Protocol (CDP) supported by node versions >= 6.3. Many more debugger extensions are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debugger extension yourself.
 
@@ -281,7 +283,7 @@ If the static nature of debug contributions in the package.json is not sufficien
 The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugConfiguration` to detect the case where a debug session is started when no launch.json exists but if a markdown file is open in the active editor. This is a typically scenario where the user has a file open in the editor and just wants to debug it without bothering with creating a launch.json.
 
 A debug configuration provider is registered for a specific debug type via `vscode.debug.registerDebugConfigurationProvider` typically in the extension's `activate` function.
-To ensure that the `DebugConfigurationProvider` is registered early enough, the extension must be activated as soon as the first debug functionality is used. This can be achieved by configuring extension activation for the `onDebug` event in the package.json:
+To ensure that the `DebugConfigurationProvider` is registered early enough, the extension must be activated as soon as the debug functionality is used. This can be easily achieved by configuring extension activation for the `onDebug` event in the package.json:
 
 ```ts
 "activationEvents": [
@@ -289,6 +291,15 @@ To ensure that the `DebugConfigurationProvider` is registered early enough, the 
     // ...
 ],
 ```
+
+This catch-all `onDebug` is triggered as soon as any debug functionality is used. This works fine as long as the extension has cheap startup costs (i.e. does not spend a lot of time in its startup sequence). If a debug extension has an expensive startup (for instance because of starting a language server), the `onDebug` activation event could negatively affect other debug extensions, because it is triggered rather early and does not take a specific debug type into account.
+
+A better approach for expensive debug extensions is to use more fine-grained activation events:
+
+* `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
+* `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
+
+**Rule of thumb:** If activation of a debug extensions is cheap, use `onDebug`. If it is expensive, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`.
 
 ## Publishing your Debug Adapter
 

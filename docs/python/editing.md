@@ -6,7 +6,7 @@ ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
 DateApproved: 11/10/2017
 MetaDescription: Editing Python in Visual Studio Code
-MetaSocialImage: tutorial_social.png
+MetaSocialImage: images/tutorial/social.png
 ---
 # Editing Python in VS Code
 
@@ -76,7 +76,6 @@ The Python extension supports source code formatting using either autopep8 (the 
 
 | Setting<br/>(python.formatting.) | Default value | Description |
 | --- | --- | --- |
-| formatOnSave | `false` | Applies formatting on document save. |
 | outputWindow | `"Python"` | The name of the output window for formatting messages. |
 | provider | `"autopep8"` | Specifies the formatter to use, either "autopep8" or "yapf". |
 
@@ -92,7 +91,7 @@ The following settings apply to the individual formatters. The Python extension 
 Example custom arguments:
 
 ```json
-"python.formatting.autopepArgs": ["--max-line-length 120", "--experimental"],
+"python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
 "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]
 ```
 

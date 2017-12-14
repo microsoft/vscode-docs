@@ -4,7 +4,6 @@ TOCTitle: February 2016
 PageTitle: Visual Studio Code February 0.10.11
 MetaDescription: See what is new in the Visual Studio Code February Release (0.10.11)
 ---
-
 # February 2016 (0.10.11)
 
 February is our last full iteration before we start the end game for the [Build 2016 conference](https://build.microsoft.com/) milestone at the end of March. It comes with many improvements:

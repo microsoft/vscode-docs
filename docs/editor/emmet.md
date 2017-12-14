@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
@@ -19,6 +19,16 @@ Emmet abbreviation and snippet expansions are enabled by default in `html`, `ham
 
 When you start typing an Emmet abbreviation, you will see the abbreviation displayed in the suggestion list. If you have the suggestion documentation fly-out open, you will see a preview of the expansion as you type. If you are in a stylesheet file, the expanded abbreviation shows up in the suggestion list sorted among the other CSS suggestions.
 
+### Using Tab for Emmet expansions
+
+If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the following setting:
+
+```json
+"emmet.triggerExpansionOnTab": true
+```
+
+This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
+
 ### Emmet when quickSuggestions are disabled
 
 If you have disabled the `editor.quickSuggestions` [setting](/docs/getstarted/settings.md), you won't see suggestions as you type. You can still trigger suggestions manually by pressing `kb(editor.action.triggerSuggest)` and see the preview.
@@ -32,16 +42,6 @@ If you don't want to see Emmet abbreviations in suggestions at all, then use the
 ```
 
 With this setting enabled, you can use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
-
-### Using Tab for Emmet expansions
-
-If you want to use the `kbstyle(Tab)` key for expanding the Emmet abbreviations, add the following setting:
-
-```json
-"emmet.triggerExpansionOnTab": true
-```
-
-This setting allows using the `kbstyle(Tab)` key for indentation when text is not an Emmet abbreviation.
 
 ### Emmet suggestion ordering
 
@@ -66,7 +66,7 @@ For example:
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non html/css context. To avoid this you can use the following setting.
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non HTML/CSS context. To avoid this you can use the following setting.
 
 ```json
 "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly"
@@ -103,7 +103,7 @@ Authoring of Custom Snippets in Emmet 2.0 via the `snippets.json` file differs f
 
 Topic | Old Emmet | Emmet 2.0
 ------ | -------- | ---------
-Snippets vs Abbreviations | Supports both in 2 separate properties called `snippets` and `abbreviations` | The 2 have been combined into a single property called snippets. See default [html snippets](https://github.com/emmetio/snippets/blob/master/html.json) and [css snippets](https://github.com/emmetio/snippets/blob/master/css.json)
+Snippets vs Abbreviations | Supports both in 2 separate properties called `snippets` and `abbreviations` | The 2 have been combined into a single property called snippets. See default [HTML snippets](https://github.com/emmetio/snippets/blob/master/html.json) and [CSS snippets](https://github.com/emmetio/snippets/blob/master/css.json)
 CSS snippet names | Can contain `:` | Do not use `:` when defining snippet names. It is used to separate property name and value when Emmet tries to fuzzy match the given abbreviation to one of the snippets.
 CSS snippet values | Can end with `;` | Do not add `;` at end of snippet value. Emmet will add the trailing `;` based on the file type (css/less/scss vs sass/stylus) or the emmet preference set for `css.propertyEnd`, `sass.propertyEnd`, `stylus.propertyEnd`
 Cursor location | `${cursor}` or `|` can be used | Use only textmate syntax like `${1}` for tab stops and cursor locations
@@ -266,10 +266,32 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 
 ## Common Questions
 
-**Q. `@-` doesn't work for numbering in descending order.**
+**Q: Custom tags do not get expanded in the suggestion list**
+**A:** Custom tags when used in an expression like `MyTag>YourTag` or `MyTag.someclass` do show up in the suggestion list. But when these are used on their own like `MyTag`, they do not appear in the suggestion list. This is designed so to avoid noise in the suggestion list as every word is a potential custom tag.
 
-**A:** Use of `@-` to get numbering in descending order in repeaters is not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2)
+Add the following setting to enable expanding of Emmet abbreviations using tab which will expand custom tags in all cases.
+
+```json
+"emmet.triggerExpansionOnTab": true
+```
+
+**Q: `@-` doesn't work for numbering in descending order.**
+
+**A:** Use of `@-` to get numbering in descending order in repeaters is not yet supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2). PRs are welcome to fix this upstream issue.
 
 **Q: My HTML snippets ending with `+` does not work?**
 
-**A:** HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1)
+**A:** HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
+
+**Q: Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)**
+
+**A:** You can set the preferences using the setting `emmet.preferences`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
+
+**Q: Any tips and tricks?**
+
+**A:** Of course!
+
+- In CSS abbreviations, when you use `:`, the left part is used to fuzzy match with the CSS property name and the right part is used to match with CSS property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b`, etc.
+- Use the new command **Emmet: Wrap Individual Lines with Abbreviation** instead of **Emmet: Wrap with Abbreviation** when you want to each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.
+- Explore all other Emmet features as documented in [Emmet Actions](https://docs.emmet.io/actions/).
+- Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets).

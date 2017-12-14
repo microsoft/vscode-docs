@@ -1,4 +1,4 @@
-﻿# May 2017 (version 1.13)
+# May 2017 (version 1.13)
 
 ## Insiders Release
 

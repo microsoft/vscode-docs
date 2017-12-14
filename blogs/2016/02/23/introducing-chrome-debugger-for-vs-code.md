@@ -18,7 +18,7 @@ Our Chrome Debugger allows front-end developers to debug their client-side JavaS
 
 <br />
 
-![Demo](2016_02_23_chrome-debugger-demo.gif)
+![Demo](chrome-debugger-demo.gif)
 
 ## How does it work?
 

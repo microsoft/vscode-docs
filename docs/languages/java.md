@@ -4,12 +4,12 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in VS Code
-DateApproved: 9/27/2017
+DateApproved: 12/14/2017
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in VS Code
 
-The Java support in VS Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide project support, code completion, linting, debugging, code formatting, snippets, and more.
+The Java support in VS Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide project support, code completion, linting, debugging, testing, code formatting, snippets, and more.
 
 > [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, Mac, Linux).
 
@@ -23,11 +23,14 @@ VS Code is a fast editor and ships with only the basic features. Add Java langua
 To help set up Java on VS Code, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains two popular extensions:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
-2. [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-This document describes the features included in the Java Extension Pack.
+There's also a [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which runs JUnit tests for your Java code.
+
+This document describes the features included in those Java extensions.
+
 
 ## Java Project Support
 
@@ -79,7 +82,7 @@ Other code editing features include:
 
 ## Debugging
 
-[Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users debugging Java code using Visual Studio Code (VS Code).
+[Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) is a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug). It works with [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) to allow users debugging Java code using Visual Studio Code (VS Code).
 
 The Java Debugger supports following features:
 
@@ -102,6 +105,11 @@ You can launch the debugger following steps below:
 ![Debugging Java Application](images/java/java-debug.gif)
 
 ## Next Steps
+
+Learn more about Java in VS Code
+
+* [Java Tutorial with VS Code](/docs/java/java-tutorial.md)
+* [Java Debugging](/docs/java/java-debugging.md)
 
 Read on to find out about:
 

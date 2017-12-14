@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Creating your own Snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own Snippets in Visual Studio Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own Snippets
@@ -102,7 +102,7 @@ Transformations allow you to modify the value of a variable before it is inserte
 The following example inserts the name of the current file without its ending, so from `foo.txt` it makes `foo`.
 
 ```
-${TM_FILENAME/(.*)\..+$/$1/}
+${TM_FILENAME/(.*)\\..+$/$1/}
   |           |         | |
   |           |         | |-> no options
   |           |         |

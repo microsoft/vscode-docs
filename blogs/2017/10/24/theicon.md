@@ -3,7 +3,7 @@ Order: 33
 TOCTitle: The Icon Journey
 PageTitle: The Icon Journey
 MetaDescription: Summary of feedback about the new icons and next steps
-MetaSocialImage: 2017_10_24_blueicon.png
+MetaSocialImage: /assets/blogs/2017/10/24/blueicon.png
 Date: 2017-10-24
 ShortDescription: Summary of feedback about the new icons and next steps
 Author: Chris Dias
@@ -16,7 +16,7 @@ October 24, 2017 Chris Dias, [@chrisdias](https://twitter.com/chrisdias)
 
 Thanks for all the passionate feedback. It has been very helpful, painful, and entertaining all at the same time. We're changing the orange icon to blue for Stable and keeping green for Insiders.
 
-![Windows and macOS stable blue icon](2017_10_24_blueicon.png)
+![Windows and macOS stable blue icon](blueicon.png)
 
 ## What is your favorite color?
 
@@ -40,21 +40,21 @@ When we saw the negative feedback from the initial set of icons, we went heads d
 
 Here are some of the early designs:
 
-![Early VS Code icon designs](2017_10_24_earlydesigns.png)
+![Early VS Code icon designs](earlydesigns.png)
 
 None of these really stood out for us, except the one in the upper right corner.
 
-![Early VS Code icon designs](2017_10_24_editorlinesicon.png)
+![Early VS Code icon designs](editorlinesicon.png)
 
 This was rejected because it didn't contain any folds, which is a component of the family design. Back to the drawing board.
 
 We iterated on the infinity logo for some time, for example:
 
-![Variations on the infinity design](2017_10_24_variationsoninfinity.png)
+![Variations on the infinity design](variationsoninfinity.png)
 
 Including one that will hurt your eyes:
 
-![A variation that hurts the eyes](2017_10_24_hurtsmyeyes.png)
+![A variation that hurts the eyes](hurtsmyeyes.png)
 
 Until we landed on the current "fish", which tested well with admittedly, a small number of developers.
 
@@ -68,17 +68,17 @@ That said, the feedback that the rotation is outdated and the mount makes the ic
 
 By mid-summer, icon fatigue rolled in. We had made so many iterations, we finally said let's go with the current shape, and we checked in the "pre-release" design for Insiders. A pre-release is denoted by the hashed box on the right and bottom:
 
-![Pre-release icons in orange](2017_10_24_orangeprerelease.png)
+![Pre-release icons in orange](orangeprerelease.png)
 
 The hash looks great at large sizes (for example on a PowerPoint slide), but at small sizes the box is very washed out and the icon becomes blurry.  We iterated on a number of outlines in white, black, and different shades of orange and green. Here they are enlarged to see the edges.
 
-![Border iterations](2017_10_24_outlines.png)
+![Border iterations](outlines.png)
 
 To combat this problem, we also tried the macOS version on Windows and that simply looked out of place, and even worse at small sizes. In the end, we decided to drop the pre-release design and use a different color for Insiders. Green was available, and it was the existing Insiders color, so we went with that.
 
 Voila, Insiders:
 
-![Insiders with the green macOS icon](2017_10_24_insidersgreenwindows.png)
+![Insiders with the green macOS icon](insidersgreenwindows.png)
 
 ## Icon Squatting
 
@@ -86,7 +86,7 @@ Before VS Code existed, there was [Visual Studio Online Monaco](https://azure.mi
 
 When we first released VS Code, everything was happening so quickly, and the icon was the least of our concerns. Regardless of what you think about the new icon, [the old one looks pretty bad](https://github.com/Microsoft/vscode/issues/11274) on the desktop and in the Taskbar and Dock, it was really meant to be a favicon.
 
-![Original blue infinity icon](2017_10_24_originalblueicon.png)
+![Original blue infinity icon](originalblueicon.png)
 
 Later on, when we decided that each product in the family would have its own color, it made sense that VSTS would keep its blue and we'd have to come up with something else. Plus, we stole it from them, so it seemed right to give it back :).
 
@@ -102,9 +102,9 @@ Maybe our fears were unfounded. Maybe users would really like the new icons and 
 
 And then the issues and comments started rolling in.
 
-![GitHub Issue 35683](2017_10_24_newvscodeiconuglyissue.png)
+![GitHub Issue 35683](newvscodeiconuglyissue.png)
 
-![GitHub issue 35783](2017_10_24_vscodenewlogoissue.png)
+![GitHub issue 35783](vscodenewlogoissue.png)
 
 (I must give credit to the author named "[badass-icon](https://github.com/badass-icon)", I see what you did there, well played.)
 
@@ -126,15 +126,15 @@ On macOS, the most prevalent feedback is that the tilt looks outdated and makes 
 
 All of this feedback urged us go back and see if we could do a better job while still creating a family of products. As a result, we are going change the Stable icon to the much-loved blue.
 
-![Blue stable icons](2017_10_24_blueicon.png)
+![Blue stable icons](blueicon.png)
 
 Which works well with the Status Bar and other blues in the editor:
 
-![Stable drop of VS Code with the blue icon](2017_10_24_stablewithblue.png)
+![Stable drop of VS Code with the blue icon](stablewithblue.png)
 
 For folks that have difficulty seeing the difference between Stable and Insiders, the green and blue work better together. Here's the two icons using the [Sim Daltonism](https://michelf.ca/projects/sim-daltonism/) app (Deuteranomaly):
 
-![Screen shot of Sim Daltonism app with the Deuteranomaly effect](2017_10_24_colorrecognition.png)
+![Screen shot of Sim Daltonism app with the Deuteranomaly effect](colorrecognition.png)
 
 It is inevitable that we will have multiple products that share colors, so we are no longer concerned that VSTS and VS Code share the blue color.
 

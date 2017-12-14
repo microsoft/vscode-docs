@@ -4,7 +4,6 @@ TOCTitle: November 2015
 PageTitle: Visual Studio Code November 2015 0.10.3 Beta
 MetaDescription: See what is new in Visual Studio Code November 0.10.3
 ---
-
 # November 2015 (0.10.3 - Beta 2015)
 
 Hi,
@@ -103,7 +102,7 @@ ColorSublime Batman Theme in 0.10.0:
 ![theme-0-10-0](images/0_10_0/theme-0-10-0.png)
 
 ## Environment Variable Substitution
-You can now reference environment variables directly in your `launch.json` and `tasks.json` files through `${env.Name}` (e.g. `${env.PATH}`).
+You can now reference environment variables directly in your `launch.json` and `tasks.json` files through `${env:Name}` (e.g. `${env:PATH}`).
 
 ## Language - PHP
 VS Code is now using the official PHP linter (`php -l`) for PHP language diagnostics. VS Code will now stay current with PHP linter improvements.

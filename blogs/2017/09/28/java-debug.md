@@ -13,13 +13,13 @@ September 28, 2017 Xiaokai He
 
 For Java developers on Visual Studio Code, the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension has been great for providing language features such as IntelliSense and project support. At the same time, we've also heard feedback that users would also like Java debugging. Today, we're excited to announce our ongoing collaboration with Red Hat and enabling Java developers to debug Java applications with a new lightweight [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) based on [Java Debug Server](https://github.com/Microsoft/java-debug).
 
-![Java debug extension](2017_09_28_java-debug-extension.png)
+![Java debug extension](java-debug-extension.png)
 
 >**Note**: Both the **Java Debugger for Visual Studio Code** and **Java Debug Server** will be open sourced shortly after the initial release.
 
 To help Java developers to get started with VS Code quickly, we also created a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which includes both the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and [Java Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extensions so you won't need to search for them individually. This is just the start to creating a modern workflow for Java and we'll be adding more features and extensions to the **Java Extension Pack** in the future.
 
-![Java extension pack](2017_09_28_java-extension-pack.png)
+![Java extension pack](java-extension-pack.png)
 
 ## Getting started
 
@@ -40,7 +40,7 @@ After reloading VS Code, open a folder that contains a Java project and follow b
 3. Fill in in the `mainClass` for `Launch` setting or `hostName` and `port` for `Attach`.
 4. Set your breakpoint and hit `F5` to start debugging.
 
-![Debugging Java Application](2017_09_28_java-debug.gif)
+![Debugging Java Application](java-debug.gif)
 
 ## Supported features
 
@@ -53,7 +53,7 @@ In this release, we support the following features:
 - **Diagnostics** - The **CALL STACK** panel shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
 - **Debug Console** - The Debug Console lets you see information from both stdout and stderr.
 
-![Debugging Features](2017_09_28_debug-features.png)
+![Debugging Features](debug-features.png)
 
 Future releases will include expression evaluation and hot code replacement.
 

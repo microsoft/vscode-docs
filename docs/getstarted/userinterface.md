@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -12,12 +12,6 @@ MetaDescription: A quick overview of the Visual Studio Code user interface. Lear
 At its heart, Visual Studio Code is a code editor. Like many other code editors, VS Code adopts a common user interface and layout of an explorer on the left, showing all of the files and folders you have access to, and an editor on the right, showing the content of the files you have opened.
 
 ![code basics hero](images/userinterface/hero.png)
-
-## Files, Folders & Projects
-
-VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
-
-On top of this, VS Code can read and take advantage of a variety of project files defined by different frameworks and platforms. For example, if the folder you opened in VS Code contains one or more `package.json`, `project.json`, `tsconfig.json`, or .NET Core Visual Studio solution and project files, VS Code will read these files and use them to provide additional functionality, such as rich IntelliSense in the editor.
 
 ## Basic Layout
 
@@ -30,8 +24,6 @@ VS Code comes with a simple and intuitive layout that maximizes the space provid
 * **Panels** - You can display different panels below the editor region for output or debug information, errors and warnings, or an integrated terminal. Panel can also be moved to the right for more vertical space.
 
 Each time you start VS Code, it opens up in the same state it was in when you last closed it. The folder, layout, and opened files are preserved.
-
-![VS Code Layout](images/userinterface/layout.png)
 
 Open files in each editor are displayed with tabbed headers (Tabs) at the top of the editor region. To learn more about tabbed headers, see the [Tabs](/docs/getstarted/userinterface.md#tabs) section below.
 
@@ -70,7 +62,8 @@ The image above also shows indentation guides (vertical lines) which help you qu
 
 ## Explorer
 
-The Explorer is used to browse, open, and manage all of the files and folders in your project.
+The Explorer is used to browse, open, and manage all of the files and folders in your project. VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
+
 
 After opening a folder in VS Code, the contents of the folder are shown in the Explorer. You can do many things from here:
 
