@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
 # Themes, Snippets and Colorizers
@@ -90,7 +90,7 @@ Here are some example theming rules. The  `scope` property lists the rules scope
 - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but are not inside a parent scope that matches `source.java`
 - Learn more about scope selectors [here](https://manual.macromates.com/en/scope_selectors).
 
-You can use the **Developer: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
+You can use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
 
 ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 
@@ -280,6 +280,10 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
         }
     }
 ```
+
+### Folder icons in File Icon Themes
+
+File Icon themes can instruct the File Explorer not to show the default folder icon (the rotating triangles or "twisties") when the folder icons are good enough to indicate the expansion state of a folder. This mode is enabled by setting `"hidesExplorerArrows":true` in the File Icon theme definition file.
 
 ---
 
