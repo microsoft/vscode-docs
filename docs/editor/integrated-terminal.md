@@ -164,8 +164,10 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ```bat
 @echo off
+SET CurrentWorkingDirectory=%CD%
 SET CMDER_ROOT=C:\cmder (your path to cmder)
-"%CMDER_ROOT%\vendor\init.bat"
+CALL "%CMDER_ROOT%\vendor\init.bat"
+CD /D %CurrentWorkingDirectory%
 ```
 
 then in your VS Code user settings, add the following to your `settings.json` file:
