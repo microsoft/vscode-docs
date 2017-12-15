@@ -1,10 +1,10 @@
 # What's new for Chrome debugging in VS Code
-Over the recent months we have been busy improving the Chrome debugging experience for VS Code, and today we are happy to release two new significant features that we think will help make client-side JavaScript debugging in VS Code a more realiable and easier experience.
+Over the recent months we have been busy improving the Chrome debugging experience for VS Code, and today we are happy to release two new significant features that we think will help make client-side JavaScript debugging in VS Code a more reliable and easier experience.
 
 If you aren't familiar with our Chrome Debugger for VS Code then it allows you to debug your client-side JavaScript running in Google Chrome, and adds a new aspect to our existing JavaScript debugging experience where we out of the box allows you to debug your server-side JavaScript in Node. Having both debuggers allows you to do seamless full-stack JavaScript debugging.
 
 ### Use VS Code and Chrome DevTools at the same time!
-The first thing we have been working on with the Google Chrome team is to make it posssible to use both VS Code and Chrome DevTools at the same time!
+The first thing we have been working on with the Google Chrome team is to make it possible to use both VS Code and Chrome DevTools at the same time!
 
 Since day one we heard this feedback from you, but we have been limited by Chrome's lack of [support of multi remote debugging connections](https://bugs.chromium.org/p/chromium/issues/detail?id=129539). This has meant that when VS Code connected to Chrome, their Chrome DevTools would be kicked out, and when you opened Chrome DevTools, VS Code would be kicked out.
 
@@ -17,23 +17,23 @@ Multi-connections shipped officially in Chrome 63, and works out of the box with
 
 To get this, just update to the latest Chrome version, and you should be good to go.
 
-#### Syncronized stepping between Chrome DevTools and VS Code
+#### Synchronized stepping between Chrome DevTools and VS Code
 
 We think being able to combine VS Code and Chrome DevTools is an extremely powerful experience, as it enables you to pick and choose right tools for the relevant, without being forced to make the hard choice of replacing one tool with another.
 
-We believe JavaScript script debugging belongs to your editor, but we also recognize that some prefers to debug JavaScript from DevTools, so instead of trying to replace DevTools, we instead see this as an oppertunity to integrate.
+We believe JavaScript script debugging belongs to your editor, but we also recognize that some prefers to debug JavaScript from DevTools, so instead of trying to replace DevTools, we instead see this as an opportunity to integrate.
 
-The first step we are taking towards better integrating the tools are syncronized stepping between Chrome DevTools and VS Code, as shown here:
+The first step we are taking towards better integrating the tools are **synchronized stepping between Chrome DevTools and VS Code**, as shown here:
 
 >![sync_stepping](sync_stepping.gif)
 
-Syncronized stepping allows you to debug your JavaScript code in VS Code and Chrome DevTools at the same time, and gives you the oppertunity to seamlessly jump between the two tools. From within each tool you can step-in, continue and debug your JavaScript without worrying about the other debugger becoming out of sync.
+Synchronized stepping allows you to debug your JavaScript code in VS Code and Chrome DevTools at the same time, and gives you the opportunity to seamlessly jump between the two tools. From within each tool you can step-in, continue and debug your JavaScript without worrying about the other debugger becoming out of sync.
 
 It's still early days, and we are excited on taking the first steps on integrating VS Code further with DevTools, and to explore the new world of integrations that's possible with connected editors and DevTools.
 
 
 ### We now set your breakpoints before your app runs
-Another feature we have been working on with our friends in Visual Studio, is the ablity for us to set your breakpoints in your JavaScript  before it get's executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed in many asynchronous ways.
+Another feature we have been working on with our friends in Visual Studio, is the ability for us to set your breakpoints in your JavaScript  before it get's executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed in many asynchronous ways.
 
 The problem has been that many of you have been experiencing to set breakpoints in VS Code followed by launching Chrome just to discover that the breakpoint wasn't hit. This has lead to many thinking that debugger didn't work, and to confuse things more a simple page refresh would make the breakpoints work for most.
 
