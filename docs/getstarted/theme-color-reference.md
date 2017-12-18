@@ -36,7 +36,20 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `foreground`: Overall foreground color. This color is only used if not overridden by a component.
 - `widget.shadow`: Shadow color of widgets such as Find/Replace inside the editor.
 - `selection.background`: Background color of text selections in the workbench (for input fields or text areas, does not apply to selections within the editor and the terminal).
+- `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
+
+# Text Colors
+
+Colors inside a text document, such as the welcome page.
+
+- `textBlockQuote.background`: Background color for block quotes in text.
+- `textBlockQuote.border`: Border color for block quotes in text.
+- `textCodeBlock.background`: Background color for code blocks in text.
+- `textLink.activeForeground`: Foreground color for active links in text.
+- `textLink.foreground`: Foreground color for links in text.
+- `textPreformat.foreground`: Foreground color for preformatted text segments.
+- `textSeparator.foreground`: Color for text separators.
 
 ## Button Control
 
@@ -102,12 +115,16 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.activeSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is active.
 - `list.dropBackground`: List/Tree drag and drop background when moving items around using the mouse.
 - `list.focusBackground`: List/Tree background color for the focused item when the list/tree is active.
+- `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
 - `list.highlightForeground`: List/Tree foreground color of the match highlights when searching inside the list/tree.
 - `list.hoverBackground`: List/Tree background when hovering over items using the mouse.
+- `list.hoverForeground`: List/Tree foreground when hovering over items using the mouse.
 - `list.inactiveSelectionBackground`: List/Tree background color for the selected item when the list/tree is inactive.
 - `list.inactiveSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
-- `list.hoverForeground`: List/Tree foreground when hovering over items using the mouse.
-- `list.focusForeground`: List/Tree foreground color for the focused item when the list/tree is active. An active list/tree has keyboard focus, an inactive does not.
+- `list.inactiveFocusBackground`: List/Tree background color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+- `list.inactiveFocusForeground`: List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
+- `list.invalidItemForeground`: List/Tree foreground color for invalid items, for example an unresolved root in explorer.
+
 
 ## Activity Bar
 
@@ -127,6 +144,8 @@ The Side Bar contains views like the Explorer and Search.
 - `sideBar.background`: Side Bar background color.
 - `sideBar.foreground`: Side Bar foreground color. The Side Bar is the container for views like Explorer and Search.
 - `sideBar.border`: Side Bar border color on the side separating the editor.
+- `sideBar.dropBackground`: Drag and drop feedback color for the side bar sections. The color should have transparency so that the side bar sections can still shine through. The side bar is the container for views like explorer and search.
+
 - `sideBarTitle.foreground`: Side Bar title foreground color.
 - `sideBarSectionHeader.background`: Side Bar section header background color.
 - `sideBarSectionHeader.foreground`: Side Bar section header foreground color.
@@ -138,7 +157,7 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 - `editorGroup.background`: Background color of an editor group. The background color shows up when dragging editor groups around.
 - `editorGroup.border`: Color to separate multiple editor groups from each other.
 - `editorGroup.dropBackground`: Background color when dragging editors around.
-- `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when Tabs are disabled.
+- `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when Tabs are disabled (set `"workbench.editor.showTabs": false`).
 - `editorGroupHeader.tabsBackground`: Background color of the Tabs container.
 - `editorGroupHeader.tabsBorder`: Border color of the editor group title header when tabs are enabled. Editor groups are the containers of editors.
 - `tab.activeBackground`: Active Tab background color.
@@ -158,6 +177,7 @@ The most prominent editor colors are the token colors that are based on the lang
 - `editor.background`: Editor background color.
 - `editor.foreground`: Editor default foreground color.
 - `editorLineNumber.foreground`: Color of editor line numbers.
+- `editorCursor.background`: The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `editorCursor.foreground`: Color of the editor cursor.
 
 Selection colors are visible when selecting one or more characters. In addition to the selection also all regions with the same content are highlighted.
@@ -165,6 +185,7 @@ Selection colors are visible when selecting one or more characters. In addition 
 ![selection highlight](images/theme-color-reference/selectionhighlight.png)
 
 - `editor.selectionBackground`: Color of the editor selection.
+- `editor.selectionForeground`: Color of the selected text for high contrast.
 - `editor.selectionHighlightBackground`: Color for regions with the same content as the selection.
 - `editor.inactiveSelectionBackground`: Color of the selection in an inactive editor.
 
@@ -261,7 +282,7 @@ Errors and warnings:
 
 The gutter contains the glyph margins and the line numbers:
 
-- `editorGutter.background`: Background color of the editor gutter.
+- `editorGutter.background`: Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.
 - `editorGutter.modifiedBackground`: Editor gutter background color for lines that are modified.
 - `editorGutter.addedBackground`: Editor gutter background color for lines that are added.
 - `editorGutter.deletedBackground`: Editor gutter background color for lines that are deleted.
@@ -270,10 +291,10 @@ The gutter contains the glyph margins and the line numbers:
 
 For coloring inserted and removed text, use either a background or a border color but not both.
 
-- `diffEditor.insertedTextBackground`: Background color for inserted text.
-- `diffEditor.insertedTextBorder`: Outline color for inserted text.
-- `diffEditor.removedTextBackground`: Background color for removed text.
-- `diffEditor.removedTextBorder`: Outline color for removed text.
+- `diffEditor.insertedTextBackground`: Background color for text that got inserted.
+- `diffEditor.insertedTextBorder`: Outline color for the text that got inserted.
+- `diffEditor.removedTextBackground`: Background color for text that got removed.
+- `diffEditor.removedTextBorder`: Outline color for text that got removed.
 
 ## Editor Widget Colors
 
@@ -334,6 +355,8 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `merge.incomingHeaderBackground`: Incoming header background in inline merge conflicts.
 - `merge.incomingContentBackground`: Incoming content background in inline merge conflicts.
 - `merge.border`: Border color on headers and the splitter in inline merge conflicts.
+- `merge.commonContentBackground`: Common ancester content background in inline merge-conflicts.
+- `merge.commonHeaderBackground`: Common ancestor header background in inline merge-conflicts.
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
@@ -343,10 +366,12 @@ Merge conflict decorations are shown when the editor contains special diff range
 Panels are shown below the editor area and contain views like Output and Integrated Terminal.
 
 - `panel.background`: Panel background color.
-- `panel.border`: Panel border color on the top separating to the editor.
+- `panel.border`: Panel border color to separate the panel from the editor.
+- `panel.dropBackground`: Drag and drop feedback color for the panel title items. The color should have transparency so that the panel entries can still shine through.
 - `panelTitle.activeBorder`: Border color for the active panel title.
 - `panelTitle.activeForeground`: Title color for the active panel.
 - `panelTitle.inactiveForeground`: Title color for the inactive panel.
+
 
 ## Status Bar Colors
 
@@ -363,8 +388,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBar.noFolderBorder`: Status Bar border color separating the Status Bar and editor when no folder is opened.
 - `statusBarItem.activeBackground`: Status Bar item background color when clicking.
 - `statusBarItem.hoverBackground`: Status Bar item background color when hovering.
-- `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance.
-- `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance.
+- `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
+- `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 
 ## Title Bar Colors (macOS)
 
@@ -372,6 +397,8 @@ The Status Bar is shown in the bottom of the workbench.
 - `titleBar.activeForeground`: Title Bar foreground when the window is active. Note that this color is currently only supported on macOS.
 - `titleBar.inactiveBackground`: Title Bar background when the window is inactive. Note that this color is currently only supported on macOS.
 - `titleBar.inactiveForeground`: Title Bar foreground when the window is inactive. Note that this color is currently only supported on macOS.
+- `titleBar.border`: Title bar border color. Note that this color is currently only supported on macOS.
+
 
 ## Notification Dialog Colors
 
@@ -379,17 +406,17 @@ Notifications slide in from the top of the workbench.
 
 ![Notification bar](images/theme-color-reference/notification-bar.png)
 
-- `notification.background`: Notifications background color.
-- `notification.foreground`: Notifications foreground color.
-- `notification.buttonBackground`: Notifications button background color.
-- `notification.buttonHoverBackground`: Notifications button hover background color.
-- `notification.buttonForeground`: Notifications button foreground color.
-- `notification.infoBackground`: Notifications info badge background color.
-- `notification.infoForeground`: Notifications info badge foreground color.
-- `notification.warningBackground`: Notifications warning badge background color.
-- `notification.warningForeground`: Notifications warning badge foreground color.
-- `notification.errorBackground`: Notifications error badge background color.
-- `notification.errorForeground`: Notifications error badge foreground color.
+- `notification.background`: Notifications background color. Notifications slide in from the top of the window.
+- `notification.foreground`: Notifications foreground color. Notifications slide in from the top of the window.
+- `notification.buttonBackground`: Notifications button background color. Notifications slide in from the top of the window.
+- `notification.buttonForeground`: Notifications button foreground color. Notifications slide in from the top of the window.
+- `notification.buttonHoverBackground`: Notifications button background color when hovering. Notifications slide in from the top of the window.
+- `notification.errorBackground`: Notifications error background color. Notifications slide in from the top of the window.
+- `notification.errorForeground`: Notifications error foreground color. Notifications slide in from the top of the window.
+- `notification.infoBackground`: Notifications info background color. Notifications slide in from the top of the window.
+- `notification.infoForeground`: Notifications info foreground color. Notifications slide in from the top of the window.
+- `notification.warningBackground`: Notifications warning background color. Notifications slide in from the top of the window.
+- `notification.warningForeground`: Notifications warning foreground color. Notifications slide in from the top of the window.
 
 ## Extensions
 
@@ -422,6 +449,9 @@ Notifications slide in from the top of the workbench.
 - `terminal.ansiRed`: 'Red' ANSI color in the terminal.
 - `terminal.ansiWhite`: 'White' ANSI color in the terminal.
 - `terminal.ansiYellow`: 'Yellow' ANSI color in the terminal.
+- `terminal.selectionBackground`: The selection background color of the terminal.
+- `terminalCursor.background`: The background color of the terminal cursor. Allows customizing the color of a character overlapped by a block cursor.
+- `terminalCursor.foreground`: The foreground color of the terminal cursor.
 
 ## Debug
 
