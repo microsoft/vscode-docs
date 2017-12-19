@@ -59,7 +59,7 @@ This means that if you have breakpoints in source code that would get *immediate
 
 Good news! We have found a way where you reliably can set breakpoints in early executed source code, which we call [`break-on-load breakpoints`](https://github.com/Microsoft/vscode-chrome-debug/issues/445).
 
-Break-on-load breakpoints is powered by DOM Instrumentation Breakpoints in Chrome that allow us to pause script execution every time a new script is loaded. This changes the workflow for our debugger, and allows us to have more time to set breakpoints before your JavaScript is executed.
+Break-on-load breakpoints are powered by DOM Instrumentation Breakpoints in Chrome that allow us to pause script execution every time a new script is loaded. This changes the workflow for our debugger, and allows us to have more time to set breakpoints before your JavaScript is executed.
 
 ![](break_on_load_after.png)
 
