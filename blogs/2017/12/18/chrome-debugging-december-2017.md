@@ -31,6 +31,12 @@ Synchronized stepping allows you to debug your JavaScript code in VS Code and Ch
 
 It's still early days, and we are excited on taking the first steps on integrating VS Code further with DevTools, and to explore the new world of integrations that's possible with connected editors and DevTools.
 
+## Localized debugging UI
+In this release we have also enabled localization of core parts of our debugger, which means that features such as `break on uncaught exceptions` and property descriptions in our `launch.json` now are translatable, and availble for our supported languages, such as Chinese.
+
+![sync_stepping](locale1.png)
+
+![sync_stepping](locale2.png)
 
 ## We now set your breakpoints before your app runs
 Another feature we have been working on with our friends in Visual Studio, is the ability for us to set your breakpoints in your JavaScript  before it get's executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed in many asynchronous ways.
