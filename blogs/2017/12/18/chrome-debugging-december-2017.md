@@ -45,8 +45,6 @@ In this release we have also enabled localization of core parts of our debugger,
 
 ![locale1](locale1.png)
 
-![locale2](locale2.png)
-
 ## Breakpoints set before your app runs
 
 Another feature we have been working on with [our friends in Visual Studio](https://github.com/Microsoft/vscode-chrome-debug-core/pull/241) is the ability for us to set breakpoints in JavaScript before it gets executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed asynchronously.
