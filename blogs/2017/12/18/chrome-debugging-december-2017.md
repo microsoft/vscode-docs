@@ -12,7 +12,7 @@ Author: Kenneth Auchenberg
 
 December 20, 2017 by [Kenneth Auchenberg](https://twitter.com/auchenberg)
 
-Over the recent months, we have been busy improving the Chrome debugging experience for Visual Studio Code, and today we are happy to release two new features that we think will make client-side JavaScript debugging in VS Code easier and more reliable.
+Over the recent months, we have been busy improving the Chrome debugging experience for Visual Studio Code, and today we are happy to release three new features that we think will make client-side JavaScript debugging in VS Code easier and more reliable.
 
 If you aren't familiar with the Microsoft [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension, it allows you to debug your client-side JavaScript running in Google Chrome. This adds a new aspect to VS Code's existing JavaScript debugging experience, where out-of-the-box you can debug your server-side JavaScript in Node.js. Having both debuggers installed allows you to do seamless full-stack JavaScript debugging.
 
@@ -28,7 +28,7 @@ Multiple connections means that you now can debug your JavaScript from VS Code w
 
 The Chrome team began working on this a few months ago, and we have been working closely with them to make sure the VS Code experience is optimal. Multi-connections shipped officially in Chrome 63, and works out-of-the-box with VS Code. To get multi-connection support, update to the latest Chrome version, and you should be good to go.
 
-## Synchronized stepping between VS Code and Chrome DevTools
+## Synchronized stepping between Chrome DevTools and VS Code
 
 We think being able to combine VS Code and Chrome DevTools is an extremely powerful experience. It enables you to pick the right tool for the scenario, without being forced to make the hard choice of replacing one tool with another. VS Code lets you debug JavaScript in your editor, but we also recognize that some users prefer to debug JavaScript from DevTools, so instead of trying to replace DevTools, we instead see this as an opportunity to integrate.
 
@@ -41,11 +41,11 @@ Synchronized stepping allows you to debug your JavaScript source code in VS Code
 It's still early days and we are excited to explore the new world of integration that's possible with connected editors and DevTools.
 
 ## Localized debugging UI
-In this release we have also enabled localization of core parts of our debugger, which means that features such as `break on uncaught exceptions` and property descriptions in our `launch.json` now are translatable, and availble for our supported languages, such as Chinese.
+In this release we have also enabled localization of core parts of our debugger, which means that features such as `break on uncaught exceptions` and property descriptions in our `launch.json` now are localized and availble for our supported languages, such as Chinese.
 
-![sync_stepping](locale1.png)
+![locale1](locale1.png)
 
-![sync_stepping](locale2.png)
+![locale2](locale2.png)
 
 ## Breakpoints set before your app runs
 
@@ -82,7 +82,8 @@ We are releasing break-on-load breakpoints as an experimental feature for our Ch
 
 Enabling break-on-load breakpoints will have an impact on your initial page load performance, as the debugger briefly pauses Chrome every time a new script is loaded. For that reason, this is currently an opt-in feature. If you are experiencing missing breakpoints, try enabling break-on-load breakpoints and let us know how they work for you.
 
-This is a big update for our Chrome debugger, and we can't wait to hear your feedback on these new features. In a world where your editor is more integrated with DevTools, let us know what you would expect or want from your tools.
+
+That's it for now. It's a big update for our Chrome debugger, and we can't wait to hear your feedback on these new features. In a world where your editor is more integrated with DevTools, let us know what you would expect or want from your tools.
 
 Happy Coding!
 
