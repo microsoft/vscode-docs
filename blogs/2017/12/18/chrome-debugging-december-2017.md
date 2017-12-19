@@ -39,7 +39,7 @@ In this release we have also enabled localization of core parts of our debugger,
 ![sync_stepping](locale2.png)
 
 ## We now set your breakpoints before your app runs
-Another feature we have been working on with our friends in Visual Studio, is the ability for us to set your breakpoints in your JavaScript  before it get's executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed in many asynchronous ways.
+Another feature we have been working on with [our friends in Visual Studio](https://github.com/Microsoft/vscode-chrome-debug-core/pull/241), is the ability for us to set your breakpoints in your JavaScript before it get's executed in Chrome. This sounds very simple, but is quite complicated when you dive into the details of how JavaScript can be loaded and executed in many asynchronous ways.
 
 The problem has been that many of you have been experiencing to set breakpoints in VS Code followed by launching Chrome just to discover that the breakpoint wasn't hit. This has lead to many thinking that debugger didn't work, and to confuse things more a simple page refresh would make the breakpoints work for most.
 
