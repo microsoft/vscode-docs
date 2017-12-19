@@ -18,7 +18,7 @@ VS Code provides two different scopes for settings:
 
 ## Creating User and Workspace Settings
 
-To get to the workspace settings:
+To get to the user and workspace settings:
 
 - On a Windows computer, click **File** > **Preferences** > **Settings**
 - On a Mac, click **Code** > **Preferences** > **Settings**
