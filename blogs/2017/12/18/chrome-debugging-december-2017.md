@@ -10,7 +10,7 @@ Since day one we heard this feedback from you, but we have been limited by Chrom
 
 Multiple connections means that you now can debug your JavaScript from VS Code while using the DOM Explorer, profiler or any other tool inside Chrome DevTools, without getting disconnected!
 
->![chrome_code](code_chrome_devtools.gif)
+![chrome_code](code_chrome_devtools.gif)
 
 The Chrome team began working on this few months ago, and we have been working closely with them to make sure the VS Code experience is optimal.
 Multi-connections shipped officially in Chrome 63, and works out of the box with VS Code.
@@ -25,7 +25,7 @@ We believe JavaScript script debugging belongs to your editor, but we also recog
 
 The first step we are taking towards better integrating the tools are **synchronized stepping between Chrome DevTools and VS Code**, as shown here:
 
->![sync_stepping](sync_stepping.gif)
+![sync_stepping](sync_stepping.gif)
 
 Synchronized stepping allows you to debug your JavaScript code in VS Code and Chrome DevTools at the same time, and gives you the opportunity to seamlessly jump between the two tools. From within each tool you can step-in, continue and debug your JavaScript without worrying about the other debugger becoming out of sync.
 
