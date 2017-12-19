@@ -18,7 +18,12 @@ VS Code provides two different scopes for settings:
 
 ## Creating User and Workspace Settings
 
-The menu command **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on Mac) provides entry to configure user and workspace settings. You are provided with a list of Default Settings. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs on the right let you switch quickly between the user and workspace settings files.
+To get to the workspace settings:
+
+- On a Windows computer, click **File** > **Preferences** > **Settings**
+- On a Mac, click **Code** > **Preferences** > **Settings**
+
+You are provided with a list of Default Settings. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs on the right let you switch quickly between the user and workspace settings files.
 
 You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openGlobalSettings)`).
 
