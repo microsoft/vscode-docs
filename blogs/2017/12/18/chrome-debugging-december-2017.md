@@ -3,7 +3,7 @@ Order: 35
 TOCTitle: What's New for Chrome Debugging
 PageTitle: What's New for Chrome debugging in VS Code
 MetaDescription: What's New for Chrome debugging in Visual Studio Code
-MetaSocialImage:
+MetaSocialImage: /assets/blogs/2017/12/20/social_paused.png
 Date: 2017-12-20
 ShortDescription: Learn what's new with Chrome debugging in Visual Studio Code
 Author: Kenneth Auchenberg
