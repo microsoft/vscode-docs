@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Complex Commands Reference
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.
 ---
 # Complex Commands
@@ -161,7 +161,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 `vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or a http(s) url. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
 
 * _resource_ Resource to open
-* _column_ (optional) Column in which to open
+* _columnOrOptions_ (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
 
 
 `cursorMove` - Move cursor to a logical position in the view
@@ -222,7 +222,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 
   Property-value pairs that can be passed through this argument:
 
-  * 'level': Number of levels to unfold. If not set, defaults to 1.
+  * 'levels': Number of levels to unfold. If not set, defaults to 1.
   * 'direction': If 'up', unfold given number of levels up otherwise unfolds down.
   * 'selectionLines': The start lines (0-based) of the editor selections to apply the unfold action to. If not set, the active selection(s) will be used.
 

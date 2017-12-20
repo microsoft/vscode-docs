@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -122,6 +122,18 @@ For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an e
 ![Gulp task auto-detection](images/tasks/gulp-auto-detect.png)
 
 >**Tip:** You can run your task through **Quick Open** (`kb(workbench.action.quickOpen)`) by typing 'task', `kbstyle(Space)` and the command name. In this case, 'task lint'.
+
+Task auto detection can be disabled using the following settings:
+
+```ts
+{
+    "typescript.tsc.autoDetect": "off",
+    "grunt.autoDetect": "off",
+    "jake.autoDetect": "off",
+    "gulp.autoDetect": "off",
+    "npm.autoDetect": "off"
+}
+```
 
 ## Custom tasks
 
@@ -406,6 +418,32 @@ Task properties can also be defined in the global scope. If present, they will b
     ]
 }
 ```
+
+## Changing the encoding for a task output
+
+Task frequently act with files on disk. If these files are store on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
+
+If you need to tweak the encoding you should check whether it makes sense to change the default encoding used by our operating system or at least changing it for the shell you use by tweaking the shell's profile file.
+
+ If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows usinhg code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therfore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
+
+```ts
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "more",
+            "type": "shell",
+            "command": "chcp 866 && more russian.txt",
+            "problemMatcher": []
+        }
+    ]
+}
+```
+
+If the task is execute in `PowerShell` the command needs to read like this `chcp 866; more russian.txt`. Under Linux and Mac the `locale` command can be used to inspect the locale and tweak the necessary environemt variables.
 
 ## Examples of tasks in action
 

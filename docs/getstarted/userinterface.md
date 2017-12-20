@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -135,7 +135,7 @@ VS Code gives you many options to configure the editor. From the **View** menu, 
 
 ### Hide the Menu Bar (Windows, Linux)
 
-You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command. You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.(`window.menuBarVisibility` setting)
+You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command. You can still access the Menu Bar by pressing the `kbstyle(Alt)` key (`window.menuBarVisibility` setting).
 
 ### Settings
 

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 11/8/2017
+DateApproved: 12/14/2017
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
@@ -85,6 +85,7 @@ Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
 `target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es2015", "es2016", "es2017".
+`checkJs` | Enable type checking on JavaScript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.
 `baseUrl`|Base directory to resolve non-relative module names.
