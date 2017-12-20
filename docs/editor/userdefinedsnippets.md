@@ -45,6 +45,7 @@ The example below is a `For Loop` snippet for `JavaScript`.
             "}"
         ],
         "description": "For Loop"
+      }
     },
 ```
 
