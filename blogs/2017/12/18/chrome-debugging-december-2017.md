@@ -26,7 +26,7 @@ Multiple connections means that you now can debug your JavaScript from VS Code w
 
 ![chrome_code](code_chrome_devtools.gif)
 
-The Chrome team began working on this a few months ago, and we have been working closely with them to make sure the VS Code experience is optimal. Multi-connections shipped officially in Chrome 63, and works out-of-the-box with VS Code. To get multi-connection support, update to the latest Chrome version, and you should be good to go.
+The Chrome team began working on this a few months ago, and we have been working closely with them to make sure the VS Code experience is optimal. Multi-connections [shipped officially in Chrome 63](https://developers.google.com/web/updates/2017/10/devtools-release-notes#multi-client), and works out-of-the-box with VS Code. To get multi-connection support, update to the latest Chrome version, and you should be good to go.
 
 ## Synchronized stepping between Chrome DevTools and VS Code
 
