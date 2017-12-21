@@ -169,6 +169,10 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 - `tab.inactiveForeground`: Inactive Tab foreground color in an active group.
 - `tab.unfocusedActiveForeground`: Active tab foreground color in an inactive editor group.
 - `tab.unfocusedInactiveForeground`: Inactive tab foreground color in an inactive editor group.
+- `tab.hoverBackground`: Tab background color when hovering
+- `tab.unfocusedHoverBackground`: Tab background color in an unfocused group when hovering
+- `tab.hoverBorder`: Border to highlight tabs when hovering
+- `tab.unfocusedHoverBorder`: Border to highlight tabs in an unfocused group when hovering
 
 ## Editor Colors
 
