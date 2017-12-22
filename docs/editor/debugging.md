@@ -167,6 +167,7 @@ VS Code supports variable substitution inside strings in `launch.json` and has t
 - **${fileExtname}** - the current opened file's extension
 - **${cwd}** - the task runner's current working directory on startup
 - **${lineNumber}** - the current selected line number in the active file
+- **${selectedText}** - the current selected text in the active file
 
 You can also reference environment variables through **${env:Name}** syntax (for example, ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
