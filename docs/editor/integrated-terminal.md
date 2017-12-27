@@ -40,14 +40,14 @@ The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10
 Correctly configuring your shell on Windows is a matter of locating the right executable and updating the setting. Below are a list of common shell executables and their default locations:
 
 ```json
-// 64-bit cmd if available, otherwise 32-bit
-"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\cmd.exe"
-// 64-bit PowerShell if available, otherwise 32-bit
-"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\WindowsPowerShell\\v1.0\\powershell.exe"
+// Command Prompt
+"terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe"
+// PowerShell
+"terminal.integrated.shell.windows": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
 // Git Bash
 "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe"
 // Bash on Ubuntu (on Windows)
-"terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe"
+"terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 ```
 
 >**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr`  can be redirected.
@@ -171,11 +171,9 @@ SET CMDER_ROOT=C:\cmder (your path to cmder)
 then in your VS Code user settings, add the following to your `settings.json` file:
 
 ```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
+"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
 "terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
 ```
-
-> **Note:** The example above assumes you are running 32-bit VS Code on 64-bit Windows and need to use `sysnative`. If you are running the 64-bit version of VS Code, you would use `System32`.
 
 **Q: Powershell on macOS is complaining about a "-l" argument, how do I fix it?**
 
@@ -192,7 +190,15 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 For example, if you have set your default terminal to bash, you will find `terminal.integrated.shell.windows` in your `settings.json` pointing to your bash location.
 
 ```json
-"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\bash.exe",
+"terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
 ```
 
 Remove the entry to use the built-in VS Code default or set it to another shell executable path.
+
+**Q: Why is the terminal not working when running the 32-bit Windows client on 64-bit Windows?**
+
+The easy fix for this is to use the 64-bit version. If you must use the 32-bit version you need to use the `sysnative` path when configuring your paths instead of `System32`:
+
+```json
+"terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
+```
