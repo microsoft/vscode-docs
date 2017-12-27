@@ -41,7 +41,7 @@ The Visual Studio Code editor supports debugging of JavaScript running in [Googl
 You can read more about how our Debugger for Chrome works in this introduction [blog post](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code).
 
 **Recipes:**
-- [Debugging AngularJS apps with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI)
+- [Debugging Angular apps with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI)
 - [Debugging Next.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
 - [Debugging Meteor apps](https://github.com/Microsoft/vscode-recipes/tree/master/meteor)
 

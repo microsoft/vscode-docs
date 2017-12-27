@@ -78,7 +78,7 @@ sudo zypper install code
 
 ### AUR package for Arch Linux
 
-There is a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code).
+There is a community maintained Arch User Repository (AUR) [package for VS Code](https://aur.archlinux.org/packages/visual-studio-code-bin).
 
 ### Nix package for NixOS (or any Linux distribution using Nix package manager)
 

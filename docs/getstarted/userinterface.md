@@ -135,7 +135,7 @@ VS Code gives you many options to configure the editor. From the **View** menu, 
 
 ### Hide the Menu Bar (Windows, Linux)
 
-You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command. You can still access the Menu Bar by pressing the `kbstyle(Alt)` key.(`window.menuBarVisibility` setting)
+You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu Bar** command. You can still access the Menu Bar by pressing the `kbstyle(Alt)` key (`window.menuBarVisibility` setting).
 
 ### Settings
 
