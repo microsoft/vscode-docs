@@ -36,18 +36,18 @@ Snippets are defined in a JSON format and stored in a per user `(languageId).jso
 The example below is a `For Loop` snippet for `JavaScript`.
 
 ```json
-    {
-        "For_Loop": {
-            "prefix": "new",
-            "body": [
-                "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-                "\tvar ${3:element} = ${2:array}[${1:index}];",
-                "\t$0",
-                "}"
-            ],
-            "description": "For Loop"
-        },
-     }
+{
+    "For_Loop": {
+        "prefix": "new",
+        "body": [
+            "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
+            "\tvar ${3:element} = ${2:array}[${1:index}];",
+            "\t$0",
+            "}"
+        ],
+        "description": "For Loop"
+    },
+}
 ```
 
 In the example above:
