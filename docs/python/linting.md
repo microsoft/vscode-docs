@@ -125,7 +125,7 @@ The Python extension maps flake8 message categories to VS Code categories throug
 
 ### Message category mapping
 
-The Python extension maps flake8 message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
+The Python extension maps mypy message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
 
 | mypy category | Applicable setting<br/>(python.linting.) | VS Code category mapping |
 | --- | --- | --- |
