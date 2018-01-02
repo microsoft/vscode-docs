@@ -136,7 +136,7 @@ plt.show()
 
 Try running the file in the debugger as described in the last section. If you run the program to completion, it may fail if matplotlib and numpy are not installed in the current environment.
 
-This is easy to remedy. Go to the **Terminal** and enter `pip3 install matplotlib`, and VS Code installs that package into your project along with its dependencies (including NumPy). Note that if you don't want to install matlotlib and its dependencies globally then use a [virtual environment](https://docs.python.org/3/tutorial/venv.html).
+This is easy to remedy. Go to the **Terminal** and enter `pip3 install matplotlib`, and VS Code installs that package into your project along with its dependencies (including NumPy). Note that if you don't want to install matplotlib and its dependencies globally then use a [virtual environment](https://docs.python.org/3/tutorial/venv.html).
 
 Rerun the program now and a plot window appears with the output:
 
