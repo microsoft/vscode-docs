@@ -211,6 +211,7 @@ Regions can also be defined by markers defined by each language. The following l
 * TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
 * VB: `#Region` and `#End Region`
 * Bat: `::#region` and `::#endregion`
+* Markdown: `<!-- #region -->` and `<!-- #endregion -->`
 
 To fold and unfold only the regions defined by markers use:
 
