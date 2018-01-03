@@ -137,7 +137,7 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 Remote debugging allows you to step through a program locally within VS Code while it's executed on a remote computer. In this case, it's necessary to have the source code on both computers.
 
-1. On both development and remote computers, install the [ptvsd library](https://pypi.org/project/ptvsd/) (version `3.0.0` or later).
+1. On both development and remote computers, install the [ptvsd library](https://pypi.org/project/ptvsd/) (version `3.0.0` - later versions are not yet supported [#514](https://github.com/Microsoft/vscode-python/issues/514)).
 2. In the source code on both computers, add the following lines, replacing *my_secret* with the appropriate passphrase to authenticate remote debugging, and replacing *address* with the appropriate IP address (or `localhost`) and port number:
 
     ```python
