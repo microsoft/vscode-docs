@@ -74,4 +74,4 @@ $ code .
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment-azureappservice/create-website">I created the Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'create-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/nodejs-deployment-azureappservice/deploy-app">I created the Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-azureappservice', 'create-app')" href="javascript:void(0)">I ran into an issue</a>

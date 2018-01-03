@@ -5,8 +5,7 @@ PageTitle: Node.js Deployment with Visual Studio Code
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---
-
-# Deploy a Node.js application to Azure from Visual Studio Code
+# Deploy a Node.js application to Azure
 
 This tutorial walks you through deploying a Node.js application to Azure on
 Linux in a matter of minutes from VS Code.
