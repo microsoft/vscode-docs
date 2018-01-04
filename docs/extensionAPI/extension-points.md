@@ -522,6 +522,32 @@ Also see: [Defining a Problem Matcher](/docs/editor/tasks.md#defining-a-problem-
 
 Contributes named problem patterns that can be used in problem matchers (see above).
 
+## contributes.typescriptServerPlugins
+
+Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin) that augment VS Code's JavaScript and TypeScript support:
+
+```json
+"contributes": {
+   "typescriptServerPlugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
+}
+```
+
+The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be listed as a `dependency`:
+
+```json
+{
+    "dependencies": {
+        "typescript-styled-plugin": "*"
+    }
+}
+```
+
+TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
+
 ## Next Steps
 
 To learn more about VS Code extensibility model, try these topic:
