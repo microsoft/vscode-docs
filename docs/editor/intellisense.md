@@ -81,7 +81,11 @@ The settings shown below are the default settings. You can change these settings
 ```javascript
 {
     // Controls if quick suggestions should show up while typing
-    "editor.quickSuggestions": true,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    },
 
     // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
     "editor.acceptSuggestionOnEnter": "on",
