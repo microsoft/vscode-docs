@@ -81,7 +81,11 @@ The settings shown below are the default settings. You can change these settings
 ```javascript
 {
     // Controls if quick suggestions should show up while typing
-    "editor.quickSuggestions": true,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": false
+    },
 
     // Controls if suggestions should be accepted on 'Enter' - in addition to 'Tab'. Helps to avoid ambiguity between inserting new lines or accepting suggestions. The value 'smart' means only accept a suggestion with Enter when it makes a textual change
     "editor.acceptSuggestionOnEnter": "on",
@@ -106,10 +110,10 @@ The key bindings shown below are the default key bindings. You can change these 
 > **Note:** There are many more key bindings relating to IntelliSense. Open the **Default Keyboard Shortcuts** (**File** > **Preferences** > **Keyboard Shortcuts**) and search for "suggest".
 
 ```json
-{
+[
     {
-       "key": "ctrl+space",
-       "command": "editor.action.triggerSuggest",
+        "key": "ctrl+space",
+        "command": "editor.action.triggerSuggest",
         "when": "editorHasCompletionItemProvider && editorTextFocus && !editorReadonly"
     },
     {
@@ -120,8 +124,9 @@ The key bindings shown below are the default key bindings. You can change these 
     {
         "key": "ctrl+alt+space",
         "command": "toggleSuggestionFocus",
-        "when": "editorTextFocus && suggestWidgetVisible" },
+        "when": "editorTextFocus && suggestWidgetVisible"
     }
+]
 ```
 
 ## Troubleshooting
