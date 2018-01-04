@@ -260,6 +260,16 @@ Click on the reference count to quickly browse a list of references:
 
 ![TypeScript references code lens peek](images/typescript/ts-references-code-lens-peek.png)
 
+## Implementations CodeLens
+
+The TypeScript implementations CodeLens displays the number of implementors of an interface:
+
+![TypeScript implementations code lens](images/typescript/ts-implementations-code-lens.png)
+
+You can enable this by setting `"typescript.implementationsCodeLens.enabled": true`.
+
+As with the references CodeLens, you can click on the implementation count to quickly browse a list of all implementations.
+
 ## TypeScript Extensions
 
 VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
