@@ -397,6 +397,18 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 "javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
 ```
 
+## References CodeLens
+
+The JavaScript references CodeLens displays an inline count of reference for classes, methods, properties, and exported objects:
+
+![JavaScript references code lens](images/javascript/references-codelens.png)
+
+You can enable this by setting `"javascript.referencesCodeLens.enabled": true`.
+
+Click on the reference count to quickly browse a list of references:
+
+![JavaScript references code lens peek](images/javascript/references-codelens-peek.png)
+
 ## Popular Extensions
 
 VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-gallery.md).

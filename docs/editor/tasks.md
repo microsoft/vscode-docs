@@ -376,6 +376,24 @@ Below is an example of a custom task configuration that passes the current opene
 }
 ```
 
+
+Similarly, you can reference your project's configuration settings by prefixing the name with `config:` — for example, `${config:python.pythonPath}`. Below is an example of a custom task configuration which executes autopep8 on the current file using your project's selected Python executable:
+
+```json
+{
+    "label": "autopep8 current file",
+    "type": "process",
+    "command": "${config:python.pythonPath}",
+    "args": [
+        "-m",
+        "autopep8",
+        "-i",
+        "${file}"
+    ]
+}
+```
+
+
 ## Operating system specific properties
 
 The task system supports defining values (for example, the command to be executed) specific to an operating system. To do so, put an operating system specific literal into the `tasks.json` file and specify the corresponding properties inside that literal.

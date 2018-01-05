@@ -1,5 +1,6 @@
 ---
 Order: 3
+Area: nodejsdeployment
 TOCTitle: Create the Website
 PageTitle: Create the Website
 MetaDescription:
@@ -33,20 +34,19 @@ $ az configure --defaults group=myResourceGroup location=westus
 
 ## Create an App Service Plan
 
-An "App Service Plan" defines the physical resources that will be used to host our Website. In this walkthrough, we will use a **Free** hosting plan (`--sku F1`) which means our site will be hosted on a machine alongside other websites. You can scale up and be the only site running on a machine by specifying a different value for `--sku`.
+An **App Service Plan** defines the physical resources that will be used to host our website. In this walkthrough, we will use a **Free** hosting plan (`--sku F1`) which means our site will be hosted on a machine alongside other websites. You can scale up and be the only site running on a machine by specifying a different value for `--sku`.
 
 ```bash
 $ az appservice plan create --name myPlan --sku F1
 ```
 
-## Create the Website
+## Create the website
 
 Now create the website. Make sure to give it a **unique name** as it will be referenced as http://**unique-name**.azurewebsites.net. In this example, we'll call it `myExpressApp-chrisdias`.
 
 ```bash
 $ az webapp create --name myExpressApp-chrisdias --plan myPlan --runtime "node|6.9"
 ```
-
 
 Notice the `--runtime "node|6.9"` parameter at the end of the command. This tells Azure to use node version 6.9.x when running this application. You can also state the desired node version in your `package.json`. During deployment Azure will recognize this and attempt to use that version instead.
 
@@ -58,7 +58,7 @@ For example, the following `package.json` entry will tell Azure this application
     },
 ```
 
-## Run the Website
+## Run the website
 
 Finally, let's ensure the site is up and running.
 

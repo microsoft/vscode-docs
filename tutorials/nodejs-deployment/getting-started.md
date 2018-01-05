@@ -1,16 +1,17 @@
 ---
 Order: 1
+Area: nodejsdeployment
 TOCTitle: Getting Started
 PageTitle: Node.js Deployment with Visual Studio Code
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 10/5/2017
 ---
+# Deploy to Azure using the Azure CLI
 
-# Deploy a Node.js Application to Azure
-
-In this walkthrough, you will deploy a Node.js application to the Azure cloud, all in a matter of minutes.
+In this walkthrough, you will deploy a Node.js application to the Azure cloud using the [Azure Command Line Interface (CLI)](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest).
 
 ## Prerequisites
+
 If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-tutorial-node-git&mktingSource=vscode-tutorial-node-git) for a free 30 day account with $200 in Azure credits to try out any combination of services.
 
 You'll need [Node.js and npm](https://nodejs.org/en/download/) and [Git](https://git-scm.com/downloads) installed locally.
@@ -19,7 +20,7 @@ Install the Azure Command Line Interface (CLI) which you will use the CLI to do 
 
 * Create an Azure Website.
 * Set up a deployment pipeline between a local/remote Git repository and the Website.
-* View your application's logs (`console.log()` output).
+* View your application's logs (`console.log` output).
 
 ## Install the Azure CLI
 

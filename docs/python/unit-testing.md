@@ -67,7 +67,7 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 | Setting<br/>(python.unitTest.) | Default | Description |
 | --- | --- | --- |
 | nosetestsEnabled | `false` | Specifies whether Nose  is enabled for unit testing. |
-| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if PyTest is located outside the current environment. |
+| nosetestPath | `"nosetests"` | Path to Nose. Use a full path if Nose is located outside the current environment. |
 | nosetestArgs | `[]` | Arguments to pass to Nose, with each argument specified as an item in the array. See [Nose usage options](http://nose.readthedocs.io/en/latest/usage.html#options). |
 
 You can also configure nose wuth a `.noserc` or `nose.cfg` file as described on [Nose configuration](http://nose.readthedocs.io/en/latest/usage.html#configuration).
