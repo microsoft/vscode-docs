@@ -1,5 +1,6 @@
 ---
 Order: 7
+Area: nodejsdeployment
 TOCTitle: Extensions
 PageTitle: Extensions
 MetaDescription:

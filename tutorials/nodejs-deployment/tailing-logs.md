@@ -1,5 +1,6 @@
 ---
 Order: 5
+Area: nodejsdeployment
 TOCTitle: Viewing Logs
 PageTitle: Viewing Logs
 MetaDescription:
@@ -9,7 +10,7 @@ ShortDescription:
 ---
 # Viewing Logs
 
-In this step, you will view (or "tail") the logs from the running Website. Any calls to `console.log()` in the site will be displayed in your terminal.
+In this step, you will view (or "tail") the logs from the running Website. Any calls to `console.log` in the site will be displayed in your terminal.
 
 Run the following Azure CLI command.
 

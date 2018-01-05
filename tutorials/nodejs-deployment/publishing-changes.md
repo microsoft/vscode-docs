@@ -1,5 +1,6 @@
 ---
 Order: 6
+Area: nodejsdeployment
 TOCTitle: Publish Changes
 PageTitle: Publish Changes
 MetaDescription:

@@ -1,30 +1,24 @@
 ---
 Order: 4
-TOCTitle: Viewing the Application Logs
+Area: appservicetools
+TOCTitle: Viewing Logs
 PageTitle: Viewing the Application Logs
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---
-
 # Viewing Logs
 
-In this step, you learn how to view (or "tail") the logs from the running
-Website. Any calls to `console.log()` in the site are displayed in the output
-window in VS Code.
+In this step, you learn how to view (or "tail") the logs from the running website. Any calls to `console.log` in the site are displayed in the output window in Visual Studio Code.
 
-Find the app in the Azure App Service explorer, right-click the app, and choose
-"View Streaming Logs".
+Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
 
-When prompted, choose to enable logging and restart the application. Once the
-app is restarted, the VS Code output window opens with a connection to the log
-stream.
+When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream.
 
-![View Streaming Logs](images/nodejs-deployment-azureappservice/view-logs.png)
+![View Streaming Logs](images/app-service-extension/view-logs.png)
 
-![Enable Logging and Restart](images/nodejs-deployment-azureappservice/enable-restart.png)
+![Enable Logging and Restart](images/app-service-extension/enable-restart.png)
 
-After a few seconds, you will see a message indicating that you are connected to
-the log-streaming service.
+After a few seconds, you will see a message indicating that you are connected to the log-streaming service.
 
 ```bash
 Connecting to log-streaming service...
@@ -60,9 +54,7 @@ Or get them all by installing the
 
 ## Learn More at [docs.microsoft.com](https://docs.microsoft.com)
 
-The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azure-node-2.0.0)
-developer center has a number of great articles on how to build and deploy
-Node.js based functions and applications to Azure.
+The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azure-node-2.0.0) developer center has a number of great articles on how to build and deploy Node.js based functions and applications to Azure.
 
 ----
 
