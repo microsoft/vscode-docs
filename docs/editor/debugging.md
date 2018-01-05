@@ -76,6 +76,8 @@ VS Code debuggers typically support launching a program in debug mode or attachi
 
 Review the generated values and make sure that they make sense for your project and debugging environment.
 
+VS Code also supports compound launch configurations for starting multiple configurations at the same time, for more details please read this [section](#compound-launch-configurations).
+
 To add a new configuration to an existing `launch.json`, use one of the following techniques:
 
 * Use IntelliSense if your cursor is located inside the configurations array.
