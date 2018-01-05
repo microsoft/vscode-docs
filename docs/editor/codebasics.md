@@ -127,7 +127,7 @@ Also note the two toggle buttons in the **files to exclude** box. The left one d
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
-While VS Code does support regular expression searches, backreferences, lookaround, and multiline matches are not supported. This is because VS Code depends on the search tool [ripgrep](https://github.com/BurntSushi/ripgrep), which, while extremely fast, doesn't support these advanced regex features.
+VS Code does support regular expression searches, however, backreferences, lookaround, and multiline matches are not supported. This is because VS Code depends on the search tool [ripgrep](https://github.com/BurntSushi/ripgrep), which, while extremely fast, doesn't support these advanced regex features.
 
 ### Search and Replace
 
