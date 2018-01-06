@@ -16,19 +16,19 @@ If you don't have an Azure account, [sign up today](https://azure.microsoft.com/
 
 You need [Visual Studio Code](https://code.visualstudio.com/) installed along with [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 
-## Install the Azure App Service Tools extension
+## Install the extension
 
 The Azure App Service Tools extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
 
 > [Install the Azure App Service Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
 
-### Sign in
+## Sign in
 
 Once the extension is installed, log into your Azure account - in the **AZURE APP SERVICE** explorer, click **Sign in to Azure...** and follow the instructions.
 
 ![sign in to Azure](images/app-service-extension/sign-in.png)
 
-## Prerequisite Check
+## Prerequisite check
 
 Before we continue, ensure that you have all the prerequisites installed and configured.
 
