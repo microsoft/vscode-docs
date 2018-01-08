@@ -7,18 +7,16 @@ Date: 2016-08-24
 ShortDescription: Today debugging web sites running on iOS devices are limited to a subset of developers, as the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. With our new debugger we are aiming to change that, as our iOS Web Debugger for Visual Studio Code works both on Mac and Windows.
 Author: Kenneth Auchenberg
 ---
-
 # iOS Web Debugging on Windows and Mac
 
 August 24, 2016 by [Kenneth Auchenberg](https://twitter.com/auchenberg)
 
+## Update
 
-https://github.com/Microsoft/vscode-ios-web-debug
-
-### Update
-The iOS Web debugger has been deprecated, and we recommend you using [remotedebug-ios-webkit-adaptor](https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter) together with VS Code. A guide can be read here https://medium.com/@auchenberg/hello-remotedebug-ios-webkit-adapter-debug-safari-and-ios-webviews-from-anywhere-2a8553df7465.
+The [iOS Web debugger](https://github.com/Microsoft/vscode-ios-web-debug) has been deprecated and we now recommend that you use the [RemoteDebug iOS WebKit Adapter](https://github.com/RemoteDebug/remotedebug-ios-webkit-adapter) together with Visual Studio Code. To learn more, see this introductory [guide](https://medium.com/@auchenberg/hello-remotedebug-ios-webkit-adapter-debug-safari-and-ios-webviews-from-anywhere-2a8553df7465) to the RemoteDebug iOS WebKit Adapter.
 
 ## Introduction
+
 Debugging web sites running on iOS devices is accessible only to a subset of developers. For example, using the Safari Web Inspector (Safari DevTools) requires an instance of desktop Safari which only is available for MacOS users. Today, we’re enabling mobile web developers to debug JavaScript running on their iOS devices directly from their editor with a new [iOS Web Debugger for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web). This debug extension works on both **Mac and Windows**.
 
 ![Demo](ios-debugger-splash.png)
