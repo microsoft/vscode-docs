@@ -20,7 +20,7 @@ You need [Visual Studio Code](https://code.visualstudio.com/) installed along wi
 
 The Azure App Service Tools extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
 
-> [Install the Azure App Service Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service Tools extension</a>
 
 ## Sign in
 
