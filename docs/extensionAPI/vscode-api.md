@@ -1901,6 +1901,7 @@ when the <a href="#TextDocument.getText">contents</a> changes but also when othe
 <a name="workspace.onDidCloseTextDocument"></a><span class="ts" id=1635 data-target="#details-1635" data-toggle="collapse"><span class="ident">onDidCloseTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1635">
 <div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is disposed.</p>
+<p>To add an event listener when a visible text document is closed, use the <a href="#TextEditor">TextEditor</a> events in the <a href="#_window">window</a> namespace. Note that this event is not emitted when a <a href="#TextDocument">text document</a> is closed but remains open in another <a href="#window.visibleTextEditors">visible text editor</a>.</p>
 </div>
 </div>
 
@@ -1909,6 +1910,9 @@ when the <a href="#TextDocument.getText">contents</a> changes but also when othe
 <a name="workspace.onDidOpenTextDocument"></a><span class="ts" id=1634 data-target="#details-1634" data-toggle="collapse"><span class="ident">onDidOpenTextDocument</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-ref" href="#TextDocument">TextDocument</a>&gt;</span>
 <div class="details collapse" id="details-1634">
 <div class="comment"><p>An event that is emitted when a <a href="#TextDocument">text document</a> is opened.</p>
+<p>To add an event listener when a visible text document is opened, use the <a href="#TextEditor">TextEditor</a> events in the <a href="#_window">window</a> namespace. Note that:
+<ul><li>The event is emitted before the <a href="#TextDocument">document</a> is updated in the <a href="#window.activeTextEditor">active text editor</a>.</li>
+<li>When a <a href="#TextDocument">text document</a> is already open (e.g.: open in another <a href="#window.visibleTextEditors">visible text editor</a>) this event is not emitted.</li></p>
 </div>
 </div>
 
