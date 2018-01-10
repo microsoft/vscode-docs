@@ -93,6 +93,9 @@ The settings shown below are the default settings. You can change these settings
     // Controls the delay in ms after which quick suggestions will show up.
     "editor.quickSuggestionsDelay": 10,
 
+    // Controls if suggestions should automatically show up when typing trigger characters
+    "editor.suggestOnTriggerCharacters": true,
+
     // Enable word based suggestions
     "editor.wordBasedSuggestions": true,
 
