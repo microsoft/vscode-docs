@@ -39,7 +39,7 @@ The contrast colors are typically only set for high contrast themes. If set, the
 - `descriptionForeground`: Foreground color for description text providing additional information, for example for a label.
 - `errorForeground`: Overall foreground color for error messages (this color is only used if not overridden by a component).
 
-# Text Colors
+## Text Colors
 
 Colors inside a text document, such as the welcome page.
 
