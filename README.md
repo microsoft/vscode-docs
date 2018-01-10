@@ -48,3 +48,7 @@ code .
 You can open any of the Markdown files and see a preview with the **Open Preview to the Side** button in the upper right of the editor.
 
 ![Markdown Preview Button](images/MDPreviewButton.png)
+
+## Publishing
+
+Steps for how to publish documentation changes can be found [here](https://github.com/Microsoft/vscode-website#publishing-a-documentation-change) in the (private) repository of the VS Code website.
