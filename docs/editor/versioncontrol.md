@@ -225,3 +225,7 @@ Next, assuming you want to remove the unintended repo initialization, look for t
 One way to avoid these prompts is to set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) which remembers your credentials.
 
 Another option is to disable the auto fetch feature by changing the following setting: `"git.autofetch": false`.
+
+**Q: Can I use SSH Git authentication with VS Code?**
+
+**A:** Yes, though VS Code works most easily with SSH keys without a passphrase. If you have a SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.
