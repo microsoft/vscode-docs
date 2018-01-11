@@ -1,18 +1,18 @@
 ---
 Order: 3
 Area: docker
-TOCTitle: Containerize the Application
-PageTitle: Containerize the Application
+TOCTitle: Create the Image
+PageTitle: Create the Image
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 1/11/2018
 ---
-# Containerize your Node.js Application
+# Create your Node.js application image
 
-Next, use the Docker extension to add the necessary files to containerize your app, build the image, and push it to a registry.
+Next, use the Docker extension to add the necessary files to create an image for your app, build the image, and push it to a registry.
 
-> **Tip:** If you don't already have an app to containerize, follow this [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md).
+> **Tip:** If you don't already have an app for this walkthrough, follow the [Node.js tutorial](/docs/nodejs/nodejs-tutorial.md).
 
-## Add the Docker files to workspace
+## Add Docker files
 
 Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `add docker files to workspace` to run the **Docker: Add docker files to workspace** command. This command will create the necessary Docker files. Choose your application type - **Node.js** in this tutorial - along with the port that your application listens on.
 
@@ -53,4 +53,4 @@ Next, you'll deploy your image to Azure.
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/docker-extension/deploy-container">I containerized my Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'containerize-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/docker-extension/deploy-container">I've created an image for my Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'containerize-app')" href="javascript:void(0)">I ran into an issue</a>

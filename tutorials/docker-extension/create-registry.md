@@ -1,15 +1,14 @@
 ---
 Order: 2
 Area: docker
-TOCTitle: Getting Started
-PageTitle: Getting Started
+TOCTitle: Container Registries
+PageTitle: Container Registries
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---
+# Using Container Registries
 
-# Create a Container Registry
-
-You need a registry to push your containerized app to once the image is built, once pushed, you will deploy directly from your registry.
+You need a container registry to push your app image to once the image is built. Once your image is available in a container registry, you will deploy directly from that registry.
 
 ## Using Azure Container Registry
 
@@ -23,7 +22,7 @@ Docker Hub is Docker's own hosted registry that provides a free way of sharing i
 
 ## Prerequisite Check
 
-Ensure that the registry endpoint that you just setup is visible under "Registries" in the **Docker** explorer.
+Ensure that the registry endpoint that you just setup is visible under **Registries** in the **DOCKER** explorer.
 
 ![Registries](images/docker-extension/registries.png)
 
