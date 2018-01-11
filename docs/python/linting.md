@@ -109,7 +109,7 @@ The Python extension maps pep8 message categories to VS Code categories through 
 
 Flake8 user options are read from the `.flake8` (Windows) or `~/.config/flake8` (Mac/Linux) file.
 
-At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered. For details, see [flake8 Configuration](http://flake8.readthedocs.org/en/latest/config.html).
+At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered. For details, see [flake8 Configuration](http://flake8.pycqa.org/en/latest/user/configuration.html).
 
 ### Message category mapping
 
