@@ -4,16 +4,15 @@ Area: docker
 TOCTitle: Viewing Logs
 PageTitle: Viewing the Application Logs
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
-DateApproved: 12/18/2017
+DateApproved: 1/11/2018
 ---
-
 # Viewing Logs
 
-In this step, you learn how to view (or "tail") the logs from the running website. Any calls to `console.log` in the site are displayed in the output window in Visual Studio Code.
+In this step, you learn how to view (or "tail") the logs from the running website. Any calls to `console.log` in the site are displayed in the Output panel in Visual Studio Code.
 
 Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and choose **View Streaming Logs**.
 
-When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream.
+When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code Output panel opens with a connection to the log stream.
 
 ![View Streaming Logs](images/app-service-extension/view-logs.png)
 
@@ -46,7 +45,6 @@ Next, check out the other Azure extensions.
 
 * [Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb)
 * [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
-* [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 * [Azure CLI Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli)
 * [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
