@@ -50,12 +50,12 @@ login to the Docker CLI using your Docker ID credentials.
 The Docker extension is used to simplify the management of local Docker images
 and commands as well as the deployment of a built app image to Azure.
 
-> [Install the Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
+> <a class="tutorial-install-extension-btn" href="vscode:extension/PeterJausovec.vscode-docker">Install the Docker extension</a>
 
 The Azure App Service extension is used to create, manage, and deploy Linux Web
 Apps on the Azure PaaS.
 
-> [Install the Azure App Service extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice)
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service Tools extension</a>
 
 ### Sign in
 
@@ -76,5 +76,5 @@ Docker extension's explorer under Registries > Azure.
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/docker-extension/create-app">I've installed the Docker Extension</a>
+<a class="tutorial-next-btn" href="/tutorials/docker-extension/containerize-app">I've installed the Docker Extension</a>
 <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>
