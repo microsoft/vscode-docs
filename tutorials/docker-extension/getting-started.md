@@ -16,20 +16,6 @@ If you don't have an Azure account, [sign up today](https://azure.microsoft.com/
 
 You need [Visual Studio Code](https://code.visualstudio.com/) installed along with [Node.js and npm](https://nodejs.org/en/download) and [Docker](https://www.docker.com/community-edition).
 
-## Create a Container Registry
-
-You need a registry to push your containerized app to once the image is built, once pushed, you will deploy directly from your registry. There are some options when setting up a registry.
-
-### Using Azure Container Registry
-
-[Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) (ACR) is a private, secure, hosted registry for your images. ACR is used in this tutorial; however, ACR uses all the same tools and processes as other registry options so the steps are consistent regardless.
-
-Follow this guide to [Setup an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) and be sure to log into your registry from the Docker CLI.
-
-### Using Docker Hub
-
-Docker Hub is Docker's own hosted registry that provides a free way of sharing images. Sign up for a Docker ID on [Docker Hub](https://hub.docker.com/) then login to the Docker CLI using your Docker ID credentials.
-
 ## Install the Docker and Azure App Service extensions
 
 The Docker extension is used to simplify the management of local Docker images and commands as well as the deployment of a built app image to Azure.
@@ -52,9 +38,14 @@ Before we continue, ensure that you have all the prerequisites installed and con
 
 In VS Code, you should see your Azure email address in the Status Bar and your subscription in the **AZURE APP SERVICE** explorer.
 
-If you're using an Azure registry, the endpoint will be visible within the extension's **DOCKER** explorer under **Registries** > **Azure**.
+Verify that you have Docker installed and running.
+
+```bash
+$ docker --version
+Docker Version 17.12.0-ce, build c97c6d6
+```
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/docker-extension/containerize-app">I've installed the Docker Extension</a>
+<a class="tutorial-next-btn" href="/tutorials/docker-extension/create-registry">I've installed the Docker Extension</a>
 <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'getting-started')" href="javascript:void(0)">I ran into an issue</a>

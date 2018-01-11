@@ -1,5 +1,5 @@
 ---
-Order: 3
+Order: 4
 Area: docker
 TOCTitle: Deploy the Image
 PageTitle: Deploy the Image
@@ -12,7 +12,7 @@ Now that you have your app image built and pushed to a registry, you can deploy 
 
 ## Deploy the image
 
-Find the image under the **Registry** node in the **DOCKER** explorer, right click the `:latest` tag and choose **Deploy Image to Azure App Service**.
+Find the image under the **Registries** node in the **DOCKER** explorer, right click the `:latest` tag and choose **Deploy Image to Azure App Service**.
 
 ![Deploy From the Explorer](images/docker-extension/deploy-menu.png)
 
