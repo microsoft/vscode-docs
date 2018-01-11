@@ -190,29 +190,29 @@ Selection colors are visible when selecting one or more characters. In addition 
 
 - `editor.selectionBackground`: Color of the editor selection.
 - `editor.selectionForeground`: Color of the selected text for high contrast.
-- `editor.selectionHighlightBackground`: Color for regions with the same content as the selection.
-- `editor.inactiveSelectionBackground`: Color of the selection in an inactive editor.
+- `editor.selectionHighlightBackground`: Color for regions with the same content as the selection. The color must not be opaque to not hide underlying decorations.
+- `editor.inactiveSelectionBackground`: Color of the selection in an inactive editor. The color must not be opaque to not hide underlying decorations.
 
 Word highlight colors are visible when the cursor is inside a symbol or a word. Depending on the language support available for the file type, all matching references and declarations are highlighted and read and write accesses get different colors. If document symbol language support is not available, this falls back to word highlighting.
 
 ![occurrences](images/theme-color-reference/occurrences.png)
 
-- `editor.wordHighlightBackground`: Background color of a symbol during read-access, for example when reading a variable.
-- `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, for example when writing to a variable.
+- `editor.wordHighlightBackground`: Background color of a symbol during read-access, for example when reading a variable. The color must not be opaque to not hide underlying decorations.
+- `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, for example when writing to a variable. The color must not be opaque to not hide underlying decorations.
 
 Find colors depend on the current find string in the Find/Replace dialog.
 
 ![Find matches](images/theme-color-reference/findmatches.png)
 
 - `editor.findMatchBackground`: Color of the current search match.
-- `editor.findMatchHighlightBackground`: Color of the other search matches.
-- `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget)
+- `editor.findMatchHighlightBackground`: Color of the other search matches. The color must not be opaque to not hide underlying decorations.
+- `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget). The color must not be opaque to not hide underlying decorations.
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
 ![Hover Highlight](images/theme-color-reference/hoverhighlight.png)
 
-- `editor.hoverHighlightBackground`: Highlight below the word for which a hover is shown.
+- `editor.hoverHighlightBackground`: Highlight below the word for which a hover is shown. The color must not be opaque to not hide underlying decorations.
 
 The current line is typically shown as either background highlight or a border (not both).
 
@@ -231,7 +231,7 @@ The range highlight is visible when selecting a search result.
 
 ![Range Highlight](images/theme-color-reference/rangehighlight.png)
 
-- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by like by the Quick Open, Symbol in File and Find features.
+- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by like by the Quick Open, Symbol in File and Find features. The color must not be opaque to not hide underlying decorations.
 
 To see the editor white spaces, enable **Toggle Render Whitespace**.
 
@@ -354,13 +354,13 @@ Merge conflict decorations are shown when the editor contains special diff range
 
 ![Merge ranges](images/theme-color-reference/merge-ranges.png)
 
-- `merge.currentHeaderBackground`: Current header background in inline merge conflicts.
-- `merge.currentContentBackground`: Current content background in inline merge conflicts.
-- `merge.incomingHeaderBackground`: Incoming header background in inline merge conflicts.
-- `merge.incomingContentBackground`: Incoming content background in inline merge conflicts.
+- `merge.currentHeaderBackground`: Current header background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
+- `merge.currentContentBackground`: Current content background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
+- `merge.incomingHeaderBackground`: Incoming header background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
+- `merge.incomingContentBackground`: Incoming content background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
 - `merge.border`: Border color on headers and the splitter in inline merge conflicts.
-- `merge.commonContentBackground`: Common ancester content background in inline merge-conflicts.
-- `merge.commonHeaderBackground`: Common ancestor header background in inline merge-conflicts.
+- `merge.commonContentBackground`: Common ancester content background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
+- `merge.commonHeaderBackground`: Common ancestor header background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.commonContentForeground`: Common ancestor overview ruler foreground for inline merge conflicts.
