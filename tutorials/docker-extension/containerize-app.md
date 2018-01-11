@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: docker
 TOCTitle: Containerize the Application
 PageTitle: Containerize the Application

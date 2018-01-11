@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: docker
 TOCTitle: Viewing Logs
 PageTitle: Viewing the Application Logs
