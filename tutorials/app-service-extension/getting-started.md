@@ -6,9 +6,9 @@ PageTitle: Node.js Deployment with Visual Studio Code
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---
-# Deploy to Azure using App Service Tools
+# Deploy to Azure using App Service
 
-This tutorial walks you through deploying a Node.js application to Azure using the [Azure App Service Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. You'll be able to deploy to Azure on Linux in a matter of minutes from Visual Studio Code.
+This tutorial walks you through deploying a Node.js application to Azure using the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. You'll be able to deploy to Azure on Linux in a matter of minutes from Visual Studio Code.
 
 ## Prerequisites
 
@@ -18,9 +18,9 @@ You need [Visual Studio Code](https://code.visualstudio.com/) installed along wi
 
 ## Install the extension
 
-The Azure App Service Tools extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
+The Azure App Service extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service Tools extension</a>
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
 ## Sign in
 

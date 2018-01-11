@@ -8,9 +8,9 @@ DateApproved: 12/18/2017
 ---
 # Deploy the Website
 
-In this step, you deploy your Node.js website using VS Code and the Azure App Service Tools extension. This tutorial uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
+In this step, you deploy your Node.js website using VS Code and the Azure App Service extension. This tutorial uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
 
-## Deploy using Azure App Service Tools
+## Deploy using Azure App Service
 
 In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy your app to Azure.
 
