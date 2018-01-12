@@ -20,7 +20,7 @@ Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `add
 
 This will add a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
 
-> **Tip**: VS Code has great language support for Docker files. See the [Working with Docker](/docs/languages/dockerfile.md) topic to learn about rich language features like smart suggestions, completions, and error detection.
+> **Tip**: VS Code has great support for Docker files. See the [Working with Docker](/docs/languages/dockerfile.md) topic to learn about rich language features like smart suggestions, completions, and error detection.
 
 ## Build a Docker image
 
@@ -36,13 +36,13 @@ This tutorial uses the Azure Container Registry so for my example:
 
 `fiveisprime.azurecr.io/myexpressapp:latest`
 
+![tag docker image](images/docker-extension/tag-image.png)
+
 If you are using Docker Hub, use your Docker Hub username, for example:
 
 `fiveisprime/myexpressapp:latest`
 
-![tag docker image](images/docker-extension/tag-image.png)
-
-Once completed, the Output panel will open and the Docker command will be executed. This is a good way to get an understanding of the commands required to do the same steps directly from the terminal. You'll also see each step, or layer, that makes up the app environment.
+Once completed, the Terminal panel will open and the Docker command will be executed. This is a good way to get an understanding of the commands required to do the same steps directly from the terminal. You'll also see each step, or layer, that makes up the app environment.
 
 Once built, the image will show up in the **DOCKER** explorer under **Images**.
 
@@ -50,7 +50,7 @@ Once built, the image will show up in the **DOCKER** explorer under **Images**.
 
 ## Push the image to a registry
 
-Open the **Command Palette** (`kb(workbench.action.showCommands)`) and run **Docker: Push** and choose the image you just built to push the image to the registry. This will also execute the Docker command in the Output panel to show the status of the operation. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
+Open the **Command Palette** (`kb(workbench.action.showCommands)`) and run **Docker: Push** and choose the image you just built to push the image to the registry. This will also execute the Docker command in the Terminal panel to show the status of the operation. Once completed, expand the **Images** node in the Docker extension explorer to see your image.
 
 ![Image in ACR](images/docker-extension/image-in-acr.png)
 
