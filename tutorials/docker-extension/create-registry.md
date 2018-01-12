@@ -12,7 +12,7 @@ You need a container registry to push your app image to once the image is built.
 
 ## Using Azure Container Registry
 
-[Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) (ACR) is a private, secure, hosted registry for your images. ACR is used in this tutorial; however, ACR uses all the same tools and processes as other registry options so the steps are consistent regardless.
+[Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) (ACR) is a private, secure, hosted registry for your images. ACR is used in this tutorial, however ACR uses all the same tools and processes as other registry options so the steps are consistent regardless.
 
 Follow this guide to [Setup an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) and be sure to log into your registry from the Docker CLI.
 

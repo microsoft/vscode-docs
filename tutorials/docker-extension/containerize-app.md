@@ -14,28 +14,33 @@ Next, use the Docker extension to add the necessary files to create an image for
 
 ## Add Docker files
 
-Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `add docker files to workspace` to run the **Docker: Add docker files to workspace** command. This command will create the necessary Docker files. Choose your application type - **Node.js** in this tutorial - along with the port that your application listens on.
+Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `add docker files to workspace` to run the **Docker: Add Docker files to workspace** command. This command will create the necessary Docker files. Choose your application type - **Node.js** in this tutorial - along with the port that your application listens on.
 
-> **Tip:** Be sure that the port you select matches the port your app listens on. If you used the Express generator, set this to 8080.
+> **Tip:** Be sure that the port you select matches the port your app listens on. If you used the Express generator, set this to 3000.
 
 This will add a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
+
+> **Tip**: VS Code has great language support for Docker files. See the [Working with Docker](/docs/languages/dockerfile.md) topic to learn about rich language features like smart suggestions, completions, and error detection.
 
 ## Build a Docker image
 
 The files you just added, specifically, `Dockerfile`, describe the environment for your app including the location of the source files and the command to start the app within a container.
 
-> **Tip:** Container vs. image: a container is an instance of an image.
+> **Tip:** Containers versus images: A container is an instance of an image.
 
-Open the **Command Palette** (`kb(workbench.action.showCommands)`) and run **Docker: Build Image** to build the image. Choose
-the `Dockerfile` that was just created then give the image a name. It's important that you specify a couple of things here, the format is as follows:
+Open the **Command Palette** (`kb(workbench.action.showCommands)`) and run **Docker: Build Image** to build the image. Choose the `Dockerfile` that was just created then give the image a name. It's important that you specify a couple of things here, the format is as follows:
 
 `[registry or username]/[image name]:[tag]`
 
 This tutorial uses the Azure Container Registry so for my example:
 
-`fiveisprime.azurecr.io/myExpressApp:latest`
+`fiveisprime.azurecr.io/myexpressapp:latest`
 
-If you are using Docker Hub, use your Docker Hub username (for example, `fiveisprime/myExpressApp:latest`).
+If you are using Docker Hub, use your Docker Hub username, for example:
+
+`fiveisprime/myexpressapp:latest`
+
+![tag docker image](images/docker-extension/tag-image.png)
 
 Once completed, the Output panel will open and the Docker command will be executed. This is a good way to get an understanding of the commands required to do the same steps directly from the terminal. You'll also see each step, or layer, that makes up the app environment.
 
