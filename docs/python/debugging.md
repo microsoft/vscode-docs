@@ -240,7 +240,7 @@ There are many reasons why the debugger may not work; oftentimes the debug conso
 
 | Cause | Solution |
 | --- | --- |
-| The path to the python executable is incorrect | Check the value in the `pythonPath` setting of `lsettings.json`. |
+| The path to the python executable is incorrect | Check the value in the `pythonPath` setting of `settings.json`. |
 | Invalid expressions in watch window (see detailed output below) | Clear all expressions from the Watch window restart the debugger. |
 
 Detailed output for invalid expressions:
