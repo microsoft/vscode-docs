@@ -164,8 +164,10 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ```bat
 @echo off
-IF "%*" NEQ "" ( 
-    CMD %*
+SET ARGS=%*
+IF "%ARGS:~0,5%" EQU "/d /c" ( 
+    REM Tasks call the terminal expecting it runs and exits
+    %ARGS:~6%
     EXIT %ERRORLEVEL% 
 )
 SET CurrentWorkingDirectory=%CD%
