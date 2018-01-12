@@ -39,15 +39,14 @@ If the interpreter you want to use is not located automatically, you can set the
 
 For example:
 
-    Windows:
-    ```json
-    "python.pythonPath": "c:/python36/python.exe"
-    ```
-
-    Mac/Linux:
-    ```json
-    "python.pythonPath": "/home/python36/python"
-    ```
+- Windows:
+  ```json
+  "python.pythonPath": "c:/python36/python.exe"
+  ```
+- Mac/Linux:
+  ```json
+  "python.pythonPath": "/home/python36/python"
+  ```
 
 ## Environment variables in the interpreter path
 
@@ -81,7 +80,6 @@ To use a Python interpreter that's installed in a virtual environment:
 
 2. Configure the same `python.pythonPath` variable in `launch.json`.
 3. Ensure that the the libraries and modules you plan on using for linting are installed within the virtual environment.
-4. Restart VS Code.
 
 ## Python interpreter for debugging
 

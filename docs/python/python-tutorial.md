@@ -16,14 +16,14 @@ Let's get started by creating the simplest "Hello World" Python application.
 
 To successfully complete this tutorial, you must do the following:
 
-1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 2. Install whichever version of Python you want to use. Options include:
 
   - The built-in Python installation on Linux.
-  - An installation through Homebrew on Linux or macOS.
-  - A download from [python.org](https://www.python.org/)
-  - A download from [Anaconda](https://www.anaconda.com/download/).
+  - An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
+  - A download from [python.org](https://www.python.org/downloads/).
+  - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
 3. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
 
