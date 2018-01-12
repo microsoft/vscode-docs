@@ -1,8 +1,8 @@
 ---
 Order: 2
 Area: appservicetools
-TOCTitle: Create the Application
-PageTitle: Create the Application
+TOCTitle: Create the application
+PageTitle: Create the application
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---

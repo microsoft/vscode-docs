@@ -1,8 +1,8 @@
 ---
 Order: 3
 Area: nodejsdeployment
-TOCTitle: Create the Website
-PageTitle: Create the Website
+TOCTitle: Create the website
+PageTitle: Create the website
 MetaDescription:
 MetaSocialImage:
 DateApproved: 10/5/2017

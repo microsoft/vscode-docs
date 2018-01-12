@@ -1,8 +1,8 @@
 ---
 Order: 3
 Area: appservicetools
-TOCTitle: Deploy the Website
-PageTitle: Deploy the Website
+TOCTitle: Deploy the website
+PageTitle: Deploy the website
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---

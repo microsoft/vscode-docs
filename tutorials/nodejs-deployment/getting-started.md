@@ -1,8 +1,8 @@
 ---
 Order: 1
 Area: nodejsdeployment
-TOCTitle: Getting Started
-PageTitle: Node.js Deployment with Visual Studio Code
+TOCTitle: Getting started
+PageTitle: Node.js deployment with Visual Studio Code
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 10/5/2017
 ---

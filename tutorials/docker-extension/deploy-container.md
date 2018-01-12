@@ -1,8 +1,8 @@
 ---
 Order: 4
 Area: docker
-TOCTitle: Deploy the Image
-PageTitle: Deploy the Image
+TOCTitle: Deploy the image
+PageTitle: Deploy the image
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 1/11/2018
 ---

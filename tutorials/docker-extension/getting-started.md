@@ -1,8 +1,8 @@
 ---
 Order: 1
 Area: docker
-TOCTitle: Getting Started
-PageTitle: Getting Started with Docker images
+TOCTitle: Getting started
+PageTitle: Getting started with Docker images
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 1/11/2018
 ---

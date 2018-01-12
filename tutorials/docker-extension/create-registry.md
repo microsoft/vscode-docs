@@ -1,8 +1,8 @@
 ---
 Order: 2
 Area: docker
-TOCTitle: Container Registries
-PageTitle: Container Registries
+TOCTitle: Container registries
+PageTitle: Container registries
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---

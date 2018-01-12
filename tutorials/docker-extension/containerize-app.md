@@ -1,8 +1,8 @@
 ---
 Order: 3
 Area: docker
-TOCTitle: Create the Image
-PageTitle: Create the Image
+TOCTitle: Create the image
+PageTitle: Create the image
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 1/11/2018
 ---
@@ -53,4 +53,4 @@ Next, you'll deploy your image to Azure.
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/docker-extension/deploy-container">I've created an image for my Node.js application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'containerize-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/docker-extension/deploy-container">I've created an image for my application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('docker-extension', 'containerize-app')" href="javascript:void(0)">I ran into an issue</a>

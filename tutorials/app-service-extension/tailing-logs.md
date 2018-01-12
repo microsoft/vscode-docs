@@ -1,8 +1,8 @@
 ---
 Order: 4
 Area: appservicetools
-TOCTitle: Viewing Logs
-PageTitle: Viewing the Application Logs
+TOCTitle: Viewing logs
+PageTitle: Viewing the application logs
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---
