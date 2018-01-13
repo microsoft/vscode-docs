@@ -78,10 +78,9 @@ Treating these as warnings is consistent with other tools, such as TSLint. These
 
 You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false`.
 
-
 ## Transpiling TypeScript into JavaScript
 
-VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Let's walk through transpiling a simple TypeScript Hello World program.
+VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems]/docs/editor/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
 
 ### Step 1: Create a simple TS file
 
@@ -98,13 +97,21 @@ class Startup {
 Startup.main();
 ```
 
+To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc HelloWorld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)') directly in VS Code.
+
+![build and run Hello World](images/typescript/build-hello-world.png)
+
+You should now see the transpiled `HelloWorld.js` JavaScript file which you can run if you have [Node.js](https://nodejs.org) installed, by typing `node HelloWorld.js`.
+
 ### Step 2: Run the TypeScript Build
 
 Execute **Run Build Task...** from the global **Tasks** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
 
 ![TypeScript Build](images/typescript/typescript-build.png)
 
-Select the entry. This will produce a `HelloWorld.js` and `HelloWorld.js.map` file in the workspace.
+Select the **tsc: build** entry. This will produce a `HelloWorld.js` and `HelloWorld.js.map` file in the workspace.
+
+If you selected **tsc: watch**, the TypeScript compiler watches for changes to your TypeScript files and runs the transpiler on each change.
 
 Under the covers, we run the TypeScript compiler as a task. The command we use is: `tsc -p .`
 
@@ -112,7 +119,7 @@ Under the covers, we run the TypeScript compiler as a task. The command we use i
 
 ### Step 3: Make the TypeScript Build the default
 
-You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select the TypeScript one which generates the following `tasks.json` file:
+You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select TypeScript **tsc: build** which generates the following `tasks.json` file:
 
 ```ts
 {
@@ -123,6 +130,9 @@ You can also define the TypeScript build task as the default build task so that 
         {
             "type": "typescript",
             "tsconfig": "tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -134,12 +144,6 @@ You can also define the TypeScript build task as the default build task so that 
 
 The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` and `HelloWorld.js.map` file was created.
 
-If you have [Node.js](https://nodejs.org) installed, you can run your simple Hello World example by opening up a terminal and running:
-
-```bash
-node HelloWorld.js
-```
-
 > **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
 
 ### Step 4: Reviewing Build Issues
@@ -148,7 +152,7 @@ Unfortunately, most builds don't go that smoothly and the result is often some a
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the terminal window (which can be opened using `kb(workbench.action.terminal.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view drop-down. We parse this output for you and highlight detected problems in the Status Bar.
+This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view drop-down. VS Code uses a [problem matcher](/docs/editor/tasks.md#defining-a-problem-matcher), in this case one specific to the TypeScript compiler, to parse this output and highlight detected problems. You can see this in the generated `tasks.json` above,where the `problemMatcher` attribute is set to `$tsc`. You can see the error and warning counts in the Status Bar.
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 
