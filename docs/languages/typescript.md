@@ -250,9 +250,9 @@ You can switch back to the version of TypeScript that comes with VS Code by clic
 
 ## Auto Imports
 
-Auto imports speed up coding by helping you find available symbols and automatically adding imports for them.
+Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
 
-Just start typing to see [suggestions](#intellisense) for all available TypeScript symbols in your current project project
+Just start typing to see [suggestions](#intellisense) for all available TypeScript symbols in your current project.
 
 ![Global symbols are shown in the suggestion list](images/typescript/auto-import-pre.png)
 

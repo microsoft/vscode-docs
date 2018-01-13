@@ -399,9 +399,9 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 
 ## Auto Imports
 
-Auto imports speed up coding by helping you find available symbols and automatically adding imports for them.
+Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
 
-Just start typing to see [suggestions](#intellisense) for all available JavaScript symbols in your current project project
+Just start typing to see [suggestions](#intellisense) for all available JavaScript symbols in your current project.
 
 ![Global symbols are shown in the suggestion list](images/javascript/auto-import-pre.png)
 
