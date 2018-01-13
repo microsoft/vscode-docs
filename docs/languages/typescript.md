@@ -248,6 +248,20 @@ If your workspace has a specific TypeScript version, you can switch between the 
 
 You can switch back to the version of TypeScript that comes with VS Code by clicking on the TypeScript version in the Status Bar again.
 
+## Auto Imports
+
+Auto imports speed up coding by helping you find available symbols and automatically adding imports for them.
+
+Just start typing to see [suggestions](#intellisense) for all available TypeScript symbols in your current project project
+
+![Global symbols are shown in the suggestion list](images/typescript/auto-import-pre.png)
+
+If you choose one of the suggestion from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
+
+![After selecting a symbol from a different file, an import is added for it automatically](images/typescript/auto-import-post.png)
+
+Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
+
 ## References CodeLens
 
 The TypeScript references CodeLens displays an inline count of reference for classes, interfaces, methods, properties, and exported objects:
