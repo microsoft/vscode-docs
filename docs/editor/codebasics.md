@@ -84,7 +84,7 @@ For more control over `Auto Save`, open User or Workspace [settings](/docs/getst
 
 * `files.autoSave`: Can have the values:
   * `off` - to disable auto save.
-  * `afterDelay` - to save files after a configured delay (default 1000 ms)
+  * `afterDelay` - to save files after a configured delay (default 1000 ms).
   * `onFocusChange` - to save files when focus moves out of the editor of the dirty file.
   * `onWindowChange` - to save files when the focus moves out of the VS Code window.
 * `files.autoSaveDelay`: Configures the delay in milliseconds when `files.autoSave` is configured to `afterDelay`. The default is 1000 ms.
