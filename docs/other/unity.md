@@ -24,9 +24,9 @@ From [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/
 
 To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to:
 
-1. Install the latest stable [Mono](http://www.mono-project.com/download/) release. 
+* Install the latest stable [Mono](http://www.mono-project.com/download/) release.
 
-> This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
+**Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
 
 ## Setup VS Code as Unity Script Editor
 

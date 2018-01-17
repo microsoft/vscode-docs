@@ -80,7 +80,9 @@ You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnin
 
 ## Transpiling TypeScript into JavaScript
 
-VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems]/docs/editor/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editor/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+
+>**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](https://www.typescriptlang.org/).
 
 ### Step 1: Create a simple TS file
 
@@ -97,7 +99,7 @@ class Startup {
 Startup.main();
 ```
 
-To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc HelloWorld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)') directly in VS Code.
+To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc HelloWorld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) directly in VS Code.
 
 ![build and run Hello World](images/typescript/build-hello-world.png)
 
@@ -114,8 +116,6 @@ Select the **tsc: build** entry. This will produce a `HelloWorld.js` and `HelloW
 If you selected **tsc: watch**, the TypeScript compiler watches for changes to your TypeScript files and runs the transpiler on each change.
 
 Under the covers, we run the TypeScript compiler as a task. The command we use is: `tsc -p .`
-
->**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](https://www.typescriptlang.org/).
 
 ### Step 3: Make the TypeScript Build the default
 
@@ -152,11 +152,13 @@ Unfortunately, most builds don't go that smoothly and the result is often some a
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view drop-down. VS Code uses a [problem matcher](/docs/editor/tasks.md#defining-a-problem-matcher), in this case one specific to the TypeScript compiler, to parse this output and highlight detected problems. You can see this in the generated `tasks.json` above,where the `problemMatcher` attribute is set to `$tsc`. You can see the error and warning counts in the Status Bar.
+This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view drop-down. VS Code uses a [problem matcher](/docs/editor/tasks.md#defining-a-problem-matcher), in this case one specific to the TypeScript compiler, to parse this output and highlight detected problems. You can see this in the generated `tasks.json` above, where the `problemMatcher` attribute is set to `$tsc`.
+
+You can see the error and warning counts in the Status Bar:
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 
-You can click on that icon to get a list of the problems and navigate to them.
+Click on the error and warnings icon to get a list of the problems and navigate to them.
 
 ![Compile Problems](images/typescript/compileerror.png)
 
