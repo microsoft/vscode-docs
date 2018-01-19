@@ -194,16 +194,20 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 
     ```json
     {
-        "version": "0.1.0",
-        "command": "python",
-        "isShellCommand": true,
-        "showOutput": "always",
-        "args": [
-            "/usr/local/google_appengine/dev_appserver.py",
-            "--python_startup_script=${workspaceFolder}/pydev_startup.py",
-            "--automatic_restart=no",
-            "--max_module_instances=default:1",
-            "${workspaceFolder}/app.yaml"
+        "version": "2.0.0",
+        "tasks": [
+            {
+                "label": "Launch Google App Engine",
+                "command": "python",
+                "type": "shell",
+                "args": [
+                    "/usr/local/google_appengine/dev_appserver.py",
+                    "--python_startup_script=${workspaceFolder}/pydev_startup.py",
+                    "--automatic_restart=no",
+                    "--max_module_instances=default:1",
+                    "${workspaceFolder}/app.yaml"
+                ]
+            }
         ]
     }
     ```
