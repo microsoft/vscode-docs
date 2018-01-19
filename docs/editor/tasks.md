@@ -432,7 +432,7 @@ If you need to tweak the encoding you should check whether it makes sense to cha
 
  If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows usinhg code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therfore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
 
-```ts
+```json
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -707,13 +707,19 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 }
 ```
 
-### Tasks in multi Folder Workspaces
-
-If you have setup a workspace that consist out of multiple folders then only version `2.0.0` tasks are detected and shown in the `Tasks > Run Task` picker. See the section below on how to convert `0.1.0` tasks into `2.0.0` tasks to get access to all tasks.
-
 ## Convert from "0.1.0" to "2.0.0"
 
-Since the `2.0.0` version comes with lots of new auto-detection features, you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`. If you have lots of customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings because some old properties are now deprecated. Here is how to get rid of the deprecations:
+**Note**: If you have created a workspace that consists of multiple folders ([Multi-root Workspace](/docs/editor/multi-root-workspace.md)), only version `2.0.0` tasks are detected and shown in the **Tasks** > **Run Task...** picker.
+
+### Try running without tasks.json
+
+Tasks `2.0.0` version comes with lots of new auto-detection features so you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`.
+
+### Migrating to Tasks 2.0.0
+
+If you have lots of task customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings (green squigglies) because some properties are now deprecated.
+
+Here is a migration guide:
 
 - **taskName**: Use the `label` property instead.
 - **isShellCommand**: Use the `"type": "shell"` property instead.
