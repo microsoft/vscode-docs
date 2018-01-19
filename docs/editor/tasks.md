@@ -518,21 +518,26 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "gcc",
-    "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
-    "problemMatcher": {
-        "owner": "cpp",
-        "fileLocation": ["relative", "${workspaceFolder}"],
-        "pattern": {
-            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-            "file": 1,
-            "line": 2,
-            "column": 3,
-            "severity": 4,
-            "message": 5
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "gcc",
+            "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
         }
-    }
+    ]
 }
 ```
 
@@ -655,12 +660,12 @@ Looking at the output shows the following pattern:
 - Between those two strings problems are reported.
 - The compiler also runs once the initial start (without printing `File change detected. Starting incremental compilation...` to the console).
 
-To capture this information, a problem matcher can provide a `watching` property.
+To capture this information, a problem matcher can provide a `background` property.
 
-For the `tsc` compiler, an appropriate `watching` property looks like this:
+For the `tsc` compiler, an appropriate `background` property looks like this:
 
 ```json
-"watching": {
+"background": {
     "activeOnStart": true,
     "beginsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - File change detected\\. Starting incremental compilation\\.\\.\\.",
     "endsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - Compilation complete\\. Watching for file changes\\."
@@ -673,11 +678,11 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "tsc",
+    "version": "2.0.0",
     "tasks": [
         {
             "label": "watch",
+            "command": "tsc",
             "args": ["--watch"],
             "isBackground": true,
             "problemMatcher": {
@@ -691,7 +696,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
                     "code": 4,
                     "message": 5
                 },
-                "watching": {
+                "background": {
                     "activeOnStart": true,
                     "beginsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - File change detected\\. Starting incremental compilation\\.\\.\\.",
                     "endsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - Compilation complete\\. Watching for file changes\\."
@@ -769,6 +774,7 @@ The corresponding `2.0.0` configuration would look like this:
     ]
 }
 ```
+
 A corresponding `2.0.0` configuration would look like this:
 
 ```json
