@@ -9,7 +9,7 @@ MetaDescription: Variable substitution reference
 ---
 # Variables Reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files. Variable substitution is supported inside strings in `launch.json` and `tasks.json` files using `${variableName}` syntax.
+Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files. Variable substitution is supported inside strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
 
 ## Predefined variables
 
@@ -30,7 +30,7 @@ The following predefined variables are supported:
 
 ## Environment variables
 
-You can also reference environment variables through **${env:Name}** syntax (for example, ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
+You can also reference environment variables through **${env:Name}** syntax (for example, `${env:PATH}`).
 
 ```json
 {
@@ -42,6 +42,8 @@ You can also reference environment variables through **${env:Name}** syntax (for
     "args": [ "${env:USERNAME}" ]
 }
 ```
+
+**Note**: Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
 
 ## Settings and command variables
 
@@ -60,8 +62,8 @@ You can reference VS Code settings and commands using the following syntax:
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
 ```
 
-Refer to the Settings editor (`kb()`) comments to learn about setting specific variables.
+Refer to the comments in the Settings editor (`kb(workbench.action.openGlobalSettings)`) to learn about setting specific variables.
 
 **Q: Why isn't ${workspaceRoot} documented?**
 
-**A:** The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` when [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support was added to VS Code.
+**A:** The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.

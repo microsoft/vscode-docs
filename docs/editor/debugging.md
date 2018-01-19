@@ -155,7 +155,7 @@ Many debuggers support some of the following attributes:
 
 ## Variable substitution
 
-VS Code supports variable substitution inside strings in `launch.json` for useful values such the workspace root folder (`${workspaceFolder}`), the active file (`${file}`), and environment variables. You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variable-reference.md).
+VS Code supports variable substitution inside strings in `launch.json` for useful values such the workspace root folder (`${workspaceFolder}`), the active file (`${file}`), and environment variables (`${env:Name}`). You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
 
 Using the `${workspaceFolder}` variable in your `launch.json` allows a configuration to be used in different project locations.
 
