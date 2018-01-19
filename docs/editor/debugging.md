@@ -155,20 +155,9 @@ Many debuggers support some of the following attributes:
 
 ## Variable substitution
 
-VS Code supports variable substitution inside strings in `launch.json` and has the following predefined variables:
+VS Code supports variable substitution inside strings in `launch.json` for useful values such the workspace root folder (`${workspaceFolder}`), the active file (`${file}`), and environment variables. You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variable-reference.md).
 
-- **${workspaceFolder}** - the path of the folder opened in VS Code
-- **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
-- **${file}** - the current opened file
-- **${relativeFile}** - the current opened file relative to `workspaceFolder`
-- **${fileBasename}** - the current opened file's basename
-- **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
-- **${fileDirname}** - the current opened file's dirname
-- **${fileExtname}** - the current opened file's extension
-- **${cwd}** - the task runner's current working directory on startup
-- **${lineNumber}** - the current selected line number in the active file
-
-You can also reference environment variables through **${env:Name}** syntax (for example, ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
+Using the `${workspaceFolder}` variable in your `launch.json` allows a configuration to be used in different project locations.
 
 ```json
 {
@@ -180,11 +169,6 @@ You can also reference environment variables through **${env:Name}** syntax (for
     "args": [ "${env:USERNAME}" ]
 }
 ```
-
-You can reference VS Code settings and commands using the following syntax:
-
-* **${config:Name}** - example: `${config:editor.fontSize}`
-* **${command:CommandID}** - example: `${command:explorer.newFolder}`
 
 ## Operating System Specific Properties
 

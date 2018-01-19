@@ -347,20 +347,7 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 
 ## Variable substitution
 
-When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` file and has the following predefined variables:
-
-- **${workspaceFolder}** the path of the workspace folder that contains the tasks.json file
-- **${workspaceFolderBasename}** the name of the workspace folder that contains the tasks.json file without any slashes (/)
-- **${file}** the current opened file
-- **${relativeFile}** the current opened file relative to the workspace folder containing the file
-- **${fileBasename}** the current opened file's basename
-- **${fileBasenameNoExtension}** the current opened file's basename without the extension
-- **${fileDirname}** the current opened file's dirname
-- **${fileExtname}** the current opened file's extension
-- **${cwd}** the task runner's current working directory on startup
-- **${lineNumber}** the current selected line number in the active file
-
-You can also reference environment variables through **${env:Name}** (for example, ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
+When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/editor/variable-reference.md).
 
 Below is an example of a custom task configuration that passes the current opened file to the TypeScript compiler.
 
@@ -374,7 +361,6 @@ Below is an example of a custom task configuration that passes the current opene
     ]
 }
 ```
-
 
 Similarly, you can reference your project's configuration settings by prefixing the name with `config:` — for example, `${config:python.pythonPath}`. Below is an example of a custom task configuration which executes autopep8 on the current file using your project's selected Python executable:
 
@@ -391,7 +377,6 @@ Similarly, you can reference your project's configuration settings by prefixing 
     ]
 }
 ```
-
 
 ## Operating system specific properties
 

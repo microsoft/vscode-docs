@@ -208,7 +208,7 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
-Variables used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to.
+[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to.
 
 ## Tasks
 
