@@ -125,7 +125,7 @@ For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an e
 
 Task auto detection can be disabled using the following settings:
 
-```ts
+```json
 {
     "typescript.tsc.autoDetect": "off",
     "grunt.autoDetect": "off",
