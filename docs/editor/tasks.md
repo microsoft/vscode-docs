@@ -263,7 +263,6 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
 
 As mentioned above, you can customize auto-detected tasks in the `tasks.json` file. You usually do so to modify presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. You can customize a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from https://github.com/adametry/gulp-eslint):
 
-
 ```js
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
@@ -709,7 +708,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 ## Convert from "0.1.0" to "2.0.0"
 
-**Note**: If you have created a workspace that consists of multiple folders ([Multi-root Workspace](/docs/editor/multi-root-workspace.md)), only version `2.0.0` tasks are detected and shown in the **Tasks** > **Run Task...** picker.
+**Note**: If you have created a workspace that consists of multiple folders ([Multi-root Workspace](/docs/editor/multi-root-workspaces.md)), only version `2.0.0` tasks are detected and shown in the **Tasks** > **Run Task...** picker.
 
 ### Try running without tasks.json
 
