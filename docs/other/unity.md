@@ -15,18 +15,19 @@ Visual Studio Code can be a great companion to Unity for editing and debugging C
 
 Read on to find out how to configure Unity and your project to get the best possible experience.
 
-## Prerequisites (OSX)
+## Prerequisites
 
 From [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/other/dotnet):
 
 1. Install [.NET SDK](https://code.visualstudio.com/docs/other/dotnet) (.NET Core), which includes the `dotnet` command.
-2. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
 
-To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to:
+1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
 
-* Install the latest stable [Mono](http://www.mono-project.com/download/) release.
+1. [OSX only] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](http://www.mono-project.com/download/) release.
 
-**Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
+   **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
+
+1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
 
 ## Setup VS Code as Unity Script Editor
 
