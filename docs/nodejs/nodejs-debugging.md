@@ -12,13 +12,14 @@ MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 
 The Visual Studio Code editor has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and many other language that gets transpiled to JavaScript.
 
-This document explains the details of Node.js debugging. The general debugging feature are described in [Debugging](/docs/editor/debugging.md).
+This document explains the details of Node.js debugging. The general debugging features are described in [Debugging](/docs/editor/debugging.md).
 
 ## Supported Node-like Runtimes
 
-Since the VS Code Node.js debugger communicates to the Node.js runtimes through _wire protocols_, the set of supported runtimes is determined by all runtimes supporting the wire protocols.
+Since the VS Code Node.js debugger communicates to the Node.js runtimes through [wire protocols](https://en.wikipedia.org/wiki/Wire_protocol), the set of supported runtimes is determined by all runtimes supporting the wire protocols.
 
 Today two wire protocols exist:
+
 - **legacy**: the original [V8 Debugger Protocol](https://github.com/buggerjs/bugger-v8-client/blob/master/PROTOCOL.md) which is currently supported by all runtimes but will most likely be dropped in Node.js v8.x.
 - **inspector**: the new [V8 Inspector Protocol](https://chromedevtools.github.io/debugger-protocol-viewer/v8/) is exposed via the `--inspect` flag in Node.js versions >= 6.3. It addresses most of the limitations and scalability issues of the legacy protocol.
 
@@ -38,7 +39,7 @@ we've decided for a 'pessimistic approach' with an explicit launch configuration
 - **`inspector`**: forces the node debugger to use the 'inspector' protocol based implementation. This is supported by node versions >= 6.3, but not (yet) by Electron.
 - **`legacy`**: forces the node debugger to use the 'legacy' protocol based implementation. This is supported by node versions < v8.0 and Electron versions < 7.4.
 
-Starting with VS Code 1.11 the default value for the `protocol` attribute is `auto`.
+Starting with VS Code 1.11, the default value for the `protocol` attribute is `auto`.
 
 If your runtime supports both protocols, here are a few additional reasons for using the `inspector` protocol over `legacy`:
 
