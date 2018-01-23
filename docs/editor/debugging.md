@@ -14,7 +14,7 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ![Debugging diagram](images/debugging/debugging_hero.png)
 
-## Debugger Extensions
+## Debugger extensions
 
 VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript.
 
@@ -26,13 +26,13 @@ Below are several popular extensions which include debugging support:
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you.
 
-## Start Debugging
+## Start debugging
 
 The following documentation is based on the built-in [Node.js](https://nodejs.org/) debugger, but most of the concepts and features are applicable to other debuggers as well.
 
 It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application all set up, this page will take you through VS Code debugging features.
 
-## Debug View
+## Debug view
 
 To bring up the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `kb(workbench.view.debug)`.
 
@@ -40,13 +40,13 @@ To bring up the Debug view, click on the Debug icon in the **Activity Bar** on t
 
 The Debug view displays all information related to debugging and has a top bar with debugging commands and configuration settings.
 
-## Debug Menu
+## Debug menu
 
 The top level **Debug** menu has the most common debug commands:
 
 ![Debug menu](images/debugging/debug-menu.png)
 
-## Launch Configurations
+## Launch configurations
 
 To debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
 
@@ -195,9 +195,9 @@ Using the `${workspaceFolder}` variable in your `launch.json` allows a configura
 }
 ```
 
-## Operating System Specific Properties
+## Platform specific properties
 
-`Launch.json` supports defining values (for example, arguments to be passed to the program) specific to an operating system. To do so, put an operating system specific literal into the `launch.json` file and specify the corresponding properties inside that literal.
+`Launch.json` supports defining values (for example, arguments to be passed to the program) specific to an operating system. To do so, put a platform specific literal into the `launch.json` file and specify the corresponding properties inside that literal.
 
 Below is an example that passes `"args"` to the program differently on Windows than on Linux and macOS:
 
@@ -243,7 +243,7 @@ In the example below:
 
 Program is always stopped on entry except for macOS where it does not stop on entry.
 
-## Global Launch Configuration
+## Global launch configuration
 
 VS Code supports adding a `"launch"` object inside your User [settings](/docs/getstarted/settings.md). This `"launch"` configuration will then be shared across your workspaces. For example:
 
@@ -261,7 +261,7 @@ VS Code supports adding a `"launch"` object inside your User [settings](/docs/ge
 
 >**Tip**: If a workspace contains a `"launch.json"`, the global launch configuration is ignored.
 
-## Advanced Breakpoints
+## Advanced breakpoints
 
 ### Conditional breakpoints
 
