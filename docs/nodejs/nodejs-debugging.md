@@ -10,9 +10,11 @@ MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
 # Node.js Debugging in VS Code
 
-The Visual Studio Code editor has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and many other languages that are transpiled into JavaScript. Setting up a project for Node.js debugging is usually straightforward with VS Code providing appropriate launch configuration defaults and snippets. If you are just getting started with VS Code, you can learn about the general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/editor/debugging.md) topic.
+The Visual Studio Code editor has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and many other languages that are transpiled into JavaScript. Setting up a project for Node.js debugging is usually straightforward with VS Code providing appropriate launch configuration defaults and snippets.
 
-This document about Node.js debugging goes into more detail about configurations and features for more advanced debugging scenarios. You'll find instruction for debugging with [source maps](/docs/nodejs/nodejs-debugging.md#source-maps), [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code-node-chrome), doing [remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging), and much more.
+>**Note**: If you are just getting started with VS Code, you can learn about general debugging features and creating `launch.json` configuration files in the [Debugging](/docs/editor/debugging.md) topic.
+
+This Node.js debugging document goes into more detail about configurations and features for more advanced debugging scenarios. You'll find instruction for debugging with [source maps](/docs/nodejs/nodejs-debugging.md#source-maps), [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code-node-chrome), doing [remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging), and much more.
 
 ## Supported Node-like runtimes
 
@@ -51,11 +53,13 @@ We try to keep feature parity between both protocol implementations but this bec
 
 ## Launch configuration attributes
 
-Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of `launch.json` configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) topic. This section is a reference on `launch.json` attributes specific to the Node.js debugger.
+Debugging configurations are stored in a `launch.json` file located in your workspace's `.vscode` folder. An introduction into the creation and use of debugging configuration files is in the general [Debugging](/docs/editor/debugging.md#launch-configurations) topic.
+
+Below is a reference on `launch.json` attributes specific to the Node.js debugger.
 
 The following attributes are supported in launch configurations of type `launch` and `attach`:
 
-* `protocol` - debug protocol to use. See section [Supported Node-like runtimes](docs/nodejs/nodejs-debugging.md#supported-nodelike-runtimes) above.
+* `protocol` - debug protocol to use. See section [Supported Node-like runtimes](/docs/nodejs/nodejs-debugging.md#supported-nodelike-runtimes) above.
 * `port` - debug port to use. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 * `address` - TCP/IP address of the debug port. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 * `restart` - restart session on termination. See section [Restarting debug session automatically](/docs/nodejs/nodejs-debugging.md#restarting-debug-sessions-automatically-when-source-is-edited).
