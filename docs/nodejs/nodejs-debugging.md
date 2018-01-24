@@ -107,13 +107,13 @@ Here is the list of all snippets:
 - **Gulp task**: Debug a gulp task. The snippet asks you to specify the name of the gulp task. Make sure that your project has 'gulp' installed in its node_modules folder.
 - **Electron Main**: Debug the main node.js process of an Electron application. The snippet assumes that the Electron executable has been installed inside the `node_modules/.bin` directory of the workspace.
 
-## Node console
+### Node console
 
 By default, Node.js debug sessions launch the target in the internal VS Code Debug Console. Since the Debug Console does not support programs that need to read input from the console, you can enable either an external terminal or use the VS Code Integrated Terminal by setting the `console` attribute in your launch configuration to `externalTerminal` or `integratedTerminal` respectively. The default is `internalConsole`.
 
 If an external terminal is used, you can configure which terminal program to use via the `terminal.external.windowsExec`, `terminal.external.osxExec`, and `terminal.external.linuxExec` settings.
 
-## Launch configuration support for 'npm' and other tools
+### Launch configuration support for 'npm' and other tools
 
 Instead of launching the Node.js program directly with node, you can use 'npm' scripts or other task runner tools directly from a launch configuration:
 
@@ -145,7 +145,7 @@ the corresponding launch configuration would look like this:
 }
 ```
 
-## Load environment variables from external file (node)
+### Load environment variables from external file (node)
 
 The VS Code Node debugger supports loading environment variables from a file and passing them to the Node.js runtime. To use this feature, add an attribute `envFile` to your launch configuration and specify the absolute path to the file containing the environment variables:
 
@@ -339,14 +339,16 @@ Note that **Restart Frame** won't unroll any state changes, so it may not always
 
 Make sure to use a Node.js version >= 5.11 since earlier versions do not work in all situations.
 
-## Function breakpoints
+## Breakpoints
+
+### Function breakpoints
 
 The Node.js debugger supports function breakpoints but their usefulness is limited because:
 
 - Function breakpoints only work for global, non-native functions.
 - Function breakpoints can only be created if the function has been defined (and has been seen by the debugger).
 
-## Breakpoint hit counts
+### Breakpoint hit counts
 
 The 'hit count condition' controls how many times a breakpoint needs to be hit before it will 'break' execution. The hit count syntax supported by the Node.js debugger is either an integer or one of the operators `<`, `<=`, `==`, `>`, `>=`, `%` followed by an integer.
 
@@ -357,7 +359,7 @@ Some examples:
 - `10` same as `>=10`
 - `%2` break on every other hit
 
-## Breakpoint validation
+### Breakpoint validation
 
 For performance reasons, Node.js parses the functions inside JavaScript files lazily on first access. As a consequence, breakpoints don't work in source code areas that haven't been seen (parsed) by Node.js.
 
@@ -490,6 +492,18 @@ Here are some things to try when your breakpoints turn gray:
 * Have you opened the folder in VS Code with the incorrect case? It's possible to open folder `foo/` from the command line like `code FOO` in which case source maps may not be resolved correctly.
 * Try searching for help with your particular setup on Stack Overflow or by filing an issue on GitHub.
 * Try adding a `debugger` statement. If it breaks into the `.ts` file there, but breakpoints at that spot don't bind, that is useful information to include with a GitHub issue.
+
+## Debugging with symlinks
+
+If you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` switch in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
+
+```json
+{
+    "runtimeArgs": [
+        "--preserve-symlinks"
+    ]
+}
+```
 
 ## Next Steps
 
