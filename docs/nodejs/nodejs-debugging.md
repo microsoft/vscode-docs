@@ -343,7 +343,7 @@ Make sure to use a Node.js version >= 5.11 since earlier versions do not work in
 
 ### Function breakpoints
 
-The Node.js debugger supports function breakpoints but their usefulness is limited because:
+The Node.js debugger **doesn't** support Function breakpoints when targeting newer Node 6+ versions. For older Node version we do support Function breakpoints, but be aware of the following limitations when using them:
 
 - Function breakpoints only work for global, non-native functions.
 - Function breakpoints can only be created if the function has been defined (and has been seen by the debugger).
