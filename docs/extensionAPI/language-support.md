@@ -641,13 +641,13 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 ## Possible Actions on Errors or Warnings
 
-Provide the user with possible corrective actions right next to an error or warning. If actions are available, a light bulb appears next to the error or warning. When the user clicks the light bulb, a list of available code actions is presented.
+Provide the user with possible corrective actions right next to an error or warning. If actions are available, a light bulb appears next to the error or warning. When the user clicks the light bulb, a list of available Code Actions is presented.
 
 ![Type Hover](images/language-support/quick-fixes.gif)
 
 #### Language Server Protocol
 
-In the response to the `initialize` method, your language server needs to announce that it provides code actions.
+In the response to the `initialize` method, your language server needs to announce that it provides Code Actions.
 
 ```json
 {
@@ -684,7 +684,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Basic**
 >
->Provide code actions for error/warning correcting actions.
+>Provide Code Actions for error/warning correcting actions.
 
 >**Advanced**
 >
