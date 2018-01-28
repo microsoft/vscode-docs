@@ -70,8 +70,6 @@ When the suggestions pop up, they will get announced to screen readers. It is po
 
 The **Go to Next/Previous Difference** actions (F7 and Shift+F7), when in a diff editor pane, will bring up the Diff Review Pane, which allows the navigation of the diffs, presented in a unified patch format. Arrow Up and Arrow Down can be used to navigate through the unchanged, inserted or deleted lines. Pressing Enter will return focus to the modified pane of the diff editor at the selected line number (or closest still existing line number in case a deleted line is selected). Use Escape or Shift+Escape to dismiss the Diff Review Pane.
 
->The **Integrated Terminal** does not currently support screen readers. There is an [open GitHub issue](https://github.com/Microsoft/vscode/issues/8339) tracking this.
-
 ## Accessibility Help
 
 You can press `kb(editor.action.showAccessibilityHelp)` to trigger the **Show Accessibility Help** dialog while in an editor to check the state of various accessibility options in VS Code:
