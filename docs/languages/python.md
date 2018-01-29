@@ -17,7 +17,7 @@ The [tutorial](/docs/python/python-tutorial.md) guides you through installing Py
 
 ## Autocomplete and IntelliSense
 
-Python extensions support code completion and Intellisense. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and thirty-party modules.
+Python extensions support code completion and Intellisense. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
 
 IntelliSense quickly shows methods, class members, and documentation as you type, and you can trigger completions at any time with `kb(editor.action.triggerSuggest)`.
 
