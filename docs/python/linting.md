@@ -39,7 +39,7 @@ A custom path is generally unnecessary as the Python extension resolve the path 
 | [Pylint](#pylint) (default) | pylint | Enabled | pylintEnabled | pylintArgs | pylintPath |
 | [Pep8](#pep8) | pep8 | Disabled | pep8Enabled | pep8Args | pep8Path |
 | [Flake8](#flake8) | flake8 | Disabled | flake8Enabled | flake8Args | flake8Path |
-| [mypy](#mypy) | mypy-lang | Disabled | mypyEnabled | mypyArgs | mypyPath |
+| [mypy](#mypy) | mypy | Disabled | mypyEnabled | mypyArgs | mypyPath |
 | pydocstyle | pydocstyle | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
 | prospector | prospector | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | [pylama] | pylama | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
