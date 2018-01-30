@@ -164,6 +164,11 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 * _columnOrOptions_ (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
 
 
+`vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list.
+
+* _path_ Path to remove from recently opened.
+
+
 `cursorMove` - Move cursor to a logical position in the view
 
 * _Cursor move argument object_
