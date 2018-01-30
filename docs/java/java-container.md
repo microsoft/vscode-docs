@@ -64,7 +64,7 @@ Test the web app by browsing to `http://localhost:8080` using a web browser. You
 
 ## Push your image to Docker Hub
 
-You can deploy your docker image to Azure from either public or private container registory. In this tutorial, we will use Docker Hub. If you do not have a DockerHub account, create one from [Docker Hub](https://hub.docker.com/)
+You can deploy your docker image to Azure from either public or private container registry. In this tutorial, we will use Docker Hub. If you do not have a DockerHub account, create one from [Docker Hub](https://hub.docker.com/)
 
 The first time you expand the DockerHub node in Docker Explorer, you'll be prompted to log into your DockerHub account.
 
