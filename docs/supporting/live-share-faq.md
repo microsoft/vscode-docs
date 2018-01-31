@@ -22,13 +22,18 @@ Live Share has a wide variety of use cases such as: investigating a bug together
 No, the shared code resides solely on the machine of the developer who initiated the share. It is not stored or uploaded to the cloud in any way. Rather, Live Share simply establishes a secure connection between you and your teammates (which is encrypted end-to-end), and doesn't inspect or collect any data on the code that is shared.
 
 ## Does this remote-based model work anywhere? Is it peer-to-peer?
-Live Share's only requirement is that the person sharing and their teammate each have internet access. Secure communication between team members during a collaboration session is facilitated by an Azure relay. Your workspace (i.e. source files) is not stored in the cloud. No special peer-to-peer connection is required though one might be used to reduce latency.
+Live Share's only requirement is that the person sharing and their teammate each have internet access. Secure communication between team members during a collaboration session is facilitated by an Azure relay. Your workspace (i.e. source files) is not stored in the cloud. No special peer-to-peer connection is required though one might be used to reduce latency. See [changing the connection mode](http://aka.ms/vsls-docs/connection-mode) in our docs for additional details.
 
 ## What is shared during a Live Share session?
 Live Share doesn't transfer all keyboard and mouse inputs. It only communicates the data needed for each collaboration activity to your teammates' machines. For example, when you share your workspace, your folder structure is shared. When you collaboratively edit a file, that file's contents are shared. When you are collaboratively debugging, debug actions (e.g. stepping) and state (e.g. call stack and locals) are shared.
 
-## When will this be released?
-Live Share is available now as a private preview now, and we are accepting [sign-ups]((http://aka.ms/vsls-signup) from users to get early access. We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly.
+## When will Live Share be released?
+Live Share is available now as a limited, private preview now, and we are accepting [sign-ups](http://aka.ms/vsls-signup) from users to get early access. We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly. Developers will be invited in an ongoing series of waves to make this possible.
+
+When we leave preview will depend the feedback we get during the preview and the core feature set that participants feel is must have for a "1.0" release.
+
+## How much will it cost?
+We are committed to a substantive free tier of Visual Studio Live Share for developers to use on an ongoing basis. We will be evaluating the introduction of paid tiers with advanced features as we better understand the needs of the community.
 
 ## How is my code shared with other teammates?
 When using Live Share, you’re making the code you’re working on available so that your teammate can access it via a secure cloud service that remotes commands from your editor. Your teammate can open and edit the files without needing to store them in the cloud or permanently store them on your teammate’s machine.
@@ -59,7 +64,11 @@ While this may be desirable for many scenarios, developers often want to collabo
 Live Share goes a step further and enables you to share a debug session.  This makes it especially useful in enlisting others to help you track down issues that only happen on your machine without altering their development workflow or needing to alter the application design.
 
 ## If I sign-up for the limited private preview, what can I expect?
-By signing up now ([here](http://aka.ms/vsls-signup), we will send updates and details about Live Share, and we may invite you to participate in the private preview (US only), or help us with user experience testing. 
+By signing up now ([here](http://aka.ms/vsls-signup), we will send updates and details about Live Share, and we may invite you to participate in the private preview (US only), or help us with user experience testing.
+
+We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly. Developers will be invited in an ongoing series of waves to make this possible.
+
+Once invited, you'll be given the information needed to start sharing with your colleagues. While only those in the preview can "host" a session and share,  anyone can download the needed extension to join as a "guest".
 
 You can [unsubscribe at any time](https://aka.ms/vsls-unsubscribe). For more details about our privacy statement, see [here](https://aka.ms/vsls-privacy).
 
@@ -69,4 +78,4 @@ During the private preview, the initial focus for Live Share is Node.js and ASP.
 Many of the existing Live Share capabilities already enable other languages and platforms (e.g. collaboratively debugging Java in VS Code), and you can view more details about the current support [here](http://aka.ms/vsls-docs/platform-support). This is just the start, and we expect to improve this picture moving forward based on feedback.
 
 ## What is the roadmap?
-You can view the set of private preview known issues, and roadmap items [here]( http://aka.ms/vsls-issues). We encourage you to up-vote existing items, file new feature requests, and log bug reports, in order to help us shape the direction of the product moving forward.
+You can view the set of private preview known issues, and roadmap items [here](http://aka.ms/vsls-issues). We encourage you to up-vote existing items, file new feature requests, and log bug reports, in order to help us shape the direction of the product moving forward.
