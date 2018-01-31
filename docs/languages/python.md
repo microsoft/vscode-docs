@@ -47,10 +47,16 @@ Snippets take productivity to the next level. You can configure [your own snippe
 
 ## Run Python in the Terminal
 
-The Python extension provides shortcuts to quickly run Python code in the current interpreter:
+The Python extension provides shortcuts to quickly run Python code in the current interpreter (which is displayed in the lower left corner of VS Code):
 
 - From the editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - From Explorer: right-click a Python file and select **Run Python File in Terminal**.
+
+To change the current interpreter, use the **Python: Select Interpreter** command, which displays a list of available interpreters, including Conda environments and any virtual environments in the current folder.
+
+![List of interpreters](images/environments/interpreters-list.png)
+
+You can also use the **Python: Create Terminal** command to create a terminal with the current environment.
 
 ## Unit Testing
 

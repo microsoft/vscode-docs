@@ -23,6 +23,7 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 | python.envFile | `"${workspaceFolder}/.env"` | Absolute path to a file containing environment variable definitions. |
 | python.terminal.launchArgs | `[]` | Launch arguments given the Python interpreter when running a file. |
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
+| python.terminal.activateEnvironments | `true` | Indicates whether the **Python: Select Interpreter** command allows selection of virtual environments. |
 | python.jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
 
 ## Workspace symbol (tags) settings

@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 11/10/2017
+DateApproved: 01/31/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -16,19 +16,21 @@ To select a specific interpreter, select the **Python: Select Interpreter** comm
 
 ![Python: Select Interpreter command](images/environments/select-interpreters-command.png)
 
-This command automatically looks for and displays a list of available Python interpreters.
+This command automatically looks for and displays a list of available Python interpreters, as well as Conda and virtual environments:
 
 ![List of interpreters](images/environments/interpreters-list.png)
+
+The extension looks for interpreters in the following locations:
+
+- Standard paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
+- Virtual environments located under the workspace (project) folder, unless the `python.terminal.activateEnvironments` setting is `false` in which case virtual environments are ignored.
+- Conda environments
 
 Selecting an interpreter from the list configures your User [Settings](/docs/getstarted/settings.md) accordingly. The Status Bar shows the current interpreter and when selected brings up a list of available interpreters. The Status Bar also reflects when no interpreter is selected.
 
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
-The extension looks for interpreters in the following locations:
-
-- Standard paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
-- Virtual environments located under the workspace (project) folder
-- Conda environments
+The currently-selected interpreter is applied when right-clicking a file and selecting **Run Python File in Terminal**. You can also use **Python: Create Terminal** to create a terminal with the current environment.
 
 ## Manually specifying an interpreter
 
