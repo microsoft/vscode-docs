@@ -45,7 +45,7 @@ To select a different linter, use the **Python: Select Linter** command. You can
 
 Custom arguments can be specified in the appropriate arguments setting for each linter, with each argument given as a separate item in the array.
 
-A custom path is generally unnecessary as the Python extension resolve the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting.
+A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting.
 
 The sections that follow provide additional details for those individual linters linked in the table.
 
@@ -84,7 +84,7 @@ These rules are applied through the following default arguments passed to Pylint
 --enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode
 ```
 
-These arguments are passed whenever the `python.linting.pylintUseMinimalCheckers` is set to `true` (the default). If you specify a value in `pylintArgs` or use a Pylint configuration file (see the next section), then set `pylintUseMinimalCheckers` to `false`. You can set it back to `true` to easily revert to the defaults as needed.
+These arguments are passed whenever the `python.linting.pylintUseMinimalCheckers` is set to `true` (the default). If you specify a value in `pylintArgs` or use a Pylint configuration file (see the next section), then `pylintUseMinimalCheckers` is implicitly set to `false`.
 
 For the complete list of Pylint messages, see [readable-pylint-messages](https://github.com/janjur/readable-pylint-messages/blob/master/README.md) (GitHub).
 

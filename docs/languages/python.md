@@ -56,7 +56,7 @@ To change the current interpreter, use the **Python: Select Interpreter** comman
 
 ![List of interpreters](images/environments/interpreters-list.png)
 
-You can also use the **Python: Create Terminal** command to create a terminal with the current environment.
+You can also use the **Python: Create Terminal** command to create a terminal with the current environment activated.
 
 ## Unit Testing
 
