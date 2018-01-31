@@ -28,7 +28,7 @@ Live Share's only requirement is that the person sharing and their teammate each
 Live Share doesn't transfer all keyboard and mouse inputs. It only communicates the data needed for each collaboration activity to your teammates' machines. For example, when you share your workspace, your folder structure is shared. When you collaboratively edit a file, that file's contents are shared. When you are collaboratively debugging, debug actions (e.g. stepping) and state (e.g. call stack and locals) are shared.
 
 ## When will this be released?
-Live Share is available now as a private preview now, and we are accepting [sign-ups]((/visual-studio-live-share) from users to get early access. We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly.
+Live Share is available now as a private preview now, and we are accepting [sign-ups]((http://aka.ms/vsls-signup) from users to get early access. We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly.
 
 ## How is my code shared with other teammates?
 When using Live Share, you’re making the code you’re working on available so that your teammate can access it via a secure cloud service that remotes commands from your editor. Your teammate can open and edit the files without needing to store them in the cloud or permanently store them on your teammate’s machine.
@@ -48,7 +48,8 @@ Live Share does not replace screen sharing where you may want to show a menu ite
 ## What about other collaboration tools?
 Live Share can be used with chat, instant messaging, or email technologies. We’ve observed that many collaborative interactions between developers start in these tools. However, when the discussion is about code, they often get to a point where it’s simply too hard to explain a problem with text, code snippets, or single files - more context is needed.
 
-Live Share can be used for many things such as, seeking help on a design issue, resolving a bug, pair programming, conducting a coding interview, or performing an ad-hoc review before a code commit or a pull-request.
+Live Share can be used for many things such as, seeking help on a de
+issue, resolving a bug, pair programming, conducting a coding interview, or performing an ad-hoc review before a code commit or a pull-request.
 
 ## What about other web editors?
 With web-based editors, both teammates need to use the same web app to get collaborative benefits, which may not be their primary, day-to-day editor. Many web-based editors assume that you are building and deploying into a Virtual Machine often hosted in a cloud environment.
@@ -58,14 +59,14 @@ While this may be desirable for many scenarios, developers often want to collabo
 Live Share goes a step further and enables you to share a debug session.  This makes it especially useful in enlisting others to help you track down issues that only happen on your machine without altering their development workflow or needing to alter the application design.
 
 ## If I sign-up for the limited private preview, what can I expect?
-By signing up now ([here](/visual-studio-live-share)), we will send updates and details about Live Share, and we may invite you to participate in the private preview (US only), or help us with user experience testing. 
+By signing up now ([here](http://aka.ms/vsls-signup), we will send updates and details about Live Share, and we may invite you to participate in the private preview (US only), or help us with user experience testing. 
 
 You can [unsubscribe at any time](https://aka.ms/vsls-unsubscribe). For more details about our privacy statement, see [here](https://aka.ms/vsls-privacy).
 
-## What languages and platforms will be supported in the limited private preview?
+## Which languages and platforms will be supported in the limited private preview?
 During the private preview, the initial focus for Live Share is Node.js and ASP.NET/ASP.NET Core (C#) web applications and services. However, our goal is to support the diverse landscape of languages and platforms, to ensure we can enable rich collaboration, regardless of the application type being developed.
 
-Many of the existing Live Share capabilities already enable other languages and platforms (e.g. collaboratively debugging Java in VS Code), and you can view more details about the current support [here](https://github.com/MicrosoftDocs/live-share/blob/master/docs/platform-support.md). This is just the start, and we expect to improve this picture moving forward based on feedback.
+Many of the existing Live Share capabilities already enable other languages and platforms (e.g. collaboratively debugging Java in VS Code), and you can view more details about the current support [here](http://aka.ms/vsls-docs/platform-support). This is just the start, and we expect to improve this picture moving forward based on feedback.
 
 ## What is the roadmap?
-You can view the set of private preview known issues, and roadmap items [here](https://github.com/MicrosoftDocs/live-share/issues?utf8=%E2%9C%93&q=is:issue%20is:open%20label:feature-request%20sort:reactions-%2B1%20). We encourage you to up-vote existing items, file new feature requests, and log bug reports, in order to help us shape the direction of the product moving forward.
+You can view the set of private preview known issues, and roadmap items [here]( http://aka.ms/vsls-issues). We encourage you to up-vote existing items, file new feature requests, and log bug reports, in order to help us shape the direction of the product moving forward.
