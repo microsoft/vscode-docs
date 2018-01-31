@@ -28,7 +28,7 @@ Live Share's only requirement is that the person sharing and their teammate each
 Live Share doesn't transfer all keyboard and mouse inputs. It only communicates the data needed for each collaboration activity to your teammates' machines. For example, when you share your workspace, your folder structure is shared. When you collaboratively edit a file, that file's contents are shared. When you are collaboratively debugging, debug actions (e.g. stepping) and state (e.g. call stack and locals) are shared.
 
 ## When will Live Share be released?
-Live Share is available now as a limited, private preview now, and we are accepting [sign-ups](http://aka.ms/vsls-signup) from users to get early access. We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly. Developers will be invited in an ongoing series of waves to make this possible.
+Live Share is available now as a limited, private preview, and we are accepting [sign-ups](http://aka.ms/vsls-signup) from users to get early access. We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly. Developers will be invited in an ongoing series of waves to make this possible.
 
 When we leave preview will depend the feedback we get during the preview and the core feature set that participants feel is must have for a "1.0" release.
 
