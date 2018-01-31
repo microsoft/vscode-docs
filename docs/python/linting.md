@@ -4,13 +4,13 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 11/10/2017
+DateApproved: 01/30/2018
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in VS Code
 
-Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in VS Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
+Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
 
 ## General linting settings
 
@@ -19,20 +19,17 @@ To change the linting behavior across all enabled linters, modify the following 
 | Feature | Setting<br/>(python.linting.) | Default value |
 | --- | --- | --- |
 | Linting in general | enabled | `true` |
-| Perform linting without a workspace open | enabledWithoutWorkspace | `true` |
 | Linting on file save | lintOnSave | `false` |
 | Maximum number of linting messages | maxNumberOfProblems | `100` |
 | Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
+
+You can easily change `python.linting.enabled` by using the **Python: Enable Linting** command.
 
 When enabling `lintOnSave`, you might also want to enable the generic `files.autoSave` option (see [Save / Auto Save](/docs/editor/codebasics.md#save-auto-save)). The combination provides frequent linting feedback in your code as you type.
 
 ## Specific linters
 
 The following table provides a summary of available Python linters and their basic settings. Only Pylint is enabled by default.
-
-Custom arguments can be specified in the appropriate arguments setting for each linter, with each argument given as a separate item in the array.
-
-A custom path is generally unnecessary as the Python extension resolve the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting.
 
 | Linter | pip install package name | Default state | True/false enable setting<br/>(python.linting.) | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
 | --- | --- | --- | --- | --- | --- |
@@ -44,9 +41,52 @@ A custom path is generally unnecessary as the Python extension resolve the path 
 | prospector | prospector | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | [pylama] | pylama | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
 
+To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, however, that using the **Select Linter** command overwrites those edits.
+
+Custom arguments can be specified in the appropriate arguments setting for each linter, with each argument given as a separate item in the array.
+
+A custom path is generally unnecessary as the Python extension resolve the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting.
+
 The sections that follow provide additional details for those individual linters linked in the table.
 
 ## Pylint
+
+Pylint messages fall into the categories in the following table with the indicated mapping to VS Code categories. You can change the setting to change the mapping.
+
+| Pylint category | Description | VS Code category mapping | Applicable setting<br/>(python.linting.) |
+| --- | --- | --- | --- |
+| Convention (C) | Programming standard violation | Information (green underline) | pylintCategorySeverity.convention |
+| Refactor (R) | Bad code smell | Hint (light bulbs) | pylintCategorySeverity.refactor |
+| Warning (W) | pylintCategorySeverity.warning | Warning | Python-specific problems |
+| Error (E) | pylintCategorySeverity.error | Error (red underline) | Likely code bugs |
+| Fatal (F) | pylintCategorySeverity.fatal | Error | An error prevented further Pylint processing |
+
+### Default Pylint rules
+
+Python in Visual Studio code is configured by default to use a set of linting rules that are friendly to the largest number of  Python developers:
+
+- Enable all Error (E) and Fatal (F) messages.
+- Disable all Convention (C) and Refactor (R) messages.
+- Disable all Warning (W) messages except the following:
+  - unreachable (W0101): Unreachable code
+  - duplicate-key (W0109): Duplicate key %r in dictionary
+  - unnecessary-semicolon (W0301): Unnecessary semicolon
+  - global-variable-not-assigned (W0602): Using global for %r but no assignment is done
+  - unused-variable (W0612): Unused variable %r
+  - binary-op-exception (W0711): Exception to catch is the result of a binary "%s" operation
+  - bad-format-string (W1302): Invalid format string
+  - anomalous-backslash-in-string (W1401): Anomalous backslash in string
+  - bad-open-mode (W1501): "%s" is not a valid mode for open
+
+These rules are applied through the following default arguments passed to Pylint:
+
+```
+--enable=F,E,unreachable,duplicate-key,unnecessary-semicolon,global-variable-not-assigned,unused-variable,binary-op-exception,bad-format-string,anomalous-backslash-in-string,bad-open-mode
+```
+
+These arguments are passed whenever the `python.linting.pylintUseMinimalCheckers` is set to `true` (the default). If you specify a value in `pylintArgs` or use a Pylint configuration file (see the next section), then set `pylintUseMinimalCheckers` to `false`. You can set it back to `true` to easily revert to the defaults as needed.
+
+For the complete list of Pylint messages, see [readable-pylint-messages](https://github.com/janjur/readable-pylint-messages/blob/master/README.md) (GitHub).
 
 ### Command-line arguments and configuration files
 
@@ -74,18 +114,6 @@ To control which Pylint messages are shown, add the following contents to an opt
 # it should appear only once).
 #disable=
 ```
-
-### Message category mapping
-
-The Python extension maps Pylint message categories to VS Code categories through the following settings. If desired, change the setting to change the mapping.
-
-| Pylint category | Applicable setting<br/>(python.linting.) | VS Code category mapping |
-| --- | --- | --- |
-| convention | pylintCategorySeverity.convention | Information |
-| refactor | pylintCategorySeverity.refactor | Hint |
-| warning | pylintCategorySeverity.warning | Warning |
-| error | pylintCategorySeverity.error | Error |
-| fatal | pylintCategorySeverity.fatal | Error |
 
 ## Pep8
 

@@ -54,7 +54,7 @@ Finally, the `python.autocomplete.addBrackets` setting (default false) determine
   "python.autoComplete.addBrackets": true,
 ```
 
-and then write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that auto-complete will add `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
+and then write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that auto-complete adds `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
 
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 

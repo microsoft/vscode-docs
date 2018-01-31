@@ -45,7 +45,7 @@ From the File Explorer toolbar, press the New File button:
 
 ![File Explorer New File](images/tutorial/toolbar-new-file.png)
 
-Name the file `hello.py`, and it will automatically open in the editor:
+Name the file `hello.py`, and it automatically opens in the editor:
 
 ![File Explorer hello.py](images/tutorial/hello-py-file-created.png)
 
