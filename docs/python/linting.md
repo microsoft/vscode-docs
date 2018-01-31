@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in VS Code
 
-Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
+Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in VS Code using Pylint. Additional linters, along with Pylint, can be enabled and disabled in any combination using their respective settings.
 
 ## General linting settings
 

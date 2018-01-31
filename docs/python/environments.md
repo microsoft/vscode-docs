@@ -23,7 +23,7 @@ This command automatically looks for and displays a list of available Python int
 The extension looks for interpreters in the following locations:
 
 - Standard paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
-- Virtual environments located under the workspace (project) folder, unless the `python.terminal.activateEnvironments` setting is `false` in which case virtual environments are ignored.
+- Virtual environments located under the workspace (project) folder, unless the `python.terminal.activateEnvironments` setting is `false`, in which case virtual environments are ignored.
 - Conda environments
 
 Selecting an interpreter from the list configures your User [Settings](/docs/getstarted/settings.md) accordingly. The Status Bar shows the current interpreter and when selected brings up a list of available interpreters. The Status Bar also reflects when no interpreter is selected.
