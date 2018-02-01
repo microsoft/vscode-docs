@@ -28,22 +28,18 @@ Live Share's only requirement is that the person sharing and their teammate each
 Live Share doesn't transfer all keyboard and mouse inputs. It only communicates the data needed for each collaboration activity to your teammates' machines. For example, when you share your workspace, your folder structure is shared. When you collaboratively edit a file, that file's contents are shared. When you are collaboratively debugging, debug actions (e.g. stepping) and state (e.g. call stack and locals) are shared.
 
 ## When will Live Share be released?
-Live Share is available now as a limited, private preview, and we are accepting [sign-ups](http://aka.ms/vsls-signup) from users to get early access. We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly. Developers will be invited in an ongoing series of waves to make this possible.
-
-When we leave preview will depend the feedback we get during the preview and the core feature set that participants feel is must have for a "1.0" release.
+Live Share is available now as a limited, private preview, and we are accepting [sign-ups](http://aka.ms/vsls-signup) from users to get early access. We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly. Developers will be invited in an ongoing series of "waves" to help make this possible, so once you've signed up, stay tuned for further updates.
 
 ## How much will it cost?
 We are committed to a substantive free tier of Visual Studio Live Share for developers to use on an ongoing basis. We will be evaluating the introduction of paid tiers with advanced features as we better understand the needs of the community.
 
 ## How is my code shared with other teammates?
-When using Live Share, you’re making the code you’re working on available so that your teammate can access it via a secure cloud service that remotes commands from your editor. Your teammate can open and edit the files without needing to store them in the cloud or permanently store them on your teammate’s machine.
+When using Live Share, you’re making the code you’re working on available such that your teammates can access it via a secure cloud service that remotes commands from your editor. Your teammates can open and edit the files without needing to store them in the cloud or permanently store them on your teammate’s machine.
 
-Live Share enables instant access to capabilities like the project tree, code navigation, and search. It also allows your teammate to benefit from editor enhancements like IntelliSense.
-
-Once collaboration stops (e.g. you close your editor, go offline, or stop sharing), then further actions or access by your teammate is not enabled.
+Live Share enables instant access to capabilities like the project tree, code navigation, and search. It also allows your teammates to benefit from editor enhancements such as IntelliSense. Once collaboration stops (e.g. you close your editor, go offline, or stop sharing), then further actions or access by your teammates are disabled.
 
 ## What happens if a user goes offline, or stops sharing?
-The remote model requires that the developer sharing via Live Share and their teammate must be online to be connected. If your teammate attempts to use Live Share when you are offline, they will be unable to join the session until you are online again.
+The remote model requires that the developer sharing via Live Share and their teammate must be online to be connected. If your teammate attempts to use Live Share when you are offline, they will be unable to join the session until you are online again. Additionally, when you stop sharing, 
 
 ## What about screen sharing?
 Live Share lets you share your project's code and its context. It means that your teammate can easily jump into your codebase and work with you, using their familiar tool. Your editor or other apps are not shared or viewable by your teammate, and you don’t have to change your workstyle or use a web-based app.
@@ -53,8 +49,7 @@ Live Share does not replace screen sharing where you may want to show a menu ite
 ## What about other collaboration tools?
 Live Share can be used with chat, instant messaging, or email technologies. We’ve observed that many collaborative interactions between developers start in these tools. However, when the discussion is about code, they often get to a point where it’s simply too hard to explain a problem with text, code snippets, or single files - more context is needed.
 
-Live Share can be used for many things such as, seeking help on a de
-issue, resolving a bug, pair programming, conducting a coding interview, or performing an ad-hoc review before a code commit or a pull-request.
+Live Share can be used for many things, such as: seeking help on an issue, resolving a bug, pair programming, conducting a coding interview, or performing an ad-hoc review before a code commit or a pull-request.
 
 ## What about other web editors?
 With web-based editors, both teammates need to use the same web app to get collaborative benefits, which may not be their primary, day-to-day editor. Many web-based editors assume that you are building and deploying into a Virtual Machine often hosted in a cloud environment.
@@ -64,7 +59,7 @@ While this may be desirable for many scenarios, developers often want to collabo
 Live Share goes a step further and enables you to share a debug session.  This makes it especially useful in enlisting others to help you track down issues that only happen on your machine without altering their development workflow or needing to alter the application design.
 
 ## If I sign-up for the limited private preview, what can I expect?
-By signing up now ([here](http://aka.ms/vsls-signup), we will send updates and details about Live Share, and we may invite you to participate in the private preview (US only), or help us with user experience testing.
+By [signing up](http://aka.ms/vsls-signup), we will send updates and details about Live Share, and we may invite you to participate in the private preview (US only), or help us with user experience testing.
 
 We intend to work closely with a limited number of developers, in order to collect feedback and ensure we can deliver the best experience possible, before opening the service more broadly. Developers will be invited in an ongoing series of waves to make this possible.
 
