@@ -3,8 +3,8 @@ Order: 11
 Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
-PageTitle: Python with Visual Studio Code
-DateApproved: 11/10/2017
+PageTitle: Python in Visual Studio Code
+DateApproved: 02/01/2018
 MetaDescription: Learn about Visual Studio Code features (code completion, debugging, snippets, linting) for Python.
 ---
 # Python in Visual Studio Code
