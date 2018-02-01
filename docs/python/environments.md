@@ -30,7 +30,7 @@ Selecting an interpreter from the list configures your User [Settings](/docs/get
 
 ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
-The currently-selected interpreter is applied when right-clicking a file and selecting **Run Python File in Terminal**. You can also use **Python: Create Terminal** to create a terminal with the current environment activated. Note that setting `python.terminal.activateEnvironments` to `false` skips activating virtual and conda environments before running these commands.
+The currently selected interpreter is applied when right-clicking a file and selecting **Run Python File in Terminal**. You can also use **Python: Create Terminal** to create a terminal with the current environment activated. Note that setting `python.terminal.activateEnvironments` to `false` skips activating virtual and Conda environments before running these commands.
 
 ## Manually specifying an interpreter
 

@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Editing Python in VS Code
 
-The Python extension provides many features for editing Python source code:
+The Python extension provides many features for editing Python source code in Visual Studio Code:
 
 - [Autocomplete and Intellisense](#autocomplete-and-intellisense)
 - [Formatting](#formatting)

@@ -7,7 +7,7 @@ PageTitle: Python with Visual Studio Code
 DateApproved: 11/10/2017
 MetaDescription: Learn about Visual Studio Code features (code completion, debugging, snippets, linting) for Python.
 ---
-# Python on Visual Studio Code
+# Python in Visual Studio Code
 
 Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with control over your Python environments.
 
