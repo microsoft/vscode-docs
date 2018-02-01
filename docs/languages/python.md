@@ -52,7 +52,7 @@ The Python extension provides shortcuts to quickly run Python code in the curren
 - From the editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - From Explorer: right-click a Python file and select **Run Python File in Terminal**.
 
-To change the current interpreter, use the **Python: Select Interpreter** command, which displays a list of available interpreters, including Conda environments and any virtual environments in the current folder.
+To change the current interpreter, use the **Python: Select Interpreter** command, which displays a list of available interpreters, including [conda](https://conda.io/docs/) environments and any virtual environments in the current folder.
 
 ![List of interpreters](images/environments/interpreters-list.png)
 
