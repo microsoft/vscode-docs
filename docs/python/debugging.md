@@ -81,7 +81,7 @@ Specifies arguments to pass to the python program, for example:
 
 ### `stopOnEntry`
 
-When set to true, breaks the debugger at the first line of the program being debugged. Setting to false will run the program to the first breakpoint.
+When set to true, breaks the debugger at the first line of the program being debugged. Setting to false runs the program to the first breakpoint.
 
 ### `console`
 
@@ -171,8 +171,8 @@ Windows:
 1. Enable ssh port forwarding on the remote computer using sshd_config or similar.
 2. Establish a PuTTY SSH tunnel:
     1. Read [Setting up an SSH tunnel with PuTTY](http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html) (until "Open the session" section).
-    2. On the Tunnels screen, using a local mode, source port (which is the port which will be the entry point on the local computer) can be different from the destination port (the end point on the server).
-    3. Destination address should be the localhost or `127.0.0.1` address (which is the address that the remote SSH server will use to establish the tunnel).
+    2. On the Tunnels screen, using a local mode, source port (the port which is the entry point on the local computer) can be different from the destination port (the end point on the server).
+    3. Destination address should be the localhost or `127.0.0.1` address (which is the address that the remote SSH server  uses to establish the tunnel).
 
 Linux:
 
