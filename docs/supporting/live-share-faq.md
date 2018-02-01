@@ -36,10 +36,10 @@ We are committed to a substantive free tier of Visual Studio Live Share for deve
 ## How is my code shared with other teammates?
 When using Live Share, you’re making the code you’re working on available such that your teammates can access it via a secure cloud service that remotes commands from your editor. Your teammates can open and edit the files without needing to store them in the cloud or permanently store them on your teammate’s machine.
 
-Live Share enables instant access to capabilities like the project tree, code navigation, and search. It also allows your teammates to benefit from editor enhancements such as IntelliSense. Once collaboration stops (e.g. you close your editor, go offline, or stop sharing), then further actions or access by your teammates are disabled.
+Live Share enables instant access to capabilities like the project tree, code navigation, and search. It also allows your teammates to benefit from editor enhancements such as IntelliSense. 
 
 ## What happens if a user goes offline, or stops sharing?
-The remote model requires that the developer sharing via Live Share and their teammate must be online to be connected. If your teammate attempts to use Live Share when you are offline, they will be unable to join the session until you are online again. Additionally, when you stop sharing, 
+The remote model requires that the developer sharing via Live Share and their teammate must be online to be connected. If your teammate attempts to use Live Share when you are offline, they will be unable to join the session until you are online again. Additionally, once collaboration stops (e.g. you close your editor, go offline, or stop sharing), then further actions or file access by your teammates are immediately disabled.
 
 ## What about screen sharing?
 Live Share lets you share your project's code and its context. It means that your teammate can easily jump into your codebase and work with you, using their familiar tool. Your editor or other apps are not shared or viewable by your teammate, and you don’t have to change your workstyle or use a web-based app.
