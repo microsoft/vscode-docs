@@ -1,8 +1,8 @@
 ---
 Order: 3
 Area: appservicetools
-TOCTitle: Deploy the Website
-PageTitle: Deploy the Website
+TOCTitle: Deploy the website
+PageTitle: Deploy the website
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---
@@ -16,7 +16,7 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
 ![Deploy to Web App](images/app-service-extension/deploy.png)
 
-> **Tip:** You can also deploy from the **Command Pallete** (`kb(workbench.action.showCommands)`) by typing `deploy to web app` and running the **Azure App Service: Deploy to Web App** command.
+> **Tip:** You can also deploy from the **Command Palette** (`kb(workbench.action.showCommands)`) by typing `deploy to web app` and running the **Azure App Service: Deploy to Web App** command.
 
 From here follow the prompts. Choose the directory that you currently have open, `myExpressApp`, select your active Azure subscription, and then choose **Create New Web App**.
 
@@ -36,11 +36,15 @@ Once created, you're prompted to deploy the app, choose yes.
 
 ![Deploy the App](images/app-service-extension/deploy-prompt.png)
 
+## Browse the website
+
 The output window will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE APP SERVICE** explorer, right-click, and choose **Browse Website** to open the site in your browser.
 
-> **Tip:** You can deploy changes to this app by using the same process and choosing the existing app rather than creating a new one.
-
 > **Tip:** Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
+
+## Updating the website
+
+You can deploy changes to this app by using the same process and choosing the existing app rather than creating a new one.
 
 ----
 

@@ -3,7 +3,7 @@ Order: 3
 Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
-PageTitle: Visual Studio Tips and Tricks
+PageTitle: Visual Studio Code Tips and Tricks
 DateApproved: 12/14/2017
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---

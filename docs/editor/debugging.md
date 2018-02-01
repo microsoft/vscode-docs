@@ -14,11 +14,11 @@ One of the key features of Visual Studio Code is its great debugging support. VS
 
 ![Debugging diagram](images/debugging/debugging_hero.png)
 
-## Debugger Extensions
+## Debugger extensions
 
 VS Code has built-in debugging support for the [Node.js](https://nodejs.org/) runtime and can debug JavaScript, TypeScript, and any other language that gets transpiled to JavaScript.
 
-For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [Powershell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` [extensions](/docs/editor/extension-gallery.md) in our VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or click on **Install Additional Debuggers** in the top level Debug menu.
+For debugging other languages and runtimes (including [PHP](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug), [Ruby](https://marketplace.visualstudio.com/items?itemName=rebornix.Ruby), [Go](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go), [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python), [C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools), [Powershell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell) and [many others](https://marketplace.visualstudio.com/search?term=debug&target=VSCode&category=Debuggers&sortBy=Relevance)), look for `Debuggers` [extensions](/docs/editor/extension-gallery.md) in our VS Code [Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or click on **Install Additional Debuggers...** in the top level Debug menu.
 
 Below are several popular extensions which include debugging support:
 
@@ -26,35 +26,37 @@ Below are several popular extensions which include debugging support:
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you.
 
-## Start Debugging
+## Start debugging
 
 The following documentation is based on the built-in [Node.js](https://nodejs.org/) debugger, but most of the concepts and features are applicable to other debuggers as well.
 
 It is helpful to first create a sample Node.js application before reading about debugging. You can follow the [Node.js walkthrough](/docs/nodejs/nodejs-tutorial.md) to install Node.js and create a simple "Hello World" JavaScript application (`app.js`). Once you have a simple application all set up, this page will take you through VS Code debugging features.
 
-## Debug View
+## Debug view
 
-To bring up the Debug view, click on the Debugging icon in the **Activity Bar** on the side of VS Code.
+To bring up the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code. You can also use the keyboard shortcut `kb(workbench.view.debug)`.
 
 ![Debug icon](images/debugging/debugicon.png)
 
 The Debug view displays all information related to debugging and has a top bar with debugging commands and configuration settings.
 
-## Debug Menu
+## Debug menu
 
-The top level debug menu has the most common debug commands:
+The top level **Debug** menu has the most common debug commands:
 
 ![Debug menu](images/debugging/debug-menu.png)
 
-## Launch Configurations
+## Launch configurations
 
 To debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
 
->**Tip**: You can debug a simple application even if you don't have a folder open in VS Code but it is not possible to manage launch configurations and setup advanced debugging. For that, you have to open a folder in your workspace.
+However for most debugging scenarios, creating a launch configuration file is beneficial. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder).
 
-For advanced debugging, you first have to open a folder and then set up your launch configuration file - `launch.json`. Click on the Configure gear icon on the Debug view top bar and VS Code will generate a `launch.json` file under your workspace's `.vscode` folder. VS Code will try to automatically detect your debug environment, if unsuccessful you will have to choose your debug environment manually.
+To create a `launch.json` file, open your project folder in VS Code (**File** > **Open Folder**) and then click on the Configure gear icon on the Debug view top bar. VS Code will try to automatically detect your debug environment, if unsuccessful you will have to choose your debug environment manually.
 
-Here is the one generated for Node.js debugging:
+![launch configuration](images/debugging/launch-configuration.png)
+
+Here is the launch configuration generated for Node.js debugging:
 
 ```json
 {
@@ -70,7 +72,15 @@ Here is the one generated for Node.js debugging:
 }
 ```
 
-Note that the attributes available in these launch configurations vary from debugger to debugger. You can use IntelliSense to find out which attributes exist for a specific debugger. In addition, hover help is available for all attributes. If you see green squigglies in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
+If you go back to the File Explorer view (`kb(workbench.view.explorer)`), you'll see that VS Code has create a `.vscode` folder and added the `launch.json` file to your workspace.
+
+![launch.json in Explorer](images/debugging/launch-json-in-explorer.png)
+
+>**Note**: You can debug a simple application even if you don't have a folder open in VS Code but it is not possible to manage launch configurations and set up advanced debugging. The VS Code Status Bar is purple if you do not have a folder open.
+
+Note that the attributes available in launch configurations vary from debugger to debugger. You can use IntelliSense suggestions (`kb(editor.actions.triggerSuggest)`) to find out which attributes exist for a specific debugger. In addition, hover help is available for all attributes. If you see green squigglies in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
+
+![launch.json IntelliSense](images/debugging/launch-json-intellisense.png)
 
 VS Code debuggers typically support launching a program in debug mode or attaching to an already running program. Depending on the request (`attach` or `launch`) different attributes are required and our `launch.json` validation and suggestions should help with that.
 
@@ -82,31 +92,17 @@ To add a new configuration to an existing `launch.json`, use one of the followin
 
 * Use IntelliSense if your cursor is located inside the configurations array.
 * Press the **Add Configuration** button to invoke snippet IntelliSense at the start of the array.
-* Choose **Add Configuration...** option in the debug dropdown.
+* Choose **Add Configuration...** option in the Debug dropdown.
 
 ![launch json suggestions](images/debugging/add-config.gif)
 
-Select the configuration named `Launch` using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
+Select the configuration named **Launch Program** using the **Configuration dropdown** in the Debug view. Once you have your launch configuration set, start your debug session with `kb(workbench.action.debug.start)`.
+
+During the debugging session, the **DEBUG CONSOLE** panel is displayed with debugging logging and the Status Bar will turn orange.
+
+![debug session](images/debugging/debug-session.png)
 
 The other way to run your configuration is through **Command Palette** (`kb(workbench.action.showCommands)`), by filtering on **Debug: Select and Start Debugging** or typing `'debug '`, and selecting the configuration you want to debug.
-
-### Global Launch Configuration
-
-We support adding a `"launch"` object inside your user settings. This `"launch"` configuration will then be shared across your workspaces. For example:
-
-```json
-"launch": {
-    "version": "0.2.0",
-    "configurations": [{
-        "type": "node",
-        "request": "launch",
-        "name": "Launch Program",
-        "program": "${file}"
-    }]
-}
-```
-
->**Tip**: If a workspace contains a `"launch.json"` the global launch configuration is ignored.
 
 ### Debug in Status Bar
 
@@ -126,6 +122,35 @@ Once a debug session starts, the **Debug actions pane** will appear on the top o
 * Step Out `kb(workbench.action.debug.stepOut)`
 * Restart `kb(workbench.action.debug.restart)`
 * Stop `kb(workbench.action.debug.stop)`
+
+### Run mode
+
+In addition to debugging a program, VS Code supports running the program. The **Debug: Start Without Debugging** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
+
+>**Tip**: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case 'Run' will be the same as 'Debug'.
+
+## Breakpoints
+
+Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoint control (enable/disable/reapply) can be done in the Debug view's **BREAKPOINTS** section.
+
+* Breakpoints in the editor margin are normally shown as red filled circles.
+* Disabled breakpoints have a filled gray circle.
+* Column breakpoints are shown inline in the editor.
+* When a debugging sessions starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
+
+The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
+
+## Data inspection
+
+Variables can be inspected in the **VARIABLES** section of the Debug view or by hovering over their source in the editor. Variables and expression evaluation is relative to the selected stack frame in the **CALL STACK** section.
+
+![Debug Variables](images/debugging/variables.png)
+
+Variables and expressions can also be evaluated and watched in the Debug view's **WATCH** section.
+
+![Debug Watch](images/debugging/watch.png)
+
+Variable values can be modified with the **Set Value** action from the variable's context menu.
 
 ## Launch.json attributes
 
@@ -157,21 +182,9 @@ Many debuggers support some of the following attributes:
 
 ## Variable substitution
 
-VS Code supports variable substitution inside strings in `launch.json` and has the following predefined variables:
+VS Code supports variable substitution inside strings in `launch.json` for useful values such the workspace root folder (`${workspaceFolder}`), the active file (`${file}`), and environment variables (`${env:Name}`). You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
 
-- **${workspaceFolder}** - the path of the folder opened in VS Code
-- **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
-- **${file}** - the current opened file
-- **${relativeFile}** - the current opened file relative to `workspaceFolder`
-- **${fileBasename}** - the current opened file's basename
-- **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
-- **${fileDirname}** - the current opened file's dirname
-- **${fileExtname}** - the current opened file's extension
-- **${cwd}** - the task runner's current working directory on startup
-- **${lineNumber}** - the current selected line number in the active file
-- **${selectedText}** - the current selected text in the active file
-
-You can also reference environment variables through **${env:Name}** syntax (for example, ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
+Using the `${workspaceFolder}` variable in your `launch.json` allows a configuration to be used in different project locations.
 
 ```json
 {
@@ -184,14 +197,9 @@ You can also reference environment variables through **${env:Name}** syntax (for
 }
 ```
 
-You can reference VS Code settings and commands using the following syntax:
+## Platform specific properties
 
-* **${config:Name}** - example: `${config:editor.fontSize}`
-* **${command:CommandID}** - example: `${command:explorer.newFolder}`
-
-## Operating System Specific Properties
-
-`Launch.json` supports defining values (for example, arguments to be passed to the program) specific to an operating system. To do so, put an operating system specific literal into the `launch.json` file and specify the corresponding properties inside that literal.
+`Launch.json` supports defining values (for example, arguments to be passed to the program) specific to an operating system. To do so, put a platform specific literal into the `launch.json` file and specify the corresponding properties inside that literal.
 
 Below is an example that passes `"args"` to the program differently on Windows than on Linux and macOS:
 
@@ -237,11 +245,58 @@ In the example below:
 
 Program is always stopped on entry except for macOS where it does not stop on entry.
 
-## Run mode
+## Global launch configuration
 
-In addition to debugging a program, VS Code supports running the program. The **Debug: Start Without Debugging** action is triggered with `kb(workbench.action.debug.run)` and uses the currently selected launch configuration. Many of the launch configuration attributes are supported in 'Run' mode. VS Code maintains a debug session while the program is running and pressing the **Stop** button terminates the program.
+VS Code supports adding a `"launch"` object inside your User [settings](/docs/getstarted/settings.md). This `"launch"` configuration will then be shared across your workspaces. For example:
 
->**Tip**: The **Run** action is always available, but not all debugger extensions support 'Run'. In this case 'Run' will be the same as 'Debug'.
+```json
+"launch": {
+    "version": "0.2.0",
+    "configurations": [{
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${file}"
+    }]
+}
+```
+
+>**Tip**: If a workspace contains a `"launch.json"`, the global launch configuration is ignored.
+
+## Advanced breakpoints
+
+### Conditional breakpoints
+
+A powerful VS Code debugging feature is the ability to set conditions either based on expressions or hit counts.
+
+- **Expression condition**: The breakpoint will be hit whenever the expression evaluates to `true`.
+- **Hit count**: The 'hit count' controls how many times a breakpoint needs to be hit before it will 'break' execution. Whether a 'hit count' is respected and how the exact syntax of the expression looks like depends on the debugger extension used.
+
+You can add a condition and/or hit count either when creating the breakpoint with the **Add Conditional Breakpoint** action or with the **Edit Breakpoint...** action for existing breakpoints. In both cases an inline text box with a drop down menu opens where the expressions can be entered:
+
+![HitCount](images/debugging/hitCount.gif)
+
+If a debugger does not support conditional breakpoints the **Add Conditional Breakpoint** action will be missing.
+
+A **column breakpoint** can be set using `kb(editor.debug.action.toggleColumnBreakpoint)` or through the context menu during a debug session. Column breakpoint will only be hit when the execution reaches that column. This is particularly useful when debugging minified code which contains multiple statements on a single line. Column breakpoints can also have conditions, editing multiple breakpoints on a line is possible through the context menu in the editor glyph margin.
+
+### Function breakpoints
+
+Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
+
+A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name:
+
+<p>
+  <img alt="function breakpoint" src="https://az754404.vo.msecnd.net/public/function-breakpoint.gif" />
+</p>
+
+## Debug Console REPL
+
+Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) feature. To open the Debug Console, use the **Debug Console** action at the top of the Debug pane or use the **View: Debug Console** command (`kb(workbench.debug.action.toggleRepl)`). Expressions are evaluated after you press `kbstyle(Enter)` and hee Debug Console REPL shows suggestions while typing. If you need to enter multiple lines, use `kbstyle(Shift+Enter)` between the lines and then send all lines for evaluation with `kbstyle(Enter)`.
+
+![Debug Console](images/debugging/debugconsole.png)
+
+**Note**: You must be in a running debug session to use the Debug Console REPL.
 
 ## Multi-target debugging
 
@@ -284,58 +339,6 @@ An alternative way to start multiple debug session is by using a so-called _comp
     ]
 }
 ```
-
-## Breakpoints
-
-Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoint control (enable/disable/reapply) can be done in the Debug view's **BREAKPOINTS** section.
-
-* Breakpoints in the editor margin are normally shown as red filled circles.
-* Disabled breakpoints have a filled gray circle.
-* Column breakpoints are shown inline in the editor.
-* When a debugging sessions starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
-
-The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
-
-A powerful VS Code debugging feature is the ability to set conditions either based on expressions or hit counts.
-
-- **Expression condition**: The breakpoint will be hit whenever the expression evaluates to `true`.
-- **Hit count**: The 'hit count' controls how many times a breakpoint needs to be hit before it will 'break' execution. Whether a 'hit count' is respected and how the exact syntax of the expression looks like depends on the debugger extension used.
-
-You can add a condition and/or hit count either when creating the breakpoint with the **Add Conditional Breakpoint** action or with the **Edit Breakpoint...** action for existing breakpoints. In both cases an inline text box with a drop down menu opens where the expressions can be entered:
-
-![HitCount](images/debugging/hitCount.gif)
-
-If a debugger does not support conditional breakpoints the **Add Conditional Breakpoint** action will be missing.
-
-A **column breakpoint** can be set using `kb(editor.debug.action.toggleColumnBreakpoint)` or through the context menu during a debug session. Column breakpoint will only be hit when the execution reaches that column. This is particularly useful when debugging minified code which contains multiple statements on a single line. Column breakpoints can also have conditions, editing multiple breakpoints on a line is possible through the context menu in the editor glyph margin.
-
-## Function breakpoints
-
-Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
-
-A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name:
-
-<p>
-  <img alt="function breakpoint" src="https://az754404.vo.msecnd.net/public/function-breakpoint.gif" />
-</p>
-
-## Data inspection
-
-Variables can be inspected in the **VARIABLES** section of the Debug view or by hovering over their source in the editor. Variables and expression evaluation is relative to the selected stack frame in the **CALL STACK** section.
-
-![Debug Variables](images/debugging/variables.png)
-
-Variables and expressions can also be evaluated and watched in the Debug view's **WATCH** section.
-
-![Debug Watch](images/debugging/watch.png)
-
-Variable values can be modified with the **Set Value** action from the variable's context menu.
-
-## Debug Console
-
-Expressions can be evaluated in the **Debug Console**. To open the Debug Console, use the **Open Console** action at the top of the Debug pane or use the **Command Palette** (`kb(workbench.action.showCommands)`). The Debug Console shows suggestions while typing. If you need to enter multiple lines, use `kbstyle(Shift+Enter)` between the lines and then send all lines for evaluation with `kbstyle(Enter)`.
-
-![Debug Console](images/debugging/debugconsole.png)
 
 ## Next Steps
 

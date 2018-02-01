@@ -1,8 +1,8 @@
 ---
 Order: 6
 Area: nodejsdeployment
-TOCTitle: Publish Changes
-PageTitle: Publish Changes
+TOCTitle: Publish changes
+PageTitle: Publish changes
 MetaDescription:
 MetaSocialImage:
 DateApproved: 10/5/2017

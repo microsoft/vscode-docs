@@ -10,7 +10,7 @@ MetaSocialImage: images/typescript/Languages_typescript.png
 ---
 # Editing TypeScript
 
-[TypeScript](https://typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The TypeScript language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
+[TypeScript](https://www.typescriptlang.org) is a typed superset of JavaScript that compiles to plain JavaScript. It offers classes, modules, and interfaces to help you build robust components. The TypeScript language specification can be found [here](https://github.com/Microsoft/TypeScript/tree/master/doc).
 
 ![TypeScript language within VS Code](images/typescript/typescript_hero.png)
 
@@ -78,10 +78,11 @@ Treating these as warnings is consistent with other tools, such as TSLint. These
 
 You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false`.
 
-
 ## Transpiling TypeScript into JavaScript
 
-VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Let's walk through transpiling a simple TypeScript Hello World program.
+VS Code integrates with `tsc` through our integrated [task runner](/docs/editor/tasks.md).  We can use this to transpile `.ts` files into `.js` files.  Another benefit of using VS Code tasks is that you get integrated error and warning detection displayed in the [Problems](/docs/editor/editingevolved.md#errors-warnings) panel. Let's walk through transpiling a simple TypeScript Hello World program.
+
+>**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](https://www.typescriptlang.org/).
 
 ### Step 1: Create a simple TS file
 
@@ -98,21 +99,27 @@ class Startup {
 Startup.main();
 ```
 
+To test that you have the TypeScript compiler `tsc` installed correctly and a working Hello World program, open a terminal and type `tsc HelloWorld.ts`. You can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) directly in VS Code.
+
+![build and run Hello World](images/typescript/build-hello-world.png)
+
+You should now see the transpiled `HelloWorld.js` JavaScript file which you can run if you have [Node.js](https://nodejs.org) installed, by typing `node HelloWorld.js`.
+
 ### Step 2: Run the TypeScript Build
 
 Execute **Run Build Task...** from the global **Tasks** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
 
 ![TypeScript Build](images/typescript/typescript-build.png)
 
-Select the entry. This will produce a `HelloWorld.js` and `HelloWorld.js.map` file in the workspace.
+Select the **tsc: build** entry. This will produce a `HelloWorld.js` and `HelloWorld.js.map` file in the workspace.
+
+If you selected **tsc: watch**, the TypeScript compiler watches for changes to your TypeScript files and runs the transpiler on each change.
 
 Under the covers, we run the TypeScript compiler as a task. The command we use is: `tsc -p .`
 
->**Tip:** If you don't have the TypeScript compiler installed, you can [get it here](https://www.typescriptlang.org/).
-
 ### Step 3: Make the TypeScript Build the default
 
-You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select the TypeScript one which generates the following `tasks.json` file:
+You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select TypeScript **tsc: build** which generates the following `tasks.json` file:
 
 ```ts
 {
@@ -123,6 +130,9 @@ You can also define the TypeScript build task as the default build task so that 
         {
             "type": "typescript",
             "tsconfig": "tsconfig.json",
+            "problemMatcher": [
+                "$tsc"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -134,12 +144,6 @@ You can also define the TypeScript build task as the default build task so that 
 
 The example TypeScript file did not have any compile problems, so by running the task all that happened was a corresponding `HelloWorld.js` and `HelloWorld.js.map` file was created.
 
-If you have [Node.js](https://nodejs.org) installed, you can run your simple Hello World example by opening up a terminal and running:
-
-```bash
-node HelloWorld.js
-```
-
 > **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
 
 ### Step 4: Reviewing Build Issues
@@ -148,11 +152,13 @@ Unfortunately, most builds don't go that smoothly and the result is often some a
 
     HelloWorld.ts(3,17): error TS2339: Property 'logg' does not exist on type 'Console'.
 
-This would show up in the terminal window (which can be opened using `kb(workbench.action.terminal.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view drop-down. We parse this output for you and highlight detected problems in the Status Bar.
+This would show up in the terminal panel (`kb(workbench.action.terminal.toggleTerminal)`) and selecting the terminal **Tasks - build tsconfig.json** in the terminal view drop-down. VS Code uses a [problem matcher](/docs/editor/tasks.md#defining-a-problem-matcher), in this case one specific to the TypeScript compiler, to parse this output and highlight detected problems. You can see this in the generated `tasks.json` above, where the `problemMatcher` attribute is set to `$tsc`.
+
+You can see the error and warning counts in the Status Bar:
 
 ![Problems in Status Bar](images/typescript/problemstatusbar.png)
 
-You can click on that icon to get a list of the problems and navigate to them.
+Click on the error and warnings icon to get a list of the problems and navigate to them.
 
 ![Compile Problems](images/typescript/compileerror.png)
 
@@ -247,6 +253,20 @@ If your workspace has a specific TypeScript version, you can switch between the 
 ![TypeScript version selector](images/typescript/select-ts-version-message.png)
 
 You can switch back to the version of TypeScript that comes with VS Code by clicking on the TypeScript version in the Status Bar again.
+
+## Auto Imports
+
+Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
+
+Just start typing to see [suggestions](#intellisense) for all available TypeScript symbols in your current project.
+
+![Global symbols are shown in the suggestion list](images/typescript/auto-import-pre.png)
+
+If you choose one of the suggestion from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
+
+![After selecting a symbol from a different file, an import is added for it automatically](images/typescript/auto-import-post.png)
+
+Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
 
 ## References CodeLens
 

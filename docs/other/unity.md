@@ -15,15 +15,29 @@ Visual Studio Code can be a great companion to Unity for editing and debugging C
 
 Read on to find out how to configure Unity and your project to get the best possible experience.
 
+## Prerequisites
+
+From [Using .NET Core in Visual Studio Code](https://code.visualstudio.com/docs/other/dotnet):
+
+1. Install [.NET SDK](https://code.visualstudio.com/docs/other/dotnet) (.NET Core), which includes the `dotnet` command.
+
+1. [Windows only] Logout or restart Windows to allow changes to `%PATH%` to take effect.
+
+1. [macOS only] To avoid seeing "Some projects have trouble loading. Please review the output for more details", make sure to install the latest stable [Mono](http://www.mono-project.com/download/) release.
+
+   **Note**: This version of Mono, which is installed into your system, will not interfere with the version of MonoDevelop that is installed by Unity.
+
+1. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) from the VS Code Marketplace.
+
 ## Setup VS Code as Unity Script Editor
 
 Open up **Unity Preferences**, **External Tools**, then browse for the Visual Studio Code executable as **External Script Editor**.
 
 ![Unity Preferences](images/unity/Unity_Preferences_External_Script_Editor.gif)
 
-> The Visual Studio Code executable can be found at `/Applications/Visual Studio Code.app` on OSX, `C:\Program Files (x86)\Microsoft VS Code\Code.exe` on Windows by default.
+> The Visual Studio Code executable can be found at `/Applications/Visual Studio Code.app` on macOS, `C:\Program Files (x86)\Microsoft VS Code\Code.exe` on Windows by default.
 
-**Unity has built-in support for opening scripts in Visual Studio Code** as an external script editor on Windows and OSX. Unity will detect when Visual Studio Code is selected as an external script editor and pass the correct arguments to it when opening scripts from Unity. Unity will also set up a default `.vscode/settings.json` with file excludes, if it does not already exist (from [Unity 5.5 Release notes](https://unity3d.com/unity/whats-new/unity-5.5.0)).
+**Unity has built-in support for opening scripts in Visual Studio Code** as an external script editor on Windows and macOS. Unity will detect when Visual Studio Code is selected as an external script editor and pass the correct arguments to it when opening scripts from Unity. Unity will also set up a default `.vscode/settings.json` with file excludes, if it does not already exist (from [Unity 5.5 Release notes](https://unity3d.com/unity/whats-new/unity-5.5.0)).
 
 ## Editing Evolved
 

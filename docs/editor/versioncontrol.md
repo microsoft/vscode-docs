@@ -216,16 +216,7 @@ Next, assuming you want to remove the unintended repo initialization, look for t
 
 **Q: I have GitHub Desktop installed on my computer but VS Code ignores it.**
 
-**A:** VS Code expects `git.exe` to be on the operating system's `PATH` (`$PATH` on Mac or Linux).  **GitHub Desktop** installs isolated git binaries and does not automatically add `git.exe` to `PATH`.
-
-You can either:
-
-* Add the location of `git.exe` to `PATH` and restart VS Code.
-* Set the `git.path` [setting](/docs/getstarted/settings.md) to the location of `git.exe`.
-
-On a **GitHub Desktop** Windows installation, `git.exe` is usually under `C:\Users\USERNAME\AppData\Local\GitHub\PortableGit_COMMITID\ming32\bin`.  Searching for `git.exe` under AppData\Local\GitHub should find the binary.
-
-You can also install Git from [git-scm](https://git-scm.com/) and this will not interfere with **GitHub Desktop**.
+**A:** VS Code only supports the [official Git distribution](https://git-scm.com/) for its Git integration.
 
 **Q: I keep getting Git authentication dialogs whenever VS Code is running.**
 
@@ -234,3 +225,7 @@ You can also install Git from [git-scm](https://git-scm.com/) and this will not 
 One way to avoid these prompts is to set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) which remembers your credentials.
 
 Another option is to disable the auto fetch feature by changing the following setting: `"git.autofetch": false`.
+
+**Q: Can I use SSH Git authentication with VS Code?**
+
+**A:** Yes, though VS Code works most easily with SSH keys without a passphrase. If you have a SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.

@@ -1,8 +1,8 @@
 ---
 Order: 4
 Area: appservicetools
-TOCTitle: Viewing Logs
-PageTitle: Viewing the Application Logs
+TOCTitle: Viewing logs
+PageTitle: Viewing the application logs
 MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
 DateApproved: 12/18/2017
 ---
@@ -39,7 +39,7 @@ Refresh the page a few times in the browser to see log output.
 
 Congratulations, you've successfully completed this walkthrough!
 
-## Other Azure Extensions
+## Other Azure extensions
 
 Next, check out the other Azure extensions.
 
@@ -50,11 +50,11 @@ Next, check out the other Azure extensions.
 * [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
 Or get them all by installing the
-[Node.js Extension Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
+[Node Pack for Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) extension pack.
 
-## Learn More at [docs.microsoft.com](https://docs.microsoft.com)
+## Learn more at docs.microsoft.com
 
-The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azure-node-2.0.0) developer center has a number of great articles on how to build and deploy Node.js based functions and applications to Azure.
+The [Azure for Node.js](https://docs.microsoft.com/en-us/nodejs/azure/?view=azure-node-2.0.0) developer center on [docs.microsoft.com](https://docs.microsoft.com) has a number of great articles on how to build and deploy Node.js based functions and applications to Azure.
 
 ----
 

@@ -509,10 +509,15 @@ This problem matcher can now be used in a `tasks.json` file via a name reference
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "gcc",
-    "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
-    "problemMatcher": "$gcc"
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "gcc",
+            "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
+            "problemMatcher": "$gcc"
+        }
+    ]
 }
 ```
 

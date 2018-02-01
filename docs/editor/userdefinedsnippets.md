@@ -38,7 +38,7 @@ The example below is a `For Loop` snippet for `JavaScript`.
 ```json
 {
     "For_Loop": {
-        "prefix": "new",
+        "prefix": "for",
         "body": [
             "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
             "\tvar ${3:element} = ${2:array}[${1:index}];",

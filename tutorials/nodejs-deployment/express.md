@@ -1,8 +1,8 @@
 ---
 Order: 2
 Area: nodejsdeployment
-TOCTitle: Create the Application
-PageTitle: Create the Application
+TOCTitle: Create the application
+PageTitle: Create the application
 MetaDescription:
 MetaSocialImage:
 DateApproved: 10/5/2017

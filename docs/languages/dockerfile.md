@@ -71,12 +71,6 @@ Many of the most common Docker and docker-compose commands are built right into 
 
 ![intelliSense](images/docker/dockercommands.gif)
 
-## Dockerfile linting
-
-You can enable linting of Dockerfile files through the `docker.enableLinting` [setting](/docs/getstarted/settings.md). The extension uses the [dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) rules based linter to analyze the Dockerfile. You can provide your own customized rules file by using the `docker.linterRuleFile` setting. You can find [more information](https://github.com/projectatomic/dockerfile_lint#extending-and-customizing-rule-files) on how to create rules files as well as [sample rules files](https://github.com/projectatomic/dockerfile_lint/tree/master/sample_rules) in the [dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) project.
-
-![linting](images/docker/dockerfilelinting.gif)
-
 ## Running commands on Linux
 
 By default, Docker runs as the root user on Linux, requiring other users to access it with `sudo`. This extension does not assume root access, so you will need to create a Unix group called "docker" and add users to it. Instructions can be found here: [Create a Docker group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group)

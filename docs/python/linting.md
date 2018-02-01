@@ -22,7 +22,6 @@ To change the linting behavior across all enabled linters, modify the following 
 | Perform linting without a workspace open | enabledWithoutWorkspace | `true` |
 | Linting on file save | lintOnSave | `false` |
 | Maximum number of linting messages | maxNumberOfProblems | `100` |
-| Output window in which to display messages | outputWindow | `"Python"` |
 | Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
 
 When enabling `lintOnSave`, you might also want to enable the generic `files.autoSave` option (see [Save / Auto Save](/docs/editor/codebasics.md#save-auto-save)). The combination provides frequent linting feedback in your code as you type.
@@ -40,7 +39,7 @@ A custom path is generally unnecessary as the Python extension resolve the path 
 | [Pylint](#pylint) (default) | pylint | Enabled | pylintEnabled | pylintArgs | pylintPath |
 | [Pep8](#pep8) | pep8 | Disabled | pep8Enabled | pep8Args | pep8Path |
 | [Flake8](#flake8) | flake8 | Disabled | flake8Enabled | flake8Args | flake8Path |
-| [mypy](#mypy) | mypy-lang | Disabled | mypyEnabled | mypyArgs | mypyPath |
+| [mypy](#mypy) | mypy | Disabled | mypyEnabled | mypyArgs | mypyPath |
 | pydocstyle | pydocstyle | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
 | prospector | prospector | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | [pylama] | pylama | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
@@ -109,7 +108,7 @@ The Python extension maps pep8 message categories to VS Code categories through 
 
 Flake8 user options are read from the `.flake8` (Windows) or `~/.config/flake8` (Mac/Linux) file.
 
-At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered. For details, see [flake8 Configuration](http://flake8.readthedocs.org/en/latest/config.html).
+At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered. For details, see [flake8 Configuration](http://flake8.pycqa.org/en/latest/user/configuration.html).
 
 ### Message category mapping
 

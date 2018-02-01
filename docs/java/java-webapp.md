@@ -9,7 +9,7 @@ MetaDescription: Java web app tutorial showing how to deploy a Java web app to A
 ---
 # Deploy Java Web Apps to the cloud
 
-In our [first tutorial](/docs/java/java-tutorial.md), we've build a Java web app running locally. This tutorial will show you how to run it in the cloud.
+In our [first tutorial](/docs/java/java-tutorial.md), we built a Java web app running locally. This tutorial will show you how to run it in the cloud.
 
 ## Prepare your Azure account
 

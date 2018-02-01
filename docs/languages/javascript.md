@@ -330,18 +330,18 @@ You can enable tab completions with `editor.tabCompletion` setting. After typing
 
 ### Run Babel inside VS Code
 
-The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `isBuildCommand` switch makes this task the **Task: Run Build Task** gesture.  `isBackground` tells VS Code to keep running this task in the background. To learn more, go to [Tasks](/docs/editor/tasks.md).
+The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `group` setting makes this task the default **Task: Run Build Task** gesture.  `isBackground` tells VS Code to keep running this task in the background. To learn more, go to [Tasks](/docs/editor/tasks.md).
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "${workspaceFolder}/node_modules/.bin/babel",
-    "isShellCommand": true,
+    "version": "2.0.0",
     "tasks": [
         {
-            "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
             "label": "watch",
-            "group": "build",
+            "command": "${workspaceFolder}/node_modules/.bin/babel",
+            "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
+            "type": "shell",
+            "group": { "kind": "build", "isDefault": true },
             "isBackground": true
         }
     ]
@@ -396,6 +396,20 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 // Defines whether an open brace is put onto a new line for control blocks or not
 "javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
 ```
+
+## Auto Imports
+
+Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
+
+Just start typing to see [suggestions](#intellisense) for all available JavaScript symbols in your current project.
+
+![Global symbols are shown in the suggestion list](images/javascript/auto-import-pre.png)
+
+If you choose one of the suggestion from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
+
+![After selecting a symbol from a different file, an import is added for it automatically](images/javascript/auto-import-post.png)
+
+Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
 
 ## References CodeLens
 

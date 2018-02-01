@@ -1,8 +1,8 @@
 ---
 Order: 4
 Area: nodejsdeployment
-TOCTitle: Deploy the Website
-PageTitle: Deploy the Website
+TOCTitle: Deploy the website
+PageTitle: Deploy the website
 MetaDescription:
 MetaSocialImage:
 DateApproved: 10/5/2017

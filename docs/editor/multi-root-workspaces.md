@@ -136,7 +136,7 @@ VS Code UI such as the **OPEN EDITORS** or **Quick Open** (`kb(workbench.action.
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
-If you using an [Icon Theme](/docs/getstarted/themes.md#icon-themes) and the active theme supports it, you will see a special Workspace icon.
+If you are using an [Icon Theme](/docs/getstarted/themes.md#icon-themes) and the active theme supports it, you will see a special Workspace icon.
 
 Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** icon theme:
 
@@ -208,7 +208,7 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
-Variables used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to.
+[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to.
 
 ## Tasks
 

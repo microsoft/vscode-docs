@@ -90,7 +90,10 @@ Tests are run using any of the following actions:
 
 - Select `Run Tests` on the Status Bar, then select one a command like `Run All Tests` or `Run Failed Unit Tests`.
 - Right-click a file in Explorer and select `Run Unit Tests`, which runs the tests in that one file.
-- Open a test file and select the `Test` Code Lens that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
+- Open a test file and select the `Run Test` Code Lens that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
+
+    ![Python unit testing commands on the Command Palette](images/unit-testing/codelens.png)
+
 - From the **Command Palette**, select any of the unit test commands:
 
     ![Python unit testing commands on the Command Palette](images/unit-testing/commands.png)
@@ -108,28 +111,7 @@ Tests are run using any of the following actions:
 
 Because unit tests themselves are source code, they are prone to code defects just like the production code they test. For this reason, you may occasionally need to step through unit tests in the debugger.
 
-The **Python: Debug All Tests** and **Python: Debug Unit Test Method...** commands (on the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively. For PyTest and Nose, additional configuration is necessary as described in the sections that follow.
-
-### pytest debugging
-
-1. Create a file named `xyz.py` (or some other arbitrary name) in the root directory that contains the following source code:
-
-    ```python
-    import pytest
-    pytest.main()
-    ```
-2. Ensure that you're **not** using the `pytest-cov` option, as this prevents the debugger from working correctly.
-3. Add a breakpoint in the test you wish to debug and start debugging.
-
-### nosetest debugging
-
-1. Create a file named `xyz.py` (or some other arbitrary name) in the root directory that contains the following source code:
-
-    ```python
-    import nose
-    nose.run()
-    ```
-2. Add a breakpoint in the test you wish to debug and start debugging.
+The **Python: Debug All Tests** and **Python: Debug Unit Test Method...** commands (on the Command Palette and Status Bar menu) launch the debugger for all tests and a single test method, respectively.
 
 ## Next steps
 

@@ -125,7 +125,7 @@ For Gulp, Grunt, and Jake, the task auto-detection works the same. Below is an e
 
 Task auto detection can be disabled using the following settings:
 
-```ts
+```json
 {
     "typescript.tsc.autoDetect": "off",
     "grunt.autoDetect": "off",
@@ -263,7 +263,6 @@ You can also mix custom tasks with configurations for detected tasks. A `tasks.j
 
 As mentioned above, you can customize auto-detected tasks in the `tasks.json` file. You usually do so to modify presentation properties or to attach a problem matcher to scan the task's output for errors and warnings. You can customize a task directly from the **Run Task** list by pressing the gear icon to the right to insert the corresponding task reference into the `tasks.json` file. Assume you have the following Gulp file to lint JavaScript files using ESLint (the file is taken from https://github.com/adametry/gulp-eslint):
 
-
 ```js
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
@@ -347,21 +346,7 @@ For example, to bind `Ctrl+H` to the **Run tests** task from above, add the foll
 
 ## Variable substitution
 
-When authoring tasks configurations, it is often useful to have a set of predefined common variables.  VS Code supports variable substitution inside strings in the `tasks.json` file and has the following predefined variables:
-
-- **${workspaceFolder}** the path of the workspace folder that contains the tasks.json file
-- **${workspaceFolderBasename}** the name of the workspace folder that contains the tasks.json file without any slashes (/)
-- **${file}** the current opened file
-- **${relativeFile}** the current opened file relative to the workspace folder containing the file
-- **${fileBasename}** the current opened file's basename
-- **${fileBasenameNoExtension}** the current opened file's basename without the extension
-- **${fileDirname}** the current opened file's dirname
-- **${fileExtname}** the current opened file's extension
-- **${cwd}** the task runner's current working directory on startup
-- **${lineNumber}** the current selected line number in the active file
-- **${selectedText}** the current selected text in the active file
-
-You can also reference environment variables through **${env:Name}** (for example, ${env:PATH}). Be sure to match the environment variable name's casing, for example `${env:Path}` on Windows.
+When authoring tasks configurations, it is useful to have a set of predefined common variables such as the active file (`${file}`) or workspace root folder (`${workspaceFolder}`). VS Code supports variable substitution inside strings in the `tasks.json` file and you can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
 
 Below is an example of a custom task configuration that passes the current opened file to the TypeScript compiler.
 
@@ -376,8 +361,9 @@ Below is an example of a custom task configuration that passes the current opene
 }
 ```
 
+Similarly, you can reference your project's configuration settings by prefixing the name with **${config:**. For example, `${config:python.pythonPath}` returns the Python extension setting `pythonPath`.
 
-Similarly, you can reference your project's configuration settings by prefixing the name with `config:` — for example, `${config:python.pythonPath}`. Below is an example of a custom task configuration which executes autopep8 on the current file using your project's selected Python executable:
+Below is an example of a custom task configuration which executes autopep8 on the current file using your project's selected Python executable:
 
 ```json
 {
@@ -392,7 +378,6 @@ Similarly, you can reference your project's configuration settings by prefixing 
     ]
 }
 ```
-
 
 ## Operating system specific properties
 
@@ -446,7 +431,7 @@ If you need to tweak the encoding you should check whether it makes sense to cha
 
  If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows usinhg code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therfore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
 
-```ts
+```json
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
@@ -532,21 +517,26 @@ Here is a finished `tasks.json` file with the code above (comments removed) wrap
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "gcc",
-    "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
-    "problemMatcher": {
-        "owner": "cpp",
-        "fileLocation": ["relative", "${workspaceFolder}"],
-        "pattern": {
-            "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
-            "file": 1,
-            "line": 2,
-            "column": 3,
-            "severity": 4,
-            "message": 5
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "command": "gcc",
+            "args": ["-Wall", "helloWorld.c", "-o", "helloWorld"],
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
         }
-    }
+    ]
 }
 ```
 
@@ -669,12 +659,12 @@ Looking at the output shows the following pattern:
 - Between those two strings problems are reported.
 - The compiler also runs once the initial start (without printing `File change detected. Starting incremental compilation...` to the console).
 
-To capture this information, a problem matcher can provide a `watching` property.
+To capture this information, a problem matcher can provide a `background` property.
 
-For the `tsc` compiler, an appropriate `watching` property looks like this:
+For the `tsc` compiler, an appropriate `background` property looks like this:
 
 ```json
-"watching": {
+"background": {
     "activeOnStart": true,
     "beginsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - File change detected\\. Starting incremental compilation\\.\\.\\.",
     "endsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - Compilation complete\\. Watching for file changes\\."
@@ -687,11 +677,11 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 ```json
 {
-    "version": "0.1.0",
-    "command": "tsc",
+    "version": "2.0.0",
     "tasks": [
         {
             "label": "watch",
+            "command": "tsc",
             "args": ["--watch"],
             "isBackground": true,
             "problemMatcher": {
@@ -705,7 +695,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
                     "code": 4,
                     "message": 5
                 },
-                "watching": {
+                "background": {
                     "activeOnStart": true,
                     "beginsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - File change detected\\. Starting incremental compilation\\.\\.\\.",
                     "endsPattern": "^\\s*\\d{1,2}:\\d{1,2}:\\d{1,2}(?: AM| PM)? - Compilation complete\\. Watching for file changes\\."
@@ -716,13 +706,19 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 }
 ```
 
-### Tasks in multi Folder Workspaces
-
-If you have setup a workspace that consist out of multiple folders then only version `2.0.0` tasks are detected and shown in the `Tasks > Run Task` picker. See the section below on how to convert `0.1.0` tasks into `2.0.0` tasks to get access to all tasks.
-
 ## Convert from "0.1.0" to "2.0.0"
 
-Since the `2.0.0` version comes with lots of new auto-detection features, you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`. If you have lots of customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings because some old properties are now deprecated. Here is how to get rid of the deprecations:
+**Note**: If you have created a workspace that consists of multiple folders ([Multi-root Workspace](/docs/editor/multi-root-workspaces.md)), only version `2.0.0` tasks are detected and shown in the **Tasks** > **Run Task...** picker.
+
+### Try running without tasks.json
+
+Tasks `2.0.0` version comes with lots of new auto-detection features so you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`.
+
+### Migrating to Tasks 2.0.0
+
+If you have lots of task customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings (green squigglies) because some properties are now deprecated.
+
+Here is a migration guide:
 
 - **taskName**: Use the `label` property instead.
 - **isShellCommand**: Use the `"type": "shell"` property instead.
@@ -783,6 +779,7 @@ The corresponding `2.0.0` configuration would look like this:
     ]
 }
 ```
+
 A corresponding `2.0.0` configuration would look like this:
 
 ```json

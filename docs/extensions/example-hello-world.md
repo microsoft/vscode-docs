@@ -66,9 +66,8 @@ After running, the generated extension should have the following structure:
 │   ├── vscode                  // language services
 │   └── typescript              // compiler for typescript (TypeScript only)
 ├── out                         // compilation output (TypeScript only)
-│   ├── src
-│   |   ├── extension.js
-│   |   └── extension.js.map
+│   ├── extension.js
+│   ├── extension.js.map
 │   └── test
 │       ├── extension.test.js
 │       ├── extension.test.js.map
@@ -105,7 +104,7 @@ Let's go through the purpose of all these files and explain what they do:
     "activationEvents": [
         "onCommand:extension.sayHello"
     ],
-    "main": "./out/src/extension",
+    "main": "./out/extension",
     "contributes": {
         "commands": [{
             "command": "extension.sayHello",
@@ -133,7 +132,7 @@ Let's go through the purpose of all these files and explain what they do:
 * This specific package.json describes an extension that:
  * *contributes* an entry to the Command Palette (`kb(workbench.action.showCommands)`) with the label `"Hello world"` that will invoke a command `"extension.sayHello"`.
  * requests to get loaded (*activationEvents*) when the command `"extension.sayHello"` is invoked.
- * has its *main* JavaScript code in a file called `"./out/src/extension.js"`.
+ * has its *main* JavaScript code in a file called `"./out/extension.js"`.
 
 > **Note:** VS Code **does not** load the code of an extension eagerly at start-up. An extension must describe, through the [`activationEvents`](/docs/extensionAPI/activation-events.md) property under what conditions it should get activated (loaded).
 
@@ -174,7 +173,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 > **Note:** The `contributes` section of the `package.json` adds an entry to the Command Palette.  The code in extension.ts/.js defines the implementation of `"extension.sayHello"`.
 
-> **Note:** For TypeScript extensions, the generated file `out/src/extension.js` will be loaded at runtime and executed by VS Code.
+> **Note:** For TypeScript extensions, the generated file `out/extension.js` will be loaded at runtime and executed by VS Code.
 
 ### Miscellaneous files
 
@@ -198,7 +197,7 @@ Now that the roles of the files included in the extension are clarified, here is
  * The command `"extension.sayHello"` is invoked:
    * An activation event `"onCommand:extension.sayHello"` is created.
    * All extensions listing this activation event in their `activationEvents` are activated.
-     * The file at `./out/src/extension.js` gets loaded in the JavaScript VM.
+     * The file at `./out/extension.js` gets loaded in the JavaScript VM.
      * VS Code looks for an exported function `activate` and calls it.
      * The command `"extension.sayHello"` is registered and its implementation is now defined.
  * The command `"extension.sayHello"` implementation function is invoked.
@@ -210,7 +209,7 @@ Set a breakpoint, for example inside the registered command, and run the `"Hello
 
 ![Debugging the extension](images/example-hello-world/hitbp.png)
 
-> **Note:** For TypeScript extensions, even though VS Code loads and executes `out/src/extension.js`, you are actually able to debug the original TypeScript code due to the generated source map `out/src/extension.js.map` and VS Code's debugger support for source maps.
+> **Note:** For TypeScript extensions, even though VS Code loads and executes `out/extension.js`, you are actually able to debug the original TypeScript code due to the generated source map `out/extension.js.map` and VS Code's debugger support for source maps.
 
 > **Tip:** The Debug Console will show all the messages you log to the console.
 

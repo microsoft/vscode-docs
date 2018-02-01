@@ -1,8 +1,8 @@
 ---
 Order: 5
 Area: nodejsdeployment
-TOCTitle: Viewing Logs
-PageTitle: Viewing Logs
+TOCTitle: Viewing logs
+PageTitle: Viewing logs
 MetaDescription:
 MetaSocialImage:
 DateApproved: 10/5/2017

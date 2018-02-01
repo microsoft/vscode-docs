@@ -7,7 +7,6 @@ PageTitle: Integrating Debuggers into Visual Studio Code
 DateApproved: 12/14/2017
 MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
 ---
-
 # Example - Debuggers
 
 Since Visual Studio Code implements a generic (language agnostic) debug UI, it cannot talk to real debuggers directly but instead relies on debug extensions for implementing the debugger or runtime specific functionality.
@@ -60,7 +59,7 @@ Before using Mock Debug as a starting point for your own development, we recomme
 
 Now let's get the source for Mock Debug and start development on it within VS Code:
 
-```
+```bash
 git clone https://github.com/Microsoft/vscode-mock-debug.git
 cd vscode-mock-debug
 npm install
@@ -137,10 +136,10 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
     "version": "0.24.0",
     "publisher": "...",
     "description": "Starter extension for developing debug adapters for VS Code.",
-	"author": {
-		"name": "...",
-		"email": "..."
-	},
+    "author": {
+        "name": "...",
+        "email": "..."
+    },
     "engines": {
         "vscode": "^1.17.0",
         "node": "^7.9.0"
@@ -263,6 +262,7 @@ The **variables** contribution binds 'variables' to 'commands'. These variables 
 
 The implementation of a command lives in the extension and it can range from a simple expression with no UI, to sophisticated functionality based on the UI features available in the extension API.
 Mock Debug binds a variable `AskForProgramName` to the command `extension.mock-debug.getProgramName`. The [implementation](https://github.com/Microsoft/vscode-mock-debug/blob/431857ca27e618e2e7164628ff41fa8cedd01bff/src/extension.ts#L33) of this command in `src/extension.ts` uses the `showInputBox` to let the user enter a program name:
+
 ```ts
 vscode.commands.registerCommand('extension.mock-debug.getProgramName', config => {
     return vscode.window.showInputBox({
@@ -271,6 +271,7 @@ vscode.commands.registerCommand('extension.mock-debug.getProgramName', config =>
     });
 });
 ```
+
 The variable can now be used in any string typed value of a launch configuration as **${command:AskForProgramName}**.
 
 ## Using a DebugConfigurationProvider
@@ -285,7 +286,7 @@ The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugCo
 A debug configuration provider is registered for a specific debug type via `vscode.debug.registerDebugConfigurationProvider` typically in the extension's `activate` function.
 To ensure that the `DebugConfigurationProvider` is registered early enough, the extension must be activated as soon as the debug functionality is used. This can be easily achieved by configuring extension activation for the `onDebug` event in the package.json:
 
-```ts
+```json
 "activationEvents": [
     "onDebug",
     // ...
