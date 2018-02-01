@@ -16,7 +16,7 @@ To select a specific interpreter, select the **Python: Select Interpreter** comm
 
 ![Python: Select Interpreter command](images/environments/select-interpreters-command.png)
 
-This command automatically looks for and displays a list of available Python interpreters, as well as Conda and virtual environments:
+This command automatically looks for and displays a list of available Python interpreters, as well as conda and virtual environments:
 
 ![List of interpreters](images/environments/interpreters-list.png)
 

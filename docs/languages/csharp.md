@@ -21,7 +21,7 @@ For detailed instructions on:
 * .NET Core debugging - see the [Microsoft C# extension's GitHub page](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md).
 * Mono debugging - see the [Mono Debug extension's README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.mono-debug).
 
->**Note:** VS Code does not support debugging applications running on the Desktop .NET Framework.
+>**Note:** [VS Code has limited support for debugging applications running on the Desktop .NET Framework.](https://github.com/OmniSharp/omnisharp-vscode/wiki/Desktop-.NET-Framework)
 
 Due to this focus, many standard C# project types are not recognized by VS Code.  An example of a non-supported project type is an ASP.NET MVC Application (though ASP.NET Core is supported).  In these cases, if you want to have a lightweight tool to edit a file - VS Code has you covered.  If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
 
