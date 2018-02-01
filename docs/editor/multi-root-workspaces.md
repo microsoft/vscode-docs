@@ -136,7 +136,7 @@ VS Code UI such as the **OPEN EDITORS** or **Quick Open** (`kb(workbench.action.
 
 ![quick pick has folder name](images/multi-root-workspaces/quick-open-list.png)
 
-If you using an [Icon Theme](/docs/getstarted/themes.md#icon-themes) and the active theme supports it, you will see a special Workspace icon.
+If you are using an [Icon Theme](/docs/getstarted/themes.md#icon-themes) and the active theme supports it, you will see a special Workspace icon.
 
 Below you can see the Workspace icons from the built-in **Minimal (Visual Studio Code)** icon theme:
 
