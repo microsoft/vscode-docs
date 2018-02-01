@@ -54,7 +54,7 @@ The Python extension provides shortcuts to quickly run Python code in the curren
 
 To change the current interpreter, use the **Python: Select Interpreter** command, which displays a list of available interpreters, including [conda](https://conda.io/docs/) environments and any virtual environments in the current folder.
 
-![List of interpreters](images/environments/interpreters-list.png)
+![List of interpreters](images/python/interpreters-list.png)
 
 You can also use the **Python: Create Terminal** command to create a terminal with the current environment activated.
 
