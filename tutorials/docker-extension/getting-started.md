@@ -22,9 +22,9 @@ The Docker extension is used to simplify the management of local Docker images a
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/PeterJausovec.vscode-docker">Install the Docker extension</a>
 
-The Azure App Service Tools extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
+The Azure App Service extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service Tools extension</a>
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
 ## Sign in
 
