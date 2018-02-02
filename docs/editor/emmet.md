@@ -83,9 +83,8 @@ You can use most of the Emmet actions with mutli-cursors as well
 ## Include vendor prefixes
 
 Prefix your css abbreviations with `-` to get all applicable vendor prefixes included in the expanded abbreviation.
-Include the vendor in the prefix to have specific vendors included in the expanded abbreviation.
 
-TODO: Include gif
+![Vendor prefix in emmet](/release-notes/images/1_20/emmetprefix.gif)
 
 Below are a few examples of how you can control which vendors get applied to which css property by updating the `emmet.preferences` setting:
 
