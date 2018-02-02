@@ -78,26 +78,29 @@ Emmet has no knowledge of these new languages, and so you might feel Emmet sugge
 
 You can use most of the Emmet actions with mutli-cursors as well
 
-![Emmet with multi cursors](/release-notes/images/1_14/emmet.gif)
+![Emmet with multi cursors](images/emmet/emmet-multi-cursor.gif)
 
 ## Include vendor prefixes
 
 Prefix your css abbreviations with `-` to get all applicable vendor prefixes included in the expanded abbreviation.
 
-![Vendor prefix in emmet](/release-notes/images/1_20/emmetprefix.gif)
+![Vendor prefix in emmet](images/emmet/emmet-vendor-prefix.gif)
 
 Below are a few examples of how you can control which vendors get applied to which css property by updating the `emmet.preferences` setting:
 
 ```json
 {
     "emmet.preferences": {
-        "css.webkitProperties": "border-right,animation", // webkit prefix will be added only for border-right and animation
-        "css.mozProperties": "", // moz prefix will not be added to any css property
-        "css.oProperties": null // Defaults as documented in https://docs.emmet.io/customization/preferences/ will be applied
+        "css.webkitProperties": "border-right,animation",
+        "css.mozProperties": "",
+        "css.oProperties": null,
+        "css.msProperties": null
     }
 }
 ```
-
+- Setting the preference to a comma separated list of css properties will ensure that the corresponding prefix gets added only to these css properties.
+- Setting the preference to an empty string will ensure that the corresponding prefix doesnt get added to any css property.
+- Setting the preference to null will ensure that the default css properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
 
 ## Using custom Emmet snippets
 
