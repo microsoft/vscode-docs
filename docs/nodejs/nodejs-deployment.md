@@ -20,6 +20,7 @@ The tutorials below will walk you through creating a simple website and deployin
 Tutorial | Description
 --- | ---
 [Deploy using the App Service extension](/tutorials/app-service-extension/getting-started) | Manage Azure resources directly in VS Code with the Azure App Service extension.
+[Deploy using Docker](/tutorials/docker-extension/getting-started) | Deploy your website using a Docker container.
 [Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started) | Create, deploy, and update a website using a terminal and the Azure CLI.
 
 ## Azure extensions
