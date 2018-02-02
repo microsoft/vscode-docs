@@ -18,32 +18,36 @@ To make it easier to get started with debugging, we have made a collection of de
 
 The Visual Studio Code editor supports debugging Node.js applications via the built-in [Node.js](https://nodejs.org/) debugger.
 
-![](images/recipes/nodejs.png)
+![Node.js logo](images/recipes/nodejs.png)
 
 **Recipes:**
+
 - [Debugging Node.js with Nodemon](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon)
 
 ## Debug Node.js in Docker containers
 
 This recipe shows how to run and debug a VS Code Node.js project written in TypeScript running inside a [Docker](https://www.docker.com) container.
 
-![](images/recipes/node-typescript-docker.png)
+![Node.js TypeScript and Docker logos](images/recipes/node-typescript-docker.png)
 
 **Recipes:**
+
 - [Docker-TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
 ## Debug client-side JavaScript in Google Chrome
 
 The Visual Studio Code editor supports debugging of JavaScript running in [Google Chrome](https://electron.atom.io) applications via the [Debugger for Chrome extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
 
-![chrome](images/recipes/chrome.png)
+![JavaScript and Chrome logo](images/recipes/chrome.png)
 
 You can read more about how our Debugger for Chrome works in this introduction [blog post](https://code.visualstudio.com/blogs/2016/02/23/introducing-chrome-debugger-for-vs-code).
 
 **Recipes:**
+
 - [Debugging Angular apps with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI)
 - [Debugging Next.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
 - [Debugging Meteor apps](https://github.com/Microsoft/vscode-recipes/tree/master/meteor)
+- [Debugging Vue.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/vuejs-cli)
 
 **Blog posts**:
 
@@ -55,19 +59,20 @@ You can read more about how our Debugger for Chrome works in this introduction [
 
 This recipe shows how to run and debug a MERN (Mongo, Express, React and NodeJS) based project in VS Code.
 
-![](images/recipes/mern.png)
+![MERN logos](images/recipes/mern.png)
 
 **Recipes:**
-- [Developing the MERN Starter in VS Code](https://github.com/Microsoft/vscode-recipes/tree/master/MERN-Starter)
 
+- [Developing the MERN Starter in VS Code](https://github.com/Microsoft/vscode-recipes/tree/master/MERN-Starter)
 
 ## Electron - Debug Electron applications
 
 The Visual Studio Code editor supports debugging [Electron](https://electron.atom.io) applications via the built-in [Node.js](https://nodejs.org/) debugger and the [Debugger for Chrome extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
 
-![electron](images/recipes/electron.png)
+![electron logo](images/recipes/electron.png)
 
 **Recipes:**
+
 - [Debugging Electron Main and Renderer processes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)
 
 ## Next Steps
