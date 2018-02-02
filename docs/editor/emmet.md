@@ -76,17 +76,17 @@ Emmet has no knowledge of these new languages, and so you might feel Emmet sugge
 
 ## Emmet with multi-cursors
 
-You can use most of the Emmet actions with mutli-cursors as well
+You can use most of the Emmet actions with multi-cursors as well:
 
 ![Emmet with multi cursors](images/emmet/emmet-multi-cursor.gif)
 
 ## Include vendor prefixes
 
-Prefix your css abbreviations with `-` to get all applicable vendor prefixes included in the expanded abbreviation.
+Prefix your CSS abbreviations with `-` to get all applicable vendor prefixes included in the expanded abbreviation.
 
 ![Vendor prefix in emmet](images/emmet/emmet-vendor-prefix.gif)
 
-Below are a few examples of how you can control which vendors get applied to which css property by updating the `emmet.preferences` setting:
+Below are a few examples of how you can control which vendors get applied to which CSS property by updating the `emmet.preferences` setting:
 
 ```json
 {
@@ -98,9 +98,10 @@ Below are a few examples of how you can control which vendors get applied to whi
     }
 }
 ```
-- Setting the preference to a comma separated list of css properties will ensure that the corresponding prefix gets added only to these css properties.
-- Setting the preference to an empty string will ensure that the corresponding prefix doesnt get added to any css property.
-- Setting the preference to null will ensure that the default css properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
+
+- Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to these CSS properties.
+- Setting the preference to an empty string will ensure that the corresponding prefix doesn't get added to any CSS property.
+- Setting the preference to null will ensure that the default CSS properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
 
 ## Using custom Emmet snippets
 
