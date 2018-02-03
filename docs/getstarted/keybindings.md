@@ -198,6 +198,22 @@ Key|Command|Command id
 `kb(workbench.action.files.showOpenedFileInNewWindow)`|Show Opened File in New Window|`workbench.action.files.showOpenedFileInNewWindow`
 `kb(workbench.files.action.compareFileWith)`|Compare Opened File With|`workbench.files.action.compareFileWith`
 
+### Explorer
+Key|Command|Command id
+---|-------|----------
+`kb(list.focusUp)`|Up Arrow|`list.focusUp`
+`kb(list.focusDown)`|Down Arrow|`list.focusDown`
+`kb(list.focusFirst)`|Home|`list.focusFirst`
+`kb(list.focusLast)`|End|`list.focusLast`
+`kb(list.focusPageDown)`|Page Down|`list.focusPageDown`
+`kb(list.focusPageUp)`|Page Up|`list.focusPageUp`
+`kb(list.collapse)`|Left Arrow|`list.collapse`
+`kb(list.expand)`|Right Arrow|`list.expand`
+`kb(list.clear)`|Escape|`list.clear`
+`kb(list.select)`|Enter|`list.select`
+`kb(list.toggleExpand)`|Space|`list.toggleExpand`
+
+
 ### Display
 
 Key|Command|Command id
