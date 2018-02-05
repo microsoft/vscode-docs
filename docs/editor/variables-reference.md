@@ -52,6 +52,12 @@ You can reference VS Code settings and commands using the following syntax:
 * **${config:Name}** - example: `${config:editor.fontSize}`
 * **${command:CommandID}** - example: `${command:explorer.newFolder}`
 
+## Variables scoped per workspace folder
+
+By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name the variable is scoped to the same folder where it is used.
+
+For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
+
 ## Common Questions
 
 **Q: Is variable substitution supported in User and Workspace settings?**
