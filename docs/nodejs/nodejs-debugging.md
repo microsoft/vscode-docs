@@ -81,7 +81,7 @@ These attributes are only available for launch configurations of request type `l
 * `cwd` - launch the program to debug in this directory.
 * `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section [Launch configuration support for 'npm' and other tools](/docs/nodejs/nodejs-debugging.md#launch-configuration-support-for-npm-and-other-tools).
 * `runtimeArgs` - optional arguments passed to the runtime executable.
-* `runtimeVersion` - if "nvm" (or "nvm-windows") is used for managing Node.js versions this attribute can be used to select a specific version of Node.js. See section [Multi version support ('nvm', 'nvm-windows')](/docs/nodejs/nodejs-debugging.md) below.
+* `runtimeVersion` - if "nvm" (or "nvm-windows") is used for managing Node.js versions this attribute can be used to select a specific version of Node.js. See section [Multi version support](/docs/nodejs/nodejs-debugging.md#multi-version-support-nvm-nvm-windows) below.
 * `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
 * `envFile` - optional path to a file containing environment variable definitions.
 * `console` - kind of console to launch the program (`internalConsole`, `integratedTerminal`, `externalTerminal`). See section [Node Console](/docs/nodejs/nodejs-debugging.md#node-console) below.
