@@ -346,9 +346,6 @@ Below are the default settings and their values.
   // Controls whether the editor should highlight similar matches to the selection
   "editor.selectionHighlight": true,
 
-  // Controls if accepting suggestions changes how future suggestions are pre-selected.
-  "editor.selectSuggestion": "recentlyUsed",
-
   // Controls whether the fold controls on the gutter are automatically hidden.
   "editor.showFoldingControls": "mouseover",
 
@@ -369,6 +366,9 @@ Below are the default settings and their values.
 
   // Controls if suggestions should automatically show up when typing trigger characters
   "editor.suggestOnTriggerCharacters": true,
+
+  // Controls how suggestions are pre-selected when showing the suggest list.
+  "editor.suggestSelection": "recentlyUsed",
 
   // Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.
   "editor.tabCompletion": false,
@@ -457,11 +457,21 @@ Below are the default settings and their values.
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
 
+  // Navigate between open files using three-finger swipe horizontally.
+  "workbench.editor.swipeToNavigate": false,
+
   // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
   "workbench.editor.tabCloseButton": "right",
 
   // Controls the sizing of editor tabs. Set to 'fit' to keep tabs always large enough to show the full editor label. Set to 'shrink' to allow tabs to get smaller when the available space is not enough to show all tabs at once.
   "workbench.editor.tabSizing": "fit",
+
+  // Controls font aliasing method in the workbench.
+  // - default: Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text
+  // - antialiased: Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall
+  // - none: Disables font smoothing. Text will show with jagged sharp edges
+  // - auto: Applies `default` or `antialiased` automatically based on the DPI of displays.
+  "workbench.fontAliasing": "default",
 
   // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
   "workbench.iconTheme": "vs-seti",
@@ -501,8 +511,14 @@ Below are the default settings and their values.
 
 // Window
 
+  // If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.
+  "window.autoDetectHighContrast": true,
+
   // Controls if closing the last editor should also close the window. This setting only applies for windows that do not show folders.
   "window.closeWhenEmpty": false,
+
+  // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
+  "window.nativeTabs": false,
 
   // If enabled, the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
   "window.enableMenuBarMnemonics": true,
@@ -545,6 +561,9 @@ Below are the default settings and their values.
   // ${dirty}: a dirty indicator if the active editor is dirty
   // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
+
+  // Adjust the appearance of the window title bar. Changes require a full restart to apply.
+  "window.titleBarStyle": "custom",
 
   // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
   "window.zoomLevel": 0,
@@ -657,6 +676,9 @@ Below are the default settings and their values.
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
 
+  // Controls if the Search Viewlet should read or modify the shared find clipboard on macOS
+  "search.globalFindClipboard": false,
+
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
 
@@ -679,6 +701,14 @@ Below are the default settings and their values.
 
   // Whether the proxy server certificate should be verified against the list of supplied CAs.
   "http.proxyStrictSSL": true,
+
+// Keyboard
+
+  // Controls the dispatching logic for key presses to use either `code` (recommended) or `keyCode`.
+  "keyboard.dispatch": "code",
+
+  // Enables the macOS touchbar buttons on the keyboard if available.
+  "keyboard.touchbar.enabled": true
 
 // Update
 
@@ -783,7 +813,7 @@ Below are the default settings and their values.
 
 // Markdown
 
-  // Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
+// Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
   "markdown.preview.breaks": false,
 
   // Double click in the markdown preview to switch to the editor.
@@ -1055,7 +1085,7 @@ Below are the default settings and their values.
 
 // LESS
 
-  // Invalid number of parameters
+// Invalid number of parameters
   "less.lint.argumentsInColorFunction": "error",
 
   // Do not use width or height when using padding or border
@@ -1406,7 +1436,7 @@ Below are the default settings and their values.
   // Ignores the warning when Git is missing
   "git.ignoreMissingGitWarning": false,
 
-  // Controls when to show input validation the input counter.
+  // Controls when to show input validation.
   "git.inputValidation": "warn",
 
   // Path to the git executable
