@@ -80,6 +80,7 @@ These attributes are only available for launch configurations of request type `l
 * `cwd` - launch the program to debug in this directory.
 * `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section [Launch configuration support for 'npm' and other tools](/docs/nodejs/nodejs-debugging.md#launch-configuration-support-for-npm-and-other-tools).
 * `runtimeArgs` - optional arguments passed to the runtime executable.
+* `runtimeVersion` - if "nvm" (or "nvm-windows") is used for managing Node.js versions this attribute can be used to select a specific version of Node.js.
 * `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
 * `envFile` - optional path to a file containing environment variable definitions.
 * `console` - kind of console to launch the program (`internalConsole`, `integratedTerminal`, `externalTerminal`). See section [Node Console](/docs/nodejs/nodejs-debugging.md#node-console) below.
@@ -144,6 +145,22 @@ the corresponding launch configuration would look like this:
     "port": 9229
 }
 ```
+
+### Multi version support ('nvm', 'nvm-windows')
+
+If you are using 'nvm' (or 'nvm-windows') to manage your Node.js versions it is possible to specify a `runtimeVersion` attribute in a launch configuration for selecting a specific version of Node.js:
+
+```json
+{
+    "type": "node",
+    "request": "launch",
+    "name": "Launch test",
+    "runtimeVersion": "7.10.1",
+    "program": "${workspaceFolder}/test.js"
+}
+```
+
+Make sure to have those Node.js versions installed that you want to use with the `runtimeVersion` attribute as the feature will not download and install the version itself. So you will have to run something like `nvm install 7.10.1` from the integrated terminal if you plan to add `"runtimeVersion": "7.10.1"` to your launch configuration.
 
 ### Load environment variables from external file (node)
 
