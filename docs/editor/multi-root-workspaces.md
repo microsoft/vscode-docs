@@ -198,7 +198,7 @@ Unsupported editor-wide folder settings will show as grayed out in your folder s
 
 ## Debugging
 
-With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix.
+With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionaly VS Code will also display launch configurations defined in the workspace configuration file.
 
 ![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
@@ -208,7 +208,61 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
-[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to.
+[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (seperated by a colon).
+
+### Workspace launch configurations
+
+Workspace scoped launch configurations live in the `"launch"` section of the workspace configuration file (`Workspaces: Open Workspace Configuration File` in the command palette). Alternatively new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu.
+
+A compound launch configuration can reference the individual launch configurations by name as long as the names are unique within the workspace, for example:
+
+```json
+  "compounds": [{
+      "name": "Launch Server & Client",
+      "configurations": [
+        "Launch Server",
+        "Launch Client"
+      ]
+  }]
+```
+
+If the individual launch configuration names are not unique, the qualifying folder can be specified with a more verbose "folder" syntax:
+
+```json
+  "compounds": [{
+      "name": "Launch Server & Client",
+      "configurations": [
+        "Launch Server",
+        {
+          "folder": "Web Client",
+          "name": "Launch Client"
+        },
+        {
+          "folder": "Desktop Client",
+          "name": "Launch Client"
+        }
+      ]
+  }]
+```
+
+In addition to `compounds` the `launch` section of the workspace configuration file can contain regular launch configurations too. Just make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the section [below](#scoped-configuration-variables-for-launchjson-and-taskjson).
+
+Here is an example for a launch configuration where the program lives in a folder "Program" and where all files from a folder "Library" should be skipped when stepping:
+
+```json
+"launch": {
+  "configurations": [{
+      "type": "node",
+      "request": "launch",
+      "name": "Launch test",
+      "program": "${workspaceFolder:Program}/test.js",
+      "skipFiles": [
+        "${workspaceFolder:Library}/out/**/*.js"
+      ]
+  }]
+}
+```
+
 
 ## Tasks
 
