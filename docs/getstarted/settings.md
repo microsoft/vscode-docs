@@ -347,7 +347,7 @@ Below are the default settings and their values.
   "editor.selectionHighlight": true,
 
   // Controls if accepting suggestions changes how future suggestions are pre-selected.
-  "editor.selectSuggestion": "byRecency",
+  "editor.selectSuggestion": "recentlyUsed",
 
   // Controls whether the fold controls on the gutter are automatically hidden.
   "editor.showFoldingControls": "mouseover",
