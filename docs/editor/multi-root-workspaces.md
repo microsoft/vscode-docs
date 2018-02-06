@@ -212,7 +212,14 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ### Workspace launch configurations
 
-Workspace scoped launch configurations live in the `"launch"` section of the workspace configuration file (`Workspaces: Open Workspace Configuration File` in the command palette). Alternatively new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu.
+Workspace scoped launch configurations live in the `"launch"` section of the workspace configuration file (`Workspaces: Open Workspace Configuration File` in the command palette):
+
+![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
+
+
+Alternatively new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
+
+![Add Config](images/multi-root-workspaces/add-config.png)
 
 A compound launch configuration can reference the individual launch configurations by name as long as the names are unique within the workspace, for example:
 
