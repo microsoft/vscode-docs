@@ -9,9 +9,9 @@ DateApproved: 1/5/2018
 ---
 # Deploy a Node.js Application to Azure
 
-You can deploy your Node.js applications to [Azure](https://azure.microsoft.com) directly from Visual Studio Code. Using either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) or the [Azure App Service Tools](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension, you can have your application running in Azure in minutes.
+You can deploy your Node.js applications to [Azure](https://azure.microsoft.com) directly from Visual Studio Code. Using either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) or the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension, you can have your application running in Azure in minutes.
 
-![app service tools](images/nodejs-deployment/azure-app-service-tools.png)
+![app service](images/nodejs-deployment/azure-app-service-tools.png)
 
 ## Azure tutorials
 
@@ -19,7 +19,7 @@ The tutorials below will walk you through creating a simple website and deployin
 
 Tutorial | Description
 --- | ---
-[Deploy using the App Service Tools extension](/tutorials/app-service-extension/getting-started) | Manage Azure resources directly in VS Code with the Azure App Service Tools extension.
+[Deploy using the App Service extension](/tutorials/app-service-extension/getting-started) | Manage Azure resources directly in VS Code with the Azure App Service extension.
 [Deploy using Docker](/tutorials/docker-extension/getting-started) | Deploy your website using a Docker container.
 [Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started) | Create, deploy, and update a website using a terminal and the Azure CLI.
 

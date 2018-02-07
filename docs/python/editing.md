@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Editing Python in VS Code
 
-The Python extension provides many features for editing Python source code:
+The Python extension provides many features for editing Python source code in Visual Studio Code:
 
 - [Autocomplete and Intellisense](#autocomplete-and-intellisense)
 - [Formatting](#formatting)
@@ -54,7 +54,7 @@ Finally, the `python.autocomplete.addBrackets` setting (default false) determine
   "python.autoComplete.addBrackets": true,
 ```
 
-and then write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that auto-complete will add `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
+and then write `import os` followed by `os.getc`, you'll see autocomplete for `os.getcwd`. Selecting that auto-complete adds `os.getcwd()` to your source code and place the cursor inside the parentheses. When the setting is false, only `os.getcwd` is added to the file.
 
 For more on IntelliSense generally, see [IntelliSense](/docs/editor/intellisense.md).
 
@@ -82,7 +82,7 @@ The Python extension supports source code formatting using either autopep8 (the 
 
 The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting.
 
-| Formatter | Install steps | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
+| Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
 | autopep8 | pip install pep8<br/>pip install --upgrade autopep8 | autopep8Args | autopep8Path |
 | yapf | pip install yapf | yapfArgs | yapfPath |

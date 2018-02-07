@@ -90,20 +90,20 @@ Here are some example theming rules. The  `scope` property lists the rules scope
 - `entity.name.method - source.java` matches all scopes that start with `entity.name.method` but are not inside a parent scope that matches `source.java`
 - Learn more about scope selectors [here](https://manual.macromates.com/en/scope_selectors).
 
-You can use the **Developer Tools: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
+You can use the **Developer: Inspect TM Scopes** command from the **Command Palette** (`kb(workbench.action.showCommands)`) to inspect the scopes of a token at the cursor and to see which theming rule has been applied.
 
 ![inspect scoped](images/themes-snippets-colorizers/inspect-scopes.png)
 
 ## Create a new color theme
 
-- Generate a theme file using the **Generate Color Theme from Current Settings** command from the **Command Palette**
+- Generate a theme file using the **Developer: Generate Color Theme from Current Settings** command from the **Command Palette**
 - Use VS Code's [Yeoman](http://yeoman.io) extension generator, [yo code](/docs/extensions/yocode.md), to generate a new theme extension:
 
   ```bash
   npm install -g yo generator-code
   yo code
   ```
-  
+
 - If you customized a theme as described above, select 'Start fresh'.
 
 ![yo code theme](images/themes-snippets-colorizers/yocode-colortheme.png)

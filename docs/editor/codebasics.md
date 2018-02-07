@@ -101,7 +101,7 @@ You can configure hot exit by setting `files.hotExit` to the following values:
 
 ## Search Across Files
 
-VS Code allows you to quickly search over all files in the currently-opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
+VS Code allows you to quickly search over all files in the currently opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
 
 ![A simple text search across files](images/codebasics/search.png)
 
