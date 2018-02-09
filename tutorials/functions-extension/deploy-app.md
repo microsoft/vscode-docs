@@ -27,7 +27,8 @@ From here follow the prompts. Choose the directory that you currently have open,
 Function app creation starts after you choose your Storage account.
 
 5. Choose Yes when prompted about overwriting existing deployments - there are no deployments in the newly created function app.
-The output panel shows the Azure resources that were created in your subscription.
+
+The Output panel shows the Azure resources that were created in your subscription.
 
 > **Tip:** A storage account is not required for HTTP trigger functions, other function triggers (e.g. Storage) do, however, require a storage account.
 
@@ -35,7 +36,7 @@ The output panel shows the Azure resources that were created in your subscriptio
 
 ## Browse the website
 
-The output window will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE FUNCTIONS** explorer, expand the **Functions** node to expose the HttpTriggerJS function, then right-click and choose **Copy Function Url**. Paste the URL into your browser along add the `?name=Matt` query parameter and hit enter to see the response.
+The Output panel will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE FUNCTIONS** explorer, expand the **Functions** node to expose the HttpTriggerJS function, then right-click and choose **Copy Function Url**. Paste the URL into your browser along add the `?name=Matt` query parameter and hit enter to see the response.
 
 ![Deploy to Functions](images/functions-extension/functions-test-remote-browser.png)
 
