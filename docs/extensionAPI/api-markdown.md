@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Markdown Extension API
 ContentId: 1664249a-ba7a-4a53-b3f0-9d757cff7d27
 PageTitle: Visual Studio Code Markdown Extensions
-DataApproved: 2/7/2018
+DateApproved: 2/7/2018
 MetaDescription: How extensions can extend Visual Studio Code's built-in Markdown preview.
 ---
 # Markdown Extensions

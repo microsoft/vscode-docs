@@ -2,7 +2,7 @@
 TOCTitle: Live Share FAQ
 ContentId: TODO
 PageTitle: Live Share Frequently Asked Questions
-DataApproved: 2/9/2018
+DateApproved: 2/9/2018
 MetaDescription: Find out more about VS Live share.
 MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.png
 ---
