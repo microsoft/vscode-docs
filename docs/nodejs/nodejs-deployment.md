@@ -5,7 +5,7 @@ TOCTitle: Node.js Deployment
 PageTitle: Node.js Deployment with Visual Studio Code
 ContentId: 856a4a73-a4b4-4418-b88d-1f65d0ba7824
 MetaDescription: Node.js Deployment to Azure with Visual Studio Code
-DateApproved: 1/5/2018
+DateApproved: 2/7/2018
 ---
 # Deploy a Node.js Application to Azure
 
@@ -19,6 +19,7 @@ The tutorials below will walk you through creating a simple website and deployin
 
 Tutorial | Description
 --- | ---
+[Deploy an Azure Function](/tutorials/functions-extension/getting-started) | Build and manage Azure Functions serverless apps directly in VS Code with the Azure Functions extension.
 [Deploy using the App Service extension](/tutorials/app-service-extension/getting-started) | Manage Azure resources directly in VS Code with the Azure App Service extension.
 [Deploy using Docker](/tutorials/docker-extension/getting-started) | Deploy your website using a Docker container.
 [Deploy using the Azure CLI](/tutorials/nodejs-deployment/getting-started) | Create, deploy, and update a website using a terminal and the Azure CLI.
