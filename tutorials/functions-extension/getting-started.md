@@ -32,7 +32,7 @@ The Azure Functions extension is used to create, manage, and deploy Functions Ap
 
 Once the extension is installed, log into your Azure account - in the **AZURE FUNCTIONS** explorer, click **Sign in to Azure...** and follow the instructions.
 
-![sign in to Azure](images/app-service-extension/sign-in.png)
+![sign in to Azure](images/functions-extension/sign-in.png)
 
 ## Prerequisite check
 

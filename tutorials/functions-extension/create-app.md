@@ -11,7 +11,7 @@ DateApproved: 12/18/2017
 
 First, create a local Azure Functions app. An Azure Functions app can contain many Functions with various triggers - this tutorial focuses on HTTP triggers, which allow you to handle to incoming HTTP traffic.
 
-In VS Code, expande the Azure Functions explorer and click the create project icon.
+In VS Code, expande the **AZURE FUNCTIONS** explorer and click the create project icon.
 
 ![Create Local App](images/functions-extension/create-function-app-project.png)
 
@@ -25,7 +25,7 @@ VS Code will reload and your new local Functions app will be loaded into your wo
 
 Next, create a Function that handles HTTP requests.
 
-From the Azure Functions explorer, click the create function icon.
+From the **AZURE FUNCTIONS** explorer, click the **Create Function** icon.
 
 ![Create Function](images/functions-extension/create-function.png)
 
