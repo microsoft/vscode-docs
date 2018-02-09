@@ -4,7 +4,7 @@ Area: functions
 TOCTitle: Deploy the website
 PageTitle: Deploy the website
 MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
-DateApproved: 12/18/2017
+DateApproved: 2/9/2018
 ---
 # Deploy your App using Azure Functions
 

@@ -4,7 +4,7 @@ Area: functions
 TOCTitle: Create the application
 PageTitle: Create the application
 MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
-DateApproved: 12/18/2017
+DateApproved: 2/9/2018
 ---
 # Create your local Function App
 

@@ -2,13 +2,13 @@
 TOCTitle: Live Share FAQ
 ContentId: TODO
 PageTitle: Live Share Frequently Asked Questions
-DateApproved: 11/15/2017
+DataApproved: 2/9/2018
 MetaDescription: Find out more about VS Live share.
 MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.png
 ---
 
 # Visual Studio Live Share FAQ
-Updated February 1, 2018
+Updated February 9, 2018
 
 ## What is Live Share?
 Live Share allows developers to share a codebase and its context so you get instant, bi-directional, collaboration directly from your existing tools (Visual Studio 2017 or Visual Studio Code). With Live Share, your teammate can read, navigate, edit, and debug the project you’ve shared with them, both seamlessly and securely.  To see a demo of Live Share and sign-up for the preview visit the [Live Share overview page](/visual-studio-live-share).
@@ -39,7 +39,7 @@ We are committed to a substantive free tier of Visual Studio Live Share for deve
 ## How is my code shared with other teammates?
 When using Live Share, you’re making the code you’re working on available such that your teammates can access it via a secure cloud service that remotes commands from your editor. Your teammates can open and edit the files without needing to store them in the cloud or permanently store them on your teammate’s machine.
 
-Live Share enables instant access to capabilities like the project tree, code navigation, and search. It also allows your teammates to benefit from editor enhancements such as IntelliSense. 
+Live Share enables instant access to capabilities like the project tree, code navigation, and search. It also allows your teammates to benefit from editor enhancements such as IntelliSense.
 
 ## What happens if a user goes offline, or stops sharing?
 The remote model requires that the developer sharing via Live Share and their teammate must be online to be connected. If your teammate attempts to use Live Share when you are offline, they will be unable to join the session until you are online again. Additionally, once collaboration stops (e.g. you close your editor, go offline, or stop sharing), then further actions or file access by your teammates are immediately disabled.

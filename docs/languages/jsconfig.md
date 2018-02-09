@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 12/14/2017
+DataApproved: 2/7/2018
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
