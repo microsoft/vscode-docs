@@ -23,7 +23,8 @@ npm install -g vsce
 
 ## Usage
 
-You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension:
+You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension
+(after your `login` and `package`ing):
 
 ```bash
 $ vsce publish
@@ -32,6 +33,8 @@ Successfully published uuid@0.0.1!
 ```
 
 For a reference on all the available commands, run `vsce --help`.
+
+## Publishing Extensions
 
 ---
 
@@ -45,8 +48,6 @@ The publishing tool checks the following constraints:
 - Images in `README.md` and `CHANGELOG.md` may not be SVGs unless they are from [trusted badge providers](/docs/extensionAPI/extension-manifest.md#approved-badges).
 
 ---
-
-## Publishing Extensions
 
 Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
 
