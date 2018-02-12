@@ -1,11 +1,12 @@
 ---
-Order: 3
+Order: 5
 Area: functions
 TOCTitle: Deploy the website
 PageTitle: Deploy the website
 MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
 DateApproved: 2/9/2018
 ---
+
 # Deploy your App using Azure Functions
 
 In the **AZURE FUNCTIONS** explorer, click the blue up arrow icon to deploy your app to Azure Functions.
