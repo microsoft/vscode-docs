@@ -42,9 +42,9 @@ The Output panel will open during deployment to indicate the status of the opera
 
 ## Updating the App
 
-Next, make some changes to your Function and add new Functions with other Triggers. Once you have all the code running correctly in your local environment, click the blue up arrow icon to deploy your changes.
+Next, make some changes to your Function and add new Functions with other Triggers. Once you have all the source code running correctly in your local environment, click the blue up arrow **Deploy to Function App** button to deploy your changes.
 
-> **Tip:** When deploying, the entire Functions App is deploy so changes to ALL individual Functions will be deployed at once.
+> **Tip:** When deploying, the entire Functions application is deploy so changes to all individual Functions will be deployed at once.
 
 ## Congratulations!
 

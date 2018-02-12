@@ -1,8 +1,8 @@
 ---
 Order: 4
 Area: functions
-TOCTitle: Run your App Locally
-PageTitle: Run your App Locally
+TOCTitle: Run your App locally
+PageTitle: Run your App locally
 MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
 DateApproved: 12/18/2017
 ---
