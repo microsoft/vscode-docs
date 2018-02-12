@@ -6,7 +6,6 @@ PageTitle: Deploy the website
 MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
 DateApproved: 2/9/2018
 ---
-
 # Deploy your App using Azure Functions
 
 In the **AZURE FUNCTIONS** explorer, click the blue up arrow icon to deploy your app to Azure Functions.
@@ -17,9 +16,9 @@ In the **AZURE FUNCTIONS** explorer, click the blue up arrow icon to deploy your
 
 From here follow the prompts. Choose the directory that you currently have open, select your active Azure subscription, and then choose **Create New Function App**.
 
-1. Type a globally unique name for your Function App and press enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`.
+1. Type a globally unique name for your Function App and press `Enter`. Valid characters for a function app name are `a-z`, `0-9`, and `-`.
 
-2. Choose **Create New Resource Group**, type a resource group name, like `myResourceGroup` and press enter.
+2. Choose **Create New Resource Group**, type a resource group name, like `myResourceGroup` and press `Enter`.
 
 3. Choose a location in a [region](https://azure.microsoft.com/en-us/regions/) near you or near other services you may need to access.
 
@@ -37,7 +36,7 @@ The Output panel shows the Azure resources that were created in your subscriptio
 
 ## Browse the website
 
-The Output panel will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE FUNCTIONS** explorer, expand the **Functions** node to expose the HttpTriggerJS function, then right-click and choose **Copy Function Url**. Paste the URL into your browser along add the `?name=Matt` query parameter and hit enter to see the response.
+The Output panel will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE FUNCTIONS** explorer, expand the **Functions** node to expose the HttpTriggerJS function, then right-click and choose **Copy Function Url**. Paste the URL into your browser along add the `?name=Matt` query parameter and press `Enter` to see the response.
 
 ![Deploy to Functions](images/functions-extension/functions-test-remote-browser.png)
 

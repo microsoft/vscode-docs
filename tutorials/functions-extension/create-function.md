@@ -6,22 +6,21 @@ PageTitle: Create a Function
 MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
 DateApproved: 12/18/2017
 ---
-
 # Add a Function to your App
 
 Next, create a Function that handles HTTP requests.
 
-From the Azure Functions explorer, click the create function icon.
+From the **AZURE FUNCTIONS** explorer, click the **Create Function** icon.
 
 ![Create Function](images/functions-extension/create-function.png)
 
-Select the directory you currently have open - it's the default option so simply hit enter. When prompted, choose HTTP trigger, use the default name of `HttpTriggerJS`, and choose anonymous authentication.
+Select the directory you currently have open - it's the default option so press `Enter`. When prompted, choose HTTP trigger, use the default name of `HttpTriggerJS`, and choose **Anonymous** authentication.
 
 ![Choose Template](images/functions-extension/create-function-choose-template.png)
 
 ![Choose Authentication](images/functions-extension/create-function-anonymous-auth.png)
 
-Upon completion, a new directory is created within your Function app named `HttpTriggerJS` that includes `index.js`and `functions.json` files. The `index.js` file contains the code that responds to the HTTP request and `functions.json` contains the [binding configuration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger.
+Upon completion, a new directory is created within your Function app named `HttpTriggerJS` that includes `index.js`and `functions.json` files. The `index.js` file contains the source code that responds to the HTTP request and `functions.json` contains the [binding configuration](https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings) for the HTTP trigger.
 
 ![Completed Project](images/functions-extension/functions-vscode-intro.png)
 

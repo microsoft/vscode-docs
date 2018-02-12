@@ -6,7 +6,6 @@ PageTitle: Node.js Deployment with Visual Studio Code
 MetaDescription: Node.js Deployment to Azure Functions with Visual Studio Code
 DateApproved: 2/9/2018
 ---
-
 # Deploy to Azure using Azure Functions
 
 This tutorial walks you through creating and deploying a JavaScript Azure Functions application using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. Create a new app, add functions and deploy in a matter of minutes from Visual Studio Code.

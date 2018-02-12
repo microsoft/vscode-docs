@@ -23,8 +23,7 @@ npm install -g vsce
 
 ## Usage
 
-You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension
-(after your `login` and `package`ing):
+You'll use the `vsce` command directly from the command line. For example, here's how you can quickly publish an extension (after your `login` and `package`ing):
 
 ```bash
 $ vsce publish

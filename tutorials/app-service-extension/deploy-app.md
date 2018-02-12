@@ -42,7 +42,9 @@ The output window will open during deployment to indicate the status of the oper
 
 > **Tip:** Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
 
-> Are you seeing the error `You do not have permission to view this directory or page.`? If so, the app probably failed to start correctly. Head to the next step and view the log output to find and fix the error. If you aren't able to fix it, let us know that you had an issue. We're happy to help!
+## Troubleshooting
+
+Are you seeing the error **"You do not have permission to view this directory or page."**? If so, the application probably failed to start correctly. Head to the next step and view the log output to find and fix the error. If you aren't able to fix it, you can contact us by clicking the **I ran into an issue** button below. We're happy to help!
 
 ## Updating the website
 
