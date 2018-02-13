@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 11/10/2017
+DateApproved: 02/12/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -125,13 +125,43 @@ The configuration drop-down provides a variety of different options for general 
 | Integrated Terminal/Console | Specifies `"console": "integratedTerminal"` and removes the `RedirectOutput` option. |
 | External Terminal/Console | Specifies `"console": "externalTerminal"` and removes the `RedirectOutput` option. |
 | Django | Specifies `"program": "${workspaceFolder}/manage.py"` and `"args": ["runserver", "--noreload"]`, and adds "DjangoDebugging" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, just add breakpoints to `templates`. |
-| Flask | Specifies `"stopOnEntry": false`, `"env": {"FLASK_APP": "${workspaceFolder}/quickstart/app.py"}` and `"args": ["run", "--no-debugger","--no-reload"]`; note that you must modify the `program` setting to point to the flask executable, which is typically located with the Python interpreter. |
+| Flask | See [Flask debugging](#flask-debugging) below. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Attach (Remote Debug) | See [Remote debugging](#remote-debugging) below. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
 To debug an app that requires administrator privileges, use `"console": "externalTerminal"` and include "Sudo" in `debugOptions`.
+
+### Flask debugging
+
+At present, the default debugging configuration for Flask doesn't work properly (see [issue 573](https://github.com/Microsoft/vscode-python/issues/573)). Use the following configuration instead, changing `app.py` to the name of your startup code file.
+
+```json
+{
+    "name": "Python: Flask (0.11.x or later)",
+    "type": "python",
+    "request": "launch",
+    "stopOnEntry": false,
+    "module": "flask",
+    "pythonPath": "${config:python.pythonPath}",
+    "cwd": "${workspaceFolder}",
+    "env": {
+             "FLASK_APP": "${workspaceFolder}/app.py"
+    },
+    "args": [
+            "run",
+            "--no-debugger",
+            "--no-reload"
+    ],
+    "envFile": "${workspaceFolder}/.env",
+    "debugOptions": [
+             "RedirectOutput"
+    ]
+},
+```
+
+As you can see, this configuration specifies `"stopOnEntry": false`, `"env": {"FLASK_APP": "${workspaceFolder}/app.py"}` and `"args": ["run", "--no-debugger","--no-reload"]`. The `"module": "flask"` property is used instead of `program`.
 
 ### Remote debugging
 
