@@ -4,20 +4,36 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 02/01/2018
+DateApproved: 02/14/2018
 MetaDescription: Learn about Visual Studio Code features (code completion, debugging, snippets, linting) for Python.
 ---
 # Python in Visual Studio Code
 
-Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with control over your Python environments.
+Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension works with all your Python environments, including Anaconda. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
 
-## Install Python and the Python Extension
+## Install Python and the Python extension
 
 The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension.
 
+## Environments
+
+The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Environments](../python/environments.md).
+
+The current environment is shown on the left side of the Visual Studio Code status bar:
+
+![Selected Python interpreter in the status bar](../python/images/environments/selected-interpreter-status-bar.png)
+
+This environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you use [run Python in a terminal](#run-python-in-the-terminal).
+
+To change the current interpreter, which includes switching to conda or virtual environments, click the interpreter on the status bar or use the **Python: Select Interpreter** command.
+
+![Python: Select Interpreter command](../python/images/environments/select-interpreters-command.png)
+
+VS Code then prompts you with a list of detected environments as well as any you've added manually to your user settings (see [Environments](../python/environments.md)).
+
 ## Autocomplete and IntelliSense
 
-Python extensions support code completion and Intellisense. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
+The Python extension supports code completion and Intellisense. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
 
 IntelliSense quickly shows methods, class members, and documentation as you type, and you can trigger completions at any time with `kb(editor.action.triggerSuggest)`.
 
@@ -47,18 +63,14 @@ Snippets take productivity to the next level. You can configure [your own snippe
 
 ## Run Python in the Terminal
 
-The Python extension provides shortcuts to quickly run Python code in the current interpreter (which is displayed in the lower left corner of VS Code):
+The Python extension provides shortcuts to quickly run Python code in the current interpreter:
 
 - From the editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - From Explorer: right-click a Python file and select **Run Python File in Terminal**.
 
-To change the current interpreter, use the **Python: Select Interpreter** command, which displays a list of available interpreters, including Conda environments and any virtual environments in the current folder.
-
-![List of interpreters](images/environments/interpreters-list.png)
-
 You can also use the **Python: Create Terminal** command to create a terminal with the current environment activated.
 
-## Unit Testing
+## Unit testing
 
 The Python extension supports [unit testing](/docs/python/unit-testing.md) with the unittest, pytest, and nose test frameworks.
 
@@ -81,7 +93,7 @@ Additional Python language support can be added to to VS Code by installing othe
 
 The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-## Next Steps
+## Next steps
 
 - [Python tutorial](/docs/python/python-tutorial.md) - Walk through the core features of Python in VS Code.
 - [Editing Python](/docs/python/editing.md) - Learn about auto-completion, formatting, and refactoring for Python.
