@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Running and Debugging Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
 PageTitle: Running and Debugging your Visual Studio Code Extension
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: It is easy to debug and test your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension directly in Visual Studio Code.
 ---
 # Running and Debugging Extensions

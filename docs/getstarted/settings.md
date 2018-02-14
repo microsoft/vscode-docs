@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -141,7 +141,7 @@ Below are the default settings and their values.
   // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
   "editor.cursorStyle": "line",
 
-  // The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on OSX. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
+  // The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on macOS. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
   "editor.multiCursorModifier": "alt",
 
   // Insert spaces when pressing Tab. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
@@ -204,6 +204,9 @@ Below are the default settings and their values.
   // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
   "editor.cursorStyle": "line",
 
+  // Controls the width of the cursor when editor.cursorStyle is set to 'line'
+  "editor.cursorWidth": 0,
+
   // When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
   "editor.detectIndentation": true,
 
@@ -264,7 +267,7 @@ Below are the default settings and their values.
   // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
   "editor.lineHeight": 0,
 
-  // Controls the display of line numbers. Possible values are 'on', 'off', and 'relative'.
+  // Controls the display of line numbers. Possible values are 'on', 'off', 'relative' and 'interval'.
   "editor.lineNumbers": "on",
 
   // Controls whether the editor should detect links and make them clickable
@@ -285,13 +288,16 @@ Below are the default settings and their values.
   // Controls whether the minimap slider is automatically hidden. Possible values are 'always' and 'mouseover'
   "editor.minimap.showSlider": "mouseover",
 
+  // Controls the side where to render the minimap. Possible values are 'right' and 'left'
+  "editor.minimap.side": "right",
+
   // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
   "editor.mouseWheelScrollSensitivity": 1,
 
   // Zoom the font of the editor when using mouse wheel and holding Ctrl
   "editor.mouseWheelZoom": false,
 
-  // The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on OSX. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
+  // The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on macOS. The Go To Definition and Open Link mouse gestures will adapt such that they do not conflict with the multicursor modifier.
   "editor.multiCursorModifier": "alt",
 
   // Controls whether the editor should highlight semantic symbol occurrences
@@ -361,6 +367,9 @@ Below are the default settings and their values.
   // Controls if suggestions should automatically show up when typing trigger characters
   "editor.suggestOnTriggerCharacters": true,
 
+  // Controls how suggestions are pre-selected when showing the suggest list.
+  "editor.suggestSelection": "recentlyUsed",
+
   // Insert snippets when their prefix matches. Works best when 'quickSuggestions' aren't enabled.
   "editor.tabCompletion": false,
 
@@ -394,6 +403,14 @@ Below are the default settings and their values.
 
   // Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
   "editor.wrappingIndent": "same",
+
+// SCM
+
+  // Whether to always show the Source Control Provider section.
+  "scm.alwaysShowProviders": false,
+
+  // Controls diff decorations in the editor.
+  "scm.diffDecorations": "all",
 
 // Workbench
 
@@ -440,14 +457,33 @@ Below are the default settings and their values.
   // Controls if opened editors should show in tabs or not.
   "workbench.editor.showTabs": true,
 
+  // Navigate between open files using three-finger swipe horizontally.
+  "workbench.editor.swipeToNavigate": false,
+
   // Controls the position of the editor's tabs close buttons or disables them when set to 'off'.
   "workbench.editor.tabCloseButton": "right",
 
   // Controls the sizing of editor tabs. Set to 'fit' to keep tabs always large enough to show the full editor label. Set to 'shrink' to allow tabs to get smaller when the available space is not enough to show all tabs at once.
   "workbench.editor.tabSizing": "fit",
 
+  // Controls font aliasing method in the workbench.
+  // - default: Sub-pixel font smoothing. On most non-retina displays this will give the sharpest text
+  // - antialiased: Smooth the font on the level of the pixel, as opposed to the subpixel. Can make the font appear lighter overall
+  // - none: Disables font smoothing. Text will show with jagged sharp edges
+  // - auto: Applies `default` or `antialiased` automatically based on the DPI of displays.
+  "workbench.fontAliasing": "default",
+
   // Specifies the icon theme used in the workbench or 'null' to not show any file icons.
   "workbench.iconTheme": "vs-seti",
+
+  // The modifier to be used to add an item in trees and lists to a multi-selection with the mouse (for example in the explorer, open editors and scm view). `ctrlCmd` maps to `Control` on Windows and Linux and to `Command` on macOS. The 'Open to Side' mouse gestures - if supported - will adapt such that they do not conflict with the multiselect modifier.
+  "workbench.list.multiSelectModifier": "ctrlCmd",
+
+  // Controls how to open items in trees and lists using the mouse (if supported). Set to `singleClick` to open items with a single mouse click and `doubleClick` to only open via mouse double click. For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable.
+  "workbench.list.openMode": "singleClick",
+
+  // Controls the default location of the panel. It can either show at the bottom or on the right of the workbench.
+  "workbench.panel.defaultLocation": "bottom",
 
   // Controls if Quick Open should close automatically once it loses focus.
   "workbench.quickOpen.closeOnFocusLost": true,
@@ -464,6 +500,9 @@ Below are the default settings and their values.
   // Controls which editor is shown at startup, if none is restored from the previous session. Select 'none' to start without an editor, 'welcomePage' to open the Welcome page (default), 'newUntitledFile' to open a new untitled file (only opening an empty workspace).
   "workbench.startupEditor": "welcomePage",
 
+  // Controls the visibility of the Twitter feedback (smiley) in the status bar at the bottom of the workbench.
+  "workbench.statusBar.feedback.visible": true,
+
   // Controls the visibility of the status bar at the bottom of the workbench.
   "workbench.statusBar.visible": true,
 
@@ -472,8 +511,14 @@ Below are the default settings and their values.
 
 // Window
 
+  // If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.
+  "window.autoDetectHighContrast": true,
+
   // Controls if closing the last editor should also close the window. This setting only applies for windows that do not show folders.
   "window.closeWhenEmpty": false,
+
+  // Enables macOS Sierra window tabs. Note that changes require a full restart to apply and that native tabs will disable a custom title bar style if configured.
+  "window.nativeTabs": false,
 
   // If enabled, the main menus can be opened via Alt-key shortcuts. Disabling mnemonics allows to bind these Alt-key shortcuts to editor commands instead.
   "window.enableMenuBarMnemonics": true,
@@ -516,6 +561,9 @@ Below are the default settings and their values.
   // ${dirty}: a dirty indicator if the active editor is dirty
   // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
+
+  // Adjust the appearance of the window title bar. Changes require a full restart to apply.
+  "window.titleBarStyle": "custom",
 
   // Adjust the zoom level of the window. The original size is 0 and each increment above (e.g. 1) or below (e.g. -1) represents zooming 20% larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity.
   "window.zoomLevel": 0,
@@ -611,10 +659,7 @@ Below are the default settings and their values.
   // Controls if the explorer should allow to move files and folders via drag and drop.
   "explorer.enableDragAndDrop": true,
 
-  // Controls if the height of the open editors section should adapt dynamically to the number of elements or not.
-  "explorer.openEditors.dynamicHeight": true,
-
-  // Number of editors shown in the Open Editors pane. Set it to 0 to hide the pane.
+  // Number of editors shown in the Open Editors pane.
   "explorer.openEditors.visible": 9,
 
   // Controls sorting order of files and folders in the explorer. In addition to the default sorting, you can set the order to 'mixed' (files and folders sorted combined), 'type' (by file type), 'modified' (by last modified date) or 'filesFirst' (sort files before folders).
@@ -631,8 +676,14 @@ Below are the default settings and their values.
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
 
+  // Controls if the Search Viewlet should read or modify the shared find clipboard on macOS
+  "search.globalFindClipboard": false,
+
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
+
+  // Searches case-insensitively if the pattern is all lowercase, otherwise, searches case-sensitively
+  "search.smartCase": false,
 
   // Controls whether to use .gitignore and .ignore files when searching for files.
   "search.useIgnoreFiles": true,
@@ -651,10 +702,21 @@ Below are the default settings and their values.
   // Whether the proxy server certificate should be verified against the list of supplied CAs.
   "http.proxyStrictSSL": true,
 
+// Keyboard
+
+  // Controls the dispatching logic for key presses to use either `code` (recommended) or `keyCode`.
+  "keyboard.dispatch": "code",
+
+  // Enables the macOS touchbar buttons on the keyboard if available.
+  "keyboard.touchbar.enabled": true
+
 // Update
 
   // Configure whether you receive automatic updates from an update channel. Requires a restart after change.
   "update.channel": "default",
+
+  // Enables Windows background updates.
+  "update.enableWindowsBackgroundUpdates": false,
 
 // Debug
 
@@ -751,7 +813,7 @@ Below are the default settings and their values.
 
 // Markdown
 
-  // Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
+// Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
   "markdown.preview.breaks": false,
 
   // Double click in the markdown preview to switch to the editor.
@@ -1023,7 +1085,7 @@ Below are the default settings and their values.
 
 // LESS
 
-  // Invalid number of parameters
+// Invalid number of parameters
   "less.lint.argumentsInColorFunction": "error",
 
   // Do not use width or height when using padding or border
@@ -1171,6 +1233,9 @@ Below are the default settings and their values.
     "workbench.action.debug.restart",
     "workbench.action.debug.run",
     "workbench.action.debug.start",
+    "workbench.action.debug.stepInto",
+    "workbench.action.debug.stepOut",
+    "workbench.action.debug.stepOver",
     "workbench.action.debug.stop",
     "workbench.action.focusActiveEditorGroup",
     "workbench.action.focusFirstEditorGroup",
@@ -1215,6 +1280,7 @@ Below are the default settings and their values.
     "workbench.action.terminal.hideFindWidget",
     "workbench.action.terminal.kill",
     "workbench.action.terminal.new",
+    "workbench.action.terminal.newInActiveWorkspace",
     "workbench.action.terminal.paste",
     "workbench.action.terminal.runActiveFile",
     "workbench.action.terminal.runSelectedText",
@@ -1232,6 +1298,9 @@ Below are the default settings and their values.
   // Whether to confirm on exit if there are active terminal sessions.
   "terminal.integrated.confirmOnExit": false,
 
+  // When set, text selected in the terminal will be copied to the clipboard.
+  "terminal.integrated.copyOnSelection": false,
+
   // Controls whether the terminal cursor blinks.
   "terminal.integrated.cursorBlinking": false,
 
@@ -1241,8 +1310,8 @@ Below are the default settings and their values.
   // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
   "terminal.integrated.cwd": "",
 
-  // Whether to enable bold text within the terminal, note that this requires support from the terminal shell.
-  "terminal.integrated.enableBold": true,
+  // Whether the terminal bell is enabled or not.
+  "terminal.integrated.enableBell": false,
 
   // Object with environment variables that will be added to the VS Code process to be used by the terminal on Linux
   "terminal.integrated.env.linux": {},
@@ -1259,8 +1328,17 @@ Below are the default settings and their values.
   // Controls the font size in pixels of the terminal.
   "terminal.integrated.fontSize": 14,
 
+  // The font weight to use within the termianl for non-bold text.
+  "terminal.integrated.fontWeight": "normal",
+
+  // The font weight to use within the termianl for bold text.
+  "terminal.integrated.fontWeightBold": "bold",
+
   // Controls the line height of the terminal, this number is multiplied by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1,
+
+  // Treat the option key as the meta key in the terminal on macOS.
+  "terminal.integrated.macOptionIsMeta": false,
 
   // When set, this will prevent the context menu from appearing when right clicking within the terminal, instead it will copy when there is a selection and paste when there is no selection.
   "terminal.integrated.rightClickCopyPaste": true,
@@ -1291,13 +1369,16 @@ Below are the default settings and their values.
   // The command line arguments to use when on the Windows terminal.
   "terminal.integrated.shellArgs.windows": [],
 
+  // Show alert `The terminal process terminated with exit code` when exit code is non-zero.
+  "terminal.integrated.showExitAlert": true,
+
 // Problems
 
   // Controls if Problems view should automatically reveal files when opening them
   "problems.autoReveal": true,
 
   // Show Errors & Warnings on files and folder.
-  "problems.decorations.enabled": false,
+  "problems.decorations.enabled": true,
 
 // Telemetry
 
@@ -1307,6 +1388,65 @@ Below are the default settings and their values.
 
   // Enable usage data and errors to be sent to Microsoft.
   "telemetry.enableTelemetry": true,
+
+// Git
+
+  // Whether auto fetching is enabled
+  "git.autofetch": false,
+
+  // Whether auto refreshing is enabled
+  "git.autorefresh": true,
+
+  // Whether repositories should be automatically detected
+  "git.autoRepositoryDetection": true,
+
+  // Controls what type of branches are listed when running `Checkout to...`. `all` shows all refs, `local` shows only the local branches, `tags` shows only tags and `remote` shows only remote branches.
+  "git.checkoutType": "all",
+
+  // Confirm before synchronizing git repositories
+  "git.confirmSync": true,
+
+  // Controls the git badge counter. `all` counts all changes. `tracked` counts only the tracked changes. `off` turns it off.
+  "git.countBadge": "all",
+
+  // Controls if Git contributes colors and badges to the explorer and the open editors view.
+  "git.decorations.enabled": true,
+
+  // The default location where to clone a git repository
+  "git.defaultCloneDirectory": null,
+
+  // Controls whether to automatically detect git submodules.
+  "git.detectSubmodules": true,
+
+  // Enables commit signing with GPG.
+  "git.enableCommitSigning": false,
+
+  // Whether git is enabled
+  "git.enabled": true,
+
+  // Commit all changes when there are no staged changes.
+  "git.enableSmartCommit": false,
+
+  // Ignores the legacy Git warning
+  "git.ignoreLegacyWarning": false,
+
+  // Ignores the warning when there are too many changes in a repository
+  "git.ignoreLimitWarning": false,
+
+  // Ignores the warning when Git is missing
+  "git.ignoreMissingGitWarning": false,
+
+  // Controls when to show input validation.
+  "git.inputValidation": "warn",
+
+  // Path to the git executable
+  "git.path": null,
+
+  // Controls whether Git should check for unsaved files before committing.
+  "git.promptToSaveFilesBeforeCommit": false,
+
+  // Controls whether to show an inline Open File action in the Git changes view.
+  "git.showInlineOpenFileAction": true,
 
 // Default Configuration Overrides
 
@@ -1346,25 +1486,6 @@ Below are the default settings and their values.
     "editor.tabSize": 2
   },
 
-// Npm
-
-  // Controls whether auto detection of npm scripts is on or off. Default is on.
-  "npm.autoDetect": "on",
-
-  // The package manager used to run scripts.
-  "npm.packageManager": "npm",
-
-  // Run npm commands with the `--silent` option.
-  "npm.runSilent": false,
-
-// Merge Conflict
-
-  // Enable/disable merge conflict block CodeLens within editor
-  "merge-conflict.codeLens.enabled": true,
-
-  // Enable/disable merge conflict decorators within editor
-  "merge-conflict.decorators.enabled": true,
-
 // Emmet
 
   // An array of languages where Emmet abbreviations should not be expanded.
@@ -1402,63 +1523,33 @@ Below are the default settings and their values.
   // Variables to be used in Emmet snippets
   "emmet.variables": {},
 
-// Git
-
-  // Whether auto fetching is enabled
-  "git.autofetch": false,
-
-  // Whether auto refreshing is enabled
-  "git.autorefresh": true,
-
-  // Controls what type of branches are listed when running `Checkout to...`. `all` shows all refs, `local` shows only the local branchs, `tags` shows only tags and `remote` shows only remote branches.
-  "git.checkoutType": "all",
-
-  // Confirm before synchronizing git repositories
-  "git.confirmSync": true,
-
-  // Controls the git badge counter. `all` counts all changes. `tracked` counts only the tracked changes. `off` turns it off.
-  "git.countBadge": "all",
-
-  // Controls if Git contributes colors and badges to the explorer and the open editors view.
-  "git.decorations.enabled": true,
-
-  // The default location where to clone a git repository
-  "git.defaultCloneDirectory": null,
-
-  // Enables commit signing with GPG.
-  "git.enableCommitSigning": false,
-
-  // Whether git is enabled
-  "git.enabled": true,
-
-  // Commit all changes when there are no staged changes.
-  "git.enableSmartCommit": false,
-
-  // Ignores the legacy Git warning
-  "git.ignoreLegacyWarning": false,
-
-  // Ignores the warning when there are too many changes in a repository
-  "git.ignoreLimitWarning": false,
-
-  // Ignores the warning when Git is missing
-  "git.ignoreMissingGitWarning": false,
-
-  // Path to the git executable
-  "git.path": null,
-
-// Jake
-
-  // Controls whether auto detection of Jake tasks is on or off. Default is on.
-  "jake.autoDetect": "on",
-
 // Grunt
 
   // Controls whether auto detection of Grunt tasks is on or off. Default is on.
   "grunt.autoDetect": "on",
 
+// Npm
+
+  // Controls whether auto detection of npm scripts is on or off. Default is on.
+  "npm.autoDetect": "on",
+
+  // The package manager used to run scripts.
+  "npm.packageManager": "npm",
+
+  // Run npm commands with the `--silent` option.
+  "npm.runSilent": false,
+
+// Merge Conflict
+
+  // Enable/disable merge conflict block CodeLens within editor
+  "merge-conflict.codeLens.enabled": true,
+
+  // Enable/disable merge conflict decorators within editor
+  "merge-conflict.decorators.enabled": true,
+
 // Gulp
 
-   // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
   "gulp.autoDetect": "on"
 }
 ```

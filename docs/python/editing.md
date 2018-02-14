@@ -82,7 +82,7 @@ The Python extension supports source code formatting using either autopep8 (the 
 
 The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting.
 
-| Formatter | Install steps | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
+| Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
 | autopep8 | pip install pep8<br/>pip install --upgrade autopep8 | autopep8Args | autopep8Path |
 | yapf | pip install yapf | yapfArgs | yapfPath |

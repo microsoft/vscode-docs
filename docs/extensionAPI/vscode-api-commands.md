@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Complex Commands Reference
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.
 ---
 # Complex Commands
@@ -162,6 +162,11 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 
 * _resource_ Resource to open
 * _columnOrOptions_ (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
+
+
+`vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list.
+
+* _path_ Path to remove from recently opened.
 
 
 `cursorMove` - Move cursor to a logical position in the view

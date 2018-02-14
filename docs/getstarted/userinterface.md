@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -87,18 +87,18 @@ By default, VS Code excludes some folders from the Explorer (for example. `.git`
 
 ## Open Editors
 
-At the top of the Explorer is a section labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** section if you:
+At the top of the Explorer is a view labeled **OPEN EDITORS**. This is a list of active files or previews. These are files you previously opened in VS Code that you're working on. For example, a file will be listed in the **OPEN EDITORS** view if you:
 
 * Make a change to a file.
 * Double-click a file's header.
 * Double-click a file in the Explorer.
 * Open a file that is not part of the current folder.
 
-Just click an item in the **OPEN EDITORS** section, and it becomes active in VS Code.
+Just click an item in the **OPEN EDITORS** view, and it becomes active in VS Code.
 
-Once you are done with your task, you can remove files individually from the **OPEN EDITORS** section, or you can remove all files by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
+Once you are done with your task, you can remove files individually from the **OPEN EDITORS** view, or you can remove all files by using the **View: Close All Editors** or **View: Close All Editors in Group** actions.
 
-## Views and the Activity Bar
+## Views
 
 The File Explorer is just one of the Views available in VS Code. There are also Views for:
 
@@ -106,6 +106,13 @@ The File Explorer is just one of the Views available in VS Code. There are also 
 * **Source Control** - VS Code includes Git source control by default.
 * **Debug** - VS Code's Debug View displays variables, call stacks, and breakpoints.
 * **Extensions** - Install and manage your extensions within VS Code.
+* **Custom views** - Views contributed by extensions under Explorer and Debug views.
+
+You can show or hide views from within the main view.
+
+![view management](images/userinterface/view-management.png)
+
+### Activity Bar
 
 The **Activity Bar** on the left lets you quickly switch between Views. You can also reorder Views by dragging and dropping them on the **Activity Bar** or remove a View entirely (right click **Hide from Activity Bar**).
 

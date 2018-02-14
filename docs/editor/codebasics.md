@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -211,6 +211,7 @@ Regions can also be defined by markers defined by each language. The following l
 * TypeScript/JavaScript:  `//#region` and `//#endregion`  and `//region` and `//endregion`
 * VB: `#Region` and `#End Region`
 * Bat: `::#region` and `::#endregion`
+* Markdown: `<!-- #region -->` and `<!-- #endregion -->`
 
 To fold and unfold only the regions defined by markers use:
 

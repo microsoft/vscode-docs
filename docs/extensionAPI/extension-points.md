@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -100,7 +100,7 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 
 ## contributes.menus
 
-Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts). In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while hovering over a menu item. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
+Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts). In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
 Currently extension writers can contribute to:
 
@@ -160,8 +160,9 @@ The snippet below makes the 'Hello World' command only visible in the **Command 
 ### Sorting of groups
 
 Menu items can be sorted into groups. They are sorted in lexicographical order with the following defaults/rules.
+You can add menu items to these groups or add new groups of menu items in between, below, or above.
 
-The context menu of the editor has these default:
+The **editor context menu**  has these default groups:
 
 * `navigation` - The `navigation` group comes first in all cases.
 * `1_modification` - This group comes next and contains commands that modify your code.
@@ -169,7 +170,27 @@ The context menu of the editor has these default:
 
 ![Menu Group Sorting](images/extension-points/groupSorting.png)
 
-You can add menu items to these groups or add new groups of menu items in between, below, or above. Only the editor context menu allows this grouping control.
+
+The **explorer context menu** has these default groups:
+
+* `navigation` -  Commands related to navigation across VS Code. This group comes first in all cases.
+* `2_workspace` - Commands related to workspace manipulation.
+* `3_compare` - Commands related to comparing files in the diff editor.
+* `4_search` - Commands related to searching in the search view.
+* `5_cutcopypaste` - Commands related to cutting, copying and pasting of files.
+* `7_modification` - Commands related to the modification of a files.
+
+The **editor tab context menu** has these default groups:
+
+* `1_close` - Commands related to closing editors.
+* `3_preview` - Commands related to pinning editors.
+
+The **editor title menu** has these default groups:
+
+* `1_diff` - Commands related to working with diff editors.
+* `3_open` - Commands related to opening editors.
+* `5_close` - Commands related to closing editors.
+
 
 ### Sorting inside groups
 
@@ -526,6 +547,32 @@ Also see: [Defining a Problem Matcher](/docs/editor/tasks.md#defining-a-problem-
 ## contributes.problemPatterns
 
 Contributes named problem patterns that can be used in problem matchers (see above).
+
+## contributes.typescriptServerPlugins
+
+Contributes [TypeScript server plugins](https://github.com/Microsoft/TypeScript/wiki/Writing-a-Language-Service-Plugin) that augment VS Code's JavaScript and TypeScript support:
+
+```json
+"contributes": {
+   "typescriptServerPlugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
+}
+```
+
+The above example extension contributes the [`typescript-styled-plugin`](https://github.com/Microsoft/typescript-styled-plugin) which adds styled-component IntelliSense for JavaScript and TypeScript. This plugin will be loaded from the extension and must be listed as a `dependency`:
+
+```json
+{
+    "dependencies": {
+        "typescript-styled-plugin": "*"
+    }
+}
+```
+
+TypeScript server plugins are loaded for all JavaScript and TypeScript files when the user is using VS Code's version of TypeScript. They are not activated if the user is using a workspace version of TypeScript.
 
 ## Next Steps
 

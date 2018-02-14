@@ -8,9 +8,9 @@ DateApproved: 12/18/2017
 ---
 # Deploy the Website
 
-In this step, you deploy your Node.js website using VS Code and the Azure App Service Tools extension. This tutorial uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
+In this step, you deploy your Node.js website using VS Code and the Azure App Service extension. This tutorial uses the most basic deployment model where your app is zipped and deployed to an Azure Web App on Linux.
 
-## Deploy using Azure App Service Tools
+## Deploy using Azure App Service
 
 In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy your app to Azure.
 
@@ -41,6 +41,10 @@ Once created, you're prompted to deploy the app, choose yes.
 The output window will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE APP SERVICE** explorer, right-click, and choose **Browse Website** to open the site in your browser.
 
 > **Tip:** Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
+
+## Troubleshooting
+
+Are you seeing the error **"You do not have permission to view this directory or page."**? If so, the application probably failed to start correctly. Head to the next step and view the log output to find and fix the error. If you aren't able to fix it, you can contact us by clicking the **I ran into an issue** button below. We're happy to help!
 
 ## Updating the website
 

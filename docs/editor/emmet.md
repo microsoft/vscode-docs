@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
@@ -73,6 +73,35 @@ Emmet has no knowledge of these new languages, and so you might feel Emmet sugge
 ```
 
 > **Note:** If you used `emmet.syntaxProfiles` previously to map new file types, from VS Code 1.15 onwards you should use the setting `emmet.includeLanguages` instead. `emmet.syntaxProfiles` is meant for [customizing the final output](https://docs.emmet.io/customization/syntax-profiles) only.
+
+## Emmet with multi-cursors
+
+You can use most of the Emmet actions with multi-cursors as well:
+
+![Emmet with multi cursors](images/emmet/emmet-multi-cursor.gif)
+
+## Include vendor prefixes
+
+Prefix your CSS abbreviations with `-` to get all applicable vendor prefixes included in the expanded abbreviation.
+
+![Vendor prefix in emmet](images/emmet/emmet-vendor-prefix.gif)
+
+Below are a few examples of how you can control which vendors get applied to which CSS property by updating the `emmet.preferences` setting:
+
+```json
+{
+    "emmet.preferences": {
+        "css.webkitProperties": "border-right,animation",
+        "css.mozProperties": "",
+        "css.oProperties": null,
+        "css.msProperties": null
+    }
+}
+```
+
+- Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to these CSS properties.
+- Setting the preference to an empty string will ensure that the corresponding prefix doesn't get added to any CSS property.
+- Setting the preference to null will ensure that the default CSS properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
 
 ## Using custom Emmet snippets
 
@@ -235,7 +264,11 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     - `filter.commentAfter`
     - `format.noIndentTags`
     - `format.forceIndentationForTags`
-    - `profile.allowCompactBoolean`
+    - `profile.allowCompactBoolean`,
+    - `css.webkitProperties`
+    - `css.mozProperties`
+    - `css.msProperties`
+    - `css.oProperties`
 
     The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
 
@@ -267,6 +300,7 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 ## Common Questions
 
 **Q: Custom tags do not get expanded in the suggestion list**
+
 **A:** Custom tags when used in an expression like `MyTag>YourTag` or `MyTag.someclass` do show up in the suggestion list. But when these are used on their own like `MyTag`, they do not appear in the suggestion list. This is designed so to avoid noise in the suggestion list as every word is a potential custom tag.
 
 Add the following setting to enable expanding of Emmet abbreviations using tab which will expand custom tags in all cases.
@@ -274,10 +308,6 @@ Add the following setting to enable expanding of Emmet abbreviations using tab w
 ```json
 "emmet.triggerExpansionOnTab": true
 ```
-
-**Q: `@-` doesn't work for numbering in descending order.**
-
-**A:** Use of `@-` to get numbering in descending order in repeaters is not yet supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-transform#2](https://github.com/emmetio/html-transform/issues/2). PRs are welcome to fix this upstream issue.
 
 **Q: My HTML snippets ending with `+` does not work?**
 

@@ -12,7 +12,7 @@ This tutorial walks you through containerizing an existing Node.js application u
 
 ## Prerequisites
 
-If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-tutorial-node-git&mktingSource=vscode-tutorial-node-git) for a free 30-day account with $200 in Azure credits to try out any combination of services.
+If you don't have an Azure account, [sign up today](https://azure.microsoft.com/en-us/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension) for a free 30-day account with $200 in Azure credits to try out any combination of services.
 
 You need [Visual Studio Code](https://code.visualstudio.com/) installed along with [Node.js and npm](https://nodejs.org/en/download) and [Docker](https://www.docker.com/community-edition).
 
@@ -22,9 +22,9 @@ The Docker extension is used to simplify the management of local Docker images a
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/PeterJausovec.vscode-docker">Install the Docker extension</a>
 
-The Azure App Service Tools extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
+The Azure App Service extension is used to create, manage, and deploy Linux Web Apps on the Azure PaaS.
 
-> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service Tools extension</a>
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azureappservice">Install the Azure App Service extension</a>
 
 ## Sign in
 
