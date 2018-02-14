@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -71,6 +71,8 @@ You can customize the integrated terminal font and line height with the followin
 
 * `terminal.integrated.fontFamily`
 * `terminal.integrated.fontSize`
+* `terminal.integrated.fontWeight`
+* `terminal.integrated.fontWeightBold`
 * `terminal.integrated.lineHeight`
 
 ## Terminal Key Bindings
@@ -98,6 +100,7 @@ They are:
 * `workbench.action.terminal.focus`: Focus the terminal. This is like toggle but focuses the terminal instead of hiding it, if it is visible.
 * `workbench.action.terminal.focusNext`: Focuses the next terminal instance.
 * `workbench.action.terminal.focusPrevious`: Focuses the previous terminal instance.
+* `workbench.action.terminal.focusAtIndexN`: Focuses the terminal at index N (N=1-9)
 * `workbench.action.terminal.kill`: Remove the current terminal instance.
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
 * `workbench.action.terminal.runActiveFile`: Run the active file in the terminal instance.

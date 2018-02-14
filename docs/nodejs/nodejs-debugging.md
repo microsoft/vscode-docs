@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -63,6 +63,7 @@ The following attributes are supported in launch configurations of type `launch`
 * `port` - debug port to use. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 * `address` - TCP/IP address of the debug port. See sections [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs) and [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging).
 * `restart` - restart session on termination. See section [Restarting debug session automatically](/docs/nodejs/nodejs-debugging.md#restarting-debug-sessions-automatically-when-source-is-edited).
+* `autoAttachChildProcesses` - track all subprocesses of debuggee and automatically attach to those that are launched in debug mode. See section [Automatically attach debugger to Node.js subprocesses](/docs/nodejs/nodejs-debugging.md#automatically-attach-debugger-to-nodejs-subprocesses) below.
 * `timeout` - when restarting a session, give up after this number of milliseconds. See section [Attaching to Node.js](/docs/nodejs/nodejs-debugging.md#attaching-to-nodejs).
 * `stopOnEntry` - break immediately when the program launches.
 * `localRoot` - VS Code's root directory. See section [Remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) below.
@@ -80,6 +81,7 @@ These attributes are only available for launch configurations of request type `l
 * `cwd` - launch the program to debug in this directory.
 * `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section [Launch configuration support for 'npm' and other tools](/docs/nodejs/nodejs-debugging.md#launch-configuration-support-for-npm-and-other-tools).
 * `runtimeArgs` - optional arguments passed to the runtime executable.
+* `runtimeVersion` - if "nvm" (or "nvm-windows") is used for managing Node.js versions this attribute can be used to select a specific version of Node.js. See section [Multi version support](/docs/nodejs/nodejs-debugging.md#multi-version-support-nvm-nvm-windows) below.
 * `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
 * `envFile` - optional path to a file containing environment variable definitions.
 * `console` - kind of console to launch the program (`internalConsole`, `integratedTerminal`, `externalTerminal`). See section [Node Console](/docs/nodejs/nodejs-debugging.md#node-console) below.
@@ -144,6 +146,22 @@ the corresponding launch configuration would look like this:
     "port": 9229
 }
 ```
+
+### Multi version support ('nvm', 'nvm-windows')
+
+If you are using 'nvm' (or 'nvm-windows') to manage your Node.js versions it is possible to specify a `runtimeVersion` attribute in a launch configuration for selecting a specific version of Node.js:
+
+```json
+{
+    "type": "node",
+    "request": "launch",
+    "name": "Launch test",
+    "runtimeVersion": "7.10.1",
+    "program": "${workspaceFolder}/test.js"
+}
+```
+
+Make sure to have those Node.js versions installed that you want to use with the `runtimeVersion` attribute as the feature will not download and install the version itself. So you will have to run something like `nvm install 7.10.1` from the integrated terminal if you plan to add `"runtimeVersion": "7.10.1"` to your launch configuration.
 
 ### Load environment variables from external file (node)
 
@@ -326,6 +344,29 @@ Alternatively you can start your program `server.js` via **nodemon** directly wi
 >**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but **nodemon** (and Node.js) will continue to run. To stop **nodemon**, you will have to kill it from the command line (which is easily possible if you use the `integratedTerminal` as shown above).
 
 >**Tip:** In case of syntax errors, **nodemon** will not be able to start Node.js successfully until the error has been fixed. In this case, VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this, you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
+
+
+## Automatically attach debugger to Node.js subprocesses
+
+The Node debugger has a mechanism that tracks all subprocesses of a debuggee and tries to automatically attach to those processes that are launched in debug mode. This feature simplifies debugging of programs that fork or spawn Node.js processes like programs based on the "cluster" node module:
+
+![Auto Attach shown with Cluster Example](images/nodejs-debugging/auto-attach-cluster.gif)
+
+The feature is enabled by setting the launch config attribute `autoAttachChildProcesses` to true:
+
+```json
+{
+  "type": "node",
+  "request": "launch",
+  "name": "Cluster",
+  "program": "${workspaceFolder}/cluster.js",
+  "autoAttachChildProcesses": true
+}
+```
+
+>**Tip:** In order to be able to track the subprocesses, we need the process ID of the parent. For this we require that the main debuggee launched from the launch config is a Node.js process and we use an "evaluate" to find its process ID.
+
+>**Tip:** Whether a process is in debug mode is guessed by analyzing the program arguments. Currently we detect the patterns `--inspect`, `--inspect-brk`, `--inspect-port`, `--debug`, `--debug-brk`, `--debug-port` (all optionally followed by a `=` and a port number).
 
 ## Restart frame (node)
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 # Color Themes
@@ -45,17 +45,24 @@ Many more themes have been uploaded to the VS Code [Extension Marketplace](/docs
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
-## Customize a Color Theme
+## Customizing a Color Theme
 
->**Note**: Supported on VS Code version 1.12 or higher.
-
-You can also customize your active color theme with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md). You can set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more.
+You can customize your active color theme with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md). You can set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more.
 
 ![activity bar theming](images/themes/theme-activitybar.gif)
 
 You can use IntelliSense while setting `workbench.colorCustomizations` values or, for a list of all customizable colors, see the [Theme Color Reference](/docs/getstarted/theme-color-reference.md).
 
-In VS Code version 1.15 or higher, you can also tune the syntax highlighting colors using the `editor.tokenColorCustomizations` setting:
+To customize a specific theme only, use the following syntax:
+```json
+"workbench.colorCustomizations": {
+    "[Monokai]": {
+        "sideBar.background": "#347890"
+    }
+}
+```
+
+To tune the syntax highlighting colors, use the `editor.tokenColorCustomizations` setting:
 
 ![Token Color Customization](images/themes/token_color_customization.png)
 
@@ -65,11 +72,24 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 
 >**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go [here](/docs/extensions/themes-snippets-colorizers.md#textmate-theme-rules) for more information
 
-## Using existing TextMate Themes
+Again, to customize a specific theme only, use the following syntax:
+```json
+"editor.tokenColorCustomizations": {
+    "[Monokai]": {
+        "comments": "#229977"
+    }
+},
+```
 
-You can add existing TextMate color themes (.tmTheme) to VS Code. For example, the [ColorSublime](https://colorsublime.github.io/) site has hundreds of TextMate themes available. See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
+## Creating your own color theme
 
-## Icon Themes
+Creating and publishing a theme extension is quite easy. If you have already customized your colors, you can generate a theme definition file with the `Generate Color Theme for Current Settings` command.
+
+VS Code's Yeoman extension generator will help you generate the rest of the extension.
+
+See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
+
+# Icon Themes
 
 File icon themes can be contributed by extensions and selected by users as their favorite set of file icons. File icons are shown in the File Explorer and tabbed headings.
 

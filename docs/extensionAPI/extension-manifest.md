@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Extension Manifest
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 12/14/2017
+DateApproved: 2/7/2018
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
 # Extension Manifest File - package.json
@@ -166,27 +166,33 @@ Due to security concerns, we only allow badges from trusted services.
 
 We allow badges from the following URL prefixes:
 
-* https://img.shields.io/
-* https://marketplace.visualstudio.com/
-* https://vsmarketplacebadge.apphb.com/
-* https://travis-ci.org/
-* https://travis-ci.com/
-* https://cdn.travis-ci.org/
-* https://api.travis-ci.org/
-* https://ci.appveyor.com/
-* https://david-dm.org/
-* https://www.bithound.io/
-* https://gemnasium.com/
-* https://isitmaintained.com/
-* https://coveralls.io/
-* https://codeclimate.com/
-* https://snyk.io/
-* https://badges.gitter.im/
-* https://badges.greenkeeper.io/
-* https://badge.fury.io/
-* https://badges.frapsoft.com/
-* https://www.versioneye.com/
-* https://codecov.io/
+* api.travis-ci.org
+* badge.fury.io
+* badges.frapsoft.com
+* badges.gitter.im
+* badges.greenkeeper.io
+* cdn.travis-ci.org
+* ci.appveyor.com
+* codacy.com
+* codeclimate.com
+* codecov.io
+* coveralls.io
+* david-dm.org
+* deepscan.io
+* gemnasium.com
+* githost.io
+* gitlab.com
+* img.shields.io
+* isitmaintained.com
+* marketplace.visualstudio.com
+* opencollective.com
+* snyk.io
+* travis-ci.com
+* travis-ci.org
+* vsmarketplacebadge.apphb.com
+* www.bithound.io
+* www.versioneye.com
+* nodesecurity.io
 
 If you have other badges you would like to use, please open a Github [issue](https://github.com/Microsoft/vscode/issues) and we're happy to take a look.
 
