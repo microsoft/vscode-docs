@@ -15,22 +15,6 @@ Working with Python in Visual Studio Code, using the [Microsoft Python extension
 
 The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension.
 
-## Environments
-
-The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Environments](../python/environments.md).
-
-The current environment is shown on the left side of the Visual Studio Code status bar:
-
-![Selected Python interpreter in the status bar](../python/images/environments/selected-interpreter-status-bar.png)
-
-This environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you use [run Python in a terminal](#run-python-in-the-terminal).
-
-To change the current interpreter, which includes switching to conda or virtual environments, click the interpreter on the status bar or use the **Python: Select Interpreter** command.
-
-![Python: Select Interpreter command](../python/images/environments/select-interpreters-command.png)
-
-VS Code then prompts you with a list of detected environments as well as any you've added manually to your user settings (see [Environments](../python/environments.md)).
-
 ## Autocomplete and IntelliSense
 
 The Python extension supports code completion and Intellisense. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
@@ -60,6 +44,22 @@ For Python-specific details, including setting up your `launch.json` configurati
 Snippets take productivity to the next level. You can configure [your own snippets](/docs/editor/userdefinedsnippets.md) and use snippets provided by an extension. Snippets appear in the same way as code completion `kb(editor.action.triggerSuggest)`.
 
 <video id="python-snippets-video" src="https://az754404.vo.msecnd.net/public/python-snippets.mp4" poster="/images/python_python-snippets-placeholder.png" autoplay loop controls muted></video>
+
+## Environments
+
+The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Environments](../python/environments.md).
+
+The current environment is shown on the left side of the Visual Studio Code status bar:
+
+![Selected Python interpreter in the status bar](../python/images/environments/selected-interpreter-status-bar.png)
+
+This environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you use [run Python in a terminal](#run-python-in-the-terminal).
+
+To change the current interpreter, which includes switching to conda or virtual environments, click the interpreter on the status bar or use the **Python: Select Interpreter** command.
+
+![Python: Select Interpreter command](../python/images/environments/select-interpreters-command.png)
+
+VS Code then prompts you with a list of detected environments as well as any you've added manually to your user settings (see [Environments](../python/environments.md)).
 
 ## Run Python in the Terminal
 
