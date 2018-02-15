@@ -296,9 +296,9 @@ The gutter contains the glyph margins and the line numbers:
 
 For coloring inserted and removed text, use either a background or a border color but not both.
 
-- `diffEditor.insertedTextBackground`: Background color for text that got inserted.
+- `diffEditor.insertedTextBackground`: Background color for text that got inserted. The color must not be opaque to not hide underlying decorations.
 - `diffEditor.insertedTextBorder`: Outline color for the text that got inserted.
-- `diffEditor.removedTextBackground`: Background color for text that got removed.
+- `diffEditor.removedTextBackground`: Background color for text that got removed. The color must not be opaque to not hide underlying decorations.
 - `diffEditor.removedTextBorder`: Outline color for text that got removed.
 
 ## Editor Widget Colors
