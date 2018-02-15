@@ -232,6 +232,7 @@ The range highlight is visible when selecting a search result.
 ![Range Highlight](images/theme-color-reference/rangehighlight.png)
 
 - `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by like by the Quick Open, Symbol in File and Find features. The color must not be opaque to not hide underlying decorations.
+- `editor.rangeHighlightBorder`: Background color of the border around highlighted ranges.
 
 To see the editor white spaces, enable **Toggle Render Whitespace**.
 
