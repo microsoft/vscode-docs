@@ -21,7 +21,7 @@ Open the **Welcome** page to get started with the basics of VS Code. **Help** > 
 
 ![welcome page](images/tips-and-tricks/welcome_page.png)
 
-Includes the **Interactive Playground**.
+In the bottom right of the welcome page you can find the **Interactive Playground** that enables you to interactively learn about some of VS Code's features.
 
 ![interactive playground](images/tips-and-tricks/interactive_playground.png)
 
@@ -345,7 +345,7 @@ In the **Extensions** view, click **Show Recommended Extensions** in the **More*
 
 ### Creating my own extension
 
-Are you interested in creating your own extension? You can learn how to do this in the documentation, specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
+Are you interested in creating your own extension? You can learn how to do this in the [extension documentation](/docs/extensions/overview.md), specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
 
 * configuration
 * commands
@@ -398,11 +398,9 @@ Enter distraction free Zen mode.
 
 Keyboard Shortcut: `kb(workbench.action.splitEditor)`
 
-You can also use `kbstyle(Ctrl)` then click a file from the File Explorer (`kbstyle(Cmd+click)` on macOS).
+You can also drag and drop editors to create new editor groups and move editors between groups.
 
 ![split editors](images/tips-and-tricks/split_editor.gif)
-
-You can use drag and drop editors to create new editor groups and move editors between groups.
 
 ### Switch between editors
 
