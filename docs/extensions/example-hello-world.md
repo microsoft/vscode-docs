@@ -11,7 +11,7 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
 ## Your First Extension
 
-This document will take you through creating your first VS Code extension ("Hello World") and will explain the basic VS Code extensibility concepts.
+This document will guide you through creating your first VS Code extension ("Hello World") and explain the basic VS Code extensibility concepts.
 
 In this walkthrough, you'll add a new command to VS Code which will display a simple "Hello World" message.  Later in the walkthrough, you'll interact with the VS Code editor and query for the user's currently selected text.
 
@@ -55,18 +55,18 @@ After running, the generated extension should have the following structure:
 │   ├── launch.json
 │   ├── settings.json
 │   └── tasks.json
-├── .vscodeignore
+├── .vscodeignore               // files ignored when publishing extension
 ├── README.md
-├── src                         // sources
-│   └── extension.ts            // extension.js, in case of JavaScript extension
-├── test                        // tests folder
+├── src
+│   └── extension.ts            // the source of the extension entry point
+├── test                        // test folder
 │   ├── extension.test.ts       // extension.test.js, in case of JavaScript extension
 │   └── index.ts                // index.js, in case of JavaScript extension
 ├── node_modules
-│   ├── vscode                  // language services
+│   ├── vscode                  // include vscode type definition file for extension development
 │   └── typescript              // compiler for typescript (TypeScript only)
 ├── out                         // compilation output (TypeScript only)
-│   ├── extension.js
+│   ├── extension.js            // the extension entry point
 │   ├── extension.js.map
 │   └── test
 │       ├── extension.test.js
