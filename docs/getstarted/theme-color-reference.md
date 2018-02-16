@@ -190,15 +190,18 @@ Selection colors are visible when selecting one or more characters. In addition 
 
 - `editor.selectionBackground`: Color of the editor selection.
 - `editor.selectionForeground`: Color of the selected text for high contrast.
-- `editor.selectionHighlightBackground`: Color for regions with the same content as the selection. The color must not be opaque to not hide underlying decorations.
 - `editor.inactiveSelectionBackground`: Color of the selection in an inactive editor. The color must not be opaque to not hide underlying decorations.
+- `editor.selectionHighlightBackground`: Color for regions with the same content as the selection. The color must not be opaque to not hide underlying decorations.
+- `editor.selectionHighlightBorder`: Border color for regions with the same content as the selection.
 
 Word highlight colors are visible when the cursor is inside a symbol or a word. Depending on the language support available for the file type, all matching references and declarations are highlighted and read and write accesses get different colors. If document symbol language support is not available, this falls back to word highlighting.
 
 ![occurrences](images/theme-color-reference/occurrences.png)
 
 - `editor.wordHighlightBackground`: Background color of a symbol during read-access, for example when reading a variable. The color must not be opaque to not hide underlying decorations.
+- `editor.wordHighlightBorder`: Border color of a symbol during read-access, for example when reading a variable.
 - `editor.wordHighlightStrongBackground`: Background color of a symbol during write-access, for example when writing to a variable. The color must not be opaque to not hide underlying decorations.
+- `editor.wordHighlightStrongBorder`: Border color of a symbol during write-access, for example when writing to a variable.
 
 Find colors depend on the current find string in the Find/Replace dialog.
 
@@ -206,7 +209,10 @@ Find colors depend on the current find string in the Find/Replace dialog.
 
 - `editor.findMatchBackground`: Color of the current search match.
 - `editor.findMatchHighlightBackground`: Color of the other search matches. The color must not be opaque to not hide underlying decorations.
-- `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget). The color must not be opaque to not hide underlying decorations.
+- `editor.findRangeHighlightBackground`: Color the range limiting the search (Enable 'Find in Selection' in the find widget). The color must not be opaque to not hide underlying
+- `editor.findMatchBorder`: Border color of the current search match.
+- `editor.findMatchHighlightBorder`: Border color of the other search matches.
+- `editor.findRangeHighlightBorder`: Border color the range limiting the search (Enable 'Find in Selection' in the find widget).
 
 The hover highlight is shown behind the symbol for which a hover is shown.
 
