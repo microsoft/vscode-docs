@@ -125,6 +125,16 @@ The keybindings for copy and paste follow platform standards:
 * Mac: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
 * Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
 
+### Right Click Behavior
+
+The right click behavior differs based on the platform:
+
+* Linux: Show the context menu
+* Mac: Select the word under the cursor and show the context menu
+* Windows: Copy and drop selection if there is a selection, otherwise paste
+
+This can be configured using the `terminal.integrated.rightClickBehavior` setting.
+
 ### Find
 
 The Integrated Terminal has basic find functionality which can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
