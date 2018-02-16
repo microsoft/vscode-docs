@@ -19,7 +19,7 @@ To open the terminal:
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
-> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on Mac or Linux) if you prefer to work outside VS Code.
+> **Note:** You can still open an external shell with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
 ## Managing Multiple Terminals
 
@@ -50,7 +50,9 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 ```
 
->**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr`  can be redirected.
+There is also the convenience command `Select Default Shell` that can be accessed through the command palette which can detect and set this for you.
+
+>**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr` can be redirected.
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
 
@@ -85,10 +87,10 @@ Key|Command
 ---|---
 `kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal
 `kb(workbench.action.terminal.new)`|Create new terminal
-`kb(workbench.action.terminal.scrollup)`|Scroll up
-`kb(workbench.action.terminal.scrolldown)`|Scroll down
-`kb(workbench.action.terminal.scrollupPage)`|Scroll page up
-`kb(workbench.action.terminal.scrolldownPage)`|Scroll page down
+`kb(workbench.action.terminal.scrollUp)`|Scroll up
+`kb(workbench.action.terminal.scrollDown)`|Scroll down
+`kb(workbench.action.terminal.scrollUpPage)`|Scroll page up
+`kb(workbench.action.terminal.scrollDownPage)`|Scroll page down
 `kb(workbench.action.terminal.scrollToTop)`|Scroll to top
 `kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
 `kb(workbench.action.terminal.clear)`|Clear the terminal
@@ -132,7 +134,11 @@ The Integrated Terminal has basic find functionality which can be triggered with
 If you want `Ctrl+F` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
 
 ```js
+// Windows/Linux
 { "key": "ctrl+f", "command": "-workbench.action.terminal.focusFindWidget",
+                      "when": "terminalFocus" },
+// Mac
+{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFindWidget",
                       "when": "terminalFocus" },
 ```
 
@@ -150,6 +156,7 @@ The basics of the terminal have been covered in this document, read on to find o
 
 * [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
 * [Mastering VS Code's Terminal](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+* Explore the rest of the terminal commands by browsing your keybindings.json file within VS Code.
 
 ## Common Questions
 
