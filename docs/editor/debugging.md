@@ -72,7 +72,7 @@ Here is the launch configuration generated for Node.js debugging:
 }
 ```
 
-If you go back to the File Explorer view (`kb(workbench.view.explorer)`), you'll see that VS Code has create a `.vscode` folder and added the `launch.json` file to your workspace.
+If you go back to the File Explorer view (`kb(workbench.view.explorer)`), you'll see that VS Code has created a `.vscode` folder and added the `launch.json` file to your workspace.
 
 ![launch.json in Explorer](images/debugging/launch-json-in-explorer.png)
 
