@@ -47,7 +47,7 @@ Snippets take productivity to the next level. You can configure [your own snippe
 
 ## Environments
 
-The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Environments](/docs/python/environments.md).
+The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md).
 
 The current environment is shown on the left side of the Visual Studio Code status bar:
 
@@ -59,7 +59,7 @@ To change the current interpreter, which includes switching to conda or virtual 
 
 ![Python: Select Interpreter command](images/python/select-interpreters-command.png)
 
-VS Code then prompts you with a list of detected environments as well as any you've added manually to your user settings (see [Environments](/docs/python/environments.md)).
+VS Code then prompts you with a list of detected environments as well as any you've added manually to your user settings (see [Configuring Python environments](/docs/python/environments.md)).
 
 ## Run Python in the Terminal
 
