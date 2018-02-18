@@ -61,6 +61,7 @@ The following table lists all known language identifiers:
 
 Language | Identifier
 -------- | ----------
+ABAP | `abap`
 Windows Bat | `bat`
 BibTeX | `bibtex`
 Clojure | `clojure`
