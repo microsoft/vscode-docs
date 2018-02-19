@@ -57,9 +57,13 @@ Does the same as `New Extension (TypeScript)`, but for JavaScript. The extension
 
 ### New Color Theme
 
-Creates an extension that contributes a new color theme based on an existing TextMate color theme.
+Creates an extension that contributes a new color theme. You can create the theme based on an existing TextMate color theme or create a fresh extension.
 
-* Prompts for the location (URL or file path) of the existing TextMate color theme (.tmTheme). This file will be imported into the new extension.
+* Start with fresh extension if you plan to use the `Generate Color Theme From Current Settings` command to create a theme from customized colors in the settings (Recommended).
+* Start with a TextMate color theme to start with an existing theme available as `.tmTheme`.
+
+
+The generator will
 * Prompts for the color theme name as well as the color base theme (light or dark).
 * Prompts for the extension identifier and will create a folder of that name in the current directory.
 
