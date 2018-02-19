@@ -1,6 +1,6 @@
 ---
 Order: 7
-Area: nodejs
+Area: editor
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: Debugging Recipes for VS Code
@@ -23,16 +23,7 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 **Recipes:**
 
 - [Debugging Node.js with Nodemon](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon)
-
-## Debug Node.js in Docker containers
-
-This recipe shows how to run and debug a VS Code Node.js project written in TypeScript running inside a [Docker](https://www.docker.com) container.
-
-![Node.js TypeScript and Docker logos](images/recipes/node-typescript-docker.png)
-
-**Recipes:**
-
-- [Docker-TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
+- [Debugging Node.js with TypeScript in Docker](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
 ## Debug client-side JavaScript in Google Chrome
 
@@ -45,9 +36,12 @@ You can read more about how our Debugger for Chrome works in this introduction [
 **Recipes:**
 
 - [Debugging Angular apps with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI)
+- [Debugging Angular/C# apps with AspNetCore.SpaTemplates](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-SpaTemplates)
 - [Debugging Next.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
 - [Debugging Meteor apps](https://github.com/Microsoft/vscode-recipes/tree/master/meteor)
 - [Debugging Vue.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/vuejs-cli)
+- [Debugging Mocha tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-mocha-tests)
+- [Debugging Jest tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-jest-tests)
 
 **Blog posts**:
 
@@ -74,6 +68,16 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 **Recipes:**
 
 - [Debugging Electron Main and Renderer processes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)
+
+
+## Debug transpiled C++ with Emscripten
+
+The Visual Studio Code editor supports debugging C++ compiled via [Emscripten](https://github.com/kripken/emscripten) via the built-in [Node.js](https://nodejs.org/) debugger, as your C++ code get's compiled into JavaScript.
+
+
+**Recipes**
+- [Debug Emscripten translated C/C++](https://github.com/weinand/vscode-recipes/issues/20)
+
 
 ## Next Steps
 
