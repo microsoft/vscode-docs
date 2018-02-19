@@ -83,7 +83,7 @@ These attributes are only available for launch configurations of request type `l
 * `runtimeArgs` - optional arguments passed to the runtime executable.
 * `runtimeVersion` - if "nvm" (or "nvm-windows") is used for managing Node.js versions this attribute can be used to select a specific version of Node.js. See section [Multi version support](/docs/nodejs/nodejs-debugging.md#multi-version-support-nvm-nvm-windows) below.
 * `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
-* `envFile` - optional path to a file containing environment variable definitions. See section [Load environment variables from external file](/docs/nodejs/nodejs-debugging.md#load-environment-variables-from-external-file) below.
+* `envFile` - optional path to a file containing environment variable definitions. See section [Load environment variables from external file](/docs/nodejs/nodejs-debugging.md#load-environment-variables-from-external-file-node) below.
 * `console` - kind of console to launch the program (`internalConsole`, `integratedTerminal`, `externalTerminal`). See section [Node Console](/docs/nodejs/nodejs-debugging.md#node-console) below.
 
 This attribute is only available for launch configurations of request type `attach`:
@@ -163,7 +163,7 @@ If you are using 'nvm' (or 'nvm-windows') to manage your Node.js versions it is 
 
 Make sure to have those Node.js versions installed that you want to use with the `runtimeVersion` attribute as the feature will not download and install the version itself. So you will have to run something like `nvm install 7.10.1` from the integrated terminal if you plan to add `"runtimeVersion": "7.10.1"` to your launch configuration.
 
-### Load environment variables from external file
+### Load environment variables from external file (node)
 
 The VS Code Node debugger supports loading environment variables from a file and passing them to the Node.js runtime. To use this feature, add an attribute `envFile` to your launch configuration and specify the absolute path to the file containing the environment variables:
 
@@ -368,7 +368,7 @@ The feature is enabled by setting the launch config attribute `autoAttachChildPr
 
 >**Tip:** Whether a process is in debug mode is guessed by analyzing the program arguments. Currently we detect the patterns `--inspect`, `--inspect-brk`, `--inspect-port`, `--debug`, `--debug-brk`, `--debug-port` (all optionally followed by a `=` and a port number).
 
-## Restart frame
+## Restart frame (node)
 
 The Node debugger supports restarting execution at a stack frame. This can be useful in situations where you have found a problem in your source code and you want to rerun a small portion of the code with modified input values. Stopping and then restarting the full debug session can be very time-consuming. The **Restart Frame** action allows you to re-enter the current function after you have changed variables with the **Set Value** action:
 
