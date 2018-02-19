@@ -9,7 +9,7 @@ MetaDescription: Changing the color theme in Visual Studio Code. You can use col
 ---
 # Color Themes
 
-Color themes let you modify VS Code's background, text, and language syntax colorization to suit your preferences and work environment. VS Code supports light, dark and high contrast themes.
+Color themes let you modify the colors in VS Code's user interface to suit your preferences and work environment.
 
 ![Preview themes from the Command Palette](images/themes/themes_hero.gif)
 
@@ -47,7 +47,9 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Customizing a Color Theme
 
-You can customize your active color theme with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md). You can set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more.
+You can customize your active color theme with the `workbench.colorCustomizations` and `editor.colorCustomizations` user [settings](/docs/getstarted/settings.md).
+
+To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more, use `workbench.colorCustomizations`.
 
 ![activity bar theming](images/themes/theme-activitybar.gif)
 
@@ -83,9 +85,9 @@ Again, to customize a specific theme only, use the following syntax:
 
 ## Creating your own color theme
 
-Creating and publishing a theme extension is quite easy. If you have already customized your colors, you can generate a theme definition file with the `Generate Color Theme for Current Settings` command.
+Creating and publishing a theme extension is quite easy. Customized your colors in the settings then generate a theme definition file with the `Generate Color Theme for Current Settings` command.
 
-VS Code's Yeoman extension generator will help you generate the rest of the extension.
+VS Code's Yeoman [extension generator](/docs/extensions/yocode.md) will help you generate the rest of the extension.
 
 See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
 
