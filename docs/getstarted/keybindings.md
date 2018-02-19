@@ -54,6 +54,203 @@ Pick a command with the keybinding you think is overloaded and you can see if mu
 
 ![show keybinding conflicts result](images/keybinding/show-conflicts-result.png)
 
+
+## Advanced customization
+
+All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
+
+* To configure keyboard shortcuts the way you want, open **Keyboard Shortcuts** editor and click on the link `keybindings.json`.
+* This will open the **Default Keyboard Shortcuts** on the left and your `keybindings.json` file where you can overwrite the default bindings on the right.
+* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in **Default Keyboard Shortcuts**.
+
+## Keyboard Rules
+
+The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
+
+```json
+// Keybindings that are active when the focus is in the editor
+{ "key": "home",            "command": "cursorHome",                  "when": "editorTextFocus" },
+{ "key": "shift+home",      "command": "cursorHomeSelect",            "when": "editorTextFocus" },
+
+// Keybindings that are complementary
+{ "key": "f5",              "command": "workbench.action.debug.continue", "when": "inDebugMode" },
+{ "key": "f5",              "command": "workbench.action.debug.start",    "when": "!inDebugMode" },
+
+// Global keybindings
+{ "key": "ctrl+f",          "command": "actions.find" },
+{ "key": "alt+left",        "command": "workbench.action.navigateBack" },
+{ "key": "alt+right",       "command": "workbench.action.navigateForward" },
+
+// Global keybindings using chords (two separate keypress actions)
+{ "key": "ctrl+k enter",    "command": "workbench.action.keepEditor" },
+{ "key": "ctrl+k ctrl+w",   "command": "workbench.action.closeAllEditors" },
+```
+
+Each rule consists of:
+
+* a `key` that describes the pressed keys.
+* a `command` containing the identifier of the command to execute.
+* an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
+
+Chords (two separate keypress actions) are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
+
+When a key is pressed:
+
+* the rules are evaluated from **bottom** to **top**.
+* the first rule that matches, both the `key` and in terms of `when`, is accepted.
+* no more rules are processed.
+* if a rule is found and has a `command` set, the `command` is executed.
+
+The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
+
+## Accepted keys
+
+The `key` is made up of modifiers and the key itself.
+
+The following modifiers are accepted:
+
+Platform|Modifiers
+--|---------
+Mac|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(cmd+)`
+Windows|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(win+)`
+Linux|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(meta+)`
+
+The following keys are accepted:
+
+* `kbstyle(f1-f19)`, `kbstyle(a-z)`, `kbstyle(0-9)`
+* ``kbstyle(`)``, `kbstyle(-)`, `kbstyle(=)`, `kbstyle([)`, `kbstyle(])`, `kbstyle(\)`, `kbstyle(;)`, `kbstyle(')`, `kbstyle(,)`, `kbstyle(.)`, `kbstyle(/)`
+* `kbstyle(left)`, `kbstyle(up)`, `kbstyle(right)`, `kbstyle(down)`, `kbstyle(pageup)`, `kbstyle(pagedown)`, `kbstyle(end)`, `kbstyle(home)`
+* `kbstyle(tab)`, `kbstyle(enter)`, `kbstyle(escape)`, `kbstyle(space)`, `kbstyle(backspace)`, `kbstyle(delete)`
+* `kbstyle(pausebreak)`, `kbstyle(capslock)`, `kbstyle(insert)`
+* `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(nupad_separator)`
+* `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
+
+## Command arguments
+
+You can invoke a command with arguments. This is useful if you often perform the same operation on a specific file or folder. You can add a custom keyboard shortcut to do exactly what you want.
+
+The following is an example overriding the `kbstyle(Enter)` key to print some text:
+
+```json
+  { "key": "enter", "command": "type",
+                    "args": { "text": "Hello World" },
+                    "when": "editorTextFocus" }
+```
+
+The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
+
+
+## Removing a specific key binding rule
+
+You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, add a `-` to the `command` and the rule will be a removal rule.
+
+Here is an example:
+
+```json
+// In Default Keyboard Shortcuts
+...
+{ "key": "tab", "command": "tab", "when": ... },
+{ "key": "tab", "command": "jumpToNextSnippetPlaceholder", "when": ... },
+{ "key": "tab", "command": "acceptSelectedSuggestion", "when": ... },
+...
+
+// To remove the second rule, for example, add in keybindings.json:
+{ "key": "tab", "command": "-jumpToNextSnippetPlaceholder" }
+
+```
+
+## Keyboard layouts
+
+>**Note:** This section relates only to key bindings, not to typing in the editor.
+
+The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
+
+* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731)
+* `kbstyle(tab)` for `VK_TAB` (`0x09`)
+* `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
+* `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
+* `kbstyle(,)` for `VK_OEM_COMMA` (`0xBC`)
+* `kbstyle(-)` for `VK_OEM_MINUS` (`0xBD`)
+* `kbstyle(.)` for `VK_OEM_PERIOD` (`0xBE`)
+* `kbstyle(/)` for `VK_OEM_2` (`0xBF`)
+* ``kbstyle(`)`` for `VK_OEM_3` (`0xC0`)
+* `kbstyle([)` for `VK_OEM_4` (`0xDB`)
+* `kbstyle(\)` for `VK_OEM_5` (`0xDC`)
+* `kbstyle(])` for `VK_OEM_6` (`0xDD`)
+* `kbstyle(')` for `VK_OEM_7` (`0xDE`)
+* etc.
+
+Different keyboard layouts usually reposition the above virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, Visual Studio Code does the following:
+
+All the key bindings are rendered in the UI using the current system's keyboard layout. For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
+
+![render key binding](images/keybinding/render-key-binding.png)
+
+When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the **Default Keyboard Shortcuts** rules look like when using a French (France) keyboard layout:
+
+![keybindings.json guidance](images/keybinding/keybindings-json.png)
+
+There is also a widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want, you can press `kbstyle(Enter)` and a rule snippet will be inserted.
+
+![key binding widget](images/keybinding/key-binding-widget.png)
+
+>**Note:** Visual Studio Code detects your current keyboard layout on start-up and then caches this information. For a good experience, we recommend restarting VS Code if you change your keyboard layout.
+
+
+## 'when' clause contexts
+
+VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
+
+Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false:
+
+Context name | True when
+------------ | ------------
+**Editor contexts** |
+editorFocus | An editor has focus, either the text or a widget.
+editorTextFocus | The text in an editor has focus (cursor is blinking).
+editorHasSelection | Text is selected in the editor.
+editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
+editorReadOnly | The editor is read only.
+editorLangId | True when the editor's associated [language Id](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
+textCompareEditorVisible | Diff (compare) view is visible.
+**Mode contexts** |
+inDebugMode | A debug session is running.
+inSnippetMode | The editor is in snippet mode.
+inQuickOpen | The Quick Open drop-down has focus.
+**Explorer contexts** |
+explorerViewletVisible | True if Explorer view is visible.
+explorerViewletFocus | True if Explorer view has keyboard focus.
+filesExplorerFocus | True if File Explorer section has keyboard focus.
+openEditorsFocus | True if OPEN EDITORS section has keyboard focus.
+explorerResourceIsFolder | True if a folder is selected in the Explorer.
+**Editor widget contexts** |
+findWidgetVisible | Editor Find widget is visible.
+suggestWidgetVisible | Suggestion widget (IntelliSense) is visible.
+suggestWidgetMultipleSuggestions | Multiple suggestions are displayed.
+renameInputVisible | Rename input text box is visible.
+referenceSearchVisible | Find All References peek window is open.
+inReferenceSearchEditor | The Find All References peek window editor has focus.
+config.editor.stablePeek | Keep peek editors open (controlled by `editor.stablePeek` setting).
+quickFixWidgetVisible | Quick Fix widget is visible.
+parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints` setting).
+parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
+**Integrated terminal contexts** |
+terminalFocus | An integrated terminal has focus.
+**Global UI contexts** |
+resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
+resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
+globalMessageVisible | Message box is visible at the top of VS Code.
+searchViewletVisible | Search view is open.
+sidebarVisible | Side Bar is displayed.
+replaceActive | Search view Replace text box is open.
+**Configuration settings contexts** |
+config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` is `true`.
+
+>**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
+
+The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
+
+
 ## Default Keyboard Shortcuts
 
 >**Note:** The following keys are rendered assuming a standard US keyboard layout. If you use a different keyboard layout, please [read below](/docs/getstarted/keybindings.md#keyboard-layouts). You can view the currently active keyboard shortcuts in VS Code in the **Command Palette** (**View** -> **Command Palette**) or in the **Keyboard Shortcuts** editor (**File** > **Preferences** > **Keyboard Shortcuts**).
@@ -280,198 +477,6 @@ Key|Command|Command id
 `kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
 `kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
 
-## Advanced customization
-
-All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
-
-* To configure keyboard shortcuts the way you want, open **Keyboard Shortcuts** editor and click on the link `keybindings.json`.
-* This will open the **Default Keyboard Shortcuts** on the left and your `keybindings.json` file where you can overwrite the default bindings on the right.
-* The list above isn't exhaustive. More commands may be listed under "Here are other available commands" in **Default Keyboard Shortcuts**.
-
-## Keyboard Rules
-
-The keyboard shortcuts dispatching is done by analyzing a list of rules that are expressed in JSON. Here are some examples:
-
-```json
-// Keybindings that are active when the focus is in the editor
-{ "key": "home",            "command": "cursorHome",                  "when": "editorTextFocus" },
-{ "key": "shift+home",      "command": "cursorHomeSelect",            "when": "editorTextFocus" },
-
-// Keybindings that are complementary
-{ "key": "f5",              "command": "workbench.action.debug.continue", "when": "inDebugMode" },
-{ "key": "f5",              "command": "workbench.action.debug.start",    "when": "!inDebugMode" },
-
-// Global keybindings
-{ "key": "ctrl+f",          "command": "actions.find" },
-{ "key": "alt+left",        "command": "workbench.action.navigateBack" },
-{ "key": "alt+right",       "command": "workbench.action.navigateForward" },
-
-// Global keybindings using chords (two separate keypress actions)
-{ "key": "ctrl+k enter",    "command": "workbench.action.keepEditor" },
-{ "key": "ctrl+k ctrl+w",   "command": "workbench.action.closeAllEditors" },
-```
-
-Each rule consists of:
-
-* a `key` that describes the pressed keys.
-* a `command` containing the identifier of the command to execute.
-* an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
-
-Chords (two separate keypress actions) are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
-
-When a key is pressed:
-
-* the rules are evaluated from **bottom** to **top**.
-* the first rule that matches, both the `key` and in terms of `when`, is accepted.
-* no more rules are processed.
-* if a rule is found and has a `command` set, the `command` is executed.
-
-The additional `keybindings.json` rules are appended at runtime to the bottom of the default rules, thus allowing them to overwrite the default rules. The `keybindings.json` file is watched by VS Code so editing it while VS Code is running will update the rules at runtime.
-
-## Accepted keys
-
-The `key` is made up of modifiers and the key itself.
-
-The following modifiers are accepted:
-
-Platform|Modifiers
---|---------
-Mac|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(cmd+)`
-Windows|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(win+)`
-Linux|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(meta+)`
-
-The following keys are accepted:
-
-* `kbstyle(f1-f19)`, `kbstyle(a-z)`, `kbstyle(0-9)`
-* ``kbstyle(`)``, `kbstyle(-)`, `kbstyle(=)`, `kbstyle([)`, `kbstyle(])`, `kbstyle(\)`, `kbstyle(;)`, `kbstyle(')`, `kbstyle(,)`, `kbstyle(.)`, `kbstyle(/)`
-* `kbstyle(left)`, `kbstyle(up)`, `kbstyle(right)`, `kbstyle(down)`, `kbstyle(pageup)`, `kbstyle(pagedown)`, `kbstyle(end)`, `kbstyle(home)`
-* `kbstyle(tab)`, `kbstyle(enter)`, `kbstyle(escape)`, `kbstyle(space)`, `kbstyle(backspace)`, `kbstyle(delete)`
-* `kbstyle(pausebreak)`, `kbstyle(capslock)`, `kbstyle(insert)`
-* `kbstyle(numpad0-numpad9)`, `kbstyle(numpad_multiply)`, `kbstyle(numpad_add)`, `kbstyle(nupad_separator)`
-* `kbstyle(numpad_subtract)`, `kbstyle(numpad_decimal)`, `kbstyle(numpad_divide)`
-
-## Command arguments
-
-You can invoke a command with arguments. This is useful if you often perform the same operation on a specific file or folder. You can add a custom keyboard shortcut to do exactly what you want.
-
-The following is an example overriding the `kbstyle(Enter)` key to print some text:
-
-```json
-  { "key": "enter", "command": "type",
-                    "args": { "text": "Hello World" },
-                    "when": "editorTextFocus" }
-```
-
-The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
-
-## 'when' clause contexts
-
-VS Code gives you fine control over when your key bindings are enabled through the optional `when` clause.  If your key binding doesn't have a `when` clause, the key binding is globally available at all times.
-
-Below are the some of the possible `when` clause contexts which evaluate to Boolean true/false:
-
-Context name | True when
------------- | ------------
-**Editor contexts** |
-editorFocus | An editor has focus, either the text or a widget.
-editorTextFocus | The text in an editor has focus (cursor is blinking).
-editorHasSelection | Text is selected in the editor.
-editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
-editorReadOnly | The editor is read only.
-editorLangId | True when the editor's associated [language Id](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
-textCompareEditorVisible | Diff (compare) view is visible.
-**Mode contexts** |
-inDebugMode | A debug session is running.
-inSnippetMode | The editor is in snippet mode.
-inQuickOpen | The Quick Open drop-down has focus.
-**Explorer contexts** |
-explorerViewletVisible | True if Explorer view is visible.
-explorerViewletFocus | True if Explorer view has keyboard focus.
-filesExplorerFocus | True if File Explorer section has keyboard focus.
-openEditorsFocus | True if OPEN EDITORS section has keyboard focus.
-explorerResourceIsFolder | True if a folder is selected in the Explorer.
-**Editor widget contexts** |
-findWidgetVisible | Editor Find widget is visible.
-suggestWidgetVisible | Suggestion widget (IntelliSense) is visible.
-suggestWidgetMultipleSuggestions | Multiple suggestions are displayed.
-renameInputVisible | Rename input text box is visible.
-referenceSearchVisible | Find All References peek window is open.
-inReferenceSearchEditor | The Find All References peek window editor has focus.
-config.editor.stablePeek | Keep peek editors open (controlled by `editor.stablePeek` setting).
-quickFixWidgetVisible | Quick Fix widget is visible.
-parameterHintsVisible | Parameter hints are visible (controlled by `editor.parameterHints` setting).
-parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
-**Integrated terminal contexts** |
-terminalFocus | An integrated terminal has focus.
-**Global UI contexts** |
-resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
-resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
-globalMessageVisible | Message box is visible at the top of VS Code.
-searchViewletVisible | Search view is open.
-sidebarVisible | Side Bar is displayed.
-replaceActive | Search view Replace text box is open.
-**Configuration settings contexts** |
-config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` is `true`.
-
->**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
-
-The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
-
-## Removing a specific key binding rule
-
-You can write a key binding rule that targets the removal of a specific default key binding. With the `keybindings.json`, it was always possible to redefine all the key bindings of VS Code, but it can be very difficult to make a small tweak, especially around overloaded keys, such as `kbstyle(Tab)` or `kbstyle(Escape)`. To remove a specific key binding, add a `-` to the `command` and the rule will be a removal rule.
-
-Here is an example:
-
-```json
-// In Default Keyboard Shortcuts
-...
-{ "key": "tab", "command": "tab", "when": ... },
-{ "key": "tab", "command": "jumpToNextSnippetPlaceholder", "when": ... },
-{ "key": "tab", "command": "acceptSelectedSuggestion", "when": ... },
-...
-
-// To remove the second rule, for example, add in keybindings.json:
-{ "key": "tab", "command": "-jumpToNextSnippetPlaceholder" }
-
-```
-
-## Keyboard layouts
-
->**Note:** This section relates only to key bindings, not to typing in the editor.
-
-The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
-
-* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731)
-* `kbstyle(tab)` for `VK_TAB` (`0x09`)
-* `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
-* `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
-* `kbstyle(,)` for `VK_OEM_COMMA` (`0xBC`)
-* `kbstyle(-)` for `VK_OEM_MINUS` (`0xBD`)
-* `kbstyle(.)` for `VK_OEM_PERIOD` (`0xBE`)
-* `kbstyle(/)` for `VK_OEM_2` (`0xBF`)
-* ``kbstyle(`)`` for `VK_OEM_3` (`0xC0`)
-* `kbstyle([)` for `VK_OEM_4` (`0xDB`)
-* `kbstyle(\)` for `VK_OEM_5` (`0xDC`)
-* `kbstyle(])` for `VK_OEM_6` (`0xDD`)
-* `kbstyle(')` for `VK_OEM_7` (`0xDE`)
-* etc.
-
-Different keyboard layouts usually reposition the above virtual keys or change the characters produced when they are pressed. When using a different keyboard layout than the standard US, Visual Studio Code does the following:
-
-All the key bindings are rendered in the UI using the current system's keyboard layout. For example, `Split Editor` when using a French (France) keyboard layout is now rendered as `kbstyle(Ctrl+*)`:
-
-![render key binding](images/keybinding/render-key-binding.png)
-
-When editing `keybindings.json`, VS Code highlights misleading key bindings - those that are represented in the file with the character produced under the standard US keyboard layout, but which need pressing keys with different labels under the current system's keyboard layout. For example, here is how the **Default Keyboard Shortcuts** rules look like when using a French (France) keyboard layout:
-
-![keybindings.json guidance](images/keybinding/keybindings-json.png)
-
-There is also a widget that helps input the key binding rule when editing `keybindings.json`. To launch the **Define Keybinding** widget, press `kb(editor.action.defineKeybinding)`. The widget listens for key presses and renders the serialized JSON representation in the text box and below it, the keys that VS Code has detected under your current keyboard layout. Once you've typed the key combination you want, you can press `kbstyle(Enter)` and a rule snippet will be inserted.
-
-![key binding widget](images/keybinding/key-binding-widget.png)
-
->**Note:** Visual Studio Code detects your current keyboard layout on start-up and then caches this information. For a good experience, we recommend restarting VS Code if you change your keyboard layout.
 
 ## Next Steps
 
