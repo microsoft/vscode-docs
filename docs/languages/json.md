@@ -13,10 +13,6 @@ JSON is a data format that is common in configuration files like `package.json` 
 
 ![JSON within VS Code](images/json/json_hero.png)
 
-## JSON Comments
-
-Comments in JSON are an extension to JSON specification that is supported by VS Code. You can use single line (//) as well as block comments (/* */) as used in JavaScript.
-
 ## IntelliSense & Validation
 
 For properties and values, both for JSON data with and without a schema, we offer up suggestions as you type with IntelliSense. You can also manually see suggestions with the **Trigger Suggestions** command (`kb(editor.action.triggerSuggest)`).  We also perform structural and value verification based on an associated JSON schema giving you red squigglies.
@@ -43,9 +39,14 @@ When you hover over properties and values for JSON data with or without schema, 
 
 You can format your JSON document using `kb(editor.action.formatDocument)` or **Format Document** from the context menu.
 
+## JSON with Comments
+
+In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a _JSON with comments_ mode . This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json` or `debug.json`. When in the _JSON with comments_ mode, you can use single line (//) as well as block comments (/* */) as used in JavaScript.
+The current editor mode is indicated in the editor's status bar. Click on the mode indicator to change the mode and to configure how file names and extensions are associated to modes.
+
 ## JSON Schemas & Settings
 
-To understand the structure of JSON files, we use [JSON schemas](http://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports JSON Schema Draft 4.
+To understand the structure of JSON files, we use [JSON schemas](http://json-schema.org/). JSON schemas describe the shape of the JSON file, as well as value sets, default values, and descriptions. The JSON support shipped with VS Code supports JSON Schema Draft 6.
 
 Servers like [JSON Schema Store](http://schemastore.org) provide schemas for most of the common JSON based configuration files. However, schemas can also be defined in a file in the VS Code workspace, as well as the VS Code settings files.
 
