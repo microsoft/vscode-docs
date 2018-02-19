@@ -107,7 +107,7 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 >**Tip:** We support regular expression searching in the search box, too.
 
-You can configure advanced search options with `kb(workbench.action.search.toggleQueryDetails)`. This will show additional fields to configure the search.
+You can configure advanced search options by clicking the ellipsis below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
 ### Advanced Search Options
 
@@ -123,7 +123,7 @@ In the two input boxes below the search box, you can include and exclude files. 
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
-Also note the two toggle buttons in the **files to exclude** box. The left one determines whether to exclude files that are ignored by your `.gitignore` file. The right determines whether to exclude files that are matched by your `files.exclude` and `search.exclude` settings.
+Also note the toggle button in the **files to exclude** box. That determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
