@@ -54,7 +54,7 @@ A Minimap (outline view) gives you a high level overview of your source code whi
 
 ![minimap](images/userinterface/minimap.png)
 
-If you would like to disable minimap, you can set `"editor.minimap.enabled": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+>**Tip:** You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in your user or workspace [settings](/docs/getstarted/settings.md).
 
 ### Indent Guides
 
@@ -108,7 +108,11 @@ The File Explorer is just one of the Views available in VS Code. There are also 
 * **Extensions** - Install and manage your extensions within VS Code.
 * **Custom views** - Views contributed by extensions under Explorer and Debug views.
 
-You can show or hide views from within the main view.
+> **Tip:** You can open any view using the **View: Open View** action.
+
+![views](images/userinterface/views.png)
+
+You can show or hide views from within the main view and also reorder them by drag and drop.
 
 ![view management](images/userinterface/view-management.png)
 
@@ -148,9 +152,9 @@ You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu
 
 Most editor configurations are kept in settings which can be modified directly. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/getstarted/settings.md#settings-file-locations).
 
-* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `kbstyle(Enter)`) to edit the user `settings.json` file.
+* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.showCommands)`, type `user settings` and press `kbstyle(Enter)`) to edit the user `settings.json` file.
 
-* To edit workspace settings, select **File** > **Preferences** > **Settings** and select the **WORKSPACE SETTINGS** Tab (or press `kb(workbench.action.showCommands)`, type `worksp` and press `kbstyle(Enter)`) to edit the workspace settings.json file.
+* To edit workspace settings, select **File** > **Preferences** > **Settings** and select the **WORKSPACE SETTINGS** Tab (or press `kb(workbench.action.showCommands)`, type `workspace settings` and press `kbstyle(Enter)`) to edit the workspace settings.json file.
 
 >**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
 
