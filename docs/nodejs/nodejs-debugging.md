@@ -477,7 +477,7 @@ Source maps can be generated with two kinds of inlining:
 
 VS Code supports both the _inlined source maps_ and the _inlined source_.
 
-The source map feature is controlled by the `sourceMaps` attribute which defaults to `true` starting with VS Code 1.9.0. This means that node debugging always tries to use source maps (if it can find any) and as a consequence you can even specify a source file (e.g. app.ts) with the `program` attribute.
+The source map feature is controlled by the `sourceMaps` attribute which defaults to `true`. This means that node debugging always tries to use source maps (if it can find any) and as a consequence you can even specify a source file (e.g. app.ts) with the `program` attribute.
 
 If you need to disable source maps for some reason, you can set the `sourceMaps` attribute to `false`.
 
