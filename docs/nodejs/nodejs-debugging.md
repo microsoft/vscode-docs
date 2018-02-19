@@ -104,12 +104,10 @@ Here is the list of all snippets:
 - **Attach to Remote Program**: Attach to the debug port of a Node.js program running on the host specified by the `address` attribute. Make sure that the Node.js program to debug has been started in debug mode and the debug port used is the same as the one specified in the snippet. To help VS Code mapping source files between your workspace and the filesystem of the remote host, make sure to specify correct paths for the `localRoot`and `remoteRoot` attributes.
 - **Attach by Process ID**: Open the process picker to select a node or gulp process for debugging. With this launch configuration you can even attach to a node or gulp process that was not started in debug mode.
 - **Nodemon Setup**: Use nodemon to relaunch a debug session automatically whenever the JavaScript source has changed. Make sure that you have nodemon installed globally. Please note that terminating the debug session only terminates the program to debug, not nodemon itself. To terminate nodemon, press Control-C in the integrated terminal.
-- **Mocha Tests**: Debug mocha tests in a `test` folder of your project.
-- **Yeoman generator**: Debug a yeoman generator. The snippet asks you to specify the name of the generator. Make sure that your generated project has been installed for debugging by running `npm link` in the project folder.
-- **Gulp task**: Debug a gulp task.
+- **Mocha Tests**: Debug mocha tests in a `test` folder of your project. Make sure that your project has 'mocha' installed in its node_modules folder.
+- **Yeoman generator**: Debug a yeoman generator. The snippet asks you to specify the name of the generator. Make sure that your project has 'yo' installed in its node_modules folder and that your generated project has been installed for debugging by running `npm link` in the project folder.
+- **Gulp task**: Debug a gulp task. Make sure that your project has 'gulp' installed in its node_modules folder.
 - **Electron Main**: Debug the main node.js process of an Electron application. The snippet assumes that the Electron executable has been installed inside the `node_modules/.bin` directory of the workspace.
-
-> Note: when using Mocha, Gulp, Yeoman make sure that your project has them installed in its node_modules folder.
 
 ### Node console
 
