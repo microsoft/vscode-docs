@@ -57,9 +57,11 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 ## Column (box) selection
 
-Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column selection:
+Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging to the opposite corner:
 
 ![Column text selection](images/codebasics/column-select.gif)
+
+Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
 
 There are also default key bindings for column selection on Mac and Windows, but not on Linux.
 
