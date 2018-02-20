@@ -2,13 +2,13 @@
 TOCTitle: Live Share FAQ
 ContentId: TODO
 PageTitle: Live Share Frequently Asked Questions
-DateApproved: 2/9/2018
+DateApproved: 2/20/2018
 MetaDescription: Find out more about VS Live share.
 MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.png
 ---
 
 # Visual Studio Live Share FAQ
-Updated February 15, 2018
+Updated February 20, 2018
 
 ## What is Live Share?
 Live Share allows developers to share a codebase and its context so you get instant, bi-directional, collaboration directly from your existing tools (Visual Studio 2017 or Visual Studio Code). With Live Share, your teammate can read, navigate, edit, and debug the project you’ve shared with them, both seamlessly and securely.  To see a demo of Live Share and sign-up for the preview visit the [Live Share overview page](/visual-studio-live-share).
