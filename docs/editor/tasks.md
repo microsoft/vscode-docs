@@ -325,7 +325,6 @@ VS Code can process the output from a task with a problem matcher and we ship wi
 - **Lessc compiler**: `$lessc` assumes that file names are reported as absolute path.
 - **Node Saas compiler**: `node-sass` assumes that file names re reported as an absolute path.
 
-
 Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
 
 You can also create your own problem matcher which we'll discuss [in a later section](/docs/editor/tasks.md#defining-a-problem-matcher).
@@ -429,7 +428,7 @@ Task frequently act with files on disk. If these files are store on disk with an
 
 If you need to tweak the encoding you should check whether it makes sense to change the default encoding used by our operating system or at least changing it for the shell you use by tweaking the shell's profile file.
 
- If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows usinhg code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therfore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
+ If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therfore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
 
 ```json
 {
@@ -544,6 +543,8 @@ Running it inside VS Code and pressing `kb(workbench.actions.view.problems)` to 
 
 ![GCC Problem Matcher](images/tasks/problemmatcher.png)
 
+>**Note:** the [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) includes problem matchers for GCC. So there is no need to define our own.
+
 There are a couple more properties that can be used inside a pattern. These are:
 
 - **location** if the problem location is line or line,column or startLine,startColumn,endLine,endColumn then our generic location match group can be used.
@@ -551,7 +552,9 @@ There are a couple more properties that can be used inside a pattern. These are:
 - **endColumn** the match group index for the problem's end column. Can be omitted if no end column value is provided by the compiler.
 - **code** the match group index for the problem's code. Can be omitted if no code value is provided by the compiler.
 
->**Note:** A functional pattern must at least provide a match group for file, message and line or location.
+There is also the possibility to define a problem matcher that captures only a file. To do so define a `pattern` with the optional `kind` attribute set to `file`. In this case there is no need to provide a `line` or `location` property.
+
+>**Note:** A functional pattern must at least provide a match group for `file` and  `message` if the `kind` property is set to `file`. If no `kind` property is provided or the `kind` property is set to `location` a function pattern must provide a `line` or `location` property as well.
 
 ## Defining a multi-line problem matcher
 
@@ -671,7 +674,7 @@ For the `tsc` compiler, an appropriate `background` property looks like this:
 }
 ```
 
-In addition to the `watching` property on the problem matcher, the task itself has to be marked as `isBackground` so that the task keeps running in the background.
+In addition to the `background` property on the problem matcher, the task itself has to be marked as `isBackground` so that the task keeps running in the background.
 
 A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks like this:
 

@@ -291,6 +291,14 @@ interface ProblemPattern {
     regexp: string;
 
     /**
+     * Whether the pattern matches a problem for the whole file or for a location
+     * inside a file.
+     *
+     * Defaults to "location".
+     */
+    kind?: "file" | "location";
+
+    /**
      * The match group index of the filename.
      */
     file: number;
