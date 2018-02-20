@@ -8,13 +8,16 @@ MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.png
 ---
 
 # Visual Studio Live Share FAQ
-Updated February 9, 2018
+Updated February 15, 2018
 
 ## What is Live Share?
 Live Share allows developers to share a codebase and its context so you get instant, bi-directional, collaboration directly from your existing tools (Visual Studio 2017 or Visual Studio Code). With Live Share, your teammate can read, navigate, edit, and debug the project you’ve shared with them, both seamlessly and securely.  To see a demo of Live Share and sign-up for the preview visit the [Live Share overview page](/visual-studio-live-share).
 
 ## What are the tooling requirements for using Live Share?
-During the private preview, Live Share will be iterating quickly to respond to user feedback, which means needing to take advantage of features within Visual Studio and Visual Studio Code that may only be available in their respective preview/insider releases. Long-term, Live Share will support the stable builds of both tools, however, for now, we recommend that both the host and guest(s) within a Live Share session install the following (depending on preference): [Visual Studio 2017 preview (15.6 preview 3+)](https://www.visualstudio.com/vs/preview/) or [Visual Studio Code Insiders](https://code.visualstudio.com/insiders/).
+During the private preview, Live Share will be iterating quickly to respond to user feedback, which means needing to take advantage of features within Visual Studio and Visual Studio Code that may only be available in their respective preview/insider releases. Long-term, Live Share will support the stable builds of both tools, however, for now, we recommend that both the host and guest(s) within a Live Share session install the following (depending on preference):
+
+* [Visual Studio 2017 preview (15.6 preview 3+)](https://www.visualstudio.com/vs/preview/)
+* Visual Studio Code (either [Stable](https://code.visualstudio.com/) or [Insiders](https://code.visualstudio.com/insiders/)).
 
 ## What are the core capabilities of Live Share?
 Live Share enables you to share your codebase with your team members via a secure connection. With Live Share, you are able to collaboratively edit multiple files in a workspace and more importantly debug your application with your teammates. During co-editing your edits are immediately seen by your teammates. During co-debugging you are sharing the same debug session of your application. This means you and your teammates can control the program execution with breakpoints and steps, but you can independently inspect variables, watches, locals, and REPLs (e.g. the Immediate Window in Visual Studio).
