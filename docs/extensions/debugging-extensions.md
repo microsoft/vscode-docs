@@ -80,7 +80,7 @@ If you are writing your extension in TypeScript then your code must first be com
 The TypeScript compilation is setup as follows in the generated extension:
 
 * A `tsconfig.json` defines the compile options for the TypeScript compiler. Read more about it at the [TypeScript wiki](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) or in our [TypeScript Language Section](/docs/languages/typescript.md#tsconfigjson).
-* A TypeScript compiler with the proper version is included inside the node_modules folder.
+* A TypeScript compiler with the proper version is included inside the `node_modules` folder.
 * The API definition is included in `node_modules/vscode`.
 
 The TypeScript compilation is triggered before running your extension. This is done with the `preLaunchTask` attribute defined in the
@@ -105,7 +105,7 @@ This is what happens when pressing `F5`:
  1. `.vscode/launch.json` instructs to first run a task named `npm`.
  2. `.vscode/tasks.json` defines the task `npm` as a shell command to `npm run compile`.
  3. `package.json` defines the script `compile` as `tsc -watch -p ./`
- 4. This eventually invokes the TypeScript compiler included in node_modules, which generates `out/src/extension.js` and `out/src/extension.js.map`.
+ 4. This eventually invokes the TypeScript compiler included in node_modules, which generates `out/extension.js` and `out/extension.js.map`.
  5. Once the TypeScript compilation task is finished, the `code --extensionDevelopmentPath=${workspaceFolder}` process is spawned.
  6. The second instance of VS Code is launched in a special **Extension Host** mode and it searches for an extension at `${workspaceFolder}`.
 
@@ -150,7 +150,6 @@ Do the following:
 Here are the steps:
 
 * Set the minimal version of VS Code that your extension requires in the `engine` field of the `package.json`.
-* Make sure your devDependency for the `vscode` module is at least `0.11.0`.
 * Add a `postinstall` script to your `package.json` like this:
 
 ```json
