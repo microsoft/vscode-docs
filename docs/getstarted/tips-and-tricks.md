@@ -450,6 +450,18 @@ Create language associations for files that aren't detected correctly. For examp
 }
 ```
 
+### Preventing dirty writes
+
+It can happen that VS Code shows you an error message when you try to save a file indicating that the file cannot be saved because it changed on disk. VS Code will prevent saving to a file that has changed on disk to prevent overwriting changes that have been made outside of the editor.
+
+In order to resolve the save conflict, click the **Compare** action in the error message to open a diff editor that will show you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
+
+![dirty write](images/tips-and-tricks/dirty-write.png)
+
+Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on disk, or **Revert** to the version on disk. Reverting means that your changes will be lost.
+
+**Note:** the file will remain dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
+
 ## Editing Hacks
 
 Here is a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
