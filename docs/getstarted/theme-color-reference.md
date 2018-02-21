@@ -125,7 +125,6 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.inactiveFocusForeground`: List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.invalidItemForeground`: List/Tree foreground color for invalid items, for example an unresolved root in explorer.
 
-
 ## Activity Bar
 
 The Activity Bar is displayed either on the far left or right of the workbench and allows fast switching between views of the Side Bar.
@@ -237,7 +236,7 @@ The range highlight is visible when selecting a search result.
 
 ![Range Highlight](images/theme-color-reference/rangehighlight.png)
 
-- `editor.rangeHighlightBackground`: Background color of highlighted ranges, like by like by the Quick Open, Symbol in File and Find features. The color must not be opaque to not hide underlying decorations.
+- `editor.rangeHighlightBackground`: Background color of highlighted ranges, used by Quick Open, Symbol in File and Find features. The color must not be opaque to not hide underlying decorations.
 - `editor.rangeHighlightBorder`: Background color of the border around highlighted ranges.
 
 To see the editor white spaces, enable **Toggle Render Whitespace**.

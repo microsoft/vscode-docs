@@ -39,12 +39,14 @@ You can also split the terminal by triggering the `kb(workbench.action.terminal.
 
 When focusing a split terminal pane, you can move focus and resize using one of the following commands:
 
-* `kb(workbench.action.terminal.focusPreviousPane)`
-* `kb(workbench.action.terminal.focusNextPane)`
-* `kb(workbench.action.terminal.resizePaneLeft)`
-* `kb(workbench.action.terminal.resizePaneRight)`
-* `kb(workbench.action.terminal.resizePaneUp)`
-* `kb(workbench.action.terminal.resizePaneDown)`
+Key|Command
+---|---
+`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane
+`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane
+`kb(workbench.action.terminal.resizePaneLeft)` | Resize Pane Left
+`kb(workbench.action.terminal.resizePaneRight)` | Resize Pane Right
+`kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up
+`kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down
 
 ## Configuration
 
@@ -137,16 +139,16 @@ If no text is selected in the active editor, the line that the cursor is on is r
 The keybindings for copy and paste follow platform standards:
 
 * Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`
-* Mac: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
+* macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
 * Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
 
-### Right Click Behavior
+### Right click behavior
 
 The right click behavior differs based on the platform:
 
-* Linux: Show the context menu
-* Mac: Select the word under the cursor and show the context menu
-* Windows: Copy and drop selection if there is a selection, otherwise paste
+* Linux: Show the context menu.
+* macOS: Select the word under the cursor and show the context menu.
+* Windows: Copy and drop selection if there is a selection, otherwise paste.
 
 This can be configured using the `terminal.integrated.rightClickBehavior` setting.
 
