@@ -32,18 +32,18 @@ Standard configuration for `launch.json`:
 
 ```json
 {
-    "name": "Python",
+    "name": "Python: Current File",
     "type": "python",
-    "pythonPath":"${config:python.pythonPath}",
     "request": "launch",
     "stopOnEntry": true,
-    "console": "none",
+    "pythonPath":"${config:python.pythonPath}",
     "program": "${file}",
     "cwd": "${workspaceFolder}",
+    "env": {},
+    "envFile": "${workspaceFolder}/.env",
     "debugOptions": [
         "RedirectOutput"
-    ],
-    "env": {"name":"value"}
+    ]
 }
 ```
 
@@ -109,7 +109,11 @@ An array of additional options that may contain the following:
 
 ### `env`
 
-Sets custom environment variables for the debugger process beyond system environment variables, which the debugger always inherits.
+Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits.
+
+### `envFile`
+
+Optional path to a file that contains environment variable definitions.
 
 ## Debugging specific app types
 
