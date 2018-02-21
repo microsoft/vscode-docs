@@ -1,6 +1,6 @@
 ---
 Order: 7
-Area: editor
+Area: nodejs
 TOCTitle: Debugging Recipes
 ContentId: 215832f9-d5bd-4cea-8cea-bfc4dc7ff7d1
 PageTitle: Debugging Recipes for VS Code
@@ -36,9 +36,9 @@ You can read more about how our Debugger for Chrome works in this introduction [
 **Recipes:**
 
 - [Debugging Angular apps with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI)
-- [Debugging Angular/C# apps with AspNetCore.SpaTemplates](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-SpaTemplates)
 - [Debugging Next.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
 - [Debugging Meteor apps](https://github.com/Microsoft/vscode-recipes/tree/master/meteor)
+- [Debugging Reaxt apps](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
 - [Debugging Vue.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/vuejs-cli)
 - [Debugging Mocha tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-mocha-tests)
 - [Debugging Jest tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-jest-tests)
@@ -68,15 +68,6 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 **Recipes:**
 
 - [Debugging Electron Main and Renderer processes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)
-
-
-## Debug transpiled C++ with Emscripten
-
-The Visual Studio Code editor supports debugging C++ compiled via [Emscripten](https://github.com/kripken/emscripten) via the built-in [Node.js](https://nodejs.org/) debugger, as your C++ code get's compiled into JavaScript.
-
-
-**Recipes**
-- [Debug Emscripten translated C/C++](https://github.com/weinand/vscode-recipes/issues/20)
 
 
 ## Next Steps
