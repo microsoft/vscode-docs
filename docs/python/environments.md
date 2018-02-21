@@ -138,8 +138,6 @@ By default, the debugger uses the same `python.pythonPath` setting as for other 
     "program": "${file}",
     "pythonPath": "${config:python.pythonPath}",
     "debugOptions": [
-        "WaitOnAbnormalExit",
-        "WaitOnNormalExit",
         "RedirectOutput"
     ]
 }

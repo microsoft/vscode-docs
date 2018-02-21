@@ -32,20 +32,18 @@ Standard configuration for `launch.json`:
 
 ```json
 {
-    "name": "Python",
+    "name": "Python: Current File",
     "type": "python",
-    "pythonPath":"${config:python.pythonPath}",
     "request": "launch",
     "stopOnEntry": true,
-    "console": "none",
+    "pythonPath":"${config:python.pythonPath}",
     "program": "${file}",
     "cwd": "${workspaceFolder}",
+    "env": {},
+    "envFile": "${workspaceFolder}/.env",
     "debugOptions": [
-        "WaitOnAbnormalExit",
-        "WaitOnNormalExit",
         "RedirectOutput"
-    ],
-    "env": {"name":"value"}
+    ]
 }
 ```
 
@@ -103,16 +101,19 @@ An array of additional options that may contain the following:
 
 | Option | Description |
 | --- | --- |
-| `"WaitOnAbnormalExit"` | Prevents an external console window from automatically closing when a program terminates due to an error. |
-| `"WaitOnNormalExit"` | Prevents an external console window from automatically closing when a program completes normally. |
 | `"RedirectOutput"` | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using  `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
 | `"DebugStdLib"` | Enabled debugging of standard library functions. |
 | `"DjangoDebugging"` | Activates debugging features specific to Django. |
 | `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
+| `"Pyramid"` | Used when debugging a Pyramid application. |
 
 ### `env`
 
-Sets custom environment variables for the debugger process beyond system environment variables, which the debugger always inherits.
+Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits.
+
+### `envFile`
+
+Optional path to a file that contains environment variable definitions.
 
 ## Debugging specific app types
 
