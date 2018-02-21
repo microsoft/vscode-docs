@@ -41,8 +41,6 @@ Standard configuration for `launch.json`:
     "program": "${file}",
     "cwd": "${workspaceFolder}",
     "debugOptions": [
-        "WaitOnAbnormalExit",
-        "WaitOnNormalExit",
         "RedirectOutput"
     ],
     "env": {"name":"value"}
@@ -103,12 +101,11 @@ An array of additional options that may contain the following:
 
 | Option | Description |
 | --- | --- |
-| `"WaitOnAbnormalExit"` | Prevents an external console window from automatically closing when a program terminates due to an error. |
-| `"WaitOnNormalExit"` | Prevents an external console window from automatically closing when a program completes normally. |
 | `"RedirectOutput"` | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using  `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
 | `"DebugStdLib"` | Enabled debugging of standard library functions. |
 | `"DjangoDebugging"` | Activates debugging features specific to Django. |
 | `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
+| `"Pyramid"` | Used when debugging a Pyramid application. |
 
 ### `env`
 
