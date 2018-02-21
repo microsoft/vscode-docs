@@ -24,16 +24,6 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 
 - [Debugging Node.js with Nodemon](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon)
 
-## Debug Node.js in Docker containers
-
-This recipe shows how to run and debug a VS Code Node.js project written in TypeScript running inside a [Docker](https://www.docker.com) container.
-
-![Node.js TypeScript and Docker logos](images/recipes/node-typescript-docker.png)
-
-**Recipes:**
-
-- [Docker-TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
-
 ## Debug client-side JavaScript in Google Chrome
 
 The Visual Studio Code editor supports debugging of JavaScript running in [Google Chrome](https://electron.atom.io) applications via the [Debugger for Chrome extension](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome).
@@ -47,13 +37,26 @@ You can read more about how our Debugger for Chrome works in this introduction [
 - [Debugging Angular apps with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI)
 - [Debugging Next.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/Next-js)
 - [Debugging Meteor apps](https://github.com/Microsoft/vscode-recipes/tree/master/meteor)
+- [Debugging Reaxt apps](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
 - [Debugging Vue.js apps](https://github.com/Microsoft/vscode-recipes/tree/master/vuejs-cli)
+- [Debugging Mocha tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-mocha-tests)
+- [Debugging Jest tests](https://github.com/Microsoft/vscode-recipes/tree/master/debugging-jest-tests)
 
 **Blog posts**:
 
 * [Live edit and debug your React apps directly from VS Code](https://medium.com/@auchenberg/live-edit-and-debug-your-react-apps-directly-from-vs-code-without-leaving-the-editor-3da489ed905f)
 
 * [Super-charged live editing and JavaScript debugging for Angular using VS Code](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
+
+## Debug Node.js in Docker containers
+
+This recipe shows how to run and debug a VS Code Node.js project written in TypeScript running inside a [Docker](https://www.docker.com) container.
+
+![Node.js TypeScript and Docker logos](images/recipes/node-typescript-docker.png)
+
+**Recipes:**
+
+- [Debugging Node.js with TypeScript in Docker](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
 ## MERN - Mongo, Express, React and NodeJS
 
@@ -74,6 +77,7 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 **Recipes:**
 
 - [Debugging Electron Main and Renderer processes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)
+
 
 ## Next Steps
 
