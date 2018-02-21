@@ -96,6 +96,8 @@ Since we already had an active debug session for the extension the VS Code debug
 Now we are able to debug both the extension and the debug adapter simultanously.
 A faster way to arrive here is by using the **Extension + Server** launch configuration which launches both sessions automatically.
 
+An alternative, even simpler approach for debugging the extension and the debug adapter can be found [below](https://code.visualstudio.com/docs/extensions/example-debuggers#_alternative-approach-to-develop-a-debug-extension).
+
 Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mockDebug.ts` and as a last step configure the mock debugger to connect to the debug adapter server by adding a `debugServer` attribute for port `4711` to your mock test launch config:
 
 ```json
@@ -319,3 +321,15 @@ Once you have created your debug adapter you can publish it to the Marketplace:
 
 * update the attributes in the `package.json` to reflect the naming and purpose of your debug adapter.
 * upload to the Marketplace as described in [Share an Extension](/docs/extensions/publish-extension.md) section.
+
+## Alternative approach to develop a Debug Extension
+
+Developing a debug extension typically involves debugging both the extension and the debug adapter in two parallel sessions. As explained above VS Code supports this nicely but development would be easier if both the extension and the debug adapter would be one program that could be debugged in one session.
+
+This approach is in fact easily doable as long as your debug adapter is implemented in TypeScript/JavaScript.
+
+The basic idea is to intercept the launch of a debug session in the `resolveDebugConfiguration` method of a `DebugConfigurationProvider` and starting to listen for _connect requests_ and creating a new debug adapter session for every request. To make VS Code use _connect requests_ (instead of always launching new debug adapter), the launch configuration is modified by adding the `debugServer` attribute to it.
+
+These few [lines of code](https://github.com/Microsoft/vscode-mock-debug/blob/042d19a27a8e3a08f27a24110506b53fbecc75ce/src/extension.ts#L61-L71) implement this approach for the **Mock Debug** extension.
+
+Enable this feature by setting the compile time flag `EMBED_DEBUG_ADAPTER` to true. If you now start debugging the extension with **F5** you will hit breakpoints not only in the extension but in the debug adapter as well.
