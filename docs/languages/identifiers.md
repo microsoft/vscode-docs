@@ -57,10 +57,11 @@ When defining a new language identifier, use the following guidelines:
 
 ## Known language identifiers
 
-The following table lists all known language identifiers:
+The following table lists known language identifiers:
 
 Language | Identifier
 -------- | ----------
+ABAP | `abap`
 Windows Bat | `bat`
 BibTeX | `bibtex`
 Clojure | `clojure`

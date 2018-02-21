@@ -72,13 +72,13 @@ Here is the launch configuration generated for Node.js debugging:
 }
 ```
 
-If you go back to the File Explorer view (`kb(workbench.view.explorer)`), you'll see that VS Code has create a `.vscode` folder and added the `launch.json` file to your workspace.
+If you go back to the File Explorer view (`kb(workbench.view.explorer)`), you'll see that VS Code has created a `.vscode` folder and added the `launch.json` file to your workspace.
 
 ![launch.json in Explorer](images/debugging/launch-json-in-explorer.png)
 
 >**Note**: You can debug a simple application even if you don't have a folder open in VS Code but it is not possible to manage launch configurations and set up advanced debugging. The VS Code Status Bar is purple if you do not have a folder open.
 
-Note that the attributes available in launch configurations vary from debugger to debugger. You can use IntelliSense suggestions (`kb(editor.actions.triggerSuggest)`) to find out which attributes exist for a specific debugger. In addition, hover help is available for all attributes. If you see green squigglies in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
+Note that the attributes available in launch configurations vary from debugger to debugger. You can use IntelliSense suggestions (`kb(editor.action.triggerSuggest)`) to find out which attributes exist for a specific debugger. In addition, hover help is available for all attributes. If you see green squigglies in your launch configuration, hover over them to learn what the problem is and try to fix them before launching a debug session.
 
 ![launch.json IntelliSense](images/debugging/launch-json-intellisense.png)
 

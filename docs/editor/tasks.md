@@ -96,7 +96,7 @@ Executing the task produces one error shown in the **Problems** view:
 
 ![Tasks ESLint Problem](images/tasks/eslint-problem.png)
 
-In additon, VS Code created a `tasks.json` file with the following content:
+In addition, VS Code created a `tasks.json` file with the following content:
 
 ```json
 {
@@ -187,13 +187,13 @@ In addition to the global menu bar, task commands can be accessed using the **Co
 
 ## Output behavior
 
-Sometimes you want to control how the Integrated Terminal panel behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The behavior of the terminal can be controled using the `presentation` property of a task. It offers the following properties:
+Sometimes you want to control how the Integrated Terminal panel behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The behavior of the terminal can be controlled using the `presentation` property of a task. It offers the following properties:
 
 - **reveal**: Controls whether the Integrated Terminal panel is brought to front. Valid values are:
   - *always* - The panel is always brought to front. This is the default.
   - *never* - The user must explicitly bring the terminal panel to the front using the  **View** > **Integrated Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`).
   - *silent* - The terminal panel is brought to front only if the output is not scanned for errors and warnings.
-- **focus**: Controls whether the teminal is taking input focus or not. Default is `false`.
+- **focus**: Controls whether the terminal is taking input focus or not. Default is `false`.
 - **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
 - **panel**: Controls whether the terminal instance is shared between task runs. Possible values are:
   - *shared*: The terminal is shared and the output of other task runs are added to the same terminal.
@@ -429,7 +429,7 @@ Task frequently act with files on disk. If these files are store on disk with an
 
 If you need to tweak the encoding you should check whether it makes sense to change the default encoding used by our operating system or at least changing it for the shell you use by tweaking the shell's profile file.
 
- If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows usinhg code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therfore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
+ If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therefore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
 
 ```json
 {
@@ -447,7 +447,7 @@ If you need to tweak the encoding you should check whether it makes sense to cha
 }
 ```
 
-If the task is execute in `PowerShell` the command needs to read like this `chcp 866; more russian.txt`. Under Linux and Mac the `locale` command can be used to inspect the locale and tweak the necessary environemt variables.
+If the task is execute in `PowerShell` the command needs to read like this `chcp 866; more russian.txt`. Under Linux and Mac the `locale` command can be used to inspect the locale and tweak the necessary environment variables.
 
 ## Examples of tasks in action
 

@@ -204,7 +204,7 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
 
 Now take a look at the **contributes** section which contains the contributions specific to debug extensions.
 
-First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled. With out this it would not be possible to set breakpoints in a markdown files.
+First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled. Without this it would not be possible to set breakpoints in a markdown files.
 
 Next is the **debuggers** section. Here one debugger is introduced under a (unique) debug **type** `mock`. The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nice name when showing it in the UI.
 
