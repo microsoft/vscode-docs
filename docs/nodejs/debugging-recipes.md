@@ -49,6 +49,16 @@ You can read more about how our Debugger for Chrome works in this introduction [
 
 * [Super-charged live editing and JavaScript debugging for Angular using VS Code](https://medium.com/@auchenberg/super-charged-live-editing-and-javascript-debugging-for-angular-using-visual-studio-code-c29da251ec71)
 
+## Debug Node.js in Docker containers
+
+This recipe shows how to run and debug a VS Code Node.js project written in TypeScript running inside a [Docker](https://www.docker.com) container.
+
+![Node.js TypeScript and Docker logos](images/recipes/node-typescript-docker.png)
+
+**Recipes:**
+
+- [Docker-TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
+
 ## MERN - Mongo, Express, React and NodeJS
 
 This recipe shows how to run and debug a MERN (Mongo, Express, React and NodeJS) based project in VS Code.
