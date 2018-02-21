@@ -23,7 +23,6 @@ The Visual Studio Code editor supports debugging Node.js applications via the bu
 **Recipes:**
 
 - [Debugging Node.js with Nodemon](https://github.com/Microsoft/vscode-recipes/tree/master/nodemon)
-- [Debugging Node.js with TypeScript in Docker](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
 ## Debug client-side JavaScript in Google Chrome
 
@@ -57,7 +56,7 @@ This recipe shows how to run and debug a VS Code Node.js project written in Type
 
 **Recipes:**
 
-- [Docker-TypeScript](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
+- [Debugging Node.js with TypeScript in Docker](https://github.com/Microsoft/vscode-recipes/tree/master/Docker-TypeScript)
 
 ## MERN - Mongo, Express, React and NodeJS
 
