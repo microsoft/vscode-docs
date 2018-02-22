@@ -31,23 +31,6 @@ Remove terminal instances by pressing the trash can button.
 
 >**Tip:** If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#terminal-key-bindings) to allow navigation between them using only the keyboard.
 
-### Terminal Splitting
-
-You can also split the terminal by triggering the `kb(workbench.action.terminal.split)` command or via the right click context menu.
-
-![Split terminals](images/integrated-terminal/terminal-split-pane.png)
-
-When focusing a split terminal pane, you can move focus and resize using one of the following commands:
-
-Key|Command
----|---
-`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane
-`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane
-`kb(workbench.action.terminal.resizePaneLeft)` | Resize Pane Left
-`kb(workbench.action.terminal.resizePaneRight)` | Resize Pane Right
-`kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up
-`kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down
-
 ## Configuration
 
 The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell on Linux and macOS using the `terminal.integrated.shellArgs.*` settings.
