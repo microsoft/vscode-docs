@@ -54,7 +54,6 @@ Pick a command with the keybinding you think is overloaded and you can see if mu
 
 ![show keybinding conflicts result](images/keybinding/show-conflicts-result.png)
 
-
 ## Advanced customization
 
 All keyboard shortcuts in VS Code can be customized via the `keybindings.json` file.
@@ -92,7 +91,7 @@ Each rule consists of:
 * a `command` containing the identifier of the command to execute.
 * an **optional** `when` clause containing a boolean expression that will be evaluated depending on the current **context**.
 
-Chords (two separate keypress actions) are described by separating the two keypresses with a space. E.g.: `kbstyle(ctrl+k ctrl+c)`.
+Chords (two separate keypress actions) are described by separating the two keypresses with a space. For example, `kbstyle(ctrl+k ctrl+c)`.
 
 When a key is pressed:
 
@@ -138,7 +137,6 @@ The following is an example overriding the `kbstyle(Enter)` key to print some te
 ```
 
 The type command will receive `{"text": "Hello World"}` as its first argument and add "Hello World" to the file instead of producing the default command.
-
 
 ## Removing a specific key binding rule
 
@@ -196,10 +194,9 @@ There is also a widget that helps input the key binding rule when editing `keybi
 
 >**Note:** On Linux, Visual Studio Code detects your current keyboard layout on start-up and then caches this information. For a good experience, we recommend restarting VS Code if you change your keyboard layout.
 
-
 ## Keyboard layout independent bindings
 
-Using scan codes, it is possible to define keybindings which do not change with the change of the keyboard layout. e.g.:
+Using scan codes, it is possible to define keybindings which do not change with the change of the keyboard layout. For example:
 
 ```json
 { "key": "cmd+[Slash]", "command": "editor.action.commentLine",
@@ -215,7 +212,6 @@ Accepted scan codes:
 * `kbstyle([Pause])`, `kbstyle([CapsLock])`, `kbstyle([Insert])`
 * `kbstyle([Numpad0]-[Numpad9])`, `kbstyle([NumpadMultiply])`, `kbstyle([NumpadAdd])`, `kbstyle([NumpadComma])`
 * `kbstyle([NumpadSubtract])`, `kbstyle([NumpadDecimal])`, `kbstyle([NumpadDivide])`
-
 
 ## 'when' clause contexts
 
@@ -269,7 +265,6 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
-
 
 ## Default Keyboard Shortcuts
 
@@ -496,7 +491,6 @@ Key|Command|Command id
 `kb(workbench.extensions.action.showRecommendedExtensions)`|Show Recommended Extensions|`workbench.extensions.action.showRecommendedExtensions`
 `kb(workbench.extensions.action.showPopularExtensions)`|Show Popular Extensions|`workbench.extensions.action.showPopularExtensions`
 `kb(workbench.extensions.action.updateAllExtensions)`|Update All Extensions|`workbench.extensions.action.updateAllExtensions`
-
 
 ## Next Steps
 

@@ -75,6 +75,7 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 >**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go [here](/docs/extensions/themes-snippets-colorizers.md#textmate-theme-rules) for more information
 
 Again, to customize a specific theme only, use the following syntax:
+
 ```json
 "editor.tokenColorCustomizations": {
     "[Monokai]": {
@@ -85,7 +86,7 @@ Again, to customize a specific theme only, use the following syntax:
 
 ## Creating your own color theme
 
-Creating and publishing a theme extension is quite easy. Customized your colors in the settings then generate a theme definition file with the `Generate Color Theme for Current Settings` command.
+Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme for Current Settings** command.
 
 VS Code's Yeoman [extension generator](/docs/extensions/yocode.md) will help you generate the rest of the extension.
 

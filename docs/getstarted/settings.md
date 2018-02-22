@@ -45,7 +45,7 @@ Depending on your platform, the user settings file is located here:
 
 The workspace setting file is located under the `.vscode` folder in your root folder.
 
->**Note:** In case of a [Mulit-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
+>**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
 ## Default Settings
 

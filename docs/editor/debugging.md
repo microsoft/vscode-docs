@@ -50,13 +50,13 @@ The top level **Debug** menu has the most common debug commands:
 
 To debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
 
-However for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure the debug setup in details and rememembers this setup. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](https://code.visualstudio.com/docs/editor/debugging#_global-launch-configuration) or [workspace settings](https://code.visualstudio.com/docs/editor/multi-root-workspaces#_workspace-launch-configurations).
+However for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](https://code.visualstudio.com/docs/editor/debugging#_global-launch-configuration) or [workspace settings](https://code.visualstudio.com/docs/editor/multi-root-workspaces#_workspace-launch-configurations).
 
 To create a `launch.json` file, open your project folder in VS Code (**File** > **Open Folder**) and then click on the Configure gear icon on the Debug view top bar.
 
 ![launch configuration](images/debugging/launch-configuration.png)
 
-VS Code will try to automatically detect your debug environment but if this fails you will have to choose your debug environment manually:
+VS Code will try to automatically detect your debug environment but if this fails, you will have to choose your debug environment manually:
 
 ![debug environment selector](images/debugging/debug-environments.png)
 
@@ -88,7 +88,7 @@ Do not assume that an attribute that is available for one debugger automatically
 
 ![launch.json IntelliSense](images/debugging/launch-json-intellisense.png)
 
-VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`) different attributes are required and our `launch.json` validation and suggestions should help with that.
+VS Code debuggers typically support launching a program in debug mode or attaching to an already running program in debug mode. Depending on the request (`attach` or `launch`) different attributes are required and VS Code's `launch.json` validation and suggestions should help with that.
 
 Review all automatically generated values and make sure that they make sense for your project and debugging environment.
 
@@ -282,7 +282,7 @@ Column breakpoints will only be hit when the execution reaches that column. This
 
 A column breakpoint can be set using `kb(editor.debug.action.toggleColumnBreakpoint)` or through the context menu during a debug session and column breakpoints are shown inline in the editor.
 
-Column breakpoints can also have conditions, editing multiple breakpoints on a line is possible through the context menu in the editor glyph margin.
+Column breakpoints can also have conditions. Editing multiple breakpoints on a line is possible through the context menu in the editor left margin.
 
 ### Function breakpoints
 

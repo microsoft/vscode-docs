@@ -64,7 +64,6 @@ The image above also shows indentation guides (vertical lines) which help you qu
 
 The Explorer is used to browse, open, and manage all of the files and folders in your project. VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
 
-
 After opening a folder in VS Code, the contents of the folder are shown in the Explorer. You can do many things from here:
 
 * Create, delete, and rename files and folders.
@@ -108,7 +107,7 @@ The File Explorer is just one of the Views available in VS Code. There are also 
 * **Extensions** - Install and manage your extensions within VS Code.
 * **Custom views** - Views contributed by extensions under Explorer and Debug views.
 
-> **Tip:** You can open any view using the **View: Open View** action.
+> **Tip:** You can open any view using the **View: Open View** command.
 
 ![views](images/userinterface/views.png)
 
@@ -152,9 +151,8 @@ You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu
 
 Most editor configurations are kept in settings which can be modified directly. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/getstarted/settings.md#settings-file-locations).
 
-* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.showCommands)`, type `user settings` and press `kbstyle(Enter)`) to edit the user `settings.json` file.
-
-* To edit workspace settings, select **File** > **Preferences** > **Settings** and select the **WORKSPACE SETTINGS** Tab (or press `kb(workbench.action.showCommands)`, type `workspace settings` and press `kbstyle(Enter)`) to edit the workspace settings.json file.
+* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openGlobalSettings)`) to edit the user `settings.json` file.
+* To edit workspace settings, select the **WORKSPACE SETTINGS** tab to edit the workspace `settings.json` file.
 
 >**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
 

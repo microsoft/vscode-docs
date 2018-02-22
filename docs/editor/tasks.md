@@ -78,7 +78,7 @@ You can also define the TypeScript build or watch task as the default build task
 }
 ```
 
-Unlike the previous `0.1.0` version of the `tasks.json` file, this does not define a new task. It annotates the **tsc: build** tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by simply pressing `kb(workbench.action.tasks.build)`.
+Unlike the previous `0.1.0` version of the `tasks.json` file, this does not define a new task. It annotates the **tsc: build** tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by pressing `kb(workbench.action.tasks.build)`.
 
 ## Task auto-detection
 
@@ -135,7 +135,7 @@ Task auto detection can be disabled using the following settings:
 
 ## Custom tasks
 
-Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu and select the `Create tasks.json file from template` entry. This opens the following picker:
+Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu and select the **Create tasks.json file from template** entry. This opens the following picker:
 
 ![Configure Task Runner](images/tasks/configure-task-runner.png)
 
@@ -198,7 +198,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However the output of a different task is presented in a different terminal.
   - *new*: Every execution of that task is using a new clean terminal.
 
-You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, simply add the `presentation` property to it:
+You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, add the `presentation` property to it:
 
 ```json
 {
@@ -312,7 +312,7 @@ Usually you would now add a problem matcher (in this case `$eslint-stylish`) or 
 
 ## Processing task output with problem matchers
 
-VS Code can process the output from a task with a problem matcher and we ship with a number of them 'in-the-box':
+VS Code can process the output from a task with a problem matcher and ships with several problem matchers 'in-the-box':
 
 - **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
 - **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
@@ -323,7 +323,7 @@ VS Code can process the output from a task with a problem matcher and we ship wi
 - **Go**: `$go` matches problems reported from the `go` compiler. Assumes that file names are relative to the opened folder.
 - **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
 - **Lessc compiler**: `$lessc` assumes that file names are reported as absolute path.
-- **Node Saas compiler**: `node-sass` assumes that file names re reported as an absolute path.
+- **Node Saas compiler**: `node-sass` assumes that file names are reported as an absolute path.
 
 Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
 
@@ -543,7 +543,7 @@ Running it inside VS Code and pressing `kb(workbench.actions.view.problems)` to 
 
 ![GCC Problem Matcher](images/tasks/problemmatcher.png)
 
->**Note:** the [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) includes problem matchers for GCC. So there is no need to define our own.
+>**Note:** The [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) includes problem matchers for GCC so there is no need to define our own.
 
 There are a couple more properties that can be used inside a pattern. These are:
 
@@ -552,9 +552,9 @@ There are a couple more properties that can be used inside a pattern. These are:
 - **endColumn** the match group index for the problem's end column. Can be omitted if no end column value is provided by the compiler.
 - **code** the match group index for the problem's code. Can be omitted if no code value is provided by the compiler.
 
-There is also the possibility to define a problem matcher that captures only a file. To do so define a `pattern` with the optional `kind` attribute set to `file`. In this case there is no need to provide a `line` or `location` property.
+You can also define a problem matcher that captures only a file. To do so, define a `pattern` with the optional `kind` attribute set to `file`. In this case, there is no need to provide a `line` or `location` property.
 
->**Note:** A functional pattern must at least provide a match group for `file` and  `message` if the `kind` property is set to `file`. If no `kind` property is provided or the `kind` property is set to `location` a function pattern must provide a `line` or `location` property as well.
+>**Note:** A functional pattern must at least provide a match group for `file` and `message` if the `kind` property is set to `file`. If no `kind` property is provided or the `kind` property is set to `location`, a function pattern must provide a `line` or `location` property as well.
 
 ## Defining a multi-line problem matcher
 
@@ -715,7 +715,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 ### Try running without tasks.json
 
-Tasks `2.0.0` version comes with lots of new auto-detection features so you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`.
+Tasks `2.0.0` version comes with lots of new auto-detection features so you can try removing an existing `tasks.json` file to see which tasks still work. One way is to rename the existing `tasks.json` to `tasks.json.off`.
 
 ### Migrating to Tasks 2.0.0
 
@@ -729,7 +729,7 @@ Here is a migration guide:
 - **isTestCommand**: Use the `"group": "test"` property instead.
 - **echoCommand**: Use the `"presentation" : { "echo": "..." }` property instead.
 - **showOutput**: Use the `"presentation" : { "reveal": "..." }` property instead.
-- **suppressTaskName**: By default, the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task, simply inline the command into the task and specify the arguments accordingly.
+- **suppressTaskName**: By default, the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task, you can inline the command into the task and specify the arguments accordingly.
 
 Consider the following `0.1.0` configuration:
 

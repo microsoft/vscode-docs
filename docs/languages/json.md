@@ -41,8 +41,7 @@ You can format your JSON document using `kb(editor.action.formatDocument)` or **
 
 ## JSON with Comments
 
-In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a _JSON with comments_ mode . This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json` or `debug.json`. When in the _JSON with comments_ mode, you can use single line (//) as well as block comments (/* */) as used in JavaScript.
-The current editor mode is indicated in the editor's status bar. Click on the mode indicator to change the mode and to configure how file names and extensions are associated to modes.
+In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a **JSON with Comments** mode . This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json` or `launch.json`. When in the **JSON with Comments** mode, you can use single line (//) as well as block comments (/* */) as used in JavaScript. The current editor mode is indicated in the editor's Status Bar. Click on the mode indicator to change the mode and to configure how file names and extensions are associated to modes.
 
 ## JSON Schemas & Settings
 

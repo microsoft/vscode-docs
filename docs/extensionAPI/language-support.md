@@ -961,7 +961,7 @@ Allow the user to preview and modify colors in the document.
 
 #### Language Server Protocol
 
-In the response to the `initialize` method, your language server needs to announce that it provides color informations.
+In the response to the `initialize` method, your language server needs to announce that it provides color information.
 
 ```json
 {
@@ -1002,31 +1002,8 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Basic**
 >
->Return all color references in the document. Provide color presentations for the color formats supported (e.g. rgb(...), hsl(...)).
+>Return all color references in the document. Provide color presentations for the color formats supported (for example rgb(...), hsl(...)).
 
 >**Advanced**
 >
 >Nothing additional.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

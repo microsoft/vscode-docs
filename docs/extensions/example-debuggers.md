@@ -216,13 +216,12 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
 
 Now take a look at the **contributes** section which contains the contributions specific to debug extensions.
 
-First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled. Without this it would not be possible to set breakpoints in a markdown files.
+First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled. Without this, it would not be possible to set breakpoints in a Markdown files.
 
 Next is the **debuggers** section. Here one debugger is introduced under a debug **type** "mock". The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nice name when showing it in the UI.
 
 Since the debug extension uses a debug adapter, a relative path to its code is given as the **program** attribute.
-In order to make the extension self-contained the application must live inside the extension folder.
-By convention we keep this applications inside a folder named `out` or `bin` but you are free to use a different name.
+In order to make the extension self-contained the application must live inside the extension folder. By convention, we keep this applications inside a folder named `out` or `bin` but you are free to use a different name.
 
 Since VS Code runs on different platforms, we have to make sure that the debug adapter program supports the different platforms as well. For this we have the following options:
 
@@ -288,16 +287,16 @@ The variable can now be used in any string typed value of a launch configuration
 
 ## Using a DebugConfigurationProvider
 
-If the static nature of debug contributions in the package.json is not sufficient, a `DebugConfigurationProvider` can  be used to dynamically control the following aspects of a debug extension:
+If the static nature of debug contributions in the `package.json` is not sufficient, a `DebugConfigurationProvider` can be used to dynamically control the following aspects of a debug extension:
 
 - the initial debug configurations for a newly created launch.json can be generated dynamically, e.g. based on some contextual information available in the workspace,
 - a launch configuration can be 'resolved' (or 'massaged') before it is used to start a new debug session. This allows for filling in default values based on information available in the workspace.
 - the executable path for the debug adapter and any command line arguments passed to it can be dynamically calculated.
 
-The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugConfiguration` to detect the case where a debug session is started when no launch.json exists but if a markdown file is open in the active editor. This is a typically scenario where the user has a file open in the editor and just wants to debug it without bothering with creating a launch.json.
+The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugConfiguration` to detect the case where a debug session is started when no launch.json exists but if a Markdown file is open in the active editor. This is a typically scenario where the user has a file open in the editor and just wants to debug it without bothering with creating a launch.json.
 
 A debug configuration provider is registered for a specific debug type via `vscode.debug.registerDebugConfigurationProvider` typically in the extension's `activate` function.
-To ensure that the `DebugConfigurationProvider` is registered early enough, the extension must be activated as soon as the debug functionality is used. This can be easily achieved by configuring extension activation for the `onDebug` event in the package.json:
+To ensure that the `DebugConfigurationProvider` is registered early enough, the extension must be activated as soon as the debug functionality is used. This can be easily achieved by configuring extension activation for the `onDebug` event in the `package.json`:
 
 ```json
 "activationEvents": [
