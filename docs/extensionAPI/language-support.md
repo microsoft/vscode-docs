@@ -28,7 +28,7 @@ To make it easier for you to decide what to implement first and what to improve 
 
 ### Language identifiers
 
-VS Code maps different language configurations and providers to specific programming languages through a language identifier. This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`.
+VS Code maps different language configurations and providers to specific programming languages through a language identifier. This is a lowercase string representing the programming language or file type. For example, JavaScript has a language id of `javascript` and Markdown files `markdown`. A list of known language identifiers can be found [here](/docs/languages/identifiers.md).
 
 ## Syntax Highlighting
 
@@ -953,25 +953,57 @@ export function activate(ctx: vscode.ExtensionContext): void {
 >
 >You should always return the smallest possible text edits that result in the source code being formatted. This is crucial to ensure that markers such as diagnostic results are adjusted corrected and are not lost.
 
+## Show Color Decorators
 
+Allow the user to preview and modify colors in the document.
 
+![Type Hover](images/language-support/color-decorators.png)
 
+#### Language Server Protocol
 
+In the response to the `initialize` method, your language server needs to announce that it provides color information.
 
+```json
+{
+    ...
+    "capabilities" : {
+        "colorProvider" : "true"
+        ...
+    }
+}
+```
 
+In addition, your language server needs to respond to the `textDocument/documentColor` and `textDocument/colorPresentation` requests.
 
+#### Direct Implementation
 
+```typescript
+class GoColorProvider implements vscode.DocumentColorProvider {
+    public provideDocumentColors(
+        document: vscode.TextDocument, token: vscode.CancellationToken):
+        Thenable<vscode.ColorInformation[]> {
+    ...
+    }
+    public provideColorPresentations(
+        color: Color, context: { document: TextDocument, range: Range }, token: vscode.CancellationToken):
+        Thenable<vscode.ColorPresentation[]> {
+    ...
+    }
+}
 
+export function activate(ctx: vscode.ExtensionContext): void {
+    ...
+    ctx.subscriptions.push(
+        vscode.languages.registerColorProvider(
+            GO_MODE, new GoColorProvider()));
+    ...
+}
+```
 
+>**Basic**
+>
+>Return all color references in the document. Provide color presentations for the color formats supported (for example rgb(...), hsl(...)).
 
-
-
-
-
-
-
-
-
-
-
-
+>**Advanced**
+>
+>Nothing additional.

@@ -17,7 +17,7 @@ The basic [yo code generator](/docs/extensions/yocode.md) extension project incl
 
 **Note**: The documentation below assumes that you created a TypeScript extension but the same also applies for a JavaScript extension. However, some file names may be different.
 
-After you've created a new extension and opened the project in VS Code, you can select the `Launch Tests` configuration from the dropdown at the top of the Debug View.
+After you've created a new extension and opened the project in VS Code, you can select the `Extension Tests` configuration from the dropdown at the top of the Debug View.
 
 ![launch tests](images/testing-extensions/launch-tests.png)
 
@@ -27,31 +27,34 @@ With this configuration chosen, when you run `Debug: Start` (`kb(workbench.actio
 
 The generated test uses the [Mocha test framework](https://mochajs.org/) for its test runner and library.
 
-The extension project comes with a `test` folder that includes an `index.ts` file which defines the Mocha test runner configuration and an `extension.test.ts` which has the example `Something 1` test. You can typically leave `index.ts` untouched, but you can modify it to adjust the configuration of Mocha.
+The extension project comes with a `src/test` folder that includes an `index.ts` file which defines the Mocha test runner configuration and an `extension.test.ts` which has the example `Something 1` test. You can typically leave `index.ts` untouched, but you can modify it to adjust the configuration of Mocha.
 
 ```
-├── test
-│   ├── extension.test.ts
-│   └── index.ts
+├── src
+│   └── test
+│       ├── extension.test.ts
+│       └── index.ts
 ```
 
 You can create more `test.ts` files under the `test` folder and they will automatically be built (to `out/test`) and run. The test runner will only consider files matching the name pattern `*.test.ts`.
 
 ## Launch Tests configuration
 
-The `Launch Tests` configuration is defined in the project's `.vscode\launch.json` file.  It is similar the `Launch Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
+The `Extension Tests` configuration is defined in the project's `.vscode\launch.json` file.  It is similar the `Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
 
 ```json
 {
-    "name": "Launch Tests",
+    "name": "Extension Tests",
     "type": "extensionHost",
     "request": "launch",
     "runtimeExecutable": "${execPath}",
-    "args": ["--extensionDevelopmentPath=${workspaceFolder}", "--extensionTestsPath=${workspaceFolder}/out/test" ],
-    "stopOnEntry": false,
-    "sourceMaps": true,
-    "outFiles": ["${workspaceFolder}/out/test/**/*.js"],
-    "preLaunchTask": "npm"
+    "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}",
+        "--extensionTestsPath=${workspaceFolder}/out/test"
+    ],
+    "outFiles": [
+        "${workspaceFolder}/out/test/**/*.js"
+    ]
 }
 ```
 
@@ -60,7 +63,11 @@ The `Launch Tests` configuration is defined in the project's `.vscode\launch.jso
 You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
 
 ```json
-"args": ["file or folder name", "--extensionDevelopmentPath=${workspaceFolder}", "--extensionTestsPath=${workspaceFolder}/out/test" ],
+"args": [
+    "file or folder name",
+    "--extensionDevelopmentPath=${workspaceFolder}",
+    "--extensionTestsPath=${workspaceFolder}/out/test"
+]
 ```
 
 This way you can run your tests with predictable content and folder structure.
@@ -71,7 +78,6 @@ If you decide to share your extension, you may not want to include the tests in 
 
 ```
 out/test/**
-test/**
 ```
 
 ## Running tests automatically on Travis CI build machines

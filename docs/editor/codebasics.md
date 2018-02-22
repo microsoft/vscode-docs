@@ -57,9 +57,11 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 ## Column (box) selection
 
-Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column selection:
+Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging to the opposite corner:
 
 ![Column text selection](images/codebasics/column-select.gif)
+
+Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
 
 There are also default key bindings for column selection on Mac and Windows, but not on Linux.
 
@@ -107,7 +109,7 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 >**Tip:** We support regular expression searching in the search box, too.
 
-You can configure advanced search options with `kb(workbench.action.search.toggleQueryDetails)`. This will show additional fields to configure the search.
+You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
 ### Advanced Search Options
 
@@ -123,7 +125,7 @@ In the two input boxes below the search box, you can include and exclude files. 
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
-Also note the two toggle buttons in the **files to exclude** box. The left one determines whether to exclude files that are ignored by your `.gitignore` file. The right determines whether to exclude files that are matched by your `files.exclude` and `search.exclude` settings.
+Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
@@ -289,6 +291,6 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
     "editor.wordWrap": "on"
 ```
 
-You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordWrap` value.
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.

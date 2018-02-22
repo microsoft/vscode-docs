@@ -21,7 +21,7 @@ Open the **Welcome** page to get started with the basics of VS Code. **Help** > 
 
 ![welcome page](images/tips-and-tricks/welcome_page.png)
 
-Includes the **Interactive Playground**.
+In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's feature. **Help** > **Interactive Playground**.
 
 ![interactive playground](images/tips-and-tricks/interactive_playground.png)
 
@@ -345,7 +345,7 @@ In the **Extensions** view, click **Show Recommended Extensions** in the **More*
 
 ### Creating my own extension
 
-Are you interested in creating your own extension? You can learn how to do this in the documentation, specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
+Are you interested in creating your own extension? You can learn how to do this in the [extension documentation](/docs/extensions/overview.md), specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
 
 * configuration
 * commands
@@ -398,11 +398,9 @@ Enter distraction free Zen mode.
 
 Keyboard Shortcut: `kb(workbench.action.splitEditor)`
 
-You can also use `kbstyle(Ctrl)` then click a file from the File Explorer (`kbstyle(Cmd+click)` on macOS).
+You can also drag and drop editors to create new editor groups and move editors between groups.
 
 ![split editors](images/tips-and-tricks/split_editor.gif)
-
-You can use drag and drop editors to create new editor groups and move editors between groups.
 
 ### Switch between editors
 
@@ -452,9 +450,21 @@ Create language associations for files that aren't detected correctly. For examp
 }
 ```
 
+### Preventing dirty writes
+
+VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
+
+In order to resolve the save conflict, click the **Compare** action in the error message to open a diff editor that will show you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
+
+![dirty write](images/tips-and-tricks/dirty-write.png)
+
+Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on disk, or **Revert** to the version on disk. Reverting means that your changes will be lost.
+
+**Note:** The file will remain dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
+
 ## Editing Hacks
 
-Here are a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
+Here is a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
 
 **Tip**: You can see recommended keymap extensions in the **Extensions** view with `kb(workbench.extensions.action.showRecommendedKeymapExtensions)` which filters the search to `@recommended:keymaps`.
 
@@ -700,7 +710,7 @@ See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippet
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes with VS Code "in-the-box". You can install other SCM provider from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
+Git integration comes with VS Code "out-of-the-box". You can install other SCM provider from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
 
 ### Diffs
 

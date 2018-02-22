@@ -86,6 +86,7 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
 
 * `html.format.wrapLineLength`: Maximum amount of characters per line.
 * `html.format.unformatted`: List of tags that shouldn't be reformatted.
+* `html.format.contentUnformatted`: List of tags, comma separated, where the content shouldn't be reformatted.
 * `html.format.extraLiners`: List of tags that should have an extra newline before them.
 * `html.format.preserveNewLines`: Whether existing line breaks before elements should be preserved.
 * `html.format.maxPreserveNewLines`: Maximum number of line breaks to be preserved in one chunk.
@@ -97,8 +98,10 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
   * `force-aligned`: Wrap all attributes, except first, and align attributes
   * `force-expand-multiline`: Wrap all attributes
 
+>**Tip:** The formatter does not format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
->**Tip:** The formatter does not format the tags listed in the `html.format.unformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
+The Marketplace has several alternative formatters to choose from. If you want to use a different formatter, define
+`"html.format.enable": false` in your settings to turn off the built-in formatter.
 
 ## Emmet snippets
 
@@ -142,3 +145,4 @@ Read on to find out about:
 **Q: Does VS Code have HTML preview?**
 
 **A:** No, VS Code doesn't have built-it support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.
+

@@ -156,9 +156,10 @@ interface TaskDescription {
     args?: string[];
 
     /**
-     * Defines the group to which this tasks belongs
+     * Defines the group to which this tasks belongs. Also supports to mark
+     * a tasks as the default task in a group.
      */
-    group?: "build" | "string";
+    group?: "build" | "test" | { kind: "build" | "test"; isDefault: boolean };
 
     /**
      * The presentation options.
@@ -289,6 +290,14 @@ interface ProblemPattern {
      * executed task.
      */
     regexp: string;
+
+    /**
+     * Whether the pattern matches a problem for the whole file or for a location
+     * inside a file.
+     *
+     * Defaults to "location".
+     */
+    kind?: "file" | "location";
 
     /**
      * The match group index of the filename.

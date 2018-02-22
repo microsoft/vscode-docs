@@ -37,7 +37,7 @@ Argument|Description
 `-r` or `--reuse-window` | Forces opening a file or folder in the last active window.
 `-g` or `--goto` | When used with *file:line[:character]*, opens a file at a specific line and optional character position. This argument is provided since some operating systems permit `:` in a file name.
 `-d` or `--diff` | Open a file difference editor. Requires two file paths as arguments.
-`-w` or `--wait` | Wait for the window to be closed before returning.
+`-w` or `--wait` | Wait for the files to be closed before returning.
 `--locale <locale>` | Set the [display language](/docs/getstarted/locales.md) (locale) for the VS Code session. (for example, `en-US` or `zh-TW`)
 
 ## Opening Files and Folders
@@ -81,10 +81,12 @@ Argument|Description
 ------------------|-----------
 `--extensions-dir <dir>` | Set the root path for extensions.
 `--user-data-dir <dir>` | Specifies the directory that user data is kept in, useful when running as root.
+`-s, --status` | Print process usage and diagnostics information.
 `-p, --performance` | Start with the **Developer: Startup Performance** command enabled.
 `--disable-gpu` | Disable GPU hardware acceleration.
 `--verbose` | Print verbose output (implies `--wait`).
 `--prof-startup` | Run CPU profiler during startup.
+`--upload-logs` | Uploads logs from current session to a secure endpoint.
 **Multi-root**|
 `--add <dir>` | Add folder(s) to the last active window for a multi-root workspace.
 

@@ -53,9 +53,9 @@ Pressing `kb(workbench.action.tasks.build)` or running **Run Build Task...** fro
 
 ![TypeScript Build Task](images/tasks/typescript-build.png)
 
-Selecting the entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file.
+The first entry executes the TypeScript compiler and translates the TypeScript file to a JavaScript file. When the compiler has finished, there should be a `HelloWorld.js` file. The second entry starts the TypeScript compiler in watch mode. Every save to the `HelloWorld.ts` file will regenerate the `HelloWorld.js` file.
 
-You can also define the TypeScript build task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select **TypeScript** and VS Code will generate the following `tasks.json` file:
+You can also define the TypeScript build or watch task as the default build task so that it is executed directly when triggering **Run Build Task** (`kb(workbench.action.tasks.build)`). To do so, select **Configure Default Build Task** from the global **Tasks** menu. This shows you a picker with the available build tasks. Select **tsc: build** or **tsc: watch** and VS Code will generate a `tasks.json` file. The one shown below make the **tsc: build** task the default build task:
 
 ```json
 {
@@ -78,7 +78,7 @@ You can also define the TypeScript build task as the default build task so that 
 }
 ```
 
-Unlike the previous `0.1.0` version of the `tasks.json` file, this does not define a new task. It annotates the TypeScript compile tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by simply pressing `kb(workbench.action.tasks.build)`.
+Unlike the previous `0.1.0` version of the `tasks.json` file, this does not define a new task. It annotates the **tsc: build** tasks contributed by VS Code's TypeScript extension to be the default build task. You can now execute the TypeScript compiler by pressing `kb(workbench.action.tasks.build)`.
 
 ## Task auto-detection
 
@@ -86,9 +86,7 @@ VS Code currently auto-detects tasks for the following systems: Gulp, Grunt, Jak
 
 ![Tasks ESLint starter](images/tasks/eslint-starter.png)
 
-Select **npm: install** to install the necessary Node.js modules. When prompted to select a problem matcher, select **Continue without scanning the build output**. This will install all necessary Node.js modules.
-
-Now open the `server.js` file and add a semicolon to the end of a statement (note the ESLint starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: run lint** task. When prompted for the problem matcher to use, select **ESLint stylish**
+If not done so install the necessary npm modules by running npm install. Now open the `server.js` file and add a semicolon to the end of a statement (note the ESLint starter assumes statements without a semicolon) and execute the **Run Tasks** again. This time select the **npm: lint** task. When prompted for the problem matcher to use, select **ESLint stylish**
 
 ![Tasks ESLint Problem Matcher Selection](images/tasks/eslint-problem-matcher-selection.png)
 
@@ -137,7 +135,7 @@ Task auto detection can be disabled using the following settings:
 
 ## Custom tasks
 
-Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu. This opens the following picker:
+Not all tasks or scripts can be auto-detected in your workspace. Sometimes it is necessary to define your own custom tasks. Assume you have a script to run your tests since it is necessary to setup some environment correctly. The script is stored in a script folder inside your workspace and named `test.sh` for Linux and macOS and `test.cmd` for Windows. Run **Configure Tasks** from the global **Tasks** menu and select the **Create tasks.json file from template** entry. This opens the following picker:
 
 ![Configure Task Runner](images/tasks/configure-task-runner.png)
 
@@ -200,7 +198,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
   - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However the output of a different task is presented in a different terminal.
   - *new*: Every execution of that task is using a new clean terminal.
 
-You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, simply add the `presentation` property to it:
+You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, add the `presentation` property to it:
 
 ```json
 {
@@ -314,7 +312,7 @@ Usually you would now add a problem matcher (in this case `$eslint-stylish`) or 
 
 ## Processing task output with problem matchers
 
-VS Code can process the output from a task with a problem matcher and we ship with a number of them 'in-the-box':
+VS Code can process the output from a task with a problem matcher and ships with several problem matchers 'in-the-box':
 
 - **TypeScript**: `$tsc` assumes that file names in the output are relative to the opened folder.
 - **TypeScript Watch**: `$tsc-watch` matches problems reported from the `tsc` compiler when executed in watch mode.
@@ -324,7 +322,8 @@ VS Code can process the output from a task with a problem matcher and we ship wi
 - **ESLint Stylish**: `$eslint-stylish` assumes that file names in the output are relative to the opened folder.
 - **Go**: `$go` matches problems reported from the `go` compiler. Assumes that file names are relative to the opened folder.
 - **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
-- **Less**: `$lessCompile` assumes that file names are reported as absolute path.
+- **Lessc compiler**: `$lessc` assumes that file names are reported as absolute path.
+- **Node Saas compiler**: `node-sass` assumes that file names are reported as an absolute path.
 
 Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
 
@@ -429,7 +428,7 @@ Task frequently act with files on disk. If these files are store on disk with an
 
 If you need to tweak the encoding you should check whether it makes sense to change the default encoding used by our operating system or at least changing it for the shell you use by tweaking the shell's profile file.
 
- If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therefore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
+If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therfore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
 
 ```json
 {
@@ -544,6 +543,8 @@ Running it inside VS Code and pressing `kb(workbench.actions.view.problems)` to 
 
 ![GCC Problem Matcher](images/tasks/problemmatcher.png)
 
+>**Note:** The [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) includes problem matchers for GCC so there is no need to define our own.
+
 There are a couple more properties that can be used inside a pattern. These are:
 
 - **location** if the problem location is line or line,column or startLine,startColumn,endLine,endColumn then our generic location match group can be used.
@@ -551,7 +552,9 @@ There are a couple more properties that can be used inside a pattern. These are:
 - **endColumn** the match group index for the problem's end column. Can be omitted if no end column value is provided by the compiler.
 - **code** the match group index for the problem's code. Can be omitted if no code value is provided by the compiler.
 
->**Note:** A functional pattern must at least provide a match group for file, message and line or location.
+You can also define a problem matcher that captures only a file. To do so, define a `pattern` with the optional `kind` attribute set to `file`. In this case, there is no need to provide a `line` or `location` property.
+
+>**Note:** A functional pattern must at least provide a match group for `file` and `message` if the `kind` property is set to `file`. If no `kind` property is provided or the `kind` property is set to `location`, a function pattern must provide a `line` or `location` property as well.
 
 ## Defining a multi-line problem matcher
 
@@ -671,7 +674,7 @@ For the `tsc` compiler, an appropriate `background` property looks like this:
 }
 ```
 
-In addition to the `watching` property on the problem matcher, the task itself has to be marked as `isBackground` so that the task keeps running in the background.
+In addition to the `background` property on the problem matcher, the task itself has to be marked as `isBackground` so that the task keeps running in the background.
 
 A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks like this:
 
@@ -712,7 +715,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
 
 ### Try running without tasks.json
 
-Tasks `2.0.0` version comes with lots of new auto-detection features so you can try removing an existing `tasks.json` file to see which tasks still work. Simply rename the existing `tasks.json` to `tasks.json.off`.
+Tasks `2.0.0` version comes with lots of new auto-detection features so you can try removing an existing `tasks.json` file to see which tasks still work. One way is to rename the existing `tasks.json` to `tasks.json.off`.
 
 ### Migrating to Tasks 2.0.0
 
@@ -726,7 +729,7 @@ Here is a migration guide:
 - **isTestCommand**: Use the `"group": "test"` property instead.
 - **echoCommand**: Use the `"presentation" : { "echo": "..." }` property instead.
 - **showOutput**: Use the `"presentation" : { "reveal": "..." }` property instead.
-- **suppressTaskName**: By default, the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task, simply inline the command into the task and specify the arguments accordingly.
+- **suppressTaskName**: By default, the task name gets appended to the list of arguments when running a task version `0.1.0`. Since version `2.0.0` supports commands per task, you can inline the command into the task and specify the arguments accordingly.
 
 Consider the following `0.1.0` configuration:
 

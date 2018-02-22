@@ -101,7 +101,7 @@ export interface SourceControlResourceState {
 
 ### Menus
 
-There are three Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
+There are five Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
 
 The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` dropdown.
 
@@ -129,6 +129,12 @@ The `scm/change/title` allows you to contribute commands to the title bar of an 
 async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;
 ```
 
+The `scm/sourceControl` menu is located contextually near SourceControl instances:
+
+<img src="images/api-scm/sourcecontrol-menu.png" width="506px" />
+
+Finally, the `scm/change/title` menu is related to the Quick Diff experience, showcased further ahead. It lets you contribute commands which are specific to code changes.
+
 ### SCM Input Box
 
 The Source Control Input Box, located atop of each Source Control view, allows the user to input a message. You can get (and set) this message in order to perform operations. In Git, for example, this is used as the commit box, in which users type in commit messages and `git commit` commands pick them up.
@@ -153,9 +159,9 @@ export interface SourceControl {
 
 ## Quick Diff
 
-VS Code also supports displaying **quick diff** editor gutter decorations.
+VS Code also supports displaying **quick diff** editor gutter decorations. Clicking those decorations will reveal an inline diff experience, to which you can contribute contextual commands:
 
-![VS Code SCM](images/api-scm/quickdiff.png)
+<img src="images/api-scm/quickdiff.png" width="912px" />
 
 These decorations are computed by VS Code itself. All you need to do is provide VS Code with the original contents of any given file.
 

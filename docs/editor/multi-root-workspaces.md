@@ -13,8 +13,6 @@ You can work with multiple project folders in Visual Studio Code with multi-root
 
 ![multi-root hero](images/multi-root-workspaces/hero.png)
 
->**Note**: Multi-root workspace mode is still a relatively new feature and some extensions may not have adopted the new APIs. Many extensions such as themes and snippets don't require any changes. If some of your extensions do not handle multiple folders, you may need to limit their use to a single folder.
-
 ## Adding folders
 
 It is easy to add another folder to your existing workspace. There are several gestures for adding folders:
@@ -38,6 +36,8 @@ Settings like `files.exclude` are supported for each root folder if configured a
 You can use drag and drop to add folders to a workspace. Drag a folder to the File Explorer to add it to the current workspace. You can even select and drag multiple folders.
 
 >**Note**: Dropping a single folder into the editor region of VS Code will still open the folder in single folder mode. If you drag and drop multiple folders into the editor region, a new multi-root workspace will be created.
+
+You can also use drag and drop to reorder folders in the workspace.
 
 ### Multiple selection native file open dialogs
 

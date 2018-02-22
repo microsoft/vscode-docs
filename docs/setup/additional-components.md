@@ -42,7 +42,7 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 - [Express](https://expressjs.com/) - An application framework for Node.js applications using the **Jade** template engine.
 - [Gulp](http://gulpjs.com/) - A streaming task runner system which integrates easily with VS Code tasks.
 - [Mocha](https://mochajs.org/) - A JavaScript test framework that runs on Node.js.
-- [Bower](https://bower.io/) - A client side package manager.
+- [Yarn](https://yarnpkg.com/) - A dependency manager and alternative to NPM.
 
 >**Note:** Most of these tools require Node.js and the NPM package manager to install and use.
 
