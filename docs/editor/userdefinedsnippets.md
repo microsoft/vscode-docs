@@ -92,6 +92,17 @@ The following variables can be used:
 * `TM_FILENAME_BASE` The filename of the current document without its extensions
 * `TM_DIRECTORY` The directory of the current document
 * `TM_FILEPATH` The full file path of the current document
+* `CLIPBOARD` The contents of your clipboard
+
+For inserting the current date and time:
+
+* `CURRENT_YEAR` The current year
+* `CURRENT_YEAR_SHORT` The current year's last two digits
+* `CURRENT_MONTH` The month as two digits (example '02')
+* `CURRENT_DATE` The day of the month
+* `CURRENT_HOUR` The current hour in 24-hour clock format
+* `CURRENT_MINUTE` The current minute
+* `CURRENT_SECOND` The current second
 
 ### Variable Transforms
 
