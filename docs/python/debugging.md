@@ -136,8 +136,6 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 ### Flask debugging
 
-At present, the default debugging configuration for Flask doesn't work properly (see [issue 573](https://github.com/Microsoft/vscode-python/issues/573)). Use the following configuration instead, changing `app.py` to the name of your startup code file.
-
 ```json
 {
     "name": "Python: Flask (0.11.x or later)",
