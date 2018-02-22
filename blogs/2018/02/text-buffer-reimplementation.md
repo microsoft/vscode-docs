@@ -118,7 +118,7 @@ CPU %	Mem MB	   PID	Process
     0	   360	 38981	   window (Heap-20171206T153117.heapsnapshot.txt — buffertest)
 ```
 
-We would expect macOS resident memory usage increases 50MB plus some metadata but apparently it used too much. We know that when we do string concatenation, JavaScript engine creates a cons-string first, which just links to two original strings. Next time you run `substring` or similar API on this cons-string, it will be flattened. Maybe there are some memory not released real quick (a V8 expert can have better explanation on this).
+We would expect macOS resident memory usage increases 50MB plus some metadata but apparently it used too much. We know that when we do string concatenation, V8 creates a ConsString first instead of copying the underlying bytes immediately. The ConsString may get flattened next time you execute lookup on it, which may not free some memory not released real quick (a V8 expert can have better explanation on this), it's simply not controlled by us.
 
 Opening a 50MB file is already problematic, what if we open a 500 MB file? Electron will throw an exception. This is because V8 has a limitation of string length and in our V8 version, it's around 256MB. This limit will be increased to 1GB in following V8 but that doesn't really solve the problem.
 
