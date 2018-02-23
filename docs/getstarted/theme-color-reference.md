@@ -63,11 +63,13 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 
 ## Dropdown Control
 
-A set of colors for all dropdown widgets such as in the Integrated Terminal or the Output panel.
+A set of colors for all dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
+dropdown control is not used on macOS currently.
 
 ![drop down control](images/theme-color-reference/dropdown.png)
 
 - `dropdown.background`: Dropdown background.
+- `dropdown.listBackground`: Dropdown list background.
 - `dropdown.border`: Dropdown border.
 - `dropdown.foreground`: Dropdown foreground.
 
