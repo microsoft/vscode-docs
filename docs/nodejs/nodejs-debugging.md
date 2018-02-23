@@ -81,7 +81,7 @@ These attributes are only available for launch configurations of request type `l
 * `cwd` - launch the program to debug in this directory.
 * `runtimeExecutable` - absolute path to the runtime executable to be used. Default is `node`. See section [Launch configuration support for 'npm' and other tools](/docs/nodejs/nodejs-debugging.md#launch-configuration-support-for-npm-and-other-tools).
 * `runtimeArgs` - optional arguments passed to the runtime executable.
-* `runtimeVersion` - if "nvm" (or "nvm-windows") is used for managing Node.js versions this attribute can be used to select a specific version of Node.js. See section [Multi version support](/docs/nodejs/nodejs-debugging.md#multi-version-support-nvm-nvm-windows) below.
+* `runtimeVersion` - if "[nvm](https://github.com/creationix/nvm)" (or "[nvm-windows](https://github.com/coreybutler/nvm-windows)") or "[nvs](https://github.com/jasongin/nvs)" is used for managing Node.js versions this attribute can be used to select a specific version of Node.js. See section [Multi version support](/docs/nodejs/nodejs-debugging.md#multi-version-support-nvm-nvm-windows) below.
 * `env` - optional environment variables. This attribute expects environment variables as a list of string typed key/value pairs.
 * `envFile` - optional path to a file containing environment variable definitions. See section [Load environment variables from external file](/docs/nodejs/nodejs-debugging.md#load-environment-variables-from-external-file-node) below.
 * `console` - kind of console to launch the program (`internalConsole`, `integratedTerminal`, `externalTerminal`). See section [Node Console](/docs/nodejs/nodejs-debugging.md#node-console) below.
@@ -147,9 +147,9 @@ the corresponding launch configuration would look like this:
 }
 ```
 
-### Multi version support ('nvm', 'nvm-windows')
+### Multi version support ('nvm', 'nvm-windows', 'nvs')
 
-If you are using 'nvm' (or 'nvm-windows') to manage your Node.js versions it is possible to specify a `runtimeVersion` attribute in a launch configuration for selecting a specific version of Node.js:
+If you are using '[nvm](https://github.com/creationix/nvm)' (or '[nvm-windows](https://github.com/coreybutler/nvm-windows)')  to manage your Node.js versions it is possible to specify a `runtimeVersion` attribute in a launch configuration for selecting a specific version of Node.js:
 
 ```json
 {
@@ -157,6 +157,18 @@ If you are using 'nvm' (or 'nvm-windows') to manage your Node.js versions it is 
     "request": "launch",
     "name": "Launch test",
     "runtimeVersion": "7.10.1",
+    "program": "${workspaceFolder}/test.js"
+}
+```
+
+If you are using '[nvs](https://github.com/jasongin/nvs)' to manage your Node.js versions it is possible to use `runtimeVersion` attribute to select even more specific version of Node.js:
+
+```json
+{
+    "type": "node",
+    "request": "launch",
+    "name": "Launch test",
+    "runtimeVersion": "chackracore/8.9.4/x64",
     "program": "${workspaceFolder}/test.js"
 }
 ```
