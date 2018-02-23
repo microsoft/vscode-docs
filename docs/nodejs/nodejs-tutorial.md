@@ -42,7 +42,7 @@ and name the file `app.js`:
 
 ![File Explorer app.js](images/nodejs/app-js-file-created.png)
 
-By using the `.js` file extension, VS Code interprets this file as JavaScript and will evaluate the contents with the JavaScript language service.
+By using the `.js` file extension, VS Code interprets this file as JavaScript and will evaluate the contents with the JavaScript language service. Refer to the VS Code [JavaScript language](/docs/languages/javascript.md) topic to learn more about JavaScript support.
 
 Create a simple string variable in `app.js` and send the contents of the string to the console:
 
@@ -51,7 +51,7 @@ var msg = 'Hello World';
 console.log(msg);
 ```
 
-Note that when you typed `console.` [IntelliSense](/docs/editor/intellisense.md) on the `console` object was automatically presented to you. When editing JavaScript files, VS Code will automatically provide you with IntelliSense for the DOM.
+Note that when you typed `console.` [IntelliSense](/docs/editor/intellisense.md) on the `console` object was automatically presented to you.
 
 ![console IntelliSense](images/nodejs/consoleintellisense.png)
 
@@ -93,7 +93,7 @@ To start debugging, select the Debug View in the Activity Bar:
 
 ![Debug icon](images/nodejs/debugicon.png)
 
-You can now click Debug tool bar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that VS Code displays an orange Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
+You can now click Debug tool bar green arrow or press `kb(workbench.action.debug.start)` to launch and debug "Hello World". Your breakpoint will be hit and you can view and step through the simple application.  Notice that VS Code displays a different colored Status Bar to indicate it is in Debug mode and the DEBUG CONSOLE is displayed.
 
 ![hello world debugging](images/nodejs/hello-world-debugging.png)
 
@@ -197,7 +197,7 @@ If you'd like to learn how to deploy your web application, check out the [Deploy
 There is much more to explore with Visual Studio Code, please try the following topics:
 
 * [Settings](/docs/getstarted/settings.md) - Learn how to customize VS Code for how you like to work.
-* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines
-* [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
-* [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
-* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
+* [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
+* [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake. Showing Errors and Warnings.
+* [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) - Learn more about VS Code's built-in Node.js debugging.
+* [Debugging Recipes](/docs/nodejs/debugging-recipes.md) - Working examples for popular debugging scenarios like client-side and container debugging.
