@@ -24,7 +24,7 @@ gulp.task('build-dist', done => {
     done()
   }
 
-  // Go to _build small change
+  // Go to _build
   if (!$.test('-e', '_build')) {
     $.mkdir('_build')
   }
