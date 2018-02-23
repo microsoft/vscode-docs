@@ -9,21 +9,21 @@ MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
 
-It is easy to configure VS Code to your liking through settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
+It is easy to configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
 
 VS Code provides two different scopes for settings:
 
-* **User** These settings apply globally to any instance of VS Code you open
+* **User** - These settings apply globally to any instance of VS Code you open.
 * **Workspace** These settings are stored inside your workspace and only apply when the workspace is opened. Settings defined on this scope override the user scope.
 
 ## Creating User and Workspace Settings
 
-To get to the user and workspace settings:
+To open your user and workspace settings, use the following menu command:
 
-- On a Windows computer, click **File** > **Preferences** > **Settings**
-- On a Mac, click **Code** > **Preferences** > **Settings**
+* On Windows/Linux - **File** > **Preferences** > **Settings**
+* On macOS - **Code** > **Preferences** > **Settings**
 
-You are provided with a list of Default Settings. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs under the Search box let you switch quickly between the user and workspace settings files.
+You are provided with a list of **Default Settings**. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs under the Search box let you switch quickly between the user and workspace settings files.
 
 You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openGlobalSettings)`).
 
@@ -47,9 +47,9 @@ The workspace setting file is located under the `.vscode` folder in your root fo
 
 >**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
-## Default Settings
+## Settings editor
 
-When you open settings, we show **Default Settings** to search and discover settings you are looking for. When you search using the big Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
+When you open the settings editor, you will see **Default Settings** where you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
 
 ![Settings Search](images/settings/settings-search.png)
 
@@ -57,11 +57,11 @@ When you open settings, we show **Default Settings** to search and discover sett
 
 ### Settings groups
 
-Default settings are represented in groups so that you can navigate them easily. It has **Most Commonly Used** group on the top to see the most common customizations done by VS Code users.
+Default settings are represented in groups so that you can navigate them easily. It has a **Most Commonly Used** group at the top which shows popular customizations.
 
 ![Settings Groups](images/settings/settings-groups.png)
 
-Here is the [copy of default settings](/docs/getstarted/settings.md#copy-of-default-settings) that comes with VS Code.
+Below is a [copy of the default settings](/docs/getstarted/settings.md#copy-of-default-settings) that come with VS Code.
 
 ## Language specific editor settings
 
@@ -115,7 +115,7 @@ Here is the list of settings we don't support at the workspace scope:
 
 The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
-### Copy of Default Settings
+## Default Settings
 
 Below are the default settings and their values.
 
