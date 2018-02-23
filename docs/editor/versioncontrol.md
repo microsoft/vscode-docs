@@ -127,13 +127,13 @@ To open the Git output window, run **View** > **Output** and select **Git** from
 
 ## Initialize a Repository
 
-If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Git Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **This workspace isn't yet under git source control.** message in the Git View and the **Initialize Git Repository** command will be available.
+If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **There are no active source control providers.** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette**.
 
 ![Git initialize repository](images/versioncontrol/git-initialize.png)
 
-Running **Initialize Git Repository** will create the necessary Git repository metadata files and show your workspace files as unstaged changes.
+Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged.
 
-## Git patch/diff mode
+## VS Code as Git editor
 
 When you launch VS Code from the command line, you can pass the `--wait` argument to make the launch command wait until you have closed the new VS Code instance. This can be useful when you configure VS Code as your Git external editor so Git will wait until you close the launched VS Code instance.
 
@@ -149,6 +149,8 @@ Here are the steps to do so:
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
 
 ![git config in VS Code](images/versioncontrol/gitconfig.png)
+
+### VS Code as Git Updiff tool
 
 Add the following to your Git configurations to use VS Code as the diff tool:
 
@@ -201,18 +203,6 @@ You can always set up a [credential helper](https://help.github.com/articles/cac
 **Q: How can I sign into Git with my Team Services account which requires multi-factor authentication?**
 
 **A:** There are now [Git credential helpers](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
-
-**Q: Using Visual Studio Code, I accidentally initialized a Git repo on a folder with a massive number of files, like my entire hard drive. Now VS Code is too slow to use or hangs. What do I do?**
-
-**A:** First, to get VS Code running again, exit VS Code, then open a command prompt and run
-
-```bash
-code -n
-```
-
-which opens VS Code in a new window.
-
-Next, assuming you want to remove the unintended repo initialization, look for the `.git` sub-folder in the large folder where you unintentionally initialized the repo, and then delete it. Note that `.git` is a hidden folder, so you might need to show hidden folders to see it. For example, at a command prompt in Windows you can run `dir .git /ah` to see hidden folders named `.git` in a specific folder. If you are not sure where you created the initial folder, run `dir .git /ah /s` at the root folder to see hidden `.git` folders, including sub-folders.
 
 **Q: I have GitHub Desktop installed on my computer but VS Code ignores it.**
 
