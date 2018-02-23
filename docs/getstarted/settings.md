@@ -16,7 +16,7 @@ VS Code provides two different scopes for settings:
 * **User** - These settings apply globally to any instance of VS Code you open.
 * **Workspace** These settings are stored inside your workspace and only apply when the workspace is opened. Settings defined on this scope override the user scope.
 
-## Creating User and Workspace Settings
+## Creating user and workspace settings
 
 To open your user and workspace settings, use the following menu command:
 
@@ -35,7 +35,7 @@ Changes to settings are reloaded by VS Code after the modified `settings.json` f
 
 >**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
-## Settings File Locations
+## Settings file locations
 
 Depending on your platform, the user settings file is located here:
 
@@ -75,7 +75,7 @@ To customize your editor by language, run the global command **Preferences: Conf
 
 If you have a file open and you want to customize the editor for this file type, click on the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings...**. Selecting this opens the Settings editor with the language entry where you can add applicable settings.
 
-You can also configure language based settings by directly opening `settings.json`. You can scope them to the workspace by placing them in the Workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
+You can also configure language based settings by directly opening `settings.json`. You can scope them to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
 
 The following examples customize editor settings for language modes `typescript` and `markdown`.
 
@@ -115,9 +115,9 @@ Here is the list of settings we don't support at the workspace scope:
 
 The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
-## Default Settings
+## Default settings
 
-Below are the default settings and their values.
+Below are the default settings and their values. You can also view the default values in the Settings editor.
 
 ```json
 {
