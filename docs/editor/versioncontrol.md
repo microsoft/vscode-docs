@@ -45,7 +45,7 @@ You can also find indicators of the **status of your repository** in the bottom 
 
 > **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
-## Git Status Bar Actions
+## Git Status Bar actions
 
 There is a **Synchronize Changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured. **Synchronize Changes** will pull remote changes down to your local repository and then push local commits to the upstream branch.
 
@@ -97,13 +97,13 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 
 ![Gutter indicators](images/editingevolved/gutter.png)
 
-## Merge Conflicts
+## Merge conflicts
 
 ![Git merge](images/versioncontrol/merge-conflict.png)
 
 Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
 
-## Viewing Diffs
+## Viewing diffs
 
 Our Git tooling supports viewing of diffs within VS Code.
 
@@ -119,15 +119,15 @@ There is a review pane in the Diff editor which presents changes in a unified pa
 
 **Note:** This experience is especially helpful for screen reader users.
 
-## Git Output Window
+## Git output window
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
 
 To open the Git output window, run **View** > **Output** and select **Git** from the dropdown.
 
-## Initialize a Repository
+## Initialize a repository
 
-If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **There are no active source control providers.** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette**.
+If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **There are no active source control providers.** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Git initialize repository](images/versioncontrol/git-initialize.png)
 
@@ -150,7 +150,7 @@ Now you can run `git config --global -e` and use VS Code as editor for configuri
 
 ![git config in VS Code](images/versioncontrol/gitconfig.png)
 
-### VS Code as Git Updiff tool
+### VS Code as Git diff tool
 
 Add the following to your Git configurations to use VS Code as the diff tool:
 
