@@ -226,7 +226,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.showAbbreviationSuggestions`
 
-    Shows possible emmet abbreviations as suggestions. Its `true` by default.
+    Shows possible emmet abbreviations as suggestions. It is `true` by default.
 
     For example, when you type `li`, you get suggestions for all emmet snippets starting with `li` like `link`, `link:css` , `link:favicon` etc.
     This is helpful in learning Emmet snippets that you never knew existed unless you knew the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) by heart.

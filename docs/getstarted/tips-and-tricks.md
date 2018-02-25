@@ -629,7 +629,7 @@ Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use
 ### .eslintrc.json
 
 Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). Configure
-your linter however you'd like. Consult the [ESLint specification](http://eslint.org/docs/user-guide/configuring) for details on it's linting rules and options.
+your linter however you'd like. Consult the [ESLint specification](http://eslint.org/docs/user-guide/configuring) for details on its linting rules and options.
 
 Here is configuration to use ES6.
 
