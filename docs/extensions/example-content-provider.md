@@ -94,7 +94,7 @@ For customizing your document you can use CSS. Just embed your css styles in htm
 
 > **Tip:** If you want to have css in separated file you have to  use full path. Relative path don't work.
 
-## Creating command to interact with Provider
+## Interact with Provider
 
 As we create a provider, now we must code some access to it. At the beginning we have to specify an url to our page. `example` you can replace with you desired name. This uri is used only in extension logic, you can't see it in editor. Next instantiate a new object of our content provider.
 
