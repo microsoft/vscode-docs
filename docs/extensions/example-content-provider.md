@@ -2,7 +2,7 @@
 Order: 13
 Area: extensions
 TOCTitle: Example-Content Provider
-ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
+ContentId:
 PageTitle: Visual Studio Code Example - Content Provider Extension
 DateApproved:
 MetaDescription: Content Provider example shows how to display html document within VS Code
@@ -34,7 +34,7 @@ yo code
 
 This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, fill in the fields the same way you see them completed in the image below (using 'ContentProvider' as the extension name and your own name as the publisher).
 
-![Yo Code Word Count Example Output](images/example-content-provider/yo1.png)
+![Yo Code Example Output](images/example-content-provider/yo1.png)
 
 You can now open VS Code as described in the generator output:
 
