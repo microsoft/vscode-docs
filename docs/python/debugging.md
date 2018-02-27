@@ -26,6 +26,8 @@ The default `launch.json` (which is where VS Code stores the debugger configurat
 
 Additional configurations are described in [Debugging specific app types](#debugging-specific-app-types).
 
+>**Note:** If you'd like to try the new experimental debugger, see the instructions on [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub).
+
 ## Standard configuration and options
 
 Standard configuration for `launch.json`:
