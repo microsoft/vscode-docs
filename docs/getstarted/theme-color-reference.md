@@ -412,23 +412,41 @@ The Status Bar is shown in the bottom of the workbench.
 - `titleBar.border`: Title bar border color. Note that this color is currently only supported on macOS.
 
 
-## Notification Dialog Colors
+## Notification Colors
 
-Notifications slide in from the top of the workbench.
+**Note:** In VS Code version 1.21 (Feburary 2018) the notifications UX was redesigned. All of the below colors only apply for versions since then.
 
-![Notification bar](images/theme-color-reference/notification-bar.png)
+Notification toasts slide in from the bottom-right of the workbench.
 
-- `notification.background`: Notifications background color. Notifications slide in from the top of the window.
-- `notification.foreground`: Notifications foreground color. Notifications slide in from the top of the window.
-- `notification.buttonBackground`: Notifications button background color. Notifications slide in from the top of the window.
-- `notification.buttonForeground`: Notifications button foreground color. Notifications slide in from the top of the window.
-- `notification.buttonHoverBackground`: Notifications button background color when hovering. Notifications slide in from the top of the window.
-- `notification.errorBackground`: Notifications error background color. Notifications slide in from the top of the window.
-- `notification.errorForeground`: Notifications error foreground color. Notifications slide in from the top of the window.
-- `notification.infoBackground`: Notifications info background color. Notifications slide in from the top of the window.
-- `notification.infoForeground`: Notifications info foreground color. Notifications slide in from the top of the window.
-- `notification.warningBackground`: Notifications warning background color. Notifications slide in from the top of the window.
-- `notification.warningForeground`: Notifications warning foreground color. Notifications slide in from the top of the window.
+![Notification Toasts](images/theme-color-reference/notification-toast.png)
+
+Once opened in the notifications center, they show up in a list with a header:
+
+![Notification Center](images/theme-color-reference/notification-center.png)
+
+- `notificationsCenter.border`: Notifications center border color. Notifications slide in from the bottom right of the window.
+- `notificationsCenterHeader.foreground`: Notifications center header foreground color. Notifications slide in from the bottom right of the window.
+- `notificationsCenterHeader.background`: Notifications center header background color. Notifications slide in from the bottom right of the window.
+- `notificationsToast.border`: Notification toast border color. Notifications slide in from the bottom right of the window.
+- `notifications.foreground`: Notifications foreground color. Notifications slide in from the bottom right of the window.
+- `notifications.background`: Notifications background color. Notifications slide in from the bottom right of the window.
+- `notifications.border`: Notifications border color separating from other notifications in the notifications center. Notifications slide in from the bottom right of the window.
+- `notificationLink.foreground`: Notification links foreground color. Notifications slide in from the bottom right of the window.
+
+If you target VS Code versions before the 1.21 (Feburary 2018) release, these are the old (no longer supported) colors:
+
+- `notification.background`
+- `notification.foreground`
+- `notification.buttonBackground`
+- `notification.buttonForeground`
+- `notification.buttonHoverBackground`
+- `notification.errorBackground`
+- `notification.errorForeground`
+- `notification.infoBackground`
+- `notification.infoForeground`
+- `notification.warningBackground`
+- `notification.warningForeground`
+
 
 ## Extensions
 
