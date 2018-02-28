@@ -255,7 +255,9 @@ terminalFocus | An integrated terminal has focus.
 **Global UI contexts** |
 resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
 resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
-globalMessageVisible | Message box is visible at the top of VS Code.
+notificationFocus | Notification has keyboard focus.
+notificationsCenterVisible | Notifications center is visible at the bottom right of VS Code.
+notificationsToastsVisible | Notifications toast is visible at the bottom right of VS Code.
 searchViewletVisible | Search view is open.
 sidebarVisible | Side Bar is displayed.
 replaceActive | Search view Replace text box is open.
