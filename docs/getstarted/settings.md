@@ -618,9 +618,6 @@ Below are the default settings and their values.
   // When enabled, will trim trailing whitespace when saving a file.
   "files.trimTrailingWhitespace": false,
 
-  // Use the new experimental file watcher.
-  "files.useExperimentalFileWatcher": false,
-
   // Configure glob patterns of file paths to exclude from file watching. Patterns must match on absolute paths (i.e. prefix with ** or the full path to match properly). Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
     "**/.git/objects/**": true,
