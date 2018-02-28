@@ -167,7 +167,7 @@ The **editor context menu**  has these default groups:
 * `navigation` - The `navigation` group comes first in all cases.
 * `1_modification` - This group comes next and contains commands that modify your code.
 * `9_cutcopypaste` - The second last default group with the basic editing commands.
-* `z_commands` - The last default group with an entry to open the command palette.
+* `z_commands` - The last default group with an entry to open the Command Palette.
 
 ![Menu Group Sorting](images/extension-points/groupSorting.png)
 

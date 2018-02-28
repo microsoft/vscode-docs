@@ -405,7 +405,7 @@ The Status Bar is shown in the bottom of the workbench.
 
 ## Title Bar Colors (macOS)
 
-**Note:** these colors are currently only supported on macOS
+**Note:** These colors are currently only supported on macOS.
 
 - `titleBar.activeBackground`: Title Bar background when the window is active.
 - `titleBar.activeForeground`: Title Bar foreground when the window is active.
@@ -413,29 +413,28 @@ The Status Bar is shown in the bottom of the workbench.
 - `titleBar.inactiveForeground`: Title Bar foreground when the window is inactive.
 - `titleBar.border`: Title bar border color.
 
-
 ## Notification Colors
 
-**Note:** In VS Code version 1.21 (Feburary 2018) the notifications UX was redesigned. All of the below colors only apply for versions since then.
+**Note:** The colors below only apply for VS Code versions 1.21 and higher.
 
-Notification toasts slide in from the bottom-right of the workbench.
+Notification toasts slide up from the bottom-right of the workbench.
 
 ![Notification Toasts](images/theme-color-reference/notification-toast.png)
 
-Once opened in the notifications center, they show up in a list with a header:
+Once opened in the Notification Center, they are displayed in a list with a header:
 
 ![Notification Center](images/theme-color-reference/notification-center.png)
 
-- `notificationsCenter.border`: Notifications center border color.
-- `notificationsCenterHeader.foreground`: Notifications center header foreground color.
-- `notificationsCenterHeader.background`: Notifications center header background color.
+- `notificationsCenter.border`: Notification Center border color.
+- `notificationsCenterHeader.foreground`: Notification Center header foreground color.
+- `notificationsCenterHeader.background`: Notification Center header background color.
 - `notificationsToast.border`: Notification toast border color.
-- `notifications.foreground`: Notifications foreground color.
-- `notifications.background`: Notifications background color.
-- `notifications.border`: Notifications border color separating from other notifications in the notifications center.
+- `notifications.foreground`: Notification foreground color.
+- `notifications.background`: Notification background color.
+- `notifications.border`: Notification border color separating from other notifications in the Notification Center.
 - `notificationLink.foreground`: Notification links foreground color.
 
-If you target VS Code versions before the 1.21 (Feburary 2018) release, these are the old (no longer supported) colors:
+If you target VS Code versions before the 1.21 (February 2018) release, these are the old (no longer supported) colors:
 
 - `notification.background`
 - `notification.foreground`
@@ -448,7 +447,6 @@ If you target VS Code versions before the 1.21 (Feburary 2018) release, these ar
 - `notification.infoForeground`
 - `notification.warningBackground`
 - `notification.warningForeground`
-
 
 ## Extensions
 

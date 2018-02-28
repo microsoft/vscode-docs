@@ -256,8 +256,8 @@ terminalFocus | An integrated terminal has focus.
 resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
 resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 notificationFocus | Notification has keyboard focus.
-notificationsCenterVisible | Notifications center is visible at the bottom right of VS Code.
-notificationsToastsVisible | Notifications toast is visible at the bottom right of VS Code.
+notificationsCenterVisible | Notification Center is visible at the bottom right of VS Code.
+notificationsToastsVisible | Notification toast is visible at the bottom right of VS Code.
 searchViewletVisible | Search view is open.
 sidebarVisible | Side Bar is displayed.
 replaceActive | Search view Replace text box is open.
