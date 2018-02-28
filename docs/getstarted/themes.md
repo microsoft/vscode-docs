@@ -47,7 +47,7 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Customizing a Color Theme
 
-You can customize your active color theme with the `workbench.colorCustomizations` and `editor.colorCustomizations` user [settings](/docs/getstarted/settings.md).
+You can customize your active color theme with the `workbench.colorCustomizations` and `editor.tokenColorCustomizations` user [settings](/docs/getstarted/settings.md).
 
 To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more, use `workbench.colorCustomizations`.
 
