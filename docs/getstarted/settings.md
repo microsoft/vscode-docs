@@ -412,6 +412,9 @@ Below are the default settings and their values.
   // Controls diff decorations in the editor.
   "scm.diffDecorations": "all",
 
+  // Controls the width(px) of diff decorations in gutter (added & modified).
+  "scm.diffDecorationsGutterWidth": 3,
+
 // Workbench
 
   // Controls the visibility of the activity bar in the workbench.
@@ -508,6 +511,9 @@ Below are the default settings and their values.
 
   // When enabled, will show the watermark tips when no editor is open.
   "workbench.tips.enabled": true,
+
+  // Controls the visibility of view header actions. View header actions may either be always visible, or only visible when that view is focused or hovered over.
+  "workbench.view.alwaysShowHeaderActions": false,
 
 // Window
 
@@ -624,6 +630,9 @@ Below are the default settings and their values.
 
 // Zen Mode
 
+  // Controls if turning on Zen Mode also centers the layout.
+  "zenMode.centerLayout": true,
+
   // Controls if turning on Zen Mode also puts the workbench into full screen mode.
   "zenMode.fullScreen": true,
 
@@ -678,6 +687,9 @@ Below are the default settings and their values.
 
   // Controls if the Search Viewlet should read or modify the shared find clipboard on macOS
   "search.globalFindClipboard": false,
+
+  // Controls if the search will be shown as a viewlet in the sidebar or as a panel in the panel area for more horizontal space
+  "search.location": "sidebar",
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
@@ -813,7 +825,7 @@ Below are the default settings and their values.
 
 // Markdown
 
-// Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
+  // Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
   "markdown.preview.breaks": false,
 
   // Double click in the markdown preview to switch to the editor.
@@ -834,11 +846,11 @@ Below are the default settings and their values.
   // Mark the current editor selection in the markdown preview.
   "markdown.preview.markEditorSelection": true,
 
-  // When the markdown preview is scrolled, update the view of the editor.
+  // When a markdown preview is scrolled, update the view of the editor.
   "markdown.preview.scrollEditorWithPreview": true,
 
-  // Scrolls the markdown preview to reveal the currently selected line from the editor.
-  "markdown.preview.scrollPreviewWithEditorSelection": true,
+  // When a markdown editor preview is scrolled, update the view of the preview.
+  "markdown.preview.scrollPreviewWithEditor": true,
 
   // Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.
   "markdown.previewFrontMatter": "hide",
@@ -1085,7 +1097,7 @@ Below are the default settings and their values.
 
 // LESS
 
-// Invalid number of parameters
+  // Invalid number of parameters
   "less.lint.argumentsInColorFunction": "error",
 
   // Do not use width or height when using padding or border
@@ -1209,6 +1221,9 @@ Below are the default settings and their values.
   // If set to true, the notifications for extension recommendations will stop showing up.
   "extensions.ignoreRecommendations": false,
 
+  // If set to true, recommendations will not be fetched or shown unless specifically requested by the user.
+  "extensions.showRecommendationsOnlyOnDemand": false,
+
 // External Terminal
 
   // Customizes what kind of terminal to launch.
@@ -1230,69 +1245,7 @@ Below are the default settings and their values.
     "editor.action.toggleTabFocusMode",
     "workbench.action.debug.continue",
     "workbench.action.debug.pause",
-    "workbench.action.debug.restart",
-    "workbench.action.debug.run",
-    "workbench.action.debug.start",
-    "workbench.action.debug.stepInto",
-    "workbench.action.debug.stepOut",
-    "workbench.action.debug.stepOver",
-    "workbench.action.debug.stop",
-    "workbench.action.focusActiveEditorGroup",
-    "workbench.action.focusFirstEditorGroup",
-    "workbench.action.focusSecondEditorGroup",
-    "workbench.action.focusThirdEditorGroup",
-    "workbench.action.navigateDown",
-    "workbench.action.navigateLeft",
-    "workbench.action.navigateRight",
-    "workbench.action.navigateUp",
-    "workbench.action.openNextRecentlyUsedEditorInGroup",
-    "workbench.action.openPreviousRecentlyUsedEditorInGroup",
-    "workbench.action.quickOpen",
-    "workbench.action.quickOpenPreviousEditor",
-    "workbench.action.quickOpenView",
-    "workbench.action.showCommands",
-    "workbench.action.tasks.build",
-    "workbench.action.tasks.restartTask",
-    "workbench.action.tasks.runTask",
-    "workbench.action.tasks.showLog",
-    "workbench.action.tasks.showTasks",
-    "workbench.action.tasks.terminate",
-    "workbench.action.tasks.test",
-    "workbench.action.terminal.clear",
-    "workbench.action.terminal.copySelection",
-    "workbench.action.terminal.deleteWordLeft",
-    "workbench.action.terminal.deleteWordRight",
-    "workbench.action.terminal.findWidget.history.showNext",
-    "workbench.action.terminal.findWidget.history.showPrevious",
-    "workbench.action.terminal.focus",
-    "workbench.action.terminal.focusAtIndex1",
-    "workbench.action.terminal.focusAtIndex2",
-    "workbench.action.terminal.focusAtIndex3",
-    "workbench.action.terminal.focusAtIndex4",
-    "workbench.action.terminal.focusAtIndex5",
-    "workbench.action.terminal.focusAtIndex6",
-    "workbench.action.terminal.focusAtIndex7",
-    "workbench.action.terminal.focusAtIndex8",
-    "workbench.action.terminal.focusAtIndex9",
-    "workbench.action.terminal.focusFindWidget",
-    "workbench.action.terminal.focusNext",
-    "workbench.action.terminal.focusPrevious",
-    "workbench.action.terminal.hideFindWidget",
-    "workbench.action.terminal.kill",
-    "workbench.action.terminal.new",
-    "workbench.action.terminal.newInActiveWorkspace",
-    "workbench.action.terminal.paste",
-    "workbench.action.terminal.runActiveFile",
-    "workbench.action.terminal.runSelectedText",
-    "workbench.action.terminal.scrollDown",
-    "workbench.action.terminal.scrollDownPage",
-    "workbench.action.terminal.scrollToBottom",
-    "workbench.action.terminal.scrollToTop",
-    "workbench.action.terminal.scrollUp",
-    "workbench.action.terminal.scrollUpPage",
-    "workbench.action.terminal.selectAll",
-    "workbench.action.terminal.toggleTerminal",
-    "workbench.action.togglePanel"
+    ...
   ],
 
   // Whether to confirm on exit if there are active terminal sessions.
@@ -1328,10 +1281,10 @@ Below are the default settings and their values.
   // Controls the font size in pixels of the terminal.
   "terminal.integrated.fontSize": 14,
 
-  // The font weight to use within the termianl for non-bold text.
+  // The font weight to use within the terminal for non-bold text.
   "terminal.integrated.fontWeight": "normal",
 
-  // The font weight to use within the termianl for bold text.
+  // The font weight to use within the terminal for bold text.
   "terminal.integrated.fontWeightBold": "bold",
 
   // Controls the line height of the terminal, this number is multiplied by the terminal font size to get the actual line-height in pixels.
@@ -1340,8 +1293,8 @@ Below are the default settings and their values.
   // Treat the option key as the meta key in the terminal on macOS.
   "terminal.integrated.macOptionIsMeta": false,
 
-  // When set, this will prevent the context menu from appearing when right clicking within the terminal, instead it will copy when there is a selection and paste when there is no selection.
-  "terminal.integrated.rightClickCopyPaste": true,
+  // Controls how terminal reacts to right click, possibilities are 'default', 'copyPaste', and 'selectWord'. 'default' will show the context menu, 'copyPaste' will copy when there is a selection otherwise paste, 'selectWord' will select the word under the cursor and show the context menu.
+  "terminal.integrated.rightClickBehavior": "copyPaste",
 
   // Controls the maximum amount of lines the terminal keeps in its buffer.
   "terminal.integrated.scrollback": 1000,
@@ -1388,6 +1341,45 @@ Below are the default settings and their values.
 
   // Enable usage data and errors to be sent to Microsoft.
   "telemetry.enableTelemetry": true,
+
+// Default Configuration Overrides
+
+  // Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
+
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
+
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
+
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
+
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": false
+  },
 
 // Git
 
@@ -1436,7 +1428,7 @@ Below are the default settings and their values.
   // Ignores the warning when Git is missing
   "git.ignoreMissingGitWarning": false,
 
-  // Controls when to show input validation.
+  // Controls when to show commit message input validation.
   "git.inputValidation": "warn",
 
   // Path to the git executable
@@ -1448,43 +1440,10 @@ Below are the default settings and their values.
   // Controls whether to show an inline Open File action in the Git changes view.
   "git.showInlineOpenFileAction": true,
 
-// Default Configuration Overrides
+// Gulp
 
-  // Configure editor settings to be overridden for [git-commit] language.
-  "[git-commit]":  {
-    "editor.rulers": [
-        72
-    ]
-  },
-
-  // Configure editor settings to be overridden for [go] language.
-  "[go]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [json] language.
-  "[json]":  {
-    "editor.quickSuggestions": {
-        "strings": true
-    }
-  },
-
-  // Configure editor settings to be overridden for [makefile] language.
-  "[makefile]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [markdown] language.
-  "[markdown]":  {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
-
-  // Configure editor settings to be overridden for [yaml] language.
-  "[yaml]":  {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2
-  },
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
 
 // Emmet
 
@@ -1523,11 +1482,6 @@ Below are the default settings and their values.
   // Variables to be used in Emmet snippets
   "emmet.variables": {},
 
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
-
 // Npm
 
   // Controls whether auto detection of npm scripts is on or off. Default is on.
@@ -1547,10 +1501,10 @@ Below are the default settings and their values.
   // Enable/disable merge conflict decorators within editor
   "merge-conflict.decorators.enabled": true,
 
-// Gulp
+// Grunt
 
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on"
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on"
 }
 ```
 
