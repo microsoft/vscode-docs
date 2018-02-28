@@ -24,7 +24,7 @@ You can find JavaScript extensions by typing `JavaScript` in the Extension view 
 
 In addition you can search for `Node.js` extensions.
 
-<div class="marketplace-extensions-node"></div>
+<div class="marketplace-extensions-node-curated"></div>
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
