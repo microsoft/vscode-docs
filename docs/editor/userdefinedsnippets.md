@@ -29,11 +29,9 @@ Below are some popular extensions which include snippets in their language suppo
 
 ## Creating your Own Snippets
 
-You can define your own snippets for specific languages.  To open up a snippet file for editing, open **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on Mac) and select the language for which the snippets should appear.
+You can define your own snippets, either global snippets or snippet for a specific language. To open up a snippet file for editing, open **Configure User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on Mac) and select the language for which the snippets should appear.
 
-Snippets are defined in a JSON format and stored in a per user `(languageId).json` file. For example, Markdown snippets go in a `markdown.json` file.
-
-The example below is a `For Loop` snippet for `JavaScript`.
+Snippets are defined in a JSON format, the example below is a `For Loop` snippet for `JavaScript`.
 
 ```json
 {
@@ -58,6 +56,26 @@ In the example above:
 * `description` is the description used in the IntelliSense drop down
 
 The example above has three placeholders, `${1:index}`, `${2:array}`, and `${3:element}`. You can quickly traverse them in the order of their number. The string after the number and colon is filled in as default.
+
+The file type and name define if a snippet is global or specific to a language. Snippets stored in a JSON-file that is named after a language (`<languageId>.json`) are language specific, e.g. JavaScript only snippets go in a `javascript.json` file. Global snippets that are applicable in different languages are stored in `<name>.code-snippets`-files, for instance `MyGlobal.code-snippets`. The JSON-schema of global snippets allows to define a `scope`-property which can narrow down on languages for which a snippet is applicable.
+
+The sample below is the `For Loop` again but this time it is scoped to JavaScript *and* TypeScript.
+
+```json
+{
+    "For_Loop": {
+        "prefix": "for",
+        "scope": "javascript,typescript"
+        "body": [
+            "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
+            "\tvar ${3:element} = ${2:array}[${1:index}];",
+            "\t$0",
+            "}"
+        ],
+        "description": "For Loop"
+    },
+}
+```
 
 Once you have added a new snippet, you can try it out right away, no restart needed.
 
