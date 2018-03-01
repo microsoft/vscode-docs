@@ -38,11 +38,10 @@ Snippets are defined in a JSON format, the example below is a `For Loop` snippet
     "For_Loop": {
         "prefix": "for",
         "body": [
-            "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-            "\tvar ${3:element} = ${2:array}[${1:index}];",
-            "\t$0",
-            "}"
-        ],
+          "for (const ${2:element} of ${1:array}) {",
+          "\t$0",
+          "}",
+        ]
         "description": "For Loop"
     },
 }
@@ -55,7 +54,7 @@ In the example above:
 * `body` is the content and either a single string or an array of strings of which each element will be inserted as separate line.
 * `description` is the description used in the IntelliSense drop down
 
-The example above has three placeholders, `${1:index}`, `${2:array}`, and `${3:element}`. You can quickly traverse them in the order of their number. The string after the number and colon is filled in as default.
+The example above has two placeholders, `${1:array}` and `${2:element}. You can quickly traverse them in the order of their number. The string after the number and colon is filled in as default.
 
 The file type and name define if a snippet is global or specific to a language. Snippets stored in a JSON-file that is named after a language (`<languageId>.json`) are language specific, e.g. JavaScript only snippets go in a `javascript.json` file. Global snippets that are applicable in different languages are stored in `<name>.code-snippets`-files, for instance `MyGlobal.code-snippets`. The JSON-schema of global snippets allows to define a `scope`-property which can narrow down on languages for which a snippet is applicable.
 
@@ -67,11 +66,10 @@ The sample below is the `For Loop` again but this time it is scoped to JavaScrip
         "prefix": "for",
         "scope": "javascript,typescript"
         "body": [
-            "for (var ${1:index} = 0; ${1:index} < ${2:array}.length; ${1:index}++) {",
-            "\tvar ${3:element} = ${2:array}[${1:index}];",
-            "\t$0",
-            "}"
-        ],
+          "for (const ${2:element} of ${1:array}) {",
+          "\t$0",
+          "}",
+        ]
         "description": "For Loop"
     },
 }
