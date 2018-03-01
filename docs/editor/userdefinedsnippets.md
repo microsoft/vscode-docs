@@ -29,7 +29,7 @@ Below are some popular extensions which include snippets in their language suppo
 
 ## Creating your Own Snippets
 
-You can define your own snippets, either global snippets or snippet for a specific language. To open up a snippet file for editing, open **Configure User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on Mac) and select the language for which the snippets should appear.
+You can define your own snippets, either global snippets or snippet for a specific language. To open up a snippet file for editing, open **Configure User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on Mac) and select the language for which the snippets should appear or create a new global snippet.
 
 Snippets are defined in a JSON format, the example below is a `For Loop` snippet for `JavaScript`.
 
