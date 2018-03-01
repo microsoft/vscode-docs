@@ -425,10 +425,10 @@ Once opened in the Notification Center, they are displayed in a list with a head
 
 ![Notification Center](images/theme-color-reference/notification-center.png)
 
-- `notificationsCenter.border`: Notification Center border color.
-- `notificationsCenterHeader.foreground`: Notification Center header foreground color.
-- `notificationsCenterHeader.background`: Notification Center header background color.
-- `notificationsToast.border`: Notification toast border color.
+- `notificationCenter.border`: Notification Center border color.
+- `notificationCenterHeader.foreground`: Notification Center header foreground color.
+- `notificationCenterHeader.background`: Notification Center header background color.
+- `notificationToast.border`: Notification toast border color.
 - `notifications.foreground`: Notification foreground color.
 - `notifications.background`: Notification background color.
 - `notifications.border`: Notification border color separating from other notifications in the Notification Center.
