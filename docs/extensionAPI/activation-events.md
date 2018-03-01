@@ -33,6 +33,17 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
+The `onLanguage` event takes a [language identifier](/docs/languages/identifiers.md) value. Multiple languages can be declared with separate `onLanguage` entries in the `activationEvents` array.
+
+```json
+"activationEvents": [
+    "onLanguage:json",
+    "onLanguage:markdown",
+    "onLanguage:typescript"
+]
+...
+```
+
 ## activationEvents.onCommand
 
 This activation event is emitted and interested extensions will be activated whenever a command is being invoked:
@@ -56,6 +67,15 @@ This activation event is emitted and interested extensions will be activated bef
 ]
 ...
 ```
+
+### onDebugInitialConfigurations and onDebugResolve
+
+There are two more fine-grained `onDebug` activation events:
+
+* `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
+* `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
+
+**Rule of thumb:** If activation of a debug extensions is lightweight, use `onDebug`. If it is heavyweight, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`. See [Debug Type specific Hooks](/docs/extensionAPI/api-debugging.md#debug-type-specific-hooks) for more details on these methods.
 
 ## activationEvents.workspaceContains
 

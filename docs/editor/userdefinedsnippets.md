@@ -1,13 +1,13 @@
 ---
 Order: 12
 Area: editor
-TOCTitle: Creating your own Snippets
+TOCTitle: Creating snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
-PageTitle: Creating your own Snippets in Visual Studio Code
+PageTitle: Creating your own snippets in Visual Studio Code
 DateApproved: 2/7/2018
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
-# Creating your own Snippets
+# Creating your own snippets
 
 Code snippets are templates that make it easier to enter repeating code patterns, such as loops or conditional-statements.
 
@@ -17,7 +17,7 @@ The snippet syntax follows the [TextMate snippet syntax](https://manual.macromat
 
 ![ajax snippet](images/userdefinedsnippets/ajax-snippet.gif)
 
-## Add Snippets from the Marketplace
+## Add snippets from the Marketplace
 
 Many [extensions](/docs/editor/extension-gallery.md) on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode) include snippets.  If you find one you want to use, install it and restart VS Code and the new snippet will be available (see [here](/docs/editor/extension-gallery.md#browse-and-install-extensions) for more instructions on installing an extension).
 
@@ -25,13 +25,15 @@ Below are some popular extensions which include snippets in their language suppo
 
 <div class="marketplace-extensions-snippets"></div>
 
-> Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+> **Tip**: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-## Creating your Own Snippets
+## Creating your own snippets
 
-You can define your own snippets, either global snippets or snippet for a specific language. To open up a snippet file for editing, open **Configure User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on Mac) and select the language for which the snippets should appear or create a new global snippet.
+You can define your own snippets, either global snippets or snippets for a specific language. To open up a snippet file for editing, select **User Snippets** under **File** > **Preferences** (**Code** > **Preferences** on macOS) and select the language (by [language identifier](/docs/languages/identifiers.md)) for which the snippets should appear or create a new global snippet (**New Global Snippets file...**).
 
-Snippets are defined in a JSON format, the example below is a `For Loop` snippet for `JavaScript`.
+![snippet dropdown](images/userdefinedsnippets/snippet-dropdown.png)
+
+Snippets are defined in a JSON format. The example below is a `For Loop` snippet you would use for JavaScript:
 
 ```json
 {
@@ -49,14 +51,20 @@ Snippets are defined in a JSON format, the example below is a `For Loop` snippet
 
 In the example above:
 
-* `For Loop` is the snippet name
+* `For Loop` is the snippet name.
 * `prefix` defines how this snippet is selected from IntelliSense and tab completion. In this case `for`.
 * `body` is the content and either a single string or an array of strings of which each element will be inserted as separate line.
-* `description` is the description used in the IntelliSense drop down
+* `description` is the description used in the IntelliSense drop down.
 
-The example above has two placeholders, `${1:array}` and `${2:element}. You can quickly traverse them in the order of their number. The string after the number and colon is filled in as default.
+The example above has two placeholders, `${1:array}` and `${2:element}`. You can quickly traverse them in the order of their number. The string after the number and colon is used as an initial default.
 
-The file type and name define if a snippet is global or specific to a language. Snippets stored in a JSON-file that is named after a language (`<languageId>.json`) are language specific, e.g. JavaScript only snippets go in a `javascript.json` file. Global snippets that are applicable in different languages are stored in `<name>.code-snippets`-files, for instance `MyGlobal.code-snippets`. The JSON-schema of global snippets allows to define a `scope`-property which can narrow down on languages for which a snippet is applicable.
+### Snippet filenames
+
+The file type and name define if a snippet is global or specific to a language. Snippets stored in a JSON file that is named after a [language identifier](/docs/languages/identifiers.md) (`<languageId>.json`) are language specific. For example, JavaScript-only snippets go in a `javascript.json` file.
+
+### Global snippets
+
+Global snippets that are applicable whenever you are editing and are stored in `<name>.code-snippets` files, for example `MyGlobal.code-snippets`. The JSON schema of global snippets allows you to define a `scope` property which can filter the languages (based on [language identifier](/docs/languages/identifiers.md)) for which a snippet is applicable.
 
 The sample below is the `For Loop` again but this time it is scoped to JavaScript *and* TypeScript.
 
@@ -64,7 +72,7 @@ The sample below is the `For Loop` again but this time it is scoped to JavaScrip
 {
     "For_Loop": {
         "prefix": "for",
-        "scope": "javascript,typescript"
+        "scope": "javascript,typescript",
         "body": [
           "for (const ${2:element} of ${1:array}) {",
           "\t$0",
@@ -77,7 +85,7 @@ The sample below is the `For Loop` again but this time it is scoped to JavaScrip
 
 Once you have added a new snippet, you can try it out right away, no restart needed.
 
-## Snippet Syntax
+## Snippet syntax
 
 The `body` of a snippet can use special constructs to control cursors and the text being inserted. The following are supported features and their syntaxes:
 
@@ -120,7 +128,7 @@ For inserting the current date and time:
 * `CURRENT_MINUTE` The current minute
 * `CURRENT_SECOND` The current second
 
-### Variable Transforms
+### Variable transforms
 
 Transformations allow you to modify the value of a variable before it is inserted. The definition of a transformation consists of three parts:
 
@@ -189,7 +197,6 @@ We already know that snippets can be inserted via IntelliSense, the 'Insert Snip
 
 It will invoke the 'Insert Snippet'-action but instead of letting you select a snippet it will run on the provided snippet. Also, instead of `snippet` you can have `langId` and `name` arguments to reference an existing snippet: `{ "langId": "csharp", "name": "myFavSnippet" }`
 
-
 ## Next Steps
 
 * [Command Line](/docs/editor/command-line.md) - VS Code has a rich command line interface to open or diff files and install extensions.
@@ -201,4 +208,3 @@ It will invoke the 'Insert Snippet'-action but instead of letting you select a s
 **Q: What if I want to use existing TextMate snippets from a .tmSnippet file?**
 
 **A:** You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) in our Extension Authoring documentation.
-
