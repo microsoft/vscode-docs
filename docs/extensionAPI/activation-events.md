@@ -33,7 +33,9 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 ```
 
-The `onLanguage` event takes a [language identifier](/docs/languages/identifiers.md) value. Multiple languages can be declared with separate `onLanguage` entries in the `activationEvents` array.
+The `onLanguage` event takes a [language identifier](/docs/languages/identifiers.md) value.
+
+Multiple languages can be declared with separate `onLanguage` entries in the `activationEvents` array.
 
 ```json
 "activationEvents": [
