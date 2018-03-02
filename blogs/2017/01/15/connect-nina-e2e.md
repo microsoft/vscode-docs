@@ -94,7 +94,7 @@ In order to orient ourselves within the codebase, let's play around with some ex
 
 2. Select `server.js`, which is the startup script for the app.
 
-3. Hover over the `database` variable that is imported on line 6 in order to see it's "type". This ability to quickly inspect variables/modules/types within a file can come in very handy, especially since we tend to spend more time reading/understanding code than writing it!
+3. Hover over the `database` variable that is imported on line 6 in order to see its "type". This ability to quickly inspect variables/modules/types within a file can come in very handy, especially since we tend to spend more time reading/understanding code than writing it!
 
     <img src="/assets/blogs/2017/01/03/HoverHelp.png" width="200px" /><br />
 
@@ -182,7 +182,7 @@ Within the paused file, we can hover over expressions to view their current valu
 
 ## Full Stack Debugging
 
-As mentioned, this is a MEAN app, which means it's front-end and back-end are both written using JavaScript. So while we're currently debugging our back-end Node/Express code, at some point, we may need to debug our front-end/Angular code. Fortunately, VS Code has a huge ecosystem of extensions, which are easy to install, including integrated Chrome debugging.
+As mentioned, this is a MEAN app, which means its front-end and back-end are both written using JavaScript. So while we're currently debugging our back-end Node/Express code, at some point, we may need to debug our front-end/Angular code. Fortunately, VS Code has a huge ecosystem of extensions, which are easy to install, including integrated Chrome debugging.
 
 To demonstrate this, switch to the extensions tab and type `chrome` into the search box:
 

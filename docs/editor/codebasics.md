@@ -101,7 +101,7 @@ You can configure hot exit by setting `files.hotExit` to the following values:
 * `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows with backups will be restored upon next launch.
 * `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `window.restoreWindows` to `all`.
 
-## Search Across Files
+## Search across files
 
 VS Code allows you to quickly search over all files in the currently opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
 
@@ -111,7 +111,7 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
-### Advanced Search Options
+### Advanced Search options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
@@ -246,7 +246,7 @@ You can click on the Status Bar indentation display to bring up a drop-down with
     "editor.tabSize": 3,
 ```
 
-## File Encoding Support
+## File encoding support
 
 Set the file encoding globally or per workspace by using the `files.encoding` setting in **User Settings** or **Workspace Settings**.
 

@@ -32,7 +32,7 @@ This may take a few minutes to install. You can now create a new Angular applica
 ng new my-app
 ```
 
-`my-app` is the name of the folder for your application. This may take a few minutes to create the Angular application in [TypeScript](/docs/languages/typescript.md) and install it's dependencies.
+`my-app` is the name of the folder for your application. This may take a few minutes to create the Angular application in [TypeScript](/docs/languages/typescript.md) and install its dependencies.
 
 Let's quickly run our Angular application by navigating to the new folder and typing `ng serve` to start the web server and open the application in a browser:
 

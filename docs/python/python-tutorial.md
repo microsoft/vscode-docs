@@ -112,7 +112,7 @@ Click the green arrow to continue running the program (`kb(workbench.action.debu
 
 Click the green arrow again to run the program to completion. "Hello World" appears in the debug console and VS Code exits debugging mode once the program is complete.
 
-> **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:<br>
+> **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases, it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:<br>
 > ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
 
 For full details, see [Debugging](/docs/python/debugging.md).

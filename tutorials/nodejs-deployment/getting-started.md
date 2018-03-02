@@ -22,6 +22,8 @@ Install the Azure Command Line Interface (CLI) which you will use the CLI to do 
 * Set up a deployment pipeline between a local/remote Git repository and the Website.
 * View your application's logs (`console.log` output).
 
+> **Tip:** If you prefer, you can use Azure [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) from within VS Code for this tutorial. Install the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension which adds Cloud Shell support in the Integrated Terminal.
+
 ## Install the Azure CLI
 
 The Azure CLI is cross platform and runs on Windows, macOS, as well as many different Linux distributions.

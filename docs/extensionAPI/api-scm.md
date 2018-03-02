@@ -131,7 +131,7 @@ async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>
 
 The `scm/sourceControl` menu is located contextually near SourceControl instances:
 
-<img src="images/api-scm/sourcecontrol-menu.png" width="506px" />
+![source control menu](images/api-scm/sourcecontrol-menu.png)
 
 Finally, the `scm/change/title` menu is related to the Quick Diff experience, showcased further ahead. It lets you contribute commands which are specific to code changes.
 
@@ -161,7 +161,7 @@ export interface SourceControl {
 
 VS Code also supports displaying **quick diff** editor gutter decorations. Clicking those decorations will reveal an inline diff experience, to which you can contribute contextual commands:
 
-<img src="images/api-scm/quickdiff.png" width="912px" />
+![SCM quick diff](images/api-scm/quickdiff.png)
 
 These decorations are computed by VS Code itself. All you need to do is provide VS Code with the original contents of any given file.
 

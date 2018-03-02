@@ -19,8 +19,6 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 }
 ```
 
->**Note**: Requires VS Code version 1.12 or higher.
-
 Below are the customizable colors grouped by UI region.
 
 ## Contrast Colors
@@ -177,7 +175,9 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 
 ## Editor Colors
 
-The most prominent editor colors are the token colors that are based on the language grammar installed. These colors are defined by the Color Theme and can (currently) not be customized in the settings. All other colors are listed here:
+The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](https://code.visualstudio.com/docs/getstarted/themes#_customizing-a-color-theme) for  details on updating a Color Theme and the available token types.
+
+All other editor colors are listed here:
 
 - `editor.background`: Editor background color.
 - `editor.foreground`: Editor default foreground color.
@@ -383,7 +383,6 @@ Panels are shown below the editor area and contain views like Output and Integra
 - `panelTitle.activeBorder`: Border color for the active panel title.
 - `panelTitle.activeForeground`: Title color for the active panel.
 - `panelTitle.inactiveForeground`: Title color for the inactive panel.
-
 
 ## Status Bar Colors
 

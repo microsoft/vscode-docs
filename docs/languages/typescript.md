@@ -76,7 +76,7 @@ By default, VS Code TypeScript displays code style issues as warnings instead of
 
 Treating these as warnings is consistent with other tools, such as TSLint. These will still be displayed as errors when you run `tsc` from the command line.
 
-You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false`.
+You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false` in the User Settings file.
 
 ## Transpiling TypeScript into JavaScript
 
@@ -274,7 +274,7 @@ The TypeScript references CodeLens displays an inline count of reference for cla
 
 ![TypeScript references code lens](images/typescript/ts-references-code-lens.png)
 
-You can enable this by setting `"typescript.referencesCodeLens.enabled": true`.
+You can enable this by setting `"typescript.referencesCodeLens.enabled": true` in the User Settings file.
 
 Click on the reference count to quickly browse a list of references:
 
