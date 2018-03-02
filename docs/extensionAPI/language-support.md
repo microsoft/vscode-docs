@@ -688,7 +688,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 
 >**Advanced**
 >
->In addition, provide source code manipulation actions such as refactoring. For example, `Extract Method`.
+>In addition, provide source code manipulation actions such as refactoring. For example, **Extract Method**.
 
 ## CodeLens - Show Actionable Context Information Within Source Code
 
