@@ -9,15 +9,15 @@ MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
 
-[Source code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) can improve the quality and maintainability of your project by restructuring your code while not modifying the runtime behavior. Being able to perform refactoring operations quickly and accurately is great for your productivity. Visual Studio Code supports refactoring operations such as **Extract method** and **Extract variable** to improve your code base from within your editor.
+[Source code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) can improve the quality and maintainability of your project by restructuring your code while not modifying the runtime behavior. Visual Studio Code supports refactoring operations (refactorings) such as [Extract Method](https://refactoring.com/catalog/extractMethod.html) and [Extract Variable](https://refactoring.com/catalog/extractVariable.html) to improve your code base from within your editor.
 
 ![refactoring hero image](images/refactoring/refactoring-hero.png)
 
-For example, a common refactoring used to avoid duplicating code (a maintenance headache) is **Extract method** where you select source code that you'd like to reuse elsewhere and pull it out its own shared method.
+For example, a common refactoring used to avoid duplicating code (a maintenance headache) is [Extract Method](https://refactoring.com/catalog/extractMethod.html) where you select source code that you'd like to reuse elsewhere and pull it out its own shared method.
 
 Refactorings are provided by a language service and VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is provided through VS Code [extensions](/docs/editor/extension-gallery.md) which contribute language services. The UI and commands for refactoring are the same across languages, and in this topic we'll demonstrate refactoring support with the TypeScript language service.
 
-## Code Actions = Quick Fixes and Refactoring
+## Code Actions = Quick Fixes and Refactorings
 
 In VS Code, Code Actions can provide both refactorings and Quick Fixes for detected issues (highlighted with green squigglies). An available Code Action is announced by a lightbulb near the source code when the cursor is on a squigglie or selected text region. Clicking on the Code Action lightbulb or using the **Quick Fix** command `kb(editor.action.quickFix)` will display Quick Fixes and refactorings.
 
@@ -27,11 +27,11 @@ If you'd just like to see refactorings without Quick Fixes, you can use the **Re
 
 ## Refactoring
 
-### Extract method or function
+### Extract Method
 
-Simply select some code, then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings. Source code fragments can be extracted into a new method, or into a new function at various different scopes. During the extract refactoring you will be prompted to provide a rename.
+Select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings. Source code fragments can be extracted into a new method, or into a new function at various different scopes. During the extract refactoring, you will be prompted to provide a meaningful name.
 
-### Extract variable
+### Extract Variable
 
 TypeScript language service provides **Extract to const**  refactoring to create a new local variable for the currently selected expression:
 
@@ -47,7 +47,7 @@ Renaming is common operation related to refactoring source code and VS Code has 
 
 ## Keybindings for Code Actions
 
-The `editor.action.codeAction` command lets you configure keybindings for specific Code Actions. This keybinding for example triggers the Extract function refactoring Code Actions:
+The `editor.action.codeAction` command lets you configure keybindings for specific Code Actions. This keybinding for example triggers the **Extract function** refactoring Code Actions:
 
 ```json
 {
@@ -59,9 +59,9 @@ The `editor.action.codeAction` command lets you configure keybindings for specif
 }
 ```
 
-Code Action kinds are specified by extensions using the enhanced `CodeActionProvided` API. Kinds are hierarchical, so `"kind": "refactor"` will show all refactoring Code Actions, whereas `"kind": "refactor.extract.function"` will only show Extract function refactorings.
+Code Action kinds are specified by extensions using the enhanced `CodeActionProvided` API. Kinds are hierarchical, so `"kind": "refactor"` will show all refactoring Code Actions, whereas `"kind": "refactor.extract.function"` will only show **Extract function** refactorings.
 
-Using the above keybinding, if only a single `"refactor.extract.function"` Code Action is available, it will be automatically applied. If multiple Extract function Code Actions are available, we bring up a context menu to select them:
+Using the above keybinding, if only a single `"refactor.extract.function"` Code Action is available, it will be automatically applied. If multiple **Extract function** Code Actions are available, we bring up a context menu to select them:
 
 ![Select Code Action context menu](images/refactoring/code-action-context-menu.png)
 
