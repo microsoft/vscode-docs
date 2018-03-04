@@ -741,7 +741,7 @@ Below are the default settings and their values. You can also view the default v
   // Controls behavior of the internal debug console.
   "debug.internalConsoleOptions": "openOnFirstSessionStart",
 
-  // Controls whether debug viewlet should be open on debugging session start.
+  // Controls whether debug view should be open on debugging session start.
   "debug.openDebug": "openOnFirstSessionStart",
 
   // Automatically open explorer view on the end of a debug session
@@ -846,7 +846,7 @@ Below are the default settings and their values. You can also view the default v
   // When a markdown preview is scrolled, update the view of the editor.
   "markdown.preview.scrollEditorWithPreview": true,
 
-  // When a markdown editor preview is scrolled, update the view of the preview.
+  // When a markdown editor is scrolled, update the view of the preview.
   "markdown.preview.scrollPreviewWithEditor": true,
 
   // Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.
@@ -1483,6 +1483,9 @@ Below are the default settings and their values. You can also view the default v
 
   // Controls whether auto detection of npm scripts is on or off. Default is on.
   "npm.autoDetect": "on",
+
+  // Configure glob patterns for folders that should be excluded from automatic script detection.
+  "npm.exclude": "",
 
   // The package manager used to run scripts.
   "npm.packageManager": "npm",
