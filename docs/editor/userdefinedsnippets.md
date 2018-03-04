@@ -43,7 +43,7 @@ Snippets are defined in a JSON format. The example below is a `For Loop` snippet
           "for (const ${2:element} of ${1:array}) {",
           "\t$0",
           "}",
-        ]
+        ],
         "description": "For Loop"
     },
 }
@@ -77,7 +77,7 @@ The sample below is the `For Loop` again but this time it is scoped to JavaScrip
           "for (const ${2:element} of ${1:array}) {",
           "\t$0",
           "}",
-        ]
+        ],
         "description": "For Loop"
     },
 }
