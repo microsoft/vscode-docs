@@ -9,11 +9,11 @@ MetaDescription: Refactoring source code in Visual Studio Code.
 ---
 # Refactoring
 
-[Source code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) can improve the quality and maintainability of your project by restructuring your code while not modifying the runtime behavior. Visual Studio Code supports refactoring operations (refactorings) such as [Extract Method](https://refactoring.com/catalog/extractMethod.html) and [Extract variable](https://refactoring.com/catalog/extractVariable.html) to improve your code base from within your editor.
+[Source code refactoring](https://en.wikipedia.org/wiki/Code_refactoring) can improve the quality and maintainability of your project by restructuring your code while not modifying the runtime behavior. Visual Studio Code supports refactoring operations (refactorings) such as [Extract Method](https://refactoring.com/catalog/extractMethod.html) and [Extract Variable](https://refactoring.com/catalog/extractVariable.html) to improve your code base from within your editor.
 
 ![refactoring hero image](images/refactoring/refactoring-hero.png)
 
-For example, a common refactoring used to avoid duplicating code (a maintenance headache) is [Extract method](https://refactoring.com/catalog/extractMethod.html) where you select source code that you'd like to reuse elsewhere and pull it out its own shared method.
+For example, a common refactoring used to avoid duplicating code (a maintenance headache) is [Extract Method](https://refactoring.com/catalog/extractMethod.html) where you select source code that you'd like to reuse elsewhere and pull it out its own shared method.
 
 Refactorings are provided by a language service and VS Code has built-in support for TypeScript and JavaScript refactoring through the [TypeScript](https://www.typescriptlang.org/) language service. Refactoring support for other programming languages is provided through VS Code [extensions](/docs/editor/extension-gallery.md) which contribute language services. The UI and commands for refactoring are the same across languages, and in this topic we'll demonstrate refactoring support with the TypeScript language service.
 
@@ -27,11 +27,11 @@ If you'd just like to see refactorings without Quick Fixes, you can use the **Re
 
 ## Refactoring
 
-### Extract method or function
+### Extract Method
 
 Select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings. Source code fragments can be extracted into a new method, or into a new function at various different scopes. During the extract refactoring, you will be prompted to provide a meaningful name.
 
-### Extract variable
+### Extract Variable
 
 TypeScript language service provides **Extract to const**  refactoring to create a new local variable for the currently selected expression:
 
