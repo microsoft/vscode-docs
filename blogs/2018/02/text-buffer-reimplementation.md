@@ -26,12 +26,12 @@ Another realistic problem with Line Array is file opening is slow for large file
 
 ## An ideal solution
 
-To reduce the memory usage, we should store less metadata; to make file opening faster, we should perform fewer operations. The solution is obvious then: storing nothing and does nothing while we build the buffer. No code is the most performant code.
+The lines array representation takes a lot of time to create and then consumes a lot of memory in order to give fast line look-up speeds. In a perfect world, we would store only the text of the file and we would have no additional metadata. After searching in my data structure arsenal for a while, I found that [Piece Table](https://en.wikipedia.org/wiki/Piece_table) may be a good candidate. We can make tweaks to it and see how far we can take it.
 
 ### Piece Table
 
 <center>
-<img src="./piecetable.png" alt="Piece Table">
+<img src="./traditiona-piece-table.gif" alt="Piece Table">
 </center>
 
 
@@ -54,8 +54,9 @@ enum NodeType {
 }
 ```
 
-When the file is initially loaded, the Piece Table only contains one single node and a reference to the string buffer `ori`. When users make edits, we append the newly added content to `add` string buffer. The initial memory usage of metadata is close to the document content size and the incremental part is proportional to edit count.
+When the file is initially loaded, the Piece Table contains the file contents in the `original` field, the `added` field is empty, and it has a single node of type `NodeType.Original`. When a user is typing at the end of a file, we will append the newly typed content to the `added` field, and we will insert a new node of type `NodeType.Added` at the end of the node list. Similarly, when a user makes edits in the middle of a node, we will split that node and insert a new one as needed.
 
+The initial memory usage of a Piece Table is close to the document content size and the incremental part is proportional to edit count, so a Piece Table would have quite good memory usage characteristics. However, accessing a logical line would be very slow. For example, if you want to get the content of the 1000th line, the only way would be to go through each character from the beginning, finding the first 999 line breaks, reading from that character until the next line break.
 
 ### Lookup by line number
 
