@@ -27,25 +27,29 @@ Here is an example with a very simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also right-click on the editor Tab and select **Open Preview** or use the **Command Palette** (`kb(workbench.action.showCommands)`) **Markdown: Open Preview** and **Markdown: Open Preview to the Side** commands.
+>**Tip:** You can also right-click on the editor Tab and select **Open Preview to the Side** or use the **Command Palette** (`kb(workbench.action.showCommands)`) **Markdown: Open Preview to the Side** commands.
+
+### Dynamic previews and preview locking
+
+By default, markdown previews automatically update to preview the currently active markdown file:
+
+![The preview automatically switching to preview the current markdown document](images/Markdown/md-dynamic-preview.gif)
+
+You can lock a markdown preview using the `Markdown: Toggle Preview Locking` to keep it locked to its current markdown document. Locked previews are indicated by `[Preview]` in the title:
+
+![A locked markdown preview](images/Markdown/locked-preview-title.png)
 
 ### Editor and preview synchronization
 
-When working with a Markdown preview to the side of your editor, VS Code can synchronize the view of the editor and the preview. By default, the Markdown preview will automatically scroll to reveal the element at the selected line in the editor.
+VS Code automatically synchronizes the markdown editor and the preview views. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the markdown editor and the preview is scrolled to match its viewport:
 
-![Markdown Preview editor selection scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
+![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
 
-This behavior can be disabled using the `markdown.preview.scrollPreviewWithEditorSelection` [setting](/docs/getstarted/settings.md).
+You can disable scroll synchronization using the `markdown.preview.scrollPreviewWithEditor` and `markdown.preview.scrollEditorWithPreview` [settings](/docs/getstarted/settings.md).
 
-The currently selected line is indicated in the Markdown preview by a light gray bar in the left margin:
+The currently selected line in the editor is indicated in the Markdown preview by a light gray bar in the left margin:
 
 ![Markdown Preview editor line marker](images/Markdown/preview-selection-marker.png)
-
-Also, when the Markdown preview is scrolled, the editor will scroll along with it:
-
-![Markdown Preview to editor scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
-
-This can be disabled using the `markdown.preview.scrollEditorWithPreview` [setting](/docs/getstarted/settings.md).
 
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
