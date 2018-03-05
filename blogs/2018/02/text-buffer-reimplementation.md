@@ -24,37 +24,9 @@ We can do a simple math here: we create a ModelLine object for each line and eve
 
 Another realistic problem with Line Array is file opening is slow for large files. We need to split the content by line breaks to an array, it is costly and you can know that without profiling.
 
-Other operations on Line Array are good enough. When users make edits, we locate the lines that should be modified in the array, replace them or resize the array a bit. JavaScript engine does the heavy lifting for us and it's usually smart and fast.
-
-If we want to replace Line Array, we'd better have a check list and do some investigation first, like which parts we should improve, which parts we don't want to see too much downshift and some others which don't really matter. There are four primary aspects of a text buffer:
-
-1. Memory usage. As we load the whole document into memory (a bunch of features require so for now), what we can control is the metadata memory usage.
-2. File opening. This is about how much time we need to construct the text buffer, the less the better.
-3. Writing. No one wants to see latency while typing.
-4. Reading. From Text Buffer's perspective, we may want to make this as fast as possible. However in real world, there are many other components that may affect this scenario.
-
-With these four aspects in mind, let's start our brainstorming.
-
 ## An ideal solution
 
 To reduce the memory usage, we should store less metadata; to make file opening faster, we should perform fewer operations. The solution is obvious then: storing nothing and does nothing while we build the buffer. No code is the most performant code.
-
-It is perfect for the first two aspects but it behaves terribly for the latter ones. Let's revisit the fundamentals of a text buffer:
-
-> Text buffer in the editor is line based by definition
-
-A line in text buffer is the content from one line break to next. If we don't preprocess the content or store any cache, accessing a line can be slow. For example, if you want to see the content of 1000th line, the only way is going through the content from the very beginning to bottom, finding the first 999 line breaks, reading from that position until the next line break. It's O(N) to retrieve the content of one line and unfortunately without any cache, reading the whole content becomes O(N^2).
-
-To avoid this, let's take one step back, how about we only search for line breaks and cache their positions to ensure line accessing perform fast? Our requirements for a text buffer now become:
-
-*1. Memory*
-* Document content
-* Minimal metadata, like only storing line break offsets.
-
-*2. File opening*
-* Search for line breaks
-
-In addition to that, the data structure should be able to handle Reading/Writing well by line break information. After searching in my data structure arsenal for a while, I found Piece Table may be a good candidate. It's not a perfect match but we can make tweaks to it and see how far we can go.
 
 ### Piece Table
 
@@ -105,20 +77,7 @@ The algorithm for now is simple and a bit stupid but it's okay, like a lot other
 
 ### String concatenation trap
 
-The traditional piece table holds two buffers, one for original content loaded from disk, and another for user edits. In our case, we load documents by chunks (64KB each) so when the file is large, let's say 64 MB, we'll receive 1000 chunks in sequence. To appeal to data structure, we can do a string concatenation after receiving the last chunk and store the single large string to the piece table.
-
-This sounds reasonable until V8 steps on your toe. I tried to open a 50MB file with 3 million lines
-
-```bash
-# code --status
-CPU %	Mem MB	   PID	Process
-    0	   197	 38981	   window (buffertest)
-# code Heap.heapsnapshot.txt && code --status
-CPU %	Mem MB	   PID	Process
-    0	   360	 38981	   window (Heap-20171206T153117.heapsnapshot.txt — buffertest)
-```
-
-We would expect macOS resident memory usage increases 50MB plus some metadata but apparently it used too much. We know that when we do string concatenation, V8 creates a ConsString first instead of copying the underlying bytes immediately. The ConsString may get flattened next time you execute lookup on it, which may not free some memory not released real quick (a V8 expert can have better explanation on this), it's simply not controlled by us.
+The traditional piece table holds two buffers, one for original content loaded from disk, and another for user edits. In VS Code, we are loading text files using node's `fs.readFile`, which gives out chunks (64KB each), so when the file is large, let's say 64 MB, we'll receive 1000 chunks in sequence. To respect the data structure, we can do a string concatenation after receiving the last chunk and store the single large string in the `original` field of the Piece Table.
 
 Opening a 50MB file is already problematic, what if we open a 500 MB file? Electron will throw an exception. This is because V8 has a limitation of string length and in our V8 version, it's around 256MB. This limit will be increased to 1GB in following V8 but that doesn't really solve the problem.
 
@@ -138,8 +97,6 @@ class Node {
 	lineStarts: number[]
 }
 ```
-
-This way, we can reuse the chunks generated by the decoder, keep it untouched and only search for line breaks. For every 64KB, we need 16 Bytes for the first three properties, 24 Bytes for references on the object (hidden class, extra properties object, element object) and some for line break cache. For each line, we use approximately 8 Bytes (a `Number`, this math is not accurate as we don't always need 64 bit to store an integer, which gives us some space to improve later) to store the metadata whereas the old Line Array uses 40-60 Bytes.
 
 ### List -> Tree
 
@@ -173,8 +130,6 @@ Among all kinds of balanced binary tree, we choose Red Black Tree which is more 
 
 ### Reduce objects allocation
 
-I'm pretty happy with the shape of this data structure now but my friend and mentor Alex gave me some golden suggestions. One of them is stopping storing line break offsets in each node, we can actually store them with the buffers.
-
 If we store the line break offsets in each node, whenever we tweak the node, we need to update the line break offsets if necessary. For example, say we have a node which contains 999 line breaks, the `lineStarts` array has 1000 elements. If we split the node into two nodes evenly, then we'll create two nodes, each of them has an array containing around 500 elements. As we are not directly operating on linear memory space, splitting an array to two is way more costly than just moving pointers.
 
 The good news is buffers in Piece Table are either readonly (original buffers) or append-only (changed buffers), so the line break on the buffers don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer.
@@ -202,8 +157,6 @@ class Node {
 	...
 }
 ```
-
-As we mentioned multiple times in this blog post, the less we do the better the perf is. Applying this change makes the text buffer operations three times faster based on our benchmarks.
 
 ## Piece Tree
 
