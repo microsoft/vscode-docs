@@ -16,13 +16,13 @@ We started discussions of implementing the text buffer in native code more than 
 
 Inspiring blog posts like [this one](http://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html) from [Vyacheslav Egorov](http://mrale.ph) show ways in which it is possible to push a JavaScript engine to its limits and squeeze out as much performance as necessary. But even without using low level engine tricks, it is typically possible to improve by one or more orders of magnitude by doing an algorithmic or data structure change.
 
-Text buffer in the editor is line based by definition. We read and write code line by line, tokenization runs on lines, linters provide line/column based diagnostics, etc. So we split document content into lines and store them in a JavaScript array from the first day we kicked off the Monaco project. The Line Array data structure works pretty well as the text documents we work on in browsers and VSCode are relatively small most of the time but we are aware of its limitation, it starts to choke when handling large files.
+## The old text buffer data structure
 
-We kept receiving issue reports that people tried to open files but VSCode crashes or freezes, even when the file size is not particularly large sometimes. For example, this user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). People may have different definitions of large files but 35 MB should not be a problem. After analyzing the file, we found the root cause is that file has too many lines (13.7 million).
+The mental model for an editor is line based. We read and write code line by line, compilers provide line/column based diagnostics, stack traces contain line numbers, tokenization engines run line by line, etc. Although dead simple, the text buffer implementation powering VS Code hasn't changed much since the first day we kicked off the Monaco project. We used an array of lines, and it worked pretty well, as the typical text documents we work on are relatively small. When typing, we would locate the line that should be modified in the array, and replace it. When inserting a new line, we would splice a new object in the lines array and the JavaScript engine would do the heavy lifting for us.
 
-We can do a simple math here: we create a ModelLine object for each line and every object uses around 40-60 Bytes, the Line Array uses around 600MB memory in total to store the document. On a 32bit machine, the renderer process of chromium can easily crash in this case.
+But we kept receiving issue reports that opening certain files, even when the file size is not particularly large, would cause Out-Of-Memory crashes in VS Code. For example, this user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause is that the file has too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the lines array implementation used around 600MB memory in total to store the document, or roughly 20 times the initial file size!
 
-Another realistic problem with Line Array is file opening is slow for large files. We need to split the content by line breaks to an array, it is costly and you can know that without profiling.
+Another problem with the line array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line.
 
 ## An ideal solution
 
