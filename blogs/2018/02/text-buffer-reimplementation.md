@@ -31,7 +31,7 @@ The lines array representation takes a lot of time to create and then consumes a
 ### Piece Table
 
 <center>
-<img src="./traditiona-piece-table.gif" alt="Piece Table">
+<img src="./traditional-piece-table.gif" alt="Piece Table">
 </center>
 
 
@@ -132,11 +132,11 @@ class Node {
 	length: number;
 	lineStarts: number[];
 
-	left_subtree_length: number,
-	left_subtree_lfcnt: number,
-	left: Node,
-	right: Node,
-	parent: Node
+	left_subtree_length: number;
+	left_subtree_lfcnt: number;
+	left: Node;
+	right: Node;
+	parent: Nod;
 }
 ```
 
@@ -148,9 +148,9 @@ If we store the line break offsets in each node, whenever we tweak the node, we 
 
 The good news is buffers in Piece Table are either readonly (original buffers) or append-only (changed buffers), so the line break on the buffers don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer. The less we do the better the perf is. Applying this change makes the text buffer operations three times faster based on our benchmarks.
 
-```js
+```ts
 class Buffer {
-	value: string,
+	value: string;
 	lineStarts: number[];
 }
 
@@ -160,14 +160,14 @@ class BufferPosition {
 }
 
 class PieceTable {
-	buffers: Buffer[],
-	rootNode: Node
+	buffers: Buffer[];
+	rootNode: Node;
 }
 
 class Node {
 	bufferIndex: number;
 	start: BufferPosition;
-	end: BufferPosition
+	end: BufferPosition;
 	...
 }
 ```
@@ -203,6 +203,9 @@ and some manually created large files
 * checker.ts * 128, 184MB, 3M lines
 
 ### 1. Memory usage
+
+**TODO@Peng**: Don't complicate needlesly. Have a color for BEFORE, a color for AFTER, and a color for file size. Use the same color for BEFORE and for AFTER in all graphs! Also, don't use line graphs. The X axis is not a continuous axis, like time; It is discrete, so you should not draw lines between measurements, maybe you can use bar charts.
+
 Here we didn't compare heap size as for small files we'll do tokenization and have multiple copies of the buffer (worker, etc) while we stop doing that for large files, so we just check the memory usage of text buffer.
 
 <center>
