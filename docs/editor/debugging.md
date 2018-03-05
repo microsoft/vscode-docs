@@ -288,11 +288,7 @@ Column breakpoints can also have conditions. Editing multiple breakpoints on a l
 
 Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
 
-A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name:
-
-<p>
-  <img alt="function breakpoint" src="https://az754404.vo.msecnd.net/public/function-breakpoint.gif" />
-</p>
+A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name.
 
 ## Debug Console REPL
 

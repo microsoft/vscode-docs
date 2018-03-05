@@ -466,10 +466,14 @@ Make sure to use a Node.js version >= 5.11 since earlier versions do not work in
 
 ### Function breakpoints
 
-The Node.js debugger **doesn't** support Function breakpoints when targeting newer Node.js 6+ versions. For older Node.js versions, Function breakpoints are supported, but be aware of the following limitations when using them:
+The Node.js debugger only supports function breakpoints when the "legacy" protocol is used (that is when targeting Node.js < 8.0 versions). In addition be aware of the following limitations when using function breakpoints:
 
 - Function breakpoints only work for global, non-native functions.
 - Function breakpoints can only be created if the function has been defined (and has been seen by the debugger).
+
+<p>
+  <img alt="function breakpoint" src="https://az754404.vo.msecnd.net/public/function-breakpoint.gif" />
+</p>
 
 ### Breakpoint hit counts
 
