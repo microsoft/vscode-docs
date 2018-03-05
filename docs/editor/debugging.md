@@ -143,6 +143,9 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
 
+![Breakpoints](images/debugging/breakpoints.png)
+
+
 ## Data inspection
 
 Variables can be inspected in the **VARIABLES** section of the Debug view or by hovering over their source in the editor. Variables and expression evaluation is relative to the selected stack frame in the **CALL STACK** section.
@@ -288,7 +291,7 @@ Column breakpoints can also have conditions. Editing multiple breakpoints on a l
 
 Instead of placing breakpoints directly in source code, a debugger can support creating breakpoints by specifying a function name. This is useful in situations where source is not available but a function name is known.
 
-A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name.
+A 'function breakpoint' is created by pressing the **+** button in the **BREAKPOINTS** section header and entering the function name. Function breakpoints are shown with a red triangle in the **BREAKPOINTS** section.
 
 ## Debug Console REPL
 
