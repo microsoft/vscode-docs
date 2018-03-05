@@ -533,3 +533,22 @@ Now that you know about our Key binding support, what's next...
 **Q: I have modified my key bindings in `keybindings.json`, why don't they work?**
 
 **A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
+
+**Q: Why is cmd+K/ctrl+k not clearing the terminal?**
+
+**A:** Normally `kbstyle(cmd+k)`/`kbstyle(cmd+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(cmd+k)`/`kbstyle(cmd+k)` keybindings rely on the keybinding's priority system which defines which keybinding is going to be run at any given time  (user > extension > default). In order to fix this you need to redefine the keyinding, preferably at the bottom of your user keybindings:
+
+macOS:
+
+```json
+{ "key": "cmd+k",                 "command": "workbench.action.terminal.clear",
+                                     "when": "terminalFocus" },
+```
+
+Windows:
+
+
+```json
+{ "key": "ctrl+k",                "command": "workbench.action.terminal.clear",
+                                     "when": "terminalFocus" },
+```
