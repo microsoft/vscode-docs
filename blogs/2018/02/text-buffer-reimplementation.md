@@ -90,9 +90,9 @@ The algorithm for now is a bit simple, but it is better than before, as we can n
 
 The traditional piece table holds two buffers, one for original content loaded from disk, and another for user edits. In VS Code, we are loading text files using node's `fs.readFile`, which gives out chunks (64KB each), so when the file is large, let's say 64 MB, we'll receive 1000 chunks in sequence. To respect the data structure, we can do a string concatenation after receiving the last chunk and store the single large string in the `original` field of the Piece Table.
 
-Opening a 50MB file is already problematic, what if we open a 500 MB file? Electron will throw an exception. This is because V8 has a limitation of string length and in our V8 version, it's around 256MB. This limit will be increased to 1GB in following V8 but that doesn't really solve the problem.
+This sounds reasonable until V8 steps on your toe. I tried to open a 500MB file and Electron throwed an exception. This is because V8 has a maximum string length, and in our V8 version, that's around 256MB. This limit will be increased to 1GB in newer versions of V8 but that doesn't really solve the problem.
 
-Instead of just holding two buffers, we can hold a list of buffers. Each time we receive a 64KB chunk from disk, we push it to the buffers array and create a node which maps to this buffer. The node will be like
+Instead of holding an `original` and an `added` buffer, we can hold a list of buffers. Each time we receive a 64KB chunk from disk, we push it to the buffers array and create a node which points to this buffer:
 
 ```ts
 class PieceTable {
