@@ -118,7 +118,7 @@ The only problem we have now is what metadata we use as the comparable key for t
 
 When a Node only has four properties (`bufferIndex`, `start`, `length`, `lineStarts`), it takes seconds to find the result. We can store the text length and the line breaks count of a node's left sub tree in that node, then whether we search by offset or line number from the root can be efficient. Storing metadata of the right sub tree is the same but we don't need to cache both.
 
-The tree node now looks like this
+The classes now look like this:
 
 ```ts
 class PieceTable {
@@ -146,7 +146,7 @@ Among all kinds of balanced binary tree, we choose Red Black Tree which is more 
 
 If we store the line break offsets in each node, whenever we tweak the node, we need to update the line break offsets if necessary. For example, say we have a node which contains 999 line breaks, the `lineStarts` array has 1000 elements. If we split the node into two nodes evenly, then we'll create two nodes, each of them has an array containing around 500 elements. As we are not directly operating on linear memory space, splitting an array to two is way more costly than just moving pointers.
 
-The good news is buffers in Piece Table are either readonly (original buffers) or append-only (changed buffers), so the line break on the buffers don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer.
+The good news is buffers in Piece Table are either readonly (original buffers) or append-only (changed buffers), so the line break on the buffers don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer. The less we do the better the perf is. Applying this change makes the text buffer operations three times faster based on our benchmarks.
 
 ```js
 class Buffer {
@@ -178,13 +178,15 @@ I'd love to call this text buffer *Multiple buffer piece table with red black tr
 
 Having a theoretical understanding of this data structure is one thing, real world performance is another. The language you use, the environment the code runs on, the way others invoke your API and a lot others may affect the result significantly. We should run some benchmarks on small/medium/large files against original Line Array and piece tree.
 
-One thing to note here is in July 2017, we had a huge [memory usage improvements](https://github.com/Microsoft/vscode/issues/30180#issuecomment-313509308) for Line Array, among which *avoid sliced string* is an interesting one. If we do some profiling with file opening in VSCode 1.19
+~~One thing to note here is in July 2017, we had a huge [memory usage improvements](https://github.com/Microsoft/vscode/issues/30180#issuecomment-313509308) for Line Array, among which *avoid sliced string* is an interesting one. If we do some profiling with file opening in VSCode 1.19~~
 
+<!--
 <center>
 <img src="./linebuffer-builder.png" style="width: 800px" alt="line buffer model building">
 </center>
+-->
 
-You can see that `Buffer.toString/Buffer.write` takes the majority of time. This was used to avoid sliced string ref on each split string, it saves quite a lot memory when the file has a lot of lines. The side effect is obvious though, it slows down the file opening. It's a classic speed/memory tradeoff. Last month, we disabled sliced string optimization but here I want to run benchmarks against both of them to make sure we don't lose opportunities to improve.
+~~You can see that `Buffer.toString/Buffer.write` takes the majority of time. This was used to avoid sliced string ref on each split string, it saves quite a lot memory when the file has a lot of lines. The side effect is obvious though, it slows down the file opening. It's a classic speed/memory tradeoff. Last month, we disabled sliced string optimization but here I want to run benchmarks against both of them to make sure we don't lose opportunities to improve.~~
 
 ### Preparations
 
