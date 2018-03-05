@@ -41,7 +41,7 @@ If you don't want to see Emmet abbreviations in suggestions at all, then use the
 "emmet.showExpandedAbbreviation": "never"
 ```
 
-With this setting enabled, you can use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+You can still use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
 
 ### Emmet suggestion ordering
 
@@ -102,6 +102,67 @@ Below are a few examples of how you can control which vendors get applied to whi
 - Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to these CSS properties.
 - Setting the preference to an empty string will ensure that the corresponding prefix doesn't get added to any CSS property.
 - Setting the preference to null will ensure that the default CSS properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
+
+## Use Filters in Emmet abbreviations
+
+Filters are special post-processors that modify expanded abbreviation right before output to the editor. There are 2 ways to use filters:
+- You can either provide the filters in the `emmet.syntaxProfiles` setting such that they get applied to every abbreviation you use.
+  For example, the below will apply the `bem` filter for all the abbreviations in html files.
+```
+"emmet.syntaxProfiles": {
+    "html": {
+        "filters": "bem"
+    }
+}
+```
+- Or you can append the filter to your abbreviation to have them applied just to the current abbreviation. For example, `div#page|c` will apply the `comment` filter to the `div#page` abbreviation
+
+### BEM filter (bem)
+
+If you use the [BEM](http://getbem.com/) way of writing html, then this is a very handy filter for you to use. To learn more about how to use this filter, read [BEM filter in Emmet](https://docs.emmet.io/filters/bem/).
+
+You can customize this filter by using the `bem.elementSeparator` and `bem.modifierSeparator` preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/).
+
+### Comment filter (c)
+
+This filter adds comments around important tags. By default, “important tags” are those tags with id and/or class attribute. For example:
+
+`div>div#page>p.title+p|c` will be expanded to
+```
+<div>
+    <div id="page">
+        <p class="title"></p>
+        <!-- /.title -->
+        <p></p>
+    </div>
+    <!-- /#page -->
+</div>
+```
+
+You can customize this filter by using the `filter.commentTrigger`, `filter.commentAfter` and `filter.commentBefore` preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/).
+
+The format for the `filter.commentAfter` preference is different in Emmet 2.0/VS Code though.
+
+    For example, instead of the older format
+
+    ```json
+    "emmet.preferences": {
+        "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
+    }
+    ```
+
+    you would use a simpler
+
+    ```json
+    "emmet.preferences": {
+        "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
+    }
+    ```
+
+### Trim filter (t)
+
+This filter is applicable only when providing abbreviations for the `Emmet: Wrap Individual Lines with Abbreviation` feature.
+It [removes line markers](https://docs.emmet.io/actions/wrap-with-abbreviation/#removing-list-markers) from wrapped lines.
 
 ## Using custom Emmet snippets
 
