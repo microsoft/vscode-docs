@@ -10,7 +10,7 @@ MetaSocialImage:
 # Text Buffer Reimplementation
 Feb 21, 2018 by Peng Lyu, [@njukidreborn](https://twitter.com/njukidreborn)
 
-We started discussions of implementing the text buffer in native code more than one year ago. After doing so, we found that the memory usage is reduced considerably for large files but we didn't see much performance enhancement. Converting strings between native and JavaScript was found to be costly and it gives away all the benefits we get from native execution speed. We have more detailed explanation in [the end](#why-not-native) of this post blog.
+We started discussions of implementing the text buffer in native code more than one year ago. After doing so, we found that the memory usage is reduced considerably for large files but we didn't see much performance enhancement. Converting strings between native and JavaScript was found to be costly and only having text buffer in native does give us the full power of native execution speed. We have more detailed explanation in [the end](#why-not-native) of this post blog.
 
 We know there are many ways to make JavaScript code as performant as native ones, especially after reading some inspiring [blog posts](http://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html) from [Vyacheslav Egorov](http://mrale.ph). Your code just needs to ask JavaScript engine politely to do some optimizations. So we reimplemented the text buffer in another data structure in JavaScript and this article is about the fun journey behind it.
 
@@ -345,7 +345,11 @@ When we started the new text buffer exploration, both Alex and me chose C++, whi
 
 > It's not hard to understand. Elements in Line Array are single lines but if we store two lines in an element, we reduce the array size to half; if we store four lines in an element, then the array size becomes a quarter. The smaller the array is, the less memory we use for metadata. In EdCore, the average chunk size is 64KB, which is the size of chunks we get from Node.js streaming API.
 
-However from the performance's perspective, only rewriting the text buffer in C++ doesn't give us too much advantage. It's a bit surprise but still makes perfect sense as we have a *C++ => JavaScript => C++* round trip while doing tokenization and a lot other unnecessary converting back and forth. To avoid that, we may want to move other text model related code to completely native as well. It's doable but challenging as there are many open questions, e.g., should we drop web worker as we can do those heavy calculation in another thread natively? If we reference the native code as node native module, how do we ship Monaco? If we use Web Assembly for Monaco, what's the catch there? etc, etc.
+However from the performance's perspective, only rewriting the text buffer in C++ doesn't give us too much advantage. It turns out that only moving text buffer to native leads to many *C++ <=> JavaScript* round trip. For example, Toggle Line Comment command reads the content of current line, analyzes the language around the cursor, loads the comment style for that language and finally pushes minimal content change to the editor. The whole logic now is implemented as a contribution of the editor (you can see it as an extension which runs in renderer process instead of extension host), the line content and content changes cross the boundary every time and lead to unnecessary cost.
+
+To avoid that, we may want to leverage V8 API to create and maintain objects instead of normal C++ memory allocations. In our case, we are only manipulating `String` but we have a few open questions, e.g., do V8 APIs meet all our needs for text buffer? how to handle multithread? if we go this way, are we finally reinventing V8's String data structure (Rope)? etc.
+
+Another option is moving all other text model related code to native. It's doable but we have a long list of to do items, as we are moving the whole text model and a bunch of editor contributions to native (hopefully not most of them).
 
 Rather than spending half a year on something we don't know yet, we decided to push our JavaScript code to its limit and the result is appealing. If one day we want to go Native again, the lessons we learnt here can still benefit us.
 
