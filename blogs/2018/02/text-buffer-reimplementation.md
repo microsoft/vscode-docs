@@ -60,7 +60,7 @@ The initial memory usage of a Piece Table is close to the document content size 
 
 ### Lookup by line number
 
-The traditional Piece Table only focuses on offsets, we can add line break caches on top of it to make line content lookup faster. The intuitive way to store line break positions is putting them in each node:
+The traditional Piece Table only focuses on offsets, but we can add line break information on top of it to make line content lookup faster. The intuitive way to store line break positions is to store the offsets for each line break encountered in a node's text:
 
 ```ts
 class PieceTable {
@@ -82,9 +82,9 @@ enum NodeType {
 }
 ```
 
-For example, if you want to access the second line in a `Node`, you can simple read `ori.substring(node.start + node.lineStarts[1] + 1, node.start + node.lineStarts[2])` (let's assume we don't exceed boundaries). As we know how many line breaks a node has, accessing a random line in the document is straight forward: read from the first node to the last until we find the target line break.
+For example, if you want to access the second line in a given `Node` instance, you can read `node.lineStarts[0]` and `node.lineStarts[1]` which will give the relative offsets at which a line begins and ends. As we know how many line breaks a node has, accessing a random line in the document is straight forward: read from the first node to the last until we find the target line break.
 
-The algorithm for now is simple and a bit stupid but it's okay, like a lot other software applications, we make sure it's correct first and then optimize it for performance step by step.
+The algorithm for now is a bit simple, but it is better than before, as we can now jump over entire chunks of text, whereas before we would iterate character-by-character. We will revisit this later.
 
 ### String concatenation trap
 
