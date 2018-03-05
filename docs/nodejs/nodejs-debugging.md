@@ -173,7 +173,9 @@ If you are using '[nvs](https://github.com/jasongin/nvs)' to manage your Node.js
 }
 ```
 
-Make sure to have those Node.js versions installed that you want to use with the `runtimeVersion` attribute as the feature will not download and install the version itself. So you will have to run something like `nvm install 7.10.1` from the integrated terminal if you plan to add `"runtimeVersion": "7.10.1"` to your launch configuration.
+Make sure to have those Node.js versions installed that you want to use with the `runtimeVersion` attribute as the feature will not download and install the version itself. So you will have to run something like `nvm install 7.10.1` or `nvs add 7.10.1` from the integrated terminal if you plan to add `"runtimeVersion": "7.10.1"` to your launch configuration.
+
+>**Note:** If VS Code detects that "nvs" is installed, it does **not** fall back to "nvm" if a specific Node.js version cannot be found in "nvs". Using both "nvs" and "nvm" at the same time is not supported.
 
 ### Load environment variables from external file (node)
 
@@ -464,10 +466,14 @@ Make sure to use a Node.js version >= 5.11 since earlier versions do not work in
 
 ### Function breakpoints
 
-The Node.js debugger **doesn't** support Function breakpoints when targeting newer Node.js 6+ versions. For older Node.js versions, Function breakpoints are supported, but be aware of the following limitations when using them:
+The Node.js debugger only supports function breakpoints when the "legacy" protocol is used (that is when targeting Node.js < 8.0 versions). In addition be aware of the following limitations when using function breakpoints:
 
 - Function breakpoints only work for global, non-native functions.
 - Function breakpoints can only be created if the function has been defined (and has been seen by the debugger).
+
+<p>
+  <img alt="function breakpoint" src="https://az754404.vo.msecnd.net/public/function-breakpoint.gif" />
+</p>
 
 ### Breakpoint hit counts
 
