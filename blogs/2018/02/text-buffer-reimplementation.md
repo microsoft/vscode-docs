@@ -35,17 +35,22 @@ To reduce the memory usage, we should store less metadata; to make file opening 
 </center>
 
 
-```js
+```ts
 class PieceTable {
-	ori: string, // original content
-	add: string, // user edits
-	nodes: Node[]
+	original: string; // original content
+	added: string; // user added content
+	nodes: Node[];
 }
 
 class Node {
-	file: ori | add,
-	start: number,
-	length: number
+	type: NodeType;
+	start: number;
+	length: number;
+}
+
+enum NodeType {
+	Original,
+	Added
 }
 ```
 
@@ -56,18 +61,23 @@ When the file is initially loaded, the Piece Table only contains one single node
 
 The traditional Piece Table only focuses on offsets, we can add line break caches on top of it to make line content lookup faster. The intuitive way to store line break positions is putting them in each node:
 
-```js
+```ts
 class PieceTable {
-	ori: string,
-	add: string,
-	nodes: Node[]
+	original: string;
+	added: string;
+	nodes: Node[];
 }
 
 class Node {
-	file: ori | add,
-	start: number,
-	length: number,
-	lineStarts: number[]
+	type: NodeType;
+	start: number;
+	length: number;
+	lineStarts: number[];
+}
+
+enum NodeType {
+	Original,
+	Added
 }
 ```
 
@@ -83,18 +93,17 @@ Opening a 50MB file is already problematic, what if we open a 500 MB file? Elect
 
 Instead of just holding two buffers, we can hold a list of buffers. Each time we receive a 64KB chunk from disk, we push it to the buffers array and create a node which maps to this buffer. The node will be like
 
-```js
+```ts
 class PieceTable {
-	buffers: Buffer[],
-	nodes: Node[],
-	containNonASCII: boolean
+	buffers: string[];
+	nodes: Node[];
 }
 
 class Node {
-	bufferIndex: number,
-	start: number, // start offset in buffers[bufferIndex]
-	length: number,
-	lineStarts: number[]
+	bufferIndex: number;
+	start: number; // start offset in buffers[bufferIndex]
+	length: number;
+	lineStarts: number[];
 }
 ```
 
@@ -110,14 +119,18 @@ When a Node only has four properties (`bufferIndex`, `start`, `length`, `lineSta
 
 The tree node now looks like this
 
-```js
+```ts
 class PieceTable {
-	buffers: Buffer[],
-	rootNode: Node
+	buffers: string[];
+	rootNode: Node;
 }
 
 class Node {
-	...
+	bufferIndex: number;
+	start: number;
+	length: number;
+	lineStarts: number[];
+
 	left_subtree_length: number,
 	left_subtree_lfcnt: number,
 	left: Node,
