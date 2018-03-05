@@ -173,7 +173,9 @@ If you are using '[nvs](https://github.com/jasongin/nvs)' to manage your Node.js
 }
 ```
 
-Make sure to have those Node.js versions installed that you want to use with the `runtimeVersion` attribute as the feature will not download and install the version itself. So you will have to run something like `nvm install 7.10.1` from the integrated terminal if you plan to add `"runtimeVersion": "7.10.1"` to your launch configuration.
+Make sure to have those Node.js versions installed that you want to use with the `runtimeVersion` attribute as the feature will not download and install the version itself. So you will have to run something like `nvm install 7.10.1` or `nvs add 7.10.1` from the integrated terminal if you plan to add `"runtimeVersion": "7.10.1"` to your launch configuration.
+
+>**Note:** If VS Code detects that "nvs" is installed, it does **not** fall back to "nvm" if a specific Node.js version cannot be found in "nvs". Using both "nvs" and "nvm" at the same time is not supported.
 
 ### Load environment variables from external file (node)
 
