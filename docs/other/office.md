@@ -17,7 +17,7 @@ Under the hood, an Office Add-in is just a web app that you can host anywhere. U
 
 ## Step 1: Get set up
 
-Follow the instructions to [Create an Office Add-in using any editor](https://github.com/OfficeDev/office-js-docs/blob/master/docs/get-started/create-an-office-add-in-using-any-editor.md) to install the necessary prerequisites, and use Yo Office to create a new add-in project. The following table lists the project attributes to select in the Yeoman generator.
+Follow the instructions to [Create an Office Add-in using any editor](https://dev.office.com/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office) to install the necessary prerequisites, and use Yo Office to create a new add-in project. The following table lists the project attributes to select in the Yeoman generator.
 
 | Option | Value |
 |:------|:------|
