@@ -57,6 +57,8 @@ From the command prompt or terminal window that you were using earlier, rebuild 
 mvn clean package
 ```
 
+> **Note:** You need to be in the `complete` directory when making commands on the terminal.
+
 Deploy your web app to Azure by using Maven; for example:
 
 ```bash

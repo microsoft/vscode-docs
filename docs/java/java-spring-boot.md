@@ -5,7 +5,7 @@ TOCTitle: Spring Boot
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
 PageTitle: Spring Boot support in VS Code
 DateApproved: 03/05/2018
-MetaDescription: Spring Boot tutorial for Java developer using Visual Studio Code editor.
+MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
 ---
 # Build Spring Boot Apps with VS Code
 
