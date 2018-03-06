@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 6
 Area: java
 TOCTitle: Debugging and Testing
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
@@ -33,13 +33,13 @@ Just like VS Code, the debugger is an open source project which welcomes contrib
  - [Debugger for Java Extension](https://github.com/Microsoft/vscode-java-debug)
  - [Java Debugger Server for Visual Studio Code](https://github.com/Microsoft/java-debug)
 
-To run and debug JUnit test, you can install [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which is another lightweight extension we developed. You can also view test logs from the extension.
+To run and debug JUnit test, you can install [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which is another lightweight extension you can use to manage tests in your projects.
 
 ## Install
 
-For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) with your VS Code installed. To make it easier, we provide a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which bundles  the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) and the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug).
+For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) with your VS Code installed. To make it easier, we provide a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which bundles  the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) and several other popular Java [extensions](/docs/java/extensions.md).
 
-The first time you edit a Java file, you will be prompted to install the extension pack. You can also install it manually from the Extension view (`kb(workbench.view.extensions)`). In the Extension view search box, type `vscode-java-pack`.
+While you can manually installed the extension pack from the Extension view (`kb(workbench.view.extensions)`) by typing `vscode-java-pack` in the Extension view search box, the extension pack would also be promoted to you for installation when you edit a Java file in VS Code for the first time.
 
 ## Use
 
@@ -71,6 +71,18 @@ The default Debug Console in VS Code doesn't support inputs. In case your progra
 
 ![Launch in Terminal](images/java-debugging/launch-in-terminal.gif)
 
+Step filter is supported by the extension to filter out types that you do not wish to see or step through while debugging. With this feature, you can configure the packages to filter within your launch.json so they could be skipped when you step through. See below
+
+![Step Filter](images/java-debugging/step-filter.gif)
+
+The debugger also enables you to evaluate expressions in variable watch window as well as debug console, you can also use this feature for conditional breakpoint setting. See below
+
+![Expression Evaluation](images/java-debugging/expression-evaluation.gif)
+
+Another advanced feature the debugger supports is hot code replacement. Hot code replacement (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another JVM. It’s a standard technique to Java to facilitate experimental development and to foster iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the JVM running your code. No restart is required, therefor it’s called “hot”. Below is an illustration of how you can use HCR with Debugger for Java In VS Code.
+
+![Hot Code Replacement](images/java-debugging/hcr.gif)
+
 There're a lot of different [options and settings](#_options) available with this Debugger. For example, configuring the current working directory (cwd) and environment variables could be easily done with launch options.
 
 ![Configure Variables](images/java-debugging/cwd-env.gif)
@@ -88,14 +100,19 @@ Please also check the documentation of [Language Support for Java by Red Hat](ht
 - `classPaths` - The classpaths for launching the JVM. If not specified, the debugger will automatically resolve from current project.
 - `encoding` - The `file.encoding` setting for the JVM. If not specified, 'UTF-8' will be used. Possible values can be found in http://docs.oracle.com/javase/8/docs/technotes/guides/intl/encoding.doc.html.
 - `vmArgs` - The extra options and system properties for the JVM (e.g. -Xms\<size\> -Xmx\<size\> -D\<name\>=\<value\>).
-- `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program.
+- `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program. It is required for expression evaluation.
 - `cwd` - The working directory of the program.
 - `env` - The extra environment variables for the program.
 - `stopOnEntry` - Automatically pause the program after launching.
 - `console` - The specified console to launch the program. Defaults to `internalConsole`.
   - `internalConsole` - VS Code debug console (input stream not supported).
-  - `integratedTerminal` - VS Code Integrated Terminal.
+  - `integratedTerminal` - VS Code integrated terminal.
   - `externalTerminal` - External terminal that can be configured in user settings.
+- `stepFilters` - Skip specified classes or methods when stepping.
+  - `classNameFilters` - Skip the specified classes when stepping. Class names should be fully qualified. Wildcard is supported.
+  - `skipSynthetics` - Skip synthetic methods when stepping.
+  - `skipStaticInitializers` - Skip static initializer methods when stepping.
+  - `skipConstructors` - Skip constructor methods when stepping.
 
 ### Attach
 
@@ -104,14 +121,21 @@ Please also check the documentation of [Language Support for Java by Red Hat](ht
 - `timeout` - Timeout value before reconnecting, in milliseconds (default to 30000ms).
 - `sourcePaths` - The extra source directories of the program. The debugger looks for source code from project settings by default. This option allows the debugger to look for source code in extra directories.
 - `projectName` - The preferred project in which the debugger searches for classes. There could be duplicated class names in different projects. This setting also works when the debugger looks for the specified main class when launching a program.
+- `stepFilters` - Skip specified classes or methods when stepping.
+  - `classNameFilters` - Skip the specified classes when stepping. Class names should be fully qualified. Wildcard is supported.
+  - `skipSynthetics` - Skip synthetic methods when stepping.
+  - `skipStaticInitializers` - Skip static initializer methods when stepping.
+  - `skipConstructors` - Skip constructor methods when stepping.
 
 ### User Settings
 
 - `java.debug.logLevel`: minimum level of debugger logs that are sent to VS Code, defaults to `warn`.
-- `java.debug.settings.showHex`: show numbers in hex format in **VARIABLES**, defaults to `false`.
-- `java.debug.settings.showStaticVariables`: show static variables in **VARIABLES**, defaults to `true`.
-- `java.debug.settings.showQualifiedNames`: show fully qualified class names in **VARIABLES**, defaults to `false`.
-- `java.debug.settings.maxStringLength`: the maximum length of string displayed in **VARIABLES** or **Debug Console**, the string longer than this length will be trimmed, defaults to `0` which means no trim is performed.
+- `java.debug.settings.showHex`: show numbers in hex format in "Variables" viewlet, defaults to `false`.
+- `java.debug.settings.showStaticVariables`: show static variables in "Variables" viewlet, defaults to `true`.
+- `java.debug.settings.showQualifiedNames`: show fully qualified class names in "Variables" viewlet, defaults to `false`.
+- `java.debug.settings.maxStringLength`: the maximum length of string displayed in "Variables" or "Debug Console" viewlet, the string longer than this length will be trimmed, defaults to `0` which means no trim is performed.
+- `java.debug.settings.enableHotCodeReplace`: enable hot code replace for Java code. Make sure the auto build is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+
 
 ## Feedback and Questions
 
@@ -121,7 +145,11 @@ You can find the full list of issues at [Issue Tracker](https://github.com/Micro
 
 [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) allows you to run and debug your test cases.
 
-![JUnit support](images/java-debugging/junit.gif)
+![JUnit Support](images/java-debugging/junit.gif)
+
+You can also manage your test cases with test explorer.
+
+![Test Explorer](images/java-debugging/test-explorer.png)
 
 ## Next Steps
 
