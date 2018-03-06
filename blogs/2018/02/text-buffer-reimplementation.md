@@ -200,7 +200,7 @@ and some manually created large files
 Here we didn't compare heap size as for small files we'll do tokenization and have multiple copies of the buffer (worker, etc) while we stop doing that for large files, so we just check the memory usage of text buffer.
 
 <center>
-<img src="./memoryusage.png" style="width: 800px" alt="Memory Usage">
+<img src="./memoryusage.png" style="width: 600px" alt="Memory Usage">
 </center>
 
 As we can see from above, the memory usage of Piece Tree after file loading is close to the file size, which meets our expectation. First round, Piece Tree wins.
@@ -208,7 +208,7 @@ As we can see from above, the memory usage of Piece Tree after file loading is c
 ### 2. File opening
 
 <center>
-<img src="./fileopen.png" style="width: 800px" alt="File Opening">
+<img src="./fileopen.png" style="width: 600px" alt="File Opening">
 </center>
 
 The lesson we learnt here is finding offsets of line breaks is a cheaper operation than splitting string into an array, as the former doesn't involve unnecessary object creation.
@@ -256,7 +256,7 @@ TADA, we found the achilles heel of Piece Tree. A large file (which creates a lo
 However, we are talking about microseconds here for each `getLineContent` operation. Like I said before, reading is not just about text buffer, there are a lot post processes after getting the line content. For example, users scroll the window to see some more lines:
 
 <center>
-<img src="./scrolling.png" style="width: 800px" alt="Scrolling">
+<img src="./scrolling.png" style="width: 600px" alt="Scrolling">
 </center>
 
 `getLineContent` doesn't even show up in the chart as some microseconds are just a small portion of one frame. Other scenarios like  tokenization or compute links, `getLineContent` doesn't really affect the overall speed. The text buffer performance might be the last one to blame but if it grows to milliseconds somehow one day, then we need to think seriously about it as it may affect the frame rate.
