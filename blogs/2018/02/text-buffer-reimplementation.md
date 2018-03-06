@@ -31,9 +31,8 @@ The lines array representation takes a lot of time to create and then consumes a
 ### Piece Table
 
 <center>
-<img src="./traditional-piece-table.gif" alt="Piece Table">
+<img src="./traditional-piece-table.gif" alt="Tradition Piece Table">
 </center>
-
 
 ```ts
 class PieceTable {
@@ -171,6 +170,11 @@ class Node {
 	...
 }
 ```
+
+<center>
+<img src="./piece-tree.gif" alt="Piece Tree">
+</center>
+
 
 ## Piece Tree
 
