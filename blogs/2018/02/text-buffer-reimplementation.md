@@ -31,7 +31,7 @@ The lines array representation takes a lot of time to create and then consumes a
 ### Piece Table
 
 <center>
-<img src="./traditional-piece-table.gif" alt="Tradition Piece Table">
+<img src="./traditional-piece-table.gif" alt="Tradition Piece Table" style="width: 800px;">
 </center>
 
 ```ts
@@ -172,7 +172,7 @@ class Node {
 ```
 
 <center>
-<img src="./piece-tree.gif" alt="Piece Tree">
+<img src="./piece-tree.gif" alt="Piece Tree" style="width: 800px">
 </center>
 
 
@@ -182,21 +182,10 @@ I'd love to call this text buffer *Multiple buffer piece table with red black tr
 
 Having a theoretical understanding of this data structure is one thing, real world performance is another. The language you use, the environment the code runs on, the way others invoke your API and a lot others may affect the result significantly. We should run some benchmarks on small/medium/large files against original Line Array and piece tree.
 
-~~One thing to note here is in July 2017, we had a huge [memory usage improvements](https://github.com/Microsoft/vscode/issues/30180#issuecomment-313509308) for Line Array, among which *avoid sliced string* is an interesting one. If we do some profiling with file opening in VSCode 1.19~~
-
-<!--
-<center>
-<img src="./linebuffer-builder.png" style="width: 800px" alt="line buffer model building">
-</center>
--->
-
-~~You can see that `Buffer.toString/Buffer.write` takes the majority of time. This was used to avoid sliced string ref on each split string, it saves quite a lot memory when the file has a lot of lines. The side effect is obvious though, it slows down the file opening. It's a classic speed/memory tradeoff. Last month, we disabled sliced string optimization but here I want to run benchmarks against both of them to make sure we don't lose opportunities to improve.~~
-
 ### Preparations
 
 I try to do benchmarks against some realistic files we can find online
 
-* [vscode-loader](https://github.com/Microsoft/vscode/blob/master/src/vs/loader.js), 77KB, 1682 lines.
 * [checker.ts](https://github.com/Microsoft/TypeScript/blob/master/src/compiler/checker.ts) 1.46 MB, 26k lines.
 * [sqlite.c](https://github.com/kripken/emscripten/blob/master/tests/sqlite/sqlite3.c)  4.31MB, 128k lines.
 * [Russian English Bilingual dictionary](https://github.com/titoBouzout/Dictionaries/blob/master/Russian-English%20Bilingual.dic) 14MB, 552k lines
@@ -208,17 +197,13 @@ and some manually created large files
 
 ### 1. Memory usage
 
-**TODO@Peng**: Don't complicate needlesly. Have a color for BEFORE, a color for AFTER, and a color for file size. Use the same color for BEFORE and for AFTER in all graphs! Also, don't use line graphs. The X axis is not a continuous axis, like time; It is discrete, so you should not draw lines between measurements, maybe you can use bar charts.
-
 Here we didn't compare heap size as for small files we'll do tokenization and have multiple copies of the buffer (worker, etc) while we stop doing that for large files, so we just check the memory usage of text buffer.
 
 <center>
 <img src="./memoryusage.png" style="width: 800px" alt="Memory Usage">
 </center>
 
-As we can see from above, whether to do sliced string optimization in Line Array is a difficult decision to make. `sliced string` uses more memory (proportional to line count), but reducing the memory takes time. Piece Tree doesn't have this trouble as there is no string splitting.
-
-First round, Piece Tree wins.
+As we can see from above, the memory usage of Piece Tree after file loading is close to the file size, which meets our expectation. First round, Piece Tree wins.
 
 ### 2. File opening
 
@@ -226,13 +211,7 @@ First round, Piece Tree wins.
 <img src="./fileopen.png" style="width: 800px" alt="File Opening">
 </center>
 
-Fun facts here:
-* For Line Array, if we don't do sliced string optimization, most time is spent in splitting string into arrays.
-* For Line Array, if we do sliced string optimization, the model building time almost doubles when the file size grows.
-* For Piece Tree, most time is spent in finding offsets of line breaks.
-* Checking charCode is cheaper than splitting.
-
-Once the file is opened, we don't need to worry the sliced string problem, so in following benchmarks, we only compare Line Model w/o sliced string opt and Piece Tree.
+The lesson we learnt here is finding offsets of line breaks is a cheaper operation than splitting string into an array, as the former doesn't involve unnecessary object creation.
 
 ### 3. Writing
 For now I don't have concrete data of users' behaviors while using the editor, but there are still two typical user workflows I'm familiar with
@@ -240,24 +219,16 @@ For now I don't have concrete data of users' behaviors while using the editor, b
 * Jumping around in the document, and make edits. For instance, changing function signature.
 * Typing in sequence. It's not often but I do enter zen mode sometimes when writing blogs.
 
-So here I try to mimic these two scenarios. Apply 1000 random edits and 1000 sequential inserts to the document, and see how much time every text buffer needs. Besides, we apply edits one by one to avoid bulk edits optimization by purpose.
-
-*1000 random edits*
+So here I try to mimic these two scenarios. Apply 1000 random edits or 1000 sequential inserts to the document, then see how much time every text buffer needs. Besides, we apply edits one by one to avoid bulk edits optimization by purpose.
 
 <center>
-<img src="./randomedits.png" style="width: 800px" alt="Random Edits">
-</center>
-
-*1000 sequential inserts*
-
-<center>
-<img src="./seqinserts.png" style="width: 800px" alt="Sequential Inserts">
+<img src="./write.png" style="width: 800px" alt="Random Edits">
 </center>
 
 Line Array wins when the file size small (KBs), this is as expected: accessing a random position in a small array and tweaking a string which has around 100~150 characters is really fast. It starts to choke when the file as a lot of lines (100k+), you may think the array size should not affect the performance but actually it does as array of objects are usually not sitting in a linear memory space.
 
 <center>
-<img src="https://user-images.githubusercontent.com/876920/35373582-f8ca4ea0-0153-11e8-9859-6a2edd0aa57c.png" style="width: 800px" alt="Sequential Inserts">
+<img src="https://user-images.githubusercontent.com/876920/35373582-f8ca4ea0-0153-11e8-9859-6a2edd0aa57c.png" style="width: 600px" alt="Sequential Inserts">
 </center>
 
 Sequential inserts in large files makes this situation worse as JavaScript engine does heavy lifting when resizing the super large array. Piece Tree behaves stably in these Mega bytes files as each edit is just a string append and a couple RBTree operations.
@@ -276,19 +247,7 @@ firstChar = lastChar - firstChar;
 ```
 
 <center>
-<img src="./readalllinesrandom.png" style="width: 800px" alt="Read all lines after random edits">
-</center>
-
-<center>
-<img src="./readalllinesseq.png" style="width: 800px" alt="Read all lines after sequential inserts">
-</center>
-
-<center>
-<img src="./read10random.png" style="width: 800px" alt="Read 10 windows after random edits">
-</center>
-
-<center>
-<img src="./read10seq.png" style="width: 800px" alt="Read 10 windows after 10 sequential inserts">
+<img src="./read.png" style="width: 800px" alt="Read all lines after random edits">
 </center>
 
 
