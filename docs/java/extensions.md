@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 7
 Area: java
 TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
@@ -19,16 +19,25 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
+3. [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test)
+4. [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-There's also a [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), which runs JUnit tests for your Java code.
+There're also other popular Java extensions you can pick for your own needs, including
+1. [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
+2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
+3. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
+4. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 
-In case you're working on Spring Boot, there's also a [Spring Boot Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack) developed by Pivotal.
+Thanks to the great Java community around VS Code, the list doesn't just end here. You can search for more Java extensions easily within the editor
+
+1. In Visual Studio Code, go to the **Extensions** view (`kb(workbench.view.extensions)`).
+2. Filter the extensions list by typing "java".
 
 ## Recommended extensions for cloud (Azure) development
 
-Along with the language support, if you are deploying your applications to the cloud, especially Azure, there is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services:
+Along with the language support, if you are deploying your applications to the cloud, especially Azure, there is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services. Here's the list of services supporting Java.
 
 ### App Services (Websites)
 

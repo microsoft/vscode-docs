@@ -1,5 +1,5 @@
 ---
-Order: 2
+Order: 3
 Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
@@ -56,6 +56,8 @@ From the command prompt or terminal window that you were using earlier, rebuild 
 ```bash
 mvn clean package
 ```
+
+> **Note:** You need to be in the `complete` directory when making commands on the terminal.
 
 Deploy your web app to Azure by using Maven; for example:
 
