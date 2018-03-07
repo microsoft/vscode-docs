@@ -15,8 +15,11 @@ The Python extension relies on a Python environment (an interpreter and installe
 The extension automatically looks for interpreters in the following locations:
 
 - Standard paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
-- Virtual environments located under the workspace (project) folder.
+- Virtual environments located directly under the workspace (project) folder.
+- Interpreters installed by [pyenv](https://github.com/pyenv/pyenv).
+- A [pipenv](https://docs.pipenv.org/) environment for the workplace folder. If one is found then no other interpreters are searched for or listed as pipenv expects to manage all aspects of the environment.
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
+- Interpreters installed in a `.direnv` folder for [direnv](https://direnv.net/) under the workspace (project) folder.
 
 You can also [manually specify an interpreter](#manually-specifying-an-interpreter) if Visual Studio Code does not locate it automatically.
 
