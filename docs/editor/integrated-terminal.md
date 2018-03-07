@@ -241,3 +241,21 @@ The easy fix for this is to use the 64-bit version. If you must use the 32-bit v
 ```json
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
 ```
+
+**Q: Why is Cmd+k/Ctrl+k not clearing the terminal?**
+
+**A:** Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` keybindings rely on the VS Code keybinding priority system which defines which keybinding is active at any given time (user > extension > default). In order to fix this, you need to redefine your user keybinding which will have priority, preferably at the bottom of your user `keybindings.json` file:
+
+macOS:
+
+```json
+{ "key": "cmd+k",                 "command": "workbench.action.terminal.clear",
+                                     "when": "terminalFocus" },
+```
+
+Windows:
+
+```json
+{ "key": "ctrl+k",                "command": "workbench.action.terminal.clear",
+                                     "when": "terminalFocus" },
+```

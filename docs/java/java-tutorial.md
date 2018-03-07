@@ -63,7 +63,7 @@ Test the web app by browsing to `http://localhost:8080` using a web browser. You
 
 Let's now edit `HelloController.java` to change "Greetings from Spring Boot!" to something else like "Hello World". VS Code provide a great editing experience for Java, check out [Editing and Navigating Code](/docs/languages/java.md#editing-and-navigating-code) to learn about VS Code's editing and code navigation features.
 
-Simply click the Restart button on the top of the editor to reload the app and see result by reloading the browser.
+Click the **Restart** button on the top of the editor to reload the app and see result by reloading the browser.
 
 ![Restart Application](images/java-tutorial/restart-application.png)
 
