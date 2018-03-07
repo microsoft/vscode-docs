@@ -24,20 +24,21 @@ To help set up Java on VS Code, there is a [Java Extension Pack](https://marketp
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-There're also other popular Java extensions you can pick for your own needs, including
+There are many other popular Java extensions you can pick from, including:
+
 1. [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 4. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 
-Thanks to the great Java community around VS Code, the list doesn't just end here. You can search for more Java extensions easily within the editor
+Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within the VS Code:
 
-1. In Visual Studio Code, go to the **Extensions** view (`kb(workbench.view.extensions)`).
+1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing "java".
 
 ## Recommended extensions for cloud (Azure) development
 
-Along with the language support, if you are deploying your applications to the cloud, especially Azure, there is a [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services. Here's the list of services supporting Java.
+Along with the language support, if you are deploying your applications to the cloud, especially Azure, there is an [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services. Here's the list of services supporting Java:
 
 ### App Services (Websites)
 
@@ -71,7 +72,7 @@ Along with the language support, if you are deploying your applications to the c
 
 ### General tools
 
-* The [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=bradygaster.azuretoolsforvscode) adds commands to the Command Palette (F1) that make it easy to create and access Azure resources directly from VS Code. For example, you can create App Service Web Apps and Functions, Storage accounts, and browse to any number of resources in the Azure Portal.
+* The [Azure Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=bradygaster.azuretoolsforvscode) adds commands to the **Command Palette** (`kb(workbench.action.showCommands)`) that make it easy to create and access Azure resources directly from VS Code. For example, you can create App Service Web Apps and Functions, Storage accounts, and browse to any number of resources in the Azure Portal.
 
 * The [Azure Resource Manager (ARM) Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) provide a rich editing experience for Azure Resource Manager deployment templates and template language expressions. For example, IntelliSense for TLE function names, parameter references, signature help, GoTo Definition, Peek Definitions, and Find All References (Shift+F12) as well as Errors and Warnings, making it quick and easy to author ARM templates in VS Code.
 

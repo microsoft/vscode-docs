@@ -31,7 +31,7 @@ We'll use the [Integrated Terminal](/docs/editor/integrated-terminal.md) in VS C
 * Use the **View** | **Integrated Terminal** menu command.
 * From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
 
-> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on Mac or Linux) if you prefer to work outside VS Code.
+> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on macOS or Linux) if you prefer to work outside VS Code.
 
 Sign into your Azure account by using the Azure CLI:
 
@@ -43,7 +43,7 @@ Follow the instructions to complete the sign-in process.
 
 ## Update your project to use Azure CLI for authentication
 
-Open your `pom.xml` file in your project folder (complete). Find and remove the snippet below in azure-webapp-maven-plugin `configuration` section so we will authenticate with Azure using Azure CLI, which we've already logged in with.
+Open your `pom.xml` file in your project folder (`complete`). Find and remove the snippet below in azure-webapp-maven-plugin `configuration` section so we will authenticate with Azure using Azure CLI, which we've already logged in with.
 
 ![Remove Authentication](images/java-webapp/remove-auth.png)
 
@@ -57,7 +57,7 @@ From the command prompt or terminal window that you were using earlier, rebuild 
 mvn clean package
 ```
 
-> **Note:** You need to be in the `complete` directory when making commands on the terminal.
+> **Note:** You need to be in the `complete` directory when running commands on the terminal.
 
 Deploy your web app to Azure by using Maven; for example:
 
