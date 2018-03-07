@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: 8cdc7d99-6339-49ac-9a31-55f6563fab5c
 PageTitle: Tasks (legacy version)
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 # Tasks (legacy version)

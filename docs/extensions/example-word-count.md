@@ -4,10 +4,9 @@ Area: extensions
 TOCTitle: Example-Word Count
 ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
 PageTitle: Visual Studio Code Example - Word Count Extension
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
-
 # Example - Word Count
 
 This document assumes you have read [Your First Extension](/docs/extensions/example-hello-world.md) which covers the basics of VS Code extensibility.
@@ -19,7 +18,6 @@ Whenever a `Markdown` file is edited, a status bar message is added.  The messag
 ![Word Count on Status Bar](images/example-word-count/wordcountevent2.gif)
 
 > **Tip:** The finished sample is available from [this GitHub repository](https://github.com/microsoft/vscode-wordcount) should you have any issues.
-
 
 ## Overview
 

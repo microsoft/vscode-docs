@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Build Java Web Apps with VS Code
-DateApproved: 11/14/2017
+DateApproved: 3/7/2017
 MetaDescription: Java tutorial showing Java language support in the Visual Studio Code editor.
 ---
 # Build Java Web Apps with VS Code

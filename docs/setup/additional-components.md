@@ -4,17 +4,16 @@ Area: setup
 TOCTitle: Additional Components
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
 PageTitle: Setting up additional components to use with Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Setting up additional components to use with Visual Studio Code.
 ---
-
-# Additional Components and Tools
+# Additional components and tools
 
 VS Code is a small download by design and only includes the minimum number of components shared across most development workflows. Basic functionality like the editor, file management, window management, and preference settings are included. A JavaScript/TypeScript language service and Node.js debugger are also part of the base install.
 
 If you are used to working with larger, monolithic development tools (IDEs), you may be surprised that your scenarios aren't completely supported out of the box.  For example, there isn't a **File** > **New Project** dialog with pre-installed project templates.  Most VS Code users will need to install additional components depending on their specific needs.
 
-## Commonly Used Components
+## Commonly used components
 
 Here are a few commonly installed components:
 
@@ -24,7 +23,7 @@ Here are a few commonly installed components:
 
 You'll find the components above mentioned often in our documentation and walkthroughs.
 
-## VS Code Extensions
+## VS Code extensions
 
 You can extend the VS Code editor itself through [extensions](/docs/editor/extension-gallery.md). The VS Code community has built hundreds of useful extension available on the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
@@ -32,7 +31,7 @@ You can extend the VS Code editor itself through [extensions](/docs/editor/exten
 
 The extensions shown above are the current most popular on Marketplace. Click on an extension tile above to read the description and reviews of the extension.
 
-## Additional Tools
+## Additional tools
 
 Visual Studio Code integrates with existing tool chains.  We think the following tools will enhance your development experiences.
 

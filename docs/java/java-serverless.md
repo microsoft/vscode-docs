@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Java Serverless
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
 PageTitle: Writing serverless Java Application with VS Code
-DateApproved: 11/14/2017
+DateApproved: 3/7/2017
 MetaDescription: Using VS Code for developing, debugging and deploying your serverless application.
 ---
 # Serverless Java Apps with VS Code
