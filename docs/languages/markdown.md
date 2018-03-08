@@ -51,9 +51,9 @@ Additionally, double clicking an element in the Markdown preview will automatica
 
 ![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
 
-## Using your own CSS
+### Using your own CSS
 
-By default, we use a CSS style for the preview that matches the style of VS Code. If you want to use your own CSS for the Markdown preview, update the `"markdown.styles": []` [setting](/docs/getstarted/settings.md) with the comma-separated list of URL(s) for your style sheet(s).
+By default, we use a CSS style for the preview that matches the style of VS Code. If you want to use your own CSS for the Markdown preview, update the `"markdown.styles": []` [setting](/docs/getstarted/settings.md) with the comma-separated list of URL(s) for your style sheet(s). Note that `markdown.styles` files must either be served over https or point to a local file within the current workspace.
 
 For instance, in the screen shot above we used a custom CSS that changes the default font for the page and changes the color for the H1 title.
 
