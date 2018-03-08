@@ -26,6 +26,8 @@ The default `launch.json` (which is where VS Code stores the debugger configurat
 
 Additional configurations are described in [Debugging specific app types](#debugging-specific-app-types).
 
+>**Note:** If you'd like to try the new experimental debugger, see the instructions on [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub).
+
 ## Standard configuration and options
 
 Standard configuration for `launch.json`:
@@ -101,7 +103,7 @@ An array of additional options that may contain the following:
 
 | Option | Description |
 | --- | --- |
-| `"RedirectOutput"` | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using  `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
+| `"RedirectOutput"` (default) | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
 | `"DebugStdLib"` | Enabled debugging of standard library functions. |
 | `"DjangoDebugging"` | Activates debugging features specific to Django. |
 | `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
