@@ -82,10 +82,10 @@ Let's go through the purpose of all these files and explain what they do:
 
 ### The extension manifest: `package.json`
 
-* Please read the [`package.json` extension manifest reference](/docs/extensionAPI/extension-manifest.md)
-* More information on [`package.json` contribution points](/docs/extensionAPI/extension-points.md)
 * Each VS Code extension must have a `package.json` file that describes it and its capabilities.
 * VS Code reads this file during start-up and reacts to each `contributes` section immediately.
+* Please read the [`package.json` extension manifest reference](/docs/extensionAPI/extension-manifest.md)
+* More information on [`package.json` contribution points](/docs/extensionAPI/extension-points.md)
 
 #### Example TypeScript extension manifest
 
@@ -156,7 +156,7 @@ export function activate(context: vscode.ExtensionContext) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    var disposable = vscode.commands.registerCommand('extension.sayHello', () => {
+    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
         // The code you place here will be executed every time your command is executed
 
         // Display a message box to the user
@@ -220,16 +220,20 @@ To learn more about the extension [development environment](/docs/extensions/deb
 In `extension.ts` (or `extension.js`, in a JavaScript extension), try replacing the `extension.sayHello` command implementation to show the number of characters selected in the editor:
 
 ```javascript
-var editor = vscode.window.activeTextEditor;
-if (!editor) {
-    return; // No open text editor
-}
+    let disposable = vscode.commands.registerCommand('extension.sayHello', () => {
+        // The code you place here will be executed every time your command is executed
 
-var selection = editor.selection;
-var text = editor.document.getText(selection);
+        let editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            return; // No open text editor
+        }
 
-// Display a message box to the user
-vscode.window.showInformationMessage('Selected characters: ' + text.length);
+        let selection = editor.selection;
+        let text = editor.document.getText(selection);
+
+        // Display a message box to the user
+        vscode.window.showInformationMessage('Selected characters: ' + text.length);
+    });
 ```
 
 > **Tip:** Once you make changes to the extension source code, you need to restart the **Extension Development Host** instance of VS Code. You can do that by using `kbstyle(Ctrl+R)` (macOS: `kbstyle(Cmd+R)`) in the **Extension Development Host** instance or by clicking the **Restart** button at the top of your primary VS Code instance.
