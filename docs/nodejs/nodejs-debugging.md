@@ -31,7 +31,7 @@ Runtime   | 'Legacy' Protocol | 'Inspector' Protocol
 ----------|-------------------|----------
 io.js     | all               | no
 node.js   | < 8.x             | >= 6.3 (Windows: >= 6.9)
-Electron  | < 7.4             | >= 7.4
+Electron  | < 1.7.4             | >= 1.7.4
 Chakra    | all               | not yet
 
 Although it appears to be possible that the VS Code Node.js debugger picks the best protocol always automatically,
