@@ -9,7 +9,7 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 ---
 # Example - Hello World
 
-## Your First Extension
+## Your first extension
 
 This document will guide you through creating your first VS Code extension ("Hello World") and explain the basic VS Code extensibility concepts.
 
@@ -19,7 +19,7 @@ In this walkthrough, you'll add a new command to VS Code which will display a si
 
 You need [Node.js](https://nodejs.org/en/) installed and available in your `$PATH`. Node.js includes [npm](https://www.npmjs.com/), the Node.js Package Manager, which will be used to install the extension generator.
 
-## Generate a New Extension
+## Generate a new extension
 
 The simplest way to add your own functionality to VS Code is through adding a command. A command registers a callback function which can be invoked from the **Command Palette** or with a key binding.
 
@@ -34,7 +34,7 @@ For the hello world extension, you can either create a **TypeScript** extension 
 
 ![The command generator](images/example-hello-world/generator.png)
 
-## Running your Extension
+## Running your extension
 
 * Launch VS Code, choose `File` > `Open Folder` and pick the folder that you generated.
 * Press `kb(workbench.action.debug.start)` or click on the `Debug` icon and click `Start`.
@@ -44,7 +44,7 @@ For the hello world extension, you can either create a **TypeScript** extension 
 
 ![Running VS Code with an extension](images/example-hello-world/running.png)
 
-## The Structure of an Extension
+## The structure of an extension
 
 After running, the generated extension should have the following structure:
 
@@ -84,8 +84,8 @@ Let's go through the purpose of all these files and explain what they do:
 
 * Each VS Code extension must have a `package.json` file that describes it and its capabilities.
 * VS Code reads this file during start-up and reacts to each `contributes` section immediately.
-* Please read the [`package.json` extension manifest reference](/docs/extensionAPI/extension-manifest.md)
-* More information on [`package.json` contribution points](/docs/extensionAPI/extension-points.md)
+* Please read the [`package.json` extension manifest reference](/docs/extensionAPI/extension-manifest.md).
+* More information on [`package.json` contribution points](/docs/extensionAPI/extension-points.md).
 
 #### Example TypeScript extension manifest
 
@@ -129,14 +129,14 @@ Let's go through the purpose of all these files and explain what they do:
 
 > **Note:** A JavaScript extension doesn't require the `scripts` field as no compilation is needed.
 
-* This specific package.json describes an extension that:
- * *contributes* an entry to the Command Palette (`kb(workbench.action.showCommands)`) with the label `"Hello world"` that will invoke a command `"extension.sayHello"`.
- * requests to get loaded (*activationEvents*) when the command `"extension.sayHello"` is invoked.
- * has its *main* JavaScript code in a file called `"./out/extension.js"`.
+This specific `package.json` describes an extension that:
+
+* *contributes* an entry to the **Command Palette** (`kb(workbench.action.showCommands)`) with the label `"Hello world"` that will invoke a command `"extension.sayHello"`.
+* requests to get loaded (*activationEvents*) when the command `"extension.sayHello"` is invoked. * has its *main* JavaScript code in a file called `"./out/extension.js"`.
 
 > **Note:** VS Code **does not** load the code of an extension eagerly at start-up. An extension must describe, through the [`activationEvents`](/docs/extensionAPI/activation-events.md) property under what conditions it should get activated (loaded).
 
-### Generated Code
+### Generated code
 
 The generated extension's code is in `extension.ts` (or `extension.js` in case of a JavaScript extension):
 
@@ -185,7 +185,7 @@ export function activate(context: vscode.ExtensionContext) {
 * `vsc-extension-quickstart.md` - A Quick Start guide for you.
 * `test/extension.test.ts` - you can put your extension unit tests in here and run your tests against the VS Code API (see [Testing Your Extension](/docs/extensions/testing-extensions.md))
 
-## Extension Activation
+## Extension activation
 
 Now that the roles of the files included in the extension are clarified, here is how your extension gets activated:
 
@@ -203,7 +203,7 @@ Now that the roles of the files included in the extension are clarified, here is
  * The command `"extension.sayHello"` implementation function is invoked.
  * The command implementation displays the "Hello World" message.
 
-## Debugging your Extension
+## Debugging your extension
 
 Set a breakpoint, for example inside the registered command, and run the `"Hello world"` command in the Extension Development VS Code instance.
 
@@ -215,7 +215,7 @@ Set a breakpoint, for example inside the registered command, and run the `"Hello
 
 To learn more about the extension [development environment](/docs/extensions/debugging-extensions.md).
 
-## A Simple Change
+## A simple change
 
 In `extension.ts` (or `extension.js`, in a JavaScript extension), try replacing the `extension.sayHello` command implementation to show the number of characters selected in the editor:
 
@@ -242,14 +242,14 @@ Create a file (**File** > **New File**), type some text and select it. When you 
 
 ![Running the modified extension](images/example-hello-world/selection-length.png)
 
-## Installing your Extension Locally
+## Installing your extension locally
 
 So far, the extension you have written only runs in a special instance of VS Code, the Extension Development instance. To get your extension running in all instances of VS Code, you need to copy it to a new folder under your local extensions folder:
 
 * Windows: `%USERPROFILE%\.vscode\extensions`
 * Mac/Linux: `$HOME/.vscode/extensions`
 
-## Publishing your Extension
+## Publishing your extension
 
 Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
 

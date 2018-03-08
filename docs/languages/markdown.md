@@ -53,13 +53,13 @@ Additionally, double clicking an element in the Markdown preview will automatica
 
 ### Extending the Markdown preview
 
-Extensions can contribute custom styles and scripts to the markdown preview to change its appearance and add new functionality. Here's a set of example extensions that customize the preview:
+Extensions can contribute custom styles and scripts to the Markdown preview to change its appearance and add new functionality. Here's a set of example extensions that customize the preview:
 
 <div class="marketplace-extensions-markdown-preview-curated"></div>
 
 ### Using your own CSS
 
-You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/getstarted/settings.md). This lists URLs for style sheets to load in the markdown preview. These stylesheets can either be https urls, or relative paths to local files in the current workspace.
+You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/getstarted/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be https urls, or relative paths to local files in the current workspace.
 
 For example, to load a stylesheet called `Style.css` at the root of your current workspace, use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
 
