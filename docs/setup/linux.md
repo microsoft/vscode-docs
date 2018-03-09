@@ -144,7 +144,7 @@ I'm getting a "Running without the SUID sandbox" error?
 
 You can safely ignore this error.
 
-### Debian and Moving Files to Trash
+### Debian and moving files to trash
 
 If you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
 
@@ -154,7 +154,7 @@ Run these commands to solve this issue:
 sudo apt-get install gvfs-bin
 ```
 
-### "VS Code is unable to watch for file changes in this large workspace" (error ENOSPC)
+### "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
 
 When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. The current limit can be viewed by running:
 
