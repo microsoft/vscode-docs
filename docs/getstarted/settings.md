@@ -22,7 +22,7 @@ Workspace settings override user settings.
 
 ## Creating User and Workspace Settings
 
-To open your user and workspace settings, use the following menu command:
+To open your user and workspace settings, use the following VS Code menu command:
 
 * On Windows/Linux - **File** > **Preferences** > **Settings**
 * On macOS - **Code** > **Preferences** > **Settings**
@@ -31,7 +31,7 @@ You are provided with a list of **Default Settings**. Copy any setting that you 
 
 You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openGlobalSettings)`).
 
-In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
+In the example below, the workspace contains settings to disable line numbers in the editor and configure line wrapping to wrap automatically based on the size of the editor.
 
 ![Example Settings](images/settings/settings.png)
 
@@ -58,6 +58,12 @@ When you open the settings editor, you will see **Default Settings** where you c
 ![Settings Search](images/settings/settings-search.png)
 
 **Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
+
+### Edit settings
+
+If you hover over a setting, you will see an **Edit** action with a small pencil icon. Clicking on the pencil will display a dropdown with the available setting values. Select a value and the setting will be added to the currently open settings file.
+
+![edit a setting](images/settings/settings-edit.png)
 
 ### Settings groups
 
