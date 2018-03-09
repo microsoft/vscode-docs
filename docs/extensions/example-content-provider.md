@@ -12,8 +12,6 @@ MetaDescription: Content Provider example shows how to display html document wit
 
 This end to end tutorial how to display html document in VS Code. We'll create a Content Provider which displays a desired html document and is invocable from command.
 
-`VS Code 1.21` introduced [new, better](https://code.visualstudio.com/updates/v1_21#_extensions) way to implement this feature. Consider using new `webview`, than `previewHtml` command.
-
 There is some demo of what we are doing.
 
 ![Displaying HTMl](images/example-content-provider/quickpeek.gif)
@@ -24,7 +22,6 @@ There is some demo of what we are doing.
 
 This example has three sections which will take you through a set of related concepts:
 
-1. [Creating Content Privider (VS Code 1.21+)](/docs/extensions/example-content-provider.md#create-content-provider-1.21+)
 2. [Creating Content Provider](/docs/extensions/example-content-provider.md#create-content-provider)
 3. [Creating command to interact with Provider](/docs/extensions/example-content-provider.md#interact-with-provider)
 
@@ -50,56 +47,6 @@ code .
 
 Before we go on, we can run the extension to make sure everything works as expected by pressing `kb(workbench.action.debug.start)`. As you saw in the previous "Hello World" walkthrough, VS Code opens another window (the **[Extension Development Host]** window) in which your extension will be loaded. You should find the "Hello World" command in the Command Palette (press `kb(workbench.action.showCommands)`) and when you select it, you will see an information box at the top of the window saying "Hello World".
 
-
-## Create Content Provider 1.21+
-
-From VS Code 1.21+ there are better way to present HTML than preview `previewHtml` command. `Webview` API provides easy way to display html code, and provides `message` system to interact with data.
-
-Create an `webview` object. There you have to provide ID, name, and position for your View.
-
-```javascript
-const webview = vscode.window.createWebview(
-  vscode.Uri.parse('your-ext:webview1'),
-  'Webview',
-  vscode.ViewColumn.One,
-  {}
-);
-```
-
-Now you can attach html to `webview` by using `webview.html` property.
-
-```javascript
-webview.html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-</head>
-<body>
-HELLO. I'm new.
-</body>
-</html>`;
-```
-
-Passing data to webview is handled in much simpler way. To post a message to webview use 'postMessage'
-
-```javascript
-webview.postMessage({
-  type: 'some-stuf',
-  title: 'Hello'
-});
-```
-
-and add `message handler to webview`
-
-```javascript
-window.addEventListener('message', event => {
-  switch (event.data.type) {
-    case 'some-stuff':
-      setTitle(event.data.title);
-      break;
-  }
-});
-```
 
 ## Create Content Provider
 
