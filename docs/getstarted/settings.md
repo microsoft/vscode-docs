@@ -39,18 +39,6 @@ Changes to settings are reloaded by VS Code after the modified `settings.json` f
 
 >**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
-## Settings file locations
-
-Depending on your platform, the user settings file is located here:
-
-* **Windows** `%APPDATA%\Code\User\settings.json`
-* **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
-* **Linux** `$HOME/.config/Code/User/settings.json`
-
-The workspace setting file is located under the `.vscode` folder in your root folder.
-
->**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
-
 ## Settings editor
 
 When you open the settings editor, you will see **Default Settings** where you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
@@ -67,11 +55,23 @@ If you hover over a setting, you will see an **Edit** action with a small pencil
 
 ### Settings groups
 
-Default settings are represented in groups so that you can navigate them easily. It has a **Most Commonly Used** group at the top which shows popular customizations.
+Default settings are represented in groups so that you can navigate them easily. It has a **Commonly Used** group at the top which shows popular customizations.
 
 ![Settings Groups](images/settings/settings-groups.png)
 
 Below is a [copy of the default settings](/docs/getstarted/settings.md#copy-of-default-settings) that come with VS Code.
+
+## Settings file locations
+
+Depending on your platform, the user settings file is located here:
+
+* **Windows** `%APPDATA%\Code\User\settings.json`
+* **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
+* **Linux** `$HOME/.config/Code/User/settings.json`
+
+The workspace setting file is located under the `.vscode` folder in your root folder.
+
+>**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
 ## Language specific editor settings
 
@@ -110,7 +110,7 @@ You can use IntelliSense in Settings editor to help you find allowed language ba
 
 In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
 
-Here is the list of settings we don't support at the workspace scope:
+Here is the list of settings we don't support in workspace settings:
 
 - `git.path`
 - `terminal.integrated.shell.linux`
@@ -131,7 +131,7 @@ Below are the default settings and their values. You can also view the default v
 
 ```json
 {
-// Most Commonly Used
+// Commonly Used
 
   // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
   "files.autoSave": "off",
