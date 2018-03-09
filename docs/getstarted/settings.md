@@ -59,7 +59,7 @@ Default settings are represented in groups so that you can navigate them easily.
 
 ![Settings Groups](images/settings/settings-groups.png)
 
-Below is a [copy of the default settings](/docs/getstarted/settings.md#copy-of-default-settings) that come with VS Code.
+Below is a [copy of the default settings](/docs/getstarted/settings.md#default-settings) that come with VS Code.
 
 ## Settings file locations
 
@@ -108,26 +108,26 @@ You can use IntelliSense in Settings editor to help you find allowed language ba
 
 ## Settings and security
 
-In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
+Some settings allow you to specify an executable that VS Code will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
 
-Here is the list of settings we don't support in workspace settings:
+Here is the list of settings not supported in workspace settings:
 
-- `git.path`
-- `terminal.integrated.shell.linux`
-- `terminal.integrated.shellArgs.linux`
-- `terminal.integrated.shell.osx`
-- `terminal.integrated.shellArgs.osx`
-- `terminal.integrated.shell.windows`
-- `terminal.integrated.shellArgs.windows`
-- `terminal.external.windowsExec`
-- `terminal.external.osxExec`
-- `terminal.external.linuxExec`
+* `git.path`
+* `terminal.integrated.shell.linux`
+* `terminal.integrated.shellArgs.linux`
+* `terminal.integrated.shell.osx`
+* `terminal.integrated.shellArgs.osx`
+* `terminal.integrated.shell.windows`
+* `terminal.integrated.shellArgs.windows`
+* `terminal.external.windowsExec`
+* `terminal.external.osxExec`
+* `terminal.external.linuxExec`
 
 The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
 ## Default settings
 
-Below are the default settings and their values. You can also view the default values in the Settings editor.
+Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor.
 
 ```json
 {
