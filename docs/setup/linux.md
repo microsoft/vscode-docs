@@ -154,9 +154,9 @@ Run these commands to solve this issue:
 sudo apt-get install gvfs-bin
 ```
 
-### error ENOSPC
+### "VS Code is unable to watch for file changes in this large workspace" (error ENOSPC)
 
-When you see this error, it indicates that the VS Code file watcher is running out of handles. The current limit can be viewed by running:
+When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. The current limit can be viewed by running:
 
 ```bash
 cat /proc/sys/fs/inotify/max_user_watches
