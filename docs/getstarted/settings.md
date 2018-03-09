@@ -11,12 +11,16 @@ MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 
 It is easy to configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
 
+![VS Code settings](images/settings/hero.png)
+
 VS Code provides two different scopes for settings:
 
-* **User** - These settings apply globally to any instance of VS Code you open.
-* **Workspace** These settings are stored inside your workspace and only apply when the workspace is opened. Settings defined on this scope override the user scope.
+* **User Settings** - Settings that apply globally to any instance of VS Code you open.
+* **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
 
-## Creating user and workspace settings
+Workspace settings override user settings.
+
+## Creating User and Workspace Settings
 
 To open your user and workspace settings, use the following menu command:
 
