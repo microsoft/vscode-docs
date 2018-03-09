@@ -23,10 +23,14 @@ Traditional Chinese | `zh-TW`
 French | `fr`
 German | `de`
 Italian | `it`
+Spanish | `es`
 Japanese | `ja`
 Korean | `ko`
 Russian | `ru`
-Spanish | `es`
+Bulgarian | `bg`
+Hungarian | `hu`
+Portuguese (Brazil) | `pt-br`
+Turkish | `trk`
 
 ## Setting the Language
 
