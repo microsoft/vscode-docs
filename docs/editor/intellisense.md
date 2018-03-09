@@ -21,7 +21,7 @@ Below are the most popular language extensions in the [Marketplace](https://mark
 
 <div class="marketplace-extensions-languages-curated"></div>
 
-## IntelliSense Features
+## IntelliSense features
 
 VS Code IntelliSense features are powered by a language service. A language service provides intelligent code completions based on language semantics and an analysis of your source code. If a language service knows possible completions, the IntelliSense suggestions will pop up as you type. If you continue typing characters, the list of members (variables, methods, etc.) is filtered to include only members containing your typed characters. Pressing `kbstyle(Tab)` or `kbstyle(Enter)` will insert the selected member.
 
@@ -43,7 +43,7 @@ After choosing a method you are provided with **parameter info**.
 
 When applicable, a language service will surface the underlying types in the quick info and method signatures. In the image above, you can see several `any` types. Because JavaScript is dynamic and doesn't need or enforce types, `any` suggests that the variable can be of any type.
 
-## Types of Completions
+## Types of completions
 
 The JavaScript code below illustrates IntelliSense completions. IntelliSense gives both inferred proposals and the global identifiers of the project. The inferred symbols are presented first, followed by the global identifiers (shown by the document icon).
 
@@ -103,9 +103,23 @@ The settings shown below are the default settings. You can change these settings
 }
 ```
 
+### Snippets in suggestions
+
 By default, VS Code shows snippets and completion proposals in one widget. You can control the behavior with the `editor.snippetSuggestions` setting. To remove snippets from the suggestions widget, set the value to `"none"`. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inline ordered alphabetically (`"inline"`). The default is `"bottom"`.
 
-### Key Bindings
+### Suggestion selection
+
+By default, VS Code pre-selects the previously used suggestion in the suggestion list. This is very useful as you can quickly insert the same completion multiple times. If you'd like different behavior, for example, alway select the top item in the suggestion list, you can use the `editor.suggestSelection` setting.
+
+The available `editor.suggestSelection` values are:
+
+* `first` - Always select the top list item.
+* `recentlyUsed` - The previously used item is selected (default).
+* `recentlyUsedByPrefix` - Select items based on previous prefixes that have completed those suggestions.
+
+When using the last option, `recentlyUsedByPrefix`, VS Code remembers which item was selected for a specific prefix (partial text). For example, if you typed `co` and then selected `console`, the next time you typed `co`, the suggestion `console` would be pre-selected. This lets you quickly map various prefixes to different suggestions, for example `co` -> `console` and `con` -> `const`.
+
+### Key bindings
 
 The key bindings shown below are the default key bindings. You can change these in your `keybindings.json` file as described in [Key Bindings](/docs/getstarted/keybindings.md).
 
