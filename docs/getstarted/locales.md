@@ -13,7 +13,7 @@ Visual Studio Code ships with 10 available display languages (locales): English 
 
 By default, VS Code picks up the operating system's display language, falling back to English (US) if the locale is not supported.
 
-## Available Locales
+## Available locales
 
 Display Language | Locale
 -----------------|-------
@@ -27,6 +27,13 @@ Spanish | `es`
 Japanese | `ja`
 Korean | `ko`
 Russian | `ru`
+
+### Language Pack extension locales
+
+Additional display languages are available as Language Pack extensions on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
+
+Display Language | Locale
+-----------------|-------
 Bulgarian | `bg`
 Hungarian | `hu`
 Portuguese (Brazil) | `pt-br`
