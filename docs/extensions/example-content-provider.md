@@ -1,42 +1,43 @@
 ---
-Order: 13
+Order:
 Area: extensions
 TOCTitle: Example-Content Provider
-ContentId:
+ContentId: 231a12fc-18a1-4e9b-b25c-0de4c43ef0ce
 PageTitle: Visual Studio Code Example - Content Provider Extension
-DateApproved:
-MetaDescription: Content Provider example shows how to display html document within VS Code
+DateApproved: 3/9/2018
+MetaDescription: Content Provider example shows how to display HTML document within VS Code
 ---
-
 # Example - Content Provider
 
-This end to end tutorial how to display html document in VS Code. We'll create a Content Provider which displays a desired html document and is invocable from command.
+This tutorial teaches you how to display an HTML document in Visual Studio Code. We'll create a Content Provider ([TextDocumentContentProvider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TextDocumentContentProvider)) which is used to displays an HTML document.
 
-There is some demo of what we are doing.
+![Displaying HTML](images/example-content-provider/quickpeek.gif)
 
-![Displaying HTMl](images/example-content-provider/quickpeek.gif)
-
-> **Tip:** Similar code you can find on [official samples repository](https://github.com/Microsoft/vscode-extension-samples/tree/master/contentprovider-sample). My example you can find [here](https://github.com/l7ssha/example-content-provider).
+> **Tip:** You can find similar source code on the VS Code [official samples repository](https://github.com/Microsoft/vscode-extension-samples/tree/master/contentprovider-sample). The source code for this tutorial is [here](https://github.com/l7ssha/example-content-provider).
 
 ## Overview
 
-This example has three sections which will take you through a set of related concepts:
+>**Tip**: If you are just getting started with VS Code extensibility, you may want to go through the [Hello World](/docs/extensions/example-hello-world.md) tutorial first.
 
-2. [Creating Content Provider](/docs/extensions/example-content-provider.md#create-content-provider)
-3. [Creating command to interact with Provider](/docs/extensions/example-content-provider.md#interact-with-provider)
+This example has two sections:
 
-First make sure you have the latest VS Code extension generator installed then run it:
+1. [Create a Content Provider](#create-a-content-provider)
+2. [Interact with the Content Provider](#interact-with-the-content-provider)
+
+## Generate the extension template
+
+To start, make sure you have the latest VS Code extension generator installed and then run it:
 
 ```bash
 npm install -g yo generator-code
 yo code
 ```
 
-This will open up the extension generator - we will base this example on the TypeScript `New Extension` option. For now, fill in the fields the same way you see them completed in the image below (using 'ContentProvider' as the extension name and your own name as the publisher).
+This will run the extension generator and we will base this example on the TypeScript **New Extension** template. For now, fill in the fields the same way you see them completed in the image below (using 'ContentProvider' as the extension name and your own name as the publisher).
 
 ![Yo Code Example Output](images/example-content-provider/yo1.png)
 
-You can now open VS Code as described in the generator output:
+Now open VS Code:
 
 ```bash
 cd ContentProvider
@@ -45,31 +46,24 @@ code .
 
 ## Run the extension
 
-Before we go on, we can run the extension to make sure everything works as expected by pressing `kb(workbench.action.debug.start)`. As you saw in the previous "Hello World" walkthrough, VS Code opens another window (the **[Extension Development Host]** window) in which your extension will be loaded. You should find the "Hello World" command in the Command Palette (press `kb(workbench.action.showCommands)`) and when you select it, you will see an information box at the top of the window saying "Hello World".
+Before going on, run the extension to make sure everything works as expected by pressing `kb(workbench.action.debug.start)`. As you saw in the previous "Hello World" walkthrough, VS Code opens another window (the **[Extension Development Host]** window) in which your extension will be loaded. You should find the **Hello World** command in the **Command Palette** (press `kb(workbench.action.showCommands)`) and when you select it, you will see a notification at bottom right saying "Hello World".
 
+## Create a Content Provider
 
-## Create Content Provider
+For now, you can delete all the source code from `export function activate(..)` as it will be replaced it later. At the end of file, create new class (called 'ExampleContentProvider' below) to implement `vscode.TextDocumentContentProvider`. Put your cursor over the class name (it will have red squiggles), click the **Show Fixes** light bulb and VS Code will automatically implement the interface for you.
 
-For now you can delete all code from `export function activate(..)`. We'll replace it later. At the end of file create new class (call it as you want). Class have to implement `vscode.TextDocumentContentProvider`. VS Code should for you generate overrides.
+In this example, we load a plain HTML document (`resources/index.html`) into a variable and return this variable.
 
-In this example we are just loading plain html document to variable and then returns this variable. You can use many templates engines to create dynamic contents.
-
-Some examples of using template engines:
-* [DisMPD Extension - Mustache](https://github.com/l7ssha/DisMPD/blob/master/src/DismpdProvider.ts)
-* [Spell Checker by Jason-Rev - Pug](https://github.com/Jason-Rev/vscode-spell-checker/tree/master/client/src/infoViewer)
-
-If you want to update content of provider you can create method which will do this or expose certain properties and watch for changes.
-
-```javascript
+```typescript
 export class ExampleContentProvider implements vscode.TextDocumentContentProvider {
     private _onDidChange = new vscode.EventEmitter<vscode.Uri>();   // Event emitter which invokes document updates
 
-    // Get global path to resources folder. Here we are combining actual directory with relative path to resources from this folder
+    // Get the global path to the resources folder by combining the actual directory with the relative path
     private resources = path.join(__dirname, '../resources');
-    private html: string = "";  // html document buffer
+    private html: string = "";  // HTML document buffer
 
     constructor() {
-        // Load html text to string
+        // Load HTML text to string
         fs.readFile(path.join(this.resources, "index.html"), (_: NodeJS.ErrnoException, data: Buffer) => {
             this.html = data.toString();
         });
@@ -79,29 +73,47 @@ export class ExampleContentProvider implements vscode.TextDocumentContentProvide
         return this._onDidChange.event;
     }
 
-    // You can invoke this method from external place to update provider
+    // You can invoke this method to update the provider
     public update(uri: vscode.Uri) {
         this._onDidChange.fire(uri);
     }
 
-    // Main method which returns string to display in window.
-    // In this example we just loading file in constructor to variable, and returning it here.
+    // Main method which returns string to display in the window.
+    // In this example, return the file contents loaded into a variable in the constructor.
     provideTextDocumentContent(_: vscode.Uri): vscode.ProviderResult<string> {
         return this.html;
     }
 }
 ```
-For customizing your document you can use CSS. Just embed your css styles in html document. Background, font, font colors (and many more) are provided by theme, so you dont have to specify it, but you can if you want.
 
-> **Tip:** If you want to have css in separated file you have to  use full path. Relative path don't work.
+For the source code above, you also need to add imports for `fs` and `path` to the top of the `extensions.ts` file:
 
-## Interact with Provider
+```typescript
+import * as vscode from 'vscode';
+import * as path from 'path';
+import * as fs from 'fs';
+```
 
-As we create a provider, now we must code some access to it. At the beginning we have to specify an url to our page. `example` you can replace with you desired name. This uri is used only in extension logic, you can't see it in editor. Next instantiate a new object of our content provider.
+You can use many templates engines to create dynamic contents.
 
-And finally register command which will invoke our provider. In this command we are invoking other commands which grabs content at `uri` (`uri` is handled by our provider) and displays in window. Here we also listening for error. If error occurred - display error message.
+Some examples of using template engines:
 
-```javascript
+* [DisMPD Extension - Mustache](https://github.com/l7ssha/DisMPD/blob/master/src/DismpdProvider.ts)
+* [Spell Checker by Jason-Rev - Pug](https://github.com/Jason-Rev/vscode-spell-checker/tree/master/client/src/infoViewer)
+
+If you want to update the content of the provider, you can create a new method to do this or expose certain properties and watch for changes.
+
+You can customize your document using CSS. Just embed your CSS styles in the HTML document. Background, font, font colors (and many more) are provided by the VS Code theme so you don't have to specify them, but you can override these if you want.
+
+> **Tip:** If you want to have CSS in separate file, you have to use the full path. Relative paths don't work.
+
+## Interact with the Content Provider
+
+Now that we've created a content provider, let's add some code to access to it. First specify a URL to our page. You can replace the string `example` with your desired name. This `uri` is used only in the extension logic and not displayed to the user. Next instantiate a new object of our content provider.
+
+We'll also register a command which will invoke our provider. In this command, we invoke the `vscode.previewHtml` command which takes the content at `uri` (`uri` is handled by our provider) and displays it in a new window. We also listen for errors and display an error message if one occurs.
+
+```typescript
 export function activate(context: vscode.ExtensionContext) {
     let uri = vscode.Uri.parse('example://authority/example');  // Our window uri. `example` is your desired name.
 
@@ -110,13 +122,13 @@ export function activate(context: vscode.ExtensionContext) {
     // Register provider. First argument should be same as in our uri
     let registration = vscode.workspace.registerTextDocumentContentProvider('example', provider);
 
-    // We have to register command to show window. This command invokes other command that gets string which returned content provider
-    // And displays it in window.
-    // Remember to add your command to `package.json`
+    // Register the command to show the window.
+    // The command handler gets the string which returned by the content provider
+    // and displays it in an HTML preview window.
     let openProvider = vscode.commands.registerCommand('exampleprovider.open', () => {
         // Here we are discarding event if command is successful. We need an error message when opening is unsuccessful.
         return vscode.commands.executeCommand('vscode.previewHtml', uri, vscode.ViewColumn.Two, 'Example Content Provider').then(_ => {}, _ => {
-            vscode.window.showErrorMessage('Cant open!');
+            vscode.window.showErrorMessage('Error opening content.');
         });
     });
 
@@ -124,17 +136,18 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(registration, openProvider);
 }
 ```
-At the end we need add some code into `package.json`.
 
-Replace `"activationEvent"` with your command or as I - with dot:
+Next modify the extension's `package.json` file with your command name `exampleprovider.open`.
+
+Update the `"activationEvents"`:
 
 ```json
 "activationEvents": [
-    "*"
+    "onCommand:exampleprovider.open"
 ],
 ```
 
-Next `"contributes"` section. Here we are have to register command and our content provider.
+as well as the `"contributes"` section:
 
 ```json
 "contributes": {
@@ -143,29 +156,11 @@ Next `"contributes"` section. Here we are have to register command and our conte
             "command": "exampleprovider.open",
             "title": "Open Content Provider"
         }
-    ],
-    "menus": {
-        "editor/title": [
-            {
-                "command": "exampleprovider.open",
-                "when": "*"
-            }
-        ]
-    }
+    ]
 },
 ```
 
-## Automatic updates
-
-If you want to update your content automatic when other window content changes look at [`activationEvents` article](/docs/extensionAPI/activation-events.md).
-
-## Installing your Extension Locally
-
-So far, the extension you have written only runs in a special instance of VS Code, the Extension Development Host instance. To make your extension available to all VS Code instances, copy the extension folder contents to a new folder under [your `.vscode/extensions` folder](/docs/extensions/yocode.md#your-extensions-folder).
-
-## Publishing your Extension
-
-Read about how to [Share an Extension](/docs/extensions/publish-extension.md).
+Press `kb(workbench.action.debug.start)` to rebuild and test your updated extension. If you have created an `index.html` file in a `resources` subfolder, you'll see the content displayed when you run the **Open Content Provider** command.
 
 ## Next Steps
 
