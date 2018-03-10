@@ -155,27 +155,27 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 
 - `editorGroup.background`: Background color of an editor group. The background color shows up when dragging editor groups around.
 
-![editorGroup.background](images/theme-color-reference/editorGroup-background.gif)
+    ![editorGroup.background](images/theme-color-reference/editorGroup-background.gif)
 
 - `editorGroup.border`: Color to separate multiple editor groups from each other.
 
-![editorGroup.border](images/theme-color-reference/editorGroup-border.gif)
+    ![editorGroup.border](images/theme-color-reference/editorGroup-border.gif)
 
 - `editorGroup.dropBackground`: Background color when dragging editors around.
 
-![editorGroup.dropBackground](images/theme-color-reference/editorGroup-dropbackground.gif)
+    ![editorGroup.dropBackground](images/theme-color-reference/editorGroup-dropbackground.gif)
 
 - `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when Tabs are disabled (set `"workbench.editor.showTabs": false`).
 
-![editorGroupHeader.noTabsBackground](images/theme-color-reference/editorgroupheader-notabsbackground.gif)
+    ![editorGroupHeader.noTabsBackground](images/theme-color-reference/editorgroupheader-notabsbackground.gif)
 
 - `editorGroupHeader.tabsBackground`: Background color of the Tabs container.
 
-![editorGroupHeader.tabsBackground](images/theme-color-reference/editorgroupheader-tabsbackground.gif)
+    ![editorGroupHeader.tabsBackground](images/theme-color-reference/editorgroupheader-tabsbackground.gif)
 
-- `editorGroupHeader.tabsBorder`: Border color of the editor group title header when tabs are enabled. Editor groups are the containers of editors.'
+- `editorGroupHeader.tabsBorder`: Border color of the editor group title header when tabs are enabled.
 
-![editorGroupHeader.tabsBorder](images/theme-color-reference/editorgroupheader-tabsborder.gif)
+    ![editorGroupHeader.tabsBorder](images/theme-color-reference/editorgroupheader-tabsborder.gif)
 
 - `tab.activeBackground`: Active Tab background color.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
