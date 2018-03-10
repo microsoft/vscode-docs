@@ -56,9 +56,11 @@ In this example, we load a plain HTML document (`resources/index.html`) into a v
 
 ```typescript
 export class ExampleContentProvider implements vscode.TextDocumentContentProvider {
-    private _onDidChange = new vscode.EventEmitter<vscode.Uri>();   // Event emitter which invokes document updates
+    // Event emitter which invokes document updates
+    private _onDidChange = new vscode.EventEmitter<vscode.Uri>();
 
-    // Get the global path to the resources folder by combining the actual directory with the relative path
+    // Get the global path to the resources folder
+    // by combining the actual directory with the relative path.
     private resources = path.join(__dirname, '../resources');
     private html: string = "";  // HTML document buffer
 
@@ -109,15 +111,19 @@ You can customize your document using CSS. Just embed your CSS styles in the HTM
 
 ## Interact with the Content Provider
 
-Now that we've created a content provider, let's add some code to access to it. First specify a URL to our page. You can replace the string `example` with your desired name. This `uri` is used only in the extension logic and not displayed to the user. Next instantiate a new object of our content provider.
+Now that we've created a content provider, let's add some code to access to it.
+
+First specify a URL to our page. You can replace the string `example` with your desired name. This `uri` is used only in the extension logic and not displayed to the user. Next instantiate a new object of our content provider.
 
 We'll also register a command which will invoke our provider. In this command, we invoke the `vscode.previewHtml` command which takes the content at `uri` (`uri` is handled by our provider) and displays it in a new window. We also listen for errors and display an error message if one occurs.
 
 ```typescript
 export function activate(context: vscode.ExtensionContext) {
-    let uri = vscode.Uri.parse('example://authority/example');  // Our window uri. `example` is your desired name.
+    // Our window uri. `example` is your desired name.
+    let uri = vscode.Uri.parse('example://authority/example');
 
-    let provider = new ExampleContentProvider();    // Instantiate our provider object
+    // Instantiate our provider object
+    let provider = new ExampleContentProvider();
 
     // Register provider. First argument should be same as in our uri
     let registration = vscode.workspace.registerTextDocumentContentProvider('example', provider);
@@ -126,7 +132,8 @@ export function activate(context: vscode.ExtensionContext) {
     // The command handler gets the string which returned by the content provider
     // and displays it in an HTML preview window.
     let openProvider = vscode.commands.registerCommand('exampleprovider.open', () => {
-        // Here we are discarding event if command is successful. We need an error message when opening is unsuccessful.
+        // Discard event if command is successful.
+        // Return an error message if unsuccessful.
         return vscode.commands.executeCommand('vscode.previewHtml', uri, vscode.ViewColumn.Two, 'Example Content Provider').then(_ => {}, _ => {
             vscode.window.showErrorMessage('Error opening content.');
         });
