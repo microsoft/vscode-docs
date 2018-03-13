@@ -28,6 +28,17 @@ Once the extension is installed, log into your Azure account - in the **AZURE AP
 
 ![sign in to Azure](images/app-service-extension/sign-in.png)
 
+## Troubleshooting
+
+If you see the error **"Cannot find subscription with name [subscription ID]"**, this may be because you are behind a proxy and unable to reach the Azure API. Configure `HTTP_PROXY` and `HTTPS_PROXY` environment variables with your proxy information in your terminal using `export`.
+
+```sh
+export HTTPS_PROXY=https://username:password@proxy:8080
+export HTTP_PROXY=http://username:password@proxy:8080
+```
+
+If setting the environment variables doesn't correct the issue, contact us by clicking the **I ran into an issue** button below.
+
 ## Prerequisite check
 
 Before we continue, ensure that you have all the prerequisites installed and configured.
