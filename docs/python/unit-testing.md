@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 11/10/2017
+DateApproved: 03/14/2018
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -61,6 +61,9 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 | pyTestArgs | `[]` | Arguments to pass to PyTest, with each argument specified as an item in the array. See [PyTest command line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
 
 You can also configure pytest using a `pytest.ini` file as described on [PyTest Configuration](https://docs.pytest.org/en/latest/customize.html).
+
+> **Note**
+> If you have the pytest-cov coverage module installed, VS Code doesn't stop at breakpoints while debugging because pytest-cov is using the same technique to access the code being run. To prevent this behavior, include `--no-cov` in `pyTestArgs` when debugging tests. (For more information, see [Debuggers and PyCharm](http://pytest-cov.readthedocs.io/en/latest/debuggers.html) in the pytest-cov documentation.)
 
 ### Nose configuration settings
 
