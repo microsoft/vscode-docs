@@ -60,6 +60,8 @@ yum check-update
 sudo yum install code
 ```
 
+Note that due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.
+
 ### openSUSE and SLE based distributions
 
 The yum repository above also works for openSUSE and SLE based systems, the following script will install the key and repository:
