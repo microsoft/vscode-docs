@@ -47,7 +47,7 @@ Now create the website. Make sure to give it a **unique name** as it will be ref
 ```bash
 $ az webapp create --name myExpressApp-chrisdias --plan myPlan --runtime "node|6.9"
 
-# In PowerShell the command requires the --% operator
+# In PowerShell, the command requires the --% operator
 PS> az --% webapp create --name myExpressApp-chrisdias --plan myPlan --runtime "node|6.9"
 ```
 

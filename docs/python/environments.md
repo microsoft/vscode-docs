@@ -134,9 +134,9 @@ To use a Python interpreter that's installed in a virtual environment:
 
 An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used to mark comments. Multi-line values are not supported.
 
-By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default value of the `python.envFile` setting (see [General settings](settings-reference.md#general-settings). You can change the `python.envFile` setting at any time to use a different definitions file.
+By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default value of the `python.envFile` setting (see [General settings](settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
-A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace. (See [Debugging - standard configuration and options](debugging.md#standard-configuration-and-options). This property allows you to easily set variables for debugging purposes that replace those used in the default `.env` file.
+A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - standard configuration and options](debugging.md#standard-configuration-and-options)). This property allows you to easily set variables for debugging purposes that replace those used in the default `.env` file.
 
 For example, when developing a web application you might want to easily switch between development and production servers. Instead of coding the different URLs and other settings into your application directly, you could use separate definitions files for each. For example:
 
