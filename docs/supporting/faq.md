@@ -121,7 +121,7 @@ If you don’t wish to send crash data to Microsoft, you can set the `telemetry.
     "telemetry.enableCrashReporter": false
 ```
 
-**Important Notice**: This option requires a restart of VS Code to take effect.
+> **Important Notice**: This option requires a restart of VS Code to take effect.
 
 ## Technical Support
 
