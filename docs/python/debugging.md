@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 02/12/2018
+DateApproved: 03/14/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -115,7 +115,7 @@ Sets optional environment variables for the debugger process beyond system envir
 
 ### `envFile`
 
-Optional path to a file that contains environment variable definitions.
+Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](environments.md#environment-variable-definitions-file).
 
 ## Debugging specific app types
 

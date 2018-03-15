@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 02/14/2018
+DateApproved: 03/14/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -24,6 +24,8 @@ The extension automatically looks for interpreters in the following locations:
 You can also [manually specify an interpreter](#manually-specifying-an-interpreter) if Visual Studio Code does not locate it automatically.
 
 > **Tip:** If you create a new conda environment while VS Code is running, use the **Reload Window** command to refresh the environment list.
+
+The extension also loads an [environment variable definitions file](#environment-variable-definitions-file) identified by the `python.envFile` setting. The default value of this setting is `${workspaceFolder}/.env`.
 
 ## Choosing an environment
 
@@ -127,6 +129,46 @@ To use a Python interpreter that's installed in a virtual environment:
 
 2. Configure the same `python.pythonPath` variable in `launch.json`.
 3. Ensure that the the libraries and modules you plan on using for linting are installed within the virtual environment.
+
+## Environment variable definitions file
+
+An environment variable definitions file is a simple text file containing key-value pairs in the form of `environment_variable=value`, with `#` used to mark comments. Multi-line values are not supported.
+
+By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default value of the `python.envFile` setting (see [General settings](settings-reference.md#general-settings). You can change the `python.envFile` setting at any time to use a different definitions file.
+
+A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace. (See [Debugging - standard configuration and options](debugging.md#standard-configuration-and-options). This property allows you to easily set variables for debugging purposes that replace those used in the default `.env` file.
+
+For example, when developing a web application you might want to easily switch between development and production servers. Instead of coding the different URLs and other settings into your application directly, you could use separate definitions files for each. For example:
+
+**dev.env file**
+
+```text
+# dev.env - development configuration
+
+# API endpoint
+MYPROJECT_APIENDPOINT=https://my.domain.com/api/dev/
+
+# Variables for the database
+MYPROJECT_DBURL=https://my.domain.com/db/dev
+MYPROJECT_DBUSER=devadmin
+MYPROJECT_DBPASSWORD=!dfka**213=
+```
+
+**prod.env file**
+
+```text
+# prod.env - production configuration
+
+# API endpoint
+MYPROJECT_APIENDPOINT=https://my.domain.com/api/
+
+# Variables for the database
+MYPROJECT_DBURL=https://my.domain.com/db/
+MYPROJECT_DBUSER=coreuser
+MYPROJECT_DBPASSWORD=kKKfa98*11@
+```
+
+You can then set the `python.envFile` setting to `${workspaceFolder}/prod.env`, then set the `envFile` property in the debug configuration to `${workspaceFolder}/dev.env`.
 
 ## Python interpreter for debugging
 
