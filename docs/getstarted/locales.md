@@ -37,7 +37,7 @@ Display Language | Locale
 Bulgarian | `bg`
 Hungarian | `hu`
 Portuguese (Brazil) | `pt-br`
-Turkish | `trk`
+Turkish | `tr`
 
 ## Setting the Language
 
