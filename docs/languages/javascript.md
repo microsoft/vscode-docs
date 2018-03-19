@@ -190,7 +190,7 @@ easy = 123 // no error
 
 **Using a JSConfig or TSConfig**
 
-To enable type checking for JavaScript files that are part of a `jsconfig.json` or `tsconfig.json`, simply add `"checkJs": true` to the project's compiler options:
+To enable type checking for JavaScript files that are part of a `jsconfig.json` or `tsconfig.json`, add `"checkJs": true` to the project's compiler options:
 
 `jsconfig.json`:
 
@@ -223,7 +223,7 @@ To enable type checking for JavaScript files that are part of a `jsconfig.json` 
 
 This enables type checking for all JavaScript files in the project. You can use `// @ts-nocheck` to disable type checking per file.
 
-JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, simply run the **TypeScript: Select TypeScript Version** command to check. You must have a .js/.ts file open in an Editor to run this command. If you open a TypeScript file, the version appears in the lower right corner. 
+JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, run the **TypeScript: Select TypeScript Version** command to check. You must have a `.js/.ts` file open in the editor to run this command. If you open a TypeScript file, the version appears in the lower right corner.
 
 ### Global Variables and Type Checking
 
