@@ -223,7 +223,7 @@ To enable type checking for JavaScript files that are part of a `jsconfig.json` 
 
 This enables type checking for all JavaScript files in the project. You can use `// @ts-nocheck` to disable type checking per file.
 
-JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, simply run the **TypeScript: Select TypeScript Version** command to check.
+JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, simply run the **TypeScript: Select TypeScript Version** command to check. You must have a .js/.ts file open in an Editor to run this command. If you open a TypeScript file, the version appears in the lower right corner. 
 
 ### Global Variables and Type Checking
 
