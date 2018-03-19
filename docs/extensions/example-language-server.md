@@ -107,7 +107,7 @@ export function activate(context: ExtensionContext) {
 	let serverOptions: ServerOptions = {
 		run : { module: serverModule, transport: TransportKind.ipc },
 		debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
-	}
+	};
 
 	// Options to control the language client
 	let clientOptions: LanguageClientOptions = {
@@ -119,7 +119,7 @@ export function activate(context: ExtensionContext) {
 			// Notify the server about file changes to '.clientrc files contain in the workspace
 			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
 		}
-	}
+	};
 
 	// Create the language client and start the client.
 	let disposable = new LanguageClient('lspSample', 'Language Server Example', serverOptions, clientOptions).start();
@@ -185,7 +185,7 @@ connection.onInitialize((params): InitializeResult => {
 				resolveProvider: true
 			}
 		}
-	}
+	};
 });
 
 // The content of a text document has changed. This event is emitted
@@ -262,7 +262,7 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 			kind: CompletionItemKind.Text,
 			data: 2
 		}
-	]
+	];
 });
 
 // This handler resolve additional information for the item selected in
@@ -325,7 +325,7 @@ documents.onDidChangeContent((change) => {
                 source: 'ex'
             });
         }
-    })
+    });
     // Send the computed diagnostics to VS Code.
     connection.sendDiagnostics({ uri: change.document.uri, diagnostics });
 });
@@ -454,7 +454,7 @@ connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): Comp
             kind: CompletionItemKind.Text,
             data: 2
         }
-    ]
+    ];
 });
 
 // This handler resolve additional information for the item selected in
@@ -486,7 +486,7 @@ connection.onInitialize((params): InitializeResult => {
                 resolveProvider: true
             }
         }
-    }
+    };
 });
 ```
 
@@ -541,7 +541,7 @@ connection.onInitialize((params): InitializeResult => {
             textDocumentSync: TextDocumentSyncKind.Incremental,
             ...
         }
-    }
+    };
 });
 
 connection.onDidOpenTextDocument((params) => {
