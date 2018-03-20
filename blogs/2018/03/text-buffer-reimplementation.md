@@ -135,7 +135,7 @@ class Node {
 	left_subtree_lfcnt: number;
 	left: Node;
 	right: Node;
-	parent: Nod;
+	parent: Node;
 }
 ```
 
