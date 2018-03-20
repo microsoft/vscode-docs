@@ -24,15 +24,13 @@ But we kept receiving issue reports that opening certain files, even when the fi
 
 Another problem with the lines array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line. The split itself hurts performance, and later we will show the benchmarks.
 
-## An ideal solution
+## Our solution
 
 The lines array representation takes a lot of time to create and then consumes a lot of memory in order to give fast line look-up speeds. In a perfect world, we would store only the text of the file and no additional metadata. After searching in the data structure arsenal for a while, I found that [Piece Table](https://en.wikipedia.org/wiki/Piece_table) may be a good candidate. We can tweak it and see how far we can go.
 
 ### Piece Table
 
-<center>
-<img src="./traditional-piece-table.gif" alt="Tradition Piece Table" style="width: 800px;">
-</center>
+Piece table is a data structure used to represent a series of edits on a text document (code is TypeScript):
 
 ```ts
 class PieceTable {
@@ -55,9 +53,16 @@ enum NodeType {
 
 When the file is initially loaded, the Piece Table contains the file contents in the `original` field, the `added` field is empty, and it has a single node of type `NodeType.Original`. When a user is typing at the end of a file, we will append the newly typed content to the `added` field, and we will insert a new node of type `NodeType.Added` at the end of the node list. Similarly, when a user makes edits in the middle of a node, we will split that node and insert a new one as needed.
 
+Below recording shows how to access the document line by line in a piece table structure. It has two buffers (`original` and `added`) and three nodes (which is caused by an insertion in the middle of the `original` content`).
+
+<center>
+<img src="./traditional-piece-table.gif" alt="Tradition Piece Table" style="width: 800px;">
+</center>
+
+
 The initial memory usage of a Piece Table is close to the document content size and the incremental part is proportional to edit count, so characteristically a Piece Table would make very good usage of memory. However, accessing a logical line would be very slow as a price. For example, if you want to get the content of the 1000th line, the only way would be to go through each character from the beginning, find the first 999 line breaks, read from that character until the next line break.
 
-### Lookup by line number
+### Caching for line lookup
 
 The traditional Piece Table only focuses on offsets, but we can add line break information on top of it to make line content lookup faster. The intuitive way to store line break positions is to store the offsets for each line break encountered in a node's text:
 
@@ -85,7 +90,7 @@ For example, if you want to access the second line in a given `Node` instance, y
 
 The algorithm for now remains simple, but it works better than before, as we can now jump over entire chunks of text, whereas before we would iterate character-by-character. We will revisit this later.
 
-### String concatenation trap
+### Avoid string concatenation trap
 
 The traditional piece table holds two buffers, one for original content loaded from disk, and another for user edits. In VS Code, we are loading text files using node's `fs.readFile`, which gives out chunks (64KB each), so when the file is large, let's say 64 MB, we'll receive 1000 chunks in sequence. To respect the data structure, we can do a string concatenation after receiving the last chunk and store the single large string in the `original` field of the Piece Table.
 
@@ -107,7 +112,7 @@ class Node {
 }
 ```
 
-### List -> Tree
+### Boost line lookup by Balanced Binary Tree
 
 Once conquering string concatenation, we run into another potential performance issue when the file is large. Say we load a 64MB file, the piece table will have 1000 nodes. Even though we already have line break position caches in every node, but that's not enough for lookup as we don't know the absolute line number of a line break in a random node. To get the content of a line, we have to go through all these nodes till we find the node containing that line. The time complexity of the worst case is O(N) (N is the count of nodes).
 
@@ -145,7 +150,7 @@ Among all kinds of balanced binary tree, we choose Red Black Tree which is more 
 
 Assume we store the line break offsets in each node, whenever we tweak the node, the line break offsets need to be updated if necessary. For example, say we have a node which contains 999 line breaks, the `lineStarts` array has 1000 elements. If we split the node into two nodes evenly, then we'll create two nodes, each of them has an array containing around 500 elements. As we are not directly operating on linear memory space, splitting an array to two is way more costly than just moving pointers.
 
-The good news is buffers in Piece Table are either readonly (original buffers) or append-only (changed buffers), so the line break on the buffers don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer. The less we do the better the perf is. Applying this change makes the text buffer operations three times faster based on our benchmarks.
+The good news is buffers in Piece Table are either readonly (original buffers) or append-only (changed buffers), so the line break on the buffers don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer. The less we do the better the performance is. Applying this change makes the text buffer operations three times faster based on our benchmarks.
 
 ```ts
 class Buffer {
@@ -239,7 +244,7 @@ So I've set out to benchmark this method in various scenarios:
 
 TADA, we found the achilles heel of Piece Tree. A large file, with 1000s of edits, will lead to thousands or tens of thousands of nodes. Even though looking up a line is `O(log N)`, where `N` is the number of nodes, that is significantly more than `O(1)` which the line array enjoyed.
 
-However, we are talking about microseconds for each `getLineContent` call, and it is not something we are concerned with at this time. However, we are considering eventually implementing a *normalization* step, where we would recreate buffers and nodes if certain conditions are met (like a very high number of nodes).
+However, we are talking about microseconds for each `getLineContent` call, and it is not something we are concerned with at this time. Most of `getLineContent` calls are from View Rendering and Tokenizer, and the post processes of line contents are much more time consuming. DOM construction and rendering or tokenization of a view port usually takes tens of milliseconds, in which `getLineContent` only accounts for less than 1%. But we are considering eventually implementing a *normalization* step, where we would recreate buffers and nodes if certain conditions are met (like a very high number of nodes).
 
 ## Conclusion and Gotchas
 
