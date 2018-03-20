@@ -95,7 +95,7 @@ Specifies how program output is displayed.
 
 ### `cwd`
 
-Specifies the current working directory for the program being debugged. The standard configuration uses `${workspaceFolder}` to use the project folder. If is not specified, `cwd` defaults to the current folder open in VS Code.
+Specifies the current working directory for the program being debugged. The standard configuration uses `${workspaceFolder}` to use the project folder. If not specified, `cwd` defaults to the current folder open in VS Code.
 
 ### `debugOptions`
 
