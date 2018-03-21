@@ -113,7 +113,7 @@ For example, Git supports staging multiple files by adding the `git.stage` comma
 stage(...resourceStates: SourceControlResourceState[]): Promise<void>;
 ```
 
-When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these context keys in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
+When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these [context keys](/docs/getstarted/keybindings.md#when-clause-contexts) in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
 
 ```json
 {
