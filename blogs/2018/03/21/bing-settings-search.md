@@ -40,7 +40,7 @@ We run the full test suite every 6 hours, and it can update itself automatically
 
 ## Intelligent settings search
 
-So now it should be easier to find settings. If you search "change the font", you'll find the font settings. If you want to "turn off that tiny code overview thing", you'll find "editor.minimap.enabled". And if you can't figure out how to "move explorer to right", you'll find "workbench.sidebar.location". Now go try it out, and please file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
+So now it should be easier to find settings. If you search `"change the font"`, you'll find the font settings. If you want to "turn off that tiny code overview thing", you'll find `"editor.minimap.enabled"`. And if you can't figure out how to "move explorer to right", you'll find `"workbench.sidebar.location"`. Now go try it out, and please file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
 
 Happy Coding!
 
