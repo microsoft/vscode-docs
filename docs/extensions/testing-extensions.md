@@ -11,7 +11,7 @@ MetaDescription: It is easy to write tests for your Visual Studio Code extension
 
 VS Code supports running and debugging tests for your extension that require the VS Code API. These tests will run inside a special instance of VS Code, the `Extension Development Host`, and have access to the full APIs. We refer to these tests as integration tests, because they go beyond unit tests that can run in isolation from a VS Code window. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](https://mochajs.org/) or [Jasmine](https://jasmine.github.io/).
 
-## Yo Code Test Scaffolding
+## Yo Code test scaffolding
 
 The basic [yo code generator](/docs/extensions/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
 
@@ -38,7 +38,7 @@ The extension project comes with a `src/test` folder that includes an `index.ts`
 
 You can create more `test.ts` files under the `test` folder and they will automatically be built (to `out/test`) and run. The test runner will only consider files matching the name pattern `*.test.ts`.
 
-## Launch Tests configuration
+## Launch tests configuration
 
 The `Extension Tests` configuration is defined in the project's `.vscode\launch.json` file.  It is similar the `Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
 

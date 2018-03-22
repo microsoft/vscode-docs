@@ -72,7 +72,7 @@ This is what happens when pressing `F5`:
  5. Once the TypeScript compilation task is finished, the `code --extensionDevelopmentPath=${workspaceFolder}` process is spawned.
  6. The second instance of VS Code is launched in a special **Extension Host** mode and it searches for an extension at `${workspaceFolder}`.
 
-## Changing and reloading your extension
+## Modifying your extension
 
 Since the TypeScript compiler is run in watch mode, the TypeScript files are automatically compiled as you make changes. You can observe
 the compilation progress on the left side of the VS Code Status Bar. On the Status Bar you can also see the error and warning counts of a
