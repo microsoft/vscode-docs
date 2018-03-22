@@ -1,13 +1,13 @@
 ---
 Order: 6
 Area: extensions
-TOCTitle: Example-Debuggers
+TOCTitle: Example-Debug Adapter
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
 DateApproved: 3/7/2018
-MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
+MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code through a Debug Adapter
 ---
-# Example - Debuggers
+# Example - Debug Adapter
 
 Since Visual Studio Code implements a generic (language agnostic) debug UI, it cannot talk to real debuggers directly but instead relies on debug extensions for implementing the debugger or runtime specific functionality.
 
