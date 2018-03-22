@@ -424,7 +424,7 @@ Task properties can also be defined in the global scope. If present, they will b
 
 ## Changing the encoding for a task output
 
-Task frequently act with files on disk. If these files are store on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
+Tasks frequently act with files on disk. If these files are store on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
 
 If you need to tweak the encoding you should check whether it makes sense to change the default encoding used by our operating system or at least changing it for the shell you use by tweaking the shell's profile file.
 
