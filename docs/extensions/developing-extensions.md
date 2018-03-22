@@ -100,11 +100,19 @@ Do the following:
 
 Here is some general advice when you have issues with your extension or those installed from the Marketplace.
 
+### Launch VS Code with extensions disabled
+
+You can disable all extensions for a VS Code session by using the `--disable-extensions` command line [switch](/docs/editor/command-line.md). This can help narrow down if an issue is due to an extension or could be a VS Code product issue.
+
+```bash
+code --disable-extensions
+```
+
 ### Developer Tools console
 
-If an extension you installed isn't working correctly, a good first step is to look at the **Developer Tools** console. Hopefully the extension author added instructive logging when they developed their extension. VS Code is running on Electron using web technology so you get the power of the Chrome **Developer Tools** within VS Code.
+If an extension you installed isn't working correctly, a good first step is to look at the **Developer Tools** console within VS Code. Hopefully the extension author added instructive logging when they developed their extension. VS Code is running on Electron using web technology so you get the power of the Chrome **Developer Tools** within VS Code.
 
-To open the **Developer Tools** console, use the **Help** > **Toggle Developer Tools** command (Windows/Linux: `Ctrl+Shift+I`, macOS: `Cmd+Shift+I`) and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code Extension Host as well as details of any thrown exceptions.
+To open the **Developer Tools** console in VS Code, use the **Help** > **Toggle Developer Tools** command (Windows/Linux: `Ctrl+Shift+I`, macOS: `Cmd+Shift+I`) and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code Extension Host as well as details of any thrown exceptions.
 
 ![devtools console output](images/debugging-extensions/devtools-console.png)
 
