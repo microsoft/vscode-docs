@@ -207,7 +207,7 @@ To exclude JavaScript files generated from both `.ts` and `.tsx` source files, u
 
 ```json
 "**/*.js": { "when": "$(basename).ts" },
-"**/**.js": { "when": "$(basename).tsx" }
+"**/*.js": { "when": "$(basename).tsx" }
 ```
 
 This is a bit of a trick. The search glob pattern is used as a key. The settings above use two different glob patterns to provide two unique keys but the search will still match the same files.
