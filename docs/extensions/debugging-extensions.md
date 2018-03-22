@@ -1,52 +1,15 @@
 ---
 Order: 9
 Area: extensions
-TOCTitle: Running and Debugging Extensions
+TOCTitle: Developing Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
-PageTitle: Running and Debugging your Visual Studio Code Extension
+PageTitle: Developing your own Visual Studio Code Extension
 DateApproved: 3/7/2018
-MetaDescription: It is easy to debug and test your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension directly in Visual Studio Code.
+MetaDescription: Visual Studio Code extension (plug-in) development. Learn about running, debugging, profiling, and troubleshooting extensions.
 ---
-# Running and Debugging Extensions
+# Developing Extensions
 
-This topic explains how to run and debug Visual Studio Code extensions, both extensions that you created or those you installed from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
-
-### General debugging topics
-
-If you are looking for general information on debugging in VS Code or installing additional debuggers, try these topics:
-
-* [Debugging in VS Code](/docs/editor/debugging.md) - Learn about VS Code's support for debugging, including the built-in Node.js debugger.
-* [Debugger Extensions](https://code.visualstudio.com/docs/editor/debugging.md#debugger-extensions) - Install other language debuggers through extensions to support languages such Python, C++, and C#.
-* [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery) - The VS Code Marketplace has thousands of useful extensions you can install for free to increase your productivity.
-
-### Extension authors
-
-For information about creating your own extension to integrate a debugger into VS Code, see these topics:
-
-* [Example - Debuggers](/docs/extensions/example-debuggers.md) - This tutorial explains the [VS Code Debug Protocol](https://github.com/Microsoft/vscode-debugadapter-node) through a [Mock Debug Adaptor](https://github.com/Microsoft/vscode-mock-debug) example.
-* [Debugging API](/docs/extensionAPI/api-debugging.md) - A detailed reference on the VS Code Debug Protocol.
-
-## Troubleshooting extensions
-
-This topic will first start with general troubleshooting of extensions and then move on to running and debugging your own extensions.
-
-### Developer Tools console
-
-If an extension you installed isn't working correctly, a good first step is to look at the **Developer Tools** console. Hopefully the extension author added instructive logging when they developed their extension. VS Code is running on Electron using web technology so you get the power of the Chrome **Developer Tools** within VS Code.
-
-To open the **Developer Tools** console, use the **Help** > **Toggle Developer Tools** command (Windows/Linux: `Ctrl+Shift+I`, macOS: `Cmd+Shift+I`) and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code Extension Host as well as details of any thrown exceptions.
-
-![devtools console output](images/debugging-extensions/devtools-console.png)
-
->**Tip for extension authors**: Help out your users by providing helpful logging when you create your extension. The more information you give users, the more likely they will be able to solve dependency and configuration problems on their own. Good logging will also help you more quickly resolve real issues.
-
-### Extension README
-
-Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)`), select the extension under **INSTALLED** section, and look at the **Details** tab.
-
-![eslint readme](images/debugging-extensions/eslint-readme.png)
-
-You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
+This topic explains how to develop Visual Studio Code extensions with details on running, debugging, and troubleshooting your extension. The techniques described can also be used if you have issues with extensions installed from the VS Code [Marketplace](https://marketplace.visualstudio.com/VSCode).
 
 ## Creating your own extension
 
@@ -62,7 +25,7 @@ We suggest you start your extension by scaffolding out the basic files. You can 
 
 > **Note**: The following sections assume you used the `yo code` Yeoman extension generator to create an extension project with the appropriate `launch.json` and `task.json`.
 
-## Running and Debugging your extension
+## Running and debugging your extension
 
 You can easily run your extension under the debugger by pressing `F5`. This opens a new VS Code window with your extension loaded. Output from your extension shows up in the `Debug Console`. You can set break points, step through your code, and inspect variables either in the `Debug` view or the `Debug Console`.
 
@@ -132,6 +95,28 @@ Do the following:
 5. Use the Memory and CPU profiler to understand how memory and compute resources are being used.
 
 ![chrome devtools](images/debugging-extensions/chrome-devtools.png)
+
+## Troubleshooting extensions
+
+Here is some general advice when you have issues with your extension or those installed from the Marketplace.
+
+### Developer Tools console
+
+If an extension you installed isn't working correctly, a good first step is to look at the **Developer Tools** console. Hopefully the extension author added instructive logging when they developed their extension. VS Code is running on Electron using web technology so you get the power of the Chrome **Developer Tools** within VS Code.
+
+To open the **Developer Tools** console, use the **Help** > **Toggle Developer Tools** command (Windows/Linux: `Ctrl+Shift+I`, macOS: `Cmd+Shift+I`) and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code Extension Host as well as details of any thrown exceptions.
+
+![devtools console output](images/debugging-extensions/devtools-console.png)
+
+>**Tip for extension authors**: Help out your users by providing helpful logging when you create your extension. The more information you give users, the more likely they will be able to solve dependency and configuration problems on their own. Good logging will also help you more quickly resolve real issues.
+
+### Extension README
+
+Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)`), select the extension under **INSTALLED** section, and look at the **Details** tab.
+
+![eslint readme](images/debugging-extensions/eslint-readme.png)
+
+You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
 
 ## Next Steps
 
