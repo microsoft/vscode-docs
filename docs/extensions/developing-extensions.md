@@ -29,7 +29,7 @@ We suggest you start your extension by scaffolding out the basic files. You can 
 
 You can easily run your extension under the debugger by pressing `F5`. This opens a new VS Code window with your extension loaded. Output from your extension shows up in the `Debug Console`. You can set break points, step through your code, and inspect variables either in the `Debug` view or the `Debug Console`.
 
-![Debugging extensions](images/debugging-extensions/debug.png)
+![Debugging extensions](images/developing-extensions/debug.png)
 
 Depending on your extension, you may need more specific instruction on configuring debugging. There are extension walkthroughs which have additional details for debug adapter and language service extensions:
 
@@ -94,7 +94,7 @@ Do the following:
 4. Open that link in a Chrome browser for dedicated DevTools for the extension host.
 5. Use the Memory and CPU profiler to understand how memory and compute resources are being used.
 
-![chrome devtools](images/debugging-extensions/chrome-devtools.png)
+![chrome devtools](images/developing-extensions/chrome-devtools.png)
 
 ## Troubleshooting extensions
 
@@ -114,7 +114,7 @@ If an extension you installed isn't working correctly, a good first step is to l
 
 To open the **Developer Tools** console in VS Code, use the **Help** > **Toggle Developer Tools** command (Windows/Linux: `Ctrl+Shift+I`, macOS: `Cmd+Shift+I`) and then select the **Console** tab. Try exercising the extension functionality and check the console output. You should see `console.log` messages from the extension and the VS Code Extension Host as well as details of any thrown exceptions.
 
-![devtools console output](images/debugging-extensions/devtools-console.png)
+![devtools console output](images/developing-extensions/devtools-console.png)
 
 >**Tip for extension authors**: Help out your users by providing helpful logging when you create your extension. The more information you give users, the more likely they will be able to solve dependency and configuration problems on their own. Good logging will also help you more quickly resolve real issues.
 
@@ -122,7 +122,7 @@ To open the **Developer Tools** console in VS Code, use the **Help** > **Toggle 
 
 Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)`), select the extension under **INSTALLED** section, and look at the **Details** tab.
 
-![eslint readme](images/debugging-extensions/eslint-readme.png)
+![eslint readme](images/developing-extensions/eslint-readme.png)
 
 You can also click the extension name in the upper banner and you'll go to the extension's Marketplace page where you can find a link to the extension's GitHub repository under **Resources** which may have more documentation.
 

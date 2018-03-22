@@ -68,7 +68,7 @@ You can have a great editing experience for your programming language with simpl
 
 There is a Yeoman [extension generator](/docs/extensions/yocode.md) which makes it very easy to create simple extension projects. These are great for starting out  and you can also find existing extension [examples](/docs/extensions/samples.md).
 
-Extensions can be written in either TypeScript or JavaScript.  VS Code offers a first class extension development experience where you can [develop, build, run, test and debug](/docs/extensions/debugging-extensions.md) all from within VS Code itself.
+Extensions can be written in either TypeScript or JavaScript.  VS Code offers a first class extension development experience where you can [develop, build, run, test and debug](/docs/extensions/developing-extensions.md) all from within VS Code itself.
 
 ## Testing Extensions
 

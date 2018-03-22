@@ -213,7 +213,7 @@ Set a breakpoint, for example inside the registered command, and run the `"Hello
 
 > **Tip:** The Debug Console will show all the messages you log to the console.
 
-To learn more about the extension [development environment](/docs/extensions/debugging-extensions.md).
+To learn more about the extension [development environment](/docs/extensions/developing-extensions.md).
 
 ## A simple change
 
