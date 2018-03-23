@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 37
 TOCTitle: Text Buffer Reimplementation
 PageTitle: Text Buffer Reimplementation, a Visual Studio Code Story
 MetaDescription: Text Buffer Reimplementation in the Visual Studio Code/Monaco editor
@@ -8,6 +8,7 @@ Author: Peng Lyu
 MetaSocialImage:
 ---
 # Text Buffer Reimplementation
+
 March 23, 2018 by Peng Lyu, [@njukidreborn](https://twitter.com/njukidreborn)
 
 VS Code 1.21 includes a brand new text buffer implementation. It is much more performant both in terms of speed and of memory usage. In this blog post I'd like to tell the story of how we selected and designed the data structures and algorithms that lead to those improvements.
@@ -34,20 +35,20 @@ Piece table is a data structure used to represent a series of edits on a text do
 
 ```ts
 class PieceTable {
-	original: string; // original contents
-	added: string; // user added contents
-	nodes: Node[];
+    original: string; // original contents
+    added: string; // user added contents
+    nodes: Node[];
 }
 
 class Node {
-	type: NodeType;
-	start: number;
-	length: number;
+    type: NodeType;
+    start: number;
+    length: number;
 }
 
 enum NodeType {
-	Original,
-	Added
+    Original,
+    Added
 }
 ```
 
@@ -59,8 +60,7 @@ The animation below shows how to access the document line by line in a piece tab
 <img src="./traditional-piece-table.gif" alt="Tradition Piece Table" style="width: 800px;">
 </center>
 
-
-The initial memory usage of a piece table is close to the size of the document and the memory needed for modifications is proportional to the number of edits and text added. So characteristically a piece table makes good usage of memory. However, the price for low memoy usuage is that accessing a logical line is slow. For example, if you want to get the content of the 1000th line, the only way is to iterate over every character starting at the beginning of the document, find the first 999 line breaks, and read each character until the next line break.
+The initial memory usage of a piece table is close to the size of the document and the memory needed for modifications is proportional to the number of edits and text added. So characteristically a piece table makes good usage of memory. However, the price for low memory usage is that accessing a logical line is slow. For example, if you want to get the content of the 1000th line, the only way is to iterate over every character starting at the beginning of the document, find the first 999 line breaks, and read each character until the next line break.
 
 ### Use caching for faster line lookup
 
@@ -68,21 +68,21 @@ The traditional piece table nodes only contain offsets, but we can add line brea
 
 ```ts
 class PieceTable {
-	original: string;
-	added: string;
-	nodes: Node[];
+    original: string;
+    added: string;
+    nodes: Node[];
 }
 
 class Node {
-	type: NodeType;
-	start: number;
-	length: number;
-	lineStarts: number[];
+    type: NodeType;
+    start: number;
+    length: number;
+    lineStarts: number[];
 }
 
 enum NodeType {
-	Original,
-	Added
+    Original,
+    Added
 }
 ```
 
@@ -100,15 +100,15 @@ Instead of holding an `original` and an `added` buffer, we can hold a list of bu
 
 ```ts
 class PieceTable {
-	buffers: string[];
-	nodes: Node[];
+    buffers: string[];
+    nodes: Node[];
 }
 
 class Node {
-	bufferIndex: number;
-	start: number; // start offset in buffers[bufferIndex]
-	length: number;
-	lineStarts: number[];
+    bufferIndex: number;
+    start: number; // start offset in buffers[bufferIndex]
+    length: number;
+    lineStarts: number[];
 }
 ```
 
@@ -126,21 +126,21 @@ The classes now look like this:
 
 ```ts
 class PieceTable {
-	buffers: string[];
-	rootNode: Node;
+    buffers: string[];
+    rootNode: Node;
 }
 
 class Node {
-	bufferIndex: number;
-	start: number;
-	length: number;
-	lineStarts: number[];
+    bufferIndex: number;
+    start: number;
+    length: number;
+    lineStarts: number[];
 
-	left_subtree_length: number;
-	left_subtree_lfcnt: number;
-	left: Node;
-	right: Node;
-	parent: Node;
+    left_subtree_length: number;
+    left_subtree_lfcnt: number;
+    left: Node;
+    right: Node;
+    parent: Node;
 }
 ```
 
@@ -154,32 +154,31 @@ The good news is that the buffers in a piece table are either readonly (original
 
 ```ts
 class Buffer {
-	value: string;
-	lineStarts: number[];
+    value: string;
+    lineStarts: number[];
 }
 
 class BufferPosition {
-	index: number; // index in Buffer.lineStarts
-	remainder: number;
+    index: number; // index in Buffer.lineStarts
+    remainder: number;
 }
 
 class PieceTable {
-	buffers: Buffer[];
-	rootNode: Node;
+    buffers: Buffer[];
+    rootNode: Node;
 }
 
 class Node {
-	bufferIndex: number;
-	start: BufferPosition;
-	end: BufferPosition;
-	...
+    bufferIndex: number;
+    start: BufferPosition;
+    end: BufferPosition;
+    ...
 }
 ```
 
 <center>
 <img src="./piece-tree.gif" alt="Piece Tree" style="width: 800px">
 </center>
-
 
 ## Piece Tree
 
@@ -201,6 +200,7 @@ and manually created a couple of large files
 * checker.ts * 128, 184MB, 3M lines
 
 ### 1. Memory usage
+
 The memory usage of the Piece Tree immediately after loading is very close to the original file size, and it is significantly lower than the old implementation. First round, Piece Tree wins:
 
 <center>
@@ -218,9 +218,9 @@ Finding and caching line breaks is a lot faster than splitting the file into an 
 ### 3. Editing
 
 I have simulated two workflows:
+
 * Making edits in random positions in the document.
 * Typing in sequence.
-
 
 I try to mimic these two scenarios: Apply 1000 random edits or 1000 sequential inserts to the document, then see how much time every text buffer needs:
 
@@ -234,10 +234,10 @@ As expected Line Array wins when the file is very small. Accessing a random posi
 
 For our text buffers, the hottest method is `getLineContent`. It is invoked by the view code, by the tokenizer, the link detector, and pretty much every component relying on document content. Some of the code traverses the entire file, like the link detector, while other code reads only a window of sequential lines, like the view code. So I've set out to benchmark this method in various scenarios:
 
- * call `getLineContent` for all lines after doing 1000 random edits
- * call `getLineContent` for all lines after doing 1000 sequential inserts
- * read 10 distinct line windows after doing 1000 random edits
- * read 10 distinct line windows after doing 1000 sequential inserts.
+* call `getLineContent` for all lines after doing 1000 random edits
+* call `getLineContent` for all lines after doing 1000 sequential inserts
+* read 10 distinct line windows after doing 1000 random edits
+* read 10 distinct line windows after doing 1000 sequential inserts.
 
 <center>
 <img src="./read.png" style="width: 800px" alt="Read all lines after random edits">
@@ -272,6 +272,7 @@ Our options are simple. In C++, we either allocate a new JavaScript `string` on 
 We could have tried to overcome this by changing the TextBuffer API, or by moving more and more code to C++ to avoid the Javascript/C++ boundary cost. However, we realized we were doing two things at the same time: we were writing a text buffer using a different data structure than a lines array, and we were writing it in C++ rather than JavaScript. So, rather than spending half a year on something we don't know if it would pay off, we decided to keep the text buffer's runtime in JavaScript, and only change the data structure and associated algorithms. In our opinion, this has payed off.
 
 ## Future work
+
 We still have a handful of cases that need to be optimized. For example, find currently runs line-by-line but shouldn't. We can also avoid needless calls to `getLineContent` when only a line substring is needed. We will incrementally release these optimizations. Even without them the new text buffer implementation provides a better user experience then what we had before. So that's why it is the default in the latest stable VS Code version.
 
 Happy Coding!
