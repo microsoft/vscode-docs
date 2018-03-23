@@ -56,9 +56,7 @@ After the file is initially loaded, the piece table contains the whole file cont
 
 The animation below shows how to access the document line by line in a piece table structure. It has two buffers (`original` and `added`) and three nodes (which is caused by an insertion in the middle of the `original` content`).
 
-<center>
-<img src="./traditional-piece-table.gif" alt="Tradition Piece Table" style="width: 800px;">
-</center>
+![Traditional Piece Table](traditional-piece-table.gif)
 
 The initial memory usage of a piece table is close to the size of the document and the memory needed for modifications is proportional to the number of edits and text added. So characteristically a piece table makes good usage of memory. However, the price for low memory usage is that accessing a logical line is slow. For example, if you want to get the content of the 1000th line, the only way is to iterate over every character starting at the beginning of the document, find the first 999 line breaks, and read each character until the next line break.
 
@@ -176,9 +174,7 @@ class Node {
 }
 ```
 
-<center>
-<img src="./piece-tree.gif" alt="Piece Tree" style="width: 800px">
-</center>
+![Piece Tree](piece-tree.gif)
 
 ## Piece Tree
 
@@ -203,17 +199,13 @@ and manually created a couple of large files
 
 The memory usage of the Piece Tree immediately after loading is very close to the original file size, and it is significantly lower than the old implementation. First round, Piece Tree wins:
 
-<center>
-<img src="./memoryusage.png" style="width: 600px" alt="Memory Usage">
-</center>
+![Memory usage](memoryusage.png)
 
 ### 2. File opening times
 
 Finding and caching line breaks is a lot faster than splitting the file into an array of strings.
 
-<center>
-<img src="./fileopen.png" style="width: 600px" alt="File Opening">
-</center>
+![File opening](fileopen.png)
 
 ### 3. Editing
 
@@ -224,9 +216,7 @@ I have simulated two workflows:
 
 I try to mimic these two scenarios: Apply 1000 random edits or 1000 sequential inserts to the document, then see how much time every text buffer needs:
 
-<center>
-<img src="./write.png" style="width: 800px" alt="Random Edits">
-</center>
+![Random edits](write.png)
 
 As expected Line Array wins when the file is very small. Accessing a random position in a small array and tweaking a string which has around 100~150 characters is really fast. The Line Array starts to choke when the file has a lot of lines (100k+). Sequential inserts in large files make this situation worse as the JavaScript engine does a lot of work in order to resize the large array. Piece Tree behaves in a stable fashion as each edit is just a string append and a couple RBTree operations.
 
@@ -239,11 +229,9 @@ For our text buffers, the hottest method is `getLineContent`. It is invoked by t
 * read 10 distinct line windows after doing 1000 random edits
 * read 10 distinct line windows after doing 1000 sequential inserts.
 
-<center>
-<img src="./read.png" style="width: 800px" alt="Read all lines after random edits">
-</center>
+![Read all lines after random edits](read.png)
 
-TADA, we found the achilles heel of Piece Tree. A large file, with 1000s of edits, will lead to thousands or tens of thousands of nodes. Even though looking up a line is `O(log N)`, where `N` is the number of nodes, that is significantly more than `O(1)` which the Line Array enjoyed.
+TA DA, we found the achilles heel of Piece Tree. A large file, with 1000s of edits, will lead to thousands or tens of thousands of nodes. Even though looking up a line is `O(log N)`, where `N` is the number of nodes, that is significantly more than `O(1)` which the Line Array enjoyed.
 
 Having thousands of edits is relatively rare. You might get there after replacing a commonly occurring sequence of characters in a large file. Also, we are talking about microseconds for each `getLineContent` call. It is not something we are concerned about at this time. Most of `getLineContent` calls are from View Rendering and Tokenizer, and the post processes of line contents are much more time consuming. DOM construction and rendering or tokenization of a view port usually takes tens of milliseconds, in which `getLineContent` only accounts for less than 1%. Nevertheless we are considering eventually implementing a *normalization* step, where we would recreate buffers and nodes if certain conditions such as a high number of nodes are met.
 
