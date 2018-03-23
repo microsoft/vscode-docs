@@ -16,7 +16,7 @@ If you don't have an Azure account, [sign up today](https://azure.microsoft.com/
 
 You need [Visual Studio Code](https://code.visualstudio.com/) installed along with [Node.js and npm](https://nodejs.org/en/download), the Node.js package manager.
 
-To enable local debugging, you need to install the [Azure Functions Core tools](https://github.com/Azure/azure-functions-core-tools#installing).
+To enable local debugging, you need to install the [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing).
 
 **On macOS**, install using [Homebrew](https://brew.sh/).
 
@@ -25,13 +25,13 @@ $ brew tap azure/functions
 $ brew install azure-functions-core-tools
 ```
 
-**On WIndows**, install using [npm](https://npmjs.com).
+**On Windows**, install using [npm](https://npmjs.com).
 
 ```bash
 $ npm install -g azure-functions-core-tools@core
 ```
 
-On Linux, follow the instructions in the [GitHub repository](https://github.com/Azure/azure-functions-core-tools#linux).
+**On Linux**, follow the instructions in the Azure Functions Core Tools [GitHub repository](https://github.com/Azure/azure-functions-core-tools#linux).
 
 ## Install the extension
 
