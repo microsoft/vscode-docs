@@ -11,11 +11,11 @@ MetaSocialImage:
 
 March 23, 2018 by Peng Lyu, [@njukidreborn](https://twitter.com/njukidreborn)
 
-The Visual Studio Code 1.21 release includes a brand new text buffer implementation which is much more performant, both in terms of speed and of memory usage. In this blog post, I'd like to tell the story of how we selected and designed the data structures and algorithms that lead to those improvements.
+The Visual Studio Code 1.21 release includes a brand new text buffer implementation which is much more performant, both in terms of speed and memory usage. In this blog post, I'd like to tell the story of how we selected and designed the data structures and algorithms that led to those improvements.
 
-Performance discussions about JavaScript programs usually involve a discussion about how much should be implemented in native code. For the text buffer, these discussions started more than a year ago. During an in-depth exploration, we found that a C++ implementation of the text buffer could lead to significant memory savings, but we didn't see the performance enhancements we were hoping for. Converting strings between a custom native representation and V8's strings is costly and in our case, compromised any performance gained from implementing text buffer operations in C++. We will discuss this in more detail at [the end](#why-not-native) of this post.
+Performance discussions about JavaScript programs usually involve a discussion about how much should be implemented in native code. For the VS Code text buffer, these discussions started more than a year ago. During an in-depth exploration, we found that a C++ implementation of the text buffer could lead to significant memory savings, but we didn't see the performance enhancements we were hoping for. Converting strings between a custom native representation and V8's strings is costly and in our case, compromised any performance gained from implementing text buffer operations in C++. We will discuss this in more detail at [the end](#why-not-native) of this post.
 
-Not going native, we had to find ways to improve our JavaScript/TypeScript code. Inspiring blog posts like [this one](http://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html) from [Vyacheslav Egorov](http://mrale.ph) show ways how to push a JavaScript engine to its limits and squeeze out as much performance as possible. But even without low level engine tricks, it is typically possible to improve by one or more orders of magnitude by using better suited data structures and faster algorithms.
+Not going native, we had to find ways to improve our JavaScript/TypeScript code. Inspiring blog posts like [this one](http://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html) from [Vyacheslav Egorov](http://mrale.ph) show ways how to push a JavaScript engine to its limits and squeeze out as much performance as possible. Even without low level engine tricks, it is still possible to improve speed by one or more orders of magnitude by using better suited data structures and faster algorithms.
 
 ## Previous text buffer data structure
 
@@ -23,15 +23,15 @@ The mental model for an editor is line based. Developers read and write source c
 
 However we kept receiving issue reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, one user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the line array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
 
-Another problem with the line array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line. The split itself hurts performance. I'll show you some benchmarks further down.
+Another problem with the line array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line. The split itself hurts performance which you'll see in benchmarks further down.
 
 ## Finding a new text buffer implementation
 
-The old line array representation can take a lot of time to create and consumes a lot of memory, but it gives fast line look-up. In a perfect world, we would store only the text of the file and no additional metadata. Thus, we started looking for data structures that require less metadata. After searching in the data structure arsenal for a while, I found that [Piece Table](https://en.wikipedia.org/wiki/Piece_table) may be a good candidate to start with.
+The old line array representation can take a lot of time to create and consumes a lot of memory, but it gives fast line look-up. In a perfect world, we would store only the text of the file and no additional metadata. Thus, we started looking for data structures that require less metadata. After reviewing various data structures, I found that [piece table](https://en.wikipedia.org/wiki/Piece_table) may be a good candidate to start with.
 
 ### Avoiding too much meta-data by using a piece table
 
-Piece table is a data structure used to represent a series of edits on a text document (code in TypeScript):
+Piece table is a data structure used to represent a series of edits on a text document (source code in TypeScript):
 
 ```ts
 class PieceTable {
@@ -62,7 +62,7 @@ The animation below shows how to access the document line by line in a piece tab
 
 ---
 
-The initial memory usage of a piece table is close to the size of the document and the memory needed for modifications is proportional to the number of edits and text added. So characteristically a piece table makes good usage of memory. However, the price for low memory usage is that accessing a logical line is slow. For example, if you want to get the content of the 1000th line, the only way is to iterate over every character starting at the beginning of the document, find the first 999 line breaks, and read each character until the next line break.
+The initial memory usage of a piece table is close to the size of the document and the memory needed for modifications is proportional to the number of edits and text added. So typically a piece table makes good usage of memory. However, the price for low memory usage is that accessing a logical line is slow. For example, if you want to get the content of the 1000th line, the only way is to iterate over every character starting at the beginning of the document, find the first 999 line breaks, and read each character until the next line break.
 
 ### Use caching for faster line lookup
 
@@ -90,11 +90,11 @@ enum NodeType {
 
 For example, if you want to access the second line in a given `Node` instance, you can read `node.lineStarts[0]` and `node.lineStarts[1]` which will give the relative offsets at which a line begins and ends. Since we know how many line breaks a node has, accessing a random line in the document is straight forward: read each node starting from the first one until we find the target line break.
 
-The algorithm remains simple, and it works better than before as we can now jump over entire chunks of text. Before we had to iterate character-by-character. We'll see later on that we can do even better than that.
+The algorithm remains simple, and it works better than before as we can now jump over entire chunks of text rather than iterate character-by-character. We'll see later on that we can do even better than that.
 
 ### Avoid the string concatenation trap
 
-The piece table holds two buffers, one for original content loaded from disk, and another for user edits. In VS Code, we are loading text files using node's `fs.readFile` that delivers content in 64KB chunks. So when the file is large, let's say 64 MB, we'll receive 1000 chunks. After having received all of them we can concatenate them into one large string and store it in the `original` field of the piece table.
+The piece table holds two buffers, one for original content loaded from disk, and another for user edits. In VS Code, we are loading text files using Node.js `fs.readFile` that delivers content in 64KB chunks. So when the file is large, for example 64 MB, we'll receive 1000 chunks. After having received all of the chucks, we can concatenate them into one large string and store it in the `original` field of the piece table.
 
 This sounds reasonable until V8 steps on your toes. I tried to open a 500MB file and got an exception because in the version of V8 I used, the maximum string length is 256MB. This limit will be lifted to 1GB in future versions of V8 but that doesn't really solve the problem.
 
@@ -116,11 +116,11 @@ class Node {
 
 ### Boost line lookup by using a balanced binary tree
 
-With string concatenation out of the way, we cannot open large file. This leads us to another potential performance issue. Say we load a 64MB file, the piece table will have 1000 nodes. Even though we cache line break positions in every node, we don't know which absolute line number is in which node. To get the content of a line, we have to go through all nodes until we find the node containing that line. In our example we have to iterate through up to 1000 nodes depending on which line number we look for. Thus, the time complexity of the worst case is O(N) (N is the count of nodes).
+With string concatenation out of the way, we can now open large files but this leads us to another potential performance issue. Say we load a 64MB file, the piece table will have 1000 nodes. Even though we cache line break positions in every node, we don't know which absolute line number is in which node. To get the content of a line, we have to go through all nodes until we find the node containing that line. In our example, we have to iterate through up to 1000 nodes depending on which line number we look for. Thus, the time complexity of the worst case is O(N) (N is the count of nodes).
 
 Caching the absolute line numbers in each node and using binary search on the list of nodes boosts lookup speed but whenever we modify a node, we have to visit all following nodes to apply the line number delta. This is a no-go but the idea of binary search is good. To achieve the same effect, we can leverage a balanced binary tree.
 
-We now have to decide what metadata we should use as the key to compare tree nodes. As said, using the node's offset in the document or the absolute line number will make bring the time complexity of editing operations to O(N). If we want a time complexity of O(log n) we need something that's only related to a tree node's subtree. Thus, when a user edits text, we recompute the metadata for the modified nodes, and then bubble the metadata change along the parent nodes all the way to the root.
+We now have to decide what metadata we should use as the key to compare tree nodes. As said, using the node's offset in the document or the absolute line number will bring the time complexity of editing operations to O(N). If we want a time complexity of O(log n), we need something that's only related to a tree node's subtree. Thus, when a user edits text, we recompute the metadata for the modified nodes, and then bubble the metadata change along the parent nodes all the way to the root.
 
 If a `Node` has only four properties (`bufferIndex`, `start`, `length`, `lineStarts`), it takes seconds to find the result. To get faster, we can also store the text length and the line break count of a node's left subtree. Then searching by offset or line number from the root of the tree can be efficient. Storing metadata of the right subtree is the same but we don't need to cache both.
 
@@ -146,13 +146,13 @@ class Node {
 }
 ```
 
-Among all kinds of balanced binary tree, we choose red-black tree which is more `editing` friendly.
+Among all the different kinds of balanced binary trees, we choose [red-black tree](https://en.wikipedia.org/wiki/Red–black_tree) which is more 'editing' friendly.
 
 ### Reduce objects allocation
 
-Assume we store the line break offsets in each node. Whenever we change the node, we might have to update the line break offsets. For example, say we have a node that contains 999 line breaks, the `lineStarts` array has 1000 elements. If we split the node evenly, then we'll create two nodes, each has an array containing around 500 elements. As we are not directly operating on linear memory space, splitting an array into two more costly than just moving pointers.
+Assume we store the line break offsets in each node. Whenever we change the node, we might have to update the line break offsets. For example, say we have a node that contains 999 line breaks, the `lineStarts` array has 1000 elements. If we split the node evenly, then we'll create two nodes, each has an array containing around 500 elements. As we are not directly operating on linear memory space, splitting an array into two is more costly than just moving pointers.
 
-The good news is that the buffers in a piece table are either readonly (original buffers) or append-only (changed buffers), so the line break within a buffer don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer. The less we do the better the performance is. Our benchmarks showed that applying this change made the text buffer operations in our implementation three times faster. But more about the actual implementation later.
+The good news is that the buffers in a piece table are either readonly (original buffers) or append-only (changed buffers), so the line break within a buffer don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer. The less we do, the better the performance is. Our benchmarks showed that applying this change made the text buffer operations in our implementation three times faster. But more about the actual implementation later.
 
 ```ts
 class Buffer {
