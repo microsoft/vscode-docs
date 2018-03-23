@@ -17,17 +17,17 @@ Performance discussions about JavaScript programs usually involve a discussion a
 
 Not going native, we had to find ways to improve our JavaScript/TypeScript code. Inspiring blog posts like [this one](http://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html) from [Vyacheslav Egorov](http://mrale.ph) show ways how to push a JavaScript engine to its limits and squeeze out as much performance as possible. But even without low level engine tricks, it is typically possible to improve by one or more orders of magnitude by using better suited data structures and faster algorithms.
 
-## The old text buffer data structure
+## Previous text buffer data structure
 
-The mental model for an editor is line based. Developers read and write source code line by line, compilers provide line/column based diagnostics, stack traces contain line numbers, tokenization engines run line by line, etc. Although simple, the text buffer implementation powering VS Code hadn't changed much since the first day we kicked off the Monaco project. We used an array of lines, and it worked pretty well because the typical text documents are relatively small. When typing, we located the line to modify in the array, and replace it. When inserting a new line, we spliced a new line object into the lines array and the JavaScript engine would do the heavy lifting for us.
+The mental model for an editor is line based. Developers read and write source code line by line, compilers provide line/column based diagnostics, stack traces contain line numbers, tokenization engines run line by line, etc. Although simple, the text buffer implementation powering VS Code hadn't changed much since the first day we kicked off the Monaco project. We used an array of lines, and it worked pretty well because the typical text documents are relatively small. When typing, we located the line to modify in the array, and replace it. When inserting a new line, we spliced a new line object into the line array and the JavaScript engine would do the heavy lifting for us.
 
-However we kept receiving issue reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, one user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the lines array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
+However we kept receiving issue reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, one user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the line array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
 
-Another problem with the lines array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line. The split itself hurts performance. I'll show you some benchmarks further down.
+Another problem with the line array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line. The split itself hurts performance. I'll show you some benchmarks further down.
 
 ## Finding a new text buffer implementation
 
-The old lines array representation can take a lot of time to create and consumes a lot of memory, but it gives fast line look-up. In a perfect world, we would store only the text of the file and no additional metadata. Thus, we started looking for data structures that require less metadata. After searching in the data structure arsenal for a while, I found that [Piece Table](https://en.wikipedia.org/wiki/Piece_table) may be a good candidate to start with.
+The old line array representation can take a lot of time to create and consumes a lot of memory, but it gives fast line look-up. In a perfect world, we would store only the text of the file and no additional metadata. Thus, we started looking for data structures that require less metadata. After searching in the data structure arsenal for a while, I found that [Piece Table](https://en.wikipedia.org/wiki/Piece_table) may be a good candidate to start with.
 
 ### Avoiding too much meta-data by using a piece table
 
@@ -116,7 +116,7 @@ class Node {
 
 ### Boost line lookup by using a balanced binary tree
 
-With string concatenation out of the way we can not open large file. This leads us to another potential performance issue. Say we load a 64MB file, the piece table will have 1000 nodes. Even though we cache line break positions in every node, we don't know which absolute line number is in which node. To get the content of a line, we have to go through all nodes until we find the node containing that line. In our example we have to iterate through up to 1000 nodes depending on which line number we look for. Thus, the time complexity of the worst case is O(N) (N is the count of nodes).
+With string concatenation out of the way, we cannot open large file. This leads us to another potential performance issue. Say we load a 64MB file, the piece table will have 1000 nodes. Even though we cache line break positions in every node, we don't know which absolute line number is in which node. To get the content of a line, we have to go through all nodes until we find the node containing that line. In our example we have to iterate through up to 1000 nodes depending on which line number we look for. Thus, the time complexity of the worst case is O(N) (N is the count of nodes).
 
 Caching the absolute line numbers in each node and using binary search on the list of nodes boosts lookup speed but whenever we modify a node, we have to visit all following nodes to apply the line number delta. This is a no-go but the idea of binary search is good. To achieve the same effect, we can leverage a balanced binary tree.
 
@@ -184,11 +184,11 @@ class Node {
 
 ---
 
-## piece tree
+## Piece tree
 
 I'd love to call this text buffer **"Multiple buffer piece table with red-black tree, optimized for line model"**. But in our daily standup, when everyone is limited to 90 seconds to share what they've been up to, repeating this long name multiple times would not be wise. So I simply started calling it **"piece tree"**, which reflects what it is.
 
-Having a theoretical understanding of this data structure is one thing, real world performance is another. The language you use, the environment the code runs in, the way others invoke your API and a lot of other factors may significantly affect the outcome. Benchmarks can provide a comprehensive picture. Thus we ran benchmarks on small/medium/large files against the original Lines Array implementation and the piece tree implementation.
+Having a theoretical understanding of this data structure is one thing, real world performance is another. The language you use, the environment the code runs in, the way clients invoke your API, and other factors may significantly affect the outcome. Benchmarks can provide a comprehensive picture so we ran benchmarks on small/medium/large files against the original line array implementation and the piece tree implementation.
 
 ### Preparations
 
@@ -200,7 +200,7 @@ For telling results, I looked for realistic files online:
 
 and manually created a couple of large files:
 
-* Chromium heap snapshot of newly opened VSCode Insider - 54MB, 3M lines.
+* Chromium heap snapshot of newly opened VS Code Insider - 54MB, 3M lines.
 * checker.ts * 128 - 184MB, 3M lines.
 
 ### 1. Memory usage
@@ -211,7 +211,7 @@ The memory usage of the piece tree immediately after loading is very close to th
 
 ### 2. File opening times
 
-Finding and caching line breaks is a lot faster than splitting the file into an array of strings.
+Finding and caching line breaks is much faster than splitting the file into an array of strings.
 
 ![File opening](fileopen.png)
 
@@ -226,32 +226,32 @@ I try to mimic these two scenarios: Apply 1000 random edits or 1000 sequential i
 
 ![Random edits](write.png)
 
-As expected line array wins when the file is very small. Accessing a random position in a small array and tweaking a string which has around 100~150 characters is really fast. The line array starts to choke when the file has a lot of lines (100k+). Sequential inserts in large files make this situation worse as the JavaScript engine does a lot of work in order to resize the large array. piece tree behaves in a stable fashion as each edit is just a string append and a couple RBTree operations.
+As expected, line array wins when the file is very small. Accessing a random position in a small array and tweaking a string which has around 100~150 characters is really fast. The line array starts to choke when the file has many lines (100k+). Sequential inserts in large files make this situation worse as the JavaScript engine does a lot of work in order to resize the large array. piece tree behaves in a stable fashion as each edit is just a string append and a couple RBTree operations.
 
 ### 4. Reading
 
-For our text buffers, the hottest method is `getLineContent`. It is invoked by the view code, by the tokenizer, the link detector, and pretty much every component relying on document content. Some of the code traverses the entire file, like the link detector, while other code reads only a window of sequential lines, like the view code. So I've set out to benchmark this method in various scenarios:
+For our text buffers, the hottest method is `getLineContent`. It is invoked by the view code, by the tokenizer, the link detector, and pretty much every component relying on document content. Some of the code traverses the entire file, like the link detector, while other code reads only a window of sequential lines, like the view code. So I set out to benchmark this method in various scenarios:
 
-* call `getLineContent` for all lines after doing 1000 random edits
-* call `getLineContent` for all lines after doing 1000 sequential inserts
-* read 10 distinct line windows after doing 1000 random edits
-* read 10 distinct line windows after doing 1000 sequential inserts.
+* Call `getLineContent` for all lines after doing 1000 random edits.
+* Call `getLineContent` for all lines after doing 1000 sequential inserts.
+* Read 10 distinct line windows after doing 1000 random edits.
+* Read 10 distinct line windows after doing 1000 sequential inserts.
 
 ![Read all lines after random edits](read.png)
 
-TA DA, we found the achilles heel of piece tree. A large file, with 1000s of edits, will lead to thousands or tens of thousands of nodes. Even though looking up a line is `O(log N)`, where `N` is the number of nodes, that is significantly more than `O(1)` which the line array enjoyed.
+TA DA, we found the Achilles heel of piece tree. A large file, with 1000s of edits, will lead to thousands or tens of thousands of nodes. Even though looking up a line is `O(log N)`, where `N` is the number of nodes, that is significantly more than `O(1)` which the line array enjoyed.
 
 Having thousands of edits is relatively rare. You might get there after replacing a commonly occurring sequence of characters in a large file. Also, we are talking about microseconds for each `getLineContent` call. It is not something we are concerned about at this time. Most of `getLineContent` calls are from View Rendering and Tokenizer, and the post processes of line contents are much more time consuming. DOM construction and rendering or tokenization of a view port usually takes tens of milliseconds, in which `getLineContent` only accounts for less than 1%. Nevertheless we are considering eventually implementing a normalization step, where we would recreate buffers and nodes if certain conditions such as a high number of nodes are met.
 
-## Conclusion and Gotchas
+## Conclusion and gotchas
 
 Piece tree outperforms line array in most scenarios, with the exception of line based lookup, which was to be expected.
 
 ### Lessons learned
 
-* The most important lesson this reimplementation taught me is to **always do real world profiling**. Every time I found that my assumptions about which methods would be hot did not match the reality, For example, when I started the piece tree implementation I focused a lot on tuning the three atomic operations `insert`, `delete` and `search`. But when I integrated it in VSCode, none of those optimizations mattered. The hottest method was `getLineContent`.
-* **Dealing with `CRLF` or mixed line breaks sequences is a programmer's nightmare**. For every modification, we need to check if it splits a CRLF sequence, or if it creates a new CRLF sequence. Dealing with all the possible cases, in the context of a tree took several attempts until I had a solution that was correct and fast.
-* **GC can easily eat your CPU time**. Our text model used to have the assumption that the buffer is stored in an array. So we frequently use `getLineContent` even though sometimes it's unnecessary. Say we just want to know the char code of the first character of a line, we used a `getLineContent` first and then run `charCodeAt`. With piece tree, `getLineContent` creates a substring and after checking the char code, the line substring is thrown away immediately. This is wasteful and we are working on adopting better suited methods.
+* The most important lesson this reimplementation taught me is to **always do real world profiling**. Every time I found that my assumptions about which methods would be hot did not match reality. For example, when I started the piece tree implementation, I focused on tuning the three atomic operations: `insert`, `delete` and `search`. But when I integrated it in VS Code, none of those optimizations mattered. The hottest method was `getLineContent`.
+* **Dealing with `CRLF` or mixed line breaks sequences is a programmer's nightmare**. For every modification, we need to check if it splits a Carriage Return/Line Feed (CRLF) sequence, or if it creates a new CRLF sequence. Dealing with all the possible cases, in the context of a tree, took several attempts until I had a solution that was correct and fast.
+* **GC can easily eat your CPU time**. Our text model used to assume that the buffer is stored in an array and we frequently use `getLineContent` even though sometimes it wasn't necessary. For example, if we just want to know the character code of the first character of a line, we used a `getLineContent` first and then did `charCodeAt`. With piece tree, `getLineContent` creates a substring and after checking the character code, the line substring is thrown away immediately. This is wasteful and we are working on adopting better suited methods.
 
 ### Why not native?
 
@@ -263,13 +263,13 @@ We built a text buffer implementation in C++ and used native node module binding
 
 For example, the VS Code **Toggle Line Comment** command is implemented by looping through all the selected lines, and analyzing them one-by-one. This logic is written in JavaScript, and will invoke `TextBuffer.getLineContent` for each line. For each call, we end up crossing the C++/JavaScript boundary, and we have to return a JavaScript `string` in order to respect the API that all of our code is built on top of.
 
-Our options are simple. In C++, we either allocate a new JavaScript `string` on each call to `getLineContent` which implies copying the actual string bytes around, or we leverage V8's `SlicedString` or `ConsString` types. However, we can use V8's string types only if our underlying storage is also using V8's strings. Unfortunately, V8's strings are not multi-thread safe.
+Our options are simple. In C++, we either allocate a new JavaScript `string` on each call to `getLineContent` which implies copying the actual string bytes around, or we leverage V8's `SlicedString` or `ConstString` types. However, we can use V8's string types only if our underlying storage is also using V8's strings. Unfortunately, V8's strings are not multi-thread safe.
 
-We could have tried to overcome this by changing the TextBuffer API, or by moving more and more code to C++ to avoid the Javascript/C++ boundary cost. However, we realized we were doing two things at the same time: we were writing a text buffer using a different data structure than a lines array, and we were writing it in C++ rather than JavaScript. So, rather than spending half a year on something we don't know if it would pay off, we decided to keep the text buffer's runtime in JavaScript, and only change the data structure and associated algorithms. In our opinion, this has payed off.
+We could have tried to overcome this by changing the TextBuffer API, or by moving more and more code to C++ to avoid the JavaScript/C++ boundary cost. However, we realized we were doing two things at the same time: we were writing a text buffer using a different data structure than a line array, and we were writing it in C++ rather than JavaScript. So, rather than spending half a year on something we don't know if it would pay off, we decided to keep the text buffer's runtime in JavaScript, and only change the data structure and associated algorithms. In our opinion, this has paid off.
 
 ## Future work
 
-We still have a handful of cases that need to be optimized. For example, find currently runs line-by-line but shouldn't. We can also avoid needless calls to `getLineContent` when only a line substring is needed. We will incrementally release these optimizations. Even without them the new text buffer implementation provides a better user experience then what we had before. So that's why it is the default in the latest stable VS Code version.
+We still have a handful of cases that need to be optimized. For example, the **Find** command currently runs line-by-line but shouldn't. We can also avoid needless calls to `getLineContent` when only a line substring is needed. We will incrementally release these optimizations. Even without these further optimizations, the new text buffer implementation provides a better user experience then what we had before and is now the default in the latest stable VS Code version.
 
 Happy Coding!
 
