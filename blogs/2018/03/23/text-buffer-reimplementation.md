@@ -94,7 +94,7 @@ The algorithm remains simple, and it works better than before as we can now jump
 
 ### Avoid the string concatenation trap
 
-The piece table holds two buffers, one for original content loaded from disk, and another for user edits. In VS Code, we are loading text files using Node.js `fs.readFile` that delivers content in 64KB chunks. So when the file is large, for example 64 MB, we'll receive 1000 chunks. After having received all of the chucks, we can concatenate them into one large string and store it in the `original` field of the piece table.
+The piece table holds two buffers, one for original content loaded from disk, and another for user edits. In VS Code, we are loading text files using Node.js `fs.readFile` that delivers content in 64KB chunks. So when the file is large, for example 64 MB, we'll receive 1000 chunks. After having received all of the chunks, we can concatenate them into one large string and store it in the `original` field of the piece table.
 
 This sounds reasonable until V8 steps on your toes. I tried to open a 500MB file and got an exception because in the version of V8 I used, the maximum string length is 256MB. This limit will be lifted to 1GB in future versions of V8 but that doesn't really solve the problem.
 
