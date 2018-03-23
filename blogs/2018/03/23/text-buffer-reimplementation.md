@@ -15,13 +15,13 @@ The Visual Studio Code 1.21 release includes a brand new text buffer implementat
 
 Performance discussions about JavaScript programs usually involve a discussion about how much should be implemented in native code. For the VS Code text buffer, these discussions started more than a year ago. During an in-depth exploration, we found that a C++ implementation of the text buffer could lead to significant memory savings, but we didn't see the performance enhancements we were hoping for. Converting strings between a custom native representation and V8's strings is costly and in our case, compromised any performance gained from implementing text buffer operations in C++. We will discuss this in more detail at [the end](#why-not-native) of this post.
 
-Not going native, we had to find ways to improve our JavaScript/TypeScript code. Inspiring blog posts like [this one](http://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html) from [Vyacheslav Egorov](http://mrale.ph) show ways how to push a JavaScript engine to its limits and squeeze out as much performance as possible. Even without low level engine tricks, it is still possible to improve speed by one or more orders of magnitude by using better suited data structures and faster algorithms.
+Not going native, we had to find ways to improve our JavaScript/TypeScript code. Inspiring blog posts like [this one](http://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html) from [Vyacheslav Egorov](http://mrale.ph) show ways to push a JavaScript engine to its limits and squeeze out as much performance as possible. Even without low level engine tricks, it is still possible to improve speed by one or more orders of magnitude by using better suited data structures and faster algorithms.
 
 ## Previous text buffer data structure
 
-The mental model for an editor is line based. Developers read and write source code line by line, compilers provide line/column based diagnostics, stack traces contain line numbers, tokenization engines run line by line, etc. Although simple, the text buffer implementation powering VS Code hadn't changed much since the first day we kicked off the Monaco project. We used an array of lines, and it worked pretty well because the typical text documents are relatively small. When typing, we located the line to modify in the array, and replace it. When inserting a new line, we spliced a new line object into the line array and the JavaScript engine would do the heavy lifting for us.
+The mental model for an editor is line based. Developers read and write source code line by line, compilers provide line/column based diagnostics, stack traces contain line numbers, tokenization engines run line by line, etc. Although simple, the text buffer implementation powering VS Code hadn't changed much since the first day we kicked off the Monaco project. We used an array of lines, and it worked pretty well because typical text documents are relatively small. When the user is typing, we located the line to modify in the array and replaced it. When inserting a new line, we spliced a new line object into the line array and the JavaScript engine would do the heavy lifting for us.
 
-However we kept receiving issue reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, one user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the line array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
+However, we kept receiving reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, one user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the line array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
 
 Another problem with the line array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line. The split itself hurts performance which you'll see in benchmarks further down.
 
@@ -62,7 +62,7 @@ The animation below shows how to access the document line by line in a piece tab
 
 ---
 
-The initial memory usage of a piece table is close to the size of the document and the memory needed for modifications is proportional to the number of edits and text added. So typically a piece table makes good usage of memory. However, the price for low memory usage is that accessing a logical line is slow. For example, if you want to get the content of the 1000th line, the only way is to iterate over every character starting at the beginning of the document, find the first 999 line breaks, and read each character until the next line break.
+The initial memory usage of a piece table is close to the size of the document and the memory needed for modifications is proportional to the number of edits and text added. So typically a piece table makes good use of memory. However, the price for low memory usage is that accessing a logical line is slow. For example, if you want to get the content of the 1000th line, the only way is to iterate over every character starting at the beginning of the document, find the first 999 line breaks, and read each character until the next line break.
 
 ### Use caching for faster line lookup
 
@@ -98,7 +98,7 @@ The piece table holds two buffers, one for original content loaded from disk, an
 
 This sounds reasonable until V8 steps on your toes. I tried to open a 500MB file and got an exception because in the version of V8 I used, the maximum string length is 256MB. This limit will be lifted to 1GB in future versions of V8 but that doesn't really solve the problem.
 
-Instead of holding an `original` and an `added` buffer, we can hold a list of buffers. We can try to keep that list short or we can get inspired by what we get back from `fs.readFile` and avoid any string concatenation. Each time we receive a 64KB chunk from disk, we push it directly to the `buffers` array and create a node that points to this buffer:
+Instead of holding an `original` and an `added` buffer, we can hold a list of buffers. We can try to keep that list short or we can be inspired by what we get back from `fs.readFile` and avoid any string concatenation. Each time we receive a 64KB chunk from disk, we push it directly to the `buffers` array and create a node that points to this buffer:
 
 ```ts
 class PieceTable {
@@ -122,7 +122,7 @@ Caching the absolute line numbers in each node and using binary search on the li
 
 We now have to decide what metadata we should use as the key to compare tree nodes. As said, using the node's offset in the document or the absolute line number will bring the time complexity of editing operations to O(N). If we want a time complexity of O(log n), we need something that's only related to a tree node's subtree. Thus, when a user edits text, we recompute the metadata for the modified nodes, and then bubble the metadata change along the parent nodes all the way to the root.
 
-If a `Node` has only four properties (`bufferIndex`, `start`, `length`, `lineStarts`), it takes seconds to find the result. To get faster, we can also store the text length and the line break count of a node's left subtree. Then searching by offset or line number from the root of the tree can be efficient. Storing metadata of the right subtree is the same but we don't need to cache both.
+If a `Node` has only four properties (`bufferIndex`, `start`, `length`, `lineStarts`), it takes seconds to find the result. To get faster, we can also store the text length and the line break count of a node's left subtree. This way searching by offset or line number from the root of the tree can be efficient. Storing metadata of the right subtree is the same but we don't need to cache both.
 
 The classes now look like this:
 
@@ -146,13 +146,13 @@ class Node {
 }
 ```
 
-Among all the different kinds of balanced binary trees, we choose [red-black tree](https://en.wikipedia.org/wiki/Red–black_tree) which is more 'editing' friendly.
+Among all the different types of balanced binary trees, we choose [red-black tree](https://en.wikipedia.org/wiki/Red–black_tree) because it is more 'editing' friendly.
 
 ### Reduce objects allocation
 
 Assume we store the line break offsets in each node. Whenever we change the node, we might have to update the line break offsets. For example, say we have a node that contains 999 line breaks, the `lineStarts` array has 1000 elements. If we split the node evenly, then we'll create two nodes, each has an array containing around 500 elements. As we are not directly operating on linear memory space, splitting an array into two is more costly than just moving pointers.
 
-The good news is that the buffers in a piece table are either readonly (original buffers) or append-only (changed buffers), so the line break within a buffer don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer. The less we do, the better the performance is. Our benchmarks showed that applying this change made the text buffer operations in our implementation three times faster. But more about the actual implementation later.
+The good news is that the buffers in a piece table are either readonly (original buffers) or append-only (changed buffers), so the line breaks within a buffer don't move. `Node` can simply hold two references to the line break offsets on its corresponding buffer. The less we do, the better the performance is. Our benchmarks showed that applying this change made the text buffer operations in our implementation three times faster. But more about the actual implementation later.
 
 ```ts
 class Buffer {
@@ -201,7 +201,7 @@ For telling results, I looked for realistic files online:
 and manually created a couple of large files:
 
 * Chromium heap snapshot of newly opened VS Code Insider - 54MB, 3M lines.
-* checker.ts * 128 - 184MB, 3M lines.
+* checker.ts X 128 - 184MB, 3M lines.
 
 ### 1. Memory usage
 
@@ -211,7 +211,7 @@ The memory usage of the piece tree immediately after loading is very close to th
 
 ### 2. File opening times
 
-Finding and caching line breaks is much faster than splitting the file into an array of strings.
+Finding and caching line breaks is much faster than splitting the file into an array of strings:
 
 ![File opening](fileopen.png)
 
@@ -222,11 +222,11 @@ I have simulated two workflows:
 * Making edits in random positions in the document.
 * Typing in sequence.
 
-I try to mimic these two scenarios: Apply 1000 random edits or 1000 sequential inserts to the document, then see how much time every text buffer needs:
+I tried to mimic these two scenarios: Apply 1000 random edits or 1000 sequential inserts to the document, then see how much time every text buffer needs:
 
 ![Random edits](write.png)
 
-As expected, line array wins when the file is very small. Accessing a random position in a small array and tweaking a string which has around 100~150 characters is really fast. The line array starts to choke when the file has many lines (100k+). Sequential inserts in large files make this situation worse as the JavaScript engine does a lot of work in order to resize the large array. piece tree behaves in a stable fashion as each edit is just a string append and a couple RBTree operations.
+As expected, line array wins when the file is very small. Accessing a random position in a small array and tweaking a string which has around 100~150 characters is really fast. The line array starts to choke when the file has many lines (100k+). Sequential inserts in large files make this situation worse as the JavaScript engine does a lot of work in order to resize the large array. Piece tree behaves in a stable fashion as each edit is just a string append and a couple red-black tree operations.
 
 ### 4. Reading
 
@@ -241,7 +241,7 @@ For our text buffers, the hottest method is `getLineContent`. It is invoked by t
 
 TA DA, we found the Achilles heel of piece tree. A large file, with 1000s of edits, will lead to thousands or tens of thousands of nodes. Even though looking up a line is `O(log N)`, where `N` is the number of nodes, that is significantly more than `O(1)` which the line array enjoyed.
 
-Having thousands of edits is relatively rare. You might get there after replacing a commonly occurring sequence of characters in a large file. Also, we are talking about microseconds for each `getLineContent` call. It is not something we are concerned about at this time. Most of `getLineContent` calls are from View Rendering and Tokenizer, and the post processes of line contents are much more time consuming. DOM construction and rendering or tokenization of a view port usually takes tens of milliseconds, in which `getLineContent` only accounts for less than 1%. Nevertheless we are considering eventually implementing a normalization step, where we would recreate buffers and nodes if certain conditions such as a high number of nodes are met.
+Having thousands of edits is relatively rare. You might get there after replacing a commonly occurring sequence of characters in a large file. Also, we are talking about microseconds for each `getLineContent` call so it is not something we are concerned about at this time. Most of `getLineContent` calls are from view rendering and tokenization, and the post processes of line contents are much more time consuming. DOM construction and rendering or tokenization of a view port usually takes tens of milliseconds, in which `getLineContent` only accounts for less than 1%. Nevertheless, we are considering eventually implementing a normalization step, where we would recreate buffers and nodes if certain conditions such as a high number of nodes are met.
 
 ## Conclusion and gotchas
 
@@ -259,13 +259,13 @@ I promised at the beginning that I would get back to this question.
 
 **TL;DR**: We tried. It didn't work out for us.
 
-We built a text buffer implementation in C++ and used native node module bindings to integrate it in VS Code. The text buffer is a popular component in VS Code and thus many calls were being made to the text buffer. When both the caller and the implementation were written in JavaScript, V8 was able to inline many of these calls. With a native text buffer, there are **JavaScript <=> C++** round trips. There were so many of them that they were slowing everything down.
+We built a text buffer implementation in C++ and used native node module bindings to integrate it in VS Code. The text buffer is a popular component in VS Code and thus many calls were being made to the text buffer. When both the caller and the implementation were written in JavaScript, V8 was able to inline many of these calls. With a native text buffer, there are **JavaScript <=> C++** round trips and given the number to round-trips, they slowed everything down.
 
-For example, the VS Code **Toggle Line Comment** command is implemented by looping through all the selected lines, and analyzing them one-by-one. This logic is written in JavaScript, and will invoke `TextBuffer.getLineContent` for each line. For each call, we end up crossing the C++/JavaScript boundary, and we have to return a JavaScript `string` in order to respect the API that all of our code is built on top of.
+For example, the VS Code **Toggle Line Comment** command is implemented by looping through all the selected lines, and analyzing them one-by-one. This logic is written in JavaScript, and will invoke `TextBuffer.getLineContent` for each line. For each call, we end up crossing the C++/JavaScript boundary and we have to return a JavaScript `string` in order to respect the API that all of our code is built on top of.
 
 Our options are simple. In C++, we either allocate a new JavaScript `string` on each call to `getLineContent` which implies copying the actual string bytes around, or we leverage V8's `SlicedString` or `ConstString` types. However, we can use V8's string types only if our underlying storage is also using V8's strings. Unfortunately, V8's strings are not multi-thread safe.
 
-We could have tried to overcome this by changing the TextBuffer API, or by moving more and more code to C++ to avoid the JavaScript/C++ boundary cost. However, we realized we were doing two things at the same time: we were writing a text buffer using a different data structure than a line array, and we were writing it in C++ rather than JavaScript. So, rather than spending half a year on something we don't know if it would pay off, we decided to keep the text buffer's runtime in JavaScript, and only change the data structure and associated algorithms. In our opinion, this has paid off.
+We could have tried to overcome this by changing the TextBuffer API, or by moving more and more code to C++ to avoid the JavaScript/C++ boundary cost. However, we realized we were doing two things at the same time: we were writing a text buffer using a different data structure than a line array, and we were writing it in C++ rather than JavaScript. So, rather than spending half a year on something we didn't know would pay off, we decided to keep the text buffer's runtime in JavaScript, and only change the data structure and associated algorithms. In our opinion, this was the right decision.
 
 ## Future work
 
