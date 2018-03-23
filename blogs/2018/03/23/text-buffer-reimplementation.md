@@ -11,17 +11,17 @@ MetaSocialImage:
 
 March 23, 2018 by Peng Lyu, [@njukidreborn](https://twitter.com/njukidreborn)
 
-VS Code 1.21 includes a brand new text buffer implementation. It is much more performant both in terms of speed and of memory usage. In this blog post I'd like to tell the story of how we selected and designed the data structures and algorithms that lead to those improvements.
+Visual Studio Code release 1.21 included a brand new text buffer implementation. It is much more performant both in terms of speed and of memory usage. In this blog post, I'd like to tell the story of how we selected and designed the data structures and algorithms that lead to those improvements.
 
-Performance discussions about JavaScript programs usually involve a discussion about how much should be implemented in native code. For the text buffer, these discussions started more than a year ago. In an indepth exploration we found that a C++ implementation of the text buffer could lead to significant memory savings, but we didn't see the performance enhancements we were hoping for. Converting strings between a custom native representation and v8's strings is costly and in our case compromised any performance gained from implementing text buffer operations in C++. We will discuss this in more detail at [the end](#why-not-native) of this post.
+Performance discussions about JavaScript programs usually involve a discussion about how much should be implemented in native code. For the text buffer, these discussions started more than a year ago. During an in-depth exploration, we found that a C++ implementation of the text buffer could lead to significant memory savings, but we didn't see the performance enhancements we were hoping for. Converting strings between a custom native representation and V8's strings is costly and in our case, compromised any performance gained from implementing text buffer operations in C++. We will discuss this in more detail at [the end](#why-not-native) of this post.
 
 Not going native, we had to find ways to improve our JavaScript/TypeScript code. Inspiring blog posts like [this one](http://mrale.ph/blog/2018/02/03/maybe-you-dont-need-rust-to-speed-up-your-js.html) from [Vyacheslav Egorov](http://mrale.ph) show ways how to push a JavaScript engine to its limits and squeeze out as much performance as possible. But even without low level engine tricks, it is typically possible to improve by one or more orders of magnitude by using better suited data structures and faster algorithms.
 
 ## The old text buffer data structure
 
-The mental model for an editor is line based. Developers read and write code line by line, compilers provide line/column based diagnostics, stack traces contain line numbers, tokenization engines run line by line, etc. Although simple, the text buffer implementation powering VS Code hadn't changed much since the first day we kicked off the Monaco project. We used an array of lines, and it worked pretty well because the typical text documents are relatively small. When typing, we located the line to modify in the array, and replace it. When inserting a new line, we spliced a new line object into the lines array and the JavaScript engine would do the heavy lifting for us.
+The mental model for an editor is line based. Developers read and write source code line by line, compilers provide line/column based diagnostics, stack traces contain line numbers, tokenization engines run line by line, etc. Although simple, the text buffer implementation powering VS Code hadn't changed much since the first day we kicked off the Monaco project. We used an array of lines, and it worked pretty well because the typical text documents are relatively small. When typing, we located the line to modify in the array, and replace it. When inserting a new line, we spliced a new line object into the lines array and the JavaScript engine would do the heavy lifting for us.
 
-But we kept receiving issue reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, this user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the lines array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
+However we kept receiving issue reports that opening certain files would cause Out-Of-Memory crashes in VS Code. For example, one user failed to open a [35 MB file](https://github.com/Microsoft/vscode/issues/13187). The root cause was that the file had too many lines, 13.7 million. We would create a `ModelLine` object for each line and every object used around 40-60 bytes, so the lines array used around 600MB memory to store the document. That's roughly 20 times the initial file size!
 
 Another problem with the lines array representation was the speed of opening a file. To construct the array of lines, we had to split the content by line breaks, such that we would get a string object per line. The split itself hurts performance. I'll show you some benchmarks further down.
 
@@ -29,7 +29,7 @@ Another problem with the lines array representation was the speed of opening a f
 
 The old lines array representation can take a lot of time to create and consumes a lot of memory, but it gives fast line look-up. In a perfect world, we would store only the text of the file and no additional metadata. Thus, we started looking for data structures that require less metadata. After searching in the data structure arsenal for a while, I found that [Piece Table](https://en.wikipedia.org/wiki/Piece_table) may be a good candidate to start with.
 
-### Avoiding too much meta-data by using a Piece Table
+### Avoiding too much meta-data by using a piece table
 
 Piece table is a data structure used to represent a series of edits on a text document (code in TypeScript):
 
@@ -56,7 +56,11 @@ After the file is initially loaded, the piece table contains the whole file cont
 
 The animation below shows how to access the document line by line in a piece table structure. It has two buffers (`original` and `added`) and three nodes (which is caused by an insertion in the middle of the `original` content`).
 
-![Traditional Piece Table](traditional-piece-table.gif)
+---
+
+![Traditional piece table](traditional-piece-table.gif)
+
+---
 
 The initial memory usage of a piece table is close to the size of the document and the memory needed for modifications is proportional to the number of edits and text added. So characteristically a piece table makes good usage of memory. However, the price for low memory usage is that accessing a logical line is slow. For example, if you want to get the content of the 1000th line, the only way is to iterate over every character starting at the beginning of the document, find the first 999 line breaks, and read each character until the next line break.
 
@@ -92,7 +96,7 @@ The algorithm remains simple, and it works better than before as we can now jump
 
 The piece table holds two buffers, one for original content loaded from disk, and another for user edits. In VS Code, we are loading text files using node's `fs.readFile` that delivers content in 64KB chunks. So when the file is large, let's say 64 MB, we'll receive 1000 chunks. After having received all of them we can concatenate them into one large string and store it in the `original` field of the piece table.
 
-This sounds reasonable until V8 steps on your toe. I tried to open a 500MB file and got an exception because in the version of V8 I used the maximum string length is 256MB. This limit will be lifted to 1GB in future versions of V8 but that doesn't really solve the problem.
+This sounds reasonable until V8 steps on your toes. I tried to open a 500MB file and got an exception because in the version of V8 I used, the maximum string length is 256MB. This limit will be lifted to 1GB in future versions of V8 but that doesn't really solve the problem.
 
 Instead of holding an `original` and an `added` buffer, we can hold a list of buffers. We can try to keep that list short or we can get inspired by what we get back from `fs.readFile` and avoid any string concatenation. Each time we receive a 64KB chunk from disk, we push it directly to the `buffers` array and create a node that points to this buffer:
 
@@ -174,7 +178,11 @@ class Node {
 }
 ```
 
+---
+
 ![Piece Tree](piece-tree.gif)
+
+---
 
 ## Piece Tree
 
@@ -255,7 +263,7 @@ We built a text buffer implementation in C++ and used native node module binding
 
 For example, the Toggle Line Comment command is implemented by looping through all the selected lines, and analyzing them one-by-one. This logic is written in JavaScript, and will invoke `TextBuffer.getLineContent` for each line. For each call, we end up crossing the C++/JavaScript boundary, and we have to return a JavaScript `string` in order to respect the API that all of our code is built on top of.
 
-Our options are simple. In C++, we either allocate a new JavaScript `string` on each call to `getLineContent` which implies copying the actual string bytes around, or we leverage v8's `SlicedString` or `ConsString` types. But we can use v8's string types only if our underlying storage is also using v8's strings. However, v8's strings are not multi-thread safe.
+Our options are simple. In C++, we either allocate a new JavaScript `string` on each call to `getLineContent` which implies copying the actual string bytes around, or we leverage V8's `SlicedString` or `ConsString` types. However, we can use V8's string types only if our underlying storage is also using V8's strings. Unfortunately, V8's strings are not multi-thread safe.
 
 We could have tried to overcome this by changing the TextBuffer API, or by moving more and more code to C++ to avoid the Javascript/C++ boundary cost. However, we realized we were doing two things at the same time: we were writing a text buffer using a different data structure than a lines array, and we were writing it in C++ rather than JavaScript. So, rather than spending half a year on something we don't know if it would pay off, we decided to keep the text buffer's runtime in JavaScript, and only change the data structure and associated algorithms. In our opinion, this has payed off.
 
