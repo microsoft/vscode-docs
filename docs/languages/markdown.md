@@ -27,21 +27,21 @@ Here is an example with a very simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also right-click on the editor Tab and select **Open Preview to the Side** or use the **Command Palette** (`kb(workbench.action.showCommands)`) **Markdown: Open Preview to the Side** commands.
+>**Tip:** You can also right-click on the editor Tab and select **Open Preview to the Side** or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command.
 
 ### Dynamic previews and preview locking
 
-By default, markdown previews automatically update to preview the currently active markdown file:
+By default, Markdown previews automatically update to preview the currently active Markdown file:
 
-![The preview automatically switching to preview the current markdown document](images/Markdown/md-dynamic-preview.gif)
+![The preview automatically switching to preview the current Markdown document](images/Markdown/md-dynamic-preview.gif)
 
-You can lock a markdown preview using the `Markdown: Toggle Preview Locking` to keep it locked to its current markdown document. Locked previews are indicated by `[Preview]` in the title:
+You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **[Preview]** in the title:
 
 ![A locked markdown preview](images/Markdown/locked-preview-title.png)
 
 ### Editor and preview synchronization
 
-VS Code automatically synchronizes the markdown editor and the preview views. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the markdown editor and the preview is scrolled to match its viewport:
+VS Code automatically synchronizes the Markdown editor and the preview views. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the Markdown editor and the preview is scrolled to match its viewport:
 
 ![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
 
