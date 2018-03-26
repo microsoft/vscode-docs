@@ -33,13 +33,13 @@ The following table provides a summary of available Python linters and their bas
 
 | Linter | pip install package name | Default state | True/false enable setting<br/>(python.linting.) | Arguments setting<br/>(python.linting.) | Custom path setting<br/>(python.linting.) |
 | --- | --- | --- | --- | --- | --- |
-| [Pylint](#pylint) (default) | pylint | Enabled | pylintEnabled | pylintArgs | pylintPath |
-| [Pep8](#pep8) | pep8 | Disabled | pep8Enabled | pep8Args | pep8Path |
-| [Flake8](#flake8) | flake8 | Disabled | flake8Enabled | flake8Args | flake8Path |
-| [mypy](#mypy) | mypy | Disabled | mypyEnabled | mypyArgs | mypyPath |
-| pydocstyle | pydocstyle | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
-| prospector | prospector | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
-| [pylama] | pylama | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
+| [Pylint](#pylint) (default) | [pylint](https://pypi.org/project/pylint/) | Enabled | pylintEnabled | pylintArgs | pylintPath |
+| [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | Disabled | flake8Enabled | flake8Args | flake8Path |
+| [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | Disabled | mypyEnabled | mypyArgs | mypyPath |
+| pydocstyle | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
+| [Pep8](#pep8) | [pep8](https://pypi.org/project/pep8/) | Disabled | pep8Enabled | pep8Args | pep8Path |
+| prospector | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
+| pylama | [pylama](https://pypi.org/project/pylama/) | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
 
 To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, however, that using the **Select Linter** command overwrites those edits.
 
