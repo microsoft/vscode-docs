@@ -14,7 +14,7 @@ However, if you want to use Angular, Vue, any other framework, or even just a fo
 
 > **Tip:** If you already have your own code ready to deploy, you can skip ahead to [Deploy the Website](/tutorials/static-website/deploy-app.md).
 
-## Install the `create-react-app` npm package
+## Install the create-react-app npm package
 
 [React](https://reactjs.org/) is a popular framework for building web applications, so we will use it as an example.
 You can scaffold (create) a new React application using the [create-react-app](https://github.com/facebook/create-react-app) tool.

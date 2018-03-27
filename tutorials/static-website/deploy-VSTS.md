@@ -1,7 +1,7 @@
 ---
-Order: 5
+Order: 7
 Area: staticsite
-TOCTitle: Deploy using VSTS
+TOCTitle: "> Deploy using VSTS"
 PageTitle: Deploy using VSTS
 MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
 DateApproved:
@@ -86,4 +86,4 @@ As long as you don't have a 404, everything is working as expected.
 All that remains is a simple code fix and a re-deploy!
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/static-website/tailing-logs">My blank page is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'deploy-VSTS')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/static-website/code-change">My blank page is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'deploy-VSTS')" href="javascript:void(0)">I ran into an issue</a>

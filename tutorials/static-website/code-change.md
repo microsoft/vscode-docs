@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 8
 Area: staticsite
 TOCTitle: Make a code change
 PageTitle: Make a code change
@@ -47,4 +47,4 @@ Once your deploy is complete, revisit your storage endpoint (`https://<storage-a
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/static-website/choose-deployment">I created the React application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'code-change')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/docs">I'm done!</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'code-change')" href="javascript:void(0)">I ran into an issue</a>

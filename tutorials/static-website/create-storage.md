@@ -13,8 +13,6 @@ Azure Storage is simple file store/CDN with a built in web server which makes it
 
 In this section, we will setup our Azure Storage account and blob container.
 
-## Create Azure Storage Account
-
 1. Login to [Azure Portal](http://portal.azure.com)
 
 2. Select **Storage accounts** from the left side menu bar.
@@ -38,6 +36,5 @@ Keep this window open, you'll need this information later.
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/static-website/choose-deployment">I created a container</a>
-
+<a class="tutorial-next-btn" href="/tutorials/static-website/choose-deployment">I created a storage container</a>
 <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'create-storage')" href="javascript:void(0)">I ran into an issue</a>
