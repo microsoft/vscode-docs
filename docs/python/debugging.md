@@ -105,7 +105,7 @@ An array of additional options that may contain the following:
 | --- | --- |
 | `"RedirectOutput"` (default) | Causes the debugger to print all output from the program into the VS Code debug output window. If this setting is omitted, all program output is not displayed in the debugger output window. This option is typically omitted when using `"console": "integratedTerminal"` or `"console": "externalTerminal"` because there's no need to duplicate the output in the debug console. |
 | `"DebugStdLib"` | Enabled debugging of standard library functions. |
-| `"DjangoDebugging"` | Activates debugging features specific to Django. |
+| `"Django"` | Activates debugging features specific to Django. |
 | `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
 | `"Pyramid"` | Used when debugging a Pyramid application. |
 
@@ -127,7 +127,7 @@ The configuration drop-down provides a variety of different options for general 
 | Python Module | Adds the setting `"module": "module.name"` to debug a specific module. When using this configuration, replace the value with the desired module name. |
 | Integrated Terminal/Console | Specifies `"console": "integratedTerminal"` and removes the `RedirectOutput` option. |
 | External Terminal/Console | Specifies `"console": "externalTerminal"` and removes the `RedirectOutput` option. |
-| Django | Specifies `"program": "${workspaceFolder}/manage.py"` and `"args": ["runserver", "--noreload"]`, and adds "DjangoDebugging" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, just add breakpoints to `templates`. |
+| Django | Specifies `"program": "${workspaceFolder}/manage.py"` and `"args": ["runserver", "--noreload"]`, and adds "Django" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, just add breakpoints to `templates`. |
 | Flask | See [Flask debugging](#flask-debugging) below. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Attach (Remote Debug) | See [Remote debugging](#remote-debugging) below. |
