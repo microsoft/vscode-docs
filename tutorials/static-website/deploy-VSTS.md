@@ -1,5 +1,5 @@
 ---
-Order: 4
+Order: 5
 Area: staticsite
 TOCTitle: Deploy using VSTS
 PageTitle: Deploy using VSTS

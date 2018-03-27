@@ -67,4 +67,4 @@ You are now ready to deploy your app!
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/static-website/choose-deployment">I created the React application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'create-app')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/static-website/create-storage">I created the React application</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'create-app')" href="javascript:void(0)">I ran into an issue</a>

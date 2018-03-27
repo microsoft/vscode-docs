@@ -1,5 +1,5 @@
 ---
-Order: 5
+Order: 6
 Area: staticsite
 TOCTitle: Make a code change
 PageTitle: Make a code change
