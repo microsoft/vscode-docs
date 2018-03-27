@@ -1,8 +1,8 @@
 ---
-Order: 3
+Order: 4
 Area: staticsite
-TOCTitle: Deploy the website
-PageTitle: Deploy the website
+TOCTitle: Deploy using explorer
+PageTitle: Deploy using explorer
 MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
 DateApproved:
 ---
