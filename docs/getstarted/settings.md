@@ -246,6 +246,9 @@ Below are the default settings and their values. You can also view the default v
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
   "editor.formatOnSave": false,
 
+  // Format on save timeout. Specifies a time limit in milliseconds for formatOnSave-commands. Commands taking longer than the specified timeout will be cancelled.
+  "editor.formatOnSaveTimeout": 750,
+
   // Controls if the editor should automatically format the line after typing
   "editor.formatOnType": false,
 
@@ -512,6 +515,9 @@ Below are the default settings and their values. You can also view the default v
   // When enabled, will show the watermark tips when no editor is open.
   "workbench.tips.enabled": true,
 
+  // Controls whether trees support horizontal scrolling in the workbench.
+  "workbench.tree.horizontalScrolling": false,
+
   // Controls the visibility of view header actions. View header actions may either be always visible, or only visible when that view is focused or hovered over.
   "workbench.view.alwaysShowHeaderActions": false,
 
@@ -536,7 +542,7 @@ Below are the default settings and their values. You can also view the default v
   "window.newWindowDimensions": "default",
 
   // Controls if files should open in a new window.
-  // - default: files will open in the window with the files' folder open or the last active window unless opened via the dock or from finder (macOS only)
+  // - default: files will open in a new window unless picked from within the application (e.g. via the File menu)
   // - on: files will open in a new window
   // - off: files will open in the window with the files' folder open or the last active window
   // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
@@ -549,11 +555,20 @@ Below are the default settings and their values. You can also view the default v
   // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
   "window.openFoldersInNewWindow": "default",
 
+  // Controls if a new empty window should open when starting a second instance without arguments or if the last running instance should get focus.
+  // - on: open a new empty window
+  // - off: the last active running instance will get focus
+  // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
+  "window.openWithoutArgumentsInNewWindow": "on",
+
   // Controls if a window should restore to full screen mode if it was exited in full screen mode.
   "window.restoreFullscreen": false,
 
   // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all windows that had folders opened or 'all' to reopen all windows of your last session.
   "window.restoreWindows": "one",
+
+  // Enable this workaround if scrolling is no longer smooth after restoring a minimized VS Code window. This is a workaround for an issue (https://github.com/Microsoft/vscode/issues/13612) where scrolling starts to lag on devices with precision trackpads like the Surface devices from Microsoft. Enabling this workaround can result in a little bit of layout flickering after restoring the window from minimized state but is otherwise harmless.
+  "window.smoothScrollingWorkaround": false,
 
   // Controls the window title based on the active editor. Variables are substituted based on the context:
   // ${activeEditorShort}: the file name (e.g. myFile.txt)
@@ -565,7 +580,7 @@ Below are the default settings and their values. You can also view the default v
   // ${rootPath}: file path of the workspace (e.g. /Users/Development/myWorkspace)
   // ${appName}: e.g. VS Code
   // ${dirty}: a dirty indicator if the active editor is dirty
-  // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
+  // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values or static text
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
 
   // Adjust the appearance of the window title bar. Changes require a full restart to apply.
@@ -611,6 +626,9 @@ Below are the default settings and their values. You can also view the default v
 
   // When enabled, insert a final new line at the end of the file when saving it.
   "files.insertFinalNewline": false,
+
+  // Controls the memory available to VS Code after restart when trying to open large files. Same affect as specifying --max-memory=NEWSIZE on the command line.
+  "files.maxMemoryForLargeFilesMB": 4096,
 
   // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
   "files.trimFinalNewlines": false,
@@ -685,9 +703,6 @@ Below are the default settings and their values. You can also view the default v
   // Controls if the Search Viewlet should read or modify the shared find clipboard on macOS
   "search.globalFindClipboard": false,
 
-  // Controls if the search will be shown as a viewlet in the sidebar or as a panel in the panel area for more horizontal space
-  "search.location": "sidebar",
-
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
 
@@ -725,7 +740,7 @@ Below are the default settings and their values. You can also view the default v
   "update.channel": "default",
 
   // Enables Windows background updates.
-  "update.enableWindowsBackgroundUpdates": false,
+  "update.enableWindowsBackgroundUpdates": true,
 
 // Debug
 
@@ -751,7 +766,10 @@ Below are the default settings and their values. You can also view the default v
   "debug.showInStatusBar": "onFirstSessionStart",
 
   // Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces
-  "launch": {},
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
 
 // HTML
 
@@ -931,6 +949,9 @@ Below are the default settings and their values. You can also view the default v
   // Enable/disable references CodeLens in JavaScript files.
   "javascript.referencesCodeLens.enabled": false,
 
+  // Enable/disable suggestion diagnostics for JavaScript files in the editor. Requires TypeScript >= 2.8
+  "javascript.suggestionActions.enabled": true,
+
   // Enable/disable JavaScript validation.
   "javascript.validate.enable": true,
 
@@ -1012,6 +1033,9 @@ Below are the default settings and their values. You can also view the default v
   // Report style checks as warnings
   "typescript.reportStyleChecksAsWarnings": true,
 
+  // Enable/disable suggestion diagnostics for TypeScript files in the editor. Requires TypeScript >= 2.8.
+  "typescript.suggestionActions.enabled": true,
+
   // Controls auto detection of tsc tasks. 'off' disables this feature. 'build' only creates single run compile tasks. 'watch' only creates compile and watch tasks. 'on' creates both build and watch tasks. Default is 'on'.
   "typescript.tsc.autoDetect": "on",
 
@@ -1020,6 +1044,9 @@ Below are the default settings and their values. You can also view the default v
 
   // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.log": "off",
+
+  // Additional paths to discover Typescript Language Service plugins. Requires TypeScript >= 2.3.0.
+  "typescript.tsserver.pluginPaths": [],
 
   // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.trace": "off",
@@ -1406,6 +1433,9 @@ Below are the default settings and their values. You can also view the default v
 
   // Controls whether to automatically detect git submodules.
   "git.detectSubmodules": true,
+
+  // Controls the limit of git submodules detected.
+  "git.detectSubmodulesLimit": 10,
 
   // Enables commit signing with GPG.
   "git.enableCommitSigning": false,
