@@ -180,6 +180,7 @@ All other editor colors are listed here:
 - `editor.background`: Editor background color.
 - `editor.foreground`: Editor default foreground color.
 - `editorLineNumber.foreground`: Color of editor line numbers.
+- `editorLineNumber.activeForeground`: Color of the active editor line number.
 - `editorCursor.background`: The background color of the editor cursor. Allows customizing the color of a character overlapped by a block cursor.
 - `editorCursor.foreground`: Color of the editor cursor.
 
