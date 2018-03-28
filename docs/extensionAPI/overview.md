@@ -21,7 +21,7 @@ Topic|Description
 -----|-----------
 **[package.json Extension Manifest](/docs/extensionAPI/extension-manifest.md)**|Every Visual Studio Code extension needs a manifest file `package.json` at the root of the extension folder. This document provides an overview of the structure of that file and the mandatory fields.
 **[Contribution Points](/docs/extensionAPI/extension-points.md)**|Building on the base `package.json`, there are a number of additional extension points you can contribute to e.g. commands, themes, debuggers,...
-**[Activation Events](/docs/extensionAPI/activation-events.md)**|VS Code lazily activates extensions. This document outlines the activation options supported in `package.json` e.g. when a specific file type is loaded, when a command is fired, etc
+**[Activation Events](/docs/extensionAPI/activation-events.md)**|VS Code lazily activates extensions. This document outlines the activation options supported in `package.json` e.g. when a specific file type is loaded, when a command is fired, etc.
 **[API vscode namespace](/docs/extensionAPI/vscode-api.md)**|Review the full vscode namespace API reference.
 **[API complex commands](/docs/extensionAPI/vscode-api-commands.md)**|See the VS Code complex command API reference.
 **[Debugging API](/docs/extensionAPI/api-debugging.md)**|Learn the details about integrating debuggers into VS Code.

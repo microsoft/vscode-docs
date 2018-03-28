@@ -384,10 +384,10 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 // Defines space handling after function keyword for anonymous functions
 "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": boolean,
 
-// Defines space handling after opening and before closing non empty parenthesis
+// Defines space handling after opening and before closing non-empty parenthesis
 "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": boolean,
 
-// Defines space handling after opening and before closing non empty brackets
+// Defines space handling after opening and before closing non-empty brackets
 "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": boolean,
 
 // Defines whether an open brace is put onto a new line for functions or not

@@ -224,7 +224,7 @@ VS Code ships with a recent stable version of the TypeScript language service an
 
 ![TypeScript status bar version](images/typescript/status-bar-version.png)
 
->**Tip:** To get a specific TypeScript version, specify `@version` during npm install. For example for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
+>**Tip:** To get a specific TypeScript version, specify `@version` during npm install. For example, for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
 
 To use a different TypeScript version by default, configure `typescript.tsdk` in your user settings to point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
 

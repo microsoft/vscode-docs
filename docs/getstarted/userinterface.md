@@ -50,7 +50,7 @@ When you have more than one editor open you can switch between them quickly by h
 
 ## Minimap - outline view
 
-A Minimap (outline view) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown in the right side of the editor. You can click or drap the shaded area to quickly jump to different sections of your file.
+A Minimap (outline view) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown in the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
 
 ![minimap](images/userinterface/minimap.png)
 

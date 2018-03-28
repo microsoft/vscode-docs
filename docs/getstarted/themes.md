@@ -112,7 +112,7 @@ There is no need to edit the `settings.json` file directly. It is better to use 
 2. Use the cursor keys to preview the icons of the theme.
 3. Select the theme you want and hit `kbstyle(Enter)`.
 
-By default, no file icon set is configured, therefore the File Explorer shows no icons. Once an icon theme is selected, the selected theme will be remembered and set again when VS Code is started the next time .
+By default, no file icon set is configured, therefore the File Explorer shows no icons. Once an icon theme is selected, the selected theme will be remembered and set again when VS Code is started the next time.
 
 VS code ships with two icon themes; **Minimal** and **Seti**. To install more icon themes, select the **Find more in the Marketplace...** item in the icon theme picker.
 

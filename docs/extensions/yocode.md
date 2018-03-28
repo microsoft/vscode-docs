@@ -74,7 +74,7 @@ Check out `vsc-extension-quickstart.md`. It's a quick guide with the next steps.
 
 Creates an extension that contributes a language with colorizer.
 
-* Prompts for the location (URL or file path) of an existing TextMate language file (.tmLanguage, .plist or .json). This file will be imported to the new extension. To start a new grammar you can skip this by passing an empty name.
+* Prompts for the location (URL or file path) of an existing TextMate language file (.tmLanguage, .plist or .json). This file will be imported to the new extension. To start a new grammar, you can skip this by passing an empty name.
 * Prompts for the extension identifier and will create a folder of that name in the current directory.
 
 Once created, open VS Code on the created folder and run the extension to test the colorization. Check out `vsc-extension-quickstart.md` for the next steps. Have a look at the language configuration file that has been created and defines configuration options such what style of comments and brackets the language uses.

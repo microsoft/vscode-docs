@@ -15,7 +15,7 @@ These debug extensions differ from other extensions in that their implementation
 
 ![VS Code extensibility architecture](images/example-debuggers/extensibility-architecture.png)
 
-The reasons for implementing the debug adapters as standalone excutables are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if this is required by the underlying debugger or runtime.
+The reasons for implementing the debug adapters as standalone executables are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if this is required by the underlying debugger or runtime.
 
 In order to avoid problems with local firewalls, VS Code communicates with the adapter through stdin/stdout instead of using a more sophisticated mechanism (e.g. sockets).
 
@@ -93,7 +93,7 @@ Since we already had an active debug session for the extension the VS Code debug
 
 ![Debugging Extension and Server](images/example-debuggers/debug-extension-server.png)
 
-Now we are able to debug both the extension and the debug adapter simultanously.
+Now we are able to debug both the extension and the debug adapter simultaneously.
 A faster way to arrive here is by using the **Extension + Server** launch configuration which launches both sessions automatically.
 
 An alternative, even simpler approach for debugging the extension and the debug adapter can be found [below](https://code.visualstudio.com/docs/extensions/example-debuggers#_alternative-approach-to-develop-a-debug-extension).

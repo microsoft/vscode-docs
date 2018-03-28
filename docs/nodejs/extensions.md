@@ -12,7 +12,7 @@ MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 
 Visual Studio Code supports many features for JavaScript and Node.js development. The features that ship with the downloaded product are the core features: debugging, IntelliSense, code navigation, etc.
 
-In addition to these core features, you can install a large number of quality extensions to add features to VS Code for JavaScript development.
+In addition, to these core features, you can install a large number of quality extensions to add features to VS Code for JavaScript development.
 
 > **Tip:** To see how to install and manage your extensions, please refer to the [extension documentation](/docs/editor/extension-gallery.md).
 

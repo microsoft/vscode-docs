@@ -385,7 +385,7 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `merge.incomingHeaderBackground`: Incoming header background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
 - `merge.incomingContentBackground`: Incoming content background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
 - `merge.border`: Border color on headers and the splitter in inline merge conflicts.
-- `merge.commonContentBackground`: Common ancester content background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
+- `merge.commonContentBackground`: Common ancestor content background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
 - `merge.commonHeaderBackground`: Common ancestor header background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.

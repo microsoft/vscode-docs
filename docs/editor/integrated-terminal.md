@@ -175,7 +175,7 @@ Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (
 
 ### Forcing key bindings to pass through the terminal
 
-While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default this includes all terminal key bindings in addition to a select few commonly used key bindings.
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default, this includes all terminal key bindings in addition to a select few commonly used key bindings.
 
 ## Next Steps
 

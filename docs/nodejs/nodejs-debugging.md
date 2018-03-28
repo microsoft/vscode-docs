@@ -360,7 +360,7 @@ Two frequently used applications of remote debugging are:
 
 * **debugging Node.js in the Linux subsystem on Windows:**
 
-  If you want to run Node.js in the Linux subsystem on Windows (WSL), you can use the approach from above as well. However to make this even simpler, we've introduced a `useWSL` flag to automatically configure everything so that Node.js runs in the Linux subsystem and source is mapped to files in your workspace.
+  If you want to run Node.js in the Linux subsystem on Windows (WSL), you can use the approach from above as well. However, to make this even simpler, we've introduced a `useWSL` flag to automatically configure everything so that Node.js runs in the Linux subsystem and source is mapped to files in your workspace.
 
   Here is the simplest debug configuration for debugging `hello.js` in WSL:
 
@@ -380,7 +380,7 @@ If you need to set a breakpoint in a script that is not part of your workspace a
 
 ![Loaded Scripts Explorer](images/nodejs-debugging/loaded-scripts-explorer.gif)
 
- Alternatively you can use the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`) which opens a Quick Pick, where you can filter and select the script to open.
+ Alternatively, you can use the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`) which opens a Quick Pick, where you can filter and select the script to open.
 
 ![Opening Loaded Script with Quick Pick](images/nodejs-debugging/loaded-scripts.gif)
 
@@ -466,7 +466,7 @@ Make sure to use a Node.js version >= 5.11 since earlier versions do not work in
 
 ### Function breakpoints
 
-The Node.js debugger only supports function breakpoints when the "legacy" protocol is used (that is when targeting Node.js < 8.0 versions). In addition be aware of the following limitations when using function breakpoints:
+The Node.js debugger only supports function breakpoints when the "legacy" protocol is used (that is when targeting Node.js < 8.0 versions). In addition, be aware of the following limitations when using function breakpoints:
 
 - Function breakpoints only work for global, non-native functions.
 - Function breakpoints can only be created if the function has been defined (and has been seen by the debugger).
@@ -506,7 +506,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 VS Code Node.js debugging has a feature to avoid source code that you don't want to step through (AKA 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
 
-For example using:
+For example, using:
 
 ```typescript
   "skipFiles": [

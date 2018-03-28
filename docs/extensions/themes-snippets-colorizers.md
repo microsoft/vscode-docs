@@ -24,7 +24,7 @@ The easiest way to create a new workbench color theme is to start with an existi
 
 - Switch to the color theme that you want to modify.
 - Open the [settings](/docs/getstarted/settings.md) and make changes to view and editor colors using the `workbench.colorCustomizations`. Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
-- A complete list of all themable colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
+- A complete list of all themeable colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
 
 ### Syntax highlighting colors
 
@@ -255,7 +255,7 @@ It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Gui
 - Set 'woff' as the format.
 - the weight property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values).
 - the style property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values).
-- the size should be relative to the font size where the icon is used. Therefore always use percentage.
+- the size should be relative to the font size where the icon is used. Therefore, always use percentage.
 
 ```json
     "fonts": [

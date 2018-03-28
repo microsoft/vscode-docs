@@ -50,7 +50,7 @@ The top level **Debug** menu has the most common debug commands:
 
 To debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
 
-However for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](https://code.visualstudio.com/docs/editor/debugging#_global-launch-configuration) or [workspace settings](https://code.visualstudio.com/docs/editor/multi-root-workspaces#_workspace-launch-configurations).
+However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](https://code.visualstudio.com/docs/editor/debugging#_global-launch-configuration) or [workspace settings](https://code.visualstudio.com/docs/editor/multi-root-workspaces#_workspace-launch-configurations).
 
 To create a `launch.json` file, open your project folder in VS Code (**File** > **Open Folder**) and then click on the Configure gear icon on the Debug view top bar.
 
@@ -110,7 +110,7 @@ As soon as a debugging session starts, the **DEBUG CONSOLE** panel is displayed 
 
 ![debug session](images/debugging/debug-session.png)
 
-In addition the _debug status_ appears in the Status Bar showing the active debug configuration. By clicking on the debug status, a user can change the active launch configuration and then start debugging without the need to open the Debug view.
+In addition, the _debug status_ appears in the Status Bar showing the active debug configuration. By clicking on the debug status, a user can change the active launch configuration and then start debugging without the need to open the Debug view.
 
 ![Debug status](images/debugging/debug-status.png)
 
@@ -139,7 +139,7 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 * Breakpoints in the editor margin are normally shown as red filled circles.
 * Disabled breakpoints have a filled gray circle.
-* When a debugging sessions starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
+* When a debugging session starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
 
 The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
 

@@ -138,7 +138,7 @@ By default, the Python extension loads a file named `.env` in the current worksp
 
 A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - standard configuration and options](debugging.md#standard-configuration-and-options)). This property allows you to easily set variables for debugging purposes that replace those used in the default `.env` file.
 
-For example, when developing a web application you might want to easily switch between development and production servers. Instead of coding the different URLs and other settings into your application directly, you could use separate definitions files for each. For example:
+For example, when developing a web application, you might want to easily switch between development and production servers. Instead of coding the different URLs and other settings into your application directly, you could use separate definitions files for each. For example:
 
 **dev.env file**
 
