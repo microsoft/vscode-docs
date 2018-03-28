@@ -24,7 +24,7 @@ The easiest way to create a new workbench color theme is to start with an existi
 
 - Switch to the color theme that you want to modify.
 - Open the [settings](/docs/getstarted/settings.md) and make changes to view and editor colors using the `workbench.colorCustomizations`. Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
-- A complete list of all themeable colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
+- A complete list of all themable colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
 
 ### Syntax highlighting colors
 
