@@ -19,20 +19,34 @@ In this section, we will setup our Azure Storage account and blob container.
 
 > Note! If you don't see **Storage accounts**, select **All services** from the top of the menu, find it in the full list, and star it to dock it in your menu bar.
 
-3. Fill in a **Name** for your storage account and the **Resource group**.
+![Sign into Storage Explorer](images/storage/1-portal-select-storage.png)
+
+3. Click either **+ Add** or **Create Storage Accounts** to create a new account.
+
+![Sign into Storage Explorer](images/storage/2-portal-new-storage.png)
+
+4. Fill in a **Name** for your storage account and the **Resource group**.
 Note the storage account name must be globally unique, so just add some random numbers to the end if the name you want is taken.
 Everything else can be left at the default value.
 When you're ready click **Create** and wait for the account to get created.
 
-4. When account creation is complete, you will get a notification (the bell icon in the top menu bar).
+![Sign into Storage Explorer](images/storage/3-portal-config-storage.png)
+
+5. When account creation is complete, you will get a notification (the bell icon in the top menu bar).
 Click **Go to resource**.
 
-5. Click **Blobs** in the Services section
+6. Click **Blobs** in the Services section
 
-6. Click the **"+ Container"**, name your container, and set the access level to **Blob**.
+![Sign into Storage Explorer](images/storage/4-portal-config-storage.png)
+
+7. Click the **"+ Container"**, name your container, and set the access level to **Blob**.
+
+![Sign into Storage Explorer](images/storage/6-portal-create-container.png)
 
 If everything was creating successfully, you should see your container and storage account information in the Blob service blade.
 Keep this window open, you'll need this information later.
+
+![Sign into Storage Explorer](images/storage/7-portal-confirm-container.png)
 
 ----
 
