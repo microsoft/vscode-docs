@@ -25,6 +25,7 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | python.terminal.activateEnvironments | `true` | Indicates whether a selected virtual or conda environments is activated when using the **Python: Create Terminal** command or any other operation involving the terminal, such as the **Send Python File to Terminal** menu command. If `false`, skips activating virtual and conda environments before running the commands. |
 | python.jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
+| python.jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024MB. -1 disables the memory limit check. |
 
 ## Workspace symbol (tags) settings
 
