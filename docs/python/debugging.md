@@ -57,7 +57,7 @@ Specifies the mode in which to start debugging:
 
 - `launch`: start the debugger on the file specified in `program`
 - `attach`: attach the debugger to an already running process. See [Remote debugging](#_remote-debugging) for an example.
-- `shell`: launches a separate program as specifies in `args`. See [Goodle App Engine debugging](#_google-app-engine-debugging) for an example.
+- `shell`: launches a separate program as specifies in `args`. See [Google App Engine debugging](#_google-app-engine-debugging) for an example.
 
 ### `program`
 
@@ -103,7 +103,7 @@ Specifies arguments to pass to the python program, for example:
 
 ### `stopOnEntry`
 
-When omitted or set to true, breaks the debugger at the first line of the program being debugged. Setting to false runs the program to the first breakpoint.
+When set to true, breaks the debugger at the first line of the program being debugged. If omitted or set to false, runs the program to the first breakpoint.
 
 ### `console`
 
