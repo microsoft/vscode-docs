@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 03/14/2018
+DateApproved: 03/27/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -95,7 +95,16 @@ Specifies how program output is displayed.
 
 ### `cwd`
 
-Specifies the current working directory for the program being debugged. The standard configuration uses `${workspaceFolder}` to use the project folder. If not specified, `cwd` defaults to the current folder open in VS Code.
+Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code.
+
+The standard configuration sets `cwd` to `${workspaceFolder}`, which is the folder open in VS Code. If not specified, `cwd` defaults to the folder of the file being debugged.
+
+For example, say that VS Code is opened to a folder that contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
+
+| cwd | Relative path to data file |
+| `${workspaceFolder}` | `data/salaries.csv` |
+| `${workspaceFolder}/data` | `salaries.csv` |
+| not specified (defaults to `py_code`) | `../data/salaries.csv` |
 
 ### `debugOptions`
 
