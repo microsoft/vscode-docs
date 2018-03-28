@@ -200,7 +200,7 @@ ColumnLimit: 0
 
 If you'd like to use a different version of clang-format than the one that ships with the extension, you can use the `C_Cpp.clang_format_path` [setting](/docs/getstarted/settings.md) and set its value to the path where the clang-format binary is installed.
 
-For example on the Windows platform:
+For example, on the Windows platform:
 
 ```json
   "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"

@@ -160,7 +160,7 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
 
 As this is the only command in the file, you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  The sample Sass/Less file should not have any compile problems, so by running the task all that happens is a corresponding `styles.css` file is created.
 
-Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition we allow you to scan the output for compile problems (errors and warnings). Depending on the compiler select an apropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output select **Never scan the build output** from the presented list.
+Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition, we allow you to scan the output for compile problems (errors and warnings). Depending on the compiler select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output select **Never scan the build output** from the presented list.
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
@@ -238,7 +238,7 @@ What is happening here?
 
 ### Step 3: Run the gulp default task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Tasks** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler select an apropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Tasks** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
 If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Tasks** menu and select **gulp: default** from the presented list.
 
@@ -279,7 +279,7 @@ argumentsInColorFunction | Warn when an invalid number of parameters in color fu
 unknownProperties | Warn when using an unknown property | warning
 ieHack | Warn when using an IE hack `*propertyName` or `_propertyName` | ignore
 unknownVendorSpecificProperties | Warn when using an unknown vendor-specific property | ignore
-propertyIgnoredDueToDisplay | Warn when using a property that is ignored due to the display. For example with `display: inline`, the `width`, `height`, `margin-top`, `margin-bottom`, and `float` properties have no effect. | warning
+propertyIgnoredDueToDisplay | Warn when using a property that is ignored due to the display. For example, with `display: inline`, the `width`, `height`, `margin-top`, `margin-bottom`, and `float` properties have no effect. | warning
 important | Warn when using `!important` as it is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored. | ignore
 float | Warn when using `float` as floats lead to fragile CSS that is easy to break if one aspect of the layout changes. | ignore
 idSelector | Warn when using selectors for an id `#id` as selectors should not contain IDs because these rules are too tightly coupled with the HTML. | ignore

@@ -42,7 +42,7 @@ Each framework also has specific configuration settings as described in the foll
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
 | debugPort | `3000` | Port number used for debugging of UnitTest tests. |
 
-The default arguments for UnitTest as as follows:
+The default arguments for UnitTest are as follows:
 
 - `-v` sets default verbosity. Remove this argument for simpler output.
 - `-s .` specifies the starting directory for discovering tests. If you have tests in a "test" folder, you can change this to `-s test` (meaning `"-s", "test"` in the arguments array).
@@ -73,7 +73,7 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 | nosetestPath | `"nosetests"` | Path to Nose. Use a full path if Nose is located outside the current environment. |
 | nosetestArgs | `[]` | Arguments to pass to Nose, with each argument specified as an item in the array. See [Nose usage options](http://nose.readthedocs.io/en/latest/usage.html#options). |
 
-You can also configure nose wuth a `.noserc` or `nose.cfg` file as described on [Nose configuration](http://nose.readthedocs.io/en/latest/usage.html#configuration).
+You can also configure nose with a `.noserc` or `nose.cfg` file as described on [Nose configuration](http://nose.readthedocs.io/en/latest/usage.html#configuration).
 
 ## Test discovery
 
@@ -103,7 +103,7 @@ Tests are run using any of the following actions:
 
 | Command | Description |
 | --- | --- |
-| Run All Unit Tests | Searches for an runs all unit tests in the workspace and its subfolders. |
+| Run All Unit Tests | Searches for and runs all unit tests in the workspace and its subfolders. |
 | Run Current Unit Test File | Runs the test in the file that's currently viewed in the editor. |
 | Run Failed Unit Tests | Re-runs any tests that failed in a previous test run. Runs all test if no tests have been run yet. |
 | Run Unit Test File... | Prompts for a specific test filename, then runs the test in that file. |

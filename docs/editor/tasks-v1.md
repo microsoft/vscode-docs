@@ -79,7 +79,7 @@ To see the exact command VS Code is running, you can enable the `echoCommand` se
 
 ## command and tasks[]
 
-`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default the `command` will show up in the **Tasks: Run Task** dropdown.
+`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default, the `command` will show up in the **Tasks: Run Task** dropdown.
 
 You can also define multiple tasks in a `tasks` array in order to pass different arguments or use different settings when the `command` is run.
 
@@ -144,13 +144,13 @@ If you want to run multiple different commands you can specify different command
 }
 ```
 
-The first task start the TypeScript compiler in watch mode, the second one starts the gulp build. If a tasks specifies a local command to run the task name is not included into the command line (`suppressTaskName` is `true` by default for these tasks). Since a local command can specify local arguments, there is no need for adding it by default. If a `tasks.json` file specifies both global and task local commands, the task local commands win over the global command. There is no merging between a global and a task local command.
+The first task starts the TypeScript compiler in watch mode, the second one starts the gulp build. If a task specifies a local command to run, the task name is not included into the command line (`suppressTaskName` is `true` by default for these tasks). Since a local command can specify local arguments, there is no need for adding it by default. If a `tasks.json` file specifies both global and task local commands, the task local commands win over the global command. There is no merging between a global and a task local command.
 
 ## Binding keyboard shortcuts to tasks
 
 If you need to run a task frequently, you can also define a keyboard shortcut for the task.
 
-For example to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
+For example, to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
 
 ```json
 {

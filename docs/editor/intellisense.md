@@ -109,7 +109,7 @@ By default, VS Code shows snippets and completion proposals in one widget. You c
 
 ### Suggestion selection
 
-By default, VS Code pre-selects the previously used suggestion in the suggestion list. This is very useful as you can quickly insert the same completion multiple times. If you'd like different behavior, for example, alway select the top item in the suggestion list, you can use the `editor.suggestSelection` setting.
+By default, VS Code pre-selects the previously used suggestion in the suggestion list. This is very useful as you can quickly insert the same completion multiple times. If you'd like different behavior, for example, always select the top item in the suggestion list, you can use the `editor.suggestSelection` setting.
 
 The available `editor.suggestSelection` values are:
 

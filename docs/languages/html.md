@@ -13,7 +13,7 @@ Visual Studio Code provides basic support for HTML programming out of the box. T
 
 ## IntelliSense
 
-As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image below you can see a suggested HTML element closure `</div>` as well as a context specific list of suggested elements.
+As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image below, you can see a suggested HTML element closure `</div>` as well as a context specific list of suggested elements.
 
 ![HTML IntelliSense](images/html/htmlintellisense.png)
 

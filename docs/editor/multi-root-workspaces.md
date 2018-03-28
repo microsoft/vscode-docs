@@ -208,7 +208,7 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
-[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (seperated by a colon).
+[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (separated by a colon).
 
 ### Workspace launch configurations
 
@@ -217,7 +217,7 @@ Workspace scoped launch configurations live in the `"launch"` section of the wor
 ![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
 
 
-Alternatively new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
+Alternatively, new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
 
 ![Add Config](images/multi-root-workspaces/add-config.png)
 

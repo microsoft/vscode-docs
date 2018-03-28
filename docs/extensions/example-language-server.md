@@ -10,7 +10,7 @@ MetaDescription: Learn how to create Language Servers for Visual Studio Code.  T
 
 # Example - Language Server
 
-Language servers allow you to add your own validation logic to files open in VS Code. Typically you just validate programming languages. However validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
+Language servers allow you to add your own validation logic to files open in VS Code. Typically, you just validate programming languages. However, validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
 
 In general, validating a programming language can be expensive. Especially when validation requires parsing multiple files and building up abstract syntax trees. To avoid that performance cost, language servers in VS Code are executed in a separate process. This architecture also makes it possible that language servers can be written in other languages besides TypeScript/JavaScript and that they can support expensive additional language features like code completion or `Find All References`.
 
@@ -336,7 +336,7 @@ documents.onDidChangeContent((change) => {
 * If the start and end positions are the same, VS Code will squiggle the word at that position.
 * If you want to squiggle until the end of the line, then set the character of the end position to Number.MAX_VALUE.
 
-To test the language server do the following:
+To test the language server, do the following:
 
 * press `kb(workbench.action.tasks.build)` to start the build task. The task compiles both the client and the server.
 * open the debug viewlet, select the `Launch Client` launch configuration and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.

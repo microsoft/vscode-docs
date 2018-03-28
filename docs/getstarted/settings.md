@@ -902,13 +902,13 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-  // Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.
+  // Defines space handling after opening and before closing non-empty braces. Requires TypeScript >= 2.3.0.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
-  // Defines space handling after opening and before closing non empty brackets.
+  // Defines space handling after opening and before closing non-empty brackets.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
-  // Defines space handling after opening and before closing non empty parenthesis.
+  // Defines space handling after opening and before closing non-empty parenthesis.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
   // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
@@ -974,13 +974,13 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-  // Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.
+  // Defines space handling after opening and before closing non-empty braces. Requires TypeScript >= 2.3.0.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
-  // Defines space handling after opening and before closing non empty brackets.
+  // Defines space handling after opening and before closing non-empty brackets.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
-  // Defines space handling after opening and before closing non empty parenthesis.
+  // Defines space handling after opening and before closing non-empty parenthesis.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
   // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
@@ -1463,7 +1463,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "emmet.extensionsPath": null,
 
   // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
-  //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
+  //  E.g.: {"vue-html": "html", "javascript": "javascriptreact"}
   "emmet.includeLanguages": {},
 
   // Preferences used to modify behavior of some actions and resolvers of Emmet.

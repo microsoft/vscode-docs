@@ -156,8 +156,8 @@ interface TaskDescription {
     args?: string[];
 
     /**
-     * Defines the group to which this tasks belongs. Also supports to mark
-     * a tasks as the default task in a group.
+     * Defines the group to which this task belongs. Also supports to mark
+     * a task as the default task in a group.
      */
     group?: "build" | "test" | { kind: "build" | "test"; isDefault: boolean };
 
@@ -305,7 +305,7 @@ interface ProblemPattern {
     file: number;
 
     /**
-     * The match group index of the problems's location. Valid location
+     * The match group index of the problem's location. Valid location
      * patterns are: (line), (line,column) and (startLine,startColumn,endLine,endColumn).
      * If omitted the line and column properties are used.
      */
