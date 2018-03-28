@@ -37,23 +37,27 @@ Standard configuration for `launch.json`:
     "name": "Python: Current File",
     "type": "python",
     "request": "launch",
-    "stopOnEntry": true,
-    "pythonPath":"${config:python.pythonPath}",
     "program": "${file}",
-    "cwd": "${workspaceFolder}",
-    "env": {},
-    "envFile": "${workspaceFolder}/.env",
-    "debugOptions": [
-        "RedirectOutput"
-    ]
 }
 ```
 
 Custom configurations for various settings are described in the following sections.
 
-### `pythonPath`
+### `name`
 
-Points to the Python interpreter to be used for debugging purposes. The standard configuration uses the interpreter identified in the `python.pythonPath` setting by referring to `${config:python.pythonPath}`. To use a different interpreter, specify its path instead.
+Provides the name for the debug configuration that appears in the VS Code drop-down list.
+
+### `type`
+
+Identifies the type of debugger to use; leave this set to `python` for Python code.
+
+### `request`
+
+Specifies the mode in which to start debugging:
+
+- `launch`: start the debugger on the file specified in `program`
+- `attach`: attach the debugger to an already running process. See [Remote debugging](#_remote-debugging) for an example.
+- `shell`: launches a separate program as specifies in `args`. See [Goodle App Engine debugging](#_google-app-engine-debugging) for an example.
 
 ### `program`
 
@@ -69,6 +73,24 @@ You can also rely on a relative path from the workspace root. For example, if th
 "program": "${workspaceFolder}/pokemongo_bot/event_handlers/__init__.py",
 ```
 
+### `pythonPath`
+
+Points to the Python interpreter to be used for debugging purposes. If not specified, defaults to the interpreter identified in the `python.pythonPath` setting, which is equivalent to using the value `${config:python.pythonPath}`. To use a different interpreter, specify its path instead.
+
+You can specify platform-specific paths by placing `pythonPath` within a parent object named `osx`, `windows`, or `linux`. For example, the configuration for PySpark uses the following values:
+
+```json
+"osx": {
+    "pythonPath": "^\"\\${env:SPARK_HOME}/bin/spark-submit\""
+},
+"windows": {
+    "pythonPath": "^\"\\${env:SPARK_HOME}/bin/spark-submit.cmd\""
+},
+"linux": {
+    "pythonPath": "^\"\\${env:SPARK_HOME}/bin/spark-submit\""
+},
+```
+
 ### `args`
 
 Specifies arguments to pass to the python program, for example:
@@ -81,7 +103,7 @@ Specifies arguments to pass to the python program, for example:
 
 ### `stopOnEntry`
 
-When set to true, breaks the debugger at the first line of the program being debugged. Setting to false runs the program to the first breakpoint.
+When omitted or set to true, breaks the debugger at the first line of the program being debugged. Setting to false runs the program to the first breakpoint.
 
 ### `console`
 
@@ -95,16 +117,15 @@ Specifies how program output is displayed.
 
 ### `cwd`
 
-Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code.
+Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to the folder of the file specified in `program`. A common setting is to use `${workspaceFolder}` (the folder open in VS Code) with or without additional subfolders.
 
-The standard configuration sets `cwd` to `${workspaceFolder}`, which is the folder open in VS Code. If not specified, `cwd` defaults to the folder of the file being debugged.
-
-For example, say that VS Code is opened to a folder that contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
+As an example, say `${workspaceFolder}` contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
 
 | cwd | Relative path to data file |
+| not specified (or `py_code`) | `../data/salaries.csv` |
+| `${workspaceFolder}/py_code`) | `../data/salaries.csv` |
 | `${workspaceFolder}` | `data/salaries.csv` |
 | `${workspaceFolder}/data` | `salaries.csv` |
-| not specified (defaults to `py_code`) | `../data/salaries.csv` |
 
 ### `debugOptions`
 
@@ -132,14 +153,16 @@ The configuration drop-down provides a variety of different options for general 
 
 | Configuration | Description |
 | --- | --- | --- |
-| PySpark | Runs the program using PySpark instead of the standard interpreter. |
-| Python Module | Adds the setting `"module": "module.name"` to debug a specific module. When using this configuration, replace the value with the desired module name. |
-| Integrated Terminal/Console | Specifies `"console": "integratedTerminal"` and removes the `RedirectOutput` option. |
-| External Terminal/Console | Specifies `"console": "externalTerminal"` and removes the `RedirectOutput` option. |
-| Django | Specifies `"program": "${workspaceFolder}/manage.py"` and `"args": ["runserver", "--noreload"]`, and adds "Django" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, just add breakpoints to `templates`. |
-| Flask | See [Flask debugging](#flask-debugging) below. |
+| PySpark | Runs the program using PySpark instead of the default interpreter, using platform-specific values for `pythonPath` as shown earlier under the [pythonPath option](#_pythonpath). |
+| Python Module | Replaces `program` with the setting `"module": "module.name"` to debug a specific module. When using this configuration, replace the value with the desired module name. |
+| Integrated Terminal/Console | Adds the `"console": "integratedTerminal"` option to the standard configuration. |
+| External Terminal/Console | Adds the `"console": "externalTerminal"` option to the standard configuration. |
+| Django | Specifies `"program": "${workspaceFolder}/manage.py"` and `"args": ["runserver", "--noreload", "--nothreading"]`, and adds "Django" and "RedirectOutput" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, add breakpoints to `templates`. |
+| Flask | See [Flask debugging](#_flask-debugging) below. |
+| Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, and adds "Pyramid" and "RedirectOutput" to `debugOptions`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
-| Attach (Remote Debug) | See [Remote debugging](#remote-debugging) below. |
+| Scrapy | Specifies `"program": "~/.virtualenvs/scrapy/bin/scrapy"`, adds the `"console": "integratedTerminal"` option, and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
+| Attach (Remote Debug) | See [Remote debugging](#_remote-debugging) below. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
@@ -149,24 +172,20 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 ```json
 {
-    "name": "Python: Flask (0.11.x or later)",
+    "name": "Flask",
     "type": "python",
     "request": "launch",
     "stopOnEntry": false,
-    "module": "flask",
     "pythonPath": "${config:python.pythonPath}",
+    "module": "flask",
     "cwd": "${workspaceFolder}",
     "env": {
-             "FLASK_APP": "${workspaceFolder}/app.py"
+        "FLASK_APP": "${workspaceFolder}/app.py"
     },
     "args": [
-            "run",
-            "--no-debugger",
-            "--no-reload"
-    ],
-    "envFile": "${workspaceFolder}/.env",
-    "debugOptions": [
-             "RedirectOutput"
+        "run",
+        "--no-debugger",
+        "--no-reload"
     ]
 },
 ```
