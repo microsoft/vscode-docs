@@ -56,7 +56,7 @@ Identifies the type of debugger to use; leave this set to `python` for Python co
 Specifies the mode in which to start debugging:
 
 - `launch`: start the debugger on the file specified in `program`
-- `attach`: attach the debugger to an already running process. See [Remote debugging](#_remote-debugging) for an example.
+- `attach`: attach the debugger to an already running process. See [Remote debugging](#remote-debugging) for an example.
 
 ### `program`
 
@@ -144,7 +144,7 @@ Sets optional environment variables for the debugger process beyond system envir
 
 ### `envFile`
 
-Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](environments.md#environment-variable-definitions-file).
+Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file).
 
 ## Debugging specific app types
 
@@ -152,16 +152,16 @@ The configuration drop-down provides a variety of different options for general 
 
 | Configuration | Description |
 | --- | --- | --- |
-| PySpark | Runs the program using PySpark instead of the default interpreter, using platform-specific values for `pythonPath` as shown earlier under the [pythonPath option](#_pythonpath). |
+| PySpark | Runs the program using PySpark instead of the default interpreter, using platform-specific values for `pythonPath` as shown earlier under the [pythonPath option](#pythonpath). |
 | Python Module | Replaces `program` with the setting `"module": "module.name"` to debug a specific module. When using this configuration, replace the value with the desired module name. |
 | Integrated Terminal/Console | Adds the `"console": "integratedTerminal"` option to the standard configuration. |
 | External Terminal/Console | Adds the `"console": "externalTerminal"` option to the standard configuration. |
 | Django | Specifies `"program": "${workspaceFolder}/manage.py"` and `"args": ["runserver", "--noreload", "--nothreading"]`, and adds "Django" and "RedirectOutput" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, add breakpoints to `templates`. |
-| Flask | See [Flask debugging](#_flask-debugging) below. |
+| Flask | See [Flask debugging](#flask-debugging) below. |
 | Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, and adds "Pyramid" and "RedirectOutput" to `debugOptions`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Scrapy | Specifies `"program": "~/.virtualenvs/scrapy/bin/scrapy"`, adds the `"console": "integratedTerminal"` option, and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
-| Attach (Remote Debug) | See [Remote debugging](#_remote-debugging) below. |
+| Attach (Remote Debug) | See [Remote debugging](#remote-debugging) below. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
