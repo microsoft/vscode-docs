@@ -116,14 +116,14 @@ Specifies how program output is displayed.
 
 ### `cwd`
 
-Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to the folder of the file specified in `program`. A common setting is to use `${workspaceFolder}` (the folder open in VS Code) with or without additional subfolders.
+Specifies the current working directory for the debugger, which is the base folder for any relative paths used in code. If omitted, defaults to the `${workspaceFolder}` (the folder open in VS Code).
 
 As an example, say `${workspaceFolder}` contains a `py_code` folder containing `app.py`, and a `data` folder containing `salaries.csv`. If you start the debugger on `py_code/app.py`, then the relative paths to the data file vary depending on the value of `cwd`:
 
 | cwd | Relative path to data file |
-| not specified (or `py_code`) | `../data/salaries.csv` |
+| --- | --- |
+| Omitted or `${workspaceFolder}` | `data/salaries.csv` |
 | `${workspaceFolder}/py_code`) | `../data/salaries.csv` |
-| `${workspaceFolder}` | `data/salaries.csv` |
 | `${workspaceFolder}/data` | `salaries.csv` |
 
 ### `debugOptions`
