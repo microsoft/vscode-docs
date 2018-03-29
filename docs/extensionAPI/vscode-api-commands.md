@@ -20,55 +20,55 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 ## Commands
 
-### `vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol provider.
+`vscode.executeWorkspaceSymbolProvider` - Execute all workspace symbol provider.
 
 * _query_ Search string
 * _(returns)_ A promise that resolves to an array of SymbolInformation-instances.
 
 
-### `vscode.executeDefinitionProvider` - Execute all definition provider.
+`vscode.executeDefinitionProvider` - Execute all definition provider.
 
 * _uri_ Uri of a text document
 * _position_ Position of a symbol
 * _(returns)_ A promise that resolves to an array of Location-instances.
 
 
-### `vscode.executeTypeDefinitionProvider` - Execute all type definition providers.
+`vscode.executeTypeDefinitionProvider` - Execute all type definition providers.
 
 * _uri_ Uri of a text document
 * _position_ Position of a symbol
 * _(returns)_ A promise that resolves to an array of Location-instances.
 
 
-### `vscode.executeImplementationProvider` - Execute all implementation providers.
+`vscode.executeImplementationProvider` - Execute all implementation providers.
 
 * _uri_ Uri of a text document
 * _position_ Position of a symbol
 * _(returns)_ A promise that resolves to an array of Location-instance.
 
 
-### `vscode.executeHoverProvider` - Execute all hover provider.
+`vscode.executeHoverProvider` - Execute all hover provider.
 
 * _uri_ Uri of a text document
 * _position_ Position of a symbol
 * _(returns)_ A promise that resolves to an array of Hover-instances.
 
 
-### `vscode.executeDocumentHighlights` - Execute document highlight provider.
+`vscode.executeDocumentHighlights` - Execute document highlight provider.
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
 * _(returns)_ A promise that resolves to an array of DocumentHighlight-instances.
 
 
-### `vscode.executeReferenceProvider` - Execute reference provider.
+`vscode.executeReferenceProvider` - Execute reference provider.
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
 * _(returns)_ A promise that resolves to an array of Location-instances.
 
 
-### `vscode.executeDocumentRenameProvider` - Execute rename provider.
+`vscode.executeDocumentRenameProvider` - Execute rename provider.
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
@@ -76,7 +76,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to a WorkspaceEdit.
 
 
-### `vscode.executeSignatureHelpProvider` - Execute signature help provider.
+`vscode.executeSignatureHelpProvider` - Execute signature help provider.
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
@@ -84,13 +84,13 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to SignatureHelp.
 
 
-### `vscode.executeDocumentSymbolProvider` - Execute document symbol provider.
+`vscode.executeDocumentSymbolProvider` - Execute document symbol provider.
 
 * _uri_ Uri of a text document
 * _(returns)_ A promise that resolves to an array of SymbolInformation-instances.
 
 
-### `vscode.executeCompletionItemProvider` - Execute completion item provider.
+`vscode.executeCompletionItemProvider` - Execute completion item provider.
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
@@ -98,27 +98,27 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to a CompletionList-instance.
 
 
-### `vscode.executeCodeActionProvider` - Execute code action provider.
+`vscode.executeCodeActionProvider` - Execute code action provider.
 
 * _uri_ Uri of a text document
 * _range_ Range in a text document
 * _(returns)_ A promise that resolves to an array of Command-instances.
 
 
-### `vscode.executeCodeLensProvider` - Execute CodeLens provider.
+`vscode.executeCodeLensProvider` - Execute CodeLens provider.
 
 * _uri_ Uri of a text document
 * _(returns)_ A promise that resolves to an array of CodeLens-instances.
 
 
-### `vscode.executeFormatDocumentProvider` - Execute document format provider.
+`vscode.executeFormatDocumentProvider` - Execute document format provider.
 
 * _uri_ Uri of a text document
 * _options_ Formatting options
 * _(returns)_ A promise that resolves to an array of TextEdits.
 
 
-### `vscode.executeFormatRangeProvider` - Execute range format provider.
+`vscode.executeFormatRangeProvider` - Execute range format provider.
 
 * _uri_ Uri of a text document
 * _range_ Range in a text document
@@ -126,7 +126,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of TextEdits.
 
 
-### `vscode.executeFormatOnTypeProvider` - Execute document format provider.
+`vscode.executeFormatOnTypeProvider` - Execute document format provider.
 
 * _uri_ Uri of a text document
 * _position_ Position in a text document
@@ -135,31 +135,31 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of TextEdits.
 
 
-### `vscode.executeLinkProvider` - Execute document link provider.
+`vscode.executeLinkProvider` - Execute document link provider.
 
 * _uri_ Uri of a text document
 * _(returns)_ A promise that resolves to an array of DocumentLink-instances.
 
 
-### `vscode.executeTaskProvider` - Execute task provider
+`vscode.executeTaskProvider` - Execute task provider
 
 * _(returns)_ An array of task handles
 
 
-### `vscode.executeDocumentColorProvider` - Execute document color provider.
+`vscode.executeDocumentColorProvider` - Execute document color provider.
 
 * _uri_ Uri of a text document
 * _(returns)_ A promise that resolves to an array of ColorInformation objects.
 
 
-### `vscode.executeColorPresentationProvider` - Execute color presentation provider.
+`vscode.executeColorPresentationProvider` - Execute color presentation provider.
 
 * _color_ The color to show and insert
 * _context_ Context object with uri and range
 * _(returns)_ A promise that resolves to an array of ColorPresentation objects.
 
 
-### `vscode.previewHtml` - Render the HTML of the resource in an editor view.
+`vscode.previewHtml` - Render the HTML of the resource in an editor view.
 
 * _uri_ Uri of the resource to preview.
 * _column_ (optional) Column in which to preview.
@@ -169,13 +169,15 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#working-with-the-html-preview) for more information about the HTML preview's integration with the editor and for best practices for extension authors.
 
 
-### `vscode.openFolder` - Open a folder or workspace in the current window or new window depending on the newWindow argument. Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder/workspace unless the newWindow parameter is set to true.
+`vscode.openFolder` - Open a folder or workspace in the current window or new window depending on the newWindow argument.
 
 * _uri_ (optional) Uri of the folder or workspace file to open. If not provided, a native dialog will ask the user for the folder
 * _newWindow_ (optional) Whether to open the folder/workspace in a new window or the same. Defaults to opening in the same window.
 
+Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder/workspace unless the newWindow parameter is set to true.
 
-### `vscode.diff` - Opens the provided resources in the diff editor to compare their contents.
+
+`vscode.diff` - Opens the provided resources in the diff editor to compare their contents.
 
 * _left_ Left-hand side resource of the diff editor
 * _right_ Right-hand side resource of the diff editor
@@ -183,18 +185,20 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 * _options_ (optional) Editor options, see vscode.TextDocumentShowOptions
 
 
-### `vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or a http(s) url. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
+`vscode.open` - Opens the provided resource in the editor.
 
 * _resource_ Resource to open
 * _columnOrOptions_ (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
 
+Can be a text or binary file, or a http(s) url. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
 
-### `vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list.
+
+`vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list.
 
 * _path_ Path to remove from recently opened.
 
 
-### `cursorMove` - Move cursor to a logical position in the view
+`cursorMove` - Move cursor to a logical position in the view
 
 * _Cursor move argument object_
 
@@ -215,7 +219,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   * 'select': If 'true' makes the selection. Default is 'false'.
 
 
-### `editorScroll` - Scroll editor in the given direction
+`editorScroll` - Scroll editor in the given direction
 
 * _Editor scroll argument object_
 
@@ -233,7 +237,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   * 'revealCursor': If 'true' reveals the cursor if it is outside view port.
 
 
-### `revealLine` - Reveal the given line at the given logical position
+`revealLine` - Reveal the given line at the given logical position
 
 * _Reveal line argument object_
 
@@ -246,7 +250,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
     ```
 
 
-### `editor.unfold` - Unfold the content in the editor
+`editor.unfold` - Unfold the content in the editor
 
 * _Unfold editor argument_
 
@@ -257,7 +261,7 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   * 'selectionLines': The start lines (0-based) of the editor selections to apply the unfold action to. If not set, the active selection(s) will be used.
 
 
-### `editor.fold` - Fold the content in the editor
+`editor.fold` - Fold the content in the editor
 
 * _Fold editor argument_
 
@@ -268,14 +272,14 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
   * 'selectionLines': The start lines (0-based) of the editor selections to apply the fold action to. If not set, the active selection(s) will be used.
 
 
-### `editor.action.showReferences` - Show references at a position in a file
+`editor.action.showReferences` - Show references at a position in a file
 
 * _uri_ The text document in which to show references
 * _position_ The position at which to show
 * _locations_ An array of locations.
 
 
-### `moveActiveEditor` - Move the active editor by tabs or groups
+`moveActiveEditor` - Move the active editor by tabs or groups
 
 * _Active editor move argument_
 
