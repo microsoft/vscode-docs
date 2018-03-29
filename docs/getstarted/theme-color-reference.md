@@ -290,6 +290,8 @@ Errors and warnings:
 - `editorWarning.border`: Border color of warning squigglies in the editor.
 - `editorInfo.foreground`: Foreground color of info squigglies in the editor.
 - `editorInfo.border`: Border color of info squigglies in the editor.
+- `editorHint.foreground`: Foreground color of hints in the editor.
+- `editorHint.border`: Border color of info squigglies in the editor.
 
 The gutter contains the glyph margins and the line numbers:
 
