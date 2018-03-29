@@ -48,6 +48,22 @@ Keep this window open, you'll need this information later.
 
 ![Sign into Storage Explorer](images/storage/7-portal-confirm-container.png)
 
+## Setting relative paths
+
+By default `create-react-app` assumes that your app will live in the server's root directory, however our app will be in a container which adds an extra folder level to every path.
+
+`https://mystorageaccount12312.blob.core.windows.net/**my-container**`
+
+Luckily there is an easy fix for this.
+We simply add the following to our `package.json` with your own values in place of `storage-account-name` and `container-name`:
+
+```json
+"homepage": "https://<storage-account-name>.blob.core.windows.net/<container-name>/"
+```
+
+This setting will make sure that all urls generated during `npm build` contain the correct relative path that we need to serve the app.
+You can read more about relative paths in `create-react-app` on their [GitHub README](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#building-for-relative-paths).
+
 ----
 
 <a class="tutorial-next-btn" href="/tutorials/static-website/choose-deployment">I created a storage container</a>

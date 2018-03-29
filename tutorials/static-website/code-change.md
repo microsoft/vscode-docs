@@ -10,40 +10,29 @@ DateApproved:
 
 In this section, you will make a code change and re-deploy the site so you can see what your end-to-end deployment workflow will look like.
 
-If you have been following this guide using `create-react-app`, this section will show you how to the routing issue that makes the app not render correctly.
+## Change some code
 
-## Setting relative paths
+Open `App.js` and change **line 11** to the following:
 
-By default `create-react-app` assumes that your app will live in the server's root directory, however if you look at our URL, you'll notice that we have our container name prepended to every route.
-
-Luckily there is an easy fix for this.
-We simply add the following to our `package.json` with your own values in place of `storage-account-name` and `container-name`:
-
-```json
-"homepage": "https://<storage-account-name>.blob.core.windows.net/<container-name>/"
+```js
+<h1 className="App-title">Welcome to Azure!!!</h1>
 ```
-
-This setting will make sure that all urls generated during `npm build` contain the correct relative path that we need to serve the app.
-You can read more about relative paths in `create-react-app` on their [GitHub README](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#building-for-relative-paths).
 
 ## Redeploy your app
 
 Depending on which method you chose previously, redeploy your app to Azure Storage.
 
-Manually with Storage Explorer - Run `npm run build` locally
+**Manually with Storage Explorer** - Run `npm run build` locally and then drag and drop the `dist` folder into the blob container in  Azure Storage Explorer.
 
-Azure CLI - //TODO - something using [this](https://docs.microsoft.com/en-us/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch)
-```bash
-az storage blob upload-batch
-```
+**Azure CLI** - Run `npm run deploy` to kick off your Azure CLI script (that [we previously defined](deploy-cli#_make-a-reusable-deploy-script)).
 
-VSTS build/deploy pipeline - Simply commit your code and push to your VSTS repository.
+**VSTS build/deploy pipeline** - Simply commit your code and push to your VSTS repository.
 
 ## Test your app
 
 Once your deploy is complete, revisit your storage endpoint (`https://<storage-account-name>.blob.core.windows.net/<container-name>/`) and you should see the following!
 
-
+![Import build](images/static-website/updated-azure-app.png)
 
 ----
 

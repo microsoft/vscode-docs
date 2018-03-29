@@ -16,22 +16,22 @@ DateApproved:
 
 1. Launch storage explorer and click **Sign In** in the Connect to Azure Storage dialog.
 
-![Sign into Storage Explorer](images/static-website/explorer/1-add-account.png)
+![Add account to explorer](images/static-website/explorer/1-add-account.png)
 
 2. In the left menu bar, select your subscription, storage account, and blob container. 
 Then select all the files inside the `build` folder (using shift + click to multi-select) and drag and drop them into Storage Explorer.
 This will upload all files selected to your blob container.
 
-![Sign into Storage Explorer](images/static-website/explorer/2-select-container.png)
+![Select container](images/static-website/explorer/2-select-container.png)
 
 3. Select `index.html` inside Storage Explorer and click **Copy URL** in the top menu bar.
 Now paste that url into a browser to see your deployed site!
 
-![Sign into Storage Explorer](images/static-website/explorer/3-copy-url.png)
+![Copy url](images/static-website/explorer/3-copy-url.png)
 
 If everything worked properly you should see the following: 
 
-![Sign into Storage Explorer](images/static-website/azure-app.png)
+![App running in Azure](images/static-website/azure-app.png)
 
 ----
 

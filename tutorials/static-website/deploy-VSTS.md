@@ -27,11 +27,21 @@ Get it from [git-scm.com](https://git-scm.com/downloads)
 
 2. Select an account
 
-3. Create a new project
+![Select account](images/static-website/vsts/1-select-account.png)
+
+3. Click **New Project** under the **Projects** tab
+
+![New project](images/static-website/vsts/2-new-project.png)
+
+4. Fill in your project details and click **Create**
+
+![New project details](images/static-website/vsts/3-new-project-details.png)
 
 ## Push app to VSTS project repository
 
 1. Expand the **push an existing repository from command line** section and copy the push commands
+
+![Copy push commands](images/static-website/vsts/4-copy-push-commands.png)
 
 2. Open a terminal at the root of the project we generated (or your own project), initialize a git repository, and make an initial commit.
 
@@ -50,11 +60,17 @@ $ git push -u origin --all
 
 After running `git push` you should be able to refresh your VSTS project page and see your code!
 
+![Project imported](images/static-website/vsts/5-project-with-code.png)
+
 ## Create a build/deploy pipeline
 
-1. Click **Build and Release > Builds** from the top menu bar on the project home page
+1. Click **Build and Release > Builds** from the top menu bar on the project home page.
+
+![Select build definitions](images/static-website/vsts/6.1-select-builds.png)
 
 2. Click the **Import** button in the top right and upload [this build definition template](https://raw.githubusercontent.com/bowdenk7/React-VSTS-build-definition/master/storage-deploy.json).
+
+![Import build](images/static-website/vsts/7-import-build.png)
 
 3. A few settings will be missing that you must fill in on your own:
 - In the **Process** section, select **Hosted** from the **Agent queue** drop down
@@ -63,6 +79,8 @@ After running `git push` you should be able to refresh your VSTS project page an
 
 When done, your AzureBlob File Copy settings should look like this:
 
+![Build definition](images/static-website/vsts/8-build-definition.png)
+
 ## Use CI to build and publish
 
 1. Click **Save & queue** in the top right, then click **Save & queue** again with the default options in the following popup.
@@ -70,6 +88,8 @@ This will save this build definition and run it immediately with whatever is cur
 
 2. A green success banner will popup at the top of your screen.
 Clicking the hyperlinked number will take you to the current build.
+
+![Build queued](images/static-website/vsts/9-build-queued.png)
 
 3. Your build will wait in a queue and then a build agent will execute the steps we just configured.
 This will take a few minutes.
@@ -81,9 +101,10 @@ At this point your app should be deployed and publicly available in your blob st
 5. Navigate to your app entry point in a browser.
 It should look something like this `https://<storage-account-name>.blob.core.windows.net/<container-name>/index.html`
 
-6. If you are following along with the create-react-app code, nothing will render yet, but that's ok!
-As long as you don't have a 404, everything is working as expected.
-All that remains is a simple code fix and a re-deploy!
+6. If everything is working you should see the following!
+
+![Sign into Storage Explorer](images/static-website/azure-app.png)
+
 ----
 
 <a class="tutorial-next-btn" href="/tutorials/static-website/code-change">My blank page is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'deploy-VSTS')" href="javascript:void(0)">I ran into an issue</a>

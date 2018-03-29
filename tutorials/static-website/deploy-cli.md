@@ -108,6 +108,8 @@ $ npm run deploy
 
 4. If everything is working properly, you should see the same output from step 7 above!
 
+![App running in Azure](images/static-website/azure-app.png)
+
 ----
 
 <a class="tutorial-next-btn" href="/tutorials/static-website/code-change">My site is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'deploy-cli')" href="javascript:void(0)">I ran into an issue</a>
