@@ -247,7 +247,7 @@ If you try to use `// @ts-check` with the above code, you'll see a number of err
 
 If you want to continue using `// @ts-check` but are confident that these are not actual issues with your application, you have to let TypeScript know about these global variables.
 
-To start, [create a `jsconfig.json`](#_javascript-project-jsconfigjson) at the root of your project:
+To start, [create a `jsconfig.json`](#javascript-project-jsconfigjson) at the root of your project:
 
 ```json
 {

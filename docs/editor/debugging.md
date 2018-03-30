@@ -50,7 +50,7 @@ The top level **Debug** menu has the most common debug commands:
 
 To debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
 
-However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](https://code.visualstudio.com/docs/editor/debugging#_global-launch-configuration) or [workspace settings](https://code.visualstudio.com/docs/editor/multi-root-workspaces#_workspace-launch-configurations).
+However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations).
 
 To create a `launch.json` file, open your project folder in VS Code (**File** > **Open Folder**) and then click on the Configure gear icon on the Debug view top bar.
 
@@ -347,7 +347,7 @@ An alternative way to start multiple debug session is by using a so-called _comp
 
 VS Code does not support 'remote debugging' by itself. Remote debugging is a feature of the debug extension you are using and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Downloads) for support and details.
 
-There is however one exception, VS Code ships with a Node.js debugger which supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging#_remote-debugging) topic to learn how to configure remote debugging.
+There is however one exception, VS Code ships with a Node.js debugger which supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) topic to learn how to configure remote debugging.
 
 ## Next Steps
 

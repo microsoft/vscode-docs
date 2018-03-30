@@ -112,7 +112,7 @@ There are even VS Code specific Node.js modules which are [useful in extension d
 
 Visual Studio Code **will not** install your extension's dependencies when a user installs it, so you must `npm install` before publishing. The extension's publishing package will contain all of its dependencies within. You can run `vsce ls` to list all the files that `vsce` will include in the package.
 
-You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. See the `vsce` publishing tool topic for [details](https://code.visualstudio.com/docs/extensions/publish-extension.md#vscodeignore) about using a `.vscodeignore` file.
+You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. See the `vsce` publishing tool topic for [details](/docs/extensions/publish-extension.md#vscodeignore) about using a `.vscodeignore` file.
 
 ## Next Steps
 

@@ -96,7 +96,7 @@ Since we already had an active debug session for the extension the VS Code debug
 Now we are able to debug both the extension and the debug adapter simultaneously.
 A faster way to arrive here is by using the **Extension + Server** launch configuration which launches both sessions automatically.
 
-An alternative, even simpler approach for debugging the extension and the debug adapter can be found [below](https://code.visualstudio.com/docs/extensions/example-debuggers#_alternative-approach-to-develop-a-debug-extension).
+An alternative, even simpler approach for debugging the extension and the debug adapter can be found [below](#alternative-approach-to-develop-a-debug-extension).
 
 Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mockDebug.ts` and as a last step configure the mock debugger to connect to the debug adapter server by adding a `debugServer` attribute for port `4711` to your mock test launch config:
 
@@ -121,7 +121,7 @@ If you now launch this debug configuration, VS Code does not start the mock debu
 With this setup you can now easily edit, transpile, and debug Mock Debug.
 
 But now the real work begins: you will have to replace the "mock" implementation of the debug adapter in `src/mockDebug.ts` and `src/mockRuntime.ts` by some code that talks to a "real" debugger or runtime. This involves understanding and implementing the Debug Adapter Protocol. More details
-about this can be found [here](https://code.visualstudio.com/docs/extensionAPI/api-debugging).
+about this can be found [here](/docs/extensionAPI/api-debugging.md).
 
 ## Anatomy of the package.json of a Debug Extension
 

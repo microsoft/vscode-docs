@@ -83,7 +83,7 @@ Another advanced feature the debugger supports is hot code replacement. Hot code
 
 ![Hot Code Replacement](images/java-debugging/hcr.gif)
 
-There're a lot of different [options and settings](#_options) available with this Debugger. For example, configuring the current working directory (cwd) and environment variables could be easily done with launch options.
+There're a lot of different [options and settings](#options) available with this Debugger. For example, configuring the current working directory (cwd) and environment variables could be easily done with launch options.
 
 ![Configure Variables](images/java-debugging/cwd-env.gif)
 

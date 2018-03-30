@@ -37,7 +37,7 @@ All extension API for debug is located under the `vscode.debug` namespace which 
 
 All configuration related "hooks" for a specific debug type are available through a `DebugConfigurationProvider`.
 
-A `DebugConfigurationProvider` is registered for a specific debug type through the `registerDebugConfigurationProvider` function. The debug type itself is contributed via the [`debuggers` contribution](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesdebuggers).
+A `DebugConfigurationProvider` is registered for a specific debug type through the `registerDebugConfigurationProvider` function. The debug type itself is contributed via the [`debuggers` contribution](/docs/extensionAPI/extension-points.md#contributesdebuggers).
 
 Currently the following "hooks" are available:
 
