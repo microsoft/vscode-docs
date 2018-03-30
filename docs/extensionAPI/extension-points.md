@@ -505,7 +505,7 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 
 ![views extension point example](images/extension-points/views.png)
 
-Extension writers should register a [provider](/docs/extensionAPI/vscode-api.md#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+Extension writers should register a [provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
 ## contributes.problemMatchers
 

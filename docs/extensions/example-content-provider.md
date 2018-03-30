@@ -9,7 +9,7 @@ MetaDescription: Content Provider example shows how to display HTML document wit
 ---
 # Example - Content Provider
 
-This tutorial teaches you how to display an HTML document in Visual Studio Code. We'll create a Content Provider ([TextDocumentContentProvider](/docs/extensionAPI/vscode-api.md#TextDocumentContentProvider)) which is used to displays an HTML document.
+This tutorial teaches you how to display an HTML document in Visual Studio Code. We'll create a Content Provider ([TextDocumentContentProvider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TextDocumentContentProvider)) which is used to displays an HTML document.
 
 ![Displaying HTML](images/example-content-provider/quickpeek.gif)
 

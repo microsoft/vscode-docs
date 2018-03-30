@@ -28,7 +28,7 @@ Sample|Description|Type|In Marketplace
 **[TSLint](https://github.com/Microsoft/vscode-tslint)**|Lint your TypeScript files based on TSLint|[Language Server](/docs/extensions/example-language-server.md)|Y
 **[Mock Debugger](https://github.com/Microsoft/vscode-mock-debug)**|Helps you build and test a debugger.|[Debuggers](/docs/extensions/example-debuggers.md)|Y
 **[Go Language Support](https://github.com/microsoft/vscode-go)**|Rich language support for [Go Lang](https://golang.org/) - IntelliSense, Debug, Peek, Rename, Syntax, ...|[Extension](/docs/extensionAPI/vscode-api.md#languages)|Y
-**[Tree Data Provider](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample)**|Shows how to use `TreeDataProvider` API and contribute a custom view to VS Code|[Extension](/docs/extensionAPI/vscode-api.md#TreeDataProvider)|N
+**[Tree Data Provider](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample)**|Shows how to use `TreeDataProvider` API and contribute a custom view to VS Code|[Extension](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider)|N
 
 ## Tools to Help you build an Extension
 
