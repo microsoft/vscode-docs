@@ -41,7 +41,7 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ### Scrolling is laggy and not smooth
 
-On certain devices scrolling in the editor is not smooth but laggy, making for a very unpleasant experience. If you are seeing this issue, just configure `window.smoothScrollingWorkaround: true` as a workaround. The visual impact should be minimal but the issue is fixed with this.
+On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, you can configure the setting `window.smoothScrollingWorkaround: true` as a workaround.
 
 ### Trouble with the installer
 
