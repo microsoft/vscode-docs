@@ -4,16 +4,16 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
-# HTML Programming in VS Code
+# HTML programming in VS Code
 
 Visual Studio Code provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions with IntelliSense, and customizable formatting. VS Code also includes great Emmet support.
 
 ## IntelliSense
 
-As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image below you can see a suggested HTML element closure `</div>` as well as a context specific list of suggested elements.
+As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image below, you can see a suggested HTML element closure `</div>` as well as a context specific list of suggested elements.
 
 ![HTML IntelliSense](images/html/htmlintellisense.png)
 

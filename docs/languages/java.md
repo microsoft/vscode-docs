@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in VS Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in VS Code

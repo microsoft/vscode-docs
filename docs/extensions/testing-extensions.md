@@ -4,14 +4,14 @@ Area: extensions
 TOCTitle: Testing Extensions
 ContentId: 2447F8EB-15F1-4279-B621-126C7B8EBF4B
 PageTitle: Testing Visual Studio Code Extensions
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
 # Testing Your Extension
 
 VS Code supports running and debugging tests for your extension that require the VS Code API. These tests will run inside a special instance of VS Code, the `Extension Development Host`, and have access to the full APIs. We refer to these tests as integration tests, because they go beyond unit tests that can run in isolation from a VS Code window. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](https://mochajs.org/) or [Jasmine](https://jasmine.github.io/).
 
-## Yo Code Test Scaffolding
+## Yo Code test scaffolding
 
 The basic [yo code generator](/docs/extensions/yocode.md) extension project includes a sample test as well as the necessary infrastructure to run it.
 
@@ -38,7 +38,7 @@ The extension project comes with a `src/test` folder that includes an `index.ts`
 
 You can create more `test.ts` files under the `test` folder and they will automatically be built (to `out/test`) and run. The test runner will only consider files matching the name pattern `*.test.ts`.
 
-## Launch Tests configuration
+## Launch tests configuration
 
 The `Extension Tests` configuration is defined in the project's `.vscode\launch.json` file.  It is similar the `Extension` configuration with the addition of the `--extensionTestsPath` argument which points to the compiled test files (assuming this is a TypeScript project).
 
@@ -129,8 +129,8 @@ There are some optional environment variables to configure the test runner:
 | ------------|-------------------|
 | `CODE_VERSION` | Version of VS Code to run the tests against (e.g. `0.10.10`) |
 | `CODE_DOWNLOAD_URL` | Full URL of a VS Code drop to use for running tests against |
-| `CODE_TESTS_PATH` | Location of the tests to execute (default is `proces.cwd()/out/test` or `process.cwd()/test`) |
-| `CODE_EXTENSIONS_PATH` | Location of the extensions to load (default is `proces.cwd()`) |
+| `CODE_TESTS_PATH` | Location of the tests to execute (default is `process.cwd()/out/test` or `process.cwd()/test`) |
+| `CODE_EXTENSIONS_PATH` | Location of the extensions to load (default is `process.cwd()`) |
 | `CODE_TESTS_WORKSPACE` | Location of a workspace to open for the test instance (default is CODE_TESTS_PATH) |
 
 ## Running tests on Windows with AppVeyor
@@ -139,7 +139,7 @@ You can also run extension tests on Windows with [AppVeyor](https://www.appveyor
 
 ## Next Steps
 
-* [Debugging your Extension](/docs/extensions/debugging-extensions.md) - Learn more about how to run and debug your extension
+* [Developing Extensions](/docs/extensions/developing-extensions.md) - Learn more about how to run and debug your extension.
 * [vsce](/docs/extensions/publish-extension.md) - Publish your extension with the VSCE command line tool.
 * [Extension Manifest file](/docs/extensionAPI/extension-manifest.md) - VS Code extension manifest file reference
 * [Extension API](/docs/extensionAPI/overview.md) - Learn about the VS Code extensibility APIs

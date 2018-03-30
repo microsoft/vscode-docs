@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Language Extension Guidelines
 ContentId: A9D40038-7837-4320-8C2D-E0CA5769AA69
 PageTitle: Visual Studio Code Language Extension Guidelines
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Visual Studio Code language extensions contribute new programming language features to VS Code. These guidelines present the language extensibility points and how to implement them.
 ---
 # Language Extension Guidelines
@@ -291,7 +291,7 @@ Diagnostics are a way to indicate issues with the code.
 
 #### Language Server Protocol
 
-Your language server send the `textDocument/publishDiagnostics` message to the language client. The message carries an array of diagnostic items for a resource URI.
+Your language server sends the `textDocument/publishDiagnostics` message to the language client. The message carries an array of diagnostic items for a resource URI.
 
 **Note**: The client does not ask the server for diagnostics. The server pushes the diagnostic information to the client.
 
@@ -589,7 +589,7 @@ export function activate(ctx: vscode.ExtensionContext): void {
 >
 >Nothing additional.
 
-## Show all All Symbol Definitions in Folder
+## Show all Symbol Definitions in Folder
 
 Allow the user to quickly navigate to symbol definitions anywhere in the folder (workspace) opened in VS Code.
 

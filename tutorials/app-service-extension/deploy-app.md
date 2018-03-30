@@ -32,6 +32,8 @@ A **Resource Group** is essentially a named collection of all our application's 
 
 An **App Service Plan** defines the physical resources that will be used to host our website. In this walkthrough, we will use a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. You can scale up and be the only site running on a machine later in the Azure Portal.
 
+> **Tip:** The extension uses Linux plans to deploy. If you want to deploy to an existing App Service plan make sure it's on Linux.
+
 Once created, you're prompted to deploy the app, choose yes.
 
 ![Deploy the App](images/app-service-extension/deploy-prompt.png)
@@ -44,7 +46,7 @@ The output window will open during deployment to indicate the status of the oper
 
 ## Troubleshooting
 
-Are you seeing the error **"You do not have permission to view this directory or page."**? If so, the application probably failed to start correctly. Head to the next step and view the log output to find and fix the error. If you aren't able to fix it, you can contact us by clicking the **I ran into an issue** button below. We're happy to help!
+Are you seeing the error **"You do not have permission to view this directory or page."**? If so, the application probably failed to start correctly. Head to the next step and view the log output to find and fix the error. If you aren't able to fix it, contact us by clicking the **I ran into an issue** button below. We're happy to help!
 
 ## Updating the website
 

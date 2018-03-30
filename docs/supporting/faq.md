@@ -2,10 +2,9 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
-
 # Visual Studio Code FAQ
 
 Our docs contain a **Common Questions** section as needed for specific topics. We've captured items here that don't fit in the other topics.
@@ -98,19 +97,9 @@ code --disable-gpu
 
 VS Code does a background check to detect if the installation has been changed on disk. This is done since some extensions directly modify (patch) the VS Code product in such a way that is semi-permanent (until the next update) and this can cause hard to reproduce issues. We are not trying to block VS Code patching, but we want to raise awareness that patching VS Code means you are running an unsupported version. Reinstalling VS Code will replace the modified files and silence the warning.
 
-## How to disable crash reporting
-
-From **File** > **Preferences** > **Settings**, add the following option to disable crash reporting:
-
-```json
-    "telemetry.enableCrashReporter": false
-```
-
-**Important Notice**: This option requires a restart of VS Code to take effect.
-
 ## How to disable telemetry reporting
 
-VS Code collects usage data and sends it to Microsoft to help improve our products and services.  Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
+VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
 
 If you don’t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
@@ -120,9 +109,19 @@ From **File** > **Preferences** > **Settings**, add the following option to disa
     "telemetry.enableTelemetry": false
 ```
 
-**Important Notice**: This option requires a restart of VS Code to take effect.  Individual extensions and packages may send additional telemetry and not respect this setting.
+> **Important Notice**: This option requires a restart of VS Code to take effect. VS Code gives you the option to install Microsoft and third party extensions. These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting. Consult the specific extension’s documentation to learn about its telemetry reporting.
 
->**Note:** VS Code gives you the option to install Microsoft and third party extensions.  These extensions may be collecting their own usage data and are not controlled by the `telemetry.enableTelemetry` setting.  Consult the specific extension’s documentation to learn about its telemetry reporting.
+## How to disable crash reporting
+
+VS Code collects data about any crashes that occur and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
+
+If you don’t wish to send crash data to Microsoft, you can set the `telemetry.enableCrashReporter` setting to `false`.
+
+```json
+    "telemetry.enableCrashReporter": false
+```
+
+> **Important Notice**: This option requires a restart of VS Code to take effect.
 
 ## Technical Support
 

@@ -1,13 +1,13 @@
 ---
 Order: 6
 Area: extensions
-TOCTitle: Example-Debuggers
+TOCTitle: Example-Debug Adapter
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 2/7/2018
-MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
+DateApproved: 3/7/2018
+MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code through a Debug Adapter
 ---
-# Example - Debuggers
+# Example - Debug Adapter
 
 Since Visual Studio Code implements a generic (language agnostic) debug UI, it cannot talk to real debuggers directly but instead relies on debug extensions for implementing the debugger or runtime specific functionality.
 
@@ -15,7 +15,7 @@ These debug extensions differ from other extensions in that their implementation
 
 ![VS Code extensibility architecture](images/example-debuggers/extensibility-architecture.png)
 
-The reasons for implementing the debug adapters as standalone excutables are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if this is required by the underlying debugger or runtime.
+The reasons for implementing the debug adapters as standalone executables are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if this is required by the underlying debugger or runtime.
 
 In order to avoid problems with local firewalls, VS Code communicates with the adapter through stdin/stdout instead of using a more sophisticated mechanism (e.g. sockets).
 
@@ -93,10 +93,10 @@ Since we already had an active debug session for the extension the VS Code debug
 
 ![Debugging Extension and Server](images/example-debuggers/debug-extension-server.png)
 
-Now we are able to debug both the extension and the debug adapter simultanously.
+Now we are able to debug both the extension and the debug adapter simultaneously.
 A faster way to arrive here is by using the **Extension + Server** launch configuration which launches both sessions automatically.
 
-An alternative, even simpler approach for debugging the extension and the debug adapter can be found [below](https://code.visualstudio.com/docs/extensions/example-debuggers#_alternative-approach-to-develop-a-debug-extension).
+An alternative, even simpler approach for debugging the extension and the debug adapter can be found [below](#alternative-approach-to-develop-a-debug-extension).
 
 Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mockDebug.ts` and as a last step configure the mock debugger to connect to the debug adapter server by adding a `debugServer` attribute for port `4711` to your mock test launch config:
 
@@ -121,7 +121,7 @@ If you now launch this debug configuration, VS Code does not start the mock debu
 With this setup you can now easily edit, transpile, and debug Mock Debug.
 
 But now the real work begins: you will have to replace the "mock" implementation of the debug adapter in `src/mockDebug.ts` and `src/mockRuntime.ts` by some code that talks to a "real" debugger or runtime. This involves understanding and implementing the Debug Adapter Protocol. More details
-about this can be found [here](https://code.visualstudio.com/docs/extensionAPI/api-debugging).
+about this can be found [here](/docs/extensionAPI/api-debugging.md).
 
 ## Anatomy of the package.json of a Debug Extension
 

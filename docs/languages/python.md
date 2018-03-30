@@ -84,7 +84,7 @@ The Python extension provides a wide variety of settings for its various feature
 
 ## Other popular Python extensions
 
-Additional Python language support can be added to to VS Code by installing other popular Python extensions. For Jupyter support, we recommend the "Jupyter" extension from Don Jayamanne.
+Additional Python language support can be added to VS Code by installing other popular Python extensions. For Jupyter support, we recommend the "Jupyter" extension from Don Jayamanne.
 
 1. Open the **Extensions** view (`kb(workbench.view.extensions)`).
 1. Filter the extension list by typing 'python'.

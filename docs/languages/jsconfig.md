@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
@@ -48,7 +48,7 @@ The `exclude` attribute tells the language service what files are and are not pa
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "target": "es6"
     },
     "exclude": [
         "node_modules"
@@ -65,7 +65,7 @@ Alternatively, you can explicitly set the files in your project using the `inclu
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "target": "es6"
     },
     "include": [
         "src/**/*"
@@ -84,7 +84,7 @@ Below are `jsconfig` `"compilerOptions"` to configure the JavaScript language su
 Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
-`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es2015", "es2016", "es2017".
+`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "esnext".
 `checkJs` | Enable type checking on JavaScript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.

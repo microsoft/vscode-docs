@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Extension Manifest
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
 # Extension Manifest File - package.json
@@ -198,7 +198,7 @@ If you have other badges you would like to use, please open a Github [issue](htt
 
 ## Combining Extension Contributions
 
-The `yo code` generator lets you easily package TextMate themes, colorizers and snippets and create new extensions.  When the generator is run, it creates a complete standalone extension package for each option.  However it is often more convenient to have a single extension which combines multiple contributions.  For example, if you are adding support for a new language, you'd like to provide users with both the language definition with colorization and also snippets and perhaps even debugging support.
+The `yo code` generator lets you easily package TextMate themes, colorizers and snippets and create new extensions.  When the generator is run, it creates a complete standalone extension package for each option.  However, it is often more convenient to have a single extension which combines multiple contributions.  For example, if you are adding support for a new language, you'd like to provide users with both the language definition with colorization and also snippets and perhaps even debugging support.
 
 To combine extension contributions, edit an existing extension manifest `package.json` and add the new contributions and associated files.
 

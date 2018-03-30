@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -31,15 +31,15 @@ Runtime   | 'Legacy' Protocol | 'Inspector' Protocol
 ----------|-------------------|----------
 io.js     | all               | no
 node.js   | < 8.x             | >= 6.3 (Windows: >= 6.9)
-Electron  | < 7.4             | >= 7.4
+Electron  | < 1.7.4           | >= 1.7.4
 Chakra    | all               | not yet
 
 Although it appears to be possible that the VS Code Node.js debugger picks the best protocol always automatically,
 we've decided for a 'pessimistic approach' with an explicit launch configuration attribute `protocol` and the following values:
 
-- **`auto`**: tries to automatically detect the protocol used by the targeted runtime. For configurations of request type `launch` and if no `runtimeExecutable` is specified, we try to determine the version by running node from the PATH with an `--version` argument. If the version is >= 8.0 the new 'inspector' protocol is used. For configurations of request type 'attach' we try to connect with the new protocol and if this works, we use the 'inspector' protocol. We only switch to the new 'inspector' protocol for versions >= 6.9 because of severe problems in earlier versions.
-- **`inspector`**: forces the node debugger to use the 'inspector' protocol based implementation. This is supported by node versions >= 6.3, but not (yet) by Electron.
-- **`legacy`**: forces the node debugger to use the 'legacy' protocol based implementation. This is supported by node versions < v8.0 and Electron versions < 7.4.
+- **`auto`**: tries to automatically detect the protocol used by the targeted runtime. For configurations of request type `launch` and if no `runtimeExecutable` is specified, we try to determine the version by running node from the PATH with an `--version` argument. If the node version is >= 8.0, the new 'inspector' protocol is used. For configurations of request type 'attach', we try to connect with the new protocol and if this works, we use the 'inspector' protocol. We only switch to the new 'inspector' protocol for versions >= 6.9 because of severe problems in earlier versions.
+- **`inspector`**: forces the node debugger to use the 'inspector' protocol based implementation. This is supported by node versions >= 6.3 and Electron versions >= 1.7.4.
+- **`legacy`**: forces the node debugger to use the 'legacy' protocol based implementation. This is supported by node versions < v8.0 and Electron versions < 1.7.4.
 
 Starting with VS Code 1.11, the default value for the `protocol` attribute is `auto`.
 
@@ -360,7 +360,7 @@ Two frequently used applications of remote debugging are:
 
 * **debugging Node.js in the Linux subsystem on Windows:**
 
-  If you want to run Node.js in the Linux subsystem on Windows (WSL), you can use the approach from above as well. However to make this even simpler, we've introduced a `useWSL` flag to automatically configure everything so that Node.js runs in the Linux subsystem and source is mapped to files in your workspace.
+  If you want to run Node.js in the Linux subsystem on Windows (WSL), you can use the approach from above as well. However, to make this even simpler, we've introduced a `useWSL` flag to automatically configure everything so that Node.js runs in the Linux subsystem and source is mapped to files in your workspace.
 
   Here is the simplest debug configuration for debugging `hello.js` in WSL:
 
@@ -380,7 +380,7 @@ If you need to set a breakpoint in a script that is not part of your workspace a
 
 ![Loaded Scripts Explorer](images/nodejs-debugging/loaded-scripts-explorer.gif)
 
- Alternatively you can use the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`) which opens a Quick Pick, where you can filter and select the script to open.
+ Alternatively, you can use the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`) which opens a Quick Pick, where you can filter and select the script to open.
 
 ![Opening Loaded Script with Quick Pick](images/nodejs-debugging/loaded-scripts.gif)
 
@@ -466,7 +466,7 @@ Make sure to use a Node.js version >= 5.11 since earlier versions do not work in
 
 ### Function breakpoints
 
-The Node.js debugger only supports function breakpoints when the "legacy" protocol is used (that is when targeting Node.js < 8.0 versions). In addition be aware of the following limitations when using function breakpoints:
+The Node.js debugger only supports function breakpoints when the "legacy" protocol is used (that is when targeting Node.js < 8.0 versions). In addition, be aware of the following limitations when using function breakpoints:
 
 - Function breakpoints only work for global, non-native functions.
 - Function breakpoints can only be created if the function has been defined (and has been seen by the debugger).
@@ -506,7 +506,7 @@ This breakpoint validation occurs when a session starts and the breakpoints are 
 
 VS Code Node.js debugging has a feature to avoid source code that you don't want to step through (AKA 'Just My Code'). This feature can be enabled with the `skipFiles` attribute in your launch configuration. `skipFiles` is an array of glob patterns for script paths to skip.
 
-For example using:
+For example, using:
 
 ```typescript
   "skipFiles": [

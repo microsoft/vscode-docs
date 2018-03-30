@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -100,7 +100,11 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 
 ## contributes.menus
 
-Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts). In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
+Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts).
+
+In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu.
+
+Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
 Currently extension writers can contribute to:
 
@@ -501,7 +505,7 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 
 ![views extension point example](images/extension-points/views.png)
 
-Extension writers should register a [provider](/docs/extensionAPI/vscode-api.md#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+Extension writers should register a [provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
 
 ## contributes.problemMatchers
 

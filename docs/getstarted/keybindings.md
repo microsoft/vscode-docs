@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -228,11 +228,17 @@ editorHasSelection | Text is selected in the editor.
 editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
 editorReadOnly | The editor is read only.
 editorLangId | True when the editor's associated [language Id](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
-textCompareEditorVisible | Diff (compare) view is visible.
+isInDiffEditor | The active editor is a difference editor.
 **Mode contexts** |
 inDebugMode | A debug session is running.
 inSnippetMode | The editor is in snippet mode.
 inQuickOpen | The Quick Open drop-down has focus.
+**Resource contexts** |
+resourceScheme | True when the resource Uri scheme matches. Example: `"resourceScheme == file"`
+resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
+resourceExtname | True when the Explorer or editor filename extension matches. Example: `"resourceExtname == .js"`
+resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
+resourceIsFile | True if resource is a file.
 **Explorer contexts** |
 explorerViewletVisible | True if Explorer view is visible.
 explorerViewletFocus | True if Explorer view has keyboard focus.
@@ -253,14 +259,18 @@ parameterHintsMultipleSignatures | Multiple parameter hints are displayed.
 **Integrated terminal contexts** |
 terminalFocus | An integrated terminal has focus.
 **Global UI contexts** |
-resourceLangId | True when the Explorer or editor title [language Id](/docs/languages/identifiers.md) matches. Example: `"resourceLangId == markdown"`
-resourceFilename | True when the Explorer or editor filename matches. Example: `"resourceFilename == gulpfile.js"`
 notificationFocus | Notification has keyboard focus.
 notificationCenterVisible | Notification Center is visible at the bottom right of VS Code.
 notificationToastsVisible | Notification toast is visible at the bottom right of VS Code.
 searchViewletVisible | Search view is open.
 sidebarVisible | Side Bar is displayed.
+editorIsOpen | True if one editor is open.
+inZenMode | Window is in Zen Mode.
+textCompareEditorVisible | At least one diff (compare) view is visible.
+workspaceFolderCount | Count of workspace folders.
 replaceActive | Search view Replace text box is open.
+view | True when view identifier matches. Example: `"view == myViewsExplorerID"`.
+viewItem | True when viewItem context matches. Example:  `"viewItem == someContextValue"`.
 **Configuration settings contexts** |
 config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` is `true`.
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -208,7 +208,7 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ![debugging template dropdown](images/multi-root-workspaces/add-launch-config.png)
 
-[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (seperated by a colon).
+[Variables](/docs/editor/variables-reference.md) used in a configuration (for example `${workspaceFolder}` or the now deprecated `${workspaceRoot}`) are resolved relative to the folder they belong to. It is possible to scope a variable per workspace folder by appending the root folder's name to a variable (separated by a colon).
 
 ### Workspace launch configurations
 
@@ -217,7 +217,7 @@ Workspace scoped launch configurations live in the `"launch"` section of the wor
 ![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
 
 
-Alternatively new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
+Alternatively, new launch configurations can be added via the "Add Config (workspace)" entry of the Launch Configuration drop-down menu:
 
 ![Add Config](images/multi-root-workspaces/add-config.png)
 
@@ -252,7 +252,7 @@ If the individual launch configuration names are not unique, the qualifying fold
   }]
 ```
 
-In addition to `compounds` the `launch` section of the workspace configuration file can contain regular launch configurations too. Just make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the section [below](#scoped-configuration-variables-for-launchjson-and-taskjson).
+In addition to `compounds` the `launch` section of the workspace configuration file can contain regular launch configurations too. Just make sure that all used variables are explicitly scoped to a specific folder because otherwise they are not valid for the workspace. You can find more details about explicitly scoped variables in the [Variables Reference](/docs/editor/variables-reference.md#variables-scoped-per-workspace-folder).
 
 Here is an example for a launch configuration where the program lives in a folder "Program" and where all files from a folder "Library" should be skipped when stepping:
 

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -153,11 +153,29 @@ The Side Bar contains views like the Explorer and Search.
 Editor Groups are the containers of editors. There can be up to three editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
 
 - `editorGroup.background`: Background color of an editor group. The background color shows up when dragging editor groups around.
+
+    ![editorGroup.background](images/theme-color-reference/editorGroup-background.gif)
+
 - `editorGroup.border`: Color to separate multiple editor groups from each other.
+
+    ![editorGroup.border](images/theme-color-reference/editorGroup-border.gif)
+
 - `editorGroup.dropBackground`: Background color when dragging editors around.
+
+    ![editorGroup.dropBackground](images/theme-color-reference/editorGroup-dropbackground.gif)
+
 - `editorGroupHeader.noTabsBackground`: Background color of the editor group title header when Tabs are disabled (set `"workbench.editor.showTabs": false`).
+
+    ![editorGroupHeader.noTabsBackground](images/theme-color-reference/editorgroupheader-notabsbackground.gif)
+
 - `editorGroupHeader.tabsBackground`: Background color of the Tabs container.
-- `editorGroupHeader.tabsBorder`: Border color of the editor group title header when tabs are enabled. Editor groups are the containers of editors.
+
+    ![editorGroupHeader.tabsBackground](images/theme-color-reference/editorgroupheader-tabsbackground.gif)
+
+- `editorGroupHeader.tabsBorder`: Border color of the editor group title header when tabs are enabled.
+
+    ![editorGroupHeader.tabsBorder](images/theme-color-reference/editorgroupheader-tabsborder.gif)
+
 - `tab.activeBackground`: Active Tab background color.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.
@@ -174,7 +192,7 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 
 ## Editor Colors
 
-The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](https://code.visualstudio.com/docs/getstarted/themes#_customizing-a-color-theme) for  details on updating a Color Theme and the available token types.
+The most prominent editor colors are the token colors used for syntax highlighting and are based on the language grammar installed. These colors are defined by the Color Theme but can also be customized with the `editor.tokenColorCustomizations` setting. See [Customizing a Color Theme](/docs/getstarted/themes.md#customizing-a-color-theme) for  details on updating a Color Theme and the available token types.
 
 All other editor colors are listed here:
 
@@ -369,7 +387,7 @@ Merge conflict decorations are shown when the editor contains special diff range
 - `merge.incomingHeaderBackground`: Incoming header background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
 - `merge.incomingContentBackground`: Incoming content background in inline merge conflicts. The color must not be opaque to not hide underlying decorations.
 - `merge.border`: Border color on headers and the splitter in inline merge conflicts.
-- `merge.commonContentBackground`: Common ancester content background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
+- `merge.commonContentBackground`: Common ancestor content background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
 - `merge.commonHeaderBackground`: Common ancestor header background in inline merge-conflicts. The color must not be opaque to not hide underlying decorations.
 - `editorOverviewRuler.currentContentForeground`: Current overview ruler foreground for inline merge conflicts.
 - `editorOverviewRuler.incomingContentForeground`: Incoming overview ruler foreground for inline merge conflicts.

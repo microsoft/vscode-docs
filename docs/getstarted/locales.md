@@ -4,17 +4,16 @@ Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
-
 # Display Language
 
 Visual Studio Code ships with 10 available display languages (locales): English (US), Simplified Chinese, Traditional Chinese, French, German, Italian, Japanese, Korean, Russian and Spanish.  Localized display text for all 10 languages is included in the main VS Code download and as such, doesn't require a secondary install.
 
 By default, VS Code picks up the operating system's display language, falling back to English (US) if the locale is not supported.
 
-## Available Locales
+## Available locales
 
 Display Language | Locale
 -----------------|-------
@@ -24,10 +23,21 @@ Traditional Chinese | `zh-TW`
 French | `fr`
 German | `de`
 Italian | `it`
+Spanish | `es`
 Japanese | `ja`
 Korean | `ko`
 Russian | `ru`
-Spanish | `es`
+
+### Language Pack extension locales
+
+Additional display languages are available as Language Pack extensions on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
+
+Display Language | Locale
+-----------------|-------
+Bulgarian | `bg`
+Hungarian | `hu`
+Portuguese (Brazil) | `pt-br`
+Turkish | `tr`
 
 ## Setting the Language
 

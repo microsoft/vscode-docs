@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Creating snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own snippets in Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own snippets
@@ -187,7 +187,7 @@ You can also use existing TextMate snippets (.tmSnippets) with VS Code. See the 
 
 ## Assign keybindings to snippets
 
-We already know that snippets can be inserted via IntelliSense, the 'Insert Snippet'-action, or via tab-completion. That's not all. You can create custom keybindings to insert specific snippets. Open `keybindings.json`, which defines all your keybindings, and something add this:
+You can create custom [keybindings](/docs/getstarted/keybindings.md) to insert specific snippets. Open `keybindings.json` (**Preferences: Open Keyboard Shortcuts File**), which defines all your keybindings, and add a keybinding passing `"snippet"` as an extra argument:
 
 ```json
 {
@@ -200,7 +200,21 @@ We already know that snippets can be inserted via IntelliSense, the 'Insert Snip
 }
 ```
 
-It will invoke the 'Insert Snippet'-action but instead of letting you select a snippet it will run on the provided snippet. Also, instead of `snippet` you can have `langId` and `name` arguments to reference an existing snippet: `{ "langId": "csharp", "name": "myFavSnippet" }`
+The keybinding will invoke the **Insert Snippet** command but instead of prompting you to select a snippet, it will insert the provided snippet. You define the custom [keybinding](/docs/getstarted/keybindings.md) as usual with a keyboard shortcut, command id, and optional [when clause context](/docs/getstarted/keybindings.md#when-clause-contexts) for when the keyboard shortcut is enabled.
+
+Also, instead of using the `snippet` argument value to define your snippet inline, you can reference an existing snippet by using the `langId` and `name` arguments :
+
+```json
+{
+  "key": "cmd+k 1",
+  "command": "editor.action.insertSnippet",
+  "when": "editorTextFocus",
+  "args": {
+    "langId": "csharp",
+    "name": "myFavSnippet"
+  }
+}
+```
 
 ## Next Steps
 

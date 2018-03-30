@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Build Java Web Apps with VS Code
-DateApproved: 11/14/2017
+DateApproved: 3/7/2017
 MetaDescription: Java tutorial showing Java language support in the Visual Studio Code editor.
 ---
 # Build Java Web Apps with VS Code
@@ -37,7 +37,7 @@ Install Apache Maven for your local development environment:
 
 ## Download and test the Spring Boot app
 
-Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/microsoft/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, you can open the cloned repository in VS Code.
+Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/spring-guides/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, you can open the cloned repository in VS Code.
 
 >**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/) and Git from [https://git-scm.com](https://git-scm.com/).
 

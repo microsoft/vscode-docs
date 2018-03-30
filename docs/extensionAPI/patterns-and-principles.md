@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Principles and Patterns
 ContentId: 36C1E34B-2F41-4AA0-9443-015D92EF85FB
 PageTitle: Visual Studio Code Extensibility Patterns and Principles
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: The Visual Studio Code extensibility (plug-in) API is designed around a set of guiding patterns and principles to promote extension consistency, correctness and ease of development.
 ---
 # Extensibility Principles and Patterns
@@ -47,7 +47,7 @@ VS Code is implemented using web technologies (HTML, CSS) and web technologies a
 
 ### Protocol based extensions
 
-A common extension pattern in VS Code is to execute extension code in a separate process that communicates with VS Code through a protocol. Examples of this in VS Code are the language servers and debug adapters.  Typically this protocol uses stdin/stdout to communicate between the processes using a JSON payload. Using separate processes provides good isolation boundaries which helps VS Code preserve the stability of the core editor. In addition, this allows extenders to pick the programming language that is most appropriate for the particular extension implementation.
+A common extension pattern in VS Code is to execute extension code in a separate process that communicates with VS Code through a protocol. Examples of this in VS Code are the language servers and debug adapters.  Typically, this protocol uses stdin/stdout to communicate between the processes using a JSON payload. Using separate processes provides good isolation boundaries which helps VS Code preserve the stability of the core editor. In addition, this allows extenders to pick the programming language that is most appropriate for the particular extension implementation.
 
 ## Extensibility Patterns
 
@@ -112,7 +112,7 @@ There are even VS Code specific Node.js modules which are [useful in extension d
 
 Visual Studio Code **will not** install your extension's dependencies when a user installs it, so you must `npm install` before publishing. The extension's publishing package will contain all of its dependencies within. You can run `vsce ls` to list all the files that `vsce` will include in the package.
 
-You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. See the `vsce` publishing tool topic for [details](https://code.visualstudio.com/docs/extensions/publish-extension.md#vscodeignore) about using a `.vscodeignore` file.
+You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. See the `vsce` publishing tool topic for [details](/docs/extensions/publish-extension.md#vscodeignore) about using a `.vscodeignore` file.
 
 ## Next Steps
 

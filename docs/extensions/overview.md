@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Overview
 ContentId: AD26EFB1-FFC6-4284-BAB8-F3BCB8294728
 PageTitle: Building extensions for VS Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Visual Studio Code has a rich extensibility model for interacting with and adding to the tool.  Learn how to create your own extensions (plug-ins) for Visual Studio Code.
 ---
 # Extending Visual Studio Code
@@ -68,7 +68,7 @@ You can have a great editing experience for your programming language with simpl
 
 There is a Yeoman [extension generator](/docs/extensions/yocode.md) which makes it very easy to create simple extension projects. These are great for starting out  and you can also find existing extension [examples](/docs/extensions/samples.md).
 
-Extensions can be written in either TypeScript or JavaScript.  VS Code offers a first class extension development experience where you can [develop, build, run, test and debug](/docs/extensions/debugging-extensions.md) all from within VS Code itself.
+Extensions can be written in either TypeScript or JavaScript.  VS Code offers a first class extension development experience where you can [develop, build, run, test and debug](/docs/extensions/developing-extensions.md) all from within VS Code itself.
 
 ## Testing Extensions
 

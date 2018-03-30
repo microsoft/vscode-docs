@@ -4,21 +4,25 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
 
 It is easy to configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
 
+![VS Code settings](images/settings/hero.png)
+
 VS Code provides two different scopes for settings:
 
-* **User** - These settings apply globally to any instance of VS Code you open.
-* **Workspace** These settings are stored inside your workspace and only apply when the workspace is opened. Settings defined on this scope override the user scope.
+* **User Settings** - Settings that apply globally to any instance of VS Code you open.
+* **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
 
-## Creating user and workspace settings
+Workspace settings override user settings.
 
-To open your user and workspace settings, use the following menu command:
+## Creating User and Workspace Settings
+
+To open your user and workspace settings, use the following VS Code menu command:
 
 * On Windows/Linux - **File** > **Preferences** > **Settings**
 * On macOS - **Code** > **Preferences** > **Settings**
@@ -27,13 +31,35 @@ You are provided with a list of **Default Settings**. Copy any setting that you 
 
 You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openGlobalSettings)`).
 
-In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
+In the example below, the workspace contains settings to disable line numbers in the editor and configure line wrapping to wrap automatically based on the size of the editor.
 
 ![Example Settings](images/settings/settings.png)
 
 Changes to settings are reloaded by VS Code after the modified `settings.json` file is saved.
 
 >**Note:** Workspace settings are useful for sharing project specific settings across a team.
+
+## Settings editor
+
+When you open the settings editor, you will see **Default Settings** where you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
+
+![Settings Search](images/settings/settings-search.png)
+
+**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
+
+### Edit settings
+
+If you hover over a setting, you will see an **Edit** action with a small pencil icon. Clicking on the pencil will display a dropdown with the available setting values. Select a value and the setting will be added to the currently open settings file.
+
+![edit a setting](images/settings/settings-edit.png)
+
+### Settings groups
+
+Default settings are represented in groups so that you can navigate them easily. It has a **Commonly Used** group at the top which shows popular customizations.
+
+![Settings Groups](images/settings/settings-groups.png)
+
+Below is a [copy of the default settings](/docs/getstarted/settings.md#default-settings) that come with VS Code.
 
 ## Settings file locations
 
@@ -46,22 +72,6 @@ Depending on your platform, the user settings file is located here:
 The workspace setting file is located under the `.vscode` folder in your root folder.
 
 >**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
-
-## Settings editor
-
-When you open the settings editor, you will see **Default Settings** where you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
-
-![Settings Search](images/settings/settings-search.png)
-
-**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
-
-### Settings groups
-
-Default settings are represented in groups so that you can navigate them easily. It has a **Most Commonly Used** group at the top which shows popular customizations.
-
-![Settings Groups](images/settings/settings-groups.png)
-
-Below is a [copy of the default settings](/docs/getstarted/settings.md#copy-of-default-settings) that come with VS Code.
 
 ## Language specific editor settings
 
@@ -98,30 +108,30 @@ You can use IntelliSense in Settings editor to help you find allowed language ba
 
 ## Settings and security
 
-In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
+Some settings allow you to specify an executable that VS Code will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
 
-Here is the list of settings we don't support at the workspace scope:
+Here is the list of settings not supported in workspace settings:
 
-- `git.path`
-- `terminal.integrated.shell.linux`
-- `terminal.integrated.shellArgs.linux`
-- `terminal.integrated.shell.osx`
-- `terminal.integrated.shellArgs.osx`
-- `terminal.integrated.shell.windows`
-- `terminal.integrated.shellArgs.windows`
-- `terminal.external.windowsExec`
-- `terminal.external.osxExec`
-- `terminal.external.linuxExec`
+* `git.path`
+* `terminal.integrated.shell.linux`
+* `terminal.integrated.shellArgs.linux`
+* `terminal.integrated.shell.osx`
+* `terminal.integrated.shellArgs.osx`
+* `terminal.integrated.shell.windows`
+* `terminal.integrated.shellArgs.windows`
+* `terminal.external.windowsExec`
+* `terminal.external.osxExec`
+* `terminal.external.linuxExec`
 
 The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
 ## Default settings
 
-Below are the default settings and their values. You can also view the default values in the Settings editor.
+Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor.
 
 ```json
 {
-// Most Commonly Used
+// Commonly Used
 
   // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
   "files.autoSave": "off",
@@ -910,13 +920,13 @@ Below are the default settings and their values. You can also view the default v
   // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-  // Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.
+  // Defines space handling after opening and before closing non-empty braces. Requires TypeScript >= 2.3.0.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
-  // Defines space handling after opening and before closing non empty brackets.
+  // Defines space handling after opening and before closing non-empty brackets.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
-  // Defines space handling after opening and before closing non empty parenthesis.
+  // Defines space handling after opening and before closing non-empty parenthesis.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
   // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
@@ -985,13 +995,13 @@ Below are the default settings and their values. You can also view the default v
   // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-  // Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.
+  // Defines space handling after opening and before closing non-empty braces. Requires TypeScript >= 2.3.0.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
-  // Defines space handling after opening and before closing non empty brackets.
+  // Defines space handling after opening and before closing non-empty brackets.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
-  // Defines space handling after opening and before closing non empty parenthesis.
+  // Defines space handling after opening and before closing non-empty parenthesis.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
   // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
@@ -1483,7 +1493,7 @@ Below are the default settings and their values. You can also view the default v
   "emmet.extensionsPath": null,
 
   // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
-  //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
+  //  E.g.: {"vue-html": "html", "javascript": "javascriptreact"}
   "emmet.includeLanguages": {},
 
   // Preferences used to modify behavior of some actions and resolvers of Emmet.

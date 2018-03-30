@@ -4,10 +4,9 @@ Area: extensionapi
 TOCTitle: Debugging API
 ContentId: 9C4B10A2-44BE-4ABD-8FF4-F1A8683A90AD
 PageTitle: Visual Studio Code Debugging API
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) Debugging API.
 ---
-
 # The Debug API
 
 Visual Studio Code allows extension authors to create new **debugger extensions** or add **features** to existing debug functionality.
@@ -38,7 +37,7 @@ All extension API for debug is located under the `vscode.debug` namespace which 
 
 All configuration related "hooks" for a specific debug type are available through a `DebugConfigurationProvider`.
 
-A `DebugConfigurationProvider` is registered for a specific debug type through the `registerDebugConfigurationProvider` function. The debug type itself is contributed via the [`debuggers` contribution](https://code.visualstudio.com/docs/extensionAPI/extension-points#_contributesdebuggers).
+A `DebugConfigurationProvider` is registered for a specific debug type through the `registerDebugConfigurationProvider` function. The debug type itself is contributed via the [`debuggers` contribution](/docs/extensionAPI/extension-points.md#contributesdebuggers).
 
 Currently the following "hooks" are available:
 
@@ -95,7 +94,7 @@ GitHub Project | Description | Implementation Language
 In this section we give a high-level overview of the interaction between VS Code and a debug adapter.
 This should help you in your implementation of a debug adapter based on the Debug Adapter Protocol.
 
-When a debug sessions starts, VS Code launches the debug adapter executable and talks to it through *stdin* and *stdout*. VS Code sends an **initialize** request to configure the adapter with information about the path format (native or URI) and whether line and column values are 0 or 1 based.
+When a debug session starts, VS Code launches the debug adapter executable and talks to it through *stdin* and *stdout*. VS Code sends an **initialize** request to configure the adapter with information about the path format (native or URI) and whether line and column values are 0 or 1 based.
 If your adapter is derived from the TypeScript or C# default implementation `DebugSession`, you don't have to handle the initialize request yourself.
 
 Depending on the 'request' attribute used in the launch configuration created by the user, VS Code either sends a *launch* or an *attach* request.

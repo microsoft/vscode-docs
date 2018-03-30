@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 # JavaScript in VS Code
@@ -190,7 +190,7 @@ easy = 123 // no error
 
 **Using a JSConfig or TSConfig**
 
-To enable type checking for JavaScript files that are part of a `jsconfig.json` or `tsconfig.json`, simply add `"checkJs": true` to the project's compiler options:
+To enable type checking for JavaScript files that are part of a `jsconfig.json` or `tsconfig.json`, add `"checkJs": true` to the project's compiler options:
 
 `jsconfig.json`:
 
@@ -223,7 +223,7 @@ To enable type checking for JavaScript files that are part of a `jsconfig.json` 
 
 This enables type checking for all JavaScript files in the project. You can use `// @ts-nocheck` to disable type checking per file.
 
-JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, simply run the **TypeScript: Select TypeScript Version** command to check.
+JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, run the **TypeScript: Select TypeScript Version** command to check. You must have a `.js/.ts` file open in the editor to run this command. If you open a TypeScript file, the version appears in the lower right corner.
 
 ### Global Variables and Type Checking
 
@@ -247,7 +247,7 @@ If you try to use `// @ts-check` with the above code, you'll see a number of err
 
 If you want to continue using `// @ts-check` but are confident that these are not actual issues with your application, you have to let TypeScript know about these global variables.
 
-To start, [create a `jsconfig.json`](#_javascript-project-jsconfigjson) at the root of your project:
+To start, [create a `jsconfig.json`](#javascript-project-jsconfigjson) at the root of your project:
 
 ```json
 {
@@ -384,10 +384,10 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 // Defines space handling after function keyword for anonymous functions
 "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": boolean,
 
-// Defines space handling after opening and before closing non empty parenthesis
+// Defines space handling after opening and before closing non-empty parenthesis
 "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": boolean,
 
-// Defines space handling after opening and before closing non empty brackets
+// Defines space handling after opening and before closing non-empty brackets
 "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": boolean,
 
 // Defines whether an open brace is put onto a new line for functions or not

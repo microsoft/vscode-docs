@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -50,7 +50,7 @@ When you have more than one editor open you can switch between them quickly by h
 
 ## Minimap - outline view
 
-A Minimap (outline view) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown in the right side of the editor. You can click or drap the shaded area to quickly jump to different sections of your file.
+A Minimap (outline view) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown in the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
 
 ![minimap](images/userinterface/minimap.png)
 
@@ -83,6 +83,16 @@ You can also navigate to the location of a file or folder in the native Explorer
 By default, VS Code excludes some folders from the Explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/getstarted/settings.md) to configure rules for hiding files and folders from the Explorer.
 
 **Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
+
+### Multi-selection
+
+You can select multiple files in the **File Explorer** and **OPEN EDITORS** view to run actions (Delete, Drag and Drop, Open to the Side) on multiple items. Uses the `Ctrl/Cmd` key with `click` to select individual files and `Shift` + `click` to select a range. If you select two items, you can now use the **Compare Selected** command to quickly diff two files.
+
+**Note:** In earlier VS Code releases, clicking with the `Ctrl/Cmd` key pressed would open a file in a new Editor Group to the side. If you would still like this behavior, you can use the `workbench.list.multiSelectModifier` setting to change multi-selection to use the `Alt` key.
+
+```json
+"workbench.list.multiSelectModifier": "alt"
+```
 
 ## Open Editors
 

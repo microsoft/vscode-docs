@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Debugging
 ContentId: 4E9A74AA-D778-4D1C-B369-83763B3C340F
 PageTitle: Debugging in Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: One of the great things in Visual Studio Code is debugging support.  Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: images/debugging/Debugging.png
 ---
@@ -50,7 +50,7 @@ The top level **Debug** menu has the most common debug commands:
 
 To debug a simple app in VS Code, press `kb(workbench.action.debug.start)` and VS Code will try to debug your currently active file.
 
-However for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](https://code.visualstudio.com/docs/editor/debugging#_global-launch-configuration) or [workspace settings](https://code.visualstudio.com/docs/editor/multi-root-workspaces#_workspace-launch-configurations).
+However, for most debugging scenarios, creating a launch configuration file is beneficial because it allows you to configure and save debugging setup details. VS Code keeps debugging configuration information in a `launch.json` file located in a `.vscode` folder in your workspace (project root folder) or in your [user settings](/docs/editor/debugging.md#global-launch-configuration) or [workspace settings](/docs/editor/multi-root-workspaces.md#workspace-launch-configurations).
 
 To create a `launch.json` file, open your project folder in VS Code (**File** > **Open Folder**) and then click on the Configure gear icon on the Debug view top bar.
 
@@ -110,7 +110,7 @@ As soon as a debugging session starts, the **DEBUG CONSOLE** panel is displayed 
 
 ![debug session](images/debugging/debug-session.png)
 
-In addition the _debug status_ appears in the Status Bar showing the active debug configuration. By clicking on the debug status, a user can change the active launch configuration and then start debugging without the need to open the Debug view.
+In addition, the _debug status_ appears in the Status Bar showing the active debug configuration. By clicking on the debug status, a user can change the active launch configuration and then start debugging without the need to open the Debug view.
 
 ![Debug status](images/debugging/debug-status.png)
 
@@ -139,7 +139,7 @@ Breakpoints can be toggled by clicking on the **editor margin**. Finer breakpoin
 
 * Breakpoints in the editor margin are normally shown as red filled circles.
 * Disabled breakpoints have a filled gray circle.
-* When a debugging sessions starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
+* When a debugging session starts, breakpoints that cannot be registered with the debugger change to a gray hollow circle. The same might happen if the source is edited while a debug session without live-edit support is running.
 
 The **Reapply All Breakpoints** command sets all breakpoints again to their original location. This is helpful if your debug environment is "lazy" and "misplaces" breakpoints in source code that has not yet been executed.
 
@@ -295,7 +295,7 @@ A 'function breakpoint' is created by pressing the **+** button in the **BREAKPO
 
 ## Debug Console REPL
 
-Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) feature. To open the Debug Console, use the **Debug Console** action at the top of the Debug pane or use the **View: Debug Console** command (`kb(workbench.debug.action.toggleRepl)`). Expressions are evaluated after you press `kbstyle(Enter)` and hee Debug Console REPL shows suggestions while typing. If you need to enter multiple lines, use `kbstyle(Shift+Enter)` between the lines and then send all lines for evaluation with `kbstyle(Enter)`.
+Expressions can be evaluated with the **Debug Console** REPL ([Read-Eval-Print Loop](https://en.wikipedia.org/wiki/Read–eval–print_loop)) feature. To open the Debug Console, use the **Debug Console** action at the top of the Debug pane or use the **View: Debug Console** command (`kb(workbench.debug.action.toggleRepl)`). Expressions are evaluated after you press `kbstyle(Enter)` and the Debug Console REPL shows suggestions while typing. If you need to enter multiple lines, use `kbstyle(Shift+Enter)` between the lines and then send all lines for evaluation with `kbstyle(Enter)`.
 
 ![Debug Console](images/debugging/debugconsole.png)
 
@@ -342,6 +342,12 @@ An alternative way to start multiple debug session is by using a so-called _comp
     ]
 }
 ```
+
+## Remote debugging
+
+VS Code does not support 'remote debugging' by itself. Remote debugging is a feature of the debug extension you are using and you should consult the extension's page in the [Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Debuggers&sortBy=Downloads) for support and details.
+
+There is however one exception, VS Code ships with a Node.js debugger which supports remote debugging. See the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging) topic to learn how to configure remote debugging.
 
 ## Next Steps
 

@@ -4,12 +4,12 @@ Area: extensions
 TOCTitle: Publishing Extensions
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
 PageTitle: Publishing Visual Studio Code Extensions
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
 ---
 # Publishing Extensions
 
-## vsce - Publishing Tool Reference
+## vsce - Publishing tool reference
 
 [vsce](https://github.com/Microsoft/vsce) is the command line tool you'll use to publish extensions to the [Extension Marketplace](/docs/editor/extension-gallery.md).  You can also load extensions locally and share them via email or a UNC drive.
 
@@ -33,7 +33,7 @@ Successfully published uuid@0.0.1!
 
 For a reference on all the available commands, run `vsce --help`.
 
-## Publishing Extensions
+## Publishing extensions
 
 ---
 
@@ -70,7 +70,7 @@ Give the Personal Access Token a nice description, optionally extend its expirat
 
 The next screen will display your newly created Personal Access Token. **Copy** it, you'll need it to create a publisher.
 
-### Create a Publisher
+### Create a publisher
 
 A **publisher** is an identity who can publish extensions to the Visual Studio Code Marketplace. Every extension needs to include a `publisher` name in its [`package.json` file](/docs/extensionAPI/extension-manifest.md).
 
@@ -84,7 +84,7 @@ vsce create-publisher (publisher name)
 
 **Note:** Alternatively, create your publisher in the Marketplace publisher [management page](https://marketplace.visualstudio.com/manage) and login in `vsce`, as described in the next section.
 
-### Login to a Publisher
+### Login to a publisher
 
 If you already created a publisher before and want to use it with `vsce`:
 
@@ -100,7 +100,7 @@ You can also enter your Personal Access Token as you publish with an optional pa
 vsce publish -p <token>
 ```
 
-## Auto-incrementing the Extension Version
+## Auto-incrementing the extension version
 
 You can auto-increment an extension's version number when you publish by specifying the [SemVer](http://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
 
@@ -118,7 +118,7 @@ You can also specify a complete SemVer compatible version on the command line:
 vsce publish 2.0.1
 ```
 
-## Unpublishing Extensions
+## Unpublishing extensions
 
 You can unpublish an extension with the vsce tool by specifying the extension id `publisher.extension`.
 
@@ -128,7 +128,7 @@ vsce unpublish (publisher name).(extension name)
 
 >**Note:** When you unpublish an extension, the Marketplace will remove any extension statistics it has collected. You may want to update your extension rather than unpublish it.
 
-## Packaging Extensions
+## Packaging extensions
 
 You may want to package extensions without publishing them to the store. Extensions will always be packaged into a `.vsix` file. Here's how:
 
@@ -138,11 +138,11 @@ vsce package
 
 This will package your extension into a `.vsix` file and place it in the current directory. It's possible to install `.vsix` files into Visual Studio Code. See [Install from a VSIX](/docs/editor/extension-gallery.md#install-from-a-vsix) for more details.
 
-### Sharing Privately with Others
+### Sharing privately with others
 
 If you want to share your extension with others privately, you can send them your packaged extension `.vsix` file.
 
-## Visual Studio Code Compatibility
+## Visual Studio Code compatibility
 
 When authoring an extension, you will need to describe what is the extension's compatibility to Visual Studio Code itself. This can done via the `engines.vscode` field inside `package.json`:
 
@@ -160,9 +160,9 @@ You can use the `engines.vscode` field to make sure the extension only gets inst
 
 For example, imagine that the latest Stable version of VS Code is `1.8.0` and that during `1.9.0`'s development a new API is introduced and thus made available in the Insider release through version `1.9.0-insider`. If you want to publish an extension version which benefits from this API, you should indicate a version dependency of `^1.9.0`. Your new extension version will be installed only on VS Code `>=1.9.0`, which means all current Insider customers will get it, while the Stable ones will only get the update when Stable reaches `1.9.0`.
 
-## Advanced Usage
+## Advanced usage
 
-### Marketplace Integration
+### Marketplace integration
 
 You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/lukehoban.Go) for an example.
 

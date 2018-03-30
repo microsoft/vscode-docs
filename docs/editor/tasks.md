@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: F5EA1A52-1EF2-4127-ABA6-6CEF5447C608
 PageTitle: Tasks in Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code.
 ---
 # Integrate with External Tools via Tasks
@@ -168,7 +168,7 @@ We are working on more auto-detection support, so this list will get smaller and
 
 The task's properties have the following semantic:
 
-- **label**: The tasks's label used in the user interface.
+- **label**: The task's label used in the user interface.
 - **type**: The task's type. For a custom task, this can either be `shell` or `process`. If `shell` is specified, the command is interpreted as a shell command (for example: bash, cmd, or PowerShell). If `process` is specified, the command is interpreted as a process to execute. If `shell` is used, any arguments to the command should be embedded into the `command` property to support proper argument quoting. For example, if the test script accepts a `--debug` argument then the command property would be: `./scripts/test.sh --debug`.
 - **command**: The actual command to execute.
 - **windows**: Any Windows specific properties. Will be used instead of the default properties when the command is executed on the Windows operating system.
@@ -195,7 +195,7 @@ Sometimes you want to control how the Integrated Terminal panel behaves when run
 - **echo**: Controls whether the executed command is echoed in the terminal. Default is `true`.
 - **panel**: Controls whether the terminal instance is shared between task runs. Possible values are:
   - *shared*: The terminal is shared and the output of other task runs are added to the same terminal.
-  - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However the output of a different task is presented in a different terminal.
+  - *dedicated*: The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However, the output of a different task is presented in a different terminal.
   - *new*: Every execution of that task is using a new clean terminal.
 
 You can modify the terminal panel behavior for auto-detected tasks as well. For example, if you want to change the output behavior for the **npm: run lint** from the ESLint example from above, add the `presentation` property to it:
@@ -424,11 +424,11 @@ Task properties can also be defined in the global scope. If present, they will b
 
 ## Changing the encoding for a task output
 
-Task frequently act with files on disk. If these files are store on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
+Tasks frequently act with files on disk. If these files are stored on disk with an encoding different than the system encoding you need to let the command executed as a task know which encoding to use. Since this depends on the operating system and the shell used there is no general solution to control this. Below some advice and examples on how to make it work.
 
 If you need to tweak the encoding you should check whether it makes sense to change the default encoding used by our operating system or at least changing it for the shell you use by tweaking the shell's profile file.
 
-If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therfore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
+If you only need to tweak it for a specific task then add the OS specific command necessary to change the encoding to the tasks command line. The following example is for Windows using code page of 437 as its default. The task shows the output of a file containing Cyrillic characters and therefore needs code page 866. The task to list the file looks like this assuming that the default shell is set to `cmd.exe`:
 
 ```json
 {

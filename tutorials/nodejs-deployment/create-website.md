@@ -46,16 +46,20 @@ Now create the website. Make sure to give it a **unique name** as it will be ref
 
 ```bash
 $ az webapp create --name myExpressApp-chrisdias --plan myPlan --runtime "node|6.9"
+
+# In PowerShell, the command requires the --% operator
+PS> az --% webapp create --name myExpressApp-chrisdias --plan myPlan --runtime "node|6.9"
 ```
+
 
 Notice the `--runtime "node|6.9"` parameter at the end of the command. This tells Azure to use node version 6.9.x when running this application. You can also state the desired node version in your `package.json`. During deployment Azure will recognize this and attempt to use that version instead.
 
 For example, the following `package.json` entry will tell Azure this application requires at least node 7.0.0 to run.
 
 ``` json
-  "engines": {
-    "node": ">7.0.0"
-    },
+"engines": {
+  "node": ">7.0.0"
+},
 ```
 
 ## Run the website

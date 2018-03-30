@@ -4,13 +4,13 @@ Area: extensions
 TOCTitle: Example-Language Server
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
 PageTitle: Creating Language Servers for Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
 
 # Example - Language Server
 
-Language servers allow you to add your own validation logic to files open in VS Code. Typically you just validate programming languages. However validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
+Language servers allow you to add your own validation logic to files open in VS Code. Typically, you just validate programming languages. However, validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
 
 In general, validating a programming language can be expensive. Especially when validation requires parsing multiple files and building up abstract syntax trees. To avoid that performance cost, language servers in VS Code are executed in a separate process. This architecture also makes it possible that language servers can be written in other languages besides TypeScript/JavaScript and that they can support expensive additional language features like code completion or `Find All References`.
 
@@ -107,7 +107,7 @@ export function activate(context: ExtensionContext) {
 	let serverOptions: ServerOptions = {
 		run : { module: serverModule, transport: TransportKind.ipc },
 		debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
-	}
+	};
 
 	// Options to control the language client
 	let clientOptions: LanguageClientOptions = {
@@ -119,7 +119,7 @@ export function activate(context: ExtensionContext) {
 			// Notify the server about file changes to '.clientrc files contain in the workspace
 			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
 		}
-	}
+	};
 
 	// Create the language client and start the client.
 	let disposable = new LanguageClient('lspSample', 'Language Server Example', serverOptions, clientOptions).start();
@@ -185,7 +185,7 @@ connection.onInitialize((params): InitializeResult => {
 				resolveProvider: true
 			}
 		}
-	}
+	};
 });
 
 // The content of a text document has changed. This event is emitted
@@ -262,7 +262,7 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 			kind: CompletionItemKind.Text,
 			data: 2
 		}
-	]
+	];
 });
 
 // This handler resolve additional information for the item selected in
@@ -325,7 +325,7 @@ documents.onDidChangeContent((change) => {
                 source: 'ex'
             });
         }
-    })
+    });
     // Send the computed diagnostics to VS Code.
     connection.sendDiagnostics({ uri: change.document.uri, diagnostics });
 });
@@ -336,7 +336,7 @@ documents.onDidChangeContent((change) => {
 * If the start and end positions are the same, VS Code will squiggle the word at that position.
 * If you want to squiggle until the end of the line, then set the character of the end position to Number.MAX_VALUE.
 
-To test the language server do the following:
+To test the language server, do the following:
 
 * press `kb(workbench.action.tasks.build)` to start the build task. The task compiles both the client and the server.
 * open the debug viewlet, select the `Launch Client` launch configuration and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
@@ -354,7 +354,7 @@ The `Extension Development Host` instance will then look like this:
 
 ## Debugging both Client and Server
 
-Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Running and Debugging Your Extension](/docs/extensions/debugging-extensions.md).
+Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Developing Extensions](/docs/extensions/developing-extensions.md).
 
 ![Debugging the client](images/example-language-server/debugging-client.png)
 
@@ -454,7 +454,7 @@ connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): Comp
             kind: CompletionItemKind.Text,
             data: 2
         }
-    ]
+    ];
 });
 
 // This handler resolve additional information for the item selected in
@@ -486,7 +486,7 @@ connection.onInitialize((params): InitializeResult => {
                 resolveProvider: true
             }
         }
-    }
+    };
 });
 ```
 
@@ -541,7 +541,7 @@ connection.onInitialize((params): InitializeResult => {
             textDocumentSync: TextDocumentSyncKind.Incremental,
             ...
         }
-    }
+    };
 });
 
 connection.onDidOpenTextDocument((params) => {

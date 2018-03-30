@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Variables Reference
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Variable substitution reference
 ---
 # Variables Reference
@@ -54,7 +54,7 @@ You can reference VS Code settings and commands using the following syntax:
 
 ## Variables scoped per workspace folder
 
-By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name the variable is scoped to the same folder where it is used.
+By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name, the variable is scoped to the same folder where it is used.
 
 For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
 

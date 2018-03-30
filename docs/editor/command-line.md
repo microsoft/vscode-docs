@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code Command Line Options
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Visual Studio Code command line options. Learn to control VS Code startup.
 ---
 # Command Line Interface (CLI)
@@ -23,7 +23,7 @@ or
 code-insiders .
 ```
 
-**Note**: Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the Path/$PATH environment variable. For example on Windows, VS Code is installed under `Program Files\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
+**Note**: Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the Path/$PATH environment variable. For example, on Windows, VS Code is installed under `Program Files\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
 ## Core CLI options
 
@@ -112,7 +112,7 @@ Open a file to line and column
 vscode://file/FULL/PATH/TO/FILE:LINE:COLUMN
 ```
 
-> **Note:** You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://file/FULL/PATH/TO/FILE`.
+> **Note:** You can use the URL in applications such as browsers or file explorers that can parse and redirect the URL. For example, on Windows, you could pass a `vscode://` URL directly to the Windows Explorer or to the command line as `start vscode://file/FULL/PATH/TO/FILE`.
 
 ## Next Steps
 
