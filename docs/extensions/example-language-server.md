@@ -180,7 +180,7 @@ connection.onInitialize((params): InitializeResult => {
 		capabilities: {
 			// Tell the client that the server works in FULL text document sync mode
 			textDocumentSync: documents.syncKind,
-			// Tell the client that the server support code complete
+			// Tell the client that the server supports code completion
 			completionProvider: {
 				resolveProvider: true
 			}
@@ -189,12 +189,12 @@ connection.onInitialize((params): InitializeResult => {
 });
 
 // The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
+// when the text document is first opened or when its content has changed.
 documents.onDidChangeContent((change) => {
 	validateTextDocument(change.document);
 });
 
-// The settings interface describe the server relevant settings part
+// The settings interface describes the server relevant settings part
 interface Settings {
 	lspSample: ExampleSettings;
 }
@@ -207,7 +207,7 @@ interface ExampleSettings {
 
 // hold the maxNumberOfProblems setting
 let maxNumberOfProblems: number;
-// The settings have changed. Is send on server activation
+// The settings have changed. It is sent on server activation
 // as well.
 connection.onDidChangeConfiguration((change) => {
 	let settings = <Settings>change.settings;
@@ -241,15 +241,15 @@ function validateTextDocument(textDocument: TextDocument): void {
 }
 
 connection.onDidChangeWatchedFiles((_change) => {
-	// Monitored files have change in VSCode
-	connection.console.log('We recevied an file change event');
+	// Monitored files have changed in VSCode
+	connection.console.log('We received a file change event');
 });
 
 
 // This handler provides the initial list of the completion items.
 connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-	// The pass parameter contains the position of the text document in
-	// which code complete got requested. For the example we ignore this
+	// The passed parameter contains the position of the text document in
+	// which code completion got requested. For the example we ignore this
 	// info and always provide the same completion items.
 	return [
 		{
@@ -265,7 +265,7 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 	];
 });
 
-// This handler resolve additional information for the item selected in
+// This handler resolves additional information for the item selected in
 // the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 	if (item.data === 1) {
@@ -308,7 +308,7 @@ To add document validation to the server, we add a listener to the text document
 
 ```typescript
 // The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
+// when the text document is first opened or when its content has changed.
 documents.onDidChangeContent((change) => {
     let diagnostics: Diagnostic[] = [];
     let lines = change.document.getText().split(/\r?\n/g);
@@ -406,7 +406,7 @@ function validateTextDocument(textDocument: TextDocument): void {
 The handling of the configuration change is done by adding a notification handler for configuration changes to the connection. The corresponding code looks like this:
 
 ```typescript
-// The settings interface describe the server relevant settings part
+// The settings interface describes the server relevant settings part
 interface Settings {
     lspSample: ExampleSettings;
 }
@@ -419,7 +419,7 @@ interface ExampleSettings {
 
 // hold the maxNumberOfProblems setting
 let maxNumberOfProblems: number;
-// The settings have changed. Is send on server activation
+// The settings have changed. It is sent on server activation
 // as well.
 connection.onDidChangeConfiguration((change) => {
     let settings = <Settings>change.settings;
@@ -435,13 +435,13 @@ Starting the client again and changing the setting to maximum report 1 problem r
 
 ## Adding additional Language Features
 
-The first interesting feature a language server usually implements is validation of documents. In that sense, even a linter counts as a language server and in VS Code linters are usually implemented as language servers (see [eslint](https://github.com/Microsoft/vscode-eslint) and [jshint](https://github.com/Microsoft/vscode-jshint) for examples). But there is more to language servers. They can provide code complete, Find All References or Go To Definition. The example code below adds code completion to the server. It proposes the two words 'TypeScript' and 'JavaScript'.
+The first interesting feature a language server usually implements is validation of documents. In that sense, even a linter counts as a language server and in VS Code linters are usually implemented as language servers (see [eslint](https://github.com/Microsoft/vscode-eslint) and [jshint](https://github.com/Microsoft/vscode-jshint) for examples). But there is more to language servers. They can provide code completion, Find All References or Go To Definition. The example code below adds code completion to the server. It proposes the two words 'TypeScript' and 'JavaScript'.
 
 ```typescript
 // This handler provides the initial list of the completion items.
 connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-    // The pass parameter contains the position of the text document in
-    // which code complete got requested. For the example we ignore this
+    // The passed parameter contains the position of the text document in
+    // which code completion got requested. For the example we ignore this
     // info and always provide the same completion items.
     return [
         {
@@ -457,7 +457,7 @@ connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): Comp
     ];
 });
 
-// This handler resolve additional information for the item selected in
+// This handler resolves additional information for the item selected in
 // the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
     if (item.data === 1) {
@@ -473,7 +473,7 @@ connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 
 The `data` fields is used to uniquely identify a completion item in the resolve handler. The data property is transparent for the protocol. Since the underlying message passing protocol is JSON based, the data field should only hold data that is serializable to and from JSON.
 
-All that is missing is to tell VS Code that the server support code completion requests. To do so, flag the corresponding capability in the initialize handler:
+All that is missing is to tell VS Code that the server supports code completion requests. To do so, flag the corresponding capability in the initialize handler:
 
 ```typescript
 connection.onInitialize((params): InitializeResult => {
@@ -481,7 +481,7 @@ connection.onInitialize((params): InitializeResult => {
     return {
         capabilities: {
             ...
-            // Tell the client that the server support code complete
+            // Tell the client that the server supports code completion
             completionProvider: {
                 resolveProvider: true
             }
