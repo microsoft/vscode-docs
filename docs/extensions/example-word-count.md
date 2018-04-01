@@ -224,7 +224,7 @@ Now change your extension so that it is activated upon the opening of a *Markdow
 
 The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) event takes the language id, in this case "markdown", and will be raised whenever a file of that language is opened.
 
-Run the extension by either doing a window reload `kbstyle(Ctrl+R)` or with `kb(workbench.action.debug.start)` and then start editing a Markdown file.  You should now should have a live updating Word Count.
+Run the extension by either doing a window reload `kbstyle(Ctrl+R)` or with `kb(workbench.action.debug.start)` and then start editing a Markdown file.  You now should have a live updating Word Count.
 
 ![Word Count Updating on Events](images/example-word-count/wordcountevent2.gif)
 
