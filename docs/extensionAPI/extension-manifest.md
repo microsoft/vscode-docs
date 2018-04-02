@@ -22,7 +22,7 @@ Name | Required | Type | Details
 `license` | | `string` | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.
 `displayName` | | `string`| The display name for the extension used in the Marketplace.
 `description` | | `string` | A short description of what your extension is and does.
-`categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other, Extension Packs]`
+`categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`
 `keywords` | | `array` | An array of **keywords** or **tags** to make it easier to find the extension.
 `galleryBanner` | | `object` | Helps format the Marketplace header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension to be flagged as a Preview in the Marketplace.
@@ -148,12 +148,12 @@ License | `license`
 
 Set a `category` for your extension.  Extensions in the same `category` are grouped together on the Marketplace which improves filtering and discovery.
 
->**Note:** Only use the values that make sense for your extension - allowed values are `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other, Extension Packs]`
+>**Note:** Only use the values that make sense for your extension - allowed values are `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`
 
 ```json
 {
     "categories": [
-        "Linters", "Languages", "Other"
+        "Linters", "Programming Languages", "Other"
     ],
 }
 ```
@@ -214,7 +214,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
         "vscode": "0.10.x"
     },
     "categories": [
-        "Languages",
+        "Programming Languages",
         "Snippets"
     ],
     "contributes": {
@@ -236,7 +236,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
 }
 ```
 
-Notice that the extension manifest `categories` attribute now includes both `Languages` and `Snippets` for easy discovery and filtering on the Marketplace.
+Notice that the extension manifest `categories` attribute now includes both `Programming Languages` and `Snippets` for easy discovery and filtering on the Marketplace.
 
 >**Tip:** Make sure your merged contributions are using the same identifiers.  In the example above, all three contributions are using "latex" as the language identifier.  This lets VS Code know that the colorizer (`grammar`) and snippets are for the LaTeX language and will be active when editing LaTeX files.
 
