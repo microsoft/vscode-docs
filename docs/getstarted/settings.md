@@ -238,6 +238,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the editor has code folding enabled
   "editor.folding": true,
 
+  // Controls the way folding ranges are computed. 'auto' picks uses a language specific folding strategy, if available. 'indentation' forces that the indentation based folding strategy is used.
+  "editor.foldingStrategy": "auto",
+
   // Controls the font family.
   "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
@@ -355,6 +358,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": true,
+
+  // Controls if the Linux primary clipboard should be supported.
+  "editor.selectionClipboard": true,
 
   // Controls whether the editor should highlight similar matches to the selection
   "editor.selectionHighlight": true,
@@ -650,7 +656,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/node_modules/*/**": true
+    "**/node_modules/**": true
   },
 
 // Zen Mode
@@ -742,7 +748,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "keyboard.dispatch": "code",
 
   // Enables the macOS touchbar buttons on the keyboard if available.
-  "keyboard.touchbar.enabled": true
+  "keyboard.touchbar.enabled": true,
 
 // Update
 
@@ -1337,7 +1343,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "terminal.integrated.setLocaleVariables": false,
 
   // The path of the shell that the terminal uses on Linux.
-  "terminal.integrated.shell.linux": "sh",
+  "terminal.integrated.shell.linux": "/bin/bash",
 
   // The path of the shell that the terminal uses on OS X.
   "terminal.integrated.shell.osx": "sh",
