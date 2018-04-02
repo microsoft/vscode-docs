@@ -333,6 +333,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     - `css.mozProperties`
     - `css.msProperties`
     - `css.oProperties`
+    - `css.fuzzySearchMinScore`
 
     The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
 
