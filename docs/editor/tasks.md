@@ -719,7 +719,7 @@ Tasks `2.0.0` version comes with lots of new auto-detection features so you can 
 
 ### Migrating to Tasks 2.0.0
 
-If you have lots of task customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings (green squigglies) because some properties are now deprecated.
+If you have lots of task customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings (green squiggles) because some properties are now deprecated.
 
 Here is a migration guide:
 

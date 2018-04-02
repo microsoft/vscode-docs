@@ -303,12 +303,12 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 
 Errors and warnings:
 
-- `editorError.foreground`: Foreground color of error squigglies in the editor.
-- `editorError.border`: Border color of error squigglies in the editor.
-- `editorWarning.foreground`: Foreground color of warning squigglies in the editor.
-- `editorWarning.border`: Border color of warning squigglies in the editor.
-- `editorInfo.foreground`: Foreground color of info squigglies in the editor.
-- `editorInfo.border`: Border color of info squigglies in the editor.
+- `editorError.foreground`: Foreground color of error squiggles in the editor.
+- `editorError.border`: Border color of error squiggles in the editor.
+- `editorWarning.foreground`: Foreground color of warning squiggles in the editor.
+- `editorWarning.border`: Border color of warning squiggles in the editor.
+- `editorInfo.foreground`: Foreground color of info squiggles in the editor.
+- `editorInfo.border`: Border color of info squiggles in the editor.
 
 The gutter contains the glyph margins and the line numbers:
 
