@@ -207,17 +207,55 @@ lines="foo\nbar"
 
 ## Attaching to Node.js
 
-If you want to attach the VS Code debugger to a Node.js program, launch Node.js as follows:
+If you want to attach the VS Code debugger to a Node.js program, launch Node.js in VS Code's integrated terminal as follows:
 
 ```
 node --inspect program.js
-or
+````
+
+or if the program should not start running but must wait for the debugger to attach:
+
+```
 node --inspect-brk program.js
 ```
 
-With the `--inspect-brk` option, Node.js stops on the first line of the program.
+Now you have three options for attaching the debugger to your program:
 
-The corresponding launch configuration looks like this:
+- have VS Code automatically attach to the program, or
+- open a "process picker" that lists all potential candidate processes and let you pick one, or
+- create an "attach" configuration that explicitly specifies all configuration options and then press **F5**.
+
+Let's go through these options in detail:
+
+### **Auto Attach** Feature
+
+If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to Node.js processes that have been launched in debug mode from VS Code's Integrated Terminal.
+
+To enable the feature, either use the **Toggle Auto Attach** action or, if the Node debugger is already activated, use the **Auto Attach** Status Bar item.
+
+After enabling **Auto Attach** the debugger should attach to your program within a second:
+
+![Auto Attach](images/nodejs-debugging/auto-attach.gif)
+
+Whether or not a process is in "debug mode" is determined by analyzing the program arguments. Currently, we detect the patterns `--inspect`, `--inspect-brk`, `--inspect-port`, `--debug`, `--debug-brk`, `--debug-port` (all optionally followed by a '=' and a port number).
+
+>**Note:** this feature does not (yet) work for terminal multiplexers like **tmux** (where launched processes are not children of VS Code's integrated terminal).
+
+### **Attach to Node Process** action
+
+The **Attach to Node Process** action opens a Quick Pick menu that lists all potential processes that are available to the Node.js debugger:
+
+![Node.js Process picker](images/nodejs-debugging/process-picker.png)
+
+The individual processes listed in the picker show the debug port and the detected protocol in addition to the process id. You should find your Node.js process in that list and after selecting it, the Node.js debugger tries to attach to it.
+
+In addition to Node.js processes, the picker also shows other programs that were launched with one of the various forms of `--debug` or `--inspect` arguments. This makes it possible to attach to Electron's or VS Code's helper processes.
+
+### Setting up an "Attach" configuration
+
+This option requires more work but in contrast to the previous two options it allows you to configure various debug configuration options explicitely.
+
+The simplest "attach" configuration looks like this:
 
 ```json
 {
@@ -227,6 +265,8 @@ The corresponding launch configuration looks like this:
     "port": 9229
 }
 ```
+
+The port `9229` is the default debug port of the `--inspect` and `--inspect-brk` options. To use a different port (e.g. `12345`), add it to the options like this: `--inspect=12345` and `--inspect-brk=12345` and change the `port` attribute in the launch configuration accordingly.
 
 If you want to attach to a Node.js process that hasn't been started in debug mode, you can do this by specifying the process ID of the Node.js process as a string:
 
@@ -235,14 +275,11 @@ If you want to attach to a Node.js process that hasn't been started in debug mod
     "name": "Attach to Process",
     "type": "node",
     "request": "attach",
-    "processId": "53426",
-    "port": 9229
+    "processId": "53426"
 }
 ```
 
-Since it is a bit laborious to repeatedly find the process ID and enter it in the launch configuration, node debug supports a command variable `PickProcess` that binds to a process picker that lets you conveniently pick the process from a list of node or gulp processes:
-
-![Process picker](images/nodejs-debugging/process-picker.png)
+Since it is a bit laborious to repeatedly find the process ID and enter it in the launch configuration, Node debug supports a command variable `PickProcess` that binds to the process picker (from above) and that lets you conveniently pick the process from a list of Node.js processes.
 
 By using the `PickProcess` variable the launch configuration looks like this:
 
@@ -251,8 +288,7 @@ By using the `PickProcess` variable the launch configuration looks like this:
     "name": "Attach to Process",
     "type": "node",
     "request": "attach",
-    "processId": "${command:PickProcess}",
-    "port": 9229
+    "processId": "${command:PickProcess}"
 }
 ```
 
