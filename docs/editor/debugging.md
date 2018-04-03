@@ -145,6 +145,15 @@ The **Reapply All Breakpoints** command sets all breakpoints again to their orig
 
 ![Breakpoints](images/debugging/breakpoints.png)
 
+## Log Points
+
+A Log Point is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Log points are especially useful for debugging production servers which cannot be stopped.
+
+A Log Point is represented by a "diamond" shaped icon. Log messages are basically plain text but expressions within curly braces ('{}') are evaluated.
+
+![Log Points](images/debugging/log-points.gif)
+
+Just like regular breakpoints, Log Points can be enabled or disabled and can also be controlled by a condition and/or hit count.
 
 ## Data inspection
 
@@ -173,6 +182,7 @@ The following attributes are mandatory for every launch configuration:
 Here are some optional attributes available to all launch configurations:
 
 * `preLaunchTask` - to launch a task before the start of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
+* `postDebugTask` - to launch a task at the very end of a debug session, set this attribute to the name of a task specified in [tasks.json](/docs/editor/tasks.md) (located under the workspace's `.vscode` folder).
 * `internalConsoleOptions` - control visibility of the Debug Console panel during a debugging session
 * `debugServer` - **for debug extension authors only**: connect to the specified port instead of launching the debug adapter
 
