@@ -323,7 +323,7 @@ VS Code can process the output from a task with a problem matcher and ships with
 - **Go**: `$go` matches problems reported from the `go` compiler. Assumes that file names are relative to the opened folder.
 - **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
 - **Lessc compiler**: `$lessc` assumes that file names are reported as absolute path.
-- **Node Saas compiler**: `node-sass` assumes that file names are reported as an absolute path.
+- **Node Sass compiler**: `$node-sass` assumes that file names are reported as an absolute path.
 
 Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
 
