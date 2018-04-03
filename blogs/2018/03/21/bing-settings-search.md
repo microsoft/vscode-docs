@@ -26,12 +26,11 @@ The first change we had to make was to introduce a unique version number for eac
 
 During the build, VS Code starts up in a mode where it writes all of its configuration to a JSON file. We have to actually start VS Code, because we can't determine all the configuration metadata statically.
 
-The configuration file is uploaded to a share. It includes a few pieces of information per setting - the name, description, type, default value, and for "enum"-type settings, the list of valid values and their descriptions.
-If you're curious, you can see the latest one here: https://ticino.blob.core.windows.net/configuration/122001350/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/configuration.json. 122001350 is the unique build number, as discussed above. 6c22e21cd... is the git commit that the build was built off of. And Ticino, some of you diehard fans might remember, was our original short-lived code name.
+The configuration file is uploaded to a Azure Storage. It includes a few pieces of information per setting - the name, description, type, default value, and for "enum"-type settings, the list of valid values and their descriptions. If you're curious, you can see the latest one here: https://ticino.blob.core.windows.net/configuration/122001350/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/configuration.json. 122001350 is the unique build number, as discussed above. 6c22e21cd... is the git commit that the build was built off of. And Ticino, some of you diehard fans might remember, was our original short-lived code name.
 
 ## Backend
 
-Bing's service watches this share, notices a new build, and indexes it immediately. Several things must happen in order to index the new set of settings.
+Bing's service watches the Azure Storage container, notices a new build, and indexes it immediately. Several things must happen in order to index the new set of settings.
 
 First, the settings data then goes through an “alternative word” generation pipeline. This pipeline collects words with similar meanings to enrich the indexes. These words are collected from Bing search data using signals like user behavior, clicks, online ranking, page similarity, etc.
 
