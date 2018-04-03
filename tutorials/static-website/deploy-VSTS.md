@@ -70,12 +70,17 @@ After running `git push` you should be able to refresh your VSTS project page an
 
 2. Click the **Import** button in the top right and upload [this build definition template](https://raw.githubusercontent.com/bowdenk7/React-VSTS-build-definition/master/storage-deploy.json).
 
-![Import build](images/static-website/vsts/7-import-build.png)
+![Import build](images/static-website/vsts/7-import-build-definition.png)
 
 3. A few settings will be missing that you must fill in on your own:
-- In the **Process** section, select **Hosted** from the **Agent queue** drop down
+- In the **Process** section, select **Hosted Linux Preview** from the **Agent queue** drop down
 - Click on the **Get sources** section and let it update to automatically resolve the errors
-- Click on the **AzureBlob File Copy** section, select and authorize your Azure subscription, and select the **Storage Account** and **Container Name** we [created earlier](//TODO link back to earlier doc).
+- Click on the **Azure CLI** section, select and authorize your Azure subscription, and then input the container we [created earlier](create-storage) in place of **<container-name>** and **<connection-string>** in the **Inline Script** box.
+You can find the connection string in Azure Portal under the **Access Keys** section after selecting your storage account.
+
+
+> Warning! Make sure you keep single quotes around the `connection-string` argument.
+
 
 When done, your AzureBlob File Copy settings should look like this:
 
