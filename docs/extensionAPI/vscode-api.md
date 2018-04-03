@@ -9773,4 +9773,1713 @@ the given <a href="#TextEditorDecorationType">decoration type</a>, they will be 
 
 
 
-<a name="TextEditor.show"></a><span class="ts" id=351 data-target="#details-351" data-toggle="col
+<a name="TextEditor.show"></a><span class="ts" id=351 data-target="#details-351" data-toggle="collapse"><span class="ident">show</span><span>(</span><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-351">
+<div class="comment"><p><del>Show the text editor.</del></p>
+<ul>
+<li><em>deprecated</em> - Use <a href="#window.showTextDocument">window.showTextDocument</a></li>
+</ul>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="column"></a><span class="ts" id=352 data-target="#details-352" data-toggle="collapse"><span class="ident">column</span><span>?</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span></td><td><div class="comment"><p>The <a href="#ViewColumn">column</a> in which to show this editor.
+instead. This method shows unexpected behavior and will be removed in the next major update.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="TextEditorCursorStyle"></a><span class="code-item" id=204>TextEditorCursorStyle</span>
+
+
+
+<div class="comment"><p>Rendering style of the cursor.</p>
+</div>
+
+#### Enumeration members
+
+
+
+<a name="TextEditorCursorStyle.Block"></a><span class="ts" id=206 data-target="#details-206" data-toggle="collapse"><span class="ident">Block</span></span>
+<div class="details collapse" id="details-206">
+<em>2</em>
+</div>
+
+
+
+<a name="TextEditorCursorStyle.BlockOutline"></a><span class="ts" id=209 data-target="#details-209" data-toggle="collapse"><span class="ident">BlockOutline</span></span>
+<div class="details collapse" id="details-209">
+<em>5</em>
+</div>
+
+
+
+<a name="TextEditorCursorStyle.Line"></a><span class="ts" id=205 data-target="#details-205" data-toggle="collapse"><span class="ident">Line</span></span>
+<div class="details collapse" id="details-205">
+<em>1</em>
+</div>
+
+
+
+<a name="TextEditorCursorStyle.LineThin"></a><span class="ts" id=208 data-target="#details-208" data-toggle="collapse"><span class="ident">LineThin</span></span>
+<div class="details collapse" id="details-208">
+<em>4</em>
+</div>
+
+
+
+<a name="TextEditorCursorStyle.Underline"></a><span class="ts" id=207 data-target="#details-207" data-toggle="collapse"><span class="ident">Underline</span></span>
+<div class="details collapse" id="details-207">
+<em>3</em>
+</div>
+
+
+
+<a name="TextEditorCursorStyle.UnderlineThin"></a><span class="ts" id=210 data-target="#details-210" data-toggle="collapse"><span class="ident">UnderlineThin</span></span>
+<div class="details collapse" id="details-210">
+<em>6</em>
+</div>
+
+### <a name="TextEditorDecorationType"></a><span class="code-item" id=220>TextEditorDecorationType</span>
+
+
+
+<div class="comment"><p>Represents a handle to a set of decorations
+sharing the same <a href="#DecorationRenderOptions">styling options</a> in a <a href="#TextEditor">text editor</a>.</p>
+<p>To get an instance of a <code>TextEditorDecorationType</code> use
+<a href="#window.createTextEditorDecorationType">createTextEditorDecorationType</a>.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="TextEditorDecorationType.key"></a><span class="ts" id=221 data-target="#details-221" data-toggle="collapse"><span class="ident">key</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-221">
+<div class="comment"><p>Internal representation of the handle.</p>
+</div>
+</div>
+
+#### Methods
+
+
+
+<a name="TextEditorDecorationType.dispose"></a><span class="ts" id=223 data-target="#details-223" data-toggle="collapse"><span class="ident">dispose</span><span>(</span><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-223">
+<div class="comment"><p>Remove this decoration type and all decorations on all text editors using it.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="TextEditorEdit"></a><span class="code-item" id=358>TextEditorEdit</span>
+
+
+
+<div class="comment"><p>A complex edit that will be applied in one transaction on a TextEditor.
+This holds a description of the edits and if the edits are valid (i.e. no overlapping regions, document was not changed in the meantime, etc.)
+they can be applied on a <a href="#TextDocument">document</a> associated with a <a href="#TextEditor">text editor</a>.</p>
+</div>
+
+#### Methods
+
+
+
+<a name="TextEditorEdit.delete"></a><span class="ts" id=368 data-target="#details-368" data-toggle="collapse"><span class="ident">delete</span><span>(</span><span class="ident">location</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-368">
+<div class="comment"><p>Delete a certain text region.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="location"></a><span class="ts" id=369 data-target="#details-369" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a></span></td><td><div class="comment"><p>The range this operation should remove.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="TextEditorEdit.insert"></a><span class="ts" id=364 data-target="#details-364" data-toggle="collapse"><span class="ident">insert</span><span>(</span><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-364">
+<div class="comment"><p>Insert text at a location.
+You can use \r\n or \n in <code>value</code> and they will be normalized to the current <a href="#TextDocument">document</a>.
+Although the equivalent text edit can be made with <a href="#TextEditorEdit.replace">replace</a>, <code>insert</code> will produce a different resulting selection (it will get moved).</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="location"></a><span class="ts" id=365 data-target="#details-365" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>The position where the new text should be inserted.</p>
+</div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=366 data-target="#details-366" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The new text this operation should insert.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="TextEditorEdit.replace"></a><span class="ts" id=360 data-target="#details-360" data-toggle="collapse"><span class="ident">replace</span><span>(</span><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a>, <span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-360">
+<div class="comment"><p>Replace a certain text region with a new value.
+You can use \r\n or \n in <code>value</code> and they will be normalized to the current <a href="#TextDocument">document</a>.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="location"></a><span class="ts" id=361 data-target="#details-361" data-toggle="collapse"><span class="ident">location</span><span>: </span><a class="type-ref" href="#Position">Position</a> &#124; <a class="type-ref" href="#Range">Range</a> &#124; <a class="type-ref" href="#Selection">Selection</a></span></td><td><div class="comment"><p>The range this operation should remove.</p>
+</div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=362 data-target="#details-362" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The new text this operation should insert after removing <code>location</code>.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="TextEditorEdit.setEndOfLine"></a><span class="ts" id=371 data-target="#details-371" data-toggle="collapse"><span class="ident">setEndOfLine</span><span>(</span><span class="ident">endOfLine</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-371">
+<div class="comment"><p>Set the end of line sequence.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="endOfLine"></a><span class="ts" id=372 data-target="#details-372" data-toggle="collapse"><span class="ident">endOfLine</span><span>: </span><a class="type-ref" href="#EndOfLine">EndOfLine</a></span></td><td><div class="comment"><p>The new end of line for the <a href="#TextDocument">document</a>.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="TextEditorLineNumbersStyle"></a><span class="code-item" id=211>TextEditorLineNumbersStyle</span>
+
+
+
+<div class="comment"><p>Rendering style of the line numbers.</p>
+</div>
+
+#### Enumeration members
+
+
+
+<a name="TextEditorLineNumbersStyle.Off"></a><span class="ts" id=212 data-target="#details-212" data-toggle="collapse"><span class="ident">Off</span></span>
+<div class="details collapse" id="details-212">
+<em>0</em>
+</div>
+
+
+
+<a name="TextEditorLineNumbersStyle.On"></a><span class="ts" id=213 data-target="#details-213" data-toggle="collapse"><span class="ident">On</span></span>
+<div class="details collapse" id="details-213">
+<em>1</em>
+</div>
+
+
+
+<a name="TextEditorLineNumbersStyle.Relative"></a><span class="ts" id=214 data-target="#details-214" data-toggle="collapse"><span class="ident">Relative</span></span>
+<div class="details collapse" id="details-214">
+<em>2</em>
+</div>
+
+### <a name="TextEditorOptions"></a><span class="code-item" id=215>TextEditorOptions</span>
+
+
+
+<div class="comment"><p>Represents a <a href="#TextEditor">text editor</a>&#39;s <a href="#TextEditor.options">options</a>.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="TextEditorOptions.cursorStyle"></a><span class="ts" id=218 data-target="#details-218" data-toggle="collapse"><span class="ident">cursorStyle</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorCursorStyle">TextEditorCursorStyle</a></span>
+<div class="details collapse" id="details-218">
+<div class="comment"><p>The rendering style of the cursor in this editor.
+When getting a text editor&#39;s options, this property will always be present.
+When setting a text editor&#39;s options, this property is optional.</p>
+</div>
+</div>
+
+
+
+<a name="TextEditorOptions.insertSpaces"></a><span class="ts" id=217 data-target="#details-217" data-toggle="collapse"><span class="ident">insertSpaces</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a> &#124; <a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-217">
+<div class="comment"><p>When pressing Tab insert <a href="#TextEditorOptions.tabSize">n</a> spaces.
+When getting a text editor&#39;s options, this property will always be a boolean (resolved).
+When setting a text editor&#39;s options, this property is optional and it can be a boolean or <code>&quot;auto&quot;</code>.</p>
+</div>
+</div>
+
+
+
+<a name="TextEditorOptions.lineNumbers"></a><span class="ts" id=219 data-target="#details-219" data-toggle="collapse"><span class="ident">lineNumbers</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorLineNumbersStyle">TextEditorLineNumbersStyle</a></span>
+<div class="details collapse" id="details-219">
+<div class="comment"><p>Render relative line numbers w.r.t. the current line number.
+When getting a text editor&#39;s options, this property will always be present.
+When setting a text editor&#39;s options, this property is optional.</p>
+</div>
+</div>
+
+
+
+<a name="TextEditorOptions.tabSize"></a><span class="ts" id=216 data-target="#details-216" data-toggle="collapse"><span class="ident">tabSize</span><span>?</span><span>: </span><a class="type-intrinsic">number</a> &#124; <a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-216">
+<div class="comment"><p>The size in spaces a tab takes. This is used for two purposes:</p>
+<ul>
+<li>the rendering width of a tab character;</li>
+<li>the number of spaces to insert when <a href="#TextEditorOptions.insertSpaces">insertSpaces</a> is true.</li>
+</ul>
+<p>When getting a text editor&#39;s options, this property will always be a number (resolved).
+When setting a text editor&#39;s options, this property is optional and it can be a number or <code>&quot;auto&quot;</code>.</p>
+</div>
+</div>
+
+### <a name="TextEditorOptionsChangeEvent"></a><span class="code-item" id=198>TextEditorOptionsChangeEvent</span>
+
+
+
+<div class="comment"><p>Represents an event describing the change in a <a href="#TextEditor.options">text editor&#39;s options</a>.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="TextEditorOptionsChangeEvent.options"></a><span class="ts" id=200 data-target="#details-200" data-toggle="collapse"><span class="ident">options</span><span>: </span><a class="type-ref" href="#TextEditorOptions">TextEditorOptions</a></span>
+<div class="details collapse" id="details-200">
+<div class="comment"><p>The new value for the <a href="#TextEditor.options">text editor&#39;s options</a>.</p>
+</div>
+</div>
+
+
+
+<a name="TextEditorOptionsChangeEvent.textEditor"></a><span class="ts" id=199 data-target="#details-199" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
+<div class="details collapse" id="details-199">
+<div class="comment"><p>The <a href="#TextEditor">text editor</a> for which the options have changed.</p>
+</div>
+</div>
+
+### <a name="TextEditorRevealType"></a><span class="code-item" id=224>TextEditorRevealType</span>
+
+
+
+<div class="comment"><p>Represents different <a href="#TextEditor.revealRange">reveal</a> strategies in a text editor.</p>
+</div>
+
+#### Enumeration members
+
+
+
+<a name="TextEditorRevealType.AtTop"></a><span class="ts" id=228 data-target="#details-228" data-toggle="collapse"><span class="ident">AtTop</span></span>
+<div class="details collapse" id="details-228">
+<em>3</em>
+</div>
+
+
+
+<a name="TextEditorRevealType.Default"></a><span class="ts" id=225 data-target="#details-225" data-toggle="collapse"><span class="ident">Default</span></span>
+<div class="details collapse" id="details-225">
+<em>0</em>
+</div>
+
+
+
+<a name="TextEditorRevealType.InCenter"></a><span class="ts" id=226 data-target="#details-226" data-toggle="collapse"><span class="ident">InCenter</span></span>
+<div class="details collapse" id="details-226">
+<em>1</em>
+</div>
+
+
+
+<a name="TextEditorRevealType.InCenterIfOutsideViewport"></a><span class="ts" id=227 data-target="#details-227" data-toggle="collapse"><span class="ident">InCenterIfOutsideViewport</span></span>
+<div class="details collapse" id="details-227">
+<em>2</em>
+</div>
+
+### <a name="TextEditorSelectionChangeEvent"></a><span class="code-item" id=194>TextEditorSelectionChangeEvent</span>
+
+
+
+<div class="comment"><p>Represents an event describing the change in a <a href="#TextEditor.selections">text editor&#39;s selections</a>.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="TextEditorSelectionChangeEvent.kind"></a><span class="ts" id=197 data-target="#details-197" data-toggle="collapse"><span class="ident">kind</span><span>?</span><span>: </span><a class="type-ref" href="#TextEditorSelectionChangeKind">TextEditorSelectionChangeKind</a></span>
+<div class="details collapse" id="details-197">
+<div class="comment"><p>The <a href="#TextEditorSelectionChangeKind">change kind</a> which has triggered this
+event. Can be <code>undefined</code>.</p>
+</div>
+</div>
+
+
+
+<a name="TextEditorSelectionChangeEvent.selections"></a><span class="ts" id=196 data-target="#details-196" data-toggle="collapse"><span class="ident">selections</span><span>: </span><a class="type-ref" href="#Selection">Selection</a>[]</span>
+<div class="details collapse" id="details-196">
+<div class="comment"><p>The new value for the <a href="#TextEditor.selections">text editor&#39;s selections</a>.</p>
+</div>
+</div>
+
+
+
+<a name="TextEditorSelectionChangeEvent.textEditor"></a><span class="ts" id=195 data-target="#details-195" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
+<div class="details collapse" id="details-195">
+<div class="comment"><p>The <a href="#TextEditor">text editor</a> for which the selections have changed.</p>
+</div>
+</div>
+
+### <a name="TextEditorSelectionChangeKind"></a><span class="code-item" id=190>TextEditorSelectionChangeKind</span>
+
+
+
+<div class="comment"><p>Represents sources that can cause <a href="#window.onDidChangeTextEditorSelection">selection change events</a>.</p>
+</div>
+
+#### Enumeration members
+
+
+
+<a name="TextEditorSelectionChangeKind.Command"></a><span class="ts" id=193 data-target="#details-193" data-toggle="collapse"><span class="ident">Command</span></span>
+<div class="details collapse" id="details-193">
+<em>3</em>
+</div>
+
+
+
+<a name="TextEditorSelectionChangeKind.Keyboard"></a><span class="ts" id=191 data-target="#details-191" data-toggle="collapse"><span class="ident">Keyboard</span></span>
+<div class="details collapse" id="details-191">
+<em>1</em>
+</div>
+
+
+
+<a name="TextEditorSelectionChangeKind.Mouse"></a><span class="ts" id=192 data-target="#details-192" data-toggle="collapse"><span class="ident">Mouse</span></span>
+<div class="details collapse" id="details-192">
+<em>2</em>
+</div>
+
+### <a name="TextEditorViewColumnChangeEvent"></a><span class="code-item" id=201>TextEditorViewColumnChangeEvent</span>
+
+
+
+<div class="comment"><p>Represents an event describing the change of a <a href="#TextEditor.viewColumn">text editor&#39;s view column</a>.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="TextEditorViewColumnChangeEvent.textEditor"></a><span class="ts" id=202 data-target="#details-202" data-toggle="collapse"><span class="ident">textEditor</span><span>: </span><a class="type-ref" href="#TextEditor">TextEditor</a></span>
+<div class="details collapse" id="details-202">
+<div class="comment"><p>The <a href="#TextEditor">text editor</a> for which the options have changed.</p>
+</div>
+</div>
+
+
+
+<a name="TextEditorViewColumnChangeEvent.viewColumn"></a><span class="ts" id=203 data-target="#details-203" data-toggle="collapse"><span class="ident">viewColumn</span><span>: </span><a class="type-ref" href="#ViewColumn">ViewColumn</a></span>
+<div class="details collapse" id="details-203">
+<div class="comment"><p>The new value for the <a href="#TextEditor.viewColumn">text editor&#39;s view column</a>.</p>
+</div>
+</div>
+
+### <a name="TextLine"></a><span class="code-item" id=31>TextLine</span>
+
+
+
+<div class="comment"><p>Represents a line of text, such as a line of source code.</p>
+<p>TextLine objects are <strong>immutable</strong>. When a <a href="#TextDocument">document</a> changes,
+previously retrieved lines will not represent the latest state.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="TextLine.firstNonWhitespaceCharacterIndex"></a><span class="ts" id=36 data-target="#details-36" data-toggle="collapse"><span class="ident">firstNonWhitespaceCharacterIndex</span><span>: </span><a class="type-intrinsic">number</a></span>
+<div class="details collapse" id="details-36">
+<div class="comment"><p>The offset of the first character which is not a whitespace character as defined
+by <code>/\s/</code>. <strong>Note</strong> that if a line is all whitespaces the length of the line is returned.</p>
+</div>
+</div>
+
+
+
+<a name="TextLine.isEmptyOrWhitespace"></a><span class="ts" id=37 data-target="#details-37" data-toggle="collapse"><span class="ident">isEmptyOrWhitespace</span><span>: </span><a class="type-intrinsic">boolean</a></span>
+<div class="details collapse" id="details-37">
+<div class="comment"><p>Whether this line is whitespace only, shorthand
+for <a href="#TextLine.firstNonWhitespaceCharacterIndex">TextLine.firstNonWhitespaceCharacterIndex</a> === <a href="#TextLine.text">TextLine.text.length</a>.</p>
+</div>
+</div>
+
+
+
+<a name="TextLine.lineNumber"></a><span class="ts" id=32 data-target="#details-32" data-toggle="collapse"><span class="ident">lineNumber</span><span>: </span><a class="type-intrinsic">number</a></span>
+<div class="details collapse" id="details-32">
+<div class="comment"><p>The zero-based line number.</p>
+</div>
+</div>
+
+
+
+<a name="TextLine.range"></a><span class="ts" id=34 data-target="#details-34" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
+<div class="details collapse" id="details-34">
+<div class="comment"><p>The range this line covers without the line separator characters.</p>
+</div>
+</div>
+
+
+
+<a name="TextLine.rangeIncludingLineBreak"></a><span class="ts" id=35 data-target="#details-35" data-toggle="collapse"><span class="ident">rangeIncludingLineBreak</span><span>: </span><a class="type-ref" href="#Range">Range</a></span>
+<div class="details collapse" id="details-35">
+<div class="comment"><p>The range this line covers with the line separator characters.</p>
+</div>
+</div>
+
+
+
+<a name="TextLine.text"></a><span class="ts" id=33 data-target="#details-33" data-toggle="collapse"><span class="ident">text</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-33">
+<div class="comment"><p>The text of this line without the line separator characters.</p>
+</div>
+</div>
+
+### <a name="ThemableDecorationAttachmentRenderOptions"></a><span class="code-item" id=269>ThemableDecorationAttachmentRenderOptions</span>
+
+
+
+<div class="comment"></div>
+
+#### Properties
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.backgroundColor"></a><span class="ts" id=276 data-target="#details-276" data-toggle="collapse"><span class="ident">backgroundColor</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-276">
+<div class="comment"><p>CSS styling property that will be applied to the decoration attachment.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.border"></a><span class="ts" id=272 data-target="#details-272" data-toggle="collapse"><span class="ident">border</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-272">
+<div class="comment"><p>CSS styling property that will be applied to the decoration attachment.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.borderColor"></a><span class="ts" id=273 data-target="#details-273" data-toggle="collapse"><span class="ident">borderColor</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-273">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.color"></a><span class="ts" id=275 data-target="#details-275" data-toggle="collapse"><span class="ident">color</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-275">
+<div class="comment"><p>CSS styling property that will be applied to the decoration attachment.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.contentIconPath"></a><span class="ts" id=271 data-target="#details-271" data-toggle="collapse"><span class="ident">contentIconPath</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span>
+<div class="details collapse" id="details-271">
+<div class="comment"><p>An <strong>absolute path</strong> or an URI to an image to be rendered in the attachment. Either an icon
+or a text can be shown, but not both.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.contentText"></a><span class="ts" id=270 data-target="#details-270" data-toggle="collapse"><span class="ident">contentText</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-270">
+<div class="comment"><p>Defines a text content that is shown in the attachment. Either an icon or a text can be shown, but not both.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.height"></a><span class="ts" id=279 data-target="#details-279" data-toggle="collapse"><span class="ident">height</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-279">
+<div class="comment"><p>CSS styling property that will be applied to the decoration attachment.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.margin"></a><span class="ts" id=277 data-target="#details-277" data-toggle="collapse"><span class="ident">margin</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-277">
+<div class="comment"><p>CSS styling property that will be applied to the decoration attachment.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.textDecoration"></a><span class="ts" id=274 data-target="#details-274" data-toggle="collapse"><span class="ident">textDecoration</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-274">
+<div class="comment"><p>CSS styling property that will be applied to the decoration attachment.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationAttachmentRenderOptions.width"></a><span class="ts" id=278 data-target="#details-278" data-toggle="collapse"><span class="ident">width</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-278">
+<div class="comment"><p>CSS styling property that will be applied to the decoration attachment.</p>
+</div>
+</div>
+
+### <a name="ThemableDecorationInstanceRenderOptions"></a><span class="code-item" id=310>ThemableDecorationInstanceRenderOptions</span>
+
+
+
+<div class="comment"></div>
+
+#### Properties
+
+
+
+<a name="ThemableDecorationInstanceRenderOptions.after"></a><span class="ts" id=312 data-target="#details-312" data-toggle="collapse"><span class="ident">after</span><span>?</span><span>: </span><a class="type-ref" href="#ThemableDecorationAttachmentRenderOptions">ThemableDecorationAttachmentRenderOptions</a></span>
+<div class="details collapse" id="details-312">
+<div class="comment"><p>Defines the rendering options of the attachment that is inserted after the decorated text</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationInstanceRenderOptions.before"></a><span class="ts" id=311 data-target="#details-311" data-toggle="collapse"><span class="ident">before</span><span>?</span><span>: </span><a class="type-ref" href="#ThemableDecorationAttachmentRenderOptions">ThemableDecorationAttachmentRenderOptions</a></span>
+<div class="details collapse" id="details-311">
+<div class="comment"><p>Defines the rendering options of the attachment that is inserted before the decorated text</p>
+</div>
+</div>
+
+### <a name="ThemableDecorationRenderOptions"></a><span class="code-item" id=248>ThemableDecorationRenderOptions</span>
+
+
+
+<div class="comment"><p>Represents theme specific rendering styles for a <a href="#TextEditorDecorationType">text editor decoration</a>.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="ThemableDecorationRenderOptions.after"></a><span class="ts" id=268 data-target="#details-268" data-toggle="collapse"><span class="ident">after</span><span>?</span><span>: </span><a class="type-ref" href="#ThemableDecorationAttachmentRenderOptions">ThemableDecorationAttachmentRenderOptions</a></span>
+<div class="details collapse" id="details-268">
+<div class="comment"><p>Defines the rendering options of the attachment that is inserted after the decorated text</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.backgroundColor"></a><span class="ts" id=249 data-target="#details-249" data-toggle="collapse"><span class="ident">backgroundColor</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-249">
+<div class="comment"><p>Background color of the decoration. Use rgba() and define transparent background colors to play well with other decorations.
+Alternatively a color from the color registry can be <a href="#ThemeColor">referenced</a>.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.before"></a><span class="ts" id=267 data-target="#details-267" data-toggle="collapse"><span class="ident">before</span><span>?</span><span>: </span><a class="type-ref" href="#ThemableDecorationAttachmentRenderOptions">ThemableDecorationAttachmentRenderOptions</a></span>
+<div class="details collapse" id="details-267">
+<div class="comment"><p>Defines the rendering options of the attachment that is inserted before the decorated text</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.border"></a><span class="ts" id=254 data-target="#details-254" data-toggle="collapse"><span class="ident">border</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-254">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.borderColor"></a><span class="ts" id=255 data-target="#details-255" data-toggle="collapse"><span class="ident">borderColor</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-255">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.
+Better use &#39;border&#39; for setting one or more of the individual border properties.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.borderRadius"></a><span class="ts" id=256 data-target="#details-256" data-toggle="collapse"><span class="ident">borderRadius</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-256">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.
+Better use &#39;border&#39; for setting one or more of the individual border properties.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.borderSpacing"></a><span class="ts" id=257 data-target="#details-257" data-toggle="collapse"><span class="ident">borderSpacing</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-257">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.
+Better use &#39;border&#39; for setting one or more of the individual border properties.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.borderStyle"></a><span class="ts" id=258 data-target="#details-258" data-toggle="collapse"><span class="ident">borderStyle</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-258">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.
+Better use &#39;border&#39; for setting one or more of the individual border properties.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.borderWidth"></a><span class="ts" id=259 data-target="#details-259" data-toggle="collapse"><span class="ident">borderWidth</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-259">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.
+Better use &#39;border&#39; for setting one or more of the individual border properties.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.color"></a><span class="ts" id=262 data-target="#details-262" data-toggle="collapse"><span class="ident">color</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-262">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.cursor"></a><span class="ts" id=261 data-target="#details-261" data-toggle="collapse"><span class="ident">cursor</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-261">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.gutterIconPath"></a><span class="ts" id=264 data-target="#details-264" data-toggle="collapse"><span class="ident">gutterIconPath</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a></span>
+<div class="details collapse" id="details-264">
+<div class="comment"><p>An <strong>absolute path</strong> or an URI to an image to be rendered in the gutter.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.gutterIconSize"></a><span class="ts" id=265 data-target="#details-265" data-toggle="collapse"><span class="ident">gutterIconSize</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-265">
+<div class="comment"><p>Specifies the size of the gutter icon.
+Available values are &#39;auto&#39;, &#39;contain&#39;, &#39;cover&#39; and any percentage value.
+For further information: <a href="https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/jj127316(v=vs.85).aspx</a></p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.letterSpacing"></a><span class="ts" id=263 data-target="#details-263" data-toggle="collapse"><span class="ident">letterSpacing</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-263">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.outline"></a><span class="ts" id=250 data-target="#details-250" data-toggle="collapse"><span class="ident">outline</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-250">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.outlineColor"></a><span class="ts" id=251 data-target="#details-251" data-toggle="collapse"><span class="ident">outlineColor</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-251">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.
+Better use &#39;outline&#39; for setting one or more of the individual outline properties.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.outlineStyle"></a><span class="ts" id=252 data-target="#details-252" data-toggle="collapse"><span class="ident">outlineStyle</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-252">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.
+Better use &#39;outline&#39; for setting one or more of the individual outline properties.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.outlineWidth"></a><span class="ts" id=253 data-target="#details-253" data-toggle="collapse"><span class="ident">outlineWidth</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-253">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.
+Better use &#39;outline&#39; for setting one or more of the individual outline properties.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.overviewRulerColor"></a><span class="ts" id=266 data-target="#details-266" data-toggle="collapse"><span class="ident">overviewRulerColor</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-266">
+<div class="comment"><p>The color of the decoration in the overview ruler. Use rgba() and define transparent colors to play well with other decorations.</p>
+</div>
+</div>
+
+
+
+<a name="ThemableDecorationRenderOptions.textDecoration"></a><span class="ts" id=260 data-target="#details-260" data-toggle="collapse"><span class="ident">textDecoration</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-260">
+<div class="comment"><p>CSS styling property that will be applied to text enclosed by a decoration.</p>
+</div>
+</div>
+
+### <a name="ThemeColor"></a><span class="code-item" id=244>ThemeColor</span>
+
+
+
+<div class="comment"><p>A reference to one of the workbench colors as defined in <a href="https://code.visualstudio.com/docs/getstarted/theme-color-reference">https://code.visualstudio.com/docs/getstarted/theme-color-reference</a>.
+Using a theme color is preferred over a custom color as it gives theme authors and users the possibility to change the color.</p>
+</div>
+
+#### Constructors
+
+
+
+<a name="ThemeColor.new ThemeColor"></a><span class="ts" id=246 data-target="#details-246" data-toggle="collapse"><span class="ident">new ThemeColor</span><span>(</span><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#ThemeColor">ThemeColor</a></span>
+<div class="details collapse" id="details-246">
+<div class="comment"><p>Creates a reference to a theme color.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="id"></a><span class="ts" id=247 data-target="#details-247" data-toggle="collapse"><span class="ident">id</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>of the color. The available colors are listed in <a href="https://code.visualstudio.com/docs/getstarted/theme-color-reference">https://code.visualstudio.com/docs/getstarted/theme-color-reference</a>.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#ThemeColor">ThemeColor</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="TreeDataProvider"></a><span class="code-item" id=1260>TreeDataProvider&lt;T&gt;</span>
+
+
+
+<div class="comment"><p>A data provider that provides tree data</p>
+</div>
+
+#### Events
+
+
+
+<a name="TreeDataProvider.onDidChangeTreeData"></a><span class="ts" id=1262 data-target="#details-1262" data-toggle="collapse"><span class="ident">onDidChangeTreeData</span><span>?</span><span>: </span><a class="type-ref" href="#Event">Event</a>&lt;<a class="type-intrinsic">T</a> &#124; <a class="type-intrinsic">undefined</a> &#124; <a class="type-intrinsic">null</a>&gt;</span>
+<div class="details collapse" id="details-1262">
+<div class="comment"><p>An optional event to signal that an element or root has changed.
+To signal that root has changed, do not pass any argument or pass <code>undefined</code> or <code>null</code>.</p>
+</div>
+</div>
+
+#### Methods
+
+
+
+<a name="TreeDataProvider.getChildren"></a><span class="ts" id=1267 data-target="#details-1267" data-toggle="collapse"><span class="ident">getChildren</span><span>(</span><span class="ident">element</span><span>?</span><span>: </span><a class="type-intrinsic">T</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>[]&gt;</span>
+<div class="details collapse" id="details-1267">
+<div class="comment"><p>Get the children of <code>element</code> or root if no element is passed.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="element"></a><span class="ts" id=1268 data-target="#details-1268" data-toggle="collapse"><span class="ident">element</span><span>?</span><span>: </span><a class="type-intrinsic">T</a></span></td><td><div class="comment"><p>The element from which the provider gets children. Can be <code>undefined</code>.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-intrinsic">T</a>[]&gt;</span></td><td><div class="comment"><p>Children of <code>element</code> or root if no element is passed.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="TreeDataProvider.getTreeItem"></a><span class="ts" id=1264 data-target="#details-1264" data-toggle="collapse"><span class="ident">getTreeItem</span><span>(</span><span class="ident">element</span><span>: </span><a class="type-intrinsic">T</a><span>)</span><span>: </span><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span>
+<div class="details collapse" id="details-1264">
+<div class="comment"><p>Get <a href="#TreeItem">TreeItem</a> representation of the <code>element</code></p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="element"></a><span class="ts" id=1265 data-target="#details-1265" data-toggle="collapse"><span class="ident">element</span><span>: </span><a class="type-intrinsic">T</a></span></td><td><div class="comment"><p>The element for which <a href="#TreeItem">TreeItem</a> representation is asked for.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a> &#124; <a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-ref" href="#TreeItem">TreeItem</a>&gt;</span></td><td><div class="comment"><p>(#TreeItem) representation of the element</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="TreeItem"></a><span class="code-item" id=1269>TreeItem</span>
+
+
+
+<div class="comment"></div>
+
+#### Constructors
+
+
+
+<a name="TreeItem.new TreeItem"></a><span class="ts" id=1279 data-target="#details-1279" data-toggle="collapse"><span class="ident">new TreeItem</span><span>(</span><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a><span>)</span><span>: </span><a class="type-ref" href="#TreeItem">TreeItem</a></span>
+<div class="details collapse" id="details-1279">
+<div class="comment"></div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="label"></a><span class="ts" id=1280 data-target="#details-1280" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A human-readable string describing this item</p>
+</div></td></tr>
+<tr><td><a name="collapsibleState"></a><span class="ts" id=1281 data-target="#details-1281" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span></td><td><div class="comment"><p>(#TreeItemCollapsibleState) of the tree item. Default is <a href="#TreeItemCollapsibleState.None">TreeItemCollapsibleState.None</a></p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#TreeItem">TreeItem</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+#### Properties
+
+
+
+<a name="TreeItem.collapsibleState"></a><span class="ts" id=1276 data-target="#details-1276" data-toggle="collapse"><span class="ident">collapsibleState</span><span>?</span><span>: </span><a class="type-ref" href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a></span>
+<div class="details collapse" id="details-1276">
+<div class="comment"><p><a href="#TreeItemCollapsibleState">TreeItemCollapsibleState</a> of the tree item.</p>
+</div>
+</div>
+
+
+
+<a name="TreeItem.command"></a><span class="ts" id=1275 data-target="#details-1275" data-toggle="collapse"><span class="ident">command</span><span>?</span><span>: </span><a class="type-ref" href="#Command">Command</a></span>
+<div class="details collapse" id="details-1275">
+<div class="comment"><p>The <a href="#Command">command</a> which should be run when the tree item is selected.</p>
+</div>
+</div>
+
+
+
+<a name="TreeItem.contextValue"></a><span class="ts" id=1277 data-target="#details-1277" data-toggle="collapse"><span class="ident">contextValue</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-1277">
+<div class="comment"><p>Context value of the tree item. This can be used to contribute item specific actions in the tree.
+For example, a tree item is given a context value as <code>folder</code>. When contributing actions to <code>view/item/context</code>
+using <code>menus</code> extension point, you can specify context value for key <code>viewItem</code> in <code>when</code> expression like <code>viewItem == folder</code>.</p>
+
+<pre><code>    <span class="hljs-string">"contributes"</span>: {
+        <span class="hljs-string">"menus"</span>: {
+            <span class="hljs-string">"view/item/context"</span>: [
+                {
+                    <span class="hljs-string">"command"</span>: <span class="hljs-string">"extension.deleteFolder"</span>,
+                    <span class="hljs-string">"when"</span>: <span class="hljs-string">"viewItem == folder"</span>
+                }
+            ]
+        }
+    }
+</code></pre><p>This will show action <code>extension.deleteFolder</code> only for items with <code>contextValue</code> is <code>folder</code>.</p>
+</div>
+</div>
+
+
+
+<a name="TreeItem.iconPath"></a><span class="ts" id=1271 data-target="#details-1271" data-toggle="collapse"><span class="ident">iconPath</span><span>?</span><span>: </span><a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a> &#124; {dark: <a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a>, light: <a class="type-intrinsic">string</a> &#124; <a class="type-ref" href="#Uri">Uri</a>}</span>
+<div class="details collapse" id="details-1271">
+<div class="comment"><p>The icon path for the tree item</p>
+</div>
+</div>
+
+
+
+<a name="TreeItem.label"></a><span class="ts" id=1270 data-target="#details-1270" data-toggle="collapse"><span class="ident">label</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-1270">
+<div class="comment"><p>A human-readable string describing this item</p>
+</div>
+</div>
+
+### <a name="TreeItemCollapsibleState"></a><span class="code-item" id=1282>TreeItemCollapsibleState</span>
+
+
+
+<div class="comment"><p>Collapsible state of the tree item</p>
+</div>
+
+#### Enumeration members
+
+
+
+<a name="TreeItemCollapsibleState.Collapsed"></a><span class="ts" id=1284 data-target="#details-1284" data-toggle="collapse"><span class="ident">Collapsed</span></span>
+<div class="details collapse" id="details-1284">
+<em>1</em>
+</div>
+
+
+
+<a name="TreeItemCollapsibleState.Expanded"></a><span class="ts" id=1285 data-target="#details-1285" data-toggle="collapse"><span class="ident">Expanded</span></span>
+<div class="details collapse" id="details-1285">
+<em>2</em>
+</div>
+
+
+
+<a name="TreeItemCollapsibleState.None"></a><span class="ts" id=1283 data-target="#details-1283" data-toggle="collapse"><span class="ident">None</span></span>
+<div class="details collapse" id="details-1283">
+<em>0</em>
+</div>
+
+### <a name="TypeDefinitionProvider"></a><span class="code-item" id=568>TypeDefinitionProvider</span>
+
+
+
+<div class="comment"><p>The type definition provider defines the contract between extensions and
+the go to type definition feature.</p>
+</div>
+
+#### Methods
+
+
+
+<a name="TypeDefinitionProvider.provideTypeDefinition"></a><span class="ts" id=570 data-target="#details-570" data-toggle="collapse"><span class="ident">provideTypeDefinition</span><span>(</span><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#Definition">Definition</a>&gt;</span>
+<div class="details collapse" id="details-570">
+<div class="comment"><p>Provide the type definition of the symbol at the given position and document.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="document"></a><span class="ts" id=571 data-target="#details-571" data-toggle="collapse"><span class="ident">document</span><span>: </span><a class="type-ref" href="#TextDocument">TextDocument</a></span></td><td><div class="comment"><p>The document in which the command was invoked.</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=572 data-target="#details-572" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>The position at which the command was invoked.</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=573 data-target="#details-573" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#Definition">Definition</a>&gt;</span></td><td><div class="comment"><p>A definition or a thenable that resolves to such. The lack of a result can be
+signaled by returning <code>undefined</code> or <code>null</code>.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="Uri"></a><span class="code-item" id=373>Uri</span>
+
+
+
+<div class="comment"><p>A universal resource identifier representing either a file on disk
+or another resource, like untitled resources.</p>
+</div>
+
+#### Static
+
+
+
+<a name="Uri.file"></a><span class="ts" id=375 data-target="#details-375" data-toggle="collapse"><span class="ident">file</span><span>(</span><span class="ident">path</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
+<div class="details collapse" id="details-375">
+<div class="comment"><p>Create an URI from a file system path. The <a href="#Uri.scheme">scheme</a>
+will be <code>file</code>.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="path"></a><span class="ts" id=376 data-target="#details-376" data-toggle="collapse"><span class="ident">path</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A file system or UNC path.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A new Uri instance.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="Uri.parse"></a><span class="ts" id=378 data-target="#details-378" data-toggle="collapse"><span class="ident">parse</span><span>(</span><span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
+<div class="details collapse" id="details-378">
+<div class="comment"><p>Create an URI from a string. Will throw if the given value is not
+valid.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="value"></a><span class="ts" id=379 data-target="#details-379" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>The string value of an Uri.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A new Uri instance.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+#### Constructors
+
+
+
+<a name="Uri.new Uri"></a><span class="ts" id=381 data-target="#details-381" data-toggle="collapse"><span class="ident">new Uri</span><span>(</span><span class="ident">scheme</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">authority</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">path</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">query</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">fragment</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
+<div class="details collapse" id="details-381">
+<div class="comment"><p>Use the <code>file</code> and <code>parse</code> factory functions to create new <code>Uri</code> objects.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="scheme"></a><span class="ts" id=382 data-target="#details-382" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="authority"></a><span class="ts" id=383 data-target="#details-383" data-toggle="collapse"><span class="ident">authority</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="path"></a><span class="ts" id=384 data-target="#details-384" data-toggle="collapse"><span class="ident">path</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="query"></a><span class="ts" id=385 data-target="#details-385" data-toggle="collapse"><span class="ident">query</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><td><a name="fragment"></a><span class="ts" id=386 data-target="#details-386" data-toggle="collapse"><span class="ident">fragment</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"></div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+#### Properties
+
+
+
+<a name="Uri.authority"></a><span class="ts" id=388 data-target="#details-388" data-toggle="collapse"><span class="ident">authority</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-388">
+<div class="comment"><p>Authority is the <code>www.msft.com</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.
+The part between the first double slashes and the next slash.</p>
+</div>
+</div>
+
+
+
+<a name="Uri.fragment"></a><span class="ts" id=391 data-target="#details-391" data-toggle="collapse"><span class="ident">fragment</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-391">
+<div class="comment"><p>Fragment is the <code>fragment</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.</p>
+</div>
+</div>
+
+
+
+<a name="Uri.fsPath"></a><span class="ts" id=392 data-target="#details-392" data-toggle="collapse"><span class="ident">fsPath</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-392">
+<div class="comment"><p>The string representing the corresponding file system path of this Uri.</p>
+<p>Will handle UNC paths and normalize windows drive letters to lower-case. Also
+uses the platform specific path separator. Will <em>not</em> validate the path for
+invalid characters and semantics. Will <em>not</em> look at the scheme of this Uri.</p>
+</div>
+</div>
+
+
+
+<a name="Uri.path"></a><span class="ts" id=389 data-target="#details-389" data-toggle="collapse"><span class="ident">path</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-389">
+<div class="comment"><p>Path is the <code>/some/path</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.</p>
+</div>
+</div>
+
+
+
+<a name="Uri.query"></a><span class="ts" id=390 data-target="#details-390" data-toggle="collapse"><span class="ident">query</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-390">
+<div class="comment"><p>Query is the <code>query</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.</p>
+</div>
+</div>
+
+
+
+<a name="Uri.scheme"></a><span class="ts" id=387 data-target="#details-387" data-toggle="collapse"><span class="ident">scheme</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-387">
+<div class="comment"><p>Scheme is the <code>http</code> part of <code>http://www.msft.com/some/path?query#fragment</code>.
+The part before the first colon.</p>
+</div>
+</div>
+
+#### Methods
+
+
+
+<a name="Uri.toJSON"></a><span class="ts" id=406 data-target="#details-406" data-toggle="collapse"><span class="ident">toJSON</span><span>(</span><span>)</span><span>: </span><a class="type-intrinsic">any</a></span>
+<div class="details collapse" id="details-406">
+<div class="comment"><p>Returns a JSON representation of this Uri.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">any</a></span></td><td><div class="comment"><p>An object.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="Uri.toString"></a><span class="ts" id=403 data-target="#details-403" data-toggle="collapse"><span class="ident">toString</span><span>(</span><span class="ident">skipEncoding</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-403">
+<div class="comment"><p>Returns a string representation of this Uri. The representation and normalization
+of a URI depends on the scheme. The resulting string can be safely used with
+<a href="#Uri.parse">Uri.parse</a>.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="skipEncoding"></a><span class="ts" id=404 data-target="#details-404" data-toggle="collapse"><span class="ident">skipEncoding</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>Do not percentage-encode the result, defaults to <code>false</code>. Note that
+    the <code>#</code> and <code>?</code> characters occuring in the path will always be encoded.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A string representation of this Uri.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="Uri.with"></a><span class="ts" id=394 data-target="#details-394" data-toggle="collapse"><span class="ident">with</span><span>(</span><span class="ident">change</span><span>: </span>{authority: <a class="type-intrinsic">string</a>, fragment: <a class="type-intrinsic">string</a>, path: <a class="type-intrinsic">string</a>, query: <a class="type-intrinsic">string</a>, scheme: <a class="type-intrinsic">string</a>}<span>)</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
+<div class="details collapse" id="details-394">
+<div class="comment"><p>Derive a new Uri from this Uri.</p>
+
+<pre><code class="lang-ts"><span class="hljs-keyword">let</span> file = Uri.parse(<span class="hljs-string">'before:some/file/path'</span>);
+<span class="hljs-keyword">let</span> other = file.with({ scheme: <span class="hljs-string">'after'</span> });
+assert.ok(other.toString() === <span class="hljs-string">'after:some/file/path'</span>);
+</code></pre>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="change"></a><span class="ts" id=395 data-target="#details-395" data-toggle="collapse"><span class="ident">change</span><span>: </span>{authority: <a class="type-intrinsic">string</a>, fragment: <a class="type-intrinsic">string</a>, path: <a class="type-intrinsic">string</a>, query: <a class="type-intrinsic">string</a>, scheme: <a class="type-intrinsic">string</a>}</span></td><td><div class="comment"><p>An object that describes a change to this Uri. To unset components use <code>null</code> or
+ the empty string.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A new Uri that reflects the given change. Will return <code>this</code> Uri if the change
+ is not changing anything.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="ViewColumn"></a><span class="code-item" id=1070>ViewColumn</span>
+
+
+
+<div class="comment"><p>Denotes a column in the editor window. Columns are
+used to show editors side by side.</p>
+</div>
+
+#### Enumeration members
+
+
+
+<a name="ViewColumn.Active"></a><span class="ts" id=1071 data-target="#details-1071" data-toggle="collapse"><span class="ident">Active</span></span>
+<div class="details collapse" id="details-1071">
+<em> -1</em>
+</div>
+
+
+
+<a name="ViewColumn.One"></a><span class="ts" id=1072 data-target="#details-1072" data-toggle="collapse"><span class="ident">One</span></span>
+<div class="details collapse" id="details-1072">
+<em>1</em>
+</div>
+
+
+
+<a name="ViewColumn.Three"></a><span class="ts" id=1074 data-target="#details-1074" data-toggle="collapse"><span class="ident">Three</span></span>
+<div class="details collapse" id="details-1074">
+<em>3</em>
+</div>
+
+
+
+<a name="ViewColumn.Two"></a><span class="ts" id=1073 data-target="#details-1073" data-toggle="collapse"><span class="ident">Two</span></span>
+<div class="details collapse" id="details-1073">
+<em>2</em>
+</div>
+
+### <a name="WindowState"></a><span class="code-item" id=1258>WindowState</span>
+
+
+
+<div class="comment"><p>Represents the state of a window.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="WindowState.focused"></a><span class="ts" id=1259 data-target="#details-1259" data-toggle="collapse"><span class="ident">focused</span><span>: </span><a class="type-intrinsic">boolean</a></span>
+<div class="details collapse" id="details-1259">
+<div class="comment"><p>Whether the current window is focused.</p>
+</div>
+</div>
+
+### <a name="WorkspaceConfiguration"></a><span class="code-item" id=988>WorkspaceConfiguration</span>
+
+
+
+<div class="comment"><p>Represents the configuration. It is a merged view of</p>
+<ul>
+<li>Default configuration</li>
+<li>Global configuration</li>
+<li>Workspace configuration (if available)</li>
+<li>Workspace folder configuration of the requested resource (if available)</li>
+</ul>
+<p><em>Global configuration</em> comes from User Settings and shadows Defaults.</p>
+<p><em>Workspace configuration</em> comes from Workspace Settings and shadows Global configuration.</p>
+<p><em>Workspace Folder configuration</em> comes from <code>.vscode</code> folder under one of the <a href="#workspace.workspaceFolders">workspace folders</a>.</p>
+<p><em>Note:</em> Workspace and Workspace Folder configurations contains <code>launch</code> and <code>tasks</code> settings. Their basename will be
+part of the section identifier. The following snippets shows how to retrieve all configurations
+from <code>launch.json</code>:</p>
+
+<pre><code class="lang-ts"><span class="hljs-comment">// launch.json configuration</span>
+<span class="hljs-keyword">const</span> config = workspace.getConfiguration(<span class="hljs-string">'launch'</span>, vscode.window.activeTextEditor.document.uri);
+
+<span class="hljs-comment">// retrieve values</span>
+<span class="hljs-keyword">const</span> values = config.get(<span class="hljs-string">'configurations'</span>);
+</code></pre>
+<p>Refer to <a href="https://code.visualstudio.com/docs/getstarted/settings">Settings</a> for more information.</p>
+</div>
+
+#### Methods
+
+
+
+<a name="WorkspaceConfiguration.get"></a><span class="ts" id=990 data-target="#details-990" data-toggle="collapse"><span class="ident">get</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-intrinsic">T</a> &#124; <a class="type-intrinsic">undefined</a></span>
+<div class="details collapse" id="details-990">
+<div class="comment"><p>Return a value from this configuration.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="section"></a><span class="ts" id=992 data-target="#details-992" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Configuration name, supports <em>dotted</em> names.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">T</a> &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>The value <code>section</code> denotes or <code>undefined</code>.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceConfiguration.get"></a><span class="ts" id=993 data-target="#details-993" data-toggle="collapse"><span class="ident">get</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">defaultValue</span><span>: </span><a class="type-intrinsic">T</a><span>)</span><span>: </span><a class="type-intrinsic">T</a></span>
+<div class="details collapse" id="details-993">
+<div class="comment"><p>Return a value from this configuration.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="section"></a><span class="ts" id=995 data-target="#details-995" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Configuration name, supports <em>dotted</em> names.</p>
+</div></td></tr>
+<tr><td><a name="defaultValue"></a><span class="ts" id=996 data-target="#details-996" data-toggle="collapse"><span class="ident">defaultValue</span><span>: </span><a class="type-intrinsic">T</a></span></td><td><div class="comment"><p>A value should be returned when no value could be found, is <code>undefined</code>.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">T</a></span></td><td><div class="comment"><p>The value <code>section</code> denotes or the default.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceConfiguration.has"></a><span class="ts" id=998 data-target="#details-998" data-toggle="collapse"><span class="ident">has</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-intrinsic">boolean</a></span>
+<div class="details collapse" id="details-998">
+<div class="comment"><p>Check if this configuration has a certain value.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="section"></a><span class="ts" id=999 data-target="#details-999" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Configuration name, supports <em>dotted</em> names.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p><code>true</code> if the section doesn&#39;t resolve to <code>undefined</code>.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceConfiguration.inspect"></a><span class="ts" id=1001 data-target="#details-1001" data-toggle="collapse"><span class="ident">inspect</span><span>&lt;</span>T<span>&gt;</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span>{defaultValue: <a class="type-intrinsic">T</a>, globalValue: <a class="type-intrinsic">T</a>, key: <a class="type-intrinsic">string</a>, workspaceFolderValue: <a class="type-intrinsic">T</a>, workspaceValue: <a class="type-intrinsic">T</a>} &#124; <a class="type-intrinsic">undefined</a></span>
+<div class="details collapse" id="details-1001">
+<div class="comment"><p>Retrieve all information about a configuration setting. A configuration value
+often consists of a <em>default</em> value, a global or installation-wide value,
+a workspace-specific value and a folder-specific value.</p>
+<p>The <em>effective</em> value (returned by <a href="#WorkspaceConfiguration.get"><code>get</code></a>)
+is computed like this: <code>defaultValue</code> overwritten by <code>globalValue</code>,
+<code>globalValue</code> overwritten by <code>workspaceValue</code>. <code>workspaceValue</code> overwritten by <code>workspaceFolderValue</code>.
+Refer to <a href="https://code.visualstudio.com/docs/getstarted/settings">Settings Inheritence</a>
+for more information.</p>
+<p><em>Note:</em> The configuration name must denote a leaf in the configuration tree
+(<code>editor.fontSize</code> vs <code>editor</code>) otherwise no result is returned.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="section"></a><span class="ts" id=1003 data-target="#details-1003" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Configuration name, supports <em>dotted</em> names.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts">{defaultValue: <a class="type-intrinsic">T</a>, globalValue: <a class="type-intrinsic">T</a>, key: <a class="type-intrinsic">string</a>, workspaceFolderValue: <a class="type-intrinsic">T</a>, workspaceValue: <a class="type-intrinsic">T</a>} &#124; <a class="type-intrinsic">undefined</a></span></td><td><div class="comment"><p>Information about a configuration setting or <code>undefined</code>.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceConfiguration.update"></a><span class="ts" id=1011 data-target="#details-1011" data-toggle="collapse"><span class="ident">update</span><span>(</span><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">value</span><span>: </span><a class="type-intrinsic">any</a>, <span class="ident">configurationTarget</span><span>?</span><span>: </span><a class="type-ref" href="#ConfigurationTarget">ConfigurationTarget</a> &#124; <a class="type-intrinsic">boolean</a><span>)</span><span>: </span><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">void</a>&gt;</span>
+<div class="details collapse" id="details-1011">
+<div class="comment"><p>Update a configuration value. The updated configuration values are persisted.</p>
+<p>A value can be changed in</p>
+<ul>
+<li><a href="#ConfigurationTarget.Global">Global configuration</a>: Changes the value for all instances of the editor.</li>
+<li><a href="#ConfigurationTarget.Workspace">Workspace configuration</a>: Changes the value for current workspace, if available.</li>
+<li><a href="#ConfigurationTarget.WorkspaceFolder">Workspace folder configuration</a>: Changes the value for the
+<a href="#workspace.workspaceFolders">Workspace folder</a> to which the current <a href="#WorkspaceConfiguration">configuration</a> is scoped to.</li>
+</ul>
+<p><em>Note 1:</em> Setting a global value in the presence of a more specific workspace value
+has no observable effect in that workspace, but in others. Setting a workspace value
+in the presence of a more specific folder value has no observable effect for the resources
+under respective <a href="#workspace.workspaceFolders">folder</a>, but in others. Refer to
+<a href="https://code.visualstudio.com/docs/getstarted/settings">Settings Inheritence</a> for more information.</p>
+<p><em>Note 2:</em> To remove a configuration value use <code>undefined</code>, like so: <code>config.update(&#39;somekey&#39;, undefined)</code></p>
+<p>Will throw error when</p>
+<ul>
+<li>Writing a configuration which is not registered.</li>
+<li>Writing a configuration to workspace or folder target when no workspace is opened</li>
+<li>Writing a configuration to folder target when there is no folder settings</li>
+<li>Writing to folder target without passing a resource when getting the configuration (<code>workspace.getConfiguration(section, resource)</code>)</li>
+<li>Writing a window configuration to folder target</li>
+</ul>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="section"></a><span class="ts" id=1012 data-target="#details-1012" data-toggle="collapse"><span class="ident">section</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>Configuration name, supports <em>dotted</em> names.</p>
+</div></td></tr>
+<tr><td><a name="value"></a><span class="ts" id=1013 data-target="#details-1013" data-toggle="collapse"><span class="ident">value</span><span>: </span><a class="type-intrinsic">any</a></span></td><td><div class="comment"><p>The new value.</p>
+</div></td></tr>
+<tr><td><a name="configurationTarget"></a><span class="ts" id=1014 data-target="#details-1014" data-toggle="collapse"><span class="ident">configurationTarget</span><span>?</span><span>: </span><a class="type-ref" href="#ConfigurationTarget">ConfigurationTarget</a> &#124; <a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p>The <a href="#ConfigurationTarget">configuration target</a> or a boolean value.</p>
+
+<pre><code>- If `<span class="javascript"><span class="hljs-literal">true</span></span>` configuration target <span class="hljs-keyword">is</span> `<span class="javascript">ConfigurationTarget.Global</span>`.
+- If `<span class="javascript"><span class="hljs-literal">false</span></span>` configuration target <span class="hljs-keyword">is</span> `<span class="javascript">ConfigurationTarget.Workspace</span>`.
+- If `<span class="javascript"><span class="hljs-literal">undefined</span></span>` <span class="hljs-keyword">or</span> `<span class="javascript"><span class="hljs-literal">null</span></span>` configuration target <span class="hljs-keyword">is</span>
+`<span class="javascript">ConfigurationTarget.WorkspaceFolder</span>` <span class="hljs-keyword">when</span> configuration <span class="hljs-keyword">is</span> resource specific
+`<span class="javascript">ConfigurationTarget.Workspace</span>` otherwise.
+</code></pre></div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#Thenable">Thenable</a>&lt;<a class="type-intrinsic">void</a>&gt;</span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="WorkspaceEdit"></a><span class="code-item" id=709>WorkspaceEdit</span>
+
+
+
+<div class="comment"><p>A workspace edit represents textual changes for many documents.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="WorkspaceEdit.size"></a><span class="ts" id=710 data-target="#details-710" data-toggle="collapse"><span class="ident">size</span><span>: </span><a class="type-intrinsic">number</a></span>
+<div class="details collapse" id="details-710">
+<div class="comment"><p>The number of affected resources.</p>
+</div>
+</div>
+
+#### Methods
+
+
+
+<a name="WorkspaceEdit.delete"></a><span class="ts" id=722 data-target="#details-722" data-toggle="collapse"><span class="ident">delete</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-722">
+<div class="comment"><p>Delete the text at the given range.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="uri"></a><span class="ts" id=723 data-target="#details-723" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
+</div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=724 data-target="#details-724" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>A range.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceEdit.entries"></a><span class="ts" id=736 data-target="#details-736" data-toggle="collapse"><span class="ident">entries</span><span>(</span><span>)</span><span>: </span>[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#TextEdit">TextEdit</a>[]][]</span>
+<div class="details collapse" id="details-736">
+<div class="comment"><p>Get all text edits grouped by resource.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts">[<a class="type-ref" href="#Uri">Uri</a>, <a class="type-ref" href="#TextEdit">TextEdit</a>[]][]</span></td><td><div class="comment"><p>An array of <code>[Uri, TextEdit[]]</code>-tuples.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceEdit.get"></a><span class="ts" id=733 data-target="#details-733" data-toggle="collapse"><span class="ident">get</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span>
+<div class="details collapse" id="details-733">
+<div class="comment"><p>Get the text edits for a resource.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="uri"></a><span class="ts" id=734 data-target="#details-734" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span></td><td><div class="comment"><p>An array of text edits.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceEdit.has"></a><span class="ts" id=726 data-target="#details-726" data-toggle="collapse"><span class="ident">has</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a><span>)</span><span>: </span><a class="type-intrinsic">boolean</a></span>
+<div class="details collapse" id="details-726">
+<div class="comment"><p>Check if this edit affects the given resource.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="uri"></a><span class="ts" id=727 data-target="#details-727" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">boolean</a></span></td><td><div class="comment"><p><code>true</code> if the given resource will be touched by this edit.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceEdit.insert"></a><span class="ts" id=717 data-target="#details-717" data-toggle="collapse"><span class="ident">insert</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a>, <span class="ident">newText</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-717">
+<div class="comment"><p>Insert the given text at the given position.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="uri"></a><span class="ts" id=718 data-target="#details-718" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
+</div></td></tr>
+<tr><td><a name="position"></a><span class="ts" id=719 data-target="#details-719" data-toggle="collapse"><span class="ident">position</span><span>: </span><a class="type-ref" href="#Position">Position</a></span></td><td><div class="comment"><p>A position.</p>
+</div></td></tr>
+<tr><td><a name="newText"></a><span class="ts" id=720 data-target="#details-720" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A string.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceEdit.replace"></a><span class="ts" id=712 data-target="#details-712" data-toggle="collapse"><span class="ident">replace</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a>, <span class="ident">newText</span><span>: </span><a class="type-intrinsic">string</a><span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-712">
+<div class="comment"><p>Replace the given range with given text for the given resource.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="uri"></a><span class="ts" id=713 data-target="#details-713" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
+</div></td></tr>
+<tr><td><a name="range"></a><span class="ts" id=714 data-target="#details-714" data-toggle="collapse"><span class="ident">range</span><span>: </span><a class="type-ref" href="#Range">Range</a></span></td><td><div class="comment"><p>A range.</p>
+</div></td></tr>
+<tr><td><a name="newText"></a><span class="ts" id=715 data-target="#details-715" data-toggle="collapse"><span class="ident">newText</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A string.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceEdit.set"></a><span class="ts" id=729 data-target="#details-729" data-toggle="collapse"><span class="ident">set</span><span>(</span><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a>, <span class="ident">edits</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[]<span>)</span><span>: </span><a class="type-intrinsic">void</a></span>
+<div class="details collapse" id="details-729">
+<div class="comment"><p>Set (and replace) text edits for a resource.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="uri"></a><span class="ts" id=730 data-target="#details-730" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span></td><td><div class="comment"><p>A resource identifier.</p>
+</div></td></tr>
+<tr><td><a name="edits"></a><span class="ts" id=731 data-target="#details-731" data-toggle="collapse"><span class="ident">edits</span><span>: </span><a class="type-ref" href="#TextEdit">TextEdit</a>[]</span></td><td><div class="comment"><p>An array of text edits.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-intrinsic">void</a></span></td><td><div class="comment"></div></td></tr>
+</table>
+</div>
+</div>
+
+### <a name="WorkspaceFolder"></a><span class="code-item" id=1322>WorkspaceFolder</span>
+
+
+
+<div class="comment"><p>A workspace folder is one of potentially many roots opened by the editor. All workspace folders
+are equal which means there is no notion of an active or master workspace folder.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="WorkspaceFolder.index"></a><span class="ts" id=1325 data-target="#details-1325" data-toggle="collapse"><span class="ident">index</span><span>: </span><a class="type-intrinsic">number</a></span>
+<div class="details collapse" id="details-1325">
+<div class="comment"><p>The ordinal number of this workspace folder.</p>
+</div>
+</div>
+
+
+
+<a name="WorkspaceFolder.name"></a><span class="ts" id=1324 data-target="#details-1324" data-toggle="collapse"><span class="ident">name</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-1324">
+<div class="comment"><p>The name of this workspace folder. Defaults to
+the basename of its <a href="#Uri.path">uri-path</a></p>
+</div>
+</div>
+
+
+
+<a name="WorkspaceFolder.uri"></a><span class="ts" id=1323 data-target="#details-1323" data-toggle="collapse"><span class="ident">uri</span><span>: </span><a class="type-ref" href="#Uri">Uri</a></span>
+<div class="details collapse" id="details-1323">
+<div class="comment"><p>The associated uri for this workspace folder.</p>
+<p><em>Note:</em> The <a href="#Uri">Uri</a>-type was intentionally chosen such that future releases of the editor can support
+workspace folders that are not stored on the local disk, e.g. <code>ftp://server/workspaces/foo</code>.</p>
+</div>
+</div>
+
+### <a name="WorkspaceFolderPickOptions"></a><span class="code-item" id=483>WorkspaceFolderPickOptions</span>
+
+
+
+<div class="comment"><p>Options to configure the behaviour of the <a href="#WorkspaceFolder">workspace folder</a> pick UI.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="WorkspaceFolderPickOptions.ignoreFocusOut"></a><span class="ts" id=485 data-target="#details-485" data-toggle="collapse"><span class="ident">ignoreFocusOut</span><span>?</span><span>: </span><a class="type-intrinsic">boolean</a></span>
+<div class="details collapse" id="details-485">
+<div class="comment"><p>Set to <code>true</code> to keep the picker open when focus moves to another part of the editor or to another window.</p>
+</div>
+</div>
+
+
+
+<a name="WorkspaceFolderPickOptions.placeHolder"></a><span class="ts" id=484 data-target="#details-484" data-toggle="collapse"><span class="ident">placeHolder</span><span>?</span><span>: </span><a class="type-intrinsic">string</a></span>
+<div class="details collapse" id="details-484">
+<div class="comment"><p>An optional string to show as place holder in the input box to guide the user what to pick on.</p>
+</div>
+</div>
+
+### <a name="WorkspaceFoldersChangeEvent"></a><span class="code-item" id=1319>WorkspaceFoldersChangeEvent</span>
+
+
+
+<div class="comment"><p>An event describing a change to the set of <a href="#workspace.workspaceFolders">workspace folders</a>.</p>
+</div>
+
+#### Properties
+
+
+
+<a name="WorkspaceFoldersChangeEvent.added"></a><span class="ts" id=1320 data-target="#details-1320" data-toggle="collapse"><span class="ident">added</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a>[]</span>
+<div class="details collapse" id="details-1320">
+<div class="comment"><p>Added workspace folders.</p>
+</div>
+</div>
+
+
+
+<a name="WorkspaceFoldersChangeEvent.removed"></a><span class="ts" id=1321 data-target="#details-1321" data-toggle="collapse"><span class="ident">removed</span><span>: </span><a class="type-ref" href="#WorkspaceFolder">WorkspaceFolder</a>[]</span>
+<div class="details collapse" id="details-1321">
+<div class="comment"><p>Removed workspace folders.</p>
+</div>
+</div>
+
+### <a name="WorkspaceSymbolProvider"></a><span class="code-item" id=669>WorkspaceSymbolProvider</span>
+
+
+
+<div class="comment"><p>The workspace symbol provider interface defines the contract between extensions and
+the <a href="https://code.visualstudio.com/docs/editor/editingevolved#_open-symbol-by-name">symbol search</a>-feature.</p>
+</div>
+
+#### Methods
+
+
+
+<a name="WorkspaceSymbolProvider.provideWorkspaceSymbols"></a><span class="ts" id=671 data-target="#details-671" data-toggle="collapse"><span class="ident">provideWorkspaceSymbols</span><span>(</span><span class="ident">query</span><span>: </span><a class="type-intrinsic">string</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span>
+<div class="details collapse" id="details-671">
+<div class="comment"><p>Project-wide search for a symbol matching the given query string. It is up to the provider
+how to search given the query string, like substring, indexOf etc. To improve performance implementors can
+skip the <a href="#SymbolInformation.location">location</a> of symbols and implement <code>resolveWorkspaceSymbol</code> to do that
+later.</p>
+<p>The <code>query</code>-parameter should be interpreted in a <em>relaxed way</em> as the editor will apply its own highlighting
+and scoring on the results. A good rule of thumb is to match case-insensitive and to simply check that the
+characters of <em>query</em> appear in their order in a candidate symbol. Don&#39;t use prefix, substring, or similar
+strict matching.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="query"></a><span class="ts" id=672 data-target="#details-672" data-toggle="collapse"><span class="ident">query</span><span>: </span><a class="type-intrinsic">string</a></span></td><td><div class="comment"><p>A non-empty query string.</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=673 data-target="#details-673" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>[]&gt;</span></td><td><div class="comment"><p>An array of document highlights or a thenable that resolves to such. The lack of a result can be
+signaled by returning <code>undefined</code>, <code>null</code>, or an empty array.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
+
+
+
+<a name="WorkspaceSymbolProvider.resolveWorkspaceSymbol"></a><span class="ts" id=675 data-target="#details-675" data-toggle="collapse"><span class="ident">resolveWorkspaceSymbol</span><span>(</span><span class="ident">symbol</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a>, <span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a><span>)</span><span>: </span><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>&gt;</span>
+<div class="details collapse" id="details-675">
+<div class="comment"><p>Given a symbol fill in its <a href="#SymbolInformation.location">location</a>. This method is called whenever a symbol
+is selected in the UI. Providers can implement this method and return incomplete symbols from
+<a href="#WorkspaceSymbolProvider.provideWorkspaceSymbols"><code>provideWorkspaceSymbols</code></a> which often helps to improve
+performance.</p>
+</div>
+<div class="signature">
+<table class="table table-bordered">
+<tr><th>Parameter</th><th>Description</th></tr>
+<tr><td><a name="symbol"></a><span class="ts" id=676 data-target="#details-676" data-toggle="collapse"><span class="ident">symbol</span><span>: </span><a class="type-ref" href="#SymbolInformation">SymbolInformation</a></span></td><td><div class="comment"><p>The symbol that is to be resolved. Guaranteed to be an instance of an object returned from an
+earlier call to <code>provideWorkspaceSymbols</code>.</p>
+</div></td></tr>
+<tr><td><a name="token"></a><span class="ts" id=677 data-target="#details-677" data-toggle="collapse"><span class="ident">token</span><span>: </span><a class="type-ref" href="#CancellationToken">CancellationToken</a></span></td><td><div class="comment"><p>A cancellation token.</p>
+</div></td></tr>
+<tr><th>Returns</th><th>Description</th></tr>
+<tr><td><span class="ts"><a class="type-ref" href="#ProviderResult">ProviderResult</a>&lt;<a class="type-ref" href="#SymbolInformation">SymbolInformation</a>&gt;</span></td><td><div class="comment"><p>The resolved symbol or a thenable that resolves to that. When no result is returned,
+the given <code>symbol</code> is used.</p>
+</div></td></tr>
+</table>
+</div>
+</div>
