@@ -42,7 +42,7 @@ When a request is received, they do a fuzzy lookup in the index. The results are
 
 We can even make manual changes to the results by adding alternative words or boosting results for certain queries. This feedback is incorporated into the live service and reflected in the results instantly.
 
-The service is deployed to georeplicated servers located around the world. Search queries are sent to a load balancing service that decides which server should handle the request, based on how physical proximity and current load of the server. [How does that work, where is the load balancer located?] [What happened with the server in Asia?]
+The service is deployed to georeplicated servers located around the world. Search queries are sent to a load balancing service that decides which server should handle the request, based on how physical proximity and current load of the server. [How does that work, where is the load balancer located?]
 
 ## Testing
 
