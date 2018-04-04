@@ -115,7 +115,7 @@ You can configure advanced search options by clicking the ellipsis (**Toggle Sea
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
-In the two input boxes below the search box, you can include and exclude files. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. You can also use glob syntax:
+In the input box below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `!` to exclude those patterns from the search. `!example` will skip searching any folder or file named `example`. You can also use glob syntax:
 
 * `*` to match one or more characters in a path segment
 * `?` to match on one character in a path segment
@@ -218,7 +218,7 @@ Regions can also be defined by markers defined by each language. The following l
 * Coffeescript: `#region` and `#endregion`
 * F#: `//#region` and `//#endregion` and `(#region)` and `(#endregion)`
 * Java: `//#region` and `// #endregion` and `//<editor-fold>` and `//</editor-fold>`
-* HTML: 
+* HTML:
 * PHP: `#region` and `#endregion`
 * Powershell: `#region` and `#endregion`
 * Python: `#region` and `#endregion`
