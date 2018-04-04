@@ -39,6 +39,10 @@ When you hover over properties and values for JSON data with or without schema, 
 
 You can format your JSON document using `kb(editor.action.formatDocument)` or **Format Document** from the context menu.
 
+## Folding
+
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all object and array elements.
+
 ## JSON with Comments
 
 In addition to the default JSON mode following the [JSON specification](https://www.json.org/), VS Code also has a **JSON with Comments** mode . This mode is used for the VS Code configuration files such as `settings.json`, `tasks.json` or `launch.json`. When in the **JSON with Comments** mode, you can use single line (//) as well as block comments (/* */) as used in JavaScript. The current editor mode is indicated in the editor's Status Bar. Click on the mode indicator to change the mode and to configure how file names and extensions are associated to modes.

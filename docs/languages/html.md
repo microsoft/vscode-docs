@@ -78,6 +78,21 @@ You can turn that validation off with the following settings:
 "html.validate.styles": true
 ```
 
+## Folding
+
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all HTML elements for multi-line comments in the source code.
+
+Additionally you can use the following region markers to define a folding range:
+`<!-- #region -->` and `<!-- endregion -->`
+
+If you prefer to switch to indentation based folding for HTML use:
+
+```json
+"[html]": {
+    "editor.foldingStrategy": "indentation"
+},
+```
+
 ## Formatting
 
 To improve the formatting of your HTML source code, press `kb(editor.action.formatSelection)` and the selected area will be reformatted.

@@ -38,8 +38,32 @@ Clicking on a color preview will launch the integrated color picker which suppor
 You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md):
 
 ```json
-"css.colorDecorators.enable": false
+"editor.colorDecorators": false
 ```
+
+To just disable it for css, Less and SCSS, use
+```json
+"[css]": {
+    "editor.colorDecorators": false
+}
+
+```
+
+## Folding
+
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all declarations (e.g. rule declarations) and for multi-line comments in the source code.
+
+Additionally you can use the following region markers to define a folding range:
+`/*#region*/` and `/*#endregion*/`
+
+If you prefer to switch to indentation based folding for CSS, Less and SCSS, use:
+
+```json
+"[css]": {
+    "editor.foldingStrategy": "indentation"
+},
+```
+
 
 ## Emmet snippets
 
