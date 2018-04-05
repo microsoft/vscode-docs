@@ -366,7 +366,7 @@ VS Code can process the output from a task with a problem matcher and ships with
 - **Go**: `$go` matches problems reported from the `go` compiler. Assumes that file names are relative to the opened folder.
 - **CSharp and VB Compiler**: `$mscompile` assumes that file names are reported as an absolute path.
 - **Lessc compiler**: `$lessc` assumes that file names are reported as absolute path.
-- **Node Saas compiler**: `node-sass` assumes that file names are reported as an absolute path.
+- **Node Sass compiler**: `$node-sass` assumes that file names are reported as an absolute path.
 
 Problem matchers scan the task output text for known warning or error strings and report these inline in the editor and in the Problems panel.
 
@@ -762,7 +762,7 @@ Tasks `2.0.0` version comes with lots of new auto-detection features so you can 
 
 ### Migrating to Tasks 2.0.0
 
-If you have lots of task customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings (green squigglies) because some properties are now deprecated.
+If you have lots of task customizations then you can switch by changing the version attribute to `"2.0.0"`. After doing so, you might encounter warnings (green squiggles) because some properties are now deprecated.
 
 Here is a migration guide:
 

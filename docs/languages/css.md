@@ -268,7 +268,7 @@ If you want to make the **gulp: default** task the default build task executed w
 
 ### Step 4: Terminate the gulp default Task
 
-The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
+The **gulp: default** task runs in the background and watches for file changes to Sass/Less files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
 
 ## Customizing CSS, Sass and Less Settings
 

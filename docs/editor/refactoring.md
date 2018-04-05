@@ -19,7 +19,7 @@ Refactorings are provided by a language service and VS Code has built-in support
 
 ## Code Actions = Quick Fixes and Refactorings
 
-In VS Code, Code Actions can provide both refactorings and Quick Fixes for detected issues (highlighted with green squigglies). An available Code Action is announced by a lightbulb near the source code when the cursor is on a squigglie or selected text region. Clicking on the Code Action lightbulb or using the **Quick Fix** command `kb(editor.action.quickFix)` will display Quick Fixes and refactorings.
+In VS Code, Code Actions can provide both refactorings and Quick Fixes for detected issues (highlighted with green squiggles). An available Code Action is announced by a lightbulb near the source code when the cursor is on a squiggle or selected text region. Clicking on the Code Action lightbulb or using the **Quick Fix** command `kb(editor.action.quickFix)` will display Quick Fixes and refactorings.
 
 If you'd just like to see refactorings without Quick Fixes, you can use the **Refactor** command (`kb(editor.action.refactor)`).
 
