@@ -691,7 +691,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
                 "owner": "typescript",
                 "fileLocation": "relative",
                 "pattern": {
-                    "regexp": "^([^\\s].*)\\((\\d+|\\,\\d+|\\d+,\\d+,\\d+,\\d+)\\):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+                    "regexp": "^([^\\s].*)\\((\\d+|\\d+,\\d+|\\d+,\\d+,\\d+,\\d+)\\):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
                     "file": 1,
                     "location": 2,
                     "severity": 3,
