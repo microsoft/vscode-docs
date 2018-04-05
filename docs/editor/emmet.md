@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 3/7/2018
+DateApproved: 4/5/2018
 MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
