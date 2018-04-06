@@ -111,7 +111,7 @@ Specifies how program output is displayed.
 | Value | Where output is displayed |
 |--- | --- |
 | `"none"` (default) | VS Code debug console |
-| `"integratedTerminal"` | [VS Code Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal) |
+| `"integratedTerminal"` | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md) |
 | `"externalTerminal"` | Separate console window |
 
 ### `cwd`
