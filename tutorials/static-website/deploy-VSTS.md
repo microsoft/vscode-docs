@@ -116,4 +116,4 @@ If everything is working, you should see the following!
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/static-website/code-change">My blank page is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'deploy-VSTS')" href="javascript:void(0)">I ran into an issue</a>
+<a class="tutorial-next-btn" href="/tutorials/static-website/code-change">My site is on Azure</a> <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'deploy-VSTS')" href="javascript:void(0)">I ran into an issue</a>

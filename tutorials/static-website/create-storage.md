@@ -16,7 +16,7 @@ In this section, we will setup our Azure Storage account and blob container.
 
 2. Select **Storage accounts** from the left side menu bar.
 
-> **Note**: If you don't see **Storage accounts**, select **All services** from the top of the menu, find it in the full list, and star it to dock it in your menu bar.
+   > **Note**: If you don't see **Storage accounts**, select **All services** from the top of the menu, find it in the full list, and star it to dock it in your menu bar.
 
    ![Sign into Storage Explorer](images/static-website/storage/1-portal-select-storage.png)
 

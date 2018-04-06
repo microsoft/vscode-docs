@@ -8,9 +8,9 @@ DateApproved: 4/6/2018
 ---
 # Create your Node.js application
 
-In this section, you will create a simple static website that can be deployed to the cloud. This tutorial uses `create-react-app`, a React utility CLI, to quickly scaffold out a simple React app from the terminal. However, if you want to use Angular, Vue, any other framework, or just a folder with a few HTML files, those will all work too.
+In this section, you will create a simple static website that can be deployed to the cloud. This tutorial uses [create-react-app](https://github.com/facebook/create-react-app), a React utility CLI, to quickly scaffold out a simple React app from the terminal. However, if you want to use Angular, Vue, any other framework, or just a folder with a few HTML files, those will all work too.
 
-> **Tip:** If you already have your own application ready to deploy, you can skip ahead to [Deploy the Website](/tutorials/static-website/deploy-app.md).
+> **Tip:** If you already have your own application ready to deploy, you can skip ahead to [Deploy the Website](/tutorials/static-website/choose-deployment.md).
 
 ## Install the create-react-app npm package
 
