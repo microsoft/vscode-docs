@@ -27,7 +27,7 @@ IntelliSense quickly shows methods, class members, and documentation as you type
 
 Linting analyzes your Python code for potential errors, making it easy to navigate to and correct different problems.
 
-The Python extension can apply a number of different linters including Pylint, Pep8, Flake8, mypy, pydocstule, prospector, and pylama. See [Linting](/docs/python/linting.md).
+The Python extension can apply a number of different linters including Pylint, Pep8, Flake8, mypy, pydocstyle, prospector, and pylama. See [Linting](/docs/python/linting.md).
 
 <video id="python-linting-video" src="https://az754404.vo.msecnd.net/public/python-linting.mp4" poster="/images/python_python-linting-placeholder.png" autoplay loop controls muted></video>
 
