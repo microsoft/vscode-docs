@@ -418,8 +418,6 @@ If you need to set a breakpoint in a script that is not part of your workspace a
 
  Alternatively, you can use the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`) which opens a Quick Pick, where you can filter and select the script to open.
 
-![Opening Loaded Script with Quick Pick](images/nodejs-debugging/loaded-scripts.gif)
-
  Scripts are loaded into a read-only editor where you can set breakpoints. These breakpoints are remembered across debug sessions but you only have access to the script content while a debug session is running.
 
 ## Restarting debug sessions automatically when source is edited
