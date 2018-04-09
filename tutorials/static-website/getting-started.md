@@ -6,11 +6,11 @@ PageTitle: Website Deployment with Azure Storage
 MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
 DateApproved: 4/6/2018
 ---
-# Deploy a static site to Azure
+# Deploy a static website to Azure
 
-This tutorial walks you through deploying a static website, such as an Angular or React [SPA](https://en.wikipedia.org/wiki/Single-page_application) or simple HTML/CSS/JavaScript site, to Azure using [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice).
+This tutorial walks you through deploying a static website, such as an Angular or React [SPA](https://en.wikipedia.org/wiki/Single-page_application) or simple HTML/CSS/JavaScript site, to Azure using [Azure Storage](https://docs.microsoft.com/en-us/azure/storage).
 
-> **Note**: If you have your own server code, such as a Node.js/Express server, see the [App Service tutorial](../app-service-extension/getting-started.md) instead. If you're unsure what type of application you are building, see our description of [common application types](//TODO).
+> **Note**: If you have your own server code, such as a Node.js/Express server, see the [App Service tutorial](/tutorials/app-service-extension/getting-started.md) instead. If you're unsure what type of application you are building, see our description of [common application types](//TODO).
 
 ## Overview
 
