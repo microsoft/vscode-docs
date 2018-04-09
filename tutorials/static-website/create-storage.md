@@ -60,7 +60,7 @@ Luckily, there is an easy fix for this. Add the following to `package.json` with
 "homepage": "https://<storage-account-name>.blob.core.windows.net/<container-name>/"
 ```
 
-This setting will make sure that all URLs generated during `npm build` contain the correct relative path that we need to serve the app. You can read more about relative paths in `create-react-app` on their [GitHub README](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#building-for-relative-paths).
+This setting will make sure that all URLs generated during `npm build` contain the correct relative path that we need to serve the app. You can read more about relative paths in `create-react-app` on their [GitHub README](https://github.com/facebook/create-react-app/tree/master/packages/react-scripts/template#building-for-relative-paths).
 
 ----
 
