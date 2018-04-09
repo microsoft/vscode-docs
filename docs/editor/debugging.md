@@ -194,7 +194,7 @@ Many debuggers support some of the following attributes:
 * `cwd` - current working directory for finding dependencies and other files
 * `port` - port when attaching to a running process
 * `stopOnEntry` - break immediately when the program launches
-* `console` - what kind of console to use, for example, `internalConsole`, `integratedTerminal`, `externalTerminal`.
+* `console` - what kind of console to use, for example, `none`, `integratedTerminal`, `externalTerminal`.
 
 ## Variable substitution
 
