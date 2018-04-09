@@ -10,7 +10,7 @@ DateApproved: 4/6/2018
 
 This tutorial walks you through deploying a static website, such as an Angular or React [SPA](https://en.wikipedia.org/wiki/Single-page_application) or simple HTML/CSS/JavaScript site, to Azure using [Azure Storage](https://docs.microsoft.com/en-us/azure/storage).
 
-> **Note**: If you have your own server code, such as a Node.js/Express server, see the [App Service tutorial](/tutorials/app-service-extension/getting-started.md) instead. If you're unsure what type of application you are building, see our description of [common application types](//TODO).
+> **Note**: If you have your own server code, such as a Node.js/Express server, see the [App Service tutorial](/tutorials/app-service-extension/getting-started.md) instead.
 
 ## Overview
 
