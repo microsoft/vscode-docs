@@ -28,13 +28,17 @@ During the build, VS Code starts up in a mode where it writes all of its configu
 
 ## Backend
 
-Bing's service watches the Azure Storage container, notices a new build, and indexes it immediately. Several things must happen in order to index the new set of settings.
+Bing's service watches the Azure Storage container, notices a new build, and indexes it immediately. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its package.json (for extensions, all configuration metadata is contained in the package.json. No need to start it up.) and indexes its settings in the same way as VS Code's.
 
-First, the settings data then goes through an “alternative word” generation pipeline. This pipeline collects words with similar meanings to enrich the indexes. These words are collected from Bing search data using signals like user behavior, clicks, online ranking, page similarity, etc.
+Several things must happen to get from indexing a pile of settings to serving up useful search results. Here's a high level view of the backend:
 
-Then Cortana Natural Language Processing pipelines are used to collect commonly used speech and text patterns, and these are also added to the index. Light[weight?] customized versions of common Bing Services such as the Bing Speller and Stemmer are also created for the collected settings data. These enrich the indexes with different forms of the same word stem (size, sizes, sizings...) and alternate spellings.
+[Ankith's diagram]
 
-At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its package.json (for extensions, all configuration metadata is contained in the package.json. No need to start it up.) and indexes its settings in the same way as VS Code's.
+In order to handle user queries that use different words to the words actually used by settings, we integrated Bing's "alternative word" generation pipeline. This pipeline collects words with similar meanings to each other from Bing's indexed search data using signals such as user behavior, clicks, online ranking, and page similarity. For example, "update" and "upgrade" are set as "alternative words", and a search for one will return settings that include the other.
+
+We used the Speller and Stemmer Pipeline to handle queries that contain misspellings or alternate forms of the same word stem. For example "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting". [More here]
+
+We also want to enable users to describe their query in their own natural language, so we added Cortana's Natural Language Processing pipeline. It collects [from where?] commonly used speech and text patterns, and these are also added to the index. This enables a user to search `"how to change default file encoding"` to find `"files.encoding"`.
 
 When a request is received, they do a fuzzy lookup in the index. The results are ranked by XYZ.
 
