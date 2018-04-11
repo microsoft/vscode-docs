@@ -367,9 +367,10 @@ To learn about VS Code's Node.js debugging support, take a look at:
 
 * [Node.js](/docs/nodejs/nodejs-debugging.md) - Node.js debugging is included in VS Code.
 
-To see a tutorial on the basics of Node.js debugging, check out:
+To see tutorials on the basics of Node.js debugging, check out these videos:
 
 * [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory video showcasing the basics of debugging.
+* [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Learn how to attach to a running Node.js process.
 
 To learn about VS Code's task running support, go to:
 

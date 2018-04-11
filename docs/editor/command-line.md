@@ -15,7 +15,7 @@ Visual Studio Code has a powerful command line interface that lets you control h
 
 ## Launching from command line
 
-You can launch VS Code from the command line to quickly open a file, folder, or project. Typically, you open VS Code within the context of a folder. To do this, type one of the following commands for Stable and Insiders respectively:
+You can launch VS Code from the command line to quickly open a file, folder, or project. Typically, you open VS Code within the context of a folder. To do this, from an open terminal or command prompt, navigate to your project folder and type one of the following commands for Stable and Insiders respectively:
 
 ```bash
 code .
