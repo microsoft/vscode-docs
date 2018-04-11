@@ -145,15 +145,17 @@ The **Reapply All Breakpoints** command sets all breakpoints again to their orig
 
 ![Breakpoints](images/debugging/breakpoints.png)
 
-## Log Points
+## Logpoints
 
-A Log Point is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Log points are especially useful for debugging production servers which cannot be stopped.
+A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Logpoints are especially useful for injecting logging while debugging production servers which cannot be stopped.
 
-A Log Point is represented by a "diamond" shaped icon. Log messages are basically plain text but expressions within curly braces ('{}') are evaluated.
+A Logpoint is represented by a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
 
-![Log Points](images/debugging/log-points.gif)
+![Logpoints](images/debugging/log-points.gif)
 
-Just like regular breakpoints, Log Points can be enabled or disabled and can also be controlled by a condition and/or hit count.
+Just like regular breakpoints, Logpoints can be enabled or disabled and can also be controlled by a condition and/or hit count.
+
+**Note**: Logpoints are currently only supported by VS Code's built-in Node.js debugger, but can be implemented by other debug extensions.
 
 ## Data inspection
 
