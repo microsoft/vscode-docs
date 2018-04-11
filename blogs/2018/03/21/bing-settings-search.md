@@ -12,39 +12,79 @@ Author: Rob Lourens
 
 Last month, we released an improvement to settings search in VS Code. We have tweaked our settings editor many times in the past, but this was different - it was our first large-scale collaboration with another team, and the first experience that our team had with managing and depending on an external service to power a core feature. Now each time you search for settings, you will see intelligent results powered by Bing.
 
+[maybe preview gif here]
+
 Being a highly customizable editor has a cost - VS Code includes more than 400 settings out of the box, and if you include settings contributed by extensions, especially certain extensions (I'm looking at you, GitLens!) many users can have significantly more available. We have about 30,000 new users trying VS Code for the first time every day, and it's important to us that they don't get discouraged when trying to customize VS Code for the first time.
 
-Looking across StackOverflow, Github issues, Twitter, as well as user studies that we did on usertesting.com, and our internal settings search telemetry, we've seen many users having issues finding settings. We've seen users who just didn't know which words to use to describe a certain feature. We've seen users making typos and misspellings. And we've seen many other queries which just didn't fit into the strict filtering model that we had previously implemented for searching settings. The problem is with the long tail of queries. There are a large number of users making simple common queries, like "font", which we can handle perfectly well. But there is also a very long tail of less common queries which don't produce literal matches, and which we can't understand without some extra intelligence. So several months ago, we started talking to Microsoft's search experts - the Bing team. Our goals aligned with Bing's "Infuse AI" initiative, the target of which is to bring the capabilities of Bing into another product by creating an intelligent custom search service.
+Looking across StackOverflow, Github issues, Twitter, as well as user studies that we did on usertesting.com, and our internal settings search telemetry, we've seen many users having issues finding settings. We've seen users who just didn't know which words to use to describe a certain feature. We've seen users making typos and misspellings. And we've seen many other queries which just didn't fit into the strict filtering model that we had previously implemented for searching settings. The problem is with the long tail of queries. There are a large number of users making simple common queries, like "font", which we can handle perfectly well. But there is also a very long tail of less common queries which don't produce literal matches, and which we can't understand without some extra intelligence. So several months ago, we started talking to Microsoft's search experts - the Bing team. Their experience in search turned out to be a good fit for the problems that our users were facing and we decided to team up with them.
 
 ## Working with the Bing team
 
 Early discussions included a range of ideas on how to improve outcomes for our users. We discussed VS Code-specific results on bing.com, or web results included on the settings search page inside VS Code itself. But we decided on an arrangement in which the Bing team would run a settings search service that would provide intelligent fuzzy settings matches for queries that users search for in the settings editor.
 
-We are a relatively small development team, and we knew that if we were to start maintaining a service like this, we would not be able to spend a lot of time managing it manually. So we built a fully automated system that is updating the indexed settings for each of our stable release builds and our daily Insiders builds with no human interaction. Within minutes of the completion of the build, Bing's index has been updated to include any newly added settings.
+We are a relatively small development team, and we knew that if we were to start maintaining a service like this, we would not be able to spend a lot of time managing it manually. So we built a fully automated system that is updating the indexed settings for each of our stable release builds and our daily Insiders builds with no human interaction. Within minutes of the completion of the build, Bing's index has been updated to include any newly added settings. [or this can go after explanation]
 
-The first change we had to make was to introduce a unique version number for each build, so that the VS Code client can request results for its build version. Our stable release builds have a unique version number, but Insider builds don't. We wanted to define a monotonically increasing build number that could be computed independently for each build, rather than complicating our processes by adding a new incrementing version number for each Insiders release. So during the build, we generate a number based on the previous release tag plus the number of commits since that release, and bake that number into the product.
+Here is a high level overview of the search service:
 
-During the build, VS Code starts up in a mode where it writes all of its configuration to a JSON file. We have to actually start VS Code, because we can't determine all the configuration metadata statically. The file includes a few pieces of information per setting - the name, description, type, default value, and for "enum"-type settings, the list of valid values and their descriptions. We then upload the file to Azure Storage. If you're curious, you can see the latest one here: https://ticino.blob.core.windows.net/configuration/122001350/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/configuration.json. 122001350 is the unique build number, as discussed above. 6c22e21cd... is the git commit that the build was built off of. And Ticino, some of you diehard fans might remember, was our original short-lived code name.
+![Bing Diagram](./BingDiagram.png)
 
-## Backend
+Let's take a look at each part of the system.
 
-Bing's service watches the Azure Storage container, notices a new build, and indexes it immediately. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its package.json (for extensions, all configuration metadata is contained in the package.json. No need to start it up.) and indexes its settings in the same way as VS Code's.
+## Ingestion Service
 
-Several things must happen to get from indexing a pile of settings to serving up useful search results. Here's a high level view of the backend:
+The Ingestion Service is responsible for creating a rich index containing settings from VS Code itself and from extensions. Since we want query response time to be as short as possible, we do as much work as possible upfront while ingesting settings to reduce the work we have to do while handling the query.
 
-[Ankith's diagram]
+**Collecting Settings**
 
-In order to handle user queries that use different words to the words actually used by settings, we integrated Bing's "alternative word" generation pipeline. This pipeline collects words with similar meanings to each other from Bing's indexed search data using signals such as user behavior, clicks, online ranking, and page similarity. For example, "update" and "upgrade" are set as "alternative words", and a search for one will return settings that include the other.
+During each build, VS Code starts up in a mode where it writes all of its configuration to a JSON file. We have to actually start VS Code, because we can't determine all the configuration metadata statically. The file includes a few pieces of information per setting - the name, description, type, default value, and for "enum"-type settings, the list of valid values and their descriptions. We then upload the file to Azure Storage. If you're curious, you can see the latest one here: https://ticino.blob.core.windows.net/configuration/122001350/6c22e21cdcd6811770ddcc0d8ac3174aaad03678/configuration.json. 122001350 is a unique build number, computed from the product version plus the number of git commits since the previous release. 6c22e21cd... is the git commit that the build was built off of. And Ticino, some of you diehard fans might remember, was our original short-lived code name.
 
-We used the Speller and Stemmer Pipeline to handle queries that contain misspellings or alternate forms of the same word stem. For example "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting". [More here]
+Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its package.json (for extensions, all configuration metadata is contained in the package.json. No need to start it up.) and passes those settings to the Ingestion Service as well.
 
-We also want to enable users to describe their query in their own natural language, so we added Cortana's Natural Language Processing pipeline. It collects [from where?] commonly used speech and text patterns, and these are also added to the index. This enables a user to search `"how to change default file encoding"` to find `"files.encoding"`.
+**Alternative Words Pipeline**
 
-When a request is received, they do a fuzzy lookup in the index. The results are ranked by XYZ.
+Users sometimes search with words that are different but equivalent to the words we use in setting names and descriptions. To ensure that we can handle those cases, we integrated Bing's "Alternative Word" generation pipeline. This pipeline collects words with similar meanings to each other from Bing's search data using signals such as user behavior, clicks, online ranking, and page similarity. For example, "update" and "upgrade" are set as "alternative words", and a search for one will return settings that include the other.
 
-We can even make manual changes to the results by adding alternative words or boosting results for certain queries. This feedback is incorporated into the live service and reflected in the results instantly.
+**Stemmer and Speller Pipeline**
 
-The service is deployed to georeplicated servers located around the world. Search queries are sent to a load balancing service that decides which server should handle the request, based on how physical proximity and current load of the server. [How does that work, where is the load balancer located?]
+We don't want to penalize the user for misspelling the name of a setting, but we found early on that simple fuzzy matching didn't do a good enough job of matching the English language. So we also included a Speller and a Stemmer service which enrich the index with common misspellings and alternate forms of the same words stem. For example "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting". These are lightweight custom services extracted from the full-fledged services that exist on Bing.com.
+
+**Natural Language Processing (NLP) Pipeline**
+
+We also want to enable users to describe their query in their own natural language, so we added Cortana's Natural Language Processing pipeline. The pipeline collects commonly used speech and text patterns and adds them to the indexes. For example, it enables the system to find the important words in "how to disable css validation" to find `"css.validate"`.
+
+**Feedback/Ranking Pipeline**
+
+We created a feedback mechanism that lets us learn and improve from user feedback. It allows us to manually specify new Alternative Word pairs, or to boost expected results for certain queries. The feedback is uploaded to the service and reflected in search results almost immediately.
+
+**Gating Module**
+
+Every ingestion into the index goes through the gating module which just ensures that the index hasn't, due to some programming error, become corrupted. We have test cases written that verify the following:
+
+- The new index is backwards compatible and serves all VS Code builds
+- Our Golden query set returns the expected results
+
+Failure in the gating module will prevent an index ingestion and notifies the team immediately.
+
+**Dashboard Service**
+
+A dashboard service was also created that allows us to monitor the health of all stages of the pipeline. It has alerting mechanisms and the ability to rollback to the last known good state, to ensure that any issue can be resolved quickly with minimum downtime.
+
+## Search Service
+
+Finally, at runtime, the query from our users hits the [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) service that selects one of our geo-replicated servers to handle the query, based on its physical proximity or current load. The Search Service hosted at that location retrieves the relevant results with a fuzzy lookup in the index and returns them to the VS Code client.
+
+So all together, we now have a system which does a much better job of understanding settings queries and delivers results for many queries that would have returned nothing before.
+
+Here are some examples:
+
+[gifs here]
+
+## Bing's Cognitive Services
+In case you want to try some of the other wonderful API services that are provided by Bing, check out [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They have many such capabilities that will help you achieve more in your applications. For example:
+- [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
+- [Language Understanding (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)
+- [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/)
+- [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/)
 
 ## Testing
 
@@ -60,8 +100,9 @@ Currently the service is only indexing in English, but we'd like to index the tr
 
 ## Intelligent settings search
 
-So now it should be easier to find settings. If you search `"change the font"`, you'll find the font settings. If you want to "turn off that tiny code overview thing", you'll find `"editor.minimap.enabled"`. And if you can't figure out how to "move explorer to right", you'll find `"workbench.sidebar.location"`. Now go try it out, and please file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
+So now it should be much easier to find settings. Please go try it out, and file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
 
 Happy Coding!
 
 Rob ([@roblourens](https://twitter.com/roblourens))
+Ankith ([contact details?])
