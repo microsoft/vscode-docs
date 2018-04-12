@@ -26,8 +26,6 @@ From here follow the prompts. Choose the directory that you currently have open,
 
 Function app creation starts after you choose your Storage account.
 
-5. Choose Yes when prompted about overwriting existing deployments - there are no deployments in the newly created function app.
-
 The Output panel shows the Azure resources that were created in your subscription.
 
 > **Tip:** A storage account is not required for HTTP trigger functions, other function triggers (e.g. Storage) do, however, require a storage account.
