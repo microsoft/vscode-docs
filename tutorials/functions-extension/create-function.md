@@ -14,7 +14,7 @@ From the **AZURE FUNCTIONS** explorer, click the **Create Function** icon.
 
 ![Create Function](images/functions-extension/create-function.png)
 
-Select the directory you currently have open - it's the default option so press `Enter`. When prompted, choose HTTP trigger, use the default name of `HttpTriggerJS`, and choose **Anonymous** authentication.
+Select the directory you currently have open - it's the default option so press `kbstyle(Enter)`. When prompted, choose HTTP trigger, use the default name of `HttpTriggerJS`, and choose **Anonymous** authentication.
 
 ![Choose Template](images/functions-extension/create-function-choose-template.png)
 
