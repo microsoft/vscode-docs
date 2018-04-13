@@ -17,7 +17,7 @@ First and foremost, it is an editor that gets out of your way. The delightfully 
 
 Visual Studio Code supports macOS, Linux, and Windows - so you can hit the ground running, no matter the platform.
 
-![Visual Studio Code runs on Mac, Linux and Windows](images/whyvscode/macwinlinux2.png)
+![Visual Studio Code runs on macOS, Linux and Windows](images/whyvscode/macwinlinux2.png)
 
 ## Edit, build, and debug with ease
 

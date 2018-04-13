@@ -31,7 +31,7 @@ For bugs, feature requests or to contact an extension author, you should use the
 
 You can find the VS Code version information in the About dialog box.
 
-On a Mac, go to **Code** > **About Visual Studio Code**.
+On macOS, go to **Code** > **About Visual Studio Code**.
 
 On Windows and Linux, go to **Help** > **About**.
 
@@ -39,7 +39,7 @@ The VS Code version is the first **Version** number listed and has the version f
 
 ## How do I opt out of VS Code auto-updates?
 
-By default, VS Code is set up to auto-update for Mac and Windows users when we release new updates. If you do not want to get automatic updates, you can set the `update.channel` setting from `default` to `none`.
+By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, you can set the `update.channel` setting from `default` to `none`.
 
 To modify the update channel, go to **File** > **Preferences** > **Settings** and add the `update.channel` setting with the value `"none"`.
 

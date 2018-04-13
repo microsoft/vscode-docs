@@ -1,17 +1,17 @@
 ---
 Order: 3
 Area: setup
-TOCTitle: Mac
+TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
-PageTitle: Running Visual Studio Code on Mac
+PageTitle: Running Visual Studio Code on macOS
 DateApproved: 4/5/2018
-MetaDescription: Get Visual Studio Code up and running on Mac.
+MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
-# Running VS Code on Mac
+# Running VS Code on macOS
 
 ## Installation
 
-1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for Mac.
+1. [Download Visual Studio Code](https://go.microsoft.com/fwlink/?LinkID=534106) for macOS.
 2. Double-click on the downloaded archive to expand the contents.
 3. Drag `Visual Studio Code.app` to the `Applications` folder, making it available in the `Launchpad`.
 4. Add VS Code to your Dock by right-clicking on the icon and choosing `Options`, `Keep in Dock`.
@@ -23,7 +23,7 @@ You can also run VS Code from the terminal by typing 'code' after adding it to t
 - Launch VS Code.
 - Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type 'shell command' to find the **Shell Command: Install 'code' command in PATH** command.
 
-![Mac shell commands](images/mac/shell-command.png)
+![macOS shell commands](images/mac/shell-command.png)
 
 - Restart the terminal for the new `$PATH` value to take effect. You'll be able to type 'code .' in any folder to start editing files in that folder.
 
@@ -42,7 +42,7 @@ EOF
 
 Out of the box VS Code adds actions to navigate in editor history as well as the full Debug tool bar to control the debugger on your Touch Bar:
 
-![Mac Touch Bar](images/mac/touchbar.gif)
+![macOS Touch Bar](images/mac/touchbar.gif)
 
 ## Updates
 
@@ -50,7 +50,7 @@ VS Code ships monthly [releases](/updates) and supports auto-update when a new r
 
 ## Preferences Menu
 
-You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md) and [custom keybindings](/docs/getstarted/keybindings.md) and you will often see mention in our documentation of the **File** > **Preferences** menu group.  On a Mac, the **Preferences** menu group is under **Code**, not **File**.
+You can configure VS Code through [settings](/docs/getstarted/settings.md), [color themes](/docs/getstarted/themes.md) and [custom keybindings](/docs/getstarted/keybindings.md) and you will often see mention in our documentation of the **File** > **Preferences** menu group.  On a macOS, the **Preferences** menu group is under **Code**, not **File**.
 
 ## Next Steps
 

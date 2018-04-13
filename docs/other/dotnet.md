@@ -13,7 +13,7 @@ MetaTags:
 ---
 # Using .NET Core in Visual Studio Code
 
-[.NET Core](https://docs.microsoft.com/en-us/dotnet/articles/welcome) gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and Mac. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# IntelliSense (smart code completion) and debugging.
+[.NET Core](https://docs.microsoft.com/en-us/dotnet/articles/welcome) gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and macOS. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# IntelliSense (smart code completion) and debugging.
 
 ## Getting Started
 

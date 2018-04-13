@@ -66,7 +66,7 @@ Below is a [copy of the default settings](/docs/getstarted/settings.md#default-s
 Depending on your platform, the user settings file is located here:
 
 * **Windows** `%APPDATA%\Code\User\settings.json`
-* **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
+* **macOS** `$HOME/Library/Application Support/Code/User/settings.json`
 * **Linux** `$HOME/.config/Code/User/settings.json`
 
 The workspace setting file is located under the `.vscode` folder in your root folder.
@@ -1558,7 +1558,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 **Q: VS Code says "Unable to write settings."**
 
-**A:** If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on Mac) (`kb(workbench.action.openGlobalSettings)`) and you should see the error highlighted with red squiggles.
+**A:** If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS) (`kb(workbench.action.openGlobalSettings)`) and you should see the error highlighted with red squiggles.
 
 **Q: When does it make sense to use workspace settings?**
 

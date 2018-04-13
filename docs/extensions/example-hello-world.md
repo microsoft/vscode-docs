@@ -247,7 +247,7 @@ Create a file (**File** > **New File**), type some text and select it. When you 
 So far, the extension you have written only runs in a special instance of VS Code, the Extension Development instance. To get your extension running in all instances of VS Code, you need to copy it to a new folder under your local extensions folder:
 
 * Windows: `%USERPROFILE%\.vscode\extensions`
-* Mac/Linux: `$HOME/.vscode/extensions`
+* macOS/Linux: `$HOME/.vscode/extensions`
 
 ## Publishing your extension
 

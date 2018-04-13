@@ -183,7 +183,7 @@ Once you've downloaded an extension, you can side load it by renaming the `.zip`
 **A**: Extensions are installed in your extensions folders. Depending on your platform, the global location is in the following folders:
 
 * **Windows** `%USERPROFILE%\.vscode\extensions`
-* **Mac** `~/.vscode/extensions`
+* **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
 **Q: Can VS Code read TextMate bundles directly?**

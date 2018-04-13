@@ -80,7 +80,7 @@ compilation. When the compilation is complete with no errors, you must reload th
 your changes. You have two options to do this:
 
 * Click on the Debug view **Restart** action to relaunch the **Extension Development Host** window.
-* Press `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`) in the Extension Development Host window.
+* Press `kbstyle(Ctrl+R)` (macOS: `kbstyle(Cmd+R)`) in the Extension Development Host window.
 
 ## Profiling your extension
 

@@ -83,7 +83,7 @@ Events in the VS Code API are exposed as functions which you call with a listene
 
 ```javascript
 var listener = function(event) {
-	console.log("It happened", event);
+    console.log("It happened", event);
 };
 
 // start listening
@@ -124,11 +124,8 @@ You can create a `.vscodeignore` file to exclude some files from being included 
 
 **Q: Can I use native Node.js modules with my extension?**
 
-**A:** A Visual Studio Code extension package contains all of its dependencies. This means that if you develop your extension on Windows and depend on a native Node.js module when you publish that extension, the Windows compiled native dependency will be contained in your extension. Users on Mac or Linux won't be able to use the extension.
+**A:** A Visual Studio Code extension package contains all of its dependencies. This means that if you develop your extension on Windows and depend on a native Node.js module when you publish that extension, the Windows compiled native dependency will be contained in your extension. Users on macOS or Linux won't be able to use the extension.
 
-The only way to make this work for now is to include binaries for all four platforms of VS Code (Windows x86 and x64, Linux, Mac) in your extension and have code that dynamically loads the right one.
+The only way to make this work for now is to include binaries for all four platforms of VS Code (Windows x86 and x64, Linux, macOS) in your extension and have code that dynamically loads the right one.
 
 We don't recommend extensions use native `npm` modules as native modules bundled with an extension must be recompiled with every new version of VS Code against the same Node.js version that VS Code ships with. You can find the Node.js and module versions by running `process.versions` from the developer tools console (**Help** > **Toggle Developer Tools**).
-
-
-

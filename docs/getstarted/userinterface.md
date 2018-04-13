@@ -33,18 +33,18 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 You can have up to three editors open side by side. If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
-* `kbstyle(Ctrl)` (Mac: `kbstyle(Cmd)`) click on a file in the Explorer.
+* `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** from the Explorer context menu on a file.
 * Click the **Split Editor** button in the upper right of an editor.
 * Drag and drop a file to the either side of the editor region.
-* `kbstyle(Ctrl+Enter)` (Mac: `kbstyle(Cmd+Enter)`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
+* `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(Cmd+Enter)`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/userinterface/sidebyside.png)
 
 Whenever you open another file, the editor that is active will display the content of that file. So if you have two editors side by side and you want to open file 'foo.cs' into the right hand editor, make sure that editor is active (by clicking inside it) before opening file 'foo.cs'.
 
-When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
+When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
@@ -74,9 +74,9 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 ![Explorer Menu](images/userinterface/explorer_menu.png)
 
-VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on Mac or Linux).
+VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on macOS or Linux).
 
-You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the Mac or **Open Containing Folder** on Linux).
+You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the macOS or **Open Containing Folder** on Linux).
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
@@ -164,7 +164,7 @@ Most editor configurations are kept in settings which can be modified directly. 
 * Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openGlobalSettings)`) to edit the user `settings.json` file.
 * To edit workspace settings, select the **WORKSPACE SETTINGS** tab to edit the workspace `settings.json` file.
 
->**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
+>**Note for macOS users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
 
 ![workspace settings](images/userinterface/workspace-settings.png)
 
@@ -286,7 +286,7 @@ Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
 
 If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/getstarted/keybindings.md).
 
-Mac:
+macOS:
 
 ```json
 { "key": "cmd+w", "command": "workbench.action.closeEditorsInGroup" }

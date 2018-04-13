@@ -384,7 +384,7 @@ To write your own debugger extension, visit:
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, Mac, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
+**A:** Debugging of Node.js based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 

@@ -34,7 +34,7 @@ To enable IntelliSense for packages that are installed in other, non-standard lo
     "C:/Program Files (x86)/Google/google_appengine/lib" ]
 ```
 
-**Mac/Linux:**
+**macOS/Linux:**
 
 ```json
 "python.autoComplete.extraPaths": [

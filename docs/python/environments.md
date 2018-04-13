@@ -89,10 +89,13 @@ If Visual Studio Code does not automatically locate an interpreter you want to u
 For example:
 
 - Windows:
+
   ```json
   "python.pythonPath": "c:/python36/python.exe"
   ```
-- Mac/Linux:
+
+- macOS/Linux:
+
   ```json
   "python.pythonPath": "/home/python36/python"
   ```
@@ -120,7 +123,7 @@ To use a Python interpreter that's installed in a virtual environment:
     }
     ```
 
-    Mac/Linux:
+    macOS/Linux:
     ```json
     {
         "python.pythonPath": "/home/xxx/dev/ala/venv/bin/python"

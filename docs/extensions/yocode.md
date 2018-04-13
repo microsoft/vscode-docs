@@ -105,7 +105,7 @@ Once created, open VS Code on the created folder and run the extension to test t
 To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform, it is located in the following folders:
 
 * **Windows** `%USERPROFILE%\.vscode\extensions`
-* **Mac** `~/.vscode/extensions`
+* **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
 If you want to load your extension each time VS Code runs, copy your project ('side loading') to a new folder under `.vscode/extensions`. For example: `~/.vscode/extensions/myextension`.

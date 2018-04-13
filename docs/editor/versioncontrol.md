@@ -59,7 +59,7 @@ If there is no upstream branch configured and the Git repository has remotes set
 
 **Staging** and **unstaging** can be done via contextual actions in the files or by drag-and-drop.
 
-You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (Mac: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those will be committed, otherwise all changes will be committed.
+You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those will be committed, otherwise all changes will be committed.
 
 We've found this to be a great workflow. For example, in the previous screenshot, only the `config.js` file will be included in the commit. A consecutive commit action would commit both `vinyl-zip.js` and `tests.js` in a separate commit.
 
@@ -141,7 +141,7 @@ Here are the steps to do so:
 
 1. Make sure you can run `code --help` from the command line and you get help.
     * if you do not see help, please follow these steps:
-        * Mac: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
+        * macOS: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
         * Windows: Make sure you selected **Add to PATH** during the installation.
         * Linux: Make sure you installed Code via our new .deb or .rpm packages.
 2. From the command line, run `git config --global core.editor "code --wait"`
