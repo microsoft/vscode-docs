@@ -13,7 +13,7 @@ Visual Studio Code has a powerful command line interface that lets you control h
 
 ![command line example](images/command-line/hero.png)
 
-If you are looking for how to run command line tools inside VS Code, refer to the documentation on the [Integrated Terminal](/docs/editor/integrated-terminal.md).
+If you are looking for how to run command line tools inside VS Code, see the [Integrated Terminal](/docs/editor/integrated-terminal.md).
 
 ## Launching from command line
 
@@ -60,15 +60,15 @@ If you specify more than one folder at the command line, VS Code will create a [
 
 Argument|Description
 ------------------|-----------
-*file* | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
-*file:line[:character]* | Used with the `-g` argument. Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the *file:line[:character]* specifier.
-*folder* | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) is created.
+`file` | Name of a file to open. If the file doesn't exist, it will be created and marked as edited. You can specify multiple files by separating each file name with a space.
+`file:line[:character]` | Used with the `-g` argument. Name of a file to open at the specified line and optional character position. You can specify multiple files in this manner, but you must use the `-g` argument (once) before using the `file:line[:character]` specifier.
+`folder` | Name of a folder to open. You can specify multiple folders and a new [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) is created.
 
 ![go to line and column](images/command-line/goto-line-column.png)
 
 ## Working with extensions
 
-You can install extensions, disable extensions and more from the command line.
+You can install and manage VS Code [extensions](/docs/editor/extension-gallery.md) from the command line.
 
 Argument|Description
 ------------------|-----------
@@ -140,7 +140,7 @@ Read on to find out about:
 
 ## Common Questions
 
-**Q: 'code' is not recognized as an internal or external command**
+**Q: 'code' is not recognized as an internal or external command.**
 
 **A:** Your OS can not find the VS Code binary `code` on its path. The VS Code Windows and Linux installations should have installed VS Code on your path. Try uninstalling and reinstalling VS Code. If `code` is still not found, consult the platform specific setup topics for [Windows](/docs/setup/windows.md) and [Linux](/docs/setup/linux.md).
 
@@ -148,4 +148,4 @@ On macOS, you need to manually run the **Shell Command: Install 'code' command i
 
 **Q: How do I get access to a command line (terminal) from within VS Code?**
 
-**A:** VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run your favorite command line tools from within VS Code.
+**A:** VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command line tools from within VS Code.
