@@ -588,18 +588,6 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 
 >**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
 
-## Debugging with symlinks
-
-If you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` switch in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
-
-```json
-{
-    "runtimeArgs": [
-        "--preserve-symlinks"
-    ]
-}
-```
-
 ## Next Steps
 
 In case you didn't already read the Node.js section, take a look at:
@@ -618,3 +606,17 @@ To learn about VS Code's task running support, go to:
 To write your own debugger extension, visit:
 
 * [Debuggers](/docs/extensions/example-debuggers.md) - Steps to create a VS Code debug extension starting from a mock sample
+
+## Common Questions
+
+**Q: Can I debug if I'm using symlinks?**
+
+**A:** Yes, if you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` [switch](https://nodejs.org/api/cli.html#cli_preserve_symlinks) in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
+
+```json
+{
+    "runtimeArgs": [
+        "--preserve-symlinks"
+    ]
+}
+```
