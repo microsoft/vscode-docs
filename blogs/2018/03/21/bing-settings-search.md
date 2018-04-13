@@ -12,7 +12,7 @@ Author: Rob Lourens
 
 Last month, we released an improvement to settings search in VS Code. We have tweaked our settings editor many times in the past, but this was different - it involved a large-scale collaboration with another team, and was the first experience that our team had with designing and managing an external service to power a core feature. Now each time you search for settings, you will see intelligent results powered by Bing.
 
-[maybe preview gif here]
+![example - how to open new files on the left](./OpenFilesOnLeft.gif)
 
 Being a highly customizable editor has a cost. VS Code includes more than 400 settings out of the box, and if you include settings contributed by extensions, especially certain extensions (I'm looking at you, GitLens!) many users can have significantly more available. This is enough to discourage a new user who doesn't know exactly which setting they are looking for. We have about 30,000 new users trying VS Code for the first time every day, and it's important to us that they are able to customize VS Code successfully and get up to speed.
 
@@ -73,7 +73,9 @@ Putting it all together, we now have a system which does a much better job of un
 
 Here are some examples:
 
-[gifs here]
+![format on keypress](./FormatOnKeypress.gif)
+
+![beautify](./Beautify.gif)
 
 ## Bing's Cognitive Services
 
