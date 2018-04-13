@@ -17,7 +17,7 @@ The features that Visual Studio Code includes out-of-the-box are just the start.
 
 You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or the **View: Extensions** command (`kb(workbench.view.extensions)`).
 
-![Extension View icon](images/extension-gallery/extensions-view-icon.png)
+![Extensions View icon](images/extension-gallery/extensions-view-icon.png)
 
 This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
@@ -46,7 +46,7 @@ By clicking on the Extensions view's `...` **More** button, it is possible to sh
 * The list of recommended extensions based on your workspace
 * The list of globally popular extensions
 
-You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order.
+You can sort the extension list by **Install Count** or **Rating** in either ascending or descending order. You can learn more about extension search filters [below](#extensions-view-filters).
 
 ## Install an extension
 
@@ -60,7 +60,7 @@ For example, typing 'python' will bring up a list of Python language extensions:
 
 ![python extensions](images/extension-gallery/extensions-python.png)
 
-You can see a list of recommended extensions (based on your workspace file types), using **Show Recommended Extensions** which sets the '@recommended' filter.
+You can see a list of recommended extensions (based on your workspace file types), using **Show Recommended Extensions** which sets the `@recommended` filter.
 
 ## Manage extensions
 
@@ -76,7 +76,7 @@ To uninstall an extension, click the **Uninstall** button. This will uninstall t
 
 ### Update an extension
 
-You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the '@outdated' filter.  This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+You can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the `@outdated` filter.  This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to restart VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
 
 ### Auto Update extensions
 
@@ -104,6 +104,43 @@ code --install-extension ms-vscode.cpptools
 code --uninstall-extension ms-vscode.csharp
 code --disable-extensions
 ```
+
+## Extensions view filters
+
+The Extensions view search box supports filters to help you find and manage extensions. You may have seen filters such as `@installed` and `@recommended` if you used the commands **Show Installed Extensions** and **Show Recommended Extensions**. There are also filters to let you sort by popularity and ratings and search by category (for example 'Linters') and tags (for example 'node').
+
+Here are the Extensions view filters:
+
+* `@installed` - Show installed extensions.
+* `@outdated` - Show outdated installed extensions. A newer version is available on the Marketplace.
+* `@enabled` - Show enabled installed extensions. Extensions can be individually enabled/disabled.
+* `@disabled` - Show disabled installed extensions.
+* `@builtin` - Show extensions that come with VS Code. Grouped by type (Programming Languages, Themes, etc.).
+* `@recommended` - Show recommended extensions. Grouped as Workspace specific or general use.
+
+If no filter is provided, the Extensions view displays the currently installed and recommended extensions.
+
+### Sorting
+
+You can sort extensions with the `@sort` filter which can take the following values:
+
+* `installs` - Sort by Marketplace installation count, in descending order.
+* `rating` - Sort by Marketplace rating (1-5 stars), in descending order.
+* `name` - Sort alphabetically by extension name.
+
+![sort by install count](images/extension-gallery/sort-install-count.png)
+
+### Categories and tags
+
+Extensions can set **Categories** and **Tags** describing their features.
+
+![extension categories and tags](images/extension-gallery/categories-and-tags.png)
+
+You can filter on category and tag by using `categories:` and `tags:`.
+
+![categories debuggers](images/extension-gallery/categories-debuggers.png)
+
+Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. Tags may contain any string so review the Marketplace to find helpful tags.
 
 ## Install from a VSIX
 
