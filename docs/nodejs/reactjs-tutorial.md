@@ -183,7 +183,7 @@ Then install the ESLint extension by going to the **Extensions** view and typing
 
 ![ESLint extension](images/reactjs/eslint-extension.png)
 
-Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `eslintrc.json`. You can create one using the extension's **ESLint: Create 'eslintrc.json' File** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `.eslintrc.json`. You can create one using the extension's **ESLint: Create '.eslintrc.json' File** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![create eslintrc](images/reactjs/create-eslintrc.png)
 
@@ -219,7 +219,7 @@ ESLint will now analyze open files and shows a warning in `index.js` about 'App'
 
  ![App is unused](images/reactjs/app-is-unused.png)
 
- You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `eslintrc.json`.
+ You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `.eslintrc.json`.
 
 ![eslintrc IntelliSense](images/reactjs/eslintrc-intellisense.png)
 
