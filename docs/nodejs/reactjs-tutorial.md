@@ -142,7 +142,7 @@ We need to make one change for our example: change the port of the `url` from `8
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}"
-        },
+        }
     ]
 }
 ```
