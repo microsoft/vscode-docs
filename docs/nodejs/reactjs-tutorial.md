@@ -128,9 +128,9 @@ To set a breakpoint in `index.js`, click on the gutter to the left of the line n
 
 ### Configure the Chrome debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes configuration to both launch the website or attach to a running instance.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
-We need to make one change for our example: change the port from `8080` to `3000`. Your `launch.json` should look like this:
+We need to make one change for our example: change the port of the `url` from `8080` to `3000`. Your `launch.json` should look like this:
 
 ```json
 {
@@ -143,13 +143,6 @@ We need to make one change for our example: change the port from `8080` to `3000
             "url": "http://localhost:3000",
             "webRoot": "${workspaceFolder}"
         },
-        {
-            "type": "chrome",
-            "request": "attach",
-            "name": "Attach to Chrome",
-            "port": 9222,
-            "webRoot": "${workspaceFolder}"
-        }
     ]
 }
 ```
@@ -190,7 +183,7 @@ Then install the ESLint extension by going to the **Extensions** view and typing
 
 ![ESLint extension](images/reactjs/eslint-extension.png)
 
-Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `eslintrc.json`. You can create one using the extension's **ESLint: Create 'eslintrc.json' File** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `.eslintrc.json`. You can create one using the extension's **ESLint: Create '.eslintrc.json' File** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![create eslintrc](images/reactjs/create-eslintrc.png)
 
@@ -226,7 +219,7 @@ ESLint will now analyze open files and shows a warning in `index.js` about 'App'
 
  ![App is unused](images/reactjs/app-is-unused.png)
 
- You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `eslintrc.json`.
+ You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `.eslintrc.json`.
 
 ![eslintrc IntelliSense](images/reactjs/eslintrc-intellisense.png)
 
@@ -273,6 +266,6 @@ If you're curious about TypeScript and React, you can also create a TypeScript v
 
 **Q: Can I get IntelliSense within declarative JSX?**
 
-**A:** Yes. For example, if you open the `create-react-app` project's `app.js` file, you can see IntelliSense within the React JSX in the `render()` method.
+**A:** Yes. For example, if you open the `create-react-app` project's `App.js` file, you can see IntelliSense within the React JSX in the `render()` method.
 
 ![JSX IntelliSense](images/reactjs/jsx-intellisense.png)
