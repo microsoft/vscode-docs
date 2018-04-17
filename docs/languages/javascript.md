@@ -9,7 +9,7 @@ MetaDescription: Get the best out of Visual Studio Code for JavaScript developme
 ---
 # JavaScript in VS Code
 
-Visual Studio Code provides IntelliSense, debugging, and powerful editor features for JavaScript. VS Code uses the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
+Visual Studio Code provides IntelliSense, debugging, and powerful editor features for JavaScript. VS Code uses the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio) to make authoring JavaScript easy. In addition to syntactical features like format, format on type and outlining, you also get language service features such as **Peek Definition**, **Go to Definition**, **Find all References**, and **Rename Symbol**.
 
 ![JavaScript find all references](images/javascript/javascript_find_all_references.png)
 
@@ -21,13 +21,13 @@ Thanks to a feature called `Automatic Type Acquisition` you as a user do not hav
 
 ![JavaScript intellisense animation](images/javascript/javascript_intellisense.gif)
 
-For the details of how JavaScript IntelliSense works, including being based on type inference, JsDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
+For the details of how JavaScript IntelliSense works, including being based on type inference, JSDoc annotations, TypeScript declarations, and mixing JavaScript and TypeScript projects, see the [JavaScript language service documentation](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio).
 
 When type inference does not provide the desired information, type information may be provided explicitly with JSDoc annotations. This document describes the [JSDoc annotations](https://github.com/Microsoft/TypeScript/wiki/JsDoc-support-in-JavaScript) currently supported. In addition to objects, methods, and properties, the JavaScript IntelliSense window also provides basic word completion for the symbols in your file.
 
 VS Code ships with the most stable version of the JavaScript language service. The same language service powers both JavaScript and TypeScript, so if you want to use a newer version, you can define the `typescript.tsdk` [setting](/docs/getstarted/settings.md) to point to a directory containing the TypeScript `tsserver.js` file. See more details [here](/docs/languages/typescript.md#using-newer-typescript-versions).
 
-## Automatic Type Acquisition
+### Automatic Type Acquisition
 
 VS Code JavaScript IntelliSense for third-party libraries and modules is powered by `*.d.ts` type declaration (typings) files coming from the [npmjs](https://www.npmjs.com) type declaration file repository and requires **npm**, the Node.js package manager, included with the [Node.js](https://nodejs.org) runtime.
 
@@ -71,7 +71,7 @@ For example on Windows, you would add a path like this to your `settings.json` f
   "typescript.npm": "C:\\Program Files\\nodejs\\npm.cmd"
 ```
 
-## JavaScript Project (jsconfig.json)
+## JavaScript projects (jsconfig.json)
 
 The presence of a [jsconfig.json](/docs/languages/jsconfig.md) file in a directory indicates that the directory is the root of a JavaScript project. `jsconfig.json` specifies the root files and the options for the language features provided by the [JavaScript language service](https://github.com/Microsoft/TypeScript/wiki/JavaScript-Language-Service-in-Visual-Studio). For common setups a `jsconfig.json` file is not required, however, there are situations when you will want to add a `jsconfig.json`.
 
@@ -130,21 +130,7 @@ See [here](/docs/languages/jsconfig.md) for the full documentation of `jsconfig.
 
 > **Note:** `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJS` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options.
 
-## Debugging
-
-VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See more about debugging [here](/docs/editor/debugging.md).
-
-### Debug Client Side
-
-You can debug your client side code using a browser debugger such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) or [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
-
-### Debug Server Side
-
-Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a tutorial for Node.js debugging [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application).
-
-![debug data inspection](images/javascript/debug_data_inspection.gif)
-
-## Type Checking and Quick Fixes for JavaScript Files
+## Type checking
 
 VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting quickfixes for JavaScript, including *add missing import* and *add missing property*.
 
@@ -225,7 +211,7 @@ This enables type checking for all JavaScript files in the project. You can use 
 
 JavaScript type checking requires TypeScript 2.3. If you are unsure what version of TypeScript is currently active in your workspace, run the **TypeScript: Select TypeScript Version** command to check. You must have a `.js/.ts` file open in the editor to run this command. If you open a TypeScript file, the version appears in the lower right corner.
 
-### Global Variables and Type Checking
+### Global variables and type checking
 
 Let's say that you are working in legacy JavaScript code that uses global variables or non-standard DOM APIs:
 
@@ -285,7 +271,7 @@ VS Code provides support for JavaScript linters, including [ESLint](http://eslin
 
 > **Tip** You can disable default JavaScript validation by setting `"javascript.validate.enable": false` in your [settings](/docs/getstarted/settings.md).
 
-<div class="marketplace-extensions-javascript-linters"></div>
+<div class="marketplace-extensions-javascript-linters-curated"></div>
 
 > **Tip:** This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
 
@@ -326,39 +312,13 @@ You may not want to show snippets. You can disable them by setting `editor.snipp
 
 You can enable tab completions with `editor.tabCompletion` setting. After typing the prefix of a snippet, press `kbstyle(Tab)` to insert it.
 
-## Use Next Generation JavaScript
+## JSDoc support
 
-### Run Babel inside VS Code
+VS Code provides a [JSDoc](http://usejsdoc.org) comment template for JavaScript functions when you type `/**`:
 
-The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `group` setting makes this task the default **Task: Run Build Task** gesture.  `isBackground` tells VS Code to keep running this task in the background. To learn more, go to [Tasks](/docs/editor/tasks.md).
+![JSDoc autofill](images/javascript/jsdoc-autofill.gif)
 
-```json
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "watch",
-            "command": "${workspaceFolder}/node_modules/.bin/babel",
-            "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
-            "type": "shell",
-            "group": { "kind": "build", "isDefault": true },
-            "isBackground": true
-        }
-    ]
-}
-```
-
-Once you have added this, you can start **Babel** with the `kb(workbench.action.tasks.build)` (**Run Build Task**) command and it will compile all files from the `src` directory into the `lib` directory.
-
-> **Tip:** For help with Babel CLI see the instructions [here](https://babeljs.io/docs/setup/#installation). The example above uses the CLI option.
-
-### Use the TypeScript Compiler
-
-One of the key features TypeScript provides is the ability to use the latest JavaScript language features, and emit code that can execute in JavaScript runtimes that don't yet understand those newer features. With JavaScript using the same language service, it too can now take advantage of this same feature.
-
-The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Configure the `jsconfig.json` with the desired options and then use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json` to down-level compile.
-
-Read more about the compiler options for down level compilation [here](/docs/languages/jsconfig.md#down-level-compilation-with-typescript-compiler).
+You can turn off this auto-generation with the setting `"jsDocComplettion.enabled": false`.
 
 ## Formatting
 
@@ -397,7 +357,7 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 "javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
 ```
 
-## Auto Imports
+## Auto imports
 
 Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
 
@@ -423,7 +383,55 @@ Click on the reference count to quickly browse a list of references:
 
 ![JavaScript references code lens peek](images/javascript/references-codelens-peek.png)
 
-## Popular Extensions
+## Use next generation JavaScript
+
+### Run Babel inside VS Code
+
+The [Babel](https://babeljs.io) transpiler turns ES6 files into readable ES5 JavaScript with Source Maps. You can easily integrate **Babel** into your workflow by adding the configuration below to your `tasks.json` file (located under the workspace's `.vscode` folder). The `group` setting makes this task the default **Task: Run Build Task** gesture.  `isBackground` tells VS Code to keep running this task in the background. To learn more, go to [Tasks](/docs/editor/tasks.md).
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "watch",
+            "command": "${workspaceFolder}/node_modules/.bin/babel",
+            "args": ["src", "--out-dir", "lib", "-w", "--source-maps"],
+            "type": "shell",
+            "group": { "kind": "build", "isDefault": true },
+            "isBackground": true
+        }
+    ]
+}
+```
+
+Once you have added this, you can start **Babel** with the `kb(workbench.action.tasks.build)` (**Run Build Task**) command and it will compile all files from the `src` directory into the `lib` directory.
+
+> **Tip:** For help with Babel CLI see the instructions [here](https://babeljs.io/docs/setup/#installation). The example above uses the CLI option.
+
+### Use the TypeScript compiler
+
+One of the key features TypeScript provides is the ability to use the latest JavaScript language features, and emit code that can execute in JavaScript runtimes that don't yet understand those newer features. With JavaScript using the same language service, it too can now take advantage of this same feature.
+
+The TypeScript compiler `tsc` can down-level compile JavaScript files from ES6 to another language level. Configure the `jsconfig.json` with the desired options and then use the –p argument to make `tsc` use your `jsconfig.json` file, e.g. `tsc -p jsconfig.json` to down-level compile.
+
+Read more about the compiler options for down level compilation [here](/docs/languages/jsconfig.md#down-level-compilation-with-typescript-compiler).
+
+## Debugging
+
+VS Code comes with great debugging support for JavaScript. Set breakpoints, inspect objects, navigate the call stack, and execute code in the Debug Console. See more about debugging [here](/docs/editor/debugging.md).
+
+### Debug client side
+
+You can debug your client side code using a browser debugger such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome), [Debugger for Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) or [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-firefox-debug).
+
+### Debug server side
+
+Debug Node.js in VS Code using the built-in debugger. Setup is easy and you can read a tutorial for Node.js debugging [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-express-application).
+
+![debug data inspection](images/javascript/debug_data_inspection.gif)
+
+## Popular extensions
 
 VS Code ships with excellent support for JavaScript but you can additionally install debuggers, snippets, linters, and other JavaScript tools through [extensions](/docs/editor/extension-gallery.md).
 
@@ -431,7 +439,7 @@ VS Code ships with excellent support for JavaScript but you can additionally ins
 
 > **Tip:** The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-## Next Steps
+## Next steps
 
 Read on to find out about:
 
@@ -447,7 +455,7 @@ Watch these introductory videos:
 * [IntelliSense](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
 * [Debugging](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
 
-## Common Questions
+## Common questions
 
 **Q: Does VS Code support JSX and React Native?**
 
