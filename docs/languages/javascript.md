@@ -288,7 +288,7 @@ easy = 123 // Error: Type '123' is not assignable to type 'string'
 
 Using `// @ts-check` is a good approach if you just want to try type checking in a few files but not yet enable it for an entire codebase.
 
-**Using a Setting**
+**Using a setting**
 
 To enable type checking for all JavaScript files without changing any code, just add `"javascript.implicitProjectConfig.checkJs": true` to your workspace or user settings. This enables type checking for any JavaScript file that is not part of a `jsconfig.json` or `tsconfig.json` project.
 
@@ -308,7 +308,7 @@ let easy = 'abc'
 easy = 123 // no error
 ```
 
-**Using a JSConfig or TSConfig**
+**Using jsconfig or tsconfig**
 
 To enable type checking for JavaScript files that are part of a `jsconfig.json` or `tsconfig.json`, add `"checkJs": true` to the project's compiler options:
 
