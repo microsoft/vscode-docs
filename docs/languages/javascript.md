@@ -152,7 +152,7 @@ VS Code provides a [JSDoc](http://usejsdoc.org) comment template for JavaScript 
 
 ![JSDoc autofill](images/javascript/jsdoc-autofill.gif)
 
-You can turn off this auto-generation with the setting `"jsDocComplettion.enabled": false`.
+You can turn off this auto-generation with the setting `"jsDocCompletion.enabled": false`.
 
 ## Auto imports
 
@@ -182,7 +182,7 @@ Click on the reference count to quickly browse a list of references:
 
 ## Refactoring
 
-The JavaScript language service supports handy refactorings such as **Extract Method** and **Extract Constant**. Select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
+The JavaScript language service supports handy refactorings such as **Extract function** and **Extract constant**. Select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
 
 ![JavaScript refactoring](images/javascript/refactoring.png)
 
