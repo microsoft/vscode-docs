@@ -128,13 +128,147 @@ The best practice, and least error prone route, is to use the `include` attribut
 
 See [here](/docs/languages/jsconfig.md) for the full documentation of `jsconfig.json`.
 
+### Migrating to TypeScript
+
+It is possible to have mixed TypeScript and JavaScript projects. To start migrating to TypeScript, rename your `jsconfig.json` file to `tsconfig.json` and set the `allowJs` property to `true`. For more details, see [Migrating from JavaScript](https://www.typescriptlang.org/docs/handbook/migrating-from-javascript.html).
+
 > **Note:** `jsconfig.json` is the same as a `tsconfig.json` file, only with `allowJS` set to true. See [the documentation for `tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) here to see other available options.
+
+## Snippets
+
+VS Code has several built-in snippets that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (**Trigger Suggest**) and you will see a context specific list of suggestions.
+
+![built in javascript snippet foreach](images/javascript/javascript_snippets.gif)
+
+> **Tip:** You can add in your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
+
+You may not want to show snippets. You can disable them by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
+
+You can enable tab completions with `editor.tabCompletion` setting. After typing the prefix of a snippet, press `kbstyle(Tab)` to insert it.
+
+## JSDoc support
+
+VS Code provides a [JSDoc](http://usejsdoc.org) comment template for JavaScript functions when you type `/**`:
+
+![JSDoc autofill](images/javascript/jsdoc-autofill.gif)
+
+You can turn off this auto-generation with the setting `"jsDocComplettion.enabled": false`.
+
+## Auto imports
+
+Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
+
+Just start typing to see [suggestions](#intellisense) for all available JavaScript symbols in your current project.
+
+![Global symbols are shown in the suggestion list](images/javascript/auto-import-pre.png)
+
+If you choose one of the suggestion from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
+
+![After selecting a symbol from a different file, an import is added for it automatically](images/javascript/auto-import-post.png)
+
+Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
+
+## References CodeLens
+
+The JavaScript references CodeLens displays an inline count of reference for classes, methods, properties, and exported objects:
+
+![JavaScript references code lens](images/javascript/references-codelens.png)
+
+You can enable this by setting `"javascript.referencesCodeLens.enabled": true`.
+
+Click on the reference count to quickly browse a list of references:
+
+![JavaScript references code lens peek](images/javascript/references-codelens-peek.png)
+
+## Refactoring
+
+The JavaScript language service supports handy refactorings such as **Extract Method** and **Extract Constant**. Select the source code you'd like to extract and then click on the lightbulb in the gutter or press (`kb(editor.action.quickFix)`) to see available refactorings.
+
+![JavaScript refactoring](images/javascript/refactoring.png)
+
+## Formatting
+
+As with other languages, you can format your JavaScript code in VS Code.
+
+![formatter](images/javascript/formatter.gif)
+
+VS Code provides several formatting settings for JavaScript. They can all be found in the `javascript.format` [settings](/docs/getstarted/settings.md) namespace.
+
+```typescript
+// Defines space handling after a comma delimiter
+"javascript.format.insertSpaceAfterCommaDelimiter": boolean,
+
+// Defines space handling after a semicolon in a for statement
+"javascript.format.insertSpaceAfterSemicolonInForStatements": boolean,
+
+// Defines space handling after a binary operator
+"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": boolean,
+
+// Defines space handling after keywords in control flow statement
+"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": boolean,
+
+// Defines space handling after function keyword for anonymous functions
+"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": boolean,
+
+// Defines space handling after opening and before closing non-empty parenthesis
+"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": boolean,
+
+// Defines space handling after opening and before closing non-empty brackets
+"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": boolean,
+
+// Defines whether an open brace is put onto a new line for functions or not
+"javascript.format.placeOpenBraceOnNewLineForFunctions": boolean,
+
+// Defines whether an open brace is put onto a new line for control blocks or not
+"javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
+```
+
+## Linters
+
+A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
+
+VS Code provides support for JavaScript linters, including [ESLint](http://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
+
+ ![linter warning](images/javascript/eslint_warning.png)
+
+> **Tip:** In the above example, the error comes from `eslint`. Error messages will be prefixed (see above `[eslint]`) by the originator of the message. Error messages from the JavaScript language service are prefixed `js`.
+
+> **Tip** You can disable default JavaScript validation by setting `"javascript.validate.enable": false` in your [settings](/docs/getstarted/settings.md).
+
+<div class="marketplace-extensions-javascript-linters-curated"></div>
+
+> **Tip:** This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
+
+A linter extension may require an external tool. The steps below show how to setup ESLint. The process is similar for other linters.
+
+1. Install the linter globally or inside the workspace folder that contains the JavaScript code to be validated. For example, using `npm install -g eslint`.
+2. Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) extension.
+3. Create a `.eslintrc.json` file in the root of your workspace to configure the linter. You can use `eslint --init` to create an initial version of the `.eslintrc.json` file.
+
+>**Tip:** You get IntelliSense and hovering inside the `.eslintrc.json` file.
+
+>**Tip:** The linter is enabled after installation. You can disable a linter with the corresponding `.enable` [setting](/docs/getstarted/settings.md). For ESLint, this would be setting `"eslint.enable" : false`.
+
+It is recommended that you enable the linter rules that warn about undefined and unused variables. To do this, put the following options in your `.eslintrc.json` file.
+
+```json
+"no-undef": 1,
+"no-unused-vars": 1,
+```
+
+You can also control when a linter runs with the linter `.run` setting. The two options are the default `onType` after each key stroke and `onSave` after you save your file.
+
+Here are a few useful resources when using ESLint.
+
+* [Complete list of ESLint Rules](http://eslint.org/docs/rules/)
+* [Configuring ESLint](http://eslint.org/docs/user-guide/configuring)
+* [Getting Started with ESLint](http://eslint.org/docs/user-guide/getting-started)
 
 ## Type checking
 
-VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting quickfixes for JavaScript, including *add missing import* and *add missing property*.
+VS Code allows you to leverage some of TypeScript's advanced type checking and error reporting functionality in regular JavaScript files. This is a great way to catch common programming mistakes. These type checks also enable some exciting Quick Fixes for JavaScript, including **Add missing import** and **Add missing property**.
 
-![Using type checking and quick fixes in a JavaScript file](images/javascript/checkjs-example.gif)
+![Using type checking and Quick Fixes in a JavaScript file](images/javascript/checkjs-example.gif)
 
 TypeScript can infer types in `.js` files same as in `.ts` files. When types cannot be inferred, they can be specified using JSDoc comments. You can read more about how TypeScript uses JSDocs for JavaScript type checking [here](https://github.com/Microsoft/TypeScript/wiki/Type-Checking-JavaScript-Files).
 
@@ -259,131 +393,7 @@ declare var CAN_NOTIFY: number;
 
 `d.ts` files are type declarations. In this case, `globals.d.ts` lets TypeScript know that a global `CAN_NOTIFY` exists and that a `webkitNotifications` property exists on `window`. You can read more about writing `d.ts` [here](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html). `d.ts` files do not change how JavaScript is evaluated, they are used only for providing better JavaScript language support.
 
-## Linters
-
-A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
-
-VS Code provides support for JavaScript linters, including [ESLint](http://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
-
- ![linter warning](images/javascript/eslint_warning.png)
-
-> **Tip:** In the above example, the error comes from `eslint`. Error messages will be prefixed (see above `[eslint]`) by the originator of the message. Error messages from the JavaScript language service are prefixed `js`.
-
-> **Tip** You can disable default JavaScript validation by setting `"javascript.validate.enable": false` in your [settings](/docs/getstarted/settings.md).
-
-<div class="marketplace-extensions-javascript-linters-curated"></div>
-
-> **Tip:** This list is dynamically queried from the [VS Code Marketplace](https://marketplace.visualstudio.com). Read the description and reviews to decide if the extension is right for you.
-
-A linter extension may require an external tool. The steps below show how to setup ESLint. The process is similar for other linters.
-
-1. Install the linter globally or inside the workspace folder that contains the JavaScript code to be validated. For example, using `npm install -g eslint`.
-2. Install the [ESLint](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) extension.
-3. Create a `.eslintrc.json` file in the root of your workspace to configure the linter. You can use `eslint --init` to create an initial version of the `.eslintrc.json` file.
-
->**Tip:** You get IntelliSense and hovering inside the `.eslintrc.json` file.
-
->**Tip:** The linter is enabled after installation. You can disable a linter with the corresponding `.enable` [setting](/docs/getstarted/settings.md). For ESLint, this would be setting `"eslint.enable" : false`.
-
-It is recommended that you enable the linter rules that warn about undefined and unused variables. To do this, put the following options in your `.eslintrc.json` file.
-
-```json
-"no-undef": 1,
-"no-unused-vars": 1,
-```
-
-You can also control when a linter runs with the linter `.run` setting. The two options are the default `onType` after each key stroke and `onSave` after you save your file.
-
-Here are a few useful resources when using ESLint.
-
-* [Complete list of ESLint Rules](http://eslint.org/docs/rules/)
-* [Configuring ESLint](http://eslint.org/docs/user-guide/configuring)
-* [Getting Started with ESLint](http://eslint.org/docs/user-guide/getting-started)
-
-## Snippets
-
-VS Code has several built-in snippets that will come up as you type or you can press `kb(editor.action.triggerSuggest)` (**Trigger Suggest**) and you will see a context specific list of suggestions.
-
-![built in javascript snippet foreach](images/javascript/javascript_snippets.gif)
-
-> **Tip:** You can add in your own snippets for JavaScript. See [User Defined Snippets](/docs/editor/userdefinedsnippets.md) to find out how.
-
-You may not want to show snippets. You can disable them by setting `editor.snippetSuggestions` to `"none"` in your [settings](/docs/getstarted/settings.md) file. If you'd like to see snippets, you can specify the order relative to suggestions; at the top (`"top"`), at the bottom (`"bottom"`), or inlined ordered alphabetically (`"inline"`). The default is `"inline"`.
-
-You can enable tab completions with `editor.tabCompletion` setting. After typing the prefix of a snippet, press `kbstyle(Tab)` to insert it.
-
-## JSDoc support
-
-VS Code provides a [JSDoc](http://usejsdoc.org) comment template for JavaScript functions when you type `/**`:
-
-![JSDoc autofill](images/javascript/jsdoc-autofill.gif)
-
-You can turn off this auto-generation with the setting `"jsDocComplettion.enabled": false`.
-
-## Formatting
-
-As with other languages, you can format your JavaScript code in VS Code.
-
-![formatter](images/javascript/formatter.gif)
-
-VS Code provides several formatting settings for JavaScript. They can all be found in the `javascript.format` [settings](/docs/getstarted/settings.md) namespace.
-
-```typescript
-// Defines space handling after a comma delimiter
-"javascript.format.insertSpaceAfterCommaDelimiter": boolean,
-
-// Defines space handling after a semicolon in a for statement
-"javascript.format.insertSpaceAfterSemicolonInForStatements": boolean,
-
-// Defines space handling after a binary operator
-"javascript.format.insertSpaceBeforeAndAfterBinaryOperators": boolean,
-
-// Defines space handling after keywords in control flow statement
-"javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": boolean,
-
-// Defines space handling after function keyword for anonymous functions
-"javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": boolean,
-
-// Defines space handling after opening and before closing non-empty parenthesis
-"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": boolean,
-
-// Defines space handling after opening and before closing non-empty brackets
-"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": boolean,
-
-// Defines whether an open brace is put onto a new line for functions or not
-"javascript.format.placeOpenBraceOnNewLineForFunctions": boolean,
-
-// Defines whether an open brace is put onto a new line for control blocks or not
-"javascript.format.placeOpenBraceOnNewLineForControlBlocks": boolean,
-```
-
-## Auto imports
-
-Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
-
-Just start typing to see [suggestions](#intellisense) for all available JavaScript symbols in your current project.
-
-![Global symbols are shown in the suggestion list](images/javascript/auto-import-pre.png)
-
-If you choose one of the suggestion from another file or module, VS Code will automatically add an import for it. In this example, VS Code adds an import for `Hercules` to the top of the file:
-
-![After selecting a symbol from a different file, an import is added for it automatically](images/javascript/auto-import-post.png)
-
-Auto imports requires TypeScript 2.6+ and are enabled by default. You can disable auto imports by setting `"typescript.autoImportSuggestions.enabled": false`.
-
-## References CodeLens
-
-The JavaScript references CodeLens displays an inline count of reference for classes, methods, properties, and exported objects:
-
-![JavaScript references code lens](images/javascript/references-codelens.png)
-
-You can enable this by setting `"javascript.referencesCodeLens.enabled": true`.
-
-Click on the reference count to quickly browse a list of references:
-
-![JavaScript references code lens peek](images/javascript/references-codelens-peek.png)
-
-## Use next generation JavaScript
+## Next generation JavaScript
 
 ### Run Babel inside VS Code
 
