@@ -136,11 +136,11 @@ Extensions can set **Categories** and **Tags** describing their features.
 
 ![extension categories and tags](images/extension-gallery/categories-and-tags.png)
 
-You can filter on category and tag by using `categories:` and `tags:`.
+You can filter on category and tag by using `category:` and `tag:`.
 
 ![categories debuggers](images/extension-gallery/categories-debuggers.png)
 
-Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. Tags may contain any string so review the Marketplace to find helpful tags.
+Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. Surround the category in quotes if the category name is more than one word (for example, `category:"SCM Providers"`). Tags may contain any string so review the Marketplace to find helpful tags.
 
 ## Install from a VSIX
 
