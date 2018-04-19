@@ -84,20 +84,6 @@ Here are some examples:
 
 ![beautify](./Beautify.gif)
 
-## Bing's Cognitive Services
-
-[Is this actually Azure Cognitive Services? Also first link goes to web search API, not a general page]
-
-[Needs to imply that these were the services used to build our system, but are not a complete solution for developing what we have]
-
-[Original: In case you want to try some of the other wonderful API services that are provided by Bing, do check out Bing's Cognitive services. They have many such capabilities that will help you achieve more in your applications. E.g:]
-
-[Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They provide a bunch of services that will help you add some intelligence into your own apps. For example:
-- [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
-- [Language Understanding (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)
-- [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/)
-- [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/)
-
 ## Testing
 
 While developing this system, we needed a way to quantitatively evaluate the results. We decided to build a test system based on the concept of [Normalized Discounted Cumulative Gain, or NDCG](https://en.wikipedia.org/wiki/Discounted_cumulative_gain). Without getting too far into the weeds, this is a way to grade the results from a search engine, given a query, a set of results, and scores for those results. We wrote quite a few test cases by hand, but realized that we needed an automated way to generate test cases for all settings, including new settings as they would be added, and settings in extensions. So we wrote a tool that can generate test cases automatically for any setting. It uses words from the setting name and description, and runs them through different transformers that simulate users choosing alternate words, making typos, or searching using natural language patterns. We also generated test cases for settings from some popular extensions.
@@ -109,6 +95,18 @@ We run the full test suite every 6 hours, and it can update itself automatically
 There are several ways that we can continue to improve the system. For example, we are also setting up an automated feedback loop based on user behavior. If many people search for similar queries, then pick the same result, we know that result is probably a good one and should be ranked higher.
 
 Currently the service is only indexing in English, but we'd like to index the translated setting descriptions and support searching in non-English languages. There is also some configuration metadata that isn't currently indexed, like possible values for the `"workbench.colorCustomizations"` setting. And taking search a little further, we would like to show results for extensions that aren't currently installed. If you search `"debug python"`, and don't have strong matches for local settings, then we would like to lead you towards an extension that can help you debug Python code. We have also thought about other applications for this technology within VS Code. Maybe the command palette could be powered by a similar service.
+
+## Bing's Cognitive Services
+
+[Is this actually Azure Cognitive Services? Also first link goes to web search API, not a general page]
+
+[Needs to imply that these were the services used to build our system, but are not a complete solution for developing what we have]
+
+If you don't have a search team to build you a custom service, you can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They provide a bunch of services that will help you add some intelligence into your own apps. For example:
+- [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
+- [Language Understanding (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)
+- [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/)
+- [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/)
 
 ## Intelligent settings search
 
