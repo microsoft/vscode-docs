@@ -1,5 +1,5 @@
 ---
-Order: 
+Order: 7
 Area: extensionapi
 TOCTitle: Document Selectors
 ContentId: f328d7e0-8982-4510-b7fb-975188eca502
