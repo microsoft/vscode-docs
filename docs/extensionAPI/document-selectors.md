@@ -11,11 +11,11 @@ MetaDescription: Extensions can filter their feature based on Document Selectors
 
 Extensions can filter their features based on document selectors by language, file type, and location. This topic discusses document selectors, document schemes, and what extensions authors should be aware about.
 
-## Text documents not limited to the file system
+## Text documents not on disk
 
 Not all text documents are stored on disk, for example, newly created documents. Unless specified, a document selector applies to **all** document types. Use the [DocumentFilter](https://code.visualstudio.com/docs/extensionAPI/vscode-api#DocumentFilter) `scheme` property to narrow down on certain schemes, for example `{ scheme: 'file', language: 'typescript' }` for TypeScript files that are stored on disk.
 
-## DocumentSelector
+## Document selectors
 
 The VS Code extension API combines language-specific features, like IntelliSense, with document selectors through the [DocumentSelector](https://code.visualstudio.com/docs/extensionAPI/vscode-api#DocumentSelector) type. They are an easy mechanism to narrow down functionality to a specific language.
 
@@ -49,7 +49,7 @@ vscode.languages.registerHoverProvider({ scheme: 'untitled', language: 'typescri
 })
 ```
 
-## Document Scheme
+## Document scheme
 
 The `scheme` of a document is often overlooked but is an important piece of information. Most documents are saved on disk and extension authors typically assume they are working with a file on disk. For example with a simple `typescript` selector, the assumption is **TypeScript files on disk**. However, there are scenarios where that assumption is too lax and a more explicit selector like `{ scheme: 'file', language: 'typescript' }` should be used.
 
