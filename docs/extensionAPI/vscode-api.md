@@ -1,5 +1,5 @@
 ---
-Order: 6
+Order: 8
 Area: extensionapi
 TOCTitle: vscode namespace API
 ContentId: 8CEBCDF8-4F0A-4C81-A904-3DEA43480EA6
