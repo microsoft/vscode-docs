@@ -16,8 +16,17 @@ Being a highly customizable editor has a cost. VS Code includes more than 400 se
 
 So several months ago, we started talking to the Bing team about whether they could apply their search expertise to our problem. And two months ago, we shipped the result - an intelligent settings search experience powered by Bing.
 
-[Before/After]
-![example - how to zoom with scroll wheel](./ZoomScrollWheel.gif)
+
+<div>
+    <div style="display: inline-block; width: 49%">
+        <h3 style="text-align: center">Before</h3>
+        <img src="./ZoomScrollWheel-before.png">
+    </div>
+    <div style="display: inline-block; width: 49%">
+        <h3 style="text-align: center">After</h3>
+        <img src="./ZoomScrollWheel.gif">
+    </div>
+</div>
 
 ## Working with the Bing team
 
