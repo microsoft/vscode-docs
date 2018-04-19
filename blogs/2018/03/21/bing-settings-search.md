@@ -10,13 +10,14 @@ Author: Rob Lourens
 ---
 # How We Improved VS Code Settings Search With Bing
 
-Last month, we released an improvement to settings search in VS Code. We have tweaked our settings editor many times in the past, but this was different - it involved a large-scale collaboration with another team, and was the first experience that our team had with designing and managing an external service to power a core feature. Now each time you search for settings, you will see intelligent results powered by Bing.
-
-![example - how to zoom with scroll wheel](./ZoomScrollWheel.gif)
+Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common Github issues, StackOverflow questions, Twitter, and user studies that we've done on usertesting.com, we've seen many users having issues finding settings. We've seen users who just didn't know which words to use to describe a certain feature. We've seen users making typos and misspellings. When users search in the settings editor, there are a large number of users making simple common queries, like "font", which we can handle perfectly well. But there is also a very long tail of less common queries which don't produce literal matches, and which VS Code couldn't understand without some extra intelligence.
 
 Being a highly customizable editor has a cost. VS Code includes more than 400 settings out of the box, and if you include settings contributed by extensions, especially certain extensions (I'm looking at you, GitLens!) many users can have significantly more available. This is enough to discourage a new user who doesn't know exactly which setting they are looking for. We have about 30,000 new users trying VS Code for the first time every day, and it's important to us that they are able to customize VS Code successfully and get up to speed.
 
-Looking across common Github issues, StackOverflow questions, Twitter, and user studies that we did on usertesting.com, we've seen many users having issues finding settings. We've seen users who just didn't know which words to use to describe a certain feature. We've seen users making typos and misspellings. And we've seen many other queries which just didn't fit into the strict filtering model that we had previously implemented for searching settings. There are a large number of users making simple common queries, like "font", which we can handle perfectly well. But there is also a very long tail of less common queries which don't produce literal matches, and which we can't understand without some extra intelligence. So several months ago, we started talking to the Bing team.
+So several months ago, we started talking to the Bing team about whether they could apply their search expertise to our problem. And two months ago, we shipped the result - an intelligent settings search experience powered by Bing.
+
+[Before/After]
+![example - how to zoom with scroll wheel](./ZoomScrollWheel.gif)
 
 ## Working with the Bing team
 
