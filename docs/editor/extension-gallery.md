@@ -17,7 +17,7 @@ The features that Visual Studio Code includes out-of-the-box are just the start.
 
 You can browse and install extensions from within VS Code. Bring up the Extensions view by clicking on the Extensions icon in the **Activity Bar** on the side of VS Code or the **View: Extensions** command (`kb(workbench.view.extensions)`).
 
-![Extensions View icon](images/extension-gallery/extensions-view-icon.png)
+![Extensions view icon](images/extension-gallery/extensions-view-icon.png)
 
 This will show you a list of the most popular VS Code extensions on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode).
 
@@ -65,7 +65,7 @@ You can sort the extension list by **Install Count** or **Rating** in either asc
 
 ### Search for an extension
 
-You can clear the Search box at the top of the Extensions View and type in the name of the extension, tool or programming language you're looking for.
+You can clear the Search box at the top of the Extensions view and type in the name of the extension, tool or programming language you're looking for.
 
 For example, typing 'python' will bring up a list of Python language extensions:
 
@@ -178,7 +178,7 @@ Supported categories are: `[Programming Languages, Snippets, Linters, Themes, De
 
 ## Install from a VSIX
 
-You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX...** command in the Extensions View command drop-down, or the **Extensions: Install from VSIX...** command in the **Command Palette**, point to the `.vsix` file.
+You can manually install a VS Code extension packaged in a `.vsix` file. Using the **Install from VSIX...** command in the Extensions view command drop-down, or the **Extensions: Install from VSIX...** command in the **Command Palette**, point to the `.vsix` file.
 
 You can also install using the VS Code `--install-extension` command line switch providing the path to the `.vsix` file.
 
@@ -261,7 +261,7 @@ For example, the [ESLint extension](https://marketplace.visualstudio.com/items?i
 https://dbaeumer.gallery.vsassets.io/_apis/public/gallery/publisher/dbaeumer/extension/vscode-eslint/0.10.18/assetbyname/Microsoft.VisualStudio.Services.VSIXPackage
 ```
 
-Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions View command drop-down.
+Once you've downloaded an extension, you can side load it by renaming the `.zip` filename extension to `.vsix` and then using the **Install from VSIX...** command in the Extensions view command drop-down.
 
 **Q: Can I stop VS Code from providing extension recommendations?**
 
