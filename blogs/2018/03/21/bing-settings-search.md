@@ -8,11 +8,9 @@ Date: 2018-03-21
 ShortDescription: Learn what's new with settings search in Visual Studio Code
 Author: Rob Lourens
 ---
-# How We Improved VS Code Settings Search With Bing
+# Improving Settings Search in VS Code
 
-Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common Github issues, StackOverflow questions, Twitter, and user studies that we've done on usertesting.com, we've seen many users having issues finding settings. We've seen users who just didn't know which words to use to describe a certain feature. We've seen users making typos and misspellings. When users search in the settings editor, there are a large number of users making simple common queries, like "font", which we can handle perfectly well. But there is also a very long tail of less common queries which don't produce literal matches, and which VS Code can't understand without some extra intelligence.
-
-Being a highly customizable editor has a cost. VS Code includes more than 400 settings out of the box, and if you include settings contributed by extensions, especially certain extensions (I'm looking at you, GitLens!) many users can have significantly more available. This is enough to discourage a new user who doesn't know exactly which setting they are looking for. We have about 30,000 new users trying VS Code for the first time every day, and it's important to us that they are able to customize VS Code successfully and get up to speed.
+Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common Github issues, StackOverflow questions, Twitter, and user studies that we've done, we've seen many users having issues finding settings. This is no surprise given that VS Code includes more than 400 settings out of the box, and with extensions installed many users can have significantly more. If you include typical user mistakes such as typos and the challenge to pick the right search terms, users have a hard time.
 
 So several months ago, we started talking to the Bing team about whether they could apply their search expertise to our problem. And two months ago, we shipped the result - an intelligent settings search experience powered by Bing.
 
@@ -28,7 +26,7 @@ So several months ago, we started talking to the Bing team about whether they co
     </div>
 </div>
 
-## Working with the Bing team
+## A Bing-powered setting search
 
 After a period of discussion and prototyping, we decided on an arrangement in which the Bing team would run a settings search service that would provide intelligent fuzzy settings matches for queries that users search for in VS Code's settings editor.
 
@@ -39,8 +37,6 @@ Here is a high level overview of the system:
 ![Bing Diagram](./BingDiagram.png)
 
 Let's take a look at each part.
-
-## Deep Dive
 
 There are essentially two sides to this system - collecting and indexing setting details offline, and serving up results online. The first part of that is implemented by the Ingestion Service. It's responsible for creating a rich index containing settings from VS Code itself and from extensions. Since we want query response time to be as short as possible, we do as much work as possible up front while ingesting settings to reduce the work we have to do while handling the query.
 
@@ -83,7 +79,9 @@ Failure in the gating module will prevent an index ingestion and notifies the te
 
 Finally, at runtime, the query from our users hits the [Azure Load Balancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) service that selects one of our geo-replicated servers to handle the query, based on its physical proximity or current load. The Search Service hosted at that location retrieves the relevant results with a lookup in the index, applies manual ranking overrides in some cases, [rm or expand...?] and returns them to the VS Code client.
 
-Putting it all together, we now have a system which does a much better job of understanding settings queries and delivers results for many queries that would have returned nothing before.
+## Putting it all together
+
+We now have a system which does a much better job of understanding settings queries and delivers results for many queries that would have returned nothing before.
 
 Here are some examples:
 
@@ -93,33 +91,28 @@ Here are some examples:
 
 ![beautify](./Beautify.gif)
 
-## Testing
-
-While developing this system, we needed a way to quantitatively evaluate the results. We decided to build a test system based on the concept of [Normalized Discounted Cumulative Gain, or NDCG](https://en.wikipedia.org/wiki/Discounted_cumulative_gain). Without getting too far into the weeds, this is a way to grade the results from a search engine, given a query, a set of results, and scores for those results. We wrote quite a few test cases by hand, but realized that we needed an automated way to generate test cases for all settings, including new settings as they would be added, and settings in extensions. So we wrote a tool that can generate test cases automatically for any setting. It uses words from the setting name and description, and runs them through different transformers that simulate users choosing alternate words, making typos, or searching using natural language patterns. We also generated test cases for settings from some popular extensions.
-
-We run the full test suite every 6 hours, and it can update itself automatically so that it's always testing settings from the latest build. The test suite assures us that the system is running properly, and gives us confidence that when we make changes on the backend, we are not hurting the result quality.
-
-## Future Work
-
-There are several ways that we can continue to improve the system. For example, we are also setting up an automated feedback loop based on user behavior. If many people search for similar queries, then pick the same result, we know that result is probably a good one and should be ranked higher.
-
-Currently the service is only indexing in English, but we'd like to index the translated setting descriptions and support searching in non-English languages. There is also some configuration metadata that isn't currently indexed, like possible values for the `"workbench.colorCustomizations"` setting. And taking search a little further, we would like to show results for extensions that aren't currently installed. If you search `"debug python"`, and don't have strong matches for local settings, then we would like to lead you towards an extension that can help you debug Python code. We have also thought about other applications for this technology within VS Code. Maybe the command palette could be powered by a similar service.
-
-## Bing's Cognitive Services
-
-[Is this actually Azure Cognitive Services? Also first link goes to web search API, not a general page]
-
-[Needs to imply that these were the services used to build our system, but are not a complete solution for developing what we have]
-
-If you don't have a search team to build you a custom service, you can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They provide a bunch of services that will help you add some intelligence into your own apps. For example:
+If you have a similar problem and don't have a search team that builds you a custom service as the Bing team did for us, we still have good news for you. You can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They provide a bunch of services that will help you add some intelligence into your own apps. For example:
 - [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
 - [Language Understanding (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)
 - [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/)
 - [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/)
 
-## Intelligent settings search
 
-So now it should be much easier to find settings. Please go try it out, and file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
+## A Note about testing 
+
+While developing this system, we needed a way to quantitatively evaluate the results. We decided to build a test system based on the concept of [Normalized Discounted Cumulative Gain, or NDCG](https://en.wikipedia.org/wiki/Discounted_cumulative_gain). Without getting too far into the weeds, this is a way to grade the results from a search engine, given a query, a set of results, and scores for those results. We wrote quite a few test cases by hand, but realized that we needed an automated way to generate test cases for all settings, including new settings as they would be added, and settings in extensions. So we wrote a tool that can generate test cases automatically for any setting. It uses words from the setting name and description, and runs them through different transformers that simulate users choosing alternate words, making typos, or searching using natural language patterns. We also generated test cases for settings from some popular extensions.
+
+We run the full test suite every 6 hours, and it can update itself automatically so that it's always testing settings from the latest build. The test suite assures us that the system is running properly, and gives us confidence that when we make changes on the backend, we are not hurting the result quality.
+
+## What's Next
+
+There are several ways that we can continue to improve the system. For example, we are also setting up an automated feedback loop based on user behavior. If many people search for similar queries, then pick the same result, we know that result is probably a good one and should be ranked higher.
+
+Currently the service is only indexing in English, but we'd like to index the translated setting descriptions and support searching in non-English languages. There is also some configuration metadata that isn't currently indexed, like possible values for the `"workbench.colorCustomizations"` setting. And taking search a little further, we would like to show results for extensions that aren't currently installed. If you search `"debug python"`, and don't have strong matches for local settings, then we would like to lead you towards an extension that can help you debug Python code. We have also thought about other applications for this technology within VS Code. Maybe the command palette could be powered by a similar service.
+
+## We need your Feedback
+
+It is easier now to find settings thanks to our friends in the Bing team! Please go try it out, and file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
 
 Happy Coding!
 
