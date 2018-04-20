@@ -10,10 +10,9 @@ Author: Rob Lourens
 ---
 # Improving Settings Search in VS Code
 
-Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common Github issues, StackOverflow questions, Twitter, and user studies that we've done, we've seen many users having issues finding settings. This is no surprise given that VS Code includes more than 400 settings out of the box, and with extensions installed many users can have significantly more. If you include typical user mistakes such as typos and the challenge to pick the right search terms, users have a hard time.
+Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common Github issues, StackOverflow questions, Twitter, and user studies that we've done, we've seen many users having issues finding settings. This is no surprise given that VS Code includes more than 400 settings out of the box, and with extensions installed, many users can have significantly more. If you include typical user mistakes such as typos and the challenge of picking the right search terms, users have a hard time.
 
 So several months ago, we started talking to the Bing team about whether they could apply their search expertise to our problem. And two months ago, we shipped the result - an intelligent settings search experience powered by Bing.
-
 
 <div>
     <div style="display: inline-block; width: 49%">
@@ -98,7 +97,7 @@ If you have a similar problem and don't have a search team that builds you a cus
 - [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/)
 
 
-## A Note about testing 
+## A Note about testing
 
 While developing this system, we needed a way to quantitatively evaluate the results. We decided to build a test system based on the concept of [Normalized Discounted Cumulative Gain, or NDCG](https://en.wikipedia.org/wiki/Discounted_cumulative_gain). Without getting too far into the weeds, this is a way to grade the results from a search engine, given a query, a set of results, and scores for those results. We wrote quite a few test cases by hand, but realized that we needed an automated way to generate test cases for all settings, including new settings as they would be added, and settings in extensions. So we wrote a tool that can generate test cases automatically for any setting. It uses words from the setting name and description, and runs them through different transformers that simulate users choosing alternate words, making typos, or searching using natural language patterns. We also generated test cases for settings from some popular extensions.
 
