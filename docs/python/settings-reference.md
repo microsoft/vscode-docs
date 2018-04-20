@@ -19,7 +19,7 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 | Setting | Default | Description |
 | --- | --- | --- |
 | python.pythonPath | `"python"` | Path to the python interpreter. |
-| python.venvPath | `""` | Path to folder with a list of virtual environments, such as `${workspaceFolder}/.pyenv`, `${workspaceFolder}\\venv`, `.\envs`, `~/.virtualenvs`, and so on. The Python extension looks for environments within that folder, but does not search subfolders. |
+| python.venvPath | `""` | Path to folder containing a virtual environment, such as `${workspaceFolder}/.pyenv`, `${workspaceFolder}\\venv`, `.\envs`, `~/.virtualenvs`, and so on. The Python extension looks for an environment within that folder, but does not search subfolders. |
 | python.envFile | `"${workspaceFolder}/.env"` | Absolute path to a file containing environment variable definitions. See [Configuring Python environments - environment variable definitions file](environments.md#environment-variable-definitions-file). |
 | python.terminal.launchArgs | `[]` | Launch arguments given the Python interpreter when running a file. |
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |

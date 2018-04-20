@@ -113,7 +113,9 @@ An environment variable can be used in the path setting using the syntax `${env:
 
 ### Virtual environments
 
-To use a Python interpreter that's installed in a virtual environment:
+To use a Python interpreter that's installed in a virtual environment, use the `python.venvPath` to point to the folder containing the virtual environment.
+
+Alternately, you can point `python.pythonPath` directly to the interpreter in the virtual environment:
 
 1. Edit the `python.pythonPath` setting to point to the virtual environment. For example:
 
