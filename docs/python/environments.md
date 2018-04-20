@@ -16,6 +16,7 @@ The extension automatically looks for interpreters in the following locations:
 
 - Standard paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
 - Virtual environments located directly under the workspace (project) folder.
+- A virtual environment located in the folder identified by the `python.venvPath` setting (see [General settings](settings-reference.md#general-settings). The extension at present does not look in subfolders.
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv).
 - A [pipenv](https://docs.pipenv.org/) environment for the workplace folder. If one is found then no other interpreters are searched for or listed as pipenv expects to manage all aspects of the environment.
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
