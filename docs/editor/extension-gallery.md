@@ -27,11 +27,11 @@ Each extension in the list includes a brief description, the publisher, the down
 
 > **Note:** If your computer's Internet access goes through a proxy server, you will need to configure the proxy server. See [Proxy server support](/docs/setup/network.md#proxy-server-support) for details.
 
-## Install an extension
+### Install an extension
 
 Click the **Install** button and after a successful install, you'll see an **Reload** button which will prompt you to restart VS Code to enable the new extension.
 
-## Extension Details
+### Extension details
 
 In the extension Details window, you can read the extension's README as well as review the extension's:
 
@@ -45,7 +45,7 @@ If an extension is an Extension Pack, the **Dependencies** section will display 
 
 ![extension dependencies](images/extension-gallery/extension-dependencies.png)
 
-## Extensions view commands
+### Extensions view commands
 
 You can run various Extensions view commands by clicking on the Extensions view's `...` **More** button.
 
@@ -55,7 +55,6 @@ There are commands to show:
 
 * The list of currently installed extensions
 * The list of outdated extensions that can be updated
-
 * The list of currently enabled/disabled extensions
 * The list of recommended extensions based on your workspace
 * The list of globally popular extensions
@@ -64,22 +63,13 @@ You can sort the extension list by **Install Count** or **Rating** in either asc
 
 ![more dropdown](images/extension-gallery/more-dropdown.png)
 
-## Search for an extension
+### Search for an extension
 
 You can clear the Search box at the top of the Extensions View and type in the name of the extension, tool or programming language you're looking for.
 
 For example, typing 'python' will bring up a list of Python language extensions:
 
 ![python extensions](images/extension-gallery/extensions-python.png)
-
-## Recommended extensions
-
-You can see a list of recommended extensions using **Show Recommended Extensions**, which sets the `@recommended` [filter](#extensions-view-filters). Extension recommendations can either be :
-
-* **Workspace Recommendations** - Recommended by other users of your current workspace.
-* **Other Recommendations** - Recommended based on recently opened files.
-
-See the section below to learn how to [contribute](#workspace-recommended-extensions) recommendations for other users in your project.
 
 ## Manage extensions
 
@@ -118,6 +108,15 @@ VS Code checks for extension updates and installs them automatically. After an u
 ### Update an extension
 
 If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the `@outdated` filter.  This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command.
+
+## Recommended extensions
+
+You can see a list of recommended extensions using **Show Recommended Extensions**, which sets the `@recommended` [filter](#extensions-view-filters). Extension recommendations can either be :
+
+* **Workspace Recommendations** - Recommended by other users of your current workspace.
+* **Other Recommendations** - Recommended based on recently opened files.
+
+See the section below to learn how to [contribute](#workspace-recommended-extensions) recommendations for other users in your project.
 
 ## Configuring extensions
 
@@ -225,7 +224,7 @@ VS Code prompts a user to install the recommended extensions when a workspace is
 
 Here are a few topics you may find interesting...
 
-* [Publishing to the Marketplace](/docs/extensions/publish-extension.md) - Publish your own customization or extension to the VS Code Marketplace.
+* [Publishing to the Marketplace](/docs/extensions/publish-extension.md) - Publish your own extension to the VS Code Marketplace.
 * [Extension Generator](/docs/extensions/yocode.md) - Learn how the `yo code` extension generator can scaffold out a new extension.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility.
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
@@ -240,7 +239,7 @@ Here are a few topics you may find interesting...
 * **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
-You can change the location by launching VS Code with `--extensions-dir <dir>` command line [option](/docs/editor/command-line.md).
+You can change the location by launching VS Code with the `--extensions-dir <dir>` command line [option](/docs/editor/command-line.md).
 
 **Q: Whenever I try to install any extension, I get a connect ETIMEDOUT error.**
 
