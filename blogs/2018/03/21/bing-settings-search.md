@@ -39,8 +39,6 @@ Let's take a look at each part.
 
 There are essentially two sides to this system - collecting and indexing setting details offline, and serving up results online. The first part of that is implemented by the Ingestion Service. It's responsible for creating a rich index containing settings from VS Code itself and from extensions. Since we want query response time to be as short as possible, we do as much work as possible up front while ingesting settings to reduce the work we have to do while handling the query.
 
-We are a relatively small development team, and we knew that if we were to start maintaining a service like this, we would not be able to spend a lot of time managing it manually. So we built a fully automated system that constantly updates the indexed settings in real-time for each of our stable release builds and our daily Insiders builds with no human interaction. Within minutes of the completion of a build, Bing's index has been updated to include any newly added settings.
-
 ### Ingestion Service
 
 **Collecting VS Code and Extension Settings Data**
@@ -49,6 +47,8 @@ During each build, VS Code starts up in a mode where it writes all of its config
 . 123000832 is a unique build number, computed from the product version plus the number of git commits since the previous release. `c1cd4378...` is the git commit that the build was built off of. And Ticino, some of you diehard fans might remember, was our original short-lived code name.
 
 Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its package.json (for extensions, all configuration metadata is contained in the package.json. No need to start it up.) and passes those settings to the Ingestion Service as well.
+
+This entire process is fully automated and constantly updates the indexed settings in real-time for each of our stable release builds and our daily Insiders builds. Within minutes of the completion of a build, Bing's index has been updated to include any newly added settings.
 
 **1. Alternative Words Pipeline**
 
@@ -104,18 +104,18 @@ While developing this system, we needed a way to quantitatively evaluate the res
 
 We run the full test suite every 6 hours, and it can update itself automatically so that it's always testing settings from the latest build. The test suite assures us that the system is running properly, and gives us confidence that when we make changes on the backend, we are not hurting the result quality.
 
-## What's Next
+## What's next
 
 There are several ways that we can continue to improve the system. For example, we are also setting up an automated feedback loop based on user behavior. If many people search for similar queries, then pick the same result, we know that result is probably a good one and should be ranked higher.
 
 Currently the service is only indexing in English, but we'd like to index the translated setting descriptions and support searching in non-English languages. There is also some configuration metadata that isn't currently indexed, like possible values for the `"workbench.colorCustomizations"` setting. And taking search a little further, we would like to show results for extensions that aren't currently installed. If you search `"debug python"`, and don't have strong matches for local settings, then we would like to lead you towards an extension that can help you debug Python code. We have also thought about other applications for this technology within VS Code. Maybe the command palette could benefit from a similar service.
 
-## We need your Feedback
+## We need your feedback
 
-It is easier now to find settings thanks to our friends in the Bing team! Please go try it out, and file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
+It is now easier to find settings thanks to our friends on the Bing team! As you search for settings, please file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
 
 Happy Coding!
 
-Rob Lourens, VS Code - ([@roblourens](https://twitter.com/roblourens))
+Rob Lourens, VS Code - [@roblourens](https://twitter.com/roblourens)
 
-Ankith Karat, Bing - ([ankar@microsoft.com](mailto:ankar@microsoft.com))
+Ankith Karat, Bing - [ankar@microsoft.com](mailto:ankar@microsoft.com)
