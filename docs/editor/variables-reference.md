@@ -25,6 +25,7 @@ The following predefined variables are supported:
 - **${fileExtname}** - the current opened file's extension
 - **${cwd}** - the task runner's current working directory on startup
 - **${lineNumber}** - the current selected line number in the active file
+- **${selectedText}** - the current selected text in the active file
 
 **Note**: The `${workspaceRoot}` variable is deprecated in favor of the `${workspaceFolder}` variable.
 
