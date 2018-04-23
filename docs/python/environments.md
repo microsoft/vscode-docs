@@ -52,7 +52,7 @@ The currently selected interpreter is applied when right-clicking a file and sel
 
 When an environment is activated in the terminal, any changes you make to the environment within the terminal are persistent. For example, using `conda install <package>` from the terminal with a conda environment activated installs the package into that environment permanently. Similarly, using `pip install` in a terminal with a virtual environment activated adds the package to that environment.
 
-To avoid activating virtual and conda environments when using these terminal commands, change the `python.terminal.activateEnvironments` setting to `false`.
+To avoid activating virtual and conda environments when using these terminal commands, change the `python.terminal.activateEnvironment` setting to `false`.
 
 > **Note:** Launching VS Code from a shell in which a certain Python environment is activated does not automatically activate that environment in the default Terminal. Use the **Python: Create Terminal** command after VS Code is running.
 
