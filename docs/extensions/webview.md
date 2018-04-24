@@ -7,12 +7,11 @@ PageTitle: Using the Webview API
 DateApproved: 4/5/2018
 MetaDescription: Using the Webview Api to create fully customizable views within VS Code
 ---
-
 # VS Code Webview API
 
-The webview API allows extensions to create fully customizable views within VS Code. The built-in markdown extension for example uses webviews to render markdown previews. Webviews can also be used to build complex user interfaces beyond what VS Code's native APIs supports.
+The webview API allows extensions to create fully customizable views within Visual Studio Code. The built-in Markdown extension for example uses webviews to render Markdown previews. Webviews can also be used to build complex user interfaces beyond what VS Code's native APIs supports.
 
-Think of a webview as an iframe within VS Code that your extension controls. A webview can render almost any html content in this frame, and it communicate with extensions using message passing. This freedom makes webview incredibly powerful, and opens up a whole new range of extension possibilities.
+Think of a webview as an `iframe` within VS Code that your extension controls. A webview can render almost any HTML content in this frame, and it communicate with extensions using message passing. This freedom makes webview incredibly powerful, and opens up a whole new range of extension possibilities.
 
 ## Should I use a Webview?
 
@@ -26,13 +25,13 @@ Before using a webview, please consider the following:
 
 * Will my webview add enough user value to justify its high resource cost?
 
-Remember: just because you can do something with webviews, does mean you should. But if you are confident that you need to use webviews, then this document is here to help. Let's get started.
+Remember: Just because you can do something with webviews, doesn't mean you should. However, if you are confident that you need to use webviews, then this document is here to help. Let's get started.
 
 ## Webviews API basics
 
-To explain the webview API, we are going to build a simple extension called "Cat Coding". This extension will use a webview to show a gif of a cat writing some code (presumably in VS Code). As we work through the API, we'll continue adding functionality to the extension, including a counter that keeps track of how many lines of code our cat has written and notifications that inform the user when the cat introduces a bug.
+To explain the webview API, we are going to build a simple extension called **Cat Coding**. This extension will use a webview to show a gif of a cat writing some code (presumably in VS Code). As we work through the API, we'll continue adding functionality to the extension, including a counter that keeps track of how many lines of source code our cat has written and notifications that inform the user when the cat introduces a bug.
 
-Here's the `package.json` for the first version of the "Cat Coding" extension. You can find the complete code for the example app [here](TODO). The first version of our extension [contributes a command](/docs/extensionAPI/extension-points.md#contributescommands)) called `catCoding.newCat`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the command palette or even setup a keybinding for it they are so inclined.
+Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](TODO). The first version of our extension [contributes a command](/docs/extensionAPI/extension-points.md#contributescommands) called `catCoding.newCat`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** or even setup a keybinding for it they are so inclined.
 
 ```json
 {
@@ -93,7 +92,7 @@ The `vscode.window.createWebviewPanel` function creates and shows a webview in t
 
 ![An empty webview](images/webview/basics-no_content.png)
 
-Our command opens a new webview panel with the correct title, but with no content! To add our cat to new panel, we also need to set the html content of the webview using `webview.html`:
+Our command opens a new webview panel with the correct title, but with no content! To add our cat to new panel, we also need to set the HTML content of the webview using `webview.html`:
 
 ```ts
 import * as vscode from 'vscode';
@@ -103,7 +102,7 @@ export function activate(context: vscode.ExtensionContext) {
         // Create and show panel
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, { });
 
-        // And set its html content
+        // And set its HTML content
         panel.webview.html = getWebviewContent();
     }));
 }
@@ -125,15 +124,15 @@ function getWebviewContent() {
 
 If you run the command again, now the webview looks like this:
 
-![A webview with some html](images/webview/basics-html.png)
+![A webview with some HTML](images/webview/basics-html.png)
 
 Progress!
 
-`webview.html` should always be a complete html document. Html fragments or malformed html may cause unexpected behavior.
+`webview.html` should always be a complete HTML document. HTML fragments or malformed HTML may cause unexpected behavior.
 
 ### Updating webview content
 
-`webview.html` can also update a webview's content after it has been created. Let's use this to make *Cat Coding* more dynamic by introducing a rotation of cats:
+`webview.html` can also update a webview's content after it has been created. Let's use this to make **Cat Coding** more dynamic by introducing a rotation of cats:
 
 ```ts
 import * as vscode from 'vscode';
@@ -184,11 +183,12 @@ Setting `webview.html` replaces the entire webview content, similar to reloading
 The example above also uses `webview.title` to change the title of the document displayed in the editor. Setting the title does not cause the webview to be reloaded.
 
 ### Lifecycle
+
 Webview panels are owned by the extension that creates them. The extension must hold onto the webview returned from `createWebviewPanel` If your extension loses this reference, it cannot regain access to that webview again, even though the webview will continue to show in VS Code.
 
 As with text editors, a user can also close a webview panel at any time. When a webview panel is closed by the user, the webview itself is destroyed. Attempting to use a destroyed webview throws an exception. This means that the example above using `setInterval` actually has an important bug: if the user closes the panel, `setInterval` will continue to fire, which will try to update `panel.webview.html`, which of course will throw an exception. Cats hate exceptions. Let's fix this!
 
-The `onDidDipose` event is fired when a webview is destroyed. We can use this event to cancel further updates and clean up the webview's resources:
+The `onDidDispose` event is fired when a webview is destroyed. We can use this event to cancel further updates and clean up the webview's resources:
 
 ```ts
 import * as vscode from 'vscode';
@@ -220,7 +220,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-Extension can also programmatically close webviews by calling `dispose()` on them. If for example, we wanted to restrict our cat's workday to five seconds:
+Extension can also programmatically close webviews by calling `dispose()` on them. If, for example, we wanted to restrict our cat's workday to five seconds:
 
 ```ts
 export function activate(context: vscode.ExtensionContext) {
@@ -329,7 +329,7 @@ function updateWebviewForCat(panel: vscode.WebviewPanel, catName: keyof typeof c
 
 ### Inspecting and debugging webviews
 
-The `Webview: Open webview developer tools` VS Code command let's you debug webviews. Running the command launchs an instance of developer tools for any currently visible webviews:
+The **Developer: Open Webview Developer Tools** VS Code command lets you debug webviews. Running the command launches an instance of Developer Tools for any currently visible webviews:
 
 ![Webview developer tools](images/webview/basics-developer_tools.png)
 
@@ -377,7 +377,7 @@ function getWebviewContent(extensionPath) {
 
 The value for `catGifSrc` will be something like:
 
-```
+```bash
 vscode-resource:/Users/toonces/projects/vscode-cat-coding/media/cat.gif
 ```
 
@@ -386,11 +386,11 @@ By default, `vscode-resource:` can only access resources in the following locati
 * Within your extension's install directory.
 * Within the user's currently active workspace.
 
-You can also always use data uris to embed resources directly within the webview.
+You can also always use data URIs to embed resources directly within the webview.
 
 ### Controlling access to local resources
 
-Webviews can control which resources `vscode-resource:` can load using the `localResourceRoots` option. `localResourceRoots` defines a set of root uris from which local content may be loaded.
+Webviews can control which resources `vscode-resource:` can load using the `localResourceRoots` option. `localResourceRoots` defines a set of root URIs from which local content may be loaded.
 
 We can use `localResourceRoots` to restrict *Cat Coding* webviews to only load resources from a `media` directory in our extension:
 
@@ -415,7 +415,6 @@ export function activate(context: vscode.ExtensionContext) {
 To disallow all local resources, just set `localResourceRoots` to `[]`.
 
 In general, webviews should be as restrictive as possible in loading local resources. However, keep in mind that `vscode-resource` and `localResourceRoots` do not offer complete security protection on their own. Make sure your webview also follows [security best practices](#security), and strongly consider adding a [content security policy](#content-security-policy) to further restrict the content that can be loaded.
-
 
 ## Scripts and message passing
 
@@ -604,7 +603,6 @@ function getWebviewContent() {
 
 ![Passing messages from the webview to the main extension](images/webview/scripts-webview_to_extension.gif)
 
-
 ## Security
 
 As with any webpage, when creating a webview you must follow some basic security best practices.
@@ -657,9 +655,9 @@ Just as you would for a normal webview, when constructing the html for a webview
 
 Examples values that must be sanitized:
 
-- File contents.
-- File and folder paths.
-- User and workspace settings.
+* File contents.
+* File and folder paths.
+* User and workspace settings.
 
 Consider using a helper library to construct your html stings, or at least ensure that all content from the user's workspace is properly
 
