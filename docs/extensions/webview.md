@@ -350,28 +350,15 @@ import * as path from 'path';
 export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, { });
-        panel.webview.html = getWebviewContent(context.extensionPath);
+
+        // Get path to resource on disk
+        const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
+
+        // And get the special uri to use with the webview
+        const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
+
+        panel.webview.html = getWebviewContent(catGifSrc);
     }));
-}
-
-function getWebviewContent(extensionPath) {
-    // Get path to resource on disk
-    const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
-
-    // And get the special uri to use with the webview
-    const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
-
-    return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Coding</title>
-</head>
-<body>
-    <img src="${catGifSrc}" width="300" />
-</body>
-</html>`;
 }
 ```
 
@@ -407,7 +394,10 @@ export function activate(context: vscode.ExtensionContext) {
             ]
         });
 
-        panel.webview.html = getWebviewContent(context.extensionPath);
+        const onDiskPath = vscode.Uri.file(path.join(extensionPath, 'media', 'cat.gif'));
+        const catGifSrc = onDiskPath.with({ scheme: 'vscode-resource' });
+
+        panel.webview.html = getWebviewContent(catGifSrc);
     }));
 }
 ```
@@ -500,7 +490,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         // Send a message to our webview.
         // You can send any JSON serializable data.
-        currentPanel.webview.postMessage({ type: 'refactor' });
+        currentPanel.webview.postMessage({ command: 'refactor' });
     }));
 }
 
@@ -529,7 +519,7 @@ function getWebviewContent() {
 
             const message = event.data; // The json data our extension sent
 
-            switch (message.type) {
+            switch (message.command) {
                 case 'refactor':
                     count = Math.ceil(count * 0.5);
                     counter.textContent = count;
@@ -560,7 +550,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         // Handle messages from the webview
         panel.webview.onDidReceiveMessage(message => {
-            switch (message.type) {
+            switch (message.command) {
                 case 'alert':
                     vscode.window.showErrorMessage(message.text);
                     return;
@@ -591,7 +581,7 @@ function getWebviewContent() {
             // Alert the extension when our cat introduces a bug
             if (Math.random() < 0.001 * count) {
                 window.parent.postMessage(
-                    { type: 'alert', text: '🐛  on line ' + count },
+                    { command: 'alert', text: '🐛  on line ' + count },
                     '*')
             }
         }, 100);
