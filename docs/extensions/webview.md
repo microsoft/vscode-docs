@@ -613,9 +613,9 @@ A webview should have the minimum set of capabilities that it needs. For example
 
 ### Content security policy
 
-[Content security policies](https://developers.google.com/web/fundamentals/security/csp/) further restrict the content that can be loaded and executed in webviews. A content security policy can make sure that only a whitelist of scripts can be run in the webview for example, or even tell the webview to only load images over https.
+[Content security policies](https://developers.google.com/web/fundamentals/security/csp/) further restrict the content that can be loaded and executed in webviews. For example, a content security policy can make sure that only a whitelist of scripts can be run in the webview, or even tell the webview to only load images over https.
 
-To add a content security policy, put a `<meta http-equiv="Content-Security-Policy">` directive at the top of webview content's `<head>`
+To add a content security policy, put a `<meta http-equiv="Content-Security-Policy">` directive at the top of the webview's `<head>`
 
 ```ts
 function getWebviewContent() {
@@ -637,34 +637,34 @@ function getWebviewContent() {
 }
 ```
 
-The policy `default-src 'none';` disallows all content. We can then turn back on the minimal amount of content that our extension needs to function. Here's a content security policy that allows loading local scripts and stylesheets, and images over https:
+The policy `default-src 'none';` disallows all content. We can then turn back on the minimal amount of content that our extension needs to function. Here's a content security policy that allows loading local scripts and stylesheets, and loading images over https:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src vscode-resource: https:; script-src vscode-resource:; style-src vscode-resource:;">
 ```
 
-This content security policy also implicitly disables inline scripts and styles. If you were using inline elements before, the best practice is to extract them to external files that can be properly loaded.
+This content security policy also implicitly disables inline scripts and styles. It best practice to extract all inline styles and scripts to external files so that they can be properly loaded without relaxing the content security policy.
 
 ### Only load content over https
 
-If your webview allows loading external resources, it is strongly recommended that you only allow these resources to be loaded over https and not over http. The example content security policy above already does this by only allowing images to be loaded over `https:` and not over `http:`.
+If your webview allows loading external resources, it is strongly recommended that you only allow these resources to be loaded over https and not over http. The example content security policy above already does this by only allowing images to be loaded over `https:`.
 
 ### Sanitize all user input
 
-Just as you would for a normal webview, when constructing the html for a webview, you must sanitize all user input. Failing to properly sanitize input can allow content injections, which may open your users up to a security risk.
+Just as you would for a normal webpage, when constructing the html for a webview, you must sanitize all user input. Failing to properly sanitize input can allow content injections, which may open your users up to a security risk.
 
-Examples values that must be sanitized:
+Example values that must be sanitized:
 
 * File contents.
 * File and folder paths.
 * User and workspace settings.
 
-Consider using a helper library to construct your html stings, or at least ensure that all content from the user's workspace is properly
+Consider using a helper library to construct your html strings, or at least ensure that all content from the user's workspace is properly sanitized.
 
 Never rely on sanitization alone for security. Make sure to follow the other security best practices, such as having a content security policy, to minimize the impact of any potential content injections.
 
 ### Do not trust messages received from webviews
 
-Say your webview is compromised. This is bad, but it is probably not the end of the world. Webviews are sandboxes which theoretically limits the damage that an attacker can inflict. But it does mean that an attacker can now execute anything  that your `webview.onDidReceiveMessage` does. This may not be so bad it all your handler does is show notifications, but it could be very bad if the handler runs `eval` or deletes the file at given path on disk.
+Say your webview is compromised. That's bad, but it is probably not the end of the world. Webviews are sandboxes which theoretically limits the damage that an attacker can inflict. But it does mean that an attacker can now execute anything  that your `webview.onDidReceiveMessage` does. This may not be so bad, if all your handler does is show notifications, but it could be very bad if the handler runs `eval` or deletes a file at given path on disk.
 
-Always operate under the assumption that your webview is compromised. Never trust any messages the webview sends you, especially if these messages are used to perform potentially dangerous operations.
+Always operate under the assumption that your webview is compromised. Always validate all messages the webview sends to the extension, especially if these messages are used to perform potentially dangerous operations.
