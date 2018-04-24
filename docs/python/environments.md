@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Configuring Python environments
 
-The Python extension relies on a Python environment (an interpreter and installed packages) for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. The selected environment is also automatically activated when using the **Run Python File in Terminal** and **Python: Create Terminal** commands.
+The Python extension relies on a Python environment (an interpreter and installed packages) for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. The selected environment is also automatically activated when using the **Python: Run Python File in Terminal** and **Python: Create Terminal** commands.
 
 The extension automatically looks for interpreters in the following locations:
 
@@ -48,7 +48,7 @@ Selecting an interpreter from the list configures your User [Settings](/docs/get
 
 ### Activating an environment in the Terminal
 
-The currently selected interpreter is applied when right-clicking a file and selecting **Run Python File in Terminal**. You can also use **Python: Create Terminal** to open a terminal with the current environment activated.
+The currently selected interpreter is applied when right-clicking a file and selecting **Python: Run Python File in Terminal**. You can also use **Python: Create Terminal** to open a terminal with the current environment activated.
 
 When an environment is activated in the terminal, any changes you make to the environment within the terminal are persistent. For example, using `conda install <package>` from the terminal with a conda environment activated installs the package into that environment permanently. Similarly, using `pip install` in a terminal with a virtual environment activated adds the package to that environment.
 
