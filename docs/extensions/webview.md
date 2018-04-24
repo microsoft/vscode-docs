@@ -543,7 +543,7 @@ function getWebviewContent() {
 
 ![Passing messages to a webview](images/webview/scripts-extension_to_webview.gif)
 
-### Passing message from a webview to an extension
+### Passing messages from a webview to an extension
 
 Webviews can also pass messages back to their extension. This is accomplished by calling `window.parent.postMessage()` in the webview with some json serializable data, and listening to the `webview.onDidReceiveMessage` event in the extension itself.
 
@@ -668,3 +668,58 @@ Never rely on sanitization alone for security. Make sure to follow the other sec
 Say your webview is compromised. That's bad, but it is probably not the end of the world. Webviews are sandboxes which theoretically limits the damage that an attacker can inflict. But it does mean that an attacker can now execute anything  that your `webview.onDidReceiveMessage` does. This may not be so bad, if all your handler does is show notifications, but it could be very bad if the handler runs `eval` or deletes a file at given path on disk.
 
 Always operate under the assumption that your webview is compromised. Always validate all messages the webview sends to the extension, especially if these messages are used to perform potentially dangerous operations.
+
+## Persistence
+
+In the standard webview [lifecycle](#lifecycle), webviews are created by `createWebviewPanel` and destroyed when the user closes them or when `.dispose()` is called. The contents of webviews however are created when the webview becomes visible and destroyed when the webview is moved into the background. Any state inside the webview will be lost when the webview is moved to a background tab.
+
+The best way to solve this is to make your webview stateless. Use [message passing](#passing-messages-from-a-webview-to-an-extension) to save off the webview's state and then restore the state when the webview becomes visible again.
+
+### retainContextWhenHidden
+For webviews with very complex UI or state that cannot be quickly saved and restored, you can instead use the `retainContextWhenHidden` option. This option makes a webview keep its content around—but in a hidden state—even when the webview itself is no longer in the foreground.
+
+Although *Cat Coding* can hardly be said to have complex state, let's try enabling `retainContextWhenHidden` to see how  the option changes a webview's behavior:
+
+```ts
+import * as vscode from 'vscode';
+
+export function activate(context: vscode.ExtensionContext) {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+        const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {
+            enableScripts: true,
+            retainContextWhenHidden: true
+        });
+        panel.webview.html = getWebviewContent();
+    }));
+}
+
+function getWebviewContent() {
+    return `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Coding</title>
+</head>
+<body>
+    <img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="300" />
+    <h1 id="lines-of-code-counter">0</h1>
+
+    <script>
+        const counter = document.getElementById('lines-of-code-counter');
+
+        let count = 0;
+        setInterval(() => {
+            counter.textContent = count++;
+        }, 100);
+    </script>
+</body>
+</html>`;
+}
+```
+
+![](images/webview/persistence-retrain.gif)
+
+Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required!
+
+Although `retainContextWhenHidden` may be appealing, this option has high memory overhead and should only be used when other persistence techniques will not work.
