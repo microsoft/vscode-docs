@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Python Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial with Python in Visual Studio Code
-DateApproved: 11/10/2017
+DateApproved: 04/22/2018
 MetaDescription: Tutorial for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -18,14 +18,14 @@ To successfully complete this tutorial, you must do the following:
 
 1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-2. Install whichever version of Python you want to use. Options include:
+1. Install whichever version of Python you want to use. Options include:
 
   - The built-in Python installation on Linux.
   - An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
   - A download from [python.org](https://www.python.org/downloads/).
   - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
-3. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
+1. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
 
     ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
@@ -98,24 +98,31 @@ This command automatically creates a `launch.json` with a number of Python confi
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
-These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python: Current File," which runs the current file using the current Python environment, and automatically stops the debugger when the program starts. (See the `stopOnEntry` setting in the configuration).
+These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python: Current File," which runs the current file using the current Python environment.
 
-Run the debugger by selecting the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true in the configuration, the debugger stops on the first line of the file. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
+If you want the debugger to automatically stop on the first line when the program starts, add the following `stopOnEntry` setting to the configuration:
+
+```json
+"stopOnEntry": true
+```
+
+Run the debugger by selecting the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true, the debugger stops on the first line of the file. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
-Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the Status Bar changes to an orange color to indicate debug mode. The **Debug Console** also appears automatically (if not, select it in the lower right pane).
+Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the Status Bar changes to an orange color to indicate debug mode. The **Terminal** also appears automatically in the lower right pane.
 
-Select the green arrow to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the debug console:
+Select the green arrow to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the **Debug Console** (selected in the lower right pane in place of the Terminal):
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
 Select the green arrow again to run the program to completion. "Hello World" appears in the debug console and VS Code exits debugging mode once the program is complete.
 
-> **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases, it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:<br>
-> ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
-
 For full details, see [Debugging](/docs/python/debugging.md).
+
+> **Tip**: Although the Debug Console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases, it's necessary to run the debugger using an external terminal. This is easily done by selecting the **Python: Terminal (external)** debug configuration:<br>
+>
+> ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
 
 ## Installing packages
 
