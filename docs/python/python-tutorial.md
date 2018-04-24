@@ -90,7 +90,7 @@ Next, select the Debug View in the sidebar:
 
 ![Debug icon](images/tutorial/debug-icon.png)
 
-Now you need to configure `launch.json` for Python by clicking the settings icon on the debug toolbar:
+Now you need to configure `launch.json` for Python by selecting the settings icon on the debug toolbar:
 
 ![Debug toolbar settings command](images/tutorial/debug-settings.png)
 
@@ -98,19 +98,19 @@ This command automatically creates a `launch.json` with a number of Python confi
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
-These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python," which runs the current file using the current Python environment, and automatically stops the debugger when the program starts. (See the `stopOnEntry` setting in the configuration).
+These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python: Current File," which runs the current file using the current Python environment, and automatically stops the debugger when the program starts. (See the `stopOnEntry` setting in the configuration).
 
-Run the debugger by clicking the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true in the configuration, the debugger stops on the first line of the file. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
+Run the debugger by selecting the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true in the configuration, the debugger stops on the first line of the file. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
-Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the Status Bar changes to an orange color to indicate debug mode. The **Debug Console** also appears automatically.
+Notice also that a debug toolbar appears with commands to run, step, restart, and stop the program, and that the Status Bar changes to an orange color to indicate debug mode. The **Debug Console** also appears automatically (if not, select it in the lower right pane).
 
-Click the green arrow to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the debug console:
+Select the green arrow to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the debug console:
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
-Click the green arrow again to run the program to completion. "Hello World" appears in the debug console and VS Code exits debugging mode once the program is complete.
+Select the green arrow again to run the program to completion. "Hello World" appears in the debug console and VS Code exits debugging mode once the program is complete.
 
 > **Tip**: Although the debug console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases, it's necessary to run the debugger using an external terminal. This is easily done by selecting the **External Terminal** debug configuration:<br>
 > ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
@@ -124,7 +124,6 @@ Let's now run an example that's a little more interesting, using matplotlib and 
 Return to **Explorer**, create a new file called `standardplot.py`, and paste in the following source code:
 
 ```python
-#%%
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 import numpy as np
