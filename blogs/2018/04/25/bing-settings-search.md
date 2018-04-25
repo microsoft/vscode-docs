@@ -1,10 +1,10 @@
 ---
 Order: 37
 TOCTitle: Settings Search
-PageTitle: How We Improved VS Code Settings Search With Bing
-MetaDescription: How We Improved VS Code Settings Search With Bing
+PageTitle: Improving Settings Search in VS Code
+MetaDescription: Improving Settings Search in VS Code
 MetaSocialImage:
-Date: 2018-03-21
+Date: 2018-04-25
 ShortDescription: Learn what's new with settings search in Visual Studio Code
 Author: Rob Lourens
 ---
