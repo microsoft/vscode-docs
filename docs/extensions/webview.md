@@ -653,11 +653,11 @@ Consider using a helper library to construct your html strings, or at least ensu
 
 Never rely on sanitization alone for security. Make sure to follow the other security best practices, such as having a content security policy, to minimize the impact of any potential content injections.
 
-### Do not trust messages received from webviews
+### Validate messages received from webviews
 
-Say your webview is compromised. That's bad, but it is probably not the end of the world. Webviews are sandboxes which theoretically limits the damage that an attacker can inflict. But it does mean that an attacker can now execute anything  that your `webview.onDidReceiveMessage` does. This may not be so bad, if all your handler does is show notifications, but it could be very bad if the handler runs `eval` or deletes a file at given path on disk.
+Say your webview is compromised. That's bad, but it is probably not the end of the world. Webviews are sandboxes which theoretically limits the damage that an attacker can inflict. But it does mean that an attacker can now execute anything that your `webview.onDidReceiveMessage` does. This may not be so bad if all your handler does is show notifications, but it could be very bad if the handler runs `eval` or deletes a file at given path on disk.
 
-Always operate under the assumption that your webview is compromised. Always validate all messages the webview sends to the extension, especially if these messages are used to perform potentially dangerous operations.
+In addition to other security best practices, validate all messages the webview sends to the extension. If these messages trigger potentially dangerous operations, make sure to prompt the user before performing that operation
 
 ## Persistence
 
