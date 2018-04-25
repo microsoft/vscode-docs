@@ -25,7 +25,7 @@ So several months ago, we started talking to the Bing team about whether they co
     </div>
 </div>
 
-## A Bing-powered setting search
+## A Bing-powered settings search
 
 After a period of discussion and prototyping, we decided on an arrangement in which the Bing team would run a settings search service that would provide intelligent fuzzy settings matches for queries that users search for in VS Code's settings editor.
 
@@ -39,7 +39,7 @@ Let's take a look at each part.
 
 There are essentially two sides to this system - collecting and indexing setting details offline, and serving up results online. The first part of that is implemented by the Ingestion Service. It's responsible for creating a rich index containing settings from VS Code itself and from extensions. Since we want query response time to be as short as possible, we do as much work as possible up front while ingesting settings to reduce the work we have to do while handling the query.
 
-### Ingestion Service
+### Bing Ingestion Service
 
 **Collecting VS Code and Extension Settings Data**
 
@@ -90,6 +90,8 @@ Here are some examples:
 ![example - how to open new files on the left](./OpenFilesOnLeft.gif)
 
 ![beautify](./Beautify.gif)
+
+**Bing Cognitive Services**
 
 If you have a similar problem and don't have a search team to build you a custom service as the Bing team did for us, we still have some good news. You can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They provide a bunch of services that will help you add some intelligence into your own apps. For example:
 - [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
