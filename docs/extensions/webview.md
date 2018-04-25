@@ -31,7 +31,7 @@ Remember: Just because you can do something with webviews, doesn't mean you shou
 
 To explain the webview API, we are going to build a simple extension called **Cat Coding**. This extension will use a webview to show a gif of a cat writing some code (presumably in VS Code). As we work through the API, we'll continue adding functionality to the extension, including a counter that keeps track of how many lines of source code our cat has written and notifications that inform the user when the cat introduces a bug.
 
-Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/docs/extensionAPI/extension-points.md#contributescommands) called `catCoding.newCat`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** or even setup a keybinding for it they are so inclined.
+Here's the `package.json` for the first version of the **Cat Coding** extension. You can find the complete code for the example app [here](https://github.com/Microsoft/vscode-extension-samples/blob/master/webview-sample/README.md). The first version of our extension [contributes a command](/docs/extensionAPI/extension-points.md#contributescommands) called `catCoding.start`. When a user invokes this command, we will show a simple webview with our cat in it. Users will be able to invoke this command from the **Command Palette** or even setup a keybinding for it they are so inclined.
 
 ```json
 {
@@ -43,13 +43,13 @@ Here's the `package.json` for the first version of the **Cat Coding** extension.
     "vscode": "^1.23.0"
   },
   "activationEvents": [
-    "onCommand:catCoding.newCat"
+    "onCommand:catCoding.start"
   ],
   "main": "./out/src/extension",
   "contributes": {
     "commands": [
       {
-        "command": "catCoding.newCat",
+        "command": "catCoding.start",
         "title": "Start new cat count",
         "category": "Cat Coding"
       }
@@ -70,13 +70,13 @@ Here's the `package.json` for the first version of the **Cat Coding** extension.
 }
 ```
 
-Now let's implement the `catCoding.newCat` command. In our extension's main file, we register the `catCoding.newCat` command and use it to show a basic webview:
+Now let's implement the `catCoding.start` command. In our extension's main file, we register the `catCoding.start` command and use it to show a basic webview:
 
 ```ts
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         // Create and show a new webview
         const panel = vscode.window.createWebviewPanel(
             'catCoding', // Identifies the type of the webview. Used internally
@@ -88,7 +88,7 @@ export function activate(context: vscode.ExtensionContext) {
 }
 ```
 
-The `vscode.window.createWebviewPanel` function creates and shows a webview in the editor. Here is what you see if you try running the `catCoding.newCat` command in its current state:
+The `vscode.window.createWebviewPanel` function creates and shows a webview in the editor. Here is what you see if you try running the `catCoding.start` command in its current state:
 
 ![An empty webview](images/webview/basics-no_content.png)
 
@@ -98,7 +98,7 @@ Our command opens a new webview panel with the correct title, but with no conten
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         // Create and show panel
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, { });
 
@@ -143,7 +143,7 @@ const cats = {
 };
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, { });
 
         let iteration = 0;
@@ -199,7 +199,7 @@ const cats = {
 };
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {});
 
         let iteration = 0;
@@ -224,7 +224,7 @@ Extension can also programmatically close webviews by calling `dispose()` on the
 
 ```ts
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
 
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {});
 
@@ -253,7 +253,7 @@ Extensions can programmatically bring a webview panel to the foreground by calli
 
 ![Webviews are moved when you drag them between tabs](images/webview/basics-drag.gif)
 
-Let's update our extension to only allow a single webview to exist at a time. If the panel is in the background, then the `catCoding.newCat` command will bring it to the foreground:
+Let's update our extension to only allow a single webview to exist at a time. If the panel is in the background, then the `catCoding.start` command will bring it to the foreground:
 
 ```ts
 export function activate(context: vscode.ExtensionContext) {
@@ -261,7 +261,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Track currently webview panel
     let currentPanel: vscode.WebviewPanel | undefined = undefined;
 
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const columnToShowIn = vscode.window.activeTextEditor ? vscode.window.activeTextEditor.viewColumn : undefined;
 
         if (currentPanel) {
@@ -295,7 +295,7 @@ const cats = {
 };
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {});
         panel.webview.html = getWebviewContent(cats['Coding Cat']);
 
@@ -348,7 +348,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, { });
 
         // Get path to resource on disk
@@ -386,7 +386,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {
             // Only allow the webview to access resources in our extension's media directory
             localResourceRoots: [
@@ -417,7 +417,7 @@ import * as path from 'path';
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {
             // Enable scripts in the webview
             enableScripts: true
@@ -470,7 +470,7 @@ export function activate(context: vscode.ExtensionContext) {
     // Only allow a single Cat Coder
     let currentPanel: vscode.WebviewPanel | undefined = undefined;
 
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         if (currentPanel) {
             currentPanel.reveal(vscode.ViewColumn.One);
         } else {
@@ -541,7 +541,7 @@ We can use `window.parent.postMessage` in our *Cat Coding* webview to alert the 
 
 ```js
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {
             enableScripts: true
         });
@@ -674,7 +674,7 @@ Although *Cat Coding* can hardly be said to have complex state, let's try enabli
 import * as vscode from 'vscode';
 
 export function activate(context: vscode.ExtensionContext) {
-    context.subscriptions.push(vscode.commands.registerCommand('catCoding.newCat', () => {
+    context.subscriptions.push(vscode.commands.registerCommand('catCoding.start', () => {
         const panel = vscode.window.createWebviewPanel('catCoding', "Cat Coding", vscode.ViewColumn.One, {
             enableScripts: true,
             retainContextWhenHidden: true
