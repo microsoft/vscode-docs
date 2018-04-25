@@ -1,14 +1,15 @@
 ---
 Order: 37
 TOCTitle: Settings Search
-PageTitle: Improving Settings Search in VS Code
-MetaDescription: Improving Settings Search in VS Code
+PageTitle: A Bing-Powered Settings Search in VS Code
+MetaDescription: Improving Settings Search in VS Code with Bing
 MetaSocialImage:
 Date: 2018-04-25
-ShortDescription: Learn what's new with settings search in Visual Studio Code
+ShortDescription: Improving Settings Search in VS Code with Bing
 Author: Rob Lourens
 ---
-# Improving Settings Search in VS Code
+
+# A Bing-Powered Settings Search in VS Code
 
 Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common Github issues, StackOverflow questions, tweets, and user studies that we've done, we've seen many users having issues finding settings. This is no surprise given that VS Code includes more than 400 settings out of the box, and with extensions installed, many users can have significantly more. If you include typical user mistakes such as typos and the challenge of picking the right search terms, users have a hard time.
 
@@ -25,7 +26,7 @@ So several months ago, we started talking to the Bing team about whether they co
     </div>
 </div>
 
-## A Bing-powered settings search
+## How it works
 
 After a period of discussion and prototyping, we decided on an arrangement in which the Bing team would run a settings search service that would provide intelligent fuzzy settings matches for queries that users search for in VS Code's settings editor.
 
@@ -91,8 +92,6 @@ Here are some examples:
 
 ![beautify](./Beautify.gif)
 
-**Bing Cognitive Services**
-
 If you have a similar problem and don't have a search team to build you a custom service as the Bing team did for us, we still have some good news. You can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They provide a bunch of services that will help you add some intelligence into your own apps. For example:
 - [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
 - [Language Understanding (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)
@@ -114,7 +113,7 @@ Currently the service is only indexing in English, but we'd like to index the tr
 
 ## We need your feedback
 
-It is now easier to find settings thanks to our friends on the Bing team! As you search for settings, please file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
+It is now easier to find settings thanks to our friends on the Bing team! But search is only as good as the feedback we get, so as you search for settings, please file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
 
 Happy Coding!
 
