@@ -22,11 +22,27 @@ The Python extension supports debugging of a number of types of Python applicati
 - Pausing (breaking into) running programs
 - Custom startup directory
 
-General capabilities are documented in the [VS Code debugging](/docs/editor/debugging.md) article.
+To familiarize yourself with these general capabilities, review the [VS Code debugging](/docs/editor/debugging.md) article. This present article addresses only those considerations that are specific to Python.
 
-The default `launch.json` (which is where VS Code stores the debugger configurations) includes a number of starter debug configurations, these are available from the configuration drop-down. The default "Python" selection provides the standard configuration. See [Standard configuration and options](#standard-configuration-and-options) for a description of this configuration and the debug settings.
+## Choose a configuration
 
-Additional configurations are described in [Debugging specific app types](#debugging-specific-app-types).
+To select a debugging configuration, select the Debug View in the sidebar, then select an option of your choice from the drop-down list:
+
+![Selecting a debug configuration](images/debugging/select-configuration.png)
+
+While debugging, the Status Bar shows the current configuration on the lower left, with the current debugging interpreter to the right. Selecting the configuration brings up the list from which you can choose a different configuration:
+
+![Debugging Status Bar](images/debugging/debug-status-bar.png)
+
+By default, the debugger uses the same `python.pythonPath` setting as for other features of VS Code. To use a different interpreter, set the value for `pythonPath` in the debugger settings. Alternately, select the named interpreter on the Status Bar to select a different one.
+
+> **Note**: The debugger settings don't support relative paths, including when relying on the main `python.pythonPath` setting. To work around this, use an environment variable, or create a variable such as `${workspaceFolder}` that resolves to your project folder, then use that variable in the path, as in `"python.pythonPath": "${workspaceFolder}/venv/bin/python"`.
+
+To see all configurations, open `launch.json` by selecting the gear icon next to the configuration drop-down list:
+
+![Debug settings icon](images/debugging/debug-settings.png)
+
+The default or standard "Python: Current File" configuration is described in the next section. Additional configurations are also described in this article under [Debugging specific app types](#debugging-specific-app-types).
 
 > **Note:** If you'd like to try the new experimental debugger, see the instructions on [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub).
 
@@ -326,12 +342,11 @@ RuntimeError: release unlocked lock
 
 ### Unable to capture user input while debugging
 
-Capturing user input while debugging is possible only when using the `"console": "externalTerminal"` configuration. The integrated terminal does not support capturing user input.
+To capture user input while debugging, select the `Python: Terminal (external)` configuration from the drop-down list on the Debug View. Alternately, set `"console": "externalTerminal"` in your chosen configuration in `launch.json`. The integrated terminal does not presently support capturing user input.
 
 ## Next steps
 
 - [Python environments](/docs/python/environments.md) - Control which Python interpreter is used for editing and debugging.
 - [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
 - [Settings reference](/docs/python/settings-reference.md) - Explore the full range of Python-related settings in VS Code.
-
 - [General debugging](/docs/editor/debugging.md) - Learn about the debugging features of VS Code.
