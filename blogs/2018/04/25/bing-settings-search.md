@@ -1,14 +1,14 @@
 ---
 Order: 38
 TOCTitle: Settings Search
-PageTitle: A Bing-Powered Settings Search in VS Code
-MetaDescription: Improving Settings Search in VS Code with Bing
+PageTitle: Bing-powered settings search in VS Code
+MetaDescription: Improving settings search in VS Code with Bing
 MetaSocialImage:
 Date: 2018-04-25
-ShortDescription: Improving Settings Search in VS Code with Bing
+ShortDescription: Improving settings search in VS Code with Bing
 Author: Rob Lourens
 ---
-# A Bing-Powered Settings Search in VS Code
+# Bing-powered settings search in VS Code
 
 Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common GitHub issues, StackOverflow questions, tweets, and user studies that we've done, we've seen many users having issues finding settings. This is no surprise given that VS Code includes more than 400 settings out of the box, and with extensions installed, many users can have significantly more. If you include typical user mistakes such as typos and the challenge of picking the right search terms, users have a hard time.
 
@@ -43,8 +43,11 @@ There are essentially two sides to this system - collecting and indexing setting
 
 **Collecting VS Code and Extension Settings Data**
 
-During each build, VS Code starts up in a mode where it writes all of its configuration to a JSON file. We have to actually start VS Code, because we can't determine all the configuration metadata statically. The file includes a few pieces of information per setting - the name, description, type, default value, and for "enum"-type settings, the list of valid values and their descriptions. We then upload the file to Azure Storage. If you're curious, you can see a recent example here: https://ticino.blob.core.windows.net/configuration/123000832/c1cd4378c5e5dc434ed959e13556d05240a8ca18/configuration.json
-. 123000832 is a unique build number, computed from the product version plus the number of git commits since the previous release. `c1cd4378...` is the git commit that the build was built off of. And Ticino, some of you diehard fans might remember, was our original short-lived code name.
+During each build, VS Code starts up in a mode where it writes all of its configuration to a JSON file. We have to actually start VS Code, because we can't determine all the configuration metadata statically. The file includes a few pieces of information per setting - the name, description, type, default value, and for "enum"-type settings, the list of valid values and their descriptions. We then upload the file to Azure Storage. If you're curious, you can see a recent example here:
+
+* [https://ticino.blob.core.windows.net/configuration/123000832/c1cd4378c5e5dc434ed959e13556d05240a8ca18/configuration.json](https://ticino.blob.core.windows.net/configuration/123000832/c1cd4378c5e5dc434ed959e13556d05240a8ca18/configuration.json)
+
+`123000832` is a unique build number, computed from the product version plus the number of Git commits since the previous release. `c1cd4378...` is the Git commit id that the build was built off of. And `ticino`, some of you diehard fans might remember, was our original short-lived code name.
 
 Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its `package.json` file (for extensions, all configuration metadata is contained in the `package.json`. No need to start it up.) and passes those settings to the Ingestion Service as well.
 
