@@ -335,11 +335,13 @@ The **Developer: Open Webview Developer Tools** VS Code command lets you debug w
 
 The contents of the webview are within an iframe inside the webview document. You can use developer tools to inspect and modify the webview's DOM, and debug scripts running within the webview itself.
 
-If you use use the webview developer tools console, make sure to select the 'active frame' environment from the dropdown in the top left corner of the console panel.
+If you use use the webview developer tools console, make sure to select the 'active frame' environment from the dropdown in the top left corner of the console panel:
 
 ![Selecting the active frame](images/webview/debug-active-frame.png)
 
 The 'active frame' environment is where the webview scripts themselves are executed.
+
+In addition, the **Deveoper: Reload Webview** command reloads all active webviews. This can be helpful if you need to reset a webview's state, or if some webview content on disk has changed and you want the new content to be loaded.
 
 ## Loading local content
 
