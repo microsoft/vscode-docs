@@ -306,7 +306,3 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
-
-**Q: Are the search terms for file and folder names case-sensitive?**
-
-**A:** Yes
