@@ -387,7 +387,7 @@ You can also always use data URIs to embed resources directly within the webview
 
 Webviews can control which resources `vscode-resource:` can load using the `localResourceRoots` option. `localResourceRoots` defines a set of root URIs from which local content may be loaded.
 
-We can use `localResourceRoots` to restrict *Cat Coding* webviews to only load resources from a `media` directory in our extension:
+We can use `localResourceRoots` to restrict **Cat Coding** webviews to only load resources from a `media` directory in our extension:
 
 ```ts
 import * as vscode from 'vscode';
@@ -470,7 +470,7 @@ Webview scripts can do just about anything that a script on a normal webpage can
 
 An extension can send data to its webviews using `webview.postMessage()`. This method sends any json serializable data to the webview. The message is received inside the webview through the standard `message` event.
 
-To demonstrate this, let's add a new command to *Cat Coding* that instructs the currently coding cat to refactor their code (thereby reducing the total number of lines). The new `catCoding.doRefactor` command use `postMessage` to send the instruction to the current webview, and `window.addEventListener('message' event => { ... })` inside the webview itself to handle the message:
+To demonstrate this, let's add a new command to **Cat Coding** that instructs the currently coding cat to refactor their code (thereby reducing the total number of lines). The new `catCoding.doRefactor` command use `postMessage` to send the instruction to the current webview, and `window.addEventListener('message' event => { ... })` inside the webview itself to handle the message:
 
 ```ts
 export function activate(context: vscode.ExtensionContext) {
@@ -545,7 +545,7 @@ function getWebviewContent() {
 
 Webviews can also pass messages back to their extension. This is accomplished using a `postMessage` function on a special VS Code api object inside the webview. To access the VS Code api object, call `acquireVsCodeApi` inside the webview. This function can only be invoked once per session. You must hang onto the instance of the VS Code api returned by this method, and hand it out to any other functions that wish to use it.
 
-We can use the VS Code api and `postMessage` in our *Cat Coding* webview to alert the extension when our cat introduces a bug in their code:
+We can use the VS Code api and `postMessage` in our **Cat Coding** webview to alert the extension when our cat introduces a bug in their code:
 
 ```js
 export function activate(context: vscode.ExtensionContext) {
@@ -674,9 +674,10 @@ In the standard webview [lifecycle](#lifecycle), webviews are created by `create
 The best way to solve this is to make your webview stateless. Use [message passing](#passing-messages-from-a-webview-to-an-extension) to save off the webview's state and then restore the state when the webview becomes visible again.
 
 ### retainContextWhenHidden
+
 For webviews with very complex UI or state that cannot be quickly saved and restored, you can instead use the `retainContextWhenHidden` option. This option makes a webview keep its content around—but in a hidden state—even when the webview itself is no longer in the foreground.
 
-Although *Cat Coding* can hardly be said to have complex state, let's try enabling `retainContextWhenHidden` to see how  the option changes a webview's behavior:
+Although **Cat Coding** can hardly be said to have complex state, let's try enabling `retainContextWhenHidden` to see how  the option changes a webview's behavior:
 
 ```ts
 import * as vscode from 'vscode';
@@ -716,7 +717,7 @@ function getWebviewContent() {
 }
 ```
 
-![](images/webview/persistence-retrain.gif)
+![persistance retrain](images/webview/persistence-retrain.gif)
 
 Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content is suspended, but immediately resumed once the webview becomes visible again. You cannot send messages to hidden webview, even when `retainContextWhenHidden` is enabled.
 
