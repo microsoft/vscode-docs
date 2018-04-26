@@ -1,5 +1,5 @@
 ---
-Order: 37
+Order: 38
 TOCTitle: Settings Search
 PageTitle: A Bing-Powered Settings Search in VS Code
 MetaDescription: Improving Settings Search in VS Code with Bing
@@ -8,21 +8,20 @@ Date: 2018-04-25
 ShortDescription: Improving Settings Search in VS Code with Bing
 Author: Rob Lourens
 ---
-
 # A Bing-Powered Settings Search in VS Code
 
-Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common Github issues, StackOverflow questions, tweets, and user studies that we've done, we've seen many users having issues finding settings. This is no surprise given that VS Code includes more than 400 settings out of the box, and with extensions installed, many users can have significantly more. If you include typical user mistakes such as typos and the challenge of picking the right search terms, users have a hard time.
+Have you ever had trouble finding a certain setting in VS Code? You're not alone. Looking across common GitHub issues, StackOverflow questions, tweets, and user studies that we've done, we've seen many users having issues finding settings. This is no surprise given that VS Code includes more than 400 settings out of the box, and with extensions installed, many users can have significantly more. If you include typical user mistakes such as typos and the challenge of picking the right search terms, users have a hard time.
 
 So several months ago, we started talking to the Bing team about whether they could apply their search expertise to our problem. And two months ago, we shipped the result - an intelligent settings search experience powered by Bing.
 
 <div>
     <div style="display: inline-block; width: 49%">
         <h3 style="text-align: center">Before</h3>
-        <img src="./ZoomScrollWheel-before.png">
+        <img src="ZoomScrollWheel-before.png">
     </div>
     <div style="display: inline-block; width: 49%">
         <h3 style="text-align: center">After</h3>
-        <img src="./ZoomScrollWheel.gif">
+        <img src="ZoomScrollWheel.gif">
     </div>
 </div>
 
@@ -34,7 +33,7 @@ Integrating Bing's natural language search capabilities into VS Code proved chal
 
 Here is a high level overview of the system:
 
-![Bing Diagram](./BingDiagram.png)
+![Bing Diagram](BingDiagram.png)
 
 Let's take a look at each part.
 
@@ -47,7 +46,7 @@ There are essentially two sides to this system - collecting and indexing setting
 During each build, VS Code starts up in a mode where it writes all of its configuration to a JSON file. We have to actually start VS Code, because we can't determine all the configuration metadata statically. The file includes a few pieces of information per setting - the name, description, type, default value, and for "enum"-type settings, the list of valid values and their descriptions. We then upload the file to Azure Storage. If you're curious, you can see a recent example here: https://ticino.blob.core.windows.net/configuration/123000832/c1cd4378c5e5dc434ed959e13556d05240a8ca18/configuration.json
 . 123000832 is a unique build number, computed from the product version plus the number of git commits since the previous release. `c1cd4378...` is the git commit that the build was built off of. And Ticino, some of you diehard fans might remember, was our original short-lived code name.
 
-Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its package.json (for extensions, all configuration metadata is contained in the package.json. No need to start it up.) and passes those settings to the Ingestion Service as well.
+Bing's Polling Service watches the Azure Storage container, notices a new build, and notifies the Ingestion Service. At the same time, Bing is constantly crawling the VS Code extension marketplace, waiting for extension updates and new extensions. When it finds one, it downloads its `package.json` file (for extensions, all configuration metadata is contained in the `package.json`. No need to start it up.) and passes those settings to the Ingestion Service as well.
 
 This entire process is fully automated and constantly updates the indexed settings in real-time for each of our stable release builds and our daily Insiders builds. Within minutes of the completion of a build, Bing's index has been updated to include any newly added settings.
 
@@ -74,7 +73,7 @@ Every ingestion into the index goes through the gating module which just ensures
 - The new index is backwards compatible and serves all VS Code builds
 - Our Golden query set returns the expected results
 
-Failure in the gating module will prevent an index ingestion and notifies the team immediately. A dashboard service was also created that allows us to monitor the health of all stages of the pipeline. It has alerting mechanisms and the ability to rollback to the last known good state, to ensure that any issue can be resolved quickly with minimum downtime.
+Failure in the gating module will prevent an index ingestion and notifies the team immediately. A dashboard service was also created that allows us to monitor the health of all stages of the pipeline. It has alerting mechanisms and the ability to roll back to the last known good state, to ensure that any issue can be resolved quickly with minimum downtime.
 
 ### Search Service
 
@@ -86,18 +85,18 @@ We now have a system which does a better job of understanding settings queries a
 
 Here are some examples:
 
-![format on keypress](./FormatOnKeypress.gif)
+![format on keypress](FormatOnKeypress.gif)
 
-![example - how to open new files on the left](./OpenFilesOnLeft.gif)
+![example - how to open new files on the left](OpenFilesOnLeft.gif)
 
-![beautify](./Beautify.gif)
+![beautify](Beautify.gif)
 
 If you have a similar problem and don't have a search team to build you a custom service as the Bing team did for us, we still have some good news. You can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They provide a bunch of services that will help you add some intelligence into your own apps. For example:
+
 - [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
 - [Language Understanding (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)
 - [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/)
 - [Bing Custom Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-custom-search/)
-
 
 ## A note about testing
 
@@ -113,7 +112,7 @@ Currently the service is only indexing in English, but we'd like to index the tr
 
 ## We need your feedback
 
-It is now easier to find settings thanks to our friends on the Bing team! But search is only as good as the feedback we get, so as you search for settings, please file issues on Github if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
+It is now easier to find settings thanks to our friends on the Bing team! But search is only as good as the feedback we get, so as you search for settings, please file issues on GitHub if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
 
 Happy Coding!
 
