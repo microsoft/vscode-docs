@@ -17,11 +17,11 @@ So several months ago, we started talking to the Bing team about whether they co
 <div>
     <div style="width: 646px; margin: auto">
         <h3 style="text-align: center">Before</h3>
-        <img src="/assets/blogs/2018/04/25/ZoomScrollWheel-before.png">
+        <img src="/assets/blogs/2018/04/25/ZoomScrollWheel-before.png" alt="Before example">
     </div>
     <div style="width: 646px; margin: auto">
         <h3 style="text-align: center">After</h3>
-        <img src="/assets/blogs/2018/04/25/ZoomScrollWheel.gif">
+        <img src="/assets/blogs/2018/04/25/ZoomScrollWheel.gif" alt="After example">
     </div>
 </div>
 
@@ -59,11 +59,11 @@ Users sometimes search with words that are different but equivalent to the words
 
 **2. Stemmer and Speller Pipeline**
 
-We don't want to penalize the user for misspelling the name of a setting, but we found early on that simple fuzzy matching would either miss variations of an English word that a human could understand, or would include too many false positive matches. So we also included a Speller and a Stemmer service which enrich the index with common misspellings and alternate forms of the same word stem. For example, "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting". These are lightweight custom services extracted from the full-fledged services that are used on Bing.com.
+We don't want to penalize the user for misspelling the name of a setting, but we found early on that simple fuzzy matching would either miss variations of an English word that a human could understand, or would include too many false positive matches. So we also included a Speller and a Stemmer service, extracted from the full-fledged services that are used on Bing.com, which enrich the index with common misspellings and alternate forms of the same word stem. For example, "formatted", "formatter", "format" - all will be indexed for a setting that uses the word "formatting".
 
 **3. Natural Language Processing (NLP) Pipeline**
 
-We also want to enable users to describe their query in their own natural language, so we added Cortana's Natural Language Processing pipeline. The pipeline collects commonly used speech and text patterns and adds them to the indexes. For example, it enables the system to identify the important words in "how to disable css validation" to find `"css.validate"`.
+We also want to enable users to describe their query in their own natural language, so we added Bing's Natural Language Processing pipeline. The pipeline collects commonly used speech and text patterns and adds them to the indexes. For example, it enables the system to identify the important words in "how to disable css validation" to find `"css.validate"`.
 
 **4. Feedback/Ranking Pipeline**
 
