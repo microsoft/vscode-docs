@@ -17,11 +17,11 @@ So several months ago, we started talking to the Bing team about whether they co
 <div>
     <div style="display: inline-block; width: 49%">
         <h3 style="text-align: center">Before</h3>
-        <img src="ZoomScrollWheel-before.png">
+        <img src="/assets/blogs/2018/04/25/ZoomScrollWheel-before.png">
     </div>
     <div style="display: inline-block; width: 49%">
         <h3 style="text-align: center">After</h3>
-        <img src="ZoomScrollWheel.gif">
+        <img src="/assets/blogs/2018/04/25/ZoomScrollWheel.gif">
     </div>
 </div>
 
