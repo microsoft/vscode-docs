@@ -15,11 +15,11 @@ Have you ever had trouble finding a certain setting in VS Code? You're not alone
 So several months ago, we started talking to the Bing team about whether they could apply their search expertise to our problem. And two months ago, we shipped the result - an intelligent settings search experience powered by Bing.
 
 <div>
-    <div style="display: inline-block; width: 49%">
+    <div style="width: 646px; margin: auto">
         <h3 style="text-align: center">Before</h3>
         <img src="/assets/blogs/2018/04/25/ZoomScrollWheel-before.png">
     </div>
-    <div style="display: inline-block; width: 49%">
+    <div style="width: 646px; margin: auto">
         <h3 style="text-align: center">After</h3>
         <img src="/assets/blogs/2018/04/25/ZoomScrollWheel.gif">
     </div>
