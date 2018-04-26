@@ -573,7 +573,7 @@ function getWebviewContent() {
 
     <script>
         (function() {
-            const vscode = aquireVsCodeApi();
+            const vscode = acquireVsCodeApi();
             const counter = document.getElementById('lines-of-code-counter');
 
             let count = 0;
@@ -710,6 +710,6 @@ function getWebviewContent() {
 
 ![](images/webview/persistence-retrain.gif)
 
-Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required!
+Notice how the counter does not reset now when the webview is hidden and then restored. No extra code required! With `retainContextWhenHidden`, the webview acts similarly to a background tab in a web browser. Scripts and other dynamic content is suspended, but immediately resumed once the webview becomes visible again. You cannot send messages to hidden webview, even when `retainContextWhenHidden` is enabled.
 
-Although `retainContextWhenHidden` may be appealing, this option has high memory overhead and should only be used when other persistence techniques will not work.
+Although `retainContextWhenHidden` may be appealing, keep in mind that this has high memory overhead and should only be used when other persistence techniques will not work.
