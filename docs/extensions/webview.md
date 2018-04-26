@@ -341,7 +341,7 @@ If you use use the webview developer tools console, make sure to select the 'act
 
 The 'active frame' environment is where the webview scripts themselves are executed.
 
-In addition, the **Deveoper: Reload Webview** command reloads all active webviews. This can be helpful if you need to reset a webview's state, or if some webview content on disk has changed and you want the new content to be loaded.
+In addition, the **Developer: Reload Webview** command reloads all active webviews. This can be helpful if you need to reset a webview's state, or if some webview content on disk has changed and you want the new content to be loaded.
 
 ## Loading local content
 
