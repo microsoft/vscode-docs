@@ -3,7 +3,7 @@ Order: 38
 TOCTitle: Settings Search
 PageTitle: Bing-powered settings search in VS Code
 MetaDescription: Improving settings search in VS Code with Bing
-MetaSocialImage:
+MetaSocialImage: /assets/blogs/2018/04/25/ZoomScrollWheel.gif
 Date: 2018-04-25
 ShortDescription: Improving settings search in VS Code with Bing
 Author: Rob Lourens
