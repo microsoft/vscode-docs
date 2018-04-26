@@ -410,7 +410,7 @@ In general, webviews should be as restrictive as possible in loading local resou
 
 Webviews are just like iframes, which means that they can also run scripts. JavaScript is disabled in webviews by default, but it can easily re-enable by passing in the `enableScripts: true` option.
 
-Let's use a script to add a counter tracking the lines of code our cat has written. It's pretty simple:
+Let's use a script to add a counter tracking the lines of code our cat has written. Running a basic script is pretty simple, but note that this example is only for demonstration purposes. In practice, your webview should always disable inline scripts using a [content security policy](#content-security-policy):
 
 ```ts
 import * as path from 'path';
@@ -535,9 +535,9 @@ function getWebviewContent() {
 
 ### Passing messages from a webview to an extension
 
-Webviews can also pass messages back to their extension. This is accomplished by calling `window.parent.postMessage()` in the webview with some json serializable data, and listening to the `webview.onDidReceiveMessage` event in the extension itself.
+Webviews can also pass messages back to their extension. This is accomplished using a `postMessage` function on a special VS Code api object inside the webview. To access the VS Code api object, call `acquireVsCodeApi` inside the webview. This function can only be invoked once per session. You must hang onto the instance of the VS Code api returned by this method, and hand it out to any other functions that wish to use it.
 
-We can use `window.parent.postMessage` in our *Cat Coding* webview to alert the extension when our cat introduces a bug in their code:
+We can use the VS Code api and `postMessage` in our *Cat Coding* webview to alert the extension when our cat introduces a bug in their code:
 
 ```js
 export function activate(context: vscode.ExtensionContext) {
@@ -572,19 +572,23 @@ function getWebviewContent() {
     <h1 id="lines-of-code-counter">0</h1>
 
     <script>
-        const counter = document.getElementById('lines-of-code-counter');
+        (function() {
+            const vscode = aquireVsCodeApi();
+            const counter = document.getElementById('lines-of-code-counter');
 
-        let count = 0;
-        setInterval(() => {
-            counter.textContent = count++;
+            let count = 0;
+            setInterval(() => {
+                counter.textContent = count++;
 
-            // Alert the extension when our cat introduces a bug
-            if (Math.random() < 0.001 * count) {
-                window.parent.postMessage(
-                    { command: 'alert', text: '🐛  on line ' + count },
-                    '*')
-            }
-        }, 100);
+                // Alert the extension when our cat introduces a bug
+                if (Math.random() < 0.001 * count) {
+                    vscode.postMessage({
+                        command: 'alert',
+                        text: '🐛  on line ' + count
+                    })
+                }
+            }, 100);
+        }())
     </script>
 </body>
 </html>`;
@@ -592,6 +596,8 @@ function getWebviewContent() {
 ```
 
 ![Passing messages from the webview to the main extension](images/webview/scripts-webview_to_extension.gif)
+
+For security reasons, you must keep the VS Code api object private and make sure it is never leaked into the global state.
 
 ## Security
 
@@ -651,13 +657,7 @@ Example values that must be sanitized:
 
 Consider using a helper library to construct your html strings, or at least ensure that all content from the user's workspace is properly sanitized.
 
-Never rely on sanitization alone for security. Make sure to follow the other security best practices, such as having a content security policy, to minimize the impact of any potential content injections.
-
-### Validate messages received from webviews
-
-Say your webview is compromised. That's bad, but it is probably not the end of the world. Webviews are sandboxes which theoretically limits the damage that an attacker can inflict. But it does mean that an attacker can now execute anything that your `webview.onDidReceiveMessage` does. This may not be so bad if all your handler does is show notifications, but it could be very bad if the handler runs `eval` or deletes a file at given path on disk.
-
-In addition to other security best practices, validate all messages the webview sends to the extension. If these messages trigger potentially dangerous operations, make sure to prompt the user before performing that operation
+Never rely on sanitization alone for security. Make sure to follow the other security best practices—such as having a [content security policy](#content-security-policy)—to minimize the impact of any potential content injections.
 
 ## Persistence
 
