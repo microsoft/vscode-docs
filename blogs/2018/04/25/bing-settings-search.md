@@ -114,7 +114,7 @@ Currently the service is only indexing in English, but we'd like to index the tr
 
 ## We need your feedback
 
-It is now easier to find settings thanks to our friends on the Bing team! But search is only as good as the feedback we get, so as you search for settings, please file issues on GitHub if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
+It is now easier to find settings thanks to our friends on the Bing team! User feedback is the best way for us to improve the results, so as you search for settings, please file issues on GitHub if you don't see the results that you expect. In fact, if you're using [VS Code Insiders](https://code.visualstudio.com/insiders/) you will even see a button that will invoke our new issue reporter to make it easier for you to file an issue that includes all the details we need.
 
 Happy Coding!
 
