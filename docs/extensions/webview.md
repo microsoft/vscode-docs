@@ -335,6 +335,12 @@ The **Developer: Open Webview Developer Tools** VS Code command lets you debug w
 
 The contents of the webview are within an iframe inside the webview document. You can use developer tools to inspect and modify the webview's DOM, and debug scripts running within the webview itself.
 
+If you use use the webview developer tools console, make sure to select the 'active frame' environment from the dropdown in the top left corner of the console panel.
+
+![Selecting the active frame](images/webview/debug-active-frame.png)
+
+The 'active frame' environment is where the webview scripts themselves are executed.
+
 ## Loading local content
 
 Webviews run in isolated contexts that cannot directly access local resources. This is done for security reasons. This means that in order to load images, stylesheets, and other resources from your extension, or to load any content from the user's current workspace, you must use the `vscode-resource:` scheme inside webview.
