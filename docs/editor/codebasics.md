@@ -309,4 +309,9 @@ You can also add vertical column rulers to the editor with the `editor.rulers` s
 
 **Q: Are the search terms for file and folder names case-sensitive?**
 
-**A:** Yes
+**A:** Yes. Please see below.
+
+![Successful-Search](images/codebasics/case-sensitive-filename-1.png)
+
+![UnSuccessful-Search](images/codebasics/case-sensitive-filename-2.png)
+
