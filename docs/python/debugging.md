@@ -4,13 +4,13 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 03/28/2018
+DateApproved: 04/26/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Debugging Python with VS Code
 
-The Python extension supports debugging of a number of types of Python applications, including the following [general capabilities](/docs/editor/debugging.md):
+The Python extension supports debugging of a number of types of Python applications, including the following general capabilities:
 
 - Watch window
 - Evaluating expressions
@@ -22,11 +22,13 @@ The Python extension supports debugging of a number of types of Python applicati
 - Pausing (breaking into) running programs
 - Custom startup directory
 
+General capabilities are documented in the [VS Code debugging](/docs/editor/debugging.md) article.
+
 The default `launch.json` (which is where VS Code stores the debugger configurations) includes a number of starter debug configurations, these are available from the configuration drop-down. The default "Python" selection provides the standard configuration. See [Standard configuration and options](#standard-configuration-and-options) for a description of this configuration and the debug settings.
 
 Additional configurations are described in [Debugging specific app types](#debugging-specific-app-types).
 
->**Note:** If you'd like to try the new experimental debugger, see the instructions on [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub).
+> **Note:** If you'd like to try the new experimental debugger, see the instructions on [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub).
 
 ## Standard configuration and options
 
@@ -92,7 +94,7 @@ You can specify platform-specific paths by placing `pythonPath` within a parent 
 
 ### `args`
 
-Specifies arguments to pass to the python program, for example:
+Specifies arguments to pass to the Python program, for example:
 
 ```json
 "args": [
@@ -102,7 +104,7 @@ Specifies arguments to pass to the python program, for example:
 
 ### `stopOnEntry`
 
-When set to true, breaks the debugger at the first line of the program being debugged. If omitted or set to false, runs the program to the first breakpoint.
+When set to true, breaks the debugger at the first line of the program being debugged. If omitted (the default) or set to false, the debugger runs the program to the first breakpoint.
 
 ### `console`
 
