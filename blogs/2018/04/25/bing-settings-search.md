@@ -67,7 +67,7 @@ We also want to enable users to describe their query in their own natural langua
 
 **4. Feedback/Ranking Pipeline**
 
-We created a feedback mechanism that lets us learn and improve from user feedback. It allows us to manually specify new Alternative Word pairs, or to boost expected results for certain queries. The feedback is uploaded to the service and reflected in search results almost immediately.
+We created a feedback mechanism that lets us learn and improve from user feedback. It allows us to manually specify new word pairs or to boost expected results for certain queries. The feedback is uploaded to the service and is reflected by the search results almost immediately.
 
 **Gating Module**
 
@@ -94,8 +94,7 @@ Here are some examples:
 
 ![beautify](Beautify.gif)
 
-If you have a similar problem and don't have a search team to build you a custom service as the Bing team did for us, we still have some good news. You can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/). They provide a bunch of services that will help you add some intelligence into your own apps. For example:
-
+If you have a similar problem and don't have a search team to build you a custom service as the Bing team did for us, we still have some good news. You can get started with [Bing's Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/), which will help you add some intelligence into your own apps. For example:
 - [Bing Spell Check API](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/)
 - [Language Understanding (LUIS)](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/)
 - [Bing Web Search API](https://azure.microsoft.com/en-us/services/cognitive-services/bing-web-search-api/)
