@@ -95,6 +95,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _uri_ Uri of a text document
 * _position_ Position in a text document
 * _triggerCharacter_ (optional) Trigger completion when the user types the character, like `,` or `(`
+* _itemResolveCount_ (optional) Number of completions to resolve (too large numbers slow down completions)
 * _(returns)_ A promise that resolves to a CompletionList-instance.
 
 
@@ -108,6 +109,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 `vscode.executeCodeLensProvider` - Execute CodeLens provider.
 
 * _uri_ Uri of a text document
+* _itemResolveCount_ (optional) Number of lenses that should be resolved and returned. Will only retrun resolved lenses, will impact performance)
 * _(returns)_ A promise that resolves to an array of CodeLens-instances.
 
 
