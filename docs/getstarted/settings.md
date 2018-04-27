@@ -202,13 +202,19 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available.
   "editor.autoIndent": true,
 
-  // Controls if the editor shows code lenses
+  // Code action kinds to be run on save.
+  "editor.codeActionsOnSave": {},
+
+  // Timeout for code actions run on save.
+  "editor.codeActionsOnSaveTimeout": 750,
+
+  // Controls if the editor shows CodeLens
   "editor.codeLens": true,
 
   // Controls whether the editor should render the inline color decorators and color picker.
   "editor.colorDecorators": true,
 
-  // Control the cursor animation style, possible values are 'blink', 'smooth', 'phase', 'expand' and 'solid'
+  // Control the cursor animation style.
   "editor.cursorBlinking": "blink",
 
   // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
@@ -283,7 +289,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
   "editor.lineHeight": 0,
 
-  // Controls the display of line numbers. Possible values are 'on', 'off', 'relative' and 'interval'.
+  // Controls the display of line numbers.
   "editor.lineNumbers": "on",
 
   // Controls whether the editor should detect links and make them clickable
@@ -301,10 +307,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": true,
 
-  // Controls whether the minimap slider is automatically hidden. Possible values are 'always' and 'mouseover'
+  // Controls whether the minimap slider is automatically hidden.
   "editor.minimap.showSlider": "mouseover",
 
-  // Controls the side where to render the minimap. Possible values are 'right' and 'left'
+  // Controls the side where to render the minimap.
   "editor.minimap.side": "right",
 
   // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
@@ -656,7 +662,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/node_modules/**": true
+    "**/node_modules/*/**": true
   },
 
 // Zen Mode
@@ -762,6 +768,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Allows setting breakpoint in any file
   "debug.allowBreakpointsEverywhere": false,
+
+  // Controls if the non debug hovers should be enabled while debugging. If true the hover providers will be called to provide a hover. Regular hovers will not be shown even if this setting is true.
+  "debug.enableAllHovers": false,
 
   // Controls if the floating debug action bar should be hidden
   "debug.hideActionBar": false,
@@ -1529,6 +1538,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether auto detection of npm scripts is on or off. Default is on.
   "npm.autoDetect": "on",
+
+  // Enable an explorer view for npm scripts.
+  "npm.enableScriptExplorer": false,
 
   // Configure glob patterns for folders that should be excluded from automatic script detection.
   "npm.exclude": "",
