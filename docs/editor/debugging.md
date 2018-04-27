@@ -145,15 +145,17 @@ The **Reapply All Breakpoints** command sets all breakpoints again to their orig
 
 ![Breakpoints](images/debugging/breakpoints.png)
 
-## Log Points
+## Logpoints
 
-A Log Point is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Log points are especially useful for debugging production servers which cannot be stopped.
+A Logpoint is a variant of a breakpoint that does not "break" into the debugger but instead logs a message to the console. Logpoints are especially useful for injecting logging while debugging production servers which cannot be stopped.
 
-A Log Point is represented by a "diamond" shaped icon. Log messages are basically plain text but expressions within curly braces ('{}') are evaluated.
+A Logpoint is represented by a "diamond" shaped icon. Log messages are plain text but can include expressions to be evaluated within curly braces ('{}').
 
-![Log Points](images/debugging/log-points.gif)
+![Logpoints](images/debugging/log-points.gif)
 
-Just like regular breakpoints, Log Points can be enabled or disabled and can also be controlled by a condition and/or hit count.
+Just like regular breakpoints, Logpoints can be enabled or disabled and can also be controlled by a condition and/or hit count.
+
+**Note**: Logpoints are currently only supported by VS Code's built-in Node.js debugger, but can be implemented by other debug extensions.
 
 ## Data inspection
 
@@ -365,9 +367,10 @@ To learn about VS Code's Node.js debugging support, take a look at:
 
 * [Node.js](/docs/nodejs/nodejs-debugging.md) - Node.js debugging is included in VS Code.
 
-To see a tutorial on the basics of Node.js debugging, check out:
+To see tutorials on the basics of Node.js debugging, check out these videos:
 
 * [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory video showcasing the basics of debugging.
+* [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Learn how to attach to a running Node.js process.
 
 To learn about VS Code's task running support, go to:
 
@@ -381,7 +384,7 @@ To write your own debugger extension, visit:
 
 **Q: What are the supported debugging scenarios?**
 
-**A:** Debugging of Node.js based applications is supported on Linux, Mac, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
+**A:** Debugging of Node.js based applications is supported on Linux, macOS, and Windows out of the box with VS Code. Many other scenarios are supported by [VS Code extensions](https://marketplace.visualstudio.com/vscode/Debuggers?sortBy=Downloads) available on the Marketplace.
 
 **Q: I do not see any launch configurations in the debug view drop down, what is wrong?**
 

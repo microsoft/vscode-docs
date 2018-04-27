@@ -489,7 +489,7 @@ If you only need to tweak it for a specific task then add the OS specific comman
 }
 ```
 
-If the task is execute in `PowerShell` the command needs to read like this `chcp 866; more russian.txt`. Under Linux and Mac the `locale` command can be used to inspect the locale and tweak the necessary environment variables.
+If the task is execute in `PowerShell`, the command needs to read like this `chcp 866; more russian.txt`. On Linux and macOS, the `locale` command can be used to inspect the locale and tweak the necessary environment variables.
 
 ## Examples of tasks in action
 
@@ -734,7 +734,7 @@ A full handcrafted `tasks.json` for a `tsc` task running in watch mode looks lik
                 "owner": "typescript",
                 "fileLocation": "relative",
                 "pattern": {
-                    "regexp": "^([^\\s].*)\\((\\d+|\\,\\d+|\\d+,\\d+,\\d+,\\d+)\\):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
+                    "regexp": "^([^\\s].*)\\((\\d+|\\d+,\\d+|\\d+,\\d+,\\d+,\\d+)\\):\\s+(error|warning|info)\\s+(TS\\d+)\\s*:\\s*(.*)$",
                     "file": 1,
                     "location": 2,
                     "severity": 3,

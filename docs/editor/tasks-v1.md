@@ -191,7 +191,7 @@ Below is an example that uses the Node.js executable as a command and is treated
 }
 ```
 
-Valid operating properties are `windows` for Windows, `linux` for Linux and `osx` for Mac. Properties defined in an operating system specific scope override properties defined in the global scope.
+Valid operating properties are `windows` for Windows, `linux` for Linux and `osx` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
 
 In the example below:
 

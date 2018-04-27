@@ -110,8 +110,8 @@ Specifies how program output is displayed.
 
 | Value | Where output is displayed |
 |--- | --- |
-| `"none"` (default) | No output |
-| `"integratedTerminal"` | VS Code debug console |
+| `"none"` (default) | VS Code debug console |
+| `"integratedTerminal"` | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md) |
 | `"externalTerminal"` | Separate console window |
 
 ### `cwd`

@@ -18,7 +18,7 @@ In addition, to these core features, you can install a large number of quality e
 
 ## Finding extensions
 
-You can find JavaScript extensions by typing `JavaScript` in the Extension view search bar. Alternatively, you can find JavaScript extensions using tags: "tag: javascript". Search for more extensions in VS Code or in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+You can find JavaScript extensions by typing `JavaScript` in the Extension view search bar. Alternatively, you can find JavaScript extensions using tags: "tag:javascript". Search for more extensions in VS Code or in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 <div class="marketplace-extensions-javascript"></div>
 

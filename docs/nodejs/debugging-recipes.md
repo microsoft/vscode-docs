@@ -77,8 +77,8 @@ The Visual Studio Code editor supports debugging [Electron](https://electron.ato
 
 - [Debugging Electron Main and Renderer processes](https://github.com/Microsoft/vscode-recipes/tree/master/Electron)
 
-
 ## Next Steps
 
 * [Debugging](/docs/editor/debugging.md) - Read about general VS Code debugging features.
 * [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) - Learn about the built-in Node.js debugger.
+* [Video: Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Attach to a running Node.js process.

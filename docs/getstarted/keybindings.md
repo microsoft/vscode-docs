@@ -16,7 +16,7 @@ Visual Studio Code lets you perform most tasks directly from the keyboard.  This
 
 ## Keyboard Shortcuts Editor
 
-Visual Studio Code provides a rich and easy keyboard shortcuts editing experience using **Keyboard Shortcuts** editor. It lists all available commands with and without keybindings and you can easily change / remove / reset their keybindings using the available actions. It also has a search box on the top that helps you in finding commands or keybindings. You can open this editor by going to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on Mac)
+Visual Studio Code provides a rich and easy keyboard shortcuts editing experience using **Keyboard Shortcuts** editor. It lists all available commands with and without keybindings and you can easily change / remove / reset their keybindings using the available actions. It also has a search box on the top that helps you in finding commands or keybindings. You can open this editor by going to the menu under **File**  > **Preferences** > **Keyboard Shortcuts**. (**Code** > **Preferences** > **Keyboard Shortcuts** on macOS)
 
 ![Keyboard Shortcuts](images/keybinding/keyboard-shortcuts.gif)
 
@@ -110,7 +110,7 @@ The following modifiers are accepted:
 
 Platform|Modifiers
 --|---------
-Mac|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(cmd+)`
+macOS|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(cmd+)`
 Windows|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(win+)`
 Linux|`kbstyle(ctrl+)`, `kbstyle(shift+)`, `kbstyle(alt+)`, `kbstyle(meta+)`
 
@@ -224,6 +224,8 @@ Context name | True when
 **Editor contexts** |
 editorFocus | An editor has focus, either the text or a widget.
 editorTextFocus | The text in an editor has focus (cursor is blinking).
+textInputFocus | Any editor has focus (regular editor, debug REPL, etc.).
+inputFocus | Any text input area has focus (editors or text boxes).
 editorHasSelection | Text is selected in the editor.
 editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
 editorReadOnly | The editor is read only.
@@ -266,6 +268,7 @@ searchViewletVisible | Search view is open.
 sidebarVisible | Side Bar is displayed.
 editorIsOpen | True if one editor is open.
 inZenMode | Window is in Zen Mode.
+inDebugRepl | Focus is in the Debug Console REPL.
 textCompareEditorVisible | At least one diff (compare) view is visible.
 workspaceFolderCount | Count of workspace folders.
 replaceActive | Search view Replace text box is open.
@@ -277,6 +280,22 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
+
+## Custom Keybindings for Refactorings
+
+The `editor.action.codeAction` command lets you configure keybindings for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keybinding below triggers the **Extract function** refactoring Code Actions:
+
+```json
+{
+  "key": "ctrl+shift+r ctrl+e",
+  "command": "editor.action.codeAction",
+  "args": {
+    "kind": "refactor.extract.function"
+  }
+}
+```
+
+This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keybindings-for-code-actions) topic where you can learn about different kinds of Code Actions and how to prioritize them in the case of multiple possible refactorings.
 
 ## Default Keyboard Shortcuts
 

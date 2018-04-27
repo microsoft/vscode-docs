@@ -25,7 +25,7 @@ The current color theme is configured in the [settings](/docs/getstarted/setting
 
 However, there is no need to edit the settings directly. It's easier to use the Color Theme Picker to preview and select a theme.
 
-1. Open the Color Theme picker with **File** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on Mac)
+1. Open the Color Theme picker with **File** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on macOS)
 2. Use the cursor keys to preview the colors of the theme.
 3. Select the theme you want and hit `kbstyle(Enter)`.
 
@@ -86,7 +86,7 @@ Again, to customize a specific theme only, use the following syntax:
 
 ## Creating your own color theme
 
-Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme for Current Settings** command.
+Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
 
 VS Code's Yeoman [extension generator](/docs/extensions/yocode.md) will help you generate the rest of the extension.
 
@@ -108,7 +108,7 @@ The current File Icon theme is persisted in your user [settings](/docs/getstarte
 
 There is no need to edit the `settings.json` file directly. It is better to use the File Icon Theme picker to preview and select a theme.
 
-1. Open the Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on Mac)
+1. Open the Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on macOS)
 2. Use the cursor keys to preview the icons of the theme.
 3. Select the theme you want and hit `kbstyle(Enter)`.
 

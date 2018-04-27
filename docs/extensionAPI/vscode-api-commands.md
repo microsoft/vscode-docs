@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 9
 Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1

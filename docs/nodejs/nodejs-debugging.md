@@ -16,6 +16,8 @@ The Visual Studio Code editor has built-in debugging support for the [Node.js](h
 
 This Node.js debugging document goes into more detail about configurations and features for more advanced debugging scenarios. You'll find instruction for debugging with [source maps](/docs/nodejs/nodejs-debugging.md#source-maps), [stepping over external code](/docs/nodejs/nodejs-debugging.md#skipping-uninteresting-code-node-chrome), doing [remote debugging](/docs/nodejs/nodejs-debugging.md#remote-debugging), and much more.
 
+If you'd like to watch an introductory video, see [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8).
+
 ## Supported Node-like runtimes
 
 Since the VS Code Node.js debugger communicates to the Node.js runtimes through [wire protocols](https://en.wikipedia.org/wiki/Wire_protocol), the set of supported runtimes is determined by all runtimes supporting the wire protocols.
@@ -418,8 +420,6 @@ If you need to set a breakpoint in a script that is not part of your workspace a
 
  Alternatively, you can use the **Debug: Open Loaded Script** action (`kb(extension.node-debug.pickLoadedScript)`) which opens a Quick Pick, where you can filter and select the script to open.
 
-![Opening Loaded Script with Quick Pick](images/nodejs-debugging/loaded-scripts.gif)
-
  Scripts are loaded into a read-only editor where you can set breakpoints. These breakpoints are remembered across debug sessions but you only have access to the script content while a debug session is running.
 
 ## Restarting debug sessions automatically when source is edited
@@ -588,27 +588,16 @@ In the following (`legacy` protocol-only) example all but a 'math' module is ski
 
 >**Note:** The `legacy` protocol debugger has to emulate the `skipFiles` feature because the _V8 Debugger Protocol_ does not support it natively. This might result in slow stepping performance.
 
-## Debugging with symlinks
-
-If you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` switch in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
-
-```json
-{
-    "runtimeArgs": [
-        "--preserve-symlinks"
-    ]
-}
-```
-
 ## Next Steps
 
 In case you didn't already read the Node.js section, take a look at:
 
 * [Node.js](/docs/nodejs/nodejs-tutorial.md) - End to end Node scenario with a sample application
 
-To see a tutorial on the basics of Node.js debugging, check out:
+To see tutorials on the basics of Node.js debugging, check out these videos:
 
 * [Intro Video - Debugging](/docs/introvideos/debugging.md) - Introductory video showcasing the basics of debugging.
+* [Getting started with Node.js debugging](https://www.youtube.com/watch?v=2oFKNL7vYV8) - Learn how to attach to a running Node.js process.
 
 To learn about VS Code's task running support, go to:
 
@@ -620,10 +609,14 @@ To write your own debugger extension, visit:
 
 ## Common Questions
 
-**Q: What Node.js version is required for Node.js debugging?**
+**Q: Can I debug if I'm using symlinks?**
 
-**A:** The latest LTS version of [Node.js](https://nodejs.org/) is recommended.
+**A:** Yes, if you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` [switch](https://nodejs.org/api/cli.html#cli_preserve_symlinks) in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
 
-**Q: Can I use nvm (Node Version Manager) with VS Code?**
-
-**A:** Yes. If you are managing Node.js versions with `nvm`, make sure to restart VS Code after you have set a Node.js version with `nvm use ...` because VS Code will not pick up changes to environment variables (for example `PATH`) that occur after it was launched.
+```json
+{
+    "runtimeArgs": [
+        "--preserve-symlinks"
+    ]
+}
+```

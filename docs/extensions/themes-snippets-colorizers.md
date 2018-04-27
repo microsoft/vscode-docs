@@ -313,7 +313,7 @@ If you want to share user snippets, you'll need to package your snippet json fil
 Depending on your platform, your user snippets file is located here:
 
 - **Windows** `%APPDATA%\Code\User\snippets\(language).json`
-- **Mac** `$HOME/Library/Application Support/Code/User/snippets/(language).json`
+- **macOS** `$HOME/Library/Application Support/Code/User/snippets/(language).json`
 - **Linux** `$HOME/.config/Code/User/snippets/(language).json`
 
 where `(language).json` depends on the targeted language of the snippets (e.g. `markdown.json` for Markdown snippets).  Create a new folder for your extension and copy your snippet file to a `snippets` subdirectory.

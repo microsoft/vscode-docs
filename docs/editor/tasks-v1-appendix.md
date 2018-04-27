@@ -28,7 +28,7 @@ interface TaskConfiguration extends BaseTaskConfiguration {
 	windows?: BaseTaskConfiguration;
 
 	/**
-	 * Mac specific task configuration
+	 * macOS specific task configuration
 	 */
 	osx?: BaseTaskConfiguration;
 

@@ -123,9 +123,9 @@ To set a breakpoint in `app.component.ts`, click on the gutter to the left of th
 
 ### Configure the Chrome debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes configuration to both launch the website or attach to a running instance.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
-We need to make one change for our example: change the port from `8080` to `4200`. Your `launch.json` should look like this:
+We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
 
 ```json
 {
@@ -136,13 +136,6 @@ We need to make one change for our example: change the port from `8080` to `4200
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "chrome",
-            "request": "attach",
-            "name": "Attach to Chrome",
-            "port": 9222,
             "webRoot": "${workspaceFolder}"
         }
     ]

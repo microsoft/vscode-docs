@@ -135,7 +135,7 @@ When you link to an image, the path and filename are case-sensitive.  The conven
 
 ### Key bindings
 
-The VS Code portal is able to show the correct key bindings depending on the reader's operating system (Mac, Windows or Linux).
+The VS Code portal is able to show the correct key bindings depending on the reader's operating system (macOS, Windows or Linux).
 
 To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.
 

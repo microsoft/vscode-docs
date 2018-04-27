@@ -11,7 +11,7 @@ MetaDescription: Learn about Visual Studio Code editor features (code completion
 
 The Java support in VS Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide essential language features such as project support, code completion, linting, debugging, testing, code formatting, snippets, as well as tooling integration including Maven and Tomcat.
 
-> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, Mac, Linux).
+> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, macOS, Linux).
 
 ## Install Java Extensions
 

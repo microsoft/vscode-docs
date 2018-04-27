@@ -132,7 +132,8 @@ Let's go through the purpose of all these files and explain what they do:
 This specific `package.json` describes an extension that:
 
 * *contributes* an entry to the **Command Palette** (`kb(workbench.action.showCommands)`) with the label `"Hello world"` that will invoke a command `"extension.sayHello"`.
-* requests to get loaded (*activationEvents*) when the command `"extension.sayHello"` is invoked. * has its *main* JavaScript code in a file called `"./out/extension.js"`.
+* requests to get loaded (*activationEvents*) when the command `"extension.sayHello"` is invoked.
+* has its *main* JavaScript code in a file called `"./out/extension.js"`.
 
 > **Note:** VS Code **does not** load the code of an extension eagerly at start-up. An extension must describe, through the [`activationEvents`](/docs/extensionAPI/activation-events.md) property under what conditions it should get activated (loaded).
 
@@ -247,7 +248,7 @@ Create a file (**File** > **New File**), type some text and select it. When you 
 So far, the extension you have written only runs in a special instance of VS Code, the Extension Development instance. To get your extension running in all instances of VS Code, you need to copy it to a new folder under your local extensions folder:
 
 * Windows: `%USERPROFILE%\.vscode\extensions`
-* Mac/Linux: `$HOME/.vscode/extensions`
+* macOS/Linux: `$HOME/.vscode/extensions`
 
 ## Publishing your extension
 

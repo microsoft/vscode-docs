@@ -63,7 +63,7 @@ Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging
 
 Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
 
-There are also default key bindings for column selection on Mac and Windows, but not on Linux.
+There are also default key bindings for column selection on macOS and Windows, but not on Linux.
 
 Key|Command|Command id
 ---|-------|----------
@@ -297,7 +297,7 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: How do I turn on word wrap?**
 
-**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
+**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default, `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
     "editor.wordWrap": "on"

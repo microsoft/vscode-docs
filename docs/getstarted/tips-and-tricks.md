@@ -65,7 +65,7 @@ You can open multiple files from **Quick Open** by pressing the Right arrow key.
 
 ## Command line
 
-VS Code has a powerful command line interface (CLI) to help you customize the editor launch your specific scenarios.
+VS Code has a powerful command line interface (CLI) to help you customize how you launch the editor for your specific scenarios.
 
 > Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 

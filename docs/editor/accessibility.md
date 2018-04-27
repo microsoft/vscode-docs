@@ -93,7 +93,7 @@ VS Code has some known accessibility issues depending on the platform.
 
 You can not use the keyboard (right, left arrow keys) to move between top-level menu items (**File**, **Edit**, **View**, etc).  This is due to Electron issue [#2504](https://github.com/atom/electron/issues/2504).
 
-### Mac
+### macOS
 
 There is limited screen reader support for the editor with VoiceOver.
 

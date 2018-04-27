@@ -158,13 +158,13 @@ This can be configured using the `terminal.integrated.rightClickBehavior` settin
 
 The Integrated Terminal has basic find functionality which can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
 
-If you want `Ctrl+F` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
+If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
 
 ```js
 // Windows/Linux
 { "key": "ctrl+f", "command": "-workbench.action.terminal.focusFindWidget",
                       "when": "terminalFocus" },
-// Mac
+// macOS
 { "key": "cmd+f",  "command": "-workbench.action.terminal.focusFindWidget",
                       "when": "terminalFocus" },
 ```

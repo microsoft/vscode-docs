@@ -13,7 +13,7 @@ Turn Visual Studio Code into a powerful editor for [Transact-SQL]  (T-SQL) devel
 
 Connect to SQL databases, type T-SQL code, execute T-SQL code, view results, and save results as JSON or CSV files. While typing T-SQL code, you get rich T-SQL language features like T-SQL IntelliSense (code completion), syntax highlighting, linting, code navigation and code snippets.
 
-> [Download VS Code] - If you haven't downloaded VS Code yet, quickly install for your platform (Linux, Mac or Windows).
+> [Download VS Code] - If you haven't downloaded VS Code yet, quickly install for your platform (Linux, macOS or Windows).
 
 ## Install T-SQL support
 
