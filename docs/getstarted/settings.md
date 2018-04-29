@@ -722,7 +722,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
 
-  // Controls if the Search Viewlet should read or modify the shared find clipboard on macOS
+  // Controls if the search view should read or modify the shared find clipboard on macOS
   "search.globalFindClipboard": false,
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
