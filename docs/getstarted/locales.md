@@ -39,9 +39,9 @@ Hungarian | `hu`
 Portuguese (Brazil) | `pt-br`
 Turkish | `tr`
 
-## Marketplace Language Pack extensions
+## Marketplace Language Packs
 
-Currently VS Code ships with 10 display languages but in the future, VS Code is going to change to providing all display languages through [Marketplace Language Packs](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Downloads). As mentioned above, additional display languages are already available as Marketplace extensions and providing all languages through extensions has several advantages:
+Currently VS Code ships with 10 display languages, but in the future, VS Code is going to change to providing all display languages through [Marketplace Language Packs](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Downloads). Additional display languages are already available as Marketplace extensions and providing all languages through extensions has several advantages:
 
 * Users only need to install the display languages they want to use.
 * Languages fixes and updates can be provided separately from VS Code releases.
