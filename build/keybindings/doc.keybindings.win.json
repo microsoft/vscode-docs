@@ -210,7 +210,7 @@
 { "key": "ctrl+k f12",            "command": "editor.action.openDeclarationToTheSide",
                                      "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
 { "key": "shift+alt+o",           "command": "editor.action.organizeImports",
-                                     "when": "editorTextFocus && !editorReadonly && supportedCodeAction =~ /(\s|^)source\.organizeImports\b/" },
+                                     "when": "editorTextFocus && !editorReadonly" },
 { "key": "ctrl+[",                "command": "editor.action.outdentLines",
                                      "when": "editorTextFocus && !editorReadonly" },
 { "key": "ctrl+shift+f12",        "command": "editor.action.peekImplementation",
