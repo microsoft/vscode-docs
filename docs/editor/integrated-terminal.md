@@ -201,6 +201,12 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ```bat
 @echo off
+SET ARGS=%*
+IF "%ARGS:~0,5%" EQU "/d /c" ( 
+    REM Tasks call the terminal expecting it runs and exits
+    %ARGS:~6%
+    EXIT %ERRORLEVEL% 
+)
 SET CurrentWorkingDirectory=%CD%
 SET CMDER_ROOT=C:\cmder (your path to cmder)
 CALL "%CMDER_ROOT%\vendor\init.bat"
