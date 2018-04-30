@@ -50,7 +50,7 @@ To avoid activating virtual and conda environments when using these terminal com
 
 ### Choose a debugging environment
 
-Selecting a different environment does not change the `python.pythonPath` value in your `settings.json` file, which is used by default for debugging. To use a different interpreter for debugging, set the value for `pythonPath` in the debugger settings. See [Debugging](debugging.md).
+Selecting a different environment does not change the `python.pythonPath` value in your user `settings.json` file, which is used by default for debugging. To use a different interpreter for debugging, set the value for `pythonPath` in the debugger settings `launch.json` file. See [Debugging](debugging.md).
 
 ### Conda environments
 
@@ -99,6 +99,7 @@ The extension also loads an [environment variable definitions file](#environment
 If VS Code does not automatically locate an interpreter you want to use, you can set the path to it manually in your User Settings `settings.json` file:
 
 1. Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openGlobalSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
+
 2. Create or modify an entry for `python.pythonPath` with the full path to the Python executable.
 
     For example:
@@ -117,7 +118,7 @@ If VS Code does not automatically locate an interpreter you want to use, you can
 
 ### Environment variables in the interpreter path
 
-An environment variable can be used in the path setting using the syntax `${env:VARIABLE}`. For example:
+A system environment variable can be used in the path setting using the syntax `${env:VARIABLE}`. For example:
 
 ```json
 {
