@@ -844,6 +844,14 @@ Select **Tasks** from the top-level menu, run the command **Run Task...**, and s
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
 
+### Run npm scripts as tasks from the explorer
+
+With the setting `npm.enableScriptExplorer`, you can enable an explorer that shows the scripts defined in your workspace.
+
+![Filter problems](images/tips-and-tricks/script_explorer.png)
+
+From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
+
 ## Insiders builds
 
 The Visual Studio Code team uses the Insiders version to test the latest features and bug fixes of VS Code. You can also use the Insiders version by [downloading here](/insiders).
