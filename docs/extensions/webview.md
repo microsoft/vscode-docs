@@ -414,6 +414,32 @@ To disallow all local resources, just set `localResourceRoots` to `[]`.
 
 In general, webviews should be as restrictive as possible in loading local resources. However, keep in mind that `vscode-resource` and `localResourceRoots` do not offer complete security protection on their own. Make sure your webview also follows [security best practices](#security), and strongly consider adding a [content security policy](#content-security-policy) to further restrict the content that can be loaded.
 
+### Theming webview content
+
+Webview can use css to change their appearance based on VS Code's current theme. VS Code groups themes in into three categories, and adds a special class to the `body` element to indicate the current theme:
+
+* `vscode-light` — Light themes.
+* `vscode-dark` — Dark themes.
+* `vscode-high-contrast` — High contrast themes.
+
+The following css changes the text color of the webview based on the user's current theme:
+
+```css
+body.vscode-light {
+    color: black;
+}
+
+body.vscode-dark {
+    color: white;
+}
+
+body.vscode-high-contrast {
+    color: red;
+}
+```
+
+When developing a webview application, make sure that it works for the three types of theme. And always test your webview in high-contrast mode to make sure it will be usable by people with visual disabilities.
+
 ## Scripts and message passing
 
 Webviews are just like iframes, which means that they can also run scripts. JavaScript is disabled in webviews by default, but it can easily re-enable by passing in the `enableScripts: true` option.
