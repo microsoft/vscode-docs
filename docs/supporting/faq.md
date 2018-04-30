@@ -103,7 +103,7 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 
 If you don’t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
-From **File** > **Preferences** > **Settings**, add the following option to disable telemetry reporting, this will silence all telemetry events from the VS Code shell.
+From **Code** > **Preferences** > **Settings**, add the following option to disable telemetry reporting, this will silence all telemetry events from the VS Code shell.
 
 ```json
     "telemetry.enableTelemetry": false
