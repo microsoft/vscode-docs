@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 04/26/2018
+DateApproved: 04/30/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -16,7 +16,9 @@ Installing (or uninstalling) a package in the Terminal with a command like `pip 
 
 ## How to choose an environment
 
-By default, the Python extension uses on the first Python interpreter it finds in the path, but it's easy to switch between environments. By quickly switching environments, you can test different parts of your project with different interpreters.
+By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. To disable this check and allow VS Code to rely on a system-wide installation of Python, set the `python.disableInstallationCheck` setting to `true` in your user settings.
+
+VS Code makes it easy to switch between multiple environments, allowing you to test different parts of your project with different interpreters as needed.
 
 To use a specific interpreter, select the **Python: Select Interpreter** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 

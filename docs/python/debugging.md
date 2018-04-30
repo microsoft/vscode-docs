@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 04/26/2018
+DateApproved: 04/30/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -312,37 +312,29 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 8. Once you see the message "Google App Engine has started, ready to attach the debugger", start the VS Code debugger using the remote debugging configuration.
 9. Set breakpoints where you want, then start the browser to start the app.
 
+<a name="debugger-not-working"></a>
+
 ## Troubleshooting
 
-### Debugger not working
+There are many reasons why the debugger may not work. Oftentimes the debug console reveals specific causes, but two specific reasons are as follows:
 
-There are many reasons why the debugger may not work; oftentimes the debug console reveals specific causes. Some specific reasons are described in the following table:
+- The path to the python executable is incorrect: check the value of `pythonPath` in your user settings.
+- Invalid expressions in the watch window (see example below): clear all expressions from the Watch window and restart the debugger.
 
-| Cause | Solution |
-| --- | --- |
-| The path to the python executable is incorrect | Check the value in the `pythonPath` setting of `settings.json`. |
-| Invalid expressions in watch window (see detailed output below) | Clear all expressions from the Watch window restart the debugger. |
-
-Detailed output for invalid expressions:
-
-```python
-Traceback (most recent call last):
-  File ".../visualstudio_py_debugger.py", line 1646, in loop
-    cmd()
-  File ".../visualstudio_py_debugger.py", line 1918, in command_execute_code
-    thread.run_on_thread(text, cur_frame, eid, frame_kind, repr_kind)
-  File ".../visualstudio_py_debugger.py", line 1246, in run_on_thread
-    self.schedule_work(lambda : self.run_locally(text, cur_frame, execution_id, frame_kind, repr_kind))
-  File ".../visualstudio_py_debugger.py", line 1238, in schedule_work
-    self.unblock()
-  File ".../visualstudio_py_debugger.py", line 1234, in unblock
-    self._block_lock.release()
-RuntimeError: release unlocked lock
-```
-
-### Unable to capture user input while debugging
-
-To capture user input while debugging, select the `Python: Terminal (external)` configuration from the drop-down list on the Debug View. Alternately, set `"console": "externalTerminal"` in your chosen configuration in `launch.json`. The integrated terminal does not presently support capturing user input.
+    ```python
+    Traceback (most recent call last):
+      File ".../visualstudio_py_debugger.py", line 1646, in loop
+        cmd()
+      File ".../visualstudio_py_debugger.py", line 1918, in command_execute_code
+        thread.run_on_thread(text, cur_frame, eid, frame_kind, repr_kind)
+      File ".../visualstudio_py_debugger.py", line 1246, in run_on_thread
+        self.schedule_work(lambda : self.run_locally(text, cur_frame, execution_id, frame_kind, repr_kind))
+      File ".../visualstudio_py_debugger.py", line 1238, in schedule_work
+        self.unblock()
+      File ".../visualstudio_py_debugger.py", line 1234, in unblock
+        self._block_lock.release()
+    RuntimeError: release unlocked lock
+    ```
 
 ## Next steps
 
