@@ -14,9 +14,9 @@ The Python extension relies on a Python environment (an interpreter and installe
 
 Installing (or uninstalling) a package in the Terminal with a command like `pip install matplotlib` installs (or uninstalls) the package in the current environment.
 
-## How to choose an environment
+> **Note**: By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. If it doesn't find an interpreter, it issues a warning. On Mac OS, the extension also issues a warning if you're using the OS-installed Python interpreter, because you typically want to use an interpreter you install directly. In either case, you can disable these warnings by setting `python.disableInstallationCheck` to `true` in your user settings.
 
-By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. The extension also issues a warning if you're using an OS-installed Python interpreter. To disable this check and the warning, set `python.disableInstallationCheck` to `true` in your user settings.
+## How to choose an environment
 
 VS Code makes it easy to switch between multiple environments, allowing you to test different parts of your project with different interpreters as needed.
 
