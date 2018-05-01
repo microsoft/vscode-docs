@@ -16,7 +16,7 @@ Installing (or uninstalling) a package in the Terminal with a command like `pip 
 
 ## How to choose an environment
 
-By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. The extension also issues a warning on Mac OS if you're using the OS-installed Python interpreter. To disable this check and the warning, set `python.disableInstallationCheck` to `true` in your user settings.
+By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. The extension also issues a warning if you're using an OS-installed Python interpreter. To disable this check and the warning, set `python.disableInstallationCheck` to `true` in your user settings.
 
 VS Code makes it easy to switch between multiple environments, allowing you to test different parts of your project with different interpreters as needed.
 
