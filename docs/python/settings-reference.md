@@ -19,10 +19,10 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 | Setting | Default | Description |
 | --- | --- | --- |
 | python.pythonPath | `"python"` | Path to the python interpreter. |
-| python.disableInstallationCheck | `false` | Specifies whether to check if Python is installed on the computer. |
+| python.disableInstallationCheck | `false` | Specifies whether to suppress warnings when using an OS-installed Python interpreter (as when running on Mac OS), and whether to disable the check for any Python installation on the computer (any platform).|
 | python.venvPath | `""` | Path to folder containing a virtual environments, in which the extension looks for virtual environments in the first-level subfolders. Example values: `${workspaceFolder}/.pyenv`, `${workspaceFolder}\\venv`, `.\envs`, `~/.virtualenvs`, and so on, in which case that folder might have immediate subfolders such as `env`, `env2`, `ds_analysis_env`, and so on. |
 | python.envFile | `"${workspaceFolder}/.env"` | Absolute path to a file containing environment variable definitions. See [Configuring Python environments - environment variable definitions file](environments.md#environment-variable-definitions-file). |
-| python.globalModuleInstallation | `false` | Specifies whether packages are installed globally using the `--user` command-line argument (see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs) for details.. The default behavior (false) installs packages into the currently selected interpreter environment. |
+| python.globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs) for details. Default behavior when using a globally-installed interpreter is to install packages for all users. Ignored when using a virtual environment. |
 | python.terminal.launchArgs | `[]` | Launch arguments given the Python interpreter when running a file. |
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | python.terminal.activateEnvironment | `true` | Indicates whether a selected virtual or conda environments is activated when using the **Python: Create Terminal** command or any other operation involving the terminal, such as the **Send Python File to Terminal** menu command. If `false`, skips activating virtual and conda environments before running the commands. |
