@@ -171,7 +171,7 @@ See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.m
 
 Open User Settings `settings.json`
 
-Keyboard Shortcut: `kb(workbench.action.openGlobalSettings)`
+Keyboard Shortcut: `kb(workbench.action.openSettings)`
 
 Format on paste
 
@@ -372,7 +372,7 @@ Further reading:
 
 ### Auto Save
 
-Open User Settings `settings.json` with `kb(workbench.action.openGlobalSettings)`
+Open User Settings `settings.json` with `kb(workbench.action.openSettings)`
 
 ```json
 "files.autoSave": "afterDelay"

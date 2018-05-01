@@ -69,7 +69,7 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
 ```
 
-Refer to the comments in the Settings editor (`kb(workbench.action.openGlobalSettings)`) to learn about setting specific variables.
+Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)`) to learn about setting specific variables.
 
 **Q: Why isn't ${workspaceRoot} documented?**
 

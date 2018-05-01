@@ -224,7 +224,7 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 
 **Q: How can I change my default Windows terminal back to PowerShell?**
 
-**A:** If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), you can remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openGlobalSettings)`).
+**A:** If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), you can remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`).
 
 For example, if you have set your default terminal to bash, you will find `terminal.integrated.shell.windows` in your `settings.json` pointing to your bash location.
 

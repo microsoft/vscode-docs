@@ -83,7 +83,7 @@ For more information on the conda command line, see [Conda environments](https:/
 
 If Visual Studio Code does not automatically locate an interpreter you want to use, you can set the path to it manually in your User Settings `settings.json` file:
 
-- Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openGlobalSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
+- Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
 - Create or modify an entry for `python.pythonPath` with the full path to the Python executable.
 
 For example:

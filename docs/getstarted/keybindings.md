@@ -483,7 +483,7 @@ Key|Command|Command id
 
 Key|Command|Command id
 ---|-------|----------
-`kb(workbench.action.openGlobalSettings)`|Open User Settings|`workbench.action.openGlobalSettings`
+`kb(workbench.action.openSettings)`|Open Settings|`workbench.action.openSettings`
 `kb(workbench.action.openWorkspaceSettings)`|Open Workspace Settings|`workbench.action.openWorkspaceSettings`
 `kb(workbench.action.openGlobalKeybindings)`|Open Keyboard Shortcuts|`workbench.action.openGlobalKeybindings`
 `kb(workbench.action.openSnippets)`|Open User Snippets|`workbench.action.openSnippets`
