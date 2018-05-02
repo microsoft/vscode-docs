@@ -30,7 +30,7 @@ Russian | `ru`
 
 ### Language Pack extension locales
 
-Additional display languages are available as Language Pack extensions on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
+Additional display languages are available as Language Pack extensions (Category: **Language Packs**) on the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 Display Language | Locale
 -----------------|-------
@@ -38,6 +38,20 @@ Bulgarian | `bg`
 Hungarian | `hu`
 Portuguese (Brazil) | `pt-br`
 Turkish | `tr`
+
+## Marketplace Language Packs
+
+Currently VS Code ships with 10 display languages, but in the future, VS Code is going to change to providing all display languages through [Marketplace Language Packs](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Downloads). Additional display languages are already available as Marketplace extensions and providing all languages through extensions has several advantages:
+
+* Users only need to install the display languages they want to use.
+* Languages fixes and updates can be provided separately from VS Code releases.
+* No difference between core and community display language support.
+
+Once your preferred display language is available on the Marketplace (Category: **Language Packs**), we encourage you to install the extension. In the future, we will remove the in-product languages (English will still ship as the default).
+
+You can search for Language Packs in the Extensions view (`kb(workbench.view.extensions)`) and typing the language you are looking for along with `category:"Language Packs"`.
+
+![German Language Pack](images/locales/german-language-pack.png)
 
 ## Setting the Language
 
