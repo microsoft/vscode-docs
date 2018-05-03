@@ -266,6 +266,7 @@ To see the editor white spaces, enable **Toggle Render Whitespace**.
 To see the editor indent guides, set `"editor.renderIndentGuides": true`.
 
 - `editorIndentGuide.background`: Color of the editor indentation guides.
+- `editorIndentGuide.activeBackground`: Color of the active editor indentation guide.
 
 To see editor rulers, define their location with `"editor.rulers"`
 
