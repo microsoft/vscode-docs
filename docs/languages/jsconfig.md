@@ -73,7 +73,7 @@ Alternatively, you can explicitly set the files in your project using the `inclu
 }
 ```
 
-> **Tip:** The file paths in `excludes` and `include` are relative to the location of `jsconfig.json`.
+> **Tip:** The file paths in `exclude` and `include` are relative to the location of `jsconfig.json`.
 
 ## jsconfig Options
 
