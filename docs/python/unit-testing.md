@@ -38,6 +38,7 @@ Each framework also has specific configuration settings as described in the foll
 | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether UnitTest is enabled for unit testing. |
 | unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, with each argument specified as an item in the array. See below for a description of the defaults. |
+| cwd | null | Specifies an optional working directory for unit tests. |
 | outputWindow | `"Python Test Log"` | The window to use for unit test output. |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
 | debugPort | `3000` | Port number used for debugging of UnitTest tests. |

@@ -300,6 +300,7 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.errorForeground`: Overview ruler marker color for errors.
 - `editorOverviewRuler.warningForeground`: Overview ruler marker color for warnings.
 - `editorOverviewRuler.infoForeground`: Overview ruler marker color for infos.
+- `editorOverviewRuler.bracketMatchForeground`: Overview ruler marker color for matching brackets.
 
 Errors and warnings:
 
@@ -482,6 +483,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 ## Integrated Terminal Colors
 
 - `terminal.background`: The background of the Integrated Terminal's viewport.
+- `terminal.border`: The color of the border that separates split panes within the terminal. This defaults to panel.border.
 - `terminal.foreground`: The default foreground color of the Integrated Terminal.
 - `terminal.ansiBlack`: 'Black' ANSI color in the terminal.
 - `terminal.ansiBlue`: 'Blue' ANSI color in the terminal.
@@ -506,6 +508,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 ## Debug
 
 - `debugToolBar.background`: Debug toolbar background color.
+- `debugToolBar.border`: Debug toolbar border color.
 
 ## Welcome Page
 

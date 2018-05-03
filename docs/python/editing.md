@@ -13,6 +13,8 @@ MetaSocialImage: images/tutorial/social.png
 The Python extension provides many features for editing Python source code in Visual Studio Code:
 
 - [Autocomplete and Intellisense](#autocomplete-and-intellisense)
+- [Run Selection/Line in Terminal](#run-selection--line-in-terminal)
+- [Interactive REPL](#interactive-repl)
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
 
@@ -67,6 +69,22 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 | The path to the python interpreter is incorrect | Check the `pythonPath` setting. Restart VS Code if you make a correction. |
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 | VS Code was not launched from the active virtual environment that would set the path to custom modules. | Launch VS Code from a command prompt with the correct virtual environment activated, for example: `(venv) ter@minal:~$ code`. |
+
+## Run Selection/Line in Terminal
+
+The **Python: Run Selection/Line in Terminal** command is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
+
+Code that runs in the terminal is cumulative until the current instance of the terminal is closed.
+
+You can also run the entire file at any time using the **Python: Run File in Terminal** command, or the **Run Python File in Terminal** command on the editor context menu.
+
+## Interactive REPL
+
+Using the **Python: Start REPL** command opens a REPL terminal that's separate from the default terminal.
+
+When working in the editor, you can send the current line to the REPL using the Ctrl+Enter key. Using Ctrl+Enter starts the REPL if it's not already running, but note that initial startup might take a few moments especially if the first statement you run is an `import`.
+
+> **Note**: at present, using Ctrl+Enter keeps the editor on the same line of code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
 ## Formatting
 
