@@ -13,7 +13,7 @@ Using the Go extension for Visual Studio Code, you get language features like In
 
 ![go extension banner](images/go/go-extension.png)
 
-You can install the Go extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go).
+You can install the Go extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
 
 ## IntelliSense
 
@@ -103,7 +103,7 @@ The Go extension lets you debug Go code as well. You will need to install the [D
 
 ## Next Steps
 
-This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go).
+This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
 
 To stay up to date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/Microsoft/vscode-go/blob/master/CHANGELOG.md).
 
