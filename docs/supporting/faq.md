@@ -41,7 +41,7 @@ The VS Code version is the first **Version** number listed and has the version f
 
 By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, you can set the `update.channel` setting from `default` to `none`.
 
-To modify the update channel, go to **File** > **Preferences** > **Settings** and add the `update.channel` setting with the value `"none"`.
+To modify the update channel, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**) and add the `update.channel` setting with the value `"none"`.
 
 ```json
     "update.channel": "none"
@@ -103,7 +103,7 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 
 If you don’t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
-From **File** > **Preferences** > **Settings**, add the following option to disable telemetry reporting, this will silence all telemetry events from the VS Code shell.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), add the following option to disable telemetry reporting, this will silence all telemetry events from the VS Code shell.
 
 ```json
     "telemetry.enableTelemetry": false
