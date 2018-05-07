@@ -48,7 +48,7 @@ The publishing tool checks the following constraints:
 
 ---
 
-Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
+Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/team-services/) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/docs/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
 
