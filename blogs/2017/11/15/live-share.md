@@ -1,6 +1,6 @@
 ---
 Order: 34
-TOCTitle: Live Share
+TOCTitle: Introducing Live Share
 PageTitle: Introducing Visual Studio Live Share
 MetaDescription: Real-time collaborative development
 MetaSocialImage: /assets/blogs/2017/11/15/ls-social-resized.png
