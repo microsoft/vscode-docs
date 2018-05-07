@@ -10,176 +10,210 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Using Flask in Visual Studio Code
 
-[Angular](https://angular.io/) is a popular JavaScript library for building web application user interfaces developed by Google. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
+[Flask](http://flask.pocoo.org/) is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering.
 
-![welcome to app](images/angular/welcome-to-app.png)
+Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask *extensions*. The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask itself doesn't provide a page template engine itself. However, installing Flask installs the Jinja templating engine by default.
 
-## Welcome to Angular
+## Create a project environment for Flask
 
-We'll be using the [Angular CLI](https://cli.angular.io/) for this tutorial. To install and use the command line interface as well as run the Angular application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/).
+1. On your file system, create a folder for this tutorial, then open that folder in VS Code.
+1. Open the **Integrated Terminal** in VS Code by selecting the **View** > **Integrated Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`)
+1. In the Terminal, run the following command (as appropriate to your computer) to create a virtual environment in a folder named `env`:
 
->**Tip**: To test that you have Node.js and npm correctly install on your machine, you can type `node --version` and `npm --version`.
+    ```bash
+    # Mac/Linux
+    python3 -m venv env
 
-To install the Angular CLI, in a terminal or command prompt type:
+    # Windows
+    python -m venv env
+    ```
 
-```bash
-npm install -g @angular/cli
-```
+    > **Note**: use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
 
-This may take a few minutes to install. You can now create a new Angular application by typing:
+1. Activate the environment by opening the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)):
 
-```bash
-ng new my-app
-```
+    ![Opening the Command Palette in VS Code](images/flask/command-palette.png)
 
-`my-app` is the name of the folder for your application. This may take a few minutes to create the Angular application in [TypeScript](/docs/languages/typescript.md) and install its dependencies.
+1. Select the **Python: Select Interpreter** command, and select the virtual environment (the exact details of your environment will differ depending on which interpreters you have installed):
 
-Let's quickly run our Angular application by navigating to the new folder and typing `ng serve` to start the web server and open the application in a browser:
+    ![Selecting the virtual environment for Python](images/flask/select-virtual-environment.png)
 
-```bash
-cd my-app
-ng serve
-```
+1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
 
-You should see "Welcome to app!!" on `http://localhost:4200` in your browser. We'll leave the web server running while we look at the application with VS Code.
+    ![Selected environment showing in the VS Code status bar](images/flask/environment-in-status-bar.png)
 
-To open your Angular application in VS Code, open another terminal (or command prompt) and navigate to the `my-app` folder and type `code .`:
+1. Open the Command Palette again and select **Python: Create Terminal**, which creates a terminal in which the virtual environment is automatically activated by running its activate script. For example:
 
-```bash
-cd my-app
-code .
-```
+    ```output
+    D:\py\Flask>d:/py/Flask/env/Scripts/activate.bat
+    (env) D:\py\Flask>
+    ```
 
-### Syntax highlighting and bracket matching
+1. Install Flask by running `pip install flask`, which installs the package into the virtual environment.
 
-Now expand the `src\app` folder and select the `app.component.ts` file. You'll notice that VS Code has syntax highlighting for the various source code elements and, if you put the cursor on a parentheses, the matching bracket is also selected.
+You now have an environment ready for writing Flask code.
 
-![angular bracket matching](images/angular/bracket-matching.png)
+## Create and run a minimal Flask app
 
-### IntelliSense
+1. In VS Code, create a new file in your project folder named `hello.py`.
 
-As you hover your mouse over text in the file, you'll see that VS Code gives you information about key items in your source code. Items such as variables, classes and Angular decorators are a few examples where you'll be presented with this information.
+1. Import Flask and create an instance of the Flask object, which is the app. If you type the code, you can observe VS Code's [IntelliSense and auto-completions](editing.md#autocomplete-and-intellisense):
 
-![angular decorator hover](images/angular/decorator-hover.png)
+    ```python
+    from flask import Flask
+    app = Flask(__name__)
+    ```
 
-As you start typing in `app.component.ts`, you'll see smart suggestions and code snippets.
+1. Create a function that returns content, in this case a simple string, and use Flask's `app.route` decorator to map URL routes `/` and `/hello` to that function:
 
-![angular suggestions](images/angular/suggestions.png)
+    ```python
+    @app.route('/')
+    @app.route('/hello')
+    def hello_flask():
+        # Return a simple text string with a little inline HTML
+        return '<html><body>Hello, <strong>Flask</strong>!</body></html>'
+    ```
 
-You can click the information button (`i`) to see a flyout with more documentation.
+    > **Note**: as shown here, you can use multiple decorators to route different URLs to the same function. You can also use a single decorator, of course.
 
-![angular intellisense](images/angular/intellisense.png)
+1. Add startup code that automatically runs the app using a host and port as defined by environment variables. (Using environment variables allows you change the host and port on different computers, such as development and production servers, without changing the code):
 
-VS Code uses the TypeScript language service for code intelligence ([IntelliSense](/docs/editor/intellisense.md)) and it has a feature called [Automatic Type Acquisition](/docs/languages/javascript.md#automatic-type-acquisition) (ATA). ATA pulls down the npm Type Declaration files (`*.d.ts`) for the npm modules referenced in the `package.json`.
+    ```python
+    if __name__ == '__main__':
+    import os
+    HOST = os.environ.get('SERVER_HOST', 'localhost')
 
-### Go to Definition, Peek definition
+    try:
+        PORT = int(os.environ.get('SERVER_PORT', '5555'))
+    except ValueError:
+        PORT = 5555
 
-Through the TypeScript language service, VS Code can also provide type definition information in the editor through **Go to Definition** (`kb(editor.action.gotodeclaration)`) or **Peek Definition** (`kb(editor.action.peekImplementation)`). Open the `app.module.ts` file and put the cursor over `AppComponent` in the `bootstrap` property declaration, right click and select **Peek Definition**. A [Peek window](/docs/editor/editingevolved.md#peek) will open showing the `AppComponent` definition from `app.component.ts`.
+    app.run(HOST, PORT)
+    ```
 
-![angular peek definition](images/angular/peek-definition.png)
+1. Save the `hello.py` file.
 
-Press `kbstyle(Escape)` to close the Peek window.
+1. Run the code by selecting **Debug** > **Start Without Debugging** (`kb(workbench.action.debug.run)`), select **Python** as the environment, and observe that a debug terminal appears showing the running development server:
 
-## Hello World!
+    ```output
+    D:\py\Flask>cd d:\py\Flask && cmd /C "set "PYTHONIOENCODING=UTF-8" && set "PYTHONUNBUFFERED=1" && d:\py\Flask\env\Scripts\python.exe C:\Users\user\.vscode\extensions\ms-python.python-2018.4.0\pythonFiles\PythonTools\visualstudio_py_launcher_nodebug.py d:\py\Flask 63253 34806ad9-833a-4524-8cd6-18ca4aa74f14 RedirectOutput,RedirectOutput d:\py\Flask\hello.py "
+     * Serving Flask app "hello" (lazy loading)
+     * Environment: production
+       WARNING: Do not use the development server in a production environment.
+       Use a production WSGI server instead.
+     * Debug mode: off
+     * Running on http://localhost:5555/ (Press CTRL+C to quit)
+    ```
 
-Let's update the sample application to "Hello World". Go back to the `app.component.ts` file and change the `title` string in `AppComponent` to "Hello World".
+    > **Note**: You're welcome to try the **Python Experimental** debugging environment as well. For more information, see [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub).
 
-```ts
-import { Component } from '@angular/core';
+1. Ctrl+click the `localhost:5555` URL in the terminal to open a browser to see the rendered page (you can also try the /hello relative URL to test that routing as well):
 
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = 'Hello World';
-}
-```
+    ![The running app in a browser](images/flask/app-in-browser-01.png)
 
-Once you save the `app.component.ts` file, the running instance of the server will update the web page and you'll see "Welcome to Hello World!!".
+1. Observe that when you visit a URL, a message appears in the debug terminal showing the HTTP request:
 
->**Tip**: VS Code supports Auto Save, which by default saves your files after a delay. Check the **Auto Save** option in the **File** menu to turn on Auto Save or directly configure the `files.autoSave` user [setting](/docs/getstarted/settings.md).
+    ```output
+    127.0.0.1 - - [07/May/2018 14:40:15] "GET / HTTP/1.1" 200 -
+    127.0.0.1 - - [07/May/2018 14:40:19] "GET /hello HTTP/1.1" 200 -
+    ```
 
-![hello world](images/angular/hello-world.png)
+1. Use Ctrl+C in the debug terminal, or the **Debug** > **Stop debugging** command to stop the server.
 
-## Debugging Angular
+## Run the app in the debugger
 
-To debug the client side Angular code, we'll need to install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](debugging.md).
 
->Note: This tutorial assumes you have the Chrome browser installed. The builders of the Debugger for Chrome extension also have versions for the [Safari on iOS](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-ios-web) and [Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge) browsers.
+1. First, modify the `hello_flask` function to contain more code you can step through in the debugger:
 
-Open the Extensions view (`kb(workbench.view.extensions)`) and type 'chrome` in the search box. You'll see several extensions which reference Chrome.
+    ```python
+    @app.route('/')
+    @app.route('/hello')
+    def hello_flask():
+        from datetime import datetime
+        now = datetime.now()
+        formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
-![debugger for chrome](images/reactjs/debugger-for-chrome.png)
+        html_content = "<html><head><title>Hello, Flask</title></head><body>"
+        html_content += "<strong>Hello, Flask!</strong> on " + formatted_now
+        html_content += "</body></html>"
 
-Press the **Install** button for **Debugger for Chrome**. The button will change to **Installing** then, after completing the installation, it will change to **Reload**. Press **Reload** to restart VS Code and activate the extension.
+        return html_content;
+    ```
 
-### Set a breakpoint
+1. Set a breakpoint at the first line of code in the function by doing one of the following:
+    - With the cursor on that line, press F9.
+    - With the cursor on that line, select the **Debug** > **Toggle Breakpoint** menu command.
+    - Click directly in the margin to the left of the line number (a faded red dot appears when hovering there).
 
-To set a breakpoint in `app.component.ts`, click on the gutter to the left of the line numbers. This will set a breakpoint which will be visible as a red circle.
+    The breakpoint appears as a red dot, as indicated by the yellow arrow in the image below:
 
-![set a breakpoint](images/angular/breakpoint.png)
+    ![A breakpoint set on the first line of the hello_flask function](images/flask/debug-breakpoint-set.png)
 
-### Configure the Chrome debugger
+1. Switch to the **Debug** panel in VS Code. Along the top you may see "No Configurations" and a warning dot on the gear icon. These indicate that you don't yet have a `launch.json` file containing debug configurations:
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
+    ![Initial view of the debug panel](images/flask/debug-panel-initial-view.png)
 
-We need to make one change for our example: change the port of the `url` from `8080` to `4200`. Your `launch.json` should look like this:
+1. Select the gear icon and select **Python** from the list that appears. VS Code creates a `launch.json` file for you and selects the default **Python: Current File** configuration.
 
-```json
-{
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:4200",
-            "webRoot": "${workspaceFolder}"
-        }
-    ]
-}
-```
+1. Switch back to the `hello.py` file and select the green **Start Debugging** arrow (or press F5, or select the **Debug** > **Start Debugging** menu command). Observe that the status bar changes color to indicate debugging:
 
-Press `kb(workbench.action.debug.start)` or the green arrow to launch the debugger and open a new browser instance. The source code where the breakpoint is set runs on startup before the debugger was attached so we won't hit the breakpoint until we refresh the web page. Refresh the page and you should hit your breakpoint.
+    ![Appearance of the debugging status bar](images/flask/debug-status-bar.png)
 
-![hit breakpoint](images/angular/hit-breakpoint.png)
+    A debugging toolbar also appears in VS Code containing commands to Pause (or Continue, F5), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`):
 
-You can step through your source code (`kb(workbench.action.debug.stepOver)`), inspect variables such as `AppComponent`, and see the call stack of the client side Angular application.
+    ![The VS Code debug toolbar](images/flask/debug-toolbar.png)
 
-![debug variable](images/angular/debug-variable.png)
+    See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
-The **Debugger for Chrome** extension README has lots of information on other configurations, working with sourcemaps, and troubleshooting. You can review it directly within VS Code from the **Extensions** view by clicking on the extension item and opening the **Details** view.
+1. Ctrl+click the `localhost:5555` link in the debug terminal output to open a browser to that URL. The page doesn't render, however, because the program is paused in VS Code on the breakpoint. The yellow arrow indicates the next line of code to run.
 
-![debugger for chrome readme](images/reactjs/chrome-debugger-readme.png)
+    ![VS Code paused at a breakpoint](images/flask/debug-program-paused.png)
 
-## Popular Starter Kits
+1. Use Step Over to run the `from...import` statement and the `now = datetime.now()` statement.
 
-In this tutorial, we used the Angular CLI to create a simple Angular application. There are lots of great samples and starter kits available to help build your first Angular application.
+1. On the left of the VS Code window you see a **Variables** pane that shows local variables, such as `now`. Below that are panes for **Watch**, **Call Stack**, and *Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click (F2) values to modify them.
 
-### Recipes
+    ![Local variables pane in VS Code during debugging](images/flask/debug-local-variables.png)
 
-The VS Code team has created [recipes](https://github.com/Microsoft/vscode-recipes) for more complex debugging scenarios. There you'll find the [Chrome Debugging with Angular CLI](https://github.com/Microsoft/vscode-recipes/tree/master/Angular-CLI) recipe which also uses the Angular CLI and goes into detail on debugging the generated project's unit tests.
+1. When a program is paused, the **Debug Console** panel lets you experiment with expressions and alternate code using the current state of the program. For example, you might want to try different date/time formats than the one in the code. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Debug: Evaluate** to send that code to the debug console, where it runs:
 
-### MEAN Starter
+    ```output
+    now.strftime("%A, %d %B, %Y at %X")
+    'Monday, 07 May, 2018 at 15:05:00'
+    ```
 
-If you'd like to see a full MEAN (MongoDB, Express, Angular, Node.js) stack example, look at [MEAN.IO](http://mean.io/). They have documentation and an application generator for a sample MEAN project. You'll need to install and start [MongoDB](https://docs.mongodb.com/v3.0/installation/), but you'll quickly have a MEAN application running.
+1. Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
 
-### React
+    ```output
+    now.strftime("%a, %d %B, %Y at %X")
+    'Mon, 07 May, 2018 at 15:05:00'
+    now.strftime("%a, %d %b, %Y at %X")
+    'Mon, 07 May, 2018 at 15:05:00'
+    now.strftime("%a, %d %b, %y at %X")
+    'Mon, 07 May, 18 at 15:05:00'
+    ```
 
-[React](https://facebook.github.io/react/) is another popular web framework. If you'd like to see an example of React working with VS Code, check out the [Using React in VS Code](/docs/nodejs/reactjs-tutorial.md) tutorial. It will walk you through creating an React application and configuring the `launch.json` file for the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) extension.
+    > **Note**: if you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
 
-## Angular Extensions
+1. Step through a few more lines of code, if you'd like, then select Continue (F5) to let the program run. The browser window shows the result:
 
-In addition to the functionality VS Code provides out of the box, you can install VS Code extensions for greater functionality.
+    ![Result of the modified program](images/flask/debug-run-result.png)
 
-<div class="marketplace-extensions-angular-curated"></div>
+1. Close the browser and stop the debugger when you're finished.
 
-Click on an extension tile above to read the description and reviews on the [Marketplace](https://marketplace.visualstudio.com).
+## Explore additional features
 
-To find other Angular extensions, open the Extensions view (`kb(workbench.view.extensions)`) and type 'angular' to see a filtered list of Angular extensions.
+In this short tutorial you've briefly touched upon different parts of VS Code in the context of a Flask app. In addition to the features described on the [Python overview](../languages/python.md), you can explore some of the other features of VS Code:
 
-![angular extensions](images/angular/angular-extensions.png)
+- The **Go to Definition** command provides an easy way to jump from your code into a Python library. For example, in `hello.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition**, which navigates to the class definition in Flask's `app.py` file.
 
-The community has also created "Extension Packs" which bundle useful extensions together (for example, a linter, debugger, and snippets) into a single download. To see available Angular extension packs, add the "extension packs" category to your filter (angular @category:"extension packs").
+- The Peek Definition command, also on the right-click context menu, is similar, but displays the class definition directly in the editor:
+
+    ![Peek definition showing the Flask class inline](images/flask/peek-definition.png)
+
+    Press `kbstyle(Escape)` to close the Peek window.
+
+- To run the Flask development server in debug mode, open the Debug panel, select the **Python: Flask** debugging environment, then select the gear icon to open `launch.json` to that configuration. In the `args` section of the configuration, remove `--no-debugger`. Then save `launch.json` and launch the debugger. You can also modify the `env` section to include `"FLASK_ENV": "development"`, which turns on Flask's debugger, activates Flask's automatic reloader, and enables debug mode on the app.
+
+- Use templates to render a page: learn about templates in Flask on [Templates](http://flask.pocoo.org/docs/1.0/tutorial/templates/) (flask.pocoo.org).
