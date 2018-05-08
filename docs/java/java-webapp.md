@@ -47,7 +47,7 @@ Open your `pom.xml` file in your project folder (`complete`). Find and remove th
 
 ![Remove Authentication](images/java-webapp/remove-auth.png)
 
->**Note**: This specific configuration will instead using Service Principal for authentication. More details could be found at [Configure Maven to use your Azure Service Principal](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-deploy-spring-boot-app-with-maven-plugin#configure-maven-to-use-your-azure-service-principal)
+>**Note**: This specific configuration will now use Azure Service Principal for authentication. More details could be found at [Configure Maven to use your Azure Service Principal](https://docs.microsoft.com/azure/app-service/app-service-web-deploy-spring-boot-app-with-maven-plugin#configure-maven-to-use-your-azure-service-principal)
 
 ## Build and deploy your web app to Azure
 
@@ -57,27 +57,27 @@ From the command prompt or terminal window that you were using earlier, rebuild 
 mvn clean package
 ```
 
-> **Note:** You need to be in the `complete` directory when running commands on the terminal.
+> **Note:** You need to be in the `complete` directory when running commands in the terminal.
 
-Deploy your web app to Azure by using Maven; for example:
+Deploy your web app to Azure by using Maven, for example:
 
 ```bash
 mvn azure-webapp:deploy
 ```
 
-Maven will deploy your web app to Azure; if the web app does not already exist, it will be created.
+Maven will deploy your web app to Azure. If the web app does not already exist, it will be created.
 
-When your web has been deployed, you will see a success message from command Line
+When your web has been deployed, you will see a success message on the command line:
 
 ![Deploy Success](images/java-webapp/deploy-success.png)
 
-by pasting the URL to browser, you will see the sample web app running on Azure!
+By pasting the URL into a web browser, you can see the sample web app running on Azure!
 
 ![Greeting cloud](images/java-webapp/greeting-cloud.png)
 
 You will also be able to manage it by using the [Azure portal](https://portal.azure.com/).
 
-Your web app will be listed in **App Services**:
+Your web app will be listed under **App Services**:
 
 ![App Service View](images/java-webapp/app-service-view.png)
 
