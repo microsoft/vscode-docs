@@ -18,8 +18,6 @@ If you just want a lightweight tool to edit your C++ files, Visual Studio Code i
 
 If you run into any issues or have suggestions for the Microsoft C/C++ extension, please file [issues and suggestions on GitHub](https://github.com/Microsoft/vscode-cpptools/issues). If you haven't already provided feedback, please take this [quick survey](https://www.research.net/r/VBVV6C6) to help shape this extension for your needs.
 
-**Note for Linux users**: The C/C++ extension works on 64-bit Linux distros that have glibc 2.18 or later installed.
-
 ## Getting Started
 
 **To install the Microsoft C/C++ extension:**
@@ -33,21 +31,19 @@ If you run into any issues or have suggestions for the Microsoft C/C++ extension
 
 With the C/C++ extension installed, open a folder that contains your C/C++ source code. VS Code will place various settings files into a `.vscode` subfolder.
 
-**Note**: The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer. Popular C++ compilers are [MinGW](http://www.mingw.org/) for Windows, [XCode](https://developer.apple.com/xcode/) for macOS, and [GCC](https://gcc.gnu.org/) on Linux. Also make sure your compiler executable is on your platform path for VS Code to find.
+**Note**: The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer. Popular C++ compilers are [mingw-w64](http://www.mingw-w64.org/) for Windows, Clang for [XCode](https://developer.apple.com/xcode/) for macOS, and [GCC](https://gcc.gnu.org/) on Linux. Also make sure your compiler executable is on your platform path for VS Code to find.
 
-### IntelliSense
+### Configuring IntelliSense
 
-**To enable code completion and navigation, you will need to generate a `c_cpp_properties.json` file:**
+The extension will attempt to determine your folder's basic configuration info based on compilers it finds on your system. If for any reason, that configuration is incomplete, you can generate a `c_cpp_properties.json` file by running the **C/Cpp: Edit configurations...** command from the **Command Palette** (`kb(workbench.action.showCommands)` and add the missing information.
 
-* Find any green squiggle in a source file (for example, an #include statement) and set the cursor on the line.
-* Click the lightbulb that appears in the left gutter.
-* Click **Update "browse.path" setting**.
+If a `#include` file or one of its dependencies cannot be found, you can also click on the squiggle to view suggestions for how to update your configuration.
 
 ![browse path light bulb](images/cpp/cpp-lightbulb.png)
 
-This will generate a `c_cpp_properties.json` file that allows you to add additional browse paths to properly enable code navigation and auto-completion. The generated `c_cpp_properties.json` file has sections for different operating systems, make sure you update the appropriate settings for your current platform.
+This will generate a `c_cpp_properties.json` file that allows you to add additional paths and defines to properly enable code navigation and auto-completion.
 
-Below you can see that the MinGW C++ include path has been added to `browse.path` for Windows:
+Below you can see that the MinGW C++ compiler has been set as the default compiler `browse.path` for Windows. The extension will use that information to determine the system include path and defines so that they don't need to be added to `c_cpp_properties.json`.
 
 ```json
 {
@@ -59,19 +55,17 @@ Below you can see that the MinGW C++ include path has been added to `browse.path
         "_DEBUG",
         "UNICODE"
     ],
+    "compilerPath": "C:\\mingw-w64\\bin\\gcc.exe",
     "intelliSenseMode": "msvc-x64",
     "browse": {
         "path": [
-            "${workspaceFolder}",
-            "C:\\MinGW\\lib\\gcc\\mingw32\\6.3.0\\include\\c++"
+            "${workspaceFolder}"
         ],
         "limitSymbolsToIncludedHeaders": true,
         "databaseFilename": ""
     }
 }
 ```
-
->**Note:** You can also generate or edit a `c_cpp_properties.json` file with the **C/Cpp: Edit Configurations** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ### Building your code
 
@@ -182,10 +176,10 @@ The C/C++ extension for Visual Studio Code supports source code formatting using
 
 You can format an entire file with **Format Document** (`kb(editor.action.formatDocument)`) or just the current selection with **Format Selection** (`kb(editor.action.formatSelection)`) in right-click context menu. You can also configure auto-formatting with the following [settings](/docs/getstarted/settings.md):
 
-* `C_Cpp.clang_format_formatOnSave` - to format when you save your file.
+* `editor.formatOnSave` - to format when you save your file.
 * `editor.formatOnType` - to format as you type (triggered on the `kbstyle(;)` character).
 
-By default, the clang-format style is set to "file" which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according to the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied based on a default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/getstarted/settings.md) instead. Currently, the default formatting style is "Visual Studio". Using "Visual Studio" formatting ensures that source code formatting will be compatible in both VS Code and Visual Studio Community.
+By default, the clang-format style is set to "file" which means it looks for a `.clang-format` file inside your workspace. If the `.clang-format` file is found, formatting is applied according to the settings specified in the file. If no `.clang-format` file is found in your workspace, formatting is applied based on a default style specified in the `C_Cpp.clang_format_fallbackStyle` [setting](/docs/getstarted/settings.md) instead. Currently, the default formatting style is "Visual Studio" which is an approximation of the default code formatter in Visual Studio.
 
 The "Visual Studio" clang-format style is not yet an official OOTB clang-format style but it implies the following clang-format settings:
 
@@ -206,19 +200,17 @@ For example, on the Windows platform:
   "C_Cpp.clang_format_path": "C:\\Program Files (x86)\\LLVM\\bin\\clang-format.exe"
 ```
 
-### Fuzzy Auto-Complete
+### Auto-Complete
 
-Fuzzy auto-complete is powered by an enhanced tag-parser approach. Although suggestions are not based on semantic analysis of your code, this feature provides a wider selection of matches than the single-file IntelliSense experience provided today.
-
-In particular, this feature's capabilities give a good experience for C code.
+Auto-complete is powered by the same engine as Visual Studio. You will get the most relevant suggestions when your workspace is configured with all necessary include paths and defines (see the "Configuring IntelliSense" section above).
 
 ## Navigating Code
 
-The source code navigation features provided by the C/C++ extension are powerful tools for understanding and getting around in your codebase. These features are powered by tags stored in an offline database of symbol information. With the C/C++ extension installed, this database is generated whenever a folder containing C++ source code files is loaded into VS Code. The platform indicator (Win32 in the figure below) turns red and appears next to a flame icon while the tag-parser is generating this information.
+The source code navigation features provided by the C/C++ extension are powerful tools for understanding and getting around in your codebase. These features are powered by tags stored in an offline database of symbol information. With the C/C++ extension installed, this database is generated whenever a folder containing C++ source code files is loaded into VS Code. The database icon appears next to the active configuration name ("Win32" in the image below) while the tag-parser is generating this information.
 
 ![The platform indicator during tag parsing](images/cpp/parsing.png)
 
-When the platform indicator returns to its normal appearance, the source code symbols have been tagged in the offline database and source code navigation features are ready to be used.
+When the icon disappears, the source code symbols have been tagged in the offline database.
 
 ### Specifying Additional Include Directories for Better Symbol Support
 
@@ -234,17 +226,17 @@ To search for a symbol in the current file, press `kb(workbench.action.gotoSymbo
 
 ![Searching the current file](images/cpp/filesearch.png)
 
-To search for a symbol in the current workspace, start by pressing `kb(workbench.action.showAllSymbols)` instead, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location.
+To search for a symbol in the current workspace, press `kb(workbench.action.showAllSymbols)`, then enter the name of the symbol. A list of potential matches will appear as before. If you choose a match that was found in a file that's not already open, the file will be opened before navigating to the match's location.
 
 ![Searching in your workspace](images/cpp/workspacesearch.png)
 
-Alternatively, you can search for symbols by accessing these commands through the __Command Palette__ if you prefer. Use __Quick Open__ (`kb(workbench.action.quickOpen)`) then enter the '@' command to search the current file, or the '#' command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are just shortcuts for the '@' and '#' commands, respectively, so everything works the same.
+Alternatively, you can search for symbols by accessing these commands through the **Command Palette** if you prefer. Use **Quick Open** (`kb(workbench.action.quickOpen)`) then enter the '@' command to search the current file, or the '#' command to search the current workspace. `kb(workbench.action.gotoSymbol)` and `kb(workbench.action.showAllSymbols)` are just shortcuts for the '@' and '#' commands, respectively, so everything works the same.
 
 ### Peek Definition
 
 You can take a quick look at how a symbol was defined by using the Peek Definition feature. This feature displays a few lines of code near the definition inside a peek window so you can take a look without navigating away from your current location.
 
-To peek at a symbol's definition, place your cursor on the symbol anywhere it's used in your source code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose __Peek Definition__ from the context menu (right-click, then choose __Peek Definition__).
+To peek at a symbol's definition, place your cursor on the symbol anywhere it's used in your source code and then press `kb(editor.action.previewDeclaration)`. Alternatively, you can choose **Peek Definition** from the context menu (right-click, then choose **Peek Definition**).
 
 ![Peek definition](images/cpp/peekdefn.png)
 
@@ -256,7 +248,7 @@ With the peek window open, you browse the list of competing definitions to find 
 
 You can also quickly navigate to where a symbol is defined by using the Go to Definition feature.
 
-To go to a symbol's definition, place your cursor on the symbol anywhere it is used in your source code and then press `kb(editor.action.goToDeclaration)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
+To go to a symbol's definition, place your cursor on the symbol anywhere it is used in your source code and then press `kb(editor.action.goToDeclaration)`. Alternatively, you can choose **Go to Definition** from the context menu (right-click, then choose **Go to Definition**). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
 
 ## Debugging
 
@@ -282,7 +274,7 @@ Cygwin/MinGW debugging on Windows supports both attach and launch debugging scen
 
 ### Conditional Breakpoints
 
-Conditional breakpoints enable you to break execution on a particular line of code only when the value of the condition is true. To set a conditional breakpoint, right-click on an existing breakpoint and select __Edit Breakpoint__. This opens a small peek window where you can enter the condition that must evaluate to true in order for the breakpoint to be hit during debugging.
+Conditional breakpoints enable you to break execution on a particular line of code only when the value of the condition is true. To set a conditional breakpoint, right-click on an existing breakpoint and select **Edit Breakpoint**. This opens a small peek window where you can enter the condition that must evaluate to true in order for the breakpoint to be hit during debugging.
 
 ![A conditional break](images/cpp/condbreak.png)
 
@@ -290,27 +282,27 @@ In the editor, conditional breakpoints are indicated by a breakpoint symbol that
 
 ### Function Breakpoints
 
-Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the __Debug__ pane right-click inside the __Breakpoints__ section, then choose __Add Function Breakpoint__ and enter the name of the function on which you want to break execution.
+Function breakpoints enable you to break execution at the beginning of a function instead of on a particular line of code. To set a function breakpoint, on the **Debug** pane right-click inside the **Breakpoints** section, then choose **Add Function Breakpoint** and enter the name of the function on which you want to break execution.
 
 ### Expression Evaluation
 
 VS Code supports expression evaluation in several contexts:
 
-* You can type an expression into the __Watch__ section of the __Debug__ panel and it will be evaluated each time a breakpoint is hit.
-* You can type an expression into the __Debug Console__ and it will be evaluated only once.
+* You can type an expression into the **Watch** section of the **Debug** panel and it will be evaluated each time a breakpoint is hit.
+* You can type an expression into the **Debug Console** and it will be evaluated only once.
 * You can evaluate any expression that appears in your code while you're stopped at a breakpoint.
 
-Note that expressions in the __Watch__ section take effect in the application being debugged; an expression that modifies the value of a variable will modify that variable for the duration of the program.
+Note that expressions in the **Watch** section take effect in the application being debugged; an expression that modifies the value of a variable will modify that variable for the duration of the program.
 
 ### Multi-threaded Debugging
 
-The C/C++ extension for VS Code has the ability to debug multi-threaded programs. All threads and their call stacks appear in the __Call Stack__ section:
+The C/C++ extension for VS Code has the ability to debug multi-threaded programs. All threads and their call stacks appear in the **Call Stack** section:
 
 ![Multi-threaded process](images/cpp/threads.png)
 
 ### Memory Dump Debugging
 
-The C/C++ extension for VS Code also has the ability to debug memory dumps. To debug a memory dump, open your `launch.json` file and add the `coreDumpPath` (for GDB or LLDB) or `dumpPath` (for the Visual Studio Windows Debugger) property to the __C++ Launch__ configuration, set its value to be a string containing the path to the memory dump. This will even work for x86 programs being debugged on an x64 machine.
+The C/C++ extension for VS Code also has the ability to debug memory dumps. To debug a memory dump, open your `launch.json` file and add the `coreDumpPath` (for GDB or LLDB) or `dumpPath` (for the Visual Studio Windows Debugger) property to the **C++ Launch** configuration, set its value to be a string containing the path to the memory dump. This will even work for x86 programs being debugged on an x64 machine.
 
 ### Additional Symbols
 
