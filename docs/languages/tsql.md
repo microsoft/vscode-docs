@@ -62,7 +62,7 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 
 ## Next Steps
 
-* Download the free [SQL Server 2016 Developer Edition].
+* Download the free [SQL Server 2017 Developer Edition].
 * Install the [mssql] extension from the Visual Studio Code Marketplace.
 * [Build an app] using SQL Server - Get started with SQL Server on macOS, Linux, and Windows using your favorite programming language.
 * Contribute to the mssql extension on [GitHub]. Submit a bug report or a feature suggestion on our [GitHub Issue Tracker].

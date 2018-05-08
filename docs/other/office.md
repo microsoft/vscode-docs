@@ -82,7 +82,7 @@ Select the Add-in and see it appear in the Task Pane:
 
 ### Deploying Add-ins to the Office 365 Tenancy's App Catalog
 
-All Office Add-ins (including Mail Add-ins) can be installed from your Office 365 tenancy's App Catalog site. Log in to your [Office 365 Portal](https://portal.office365.com). In the left-hand navigation, towards the bottom, select the **Admin / SharePoint** option:
+All Office Add-ins (including Mail Add-ins) can be installed from your Office 365 tenancy's App Catalog site. Log in to your [Office 365 Portal](http://portal.office365.com). In the left-hand navigation, towards the bottom, select the **Admin / SharePoint** option:
 
 ![Office SharePoint Admin](images/office/o365spadmin.png)
 
