@@ -44,7 +44,7 @@ Colors inside a text document, such as the welcome page.
 - `textBlockQuote.background`: Background color for block quotes in text.
 - `textBlockQuote.border`: Border color for block quotes in text.
 - `textCodeBlock.background`: Background color for code blocks in text.
-- `textLink.activeForeground`: Foreground color for active links in text.
+- `textLink.activeForeground`: Foreground color for links in text when clicked on and on mouse hover.
 - `textLink.foreground`: Foreground color for links in text.
 - `textPreformat.foreground`: Foreground color for preformatted text segments.
 - `textSeparator.foreground`: Color for text separators.
@@ -89,12 +89,12 @@ Colors for input controls such as in the Search view or the Find/Replace dialog.
 - `inputValidation.warningBackground`: Input validation background color for information warning.
 - `inputValidation.warningBorder`: Input validation border color for warning severity.
 
-## Scroll Bar Control
+## Scrollbar Control
 
-- `scrollbar.shadow`: Scroll Bar shadow to indicate that the view is scrolled.
-- `scrollbarSlider.activeBackground`: Slider background color when active.
-- `scrollbarSlider.background`: Slider background color.
-- `scrollbarSlider.hoverBackground`: Slider background color when hovering.
+- `scrollbar.shadow`: Scrollbar slider shadow to indicate that the view is scrolled.
+- `scrollbarSlider.activeBackground`: Scrollbar slider background color when clicked on.
+- `scrollbarSlider.background`: Scrollbar slider background color.
+- `scrollbarSlider.hoverBackground`: Scrollbar slider background color when hovering.
 
 ## Badge
 
