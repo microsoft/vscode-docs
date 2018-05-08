@@ -9,7 +9,7 @@ DateApproved: 5/3/2018
 ---
 # Deploy a Node.js Application to Azure
 
-You can deploy your Node.js applications to [Azure](https://azure.microsoft.com) directly from Visual Studio Code. Using either the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest) or the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension, you can have your application running in Azure in minutes.
+You can deploy your Node.js applications to [Azure](https://azure.microsoft.com) directly from Visual Studio Code. Using either the [Azure CLI](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest) or the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension, you can have your application running in Azure in minutes.
 
 ![app service](images/nodejs-deployment/azure-app-service-tools.png)
 

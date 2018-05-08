@@ -182,7 +182,7 @@ While focus is in the integrated terminal, many key bindings will not work as th
 The basics of the terminal have been covered in this document, read on to find out more about:
 
 * [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
-* [Mastering VS Code's Terminal](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+* [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
 * Explore the rest of the terminal commands by browsing your keybindings.json file within VS Code.
 
 ## Common Questions

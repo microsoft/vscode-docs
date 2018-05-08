@@ -13,7 +13,7 @@ In our [first tutorial](/docs/java/java-tutorial.md), we built a Java web app ru
 
 ## Prepare your Azure account
 
-Before running this sample on [Azure](http://www.azure.com), you need to have an Azure subscription and the command line tools.
+Before running this sample on [Azure](https://azure.microsoft.com), you need to have an Azure subscription and the command line tools.
 
 If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/):
 

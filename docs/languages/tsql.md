@@ -74,13 +74,13 @@ T-SQL snippets provide code templates for commonly used T-SQL statements. Type "
 * [SQL Server Blog]
 * [SQL Server Videos] on Channel9
 
-[Transact-SQL]: https://msdn.microsoft.com/en-us/library/bb510741.aspx
+[Transact-SQL]: https://docs.microsoft.com/en-us/sql/t-sql/language-reference
 [mssql]: https://aka.ms/mssql-marketplace
 [Download VS Code]: https://code.visualstudio.com/download
-[SQL Server 2016 Developer Edition]: https://www.microsoft.com/en-us/sql-server/sql-server-downloads
+[SQL Server 2017 Developer Edition]: https://www.microsoft.com/sql-server/sql-server-downloads
 [Build an app]: https://aka.ms/sqldev
-[SQL Server documentation]: https://msdn.microsoft.com/en-us/library/mt590198(v=sql.1).aspx
-[SQL Server on Linux documentation]: https://docs.microsoft.com/en-us/sql/linux/
+[SQL Server documentation]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[SQL Server on Linux documentation]: https://docs.microsoft.com/sql/linux/
 [SQL Server Blog]: https://blogs.technet.microsoft.com/dataplatforminsider/
 [SQL Server Videos]: https://channel9.msdn.com/Tags/sql+server
 [GitHub]: https://github.com/Microsoft/vscode-mssql

@@ -334,7 +334,7 @@ If your preview still needs to load some local resources such as images, try usi
 
 ### Using a Content Security Policy
 
-If your preview's functionality depends on scripts, consider disabling scripts that come from untrusted user content using a [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP). Content security policy allow fine grained control over which resources may be loaded.
+If your preview's functionality depends on scripts, consider disabling scripts that come from untrusted user content using a [content security policy](https://developer.mozilla.org/docs/Web/HTTP/CSP). Content security policy allow fine grained control over which resources may be loaded.
 
 For example, here's a content security policy that allows images from anywhere, allows stylesheets from a user's local system, and disables all scripts:
 
