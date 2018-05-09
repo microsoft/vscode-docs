@@ -84,7 +84,7 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 
 You can also optionally define a `category` string which will prefix the command title and allow easy grouping within the **Command Palette** drop-down.
 
-You can also optionally define an `icon` which is either a string file path of the icon or an object with `light` and `dark` fields providing theme-specific paths.
+You can also optionally define an `icon` which is either a string file path of the icon or an object with `light` and `dark` fields providing theme-specific paths. The paths are extension-repository directory relative.
 
 >**Note:** When a command is invoked (from a key binding or from the **Command Palette**), VS Code will emit an activationEvent `onCommand:${command}`.
 
