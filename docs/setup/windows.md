@@ -17,7 +17,7 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 
 You can also find a Zip archive [here](/docs/?dv=winzip).
 
->**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/en-us/download/details.aspx?id=42643) installed.
+>**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed.
 
 >**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 

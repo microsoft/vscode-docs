@@ -20,7 +20,7 @@ Visual Studio Code is an ideal lightweight development environment for Spring Bo
 
 To install, launch VS Code and from the Extensions view (`kb(workbench.view.extensions)`) search box, type `vscode-spring-initializr`.
 
-Once you have the extension installed, open the **Command Palette** (`kb(workbench.action.showCommand)`), type `Spring Initializr` to start generating a Maven or Gradle project and then follow the wizard.
+Once you have the extension installed, open the **Command Palette** (`kb(workbench.action.showCommands)`), type `Spring Initializr` to start generating a Maven or Gradle project and then follow the wizard.
 
 ![Spring Initializr](images/java-spring-boot/spring-initializr.gif)
 

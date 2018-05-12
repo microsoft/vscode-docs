@@ -15,7 +15,7 @@ In this section, you will make a source code change and re-deploy the site so th
 Open `App.js` and change **line 11** to the following:
 
 ```js
-<h1 className="App-title">Welcome to Azure!!!</h1>
+<h1 className="App-title">Welcome to Azure!</h1>
 ```
 
 ## Redeploy your app

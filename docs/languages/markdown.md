@@ -225,7 +225,7 @@ Let's take things a little further and automate Markdown compilation with VS Cod
 
 ### Step 1: Install Gulp and some plug-ins
 
-We use [Gulp](http://gulpjs.com/) to create a task that automates Markdown compilation. We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
+We use [Gulp](https://gulpjs.com/) to create a task that automates Markdown compilation. We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
 
 We need to install gulp both globally (`-g` switch) and locally:
 

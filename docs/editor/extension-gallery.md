@@ -228,6 +228,7 @@ Here are a few topics you may find interesting...
 * [Extension Generator](/docs/extensions/yocode.md) - Learn how the `yo code` extension generator can scaffold out a new extension.
 * [Extending Visual Studio Code](/docs/extensions/overview.md) - Start learning about VS Code extensibility.
 * [Your First Extension](/docs/extensions/example-hello-world.md) - Try creating a simple Hello World extension.
+* [Troubleshooting Extensions](/docs/extensions/developing-extensions.md#troubleshooting-extensions) - See our troubleshooting guide if an extension isn't working properly.
 
 ## Common questions
 

@@ -16,7 +16,7 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 Name | Required | Type | Details
 ---- |:--------:| ---- | -------
 `name` | Y | `string` | The name of the extension - should be all lowercase with no spaces.
-`version` | Y | `string` | [SemVer](http://semver.org/) compatible version.
+`version` | Y | `string` | [SemVer](https://semver.org/) compatible version.
 `publisher` | Y | `string` | The [publisher name](/docs/extensions/publish-extension.md#publishers-and-personal-access-tokens)
 `engines` | Y | `object` | An object containing at least the `vscode` key matching the versions of VS Code that the extension is [compatible](/docs/extensions/publish-extension.md#visual-studio-code-compatibility) with.  Cannot be `*`. For example: `^0.10.5` indicates compatibility with a minimum VS Code version of `0.10.5`.
 `license` | | `string` | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.

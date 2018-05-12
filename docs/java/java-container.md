@@ -19,7 +19,7 @@ We will continue using the same Spring Boot application we built in our first [J
 
 In addition to the Java tools you needed to install for the [Java Tutorial](/docs/java/java-tutorial.md), you would also need to have tools for [Docker](https://docker.com/). See the [Install Docker](https://docs.docker.com/installation/#installation) documentation for details on setting Docker up for your machine. Before proceeding further, verify you can run Docker commands from the shell.
 
-You would also need to have your [Azure](http://www.azure.com) account ready for the deployment steps.
+You would also need to have your [Azure](https://azure.microsoft.com) account ready for the deployment steps.
 
 ## Install the Docker extension
 

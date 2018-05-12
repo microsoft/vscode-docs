@@ -123,11 +123,11 @@ sudo apt-get update
 sudo apt install azure-functions-core-tools
 ```
 
-[Code and test Azure Functions locally](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local)
+[Code and test Azure Functions locally](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
 
 **NOTE**: [npm](https://www.npmjs.com/) can be used on all platforms. On Unix platforms, you may need to specify `--unsafe-perm` if you are running `npm` with sudo. This is necessary due to npm's post install script behavior.
 
-**NOTE**: If you're running the v2 on Windows, Linux, or macOS, make sure to [enable the `beta` runtime](https://docs.microsoft.com/en-us/azure/azure-functions/functions-versions#target-the-version-20-runtime) in function app settings, otherwise you may not see the same results as running locally.
+**NOTE**: If you're running the v2 on Windows, Linux, or macOS, make sure to [enable the `preview` runtime](https://docs.microsoft.com/azure/azure-functions/functions-versions) in function app settings, otherwise you may not see the same results as running locally.
 
 ## Run and debug the function locally
 

@@ -250,11 +250,11 @@ The 'fonts' section lets you declare any number of glyph fonts that you want to 
 You can later reference these font in the icon definitions. The font declared first will be used as the default if an icon definition does not specify a font id.
 
 Copy the font file into your extension and set the path accordingly.
-It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) fonts.
+It is recommended to use [WOFF](https://developer.mozilla.org/docs/Web/Guide/WOFF) fonts.
 
 - Set 'woff' as the format.
-- the weight property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values).
-- the style property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values).
+- the weight property values are defined [here](https://developer.mozilla.org/docs/Web/CSS/font-weight#Values).
+- the style property values are defined [here](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-style#Values).
 - the size should be relative to the font size where the icon is used. Therefore, always use percentage.
 
 ```json
