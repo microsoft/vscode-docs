@@ -19,11 +19,10 @@ To successfully complete this tutorial, you must do the following:
 1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 1. Install whichever version of Python you want to use. Options include:
-
-  - The built-in Python installation on Linux.
-  - An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
-  - A download from [python.org](https://www.python.org/downloads/).
-  - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
+   - The built-in Python installation on Linux.
+   - An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
+   - A download from [python.org](https://www.python.org/downloads/).
+   - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
 1. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
 
@@ -120,7 +119,7 @@ Select the green arrow again to run the program to completion. "Hello World" app
 
 For full details, see [Debugging](/docs/python/debugging.md).
 
-> **Tip**: Although the Debug Console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases, it's necessary to run the debugger using an external terminal. This is easily done by selecting the **Python: Terminal (external)** debug configuration:<br>
+> **Tip**: Although the Debug Console works well for output, it presently cannot take input from a Python program through the `input` or `raw_input` functions. In those cases, it's necessary to run the debugger using an external terminal. This is easily done by selecting the **Python: Terminal (external)** debug configuration:
 >
 > ![Selecting the external terminal debug configuration](images/tutorial/debug-external-terminal.png)
 
