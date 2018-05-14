@@ -260,7 +260,7 @@ Windows:
                                      "when": "terminalFocus" },
 ```
 
-## Why is nvm is complaining about a prefix option when a VS Code terminal is launched
+## Why is nvm complaining about a prefix option when the integrated terminal is launched
 
 nvm users often see this error for the first time inside VS Code's integrated terminal:
 
