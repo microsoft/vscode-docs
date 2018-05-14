@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
 PageTitle: Python and Flask Tutorial in VS Code
-DateApproved: 05/07/2018
+DateApproved: 05/14/2018
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -13,6 +13,10 @@ MetaSocialImage: images/tutorial/social.png
 [Flask](http://flask.pocoo.org/) is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering.
 
 Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask *extensions*. The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask doesn't provide a page template engine, but installing Flask includes the Jinja templating engine by default.
+
+In thus tutorial you create a simple Flask app with three pages that use a common base template. Along the way you experience a number of features of VS Code including using the terminal, the editor, the debugger, code snippets, and more.
+
+The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
 
 ## Create a project environment for Flask
 
@@ -584,7 +588,11 @@ With all the page templates in place, run the app to see the results. Navigate b
 
 ## Next steps
 
-Congratulations on completing this walkthrough of working with Flask in Visual Studio code! From here you may want to review the following articles in the VS Code docs:
+Congratulations on completing this walkthrough of working with Flask in Visual Studio code!
+
+The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
+
+From here you may want to review the following articles in the VS Code docs:
 
 - [Editing Python code](editing.md)
 - [Linting](linting.md)
