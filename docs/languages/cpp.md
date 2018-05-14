@@ -31,7 +31,7 @@ If you run into any issues or have suggestions for the Microsoft C/C++ extension
 
 With the C/C++ extension installed, open a folder that contains your C/C++ source code. VS Code will place various settings files into a `.vscode` subfolder.
 
-**Note**: The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer. Popular C++ compilers are [mingw-w64](http://www.mingw-w64.org/) for Windows, Clang for [XCode](https://developer.apple.com/xcode/) for macOS, and [GCC](https://gcc.gnu.org/) on Linux. Also make sure your compiler executable is on your platform path for VS Code to find.
+**Note**: The C/C++ extension does not include a C++ compiler or debugger. You will need to install these tools or use those already installed on your computer. Popular C++ compilers are [mingw-w64](http://www.mingw-w64.org/) for Windows, Clang for [XCode](https://developer.apple.com/xcode/) for macOS, and [GCC](https://gcc.gnu.org/) on Linux. Make sure your compiler executable is in your platform path so the extension can find it. The extension also supports the [Windows Subsystem for Linux](https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/LanguageServer/Windows%20Subsystem%20for%20Linux.md).
 
 ### Configuring IntelliSense
 
