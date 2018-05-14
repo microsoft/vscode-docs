@@ -260,36 +260,36 @@ Windows:
                                      "when": "terminalFocus" },
 ```
 
-## Why is nvm complaining about a prefix option when the integrated terminal is launched
+## Why is nvm complaining about a prefix option when the Integrated Terminal is launched
 
-nvm users often see this error for the first time inside VS Code's integrated terminal:
+nvm (Node Version Manager) users often see this error for the first time inside VS Code's Integrated Terminal:
 
-```
+```bash
 nvm is not compatible with the npm config "prefix" option: currently set to "/usr/local"
 Run `npm config delete prefix` or `nvm use --delete-prefix v8.9.1 --silent` to unset it
 ```
 
 This is mostly a macOS problem and does not happen in external terminals. The typical reasons for this are the following:
 
-- `npm` was globally installed using another instance of `node` which is somewhere in your path (such as `/usr/local/bin/npm`).
-- In order to get the development tools on the `$PATH`, VS Code will launch a bash login shell on start up. This means that your `~/.bash_profile` has already run and when an integrated terminal launches it will run _another_ login shell, reordering the `$PATH` potentially in unexpected ways.
+* `npm` was globally installed using another instance of `node` which is somewhere in your path (such as `/usr/local/bin/npm`).
+* In order to get the development tools on the `$PATH`, VS Code will launch a bash login shell on start up. This means that your `~/.bash_profile` has already run and when an Integrated Terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
 
-To resolve this issue you need to track down where the old `npm` is installed and remove it and its out of date node_modules. You can do this by finding the `nvm` initialization script and running `which npm` before it runs, this should print the path when you launch a new terminal.
+To resolve this issue, you need to track down where the old `npm` is installed and remove both it and its out of date node_modules. You can do this by finding the `nvm` initialization script and running `which npm` before it runs, which should print the path when you launch a new terminal.
 
-Once you have the path to npm you can find the old node_modules by resolving the symlink by running a command something like this:
+Once you have the path to npm, you can find the old node_modules by resolving the symlink by running a command something like this:
 
-```
+```bash
 ls -la /usr/local/bin | grep npm
 ```
 
-Which will give you the resolved path at the end:
+This will give you the resolved path at the end:
 
-```
+```bash
 ... npm -> ../lib/node_modules/npm/bin/npm-cli.js
 ```
 
 From there, removing the files and relaunching VS Code should fix the issue:
 
-```
+```bash
 rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 ```
