@@ -285,11 +285,11 @@ ls -la /usr/local/bin | grep npm
 Which will give you the resolved path at the end:
 
 ```
-... npm -> ../lib/node_modules/npm/bin/npm-gli.js
+... npm -> ../lib/node_modules/npm/bin/npm-cli.js
 ```
 
 From there, removing the files and relaunching VS Code should fix the issue:
 
 ```
-rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-gli.js
+rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 ```
