@@ -260,7 +260,7 @@ Windows:
                                      "when": "terminalFocus" },
 ```
 
-## Why is nvm complaining about a prefix option when the Integrated Terminal is launched
+### Why is nvm complaining about a prefix option when the Integrated Terminal is launched
 
 nvm (Node Version Manager) users often see this error for the first time inside VS Code's Integrated Terminal:
 
