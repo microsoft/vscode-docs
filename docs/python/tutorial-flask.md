@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 [Flask](http://flask.pocoo.org/) is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering.
 
-Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask *extensions*. The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask doesn't provide a page template engine, but installing Flask includes the Jinja templating engine by default.
+Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask *extensions*. The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask doesn't provide a page template engine, but installing Flask includes the Jinja templating engine by default. For convenience, we typically speak of these defaults as part of Flask.
 
 In thus tutorial you create a simple Flask app with three pages that use a common base template. Along the way you experience a number of features of VS Code including using the terminal, the editor, the debugger, code snippets, and more.
 
@@ -296,17 +296,25 @@ So far in this tutorial you've created a single `views.py` file that contains bo
         return html_content
     ```
 
-1. Because you typically start the app by running `runserver.py`, it's convenient to create a new debugger configuration that launches that file directly. In the Debug view, select the gear icon to open `launch.json`, select **Add Configuration**, then select **Python: Current File** from the list to use that configuration as a base. Change the `"name"` value to `"Python: runserver.py"` and `"program"` to `"${workspaceFolder}/runserver.py"`.
+1. Because you typically start the app by running `runserver.py`, it's convenient to create a new debugger configuration that launches that file directly. In the Debug view, select the gear icon to open `launch.json`, select **Add Configuration**, then select **Python: Current File** from the list to use that configuration as a base. Change the `"name"` value to `"Python: runserver.py"` and `"program"` to `"${workspaceFolder}/runserver.py"`:
 
-1. Save `launch.json`, select **Python: runserver.py** as the debug target, and start debugging (`kb(workbench.action.debug.start)`) to see that the refactored app is working properly. Stop the app when you're done.
+    ```json
+    {
+        "name": "Python: runserver.py",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/runserver.py",
+    },
+    ```
+
+1. Save `launch.json`, select **Python: runserver.py** as the debug target, and start debugging (`kb(workbench.action.debug.start)`) and open a browser to the debug URL (shown in the output window) to see that the refactored app is working properly. Stop the app when you're done.
 
 ## Use a templates to render a page
 
 The app you've created so far in this tutorial contains embedded HTML directly within Python code. Developers typically separate HTML markup from the code-generated data that gets inserted into that markup. *Templates* are a common approach to achieve this separation.
 
-A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
-
-The default templating engine for Flask is Ninja, which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
+- A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
+- The default templating engine for Flask is Jinja, which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
 
 In this section you create a single page using a template. In the sections that follow, you configure the app to serve static files, and then create multiple pages to the app that each contain a nav bar from a base template.
 
@@ -347,16 +355,16 @@ In this section you create a single page using a template. In the sections that 
 
     In `templates/home.html`:
 
-        ```html
+    ```html
     <!DOCTYPE html>
     <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>{{ title }}</title>
-    </head>
-    <body>
-        <strong>{{ message }}</strong> on {{ date }}
-    </body>
+        <head>
+            <meta charset="utf-8" />
+            <title>{{ title }}</title>
+        </head>
+        <body>
+            <strong>{{ message }}</strong> on {{ date }}
+        </body>
     </html>
     ```
 
@@ -411,9 +419,9 @@ The following sections demonstrate both types of static files.
 
 1. Run the app to observe that the "Hello Flask!" message renders in blue. Stop the app when you're done.
 
-### Refer to static file in code
+### Serve a static file from code
 
-1. In the `HelloFlask/static` folder, create a static JSON data file named `data.json` with the following contents (which are just meaningless sample data):
+1. In the `HelloFlask/static` folder, create a static JSON data file named `data.json` with the following contents (which are just meaningless sample data). For this file, use the **JavaScript file** item template, but be sure to change the extension to `,json`.
 
     ```json
     {
@@ -550,7 +558,11 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
     ![Autocompletion for the flextlayout code snippet](images/flask/autocomplete-for-code-snippet.png)
 
-1. Select the completion to insert the snippet, the insert the following line within the "content" block and save the file. This one line is the only unique part of the extended page template:
+    When you select the completion, the snippet's code appears with the cursor on the snippet's insertion point:
+
+    ![Insertion of the flextlayout code snippet](images/flask/code-snippet-inserted.png)
+
+1. At the insertion point in the "content" block, add the following line and save the file. This one line is the only unique part of the extended page template:
 
     ```html
     <p><span class="message">{{ message }}</span> on {{ date }}</p>
@@ -592,7 +604,9 @@ Congratulations on completing this walkthrough of working with Flask in Visual S
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
 
-From here you may want to review the following articles in the VS Code docs:
+Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/) for more information about templates. The [Template Designer Documentation](http://jinja.pocoo.org/docs/2.10/templates/#synopsis) contains all the details on the template language.
+
+You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
 - [Editing Python code](editing.md)
 - [Linting](linting.md)
