@@ -19,7 +19,11 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 }
 ```
 
-Below are the customizable colors grouped by UI region.
+Color values can be defined in the RGB color model with an alpha channel for transparency. As format, the following hexadecimal notations are supported: `#RGB`,`#RGBA`, `#RRGGBB` and `#RRGGBBAA`.
+R (red), G (green), B (blue), and A (alpha) are hexadecimal characters (0-9, a-f or A-F). The three-digit notation (#RGB) is a shorter version of the six-digit form (#RRGGBB) and the four-digit RGB notation (#RGBA) is a shorter version of the eight-digit form (#RRGGBBAA). For example #e35f is the same color as #ee3355ff.
+If no alpha value is defined, it defaults to `f` resp `ff` (no transparency, opaque). If alpha is set to `0` resp `00`, the color is fully transparent.
+
+Note that some colors should not be opaque. This is specified in the color descriptions.
 
 ## Contrast Colors
 
