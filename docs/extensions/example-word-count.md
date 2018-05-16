@@ -115,7 +115,7 @@ class WordCounter {
         docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
         docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         let wordCount = 0;
-        if (docContent != "") {
+        if (docContent !== "") {
             wordCount = docContent.split(" ").length;
         }
 
