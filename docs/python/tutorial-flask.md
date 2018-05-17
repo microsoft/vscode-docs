@@ -114,16 +114,17 @@ Anyone (or any build server) that receives a copy of the project needs only to r
 1. Add startup code that automatically runs the app using a host and port as defined by environment variables. Using environment variables allows you change the host and port on different computers, such as development and production servers, without changing the code.
 
     ```python
-    if __name__ == '__main__':
     from os import environ
-    HOST = os.environ.get('SERVER_HOST', 'localhost')
 
-    try:
-        PORT = int(os.environ.get('SERVER_PORT', '5555'))
-    except ValueError:
-        PORT = 5555
+    if __name__ == '__main__':
+        HOST = environ.get('SERVER_HOST', 'localhost')
 
-    app.run(HOST, PORT)
+        try:
+            PORT = int(environ.get('SERVER_PORT', '5555'))
+        except ValueError:
+            PORT = 5555
+
+        app.run(HOST, PORT)
     ```
 
 1. Save the `views.py` file.
