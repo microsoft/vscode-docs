@@ -20,10 +20,10 @@ To successfully complete this tutorial, you must do the following:
 
 1. Install whichever version of Python you want to use. Options include:
 
-  - The built-in Python installation on Linux.
-  - An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
-  - A download from [python.org](https://www.python.org/downloads/).
-  - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
+    - The built-in Python installation on Linux.
+    - An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
+    - A download from [python.org](https://www.python.org/downloads/).
+    - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
 1. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
 

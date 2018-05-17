@@ -14,9 +14,28 @@ MetaSocialImage: images/tutorial/social.png
 
 Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask *extensions*. The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask doesn't provide a page template engine, but installing Flask includes the Jinja templating engine by default. For convenience, we typically speak of these defaults as part of Flask.
 
-In thus tutorial you create a simple Flask app with three pages that use a common base template. Along the way you experience a number of features of VS Code including using the terminal, the editor, the debugger, code snippets, and more.
+In this tutorial you create a simple Flask app with three pages that use a common base template. Along the way you experience a number of features of VS Code including using the terminal, the editor, the debugger, code snippets, and more.
 
 The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
+
+## Prerequisites
+
+To successfully complete this tutorial, you must do the following:
+
+1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+
+1. Install whichever version of Python you want to use. Options include:
+
+    - The built-in Python installation on Linux.
+    - An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
+    - A download from [python.org](https://www.python.org/downloads/).
+    - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
+
+1. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
+
+    ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
+
+    The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
 ## Create a project environment for Flask
 
@@ -61,10 +80,10 @@ When you share your app code with others through source control or some other me
 
 Accordingly, developers typically omit the virtual environment folder from source control, and instead describe the app's dependencies using a `requirements.txt` file.
 
-In the case of Flask, as used in this tutorial, create a `requirements.txt` file in the root of your project folder with a single line that says the app requires Flask 0.x:
+In the case of Flask, as used in this tutorial, create a `requirements.txt` file in the root of your project folder with a single line that says the app requires the latest version of Flask:
 
 ```text
-Flask<1
+flask
 ```
 
 Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to recreate the environment.
@@ -216,16 +235,6 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Close the browser and stop the debugger when you're finished.
 
-### Running the Flask development server in debug mode
-
-You typically have plenty of debugging features in VS Code directly. If you want to use Flask's debug mode as well, do the following steps:
-
-1. Open the Debug panel, select the **Python: Flask** debugging environment, then select the gear icon to open `launch.json` to that configuration.
-1. In the `args` section of the configuration, remove `--no-debugger` and `--no-reload`.
-1. Modify the `FLASK_APP` entry in the `env` section to point to your startup file only, such as `views.py`, without any other prefix.
-1. Save `launch.json` and launch the debugger.
-1. You can also modify the `env` section to include `"FLASK_ENV": "development"`, which turns on Flask's debugger, activates Flask's automatic reloader, and enables debug mode on the app.
-
 ## Go to Definition and Peek Definition commands
 
 During your work with Flask or any other library, you may want to examine the code in those libraries themselves. VS Code provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
@@ -241,7 +250,6 @@ During your work with Flask or any other library, you may want to examine the co
 So far in this tutorial you've created a single `views.py` file that contains both the app code and the startup code that runs the app. To allow for further development, it's best to separate these concerns and also to create subfolders for templates and static files.
 
 1. In your project folder, create an app folder called `HelloFlask`.
-1. Move the `env` folder into `HelloFlask` (making the virtual environment a part of the app).
 1. In the `HelloFlask` folder, create a file named `__init.py__` with the following contents:
 
     ```python
@@ -309,7 +317,7 @@ So far in this tutorial you've created a single `views.py` file that contains bo
 
 1. Save `launch.json`, select **Python: runserver.py** as the debug target, and start debugging (`kb(workbench.action.debug.start)`) and open a browser to the debug URL (shown in the output window) to see that the refactored app is working properly. Stop the app when you're done.
 
-## Use a templates to render a page
+## Use a template to render a page
 
 The app you've created so far in this tutorial contains embedded HTML directly within Python code. Developers typically separate HTML markup from the code-generated data that gets inserted into that markup. *Templates* are a common approach to achieve this separation.
 
