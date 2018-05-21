@@ -4,31 +4,39 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 5/2/2018
+DateApproved: 05/21/2018
 MetaDescription: Learn about Visual Studio Code features (code completion, debugging, snippets, linting) for Python.
 ---
 # Python in Visual Studio Code
 
 Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension works on any operating system with a variety of Python interpreters, including. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
 
+> **Important**: This article provides only an overview of the different capabilities of the Python extension for VS Code. For a basic walkthrough of editing, running, and debugging code, see the [tutorial](/docs/python/python-tutorial.md) instead.
+
 ## Install Python and the Python extension
 
 The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python 3.6 from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
+Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](../python/environments.md#manually-specify-an-interpreter).
+
+You configure the Python extension through settings. See the [Settings reference](../python/settings-reference.md).
+
 ## Run Python in the Terminal
 
-To experience Python, create a file named `hello.py` and paste in the following code:
+To experience Python, create a file (using [Explorer](../getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code (assuming Python 3):
 
 ```python
 print("Hello World")
 ```
 
-The Python extension then provides shortcuts to run Python code in the current interpreter:
+The Python extension then provides shortcuts to run Python code in the currently selected interpreter (**Python: Select Interpreter** on the command palette):
 
 - In the text editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - In Explorer: right-click a Python file and select **Run Python File in Terminal**.
 
-You can also use the **Python: Create Terminal** command to create a terminal with the current environment activated. See [Environments](#environments) below.
+You can also use the **Python: Create Terminal** command to create a terminal and activate the currently selected interpreter. See [Environments](#environments) below. The **Python: Start REPL** activates a terminal with the currently selected interpreter and then runs the Python REPL.
+
+For a more specific walkthrough on running code, see the [tutorial](/docs/python/python-tutorial.md).
 
 ## Autocomplete and IntelliSense
 
@@ -50,7 +58,7 @@ The Python extension can apply a number of different linters including Pylint, P
 
 No more `print` statement debugging! Set breakpoints, inspect data, and use the debug console as you run your program step by step. Debug a number of different type of Python applications, including multi-threaded, web, and remote applications.
 
-For Python-specific details, including setting up your `launch.json` configuration, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md).
+For Python-specific details, including setting up your `launch.json` configuration and remote debugging, see [Debugging](/docs/python/debugging.md). General VS Code debugging information is found in the [debugging document](/docs/editor/debugging.md).
 
 <video id="python-debugging-video" src="https://az754404.vo.msecnd.net/public/python-debugging.mp4" poster="/images/python_python-debugging-placeholder.png" autoplay loop controls muted></video>
 
@@ -74,7 +82,7 @@ The status bar also indicates if no interpreter is selected:
 
 The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you use [run Python in a terminal](#run-python-in-the-terminal).
 
-To change the current interpreter, which includes switching to conda or virtual environments, click the interpreter name on the status bar or use the **Python: Select Interpreter** command.
+To change the current interpreter, which includes switching to conda or virtual environments, select the interpreter name on the status bar or use the **Python: Select Interpreter** command.
 
 ![Python: Select Interpreter command](images/python/select-interpreters-command.png)
 
