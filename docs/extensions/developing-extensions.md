@@ -1,10 +1,10 @@
 ---
-Order: 9
+Order: 10
 Area: extensions
 TOCTitle: Developing Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
 PageTitle: Developing your own Visual Studio Code Extension
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code extension (plug-in) development. Learn about running, debugging, profiling, and troubleshooting extensions.
 ---
 # Developing Extensions
@@ -118,7 +118,11 @@ To open the **Developer Tools** console in VS Code, use the **Help** > **Toggle 
 
 >**Tip for extension authors**: Help out your users by providing helpful logging when you create your extension. The more information you give users, the more likely they will be able to solve dependency and configuration problems on their own. Good logging will also help you more quickly resolve real issues.
 
-### Extension README
+### Reinstall the extension
+
+Sometimes an extension installation can fail or get corrupted. If an extension isn't working correctly, you can always try to uninstall and reinstall the extension. VS Code has a handy command **Developer: Reinstall Extension...** which will present a dropdown with all of your installed extensions. Choose the extension which is giving you trouble and then after the extension is reinstalled, follow the notification to reload VS Code.
+
+### Consult the extension README
 
 Extensions may have additional dependencies like standalone linters or compilers or custom configuration files in order to run correctly. The extension's README, displayed in the **Extensions** view **Details** pane, include details on configuration and use of the extension. Go to the **Extensions** view (`kb(workbench.view.extensions)`), select the extension under **INSTALLED** section, and look at the **Details** tab.
 

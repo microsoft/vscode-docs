@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 11
 Area: extensions
 TOCTitle: Publishing Extensions
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
 PageTitle: Publishing Visual Studio Code Extensions
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Learn how to publish Visual Studio Code extensions to the public Marketplace and share them with other developers.
 ---
 # Publishing Extensions
@@ -48,13 +48,13 @@ The publishing tool checks the following constraints:
 
 ---
 
-Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
+Visual Studio Code leverages [Visual Studio Team Services](https://www.visualstudio.com/team-services/) for its Marketplace services. This means that authentication, hosting and management of extensions is provided through that service.
 
-`vsce` can only publish extensions using [Personal Access Tokens](https://www.visualstudio.com/docs/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
+`vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/vsts/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First, make sure you have a [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) account.
+First, make sure you have a [Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) account.
 
 In the following examples, the account name is `monacotools`. From your account's home page (for example: `https://monacotools.visualstudio.com`), go to the **Security** page:
 
@@ -102,7 +102,7 @@ vsce publish -p <token>
 
 ## Auto-incrementing the extension version
 
-You can auto-increment an extension's version number when you publish by specifying the [SemVer](http://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
+You can auto-increment an extension's version number when you publish by specifying the [SemVer](https://semver.org/) compatible number to increment: `major`, `minor`, or `patch`.
 
 For example, if you want to update an extension's version from 1.0.0 to 1.1.0, you would specify `minor`:
 
@@ -164,7 +164,7 @@ For example, imagine that the latest Stable version of VS Code is `1.8.0` and th
 
 ### Marketplace integration
 
-You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/lukehoban.Go) for an example.
+You can customize how your extension looks in the Visual Studio Marketplace. See the [Go extension](https://marketplace.visualstudio.com/items/ms-vscode.Go) for an example.
 
 Here are some tips for making your extension look great on the Marketplace:
 

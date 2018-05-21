@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -163,7 +163,7 @@ Here is an example:
 
 The keys above are string representations for virtual keys and do not necessarily relate to the produced character when they are pressed. More precisely:
 
-* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731)
+* Reference: [Virtual-Key Codes (Windows)](https://msdn.microsoft.com/library/windows/desktop/dd375731)
 * `kbstyle(tab)` for `VK_TAB` (`0x09`)
 * `kbstyle(;)` for `VK_OEM_1` (`0xBA`)
 * `kbstyle(=)` for `VK_OEM_PLUS` (`0xBB`)
@@ -224,6 +224,8 @@ Context name | True when
 **Editor contexts** |
 editorFocus | An editor has focus, either the text or a widget.
 editorTextFocus | The text in an editor has focus (cursor is blinking).
+textInputFocus | Any editor has focus (regular editor, debug REPL, etc.).
+inputFocus | Any text input area has focus (editors or text boxes).
 editorHasSelection | Text is selected in the editor.
 editorHasMultipleSelections | Multiple regions of text are selected (multiple cursors).
 editorReadOnly | The editor is read only.
@@ -266,6 +268,7 @@ searchViewletVisible | Search view is open.
 sidebarVisible | Side Bar is displayed.
 editorIsOpen | True if one editor is open.
 inZenMode | Window is in Zen Mode.
+inDebugRepl | Focus is in the Debug Console REPL.
 textCompareEditorVisible | At least one diff (compare) view is visible.
 workspaceFolderCount | Count of workspace folders.
 replaceActive | Search view Replace text box is open.
@@ -277,6 +280,22 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 >**Note**: You can use any user or workspace setting that evaluates to a boolean here with the prefix `"config."`.
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
+
+## Custom Keybindings for Refactorings
+
+The `editor.action.codeAction` command lets you configure keybindings for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keybinding below triggers the **Extract function** refactoring Code Actions:
+
+```json
+{
+  "key": "ctrl+shift+r ctrl+e",
+  "command": "editor.action.codeAction",
+  "args": {
+    "kind": "refactor.extract.function"
+  }
+}
+```
+
+This is covered in depth in the [Refactoring](/docs/editor/refactoring.md#keybindings-for-code-actions) topic where you can learn about different kinds of Code Actions and how to prioritize them in the case of multiple possible refactorings.
 
 ## Default Keyboard Shortcuts
 
@@ -464,7 +483,7 @@ Key|Command|Command id
 
 Key|Command|Command id
 ---|-------|----------
-`kb(workbench.action.openGlobalSettings)`|Open User Settings|`workbench.action.openGlobalSettings`
+`kb(workbench.action.openSettings)`|Open Settings|`workbench.action.openSettings`
 `kb(workbench.action.openWorkspaceSettings)`|Open Workspace Settings|`workbench.action.openWorkspaceSettings`
 `kb(workbench.action.openGlobalKeybindings)`|Open Keyboard Shortcuts|`workbench.action.openGlobalKeybindings`
 `kb(workbench.action.openSnippets)`|Open User Snippets|`workbench.action.openSnippets`

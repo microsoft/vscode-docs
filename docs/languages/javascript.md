@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: JavaScript
 ContentId: F54BB3D4-76FB-4547-A9D0-F725CEBB905C
 PageTitle: JavaScript Programming with Visual Studio Code
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Get the best out of Visual Studio Code for JavaScript development
 ---
 # JavaScript in VS Code
@@ -227,7 +227,7 @@ VS Code provides several formatting settings for JavaScript. They can all be fou
 
 A [linter](https://en.wikipedia.org/wiki/Lint_%28software%29) is a tool that provides warnings for suspicious looking code. VS Code supports linters through [extensions](/docs/editor/extension-gallery.md). Linters provide warnings, errors, and light bulb actions.
 
-VS Code provides support for JavaScript linters, including [ESLint](http://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
+VS Code provides support for JavaScript linters, including [ESLint](https://eslint.org/), [JSHint](http://jshint.com/) and [StandardJS](https://standardjs.com/).  If enabled, the JavaScript code is validated as you type and you can navigate to reported problems and fix them inside VS Code.
 
  ![linter warning](images/javascript/eslint_warning.png)
 
@@ -260,9 +260,9 @@ You can also control when a linter runs with the linter `.run` setting. The two 
 
 Here are a few useful resources when using ESLint.
 
-* [Complete list of ESLint Rules](http://eslint.org/docs/rules/)
-* [Configuring ESLint](http://eslint.org/docs/user-guide/configuring)
-* [Getting Started with ESLint](http://eslint.org/docs/user-guide/getting-started)
+* [Complete list of ESLint Rules](https://eslint.org/docs/rules/)
+* [Configuring ESLint](https://eslint.org/docs/user-guide/configuring)
+* [Getting Started with ESLint](https://eslint.org/docs/user-guide/getting-started)
 
 ## Type checking
 
@@ -504,4 +504,4 @@ When you want to use ES6 style imports but some type declaration (typings) files
 
 **A:** Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 
-With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](http://eslint.org) to validate your source code. Since VS Code's JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.
+With `javascript.validate.enable: false`, you disable all built-in syntax checking. If you do this, we recommend that you use a linter like [ESLint](https://eslint.org) to validate your source code. Since VS Code's JavaScript support doesn't understand ES7 constructs, features like IntelliSense might not be fully accurate.

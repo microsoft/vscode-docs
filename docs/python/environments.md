@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 04/30/2018
+DateApproved: 5/2/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -100,7 +100,7 @@ The extension also loads an [environment variable definitions file](#environment
 
 If VS Code does not automatically locate an interpreter you want to use, you can set the path to it manually in your User Settings `settings.json` file:
 
-1. Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openGlobalSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
+1. Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
 
 2. Create or modify an entry for `python.pythonPath` with the full path to the Python executable.
 

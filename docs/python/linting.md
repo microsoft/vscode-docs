@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 04/30/2018
+DateApproved: 5/2/2018
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -135,13 +135,13 @@ The generated file contains sections for all the Pylint options, along with docu
 
 ### Command-line arguments and configuration files
 
-See [pycodestyle example usage and output](http://pep8.readthedocs.io/en/latest/intro.html#example-usage-and-output) for general switches. For example, to ignore error E303 (too many blank lines), add the following line to your `settings.json` file:
+See [pycodestyle example usage and output](https://pep8.readthedocs.io/en/latest/intro.html#example-usage-and-output) for general switches. For example, to ignore error E303 (too many blank lines), add the following line to your `settings.json` file:
 
 ```json
 "python.linting.pep8Args": ["--ignore=E303"]
 ```
 
-Pep8 options are read from the `[pep8]` section of a `tox.ini` or `setup.cfg` file located in any parent folder of the path(s) being processed. For details, see [pycodestyle configuration](http://pep8.readthedocs.io/en/latest/intro.html#configuration).
+Pep8 options are read from the `[pep8]` section of a `tox.ini` or `setup.cfg` file located in any parent folder of the path(s) being processed. For details, see [pycodestyle configuration](https://pep8.readthedocs.io/en/latest/intro.html#configuration).
 
 ### Message category mapping
 

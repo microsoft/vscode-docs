@@ -1,10 +1,10 @@
 ---
-Order: 7
+Order: 9
 Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Complex Commands Reference
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.
 ---
 # Complex Commands
@@ -95,6 +95,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _uri_ Uri of a text document
 * _position_ Position in a text document
 * _triggerCharacter_ (optional) Trigger completion when the user types the character, like `,` or `(`
+* _itemResolveCount_ (optional) Number of completions to resolve (too large numbers slow down completions)
 * _(returns)_ A promise that resolves to a CompletionList-instance.
 
 
@@ -108,6 +109,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 `vscode.executeCodeLensProvider` - Execute CodeLens provider.
 
 * _uri_ Uri of a text document
+* _itemResolveCount_ (optional) Number of lenses that should be resolved and returned. Will only retrun resolved lenses, will impact performance)
 * _(returns)_ A promise that resolves to an array of CodeLens-instances.
 
 
@@ -332,7 +334,7 @@ If your preview still needs to load some local resources such as images, try usi
 
 ### Using a Content Security Policy
 
-If your preview's functionality depends on scripts, consider disabling scripts that come from untrusted user content using a [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP). Content security policy allow fine grained control over which resources may be loaded.
+If your preview's functionality depends on scripts, consider disabling scripts that come from untrusted user content using a [content security policy](https://developer.mozilla.org/docs/Web/HTTP/CSP). Content security policy allow fine grained control over which resources may be loaded.
 
 For example, here's a content security policy that allows images from anywhere, allows stylesheets from a user's local system, and disables all scripts:
 

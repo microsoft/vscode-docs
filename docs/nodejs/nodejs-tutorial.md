@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Tutorial
 ContentId: ED394CD2-D09E-4E3A-96AD-6D3D8337BA9D
 PageTitle: Build Node.js Apps with VS Code
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: The Visual Studio Code editor has great support for writing and debugging Node.js applications. This tutorial takes you from Hello World to a full Express web application.
 MetaSocialImage: images/nodejs/runtimes_node.png
 ---
@@ -135,6 +135,8 @@ From a terminal in the Express application folder, run:
 ```bash
 npm start
 ```
+
+>**Tip:** You can enable an explorer for the npm scripts in your workspace using the `npm.enableScriptExplorer` setting.
 
 The Node.js web server will start and you can browse to `http://localhost:3000` to see the running application.
 

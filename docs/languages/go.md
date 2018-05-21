@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Go
 ContentId: 6f06908a-6694-4fad-ac1e-fc6d9c5747ca
 PageTitle: Go with Visual Studio Code
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Go.
 ---
 # Go programming in VS Code
@@ -13,7 +13,7 @@ Using the Go extension for Visual Studio Code, you get language features like In
 
 ![go extension banner](images/go/go-extension.png)
 
-You can install the Go extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go).
+You can install the Go extension from the VS Code [Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
 
 ## IntelliSense
 
@@ -103,7 +103,7 @@ The Go extension lets you debug Go code as well. You will need to install the [D
 
 ## Next Steps
 
-This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://marketplace.visualstudio.com/items?itemName=lukehoban.Go).
+This has been a brief overview showing the Go extension features within VS Code. For more information, see the details provided in the Go extension [README](https://marketplace.visualstudio.com/items?itemName=ms-vscode.Go).
 
 To stay up to date on the latest features/bug fixes for the Go extension, see the [CHANGELOG](https://github.com/Microsoft/vscode-go/blob/master/CHANGELOG.md).
 

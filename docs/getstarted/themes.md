@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 # Color Themes
@@ -86,7 +86,7 @@ Again, to customize a specific theme only, use the following syntax:
 
 ## Creating your own color theme
 
-Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme for Current Settings** command.
+Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
 
 VS Code's Yeoman [extension generator](/docs/extensions/yocode.md) will help you generate the rest of the extension.
 

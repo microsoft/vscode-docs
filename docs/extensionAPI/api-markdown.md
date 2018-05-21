@@ -1,10 +1,10 @@
 ---
-Order: 10
+Order: 12
 Area: extensionapi
 TOCTitle: Markdown Extension API
 ContentId: 1664249a-ba7a-4a53-b3f0-9d757cff7d27
 PageTitle: Visual Studio Code Markdown Extensions
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: How extensions can extend Visual Studio Code's built-in Markdown preview.
 ---
 # Markdown Extensions
@@ -31,7 +31,7 @@ The [Markdown Preview GitHub Styling](https://marketplace.visualstudio.com/items
 
 ## Adding support for new syntax with markdown-it plugins
 
-The VS Code Markdown preview supports the [CommonMark specification](http://spec.commonmark.org). Extensions can add support for additional Markdown syntax by contributing a [markdown-it plugin.](https://github.com/markdown-it/markdown-it#syntax-extensions)
+The VS Code Markdown preview supports the [CommonMark specification](https://spec.commonmark.org). Extensions can add support for additional Markdown syntax by contributing a [markdown-it plugin.](https://github.com/markdown-it/markdown-it#syntax-extensions)
 
 To contribute a markdown-it plugin, first add a `"markdown.markdownItPlugins"` contribution in your extension's `package.json`:
 
@@ -84,4 +84,4 @@ For advanced functionality, extensions may contribute scripts that are executed 
 
 Contributed scripts are loaded asynchronously and reloaded on every content change.
 
-The [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension demonstrates using scripts to add [mermaid](http://knsv.github.io/mermaid/index.html) diagrams and flowchart support to the markdown preview. You can review the Mermaid extension's source code on [GitHub](https://github.com/mjbvz/vscode-markdown-mermaid).
+The [Markdown Preview Mermaid Support](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid) extension demonstrates using scripts to add [mermaid](https://knsv.github.io/mermaid/index.html) diagrams and flowchart support to the markdown preview. You can review the Mermaid extension's source code on [GitHub](https://github.com/mjbvz/vscode-markdown-mermaid).

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -171,7 +171,7 @@ See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.m
 
 Open User Settings `settings.json`
 
-Keyboard Shortcut: `kb(workbench.action.openGlobalSettings)`
+Keyboard Shortcut: `kb(workbench.action.openSettings)`
 
 Format on paste
 
@@ -368,11 +368,11 @@ Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
 Further reading:
 
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) documentation
-* [Mastering VS Code's Terminal article](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
+* [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
 
 ### Auto Save
 
-Open User Settings `settings.json` with `kb(workbench.action.openGlobalSettings)`
+Open User Settings `settings.json` with `kb(workbench.action.openSettings)`
 
 ```json
 "files.autoSave": "afterDelay"
@@ -629,7 +629,7 @@ Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use
 ### .eslintrc.json
 
 Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). Configure
-your linter however you'd like. Consult the [ESLint specification](http://eslint.org/docs/user-guide/configuring) for details on its linting rules and options.
+your linter however you'd like. Consult the [ESLint specification](https://eslint.org/docs/user-guide/configuring) for details on its linting rules and options.
 
 Here is configuration to use ES6.
 
@@ -687,7 +687,7 @@ See IntelliSense for your `package.json` file.
 
 ### Create custom snippets
 
-**File** > **Preferences** > **User Snippets**, select the language, and create a snippet.
+**File** > **Preferences** > **User Snippets** (**Code** > **Preferences** > **User Snippets** on macOS), select the language, and create a snippet.
 
 ```json
 "create component": {
@@ -843,6 +843,14 @@ There are occasionally issues with auto generation. Check out the documentation 
 Select **Tasks** from the top-level menu, run the command **Run Task...**, and select the task you want to run. Terminate the running task by running the command **Terminate Task...**
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
+
+### Run npm scripts as tasks from the explorer
+
+With the setting `npm.enableScriptExplorer`, you can enable an explorer that shows the scripts defined in your workspace.
+
+![Filter problems](images/tips-and-tricks/script_explorer.png)
+
+From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
 
 ## Insiders builds
 

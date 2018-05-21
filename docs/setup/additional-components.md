@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Additional Components
 ContentId: 243B79C2-819F-4257-B80D-2CD9CCB04C84
 PageTitle: Setting up additional components to use with Visual Studio Code
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Setting up additional components to use with Visual Studio Code.
 ---
 # Additional components and tools
@@ -39,7 +39,7 @@ Visual Studio Code integrates with existing tool chains.  We think the following
 - [generator-aspnet](https://www.npmjs.com/package/generator-aspnet) - A Yeoman generator for scaffolding **ASP.NET Core** applications.
 - [generator-hottowel](https://github.com/johnpapa/generator-hottowel) - A Yeoman generator for quickly creating **AngularJS** applications.
 - [Express](https://expressjs.com/) - An application framework for Node.js applications using the **Jade** template engine.
-- [Gulp](http://gulpjs.com/) - A streaming task runner system which integrates easily with VS Code tasks.
+- [Gulp](https://gulpjs.com/) - A streaming task runner system which integrates easily with VS Code tasks.
 - [Mocha](https://mochajs.org/) - A JavaScript test framework that runs on Node.js.
 - [Yarn](https://yarnpkg.com/) - A dependency manager and alternative to NPM.
 

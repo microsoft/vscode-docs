@@ -50,7 +50,7 @@ Along with the language support, if you are deploying your applications to the c
 
 ### Micro-Services
 
-* The [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension makes it easy to develop and deploy containerized micro-service based applications using Docker containers. Use [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) to create a CI/CD pipeline to build your containerized applications, deploy them to the [Azure Container Registry](https://docs.microsoft.com//azure/container-registry/), run web sites directly in [Azure App Services](https://docs.microsoft.com//azure/app-service/), and run multi-container systems at scale using the [Azure Container Service](https://docs.microsoft.com//azure/container-service/).
+* The [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension makes it easy to develop and deploy containerized micro-service based applications using Docker containers. Use [Visual Studio Team Services](https://docs.microsoft.com/vsts) to create a CI/CD pipeline to build your containerized applications, deploy them to the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), run web sites directly in [Azure App Services](https://docs.microsoft.com//azure/app-service/), and run multi-container systems at scale using the [Azure Container Service](https://docs.microsoft.com//azure/container-service/).
 
 ### Storage
 

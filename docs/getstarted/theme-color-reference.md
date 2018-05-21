@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -266,6 +266,7 @@ To see the editor white spaces, enable **Toggle Render Whitespace**.
 To see the editor indent guides, set `"editor.renderIndentGuides": true`.
 
 - `editorIndentGuide.background`: Color of the editor indentation guides.
+- `editorIndentGuide.activeBackground`: Color of the active editor indentation guide.
 
 To see editor rulers, define their location with `"editor.rulers"`
 
@@ -300,6 +301,7 @@ This ruler is located beneath the scroll bar on the right edge of the editor and
 - `editorOverviewRuler.errorForeground`: Overview ruler marker color for errors.
 - `editorOverviewRuler.warningForeground`: Overview ruler marker color for warnings.
 - `editorOverviewRuler.infoForeground`: Overview ruler marker color for infos.
+- `editorOverviewRuler.bracketMatchForeground`: Overview ruler marker color for matching brackets.
 
 Errors and warnings:
 
@@ -366,6 +368,7 @@ Peek views are used to show references and declarations as a view inside the edi
 - `peekViewEditor.background`: Background color of the peek view editor.
 - `peekViewEditorGutter.background`: Background color of the gutter in the peek view editor.
 - `peekViewEditor.matchHighlightBackground`: Match highlight color in the peek view editor.
+- `peekViewEditor.matchHighlightBorder`: Match highlight border color in the peek view editor.
 - `peekViewResult.background`: Background color of the peek view result list.
 - `peekViewResult.fileForeground`: Foreground color for file nodes in the peek view result list.
 - `peekViewResult.lineForeground`: Foreground color for line nodes in the peek view result list.
@@ -481,6 +484,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 ## Integrated Terminal Colors
 
 - `terminal.background`: The background of the Integrated Terminal's viewport.
+- `terminal.border`: The color of the border that separates split panes within the terminal. This defaults to panel.border.
 - `terminal.foreground`: The default foreground color of the Integrated Terminal.
 - `terminal.ansiBlack`: 'Black' ANSI color in the terminal.
 - `terminal.ansiBlue`: 'Blue' ANSI color in the terminal.
@@ -505,6 +509,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 ## Debug
 
 - `debugToolBar.background`: Debug toolbar background color.
+- `debugToolBar.border`: Debug toolbar border color.
 
 ## Welcome Page
 

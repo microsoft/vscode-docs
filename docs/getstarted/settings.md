@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
@@ -29,7 +29,7 @@ To open your user and workspace settings, use the following VS Code menu command
 
 You are provided with a list of **Default Settings**. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs under the Search box let you switch quickly between the user and workspace settings files.
 
-You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openGlobalSettings)`).
+You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
 In the example below, the workspace contains settings to disable line numbers in the editor and configure line wrapping to wrap automatically based on the size of the editor.
 
@@ -202,13 +202,19 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available.
   "editor.autoIndent": true,
 
-  // Controls if the editor shows code lenses
+  // Code action kinds to be run on save.
+  "editor.codeActionsOnSave": {},
+
+  // Timeout for code actions run on save.
+  "editor.codeActionsOnSaveTimeout": 750,
+
+  // Controls if the editor shows CodeLens
   "editor.codeLens": true,
 
   // Controls whether the editor should render the inline color decorators and color picker.
   "editor.colorDecorators": true,
 
-  // Control the cursor animation style, possible values are 'blink', 'smooth', 'phase', 'expand' and 'solid'
+  // Control the cursor animation style.
   "editor.cursorBlinking": "blink",
 
   // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
@@ -283,7 +289,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
   "editor.lineHeight": 0,
 
-  // Controls the display of line numbers. Possible values are 'on', 'off', 'relative' and 'interval'.
+  // Controls the display of line numbers.
   "editor.lineNumbers": "on",
 
   // Controls whether the editor should detect links and make them clickable
@@ -301,10 +307,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": true,
 
-  // Controls whether the minimap slider is automatically hidden. Possible values are 'always' and 'mouseover'
+  // Controls whether the minimap slider is automatically hidden.
   "editor.minimap.showSlider": "mouseover",
 
-  // Controls the side where to render the minimap. Possible values are 'right' and 'left'
+  // Controls the side where to render the minimap.
   "editor.minimap.side": "right",
 
   // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
@@ -656,7 +662,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
-    "**/node_modules/**": true
+    "**/node_modules/*/**": true
   },
 
 // Zen Mode
@@ -716,7 +722,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
 
-  // Controls if the Search Viewlet should read or modify the shared find clipboard on macOS
+  // Controls if the search view should read or modify the shared find clipboard on macOS
   "search.globalFindClipboard": false,
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
@@ -762,6 +768,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Allows setting breakpoint in any file
   "debug.allowBreakpointsEverywhere": false,
+
+  // Controls if the non debug hovers should be enabled while debugging. If true the hover providers will be called to provide a hover. Regular hovers will not be shown even if this setting is true.
+  "debug.enableAllHovers": false,
 
   // Controls if the floating debug action bar should be hidden
   "debug.hideActionBar": false,
@@ -1530,6 +1539,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether auto detection of npm scripts is on or off. Default is on.
   "npm.autoDetect": "on",
 
+  // Enable an explorer view for npm scripts.
+  "npm.enableScriptExplorer": false,
+
   // Configure glob patterns for folders that should be excluded from automatic script detection.
   "npm.exclude": "",
 
@@ -1558,7 +1570,7 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 **Q: VS Code says "Unable to write settings."**
 
-**A:** If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS) (`kb(workbench.action.openGlobalSettings)`) and you should see the error highlighted with red squiggles.
+**A:** If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS) (`kb(workbench.action.openSettings)`) and you should see the error highlighted with red squiggles.
 
 **Q: When does it make sense to use workspace settings?**
 

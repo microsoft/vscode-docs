@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, Sass and Less support in VS Code
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
 # CSS, Sass and Less
@@ -94,7 +94,7 @@ Hovering over a selector or property will provide an HTML snippet that is matche
 
 ## Go to Declaration and Find References
 
-This is supported for Sass and Less variables in the same file. [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) per the [draft standards proposal](https://drafts.csswg.org/css-variables/) are also supported.
+This is supported for Sass and Less variables in the same file. [CSS variables](https://developer.mozilla.org/docs/Web/CSS/Using_CSS_variables) per the [draft standards proposal](https://drafts.csswg.org/css-variables/) are also supported.
 
 >**Note:** Cross file references ('imports') are not resolved.
 
@@ -198,7 +198,7 @@ Let's take things a little further and automate Sass/Less compilation with VS Co
 
 ### Step 1: Install Gulp and some plug-ins
 
-We will use [Gulp](http://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
+We will use [Gulp](https://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
 
 We need to install gulp both globally (`-g` switch) and locally:
 

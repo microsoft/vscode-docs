@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 # Visual Studio Code FAQ
@@ -41,7 +41,7 @@ The VS Code version is the first **Version** number listed and has the version f
 
 By default, VS Code is set up to auto-update for macOS and Windows users when we release new updates. If you do not want to get automatic updates, you can set the `update.channel` setting from `default` to `none`.
 
-To modify the update channel, go to **File** > **Preferences** > **Settings** and add the `update.channel` setting with the value `"none"`.
+To modify the update channel, go to **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**) and add the `update.channel` setting with the value `"none"`.
 
 ```json
     "update.channel": "none"
@@ -103,7 +103,7 @@ VS Code collects usage data and sends it to Microsoft to help improve our produc
 
 If you don’t wish to send usage data to Microsoft, you can set the `telemetry.enableTelemetry` setting to `false`.
 
-From **File** > **Preferences** > **Settings**, add the following option to disable telemetry reporting, this will silence all telemetry events from the VS Code shell.
+From **File** > **Preferences** > **Settings** (macOS: **Code** > **Preferences** > **Settings**), add the following option to disable telemetry reporting, this will silence all telemetry events from the VS Code shell.
 
 ```json
     "telemetry.enableTelemetry": false
@@ -127,4 +127,4 @@ If you don’t wish to send crash data to Microsoft, you can set the `telemetry.
 
 You can ask questions and search for answers on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode) and enter issues and feature requests directly in our [GitHub repository](https://github.com/Microsoft/vscode/blob/master/CONTRIBUTING.md).
 
-If you'd like to contact a professional support engineer, you can open a ticket with the [Microsoft assisted support team](https://support.microsoft.com/en-us/assistedsupportproducts).
+If you'd like to contact a professional support engineer, you can open a ticket with the [Microsoft assisted support team](https://support.microsoft.com/assistedsupportproducts).

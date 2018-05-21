@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 04/30/2018
+DateApproved: 5/2/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -128,8 +128,8 @@ Specifies how program output is displayed.
 
 | Value | Where output is displayed |
 |--- | --- |
-| `"none"` (default) | VS Code debug console |
-| `"integratedTerminal"` | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md) |
+| `"none"` | VS Code debug console |
+| `"integratedTerminal"` (default) | [VS Code Integrated Terminal](/docs/editor/integrated-terminal.md) |
 | `"externalTerminal"` | Separate console window |
 
 ### `cwd`

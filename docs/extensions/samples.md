@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 9
 Area: extensions
 TOCTitle: Additional Examples
 ContentId: B32601A8-27ED-4D97-BA83-F1C8C945C635
 PageTitle: Visual Studio Code Extension Examples
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: Learn from existing Visual Studio Code extension examples.
 ---
 # VS Code Extension Examples

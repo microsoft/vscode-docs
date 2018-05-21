@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Word Count
 ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
 PageTitle: Visual Studio Code Example - Word Count Extension
-DateApproved: 4/5/2018
+DateApproved: 5/3/2018
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
 # Example - Word Count
@@ -115,7 +115,7 @@ class WordCounter {
         docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
         docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         let wordCount = 0;
-        if (docContent != "") {
+        if (docContent !== "") {
             wordCount = docContent.split(" ").length;
         }
 
