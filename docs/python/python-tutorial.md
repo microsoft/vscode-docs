@@ -28,14 +28,6 @@ To successfully complete this tutorial, you must do the following:
 
 1. (Windows) Make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
 
-1. From within VS Code, select a Python 3 interpreter using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available (it may already show a selected interpreter, too):
-
-    ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
-
-    The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
-
-> **Tip**: Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings**, then select the **Workspace Settings** tab.
-
 ## Create a folder and source code file
 
 Create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`):
@@ -75,13 +67,27 @@ Feel free to experiment with IntelliSense some more, but then revert changes so 
 
 For full details on editing, formatting, and refactoring, see [Editing code](/docs/python/editing.md). The Python extension also has full support for [Linting](/docs/python/linting.md).
 
+## Select a Python interpreter
+
+Python is an interpreted language, and in order to run Python code you must tell VS Code which interpreter to use.
+
+From within VS Code, select a Python 3 interpreter using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available (it may already show a selected interpreter, too):
+
+    ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
+
+The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
+
+Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings**, then select the **Workspace Settings** tab.
+
+> **Note**: If you select an interpreter without a workspace folder open, VS Code sets `python.pythonPath` in your user settings instead, which sets the default interpreter for VS Code in general.
+
 ## Run Hello World
 
 It's simple to run `hello.py` with Python. Right-click in the editor and select **Run Python File in Terminal** (which saves the file automatically):
 
 ![Run Python File in Terminal command in the Python editor](images/tutorial/run-python-file-in-terminal.png)
 
-The command opens a terminal panel in which your Python interpreter is automatically selected, then runs `python3 hello.py` (Mac/Linux) or `python hello.py`:
+The command opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (Mac/Linux) or `python hello.py`:
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
@@ -114,7 +120,7 @@ The command opens a menu of available debuggers, which shows **Python** and **Py
 
 These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python: Current File," which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
-To automatically stop the debugger on the first line when the program starts, add a `stopOnEntry` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
+To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
 
 ```json
 {
