@@ -82,9 +82,9 @@ You can also run the entire file at any time using the **Python: Run File in Ter
 
 Using the **Python: Start REPL** command opens a REPL terminal that's separate from the default terminal.
 
-When working in the editor, you can send the current line to the REPL using the Ctrl+Enter key. Using Ctrl+Enter starts the REPL if it's not already running, but note that initial startup might take a few moments especially if the first statement you run is an `import`.
+When working in the editor, you can send the current line to the REPL using the `kbstyle(Ctrl+Enter)` keys. Using `kbstyle(Ctrl+Enter)` starts the REPL if it's not already running, but note that initial startup might take a few moments especially if the first statement you run is an `import`.
 
-> **Note**: at present, using Ctrl+Enter keeps the editor on the same line of code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
+> **Note**: At present, using `kbstyle(Ctrl+Enter)` keeps the editor on the same line of code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
 ## Formatting
 
@@ -134,7 +134,7 @@ Extracts all similar occurrences of the selected text within the current scope, 
 Invoked by:
 
 - Context Menu: right-click a selection and select **Extract Variable**.
-- Command Palette: ⇧⌘P or Ctrl+Shift+P, then **Python Refactor: Extract Variable**.
+- Command Palette: `kb(workbench.action.showCommands)`, then **Python Refactor: Extract Variable**.
 - Assign a keyboard shortcut to the `python.refactorExtractVariable` command.
 
 ![Refactoring a variable](images/editing/refactorExtractVar.gif)
@@ -146,7 +146,7 @@ Extracts all similar occurrences of the selected expression or block of within t
 Invoked by:
 
 - Context Menu: right-click a selection and select **Extract Method**.
-- Command Palette: ⇧⌘P or Ctrl+Shift+P, then **Python Refactor: Extract Method**.
+- Command Palette: `kb(workbench.action.showCommands)`, then **Python Refactor: Extract Method**.
 - Assign a keyboard shortcut to the `python.refactorExtractMethod` command.
 
 ![Refactoring code into a method](images/editing/refactorExtractMethod.gif)
@@ -158,7 +158,7 @@ Sort Imports uses the isort package to consolidate specific imports from the sam
 Invoked by:
 
 - Right-click in editor and select **Sort Imports** (no selection is required)
-- Command Palette (⇧⌘P or Ctrl+Shift+P): **Python Refactor: Sort Imports**
+- Command Palette: `kb(workbench.action.showCommands)`, **Python Refactor: Sort Imports**
 - Assign a keyboard shortcut to the `python.sortImports` command
 
 ![Sorting import statements](images/editing/sortImports.gif)
@@ -178,7 +178,6 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [C
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
-
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 - [IntelliSense](/docs/editor/intellisense.md) - Learn about IntelliSense features.
