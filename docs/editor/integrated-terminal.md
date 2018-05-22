@@ -177,6 +177,16 @@ Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (
 
 While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default, this includes all terminal key bindings in addition to a select few commonly used key bindings.
 
+### Changing how the terminal is rendered
+
+By default the terminal will render using multiple `<canvas>` elements which is better tuned than the DOM at rendering an interactive text that changes often. However, Electron/Chromium are far slower rendering to canvas on some environment, so since v1.24.0, VS Code also provides a fallback DOM-renderer experience. VS Code tries to detect this for you and give you the option to change via a notification but you can also change it directly by setting the `terminal.integrated.rendererType` setting.
+
+```js
+{
+    "terminal.integrated.rendererType": "dom"
+}
+```
+
 ## Next Steps
 
 The basics of the terminal have been covered in this document, read on to find out more about:
