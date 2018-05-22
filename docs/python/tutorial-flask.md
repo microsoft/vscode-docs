@@ -542,21 +542,23 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. In the list that appears, select **html**. (The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.)
 
-1. After VS code opens `html.json`, add the following code after the explanatory comments (that describe, for example, how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
+1. After VS code opens `html.json`, modify it so it looks like the following (the explanatory comments, not shown here, describe details such as how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
 
     ```json
-    // (Explanatory comments - omitted)
-    "Flask App: template extending layout.html": {
-        "prefix": "flextlayout",
-        "body": [
-            "{% extends \"layout.html\" %}",
+    {
+        // (Explanatory comments - omitted)
+        "Flask App: template extending layout.html": {
+            "prefix": "flextlayout",
+            "body": [
+                "{% extends \"layout.html\" %}",
 
-            "{% block content %}",
-            "$0",
-            "{% endblock %}"
-        ],
+                "{% block content %}",
+                "$0",
+                "{% endblock %}"
+            ],
 
-        "description": "Boilerplate template that extends layout.html"
+            "description": "Boilerplate template that extends layout.html"
+        }
     }
     ```
 
