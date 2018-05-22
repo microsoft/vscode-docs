@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
 PageTitle: Python and Flask Tutorial in VS Code
-DateApproved: 05/14/2018
+DateApproved: 05/22/2018
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -31,17 +31,25 @@ To successfully complete this tutorial, you must do the following:
     - A download from [python.org](https://www.python.org/downloads/).
     - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
-1. From within VS Code, select a version of Python using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available:
-
-    ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
-
-    The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
-
 ## Create a project environment for Flask
 
 1. On your file system, create a folder for this tutorial, then open that folder in VS Code.
-1. Open the **Integrated Terminal** in VS Code by selecting the **View** > **Integrated Terminal** command (`kb(workbench.action.terminal.toggleTerminal)`)
-1. In the Terminal, run the following command (as appropriate to your computer) to create a virtual environment in a folder named `env`:
+
+1. Open the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)):
+
+    ![Opening the Command Palette in VS Code](images/flask/command-palette.png)
+
+1. Select the **Python: Select Interpreter** command and choose your base Python interpreter. You can also use use the **Select Python Environment** option on the Status Bar if available:
+
+    ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
+
+    Both commands presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
+
+1. Run **Python: Create Terminal** from the command palette to open a terminal with your selected interpreter activated.
+
+    > **Note**: if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** (`kb(workbench.action.terminal.selectDefaultShell)`) to set "Command Prompt" or "Git Bash" as your default instead.
+
+1. In the Terminal, run the following command (as appropriate to your computer) to create a virtual environment in a folder named `env` based on your current interpreter:
 
     ```bash
     # Mac/Linux
@@ -53,11 +61,9 @@ To successfully complete this tutorial, you must do the following:
 
     > **Note**: use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
 
-1. Activate the environment by opening the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)):
+1. Close the terminal.
 
-    ![Opening the Command Palette in VS Code](images/flask/command-palette.png)
-
-1. Select the **Python: Select Interpreter** command, and select the virtual environment (the exact details of your environment will differ depending on which interpreters you have installed):
+1. Select the **Python: Select Interpreter** command again, and now select your new virtual environment (the exact details of your environment will differ depending on which interpreters you have installed):
 
     ![Selecting the virtual environment for Python](images/flask/select-virtual-environment.png)
 
@@ -65,14 +71,14 @@ To successfully complete this tutorial, you must do the following:
 
     ![Selected environment showing in the VS Code status bar](images/flask/environment-in-status-bar.png)
 
-1. Open the Command Palette again and select **Python: Create Terminal**, which creates a terminal and automatically activates the virtual environment by running its activate script. You should see output similar to the following:
+1. Run the **Python: Create Terminal** command again, which creates a terminal and automatically activates the virtual environment by running its activate script. You should see output similar to the following:
 
     ```output
     D:\py\Flask>d:/py/Flask/env/Scripts/activate.bat
     (env) D:\py\Flask>
     ```
 
-1. Install Flask in the virtual environment by running `pip install flask`. You now have an environment ready for writing Flask code.
+1. Install Flask in the virtual environment by running `pip install flask`. You now have an self-contained environment ready for writing Flask code.
 
 ### Create a requirements.txt file for the environment
 
@@ -533,10 +539,13 @@ You can run the app at this point, but because you haven't made use of the base 
 Because the three pages you create in the next section extend `layout.html`, it saves time to create a *code snippet* to initialize a new template file with the appropriate reference to the base template.
 
 1. In VS Code, select the **File** > **Preferences** > **User snippets** menu command.
-1. In the list that appears, select **html.json**, which is where HTML snippets are stored. This option may appear in the **Existing Snippets** section of the list if you've created snippets previously. Otherwise, look for it in the **New Snippets** section.
-1. After VS code opens `html.json`, add the following code to the array of snippets:
+
+1. In the list that appears, select **html**. (The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.)
+
+1. After VS code opens `html.json`, add the following code after the explanatory comments (that describe, for example, how the `$0` line indicates where VS Code places the cursor after inserting a snippet):
 
     ```json
+    // (Explanatory comments - omitted)
     "Flask App: template extending layout.html": {
         "prefix": "flextlayout",
         "body": [
@@ -550,8 +559,6 @@ Because the three pages you create in the next section extend `layout.html`, it 
         "description": "Boilerplate template that extends layout.html"
     }
     ```
-
-    Note that there are comments in the default `html.json` file that explains different aspects of the snippet. The `$0` line, for example, indicates where VS Code should place the cursor in the editor after inserting the snippet.
 
 1. Save the `html.json` file.
 
