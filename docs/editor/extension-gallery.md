@@ -250,9 +250,9 @@ You can change the location by launching VS Code with the `--extensions-dir <dir
 
 **A:** Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
-To download an extension navigate to the details page for the specific extemsion within the [Marketplace](https://marketplace.visualstudio.com/vscode).  On that page there is a `Download Extension` link in the `Resources` section which is located on the right hand side of the page.
+To download an extension, navigate to the details page for the specific extension within the [Marketplace](https://marketplace.visualstudio.com/vscode). On that page there is a **Download Extension** link in the **Resources** section which is located on the right hand side of the page.
 
-Once downloaded you can then install the extension via the **Install from VSIX...** command in the Extensions view command drop-down.
+Once downloaded, you can then install the extension via the **Install from VSIX...** command in the Extensions view command drop-down.
 
 **Q: Can I stop VS Code from providing extension recommendations?**
 
