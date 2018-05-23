@@ -12,7 +12,7 @@ MetaSocialImage: images/angular/Welcome-to-app.png
 
 [Angular](https://angular.io/) is a popular JavaScript library for building web application user interfaces developed by Google. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
 
-![welcome to app](images/angular/welcome-to-app.png)
+![Welcome to app](images/angular/Welcome-to-app.png)
 
 ## Welcome to Angular
 
