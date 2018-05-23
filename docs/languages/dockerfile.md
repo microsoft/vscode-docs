@@ -13,15 +13,9 @@ MetaDescription: Find out how to get the best out of Visual Studio Code and Dock
 
 ## Install the Docker extension
 
-Docker support for VS Code is provided by an extension. To install the Docker extension, open the Extension Viewlet by pressing `kb(workbench.view.extensions)` and search for `vscode-docker` to filter the results. Select the [Docker Support](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension.
+Docker support for VS Code is provided by an extension. To install the Docker extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for `docker` to filter the results. Select the Microsoft [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension.
 
 ![Select Docker extension](images/docker/installdockerextension.png)
-
-While here, you can install many other extensions to make you more productive with VS Code.
-
-<div class="marketplace-extensions-docker"></div>
-
-> Tip: The extensions are dynamically queried. Click on an extension tile to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
 ## Dockerfiles
 
@@ -74,4 +68,3 @@ Many of the most common Docker and docker-compose commands are built right into 
 ## Running commands on Linux
 
 By default, Docker runs as the root user on Linux, requiring other users to access it with `sudo`. This extension does not assume root access, so you will need to create a Unix group called "docker" and add users to it. Instructions can be found here: [Create a Docker group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group)
-
