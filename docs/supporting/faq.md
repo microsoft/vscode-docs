@@ -23,11 +23,11 @@ VS Code runs on macOS, Linux, and Windows. See [Requirements](requirements) for 
 
 Yes, VS Code is [free for private or commercial use](https://code.visualstudio.com/license).
 
-## I would like to report an issue with an VS Code extension
+## Report an issue with a VS Code extension
 
 For bugs, feature requests or to contact an extension author, you should use the links available in the Visual Studio Code [Marketplace](https://marketplace.visualstudio.com/vscode).  However, if there is an issue where an extension does not follow our code of conduct, for example it includes profanity, pornography or presents a risk to the user, then we have an email alias where you can [contact us to report the issue](mailto:VSMarketplace@microsoft.com). Once the mail is received, our Marketplace team will look into an appropriate course of action, up to and including unpublishing the extension.
 
-## How do I find what version of VS Code I am using?
+## How do I find the VS Code version?
 
 You can find the VS Code version information in the About dialog box.
 
@@ -61,7 +61,7 @@ You can find the VS Code licenses, third party notices and [Chromium](https://ww
 
 To learn why Visual Studio Code, the product, has a different license than vscode, the open source [GitHub repository](https://github.com/microsoft/vscode), see [issue #60](https://github.com/Microsoft/vscode/issues/60#issuecomment-161792005) for a detailed explanation.
 
-## How can I test prerelease versions of VS Code?
+## Can I run prerelease versions of VS Code?
 
 Want an early peek at new VS Code features?  You can try prerelease versions of VS Code by installing the "Insiders" build.  The Insiders build installs side by side to your stable VS Code install and has isolated settings, configurations and extensions.  The Insiders build is updated nightly so you'll get the latest bug fixes and feature updates from the day before.
 
@@ -77,15 +77,7 @@ When you open a folder, VS Code will search for typical project files to offer y
     }
 ```
 
-## Missing `csharp-o` extension?
-
-If you get an error at startup about a missing `csharp-o` extension, you can fix it by completely deleting its directory from the installation directory:
-
-```
-C:\Program Files (x86)\Microsoft VS Code\resources\app\extensions\csharp-o
-```
-
-## VS Code main window is blank?
+## VS Code is blank?
 
 The Electron shell used by Visual Studio Code has trouble with some GPU (graphics processing unit) hardware acceleration. If VS Code is displaying a blank (empty) main window, you can try disabling GPU acceleration when launching VS Code by adding the Electron `--disable-gpu` command line switch.
 
