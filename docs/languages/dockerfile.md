@@ -61,7 +61,7 @@ VS Code will first show a list of popular images along with metadata such as the
 
 ## Generating Docker files
 
-Writing Docker and docker-compose files by hand can be tricky and time consuming. To help you, VS Code can generate the necessary Docker files for your project. From the **Command Palette** (`kb(workbench.action.showCommands)`, run the **Docker: Add Docker files to Workspace** command to generate `Dockerfile`, `docker-compose.yml`, and `docker-compose.debug.yml` files for your workspace type:
+Writing Docker and docker-compose files by hand can be tricky and time consuming. To help you, VS Code can generate the necessary Docker files for your project. From the **Command Palette** (`kb(workbench.action.showCommands)`), run the **Docker: Add Docker files to Workspace** command to generate `Dockerfile`, `docker-compose.yml`, and `docker-compose.debug.yml` files for your workspace type:
 
 ![dockerfile](images/docker/generateFiles.gif)
 
@@ -111,7 +111,7 @@ You can control specific linting rules to either be a warning, error, or ignored
 
 With the Docker Explorer, you can deploy images from Docker Hub or Azure Container Registries, directly to an Azure App Service instance. This functionality requires installing the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension and an Azure Subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com/en-us/free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-To log into Azure, use the **Azure: Sign In** command from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on "Copy & Open" to open your default browser.
+To log into Azure, use the **Azure: Sign In** command from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
 
 ![Azure Login](images/docker/devicelogin.png)
 
@@ -125,7 +125,7 @@ You can now right click on an image in Docker Hub or an Azure Container Registry
 
 From here, you will be prompted for an Azure Resource Group, a location, an App Service Plan, and a globally unique website name.
 
-To see the full workflow, there is a detailed [Deploy using Docker](/tutorials/docker-extension/getting-started.md) tutorial that creates a web application, puts it into a Docker container, pushes it to a Azure Container Registry, and then deploys to Azure.
+To see the full workflow, there is a detailed [Deploy using Docker](/tutorials/docker-extension/getting-started.md) tutorial that creates a web application, puts it into a Docker container, pushes it to an Azure Container Registry, and then deploys to Azure.
 
 ## Connecting to `docker-machine`
 
