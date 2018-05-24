@@ -190,7 +190,7 @@ Save the new file and make sure **Launch Program** is selected in the configurat
 
 ## Deploy your application
 
-If you'd like to learn how to deploy your web application, check out the [Deploy a Node.js Application to Azure](/docs/nodejs/nodejs-deployment) tutorial where we show how to run your website in Azure.
+If you'd like to learn how to deploy your web application, check out the [Deploy a Node.js Application to Azure](/docs/azure/deployment.md) tutorials where we show how to run your website in Azure.
 
 ---
 

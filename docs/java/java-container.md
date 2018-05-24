@@ -27,7 +27,7 @@ To enable fully integrated Docker experience, you can install the [Docker extens
 
 ![Install Docker](images/java-container/install-docker.png)
 
-For more information, please check [Working with Docker](/docs/language/dockerfile.md).
+For more information, please check [Working with Docker](/docs/azure/docker.md).
 
 ## Containerize the application
 

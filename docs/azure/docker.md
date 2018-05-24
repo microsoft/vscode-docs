@@ -1,9 +1,9 @@
 ---
-Order: 13
-Area: languages
-TOCTitle: Dockerfile
+Order: 3
+Area: azure
+TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
-PageTitle: Working with Dockerfiles in Visual Studio Code
+PageTitle: Working with Docker in Visual Studio Code
 DateApproved: 5/24/2018
 MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
@@ -134,3 +134,8 @@ The default connection of the extension is to connect to the local docker daemon
 ## Running commands on Linux
 
 By default, Docker runs as the root user on Linux, requiring other users to access it with `sudo`. This extension does not assume root access, so you will need to create a Unix group called "docker" and add users to it. Instructions can be found here: [Create a Docker group](https://docs.docker.com/engine/installation/linux/ubuntulinux/#/create-a-docker-group)
+
+## Next Steps
+
+* [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
+* [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
