@@ -18,7 +18,7 @@ MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 
 We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/).
 
->**Tip**: To test that you have Node.js and npm correctly install on your machine, you can type `node --version` and `npm --version`.
+>**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
 
 To install the `create-react-app` generator, in a terminal or command prompt type:
 
