@@ -37,7 +37,7 @@ All extension API for debug is located under the `vscode.debug` namespace which 
 
 All configuration related "hooks" for a specific debug type are available through a `DebugConfigurationProvider`.
 
-A `DebugConfigurationProvider` is registered for a specific debug type through the `registerDebugConfigurationProvider` function. The debug type itself is contributed via the [`debuggers` contribution](/docs/extensionAPI/extension-points.md#contributesdebuggers).
+A `DebugConfigurationProvider` is registered for a specific debug type through the `registerDebugConfigurationProvider` function. The debug type itself is contributed via the [`debuggers` contribution](/docs/extensionAPI/contribution-points.md#contributesdebuggers).
 
 Currently the following "hooks" are available:
 
@@ -155,4 +155,4 @@ To learn more about VS Code extensibility model, try these topics:
 * [Example: Debugger](/docs/extensions/example-debuggers.md) - See a working 'mock' debugger example
 * [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+* [Contribution Points](/docs/extensionAPI/contribution-points.md) - VS Code contribution points reference

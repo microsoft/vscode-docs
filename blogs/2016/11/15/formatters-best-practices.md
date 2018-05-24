@@ -70,7 +70,7 @@ What happens when there are multiple formatters for one language? This can be a 
 "json.format.enable": true
 ```
 
-An extension adds settings through the [contributes.configuration](/docs/extensionAPI/extension-points.md#contributesconfiguration) extension point.
+An extension adds settings through the [contributes.configuration](/docs/extensionAPI/contribution-points.md#contributesconfiguration) extension point.
 
 ## Formatters in the Marketplace
 
@@ -80,7 +80,7 @@ Last, we want to bring more awareness to formatters and have added a new ["Forma
 
 To summarize, an extension that implements the formatting extension API properly will do the following :
 
-1. Register formatters via [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172).  
+1. Register formatters via [registerDocumentFormattingEditProvider](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L4172).
 2. Implement the formatting logic per the [DocumentFormattingEditProvider interface](https://github.com/Microsoft/vscode/blob/master/src/vs/vscode.d.ts#L2143).
 3. Have a setting to enable / disable the formatter.
 4. Add the "Formatters" category to the extension manifest.
