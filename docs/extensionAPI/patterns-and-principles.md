@@ -33,11 +33,11 @@ VS Code loads extensions as late as possible and extensions that are not used du
 
 ### Extension Manifest
 
-To activate an extension lazily, VS Code requires a description of your extension, the `extension manifest` which is a `package.json` file enriched with some additional [VS Code specific fields](/docs/extensionAPI/extension-manifest.md). This includes the [activation events](/docs/extensionAPI/activation-events.md) that trigger the loading of the extension. VS Code provides a set of `contribution points` that an [extension can add](/docs/extensionAPI/extension-points.md) to. For example, when adding a command to VS Code, you provide the command definition through the `commands` contribution point. You define the contributions of your extension in the package.json. VS Code reads and interprets the manifest during start-up and prepares its UI accordingly.
+To activate an extension lazily, VS Code requires a description of your extension, the `extension manifest` which is a `package.json` file enriched with some additional [VS Code specific fields](/docs/extensionAPI/extension-manifest.md). This includes the [activation events](/docs/extensionAPI/activation-events.md) that trigger the loading of the extension. VS Code provides a set of `contribution points` that an [extension can add](/docs/extensionAPI/contribution-points.md) to. For example, when adding a command to VS Code, you provide the command definition through the `commands` contribution point. You define the contributions of your extension in the package.json. VS Code reads and interprets the manifest during start-up and prepares its UI accordingly.
 
 As the `extension host` is a Node.js process, you can use the Node API in your extensions and even better you can reuse existing Node.js modules when implementing an extension. You define your module dependencies inside the `package.json` and you use npm to install a Node.js module.
 
-See the [package.json contribution points reference](/docs/extensionAPI/extension-points.md) for more details.
+See the [package.json contribution points reference](/docs/extensionAPI/contribution-points.md) for more details.
 
 ### Extensibility API
 
@@ -117,7 +117,7 @@ You can create a `.vscodeignore` file to exclude some files from being included 
 ## Next Steps
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - Visual Studio Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+* [Contribution Points](/docs/extensionAPI/contribution-points.md) - VS Code contribution points reference
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
 
 ## Common Questions

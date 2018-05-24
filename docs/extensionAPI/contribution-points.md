@@ -11,20 +11,20 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 
 This document covers the various contribution points that are defined in the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md).
 
-* [`configuration`](/docs/extensionAPI/extension-points.md#contributesconfiguration)
-* [`commands`](/docs/extensionAPI/extension-points.md#contributescommands)
-* [`menus`](/docs/extensionAPI/extension-points.md#contributesmenus)
-* [`keybindings`](/docs/extensionAPI/extension-points.md#contributeskeybindings)
-* [`languages`](/docs/extensionAPI/extension-points.md#contributeslanguages)
-* [`debuggers`](/docs/extensionAPI/extension-points.md#contributesdebuggers)
-* [`breakpoints`](/docs/extensionAPI/extension-points.md#contributesbreakpoints)
-* [`grammars`](/docs/extensionAPI/extension-points.md#contributesgrammars)
-* [`themes`](/docs/extensionAPI/extension-points.md#contributesthemes)
-* [`snippets`](/docs/extensionAPI/extension-points.md#contributessnippets)
-* [`jsonValidation`](/docs/extensionAPI/extension-points.md#contributesjsonvalidation)
-* [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
-* [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
-* [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
+* [`configuration`](/docs/extensionAPI/contribution-points.md#contributesconfiguration)
+* [`commands`](/docs/extensionAPI/contribution-points.md#contributescommands)
+* [`menus`](/docs/extensionAPI/contribution-points.md#contributesmenus)
+* [`keybindings`](/docs/extensionAPI/contribution-points.md#contributeskeybindings)
+* [`languages`](/docs/extensionAPI/contribution-points.md#contributeslanguages)
+* [`debuggers`](/docs/extensionAPI/contribution-points.md#contributesdebuggers)
+* [`breakpoints`](/docs/extensionAPI/contribution-points.md#contributesbreakpoints)
+* [`grammars`](/docs/extensionAPI/contribution-points.md#contributesgrammars)
+* [`themes`](/docs/extensionAPI/contribution-points.md#contributesthemes)
+* [`snippets`](/docs/extensionAPI/contribution-points.md#contributessnippets)
+* [`jsonValidation`](/docs/extensionAPI/contribution-points.md#contributesjsonvalidation)
+* [`views`](/docs/extensionAPI/contribution-points.md#contributesviews)
+* [`problemMatchers`](/docs/extensionAPI/contribution-points.md#contributesproblemmatchers)
+* [`problemPatterns`](/docs/extensionAPI/contribution-points.md#contributesproblempatterns)
 
 ## contributes.configuration
 
@@ -118,8 +118,8 @@ Currently extension writers can contribute to:
 * [SCM resource groups](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resourceGroup/context`
 * [SCM resources](/docs/extensionAPI/api-scm.md#menus) menus - `scm/resource/context`
 * [SCM change title](/docs/extensionAPI/api-scm.md#menus) menus - `scm/change/title`
-* The [View title menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/title`
-* The [View item menu](/docs/extensionAPI/extension-points.md#contributesviews) - `view/item/context`
+* The [View title menu](/docs/extensionAPI/contribution-points.md#contributesviews) - `view/title`
+* The [View item menu](/docs/extensionAPI/contribution-points.md#contributesviews) - `view/item/context`
 
 >**Note:** When a command is invoked from a (context) menu, VS Code tries to infer the currently selected resource and passes that as a parameter when invoking the command. For instance, a menu item inside the Explorer is passed the URI of the selected resource and a menu item inside an editor is passed the URI of the document.
 

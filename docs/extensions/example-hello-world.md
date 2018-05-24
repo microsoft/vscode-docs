@@ -85,7 +85,7 @@ Let's go through the purpose of all these files and explain what they do:
 * Each VS Code extension must have a `package.json` file that describes it and its capabilities.
 * VS Code reads this file during start-up and reacts to each `contributes` section immediately.
 * Please read the [`package.json` extension manifest reference](/docs/extensionAPI/extension-manifest.md).
-* More information on [`package.json` contribution points](/docs/extensionAPI/extension-points.md).
+* More information on [`package.json` contribution points](/docs/extensionAPI/contribution-points.md).
 
 #### Example TypeScript extension manifest
 
@@ -262,6 +262,6 @@ If you'd like to read more generally about the extension APIs, try these topics:
 
 * [Extension API Overview](/docs/extensionAPI/overview.md) - Learn about the full VS Code extensibility model.
 * [API Principles and Patterns](/docs/extensionAPI/patterns-and-principles.md) - VS Code extensibility is based on several guiding principles and patterns.
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - Details about the various VS Code contribution points.
+* [Contribution Points](/docs/extensionAPI/contribution-points.md) - Details about the various VS Code contribution points.
 * [Activation Events](/docs/extensionAPI/activation-events.md) - VS Code activation events reference
 * [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.

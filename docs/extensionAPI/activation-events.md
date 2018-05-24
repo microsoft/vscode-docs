@@ -123,4 +123,4 @@ This activation event is emitted and interested extensions will be activated whe
 To learn more about VS Code extensibility model, try these topic:
 
 * [Extension Manifest File](/docs/extensionAPI/extension-manifest.md) - VS Code package.json extension manifest file reference
-* [Contribution Points](/docs/extensionAPI/extension-points.md) - VS Code contribution points reference
+* [Contribution Points](/docs/extensionAPI/contribution-points.md) - VS Code contribution points reference
