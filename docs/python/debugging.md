@@ -310,20 +310,26 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 **Debugging over SSH**
 
-Windows:
+In some cases you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) to have the `ssh` command.
 
-1. Enable ssh port forwarding using sshd_config or similar.
+On the remote computer:
 
-1. Establish a PuTTY SSH tunnel:
+1. Modify the `sshd_config` config file (found under `etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) to enable port forwarding.
+
+1. Start the program and let it wait at the `ptvsd.wait_for_attach()` call as described in the previous section.
+
+On the local computer:
+
+1. Windows: use [PuTTY](https://www.putty.org/) to establish an SSH tunnel:
     1. Read [Setting up an SSH tunnel with PuTTY](http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html) (until "Open the session" section).
     1. On the Tunnels screen, using a local mode, source port (the port which is the entry point on the local computer) can be different from the destination port (the end point on the server).
     1. Destination address should be the localhost or `127.0.0.1` address (which is the address that the remote SSH server uses to establish the tunnel).
 
-Linux:
+1. Linux: run `ssh -L sourceport:localhost:destinationport user@remoteaddress` using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`.
 
-1. Run `ssh -L sourceport:localhost:destinationport user@remoteaddress`
+1. Verify that you can see a prompt in the SSH session.
 
-1. Verify that you can see a prompt in the SSH session. Then open VS Code and configure the port to the debug port shown on the Tunnels screen.
+1. In VS Code, set the port in the debug configuration to match the port shown on the Tunnels screen (Windows) or the port used in the `ssh` command (Linux).
 
 1. Launch the program and attach the debugger as described in the previous section.
 
