@@ -138,7 +138,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](debugging.md). Running the debugger also automatically saves any modified files before the debugging session begins.
 
-1. Add a second route and function to `app.py` that contains some code you can step through in the debugger:
+1. Add a second route and function to `app.py` that contains some rather superfluous code that you can step through in the debugger (and you typically don't use inline HTML for reasons discussed later on):
 
     ```python
     @app.route('/hello/<name>')
@@ -486,7 +486,6 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
     ```json
     {
-        // (Explanatory comments omitted)
         "Flask App: template extending layout.html": {
             "prefix": "flextlayout",
             "body": [
