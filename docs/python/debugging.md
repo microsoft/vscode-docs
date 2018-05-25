@@ -261,8 +261,6 @@ Remote debugging allows you to step through a program locally within VS Code whi
     ptvsd.wait_for_attach()
     ```
 
-
-
 1. Local computer: in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
 
     ```python
