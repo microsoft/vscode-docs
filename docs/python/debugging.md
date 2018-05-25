@@ -279,7 +279,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host`, `port`, and `secret` to match the values in the `ptvsd.enable_attach` call added to the source code. For example:
 
-    ```json
+    ```js
     {
         "name": "Python Attach",
         "type": "python",
