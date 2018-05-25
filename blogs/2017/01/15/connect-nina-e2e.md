@@ -252,7 +252,7 @@ With this setup, we can now efficiently debug front, back or full-stack JavaScri
 
 Speaking of microservices, let's take a look at the experience that VS Code provides for developing with Docker. Many Node.js developers are using Docker for providing portable app deployments for both development, CI and production environments. That said, we've heard lots of feedback that while the benefits of Docker are extremely high, the learning curve and cost of getting started can also be fairly high. VS Code provides an extension that tries to help simplify some of that onboarding!
 
-Switch back to the extensions tab, search for `docker` and select the `Docker Support` extension. Install it and then reload VS Code, just like we did for the Chrome extension above.
+Switch back to the extensions tab, search for `docker` and select the Microsoft `Docker` extension. Install it and then reload VS Code, just like we did for the Chrome extension above.
 
 <img src="/assets/blogs/2017/01/03/DockerSearch.png" width="350px" />
 

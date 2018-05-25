@@ -26,7 +26,7 @@ To successfully complete this tutorial, you must do the following:
    - A download from [python.org](https://www.python.org/downloads/).
    - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
-1. (Windows) Make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
+1. (Windows) Make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
 
 ## Create a folder and source code file
 
@@ -112,11 +112,11 @@ Then select the settings icon on the debug toolbar (or use the **Debug** > **Ope
 
 ![Debug toolbar settings command](images/tutorial/debug-settings.png)
 
-The command opens a menu of available debuggers, which shows **Python** and **Python Experimental**. Select **Python**. The Python extension then creates a `launch.json` file that contains number of configurations, which appear in the configurations drop-down:
+The command opens a menu of available debuggers, which shows **Python** and **Python Experimental**. Select **Python**. The Python extension then creates a `launch.json` file that contains a number of configurations, which appear in the configurations drop-down:
 
 ![Debug configurations after launch.json is created](images/tutorial/debug-configurations.png)
 
-(VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.)
+**Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
 These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python: Current File," which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
@@ -136,7 +136,7 @@ Switch to `hello.py` in the editor, then run the debugger by selecting the green
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
-A debug toolbar appears along the top with commands to run, step, restart, and stop the program. The Status Bar also changes to an orange color to indicate debug mode. The **Python Debug Console** also appears automatically in the lower right pane to show the commands being run along with program output.
+A debug toolbar appears along the top with commands to run, step, restart, and stop the program. The Status Bar also changes color (orange in many themes) to indicate debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run along with program output.
 
 Select the green arrow on the debug toolbar to continue running the program (`kb(workbench.action.debug.start)`), and the debugger stops on the breakpoint. The now-defined `msg` variable appears in the **Local** pane and you can work with the variable in the **Debug Console** (select "Debug Console" in the lower right area of VS Code, or select it from the **...** menu if you don't see it):
 
@@ -203,7 +203,7 @@ plt.show()                   # Display the plot
 
 Try running the file in the debugger as described in the last section, without any breakpoints. The message "ModuleNotFoundError: No module named 'matplotlib'" indicates that matplotlib and numpy are not installed in the current interpreter's environment, which is expected (unless you're using an Anaconda installation).
 
-To install those packages, switch to the **Python Debug Console** that is already be open. (The Python Debug Console already has the selected interpreter's environment activated. You can also use **Python: Create Terminal** command from the command palette.) Enter `pip3 install matplotlib` (Mac/Linux) or `pip install matplotlib` (Windows) to install the matplotlib package (and its dependencies, such as numpy) into that environment.
+To install those packages, switch to the **Python Debug Console** that is already be open. (The Python Debug Console already has the selected interpreter's environment activated. You can also use **Python: Create Terminal** command from the Command Palette.) Enter `pip3 install matplotlib` (macOS/Linux) or `pip install matplotlib` (Windows) to install the matplotlib package (and its dependencies, such as numpy) into that environment.
 
 > **Note**: On Linux, you may need to install **tkinter** by running `sudo apt-get install python3-tk`. Also note that if you don't want to install matplotlib and its dependencies globally then use a [virtual environment](https://docs.python.org/3/tutorial/venv.html).
 

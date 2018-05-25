@@ -17,19 +17,19 @@ Working with Python in Visual Studio Code, using the [Microsoft Python extension
 
 The [tutorial](/docs/python/python-tutorial.md) guides you through installing Python and using the extension. You must install a Python interpreter yourself separately from the extension. For a quick install, use [Python 3.6 from python.org](https://www.python.org/downloads/) and [install the extension from the VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](../python/environments.md#manually-specify-an-interpreter).
+Once you have a version of Python installed, activate it using the **Python: Select Interpreter** command. If VS Code doesn't automatically locate the interpreter you're looking for, refer to [Environments - Manually specify an interpreter](/docs/python/environments.md#manually-specify-an-interpreter).
 
-You configure the Python extension through settings. See the [Settings reference](../python/settings-reference.md).
+You configure the Python extension through settings. See the [Settings reference](/docs/python/settings-reference.md).
 
 ## Run Python in the Terminal
 
-To experience Python, create a file (using [Explorer](../getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code (assuming Python 3):
+To experience Python, create a file (using the [File Explorer](/docs/getstarted/userinterface.md#explorer)) named `hello.py` and paste in the following code (assuming Python 3):
 
 ```python
 print("Hello World")
 ```
 
-The Python extension then provides shortcuts to run Python code in the currently selected interpreter (**Python: Select Interpreter** on the command palette):
+The Python extension then provides shortcuts to run Python source code in the currently selected interpreter (**Python: Select Interpreter** in the Command Palette):
 
 - In the text editor: right-click anywhere in the editor and select **Run Python File in Terminal**. If invoked on a selection, only that selection is run.
 - In Explorer: right-click a Python file and select **Run Python File in Terminal**.
@@ -72,17 +72,17 @@ Snippets take productivity to the next level. You can configure [your own snippe
 
 The Python extension automatically detects Python interpreters that are installed in standard locations. It also detects conda environments as well as virtual environments in the workspace folder. See [Configuring Python environments](/docs/python/environments.md). You can also use the `python.pythonPath` setting to point to an interpreter anywhere on your computer.
 
-The current environment is shown on the left side of the Visual Studio Code status bar:
+The current environment is shown on the left side of the VS Code Status Bar:
 
-![Selected Python interpreter in the status bar](images/python/selected-interpreter-status-bar.png)
+![Selected Python interpreter in the Status Bar](images/python/selected-interpreter-status-bar.png)
 
-The status bar also indicates if no interpreter is selected:
+The Status Bar also indicates if no interpreter is selected:
 
 ![Status bar showing no selected Python interpreter](images/python/no-interpreter-selected-statusbar.png)
 
 The selected environment is used for IntelliSense, auto-completions, linting, formatting, and any other language-related feature other than debugging. It is also activated when you use [run Python in a terminal](#run-python-in-the-terminal).
 
-To change the current interpreter, which includes switching to conda or virtual environments, select the interpreter name on the status bar or use the **Python: Select Interpreter** command.
+To change the current interpreter, which includes switching to conda or virtual environments, select the interpreter name on the Status Bar or use the **Python: Select Interpreter** command.
 
 ![Python: Select Interpreter command](images/python/select-interpreters-command.png)
 
@@ -90,7 +90,7 @@ VS Code prompts you with a list of detected environments as well as any you've a
 
 ### Installing packages
 
-Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name)` (Mac/Linux). VS Code installs that package into your project along with its dependencies.
+Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name)` (macOS/Linux). VS Code installs that package into your project along with its dependencies.
 
 ## Unit testing
 
@@ -98,7 +98,7 @@ The Python extension supports [unit testing](/docs/python/unit-testing.md) with 
 
 To run unit tests, you enable one of the frameworks in settings. Each framework also has specific settings, such as arguments that identify paths and patterns for test discovery.
 
-Once discovered, VS Code provides a variety of commands (on the status bar, the command palette, and elsewhere) to run and debug tests, including ability to run individual test files and individual methods.
+Once discovered, VS Code provides a variety of commands (on the Status Bar, the Command Palette, and elsewhere) to run and debug tests, including ability to run individual test files and individual methods.
 
 ## Configuration
 

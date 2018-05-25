@@ -20,7 +20,7 @@ Open the **Command Palette** (`kb(workbench.action.showCommands)`) and type `add
 
 This will add a `Dockerfile` along with some configuration files for Docker compose and a `.dockerignore`.
 
-> **Tip**: VS Code has great support for Docker files. See the [Working with Docker](/docs/languages/dockerfile.md) topic to learn about rich language features like smart suggestions, completions, and error detection.
+> **Tip**: VS Code has great support for Docker files. See the [Working with Docker](/docs/azure/docker.md) topic to learn about rich language features like smart suggestions, completions, and error detection.
 
 ## Build a Docker image
 

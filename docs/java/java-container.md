@@ -23,11 +23,11 @@ You would also need to have your [Azure](https://azure.microsoft.com) account re
 
 ## Install the Docker extension
 
-To enable fully integrated Docker experience, you can install the [Docker extension](https://github.com/Microsoft/vscode-docker) for VS Code. This extension makes it easy to build and deploy containerized applications from Visual Studio Code. To install the Docker extension, open the Extension view by pressing `kb(workbench.view.extensions)` and search for `vscode-docker` to filter the results. Select the [Docker Support](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension.
+To enable fully integrated Docker experience, you can install the [Docker extension](https://github.com/Microsoft/vscode-docker) for VS Code. This extension makes it easy to build and deploy containerized applications from Visual Studio Code. To install the Docker extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for `docker` to filter the results. Select the Microsoft [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension.
 
 ![Install Docker](images/java-container/install-docker.png)
 
-For more information, please check [Working with Docker](/docs/language/dockerfile.md).
+For more information, please check [Working with Docker](/docs/azure/docker.md).
 
 ## Containerize the application
 

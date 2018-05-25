@@ -12,13 +12,13 @@ MetaSocialImage: images/angular/Welcome-to-app.png
 
 [Angular](https://angular.io/) is a popular JavaScript library for building web application user interfaces developed by Google. The Visual Studio Code editor supports Angular IntelliSense and code navigation out of the box.
 
-![welcome to app](images/angular/welcome-to-app.png)
+![Welcome to app](images/angular/Welcome-to-app.png)
 
 ## Welcome to Angular
 
 We'll be using the [Angular CLI](https://cli.angular.io/) for this tutorial. To install and use the command line interface as well as run the Angular application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/).
 
->**Tip**: To test that you have Node.js and npm correctly install on your machine, you can type `node --version` and `npm --version`.
+>**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
 
 To install the Angular CLI, in a terminal or command prompt type:
 
