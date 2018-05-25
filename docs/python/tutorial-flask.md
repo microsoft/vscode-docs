@@ -214,12 +214,14 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Local variables and arguments in VS Code during debugging](images/flask/debug-local-variables.png)
 
-1. When a program is paused, the **Debug Console** panel lets you experiment with expressions and try out bits of code using the current state of the program. For example, you might want to try different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Debug: Evaluate** to send that code to the debug console, where it runs:
+1. When a program is paused, the **Debug Console** panel (which is different from the "Python Debug Console" in the Terminal panel) lets you experiment with expressions and try out bits of code using the current state of the program. For example, you might want to try different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Debug: Evaluate** to send that code to the debug console, where it runs:
 
     ```output
     now.strftime("%A, %d %B, %Y at %X")
     'Thursday, 24 May, 2018 at 14:35:27'
     ```
+
+    > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of Debug View, switch to the **Debug Console** to see the exception message.
 
 1. Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
 
@@ -438,7 +440,7 @@ The following steps demonstrate creating a base template.
     </html>
     ```
 
-1. Add the following styles to `static/site.css` and save the file. (This walkthrough doesn't attempt to demonstrate responsive design; these styles simply generate a reasonably interesting result.)
+1. Add the following styles to `static/site.css` below the existing "message" style, and save the file. (This walkthrough doesn't attempt to demonstrate responsive design; these styles simply generate a reasonably interesting result.)
 
     ```css
     .navbar {
@@ -484,7 +486,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
     ```json
     {
-        // (Explanatory comments - omitted)
+        // (Explanatory comments omitted)
         "Flask App: template extending layout.html": {
             "prefix": "flextlayout",
             "body": [
