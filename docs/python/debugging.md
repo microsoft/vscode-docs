@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 05/21/2018
+DateApproved: 05/25/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -34,14 +34,14 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations.
 
-You can always open `launch.json` from the Explorer, or use the Debug View settings icon. You're also free to add any other configurations you want. It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you have a Flask app and want to always launch `runserver.py` whenever you start the debugger, create a configuration entry as follows:
+You can always open `launch.json` from the Explorer, or use the Debug View settings icon. You're also free to add any other configurations you want. It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to always launch `startup.py` whenever you start the debugger, create a configuration entry as follows:
 
 ```json
 {
-    "name": "Python: runserver.py",
+    "name": "Python: startup.py",
     "type": "python",
     "request": "launch",
-    "program": "${workspaceFolder}/runserver.py",
+    "program": "${workspaceFolder}/startup.py",
 },
 ```
 
@@ -211,7 +211,7 @@ To debug an app that requires administrator privileges, use `"console": "externa
     "request": "launch",
     "module": "flask",
     "env": {
-        "FLASK_APP": "${workspaceFolder}/app.py"
+        "FLASK_APP": "app.py"
     },
     "args": [
         "run",
@@ -221,9 +221,9 @@ To debug an app that requires administrator privileges, use `"console": "externa
 },
 ```
 
-As you can see, this configuration specifies `"env": {"FLASK_APP": "${workspaceFolder}/app.py"}` and `"args": ["run", "--no-debugger","--no-reload"]`. The `"module": "flask"` property is used instead of `program`.
+As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger","--no-reload"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "${workspaceFolder}/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise you may see "Cannot import module C" errors where C is a drive letter.)
 
-If you want to run Flask's development server in development mode, with `runserver.py` as the startup file, use the following configuration:
+If you want to run Flask's development server in development mode, use the following configuration:
 
 ```json
 {
@@ -232,7 +232,7 @@ If you want to run Flask's development server in development mode, with `runserv
     "request": "launch",
     "module": "flask",
     "env": {
-        "FLASK_APP": "runserver.py",
+        "FLASK_APP": "app.py",
         "FLASK_ENV": "development"
     },
     "args": [
@@ -316,16 +316,16 @@ Windows:
 
 1. Establish a PuTTY SSH tunnel:
     1. Read [Setting up an SSH tunnel with PuTTY](http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html) (until "Open the session" section).
-    2. On the Tunnels screen, using a local mode, source port (the port which is the entry point on the local computer) can be different from the destination port (the end point on the server).
-    3. Destination address should be the localhost or `127.0.0.1` address (which is the address that the remote SSH server uses to establish the tunnel).
+    1. On the Tunnels screen, using a local mode, source port (the port which is the entry point on the local computer) can be different from the destination port (the end point on the server).
+    1. Destination address should be the localhost or `127.0.0.1` address (which is the address that the remote SSH server uses to establish the tunnel).
 
 Linux:
 
 1. Run `ssh -L sourceport:localhost:destinationport user@remoteaddress`
 
-2. Verify that you can see a prompt in the SSH session. Then open VS Code and configure the port to the debug port shown on the Tunnels screen.
+1. Verify that you can see a prompt in the SSH session. Then open VS Code and configure the port to the debug port shown on the Tunnels screen.
 
-3. Launch the program and attach the debugger as described in the previous section.
+1. Launch the program and attach the debugger as described in the previous section.
 
 ### Google App Engine debugging
 
@@ -335,7 +335,7 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
 
 1. [Download ptvsd](https://pypi.python.org/pypi/ptvsd) and extract its files into a ptvsd folder in your working folder. (If using a different folder, modify the path in the `pydev_startup.py` file created in step 4).
 
-2. Create a `tasks.json` file with the following contents:
+1. Create a `tasks.json` file with the following contents:
 
     ```json
     {
@@ -357,9 +357,9 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     }
     ```
 
-3. On Windows and Linux, replace the first item in `args` with the path to wherever Google App Engine is installed (the path shown in the source code above is for macOS).
+1. On Windows and Linux, replace the first item in `args` with the path to wherever Google App Engine is installed (the path shown in the source code above is for macOS).
 
-4. Create a file named pydev_startup.py in your project root with the following contents, modified as noted:
+1. Create a file named pydev_startup.py in your project root with the following contents, modified as noted:
     ```python
     import sys
     import os
@@ -375,11 +375,11 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     #The debug server has started and you can now use VS Code to attach to the application for debugging
     print("Google App Engine has started, ready to attach the debugger")
     ```
-5. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the secret and port values match what's in the source code above.
-6. Add `"preLaunchTask": "python"` to `launch.json`.
-7. From the Command Palette, run the **Run Build Task** command. This opens the Tasks output window where you see various messages.
-8. Once you see the message "Google App Engine has started, ready to attach the debugger", start the VS Code debugger using the remote debugging configuration.
-9. Set breakpoints where you want, then start the browser to start the app.
+1. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the secret and port values match what's in the source code above.
+1. Add `"preLaunchTask": "python"` to `launch.json`.
+1. From the Command Palette, run the **Run Build Task** command. This opens the Tasks output window where you see various messages.
+1. Once you see the message "Google App Engine has started, ready to attach the debugger", start the VS Code debugger using the remote debugging configuration.
+1. Set breakpoints where you want, then start the browser to start the app.
 
 <a name="debugger-not-working"></a>
 
