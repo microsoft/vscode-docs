@@ -27,7 +27,7 @@ To change the linting behavior across all enabled linters, modify the following 
 | Feature | Setting<br/>(python.linting.) | Default value |
 | --- | --- | --- |
 | Linting in general | enabled | `true` |
-| Linting on file save | lintOnSave | `false` |
+| Linting on file save | lintOnSave | `true` |
 | Maximum number of linting messages | maxNumberOfProblems | `100` |
 | Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
 
