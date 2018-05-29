@@ -362,6 +362,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty
   "editor.rulers": [],
 
+  // Controls if the editor will scroll beyond the last column
+  "editor.scrollBeyondLastColumn": 5,
+
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": true,
 
@@ -426,7 +429,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls the wrapping column of the editor when `editor.wordWrap` is 'wordWrapColumn' or 'bounded'.
   "editor.wordWrapColumn": 80,
 
-  // Controls the indentation of wrapped lines. Can be one of 'none', 'same' or 'indent'.
+  // Controls the indentation of wrapped lines. Can be one of 'none', 'same', 'indent' or 'deepIndent'.
   "editor.wrappingIndent": "same",
 
 // SCM
@@ -722,7 +725,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
 
-  // Controls if the search view should read or modify the shared find clipboard on macOS
+// Controls if the search view should read or modify the shared find clipboard on macOS
   "search.globalFindClipboard": false,
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
@@ -789,6 +792,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls when the debug status bar should be visible
   "debug.showInStatusBar": "onFirstSessionStart",
+
+  // Controls the debug toolbar. Should it be floating, docked in the debug view or hidden.
+  "debug.toolbar": "float",
 
   // Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces
   "launch": {
@@ -971,11 +977,23 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable including unique names from the file in JavaScript suggestion lists.
   "javascript.nameSuggestions": true,
 
+  // Preferred path style for auto imports: 'relative' paths, 'non-relative' paths, or 'auto' infer the shortest path type. Requires TS >= 2.9
+  "javascript.preferences.importModuleSpecifier": "auto",
+
+  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires TS >= 2.9
+  "javascript.preferences.quoteStyle": "auto",
+
   // Enable/disable references CodeLens in JavaScript files.
   "javascript.referencesCodeLens.enabled": false,
 
+  // Enable/disable highlighting of unused variables in code. Requires TypeScript >= 2.9
+  "javascript.showUnused.enabled": true,
+
   // Enable/disable suggestion diagnostics for JavaScript files in the editor. Requires TypeScript >= 2.8
   "javascript.suggestionActions.enabled": true,
+
+  // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Possible values are: 'prompt' on each rename, 'always' update paths automatically, and 'never' rename paths and don't prompt me. Requires TypeScript >= 2.9
+  "javascript.updateImportsOnFileMove.enabled": "prompt",
 
   // Enable/disable JavaScript validation.
   "javascript.validate.enable": true,
@@ -983,7 +1001,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable auto JSDoc comments
   "jsDocCompletion.enabled": true,
 
-  // Enable/disable auto import suggestions. Requires TypeScript >=2.6.1
+  // Enable/disable auto import suggestions. Requires TypeScript >= 2.6.1
   "typescript.autoImportSuggestions.enabled": true,
 
   // Check if NPM is installed for Automatic Type Acquisition.
@@ -1049,6 +1067,12 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires TypeScript >= 2.3.4.
   "typescript.npm": null,
 
+  // Preferred path style for auto imports: 'relative' paths, 'non-relative' paths, or 'auto' infer the shortest path type. Requires TS >= 2.9
+  "typescript.preferences.importModuleSpecifier": "auto",
+
+  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires TS >= 2.9
+  "typescript.preferences.quoteStyle": "auto",
+
   // Enable/disable quick suggestions when typing out an import path.
   "typescript.quickSuggestionsForPaths": true,
 
@@ -1057,6 +1081,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Report style checks as warnings
   "typescript.reportStyleChecksAsWarnings": true,
+
+  // Enable/disable highlighting of unused variables in code. Requires TypeScript >= 2.9
+  "typescript.showUnused.enabled": true,
 
   // Enable/disable suggestion diagnostics for TypeScript files in the editor. Requires TypeScript >= 2.8.
   "typescript.suggestionActions.enabled": true,
@@ -1075,6 +1102,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.trace": "off",
+
+  // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Possible values are: 'prompt' on each rename, 'always' update paths automatically, and 'never' rename paths and don't prompt me. Requires TypeScript >= 2.9
+  "typescript.updateImportsOnFileMove.enabled": "prompt",
 
   // Complete functions with their parameter signature.
   "typescript.useCodeSnippetsOnMethodSuggest": false,
@@ -1336,13 +1366,19 @@ Below are the Visual Studio Code default settings and their values. You can also
   // The font weight to use within the terminal for bold text.
   "terminal.integrated.fontWeightBold": "bold",
 
+  // Controls the letter spacing of the terminal, this is an integer value which represents the amount of additional pixels to add between characters.
+  "terminal.integrated.letterSpacing": 0,
+
   // Controls the line height of the terminal, this number is multiplied by the terminal font size to get the actual line-height in pixels.
   "terminal.integrated.lineHeight": 1,
 
   // Treat the option key as the meta key in the terminal on macOS.
   "terminal.integrated.macOptionIsMeta": false,
 
-  // Controls how terminal reacts to right click, possibilities are 'default', 'copyPaste', and 'selectWord'. 'default' will show the context menu, 'copyPaste' will copy when there is a selection otherwise paste, 'selectWord' will select the word under the cursor and show the context menu.
+  // Controls how the terminal is rendered, the options are "canvas" for the standard canvas renderer, "dom" for the fallback DOM-based renderer or "auto" which lets VS Code guess which will be best. This setting needs VS Code to reload in order to take effect for new terminals.
+  "terminal.integrated.rendererType": "auto",
+
+  // Controls how terminal reacts to right click, possibilities are "default", "copyPaste", and "selectWord". "default" will show the context menu, "copyPaste" will copy when there is a selection otherwise paste, "selectWord" will select the word under the cursor and show the context menu.
   "terminal.integrated.rightClickBehavior": "copyPaste",
 
   // Controls the maximum amount of lines the terminal keeps in its buffer.
@@ -1511,6 +1547,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   //  E.g.: {"vue-html": "html", "javascript": "javascriptreact"}
   "emmet.includeLanguages": {},
 
+  // When set to false, the whole file is parsed to determine if current position is valid for expanding Emmet abbreviations. When set to true, only the content around the current position in css/scss/less files is parsed.
+  "emmet.optimizeStylesheetParsing": true,
+
   // Preferences used to modify behavior of some actions and resolvers of Emmet.
   "emmet.preferences": {},
 
@@ -1550,6 +1589,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Run npm commands with the `--silent` option.
   "npm.runSilent": false,
+
+  // The default click action used in the scripts explorer: 'open' or 'run', the default is 'open'.
+  "npm.scriptExplorerAction": "open",
 
 // Merge Conflict
 
