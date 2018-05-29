@@ -9,13 +9,13 @@ MetaDescription: Popular Java Extensions for VS Code
 ---
 # Java Extensions for VS Code
 
-Visual Studio Code provides many features as an editor. In addition to that, you can install some high quality extensions to add features to VS Code for Java development.
+Visual Studio Code provides many features as a Java language editor. You can also install VS Code extensions to add more features for Java development.
 
-> **Tip:** To see how to install and manage your extensions, please refer to the [extension documentation](/docs/editor/extension-gallery.md).
+> **Tip:** To see how to install and manage your extensions, refer to the [extension documentation](/docs/editor/extension-gallery.md).
 
 ## Recommended extensions
 
-To help set up Java on VS Code, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains two popular extensions:
+To help set up Java on VS Code, there is the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which contains these popular extensions:
 
 1. [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java)
 2. [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)
@@ -34,11 +34,13 @@ There are many other popular Java extensions you can pick from, including:
 Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within the VS Code:
 
 1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
-2. Filter the extensions list by typing "java".
+2. Filter the extensions list by typing 'java'.
 
 ## Recommended extensions for cloud (Azure) development
 
-Along with the language support, if you are deploying your applications to the cloud, especially Azure, there is an [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services. Here's the list of services supporting Java:
+Along with Java language support, if you are deploying your applications to the cloud, especially Azure, there is an [Azure Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack) which contains extensions for popular Azure Services.
+
+Here's a list of Azure extensions supporting Java:
 
 ### App Services (Websites)
 
@@ -50,7 +52,7 @@ Along with the language support, if you are deploying your applications to the c
 
 ### Micro-Services
 
-* The [Docker Tools](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension makes it easy to develop and deploy containerized micro-service based applications using Docker containers. Use [Visual Studio Team Services](https://docs.microsoft.com/vsts) to create a CI/CD pipeline to build your containerized applications, deploy them to the [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/), run web sites directly in [Azure App Services](https://docs.microsoft.com//azure/app-service/), and run multi-container systems at scale using the [Azure Container Service](https://docs.microsoft.com//azure/container-service/).
+* The [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension makes it easy to develop and deploy containerized micro-service based applications using Docker containers. Use [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) to create a CI/CD pipeline to build your containerized applications, deploy them to the [Azure Container Registry](https://docs.microsoft.com//azure/container-registry/), run web sites directly in [Azure App Services](https://docs.microsoft.com//azure/app-service/), and run multi-container systems at scale using the [Azure Container Service](https://docs.microsoft.com//azure/container-service/).
 
 ### Storage
 
