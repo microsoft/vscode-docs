@@ -416,7 +416,7 @@
                                      "when": "breakpointsFocused && !breakpointSelected" },
 { "key": "delete",                "command": "debug.removeWatchExpression",
                                      "when": "watchExpressionsFocused && !expressionSelected" },
-{ "key": "shift+f9",              "command": "editor.debug.action.toggleColumnBreakpoint",
+{ "key": "shift+f9",              "command": "editor.debug.action.toggleInlineBreakpoint",
                                      "when": "editorTextFocus" },
 { "key": "ctrl+enter",            "command": "explorer.openToSide",
                                      "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus" },
