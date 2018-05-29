@@ -11,7 +11,7 @@ MetaDescription: Using VS Code for developing, debugging and deploying your serv
 
 Serverless, as indicated by its name, allows you to execute your code in an environment without having to first create a VM or publish a web application.
 
-This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project and deploy to [Azure](https://azure.microsoft.com) with Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You be able to test it locally and deploy it to [Azure Functions](TBD). When you're done, you'll have a HTTP-triggered function app running in Azure.
+This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project and deploy to [Azure](https://azure.microsoft.com) with Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You be able to test it locally and deploy it to [Azure Functions](https://azure.microsoft.com/services/functions). When you're done, you'll have a HTTP-triggered function app running in Azure.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Once you've installed the Azure Functions extension, you can easily create a new
 
 The extension use [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) to create the function project in the folder you specified.
 
-![Create Functions Project](images/java-serverless/create-functions.png) (TBD stale?)
+![Create Functions Project](images/java-serverless/create-functions.png)
 
 Within the created project, there's a simple HTTP triggered 'Hello World' Function which reads the input from HTTP query string or body and returns it back immediately.
 
@@ -158,11 +158,11 @@ The deploy process leverages the [Azure Account](https://marketplace.visualstudi
 
 To log into Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
 
-![Azure sign in code](images/java-serverless/device-login.png) (TBD stale or poor images)
+![Azure sign in code](images/java-serverless/devicelogin.png)
 
 Paste in the access code and continue the sign in process.
 
-![Azure Device Login](images/java-serverless/device-login2.png)
+![Azure Device Login](images/java-serverless/devicelogin2.png)
 
 After signing in, click **Deploy to Function App** button, select the folder of the project you would like to deploy from, and follow the prompts to configure your function project.
 
@@ -189,13 +189,13 @@ The extension also supports adding new functions to the existing project:
 3. Select function type.
 4. Fill in the parameters for this function type.
 
-![Add Functions](images/java-serverless/add-functions.gif) (TBD stale)
+![Add Functions](images/java-serverless/add-functions.gif)
 
 ## Remote debugging
 
 Although the local core tool from Azure Functions is running the same code as in the cloud, sometimes environment differences may cause your function to behave differently. Using remote debugging, you can troubleshoot those issues.
 
-There is a special [Remote Debugging Tool](https://www.npmjs.com/package/cloud-debug-tools) to help you set up the remote debugging session which you can install it via [npm](TBD):
+There is a special [Remote Debugging Tool](https://www.npmjs.com/package/cloud-debug-tools) to help you set up the remote debugging session which you can install it via [npm](https://www.npmjs.com/):
 
 ```bash
 npm install -g cloud-debug-tools
@@ -225,7 +225,7 @@ The tool will then figure out the rest for you. Once it's connected to the runni
 }
 ```
 
-Now you can set a break point and attach to your cloud function using VS Code. When you launch a debug session with the above configuration, you can step through it just like you did locally. It's also useful if you don't have .Net Core (TBD is this needed?) and the Azure Functions CLI core tool installed on your local environment and you want to jump start within the cloud directly.
+Now you can set a break point and attach to your cloud function using VS Code. When you launch a debug session with the above configuration, you can step through it just like you did locally. It's also useful if you don't have .Net Core and the Azure Functions CLI core tool installed on your local environment and you want to jump start within the cloud directly.
 
 ## Next steps
 

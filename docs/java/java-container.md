@@ -50,13 +50,13 @@ ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /ap
 
 Right click the DockerFile from the File Explorer, and choose the **Build Image** command from the context menu. You will be prompted to name your image and once it's done, you can see the image in your Docker Explorer provided by the Docker Extension.
 
-![Build Image](images/java-container/build-image.png) TBD stale image?
+![Build Image](images/java-container/build-image.png)
 
 ## Run your container image locally
 
 Click the **Run** command by right clicking the image you just built and your Docker image will start running locally.
 
-![Run Container](images/java-container/docker-run.png) TBD stale image
+![Run Container](images/java-container/docker-run.png)
 
 Test the web app by browsing to `http://localhost:8080` using a web browser. You should see the following message displayed: "Greetings from Spring Boot!".
 
@@ -70,7 +70,7 @@ The first time you expand the Docker Hub node in Docker Explorer, you'll be prom
 
 ![Docker Hub Login](images/java-container/docker-hub-login.gif)
 
-Your username and password are stored in your operating system credentials vault (for example, macOS keychain or Windows Credential Store) so that you don't need to log in every time. You can log out of Docker Hub by right clicking on the Docker Hub label and choosing **Log Out** (TBD stale?). This will delete the credentials from the OS store.
+Your username and password are stored in your operating system credentials vault (for example, macOS keychain or Windows Credential Store) so that you don't need to log in every time. You can log out of Docker Hub by right clicking on the Docker Hub label and choosing **Docker Hub Logout**. This will delete the credentials from the OS store.
 
 Now push your image to Docker Hub. Make sure the name of your image starts (is 'tagged') with your Docker ID.
 
@@ -82,11 +82,11 @@ With the Docker Explorer, you can deploy images from Docker Hub Registries or Az
 
 To log into Azure, after installing the Azure Account extensions, you can run **Azure: Sign in** from the **Command Palette** (`kb(workbench.action.showCommands)`). You then sign into your account using the **Device Login** flow. Click on **Copy & Open** in the notification to open your default browser.
 
-![Azure Sign In code](images/java-container/device-login.png) (TBD stale images, better in docker.ms)
+![Azure Sign In code](images/java-container/devicelogin.png)
 
 Paste in the access code and continue the sign in process.
 
-![Azure Device Login](images/java-container/device-login2.png)
+![Azure Device Login](images/java-container/devicelogin2.png)
 
 You can now right click on an image in Docker Hub or an Azure Container Registry and choose **Deploy Image to Azure App Service**.
 

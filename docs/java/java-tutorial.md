@@ -43,7 +43,7 @@ Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spri
 
 ![Clone Spring Repository](images/java-tutorial/clone-repository.gif)
 
-From within VS Code, navigate to the `complete` folder that contains the project which is ready to run. Open any of the Java files in the repository (for example `complete\src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Java Extension Pack](TBD Marketplace link). Follow the instructions and reload VS Code after the installation.
+From within VS Code, navigate to the `complete` folder that contains the project which is ready to run. Open any of the Java files in the repository (for example `complete\src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
 
 ![Install Java Extensions](images/java-tutorial/install-extensions.gif)
 
