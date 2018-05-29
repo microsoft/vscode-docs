@@ -107,6 +107,8 @@ One question we expect people to ask is to see the data we collect. However, we 
 
 In conclusion, we expect our approach to evolve as we learn more about GDPR and the expectations of our users.  We greatly appreciate the data users do sent to us, as it is very valuable, VS Code is a better product for everyone because it.  And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
 
+You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://docs.microsoft.com/en-us/microsoft-365/compliance/gdpr-dsr-visual-studio-family).
+
 ## How to disable telemetry reporting
 
 VS Code collects usage data and sends it to Microsoft to help improve our products and services. Read our [privacy statement](https://go.microsoft.com/fwlink/?LinkID=528096&clcid=0x409) to learn more.
