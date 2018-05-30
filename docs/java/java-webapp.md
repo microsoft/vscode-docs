@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
 PageTitle: Deploy Java Web Apps to the cloud
-DateApproved: 3/7/2017
+DateApproved: 5/30/2018
 MetaDescription: Java web app tutorial showing how to deploy a Java web app to Azure
 ---
 # Deploy Java Web Apps to the cloud
@@ -29,7 +29,7 @@ To run the Azure CLI, we'll use the [Integrated Terminal](/docs/editor/integrate
 
 * Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
 * Use the **View** | **Integrated Terminal** menu command.
-* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View:Toggle Integrated Terminal** command.
+* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Integrated Terminal** command.
 
 > **Note:** You can also open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on macOS or Linux) if you prefer to work outside VS Code.
 
@@ -91,5 +91,5 @@ You have successfully deployed a Java web application to the cloud!
 
 ## Next steps
 
-* To see how you can containerize and deploy a web application, check out the [Java Container Tutorial](/docs/java/java-container.md)
+* To containerize and deploy a web application, check out the [Java Container Tutorial](/docs/java/java-container.md)
 * To learn more about Java Debugging features, see the [Java Debugging Tutorial](/docs/java/java-debugging.md)

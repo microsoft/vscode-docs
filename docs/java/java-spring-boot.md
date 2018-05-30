@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Spring Boot
 ContentId: d37118cf-1b5b-4aee-9727-52fcfcac16bd
 PageTitle: Spring Boot support in VS Code
-DateApproved: 3/7/2018
+DateApproved: 5/30/2018
 MetaDescription: Spring Boot extensions for Java developer using Visual Studio Code editor.
 ---
 # Build Spring Boot Apps with VS Code
@@ -28,7 +28,7 @@ Once you have the extension installed, open the **Command Palette** (`kb(workben
 
 The [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml` and `.java` files.
 
-The extension supports quick navigate through source code, smart code completions, quick access to running apps, and live application information. Similiar code completion and validation features are also available for `.properties` and `.yml` files.
+The extension supports quick navigate through source code, smart code completions, quick access to running apps, and live application information. Similar code completion and validation features are also available for `.properties` and `.yml` files.
 
 ## Debug Application
 
@@ -36,6 +36,6 @@ You can press `kb(workbench.action.debug.start)` to run your application. After 
 
 ## Next steps
 
-* If you'd like to learn how to deploy your web application, check out the [Deploy a Java Application to Azure Web App](/docs/java/java-webapp.md) tutorial where we show how to run your web app in the cloud.
-* To see how you can containerize the web app and deploy to the cloud as a Docker container, check out [Java Container Tutorial](/docs/java/java-container.md).
+* To deploy your web app, see the [Deploy a Java Application to Azure](/docs/java/java-webapp.md) tutorial.
+* To containerize a web app and deploy as a Docker container, check out the [Java Container Tutorial](/docs/java/java-container.md).
 * To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md).

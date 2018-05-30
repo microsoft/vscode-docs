@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Debugging and Testing
 ContentId: 929e5410-3bfe-4107-b331-565afe5d341f
 PageTitle: Debugging and Testing Java in VS Code
-DateApproved: 3/7/2017
+DateApproved: 5/30/2018
 MetaDescription: See how you can debug and test your Java code locally, and in the cloud.
 MetaSocialImage:
 ---
@@ -12,7 +12,7 @@ MetaSocialImage:
 
 Visual Studio Code is great at debugging Java applications through the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) extension.
 
-It's a lightweight Java Debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug) which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
+It's a lightweight Java debugger based on [Java Debug Server](https://github.com/Microsoft/java-debug) which extends the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java).
 
 Here's a list of supported debugging features:
 
@@ -22,11 +22,11 @@ Here's a list of supported debugging features:
 - Pause & Continue
 - Step In/Out/Over
 - Variables
-- Callstacks
+- Call Stacks
 - Threads
-- Debug console
+- Debug Console
 
-The Java debugger is an open source project which welcomes contributors to collaborate through the GitHub repositories:
+The Java debugger is an open source project which welcomes contributors to collaborate through GitHub repositories:
 
 - [Debugger for Java Extension](https://github.com/Microsoft/vscode-java-debug)
 - [Java Debugger Server for Visual Studio Code](https://github.com/Microsoft/java-debug)
@@ -35,7 +35,7 @@ To run and debug JUnit test, you can also install the [Java Test Runner](https:/
 
 ## Install
 
-For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension installed. To make it easier, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which bundles  the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) and several other popular Java [extensions](/docs/java/extensions.md).
+For the debugger to work, you also need to have the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension installed. To make it easier, there is a [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) which bundles the [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), the [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) and several other popular Java [extensions](/docs/java/extensions.md).
 
 You can manually install the extension pack from the Extensions view (`kb(workbench.view.extensions)`) by typing `vscode-java-pack` in the search box. You will also be prompted to install the Java Extension Pack when you edit a Java file in VS Code for the first time.
 
@@ -57,17 +57,25 @@ If there's no debug configuration file `launch.json` in your project, the debugg
 
 You can also configure the `launch.json` yourself to set customized settings or attach to another Java process.
 
-You can also use VS Code to run and debug single Java files without any project.
+### Debugging single files
+
+VS Code can run and debug single Java files without any project.
 
 ![Debug Single File](images/java-debugging/single-file.gif)
+
+### Debugging external files
 
 The Java debugger also supports external source files. This lets you debug third party classes when they are inside a JAR or a source attachment. Set your breakpoints in those classes before you start debugging. Java 9 is supported with VS Code as well.
 
 ![Java 9 Support](images/java-debugging/java9.gif)
 
+### Debug session inputs
+
 The default Debug Console in VS Code doesn't support inputs. If your program need inputs from a terminal, you can use the Integrated Terminal (`kb(workbench.action.terminal.toggleTerminal)`) within VS Code or an external terminal to launch it.
 
 ![Launch in Terminal](images/java-debugging/launch-in-terminal.gif)
+
+### Step filtering
 
 Step filter is supported by the extension to filter out types that you do not wish to see or step through while debugging. With this feature, you can configure the packages to filter within your `launch.json` so they could be skipped when you step through.
 
@@ -77,17 +85,19 @@ The debugger also lets you evaluate expressions in the **WATCH** window as well 
 
 ![Expression Evaluation](images/java-debugging/expression-evaluation.gif)
 
-Another advanced feature the debugger supports is 'hot code' replacement. Hot code replacement (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it’s called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
+### Hot Code replacement
+
+Another advanced feature the debugger supports is 'Hot Code' replacement. Hot code replacement (HCR) is a debugging technique whereby the Java debugger transmits new class files over the debugging channel to another Java Virtual Machine (JVM). HCR facilitates experimental development and fosters iterative trial-and-error coding. With this new feature, you can start a debugging session and change a Java file in your development environment, and the debugger will replace the code in the running JVM. No restart is required, which is why it’s called "hot". Below is an illustration of how you can use HCR with Debugger for Java in VS Code.
 
 ![Hot Code Replacement](images/java-debugging/hcr.gif)
 
-There're a lot of different [options and settings](#options) available to configure the debugger. For example, configuring the current working directory (cwd) and environment variables is easily done with launch options.
+## Configuration
+
+There are many options and settings available to configure the debugger. For example, configuring the current working directory (cwd) and environment variables is easily done with launch options.
 
 ![Configure Variables](images/java-debugging/cwd-env.gif)
 
-Also check the documentation of [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) for help in setting up your project.
-
-## Options
+Consult the documentation for the [Language Support for Java by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java) extension for help in setting up your project.
 
 ### Launch
 
@@ -132,7 +142,7 @@ Also check the documentation of [Language Support for Java by Red Hat](https://m
 - `java.debug.settings.showStaticVariables` - Show static variables in in the **VARIABLES** view, defaults to `true`.
 - `java.debug.settings.showQualifiedNames` - Show fully qualified class names in in the **VARIABLES** view, defaults to `false`.
 - `java.debug.settings.maxStringLength` - Maximum length of strings displayed in the **VARIABLES** view or Debug Console. Strings longer than this length will be trimmed. Default is `0` which means no trim is performed.
-- `java.debug.settings.enableHotCodeReplace` - Enable hot code replacement for Java code. Make sure the auto build is not disabled for [VSCode Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
+- `java.debug.settings.enableHotCodeReplace` - Enable Hot Code replacement for Java source code. Make sure the auto build is not disabled for [VS Code Java](https://github.com/redhat-developer/vscode-java). See the [wiki page](https://github.com/Microsoft/vscode-java-debug/wiki/Hot-Code-Replace) for more information about usages and limitations.
 
 ## Feedback and Questions
 
@@ -153,3 +163,4 @@ You can also manage your test cases with **TEST EXPLORER**.
 Read on to find out about:
 
 * [Debugging](/docs/editor/debugging.md) - Find out how to use the debugger with your project for any language.
+* [Java Extensions](/docs/java/extensions.md) - Learn about more useful Java extensions for VS Code.

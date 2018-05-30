@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Java Tutorial
 ContentId: 12d8264b-643f-4745-a7ea-8433dedb1331
 PageTitle: Build Java Web Apps with VS Code
-DateApproved: 3/7/2017
+DateApproved: 5/30/2018
 MetaDescription: Java tutorial showing Java language support in the Visual Studio Code editor.
 ---
 # Build Java Web Apps with VS Code
@@ -47,7 +47,7 @@ From within VS Code, navigate to the `complete` folder that contains the project
 
 ![Install Java Extensions](images/java-tutorial/install-extensions.gif)
 
-Once you have the Extension Pack installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status Bar and when everything is finished, the final active debug configuration is displayed.
+Once you have the Java Extension Pack installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status Bar and when everything is finished, the final active debug configuration is displayed.
 
 ![debug configuration in the Status Bar](images/java-tutorial/debugging-status-bar.png)
 

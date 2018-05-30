@@ -4,14 +4,14 @@ Area: java
 TOCTitle: Java Serverless
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
 PageTitle: Writing serverless Java Application with VS Code
-DateApproved: 3/7/2017
+DateApproved: 5/30/2018
 MetaDescription: Using VS Code for developing, debugging and deploying your serverless application.
 ---
 # Serverless Java Apps with VS Code
 
 Serverless, as indicated by its name, allows you to execute your code in an environment without having to first create a VM or publish a web application.
 
-This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project and deploy to [Azure](https://azure.microsoft.com) with Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You be able to test it locally and deploy it to [Azure Functions](https://azure.microsoft.com/services/functions). When you're done, you'll have a HTTP-triggered function app running in Azure.
+This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project and deploying to [Azure](https://azure.microsoft.com) with Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You'll be able to test the function locally and then deploy it to [Azure Functions](https://azure.microsoft.com/services/functions). When you're done, you'll have a HTTP-triggered function app running in Azure.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Once you've installed the Azure Functions extension, you can easily create a new
 3. Select Java the target language.
 4. Fill in the parameters.
 
-The extension use [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) to create the function project in the folder you specified.
+The extension uses [Maven archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) to create the function project in the folder you specified.
 
 ![Create Functions Project](images/java-serverless/create-functions.png)
 
@@ -80,7 +80,7 @@ public class Function {
 
 **Note**: This step is optional and only required to locally run and debug your Java Functions source code.
 
-The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provides a local development environment for writing, running, and debugging Azure Functions. The installation package for v2 is a self-contained cross-platform package
+The [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools) provides a local development environment for writing, running, and debugging Azure Functions. The installation package for v2 is a self-contained cross-platform package.
 
 ### Windows
 
@@ -123,7 +123,7 @@ sudo apt-get update
 sudo apt install azure-functions-core-tools
 ```
 
-[Code and test Azure Functions locally](https://docs.microsoft.com/azure/azure-functions/functions-run-local)
+You can learn more by reading the [Code and test Azure Functions locally](https://docs.microsoft.com/azure/azure-functions/functions-run-local) How-to guide.
 
 **NOTE**: [npm](https://www.npmjs.com/) can be used on all platforms. On Unix platforms, you may need to specify `--unsafe-perm` if you are running `npm` with sudo. This is necessary due to npm's post install script behavior.
 
@@ -232,4 +232,4 @@ Now you can set a break point and attach to your cloud function using VS Code. W
 You have created a Java function app with a simple HTTP trigger and deployed it to Azure Functions.
 
 - Review the [Java Functions developer guide](https://docs.microsoft.com/azure/azure-functions/functions-reference-java) for more information on developing Java functions.
-- To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md)
+- To learn more about Java Debugging features, see [Java Debugging Tutorial](/docs/java/java-debugging.md).
