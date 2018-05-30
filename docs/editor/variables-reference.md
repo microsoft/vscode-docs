@@ -19,6 +19,7 @@ The following predefined variables are supported:
 - **${workspaceFolderBasename}** - the name of the folder opened in VS Code without any slashes (/)
 - **${file}** - the current opened file
 - **${relativeFile}** - the current opened file relative to `workspaceFolder`
+- **${relativePath}** - the current opened file's path relative to a folder
 - **${fileBasename}** - the current opened file's basename
 - **${fileBasenameNoExtension}** - the current opened file's basename with no file extension
 - **${fileDirname}** - the current opened file's dirname
@@ -58,6 +59,12 @@ You can reference VS Code settings and commands using the following syntax:
 By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name, the variable is scoped to the same folder where it is used.
 
 For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
+
+## Configuring the relativePath variable
+
+By default `relativePath` is calculated from `workspaceFolder`. By providing a path as a second argument after the `workspaceFolder` name (separated by a colon), it is possible to choose another directory from which the relative path is calculated.
+
+For example, in a workspace with a folder `project`, in a file `project/the/path/to/a/file`, `${relativePath:project:the/path}` refers to the path `to/a`.
 
 ## Common Questions
 
