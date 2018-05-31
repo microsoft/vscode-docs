@@ -77,6 +77,6 @@ code --install-extension vscode-mongodb-0.0.1.vsix
 
 * [Azure CLI Extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli) provides a rich editing experience in VS Code for the  [Azure CLI 2.0](https://aka.ms/GetTheAzureCLI).
 
-* [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) let's you host your MongoDB databases in Azure.
+* [Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction) let's you host your MongoDB databases in Azure.
 
-* [Kubernetes](https://kubernetes.io/) and [Kubernetes in Azure](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough). 
+* [Kubernetes](https://kubernetes.io/) and [Kubernetes in Azure](https://docs.microsoft.com/en-us/azure/container-service/container-service-kubernetes-walkthrough).

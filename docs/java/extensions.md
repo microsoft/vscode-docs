@@ -58,7 +58,7 @@ Along with the language support, if you are deploying your applications to the c
 
 ### Databases
 
-* The [Azure CosmosDB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension lets you create, manage, and query CosmosDB accounts, including support for Mongo, Graphs, Tables, and DocumentDB databases.
+* The [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension lets you create, manage, and query Cosmos DB accounts, including support for Mongo, Graphs, Tables, and DocumentDB databases.
 
 * The [Microsoft SQL](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) extension provides support for developing [Microsoft SQL Server](https://www.microsoft.com//sql-server/sql-server-2016), [Azure SQL Database](https://docs.microsoft.com//azure/sql-database/) and [SQL Data Warehouse](https://docs.microsoft.com//azure/sql-data-warehouse/) with a rich set of functionalities. For example, create and manage connection profiles and most recently used connections. Write T-SQL script with IntelliSense, snippets, syntax colorizations, error validations and GO batch separator. Execute scripts, view the results in a document, and save results to json or csv file format and view in the editor.
 

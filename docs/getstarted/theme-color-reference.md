@@ -187,7 +187,7 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 - `tab.activeBorder`: Bottom border for the active tab.
 - `tab.unfocusedActiveBorder`: Bottom border for the active tab in an inactive editor group.
 - `tab.activeBorderTop`: Top border for the active tab.
-- `tab.unfocusedActiveBorder`: Top border for the active tab in an inactive editor group
+- `tab.unfocusedActiveBorderTop`: Top border for the active tab in an inactive editor group
 - `tab.inactiveBackground`: Inactive Tab background color.
 - `tab.inactiveForeground`: Inactive Tab foreground color in an active group.
 - `tab.unfocusedActiveForeground`: Active tab foreground color in an inactive editor group.
