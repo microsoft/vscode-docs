@@ -153,7 +153,7 @@ If you are listing out multiple key bindings, you can use a table.
 
 For source code we use the fenced code block notation ```` ``` ````.
 
->**Note:** To get colorization, add a language modifier e.g. ```` ```json ```` or ```` ```javascript ````.
+>**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. E.g. ```` ```json ```` or ```` ```javascript ````. [Read more →](https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting)
 
 Some JavaScript code...
 
