@@ -11,6 +11,12 @@ DateApproved: 5/3/2018
 
 * The [Azure CosmosDB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension lets you create, manage, and query CosmosDB accounts, including support for Mongo, Graphs, Tables, and DocumentDB databases.
 
+## Azure view
+
+## Commands
+
+![mongodb commands](images/mongodb/mongodb-commands.png)
+
 ## Next Steps
 
 * [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
