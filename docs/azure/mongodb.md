@@ -13,9 +13,13 @@ DateApproved: 5/3/2018
 
 ## Azure view
 
+### Connect to MongoDB
+
 ## Commands
 
 ![mongodb commands](images/mongodb/mongodb-commands.png)
+
+## Using Scrapbooks
 
 ## Next Steps
 
