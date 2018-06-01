@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: TypeScript
 ContentId: 05C114DF-4FDC-4C65-8954-58F5F293FAFD
 PageTitle: TypeScript Programming with Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Get the best out editing TypeScript with Visual Studio Code.
 MetaSocialImage: images/typescript/Languages_typescript.png
 ---
@@ -33,7 +33,7 @@ tsc --help
 
 Another option is to install the TypeScript compiler locally in your project (`npm install --save-dev typescript`) and has the benefit of avoiding possible interactions with other TypeScript projects you may have.
 
-## TypeScript Files and Projects
+## TypeScript files and projects
 
 VS Code's TypeScript support can operate in two different modes:
 
@@ -76,7 +76,7 @@ By default, VS Code TypeScript displays code style issues as warnings instead of
 
 Treating these as warnings is consistent with other tools, such as TSLint. These will still be displayed as errors when you run `tsc` from the command line.
 
-You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false`.
+You can disable this behavior by setting: `"typescript.reportStyleChecksAsWarnings": false` in the User Settings file.
 
 ## Transpiling TypeScript into JavaScript
 
@@ -105,7 +105,7 @@ To test that you have the TypeScript compiler `tsc` installed correctly and a wo
 
 You should now see the transpiled `HelloWorld.js` JavaScript file which you can run if you have [Node.js](https://nodejs.org) installed, by typing `node HelloWorld.js`.
 
-### Step 2: Run the TypeScript Build
+### Step 2: Run the TypeScript build
 
 Execute **Run Build Task...** from the global **Tasks** menu. If you created a `tsconfig.json` file in the earlier section, this should present the following picker:
 
@@ -146,7 +146,7 @@ The example TypeScript file did not have any compile problems, so by running the
 
 > **Tip:** You can also run the program using VS Code's Run/Debug feature. Details about running and debugging Node.js applications in VS Code can be found [here](/docs/nodejs/nodejs-tutorial.md#debugging-your-node-application)
 
-### Step 4: Reviewing Build Issues
+### Step 4: Reviewing build issues
 
 Unfortunately, most builds don't go that smoothly and the result is often some additional information.  For instance, if there was a simple error in our TypeScript file, we may get the following output from `tsc`:
 
@@ -177,11 +177,11 @@ You can also use the keyboard to open the list `kb(workbench.actions.view.proble
 `kb(editor.action.formatDocument)`: formats the whole document.
 `kb(editor.action.formatSelection)`: formats the currently selected source code.
 
-## JSDoc Support
+## JSDoc support
 
 VS Code offers **JSDoc** support for TypeScript. Besides syntax coloring, we help you enter **JSDoc** comments. Type `/**` and it will auto insert the closing `*/`. Pressing `kbstyle(Enter)` inside a **JSDoc** block will indent the next line and auto insert a `*`.
 
-## JavaScript Source Map Support
+## JavaScript source map support
 
 TypeScript debugging supports JavaScript source maps. Enable this by setting the `sourceMaps` attribute to `true` in the project's launch configuration file `launch.json`. In addition, you can specify a TypeScript file with the `program` attribute.
 
@@ -224,7 +224,7 @@ VS Code ships with a recent stable version of the TypeScript language service an
 
 ![TypeScript status bar version](images/typescript/status-bar-version.png)
 
->**Tip:** To get a specific TypeScript version, specify `@version` during npm install. For example for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
+>**Tip:** To get a specific TypeScript version, specify `@version` during npm install. For example, for TypeScript 2.2.1, you would use `npm install --save-dev typescript@2.2.1`. To preview the next version of TypeScript, run `npm install --save-dev typescript@next`.
 
 To use a different TypeScript version by default, configure `typescript.tsdk` in your user settings to point to a directory containing the TypeScript `tsserver.js` file. You can find the TypeScript installation location using `npm list -g typescript`. The `tsserver.js` file is usually in the `lib` folder.
 
@@ -254,7 +254,7 @@ If your workspace has a specific TypeScript version, you can switch between the 
 
 You can switch back to the version of TypeScript that comes with VS Code by clicking on the TypeScript version in the Status Bar again.
 
-## Auto Imports
+## Auto imports
 
 Automatic imports speed up coding by helping you find available symbols and automatically adding imports for them.
 
@@ -274,7 +274,7 @@ The TypeScript references CodeLens displays an inline count of reference for cla
 
 ![TypeScript references code lens](images/typescript/ts-references-code-lens.png)
 
-You can enable this by setting `"typescript.referencesCodeLens.enabled": true`.
+You can enable this by setting `"typescript.referencesCodeLens.enabled": true` in the User Settings file.
 
 Click on the reference count to quickly browse a list of references:
 
@@ -290,7 +290,7 @@ You can enable this by setting `"typescript.implementationsCodeLens.enabled": tr
 
 As with the references CodeLens, you can click on the implementation count to quickly browse a list of all implementations.
 
-## TypeScript Extensions
+## TypeScript extensions
 
 VS Code provides many features for TypeScript out of the box. In addition to what comes built-in, you can install an extension for greater functionality.
 

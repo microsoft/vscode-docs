@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Extension Manifest
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
 # Extension Manifest File - package.json
@@ -16,14 +16,14 @@ Every Visual Studio Code extension needs a manifest file `package.json` at the r
 Name | Required | Type | Details
 ---- |:--------:| ---- | -------
 `name` | Y | `string` | The name of the extension - should be all lowercase with no spaces.
-`version` | Y | `string` | [SemVer](http://semver.org/) compatible version.
+`version` | Y | `string` | [SemVer](https://semver.org/) compatible version.
 `publisher` | Y | `string` | The [publisher name](/docs/extensions/publish-extension.md#publishers-and-personal-access-tokens)
 `engines` | Y | `object` | An object containing at least the `vscode` key matching the versions of VS Code that the extension is [compatible](/docs/extensions/publish-extension.md#visual-studio-code-compatibility) with.  Cannot be `*`. For example: `^0.10.5` indicates compatibility with a minimum VS Code version of `0.10.5`.
 `license` | | `string` | Refer to [npm's documentation](https://docs.npmjs.com/files/package.json#license). If you do have a `LICENSE` file in the root of your extension, the value for `license` should be `"SEE LICENSE IN <filename>"`.
 `displayName` | | `string`| The display name for the extension used in the Marketplace.
 `description` | | `string` | A short description of what your extension is and does.
-`categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other, Extension Packs]`
-`keywords` | | `array` | An array of **keywords** or **tags** to make it easier to find the extension.
+`categories` | | `string[]` | the categories you want to use for the extensions allowed values: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`
+`keywords` | | `array` | An array of **keywords** to make it easier to find the extension. These are included with other extension **Tags** on the Marketplace.
 `galleryBanner` | | `object` | Helps format the Marketplace header to match your icon.  See details below.
 `preview` | | `boolean` | Sets the extension to be flagged as a Preview in the Marketplace.
 `main` | | `string` | The entry point to your extension.
@@ -148,12 +148,12 @@ License | `license`
 
 Set a `category` for your extension.  Extensions in the same `category` are grouped together on the Marketplace which improves filtering and discovery.
 
->**Note:** Only use the values that make sense for your extension - allowed values are `[Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, Other, Extension Packs]`
+>**Note:** Only use the values that make sense for your extension. Allowed values are `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. Use `Programming Languages` for general language features like syntax highlighting and code completions. The category `Language Packs` is reserved for display language extensions (for example, localized Bulgarian).
 
 ```json
 {
     "categories": [
-        "Linters", "Languages", "Other"
+        "Linters", "Programming Languages", "Other"
     ],
 }
 ```
@@ -198,7 +198,7 @@ If you have other badges you would like to use, please open a Github [issue](htt
 
 ## Combining Extension Contributions
 
-The `yo code` generator lets you easily package TextMate themes, colorizers and snippets and create new extensions.  When the generator is run, it creates a complete standalone extension package for each option.  However it is often more convenient to have a single extension which combines multiple contributions.  For example, if you are adding support for a new language, you'd like to provide users with both the language definition with colorization and also snippets and perhaps even debugging support.
+The `yo code` generator lets you easily package TextMate themes, colorizers and snippets and create new extensions.  When the generator is run, it creates a complete standalone extension package for each option.  However, it is often more convenient to have a single extension which combines multiple contributions.  For example, if you are adding support for a new language, you'd like to provide users with both the language definition with colorization and also snippets and perhaps even debugging support.
 
 To combine extension contributions, edit an existing extension manifest `package.json` and add the new contributions and associated files.
 
@@ -214,7 +214,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
         "vscode": "0.10.x"
     },
     "categories": [
-        "Languages",
+        "Programming Languages",
         "Snippets"
     ],
     "contributes": {
@@ -236,7 +236,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
 }
 ```
 
-Notice that the extension manifest `categories` attribute now includes both `Languages` and `Snippets` for easy discovery and filtering on the Marketplace.
+Notice that the extension manifest `categories` attribute now includes both `Programming Languages` and `Snippets` for easy discovery and filtering on the Marketplace.
 
 >**Tip:** Make sure your merged contributions are using the same identifiers.  In the example above, all three contributions are using "latex" as the language identifier.  This lets VS Code know that the colorizer (`grammar`) and snippets are for the LaTeX language and will be active when editing LaTeX files.
 

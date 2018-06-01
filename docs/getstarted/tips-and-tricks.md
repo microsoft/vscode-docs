@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Tips and Tricks
 ContentId: 9bbbe55d-cf81-428f-8a9f-4f60280cb874
 PageTitle: Visual Studio Code Tips and Tricks
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code Tips and Tricks for power users.
 ---
 # Visual Studio Code Tips and Tricks
@@ -21,7 +21,7 @@ Open the **Welcome** page to get started with the basics of VS Code. **Help** > 
 
 ![welcome page](images/tips-and-tricks/welcome_page.png)
 
-Includes the **Interactive Playground**.
+In the bottom right of the **Welcome** page, there is a link to the **Interactive playground** where you can interactively try out VS Code's feature. **Help** > **Interactive Playground**.
 
 ![interactive playground](images/tips-and-tricks/interactive_playground.png)
 
@@ -65,7 +65,7 @@ You can open multiple files from **Quick Open** by pressing the Right arrow key.
 
 ## Command line
 
-VS Code has a powerful command line interface (CLI) to help you customize the editor launch your specific scenarios.
+VS Code has a powerful command line interface (CLI) to help you customize how you launch the editor for your specific scenarios.
 
 > Make sure the VS Code binary is on your path so you can simply type 'code' to launch VS Code. See the platform specific setup topics if VS Code is added to your environment path during installation ([Running VS Code on Linux](/docs/setup/linux.md), [macOS](/docs/setup/mac.md), [Windows](/docs/setup/windows.md)).
 
@@ -171,7 +171,7 @@ See more in [Key Bindings for Visual Studio Code](/docs/getstarted/keybindings.m
 
 Open User Settings `settings.json`
 
-Keyboard Shortcut: `kb(workbench.action.openGlobalSettings)`
+Keyboard Shortcut: `kb(workbench.action.openSettings)`
 
 Format on paste
 
@@ -345,7 +345,7 @@ In the **Extensions** view, click **Show Recommended Extensions** in the **More*
 
 ### Creating my own extension
 
-Are you interested in creating your own extension? You can learn how to do this in the documentation, specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
+Are you interested in creating your own extension? You can learn how to do this in the [extension documentation](/docs/extensions/overview.md), specifically check out the [documentation on contribution points](/docs/extensionAPI/extension-points.md).
 
 * configuration
 * commands
@@ -368,11 +368,11 @@ Keyboard Shortcut: `kb(workbench.action.terminal.toggleTerminal)`
 Further reading:
 
 * [Integrated Terminal](/docs/editor/integrated-terminal.md) documentation
-* [Mastering VS Code's Terminal article](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
+* [Mastering VS Code's Terminal article](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html)
 
 ### Auto Save
 
-Open User Settings `settings.json` with `kb(workbench.action.openGlobalSettings)`
+Open User Settings `settings.json` with `kb(workbench.action.openSettings)`
 
 ```json
 "files.autoSave": "afterDelay"
@@ -398,11 +398,9 @@ Enter distraction free Zen mode.
 
 Keyboard Shortcut: `kb(workbench.action.splitEditor)`
 
-You can also use `kbstyle(Ctrl)` then click a file from the File Explorer (`kbstyle(Cmd+click)` on macOS).
+You can also drag and drop editors to create new editor groups and move editors between groups.
 
 ![split editors](images/tips-and-tricks/split_editor.gif)
-
-You can use drag and drop editors to create new editor groups and move editors between groups.
 
 ### Switch between editors
 
@@ -452,9 +450,21 @@ Create language associations for files that aren't detected correctly. For examp
 }
 ```
 
+### Preventing dirty writes
+
+VS Code will show you an error message when you try to save a file that cannot be saved because it has changed on disk. VS Code blocks saving the file to prevent overwriting changes that have been made outside of the editor.
+
+In order to resolve the save conflict, click the **Compare** action in the error message to open a diff editor that will show you the contents of the file on disk (to the left) compared to the contents in VS Code (on the right):
+
+![dirty write](images/tips-and-tricks/dirty-write.png)
+
+Use the actions in the editor toolbar to resolve the save conflict. You can either **Accept** your changes and thereby overwriting any changes on disk, or **Revert** to the version on disk. Reverting means that your changes will be lost.
+
+**Note:** The file will remain dirty and cannot be saved until you pick one of the two actions to resolve the conflict.
+
 ## Editing Hacks
 
-Here are a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
+Here is a selection of common features for editing code. If the keyboard shortcuts aren't comfortable for you, consider installing a [keymap extension](https://marketplace.visualstudio.com/search?target=VSCode&category=Keymaps&sortBy=Downloads) for your old editor.
 
 **Tip**: You can see recommended keymap extensions in the **Extensions** view with `kb(workbench.extensions.action.showRecommendedKeymapExtensions)` which filters the search to `@recommended:keymaps`.
 
@@ -619,7 +629,7 @@ Select a symbol then type `kb(editor.action.rename)`. Alternatively, you can use
 ### .eslintrc.json
 
 Install the [ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint). Configure
-your linter however you'd like. Consult the [ESLint specification](http://eslint.org/docs/user-guide/configuring) for details on it's linting rules and options.
+your linter however you'd like. Consult the [ESLint specification](https://eslint.org/docs/user-guide/configuring) for details on its linting rules and options.
 
 Here is configuration to use ES6.
 
@@ -677,7 +687,7 @@ See IntelliSense for your `package.json` file.
 
 ### Create custom snippets
 
-**File** > **Preferences** > **User Snippets**, select the language, and create a snippet.
+**File** > **Preferences** > **User Snippets** (**Code** > **Preferences** > **User Snippets** on macOS), select the language, and create a snippet.
 
 ```json
 "create component": {
@@ -700,7 +710,7 @@ See more details in [Creating your own Snippets](/docs/editor/userdefinedsnippet
 
 Keyboard Shortcut: `kb(workbench.view.scm)`
 
-Git integration comes with VS Code "in-the-box". You can install other SCM provider from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
+Git integration comes with VS Code "out-of-the-box". You can install other SCM provider from the extension Marketplace. This section describes the Git integration but much of the UI and gestures are shared by other SCM providers.
 
 ### Diffs
 
@@ -833,6 +843,14 @@ There are occasionally issues with auto generation. Check out the documentation 
 Select **Tasks** from the top-level menu, run the command **Run Task...**, and select the task you want to run. Terminate the running task by running the command **Terminate Task...**
 
 ![task runner](images/tips-and-tricks/task_runner.gif)
+
+### Run npm scripts as tasks from the explorer
+
+With the setting `npm.enableScriptExplorer`, you can enable an explorer that shows the scripts defined in your workspace.
+
+![Filter problems](images/tips-and-tricks/script_explorer.png)
+
+From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
 
 ## Insiders builds
 

@@ -23,7 +23,7 @@ For detailed instructions on:
 
 >**Note:** [VS Code has limited support for debugging applications running on the Desktop .NET Framework.](https://github.com/OmniSharp/omnisharp-vscode/wiki/Desktop-.NET-Framework)
 
-Due to this focus, many standard C# project types are not recognized by VS Code.  An example of a non-supported project type is an ASP.NET MVC Application (though ASP.NET Core is supported).  In these cases, if you want to have a lightweight tool to edit a file - VS Code has you covered.  If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
+Due to this focus, many standard C# project types are not recognized by VS Code.  An example of a non-supported project type is an ASP.NET MVC Application (though ASP.NET Core is supported).  In these cases, if you want to have a lightweight tool to edit a file - VS Code has you covered.  If you want the best possible experience for those projects and development on Windows in general, we recommend you use [Visual Studio Community](https://www.visualstudio.com/vs/community).
 
 ## Installing C&#35; support
 
@@ -39,7 +39,7 @@ In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com
 
 ## Roslyn and OmniSharp
 
-Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](http://www.omnisharp.net) to offer an enhanced C# experience.  We offer support for:
+Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](https://www.omnisharp.net) to offer an enhanced C# experience.  We offer support for:
 
 - .NET Core projects
 - MSBuild projects
@@ -123,7 +123,7 @@ Read on to find out about:
 
 **Q: My Project won't load.**
 
-**A:** VS Code only supports a limited set of project types (primarily .NET Core).  For full .NET project support, we suggest you use [Visual Studio Community](https://www.visualstudio.com/products/visual-studio-community-vs).
+**A:** VS Code only supports a limited set of project types (primarily .NET Core).  For full .NET project support, we suggest you use [Visual Studio Community](https://www.visualstudio.com/vs/community).
 
 **Q: IntelliSense is not working.**
 

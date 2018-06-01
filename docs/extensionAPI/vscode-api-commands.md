@@ -1,10 +1,10 @@
 ---
-Order: 7
+Order: 9
 Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Complex Commands Reference
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.
 ---
 # Complex Commands
@@ -27,6 +27,13 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 
 `vscode.executeDefinitionProvider` - Execute all definition provider.
+
+* _uri_ Uri of a text document
+* _position_ Position of a symbol
+* _(returns)_ A promise that resolves to an array of Location-instances.
+
+
+`vscode.executeTypeDefinitionProvider` - Execute all type definition providers.
 
 * _uri_ Uri of a text document
 * _position_ Position of a symbol
@@ -88,6 +95,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _uri_ Uri of a text document
 * _position_ Position in a text document
 * _triggerCharacter_ (optional) Trigger completion when the user types the character, like `,` or `(`
+* _itemResolveCount_ (optional) Number of completions to resolve (too large numbers slow down completions)
 * _(returns)_ A promise that resolves to a CompletionList-instance.
 
 
@@ -101,6 +109,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 `vscode.executeCodeLensProvider` - Execute CodeLens provider.
 
 * _uri_ Uri of a text document
+* _itemResolveCount_ (optional) Number of lenses that should be resolved and returned. Will only retrun resolved lenses, will impact performance)
 * _(returns)_ A promise that resolves to an array of CodeLens-instances.
 
 
@@ -134,6 +143,24 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of DocumentLink-instances.
 
 
+`vscode.executeTaskProvider` - Execute task provider
+
+* _(returns)_ An array of task handles
+
+
+`vscode.executeDocumentColorProvider` - Execute document color provider.
+
+* _uri_ Uri of a text document
+* _(returns)_ A promise that resolves to an array of ColorInformation objects.
+
+
+`vscode.executeColorPresentationProvider` - Execute color presentation provider.
+
+* _color_ The color to show and insert
+* _context_ Context object with uri and range
+* _(returns)_ A promise that resolves to an array of ColorPresentation objects.
+
+
 `vscode.previewHtml` - Render the HTML of the resource in an editor view.
 
 * _uri_ Uri of the resource to preview.
@@ -144,10 +171,12 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#working-with-the-html-preview) for more information about the HTML preview's integration with the editor and for best practices for extension authors.
 
 
-`vscode.openFolder` - Open a folder in the current window or new window depending on the newWindow argument. Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder unless the newWindow parameter is set to true.
+`vscode.openFolder` - Open a folder or workspace in the current window or new window depending on the newWindow argument.
 
-* _uri_ (optional) Uri of the folder to open. If not provided, a native dialog will ask the user for the folder
-* _newWindow_ (optional) Whether to open the folder in a new window or the same. Defaults to opening in the same window.
+* _uri_ (optional) Uri of the folder or workspace file to open. If not provided, a native dialog will ask the user for the folder
+* _newWindow_ (optional) Whether to open the folder/workspace in a new window or the same. Defaults to opening in the same window.
+
+Note that opening in the same window will shutdown the current extension host process and start a new one on the given folder/workspace unless the newWindow parameter is set to true.
 
 
 `vscode.diff` - Opens the provided resources in the diff editor to compare their contents.
@@ -158,10 +187,12 @@ See [working with the HTML preview](/docs/extensionAPI/vscode-api-commands.md#wo
 * _options_ (optional) Editor options, see vscode.TextDocumentShowOptions
 
 
-`vscode.open` - Opens the provided resource in the editor. Can be a text or binary file, or a http(s) url. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
+`vscode.open` - Opens the provided resource in the editor.
 
 * _resource_ Resource to open
 * _columnOrOptions_ (optional) Either the column in which to open or editor options, see vscode.TextDocumentShowOptions
+
+Can be a text or binary file, or a http(s) url. If you need more control over the options for opening a text file, use vscode.window.showTextDocument instead.
 
 
 `vscode.removeFromRecentlyOpened` - Removes an entry with the given path from the recently opened list.
@@ -303,7 +334,7 @@ If your preview still needs to load some local resources such as images, try usi
 
 ### Using a Content Security Policy
 
-If your preview's functionality depends on scripts, consider disabling scripts that come from untrusted user content using a [content security policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP). Content security policy allow fine grained control over which resources may be loaded.
+If your preview's functionality depends on scripts, consider disabling scripts that come from untrusted user content using a [content security policy](https://developer.mozilla.org/docs/Web/HTTP/CSP). Content security policy allow fine grained control over which resources may be loaded.
 
 For example, here's a content security policy that allows images from anywhere, allows stylesheets from a user's local system, and disables all scripts:
 

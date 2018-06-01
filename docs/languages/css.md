@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, Sass and Less support in VS Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
 # CSS, Sass and Less
@@ -38,8 +38,32 @@ Clicking on a color preview will launch the integrated color picker which suppor
 You can hide VS Code's color previews by setting the following [setting](/docs/getstarted/settings.md):
 
 ```json
-"css.colorDecorators.enable": false
+"editor.colorDecorators": false
 ```
+
+To just disable it for css, Less and SCSS, use
+```json
+"[css]": {
+    "editor.colorDecorators": false
+}
+
+```
+
+## Folding
+
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all declarations (e.g. rule declarations) and for multi-line comments in the source code.
+
+Additionally you can use the following region markers to define a folding range:
+`/*#region*/` and `/*#endregion*/`
+
+If you prefer to switch to indentation based folding for CSS, Less and SCSS, use:
+
+```json
+"[css]": {
+    "editor.foldingStrategy": "indentation"
+},
+```
+
 
 ## Emmet snippets
 
@@ -70,7 +94,7 @@ Hovering over a selector or property will provide an HTML snippet that is matche
 
 ## Go to Declaration and Find References
 
-This is supported for Sass and Less variables in the same file. [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) per the [draft standards proposal](https://drafts.csswg.org/css-variables/) are also supported.
+This is supported for Sass and Less variables in the same file. [CSS variables](https://developer.mozilla.org/docs/Web/CSS/Using_CSS_variables) per the [draft standards proposal](https://drafts.csswg.org/css-variables/) are also supported.
 
 >**Note:** Cross file references ('imports') are not resolved.
 
@@ -160,7 +184,7 @@ This will create a sample `tasks.json` file in the workspace `.vscode` folder.  
 
 As this is the only command in the file, you can execute it by pressing `kb(workbench.action.tasks.build)` (**Run Build Task**).  The sample Sass/Less file should not have any compile problems, so by running the task all that happens is a corresponding `styles.css` file is created.
 
-Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition we allow you to scan the output for compile problems (errors and warnings). Depending on the compiler select an apropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output select **Never scan the build output** from the presented list.
+Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition, we allow you to scan the output for compile problems (errors and warnings). Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list.
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
@@ -174,7 +198,7 @@ Let's take things a little further and automate Sass/Less compilation with VS Co
 
 ### Step 1: Install Gulp and some plug-ins
 
-We will use [Gulp](http://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
+We will use [Gulp](https://gulpjs.com/) to create a task that will automate Sass/Less compilation.  We will also use the [gulp-sass](https://www.npmjs.com/package/gulp-sass) plug-in to make things a little easier.  The Less plug-in is [gulp-less](https://www.npmjs.com/package/gulp-less).
 
 We need to install gulp both globally (`-g` switch) and locally:
 
@@ -238,13 +262,13 @@ What is happening here?
 
 ### Step 3: Run the gulp default task
 
-To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Tasks** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler select an apropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
+To complete the tasks integration with VS Code, we will need to modify the task configuration from before to run the default Gulp task we just created. You can either delete the `tasks.json` file or empty it only keeping the `"version": "2.0.0"` property. Now execute **Run Task** from the global **Tasks** menu. Observe that you are presented with a picker listing the tasks defined in the gulp file. Select **gulp: default** to start the task. We allow you to scan the output for compile problems. Depending on the compiler, select an appropriate entry in the list to scan the tool output for errors and warnings. If you don't want to scan the output, select **Never scan the build output** from the presented list. At this point, if you create and/or modify Less or SASS files, you see the respective CSS files generated and/or changes reflected on save. You can also enable [Auto Save](/docs/editor/codebasics.md#saveauto-save) to make things even more streamlined.
 
 If you want to make the **gulp: default** task the default build task executed when pressing `kb(workbench.action.tasks.build)` run **Configure Default Build Task** from the global **Tasks** menu and select **gulp: default** from the presented list.
 
 ### Step 4: Terminate the gulp default Task
 
-The **gulp: default** task runs in the background and watches for file changes to Markdown files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
+The **gulp: default** task runs in the background and watches for file changes to Sass/Less files. If you want to stop the task, you can use the **Terminate Running Task** from the global **Tasks** menu.
 
 ## Customizing CSS, Sass and Less Settings
 
@@ -279,7 +303,7 @@ argumentsInColorFunction | Warn when an invalid number of parameters in color fu
 unknownProperties | Warn when using an unknown property | warning
 ieHack | Warn when using an IE hack `*propertyName` or `_propertyName` | ignore
 unknownVendorSpecificProperties | Warn when using an unknown vendor-specific property | ignore
-propertyIgnoredDueToDisplay | Warn when using a property that is ignored due to the display. For example with `display: inline`, the `width`, `height`, `margin-top`, `margin-bottom`, and `float` properties have no effect. | warning
+propertyIgnoredDueToDisplay | Warn when using a property that is ignored due to the display. For example, with `display: inline`, the `width`, `height`, `margin-top`, `margin-bottom`, and `float` properties have no effect. | warning
 important | Warn when using `!important` as it is an indication that the specificity of the entire CSS has gotten out of control and needs to be refactored. | ignore
 float | Warn when using `float` as floats lead to fragile CSS that is easy to break if one aspect of the layout changes. | ignore
 idSelector | Warn when using selectors for an id `#id` as selectors should not contain IDs because these rules are too tightly coupled with the HTML. | ignore

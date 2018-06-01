@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Running VS Code on Linux
@@ -59,6 +59,8 @@ Or on older versions using `yum`:
 yum check-update
 sudo yum install code
 ```
+
+Note that due to the manual signing process and the system we use to publish, the yum repo may lag behind and not get the latest version of VS Code immediately.
 
 ### openSUSE and SLE based distributions
 
@@ -144,7 +146,7 @@ I'm getting a "Running without the SUID sandbox" error?
 
 You can safely ignore this error.
 
-### Debian and Moving Files to Trash
+### Debian and moving files to trash
 
 If you see an error when deleting files from the VS Code Explorer on the Debian operating system, it might be because the trash implementation that VS Code is using is not there.
 
@@ -154,9 +156,9 @@ Run these commands to solve this issue:
 sudo apt-get install gvfs-bin
 ```
 
-### error ENOSPC
+### "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
 
-When you see this error, it indicates that the VS Code file watcher is running out of handles. The current limit can be viewed by running:
+When you see this notification, it indicates that the VS Code file watcher is running out of handles because the workspace is large and contains many files. The current limit can be viewed by running:
 
 ```bash
 cat /proc/sys/fs/inotify/max_user_watches

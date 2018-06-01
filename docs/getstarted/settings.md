@@ -4,30 +4,34 @@ Area: getstarted
 TOCTitle: Settings
 ContentId: FDA6D86C-FF24-49BC-A1EB-E3BA43130FA0
 PageTitle: Visual Studio Code User and Workspace Settings
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: How to modify Visual Studio Code User and Workspace Settings.
 ---
 # User and Workspace Settings
 
-It is easy to configure VS Code to your liking through settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
+It is easy to configure Visual Studio Code to your liking through its various settings. Nearly every part of VS Code's editor, user interface, and functional behavior has options you can modify.
+
+![VS Code settings](images/settings/hero.png)
 
 VS Code provides two different scopes for settings:
 
-* **User** These settings apply globally to any instance of VS Code you open
-* **Workspace** These settings are stored inside your workspace in a `.vscode` folder and only apply when the workspace is opened. Settings defined on this scope override the user scope.
+* **User Settings** - Settings that apply globally to any instance of VS Code you open.
+* **Workspace Settings** - Settings stored inside your workspace and only apply when the workspace is opened.
+
+Workspace settings override user settings.
 
 ## Creating User and Workspace Settings
 
-To get to the user and workspace settings:
+To open your user and workspace settings, use the following VS Code menu command:
 
-- On a Windows computer, click **File** > **Preferences** > **Settings**
-- On a Mac, click **Code** > **Preferences** > **Settings**
+* On Windows/Linux - **File** > **Preferences** > **Settings**
+* On macOS - **Code** > **Preferences** > **Settings**
 
-You are provided with a list of Default Settings. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs on the right let you switch quickly between the user and workspace settings files.
+You are provided with a list of **Default Settings**. Copy any setting that you want to change to the appropriate `settings.json` file. The tabs under the Search box let you switch quickly between the user and workspace settings files.
 
-You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openGlobalSettings)`).
+You can also open the user and workspace settings from the **Command Palette** (`kb(workbench.action.showCommands)`) with **Preferences: Open User Settings** and **Preferences: Open Workspace Settings** or use the keyboard shortcut (`kb(workbench.action.openSettings)`).
 
-In the example below, we disabled line numbers in the editor and configured line wrapping to wrap automatically based on the size of the editor.
+In the example below, the workspace contains settings to disable line numbers in the editor and configure line wrapping to wrap automatically based on the size of the editor.
 
 ![Example Settings](images/settings/settings.png)
 
@@ -35,33 +39,39 @@ Changes to settings are reloaded by VS Code after the modified `settings.json` f
 
 >**Note:** Workspace settings are useful for sharing project specific settings across a team.
 
-## Settings File Locations
+## Settings editor
+
+When you open the settings editor, you will see **Default Settings** where you can search and discover settings you are looking for. When you search using the Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
+
+![Settings Search](images/settings/settings-search.png)
+
+**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
+
+### Edit settings
+
+If you hover over a setting, you will see an **Edit** action with a small pencil icon. Clicking on the pencil will display a dropdown with the available setting values. Select a value and the setting will be added to the currently open settings file.
+
+![edit a setting](images/settings/settings-edit.png)
+
+### Settings groups
+
+Default settings are represented in groups so that you can navigate them easily. It has a **Commonly Used** group at the top which shows popular customizations.
+
+![Settings Groups](images/settings/settings-groups.png)
+
+Below is a [copy of the default settings](/docs/getstarted/settings.md#default-settings) that come with VS Code.
+
+## Settings file locations
 
 Depending on your platform, the user settings file is located here:
 
 * **Windows** `%APPDATA%\Code\User\settings.json`
-* **Mac** `$HOME/Library/Application Support/Code/User/settings.json`
+* **macOS** `$HOME/Library/Application Support/Code/User/settings.json`
 * **Linux** `$HOME/.config/Code/User/settings.json`
 
-The workspace setting file is located under the `.vscode` folder in your project.
+The workspace setting file is located under the `.vscode` folder in your root folder.
 
-## Default Settings
-
-When you open settings, we show **Default Settings** to search and discover settings you are looking for. When you search using the big Search bar, it will not only show and highlight the settings matching your criteria, but also filter out those which are not matching. This makes finding settings quick and easy. There are actions available inside **Default Settings** and `settings.json` editors which will help you quickly copy or update a setting.
-
-<p>
-  <img alt="settings groups" src="https://az754404.vo.msecnd.net/public/default-settings.gif" />
-</p>
-
-**Note**: VS Code extensions can also add their own custom settings and they will be visible in the **Default Settings** list at runtime.
-
-### Settings groups
-
-Default settings are represented in groups so that you can navigate them easily. It has **Most Commonly Used** group on the top to see the most common customizations done by VS Code users.
-
-![Settings Groups](images/settings/settings-groups.png)
-
-Here is the [copy of default settings](/docs/getstarted/settings.md#copy-of-default-settings) that comes with VS Code.
+>**Note:** In case of a [Multi-root Workspace](/docs/editor/multi-root-workspaces.md#settings), workspace settings are located inside the workspace configuration file.
 
 ## Language specific editor settings
 
@@ -75,7 +85,7 @@ To customize your editor by language, run the global command **Preferences: Conf
 
 If you have a file open and you want to customize the editor for this file type, click on the Language Mode in the Status Bar to the bottom-right of the VS Code window. This opens the Language Mode picker with an option **Configure 'language_name' language based settings...**. Selecting this opens the Settings editor with the language entry where you can add applicable settings.
 
-You can also configure language based settings by directly opening `settings.json`. You can scope them to the workspace by placing them in the Workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
+You can also configure language based settings by directly opening `settings.json`. You can scope them to the workspace by placing them in the workspace settings just like other settings. If you have settings defined for a language in both user and workspace scopes, then they are merged by giving precedence to the ones defined in the workspace.
 
 The following examples customize editor settings for language modes `typescript` and `markdown`.
 
@@ -98,30 +108,30 @@ You can use IntelliSense in Settings editor to help you find allowed language ba
 
 ## Settings and security
 
-In settings, we allow you to specify some of the executables that VS Code will run to do its work. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
+Some settings allow you to specify an executable that VS Code will run to perform certain operations. For example, you can choose which shell the Integrated Terminal should use. For enhanced security, such settings can only be defined in user settings and not at workspace scope.
 
-Here is the list of settings we don't support at the workspace scope:
+Here is the list of settings not supported in workspace settings:
 
-- `git.path`
-- `terminal.integrated.shell.linux`
-- `terminal.integrated.shellArgs.linux`
-- `terminal.integrated.shell.osx`
-- `terminal.integrated.shellArgs.osx`
-- `terminal.integrated.shell.windows`
-- `terminal.integrated.shellArgs.windows`
-- `terminal.external.windowsExec`
-- `terminal.external.osxExec`
-- `terminal.external.linuxExec`
+* `git.path`
+* `terminal.integrated.shell.linux`
+* `terminal.integrated.shellArgs.linux`
+* `terminal.integrated.shell.osx`
+* `terminal.integrated.shellArgs.osx`
+* `terminal.integrated.shell.windows`
+* `terminal.integrated.shellArgs.windows`
+* `terminal.external.windowsExec`
+* `terminal.external.osxExec`
+* `terminal.external.linuxExec`
 
 The first time you open a workspace which defines any of these settings, VS Code will warn you and subsequently always ignore the values after that.
 
-### Copy of Default Settings
+## Default settings
 
-Below are the default settings and their values.
+Below are the Visual Studio Code default settings and their values. You can also view the default values in the Settings editor.
 
 ```json
 {
-// Most Commonly Used
+// Commonly Used
 
   // Controls auto save of dirty files. Accepted values:  'off', 'afterDelay', 'onFocusChange' (editor loses focus), 'onWindowChange' (window loses focus). If set to 'afterDelay', you can configure the delay in 'files.autoSaveDelay'.
   "files.autoSave": "off",
@@ -192,13 +202,19 @@ Below are the default settings and their values.
   // Controls if the editor should automatically adjust the indentation when users type, paste or move lines. Indentation rules of the language must be available.
   "editor.autoIndent": true,
 
-  // Controls if the editor shows code lenses
+  // Code action kinds to be run on save.
+  "editor.codeActionsOnSave": {},
+
+  // Timeout for code actions run on save.
+  "editor.codeActionsOnSaveTimeout": 750,
+
+  // Controls if the editor shows CodeLens
   "editor.codeLens": true,
 
   // Controls whether the editor should render the inline color decorators and color picker.
   "editor.colorDecorators": true,
 
-  // Control the cursor animation style, possible values are 'blink', 'smooth', 'phase', 'expand' and 'solid'
+  // Control the cursor animation style.
   "editor.cursorBlinking": "blink",
 
   // Controls the cursor style, accepted values are 'block', 'block-outline', 'line', 'line-thin', 'underline' and 'underline-thin'
@@ -228,6 +244,9 @@ Below are the default settings and their values.
   // Controls whether the editor has code folding enabled
   "editor.folding": true,
 
+  // Controls the way folding ranges are computed. 'auto' picks uses a language specific folding strategy, if available. 'indentation' forces that the indentation based folding strategy is used.
+  "editor.foldingStrategy": "auto",
+
   // Controls the font family.
   "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
@@ -245,6 +264,9 @@ Below are the default settings and their values.
 
   // Format a file on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
   "editor.formatOnSave": false,
+
+  // Format on save timeout. Specifies a time limit in milliseconds for formatOnSave-commands. Commands taking longer than the specified timeout will be cancelled.
+  "editor.formatOnSaveTimeout": 750,
 
   // Controls if the editor should automatically format the line after typing
   "editor.formatOnType": false,
@@ -267,7 +289,7 @@ Below are the default settings and their values.
   // Controls the line height. Use 0 to compute the lineHeight from the fontSize.
   "editor.lineHeight": 0,
 
-  // Controls the display of line numbers. Possible values are 'on', 'off', 'relative' and 'interval'.
+  // Controls the display of line numbers.
   "editor.lineNumbers": "on",
 
   // Controls whether the editor should detect links and make them clickable
@@ -285,10 +307,10 @@ Below are the default settings and their values.
   // Render the actual characters on a line (as opposed to color blocks)
   "editor.minimap.renderCharacters": true,
 
-  // Controls whether the minimap slider is automatically hidden. Possible values are 'always' and 'mouseover'
+  // Controls whether the minimap slider is automatically hidden.
   "editor.minimap.showSlider": "mouseover",
 
-  // Controls the side where to render the minimap. Possible values are 'right' and 'left'
+  // Controls the side where to render the minimap.
   "editor.minimap.side": "right",
 
   // A multiplier to be used on the `deltaX` and `deltaY` of mouse wheel scroll events
@@ -342,6 +364,9 @@ Below are the default settings and their values.
 
   // Controls if the editor will scroll beyond the last line
   "editor.scrollBeyondLastLine": true,
+
+  // Controls if the Linux primary clipboard should be supported.
+  "editor.selectionClipboard": true,
 
   // Controls whether the editor should highlight similar matches to the selection
   "editor.selectionHighlight": true,
@@ -411,6 +436,9 @@ Below are the default settings and their values.
 
   // Controls diff decorations in the editor.
   "scm.diffDecorations": "all",
+
+  // Controls the width(px) of diff decorations in gutter (added & modified).
+  "scm.diffDecorationsGutterWidth": 3,
 
 // Workbench
 
@@ -509,6 +537,12 @@ Below are the default settings and their values.
   // When enabled, will show the watermark tips when no editor is open.
   "workbench.tips.enabled": true,
 
+  // Controls whether trees support horizontal scrolling in the workbench.
+  "workbench.tree.horizontalScrolling": false,
+
+  // Controls the visibility of view header actions. View header actions may either be always visible, or only visible when that view is focused or hovered over.
+  "workbench.view.alwaysShowHeaderActions": false,
+
 // Window
 
   // If enabled, will automatically change to high contrast theme if Windows is using a high contrast theme, and to dark theme when switching away from a Windows high contrast theme.
@@ -530,7 +564,7 @@ Below are the default settings and their values.
   "window.newWindowDimensions": "default",
 
   // Controls if files should open in a new window.
-  // - default: files will open in the window with the files' folder open or the last active window unless opened via the dock or from finder (macOS only)
+  // - default: files will open in a new window unless picked from within the application (e.g. via the File menu)
   // - on: files will open in a new window
   // - off: files will open in the window with the files' folder open or the last active window
   // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
@@ -543,11 +577,20 @@ Below are the default settings and their values.
   // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
   "window.openFoldersInNewWindow": "default",
 
+  // Controls if a new empty window should open when starting a second instance without arguments or if the last running instance should get focus.
+  // - on: open a new empty window
+  // - off: the last active running instance will get focus
+  // Note that there can still be cases where this setting is ignored (e.g. when using the -new-window or -reuse-window command line option).
+  "window.openWithoutArgumentsInNewWindow": "on",
+
   // Controls if a window should restore to full screen mode if it was exited in full screen mode.
   "window.restoreFullscreen": false,
 
   // Controls how windows are being reopened after a restart. Select 'none' to always start with an empty workspace, 'one' to reopen the last window you worked on, 'folders' to reopen all windows that had folders opened or 'all' to reopen all windows of your last session.
   "window.restoreWindows": "one",
+
+  // Enable this workaround if scrolling is no longer smooth after restoring a minimized VS Code window. This is a workaround for an issue (https://github.com/Microsoft/vscode/issues/13612) where scrolling starts to lag on devices with precision trackpads like the Surface devices from Microsoft. Enabling this workaround can result in a little bit of layout flickering after restoring the window from minimized state but is otherwise harmless.
+  "window.smoothScrollingWorkaround": false,
 
   // Controls the window title based on the active editor. Variables are substituted based on the context:
   // ${activeEditorShort}: the file name (e.g. myFile.txt)
@@ -559,7 +602,7 @@ Below are the default settings and their values.
   // ${rootPath}: file path of the workspace (e.g. /Users/Development/myWorkspace)
   // ${appName}: e.g. VS Code
   // ${dirty}: a dirty indicator if the active editor is dirty
-  // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values
+  // ${separator}: a conditional separator (" - ") that only shows when surrounded by variables with values or static text
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}",
 
   // Adjust the appearance of the window title bar. Changes require a full restart to apply.
@@ -606,14 +649,14 @@ Below are the default settings and their values.
   // When enabled, insert a final new line at the end of the file when saving it.
   "files.insertFinalNewline": false,
 
+  // Controls the memory available to VS Code after restart when trying to open large files. Same affect as specifying --max-memory=NEWSIZE on the command line.
+  "files.maxMemoryForLargeFilesMB": 4096,
+
   // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
   "files.trimFinalNewlines": false,
 
   // When enabled, will trim trailing whitespace when saving a file.
   "files.trimTrailingWhitespace": false,
-
-  // Use the new experimental file watcher.
-  "files.useExperimentalFileWatcher": false,
 
   // Configure glob patterns of file paths to exclude from file watching. Patterns must match on absolute paths (i.e. prefix with ** or the full path to match properly). Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
   "files.watcherExclude": {
@@ -623,6 +666,9 @@ Below are the default settings and their values.
   },
 
 // Zen Mode
+
+  // Controls if turning on Zen Mode also centers the layout.
+  "zenMode.centerLayout": true,
 
   // Controls if turning on Zen Mode also puts the workbench into full screen mode.
   "zenMode.fullScreen": true,
@@ -676,7 +722,7 @@ Below are the default settings and their values.
   // Controls whether to follow symlinks while searching.
   "search.followSymlinks": true,
 
-  // Controls if the Search Viewlet should read or modify the shared find clipboard on macOS
+  // Controls if the search view should read or modify the shared find clipboard on macOS
   "search.globalFindClipboard": false,
 
   // Configure to include results from a global symbol search in the file results for Quick Open.
@@ -708,7 +754,7 @@ Below are the default settings and their values.
   "keyboard.dispatch": "code",
 
   // Enables the macOS touchbar buttons on the keyboard if available.
-  "keyboard.touchbar.enabled": true
+  "keyboard.touchbar.enabled": true,
 
 // Update
 
@@ -716,12 +762,15 @@ Below are the default settings and their values.
   "update.channel": "default",
 
   // Enables Windows background updates.
-  "update.enableWindowsBackgroundUpdates": false,
+  "update.enableWindowsBackgroundUpdates": true,
 
 // Debug
 
   // Allows setting breakpoint in any file
   "debug.allowBreakpointsEverywhere": false,
+
+  // Controls if the non debug hovers should be enabled while debugging. If true the hover providers will be called to provide a hover. Regular hovers will not be shown even if this setting is true.
+  "debug.enableAllHovers": false,
 
   // Controls if the floating debug action bar should be hidden
   "debug.hideActionBar": false,
@@ -732,7 +781,7 @@ Below are the default settings and their values.
   // Controls behavior of the internal debug console.
   "debug.internalConsoleOptions": "openOnFirstSessionStart",
 
-  // Controls whether debug viewlet should be open on debugging session start.
+  // Controls whether debug view should be open on debugging session start.
   "debug.openDebug": "openOnFirstSessionStart",
 
   // Automatically open explorer view on the end of a debug session
@@ -742,7 +791,10 @@ Below are the default settings and their values.
   "debug.showInStatusBar": "onFirstSessionStart",
 
   // Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces
-  "launch": {},
+  "launch": {
+    "configurations": [],
+    "compounds": []
+  },
 
 // HTML
 
@@ -813,7 +865,7 @@ Below are the default settings and their values.
 
 // Markdown
 
-// Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
+  // Sets how line-breaks are rendered in the markdown preview. Setting it to 'true' creates a <br> for every newline.
   "markdown.preview.breaks": false,
 
   // Double click in the markdown preview to switch to the editor.
@@ -834,11 +886,11 @@ Below are the default settings and their values.
   // Mark the current editor selection in the markdown preview.
   "markdown.preview.markEditorSelection": true,
 
-  // When the markdown preview is scrolled, update the view of the editor.
+  // When a markdown preview is scrolled, update the view of the editor.
   "markdown.preview.scrollEditorWithPreview": true,
 
-  // Scrolls the markdown preview to reveal the currently selected line from the editor.
-  "markdown.preview.scrollPreviewWithEditorSelection": true,
+  // When a markdown editor is scrolled, update the view of the preview.
+  "markdown.preview.scrollPreviewWithEditor": true,
 
   // Sets how YAML front matter should be rendered in the markdown preview. 'hide' removes the front matter. Otherwise, the front matter is treated as markdown content.
   "markdown.previewFrontMatter": "hide",
@@ -883,13 +935,13 @@ Below are the default settings and their values.
   // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-  // Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.
+  // Defines space handling after opening and before closing non-empty braces. Requires TypeScript >= 2.3.0.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
-  // Defines space handling after opening and before closing non empty brackets.
+  // Defines space handling after opening and before closing non-empty brackets.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
-  // Defines space handling after opening and before closing non empty parenthesis.
+  // Defines space handling after opening and before closing non-empty parenthesis.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
   // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
@@ -921,6 +973,9 @@ Below are the default settings and their values.
 
   // Enable/disable references CodeLens in JavaScript files.
   "javascript.referencesCodeLens.enabled": false,
+
+  // Enable/disable suggestion diagnostics for JavaScript files in the editor. Requires TypeScript >= 2.8
+  "javascript.suggestionActions.enabled": true,
 
   // Enable/disable JavaScript validation.
   "javascript.validate.enable": true,
@@ -955,13 +1010,13 @@ Below are the default settings and their values.
   // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-  // Defines space handling after opening and before closing non empty braces. Requires TypeScript >= 2.3.0.
+  // Defines space handling after opening and before closing non-empty braces. Requires TypeScript >= 2.3.0.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
-  // Defines space handling after opening and before closing non empty brackets.
+  // Defines space handling after opening and before closing non-empty brackets.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
 
-  // Defines space handling after opening and before closing non empty parenthesis.
+  // Defines space handling after opening and before closing non-empty parenthesis.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
   // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
@@ -1003,6 +1058,9 @@ Below are the default settings and their values.
   // Report style checks as warnings
   "typescript.reportStyleChecksAsWarnings": true,
 
+  // Enable/disable suggestion diagnostics for TypeScript files in the editor. Requires TypeScript >= 2.8.
+  "typescript.suggestionActions.enabled": true,
+
   // Controls auto detection of tsc tasks. 'off' disables this feature. 'build' only creates single run compile tasks. 'watch' only creates compile and watch tasks. 'on' creates both build and watch tasks. Default is 'on'.
   "typescript.tsc.autoDetect": "on",
 
@@ -1011,6 +1069,9 @@ Below are the default settings and their values.
 
   // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.log": "off",
+
+  // Additional paths to discover Typescript Language Service plugins. Requires TypeScript >= 2.3.0.
+  "typescript.tsserver.pluginPaths": [],
 
   // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.trace": "off",
@@ -1085,7 +1146,7 @@ Below are the default settings and their values.
 
 // LESS
 
-// Invalid number of parameters
+  // Invalid number of parameters
   "less.lint.argumentsInColorFunction": "error",
 
   // Do not use width or height when using padding or border
@@ -1209,6 +1270,9 @@ Below are the default settings and their values.
   // If set to true, the notifications for extension recommendations will stop showing up.
   "extensions.ignoreRecommendations": false,
 
+  // If set to true, recommendations will not be fetched or shown unless specifically requested by the user.
+  "extensions.showRecommendationsOnlyOnDemand": false,
+
 // External Terminal
 
   // Customizes what kind of terminal to launch.
@@ -1230,69 +1294,7 @@ Below are the default settings and their values.
     "editor.action.toggleTabFocusMode",
     "workbench.action.debug.continue",
     "workbench.action.debug.pause",
-    "workbench.action.debug.restart",
-    "workbench.action.debug.run",
-    "workbench.action.debug.start",
-    "workbench.action.debug.stepInto",
-    "workbench.action.debug.stepOut",
-    "workbench.action.debug.stepOver",
-    "workbench.action.debug.stop",
-    "workbench.action.focusActiveEditorGroup",
-    "workbench.action.focusFirstEditorGroup",
-    "workbench.action.focusSecondEditorGroup",
-    "workbench.action.focusThirdEditorGroup",
-    "workbench.action.navigateDown",
-    "workbench.action.navigateLeft",
-    "workbench.action.navigateRight",
-    "workbench.action.navigateUp",
-    "workbench.action.openNextRecentlyUsedEditorInGroup",
-    "workbench.action.openPreviousRecentlyUsedEditorInGroup",
-    "workbench.action.quickOpen",
-    "workbench.action.quickOpenPreviousEditor",
-    "workbench.action.quickOpenView",
-    "workbench.action.showCommands",
-    "workbench.action.tasks.build",
-    "workbench.action.tasks.restartTask",
-    "workbench.action.tasks.runTask",
-    "workbench.action.tasks.showLog",
-    "workbench.action.tasks.showTasks",
-    "workbench.action.tasks.terminate",
-    "workbench.action.tasks.test",
-    "workbench.action.terminal.clear",
-    "workbench.action.terminal.copySelection",
-    "workbench.action.terminal.deleteWordLeft",
-    "workbench.action.terminal.deleteWordRight",
-    "workbench.action.terminal.findWidget.history.showNext",
-    "workbench.action.terminal.findWidget.history.showPrevious",
-    "workbench.action.terminal.focus",
-    "workbench.action.terminal.focusAtIndex1",
-    "workbench.action.terminal.focusAtIndex2",
-    "workbench.action.terminal.focusAtIndex3",
-    "workbench.action.terminal.focusAtIndex4",
-    "workbench.action.terminal.focusAtIndex5",
-    "workbench.action.terminal.focusAtIndex6",
-    "workbench.action.terminal.focusAtIndex7",
-    "workbench.action.terminal.focusAtIndex8",
-    "workbench.action.terminal.focusAtIndex9",
-    "workbench.action.terminal.focusFindWidget",
-    "workbench.action.terminal.focusNext",
-    "workbench.action.terminal.focusPrevious",
-    "workbench.action.terminal.hideFindWidget",
-    "workbench.action.terminal.kill",
-    "workbench.action.terminal.new",
-    "workbench.action.terminal.newInActiveWorkspace",
-    "workbench.action.terminal.paste",
-    "workbench.action.terminal.runActiveFile",
-    "workbench.action.terminal.runSelectedText",
-    "workbench.action.terminal.scrollDown",
-    "workbench.action.terminal.scrollDownPage",
-    "workbench.action.terminal.scrollToBottom",
-    "workbench.action.terminal.scrollToTop",
-    "workbench.action.terminal.scrollUp",
-    "workbench.action.terminal.scrollUpPage",
-    "workbench.action.terminal.selectAll",
-    "workbench.action.terminal.toggleTerminal",
-    "workbench.action.togglePanel"
+    ...
   ],
 
   // Whether to confirm on exit if there are active terminal sessions.
@@ -1328,10 +1330,10 @@ Below are the default settings and their values.
   // Controls the font size in pixels of the terminal.
   "terminal.integrated.fontSize": 14,
 
-  // The font weight to use within the termianl for non-bold text.
+  // The font weight to use within the terminal for non-bold text.
   "terminal.integrated.fontWeight": "normal",
 
-  // The font weight to use within the termianl for bold text.
+  // The font weight to use within the terminal for bold text.
   "terminal.integrated.fontWeightBold": "bold",
 
   // Controls the line height of the terminal, this number is multiplied by the terminal font size to get the actual line-height in pixels.
@@ -1340,8 +1342,8 @@ Below are the default settings and their values.
   // Treat the option key as the meta key in the terminal on macOS.
   "terminal.integrated.macOptionIsMeta": false,
 
-  // When set, this will prevent the context menu from appearing when right clicking within the terminal, instead it will copy when there is a selection and paste when there is no selection.
-  "terminal.integrated.rightClickCopyPaste": true,
+  // Controls how terminal reacts to right click, possibilities are 'default', 'copyPaste', and 'selectWord'. 'default' will show the context menu, 'copyPaste' will copy when there is a selection otherwise paste, 'selectWord' will select the word under the cursor and show the context menu.
+  "terminal.integrated.rightClickBehavior": "copyPaste",
 
   // Controls the maximum amount of lines the terminal keeps in its buffer.
   "terminal.integrated.scrollback": 1000,
@@ -1350,7 +1352,7 @@ Below are the default settings and their values.
   "terminal.integrated.setLocaleVariables": false,
 
   // The path of the shell that the terminal uses on Linux.
-  "terminal.integrated.shell.linux": "sh",
+  "terminal.integrated.shell.linux": "/bin/bash",
 
   // The path of the shell that the terminal uses on OS X.
   "terminal.integrated.shell.osx": "sh",
@@ -1389,65 +1391,6 @@ Below are the default settings and their values.
   // Enable usage data and errors to be sent to Microsoft.
   "telemetry.enableTelemetry": true,
 
-// Git
-
-  // Whether auto fetching is enabled
-  "git.autofetch": false,
-
-  // Whether auto refreshing is enabled
-  "git.autorefresh": true,
-
-  // Whether repositories should be automatically detected
-  "git.autoRepositoryDetection": true,
-
-  // Controls what type of branches are listed when running `Checkout to...`. `all` shows all refs, `local` shows only the local branches, `tags` shows only tags and `remote` shows only remote branches.
-  "git.checkoutType": "all",
-
-  // Confirm before synchronizing git repositories
-  "git.confirmSync": true,
-
-  // Controls the git badge counter. `all` counts all changes. `tracked` counts only the tracked changes. `off` turns it off.
-  "git.countBadge": "all",
-
-  // Controls if Git contributes colors and badges to the explorer and the open editors view.
-  "git.decorations.enabled": true,
-
-  // The default location where to clone a git repository
-  "git.defaultCloneDirectory": null,
-
-  // Controls whether to automatically detect git submodules.
-  "git.detectSubmodules": true,
-
-  // Enables commit signing with GPG.
-  "git.enableCommitSigning": false,
-
-  // Whether git is enabled
-  "git.enabled": true,
-
-  // Commit all changes when there are no staged changes.
-  "git.enableSmartCommit": false,
-
-  // Ignores the legacy Git warning
-  "git.ignoreLegacyWarning": false,
-
-  // Ignores the warning when there are too many changes in a repository
-  "git.ignoreLimitWarning": false,
-
-  // Ignores the warning when Git is missing
-  "git.ignoreMissingGitWarning": false,
-
-  // Controls when to show input validation.
-  "git.inputValidation": "warn",
-
-  // Path to the git executable
-  "git.path": null,
-
-  // Controls whether Git should check for unsaved files before committing.
-  "git.promptToSaveFilesBeforeCommit": false,
-
-  // Controls whether to show an inline Open File action in the Git changes view.
-  "git.showInlineOpenFileAction": true,
-
 // Default Configuration Overrides
 
   // Configure editor settings to be overridden for [git-commit] language.
@@ -1483,8 +1426,76 @@ Below are the default settings and their values.
   // Configure editor settings to be overridden for [yaml] language.
   "[yaml]":  {
     "editor.insertSpaces": true,
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    "editor.autoIndent": false
   },
+
+// Git
+
+  // Whether auto fetching is enabled
+  "git.autofetch": false,
+
+  // Whether auto refreshing is enabled
+  "git.autorefresh": true,
+
+  // Whether repositories should be automatically detected
+  "git.autoRepositoryDetection": true,
+
+  // Controls what type of branches are listed when running `Checkout to...`. `all` shows all refs, `local` shows only the local branches, `tags` shows only tags and `remote` shows only remote branches.
+  "git.checkoutType": "all",
+
+  // Confirm before synchronizing git repositories
+  "git.confirmSync": true,
+
+  // Controls the git badge counter. `all` counts all changes. `tracked` counts only the tracked changes. `off` turns it off.
+  "git.countBadge": "all",
+
+  // Controls if Git contributes colors and badges to the explorer and the open editors view.
+  "git.decorations.enabled": true,
+
+  // The default location where to clone a git repository
+  "git.defaultCloneDirectory": null,
+
+  // Controls whether to automatically detect git submodules.
+  "git.detectSubmodules": true,
+
+  // Controls the limit of git submodules detected.
+  "git.detectSubmodulesLimit": 10,
+
+  // Enables commit signing with GPG.
+  "git.enableCommitSigning": false,
+
+  // Whether git is enabled
+  "git.enabled": true,
+
+  // Commit all changes when there are no staged changes.
+  "git.enableSmartCommit": false,
+
+  // Ignores the legacy Git warning
+  "git.ignoreLegacyWarning": false,
+
+  // Ignores the warning when there are too many changes in a repository
+  "git.ignoreLimitWarning": false,
+
+  // Ignores the warning when Git is missing
+  "git.ignoreMissingGitWarning": false,
+
+  // Controls when to show commit message input validation.
+  "git.inputValidation": "warn",
+
+  // Path to the git executable
+  "git.path": null,
+
+  // Controls whether Git should check for unsaved files before committing.
+  "git.promptToSaveFilesBeforeCommit": false,
+
+  // Controls whether to show an inline Open File action in the Git changes view.
+  "git.showInlineOpenFileAction": true,
+
+// Gulp
+
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on",
 
 // Emmet
 
@@ -1497,7 +1508,7 @@ Below are the default settings and their values.
   "emmet.extensionsPath": null,
 
   // Enable Emmet abbreviations in languages that are not supported by default. Add a mapping here between the language and emmet supported language.
-  //  Eg: {"vue-html": "html", "javascript": "javascriptreact"}
+  //  E.g.: {"vue-html": "html", "javascript": "javascriptreact"}
   "emmet.includeLanguages": {},
 
   // Preferences used to modify behavior of some actions and resolvers of Emmet.
@@ -1523,15 +1534,16 @@ Below are the default settings and their values.
   // Variables to be used in Emmet snippets
   "emmet.variables": {},
 
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
-
 // Npm
 
   // Controls whether auto detection of npm scripts is on or off. Default is on.
   "npm.autoDetect": "on",
+
+  // Enable an explorer view for npm scripts.
+  "npm.enableScriptExplorer": false,
+
+  // Configure glob patterns for folders that should be excluded from automatic script detection.
+  "npm.exclude": "",
 
   // The package manager used to run scripts.
   "npm.packageManager": "npm",
@@ -1547,10 +1559,10 @@ Below are the default settings and their values.
   // Enable/disable merge conflict decorators within editor
   "merge-conflict.decorators.enabled": true,
 
-// Gulp
+// Grunt
 
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on"
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on"
 }
 ```
 
@@ -1558,7 +1570,7 @@ Below are the default settings and their values.
 
 **Q: VS Code says "Unable to write settings."**
 
-**A:** If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on Mac) (`kb(workbench.action.openGlobalSettings)`) and you should see the error highlighted with red squiggles.
+**A:** If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS) (`kb(workbench.action.openSettings)`) and you should see the error highlighted with red squiggles.
 
 **Q: When does it make sense to use workspace settings?**
 

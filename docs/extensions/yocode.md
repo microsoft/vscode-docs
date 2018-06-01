@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Extension Generator
 ContentId: C733425A-3F06-4DB9-90A0-472EF1DB58D3
 PageTitle: The Yo Code Visual Studio Code Extension Generator
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Easily create Visual Studio Code extensions and customizations with the Yo Code generator.
 ---
 # Yo Code - Extension Generator
@@ -57,9 +57,13 @@ Does the same as `New Extension (TypeScript)`, but for JavaScript. The extension
 
 ### New Color Theme
 
-Creates an extension that contributes a new color theme based on an existing TextMate color theme.
+Creates an extension that contributes a new color theme. You can create the theme based on an existing TextMate color theme or create a new theme from scratch.
 
-* Prompts for the location (URL or file path) of the existing TextMate color theme (.tmTheme). This file will be imported into the new extension.
+* Start with new extension if you plan to use the **Developer: Generate Color Theme From Current Settings** command to create a theme from customized colors in your settings (Recommended).
+* Start with a TextMate color theme to start with an existing theme available as `.tmTheme`.
+
+The generator will:
+
 * Prompts for the color theme name as well as the color base theme (light or dark).
 * Prompts for the extension identifier and will create a folder of that name in the current directory.
 
@@ -70,7 +74,7 @@ Check out `vsc-extension-quickstart.md`. It's a quick guide with the next steps.
 
 Creates an extension that contributes a language with colorizer.
 
-* Prompts for the location (URL or file path) of an existing TextMate language file (.tmLanguage, .plist or .json). This file will be imported to the new extension. To start a new grammar you can skip this by passing an empty name.
+* Prompts for the location (URL or file path) of an existing TextMate language file (.tmLanguage, .plist or .json). This file will be imported to the new extension. To start a new grammar, you can skip this by passing an empty name.
 * Prompts for the extension identifier and will create a folder of that name in the current directory.
 
 Once created, open VS Code on the created folder and run the extension to test the colorization. Check out `vsc-extension-quickstart.md` for the next steps. Have a look at the language configuration file that has been created and defines configuration options such what style of comments and brackets the language uses.
@@ -101,7 +105,7 @@ Once created, open VS Code on the created folder and run the extension to test t
 To load an extension, you need to copy the files to your VS Code extensions folder `.vscode/extensions`. Depending on your platform, it is located in the following folders:
 
 * **Windows** `%USERPROFILE%\.vscode\extensions`
-* **Mac** `~/.vscode/extensions`
+* **macOS** `~/.vscode/extensions`
 * **Linux** `~/.vscode/extensions`
 
 If you want to load your extension each time VS Code runs, copy your project ('side loading') to a new folder under `.vscode/extensions`. For example: `~/.vscode/extensions/myextension`.

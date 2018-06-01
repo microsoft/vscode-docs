@@ -4,12 +4,12 @@ Area: getstarted
 TOCTitle: Themes
 ContentId: CAC88BC7-90A5-4384-8A05-2187117C0F72
 PageTitle: Visual Studio Code Themes
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Changing the color theme in Visual Studio Code. You can use color themes provided by VS Code, the community or create your own new themes.  TextMate .tmTheme files are supported.
 ---
 # Color Themes
 
-Color themes let you modify VS Code's background, text, and language syntax colorization to suit your preferences and work environment. VS Code supports light, dark and high contrast themes.
+Color themes let you modify the colors in VS Code's user interface to suit your preferences and work environment.
 
 ![Preview themes from the Command Palette](images/themes/themes_hero.gif)
 
@@ -25,7 +25,7 @@ The current color theme is configured in the [settings](/docs/getstarted/setting
 
 However, there is no need to edit the settings directly. It's easier to use the Color Theme Picker to preview and select a theme.
 
-1. Open the Color Theme picker with **File** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on Mac)
+1. Open the Color Theme picker with **File** > **Preferences** > **Color Theme**. (**Code** > **Preferences** > **Color Theme** on macOS)
 2. Use the cursor keys to preview the colors of the theme.
 3. Select the theme you want and hit `kbstyle(Enter)`.
 
@@ -47,7 +47,9 @@ You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.c
 
 ## Customizing a Color Theme
 
-You can customize your active color theme with the `workbench.colorCustomizations` user [setting](/docs/getstarted/settings.md). You can set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more.
+You can customize your active color theme with the `workbench.colorCustomizations` and `editor.tokenColorCustomizations` user [settings](/docs/getstarted/settings.md).
+
+To set the colors of VS Code UI elements such as list & trees (File Explorer, suggestions widget), diff editor, Activity Bar, notifications, scroll bar, split view, buttons and more, use `workbench.colorCustomizations`.
 
 ![activity bar theming](images/themes/theme-activitybar.gif)
 
@@ -73,6 +75,7 @@ A pre-configured set of syntax tokens ('comments', 'strings', ...) is available 
 >**Note**: Directly configuring TextMate rules is an advanced skill as you need to understand on how TextMate grammars work. Go [here](/docs/extensions/themes-snippets-colorizers.md#textmate-theme-rules) for more information
 
 Again, to customize a specific theme only, use the following syntax:
+
 ```json
 "editor.tokenColorCustomizations": {
     "[Monokai]": {
@@ -83,9 +86,9 @@ Again, to customize a specific theme only, use the following syntax:
 
 ## Creating your own color theme
 
-Creating and publishing a theme extension is quite easy. If you have already customized your colors, you can generate a theme definition file with the `Generate Color Theme for Current Settings` command.
+Creating and publishing a theme extension is quite easy. Customize your colors in your user settings then generate a theme definition file with the **Developer: Generate Color Theme From Current Settings** command.
 
-VS Code's Yeoman extension generator will help you generate the rest of the extension.
+VS Code's Yeoman [extension generator](/docs/extensions/yocode.md) will help you generate the rest of the extension.
 
 See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#adding-a-new-theme) topic in our Extension Authoring section to learn more.
 
@@ -105,11 +108,11 @@ The current File Icon theme is persisted in your user [settings](/docs/getstarte
 
 There is no need to edit the `settings.json` file directly. It is better to use the File Icon Theme picker to preview and select a theme.
 
-1. Open the Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on Mac)
+1. Open the Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on macOS)
 2. Use the cursor keys to preview the icons of the theme.
 3. Select the theme you want and hit `kbstyle(Enter)`.
 
-By default, no file icon set is configured, therefore the File Explorer shows no icons. Once an icon theme is selected, the selected theme will be remembered and set again when VS Code is started the next time .
+By default, no file icon set is configured, therefore the File Explorer shows no icons. Once an icon theme is selected, the selected theme will be remembered and set again when VS Code is started the next time.
 
 VS code ships with two icon themes; **Minimal** and **Seti**. To install more icon themes, select the **Find more in the Marketplace...** item in the icon theme picker.
 

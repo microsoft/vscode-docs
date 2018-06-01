@@ -3,7 +3,7 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
@@ -57,10 +57,11 @@ When defining a new language identifier, use the following guidelines:
 
 ## Known language identifiers
 
-The following table lists all known language identifiers:
+The following table lists known language identifiers:
 
 Language | Identifier
 -------- | ----------
+ABAP | `abap`
 Windows Bat | `bat`
 BibTeX | `bibtex`
 Clojure | `clojure`

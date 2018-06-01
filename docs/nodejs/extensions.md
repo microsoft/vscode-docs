@@ -4,31 +4,31 @@ Area: nodejs
 TOCTitle: Extensions
 ContentId: 3224f624-a3fc-4eeb-81d1-eb653a90a6fc
 PageTitle: JavaScript Extensions in VS Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Learn more about installing and integrating JavaScript and Node.js extensions in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
-# JavaScript Extensions for VS Code
+# JavaScript extensions for VS Code
 
 Visual Studio Code supports many features for JavaScript and Node.js development. The features that ship with the downloaded product are the core features: debugging, IntelliSense, code navigation, etc.
 
-In addition to these core features, you can install a large number of quality extensions to add features to VS Code for JavaScript development.
+In addition, to these core features, you can install a large number of quality extensions to add features to VS Code for JavaScript development.
 
 > **Tip:** To see how to install and manage your extensions, please refer to the [extension documentation](/docs/editor/extension-gallery.md).
 
-## Finding Extensions
+## Finding extensions
 
-You can find JavaScript extensions by typing `JavaScript` in the Extension view search bar. Alternatively, you can find JavaScript extensions using tags: "tag: javascript". Search for more extensions in VS Code or in the [Marketplace](https://marketplace.visualstudio.com/vscode).
+You can find JavaScript extensions by typing `JavaScript` in the Extension view search bar. Alternatively, you can find JavaScript extensions using tags: "tag:javascript". Search for more extensions in VS Code or in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
 <div class="marketplace-extensions-javascript"></div>
 
 In addition you can search for `Node.js` extensions.
 
-<div class="marketplace-extensions-node"></div>
+<div class="marketplace-extensions-node-curated"></div>
 
 > Tip: The extensions shown above are dynamically queried. Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com/vscode).
 
-## Recommended Extensions
+## Recommended extensions
 
 If you are just getting started, here are the extensions we recommend trying out.
 
@@ -38,7 +38,7 @@ Marketplace - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeu
 
 Publisher - [Dirk Baeumer](https://marketplace.visualstudio.com/search?term=publisher%3A%22Dirk%20Baeumer%22&target=VSCode)
 
-Easily integrate [ESLint](http://eslint.org/) into your project. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs).
+Easily integrate [ESLint](https://eslint.org/) into your project. If ESLint isn't your favorite linter, choose among a variety of other linter extensions, including [JSHint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint), [JSCS](https://marketplace.visualstudio.com/items?itemName=ms-vscode.jscs), and [JS Standard](https://marketplace.visualstudio.com/items?itemName=chenxsan.vscode-standardjs).
 
 Read more about setting up JavaScript linters in the VS Code [documentation](/docs/languages/javascript.md#linters).
 
@@ -87,6 +87,3 @@ Publisher - [Joel Day](https://marketplace.visualstudio.com/search?term=publishe
 This extension will automatically generate detailed JSDoc comments for your code.
 
 ![document this](images/extensions/document_this.gif)
-
-
-

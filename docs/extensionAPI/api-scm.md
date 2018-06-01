@@ -1,10 +1,10 @@
 ---
-Order: 9
+Order: 11
 Area: extensionapi
 TOCTitle: Source Control API
 ContentId: 79996489-8D16-4C0A-8BE8-FF4B1E9C223A
 PageTitle: Visual Studio Code Source Control API
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) Source Control API.
 ---
 # Source Control in VS Code
@@ -101,7 +101,7 @@ export interface SourceControlResourceState {
 
 ### Menus
 
-There are three Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
+There are five Source Control menu ids where you can place menu items, in order to provide the user with a much richer user interface.
 
 The `scm/title` menu is located to the right of the SCM view title. The menu items in the `navigation` group will be inline, while all the others will be within the `…` dropdown.
 
@@ -113,7 +113,7 @@ For example, Git supports staging multiple files by adding the `git.stage` comma
 stage(...resourceStates: SourceControlResourceState[]): Promise<void>;
 ```
 
-When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these context keys in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
+When creating them, `SourceControl` and `SourceControlResourceGroup` instances require you to provide an `id` string. These values will be populated in the `scmProvider` and `scmResourceGroup` context keys, respectively. You can rely on these [context keys](/docs/getstarted/keybindings.md#when-clause-contexts) in the `when` clauses of your menu items. Here's how Git is able to show a menu item for its `git.stage` command:
 
 ```json
 {
@@ -128,6 +128,12 @@ The `scm/change/title` allows you to contribute commands to the title bar of an 
 ```ts
 async stageChange(uri: Uri, changes: LineChange[], index: number): Promise<void>;
 ```
+
+The `scm/sourceControl` menu is located contextually near SourceControl instances:
+
+![source control menu](images/api-scm/sourcecontrol-menu.png)
+
+Finally, the `scm/change/title` menu is related to the Quick Diff experience, showcased further ahead. It lets you contribute commands which are specific to code changes.
 
 ### SCM Input Box
 
@@ -153,9 +159,9 @@ export interface SourceControl {
 
 ## Quick Diff
 
-VS Code also supports displaying **quick diff** editor gutter decorations.
+VS Code also supports displaying **quick diff** editor gutter decorations. Clicking those decorations will reveal an inline diff experience, to which you can contribute contextual commands:
 
-![VS Code SCM](images/api-scm/quickdiff.png)
+![SCM quick diff](images/api-scm/quickdiff.png)
 
 These decorations are computed by VS Code itself. All you need to do is provide VS Code with the original contents of any given file.
 

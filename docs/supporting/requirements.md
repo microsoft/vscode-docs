@@ -3,10 +3,9 @@ Order:
 TOCTitle: Requirements
 ContentId: 1D4850EE-85E2-4152-81BE-FECAE62EA99E
 PageTitle: Requirements for VS Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code hardware and platform (operating system) requirements.
 ---
-
 # Requirements for Visual Studio Code
 
 ## Hardware
@@ -29,7 +28,7 @@ VS Code has been tested on the following platforms:
 
 ### Additional Windows requirements
 
-.NET Framework 4.5.2 is required for VS Code.  If you are using Windows 7, please make sure [.NET Framework 4.5.2](https://www.microsoft.com/en-us/download/details.aspx?id=42643) is installed.
+.NET Framework 4.5.2 is required for VS Code.  If you are using Windows 7, please make sure [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) is installed.
 
 ### Additional Linux requirements
 

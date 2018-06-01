@@ -1,13 +1,13 @@
 ---
 Order: 6
 Area: extensions
-TOCTitle: Example-Debuggers
+TOCTitle: Example-Debug Adapter
 ContentId: 49EF49AD-8BE6-4D46-ADC8-D678BDC04E85
 PageTitle: Integrating Debuggers into Visual Studio Code
-DateApproved: 2/7/2018
-MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code
+DateApproved: 5/3/2018
+MetaDescription: Learn how to provide debug service extensions (plug-ins) for Visual Studio Code through a Debug Adapter
 ---
-# Example - Debuggers
+# Example - Debug Adapter
 
 Since Visual Studio Code implements a generic (language agnostic) debug UI, it cannot talk to real debuggers directly but instead relies on debug extensions for implementing the debugger or runtime specific functionality.
 
@@ -15,7 +15,7 @@ These debug extensions differ from other extensions in that their implementation
 
 ![VS Code extensibility architecture](images/example-debuggers/extensibility-architecture.png)
 
-The reasons for implementing the debug adapters as standalone excutables are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if this is required by the underlying debugger or runtime.
+The reasons for implementing the debug adapters as standalone executables are twofold: first, it makes it possible to implement the adapter in the language most suitable for the given debugger or runtime. Second, a standalone program can more easily run in elevated mode if this is required by the underlying debugger or runtime.
 
 In order to avoid problems with local firewalls, VS Code communicates with the adapter through stdin/stdout instead of using a more sophisticated mechanism (e.g. sockets).
 
@@ -24,7 +24,7 @@ When a debug session is started, VS Code looks up the debug extension based on t
 
 ![Debugger Architecture](images/example-debuggers/debug-arch.png)
 
-Visual Studio Code ships with two debug extensions for Node.js: `node-debug` uses the (deprecated) v8 Debugger Protocol for node versions < 6.3 and `node-debug2` uses the Chrome Debugger Protocol (CDP) supported by node versions >= 6.3. Many more debugger extensions are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debugger extension yourself.
+Visual Studio Code ships with a debug extension for [Node.js](https://nodejs.org). Many more debugger extensions are available from the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Debuggers) or you can create a debugger extension yourself.
 
 The rest of this document shows how to develop a debugger extension.
 
@@ -77,24 +77,26 @@ What's in the package?
 * the code that 'adapts' the runtime to the debug adapter protocol lives in `src/mockDebug.ts`. Here you find the handlers for the various requests of the debug adapter protocol.
 * since the implementation of debug extension lives in the debug adapter, there is no need to have extension code at all (i.e. code that runs in the extension host process). However, Mock Debug has a small `src/extension.ts` because it illustrates what can be done in the extension code of a debug extension.
 
-Now build and launch the Mock Debug extension by selecting the `Extension` launch configuration and hitting `F5`.
+Now build and launch the Mock Debug extension by selecting the **Extension** launch configuration and hitting `F5`.
 Initially this will do a full transpile of the TypeScript sources into the `out` folder.
-After the full build, a 'watcher task' is started that transpiles any changes you make.
+After the full build, a _watcher task_ is started that transpiles any changes you make.
 
-After transpiling the source, a new VS Code window ('[Extension Development Host]') appears with the Mock Debug extension now running in debug mode. From that window open your `mock test` project with the `readme.md` file, start a debug session with 'F5', and then step through it:
+After transpiling the source, a new VS Code window "[Extension Development Host]" appears with the Mock Debug extension now running in debug mode. From that window open your `mock test` project with the `readme.md` file, start a debug session with 'F5', and then step through it:
 
 ![Debugging Extension and Server](images/example-debuggers/debug-mock-session.png)
 
 Since you are running the extension in debug mode, you could now set and hit breakpoints in `src/extension.ts` but as I've mentioned above, there is not much interesting code executing in the extension. The interesting code runs in the debug adapter which is a separate process.
 
-In order to debug the debug adapter itself, we have to run it in debug mode. This is most easily achieved by running the debug adapter in 'server mode' and configure VS Code to connect to it. In your VS Code vscode-mock-debug project select the launch configuration 'server' from the drop down menu and press the green Start button.
+In order to debug the debug adapter itself, we have to run it in debug mode. This is most easily achieved by running the debug adapter in _server mode_ and configure VS Code to connect to it. In your VS Code vscode-mock-debug project select the launch configuration **Server** from the drop down menu and press the green start button.
 
-Since we already had an active debug session for the extension the VS Code debugger UI now enters 'multi session' mode which is indicated by seeing the names of the two debug sessions **Extension** and **Server** showing up in the CALL STACK view:
+Since we already had an active debug session for the extension the VS Code debugger UI now enters _multi session_ mode which is indicated by seeing the names of the two debug sessions **Extension** and **Server** showing up in the CALL STACK view:
 
 ![Debugging Extension and Server](images/example-debuggers/debug-extension-server.png)
 
-Now we are able to debug both the extension and the debug adapter simultanously.
+Now we are able to debug both the extension and the debug adapter simultaneously.
 A faster way to arrive here is by using the **Extension + Server** launch configuration which launches both sessions automatically.
+
+An alternative, even simpler approach for debugging the extension and the debug adapter can be found [below](#alternative-approach-to-develop-a-debug-extension).
 
 Set a breakpoint at the beginning of method `launchRequest(...)` in file `src/mockDebug.ts` and as a last step configure the mock debugger to connect to the debug adapter server by adding a `debugServer` attribute for port `4711` to your mock test launch config:
 
@@ -118,8 +120,8 @@ If you now launch this debug configuration, VS Code does not start the mock debu
 
 With this setup you can now easily edit, transpile, and debug Mock Debug.
 
-But now the real work begins: you will have to replace the 'mock' implementation of the debug adapter in `src/mockDebug.ts` and `src/mockRuntime.ts` by some code that talks to a 'real' debugger or runtime. This involves understanding and implementing the Debug Adapter Protocol. More details
-about this can be found [here](https://code.visualstudio.com/docs/extensionAPI/api-debugging).
+But now the real work begins: you will have to replace the "mock" implementation of the debug adapter in `src/mockDebug.ts` and `src/mockRuntime.ts` by some code that talks to a "real" debugger or runtime. This involves understanding and implementing the Debug Adapter Protocol. More details
+about this can be found [here](/docs/extensionAPI/api-debugging.md).
 
 ## Anatomy of the package.json of a Debug Extension
 
@@ -176,6 +178,16 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
                 }
             },
 
+            "initialConfigurations": [
+                {
+                    "type": "mock",
+                    "request": "launch",
+                    "name": "Ask for file name",
+                    "program": "${workspaceFolder}/${command:AskForProgramName}",
+                    "stopOnEntry": true
+                }
+            ],
+
             "configurationSnippets": [
                 {
                     "label": "Mock Debug: Launch",
@@ -204,13 +216,12 @@ Like every VS Code extension, the `package.json` declares the fundamental proper
 
 Now take a look at the **contributes** section which contains the contributions specific to debug extensions.
 
-First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled. With out this it would not be possible to set breakpoints in a markdown files.
+First we use the **breakpoints** contribution point to list the languages for which setting breakpoints will be enabled. Without this, it would not be possible to set breakpoints in a Markdown files.
 
-Next is the **debuggers** section. Here one debugger is introduced under a (unique) debug **type** `mock`. The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nice name when showing it in the UI.
+Next is the **debuggers** section. Here one debugger is introduced under a debug **type** "mock". The user can reference this type in his launch configurations. The optional attribute **label** can be used to give the debug type a nice name when showing it in the UI.
 
 Since the debug extension uses a debug adapter, a relative path to its code is given as the **program** attribute.
-In order to make the extension self-contained the application must live inside the extension folder.
-By convention we keep this applications inside a folder named `out` or `bin` but you are free to use a different name.
+In order to make the extension self-contained the application must live inside the extension folder. By convention, we keep this applications inside a folder named `out` or `bin` but you are free to use a different name.
 
 Since VS Code runs on different platforms, we have to make sure that the debug adapter program supports the different platforms as well. For this we have the following options:
 
@@ -254,7 +265,7 @@ The **initialConfigurations** define the initial content of the default `launch.
 
 ![Debugger Quickpick](images/example-debuggers/debug-init-config.png)
 
-Instead of defining the initial content of the `launch.json` statically in the `package.json` it is possible to 'compute' the initial configurations dynamically by implementing a `DebugConfigurationProvider` (for details see section 'Using a DebugConfigurationProvider below').
+Instead of defining the initial content of the `launch.json` statically in the `package.json`, it is possible to 'compute' the initial configurations dynamically by implementing a `DebugConfigurationProvider` (for details see section 'Using a DebugConfigurationProvider below').
 
 **configurationSnippets** define launch configuration snippets that get surfaced in IntelliSense when editing the `launch.json`. As a convention prefix the `label` attribute of a snippet by the debug environment name so that it can be clearly identified when presented in a list of many snippet proposals.
 
@@ -276,15 +287,16 @@ The variable can now be used in any string typed value of a launch configuration
 
 ## Using a DebugConfigurationProvider
 
-If the static nature of debug contributions in the package.json is not sufficient, a `DebugConfigurationProvider` can  be used to dynamically control the following aspects of a debug extension:
+If the static nature of debug contributions in the `package.json` is not sufficient, a `DebugConfigurationProvider` can be used to dynamically control the following aspects of a debug extension:
 
 - the initial debug configurations for a newly created launch.json can be generated dynamically, e.g. based on some contextual information available in the workspace,
 - a launch configuration can be 'resolved' (or 'massaged') before it is used to start a new debug session. This allows for filling in default values based on information available in the workspace.
+- the executable path for the debug adapter and any command line arguments passed to it can be dynamically calculated.
 
-The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugConfiguration` to detect the case where a debug session is started when no launch.json exists but if a markdown file is open in the active editor. This is a typically scenario where the user has a file open in the editor and just wants to debug it without bothering with creating a launch.json.
+The `MockConfigurationProvider` in `src/extension.ts` implements `resolveDebugConfiguration` to detect the case where a debug session is started when no launch.json exists but if a Markdown file is open in the active editor. This is a typically scenario where the user has a file open in the editor and just wants to debug it without bothering with creating a launch.json.
 
 A debug configuration provider is registered for a specific debug type via `vscode.debug.registerDebugConfigurationProvider` typically in the extension's `activate` function.
-To ensure that the `DebugConfigurationProvider` is registered early enough, the extension must be activated as soon as the debug functionality is used. This can be easily achieved by configuring extension activation for the `onDebug` event in the package.json:
+To ensure that the `DebugConfigurationProvider` is registered early enough, the extension must be activated as soon as the debug functionality is used. This can be easily achieved by configuring extension activation for the `onDebug` event in the `package.json`:
 
 ```json
 "activationEvents": [
@@ -308,3 +320,15 @@ Once you have created your debug adapter you can publish it to the Marketplace:
 
 * update the attributes in the `package.json` to reflect the naming and purpose of your debug adapter.
 * upload to the Marketplace as described in [Share an Extension](/docs/extensions/publish-extension.md) section.
+
+## Alternative approach to develop a Debug Extension
+
+Developing a debug extension typically involves debugging both the extension and the debug adapter in two parallel sessions. As explained above VS Code supports this nicely but development would be easier if both the extension and the debug adapter would be one program that could be debugged in one session.
+
+This approach is in fact easily doable as long as your debug adapter is implemented in TypeScript/JavaScript.
+
+The basic idea is to intercept the launch of a debug session in the `resolveDebugConfiguration` method of a `DebugConfigurationProvider` and starting to listen for _connect requests_ and creating a new debug adapter session for every request. To make VS Code use _connect requests_ (instead of always launching new debug adapter), the launch configuration is modified by adding the `debugServer` attribute to it.
+
+These few [lines of code](https://github.com/Microsoft/vscode-mock-debug/blob/042d19a27a8e3a08f27a24110506b53fbecc75ce/src/extension.ts#L61-L71) implement this approach for the **Mock Debug** extension.
+
+Enable this feature by setting the compile time flag `EMBED_DEBUG_ADAPTER` to true. If you now start debugging the extension with **F5** you will hit breakpoints not only in the extension but in the debug adapter as well.

@@ -4,14 +4,14 @@ Area: languages
 TOCTitle: Java
 ContentId: 080fd21f-92b7-4491-9ab2-6eb9a3bb0793
 PageTitle: Java in VS Code
-DateApproved: 2/7/2018
+DateApproved: 3/7/2018
 MetaDescription: Learn about Visual Studio Code editor features (code completion, debugging, snippets, linting) for Java.
 ---
 # Java in VS Code
 
 The Java support in VS Code is provided through [extensions](/docs/editor/extension-gallery.md) and optimized for lightweight Java projects with a simple, modern workflow. Popular extensions in the [Marketplace](https://marketplace.visualstudio.com) provide essential language features such as project support, code completion, linting, debugging, testing, code formatting, snippets, as well as tooling integration including Maven and Tomcat.
 
-> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, Mac, Linux).
+> [Download VS Code](/download) - If you haven't downloaded VS Code yet, quickly install for your platform (Windows, macOS, Linux).
 
 ## Install Java Extensions
 
@@ -24,24 +24,25 @@ VS Code is a fast editor and ships with great editing features. Add Java languag
 
 <a class="tutorial-install-extension-btn" href="vscode:extension/vscjava.vscode-java-pack">Install the Java Extension Pack</a>
 
-There're also other popular Java extensions you can pick for your own needs, including
+There're also other popular Java extensions you can pick for your own needs, including:
+
 1. [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
 4. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 
-Thanks to the great Java community around VS Code, the list doesn't just end here. You can search for more Java extensions easily within the editor
+Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within VS Code:
 
-1. In Visual Studio Code, go to the **Extensions** view (`kb(workbench.view.extensions)`).
+1. Go to the **Extensions** view (`kb(workbench.view.extensions)`).
 2. Filter the extensions list by typing "java".
 
 This document describes some of the key features included in those Java extensions.
 
 ## Java Project Support
 
-Maven, Eclipse and Gradle Java project are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](http://www.eclipse.org/m2e/) which provides Maven support and [Buildship](https://github.com/eclipse/buildship) which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
+Maven, Eclipse and Gradle Java project are supported through [Language Support for Java(TM) by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.java), by utilizing [M2Eclipse](https://www.eclipse.org/m2e/) which provides Maven support and [Buildship](https://github.com/eclipse/buildship) which provides Gradle support through the [Eclipse JDT Language Server](https://github.com/eclipse/eclipse.jdt.ls).
 
-With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate project from Maven Archetype, browse through all the Maven projects within your workspace and execute Maven goals easily from an embedded explorer.
+With [Maven for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven), you can generate projects from [Maven Archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html), browse through all the Maven projects within your workspace, and execute Maven goals easily from an embedded explorer.
 
 ![Maven Explorer](images/java/maven-explorer.png)
 
@@ -75,7 +76,7 @@ To peek at a symbol's definition, place your cursor on the symbol anywhere it's 
 
 You can also quickly navigate to where a symbol is defined by using the Go to Definition feature.
 
-To go to a symbol's definition, place your cursor on the symbol anywhere its used in your code and then press `kb(editor.action.goToDeclaration)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
+To go to a symbol's definition, place your cursor on the symbol anywhere it is used in your source code and then press `kb(editor.action.goToDeclaration)`. Alternatively, you can choose __Go to Definition__ from the context menu (right-click, then choose __Go to Definition__). When there's only one definition of the symbol, you'll navigate directly to its location, otherwise the competing definitions are displayed in a peek window as described in the previous section and you have to choose the definition that you want to go to.
 
 Other code editing features include:
 
@@ -99,14 +100,14 @@ The Java Debugger supports following features:
 - **Data inspection** - When you're stopped at a breakpoint, the debugger has access to the variable names and values that are currently stored in memory. Inspect/Watch/Set Variables are supported.
 - **Diagnostics** - The **CALL STACK** panel shows the call stack of your program and allows you to navigate through the call path of each captured allocation. Multi-threaded debugging is supported by parallel stacks.
 - **Debug Console** - The Debug Console lets you see information from both stdout and stderr.
-- **Hot Code Replacement** - Very useful feature to faciliate experimental development and to foster iterative trial-and-error coding.
+- **Hot Code Replacement** - A very useful feature to facilitate experimental development and iterative trial-and-error coding.
 
 ![Debugging Features](images/java/debug-features.png)
 
-The debugger is able to detect your launch class in most cases, you all you need is just pressing `F5`. In case you'd like to define the debug configuration by yourself, just follow the steps below:
+The debugger is able to detect your launch class in most cases, all you need to do is start debugging by pressing `F5`. If you'd like to define the debugging configuration yourself, just follow the steps below:
 
 1. Switch to the **Debug** view (`kb(workbench.view.debug)`).
-2. Open `launch.json` to add a debug configuration for Java
+2. Open `launch.json` to add a debug configuration for Java.
 3. Fill in the `mainClass` for `Launch` setting or `hostName` and `port` for `Attach`.
 4. Click **Start** button or press `F5` to start debugging.
 
@@ -115,26 +116,28 @@ The debugger is able to detect your launch class in most cases, you all you need
 For more debugging related information, please visit [Java Debugging](/docs/java/java-debugging.md).
 
 ## Testing
-With the support from [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test), you can easily run, debug and manage your Java test cases.
+
+With the support from the [Java Test Runner](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test) extension, you can easily run, debug and manage your Java test cases.
 
 ![Testing Java Application](images/java/java-test-explorer.png)
 
-Your test cases could be identified automatically.
+Your test cases are identified automatically.
 
 ![Testing Java Application](images/java/java-test.gif)
 
-Currently the Test Runner supports JUnit4, we're working on JUnit5 and TestNG and will be supporting them soon.
+Currently the Test Runner supports JUnit4. We're working on JUnit5 and TestNG and will be supporting them soon.
 
 ## Spring Boot and Tomcat
-To further improve your productivity using Java on VS Code, extensions for most popular frameworks and tools such as [Spring Boot](https://projects.spring.io/spring-boot/) and [Tomcat](http://tomcat.apache.org/) are brought to VS Code from community.
 
-The [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension brings an explorer to easily navigate and operate the Tomcat Servers you have. You can create, start, debug, stop and rename your Tomcat server all with the extension.
+To further improve your Java productivity in VS Code, there are extensions for most popular frameworks and tools such as [Spring Boot](https://projects.spring.io/spring-boot/) and [Tomcat](https://tomcat.apache.org/) created by the community.
+
+The [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat) extension includes an explorer to easily navigate and manage your Tomcat servers. You can create, start, debug, stop and rename your Tomcat server all with the extension.
 
 ![Tomcat](images/java/tomcat.gif)
 
 See [Java Tutorial with VS Code](/docs/java/java-tutorial.md) to learn more about Tomcat and basic Java support with VS Code.
 
-The foundation of [Spring Boot](https://projects.spring.io/spring-boot/) support is laid down by [Pivotal](https://marketplace.visualstudio.com/search?term=publisher%3A%22Pivotal%22&target=VSCode&category=All%20categories&sortBy=Relevance), which also provides extension for popular software such as Cloudfoundry, Concourse and Bosh on VS Code. There's also a [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) available so you can easily create a Spring Boot app from scratch.
+[Spring Boot](https://projects.spring.io/spring-boot/) support is provided by an extension from [Pivotal](https://marketplace.visualstudio.com/search?term=publisher%3A%22Pivotal%22&target=VSCode&category=All%20categories&sortBy=Relevance), who also provide extensions for popular platforms such as Cloudfoundry, Concourse and BOSH. There's also a [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension so you can create a Spring Boot app from scratch.
 
 See [Spring Boot with VS Code](/docs/java/java-spring-boot.md) to learn more about Spring Boot support with VS Code.
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Emmet
 ContentId: baf4717c-ea52-486e-9ea3-7bf1c4134dad
 PageTitle: Emmet in Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Using Emmet abbreviations inside VS Code.
 ---
 # Emmet in Visual Studio Code
@@ -41,7 +41,7 @@ If you don't want to see Emmet abbreviations in suggestions at all, then use the
 "emmet.showExpandedAbbreviation": "never"
 ```
 
-With this setting enabled, you can use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
+You can still use the command **Emmet: Expand Abbreviation** to expand your abbreviations. You can also bind any keyboard shortcut to the command id `editor.emmet.action.expandAbbreviation` as well.
 
 ### Emmet suggestion ordering
 
@@ -66,7 +66,7 @@ For example:
 }
 ```
 
-Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non HTML/CSS context. To avoid this you can use the following setting.
+Emmet has no knowledge of these new languages, and so you might feel Emmet suggestions showing up in non HTML/CSS context. To avoid this, you can use the following setting.
 
 ```json
 "emmet.showExpandedAbbreviation": "inMarkupAndStylesheetFilesOnly"
@@ -102,6 +102,70 @@ Below are a few examples of how you can control which vendors get applied to whi
 - Setting the preference to a comma separated list of CSS properties will ensure that the corresponding prefix gets added only to these CSS properties.
 - Setting the preference to an empty string will ensure that the corresponding prefix doesn't get added to any CSS property.
 - Setting the preference to null will ensure that the default CSS properties for each vendor as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/) get used.
+
+## Using filters
+
+Filters are special post-processors that modify the expanded abbreviation before it is output to the editor. There are 2 ways to use filters; either globally through the `emmet.syntaxProfiles` setting or directly in the current abbreviation.
+
+Below is an example of the first approach using the `emmet.syntaxProfiles` setting to apply the `bem` filter for all the abbreviations in HTML files:
+
+```json
+"emmet.syntaxProfiles": {
+    "html": {
+        "filters": "bem"
+    }
+}
+
+```
+
+To provide a filter for just the current abbreviation, append the filter to your abbreviation. For example, `div#page|c` will apply the `comment` filter to the `div#page` abbreviation.
+
+### BEM filter (bem)
+
+If you use the [Block Element Modifier](http://getbem.com/) (BEM) way of writing HTML, then `bem` filters are very handy for you to use. To learn more about how to use `bem` filters, read [BEM filter in Emmet](https://docs.emmet.io/filters/bem/).
+
+You can customize this filter by using the `bem.elementSeparator` and `bem.modifierSeparator` preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/).
+
+### Comment filter (c)
+
+This filter adds comments around important tags. By default, "important tags" are those tags with id and/or class attribute.
+
+For example `div>div#page>p.title+p|c` will be expanded to:
+
+```xml
+<div>
+    <div id="page">
+        <p class="title"></p>
+        <!-- /.title -->
+        <p></p>
+    </div>
+    <!-- /#page -->
+</div>
+```
+
+You can customize this filter by using the `filter.commentTrigger`, `filter.commentAfter` and `filter.commentBefore` preferences as documented in [Emmet Preferences](https://docs.emmet.io/customization/preferences/).
+
+The format for the `filter.commentAfter` preference is different in VS Code Emmet 2.0.
+
+For example, instead of:
+
+```json
+"emmet.preferences": {
+    "filter.commentAfter": "\n<!-- /<%= attr('id', '#') %><%= attr('class', '.') %> -->"
+}
+```
+
+in VS Code, you would use a simpler:
+
+```json
+"emmet.preferences": {
+    "filter.commentAfter": "\n<!-- /[#ID][.CLASS] -->"
+}
+```
+
+### Trim filter (t)
+
+This filter is applicable only when providing abbreviations for the **Emmet: Wrap Individual Lines with Abbreviation** command. It [removes line markers](https://docs.emmet.io/actions/wrap-with-abbreviation/#removing-list-markers) from wrapped lines.
 
 ## Using custom Emmet snippets
 
@@ -226,7 +290,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 
 * `emmet.showAbbreviationSuggestions`
 
-    Shows possible emmet abbreviations as suggestions. Its `true` by default.
+    Shows possible emmet abbreviations as suggestions. It is `true` by default.
 
     For example, when you type `li`, you get suggestions for all emmet snippets starting with `li` like `link`, `link:css` , `link:favicon` etc.
     This is helpful in learning Emmet snippets that you never knew existed unless you knew the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) by heart.
@@ -269,6 +333,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
     - `css.mozProperties`
     - `css.msProperties`
     - `css.oProperties`
+    - `css.fuzzySearchMinScore`
 
     The format for the `filter.commentAfter` preference is different and simpler in Emmet 2.0.
 
@@ -322,6 +387,6 @@ Add the following setting to enable expanding of Emmet abbreviations using tab w
 **A:** Of course!
 
 - In CSS abbreviations, when you use `:`, the left part is used to fuzzy match with the CSS property name and the right part is used to match with CSS property value. Take full advantage of this by using abbreviations like `pos:f`, `trf:rx`, `fw:b`, etc.
-- Use the new command **Emmet: Wrap Individual Lines with Abbreviation** instead of **Emmet: Wrap with Abbreviation** when you want to each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.
+- Use the new command **Emmet: Wrap Individual Lines with Abbreviation** instead of **Emmet: Wrap with Abbreviation** when you want each selected line to be wrapped by a repeater in the given abbreviation. For example, use `ul>li*` to wrap selected lines in an unordered list with each line as a list item.
 - Explore all other Emmet features as documented in [Emmet Actions](https://docs.emmet.io/actions/).
 - Don't hesitate to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets).

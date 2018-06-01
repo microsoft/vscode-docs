@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Principles and Patterns
 ContentId: 36C1E34B-2F41-4AA0-9443-015D92EF85FB
 PageTitle: Visual Studio Code Extensibility Patterns and Principles
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: The Visual Studio Code extensibility (plug-in) API is designed around a set of guiding patterns and principles to promote extension consistency, correctness and ease of development.
 ---
 # Extensibility Principles and Patterns
@@ -47,7 +47,7 @@ VS Code is implemented using web technologies (HTML, CSS) and web technologies a
 
 ### Protocol based extensions
 
-A common extension pattern in VS Code is to execute extension code in a separate process that communicates with VS Code through a protocol. Examples of this in VS Code are the language servers and debug adapters.  Typically this protocol uses stdin/stdout to communicate between the processes using a JSON payload. Using separate processes provides good isolation boundaries which helps VS Code preserve the stability of the core editor. In addition, this allows extenders to pick the programming language that is most appropriate for the particular extension implementation.
+A common extension pattern in VS Code is to execute extension code in a separate process that communicates with VS Code through a protocol. Examples of this in VS Code are the language servers and debug adapters.  Typically, this protocol uses stdin/stdout to communicate between the processes using a JSON payload. Using separate processes provides good isolation boundaries which helps VS Code preserve the stability of the core editor. In addition, this allows extenders to pick the programming language that is most appropriate for the particular extension implementation.
 
 ## Extensibility Patterns
 
@@ -55,9 +55,9 @@ The extension API of Visual Studio Code follows some guiding patterns which are 
 
 ## Promises
 
-The VS Code API represents asynchronous operations with [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). From extensions, __any__ type of promise can be returned, like ES6, WinJS, A+, etc.
+The VS Code API represents asynchronous operations with [promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise). From extensions, __any__ type of promise can be returned, like ES6, WinJS, A+, etc.
 
-Being independent of a specific promise library is expressed in the API by the `Thenable`-type. `Thenable` represents the common denominator which is the [then](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method.
+Being independent of a specific promise library is expressed in the API by the `Thenable`-type. `Thenable` represents the common denominator which is the [then](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) method.
 
 In most cases the use of promises is optional and when VS Code calls into an extension, it can handle the _result type_ as well as a `Thenable` of the _result type_. When the use of a promise is optional, the API indicates this by returning `or`-types.
 
@@ -83,7 +83,7 @@ Events in the VS Code API are exposed as functions which you call with a listene
 
 ```javascript
 var listener = function(event) {
-	console.log("It happened", event);
+    console.log("It happened", event);
 };
 
 // start listening
@@ -112,7 +112,7 @@ There are even VS Code specific Node.js modules which are [useful in extension d
 
 Visual Studio Code **will not** install your extension's dependencies when a user installs it, so you must `npm install` before publishing. The extension's publishing package will contain all of its dependencies within. You can run `vsce ls` to list all the files that `vsce` will include in the package.
 
-You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. See the `vsce` publishing tool topic for [details](https://code.visualstudio.com/docs/extensions/publish-extension.md#vscodeignore) about using a `.vscodeignore` file.
+You can create a `.vscodeignore` file to exclude some files from being included in your extension's package. See the `vsce` publishing tool topic for [details](/docs/extensions/publish-extension.md#vscodeignore) about using a `.vscodeignore` file.
 
 ## Next Steps
 
@@ -124,11 +124,8 @@ You can create a `.vscodeignore` file to exclude some files from being included 
 
 **Q: Can I use native Node.js modules with my extension?**
 
-**A:** A Visual Studio Code extension package contains all of its dependencies. This means that if you develop your extension on Windows and depend on a native Node.js module when you publish that extension, the Windows compiled native dependency will be contained in your extension. Users on Mac or Linux won't be able to use the extension.
+**A:** A Visual Studio Code extension package contains all of its dependencies. This means that if you develop your extension on Windows and depend on a native Node.js module when you publish that extension, the Windows compiled native dependency will be contained in your extension. Users on macOS or Linux won't be able to use the extension.
 
-The only way to make this work for now is to include binaries for all four platforms of VS Code (Windows x86 and x64, Linux, Mac) in your extension and have code that dynamically loads the right one.
+The only way to make this work for now is to include binaries for all four platforms of VS Code (Windows x86 and x64, Linux, macOS) in your extension and have code that dynamically loads the right one.
 
 We don't recommend extensions use native `npm` modules as native modules bundled with an extension must be recompiled with every new version of VS Code against the same Node.js version that VS Code ships with. You can find the Node.js and module versions by running `process.versions` from the developer tools console (**Help** > **Toggle Developer Tools**).
-
-
-

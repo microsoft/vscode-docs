@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in VS Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
@@ -18,7 +18,7 @@ MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 
 We'll be using the `create-react-app` [generator](https://facebook.github.io/react/docs/installation.html#creating-a-new-application) for this tutorial. To install and use the generator as well as run the React application server, you'll need the [Node.js](https://nodejs.org/) JavaScript runtime and [npm](https://www.npmjs.com/) (the Node.js package manager) installed. npm is included with Node.js which you can install from [here](https://nodejs.org/en/download/).
 
->**Tip**: To test that you have Node.js and npm correctly install on your machine, you can type `node --version` and `npm --version`.
+>**Tip**: To test that you have Node.js and npm correctly installed on your machine, you can type `node --version` and `npm --version`.
 
 To install the `create-react-app` generator, in a terminal or command prompt type:
 
@@ -32,7 +32,7 @@ This may take a few minutes to install. You can now create a new React applicati
 create-react-app my-app
 ```
 
-where `my-app` is the name of the folder for your application. This may take a few minutes to create the React application and install it's dependencies.
+where `my-app` is the name of the folder for your application. This may take a few minutes to create the React application and install its dependencies.
 
 Let's quickly run our React application by navigating to the new folder and typing `npm start` to start the web server and open the application in a browser:
 
@@ -50,7 +50,7 @@ cd my-app
 code .
 ```
 
-### Markdown Preview
+### Markdown preview
 
 In the File Explorer, one file you'll see is the application `README.md` Markdown file. This has lots of great information about the application and React in general. A nice way to review the README is by using the VS Code [Markdown Preview](/docs/languages/markdown.md#markdown-preview). You can open the preview in either the current editor group (**Markdown: Open Preview** `kb(markdown.showPreview)`) or in a new editor group to the side (**Markdown: Open Preview to the Side** `kb(markdown.showPreviewToSide)`). You'll get nice formatting, hyperlink navigation to headers, and syntax highlighting in code blocks.
 
@@ -128,9 +128,9 @@ To set a breakpoint in `index.js`, click on the gutter to the left of the line n
 
 ### Configure the Chrome debugger
 
-We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes configuration to both launch the website or attach to a running instance.
+We need to initially configure the [debugger](/docs/editor/debugging.md). To do so, go to the Debug view (`kb(workbench.view.debug)`) and click on gear button to create a `launch.json` debugger configuration file. Choose **Chrome** from the **Select Environment** dropdown. This will create a `launch.json` file in a new `.vscode` folder in your project which includes a configuration to launch the website.
 
-We need to make one change for our example: change the port from `8080` to `3000`. Your `launch.json` should look like this:
+We need to make one change for our example: change the port of the `url` from `8080` to `3000`. Your `launch.json` should look like this:
 
 ```json
 {
@@ -141,13 +141,6 @@ We need to make one change for our example: change the port from `8080` to `3000
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "chrome",
-            "request": "attach",
-            "name": "Attach to Chrome",
-            "port": 9222,
             "webRoot": "${workspaceFolder}"
         }
     ]
@@ -178,7 +171,7 @@ Try making a small error in your React source code and you'll see a red squiggle
 
 ![javascript error](images/reactjs/js-error.png)
 
-Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](http://eslint.org/). ESLint when combined with the ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) provides a great in-product linting experience.
+Linters can provide more sophisticated analysis, enforcing coding conventions and detecting anti-patterns. A popular JavaScript linter is [ESLint](https://eslint.org/). ESLint when combined with the ESLint VS Code [extension](https://marketplace.visualstudio.com/items/dbaeumer.vscode-eslint) provides a great in-product linting experience.
 
 First install the ESLint command line tool:
 
@@ -190,7 +183,7 @@ Then install the ESLint extension by going to the **Extensions** view and typing
 
 ![ESLint extension](images/reactjs/eslint-extension.png)
 
-Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `eslintrc.json`. You can create one using the extension's **ESLint: Create 'eslintrc.json' File** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+Once the ESLint extension is installed and VS Code reloaded, you'll want to create an ESLint configuration file `.eslintrc.json`. You can create one using the extension's **ESLint: Create '.eslintrc.json' File** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![create eslintrc](images/reactjs/create-eslintrc.png)
 
@@ -226,7 +219,7 @@ ESLint will now analyze open files and shows a warning in `index.js` about 'App'
 
  ![App is unused](images/reactjs/app-is-unused.png)
 
- You can modify the ESLint [rules](http://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `eslintrc.json`.
+ You can modify the ESLint [rules](https://eslint.org/docs/rules/) and the ESLint extension provides IntelliSense in `.eslintrc.json`.
 
 ![eslintrc IntelliSense](images/reactjs/eslintrc-intellisense.png)
 
@@ -263,7 +256,7 @@ If you'd like to see a full MERN (MongoDB, Express, React, Node.js) stack exampl
 
 ### TypeScript React
 
-If you're curious about TypeScript and React, you can also create a TypeScript version of the `create-react-app` application. See the details at [TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter) on the [TypeScript Quick Start](http://www.typescriptlang.org/samples/index.html) site.
+If you're curious about TypeScript and React, you can also create a TypeScript version of the `create-react-app` application. See the details at [TypeScript-React-Starter](https://github.com/Microsoft/TypeScript-React-Starter) on the [TypeScript Quick Start](https://www.typescriptlang.org/samples/index.html) site.
 
 ### Angular
 
@@ -273,6 +266,6 @@ If you're curious about TypeScript and React, you can also create a TypeScript v
 
 **Q: Can I get IntelliSense within declarative JSX?**
 
-**A:** Yes. For example, if you open the `create-react-app` project's `app.js` file, you can see IntelliSense within the React JSX in the `render()` method.
+**A:** Yes. For example, if you open the `create-react-app` project's `App.js` file, you can see IntelliSense within the React JSX in the `render()` method.
 
 ![JSX IntelliSense](images/reactjs/jsx-intellisense.png)

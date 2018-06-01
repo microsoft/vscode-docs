@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: User Interface
 ContentId: 3a33f35b-cded-4f7f-8674-6f2ba5fca023
 PageTitle: Visual Studio Code User Interface
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: A quick overview of the Visual Studio Code user interface. Learn about the editor, window management, and special UI to handle source control, extension management, full text search and more.
 ---
 # User Interface
@@ -33,28 +33,28 @@ Open files in each editor are displayed with tabbed headers (Tabs) at the top of
 
 You can have up to three editors open side by side. If you already have one editor open, there are multiple ways of opening another editor to the side of the existing one:
 
-* `kbstyle(Ctrl)` (Mac: `kbstyle(Cmd)`) click on a file in the Explorer.
+* `kbstyle(Ctrl)` (macOS: `kbstyle(Cmd)`) click on a file in the Explorer.
 * `kb(workbench.action.splitEditor)` to split the active editor into two.
 * **Open to the Side** from the Explorer context menu on a file.
 * Click the **Split Editor** button in the upper right of an editor.
 * Drag and drop a file to the either side of the editor region.
-* `kbstyle(Ctrl+Enter)` (Mac: `kbstyle(Cmd+Enter)`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
+* `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(Cmd+Enter)`) in the **Quick Open** (`kb(workbench.action.quickOpen)`) file list.
 
 ![Side by Side editing](images/userinterface/sidebyside.png)
 
 Whenever you open another file, the editor that is active will display the content of that file. So if you have two editors side by side and you want to open file 'foo.cs' into the right hand editor, make sure that editor is active (by clicking inside it) before opening file 'foo.cs'.
 
-When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (Mac: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
+When you have more than one editor open you can switch between them quickly by holding the `kbstyle(Ctrl)` (macOS: `kbstyle('Cmd')`) key and pressing `kbstyle(1)`, `kbstyle(2)`, or `kbstyle(3)`.
 
 >**Tip:** You can resize editors and reorder them. Drag and drop the editor title area to reposition or resize the editor.
 
 ## Minimap - outline view
 
-A Minimap (outline view) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown in the right side of the editor. You can click or drap the shaded area to quickly jump to different sections of your file.
+A Minimap (outline view) gives you a high level overview of your source code which is very useful for quick navigation and code understanding. A file's minimap is shown in the right side of the editor. You can click or drag the shaded area to quickly jump to different sections of your file.
 
 ![minimap](images/userinterface/minimap.png)
 
-If you would like to disable minimap, you can set `"editor.minimap.enabled": false` in your user or workspace [settings](/docs/getstarted/settings.md).
+>**Tip:** You can move the minimap to the left hand side or disable it completely by respectively setting `"editor.minimap.side": "left"` or `"editor.minimap.enabled": false` in your user or workspace [settings](/docs/getstarted/settings.md).
 
 ### Indent Guides
 
@@ -63,7 +63,6 @@ The image above also shows indentation guides (vertical lines) which help you qu
 ## Explorer
 
 The Explorer is used to browse, open, and manage all of the files and folders in your project. VS Code is file and folder based - you can get started immediately by opening a file or folder in VS Code.
-
 
 After opening a folder in VS Code, the contents of the folder are shown in the Explorer. You can do many things from here:
 
@@ -75,15 +74,25 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 
 ![Explorer Menu](images/userinterface/explorer_menu.png)
 
-VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on Mac or Linux).
+VS Code works very well with other tools that you might use, especially command-line tools. If you want to run a command-line tool in the context of the folder you currently have open in VS Code, right-click the folder and select **Open in Command Prompt** (or **Open in Terminal** on macOS or Linux).
 
-You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the Mac or **Open Containing Folder** on Linux).
+You can also navigate to the location of a file or folder in the native Explorer by right-clicking on a file or folder and selecting **Reveal in Explorer** (or **Reveal in Finder** on the macOS or **Open Containing Folder** on Linux).
 
 >**Tip:** Type `kb(workbench.action.quickOpen)` (**Quick Open**) to quickly search and open a file by its name.
 
 By default, VS Code excludes some folders from the Explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/getstarted/settings.md) to configure rules for hiding files and folders from the Explorer.
 
 **Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
+
+### Multi-selection
+
+You can select multiple files in the **File Explorer** and **OPEN EDITORS** view to run actions (Delete, Drag and Drop, Open to the Side) on multiple items. Uses the `Ctrl/Cmd` key with `click` to select individual files and `Shift` + `click` to select a range. If you select two items, you can now use the **Compare Selected** command to quickly diff two files.
+
+**Note:** In earlier VS Code releases, clicking with the `Ctrl/Cmd` key pressed would open a file in a new Editor Group to the side. If you would still like this behavior, you can use the `workbench.list.multiSelectModifier` setting to change multi-selection to use the `Alt` key.
+
+```json
+"workbench.list.multiSelectModifier": "alt"
+```
 
 ## Open Editors
 
@@ -108,7 +117,11 @@ The File Explorer is just one of the Views available in VS Code. There are also 
 * **Extensions** - Install and manage your extensions within VS Code.
 * **Custom views** - Views contributed by extensions under Explorer and Debug views.
 
-You can show or hide views from within the main view.
+> **Tip:** You can open any view using the **View: Open View** command.
+
+![views](images/userinterface/views.png)
+
+You can show or hide views from within the main view and also reorder them by drag and drop.
 
 ![view management](images/userinterface/view-management.png)
 
@@ -148,11 +161,10 @@ You can hide the Menu Bar on Windows and Linux with the **View** > **Toggle Menu
 
 Most editor configurations are kept in settings which can be modified directly. You can set options globally through user settings or per project/folder through workspace settings. Settings values are kept in a `settings.json` [file](/docs/getstarted/settings.md#settings-file-locations).
 
-* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.showCommands)`, type `user` and press `kbstyle(Enter)`) to edit the user `settings.json` file.
+* Select **File** > **Preferences** > **Settings** (or press `kb(workbench.action.openSettings)`) to edit the user `settings.json` file.
+* To edit workspace settings, select the **WORKSPACE SETTINGS** tab to edit the workspace `settings.json` file.
 
-* To edit workspace settings, select **File** > **Preferences** > **Settings** and select the **WORKSPACE SETTINGS** Tab (or press `kb(workbench.action.showCommands)`, type `worksp` and press `kbstyle(Enter)`) to edit the workspace settings.json file.
-
->**Note for Mac users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
+>**Note for macOS users:** The **Preferences** menu is under **Code** not **File**. For example, **Code** > **Preferences** > **Settings**.
 
 ![workspace settings](images/userinterface/workspace-settings.png)
 
@@ -274,7 +286,7 @@ Edit your [keybindings](/docs/getstarted/keybindings.md) and add the following:
 
 If you liked the behavior of VS Code closing an entire group when closing one editor, you can bind the following in your [keybindings](/docs/getstarted/keybindings.md).
 
-Mac:
+macOS:
 
 ```json
 { "key": "cmd+w", "command": "workbench.action.closeEditorsInGroup" }

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: Appendix - jsconfig.json
 ContentId: 201cd81d-523c-4f62-b1f5-ed26c091657b
 PageTitle: jsconfig.json Reference
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: View the reference for jsconfig.json.
 ---
 # jsconfig.json
@@ -15,7 +15,7 @@ The presence of `jsconfig.json` file in a directory indicates that the directory
 
 > **Tip:** If you are not using JavaScript, you do not need to worry about `jsconfig.json`.
 
-> **Tip:** `jsconfig.json` is a descendent of `tsconfig.json`, which is a configuration file for TypeScript. `jsconfig.json` is `tsconfig.json` with `"allowJs"` attribute set to `true`.
+> **Tip:** `jsconfig.json` is a descendent of [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html), which is a configuration file for TypeScript. `jsconfig.json` is `tsconfig.json` with `"allowJs"` attribute set to `true`.
 
 ## Why do I need a jsconfig.json file?
 
@@ -43,12 +43,12 @@ By default the JavaScript language service will analyze and provide IntelliSense
 
 ### Using the `"exclude"` property
 
-The `exclude` attribute tells the language service what files are and are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
+The `exclude` attribute (a glob pattern) tells the language service what files are and are not part of your source code. This keeps performance at a high level. If IntelliSense is slow, add folders to your `exclude` list (VS Code will prompt you to do this if it detects the slow down).
 
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "target": "es6"
     },
     "exclude": [
         "node_modules"
@@ -60,12 +60,12 @@ The `exclude` attribute tells the language service what files are and are not pa
 
 ### Using the `"include"` property
 
-Alternatively, you can explicitly set the files in your project using the `include` attribute. If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `include` attribute is specified, only those files are included. Here is an example with an explicit `include` attribute.
+Alternatively, you can explicitly set the files in your project using the `include` attribute (a glob pattern). If no `include` attribute is present, then this defaults to including all files in the containing directory and subdirectories. When a `include` attribute is specified, only those files are included. Here is an example with an explicit `include` attribute.
 
 ```json
 {
     "compilerOptions": {
-        "target": "ES6"
+        "target": "es6"
     },
     "include": [
         "src/**/*"
@@ -73,7 +73,7 @@ Alternatively, you can explicitly set the files in your project using the `inclu
 }
 ```
 
-> **Tip:** The file paths in `excludes` and `include` are relative to the location of `jsconfig.json`.
+> **Tip:** The file paths in `exclude` and `include` are relative to the location of `jsconfig.json`.
 
 ## jsconfig Options
 
@@ -84,7 +84,7 @@ Below are `jsconfig` `"compilerOptions"` to configure the JavaScript language su
 Option  | Description
 ----------------|-----
 `noLib` | Do not include the default library file (lib.d.ts)
-`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es2015", "es2016", "es2017".
+`target`| Specifies which default library (lib.d.ts) to use. The values are "es3", "es5", "es6", "es2015", "es2016", "es2017", "es2018", "esnext".
 `checkJs` | Enable type checking on JavaScript files.
 `experimentalDecorators`|Enables experimental support for proposed ES decorators.
 `allowSyntheticDefaultImports`|Allow default imports from modules with no default export. This does not affect code emit, just type checking.

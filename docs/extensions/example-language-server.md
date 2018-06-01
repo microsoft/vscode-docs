@@ -4,13 +4,12 @@ Area: extensions
 TOCTitle: Example-Language Server
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
 PageTitle: Creating Language Servers for Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
-
 # Example - Language Server
 
-Language servers allow you to add your own validation logic to files open in VS Code. Typically you just validate programming languages. However validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
+Language servers allow you to add your own validation logic to files open in VS Code. Typically, you just validate programming languages. However, validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
 
 In general, validating a programming language can be expensive. Especially when validation requires parsing multiple files and building up abstract syntax trees. To avoid that performance cost, language servers in VS Code are executed in a separate process. This architecture also makes it possible that language servers can be written in other languages besides TypeScript/JavaScript and that they can support expensive additional language features like code completion or `Find All References`.
 
@@ -107,7 +106,7 @@ export function activate(context: ExtensionContext) {
 	let serverOptions: ServerOptions = {
 		run : { module: serverModule, transport: TransportKind.ipc },
 		debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
-	}
+	};
 
 	// Options to control the language client
 	let clientOptions: LanguageClientOptions = {
@@ -116,10 +115,10 @@ export function activate(context: ExtensionContext) {
 		synchronize: {
 			// Synchronize the setting section 'lspSample' to the server
 			configurationSection: 'lspSample',
-			// Notify the server about file changes to '.clientrc files contain in the workspace
+			// Notify the server about file changes to '.clientrc' files contain in the workspace
 			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
 		}
-	}
+	};
 
 	// Create the language client and start the client.
 	let disposable = new LanguageClient('lspSample', 'Language Server Example', serverOptions, clientOptions).start();
@@ -171,8 +170,8 @@ let documents: TextDocuments = new TextDocuments();
 // for open, change and close text document events
 documents.listen(connection);
 
-// After the server has started the client sends an initilize request. The server receives
-// in the passed params the rootPath of the workspace plus the client capabilites.
+// After the server has started, the client sends an initialize request. The server receives
+// in the passed params, the rootPath of the workspace plus the client capabilities.
 let workspaceRoot: string;
 connection.onInitialize((params): InitializeResult => {
 	workspaceRoot = params.rootPath;
@@ -180,21 +179,21 @@ connection.onInitialize((params): InitializeResult => {
 		capabilities: {
 			// Tell the client that the server works in FULL text document sync mode
 			textDocumentSync: documents.syncKind,
-			// Tell the client that the server support code complete
+			// Tell the client that the server supports code completion
 			completionProvider: {
 				resolveProvider: true
 			}
 		}
-	}
+	};
 });
 
 // The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
+// when the text document is first opened or when its content has changed.
 documents.onDidChangeContent((change) => {
 	validateTextDocument(change.document);
 });
 
-// The settings interface describe the server relevant settings part
+// The settings interface describes the server relevant settings part
 interface Settings {
 	lspSample: ExampleSettings;
 }
@@ -205,9 +204,9 @@ interface ExampleSettings {
 	maxNumberOfProblems: number;
 }
 
-// hold the maxNumberOfProblems setting
+// Holds the maxNumberOfProblems setting
 let maxNumberOfProblems: number;
-// The settings have changed. Is send on server activation
+// The settings have changed. It is sent on server activation
 // as well.
 connection.onDidChangeConfiguration((change) => {
 	let settings = <Settings>change.settings;
@@ -236,21 +235,21 @@ function validateTextDocument(textDocument: TextDocument): void {
 			});
 		}
 	}
-	// Send the computed diagnostics to VSCode.
+	// Send the computed diagnostics to VS Code.
 	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 
 connection.onDidChangeWatchedFiles((_change) => {
-	// Monitored files have change in VSCode
-	connection.console.log('We recevied an file change event');
+	// Monitored files have changed in VS Code
+	connection.console.log('We received a file change event');
 });
 
 
 // This handler provides the initial list of the completion items.
 connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-	// The pass parameter contains the position of the text document in
-	// which code complete got requested. For the example we ignore this
-	// info and always provide the same completion items.
+	// The passed parameter contains the position in the text document in
+	// which code completion was requested. For this example, we ignore this
+	// information and always provide the same completion items.
 	return [
 		{
 			label: 'TypeScript',
@@ -262,10 +261,10 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 			kind: CompletionItemKind.Text,
 			data: 2
 		}
-	]
+	];
 });
 
-// This handler resolve additional information for the item selected in
+// This handler resolves additional information for the item selected in
 // the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 	if (item.data === 1) {
@@ -280,19 +279,19 @@ connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 
 /*
 connection.onDidOpenTextDocument((params) => {
-	// A text document got opened in VSCode.
-	// params.uri uniquely identifies the document. For documents store on disk this is a file URI.
+	// A text document was opened in VS Code.
+	// params.uri uniquely identifies the document. For documents stored on disk, this is a file URI.
 	// params.text the initial full content of the document.
 	connection.console.log(`${params.textDocument.uri} opened.`);
 });
 connection.onDidChangeTextDocument((params) => {
-	// The content of a text document did change in VSCode.
+	// The content of a text document has changed in VS Code.
 	// params.uri uniquely identifies the document.
 	// params.contentChanges describe the content changes to the document.
 	connection.console.log(`${params.textDocument.uri} changed: ${JSON.stringify(params.contentChanges)}`);
 });
 connection.onDidCloseTextDocument((params) => {
-	// A text document got closed in VSCode.
+	// A text document was closed in VS Code.
 	// params.uri uniquely identifies the document.
 	connection.console.log(`${params.textDocument.uri} closed.`);
 });
@@ -308,7 +307,7 @@ To add document validation to the server, we add a listener to the text document
 
 ```typescript
 // The content of a text document has changed. This event is emitted
-// when the text document first opened or when its content has changed.
+// when the text document is first opened or when its content has changed.
 documents.onDidChangeContent((change) => {
     let diagnostics: Diagnostic[] = [];
     let lines = change.document.getText().split(/\r?\n/g);
@@ -325,24 +324,24 @@ documents.onDidChangeContent((change) => {
                 source: 'ex'
             });
         }
-    })
+    });
     // Send the computed diagnostics to VS Code.
     connection.sendDiagnostics({ uri: change.document.uri, diagnostics });
 });
 ```
 
-### Diagnostics Tips and Tricks!
+### Diagnostics Tips and Tricks
 
 * If the start and end positions are the same, VS Code will squiggle the word at that position.
 * If you want to squiggle until the end of the line, then set the character of the end position to Number.MAX_VALUE.
 
-To test the language server do the following:
+To test the language server, do the following:
 
 * press `kb(workbench.action.tasks.build)` to start the build task. The task compiles both the client and the server.
 * open the debug viewlet, select the `Launch Client` launch configuration and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
 * Create a test.txt file in the root folder and paste the following content:
 
-```
+```plaintext
 typescript lets you write JavaScript the way you really want to.
 typescript is a typed superset of JavaScript that compiles to plain JavaScript.
 Any browser. Any host. Any OS. Open Source.
@@ -354,11 +353,11 @@ The `Extension Development Host` instance will then look like this:
 
 ## Debugging both Client and Server
 
-Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Running and Debugging Your Extension](/docs/extensions/debugging-extensions.md).
+Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Developing Extensions](/docs/extensions/developing-extensions.md).
 
 ![Debugging the client](images/example-language-server/debugging-client.png)
 
-Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Debug viewlet and select the launch configuration `Attach to Server` and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
+Since the server is started by the `LanguageClient` running in the extension (client), we need to attach a debugger to the running server. To do so, switch to the Debug view and select the launch configuration `Attach to Server` and press `kb(workbench.action.debug.start)`. This will attach the debugger to the server.
 
 ![Debugging the server](images/example-language-server/debugging-server.png)
 
@@ -406,7 +405,7 @@ function validateTextDocument(textDocument: TextDocument): void {
 The handling of the configuration change is done by adding a notification handler for configuration changes to the connection. The corresponding code looks like this:
 
 ```typescript
-// The settings interface describe the server relevant settings part
+// The settings interface describes the server relevant settings part
 interface Settings {
     lspSample: ExampleSettings;
 }
@@ -419,7 +418,7 @@ interface ExampleSettings {
 
 // hold the maxNumberOfProblems setting
 let maxNumberOfProblems: number;
-// The settings have changed. Is send on server activation
+// The settings have changed. It is sent on server activation
 // as well.
 connection.onDidChangeConfiguration((change) => {
     let settings = <Settings>change.settings;
@@ -435,14 +434,14 @@ Starting the client again and changing the setting to maximum report 1 problem r
 
 ## Adding additional Language Features
 
-The first interesting feature a language server usually implements is validation of documents. In that sense, even a linter counts as a language server and in VS Code linters are usually implemented as language servers (see [eslint](https://github.com/Microsoft/vscode-eslint) and [jshint](https://github.com/Microsoft/vscode-jshint) for examples). But there is more to language servers. They can provide code complete, Find All References or Go To Definition. The example code below adds code completion to the server. It proposes the two words 'TypeScript' and 'JavaScript'.
+The first interesting feature a language server usually implements is validation of documents. In that sense, even a linter counts as a language server and in VS Code linters are usually implemented as language servers (see [eslint](https://github.com/Microsoft/vscode-eslint) and [jshint](https://github.com/Microsoft/vscode-jshint) for examples). But there is more to language servers. They can provide code completion, Find All References or Go To Definition. The example code below adds code completion to the server. It proposes the two words 'TypeScript' and 'JavaScript'.
 
 ```typescript
 // This handler provides the initial list of the completion items.
 connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-    // The pass parameter contains the position of the text document in
-    // which code complete got requested. For the example we ignore this
-    // info and always provide the same completion items.
+    // The passed parameter contains the position in the text document in
+    // which code completion was requested. For this example, we ignore this
+    // information and always provide the same completion items.
     return [
         {
             label: 'TypeScript',
@@ -454,10 +453,10 @@ connection.onCompletion((textDocumentPosition: TextDocumentPositionParams): Comp
             kind: CompletionItemKind.Text,
             data: 2
         }
-    ]
+    ];
 });
 
-// This handler resolve additional information for the item selected in
+// This handler resolves additional information for the item selected in
 // the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
     if (item.data === 1) {
@@ -473,7 +472,7 @@ connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 
 The `data` fields is used to uniquely identify a completion item in the resolve handler. The data property is transparent for the protocol. Since the underlying message passing protocol is JSON based, the data field should only hold data that is serializable to and from JSON.
 
-All that is missing is to tell VS Code that the server support code completion requests. To do so, flag the corresponding capability in the initialize handler:
+All that is missing is to tell VS Code that the server supports code completion requests. To do so, flag the corresponding capability in the initialize handler:
 
 ```typescript
 connection.onInitialize((params): InitializeResult => {
@@ -481,12 +480,12 @@ connection.onInitialize((params): InitializeResult => {
     return {
         capabilities: {
             ...
-            // Tell the client that the server support code complete
+            // Tell the client that the server supports code completion
             completionProvider: {
                 resolveProvider: true
             }
         }
-    }
+    };
 });
 ```
 
@@ -541,23 +540,23 @@ connection.onInitialize((params): InitializeResult => {
             textDocumentSync: TextDocumentSyncKind.Incremental,
             ...
         }
-    }
+    };
 });
 
 connection.onDidOpenTextDocument((params) => {
-    // A text document got opened in VS Code.
-    // params.uri uniquely identifies the document. For documents store on disk this is a file URI.
+    // A text document was opened in VS Code.
+    // params.uri uniquely identifies the document. For documents stored on disk, this is a file URI.
     // params.text the initial full content of the document.
 });
 
 connection.onDidChangeTextDocument((params) => {
-    // The content of a text document did change in VS Code.
+    // The content of a text document has change in VS Code.
     // params.uri uniquely identifies the document.
     // params.contentChanges describe the content changes to the document.
 });
 
 connection.onDidCloseTextDocument((params) => {
-    // A text document got closed in VS Code.
+    // A text document was closed in VS Code.
     // params.uri uniquely identifies the document.
 });
 ```
@@ -575,5 +574,3 @@ To learn more about VS Code's extensibility model, try these topics:
 **Q: When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?**
 
 **A:** You will see this timeout error if the server isn't running when you try to attach the debugger.  The client starts the language server so make sure you have started the client in order to have a running server. You may also need to disable your client breakpoints if they are interfering with starting the server.
-
-

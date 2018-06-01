@@ -4,10 +4,9 @@ Area: extensions
 TOCTitle: Example-Word Count
 ContentId: 4D9132DC-CDDB-4E07-B2DD-9A7E168BE384
 PageTitle: Visual Studio Code Example - Word Count Extension
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: The Word Count extension (plug-in) example takes you deeper into the Visual Studio Code extensibility model, showing how to interact with the editor and manage extension and VS Code resources.
 ---
-
 # Example - Word Count
 
 This document assumes you have read [Your First Extension](/docs/extensions/example-hello-world.md) which covers the basics of VS Code extensibility.
@@ -19,7 +18,6 @@ Whenever a `Markdown` file is edited, a status bar message is added.  The messag
 ![Word Count on Status Bar](images/example-word-count/wordcountevent2.gif)
 
 > **Tip:** The finished sample is available from [this GitHub repository](https://github.com/microsoft/vscode-wordcount) should you have any issues.
-
 
 ## Overview
 
@@ -49,9 +47,9 @@ code .
 
 ## Run the Extension
 
-Before we go on, we can run the extension to make sure everything works as expected by pressing `kb(workbench.action.debug.start)`. As you saw in the previous "Hello World" walkthrough, VS Code opens another window (the **[Extension Development Host]** window) in which your extension will be loaded. You should find the "Hello World" command in the Command Palette (press `kb(workbench.action.showCommands)`) and when you select it, you will see an information box at the top of the window saying "Hello World".
+Before we go on, we can run the extension to make sure everything works as expected by pressing `kb(workbench.action.debug.start)`. As you saw in the previous "Hello World" walkthrough, VS Code opens another window (the **[Extension Development Host]** window) in which your extension will be loaded. You should find the "Hello World" command in the **Command Palette** (press `kb(workbench.action.showCommands)`) and when you select it, you will see an notification at the bottom right of the window saying "Hello World!".
 
-Now that you have confirmed that the extension is running properly, you can keep the extension development window open if you like. To test out any changes that you make to your extension, you can either press `kb(workbench.action.debug.continue)` again in the development window or reload the extension development window by pressing `kbstyle(Ctrl+R)` (Mac: `kbstyle(Cmd+R)`).
+Now that you have confirmed that the extension is running properly, you can keep the extension development window open if you like. To test out any changes that you make to your extension, you can either press `kb(workbench.action.debug.continue)` again in the development window or reload the extension development window by pressing `kbstyle(Ctrl+R)` (macOS: `kbstyle(Cmd+R)`).
 
 ## Update the Status Bar
 
@@ -84,14 +82,9 @@ export function activate(context: ExtensionContext) {
 
 class WordCounter {
 
-    private _statusBarItem: StatusBarItem;
+    private _statusBarItem: StatusBarItem =  window.createStatusBarItem(StatusBarAlignment.Left);
 
     public updateWordCount() {
-
-        // Create as needed
-        if (!this._statusBarItem) {
-            this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
-        }
 
         // Get the current text editor
         let editor = window.activeTextEditor;
@@ -122,7 +115,7 @@ class WordCounter {
         docContent = docContent.replace(/(< ([^>]+)<)/g, '').replace(/\s+/g, ' ');
         docContent = docContent.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
         let wordCount = 0;
-        if (docContent != "") {
+        if (docContent !== "") {
             wordCount = docContent.split(" ").length;
         }
 
@@ -226,7 +219,7 @@ Now change your extension so that it is activated upon the opening of a *Markdow
 
 The  [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage) event takes the language id, in this case "markdown", and will be raised whenever a file of that language is opened.
 
-Run the extension by either doing a window reload `kbstyle(Ctrl+R)` or with `kb(workbench.action.debug.start)` and then start editing a Markdown file.  You should now should have a live updating Word Count.
+Run the extension by either doing a window reload `kbstyle(Ctrl+R)` or with `kb(workbench.action.debug.start)` and then start editing a Markdown file.  You now should have a live updating Word Count.
 
 ![Word Count Updating on Events](images/example-word-count/wordcountevent2.gif)
 

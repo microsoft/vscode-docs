@@ -4,7 +4,7 @@ Area: other
 TOCTitle: Office
 ContentId: 8661D491-297F-4778-B10B-588005CCD443
 PageTitle: Office Add-ins with Visual Studio Code
-DateApproved: 3/28/2017
+DateApproved: 3/5/2018
 MetaDescription: This page walks you through how to scaffold out a project for VS Code that extends Office.  See how to use the features of VS Code and integrate your Add-in with Office/Office 365.
 ---
 # Office Add-ins with VS Code
@@ -17,7 +17,7 @@ Under the hood, an Office Add-in is just a web app that you can host anywhere. U
 
 ## Step 1: Get set up
 
-Follow the instructions to [Create an Office Add-in using any editor](https://github.com/OfficeDev/office-js-docs/blob/master/docs/get-started/create-an-office-add-in-using-any-editor.md) to install the necessary prerequisites, and use Yo Office to create a new add-in project. The following table lists the project attributes to select in the Yeoman generator.
+Follow the instructions to [Create an Office Add-in using any editor](https://dev.office.com/blogs/creating-office-add-ins-with-any-editor-introducing-yo-office) to install the necessary prerequisites, and use Yo Office to create a new add-in project. The following table lists the project attributes to select in the Yeoman generator.
 
 | Option | Value |
 |:------|:------|
@@ -28,12 +28,11 @@ Follow the instructions to [Create an Office Add-in using any editor](https://gi
 | Add [TypeScript](https://www.typescriptlang.org/) | No |
 | Choose framework | Jquery |
 
-
-## Use VS Code to Develop Your Office Add-in!
+## Use VS Code to develop your Office Add-in!
 
 VS Code is a great tool to help you develop your custom Office Add-ins regardless if they are for Outlook, Word, Excel, PowerPoint and run in the web clients, Windows clients, iOS clients or on macOS!
 
-### Getting Started
+### Getting started
 
 Open the project in Visual Studio Code by entering the following on the command line from within the same folder where you ran the generator:
 
@@ -47,22 +46,18 @@ Open the `manifest.xml` file that was created by Yo Office and locate the `Sourc
 
 >**Tip:** If you are using an Azure Web App as the host, the URL will look something like `https://[name-of-your-web-app].azurewebsites.net/[path-to-add-in]`. If you are using the self-hosted option listed above, it will be `http://localhost:3000/[path-to-add-in]`.
 
-
 ### Debugging your Office Add-in
 
 VS Code does not currently support client-side debugging. To debug your client-side Add-in, you can use the Office web clients and open the browser's developer tools and debug the Add-in just like any other client-side JavaScript application.
 
 If you are using Node.js or ASP.NET Core for server-side logic that supports your Office Add-in, refer to the [Debugging](/docs/editor/debugging.md) page to configure VS Code for debugging either of these runtimes.
 
-
-
-
-
 ## Install the Add-in
+
 Office Add-ins must be installed, or registered, with the Office application in order to load. This is done using the `manifest.xml` file you modified earlier.
 
+### Side loading Mail Add-ins
 
-### Side Loading Mail Add-ins
 Mail Add-ins can be installed within the Outlook Web App. Browse to your Outlook Web App (https://mail.office365.com) and login. Once logged in, click the gear icon in the top-right section and select **Manage add-ins**:
 
 ![Manage Add-ins](images/office/owamanageaddins.png)
@@ -85,9 +80,8 @@ Select the Add-in and see it appear in the Task Pane:
 
 ![Add-in in task pane](images/office/mailaddin02.png)
 
-
-
 ### Deploying Add-ins to the Office 365 Tenancy's App Catalog
+
 All Office Add-ins (including Mail Add-ins) can be installed from your Office 365 tenancy's App Catalog site. Log in to your [Office 365 Portal](http://portal.office365.com). In the left-hand navigation, towards the bottom, select the **Admin / SharePoint** option:
 
 ![Office SharePoint Admin](images/office/o365spadmin.png)
@@ -122,4 +116,4 @@ Check out the other pages on the VS Code site to find out how you can leverage m
 
 **Q: Can I use TypeScript to create my Office Add-in?**
 
-**A:** Absolutely and VS Code has great support for [TypeScript](/docs/languages/typescript.md)!
+**A:** Absolutely, VS Code has great support for [TypeScript](/docs/languages/typescript.md)!

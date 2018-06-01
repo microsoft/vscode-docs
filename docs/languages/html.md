@@ -4,16 +4,16 @@ Area: languages
 TOCTitle: HTML
 ContentId: 43095EAF-4B93-407C-A6F9-6DB173D79088
 PageTitle: HTML Programming with Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
-# HTML Programming in VS Code
+# HTML programming in VS Code
 
 Visual Studio Code provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions with IntelliSense, and customizable formatting. VS Code also includes great Emmet support.
 
 ## IntelliSense
 
-As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image below you can see a suggested HTML element closure `</div>` as well as a context specific list of suggested elements.
+As you type in HTML, we offer suggestions via HTML IntelliSense.  In the image below, you can see a suggested HTML element closure `</div>` as well as a context specific list of suggested elements.
 
 ![HTML IntelliSense](images/html/htmlintellisense.png)
 
@@ -78,7 +78,22 @@ You can turn that validation off with the following settings:
 "html.validate.styles": true
 ```
 
-## Format HTML
+## Folding
+
+You can fold regions of source code using the folding icons on the gutter between line numbers and line start. Folding ranges are available for all HTML elements for multi-line comments in the source code.
+
+Additionally you can use the following region markers to define a folding range:
+`<!-- #region -->` and `<!-- endregion -->`
+
+If you prefer to switch to indentation based folding for HTML use:
+
+```json
+"[html]": {
+    "editor.foldingStrategy": "indentation"
+},
+```
+
+## Formatting
 
 To improve the formatting of your HTML source code, press `kb(editor.action.formatSelection)` and the selected area will be reformatted.
 
@@ -86,6 +101,7 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
 
 * `html.format.wrapLineLength`: Maximum amount of characters per line.
 * `html.format.unformatted`: List of tags that shouldn't be reformatted.
+* `html.format.contentUnformatted`: List of tags, comma separated, where the content shouldn't be reformatted.
 * `html.format.extraLiners`: List of tags that should have an extra newline before them.
 * `html.format.preserveNewLines`: Whether existing line breaks before elements should be preserved.
 * `html.format.maxPreserveNewLines`: Maximum number of line breaks to be preserved in one chunk.
@@ -97,8 +113,10 @@ The HTML formatter is based on [js-beautify](https://www.npmjs.com/package/js-be
   * `force-aligned`: Wrap all attributes, except first, and align attributes
   * `force-expand-multiline`: Wrap all attributes
 
+>**Tip:** The formatter does not format the tags listed in the `html.format.unformatted` and `html.format.contentUnformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
 
->**Tip:** The formatter does not format the tags listed in the `html.format.unformatted` settings. Embedded JavaScript is formatted unless 'script' tags are excluded.
+The Marketplace has several alternative formatters to choose from. If you want to use a different formatter, define
+`"html.format.enable": false` in your settings to turn off the built-in formatter.
 
 ## Emmet snippets
 
@@ -141,4 +159,5 @@ Read on to find out about:
 
 **Q: Does VS Code have HTML preview?**
 
-**A:** No, VS Code doesn't have built-it support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.
+**A:** No, VS Code doesn't have built-in support for HTML preview but there are extensions available in the VS Code [Marketplace](https://marketplace.visualstudio.com/vscode). Open the **Extensions** view (`kb(workbench.view.extensions)`) and search on 'live preview' or 'html preview' to see a list of available HTML preview extensions.
+

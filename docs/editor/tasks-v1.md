@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Tasks
 ContentId: 8cdc7d99-6339-49ac-9a31-55f6563fab5c
 PageTitle: Tasks (legacy version)
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Expand your development workflow with task integration in Visual Studio Code (Gulp, Grunt, Jake and more).
 ---
 # Tasks (legacy version)
@@ -79,7 +79,7 @@ To see the exact command VS Code is running, you can enable the `echoCommand` se
 
 ## command and tasks[]
 
-`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default the `command` will show up in the **Tasks: Run Task** dropdown.
+`tasks.json` takes a single `command` value which can be a task runner like gulp or grunt or any command line tool like a compiler or linter. By default, the `command` will show up in the **Tasks: Run Task** dropdown.
 
 You can also define multiple tasks in a `tasks` array in order to pass different arguments or use different settings when the `command` is run.
 
@@ -144,13 +144,13 @@ If you want to run multiple different commands you can specify different command
 }
 ```
 
-The first task start the TypeScript compiler in watch mode, the second one starts the gulp build. If a tasks specifies a local command to run the task name is not included into the command line (`suppressTaskName` is `true` by default for these tasks). Since a local command can specify local arguments, there is no need for adding it by default. If a `tasks.json` file specifies both global and task local commands, the task local commands win over the global command. There is no merging between a global and a task local command.
+The first task starts the TypeScript compiler in watch mode, the second one starts the gulp build. If a task specifies a local command to run, the task name is not included into the command line (`suppressTaskName` is `true` by default for these tasks). Since a local command can specify local arguments, there is no need for adding it by default. If a `tasks.json` file specifies both global and task local commands, the task local commands win over the global command. There is no merging between a global and a task local command.
 
 ## Binding keyboard shortcuts to tasks
 
 If you need to run a task frequently, you can also define a keyboard shortcut for the task.
 
-For example to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
+For example, to bind `ctrl+h` to the `build` task from above, add the following to your `keybindings.json` file:
 
 ```json
 {
@@ -191,7 +191,7 @@ Below is an example that uses the Node.js executable as a command and is treated
 }
 ```
 
-Valid operating properties are `windows` for Windows, `linux` for Linux and `osx` for Mac. Properties defined in an operating system specific scope override properties defined in the global scope.
+Valid operating properties are `windows` for Windows, `linux` for Linux and `osx` for macOS. Properties defined in an operating system specific scope override properties defined in the global scope.
 
 In the example below:
 
@@ -257,7 +257,7 @@ The CSS topic provides examples of how to use Tasks to generate CSS files.
 
 VS Code can autodetect tasks from within Gulp, Grunt and Jake files.  This adds their tasks to the task list without requiring additional configuration (unless you need to use a problem matcher, more on that in a moment).
 
-To help make this example more concrete, let's use this simple Gulp file.  This defines two tasks: build and debug. The first compiles C# code using [Mono](http://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
+To help make this example more concrete, let's use this simple Gulp file.  This defines two tasks: build and debug. The first compiles C# code using [Mono](https://www.mono-project.com/)'s compiler. The second starts the MyApp under the Mono debugger.
 
 ```javascript
 var gulp = require("gulp");
@@ -430,7 +430,7 @@ There are a couple more properties that can be used inside a pattern. These are:
 
 ## Defining a Multi-Line Problem Matcher
 
-Some tools spread problems found in a source file over several lines, especially if stylish reporters are used. An example is [ESLint](http://eslint.org/); in stylish mode it produces output like this:
+Some tools spread problems found in a source file over several lines, especially if stylish reporters are used. An example is [ESLint](https://eslint.org/); in stylish mode it produces output like this:
 
 ```bash
 test.js

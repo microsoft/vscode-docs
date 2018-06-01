@@ -4,14 +4,14 @@ Area: languages
 TOCTitle: Markdown
 ContentId: 47A8BA5A-A103-4B61-B5FB-185C15E54C52
 PageTitle: Markdown editing with Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Get the best out of Visual Studio Code for Markdown
 ---
 # Markdown and VS Code
 
 Working with Markdown files in Visual Studio Code is simple, straightforward, and fun. Besides VS Code's basic editing, there are a number of Markdown specific features that will help you be more productive.
 
-## Markdown Extensions
+## Markdown extensions
 
 In addition to the functionality VS Code provides out of the box, you can install an extension for greater functionality.
 
@@ -19,7 +19,7 @@ In addition to the functionality VS Code provides out of the box, you can instal
 
 > Tip: Click on an extension tile above to read the description and reviews to decide which extension is best for you. See more in the [Marketplace](https://marketplace.visualstudio.com).
 
-## Markdown Preview
+## Markdown preview
 
 VS Code supports Markdown files out of the box. You just start writing Markdown text, save the file with the .md extension and then you can toggle the visualization of the editor between the code and the preview of the Markdown file; obviously, you can also open an existing Markdown file and start working with it. To switch between views, press `kb(markdown.showPreview)` in the editor. You can view the preview side-by-side (`kb(markdown.showPreviewToSide)`) with the file you are editing and see changes reflected in real-time as you edit.
 
@@ -27,49 +27,45 @@ Here is an example with a very simple file.
 
 ![Markdown Preview](images/Markdown/preview.png)
 
->**Tip:** You can also right-click on the editor Tab and select **Open Preview** or use the **Command Palette** (`kb(workbench.action.showCommands)`) **Markdown: Open Preview** and **Markdown: Open Preview to the Side** commands.
+>**Tip:** You can also right-click on the editor Tab and select **Open Preview to the Side** or use the **Command Palette** (`kb(workbench.action.showCommands)`) to run the **Markdown: Open Preview to the Side** command.
 
-### Editor and Preview Synchronization
+### Dynamic previews and preview locking
 
-When working with a Markdown preview to the side of your editor, VS Code can synchronize the view of the editor and the preview. By default, the Markdown preview will automatically scroll to reveal the element at the selected line in the editor.
+By default, Markdown previews automatically update to preview the currently active Markdown file:
 
-![Markdown Preview editor selection scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
+![The preview automatically switching to preview the current Markdown document](images/Markdown/md-dynamic-preview.gif)
 
-This behavior can be disabled using the `markdown.preview.scrollPreviewWithEditorSelection` [setting](/docs/getstarted/settings.md).
+You can lock a Markdown preview using the **Markdown: Toggle Preview Locking** command to keep it locked to its current Markdown document. Locked previews are indicated by **[Preview]** in the title:
 
-The currently selected line is indicated in the Markdown preview by a light gray bar in the left margin:
+![A locked markdown preview](images/Markdown/locked-preview-title.png)
+
+### Editor and preview synchronization
+
+VS Code automatically synchronizes the Markdown editor and the preview views. Scroll the Markdown preview and the editor is scrolled to match the preview's viewport. Scroll the Markdown editor and the preview is scrolled to match its viewport:
+
+![Markdown Preview editor selection scroll sync](images/Markdown/preview-scroll-sync.gif)
+
+You can disable scroll synchronization using the `markdown.preview.scrollPreviewWithEditor` and `markdown.preview.scrollEditorWithPreview` [settings](/docs/getstarted/settings.md).
+
+The currently selected line in the editor is indicated in the Markdown preview by a light gray bar in the left margin:
 
 ![Markdown Preview editor line marker](images/Markdown/preview-selection-marker.png)
-
-Also, when the Markdown preview is scrolled, the editor will scroll along with it:
-
-![Markdown Preview to editor scroll sync](images/Markdown/selection-preview-scroll-sync.gif)
-
-This can be disabled using the `markdown.preview.scrollEditorWithPreview` [setting](/docs/getstarted/settings.md).
 
 Additionally, double clicking an element in the Markdown preview will automatically open the editor for the file and scroll to the line nearest the clicked element.
 
 ![Markdown Preview double click switches to editor](images/Markdown/double-click-preview-switch.gif)
 
-## Using your own CSS
+### Extending the Markdown preview
 
-By default, we use a CSS style for the preview that matches the style of VS Code. If you want to use your own CSS for the Markdown preview, update the `"markdown.styles": []` [setting](/docs/getstarted/settings.md) with the comma-separated list of URL(s) for your style sheet(s).
+Extensions can contribute custom styles and scripts to the Markdown preview to change its appearance and add new functionality. Here's a set of example extensions that customize the preview:
 
-For instance, in the screen shot above we used a custom CSS that changes the default font for the page and changes the color for the H1 title.
+<div class="marketplace-extensions-markdown-preview-curated"></div>
 
-Here is the relevant CSS:
+### Using your own CSS
 
-```css
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+You can also use your own CSS in the Markdown preview with the `"markdown.styles": []` [setting](/docs/getstarted/settings.md). This lists URLs for style sheets to load in the Markdown preview. These stylesheets can either be https urls, or relative paths to local files in the current workspace.
 
-h1 {
-    color: cornflowerblue;
-}
-```
-
-Use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
+For example, to load a stylesheet called `Style.css` at the root of your current workspace, use **File** > **Preferences** > **Settings** to bring up the workspace `settings.json` file and make this update:
 
 ```json
 // Place your settings in this file to overwrite default and user settings.
@@ -197,7 +193,7 @@ To use **markdown-it** to compile the Markdown file, change the contents as foll
 
 ### Step 4: Run the Build Task
 
-Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition we allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML select **Never scan the build output** from the presented list.
+Since in more complex environments there can be more than one build task we prompt you to pick the task to execute after pressing `kb(workbench.action.tasks.build)` (**Run Build Task**). In addition, we allow you to scan the output for compile problems. Since we only want to convert the Markdown file to HTML select **Never scan the build output** from the presented list.
 
 At this point, you should see an additional file show up in the file list `sample.html`.
 
@@ -229,7 +225,7 @@ Let's take things a little further and automate Markdown compilation with VS Cod
 
 ### Step 1: Install Gulp and some plug-ins
 
-We use [Gulp](http://gulpjs.com/) to create a task that automates Markdown compilation. We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
+We use [Gulp](https://gulpjs.com/) to create a task that automates Markdown compilation. We also use the [gulp-markdown](https://www.npmjs.com/package/gulp-markdown) plug-in to make things a little easier.
 
 We need to install gulp both globally (`-g` switch) and locally:
 

@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Accessibility
 ContentId: 62894B41-CC33-400A-8A56-8C761C77B4C7
 PageTitle: Accessibility in Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code user accessibility features.  Learn here about the various ways VS Code aids user accessibility.
 ---
 # Accessibility
@@ -93,7 +93,7 @@ VS Code has some known accessibility issues depending on the platform.
 
 You can not use the keyboard (right, left arrow keys) to move between top-level menu items (**File**, **Edit**, **View**, etc).  This is due to Electron issue [#2504](https://github.com/atom/electron/issues/2504).
 
-### Mac
+### macOS
 
 There is limited screen reader support for the editor with VoiceOver.
 

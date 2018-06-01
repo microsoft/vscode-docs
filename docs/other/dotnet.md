@@ -11,10 +11,9 @@ MetaTags:
 - ASP.NET Core
 - C#
 ---
-
 # Using .NET Core in Visual Studio Code
 
-[.NET Core](https://docs.microsoft.com/en-us/dotnet/articles/welcome) gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and Mac. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# IntelliSense (smart code completion) and debugging.
+[.NET Core](https://docs.microsoft.com/dotnet/articles/welcome) gives you a blazing fast and modular platform for creating server applications that run on Windows, Linux and macOS. Use Visual Studio Code with the C# extension to get a powerful editing experience with full support for C# IntelliSense (smart code completion) and debugging.
 
 ## Getting Started
 
@@ -38,7 +37,7 @@ If you'd like to get started with a simple "Hello World" program on .NET Core, f
 
 Watch a video tutorial for further setup help on [Windows](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-Csharp-NET-Core-Windows), [macOS](https://channel9.msdn.com/Blogs/dotnet/Get-started-VSCode-NET-Core-Mac), or [Linux](https://channel9.msdn.com/Blogs/dotnet/Get-started-with-VS-Code-Csharp-dotnet-Core-Ubuntu).
 
-> Tip: Continue exploring C# development: [Debug with VS Code and .NET Core](https://docs.microsoft.com/en-us/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
+> Tip: Continue exploring C# development: [Debug with VS Code and .NET Core](https://docs.microsoft.com/dotnet/articles/csharp/getting-started/with-visual-studio-code#debug)
 
 ## Next Steps
 
@@ -46,4 +45,4 @@ Watch a video tutorial for further setup help on [Windows](https://channel9.msdn
 * [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 * [Working with C#](/docs/languages/csharp.md) - Learn about the great C# support you'll have when working on your .NET Core application.
 * [Tasks](/docs/editor/tasks.md) - Running tasks with Gulp, Grunt and Jake.  Showing Errors and Warnings
-* [.NET Core Docs](https://docs.microsoft.com/en-us/dotnet/articles/core/) - Visit the .NET Core docs for more information on this powerful cross-platform development solution.
+* [.NET Core Docs](https://docs.microsoft.com/dotnet/articles/core/) - Visit the .NET Core docs for more information on this powerful cross-platform development solution.

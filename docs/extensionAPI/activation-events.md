@@ -4,13 +4,12 @@ Area: extensionapi
 TOCTitle: Activation Events
 ContentId: C83BB647-A37E-45CE-BA4C-837B397C2ABE
 PageTitle: Visual Studio Code Activation Events - package.json
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: To support lazy activation of Visual Studio Code extensions (plug-ins), your extension controls when it should be loaded through a set of activation events in the package.json extension manifest file.
 ---
-
 # Activation Events - package.json
 
-Extensions are activated lazily in VS Code.  As a result you need to provide VS Code with context as to when your extension should be activated.  We support the following activation events:
+Extensions are activated lazily in VS Code.  As a result, you need to provide VS Code with context as to when your extension should be activated.  We support the following activation events:
 
 * [`onLanguage:${language}`](/docs/extensionAPI/activation-events.md#activationeventsonlanguage)
 * [`onCommand:${command}`](/docs/extensionAPI/activation-events.md#activationeventsoncommand)
@@ -29,6 +28,19 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 "activationEvents": [
     "onLanguage:python"
+]
+...
+```
+
+The `onLanguage` event takes a [language identifier](/docs/languages/identifiers.md) value.
+
+Multiple languages can be declared with separate `onLanguage` entries in the `activationEvents` array.
+
+```json
+"activationEvents": [
+    "onLanguage:json",
+    "onLanguage:markdown",
+    "onLanguage:typescript"
 ]
 ...
 ```
@@ -56,6 +68,15 @@ This activation event is emitted and interested extensions will be activated bef
 ]
 ...
 ```
+
+### onDebugInitialConfigurations and onDebugResolve
+
+There are two more fine-grained `onDebug` activation events:
+
+* `onDebugInitialConfigurations` is fired just before the `provideDebugConfigurations` method of the `DebugConfigurationProvider` is called.
+* `onDebugResolve:type` is fired just before the `resolveDebugConfiguration` method of the `DebugConfigurationProvider` for the specified type is called.
+
+**Rule of thumb:** If activation of a debug extensions is lightweight, use `onDebug`. If it is heavyweight, use `onDebugInitialConfigurations` and/or `onDebugResolve` depending on whether the `DebugConfigurationProvider` implements the corresponding methods `provideDebugConfigurations` and/or `resolveDebugConfiguration`. See [Debug Type specific Hooks](/docs/extensionAPI/api-debugging.md#debug-type-specific-hooks) for more details on these methods.
 
 ## activationEvents.workspaceContains
 

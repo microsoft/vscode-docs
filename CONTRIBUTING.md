@@ -135,7 +135,7 @@ When you link to an image, the path and filename are case-sensitive.  The conven
 
 ### Key bindings
 
-The VS Code portal is able to show the correct key bindings depending on the reader's operating system (Mac, Windows or Linux).
+The VS Code portal is able to show the correct key bindings depending on the reader's operating system (macOS, Windows or Linux).
 
 To enable this for keyboard shortcuts, use the format `kb(workbench.action.files.openFile)` where the command name is included in parentheses.
 
@@ -153,14 +153,14 @@ If you are listing out multiple key bindings, you can use a table.
 
 For source code we use the fenced code block notation ```` ``` ````.
 
->**Note:** To get colorization, add a language modifier e.g. ```` ```json ```` or ```` ```javascript ````.
+>**Note:** You can add an optional language identifier to enable syntax highlighting in your fenced code block. E.g. ```` ```json ```` or ```` ```javascript ````. [Read more →](https://help.github.com/articles/creating-and-highlighting-code-blocks/#syntax-highlighting)
 
 Some JavaScript code...
 
 ```javascript
 function fancyAlert(arg) {
-	if(arg) {
-		$.facebox({div:foo})
-	}
+  if (arg) {
+    $.facebox({ div: foo });
+  }
 }
 ```

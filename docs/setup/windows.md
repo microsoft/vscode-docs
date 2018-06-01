@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Running VS Code on Windows
@@ -17,9 +17,9 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 
 You can also find a Zip archive [here](/docs/?dv=winzip).
 
->**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/en-us/download/details.aspx?id=42643) installed.
+>**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed.
 
->**Tip:** Setup will optionally add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
+>**Tip:** Setup will add Visual Studio Code to your `%PATH%`, so from the console you can type 'code .' to open VS Code on that folder. You will need to restart your console after the installation for the change to the `%PATH%` environmental variable to take effect.
 
 ## 32 bit versions
 
@@ -38,6 +38,10 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 * [User/Workspace Settings](/docs/getstarted/settings.md) - Learn how to configure VS Code to your preferences through settings.
 
 ## Common Questions
+
+### Scrolling is laggy and not smooth
+
+On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, you can configure the setting `window.smoothScrollingWorkaround: true` as a workaround.
 
 ### Trouble with the installer
 

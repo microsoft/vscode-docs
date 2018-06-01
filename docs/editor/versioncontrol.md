@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in VS Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
 # Using Version Control in VS Code
@@ -35,7 +35,7 @@ VS Code ships with a Git source control manager (SCM) extension. Most of the sou
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
->**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://www.visualstudio.com/products/visual-studio-team-services-vs) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
+>**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://www.visualstudio.com/team-services/) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 The Source Control icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
 
@@ -45,7 +45,7 @@ You can also find indicators of the **status of your repository** in the bottom 
 
 > **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
-## Git Status Bar Actions
+## Git Status Bar actions
 
 There is a **Synchronize Changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured. **Synchronize Changes** will pull remote changes down to your local repository and then push local commits to the upstream branch.
 
@@ -59,7 +59,7 @@ If there is no upstream branch configured and the Git repository has remotes set
 
 **Staging** and **unstaging** can be done via contextual actions in the files or by drag-and-drop.
 
-You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (Mac: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those will be committed, otherwise all changes will be committed.
+You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those will be committed, otherwise all changes will be committed.
 
 We've found this to be a great workflow. For example, in the previous screenshot, only the `config.js` file will be included in the commit. A consecutive commit action would commit both `vinyl-zip.js` and `tests.js` in a separate commit.
 
@@ -97,13 +97,13 @@ If you open a folder that is a Git repository and begin making changes, VS Code 
 
 ![Gutter indicators](images/editingevolved/gutter.png)
 
-## Merge Conflicts
+## Merge conflicts
 
 ![Git merge](images/versioncontrol/merge-conflict.png)
 
 Merge conflicts are recognized by VS Code. Differences are highlighted and there are inline actions to accept either or both changes. Once the conflicts are resolved, stage the conflicting file so you can commit those changes.
 
-## Viewing Diffs
+## Viewing diffs
 
 Our Git tooling supports viewing of diffs within VS Code.
 
@@ -119,21 +119,21 @@ There is a review pane in the Diff editor which presents changes in a unified pa
 
 **Note:** This experience is especially helpful for screen reader users.
 
-## Git Output Window
+## Git output window
 
 You can always peek under the hood to see the Git commands we are using.  This is helpful if something strange is happening or if you are just curious. :)
 
 To open the Git output window, run **View** > **Output** and select **Git** from the dropdown.
 
-## Initialize a Repository
+## Initialize a repository
 
-If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Git Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **This workspace isn't yet under git source control.** message in the Git View and the **Initialize Git Repository** command will be available.
+If your workspace isn't under Git source control, you can easily create a Git repository with the **Initialize Repository** command.  When VS Code doesn't detect an existing Git repository, you will see a **There are no active source control providers.** message in the Source Control view and the **Initialize Repository** command will be available on the title bar. You can also run the **Git: Initialize Repository** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
 
 ![Git initialize repository](images/versioncontrol/git-initialize.png)
 
-Running **Initialize Git Repository** will create the necessary Git repository metadata files and show your workspace files as unstaged changes.
+Running **Initialize Repository** will create the necessary Git repository metadata files and show your workspace files as untracked changes ready to be staged.
 
-## Git patch/diff mode
+## VS Code as Git editor
 
 When you launch VS Code from the command line, you can pass the `--wait` argument to make the launch command wait until you have closed the new VS Code instance. This can be useful when you configure VS Code as your Git external editor so Git will wait until you close the launched VS Code instance.
 
@@ -141,7 +141,7 @@ Here are the steps to do so:
 
 1. Make sure you can run `code --help` from the command line and you get help.
     * if you do not see help, please follow these steps:
-        * Mac: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
+        * macOS: Select **Shell Command: Install 'Code' command in path** from the **Command Palette**.
         * Windows: Make sure you selected **Add to PATH** during the installation.
         * Linux: Make sure you installed Code via our new .deb or .rpm packages.
 2. From the command line, run `git config --global core.editor "code --wait"`
@@ -149,6 +149,8 @@ Here are the steps to do so:
 Now you can run `git config --global -e` and use VS Code as editor for configuring Git.
 
 ![git config in VS Code](images/versioncontrol/gitconfig.png)
+
+### VS Code as Git diff tool
 
 Add the following to your Git configurations to use VS Code as the diff tool:
 
@@ -201,18 +203,6 @@ You can always set up a [credential helper](https://help.github.com/articles/cac
 **Q: How can I sign into Git with my Team Services account which requires multi-factor authentication?**
 
 **A:** There are now [Git credential helpers](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
-
-**Q: Using Visual Studio Code, I accidentally initialized a Git repo on a folder with a massive number of files, like my entire hard drive. Now VS Code is too slow to use or hangs. What do I do?**
-
-**A:** First, to get VS Code running again, exit VS Code, then open a command prompt and run
-
-```bash
-code -n
-```
-
-which opens VS Code in a new window.
-
-Next, assuming you want to remove the unintended repo initialization, look for the `.git` sub-folder in the large folder where you unintentionally initialized the repo, and then delete it. Note that `.git` is a hidden folder, so you might need to show hidden folders to see it. For example, at a command prompt in Windows you can run `dir .git /ah` to see hidden folders named `.git` in a specific folder. If you are not sure where you created the initial folder, run `dir .git /ah /s` at the root folder to see hidden `.git` folders, including sub-folders.
 
 **Q: I have GitHub Desktop installed on my computer but VS Code ignores it.**
 

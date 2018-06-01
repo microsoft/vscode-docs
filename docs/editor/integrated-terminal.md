@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -19,7 +19,7 @@ To open the terminal:
 
 ![Terminal](images/integrated-terminal/integrated-terminal.png)
 
-> **Note:** You can still open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on Mac or Linux) if you prefer to work outside VS Code.
+> **Note:** You can still open an external shell with the `kb(workbench.action.terminal.openNativeConsole)` keyboard shortcut if you prefer to work outside VS Code.
 
 ## Managing Multiple Terminals
 
@@ -31,9 +31,26 @@ Remove terminal instances by pressing the trash can button.
 
 >**Tip:** If you use multiple terminals extensively, you can add key bindings for the `focusNext`, `focusPrevious` and `kill` commands outlined in the [Key Bindings section](/docs/editor/integrated-terminal.md#terminal-key-bindings) to allow navigation between them using only the keyboard.
 
+### Terminal Splitting
+
+You can also split the terminal by triggering the `kb(workbench.action.terminal.split)` command or via the right click context menu.
+
+![Split terminals](images/integrated-terminal/terminal-split-pane.png)
+
+When focusing a split terminal pane, you can move focus and resize using one of the following commands:
+
+Key|Command
+---|---
+`kb(workbench.action.terminal.focusPreviousPane)` | Focus Previous Pane
+`kb(workbench.action.terminal.focusNextPane)` | Focus Next Pane
+`kb(workbench.action.terminal.resizePaneLeft)` | Resize Pane Left
+`kb(workbench.action.terminal.resizePaneRight)` | Resize Pane Right
+`kb(workbench.action.terminal.resizePaneUp)` | Resize Pane Up
+`kb(workbench.action.terminal.resizePaneDown)` | Resize Pane Down
+
 ## Configuration
 
-The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell on Linux and macOS using the `terminal.integrated.shellArgs.*` settings.
+The shell used defaults to `$SHELL` on Linux and macOS, PowerShell on Windows 10 and cmd.exe on earlier versions of Windows. These can be overridden manually by setting `terminal.integrated.shell.*` in [settings](/docs/getstarted/settings.md). Arguments can be passed to the terminal shell using the `terminal.integrated.shellArgs.*` settings.
 
 ### Windows
 
@@ -50,7 +67,9 @@ Correctly configuring your shell on Windows is a matter of locating the right ex
 "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe"
 ```
 
->**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr`  can be redirected.
+There is also the convenience command `Select Default Shell` that can be accessed through the command palette which can detect and set this for you.
+
+>**Note:** To be used as an integrated terminal, the shell executable must be a console application so that `stdin/stdout/stderr` can be redirected.
 
 >**Tip:** The integrated terminal shell is running with the permissions of VS Code. If you need to run a shell command with elevated (administrator) or different permissions, you can use platform utilities such as `runas.exe` within a terminal.
 
@@ -85,10 +104,10 @@ Key|Command
 ---|---
 `kb(workbench.action.terminal.toggleTerminal)`|Show integrated terminal
 `kb(workbench.action.terminal.new)`|Create new terminal
-`kb(workbench.action.terminal.scrollup)`|Scroll up
-`kb(workbench.action.terminal.scrolldown)`|Scroll down
-`kb(workbench.action.terminal.scrollupPage)`|Scroll page up
-`kb(workbench.action.terminal.scrolldownPage)`|Scroll page down
+`kb(workbench.action.terminal.scrollUp)`|Scroll up
+`kb(workbench.action.terminal.scrollDown)`|Scroll down
+`kb(workbench.action.terminal.scrollUpPage)`|Scroll page up
+`kb(workbench.action.terminal.scrollDownPage)`|Scroll page down
 `kb(workbench.action.terminal.scrollToTop)`|Scroll to top
 `kb(workbench.action.terminal.scrollToBottom)`|Scroll to bottom
 `kb(workbench.action.terminal.clear)`|Clear the terminal
@@ -122,17 +141,31 @@ If no text is selected in the active editor, the line that the cursor is on is r
 The keybindings for copy and paste follow platform standards:
 
 * Linux: `kbstyle(Ctrl+Shift+C)` and `kbstyle(Ctrl+Shift+V)`
-* Mac: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
+* macOS: `kbstyle(Cmd+C)` and `kbstyle(Cmd+V)`
 * Windows: `kbstyle(Ctrl+C)` and `kbstyle(Ctrl+V)`
+
+### Right click behavior
+
+The right click behavior differs based on the platform:
+
+* Linux: Show the context menu.
+* macOS: Select the word under the cursor and show the context menu.
+* Windows: Copy and drop selection if there is a selection, otherwise paste.
+
+This can be configured using the `terminal.integrated.rightClickBehavior` setting.
 
 ### Find
 
 The Integrated Terminal has basic find functionality which can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
 
-If you want `Ctrl+F` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
+If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find widget on Linux and Windows, you will need to remove the keybinding like so:
 
 ```js
+// Windows/Linux
 { "key": "ctrl+f", "command": "-workbench.action.terminal.focusFindWidget",
+                      "when": "terminalFocus" },
+// macOS
+{ "key": "cmd+f",  "command": "-workbench.action.terminal.focusFindWidget",
                       "when": "terminalFocus" },
 ```
 
@@ -142,14 +175,15 @@ Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (
 
 ### Forcing key bindings to pass through the terminal
 
-While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default this includes all terminal key bindings in addition to a select few commonly used key bindings.
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default, this includes all terminal key bindings in addition to a select few commonly used key bindings.
 
 ## Next Steps
 
 The basics of the terminal have been covered in this document, read on to find out more about:
 
 * [Tasks](/docs/editor/tasks.md) - Tasks let you integrate with external tools and leverage the terminal heavily.
-* [Mastering VS Code's Terminal](http://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+* [Mastering VS Code's Terminal](https://www.growingwiththeweb.com/2017/03/mastering-vscodes-terminal.html) - An external blog with plenty of power user tips for the terminal.
+* Explore the rest of the terminal commands by browsing your keybindings.json file within VS Code.
 
 ## Common Questions
 
@@ -190,7 +224,7 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 
 **Q: How can I change my default Windows terminal back to PowerShell?**
 
-**A:** If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), you can remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openGlobalSettings)`).
+**A:** If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), you can remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`).
 
 For example, if you have set your default terminal to bash, you will find `terminal.integrated.shell.windows` in your `settings.json` pointing to your bash location.
 
@@ -206,4 +240,56 @@ The easy fix for this is to use the 64-bit version. If you must use the 32-bit v
 
 ```json
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
+```
+
+**Q: Why is Cmd+k/Ctrl+k not clearing the terminal?**
+
+**A:** Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` keybindings rely on the VS Code keybinding priority system which defines which keybinding is active at any given time (user > extension > default). In order to fix this, you need to redefine your user keybinding which will have priority, preferably at the bottom of your user `keybindings.json` file:
+
+macOS:
+
+```json
+{ "key": "cmd+k",                 "command": "workbench.action.terminal.clear",
+                                     "when": "terminalFocus" },
+```
+
+Windows:
+
+```json
+{ "key": "ctrl+k",                "command": "workbench.action.terminal.clear",
+                                     "when": "terminalFocus" },
+```
+
+### Why is nvm complaining about a prefix option when the Integrated Terminal is launched
+
+nvm (Node Version Manager) users often see this error for the first time inside VS Code's Integrated Terminal:
+
+```bash
+nvm is not compatible with the npm config "prefix" option: currently set to "/usr/local"
+Run `npm config delete prefix` or `nvm use --delete-prefix v8.9.1 --silent` to unset it
+```
+
+This is mostly a macOS problem and does not happen in external terminals. The typical reasons for this are the following:
+
+* `npm` was globally installed using another instance of `node` which is somewhere in your path (such as `/usr/local/bin/npm`).
+* In order to get the development tools on the `$PATH`, VS Code will launch a bash login shell on start up. This means that your `~/.bash_profile` has already run and when an Integrated Terminal launches, it will run **another** login shell, reordering the `$PATH` potentially in unexpected ways.
+
+To resolve this issue, you need to track down where the old `npm` is installed and remove both it and its out of date node_modules. You can do this by finding the `nvm` initialization script and running `which npm` before it runs, which should print the path when you launch a new terminal.
+
+Once you have the path to npm, you can find the old node_modules by resolving the symlink by running a command something like this:
+
+```bash
+ls -la /usr/local/bin | grep npm
+```
+
+This will give you the resolved path at the end:
+
+```bash
+... npm -> ../lib/node_modules/npm/bin/npm-cli.js
+```
+
+From there, removing the files and relaunching VS Code should fix the issue:
+
+```bash
+rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 ```

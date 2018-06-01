@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Variables Reference
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Variable substitution reference
 ---
 # Variables Reference
@@ -25,6 +25,7 @@ The following predefined variables are supported:
 - **${fileExtname}** - the current opened file's extension
 - **${cwd}** - the task runner's current working directory on startup
 - **${lineNumber}** - the current selected line number in the active file
+- **${selectedText}** - the current selected text in the active file
 
 **Note**: The `${workspaceRoot}` variable is deprecated in favor of the `${workspaceFolder}` variable.
 
@@ -54,7 +55,7 @@ You can reference VS Code settings and commands using the following syntax:
 
 ## Variables scoped per workspace folder
 
-By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name the variable is scoped to the same folder where it is used.
+By appending the root folder's name to a variable (separated by a colon), it is possible to reach into sibling root folders of a workspace. Without the root folder name, the variable is scoped to the same folder where it is used.
 
 For example, in a multi root workspace with folders `Server` and `Client`, a `${workspaceFolder:Client}` refers to the path of the `Client` root.
 
@@ -68,7 +69,7 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
 ```
 
-Refer to the comments in the Settings editor (`kb(workbench.action.openGlobalSettings)`) to learn about setting specific variables.
+Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)`) to learn about setting specific variables.
 
 **Q: Why isn't ${workspaceRoot} documented?**
 

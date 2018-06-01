@@ -65,7 +65,7 @@ There are many reasons to create an Extension Pack:
 
 ## Recommended Extension Packs
 
-You can find the Extension Packs that others have created by querying using the Extension Pack category: click [here](https://marketplace.visualstudio.com/search?target=vscode&category=Extension%20Packs&sortBy=Downloads) for the Marketplace or type `categories:"Extension Pack"` into the Extension View search bar in VS Code.
+You can find the Extension Packs that others have created by querying using the Extension Pack category: click [here](https://marketplace.visualstudio.com/search?target=vscode&category=Extension%20Packs&sortBy=Downloads) for the Marketplace or type `category:"Extension Packs"` into the Extension View search bar in VS Code.
 
 Some of my favorite extensions are:
 

@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -100,7 +100,11 @@ Contribute an entry consisting of a title and a command to invoke to the **Comma
 
 ## contributes.menus
 
-Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts). In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu. Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
+Contribute a menu item for a command to the editor or Explorer. The menu item definition contains the command that should be invoked when selected and the condition under which the item should show. The latter is defined with the `when` clause which uses the key bindings [when clause contexts](/docs/getstarted/keybindings.md#when-clause-contexts).
+
+In addition to the mandatory `command` property, an alternative command can be defined using the `alt`-property. It will be shown and invoked when pressing `kbstyle(Alt)` while opening a menu.
+
+Last, a `group`-property defines sorting and grouping of menu items. The `navigation` group is special as it will always be sorted to the top/beginning of a menu.
 
 Currently extension writers can contribute to:
 
@@ -166,7 +170,8 @@ The **editor context menu**  has these default groups:
 
 * `navigation` - The `navigation` group comes first in all cases.
 * `1_modification` - This group comes next and contains commands that modify your code.
-* `9_cutcopypaste` - The last default group with the basic editing commands.
+* `9_cutcopypaste` - The second last default group with the basic editing commands.
+* `z_commands` - The last default group with an entry to open the Command Palette.
 
 ![Menu Group Sorting](images/extension-points/groupSorting.png)
 
@@ -210,13 +215,13 @@ Contribute a key binding rule defining what command should be invoked when the u
 
 Contributing a key binding will cause the Default Keyboard Shortcuts to display your rule, and every UI representation of the command will now show the key binding you have added. And, of course, when the user presses the key combination the command will be invoked.
 
->**Note:** Because VS Code runs on Windows, Mac and Linux, where modifiers differ, you can use "key" to set the default key combination and overwrite it with a specific platform.
+>**Note:** Because VS Code runs on Windows, macOS and Linux, where modifiers differ, you can use "key" to set the default key combination and overwrite it with a specific platform.
 
 >**Note:** When a command is invoked (from a key binding or from the Command Palette), VS Code will emit an activationEvent `onCommand:${command}`.
 
 ### Example
 
-Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` under Mac trigger the `"extension.sayHello"` command:
+Defining that `kbstyle(Ctrl+F1)` under Windows and Linux and `kbstyle(Cmd+F1)` under macOS trigger the `"extension.sayHello"` command:
 
 ```json
 "contributes": {
@@ -477,10 +482,13 @@ Contribute a validation schema for a specific type of `json` file.  The `url` va
 
 ## contributes.views
 
-Contribute a view to VS Code. You must specify an identifier and name for the view. You can contribute to following locations:
+Contribute a view to VS Code. You must specify an identifier and name for the view. You can contribute to following view containers:
 
-* `explorer`: Explorer view in the Side Bar
-* `debug`: Debug view in the Side Bar
+* `explorer`: Explorer view container in the Activity Bar
+* `scm`: Source Control Management (SCM) view container in the Activity Bar
+* `debug`: Debug view container in the Activity Bar
+* `test`: Test view container in the Activity Bar
+* [Custom view containers](#contributesviewscontainers) contributed by Extensions.
 
 When the user opens the view, VS Code will then emit an activationEvent `onView:${viewId}` (e.g. `onView:nodeDependencies` for the example below). You can also control the visibility of the view by providing the `when` context value.
 
@@ -500,7 +508,52 @@ When the user opens the view, VS Code will then emit an activationEvent `onView:
 
 ![views extension point example](images/extension-points/views.png)
 
-Extension writers should register a [provider](/docs/extensionAPI/vscode-api.md#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+Extension writers should provide a [data provider](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider) programmatically to populate data in the view. Refer to examples [here](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample).
+
+## contributes.viewsContainers
+
+Contribute a view container into which [Custom views](#contributes.views) can be contributed. You must specify an identifier, title and an icon for the view container. At present, you can contribute them to the Activity Bar (`activitybar`) only. Below example shows how the `Package Explorer` view container is contributed to the Activity Bar and how views are contributed to it.
+
+```json
+"contributes": {
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "package-explorer",
+                    "title": "Package Explorer",
+                    "icon": "resources/package-explorer.svg"
+                }
+            ]
+        },
+        "views": {
+            "package-explorer": [
+                {
+                    "id": "package-dependencies",
+                    "name": "Dependencies"
+                },
+                {
+                    "id": "package-outline",
+                    "name": "Outline"
+                }
+            ]
+        }
+}
+```
+
+![Custom views container](images/extension-points/custom-views-container.png)
+
+**Icon specifications**
+
+* `Size:` Icons are 28x28 centered on a 50x40 square.
+* `Color:` Icons should use a single monochrome color.
+* `Format:` It is recommended that icons be in SVG, though any image file type is accepted.
+* `States:` All icons inherit the following state styles:
+
+  |State|Opacity
+  |-|-|
+  |Default|60%
+  |Hover|100%
+  |Active|100%
 
 ## contributes.problemMatchers
 

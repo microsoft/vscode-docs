@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D
 PageTitle: Add Themes, Snippets and Colorizers to Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: How to add themes, snippets and colorization and bracket matching to Visual Studio Code. TextMate .tmLanguage files are supported.
 ---
 # Themes, Snippets and Colorizers
@@ -15,7 +15,7 @@ Custom color and icons themes, snippets and language syntax colorizers bring an 
 
 Colors visible in the VS Code user interface fall in two categories:
 
-- Workbench colors used in views and editors, from the Activity Bar to the Status Bar. A complete list of all these colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
+- Workbench colors used in views and editors, from the Activity Bar to the Status Bar. A complete list of all these colors can be found in the [color reference](/docs/getstarted/theme-color-reference.md).
 - Syntax highlighting colors used for source code in the editor. The theming of these colors is different as syntax colorization is based on TextMate grammars and TextMate themes.
 
 ### Workbench colors
@@ -24,7 +24,7 @@ The easiest way to create a new workbench color theme is to start with an existi
 
 - Switch to the color theme that you want to modify.
 - Open the [settings](/docs/getstarted/settings.md) and make changes to view and editor colors using the `workbench.colorCustomizations`. Changes are applied live to your VS Code instance and no refreshing or reloading is necessary.
-- A complete list of all themable colors can be found in the [color reference](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
+- A complete list of all themable colors can be found in the [color reference](/docs/getstarted/theme-color-reference.md).
 
 ### Syntax highlighting colors
 
@@ -196,7 +196,7 @@ The following properties are supported:
 
 ### File association
 
-Icons can be associated to folders, folder names, files, file extensions, file names and [language ids](/docs/extensionAPI/extension-points#_contributeslanguages).
+Icons can be associated to folders, folder names, files, file extensions, file names and [language ids](/docs/extensionAPI/extension-points.md#contributeslanguages).
 
 Additionally each of these associations can be refined for 'light' and 'highContrast' color themes.
 
@@ -236,7 +236,7 @@ The folder icon is optional. If not set, no icon will be shown for folder.
 - `folderExpanded` is the folder icon for expanded folders. The expanded folder icon is optional. If not set, the icon defined for `folder` will be shown.
 - `folderNames` associates folder names to icons. The key of the set is the folder name, not including any path segments. Patterns or wildcards are not supported. Folder name matching is case insensitive.
 - `folderNamesExpanded` associates folder names to icons for expanded folder. The key of the set is the folder name, not including any path segments. Patterns or wildcards are not supported. Folder name matching is case insensitive.
-- `languageIds` associates languages to icons. The key in the set is the language id as defined in the [language contribution point](/docs/extensionAPI/extension-points#_contributeslanguages). The language of a file is evaluated based on the file extensions and file names as defined in the language contribution. Note that the 'first line match' of the language contribution is not considered.
+- `languageIds` associates languages to icons. The key in the set is the language id as defined in the [language contribution point](/docs/extensionAPI/extension-points.md#contributeslanguages). The language of a file is evaluated based on the file extensions and file names as defined in the language contribution. Note that the 'first line match' of the language contribution is not considered.
 - `fileExtensions` associates file extensions to icons. The key in the set is the file extension name. The extension name is a file name segment after a dot (not including the dot). File names with multiple dots such as `lib.d.ts` can match multiple extensions; 'd.ts' and 'ts'. Extensions are compared case insensitive.
 - `fileNames` associates file names to icons. The key in the set is the full file name, not including any path segments. Patterns or wildcards are not supported. File name matching is case insensitive. A 'fileName' match is the strongest match, and the icon associated to the file name will be preferred over an icon of a matching fileExtension and also of a matching language Id.
 
@@ -250,12 +250,12 @@ The 'fonts' section lets you declare any number of glyph fonts that you want to 
 You can later reference these font in the icon definitions. The font declared first will be used as the default if an icon definition does not specify a font id.
 
 Copy the font file into your extension and set the path accordingly.
-It is recommended to use [WOFF](https://developer.mozilla.org/en-US/docs/Web/Guide/WOFF) fonts.
+It is recommended to use [WOFF](https://developer.mozilla.org/docs/Web/Guide/WOFF) fonts.
 
 - Set 'woff' as the format.
-- the weight property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight#Values).
-- the style property values are defined [here](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-style#Values).
-- the size should be relative to the font size where the icon is used. Therefore always use percentage.
+- the weight property values are defined [here](https://developer.mozilla.org/docs/Web/CSS/font-weight#Values).
+- the style property values are defined [here](https://developer.mozilla.org/docs/Web/CSS/@font-face/font-style#Values).
+- the size should be relative to the font size where the icon is used. Therefore, always use percentage.
 
 ```json
     "fonts": [
@@ -313,7 +313,7 @@ If you want to share user snippets, you'll need to package your snippet json fil
 Depending on your platform, your user snippets file is located here:
 
 - **Windows** `%APPDATA%\Code\User\snippets\(language).json`
-- **Mac** `$HOME/Library/Application Support/Code/User/snippets/(language).json`
+- **macOS** `$HOME/Library/Application Support/Code/User/snippets/(language).json`
 - **Linux** `$HOME/.config/Code/User/snippets/(language).json`
 
 where `(language).json` depends on the targeted language of the snippets (e.g. `markdown.json` for Markdown snippets).  Create a new folder for your extension and copy your snippet file to a `snippets` subdirectory.
@@ -401,7 +401,7 @@ To use your extension in your stable VS Code installation, copy the complete out
 
 If you'd like to share your new language with the community, you can publish it to the [Extension Marketplace](/docs/editor/extension-gallery.md). Use the [vsce publishing tool](/docs/extensions/publish-extension.md) to package your extension and publish it to the VS Code Marketplace.
 
-> **Tip:** To make it easy for users to find your language support, include the language name and words "language" or "language support" in the extension description and set the `Category` to `Languages` in your `package.json`.
+> **Tip:** To make it easy for users to find your language support, include the language name and words "language" or "language support" in the extension description and set the `Category` to `Programming Languages` in your `package.json`.
 
 We also have recommendations on how to make your extension look great on the VS Code Marketplace, see [Marketplace Presentation Tips](/docs/extensionAPI/extension-manifest.md#marketplace-presentation-tips).
 
@@ -419,7 +419,7 @@ When you're adding a new language to VS Code, it is also great to add language [
         "vscode": "0.10.x"
     },
     "categories": [
-        "Languages",
+        "Programming Languages",
         "Snippets"
     ],
     "contributes": {

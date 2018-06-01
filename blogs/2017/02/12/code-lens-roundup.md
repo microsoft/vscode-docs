@@ -55,7 +55,7 @@ Marketplace - [CodeMetrics](https://marketplace.visualstudio.com/items?itemName=
 
 Author - [Kiss Tamás](https://marketplace.visualstudio.com/search?term=publisher%3A%22Kiss%20Tam%C3%A1s%22&target=VSCode)
 
-Imagine you have this colleague who likes to write complex functions. They thinks its cool and are less concerned with maintainability. Use this extension to show them the complexity of their functions and also to check metrics on the source code you are writing.
+Imagine you have this colleague who likes to write complex functions. They thinks it's cool and are less concerned with maintainability. Use this extension to show them the complexity of their functions and also to check metrics on the source code you are writing.
 
 ![code metrics](codemetrics.png)
 

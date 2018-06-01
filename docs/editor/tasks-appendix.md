@@ -2,7 +2,7 @@
 TOCTitle: Tasks Appendix
 ContentId: 6DCA48F5-0566-4AEB-9C4C-CCBBA2945347
 PageTitle: Tasks Appendix
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Additional info for using task runners in Visual Studio Code.
 ---
 # Appendix
@@ -28,7 +28,7 @@ interface TaskConfiguration extends BaseTaskConfiguration {
     windows?: BaseTaskConfiguration;
 
     /**
-     * Mac specific task configuration
+     * macOS specific task configuration
      */
     osx?: BaseTaskConfiguration;
 
@@ -156,9 +156,10 @@ interface TaskDescription {
     args?: string[];
 
     /**
-     * Defines the group to which this tasks belongs
+     * Defines the group to which this task belongs. Also supports to mark
+     * a task as the default task in a group.
      */
-    group?: "build" | "string";
+    group?: "build" | "test" | { kind: "build" | "test"; isDefault: boolean };
 
     /**
      * The presentation options.
@@ -291,12 +292,20 @@ interface ProblemPattern {
     regexp: string;
 
     /**
+     * Whether the pattern matches a problem for the whole file or for a location
+     * inside a file.
+     *
+     * Defaults to "location".
+     */
+    kind?: "file" | "location";
+
+    /**
      * The match group index of the filename.
      */
     file: number;
 
     /**
-     * The match group index of the problems's location. Valid location
+     * The match group index of the problem's location. Valid location
      * patterns are: (line), (line,column) and (startLine,startColumn,endLine,endColumn).
      * If omitted the line and column properties are used.
      */

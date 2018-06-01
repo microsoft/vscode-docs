@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Why VS Code
 ContentId: FF543B32-703C-4894-9A3B-2B5BFAF8B6B8
 PageTitle: Why Visual Studio Code?
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Visual Studio Code provides developers with a new choice of tool that combines the simplicity of a code editor with the best tooling for their core edit-build-debug cycle. Visual Studio Code is available for macOS, Linux, and Windows.
 ---
 # Why did we build Visual Studio Code?
@@ -17,7 +17,7 @@ First and foremost, it is an editor that gets out of your way. The delightfully 
 
 Visual Studio Code supports macOS, Linux, and Windows - so you can hit the ground running, no matter the platform.
 
-![Visual Studio Code runs on Mac, Linux and Windows](images/whyvscode/macwinlinux2.png)
+![Visual Studio Code runs on macOS, Linux and Windows](images/whyvscode/macwinlinux2.png)
 
 ## Edit, build, and debug with ease
 

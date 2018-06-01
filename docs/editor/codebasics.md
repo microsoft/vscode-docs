@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 2/7/2018
+DateApproved: 5/3/2018
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -57,11 +57,13 @@ Here's an example of expanding the selection with `kb(editor.action.smartSelect.
 
 ## Column (box) selection
 
-Hold `kbstyle(Shift)` and `kbstyle(Alt)` while dragging to do column selection:
+Place the cursor in one corner and then hold `kbstyle(Shift+Alt)` while dragging to the opposite corner:
 
 ![Column text selection](images/codebasics/column-select.gif)
 
-There are also default key bindings for column selection on Mac and Windows, but not on Linux.
+Note: This changes to `kbstyle(Shift+Ctrl/Cmd)` when using `kbstyle(Ctrl/Cmd)` as [multi-cursor modifier](#multi-cursor-modifier).
+
+There are also default key bindings for column selection on macOS and Windows, but not on Linux.
 
 Key|Command|Command id
 ---|-------|----------
@@ -99,7 +101,7 @@ You can configure hot exit by setting `files.hotExit` to the following values:
 * `"onExit"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu). All windows with backups will be restored upon next launch.
 * `"onExitAndWindowClose"`: Hot exit will be triggered when the application is closed, that is when the last window is closed on Windows/Linux or when the `workbench.action.quit` command is triggered (from the **Command Palette**, keyboard shortcut or menu), and also for any window with a folder opened regardless of whether it is the last window. All windows without folders opened will be restored upon next launch. To restore folder windows as they were before shutdown, set `window.restoreWindows` to `all`.
 
-## Search Across Files
+## Search across files
 
 VS Code allows you to quickly search over all files in the currently opened folder.  Press `kb(workbench.view.search)` and enter your search term. Search results are grouped into files containing the search term, with an indication of the hits in each file and its location. Expand a file to see a preview of all of the hits within that file. Then single-click on one of the hits to view it in the editor.
 
@@ -107,13 +109,13 @@ VS Code allows you to quickly search over all files in the currently opened fold
 
 >**Tip:** We support regular expression searching in the search box, too.
 
-You can configure advanced search options with `kb(workbench.action.search.toggleQueryDetails)`. This will show additional fields to configure the search.
+You can configure advanced search options by clicking the ellipsis (**Toggle Search Details**) below the search box on the right (or press `kb(workbench.action.search.toggleQueryDetails)`). This will show additional fields to configure the search.
 
-### Advanced Search Options
+### Advanced Search options
 
 ![Advanced search options](images/codebasics/searchadvanced.png)
 
-In the two input boxes below the search box, you can include and exclude files. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. You can also use glob syntax:
+In the input box below the search box, you can enter patterns to include or exclude from the search. If you enter `example`, that will match every folder and file named `example` in the workspace. If you enter `./example`, that will match the folder `example/` at the top level of your workspace. Use `!` to exclude those patterns from the search. `!example` will skip searching any folder or file named `example`. You can also use glob syntax:
 
 * `*` to match one or more characters in a path segment
 * `?` to match on one character in a path segment
@@ -123,7 +125,7 @@ In the two input boxes below the search box, you can include and exclude files. 
 
 VS Code excludes some folders by default to reduce the number of search results that you are not interested in (for example: `node_modules`). Open [settings](/docs/getstarted/settings.md) to change these rules under the `files.exclude` and `search.exclude` section.
 
-Also note the two toggle buttons in the **files to exclude** box. The left one determines whether to exclude files that are ignored by your `.gitignore` file. The right determines whether to exclude files that are matched by your `files.exclude` and `search.exclude` settings.
+Also note the **Use Exclude Settings and Ignore Files** toggle button in the **files to exclude** box. The toggle determines whether to exclude files that are ignored by your `.gitignore` files and/or matched by your `files.exclude` and `search.exclude` settings.
 
 >**Tip:** From the Explorer, you can right-click on a folder and select **Find in Folder** to search inside a folder only.
 
@@ -195,7 +197,18 @@ You can also use the following actions:
 * Fold Level X (`kb(editor.foldLevel2)` for level 2) folds all regions of level X, except the region at the current cursor position.
 * Fold All Block Comments (`kb(editor.foldAllBlockComments)`) folds all regions that start with a block comment token.
 
-Folding regions are evaluated based on the indentation of lines. A folding region starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
+Folding ranges are by default evaluated based on the indentation of lines. A folding range starts when a line has a smaller indent than one or more following lines, and ends when there is a line with the same or smaller indent.
+
+Since the 1.22 release, folding ranges can also be computed based on syntax tokens of the editor's configured language. The following languages already provide syntax aware folding:
+- Markdown, HTML, CSS, LESS, SCSS and JSON
+
+If you prefer to switch back to indentation based folding for one (or all) of the languages above, use:
+
+```json
+  "[html]": {
+    "editor.foldingStrategy": "indentation"
+  },
+```
 
 Regions can also be defined by markers defined by each language. The following languages currently have markers defined:
 
@@ -205,6 +218,7 @@ Regions can also be defined by markers defined by each language. The following l
 * Coffeescript: `#region` and `#endregion`
 * F#: `//#region` and `//#endregion` and `(#region)` and `(#endregion)`
 * Java: `//#region` and `// #endregion` and `//<editor-fold>` and `//</editor-fold>`
+* HTML:
 * PHP: `#region` and `#endregion`
 * Powershell: `#region` and `#endregion`
 * Python: `#region` and `#endregion`
@@ -244,7 +258,7 @@ You can click on the Status Bar indentation display to bring up a drop-down with
     "editor.tabSize": 3,
 ```
 
-## File Encoding Support
+## File encoding support
 
 Set the file encoding globally or per workspace by using the `files.encoding` setting in **User Settings** or **Workspace Settings**.
 
@@ -283,12 +297,12 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 **Q: How do I turn on word wrap?**
 
-**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
+**A:** You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default, `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 
 ```json
     "editor.wordWrap": "on"
 ```
 
-You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`. Restarting VS Code will pick up the persisted `editor.wordWrap` value.
+You can toggle word wrap for the VS Code session with `kb(editor.action.toggleWordWrap)`.
 
 You can also add vertical column rulers to the editor with the `editor.rulers` setting which takes an array of column character positions where you'd like vertical rulers.
