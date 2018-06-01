@@ -17,7 +17,7 @@ MongoDB support for VS Code is provided by the [Azure Cosmos DB](https://marketp
 
 ![Select Cosmos DB extension](images/mongodb/install-cosmosdb-extension.png)
 
-## Azure view
+## Cosmos DB Explorer
 
 Once you've installed the Cosmos DB extension and reloaded VS Code, you'll notice there is a new **Azure** Activity Bar view. Click on the Azure view and you'll see the Cosmos DB Explorer.
 
@@ -41,7 +41,7 @@ You can **Open Collection** to see the raw JSON Collection or click on individua
 
 Changes to the Document JSON in the editor will update the Document stored in the Collection. You will see a notification to **Upload** the entity update. To silence the notification, you can choose to **Always upload**, which modifies the `cosmosDB.showSavePrompt` [setting](/docs/getstarted/settings.md) value to false.
 
-## Commands
+## MongoDB Commands
 
 There are MongoDB specific commands available in the VS Code **Command Palette** (`kb(workbench.action.showCommands)`) as well as through Explorer context menus.
 
@@ -57,7 +57,7 @@ In a scrapbook, you can reference MongoDB entities and commands and you get rich
 
 ![mongodb scrapbook](images/mongodb/scrapbook.png)
 
-## MongoDB on Azure Cosmos DB (TBD)
+## MongoDB on Azure (TBD)
 
 You can easily host your MongoDB databases in the cloud on Azure with [Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/).
 
