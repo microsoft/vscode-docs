@@ -57,9 +57,9 @@ In a scrapbook, you can reference MongoDB entities and commands and you get rich
 
 ![mongodb scrapbook](images/mongodb/scrapbook.png)
 
-## MongoDB on Azure (TBD)
+## MongoDB on Azure
 
-You can easily host your MongoDB databases in the cloud on Azure with [Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/).
+You can easily host your MongoDB databases in the cloud on Azure with [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
 ### Azure sign in
 
@@ -67,29 +67,25 @@ The Cosmos DB extension includes the [Azure Account](https://marketplace.visuals
 
 To log into Azure, use the **Sign in to Azure...** command in the Cosmos DB Explorer or **Azure: Sign In*** from the **Command Palette** (`kb(workbench.action.showCommands)`). You will then sign into your account using the Device Login flow. Click on **Copy & Open** to open your default browser.
 
-![Azure Login](images/docker/devicelogin.png)
+![Azure Login](images/mongodb/devicelogin.png)
 
 Paste in the access code and continue the sign in process.
 
-![Azure Login](images/docker/devicelogin2.png)
+![Azure Login](images/mongodb/devicelogin2.png)
 
 In VS Code, you can sign out of Azure with **Azure: Sign Out** command.
 
 ### Create a Cosmos DB account
 
-To create Cosmos DB assets on Azure, you need a Cosmos DB account.
+To create Cosmos DB assets on Azure, you need a Cosmos DB account. Create a Cosmos DB account with the **Create Account** '+' icon on the Explorer toolbar or with the **Cosmos DB: Create Account** command in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
-Create an account name, API to use (MongoDB), Azure Resource Group, and a geographical location. Creating the Cosmos DB account may take awhile.
+![create CosmosDB account](images/mongodb/create-cosmosdb-account.png)
 
-Please note the right-click, copy connection string feature for connecting an app to cosmos using an environment variable.
+Follow the prompts to select an Azure Subscription, enter a Cosmos DB account name, choose the API to use (MongoDB), create or reuse an Azure Resource Group, and pick a geographical location. Once the Cosmos DB account is create (it may take several minutes), you will see the Cosmos DB asset in the Explorer. Right click to see the context menu where you can start creating MongoDB databases, open the Azure portal, or copy the connection string for later to use as an environment variable with your application.
 
-To learn more about MongoDB databases on Azure, see [Introduction  to Azure Cosmos DB: MongoDB API](https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction). Cosmos DB also lets you host other database types such as SQL, Graph (Gremlin), Apache Cassandra through it's full set of database APIs.
+![Cosmos DB content menu](images/mongodb/cosmosdb-context-menu.png)
 
-## Other features (TBD)
-
-Read the Cosmos DB extension README
-
-Graph (Gremlin), SQL
+To learn more about MongoDB databases on Azure, see [Introduction  to Azure Cosmos DB: MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction). Azure Cosmos DB also lets you host other database types such as SQL, Graph (Gremlin), Apache Cassandra through it's full set of [database APIs](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## Next Steps
 

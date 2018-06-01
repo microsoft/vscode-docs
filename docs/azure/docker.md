@@ -73,7 +73,7 @@ Many of the most common Docker and docker-compose commands are built right into 
 
 ## Docker view
 
-The Docker extension contributes a **Docker** view to VS Code. Within the view, the Explorer lets you view and manage your Images, Containers, and browse your Docker Hub registry. If the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension is installed, you can browse your [Azure Container Registries](https://docs.microsoft.com/en-us/azure/container-registry/) as well.
+The Docker extension contributes a **Docker** view to VS Code. Within the view, the Explorer lets you view and manage your Images, Containers, and browse your Docker Hub registry. If the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension is installed, you can browse your [Azure Container Registries](https://docs.microsoft.com/azure/container-registry/) as well.
 
 The right click context menu provides quick access to the same rich set of commands found in the **Command Palette** (`kb(workbench.action.showCommands)`).
 
