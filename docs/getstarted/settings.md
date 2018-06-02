@@ -140,7 +140,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "editor.fontSize": 14,
 
   // Controls the font family.
-  "editor.fontFamily": "Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'",
 
   // The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
   "editor.tabSize": 4,
@@ -248,7 +248,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "editor.foldingStrategy": "auto",
 
   // Controls the font family.
-  "editor.fontFamily": "Consolas, 'Courier New', monospace",
+  "editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'",
 
   // Enables font ligatures
   "editor.fontLigatures": false,
@@ -362,7 +362,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Render vertical rulers after a certain number of monospace characters. Use multiple values for multiple rulers. No rulers are drawn if array is empty
   "editor.rulers": [],
 
-  // Controls if the editor will scroll beyond the last column
+  // Controls the number of extra characters beyond which the editor will scroll horizontally
   "editor.scrollBeyondLastColumn": 5,
 
   // Controls if the editor will scroll beyond the last line
@@ -728,6 +728,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 // Controls if the search view should read or modify the shared find clipboard on macOS
   "search.globalFindClipboard": false,
 
+  // Controls if the search will be shown as a view in the sidebar or as a panel in the panel area for more horizontal space.
+  "search.location": "sidebar",
+
   // Configure to include results from a global symbol search in the file results for Quick Open.
   "search.quickOpen.includeSymbols": false,
 
@@ -775,9 +778,6 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls if the non debug hovers should be enabled while debugging. If true the hover providers will be called to provide a hover. Regular hovers will not be shown even if this setting is true.
   "debug.enableAllHovers": false,
 
-  // Controls if the floating debug action bar should be hidden
-  "debug.hideActionBar": false,
-
   // Show variable values inline in editor while debugging
   "debug.inlineValues": false,
 
@@ -793,8 +793,8 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls when the debug status bar should be visible
   "debug.showInStatusBar": "onFirstSessionStart",
 
-  // Controls the debug toolbar. Should it be floating, docked in the debug view or hidden.
-  "debug.toolbar": "float",
+  // Controls the location of the debug toolbar. Either "floating" in all views, "docked" in the debug view, or "hidden"
+  "debug.toolBarLocation": "floating",
 
   // Global debug launch configuration. Should be used as an alternative to 'launch.json' that is shared across workspaces
   "launch": {
@@ -968,26 +968,30 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines whether an open brace is put onto a new line for functions or not.
   "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
 
-  // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.
+  // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >= 2.3.1.
   "javascript.implicitProjectConfig.checkJs": false,
 
-  // Enable/disable 'experimentalDecorators' for JavaScript files that are not part of a project. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >=2.3.1.
+  // Enable/disable 'experimentalDecorators' for JavaScript files that are not part of a project. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >= 2.3.1.
   "javascript.implicitProjectConfig.experimentalDecorators": false,
 
   // Enable/disable including unique names from the file in JavaScript suggestion lists.
   "javascript.nameSuggestions": true,
 
-  // Preferred path style for auto imports: 'relative' paths, 'non-relative' paths, or 'auto' infer the shortest path type. Requires TS >= 2.9
+  // Preferred path style for auto imports:
+  // - "relative" to the file location.
+  // - "non-relative" based on the 'baseUrl' configured in your 'jsconfig.json' / 'tsconfig.json'.
+  // - "auto" infer the shortest path type.
+  // Requires TypeScript >= 2.9
   "javascript.preferences.importModuleSpecifier": "auto",
 
-  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires TS >= 2.9
+  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires TypeScript >= 2.9
   "javascript.preferences.quoteStyle": "auto",
 
   // Enable/disable references CodeLens in JavaScript files.
   "javascript.referencesCodeLens.enabled": false,
 
   // Enable/disable highlighting of unused variables in code. Requires TypeScript >= 2.9
-  "javascript.showUnused.enabled": true,
+  "javascript.showUnused": true,
 
   // Enable/disable suggestion diagnostics for JavaScript files in the editor. Requires TypeScript >= 2.8
   "javascript.suggestionActions.enabled": true,
@@ -1061,16 +1065,20 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable implementations CodeLens. Requires TypeScript >= 2.2.0.
   "typescript.implementationsCodeLens.enabled": false,
 
-  // Sets the locale used to report TypeScript errors. Requires TypeScript >= 2.6.0. Default of 'null' uses VS Code's locale for TypeScript errors.
+  // Sets the locale used to report JavaScript and TypeScript errors. Requires TypeScript >= 2.6.0. Default of 'null' uses VS Code's locale.
   "typescript.locale": null,
 
   // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires TypeScript >= 2.3.4.
   "typescript.npm": null,
 
-  // Preferred path style for auto imports: 'relative' paths, 'non-relative' paths, or 'auto' infer the shortest path type. Requires TS >= 2.9
+  // Preferred path style for auto imports:
+  // - "relative" to the file location.
+  // - "non-relative" based on the 'baseUrl' configured in your 'jsconfig.json' / 'tsconfig.json'.
+  // - "auto" infer the shortest path type.
+  // Requires TypeScript >= 2.9
   "typescript.preferences.importModuleSpecifier": "auto",
 
-  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires TS >= 2.9
+  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires TypeScript >= 2.9
   "typescript.preferences.quoteStyle": "auto",
 
   // Enable/disable quick suggestions when typing out an import path.
@@ -1083,9 +1091,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   "typescript.reportStyleChecksAsWarnings": true,
 
   // Enable/disable highlighting of unused variables in code. Requires TypeScript >= 2.9
-  "typescript.showUnused.enabled": true,
+  "typescript.showUnused": true,
 
-  // Enable/disable suggestion diagnostics for TypeScript files in the editor. Requires TypeScript >= 2.8.
+  // Enable/disable suggestion diagnostics for TypeScript files in the editor. Requires TypeScript >= 2.8
   "typescript.suggestionActions.enabled": true,
 
   // Controls auto detection of tsc tasks. 'off' disables this feature. 'build' only creates single run compile tasks. 'watch' only creates compile and watch tasks. 'on' creates both build and watch tasks. Default is 'on'.
@@ -1375,7 +1383,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Treat the option key as the meta key in the terminal on macOS.
   "terminal.integrated.macOptionIsMeta": false,
 
-  // Controls how the terminal is rendered, the options are "canvas" for the standard canvas renderer, "dom" for the fallback DOM-based renderer or "auto" which lets VS Code guess which will be best. This setting needs VS Code to reload in order to take effect for new terminals.
+  // Controls how the terminal is rendered, the options are "canvas" for the standard (fast) canvas renderer, "dom" for the fallback DOM-based renderer or "auto" which lets VS Code guess which will be best. This setting needs VS Code to reload in order to take effect.
   "terminal.integrated.rendererType": "auto",
 
   // Controls how terminal reacts to right click, possibilities are "default", "copyPaste", and "selectWord". "default" will show the context menu, "copyPaste" will copy when there is a selection otherwise paste, "selectWord" will select the word under the cursor and show the context menu.
@@ -1528,6 +1536,39 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to show an inline Open File action in the Git changes view.
   "git.showInlineOpenFileAction": true,
 
+// Grunt
+
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
+
+// Npm
+
+  // Controls whether auto detection of npm scripts is on or off. Default is on.
+  "npm.autoDetect": "on",
+
+  // Enable an explorer view for npm scripts.
+  "npm.enableScriptExplorer": false,
+
+  // Configure glob patterns for folders that should be excluded from automatic script detection.
+  "npm.exclude": "",
+
+  // The package manager used to run scripts.
+  "npm.packageManager": "npm",
+
+  // Run npm commands with the `--silent` option.
+  "npm.runSilent": false,
+
+  // The default click action used in the scripts explorer: 'open' or 'run', the default is 'open'.
+  "npm.scriptExplorerAction": "open",
+
+// Merge Conflict
+
+  // Enable/disable merge conflict block CodeLens within editor
+  "merge-conflict.codeLens.enabled": true,
+
+  // Enable/disable merge conflict decorators within editor
+  "merge-conflict.decorators.enabled": true,
+
 // Gulp
 
   // Controls whether auto detection of Gulp tasks is on or off. Default is on.
@@ -1573,38 +1614,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Variables to be used in Emmet snippets
   "emmet.variables": {},
 
-// Npm
 
-  // Controls whether auto detection of npm scripts is on or off. Default is on.
-  "npm.autoDetect": "on",
-
-  // Enable an explorer view for npm scripts.
-  "npm.enableScriptExplorer": false,
-
-  // Configure glob patterns for folders that should be excluded from automatic script detection.
-  "npm.exclude": "",
-
-  // The package manager used to run scripts.
-  "npm.packageManager": "npm",
-
-  // Run npm commands with the `--silent` option.
-  "npm.runSilent": false,
-
-  // The default click action used in the scripts explorer: 'open' or 'run', the default is 'open'.
-  "npm.scriptExplorerAction": "open",
-
-// Merge Conflict
-
-  // Enable/disable merge conflict block CodeLens within editor
-  "merge-conflict.codeLens.enabled": true,
-
-  // Enable/disable merge conflict decorators within editor
-  "merge-conflict.decorators.enabled": true,
-
-// Grunt
-
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on"
 }
 ```
 
