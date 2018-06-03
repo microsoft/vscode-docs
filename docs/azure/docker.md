@@ -139,3 +139,4 @@ By default, Docker runs as the root user on Linux, requiring other users to acce
 
 * [Azure Extensions](/docs/azure/extensions.md) - The VS Code Marketplace has hundreds of extensions for Azure and the cloud.
 * [Deploying to Azure](/docs/azure/deployment.md) - Learn step-by-step how to deploy your application to Azure.
+* [Working with MongoDB](/docs/azure/mongodb.md) - Create, manage and query MongoDB databases from within VS Code.
