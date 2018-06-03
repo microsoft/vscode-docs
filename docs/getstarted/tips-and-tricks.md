@@ -107,7 +107,7 @@ Keyboard Shortcut: `kb(workbench.actions.view.problems)`
 
 Quickly jump to errors and warnings in the project.
 
-Cycle through errors with `kb(editor.action.marker.next)` or `kb(editor.action.marker.prev)`
+Cycle through errors with `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)`
 
 ![errors and warnings](images/tips-and-tricks/Errors_Warnings.gif)
 

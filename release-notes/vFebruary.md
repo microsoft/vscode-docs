@@ -335,7 +335,7 @@ As a part of the accessibility work, the **High Contrast** theme, which was only
 
 We have turned on by default a new strategy for screen readers in the editor, one that is based on paging the text. From our testing, this is the best option in terms of trade-off between good screen reader support and performance when dealing with very large files.
 
-The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) now allow screen readers to announce the error or warning messages.
+The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.nextInFiles)` and `kb(editor.action.marker.prevInFiles)`) now allow screen readers to announce the error or warning messages.
 
 ### Improved Debugger Accessibility
 

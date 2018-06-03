@@ -108,8 +108,8 @@ Key|Command
 `kb(workbench.action.quickOpen)`|Go to File...
 `kb(workbench.action.gotoSymbol)`|Go to Symbol...
 `kb(workbench.actions.view.problems)`|Show Problems panel
-`kb(editor.action.marker.next)`|Go to next error or warning
-`kb(editor.action.marker.prev)`|Go to previous error or warning
+`kb(editor.action.marker.nextInFiles)`|Go to next error or warning
+`kb(editor.action.marker.prevInFiles)`|Go to previous error or warning
 `kb(workbench.action.openpreviousRecentlyUsedEditorInGroup)`|Navigate editor group history
 `kb(workbench.action.navigateBack)`|Go back
 `kb(workbench.action.navigateForward)`|Go forward

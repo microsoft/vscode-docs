@@ -387,8 +387,8 @@ Key|Command|Command id
 `kb(workbench.action.quickOpen)`|Go to File..., Quick Open|`workbench.action.quickOpen`
 `kb(workbench.action.gotoSymbol)`|Go to Symbol...|`workbench.action.gotoSymbol`
 `kb(workbench.actions.view.problems)`|Show Problems|`workbench.actions.view.problems`
-`kb(editor.action.marker.next)`|Go to Next Error or Warning|`editor.action.marker.next`
-`kb(editor.action.marker.prev)`|Go to Previous Error or Warning|`editor.action.marker.prev`
+`kb(editor.action.marker.nextInFiles)`|Go to Next Error or Warning|`editor.action.marker.nextInFiles`
+`kb(editor.action.marker.prevInFiles)`|Go to Previous Error or Warning|`editor.action.marker.prevInFiles`
 `kb(workbench.action.showCommands)`|Show All Commands|`workbench.action.showCommands`
 `kb(workbench.action.openPreviousRecentlyUsedEditorInGroup)`|Navigate Editor Group History|`workbench.action.openPreviousRecentlyUsedEditorInGroup`
 `kb(workbench.action.navigateBack)`|Go Back|`workbench.action.navigateBack`

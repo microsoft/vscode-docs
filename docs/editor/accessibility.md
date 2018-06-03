@@ -64,7 +64,7 @@ VS Code supports screen readers in the editor using a strategy based on paging t
 
 > When using NVDA on Windows, we recommend to update to NVDA 2017.3 or higher. NVDA 2017.3 increases NVDA's timeout for receiving a caret move event from 30ms to 100ms. This version is the first one [where the built-in timeout is increased from 30ms to 100ms](https://github.com/nvaccess/nvda/pull/7201).
 
-The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.next)` and `kb(editor.action.marker.prev)`) allow screen readers to announce the error or warning messages.
+The **Go to Next/Previous Error or Warning** actions (`kb(editor.action.marker.nextInFiles)` and `kb(editor.action.marker.prevInFiles)`) allow screen readers to announce the error or warning messages.
 
 When the suggestions pop up, they will get announced to screen readers. It is possible to navigate the suggestions using `kbstyle(Ctrl+Up)` and `kbstyle(Ctrl+Down)`, you can dismiss the suggestions with `kbstyle(Shift+Escape)` and if suggestions get in your way, you can disable the auto-popup of suggestions with the `editor.quickSuggestions` setting.
 

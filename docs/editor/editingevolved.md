@@ -97,7 +97,7 @@ Warnings or Errors can be generated either via [configured tasks](/docs/editor/t
 
 ![errors in problems panel](images/editingevolved/errors.png)
 
-> **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.next)` or `kb(editor.action.marker.prev)` which will show an inline zone detailing the problem and possible Code Actions (if available):
+> **Tip:** To loop through errors or warnings in the current file, you can press `kb(editor.action.marker.nextInFiles)` or `kb(editor.action.marker.prevInFiles)` which will show an inline zone detailing the problem and possible Code Actions (if available):
 
 ![Errors and Warnings Inline](images/editingevolved/errorsinline.png)
 
