@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 5/2/2018
+DateApproved: 05/21/2018
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -27,7 +27,7 @@ To change the linting behavior across all enabled linters, modify the following 
 | Feature | Setting<br/>(python.linting.) | Default value |
 | --- | --- | --- |
 | Linting in general | enabled | `true` |
-| Linting on file save | lintOnSave | `false` |
+| Linting on file save | lintOnSave | `true` |
 | Maximum number of linting messages | maxNumberOfProblems | `100` |
 | Exclude file and folder patterns | ignorePatterns | `[".vscode/*.py", "**/site-packages/**/*.py"]`  |
 
@@ -53,7 +53,7 @@ To select a different linter, use the **Python: Select Linter** command. You can
 
 Custom arguments can be specified in the appropriate arguments setting for each linter, with each argument given as a separate item in the array.
 
-A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting.
+A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting. For example, if your selected interpreter is a virtual environment but you want to use a linter that's installed in a global environment, then set the appropriate path setting to point to the global environment's linter.
 
 The sections that follow provide additional details for those individual linters linked in the table. In general, custom rules must be specified in a separate file as required by the linter you're using.
 
@@ -125,7 +125,7 @@ To control which Pylint messages are shown, add the following contents to an opt
 
 You can easily generate an options file using Pylint itself:
 
-```bash
+```
 pylint --generate-rcfile > .pylintrc
 ```
 
@@ -205,6 +205,5 @@ The Python extension maps mypy message categories to VS Code categories through 
 
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
-
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

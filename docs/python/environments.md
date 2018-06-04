@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 5/2/2018
+DateApproved: 05/21/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -14,7 +14,7 @@ The Python extension relies on a Python environment (an interpreter and installe
 
 Installing (or uninstalling) a package in the Terminal with a command like `pip install matplotlib` installs (or uninstalls) the package in the current environment.
 
-> **Note**: By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. If it doesn't find an interpreter, it issues a warning. On Mac OS, the extension also issues a warning if you're using the OS-installed Python interpreter, because you typically want to use an interpreter you install directly. In either case, you can disable these warnings by setting `python.disableInstallationCheck` to `true` in your user settings.
+> **Note**: By default, the Python extension looks for and uses on the first Python interpreter it finds in the system path. If it doesn't find an interpreter, it issues a warning. On macOS, the extension also issues a warning if you're using the OS-installed Python interpreter, because you typically want to use an interpreter you install directly. In either case, you can disable these warnings by setting `python.disableInstallationCheck` to `true` in your user settings.
 
 ## How to choose an environment
 
@@ -30,7 +30,7 @@ This command automatically looks for and displays a list of available Python int
 
 > **Note:** On Windows, it can take a little time for VS Code to detect available conda environments. During that process, you may see "(cached)" before the path to an environment. The label indicates that VS Code is presently working with cached information for that environment.
 
-Selecting an interpreter from the list configures your [User Settings](/docs/getstarted/settings.md) accordingly. The Status Bar shows the current interpreter.
+Selecting an interpreter from the list configures your [Workspace Settings](/docs/getstarted/settings.md) accordingly,specifically adding an entry for `python.pythonPath` with the path to the interpreter. The Status Bar shows the current interpreter.
 
 ![Status Bar showing a selected interpreter](images/environments/selected-interpreter-status-bar.png)
 
@@ -52,7 +52,7 @@ To avoid activating virtual and conda environments when using these terminal com
 
 ### Choose a debugging environment
 
-Selecting a different environment does not change the `python.pythonPath` value in your user `settings.json` file, which is used by default for debugging. To use a different interpreter for debugging, set the value for `pythonPath` in the debugger settings `launch.json` file. See [Debugging](debugging.md).
+Although selecting a different environment changes the `python.pythonPath` value in your Workspace `settings.json` file, it doesn't affect the User settings file, which is used by default for debugging. To use a different interpreter for debugging, set the value for `pythonPath` in the debugger settings `launch.json` file. See [Debugging](/docs/python/debugging.md).
 
 ### Conda environments
 
@@ -62,13 +62,13 @@ As noted earlier, Visual Studio automatically detects existing conda environment
 
 For example, the following command creates a conda environment *without* an interpreter, so VS Code doesn't display it in the list of available interpreters:
 
-```bash
+```
 conda create --name env-00
 ```
 
 In contrast, the following command creates a conda environment with a the Python 3.4 interpreter and several libraries. Because the environment contains an interpreter (which you can see in the Anaconda `envs/env-01` folder created by this command), VS Code includes it in its list:
 
-```bash
+```
 conda create -n env-01 python=3.4 scipy=0.15.0 astroid babel
 ```
 
@@ -124,9 +124,11 @@ A system environment variable can be used in the path setting using the syntax `
 
 ```json
 {
-    "python.pythonPath": "${env:PYTHONPATH}/venv/bin/python"
+    "python.pythonPath": "${env:PYTHONPATH}"
 }
 ```
+
+By using an environment variable, you can easily transfer a project between operating systems where the paths are different. Just be sure to set the PYTHONPATH environment variable on the operating system first.
 
 ### Virtual environments
 
@@ -150,8 +152,9 @@ Alternately, you can point `python.pythonPath` directly to the interpreter in th
     }
     ```
 
-2. Configure the same `python.pythonPath` variable in `launch.json`.
-3. Ensure that the the libraries and modules you plan on using for linting are installed within the virtual environment.
+1. Configure the same `python.pythonPath` variable in `launch.json`; see [Choosing a debugging environment](#choosing-a-debugging-environment) earlier.
+
+1. Ensure that the libraries and modules you plan on using for linting are installed within the virtual environment.
 
 ## Environment variable definitions file
 
@@ -159,7 +162,7 @@ An environment variable definitions file is a simple text file containing key-va
 
 By default, the Python extension loads a file named `.env` in the current workspace folder, as identified by the default value of the `python.envFile` setting (see [General settings](settings-reference.md#general-settings)). You can change the `python.envFile` setting at any time to use a different definitions file.
 
-A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - standard configuration and options](debugging.md#standard-configuration-and-options)). This property allows you to easily set variables for debugging purposes that replace those used in the default `.env` file.
+A debug configuration also contains an `envFile` property that also defaults to the `.env` file in the current workspace (see [Debugging - standard configuration and options](/docs/python/debugging.md#standard-configuration-and-options)). This property allows you to easily set variables for debugging purposes that replace those used in the default `.env` file.
 
 For example, when developing a web application, you might want to easily switch between development and production servers. Instead of coding the different URLs and other settings into your application directly, you could use separate definitions files for each. For example:
 

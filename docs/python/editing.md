@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 5/2/2018
+DateApproved: 05/21/2018
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -13,8 +13,7 @@ MetaSocialImage: images/tutorial/social.png
 The Python extension provides many features for editing Python source code in Visual Studio Code:
 
 - [Autocomplete and Intellisense](#autocomplete-and-intellisense)
-- [Run Selection/Line in Terminal](#run-selection--line-in-terminal)
-- [Interactive REPL](#interactive-repl)
+- [Run Selection/Line in Terminal (REPL)](#run-selection--line-in-terminal-repl)
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
 
@@ -70,17 +69,15 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 | The custom module is located in a non-standard location (not installed using pip). | Add the location to the `python.autoComplete.extraPaths` setting and restart VS Code. |
 | VS Code was not launched from the active virtual environment that would set the path to custom modules. | Launch VS Code from a command prompt with the correct virtual environment activated, for example: `(venv) ter@minal:~$ code`. |
 
-## Run Selection/Line in Terminal
+## Run Selection/Line in Terminal (REPL)
 
-The **Python: Run Selection/Line in Terminal** command is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
+The **Python: Run Selection/Line in Terminal** command (`kb(python.execSelectionInTerminal)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
 
-Code that runs in the terminal is cumulative until the current instance of the terminal is closed.
+The command opens the Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
 
-You can also run the entire file at any time using the **Python: Run File in Terminal** command, or the **Run Python File in Terminal** command on the editor context menu.
+> **Note**: at present, using `kb(python.execSelectionInTerminal)` keeps the editor on the same line of code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
-## Interactive REPL
-
-Using the **Python: Start REPL** command opens a REPL terminal that's separate from the default terminal.
+Code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
 
 When working in the editor, you can send the current line to the REPL using `kb(python.execSelectionInTerminal)`. Using `kb(python.execSelectionInTerminal)` starts the REPL if it's not already running, but note that initial startup might take a few moments especially if the first statement you run is an `import`.
 
@@ -178,7 +175,6 @@ Further configurations can be stored in an `.isort.cfg` file as documented on [C
 - [Linting](/docs/python/linting.md) - Enable, configure, and apply a variety of Python linters.
 - [Debugging](/docs/python/debugging.md) - Learn to debug Python both locally and remotely.
 - [Unit testing](/docs/python/unit-testing.md) - Configure unit test environments and discover, run, and debug tests.
-
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
 - [IntelliSense](/docs/editor/intellisense.md) - Learn about IntelliSense features.

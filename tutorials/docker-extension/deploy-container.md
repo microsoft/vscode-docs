@@ -16,7 +16,7 @@ Find the image under the **Registries** node in the **DOCKER** explorer, right c
 
 ![Deploy From the Explorer](images/docker-extension/deploy-menu.png)
 
-From here follow the prompts. Set up a resource group in `West US` and App Service Plan. For this tutorial, use 'myResourceGroup' and 'myPlan' for the resource group and plan names then give your app a **unique** name.
+From here follow the prompts. Set up a Resource Group in `West US` and App Service Plan. For this tutorial, use 'myResourceGroup' and 'myPlan' for the Resource Group and plan names then give your app a **unique** name.
 
 Once created, your app is accessible via http://**unique-name**.azurewebsites.net. In this example, I called it `myExpressApp4321`.
 
