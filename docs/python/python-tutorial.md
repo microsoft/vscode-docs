@@ -168,7 +168,7 @@ If for some reason VS Code doesn't generate `launch.json` for you, create a file
 
 If you see the error below, it means that you attempted to start to debugger when `launch.json` is selected in the editor rather than `hello.py`:
 
-```output
+```bash
     // Use IntelliSense to learn about possible attributes.
      ^
 SyntaxError: invalid syntax

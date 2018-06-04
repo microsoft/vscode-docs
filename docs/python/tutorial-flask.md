@@ -35,9 +35,9 @@ To successfully complete this tutorial, you must do the following:
 
 In this section you create a virtual environment in which Flask is installed. Using a virtual environment avoids installing Flask into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirements-txt-file-for-the-envionment).
 
-1. On your file system, create a project folder for this tutorial, such as "HelloFlask"
+1. On your file system, create a project folder for this tutorial, such as "HelloFlask".
 
-1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named named `env` based on your current interpreter:
+1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `env` based on your current interpreter:
 
     ```bash
     # Mac/Linux
@@ -47,7 +47,7 @@ In this section you create a virtual environment in which Flask is installed. Us
     py -3 -m venv env
     ```
 
-    > **Note**: use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
+    > **Note**: Use a stock Python installation when running the above commands. If you use `python.exe` from an Anaconda installation, you see an error because the ensurepip module isn't available, and the environment is left in an unfinished state.
 
 1. Open the project folder in VS Code by running `code .`, or by running VS Code and using the **File** > **Open Folder** command.
 
@@ -55,7 +55,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ![Opening the Command Palette in VS Code](images/flask/command-palette.png)
 
-    Then select the **Python: Select Interpreter** command and choose your base Python interpreter. You can also use use the **Select Python Environment** option on the Status Bar if available:
+    Then select the **Python: Select Interpreter** command and choose your base Python interpreter. You can also use the **Select Python Environment** option on the Status Bar if available:
 
     ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
@@ -67,12 +67,12 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activate script. You should see output similar to the following:
 
-    ```output
+    ```bash
     D:\py\HelloFlask>d:/py/HelloFlask/env/Scripts/activate.bat
     (env) D:\py\HelloFlask>
     ```
 
-    > **Note**: on Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** (`kb(workbench.action.terminal.selectDefaultShell)`) to set "Command Prompt" or "Git Bash" as your default instead.
+    > **Note**: on Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
 1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
 
@@ -82,11 +82,11 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 ## Create and run a minimal Flask app
 
-1. In VS Code, create a new file in your project folder named `app.py` using either **File** > **New** from the menu, pressing `kb(explorer.newFile)`, or using the new file icon in the Explorer View (shown below).
+1. In VS Code, create a new file in your project folder named `app.py` using either **File** > **New** from the menu, pressing `kbstyle(Ctrl+N)`, or using the new file icon in the Explorer View (shown below).
 
     ![New file icon in Explorer View](images/flask/new-file-icon.png)
 
-1. In `app.py`, add code to import Flask and create an instance of the Flask object. If you type the code below (instead of using copy-paste), you can observe VS Code's [IntelliSense and auto-completions](editing.md#autocomplete-and-intellisense):
+1. In `app.py`, add code to import Flask and create an instance of the Flask object. If you type the code below (instead of using copy-paste), you can observe VS Code's [IntelliSense and auto-completions](/docs/python/editing.md#autocomplete-and-intellisense):
 
     ```python
     from flask import Flask
@@ -107,7 +107,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 1. In the terminal, run the app by entering `python -m flask run`, which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
 
-    ```output
+    ```bash
     (env) D:\py\\HelloFlask>python -m flask run
      * Environment: production
        WARNING: Do not use the development server in a production environment.
@@ -120,23 +120,23 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     Also, if you want to run the development server on a different IP address or port, use the host and port command line arguments, as with `--host=0.0.0.0 --port=80`.
 
-1. To open your default browser to the rendered page, Ctrl+click the `http://127.0.0.1:5000/` URL in the terminal.
+1. To open your default browser to the rendered page, `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` URL in the terminal.
 
     ![The running app in a browser](images/flask/app-in-browser-01.png)
 
 1. Observe that when you visit a URL like /, a message appears in the debug terminal showing the HTTP request:
 
-    ```output
+    ```bash
     127.0.0.1 - - [07/May/2018 14:40:15] "GET / HTTP/1.1" 200 -
     ```
 
-1. Stop the app by using se Ctrl+C in the terminal.
+1. Stop the app by using `kbstyle(Ctrl+C)` in the terminal.
 
 > **Tip**: If you want to use a different filename than `app.py`, such as `program.py`, define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file `app.py`. For more information, see [Flask command line interface](http://flask.pocoo.org/docs/1.0/cli/).
 
 ## Run the app in the debugger
 
-Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](debugging.md). Running the debugger also automatically saves any modified files before the debugging session begins.
+Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](/docs/python/debugging.md). Running the debugger also automatically saves any modified files before the debugging session begins.
 
 1. Add a second route and function to `app.py` that contains some rather superfluous code that you can step through in the debugger:
 
@@ -159,8 +159,8 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     URL routes are case-sensitive. For example, the route `/hello/<name>` is distinct from `/Hello/<name>`. If you want the same function to handle both, use decorators for each variant.
 
-1. Set a breakpoint at the first line of code in the function (`from datetime import datetime`) by doing any *one* of the following:
-    - With the cursor on that line, press F9, or,
+1. Set a breakpoint at the first line of code in the function (`from datetime import datetime`) by doing any one of the following:
+    - With the cursor on that line, press `kb(editor.debug.action.toggleBreakpoint)`, or,
     - With the cursor on that line, select the **Debug** > **Toggle Breakpoint** menu command, or,
     - Click directly in the margin to the left of the line number (a faded red dot appears when hovering there).
 
@@ -199,7 +199,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Selecting the Flask debugging configuration](images/flask/debug-select-configuration.png)
 
-1. Start the debugger by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb('workbench.action.debug.continue')`):
+1. Start the debugger by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
     ![Start debugging/continue arrow on the debug toolbar](images/flask/debug-continue-arrow.png)
 
@@ -207,23 +207,23 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![Appearance of the debugging status bar](images/flask/debug-status-bar.png)
 
-    A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb('workbench.action.debug.continue')`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
+    A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
     ![The VS Code debug toolbar](images/flask/debug-toolbar.png)
 
-1. Output appears in a "Python Debug Console" terminal. Ctrl+click the `http://127.0.0.1:5000/` link in that terminal to open a browser to that URL. In the browser's address bar, navigate to `http://127.0.0.1:5000/hello/VSCode`. Before the page renders, VS Code pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
+1. Output appears in a "Python Debug Console" terminal. `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` link in that terminal to open a browser to that URL. In the browser's address bar, navigate to `http://127.0.0.1:5000/hello/VSCode`. Before the page renders, VS Code pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
 
     ![VS Code paused at a breakpoint](images/flask/debug-program-paused.png)
 
 1. Use Step Over to run the `from...import` statement and the `now = datetime.now()` statement.
 
-1. On the left side of the VS Code window you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb('debug.setVariable')`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes to correct values when the code didn't produce the right value to begin with.
+1. On the left side of the VS Code window you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes to correct values when the code didn't produce the right value to begin with.
 
     ![Local variables and arguments in VS Code during debugging](images/flask/debug-local-variables.png)
 
 1. When a program is paused, the **Debug Console** panel (which is different from the "Python Debug Console" in the Terminal panel) lets you experiment with expressions and try out bits of code using the current state of the program. For example, once you've stepped over the line `now = datetime.now()`, you might experiment with different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Debug: Evaluate** to send that code to the debug console, where it runs:
 
-    ```output
+    ```bash
     now.strftime("%A, %d %B, %Y at %X")
     'Thursday, 24 May, 2018 at 14:35:27'
     ```
@@ -232,7 +232,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Copy that line into the > prompt at the bottom of the debug console, and try changing the formatting:
 
-    ```output
+    ```bash
     now.strftime("%a, %d %B, %Y at %X")
     'Thu, 24 May, 2018 at 14:35:27'
     now.strftime("%a, %d %b, %Y at %X")
@@ -243,13 +243,13 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     > **Note**: if you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
 
-1. Step through a few more lines of code, if you'd like, then select Continue (`kb('workbench.action.debug.continue')`) to let the program run. The browser window shows the result:
+1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
     ![Result of the modified program](images/flask/debug-run-result.png)
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Debug** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
-> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:5000/hello/VSCode`, just output that URL using a `print` statement. The URL appears in the terminal where you can use Ctrl+click to open it in a browser.
+> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:5000/hello/VSCode`, just output that URL using a `print` statement. The URL appears in the terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
 
 ## Go to Definition and Peek Definition commands
 
@@ -263,7 +263,7 @@ During your work with Flask or any other library, you may want to examine the co
 
 ## Use a template to render a page
 
-The app you've created so far in this tutorial contains embedded HTML directly within Python code. Developers typically separate HTML markup from the code-generated data that gets inserted into that markup. *Templates* are a common approach to achieve this separation.
+The app you've created so far in this tutorial contains embedded HTML directly within Python code. Developers typically separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
 
 - A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
 - The default templating engine for Flask is Jinja, which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
@@ -272,17 +272,17 @@ In this section you create a single page using a template. In the sections that 
 
 1. Inside the `HelloFlask` folder, create a folder named `templates`, which is where Flask looks for templates by default.
 
-1. In the `templates` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders named "title" and "content", which are delineated by pairs or curly braces, `{{` and `}}`.
+1. In the `templates` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders named "title" and "content", which are delineated by pairs of curly braces, `\{{` and `}}`.
 
     ```html
     <!DOCTYPE html>
     <html>
         <head>
             <meta charset="utf-8" />
-            <title>{{ title }}</title>
+            <title>\{{ title }}</title>
         </head>
         <body>
-            {{ content }}
+            \{{ content }}
         </body>
     </html>
     ```
@@ -309,7 +309,7 @@ In this section you create a single page using a template. In the sections that 
         )
     ```
 
-1. Start the program (inside or outside of the debugger, using `kb('workbench.action.debug.continue')` or `kb('workbench.action.debug.run')`), navigate to a /hello/name URL, and observe the results. Notice that the inline HTML does *not* get rendered as HTML because the templating engine automatically escapes values used in placeholders. Automatic escaping prevent accidental vulnerabilities to injection attacks: developers often gather input from one page, or the URL, and use it as a value in another page through a template placeholder. Escaping also serves as a reminder that it's again best to keep HTML out of the code.
+1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.continue)` or `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results. Notice that the inline HTML does **not** get rendered as HTML because the templating engine automatically escapes values used in placeholders. Automatic escaping prevent accidental vulnerabilities to injection attacks: developers often gather input from one page, or the URL, and use it as a value in another page through a template placeholder. Escaping also serves as a reminder that it's again best to keep HTML out of the code.
 
     For this reason, modify the template and view function as follows to make each piece of content more specific:
 
@@ -320,10 +320,10 @@ In this section you create a single page using a template. In the sections that 
     <html>
         <head>
             <meta charset="utf-8" />
-            <title>{{ title }}</title>
+            <title>\{{ title }}</title>
         </head>
         <body>
-            <strong>{{ message }}</strong> It's {{ date }}.
+            <strong>\{{ message }}</strong> It's \{{ date }}.
         </body>
     </html>
     ```
@@ -376,7 +376,7 @@ The following sections demonstrate both types of static files.
     And replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
-    <span class="message">{{ message }}</span>. It's {{ date }}.
+    <span class="message">\{{ message }}</span>. It's \{{ date }}.
     ```
 
 1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.
@@ -413,7 +413,7 @@ The following sections walk through different parts of this process.
 
 ### Create a base page template and styles
 
-A base page template in Flask contains all the shared parts of a set of pages, including references to CSS files, script files, and so forth. Base templates also define one or more *block* tags that other templates that extend the base are expected to override. A block tag is delineated by `{% block <name> %}` and `{% endblock %}` in both the base template and extended templates.
+A base page template in Flask contains all the shared parts of a set of pages, including references to CSS files, script files, and so forth. Base templates also define one or more **block** tags that other templates that extend the base are expected to override. A block tag is delineated by `{% block <name> %}` and `{% endblock %}` in both the base template and extended templates.
 
 The following steps demonstrate creating a base template.
 
@@ -424,15 +424,15 @@ The following steps demonstrate creating a base template.
     <html>
         <head>
             <meta charset="utf-8" />
-            <title>{{ title }}</title>
+            <title>\{{ title }}</title>
             <link rel="stylesheet" type="text/css" href="/static/site.css" />
         </head>
 
         <body>
             <div class="navbar">
-                <a href="{{ url_for('home') }}" class="navbar-brand">Home</a>
-                <a href="{{ url_for('about') }}" class="navbar-item">About</a>
-                <a href="{{ url_for('contact') }}" class="navbar-item">Contact</a>
+                <a href="\{{ url_for('home') }}" class="navbar-brand">Home</a>
+                <a href="\{{ url_for('about') }}" class="navbar-item">About</a>
+                <a href="\{{ url_for('contact') }}" class="navbar-item">Contact</a>
             </div>
 
             <div class="body-content">
@@ -483,7 +483,7 @@ You can run the app at this point, but because you haven't made use of the base 
 
 ### Create a code snippet
 
-Because the three pages you create in the next section extend `layout.html`, it saves time to create a *code snippet* to initialize a new template file with the appropriate reference to the base template. A code snippet provides a consistent piece of code from a single source, which avoids errors that can creep in when using copy-paste from existing code.
+Because the three pages you create in the next section extend `layout.html`, it saves time to create a **code snippet** to initialize a new template file with the appropriate reference to the base template. A code snippet provides a consistent piece of code from a single source, which avoids errors that can creep in when using copy-paste from existing code.
 
 1. In VS Code, select the **File** (Windows/Linux) or **Code** (Mac), menu, then select **Preferences** > **User snippets**.
 
@@ -512,7 +512,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. Now, whenever you start typing the snippet's prefix, such as `flext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
 
-For more information on code snippets in general, refer to [Create custom snippets](../getstarted/tips-and-tricks.md#create-custom-snippets).
+For more information on code snippets in general, refer to [Creating snippets](/docs/editor/userdefinedsnippets.md).
 
 ### Use the code snippet to add pages
 
@@ -522,7 +522,7 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
     ![Autocompletion for the flextlayout code snippet](images/flask/autocomplete-for-code-snippet.png)
 
-    When you select the completion (or use `kb(editor.action.insertSnippet)`), the snippet's code appears with the cursor on the snippet's insertion point:
+    When you select the completion, the snippet's code appears with the cursor on the snippet's insertion point:
 
     ![Insertion of the flextlayout code snippet](images/flask/code-snippet-inserted.png)
 
@@ -667,8 +667,8 @@ Because this tutorial has only scratched the surface of page templates, refer to
 
 You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
-- [Editing Python code](editing.md)
-- [Linting](linting.md)
-- [Managing Python environments](environments.md)
-- [Debugging Python](debugging.md)
-- [Unit testing](unit-testing.md)
+- [Editing Python code](/docs/python/editing.md)
+- [Linting](/docs/python/linting.md)
+- [Managing Python environments](/docs/python/environments.md)
+- [Debugging Python](/docs/python/debugging.md)
+- [Unit testing](/docs/python/unit-testing.md)

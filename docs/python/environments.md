@@ -168,7 +168,7 @@ For example, when developing a web application, you might want to easily switch 
 
 **dev.env file**
 
-```text
+```bash
 # dev.env - development configuration
 
 # API endpoint
@@ -182,7 +182,7 @@ MYPROJECT_DBPASSWORD=!dfka**213=
 
 **prod.env file**
 
-```text
+```bash
 # prod.env - production configuration
 
 # API endpoint
