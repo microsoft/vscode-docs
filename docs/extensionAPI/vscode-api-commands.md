@@ -143,11 +143,6 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _(returns)_ A promise that resolves to an array of DocumentLink-instances.
 
 
-`vscode.executeTaskProvider` - Execute task provider
-
-* _(returns)_ An array of task handles
-
-
 `vscode.executeDocumentColorProvider` - Execute document color provider.
 
 * _uri_ Uri of a text document
