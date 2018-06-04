@@ -687,7 +687,7 @@ See IntelliSense for your `package.json` file.
 
 ### Create custom snippets
 
-**File** > **Preferences** > **User Snippets**, select the language, and create a snippet.
+**File** > **Preferences** > **User Snippets** (**Code** > **Preferences** > **User Snippets** on macOS), select the language, and create a snippet.
 
 ```json
 "create component": {

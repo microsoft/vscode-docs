@@ -134,7 +134,7 @@ There are some optional environment variables to configure the test runner:
 
 ## Running tests on Windows with AppVeyor
 
-You can also run extension tests on Windows with [AppVeyor](https://www.appveyor.com/). To get started, you can review the VS Code integration tests AppVeyor [configuration file](https://github.com/Microsoft/vscode/blob/master/appveyor.yml).
+You can also run extension tests on Windows with [AppVeyor](https://www.appveyor.com/).
 
 ## Next Steps
 

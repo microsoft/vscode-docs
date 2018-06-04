@@ -22,7 +22,7 @@ From here follow the prompts. Choose the directory that you currently have open,
 
 1. Type a globally unique name for your Web App and press `kbstyle(Enter)`. Valid characters for an app name are 'a-z', '0-9', and '-'.
 
-2. Choose **Create New Resource Group**, use the suggested name or type a resource group name, like 'myResourceGroup' and press `kbstyle(Enter)`.
+2. Choose **Create New Resource Group**, use the suggested name or type a Resource Group name, like 'myResourceGroup' and press `kbstyle(Enter)`.
 
 A **Resource Group** is essentially a named collection of all our application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
 

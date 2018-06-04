@@ -212,7 +212,7 @@ You can also see the three **Add Config** commands for the folders, `tslint`, `t
 
 ### Workspace launch configurations
 
-Workspace scoped launch configurations live in the `"launch"` section of the workspace configuration file (`Workspaces: Open Workspace Configuration File` in the command palette):
+Workspace scoped launch configurations live in the `"launch"` section of the workspace configuration file (**Workspaces: Open Workspace Configuration File** in the command palette):
 
 ![Workspace Settings](images/multi-root-workspaces/workspace-settings.png)
 

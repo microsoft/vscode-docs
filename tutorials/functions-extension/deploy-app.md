@@ -18,7 +18,7 @@ From here follow the prompts. Choose the directory that you currently have open,
 
 1. Type a globally unique name for your Function App and press `kbstyle(Enter)`. Valid characters for a function app name are 'a-z', '0-9', and '-'.
 
-2. Choose **Create New Resource Group**, type a resource group name, like 'myResourceGroup' and press `kbstyle(Enter)`.
+2. Choose **Create New Resource Group**, type a Resource Group name, like 'myResourceGroup' and press `kbstyle(Enter)`.
 
 3. Choose a location in a [region](https://azure.microsoft.com/en-us/regions/) near you or near other services you may need to access.
 
