@@ -124,11 +124,11 @@ A system environment variable can be used in the path setting using the syntax `
 
 ```json
 {
-    "python.pythonPath": "${env:PYTHONPATH}"
+    "python.pythonPath": "${env:PYTHON_INSTALL_LOC}"
 }
 ```
 
-By using an environment variable, you can easily transfer a project between operating systems where the paths are different. Just be sure to set the PYTHONPATH environment variable on the operating system first.
+By using an environment variable, you can easily transfer a project between operating systems where the paths are different. Just be sure to set the environment variable on the operating system first.
 
 ### Virtual environments
 
