@@ -116,9 +116,9 @@ In addition, the _debug status_ appears in the Status Bar showing the active deb
 
 ## Debug actions
 
-Once a debug session starts, the **Debug actions pane** will appear on the top of the editor.
+Once a debug session starts, the **Debug toolbar** will appear on the top of the editor.
 
-![Debug Actions](images/debugging/actions.png)
+![Debug Actions](images/debugging/toolbar.png)
 
 * Continue / Pause `kb(workbench.action.debug.continue)`
 * Step Over `kb(workbench.action.debug.stepOver)`
@@ -126,6 +126,8 @@ Once a debug session starts, the **Debug actions pane** will appear on the top o
 * Step Out `kb(workbench.action.debug.stepOut)`
 * Restart `kb(workbench.action.debug.restart)`
 * Stop `kb(workbench.action.debug.stop)`
+
+>**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can either be the default `floating`, `docked` to the debug viewlet or `hidden`.
 
 ### Run mode
 
@@ -200,7 +202,7 @@ Many debuggers support some of the following attributes:
 
 ## Variable substitution
 
-To avoid having to use absolute paths in debug configurations, VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. Examples are `${workspaceFolder}` for the root path of a workspace folder, `${file}` for the file open in the active editor, and `${env:Name}` for an environment variable 'Name'. You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md).
+To avoid having to use absolute paths in debug configurations, VS Code makes commonly used paths and other values available as variables and supports variable substitution inside strings in `launch.json`. Examples are `${workspaceFolder}` for the root path of a workspace folder, `${file}` for the file open in the active editor, and `${env:Name}` for an environment variable 'Name'. You can see a full list of predefined variables in the [Variables Reference](/docs/editor/variables-reference.md) or by invoking intelli-sense inside the `launch.json` string fields.
 
 ```json
 {
@@ -291,13 +293,13 @@ You can add a condition and/or hit count either when creating the breakpoint wit
 
 If a debugger does not support conditional breakpoints the **Add Conditional Breakpoint** action will be missing.
 
-### Column breakpoints
+### Inline breakpoints
 
-Column breakpoints will only be hit when the execution reaches that column. This is particularly useful when debugging minified code which contains multiple statements on a single line.
+Inline breakpoints will only be hit when the execution reaches the column asociated with the inline breakpoint. This is particularly useful when debugging minified code which contains multiple statements on a single line.
 
-A column breakpoint can be set using `kb(editor.debug.action.toggleInlineBreakpoint)` or through the context menu during a debug session and column breakpoints are shown inline in the editor.
+An inline breakpoint can be set using `kb(editor.debug.action.toggleInlineBreakpoint)` or through the context menu during a debug session and inline breakpoints are shown inline in the editor.
 
-Column breakpoints can also have conditions. Editing multiple breakpoints on a line is possible through the context menu in the editor left margin.
+Inline breakpoints can also have conditions. Editing multiple breakpoints on a line is possible through the context menu in the editor left margin.
 
 ### Function breakpoints
 
@@ -320,8 +322,8 @@ For debugging complex scenarios involving more than one process (for example, a 
 Using multi-target debugging is simple: after you've started a first debug session, you can just launch another session. As soon as a second session is up and running, the VS Code UI switches to _multi-target mode_:
 
 - The individual sessions now show up as top level elements in the **CALL STACK** view.<BR>![Callstack View](images/debugging/debug-callstack.png)
-- The floating debug widget shows the currently _active session_ (and all other sessions are available in a dropdown menu).<BR>![Debug Actions Widget](images/debugging/debug-actions-widget.png)
-- Debug actions (for example, all actions in the floating debug widget) are performed on the active session. The active session can be changed either by using the drop down menu in the floating debug widget or by selecting a different element in the **CALL STACK** view.
+- The debug toolbar shows the currently _active session_ (and all other sessions are available in a dropdown menu).<BR>![Debug Actions Widget](images/debugging/debug-actions-widget.png)
+- Debug actions (for example, all actions in the debug toolbar) are performed on the active session. The active session can be changed either by using the drop down menu in the debug toolbar or by selecting a different element in the **CALL STACK** view.
 
 ### Compound launch configurations
 
