@@ -102,7 +102,7 @@ If VS Code does not automatically locate an interpreter you want to use, you can
 
 1. Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
 
-2. Create or modify an entry for `python.pythonPath` with the full path to the Python executable.
+2. Create or modify an entry for `python.pythonPath` with the full path to the Python executable (or the folder containing the executable).
 
     For example:
 
