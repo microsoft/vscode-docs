@@ -27,7 +27,7 @@ The following predefined variables are supported:
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
 
->**Tip**: Use intelli-sense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
+>**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
 ## Environment variables
 
