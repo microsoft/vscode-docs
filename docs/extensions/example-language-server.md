@@ -22,16 +22,16 @@ The remaining document assumes that you are familiar with normal [extension deve
 Language servers can be implemented in any language and follow the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol). However, right now VS Code only provides libraries for Node.js. Additional libraries will follow in the future. A good starting point for a language server implementation in Node.js is the example repository [VS Code extension samples](https://github.com/Microsoft/vscode-extension-samples). This repository contains 3 different Language Server samples:
 
 - **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Demos how to write a basic language server.
-- **[lsp-multi-root-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-root-sample)**: Demos how to write a language server which is multi workspace folder aware.
 - **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: Demos how to write a language server that start a different server instance per workspace folder.
 
-The reminder of the document explains the code in the lsp-sample. The other two examples add additional aspects using the same code base as explained in this example.
+The reminder of the document explains the code in the lsp-sample. The other  example adds additional aspects using the same code base as explained in this example.
 
 Clone the [repository](https://github.com/Microsoft/vscode-extension-samples) and then do:
 
 ```bash
 > cd lsp-sample
 > npm install
+> nom run compile
 > code .
 ```
 
@@ -39,7 +39,7 @@ The above installs all dependencies and opens one VS Code instances containing b
 
 ## Explaining the 'Client'
 
-The client is actually a normal VS Code extension. It contains a `package.json` file in the client folder of the workspace. There are three interesting sections of that file.
+The client is actually a normal VS Code extension. Since the workspace contains the client and server part the interesting `package.json` for the extension is in the root of the `lsp-sample` folder. There are three interesting sections of that file.
 
 First look the `activationEvents`:
 
@@ -69,12 +69,12 @@ Next look at the `configuration` section:
 
 This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings.
 
-The last part adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
+The actual client code and the corresponding `package.json` is in the `client` folder. The interesting part in the `package.json` adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
 
 ```json
 "dependencies": {
-    "vscode": "^1.1.5",
-    "vscode-languageclient": "^3.3.0"
+    "vscode": "^1.1.18",
+    "vscode-languageclient": "^4.1.4"
 }
 ```
 
@@ -92,40 +92,49 @@ Below is the content of the corresponding extension.ts file:
 import * as path from 'path';
 
 import { workspace, ExtensionContext } from 'vscode';
-import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient';
+
+import {
+	LanguageClient, LanguageClientOptions, ServerOptions, TransportKind
+} from 'vscode-languageclient';
+
+let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
 
 	// The server is implemented in node
-	let serverModule = context.asAbsolutePath(path.join('server', 'server.js'));
+	let serverModule = context.asAbsolutePath(path.join('server', 'out', 'server.js'));
 	// The debug options for the server
-	let debugOptions = { execArgv: ["--nolazy", "--debug=6009"] };
+	let debugOptions = { execArgv: ["--nolazy", "--inspect=6009"] };
 
 	// If the extension is launched in debug mode then the debug server options are used
 	// Otherwise the run options are used
 	let serverOptions: ServerOptions = {
 		run : { module: serverModule, transport: TransportKind.ipc },
 		debug: { module: serverModule, transport: TransportKind.ipc, options: debugOptions }
-	};
+	}
 
 	// Options to control the language client
 	let clientOptions: LanguageClientOptions = {
 		// Register the server for plain text documents
 		documentSelector: [{scheme: 'file', language: 'plaintext'}],
 		synchronize: {
-			// Synchronize the setting section 'lspSample' to the server
-			configurationSection: 'lspSample',
-			// Notify the server about file changes to '.clientrc' files contain in the workspace
-			fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+			// Notify the server about file changes to '.clientrc files contain in the workspace
+			fileEvents: workspace.createFileSystemWatcher('**/.clientrc'),
 		}
-	};
+	}
 
 	// Create the language client and start the client.
-	let disposable = new LanguageClient('lspSample', 'Language Server Example', serverOptions, clientOptions).start();
+	client = new LanguageClient('languageServerExample', 'Language Server Example', serverOptions, clientOptions);
 
-	// Push the disposable to the context's subscriptions so that the
-	// client can be deactivated on extension deactivation
-	context.subscriptions.push(disposable);
+	// Start the client. This will also launch the server
+	client.start();
+}
+
+export function deactivate(): Thenable<void> {
+	if (!client) {
+		return undefined;
+	}
+	return client.stop();
 }
 ```
 
@@ -139,7 +148,7 @@ The interesting section in the server's `package.json` file is:
 
 ```json
 "dependencies": {
-    "vscode-languageserver": "^3.3.0"
+    "vscode-languageserver": "^4.1.3"
 }
 ```
 
@@ -155,101 +164,159 @@ Below is a server implementation that uses the provided simple text document man
 'use strict';
 
 import {
-	IPCMessageReader, IPCMessageWriter, createConnection, IConnection, TextDocuments, TextDocument,
-	Diagnostic, DiagnosticSeverity, InitializeResult, TextDocumentPositionParams, CompletionItem,
-	CompletionItemKind
+	createConnection, TextDocuments, TextDocument, Diagnostic, DiagnosticSeverity,
+	ProposedFeatures, InitializeParams, DidChangeConfigurationNotification, CompletionItem,
+	CompletionItemKind, TextDocumentPositionParams
 } from 'vscode-languageserver';
 
-// Create a connection for the server. The connection uses Node's IPC as a transport
-let connection: IConnection = createConnection(new IPCMessageReader(process), new IPCMessageWriter(process));
+// Create a connection for the server. The connection uses Node's IPC as a transport.
+// Also include all preview / proposed LSP features.
+let connection = createConnection(ProposedFeatures.all);
 
 // Create a simple text document manager. The text document manager
 // supports full document sync only
 let documents: TextDocuments = new TextDocuments();
-// Make the text document manager listen on the connection
-// for open, change and close text document events
-documents.listen(connection);
 
-// After the server has started, the client sends an initialize request. The server receives
-// in the passed params, the rootPath of the workspace plus the client capabilities.
-let workspaceRoot: string;
-connection.onInitialize((params): InitializeResult => {
-	workspaceRoot = params.rootPath;
+let hasConfigurationCapability: boolean = false;
+let hasWorkspaceFolderCapability: boolean = false;
+let hasDiagnosticRelatedInformationCapability: boolean = false;
+
+
+connection.onInitialize((params: InitializeParams) => {
+	let capabilities = params.capabilities;
+
+	// Does the client support the `workspace/configuration` request?
+	// If not, we will fall back using global settings
+	hasConfigurationCapability = capabilities.workspace && !!capabilities.workspace.configuration;
+	hasWorkspaceFolderCapability = capabilities.workspace && !!capabilities.workspace.workspaceFolders;
+	hasDiagnosticRelatedInformationCapability = capabilities.textDocument && capabilities.textDocument.publishDiagnostics && capabilities.textDocument.publishDiagnostics.relatedInformation;
+
 	return {
 		capabilities: {
-			// Tell the client that the server works in FULL text document sync mode
-			textDocumentSync: documents.syncKind,
-			// Tell the client that the server supports code completion
-			completionProvider: {
-				resolveProvider: true
-			}
+			textDocumentSync: documents.syncKind
 		}
-	};
+	}
 });
 
-// The content of a text document has changed. This event is emitted
-// when the text document is first opened or when its content has changed.
-documents.onDidChangeContent((change) => {
-	validateTextDocument(change.document);
+connection.onInitialized(() => {
+	if (hasConfigurationCapability) {
+		// Register for all conifiguration changes.
+		connection.client.register(DidChangeConfigurationNotification.type, undefined);
+	}
+	if (hasWorkspaceFolderCapability) {
+		connection.workspace.onDidChangeWorkspaceFolders((_event) => {
+			connection.console.log('Workspace folder change event received.');
+		});
+	}
 });
 
-// The settings interface describes the server relevant settings part
-interface Settings {
-	lspSample: ExampleSettings;
-}
-
-// These are the example settings we defined in the client's package.json
-// file
+// The example settings
 interface ExampleSettings {
 	maxNumberOfProblems: number;
 }
 
-// Holds the maxNumberOfProblems setting
-let maxNumberOfProblems: number;
-// The settings have changed. It is sent on server activation
-// as well.
-connection.onDidChangeConfiguration((change) => {
-	let settings = <Settings>change.settings;
-	maxNumberOfProblems = settings.lspSample.maxNumberOfProblems || 100;
-	// Revalidate any open text documents
+// The global settings, used when the `workspace/configuration` request is not supported by the client.
+// Please note that this is not the case when using this server with the client provided in this example
+// but could happen with other clients.
+const defaultSettings: ExampleSettings = { maxNumberOfProblems: 1000 };
+let globalSettings: ExampleSettings = defaultSettings;
+
+// Cache the settings of all open documents
+let documentSettings: Map<string, Thenable<ExampleSettings>> = new Map();
+
+connection.onDidChangeConfiguration(change => {
+	if (hasConfigurationCapability) {
+		// Reset all cached document settings
+		documentSettings.clear();
+	} else {
+		globalSettings = <ExampleSettings>(change.settings.lspMultiRootSample || defaultSettings);
+	}
+
+	// Revalidate all open text documents
 	documents.all().forEach(validateTextDocument);
 });
 
-function validateTextDocument(textDocument: TextDocument): void {
-	let diagnostics: Diagnostic[] = [];
-	let lines = textDocument.getText().split(/\r?\n/g);
-	let problems = 0;
-	for (var i = 0; i < lines.length && problems < maxNumberOfProblems; i++) {
-		let line = lines[i];
-		let index = line.indexOf('typescript');
-		if (index >= 0) {
-			problems++;
-			diagnostics.push({
-				severity: DiagnosticSeverity.Warning,
-				range: {
-					start: { line: i, character: index },
-					end: { line: i, character: index + 10 }
-				},
-				message: `${line.substr(index, 10)} should be spelled TypeScript`,
-				source: 'ex'
-			});
-		}
+function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
+	if (!hasConfigurationCapability) {
+		return Promise.resolve(globalSettings);
 	}
-	// Send the computed diagnostics to VS Code.
+	let result = documentSettings.get(resource);
+	if (!result) {
+		result = connection.workspace.getConfiguration({ scopeUri: resource, section: 'languageServerExample' });
+		documentSettings.set(resource, result);
+	}
+	return result;
+}
+
+// Only keep settings for open documents
+documents.onDidClose(e => {
+	documentSettings.delete(e.document.uri);
+});
+
+// The content of a text document has changed. This event is emitted
+// when the text document first opened or when its content has changed.
+documents.onDidChangeContent((change) => {
+	validateTextDocument(change.document);
+});
+
+async function validateTextDocument(textDocument: TextDocument): Promise<void> {
+	// In this simple example we get the settings for every validate run.
+	let settings = await getDocumentSettings(textDocument.uri);
+
+	// The validator creates diagnostics for all uppercase words length 2 and more
+	let text = textDocument.getText();
+	let pattern = /\b[A-Z]{2,}\b/g;
+	let m: RegExpExecArray;
+
+	let problems = 0;
+	let diagnostics: Diagnostic[] = [];
+	while ((m = pattern.exec(text)) && problems < settings.maxNumberOfProblems) {
+		problems++;
+		let diagnosic: Diagnostic = {
+			severity: DiagnosticSeverity.Warning,
+			range: {
+				start: textDocument.positionAt(m.index),
+				end: textDocument.positionAt(m.index + m[0].length)
+			},
+			message: `${m[0]} is all uppercase.`,
+			source: 'ex'
+		};
+		if (hasDiagnosticRelatedInformationCapability) {
+			diagnosic.relatedInformation = [
+				{
+					location: {
+						uri: textDocument.uri,
+						range: Object.assign({}, diagnosic.range)
+					},
+					message: 'Spelling matters'
+				},
+				{
+					location: {
+						uri: textDocument.uri,
+						range: Object.assign({}, diagnosic.range)
+					},
+					message: 'Particularly for names'
+				}
+			];
+		}
+		diagnostics.push(diagnosic);
+	}
+
+	// Send the computed diagnostics to VSCode.
 	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 
 connection.onDidChangeWatchedFiles((_change) => {
-	// Monitored files have changed in VS Code
-	connection.console.log('We received a file change event');
+	// Monitored files have change in VSCode
+	connection.console.log('We received an file change event');
 });
 
 
 // This handler provides the initial list of the completion items.
 connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-	// The passed parameter contains the position in the text document in
-	// which code completion was requested. For this example, we ignore this
-	// information and always provide the same completion items.
+	// The pass parameter contains the position of the text document in
+	// which code complete got requested. For the example we ignore this
+	// info and always provide the same completion items.
 	return [
 		{
 			label: 'TypeScript',
@@ -261,10 +328,10 @@ connection.onCompletion((_textDocumentPosition: TextDocumentPositionParams): Com
 			kind: CompletionItemKind.Text,
 			data: 2
 		}
-	];
+	]
 });
 
-// This handler resolves additional information for the item selected in
+// This handler resolve additional information for the item selected in
 // the completion list.
 connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 	if (item.data === 1) {
@@ -279,23 +346,27 @@ connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
 
 /*
 connection.onDidOpenTextDocument((params) => {
-	// A text document was opened in VS Code.
-	// params.uri uniquely identifies the document. For documents stored on disk, this is a file URI.
+	// A text document got opened in VSCode.
+	// params.uri uniquely identifies the document. For documents store on disk this is a file URI.
 	// params.text the initial full content of the document.
 	connection.console.log(`${params.textDocument.uri} opened.`);
 });
 connection.onDidChangeTextDocument((params) => {
-	// The content of a text document has changed in VS Code.
+	// The content of a text document did change in VSCode.
 	// params.uri uniquely identifies the document.
 	// params.contentChanges describe the content changes to the document.
 	connection.console.log(`${params.textDocument.uri} changed: ${JSON.stringify(params.contentChanges)}`);
 });
 connection.onDidCloseTextDocument((params) => {
-	// A text document was closed in VS Code.
+	// A text document got closed in VSCode.
 	// params.uri uniquely identifies the document.
 	connection.console.log(`${params.textDocument.uri} closed.`);
 });
 */
+
+// Make the text document manager listen on the connection
+// for open, change and close text document events
+documents.listen(connection);
 
 // Listen on the connection
 connection.listen();
@@ -303,31 +374,57 @@ connection.listen();
 
 ## Adding a Simple Validation
 
-To add document validation to the server, we add a listener to the text document manager that gets called whenever the content of a text document changes. It is then up to the server to decide when the best time is to validate a document. In the example implementation, the server validates the plain text document and flags all occurrences of `typescript` with a message to spell it `TypeScript`. The corresponding code snippet looks like this:
+To add document validation to the server, we add a listener to the text document manager that gets called whenever the content of a text document changes. It is then up to the server to decide when the best time is to validate a document. In the example implementation, the server validates the plain text document and flags all occurrences of words that use ALL CAPS. The corresponding code snippet looks like this:
 
 ```typescript
 // The content of a text document has changed. This event is emitted
-// when the text document is first opened or when its content has changed.
-documents.onDidChangeContent((change) => {
-    let diagnostics: Diagnostic[] = [];
-    let lines = change.document.getText().split(/\r?\n/g);
-    lines.forEach((line, i) => {
-        let index = line.indexOf('typescript');
-        if (index >= 0) {
-            diagnostics.push({
-                severity: DiagnosticSeverity.Warning,
-                range: {
-                    start: { line: i, character: index},
-                    end: { line: i, character: index + 10 }
-                },
-                message: `${line.substr(index, 10)} should be spelled TypeScript`,
-                source: 'ex'
-            });
-        }
-    });
-    // Send the computed diagnostics to VS Code.
-    connection.sendDiagnostics({ uri: change.document.uri, diagnostics });
-});
+// when the text document first opened or when its content has changed.
+documents.onDidChangeContent(async (change) => {
+	// In this simple example we get the settings for every validate run.
+	let settings = await getDocumentSettings(textDocument.uri);
+
+	// The validator creates diagnostics for all uppercase words length 2 and more
+	let text = textDocument.getText();
+	let pattern = /\b[A-Z]{2,}\b/g;
+	let m: RegExpExecArray;
+
+	let problems = 0;
+	let diagnostics: Diagnostic[] = [];
+	while ((m = pattern.exec(text))) {
+		problems++;
+		let diagnosic: Diagnostic = {
+			severity: DiagnosticSeverity.Warning,
+			range: {
+				start: textDocument.positionAt(m.index),
+				end: textDocument.positionAt(m.index + m[0].length)
+			},
+			message: `${m[0]} is all uppercase.`,
+			source: 'ex'
+		};
+		if (hasDiagnosticRelatedInformationCapability) {
+			diagnosic.relatedInformation = [
+				{
+					location: {
+						uri: textDocument.uri,
+						range: Object.assign({}, diagnosic.range)
+					},
+					message: 'Spelling matters'
+				},
+				{
+					location: {
+						uri: textDocument.uri,
+						range: Object.assign({}, diagnosic.range)
+					},
+					message: 'Particularly for names'
+				}
+			];
+		}
+		diagnostics.push(diagnosic);
+	}
+
+	// Send the computed diagnostics to VSCode.
+	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+}
 ```
 
 ### Diagnostics Tips and Tricks
@@ -342,9 +439,9 @@ To test the language server, do the following:
 * Create a test.txt file in the root folder and paste the following content:
 
 ```plaintext
-typescript lets you write JavaScript the way you really want to.
-typescript is a typed superset of JavaScript that compiles to plain JavaScript.
-Any browser. Any host. Any OS. Open Source.
+Typescript lets you write JavaScript the way you really want to.
+Typescript is a typed superset of JavaScript that compiles to plain JavaScript.
+ANY browser. ANY host. ANY OS. Open Source.
 ```
 
 The `Extension Development Host` instance will then look like this:
@@ -363,68 +460,86 @@ Since the server is started by the `LanguageClient` running in the extension (cl
 
 ## Using Configuration Settings in the Server
 
-When writing the client part of the extension, we already defined a setting to control the maximum numbers of problems reported. We also instructed the `LanguageClient` to sync these settings to the server using the synchronization configuration in the `LanguageClientOptions`:
+When writing the client part of the extension, we already defined a setting to control the maximum numbers of problems reported. We also wrote code on the server side to read these settings from the client:
 
 ```typescript
-synchronize: {
-    // Synchronize the setting section 'languageClientExample' to the server
-    configurationSection: 'lspSample',
-    // Notify the server about file changes to '.clientrc files contain in the workspace
-    fileEvents: workspace.createFileSystemWatcher('**/.clientrc')
+function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
+	if (!hasConfigurationCapability) {
+		return Promise.resolve(globalSettings);
+	}
+	let result = documentSettings.get(resource);
+	if (!result) {
+		result = connection.workspace.getConfiguration({ scopeUri: resource, section: 'languageServerExample' });
+		documentSettings.set(resource, result);
+	}
+	return result;
 }
 ```
 
 The only thing we need to do now is to listen to configuration changes on the server side and if a settings changes, revalidate the open text documents. To be able to reuse the validate logic of the document change event handling, we extract the code into a `validateTextDocument` function and modify the code to honor a `maxNumberOfProblems` variable:
 
 ```typescript
-function validateTextDocument(textDocument: TextDocument): void {
-    let diagnostics: Diagnostic[] = [];
-    let lines = textDocument.getText().split(/\r?\n/g);
-    let problems = 0;
-    for (var i = 0; i < lines.length && problems < maxNumberOfProblems; i++) {
-        let line = lines[i];
-        let index = line.indexOf('typescript');
-        if (index >= 0) {
-            problems++;
-            diagnostics.push({
-                severity: DiagnosticSeverity.Warning,
-                range: {
-                    start: { line: i, character: index},
-                    end: { line: i, character: index + 10 }
-                },
-                message: `${line.substr(index, 10)} should be spelled TypeScript`,
-                source: 'ex'
-            });
-        }
-    }
-    // Send the computed diagnostics to VS Code.
-    connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+async function validateTextDocument(textDocument: TextDocument): Promise<void> {
+	// In this simple example we get the settings for every validate run.
+	let settings = await getDocumentSettings(textDocument.uri);
+
+	// The validator creates diagnostics for all uppercase words length 2 and more
+	let text = textDocument.getText();
+	let pattern = /\b[A-Z]{2,}\b/g;
+	let m: RegExpExecArray;
+
+	let problems = 0;
+	let diagnostics: Diagnostic[] = [];
+	while ((m = pattern.exec(text)) && problems < settings.maxNumberOfProblems) {
+		problems++;
+		let diagnosic: Diagnostic = {
+			severity: DiagnosticSeverity.Warning,
+			range: {
+				start: textDocument.positionAt(m.index),
+				end: textDocument.positionAt(m.index + m[0].length)
+			},
+			message: `${m[0]} is all uppercase.`,
+			source: 'ex'
+		};
+		if (hasDiagnosticRelatedInformationCapability) {
+			diagnosic.relatedInformation = [
+				{
+					location: {
+						uri: textDocument.uri,
+						range: Object.assign({}, diagnosic.range)
+					},
+					message: 'Spelling matters'
+				},
+				{
+					location: {
+						uri: textDocument.uri,
+						range: Object.assign({}, diagnosic.range)
+					},
+					message: 'Particularly for names'
+				}
+			];
+		}
+		diagnostics.push(diagnosic);
+	}
+
+	// Send the computed diagnostics to VSCode.
+	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 ```
 
 The handling of the configuration change is done by adding a notification handler for configuration changes to the connection. The corresponding code looks like this:
 
 ```typescript
-// The settings interface describes the server relevant settings part
-interface Settings {
-    lspSample: ExampleSettings;
-}
+connection.onDidChangeConfiguration(change => {
+	if (hasConfigurationCapability) {
+		// Reset all cached document settings
+		documentSettings.clear();
+	} else {
+		globalSettings = <ExampleSettings>(change.settings.languageServerExample || defaultSettings);
+	}
 
-// These are the example settings we defined in the client's package.json
-// file
-interface ExampleSettings {
-    maxNumberOfProblems: number;
-}
-
-// hold the maxNumberOfProblems setting
-let maxNumberOfProblems: number;
-// The settings have changed. It is sent on server activation
-// as well.
-connection.onDidChangeConfiguration((change) => {
-    let settings = <Settings>change.settings;
-    maxNumberOfProblems = settings.lspSample.maxNumberOfProblems || 100;
-    // Revalidate any open text documents
-    documents.all().forEach(validateTextDocument);
+	// Revalidate all open text documents
+	documents.all().forEach(validateTextDocument);
 });
 ```
 
