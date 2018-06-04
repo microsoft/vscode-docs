@@ -9,7 +9,7 @@ MetaDescription: Variable substitution reference
 ---
 # Variables Reference
 
-Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files. Variable substitution is supported inside strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
+Visual Studio Code supports variable substitution in [Debugging](/docs/editor/debugging.md) and [Task](/docs/editor/tasks.md) configuration files. Variable substitution is supported inside key and value strings in `launch.json` and `tasks.json` files using **${variableName}** syntax.
 
 ## Predefined variables
 
@@ -27,7 +27,7 @@ The following predefined variables are supported:
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
 
-**Note**: The `${workspaceRoot}` variable is deprecated in favor of the `${workspaceFolder}` variable.
+>**Tip**: Use intelli-sense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
 ## Environment variables
 
