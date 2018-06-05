@@ -71,17 +71,15 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 
 ## Run Selection/Line in Terminal (REPL)
 
-The **Python: Run Selection/Line in Terminal** command (`kb(python.execSelectionInTerminal)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
+The **Python: Run Selection/Line in Terminal** command is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Integrated Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
 
-The command opens the Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
+The command opens the Integrated Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
 
-> **Note**: at present, using `kb(python.execSelectionInTerminal)` keeps the editor on the same line of code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
+> **Note**: At present, **Python: Run Selection/Line in Terminal** using keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
-Code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
+Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
 
-When working in the editor, you can send the current line to the REPL using `kb(python.execSelectionInTerminal)`. Using `kb(python.execSelectionInTerminal)` starts the REPL if it's not already running, but note that initial startup might take a few moments especially if the first statement you run is an `import`.
-
-> **Note**: at present, `kb(python.execSelectionInTerminal)` keeps the editor on the same line of code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
+When working in the editor, you can send the current line to the REPL using **Python: Run Selection/Line in Terminal**. The command starts the REPL if it's not already running, but note that initial startup might take a few moments especially if the first statement you run is an `import`.
 
 ## Formatting
 
