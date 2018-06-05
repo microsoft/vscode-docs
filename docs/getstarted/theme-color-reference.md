@@ -128,6 +128,8 @@ Colors for list and trees like the File Explorer. An active list/tree has keyboa
 - `list.inactiveSelectionForeground`: List/Tree foreground color for the selected item when the list/tree is inactive. An active list/tree has keyboard focus, an inactive does not.
 - `list.inactiveFocusBackground`: List background color for the focused item when the list is inactive. An active list has keyboard focus, an inactive does not. Currently only supported in lists.
 - `list.invalidItemForeground`: List/Tree foreground color for invalid items, for example an unresolved root in explorer.
+- `list.errorForeground`: Foreground color of list items containing errors.
+- `list.warningForeground`: Foreground color of list items containing warnings.
 
 ## Activity Bar
 
@@ -343,6 +345,7 @@ The Editor widget is shown in front of the editor content. Examples are the Find
 
 - `editorWidget.background`: Background color of editor widgets, such as Find/Replace.
 - `editorWidget.border`: Border color of the editor widget unless the widget does not contain a border or defines its own border color.
+- `editorWidget.resizeBorder`: Border color of the resize bar of editor widgets. The color is only used if the widget chooses to have a resize border and if the color is not overridden by a widget.
 
 - `editorSuggestWidget.background`: Background color of the suggestion widget.
 - `editorSuggestWidget.border`: Border color of the suggestion widget.
@@ -526,8 +529,9 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 ## Git Colors
 
-- `gitDecoration.modifiedResourceForeground`: Color for modified git resources. Used file labels and the SCM viewlet.
-- `gitDecoration.deletedResourceForeground`: Color for deleted git resources. Used file labels and the SCM viewlet.
-- `gitDecoration.untrackedResourceForeground`: Color for untracked git resources. Used file labels and the SCM viewlet.
-- `gitDecoration.ignoredResourceForeground`: Color for ignored git resources. Used file labels and the SCM viewlet.
-- `gitDecoration.conflictingResourceForeground`: Color for conflicting git resources. Used file labels and the SCM viewlet.
+- `gitDecoration.modifiedResourceForeground`: Color for modified git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.deletedResourceForeground`: Color for deleted git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.untrackedResourceForeground`: Color for untracked git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.ignoredResourceForeground`: Color for ignored git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.conflictingResourceForeground`: Color for conflicting git resources. Used for file labels and the SCM viewlet.
+- `gitDecoration.submoduleResourceForeground`: Color for submodule resources.
