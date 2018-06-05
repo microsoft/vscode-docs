@@ -13,7 +13,7 @@ MetaSocialImage: images/tutorial/social.png
 The Python extension provides many features for editing Python source code in Visual Studio Code:
 
 - [Autocomplete and Intellisense](#autocomplete-and-intellisense)
-- [Run Selection/Line in Terminal (REPL)](#run-selection--line-in-terminal-repl)
+- [Run Selection/Line in Terminal (REPL)](#run-selectionline-in-terminal-repl)
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
 
