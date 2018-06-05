@@ -46,8 +46,46 @@ The TypeScript compilation is setup as follows in the generated extension:
 * A TypeScript compiler with the proper version is included inside the `node_modules` folder.
 * The API definition is included in `node_modules/vscode`.
 
-The TypeScript compilation is triggered before running your extension. This is done with the `preLaunchTask` attribute defined in the
-`.vscode/launch.json` file which declares a task to be executed before starting the debugging session. The task is defined inside the `.vscode/tasks.json` file.
+The TypeScript compilation is triggered before running your extension. This is done with the `preLaunchTask` attribute defined in the `.vscode/launch.json` file which declares a task to be executed before starting the debugging session. The task is defined inside the `.vscode/tasks.json` file.
+
+If you generated your extension a long time ago it will very likely still depend on task version `0.1.0`. Version `2.0.0` is out since a while and here are steps how to upgrade your extension to version `2.0.0`:
+
+*Replace the content of the tasks.json with*
+```js
+// See https://go.microsoft.com/fwlink/?LinkId=733558
+// for the documentation about the tasks.json format
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "watch",
+            "problemMatcher": "$tsc-watch",
+            "isBackground": true,
+            "presentation": {
+                "reveal": "never"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
+```
+
+*Add the following setting to the settings.json*
+
+```js
+    // Turn off tsc task auto detection since we have the necessary task as npm scripts
+    "typescript.tsc.autoDetect": "off"
+```
+
+*Ensure the right pre launch task is referenced in launch.json.* It should be:
+
+```
+"preLaunchTask": "npm: watch"
+```
 
 > **Note:** The TypeScript compiler is started in watch mode, so that it compiles the files as you make changes.
 
