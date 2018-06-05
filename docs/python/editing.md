@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 05/21/2018
+DateApproved: 06/04/2018
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -85,7 +85,7 @@ When working in the editor, you can send the current line to the REPL using `kb(
 
 ## Formatting
 
-The Python extension supports source code formatting using either autopep8 (the default) or yapf.
+The Python extension supports source code formatting using either autopep8 (the default), black, or yapf.
 
 ### General formatting settings
 
@@ -100,6 +100,7 @@ The following settings apply to the individual formatters. The Python extension 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
 | autopep8 | pip install pep8<br/>pip install --upgrade autopep8 | autopep8Args | autopep8Path |
+| black | pip install black | blackArgs | blackPath |
 | yapf | pip install yapf | yapfArgs | yapfPath |
 
 Example custom arguments:

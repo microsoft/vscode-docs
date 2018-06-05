@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 05/21/2018
+DateApproved: 06/04/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -102,7 +102,7 @@ If VS Code does not automatically locate an interpreter you want to use, you can
 
 1. Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
 
-2. Create or modify an entry for `python.pythonPath` with the full path to the Python executable.
+2. Create or modify an entry for `python.pythonPath` with the full path to the Python executable (or the folder containing the executable).
 
     For example:
 
@@ -124,11 +124,11 @@ A system environment variable can be used in the path setting using the syntax `
 
 ```json
 {
-    "python.pythonPath": "${env:PYTHONPATH}"
+    "python.pythonPath": "${env:PYTHON_INSTALL_LOC}"
 }
 ```
 
-By using an environment variable, you can easily transfer a project between operating systems where the paths are different. Just be sure to set the PYTHONPATH environment variable on the operating system first.
+By using an environment variable, you can easily transfer a project between operating systems where the paths are different. Just be sure to set the environment variable on the operating system first.
 
 ### Virtual environments
 
