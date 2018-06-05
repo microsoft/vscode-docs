@@ -850,7 +850,7 @@ With the setting `npm.enableScriptExplorer`, you can enable an explorer that sho
 
 ![Filter problems](images/tips-and-tricks/script_explorer.png)
 
-From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
+From the explorer you can open a script in the editor, run it as a task, and launch it with the node debugger (when the script defines a debug option like `--inspect-brk`). The default action on click is to open the script. To run a script on a single click set `npm.scriptExplorerAction` to "run". Use the setting `npm.exclude` to exclude scripts in `package.json` files contained in particular folders.
 
 ## Insiders builds
 
