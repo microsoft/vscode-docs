@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Developing Extensions
 ContentId: 44569A0C-7196-48E6-A5EE-FC5AAAAD32F3
 PageTitle: Developing your own Visual Studio Code Extension
-DateApproved: 5/3/2018
+DateApproved: 6/6/2018
 MetaDescription: Visual Studio Code extension (plug-in) development. Learn about running, debugging, profiling, and troubleshooting extensions.
 ---
 # Developing Extensions
