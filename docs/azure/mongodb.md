@@ -85,7 +85,7 @@ Follow the prompts to select an Azure Subscription, enter a Cosmos DB account na
 
 ![Cosmos DB content menu](images/mongodb/cosmosdb-context-menu.png)
 
-To learn more about MongoDB databases on Azure, see [Introduction  to Azure Cosmos DB: MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction). Azure Cosmos DB also lets you host other database types such as SQL, Graph (Gremlin), Apache Cassandra through it's full set of [database APIs](https://docs.microsoft.com/azure/cosmos-db/).
+To learn more about MongoDB databases on Azure, see [Introduction to Azure Cosmos DB: MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction). Azure Cosmos DB also lets you host other database types such as SQL, Graph (Gremlin), Apache Cassandra through it's full set of [database APIs](https://docs.microsoft.com/azure/cosmos-db/).
 
 ## Next Steps
 
