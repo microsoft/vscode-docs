@@ -77,7 +77,7 @@ Source code that runs in the terminal/REPL is cumulative until the current insta
 
 The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
 
-On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again after waiting a few seconds.
+On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again the REPL has finished loading.
 
 > **Note**: At present, using `kbstyle(Ctrl+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
