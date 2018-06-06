@@ -132,7 +132,7 @@ To automatically stop the debugger on the first line when the program starts, ad
 },
 ```
 
-Switch to `hello.py` in the editor, then run the debugger by selecting the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true, the debugger stops on the first line of the file. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
+Save `launch.json`, switch to `hello.py` in the editor, then run the debugger by selecting the green arrow in the Debug toolbar or pressing `kb(workbench.action.debug.start)`. Because `stopOnEntry` is set to true, the debugger stops on the first line of the file. The current line is indicated with a yellow arrow in the left margin. If you examine the **Local** variables window at this point, you see that only automatic dunder variables are defined:
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
@@ -168,7 +168,7 @@ If for some reason VS Code doesn't generate `launch.json` for you, create a file
 
 If you see the error below, it means that you attempted to start to debugger when `launch.json` is selected in the editor rather than `hello.py`:
 
-```output
+```bash
     // Use IntelliSense to learn about possible attributes.
      ^
 SyntaxError: invalid syntax

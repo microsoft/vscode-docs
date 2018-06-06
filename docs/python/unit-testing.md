@@ -1,16 +1,18 @@
 ---
-Order: 6
+Order: 7
 Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 05/21/2018
+DateApproved: 06/04/2018
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Unit testing Python in VS Code
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/) and [Nose](https://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
+
+Use the **Python: Discover Unit Tests** to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discover](#test-discovery). Once discovered, VS Code provides a variety of means to run tests (see [Running tests](#running-tests)).
 
 Unit test output is displayed in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
@@ -78,9 +80,9 @@ You can also configure nose with a `.noserc` or `nose.cfg` file as described on 
 
 ## Test discovery
 
-VS Code uses the currently enabled unit testing framework to discover tests by applying the respective discovery patterns specified in the arguments option for that framework.
+VS Code uses the currently enabled unit testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Unit Tests** command.
 
-For example, the default arguments for unittest include `-s . -p *test*.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the `*test*.py` pattern (`-p *test*.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
+Test discovery applies the discovery patterns specified in the arguments option for the current test framework. For example, the default arguments for unittest include `-s . -p *test*.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the `*test*.py` pattern (`-p *test*.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
 
 Pytest, for its part, has an algorithm for determining its root folder and patterns, as described on [pytest Configuration](https://docs.pytest.org/en/latest/customize.html).
 
@@ -96,7 +98,7 @@ Tests are run using any of the following actions:
 - Right-click a file in Explorer and select `Run Unit Tests`, which runs the tests in that one file.
 - Open a test file and select the `Run Test` Code Lens that appears above a test class or a method. This command runs only those tests in the class or runs that one test method, respectively.
 
-    ![Python unit testing commands on the Command Palette](images/unit-testing/codelens.png)
+    ![Python unit testing commands in the editor](images/unit-testing/codelens.png)
 
 - From the **Command Palette**, select any of the unit test commands:
 

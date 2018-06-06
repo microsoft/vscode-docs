@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 05/21/2018
+DateApproved: 06/04/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -84,7 +84,7 @@ The extension automatically looks for interpreters in the following locations:
 
 - Standard paths such as `/usr/local/bin`, `/usr/sbin`, `/sbin`, `c:\\python27`, `c:\\python36`, etc.
 - Virtual environments located directly under the workspace (project) folder.
-- Virtual environments located in the folder identified by the `python.venvPath` setting (see [General settings](settings-reference.md#general-settings). The extension looks for virtual environments in the first-level subfolders of `venvPath`.
+- Virtual environments located in the folder identified by the `python.venvPath` setting (see [General settings](settings-reference.md#general-settings)). The extension looks for virtual environments in the first-level subfolders of `venvPath`.
 - Interpreters installed by [pyenv](https://github.com/pyenv/pyenv).
 - A [pipenv](https://docs.pipenv.org/) environment for the workplace folder. If one is found then no other interpreters are searched for or listed as pipenv expects to manage all aspects of the environment.
 - Conda environments that contain a Python interpreter. VS Code does not show conda environments that don't contain an interpreter.
@@ -102,7 +102,7 @@ If VS Code does not automatically locate an interpreter you want to use, you can
 
 1. Select the **File** > **Preferences** > **Settings** command (`kb(workbench.action.openSettings)`) to open your User [Settings](/docs/getstarted/settings.md).
 
-2. Create or modify an entry for `python.pythonPath` with the full path to the Python executable.
+2. Create or modify an entry for `python.pythonPath` with the full path to the Python executable (or the folder containing the executable).
 
     For example:
 
@@ -124,11 +124,11 @@ A system environment variable can be used in the path setting using the syntax `
 
 ```json
 {
-    "python.pythonPath": "${env:PYTHONPATH}"
+    "python.pythonPath": "${env:PYTHON_INSTALL_LOC}"
 }
 ```
 
-By using an environment variable, you can easily transfer a project between operating systems where the paths are different. Just be sure to set the PYTHONPATH environment variable on the operating system first.
+By using an environment variable, you can easily transfer a project between operating systems where the paths are different. Just be sure to set the environment variable on the operating system first.
 
 ### Virtual environments
 
@@ -168,7 +168,7 @@ For example, when developing a web application, you might want to easily switch 
 
 **dev.env file**
 
-```text
+```bash
 # dev.env - development configuration
 
 # API endpoint
@@ -182,7 +182,7 @@ MYPROJECT_DBPASSWORD=!dfka**213=
 
 **prod.env file**
 
-```text
+```bash
 # prod.env - production configuration
 
 # API endpoint
