@@ -15,6 +15,7 @@ Extensions are activated lazily in VS Code.  As a result, you need to provide VS
 * [`onCommand:${command}`](/docs/extensionAPI/activation-events.md#activationeventsoncommand)
 * [`onDebug`](/docs/extensionAPI/activation-events.md#activationeventsondebug)
 * [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
+* [`onFileSystem:${scheme}`](/docs/extensionAPI/activation-events.md#activationeventsonfilesystem)
 * [`onView:${viewId}`](/docs/extensionAPI/activation-events.md#activationeventsonview)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
@@ -86,6 +87,18 @@ This activation event is emitted and interested extensions will be activated whe
 ...
 "activationEvents": [
     "workspaceContains:**/.editorconfig"
+]
+...
+```
+
+## activationEvents.onFileSystem
+
+This activation event is emitted and interested extensions will be activated whenever a file or folder from a specific *scheme* is read. This is usually the `file`-scheme, but with custom file system providers more schemes come into place, e.g `ftp` or `ssh`.
+
+```json
+...
+"activationEvents": [
+    "onFileSystem:sftp"
 ]
 ...
 ```
