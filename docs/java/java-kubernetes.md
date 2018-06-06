@@ -15,9 +15,9 @@ We will continue using the same Spring Boot application we built in our first [J
 
 ## Before you begin
 
-In addition to the Java tools you needed to install for the [Java Tutorial](/docs/java/java-tutorial.md), you would also need to have tools for [Docker](https://docker.com/) and [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). See the [Install Docker](https://docs.docker.com/installation/#installation) documentation for details on setting Docker up for your machine and [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Before proceeding further, verify you can run Docker and kubectl commands from the shell.
+In addition to the Java tools you needed to install for the [Java Tutorial](/docs/java/java-tutorial.md), you would also need to have tools for [Docker](https://docker.com/) and [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/). See the [Install Docker](https://docs.docker.com/install/) documentation for details on setting Docker up for your machine and [Install kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). Before proceeding further, verify you can run Docker and kubectl commands from the shell.
 
-You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service(AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Container Service(AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](http://www.azure.com) account ready for the deployment steps.
+You can create a local Kubernetes cluster with [minikube](https://kubernetes.io/docs/getting-started-guides/minikube/) or an Azure Kubernetes cluster in [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/). In this tutorial, we will use [Azure Container Service(AKS)](https://docs.microsoft.com/azure/aks/) and you will need to have your [Azure](https://www.azure.com) account ready for the deployment steps.
 
 ## Install the Kubernetes extension
 
@@ -27,23 +27,23 @@ To install the Kubernetes extension, open the Extensions view (`kb(workbench.vie
 
 ![Install Kubernetes](images/java-kubernetes/install-kubernetes.png)
 
-## Containerize the application and push docker image to Docker Hub
+## Containerize and publish the application
 
-You can follow the [Java with Docker in VS Code](/docs/java/java-container.md) tutorial to build your project, generate a Docker image  and push it to a public or private container registry through the [Docker Extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker).
+You can follow the [Java with Docker in VS Code](/docs/java/java-container.md) tutorial to build your project, generate a Docker image  and push it to a public or private container registry through the Microsoft [Docker Extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker).
 
 ## Create and config a Kubernetes cluster
 
-You can create a Kubernetes cluster running on Azure using the Kubernetes extension in VS Code. Once you have installed the Kubernetes extension, you will see **KUBERNETES** in the Explorer. Click on **More** and choose **Create Cluster**. Just follow the instructions to choose cluster type (here we choose **Azure Kubernetes Service**), select your subscription, set up Azure cluster settings and Azure agent settings. It will take a few minutes to complete the whole workflow.
+You can create a Kubernetes cluster running on Azure using the Kubernetes extension in VS Code. Once you have installed the Kubernetes extension, you will see **KUBERNETES** in the Explorer. Click on **More** and choose **Create Cluster**. Follow the instructions to choose the cluster type (here we choose **Azure Kubernetes Service**), select your subscription, and set up the Azure cluster and Azure agent settings. It will take a few minutes to complete the whole workflow.
 
 ![Create Kubernetes](images/java-kubernetes/create-k8s.gif)
 
-**Important**: To create Kubernetes cluster on Azure, you need to install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) and sign in.
+**Important**: To create a Kubernetes cluster on Azure, you need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) and sign in.
 
-**Tips**: You will encounter an error if you don't have an available RSA key file. Follow [create SSH public-private key](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) to create your key before creating an Azure Kubernetes cluster.
+**Tip**: You will encounter an error if you don't have an available RSA key file. Follow [create SSH public-private key](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) to create your key before creating an Azure Kubernetes cluster.
 
 ![Error with RSA](images/java-kubernetes/error-creating-clusters-RSA.png)
 
-**Tips**: You might encounter an error indicating conflicting location and VM size when creating an Azure Kubernetes cluster. Pay attention to choose proper location and VM size.
+**Tip**: You might encounter an error indicating conflicting location and VM size when creating an Azure Kubernetes cluster. Pay attention to choose proper location and VM size.
 
 ![Error creating cluster](images/java-kubernetes/error-creating-clusters.png)
 
@@ -60,6 +60,8 @@ Below is an example manifest file:
 Once your manifest file is ready, you only need one command to start a deployment. Open the **Command Palette** (`kb(workbench.action.showCommands)`) and run **Kubernetes: Create**. It will deploy the application to your Kubernetes cluster and create objects according to the configuration in the open Kubernetes manifest file.
 
 ![Start deployment](images/java-kubernetes/start-deployment.gif)
+
+### Checking on your deployment
 
 After deployment, the Kubernetes extension can help you check the status of your application. From the Explorer, click on **Workloads**, right click on **Pods** and then choose **Get** to see whether the application has started. To view the status of your app, select **Services**, right click on your app, and then click **Get**. The status will be printed in the Integrated Terminal. Once your application has an `EXTERNAL_IP`, you can open a browser and see your web app running.
 

@@ -17,9 +17,9 @@ Visual Studio Code is an ideal lightweight development environment for Spring Bo
 ## Prerequisites
 
 * [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/), version 1.8.
-* [Apache Maven](http://maven.apache.org/), version 3.0 or later.
+* [Apache Maven](https://maven.apache.org/), version 3.0 or later.
 
-## Create Project
+## Create the project
 
 The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension allows you to search for dependencies and generate new Spring Boot projects.
 
@@ -29,17 +29,17 @@ Once you have the extension installed, open the **Command Palette** (`kb(workben
 
 ![Spring Initializr](images/java-spring-boot/spring-initializr.gif)
 
-## Develop Application
+## Develop the application
 
 The [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml` and `.java` files.
 
 The extension supports quick navigate through source code, smart code completions, quick access to running apps, and live application information. Similar code completion and validation features are also available for `.properties` and `.yml` files.
 
-## Connect with Data Service
+## Connect with data services
 
 [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction) is a globally-distributed database service that allows developers to work with data using a variety of standard APIs, such as SQL, MongoDB, Cassandra, Graph, and Table.
 
-The [Spring Boot Starter](https://docs.microsoft.com/en-us/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) makes it easy to store data in and retrieve data from your Azure Cosmos DB with SQL API.
+The [Spring Boot Starter](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db) makes it easy to store data in and retrieve data from your Azure Cosmos DB with SQL API.
 
 Before running this sample on [Azure](https://azure.microsoft.com), you need to have an Azure subscription.
 
@@ -66,7 +66,7 @@ If you don't have an Azure subscription, you can sign up for a [free Azure accou
     azure.documentdb.database=your-documentdb-databasename
     ```
 
-## Run and Debug the Application
+## Run and debug the application
 
 You can press `kb(workbench.action.debug.start)` to run your application. To check the result, open [Azure portal](https://portal.azure.com/) and access your Cosmos DB. Click **Data Explorer**, and next choose **Documents**. You will see data being shown if it is successfully written into Cosmos DB. You can also browse your data entries in Cosmos DB with [Azure Cosmos DB Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb).
 
