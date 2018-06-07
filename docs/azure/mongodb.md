@@ -11,25 +11,25 @@ DateApproved: 6/6/2018
 
 Visual Studio Code has great support for working with [MongoDB](https://www.mongodb.com/what-is-mongodb) databases. Through the [Azure CosmosDB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension, you can create, manage and query MongoDB databases from within VS Code.
 
-## Install the Cosmos DB extension
+## Install the extension
 
 MongoDB support for VS Code is provided by the [Azure Cosmos DB](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb) extension. To install the Cosmos DB extension, open the Extensions view by pressing `kb(workbench.view.extensions)` and search for 'cosmos' to filter the results. Select the Microsoft **Azure Cosmos DB** extension.
 
 ![Select Cosmos DB extension](images/mongodb/install-cosmosdb-extension.png)
 
-## Cosmos DB Explorer
+## Connect to MongoDB
 
 Once you've installed the Cosmos DB extension and reloaded VS Code, you'll notice there is a new **Azure** Activity Bar view. Click on the Azure view and you'll see the Cosmos DB Explorer.
 
 ![cosmos db explorer](images/mongodb/cosmosdb-explorer.png)
-
-### Connect to MongoDB
 
 To connect to a MongoDB database, expand the **Attached Database Accounts** and click **Attach Database Account..**, and choose the **MongoDB** from the Database Account API dropdown.
 
 ![attach database account dropdown](images/mongodb/attach-database-account.png)
 
 Enter a connection string to the database, the default is your local MongoDB server at `mongodb://127.0.0.1:27017`. You can enter any connection string, to local or remote MongoDB servers.
+
+>**Note**: Make sure your MongoDB server (mongod.exe) is running if you are connecting to a local MongoDB server.
 
 Once attached, you can work with the MongoDB server, managing MongoDB Databases, Collections and Documents.
 
