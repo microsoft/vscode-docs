@@ -164,9 +164,9 @@ See [Invoking Flake8](http://flake8.pycqa.org/en/latest/user/invocation.html) fo
 
 By default, Flake8 ignores E121, E123, E126, E226, E24, and E704.
 
-Flake8 user options are read from the `.flake8` (Windows) or `~/.config/flake8` (macOS/Linux) file.
+Flake8 user options are read from the `C:\Users\<username>\.flake8` (Windows) or `~/.config/flake8` (macOS/Linux) file.
 
-At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered.
+At the project level, options are read from the `[flake8]` section of a `tox.ini`, `setup.cfg` or `.flake8` file.
 
 For details, see [Flake8 configuration](http://flake8.pycqa.org/en/latest/user/configuration.html).
 
