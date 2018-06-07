@@ -73,7 +73,7 @@ Python is an interpreted language, and in order to run Python code you must tell
 
 From within VS Code, select a Python 3 interpreter using the **Python: Select Interpreter** command on the **Command Palette** (`kb(workbench.action.showCommands)`), or by using the **Select Python Environment** option on the Status Bar if available (it may already show a selected interpreter, too):
 
-    ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
+![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
 
 The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
