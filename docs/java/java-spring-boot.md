@@ -29,6 +29,14 @@ Once you have the extension installed, open the **Command Palette** (`kb(workben
 
 ![Spring Initializr](images/java-spring-boot/spring-initializr.gif)
 
+## Edit the project
+
+The [Spring Initializr](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr) extension allows you to edit dependencies after generating a new Spring Boot project.
+
+Navigate to your `pom.xml` file and right click to select `Edit starters`. The  **Command Palette** will show the dependencies you already have beginning with a `√` . You can search for other dependencies you want to add to your project. Or you can click on the existing dependencies to remove them.
+
+![Spring Initializr-edit](images/java-spring-boot/spring-initializr-edit.gif)
+
 ## Develop the application
 
 The [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot) extension includes rich language support for working with Spring Boot `application.properties`, `application.yml` and `.java` files.

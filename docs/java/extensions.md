@@ -29,7 +29,8 @@ There are many other popular Java extensions you can pick from, including:
 1. [Spring Boot Support](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-spring-boot)
 2. [Spring Initializr Java Support](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-spring-initializr)
 3. [Tomcat](https://marketplace.visualstudio.com/items?itemName=adashen.vscode-tomcat)
-4. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
+4. [Jetty](https://marketplace.visualstudio.com/items?itemName=SummerSun.vscode-jetty)
+5. [CheckStyle](https://marketplace.visualstudio.com/items?itemName=shengchen.vscode-checkstyle)
 
 Thanks to the great Java community around VS Code, the list doesn't end there. You can search for more Java extensions easily within the VS Code:
 
@@ -53,6 +54,8 @@ Here's a list of Azure extensions supporting Java:
 ### Micro-Services
 
 * The [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension makes it easy to develop and deploy containerized micro-service based applications using Docker containers. Use [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) to create a CI/CD pipeline to build your containerized applications, deploy them to the [Azure Container Registry](https://docs.microsoft.com//azure/container-registry/), run web sites directly in [Azure App Services](https://docs.microsoft.com//azure/app-service/), and run multi-container systems at scale using the [Azure Container Service](https://docs.microsoft.com//azure/container-service/).
+
+* The [Kubernetes Tools](https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools) extension lets you quickly develop Kubernetes manifests and HELM charts, then deploy containerized micro-service based applications to local or Azure Kubernetes cluster and live debug your applications running in containers of a Kubernetes cluster. It also makes it easy to browse and manage your Kubernetes cluster in VS Code. Furthermore it provides seamless integration with Draft to streamline Kubernetes development.
 
 ### Storage
 

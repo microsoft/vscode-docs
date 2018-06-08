@@ -1,15 +1,15 @@
 ---
 Order: 6
 Area: java
-TOCTitle: Java Serverless
+TOCTitle: Java Cloud Functions
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
-PageTitle: Writing serverless Java Application with VS Code
+PageTitle: Building Java Cloud Functions with Visual Studio Code
 DateApproved: 5/30/2018
-MetaDescription: Using VS Code for developing, debugging and deploying your serverless application.
+MetaDescription: Using VS Code for developing, debugging and deploying your cloud functions.
 ---
-# Serverless Java Apps with VS Code
+# Java Cloud Functions with VS Code
 
-Serverless, as indicated by its name, allows you to execute your code in an environment without having to first create a VM or publish a web application.
+Cloud Functions, also referred as Serverless, as indicated by its name, allows you to execute your code in an environment without having to first create a VM or publish a web application.
 
 This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project and deploying to [Azure](https://azure.microsoft.com) with Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You'll be able to test the function locally and then deploy it to [Azure Functions](https://azure.microsoft.com/services/functions). When you're done, you'll have a HTTP-triggered function app running in Azure.
 
@@ -41,7 +41,7 @@ To install the Azure Functions extension, open the Extensions view (`kb(workbenc
 
 Once you've installed the Azure Functions extension, you can easily create a new project by:
 
-1. Click **Create New Project** button on the **AZURE FUNCTIONS** Explorer view.
+1. Click **Create New Project** button on the **FUNCTIONS** Explorer within the **Azure** tab.
 2. Select target folder.
 3. Select Java the target language.
 4. Fill in the parameters.
@@ -57,13 +57,18 @@ Within the created project, there's a simple HTTP triggered 'Hello World' Functi
  * Azure Functions with HTTP Trigger.
  */
 public class Function {
+    /**
+     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/hello
+     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     */
     @FunctionName("hello")
-    public HttpResponseMessage<String> httpHandler(
+    public HttpResponseMessage<String> hello(
             @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context
-    ) {
+            final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
+        // Parse query parameter
         String query = request.getQueryParameters().get("name");
         String name = request.getBody().orElse(query);
 
@@ -226,6 +231,8 @@ The tool will then figure out the rest for you. Once it's connected to the runni
 ```
 
 Now you can set a break point and attach to your cloud function using VS Code. When you launch a debug session with the above configuration, you can step through it just like you did locally. It's also useful if you don't have .Net Core and the Azure Functions CLI core tool installed on your local environment and you want to jump start within the cloud directly.
+
+Recently, we've also enabled remote debugging Azure Functions through the Functions Extension. To use this feature, you need to set `azureFunctions.enableRemoteDebugging` to true. And the entrance is called `Attach debugger`. Details could be found [Remote Debugging Java Functions in VS Code](https://github.com/Microsoft/vscode-azurefunctions/blob/master/docs/remotedebug.md).
 
 ## Next steps
 
