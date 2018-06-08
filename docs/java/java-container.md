@@ -11,7 +11,7 @@ MetaDescription:
 
 This tutorial will walk you through building and deploying a [Docker](https://docker.com/) image for a Java application with Visual Studio Code.
 
-We will continue using the same Spring Boot application we built in our first [Java Tutorial](/docs/java/java-tutorial.md).
+We will continue using the same Spring Boot application we built in our  [Java Web App](/docs/java/java-webapp.md) tutorial.
 
 [Docker](https://docker.com/) is a Linux container management toolkit which allows users to publish and reuse container images. A Docker image is a recipe for running a containerized process. In this tutorial, we will build an Docker image for the web app, run the image locally, and then deploy it to the cloud.
 
@@ -37,7 +37,7 @@ To build your project, navigate to the `complete` folder of the Sprint Boot appl
 mvn clean package
 ```
 
-Docker has a simple [Dockerfile](https://docs.docker.com/reference/builder/) file format that it uses to specify the "layers" of an image. Create a Dockerfile in your project under the `complete` folder with the following content:
+Docker has a simple [Dockerfile](https://docs.docker.com/reference/builder/) file format that it uses to specify the "layers" of an image. Create a Dockerfile in your project at the root folder with the following content:
 
 ```docker
 FROM openjdk:8-jdk-alpine

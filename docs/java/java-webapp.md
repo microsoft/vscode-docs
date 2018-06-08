@@ -3,13 +3,37 @@ Order: 3
 Area: java
 TOCTitle: Java Web App
 ContentId: 98ddf1d3-6a8e-4b0f-a44d-e57cfdf2348c
-PageTitle: Deploy Java Web Apps to the cloud
+PageTitle: Build and Deploy Java Web Apps to the cloud
 DateApproved: 5/30/2018
-MetaDescription: Java web app tutorial showing how to deploy a Java web app to Azure
+MetaDescription: Java web app tutorial showing how to Build deploy a Java web app to Azure using Visual Studio Code
 ---
-# Deploy Java Web Apps to the cloud
+# Build and Deploy Java Web Apps to the Cloud
 
-In our [first tutorial](/docs/java/java-tutorial.md), we built a Java web application and ran it locally. In this tutorial, you will learn how to deploy and run it on [Azure](https://azure.microsoft.com) in the cloud.
+In this tutorial, we've built a spring boot web application and ran it locally. After that, we will deploy and run it on [Azure](https://azure.microsoft.com) in the cloud.
+
+## Create a Spring Boot Java Web App
+
+Clone the [Spring Boot Getting Started](https://github.com/spring-guides/gs-spring-boot) sample project to your local machine. You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). Paste `https://github.com/spring-guides/gs-spring-boot.git` as the URL of the remote repository and then decide the parent directory under which to put the local repository. After that, open the cloned repository in VS Code by navigating to the repository folder and typing `code .`.
+
+>**Note**: You can install Visual Studio Code from [https://code.visualstudio.com](https://code.visualstudio.com/) and Git from [https://git-scm.com](https://git-scm.com/).
+
+![Clone Spring Repository](images/java-tutorial/clone-repository.gif)
+
+From within VS Code, navigate to the `complete` folder that contains the project which is ready to run. Open any of the Java files in the repository (for example `complete\src\main\java\hello\Application.java`). If you don't have the Java language extensions installed for VS Code, you will be prompted to install the Microsoft [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack). Follow the instructions and reload VS Code after the installation.
+
+![Install Java Extensions](images/java-tutorial/install-extensions.gif)
+
+Once you have the Java Extension Pack installed, it will automatically build the project for you (this may take several minutes). You can run the application within VS Code by pressing `kb(workbench.action.debug.start)` and selecting the **Java** environment. The Java Debug extension will generate a debugging configuration file `launch.json` for you under a `.vscode` folder in your project. You can see build progress in the VS Code Status Bar and when everything is finished, the final active debug configuration is displayed.
+
+![debug configuration in the Status Bar](images/java-tutorial/debugging-status-bar.png)
+
+You can learn more about how VS Code launches your application in Debugging [Launch Configurations](/docs/editor/debugging.md#launch-configurations). Press `kb(workbench.action.debug.start)` again to launch the debugger.
+
+![Run Spring Boot](images/java-tutorial/run-spring-boot.gif)
+
+Test the web app by browsing to `http://localhost:8080` using a web browser. You should see the following message displayed: "Greetings from Spring Boot!".
+
+![Greeting from Spring](images/java-tutorial/greeting-from-spring.png)
 
 ## Prepare your Azure account
 
