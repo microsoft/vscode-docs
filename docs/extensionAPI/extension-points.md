@@ -263,6 +263,7 @@ The `configuration` property specifies a path to the language configuration file
 * `folding` - Defines when and how code should be folded in the editor
   * `offSide` - Empty lines trailing a code section belong to the next folding section (used for indentation based languages such as Python or F#)
   * `markers` - Regex for identifying markers for custom folding regions in the code
+* `wordPattern` - Regex which defines what is considered to be a word in the programming language.
 
 If your language configuration file name is or ends with `language-configuration.json`, you will get validation and editing support in VS Code.
 
@@ -315,7 +316,8 @@ language-configuration.json
             "start": "^\\s*//#region",
             "end": "^\\s*//#endregion"
         }
-    }
+    },
+    "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
 }
 ```
 
