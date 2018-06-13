@@ -22,7 +22,7 @@ Color themes let you modify the colors in Visual Studio Code's user interface to
 
 ![Themes in the Command Palette](images/themes/colorthemes.png)
 
-The active color theme is stored in your User [settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`).
+The active color theme is stored in your user [settings](/docs/getstarted/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
 ```json
   // Specifies the color theme used in the workbench.
@@ -30,7 +30,7 @@ The active color theme is stored in your User [settings](/docs/getstarted/settin
 }
 ```
 
-> **Tip:** By default, the theme is stored in your User settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#creating-user-and-workspace-settings).
+> **Tip:** By default, the theme is stored in your user settings and applies globally to all workspaces. You can also configure a workspace specific theme. To do so, set a theme in the Workspace [settings](/docs/getstarted/settings.md#creating-user-and-workspace-settings).
 
 ## Color Themes from the Marketplace
 
@@ -64,7 +64,7 @@ To customize a specific theme only, use the following syntax:
 }
 ```
 
-To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomizations` in your User [settings](/docs/getstarted/settings.md) `settings.json` file:
+To tune the editor's syntax highlighting colors, use `editor.tokenColorCustomizations` in your user [settings](/docs/getstarted/settings.md) `settings.json` file:
 
 ![Token Color Customization](images/themes/token_color_customization.png)
 
@@ -94,7 +94,7 @@ See the [Adding a new Theme](/docs/extensions/themes-snippets-colorizers.md#addi
 
 ## Remove default themes
 
-If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`. Open the `...` **More** dropdown from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a section listing the default themes.
+If you'd like to remove some of the default themes shipped with VS Code from the Color Theme picker, you can disable them from the Extensions view (`kb(workbench.view.extensions)`). Open the `...` **More** dropdown from the top of the Extensions view, select **Show Built-in Extensions**, and you'll see a **THEMES** section listing the default themes.
 
 ![built-in themes](images/themes/built-in-themes.png)
 
@@ -108,21 +108,24 @@ File icon themes can be contributed by extensions and selected by users as their
 
 ## Selecting the File Icon Theme
 
-1. In VS Code, open the Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on macOS).
-2. Use the cursor keys to preview the icons of the theme.
-3. Select the theme you want and hit `kbstyle(Enter)`.
+1. In VS Code, open the File Icon Theme picker with **File** > **Preferences** > **File Icon Theme**. (**Code** > **Preferences** > **File Icon Theme** on macOS).
+2. You can also use the **Preferences: File Icon Theme** command from the **Command Palette** (`kb(workbench.action.showCommands)`).
+3. Use the cursor keys to preview the icons of the theme.
+4. Select the theme you want and hit `kbstyle(Enter)`.
 
-By default, no file icon set is configured, therefore the File Explorer shows no icons. Once an icon theme is selected, the selected theme will be remembered and set again when VS Code is started the next time.
+![file icon theme dropdown](images/themes/file-icon-theme-dropdown.png)
 
-VS code ships with two icon themes; **Minimal** and **Seti**. To install more icon themes, select the **Find more in the Marketplace...** item in the icon theme picker.
+By default, the **Seti** file icon set is used and those are the icons you see in the File Explorer. Once an icon theme is selected, the selected theme will be remembered and appear again whenever VS Code is restarted. You can disable file icons by selecting **None**.
+
+VS code ships with two icon themes; **Minimal** and **Seti**. To install more icon themes, select the **Install Additional File Icon Themes...** item in the icon theme picker and you'll see a query for file icon themes (tag:icon-theme) in the Extensions view.
 
 You can also browse the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode/Themes) site directly to find available themes.
 
-The active File Icon theme is persisted in your User [settings](/docs/getstarted/settings.md).
+The active File Icon theme is persisted in your user [settings](/docs/getstarted/settings.md) (keyboard shortcut `kb(workbench.action.openSettings)`).
 
 ```json
   // Specifies the icon theme used in the workbench.
-  "workbench.iconTheme": null
+  "workbench.iconTheme": "vs-seti"
 }
 ```
 
