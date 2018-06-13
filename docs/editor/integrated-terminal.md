@@ -124,18 +124,6 @@ They are:
 * `workbench.action.terminal.runSelectedText`: Run the selected text in the terminal instance.
 * `workbench.action.terminal.runActiveFile`: Run the active file in the terminal instance.
 
-### Run Selected Text
-
-To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
-
-![Run selected text](images/integrated-terminal/terminal_run_selected.png)
-
-The terminal will attempt to run the selected text.
-
-![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
-
-If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
-
 ### Copy & Paste
 
 The keybindings for copy and paste follow platform standards:
@@ -154,6 +142,10 @@ The right click behavior differs based on the platform:
 
 This can be configured using the `terminal.integrated.rightClickBehavior` setting.
 
+### Forcing key bindings to pass through the terminal
+
+While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default, this includes all terminal key bindings in addition to a select few commonly used key bindings.
+
 ### Find
 
 The Integrated Terminal has basic find functionality which can be triggered with `kb(workbench.action.terminal.focusFindWidget)`.
@@ -169,17 +161,25 @@ If you want `kbstyle(Ctrl+F)` to go to the shell instead of launching the Find w
                       "when": "terminalFocus" },
 ```
 
-### Rename terminal sessions
+## Run Selected Text
+
+To use the `runSelectedText` command, select text in an editor and run the command **Terminal: Run Selected Text in Active Terminal** via the **Command Palette** (`kb(workbench.action.showCommands)`):
+
+![Run selected text](images/integrated-terminal/terminal_run_selected.png)
+
+The terminal will attempt to run the selected text.
+
+![Run selected text result](images/integrated-terminal/terminal_run_selected_result.png)
+
+If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
+
+## Rename terminal sessions
 
 Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection drop-down.
 
-### Forcing key bindings to pass through the terminal
+## Changing how the terminal is rendered
 
-While focus is in the integrated terminal, many key bindings will not work as the keystrokes are passed to and consumed by the terminal itself. The `terminal.integrated.commandsToSkipShell` setting can be used to get around this. It contains an array of command names whose key bindings will skip processing by the shell and instead be processed by the VS Code key binding system. By default, this includes all terminal key bindings in addition to a select few commonly used key bindings.
-
-### Changing how the terminal is rendered
-
-By default the terminal will render using multiple `<canvas>` elements which is better tuned than the DOM at rendering an interactive text that changes often. However, Electron/Chromium are far slower rendering to canvas on some environment, so since v1.24.0, VS Code also provides a fallback DOM-renderer experience. VS Code tries to detect this for you and give you the option to change via a notification but you can also change it directly by setting the `terminal.integrated.rendererType` setting.
+By default, the integrated terminal will render using multiple `<canvas>` elements which is better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower rendering to canvas on some environment and so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
 
 ```js
 {
