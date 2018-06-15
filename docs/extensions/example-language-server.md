@@ -31,7 +31,7 @@ Clone the [repository](https://github.com/Microsoft/vscode-extension-samples) an
 ```bash
 > cd lsp-sample
 > npm install
-> nom run compile
+> npm run compile
 > code .
 ```
 
