@@ -90,7 +90,7 @@ VS Code prompts you with a list of detected environments as well as any you've a
 
 ### Installing packages
 
-Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name)` (macOS/Linux). VS Code installs that package into your project along with its dependencies.
+Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name>` (macOS/Linux). VS Code installs that package into your project along with its dependencies.
 
 ## Unit testing
 
