@@ -44,7 +44,7 @@ The following table provides a summary of available Python linters and their bas
 | [Pylint](#pylint) (default) | [pylint](https://pypi.org/project/pylint/) | Enabled | pylintEnabled | pylintArgs | pylintPath |
 | [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | Disabled | flake8Enabled | flake8Args | flake8Path |
 | [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | Disabled | mypyEnabled | mypyArgs | mypyPath |
-| pydocstyle | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
+| [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
 | [Pep8 (pycodestyle)](#pep8-pycodestyle) | [pep8](https://pypi.org/project/pep8/) | Disabled | pep8Enabled | pep8Args | pep8Path |
 | prospector | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | pylama | [pylama](https://pypi.org/project/pylama/) | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
@@ -130,6 +130,39 @@ pylint --generate-rcfile > .pylintrc
 ```
 
 The generated file contains sections for all the Pylint options, along with documentation in the comments.
+
+## pydocstyle
+
+### Command-line arguments and configuration files
+
+See [pycodestyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (First line should end with a period), add the following line to your `settings.json` file:
+
+```json
+"python.linting.pydocstyleArgs": ["--ignore=D400"]
+```
+
+As well, pydocstyle supports ignoring categories of errors by using the code prefix. As an example, to ignore all Docstring Content issues (the D4XXX errors), add the following to your `settings.json` file:
+
+```json
+"python.linting.pydocstyleArgs": ["--ignore=D4"]
+```
+
+More details can be found in the [pydocstyle documentation](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage).
+
+Options can also be read from an `[pydocstyle]` section of an ini-like configuration file, named any of the following:
+
+- `setup.cfg`
+- `tox.ini`
+- `.pydocstyle`
+- `.pydocstyle.ini`
+- `.pydocstylerc`
+- `.pydocstylerc.ini`
+
+See [Configuration Files](http://www.pydocstyle.org/en/2.1.1/usage.html#configuration-files) in the pydocstyle docs for more information.
+
+### Message category mapping
+
+The Python extension maps all pydocstyle errors to the Convention (C) category.
 
 ## Pep8 (pycodestyle)
 
