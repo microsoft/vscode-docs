@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 05/21/2018
+DateApproved: 06/18/2018
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -135,13 +135,13 @@ The generated file contains sections for all the Pylint options, along with docu
 
 ### Command-line arguments and configuration files
 
-See [pycodestyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (First line should end with a period), add the following line to your `settings.json` file:
+See [pycodestyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
 
 ```json
 "python.linting.pydocstyleArgs": ["--ignore=D400"]
 ```
 
-As well, pydocstyle supports ignoring categories of errors by using the code prefix. As an example, to ignore all Docstring Content issues (the D4XXX errors), add the following to your `settings.json` file:
+A code prefix also instructs pydocstyle to ignore specific categories of errors. For example, to ignore all Docstring Content issues (D4XXX errors), add the following line to `settings.json`:
 
 ```json
 "python.linting.pydocstyleArgs": ["--ignore=D4"]
@@ -149,7 +149,7 @@ As well, pydocstyle supports ignoring categories of errors by using the code pre
 
 More details can be found in the [pydocstyle documentation](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage).
 
-Options can also be read from an `[pydocstyle]` section of an ini-like configuration file, named any of the following:
+Options can also be read from a `[pydocstyle]` section of any of the following configuration files:
 
 - `setup.cfg`
 - `tox.ini`
@@ -158,7 +158,7 @@ Options can also be read from an `[pydocstyle]` section of an ini-like configura
 - `.pydocstylerc`
 - `.pydocstylerc.ini`
 
-See [Configuration Files](http://www.pydocstyle.org/en/2.1.1/usage.html#configuration-files) in the pydocstyle docs for more information.
+For more information, see [Configuration Files](http://www.pydocstyle.org/en/2.1.1/usage.html#configuration-files).
 
 ### Message category mapping
 
