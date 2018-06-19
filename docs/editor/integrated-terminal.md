@@ -207,12 +207,12 @@ The basics of the terminal have been covered in this document, read on to find o
 
 **Q: Can I use Cmder's shell with the terminal on Windows?**
 
-**A:** Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents:
+**A:** Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents (edit the cmder path if neccessary):
 
 ```bat
 @echo off
 SET CurrentWorkingDirectory=%CD%
-SET CMDER_ROOT=C:\cmder (your path to cmder)
+SET CMDER_ROOT=C:\cmder
 CALL "%CMDER_ROOT%\vendor\init.bat"
 CD /D %CurrentWorkingDirectory%
 ```
