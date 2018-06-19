@@ -159,10 +159,6 @@ The Side Bar contains views like the Explorer and Search.
 
 Editor Groups are the containers of editors. There can be up to three editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
 
-- `editorGroup.background`: Background color of an editor group. The background color shows up when dragging editor groups around.
-
-    ![editorGroup.background](images/theme-color-reference/editorGroup-background.gif)
-
 - `editorGroup.border`: Color to separate multiple editor groups from each other.
 
     ![editorGroup.border](images/theme-color-reference/editorGroup-border.gif)
@@ -183,6 +179,8 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 
     ![editorGroupHeader.tabsBorder](images/theme-color-reference/editorgroupheader-tabsborder.gif)
 
+- `editorGroup.emptyBackground`: Background color of an empty editor group.
+- `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
 - `tab.activeBackground`: Active Tab background color.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.
