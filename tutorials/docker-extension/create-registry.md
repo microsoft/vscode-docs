@@ -1,28 +1,24 @@
 ---
 Order: 2
 Area: docker
-TOCTitle: Container registries
-PageTitle: Container registries
-MetaDescription: Deployment to Azure App Services with Visual Studio Code
+TOCTitle: Create a registry
+PageTitle: Create a container registry
+MetaDescription: Create a container registry for deploying Docker containers to Azure App Services with Visual Studio Code
 DateApproved: 06/19/2018
 ---
-# Using container registries
+# Create an Azure container registry
 
-You need a container registry to push your app image to once the image is built. Once your image is available in a container registry, you will deploy directly from that registry.
+Once your Docker image is built, you need to push your image to a container registry from which you then deploy to Azure App Service.
 
-## Using the Azure Container Registry
+Thus tutorial uses the Azure Container Registry (ACR), a private, secure, hosted registry for your images.
 
-[Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) (ACR) is a private, secure, hosted registry for your images. ACR is used in this tutorial, however ACR uses all the same tools and processes as other registry options so the steps are consistent regardless.
+You can also use [Docker Hub](https://hub.docker.com/), Docker's own hosted registry that provides a free way to share images. Sign up for a Docker ID on the hub, then login to the Docker CLI using your Docker ID credentials. The steps that follow in this tutorial can be used with Docker Hub and other registry options.
 
-Follow this guide to [Setup an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) and be sure to log into your registry from the Docker CLI.
-
-## Using Docker Hub
-
-Docker Hub is Docker's own hosted registry that provides a free way of sharing images. Sign up for a Docker ID on [Docker Hub](https://hub.docker.com/) then login to the Docker CLI using your Docker ID credentials.
+To create an Azure Container Registry, follow the first part of [Quickstart: Create a container registry using the Azure portal](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal) through the "Log in to ACR" section. You don't need to complete the sections "Push image to ACR" and later because you do those steps within VS Code.
 
 ## Prerequisite Check
 
-Ensure that the registry endpoint that you just setup is visible under **Registries** in the **DOCKER** explorer.
+Make sure that the registry endpoint you created is visible under **Registries** in the **Docker** explorer.
 
 ![Registries](images/docker-extension/registries.png)
 
