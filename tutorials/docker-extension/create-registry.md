@@ -3,14 +3,14 @@ Order: 2
 Area: docker
 TOCTitle: Container registries
 PageTitle: Container registries
-MetaDescription: Node.js Deployment to Azure App Services with Visual Studio Code
-DateApproved: 12/18/2017
+MetaDescription: Deployment to Azure App Services with Visual Studio Code
+DateApproved: 06/19/2018
 ---
-# Using Container Registries
+# Using container registries
 
 You need a container registry to push your app image to once the image is built. Once your image is available in a container registry, you will deploy directly from that registry.
 
-## Using Azure Container Registry
+## Using the Azure Container Registry
 
 [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) (ACR) is a private, secure, hosted registry for your images. ACR is used in this tutorial, however ACR uses all the same tools and processes as other registry options so the steps are consistent regardless.
 
