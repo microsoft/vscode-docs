@@ -5,14 +5,14 @@ TOCTitle: Python Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
 PageTitle: Get Started Tutorial with Python in Visual Studio Code
 DateApproved: 06/20/2018
-MetaDescription: Tutorial for the Python extension in Visual Studio Code
+MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
 # Getting Started with Python
 
-Let's get started by creating the simplest "Hello World" Python application.
+In this tutorial you use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
 
-> **Note**: This tutorial uses Python 3; if you're using Python 2, you need to make appropriate changes to the code.
+> **Note**: You can use VS Code with Python 2 with this tutorial, but you need to make appropriate changes to the code.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ Selecting an interpreter sets the `python.pythonPath` value in your workspace se
 
 > **Note**: If you select an interpreter without a workspace folder open, VS Code sets `python.pythonPath` in your user settings instead, which sets the default interpreter for VS Code in general. The user setting makes sure you always have a default interpreter for Python projects. The workspace settings lets you override the user setting.
 
-## Create a Hello World source code file
+## Create a Python Hello World source code file
 
 From the File Explorer toolbar, press the New File button on the `hello` folder:
 
