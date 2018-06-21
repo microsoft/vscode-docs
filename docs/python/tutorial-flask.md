@@ -20,16 +20,17 @@ The completed code project from this tutorial can be found on GitHub: [python-sa
 
 ## Prerequisites
 
-To successfully complete this tutorial, you must do the following:
+To successfully complete this tutorial, you must do the following (which are the same steps as in the [general Python tutorial](python-tutorial.md)):
 
 1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-1. Install whichever version of Python you want to use. Options include:
+1. Install a version of Python 3 (for which this tutorial is written). Options include:
+   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.6.5** button that appears first on the page (or whatever is the latest version).
+   - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must run `sudo apt install python3-pip` in the terminal.
+   - (MacOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
+   - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
-    - The built-in Python installation on Linux.
-    - An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
-    - A download from [python.org](https://www.python.org/downloads/).
-    - A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
+1. On Windows, make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
 
 ## Create a project environment for Flask
 
@@ -41,6 +42,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ```bash
     # Mac/Linux
+    # You may need to run sudo apt-get install python3-venv first
     python3 -m venv env
 
     # Windows
@@ -55,22 +57,13 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ![Opening the Command Palette in VS Code](images/flask/command-palette.png)
 
-    Then select the **Python: Select Interpreter** command and choose your base Python interpreter. You can also use the **Select Python Environment** option on the Status Bar if available:
-
-    ![No interpreter selected](images/environments/no-interpreter-selected-statusbar.png)
-
-    Both commands presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
+    Then select the **Python: Select Interpreter** command, which presents a list of available interpreters that VS Code can locate automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
 1. Select your virtual environment (the exact details of your environment will differ depending on which interpreters you have installed):
 
     ![Selecting the virtual environment for Python](images/flask/select-virtual-environment.png)
 
-1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activate script. You should see output similar to the following:
-
-    ```bash
-    D:\py\HelloFlask>d:/py/HelloFlask/env/Scripts/activate.bat
-    (env) D:\py\HelloFlask>
-    ```
+1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activate script.
 
     > **Note**: on Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
@@ -78,7 +71,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ![Selected environment showing in the VS Code status bar](images/flask/environment-in-status-bar.png)
 
-1. Install Flask in the virtual environment by running `pip install flask`. You now have an self-contained environment ready for writing Flask code.
+1. Install Flask in the virtual environment by running `pip3 install flask` (MacOS/Linux) or `pip install flask` (Windows). You now have an self-contained environment ready for writing Flask code.
 
 ## Create and run a minimal Flask app
 
@@ -105,7 +98,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 1. Save the `app.py` file (`kb(workbench.action.files.save)`).
 
-1. In the terminal, run the app by entering `python -m flask run`, which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
+1. In the terminal, run the app by entering `python3 -m flask run` (MacOS/Linux) or `python -m flask run` (Windows), which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
 
     ```bash
     (env) D:\py\\HelloFlask>python -m flask run
@@ -116,7 +109,7 @@ In this section you create a virtual environment in which Flask is installed. Us
      * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
     ```
 
-    If you see an error that the Flask module cannot be found, make sure you've run `pip install flask` in your virtual environment as described at the end of the previous section.
+    If you see an error that the Flask module cannot be found, make sure you've run `pip3 install flask` (MacOS/Linux) or `pip install flask` (Windows) in your virtual environment as described at the end of the previous section.
 
     Also, if you want to run the development server on a different IP address or port, use the host and port command line arguments, as with `--host=0.0.0.0 --port=80`.
 
