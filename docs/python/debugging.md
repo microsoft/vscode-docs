@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 06/04/2018
+DateApproved: 06/21/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -129,7 +129,7 @@ Alternately, you can use a custom environment variable that's defined on each pl
 
 ### `args`
 
-Specifies arguments to pass to the Python program, for example:
+Specifies arguments to pass to the Python program. Each argument should be contained within quotes, for example:
 
 ```json
 "args": [
@@ -183,6 +183,102 @@ Sets optional environment variables for the debugger process beyond system envir
 
 Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file).
 
+## Remote debugging
+
+Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer.
+
+1. Both computers: make sure that identical source code is available.
+
+1. Both computers: install [ptvsd 3.0.0](https://pypi.org/project/ptvsd/3.0.0/) using `pip3 install ptvsd==3.0.0` (Mac/Linux) or `pip install ptvsd==3.0.0` (Windows). Version 3.0.0 is specifically required; later versions are not yet supported.
+
+1. Remote computer: open the port you wish to use for debugging in the appropriate firewall or other networking configuration.
+
+1. Remote computer: in the source code, add the following lines, replacing *my_secret* with a passphrase that you'll use to authenticate remote debugging, and replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
+
+    ```python
+    import ptvsd
+
+    # Allow other computers to attach to ptvsd at this IP address and port, using the secret
+    ptvsd.enable_attach("my_secret", address = ('1.2.3.4', 3000))
+
+    # Pause the program until a remote debugger is attached
+    ptvsd.wait_for_attach()
+    ```
+
+    The IP address used in `enable_attach` should be the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address".
+
+1. Local computer: in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
+
+    ```python
+    #import ptvsd
+
+    # Allow other computers to attach to ptvsd at this IP address and port, using the secret
+    #ptvsd.enable_attach("my_secret", address = ('1.2.3.4', 3000))
+
+    # Pause the program until a remote debugger is attached
+    #ptvsd.wait_for_attach()
+    ```
+
+1. Local computer: switch to Debug View in VS Code, select the **Python: Attach** configuration, then select the settings (gear) icon to open `launch.json` to that configuration.
+
+1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host`, `port`, and `secret` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration. For example:
+
+    ```js
+    {
+        "name": "Python Attach (Remote Debug 1.2.3.4)",
+        "type": "python",
+        "request": "attach",
+        "localRoot": "${workspaceFolder}",
+        "remoteRoot": "c:\\py\\hello",  // Set to the program location on the remote computer.
+        //"remoteRoot": "~/hello",      // Linux example
+        "port": 3000,                   // Set to the remote port
+        "secret": "my_secret",          // Set to your specific secret
+        "host": "1.2.3.4"               // Set to your remote host's public IP address
+    }
+    ```
+
+    > **Tip*: If the `remoteRoot` path is the same as the local computer, you can use `${workspaceFolder}` as the value for `remoteRoot`.
+
+1. Remote computer: start the program from the command line, which should pause on the `ptvsd.wait_for_attach()` call. Note that you **don't** run the program inside a debugger like VS Code. The ptvsd library is providing the remote debugging capabilities directly.
+
+1. Local computer: set a breakpoint in the code where you want to start debugging.
+
+    > **Tip**: setting a single breakpoint on the statement immediately following the `ptvsd.wait_for_attach()` line may not work. Set at least one other breakpoint on another statement.
+
+1. Local computer: start the VS Code debugger using the modified **Python Attach** configuration. VS Code should stop on your locally-set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
+
+    Text output to stdout, as from `print` statements, appear on both computers. Other output, such as graphical plots from a package like matplotlib, however, appear only on the remote computer.
+
+1. During remote debugging, the debugging toolbar appears as below:
+
+    ![Debugging toolbar during remote debugging](images/debugging/remote-debug-toolbar.png)
+
+    On this toolbar, the disconnect button (`kb(workbench.action.debug.stop)`) stops the debugger and allows the remote program to run to completion. The restart button (`kb(workbench.action.debug.restart)`) restarts the debugger on the local computer but does **not** restart the remote program. You use the restart button only when you've already restarted the remote program and need to reattach the debugger.
+
+### Debugging over SSH
+
+In some cases you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) to have the `ssh` command.
+
+On the remote computer:
+
+1. Enable port forwarding by opening the `sshd_config` config file (found under `/etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) and modifying the following setting:
+
+    ```
+    AllowTcpForwarding yes
+    ```
+
+1. Start the program and let it wait at the `ptvsd.wait_for_attach()` call as described in the previous section.
+
+On the local computer:
+
+1. Run `ssh -L sourceport:localhost:destinationport user@remoteaddress` using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`. For example, to use port 3000 on IP address 1.2.3.4, the command would be `ssh -L 3000:localhost:3000 user@1.2.3.4`.
+
+1. Verify that you can see a prompt in the SSH session.
+
+1. In VS Code, set the port in the debug configuration of `launch.json` to match the port used in the `ssh` command.
+
+1. Launch the program and attach the debugger as described in the previous section.
+
 ## Debugging specific app types
 
 The configuration drop-down provides a variety of different options for general app types:
@@ -198,7 +294,7 @@ The configuration drop-down provides a variety of different options for general 
 | Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, and adds "Pyramid" and "RedirectOutput" to `debugOptions`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Scrapy | Specifies `"program": "~/.virtualenvs/scrapy/bin/scrapy"`, adds the `"console": "integratedTerminal"` option, and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
-| Attach (Remote Debug) | See [Remote debugging](#remote-debugging) below. |
+| Attach (Remote Debug) | See [Remote debugging](#remote-debugging) in the previous section. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
@@ -242,96 +338,6 @@ If you want to run Flask's development server in development mode, use the follo
     ]
 },
 ```
-
-### Remote debugging
-
-Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer.
-
-1. Both computers: make sure the same source code is available and identical.
-
-1. Both computers: install [ptvsd 3.0.0](https://pypi.org/project/ptvsd/3.0.0/) using `pip3 install ptvsd==3.0.0` (Mac/Linux) or `pip install ptvsd==3.0.0` (Windows). Version 3.0.0 is required; later versions are not yet supported.
-
-1. Remote computer: in the source code, add the following lines, replacing *my_secret* with a passphrase that you'll use to authenticate remote debugging, and replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
-
-    ```python
-    import ptvsd
-
-    # Allow other computers to attach to ptvsd at this IP address and port, using the secret
-    ptvsd.enable_attach("my_secret", address = ('1.2.3.4', 3000))
-
-    # Pause the program until a remote debugger is attached
-    ptvsd.wait_for_attach()
-    ```
-
-1. Local computer: in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
-
-    ```python
-    #import ptvsd
-
-    # Allow other computers to attach to ptvsd at this IP address and port, using the secret
-    #ptvsd.enable_attach("my_secret", address = ('1.2.3.4', 3000))
-
-    # Pause the program until a remote debugger is attached
-    #ptvsd.wait_for_attach()
-    ```
-
-1. Local computer: switch to Debug View in VS Code, select the **Python: Attach** configuration, then select the settings (gear) icon to open `launch.json` to that configuration.
-
-1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host`, `port`, and `secret` to match the values in the `ptvsd.enable_attach` call added to the source code. For example:
-
-    ```js
-    {
-        "name": "Python Attach",
-        "type": "python",
-        "request": "attach",
-        "localRoot": "${workspaceFolder}",
-        "remoteRoot": "c:\\py\\hello",  // Set to the program location on the remote computer.
-        "port": 3000,                   // Set to the remote port
-        "secret": "my_secret",          // Set to your specific secret
-        "host": "1.2.3.4"               // Set to your remote host
-    }
-    ```
-
-    > **Tip*: If the `remoteRoot` path is the same as the local computer, you can use `${workspaceFolder}` as the value for `remoteRoot`.
-
-1. Remote computer: start the program from the command line, which should pause on the `ptvsd.wait_for_attach()` call. Note that you **don't** run the program inside a separate debugger like VS Code. The ptvsd library is providing the remote debugging capabilities directly.
-
-1. Local computer: set a breakpoint in the code where you want to start debugging.
-
-    > **Tip**: setting a single breakpoint on the statement immediately following the `ptvsd.wait_for_attach()` line may not work. Set at least one other breakpoint on another statement.
-
-1. Local computer: start the VS Code debugger using the modified **Python Attach** configuration. VS Code should stop on your locally-set breakpoints, allowing you to step through the code, examine variables, and perform all other debugging actions. Expressions that you enter in the **Debug Console** are run on the remote computer as well.
-
-1. During remote debugging, the debugging toolbar appears as below:
-
-    ![Debugging toolbar during remote debugging](images/debugging/remote-debug-toolbar.png)
-
-    On this toolbar, the disconnect button (`kb(workbench.action.debug.stop)`) stops the debugger and allows the remote program to run to completion. The restart button (`kb(workbench.action.debug.restart)`) restarts the debugger on the local computer but does **not** restart the remote program. You use the restart button only when you've already restarted the remote program and need to reattach the debugger.
-
-**Debugging over SSH**
-
-In some cases you may want or need to use a secure connection to the remote computer when debugging. On Windows computers, you may need to install [OpenSSH](http://sshwindows.sourceforge.net/) to have the `ssh` command.
-
-On the remote computer:
-
-1. Modify the `sshd_config` config file (found under `etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) to enable port forwarding.
-
-1. Start the program and let it wait at the `ptvsd.wait_for_attach()` call as described in the previous section.
-
-On the local computer:
-
-1. Windows: use [PuTTY](https://www.putty.org/) to establish an SSH tunnel:
-    1. Read [Setting up an SSH tunnel with PuTTY](http://realprogrammers.com/how_to/set_up_an_ssh_tunnel_with_putty.html) (until "Open the session" section).
-    1. On the Tunnels screen, using a local mode, source port (the port which is the entry point on the local computer) can be different from the destination port (the end point on the server).
-    1. Destination address should be the localhost or `127.0.0.1` address (which is the address that the remote SSH server uses to establish the tunnel).
-
-1. Linux: run `ssh -L sourceport:localhost:destinationport user@remoteaddress` using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`.
-
-1. Verify that you can see a prompt in the SSH session.
-
-1. In VS Code, set the port in the debug configuration to match the port shown on the Tunnels screen (Windows) or the port used in the `ssh` command (Linux).
-
-1. Launch the program and attach the debugger as described in the previous section.
 
 ### Google App Engine debugging
 
