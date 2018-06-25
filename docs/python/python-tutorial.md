@@ -97,7 +97,7 @@ The command opens a terminal panel in which your Python interpreter is automatic
 
 There are two other ways you can run Python within VS Code:
 
-- Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is very convenient for testing just a part of a file.
+- Select one or more lines, then press `kbstyle(Ctrl+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is very convenient for testing just a part of a file.
 - Use the **Python: Start REPL** command to opens a REPL terminal for the currently selected Python interpreter. In the REPL you can then enter and run lines of code one at a time.
 
 ## Configure and run the debugger
