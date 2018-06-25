@@ -16,7 +16,7 @@ If you just want to use existing extensions, see the [Extension Marketplace](/do
 All VS Code extensions share a common model of contribution (registration), activation (loading) and access to the VS Code extensibility API. There are however two special flavors of VS Code extensions, language servers and debuggers, which have their own additional protocols and are covered in their own sections of the documentation.
 
 1. [Extensions](/docs/extensions/overview.md#extensions) - the base building block
-2. [Language Servers](/docs/extensions/overview.md#language-servers) - for high cost IO or CPU intensive tasks
+2. [Language Servers](/docs/extensions/overview.md#language-servers) - extensions that enhance editing experiences through [Language Server Protocol](https://microsoft.github.io/language-server-protocol/)
 3. [Debuggers](/docs/extensions/overview.md#debug-adapter) - wire up an external debugger through a Debug Adapter
 
 ![VS Code extensibility architecture](images/overview/extensibility-architecture.png)
@@ -42,7 +42,7 @@ Also helpful is [Extensibility Principles and Patterns](/docs/extensionAPI/patte
 
 ## Language Servers
 
-Language servers let you create a dedicated process for your extension.  This is a useful design choice for your extension when your extension runs high cost CPU or IO intensive tasks which could slow other extensions.  This is common for tasks that work across all files in a workspace e.g. linters or static analysis suites.
+Language Server is a special kind of extension that powers the editing experience for many languages in VS Code. With language servers, you can implement jump-to-definitions, autocomplete, error-checking and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
 
 Find out more about [language servers](/docs/extensions/example-language-server.md).
 

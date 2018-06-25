@@ -7,31 +7,44 @@ PageTitle: Creating Language Servers for Visual Studio Code
 DateApproved: 6/6/2018
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
+
 # Example - Language Server
 
-Language servers allow you to add your own validation logic to files open in VS Code. Typically, you just validate programming languages. However, validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
+Language Server is a special kind of extension that powers the editing experience for many languages in VS Code. With Language Servers, you can implement jump-to-definitions, autocomplete, error-checking and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
 
-In general, validating a programming language can be expensive. Especially when validation requires parsing multiple files and building up abstract syntax trees. To avoid that performance cost, language servers in VS Code are executed in a separate process. This architecture also makes it possible that language servers can be written in other languages besides TypeScript/JavaScript and that they can support expensive additional language features like code completion or `Find All References`.
+Historically, to implement language features such as autocomplete and error-checking(diagnostics) in editors, one needs to implement a static analysis tool and then adapt it to multiple editors with different extension API. To solve the problem, Microsoft specifies [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) to standardize the communication between the editor and the language server, so a language server can be implemented once and used in multiple editors.
 
-![VS Code extensibility architecture](images/example-language-server/extensibility-architecture.png)
+In VS Code, a language server has two parts:
 
-The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview.md) for VS Code.
+- Language Client: A normal VS Code extension written in JavaScript / TypeScript.
+- Language Server: A language analysis tool running in a separate process.
+
+There are two benefits of running the Language Server in a separate process:
+
+- The analysis tool can be implemented in any languages, as long as it can communicate with the Language Client following the Language Server Protocol.
+- As language analysis tools are often heavy on CPU and Memory usage, running them in separate process avoids performance cost.
+
+![LSP Illustration](images/example-language-server/lsp-illustration.png)
+
+This guide will teach you how to build a language client / server using our [Node SDK](https://github.com/Microsoft/vscode-languageserver-node). The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview.md) for VS Code.
 
 ## Implement your own Language Server
 
-Language servers can be implemented in any language and follow the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol). However, right now VS Code only provides libraries for Node.js. Additional libraries will follow in the future. A good starting point for a language server implementation in Node.js is the example repository [VS Code extension samples](https://github.com/Microsoft/vscode-extension-samples). This repository contains 3 different Language Server samples:
+Although Language Servers can be implemented in any language following the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol), this guide will focus on buildilng a language client / server using [vscode-languageserver-node](https://github.com/Microsoft/vscode-languageserver-node), which takes care of LSP communication and makes it easy to write language client / server in Node.
+
+If you prefer to jump right into the code, here are two sample Language Server extensions that you can study:
 
 - **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Demos how to write a basic language server.
-- **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: Demos how to write a language server that start a different server instance per workspace folder.
+- **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: Demos how to write a language server that start a different server instance per workspace folder to handle [multi-root workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces) feature in VS Code.
 
-The reminder of the document explains the code in the lsp-sample. The other  example adds additional aspects using the same code base as explained in this example.
+The reminder of the document explains the code in **lsp-sample**.
 
-Clone the [repository](https://github.com/Microsoft/vscode-extension-samples) and then do:
+Clone the [repository](https://github.com/Microsoft/vscode-extension-samples) and do:
 
 ```bash
 > cd lsp-sample
 > npm install
-> nom run compile
+> npm run compile
 > code .
 ```
 
@@ -39,7 +52,7 @@ The above installs all dependencies and opens one VS Code instances containing b
 
 ## Explaining the 'Client'
 
-The client is actually a normal VS Code extension. Since the workspace contains the client and server part the interesting `package.json` for the extension is in the root of the `lsp-sample` folder. There are three interesting sections of that file.
+The workspace contains both the client and server parts. Let's first take a look at `/package.json`, which describes the capabilities of the client. There are three interesting sections:
 
 First look the `activationEvents`:
 
@@ -447,6 +460,16 @@ ANY browser. ANY host. ANY OS. Open Source.
 The `Extension Development Host` instance will then look like this:
 
 ![Validating a text file](images/example-language-server/validation.png)
+
+## Logging Support for Language Server
+
+If you are using `vscode-languageclient` to implement the client, you can specify a setting `[langId].trace.server` that instructs the Client to log communications between language client and server to the channel `[Language] Language Server`.
+
+For **lsp-sample**, you can set this setting: `"languageServerExample.trace.server": "verbose"`. Now head to the channel "Language Server Example", and you should see the logs:
+
+![LSP Log](images/example-language-server/lsp-log.png).
+
+As LSP communications can be chatty (10 seconds usage can produce thousands line of log), we also provide a tool to visualize and filter the communication between Language Client / Server. Save all the logs into a log file, and load the file from the visualizer at https://microsoft.github.io/language-server-protocol/inspector.
 
 ## Debugging both Client and Server
 
