@@ -17,7 +17,7 @@ In this section, you will use Visual Studio Team Services (VSTS) to host and pub
 
 ## Prerequisites
 
-**VSTS account** - If you don't have an account, you can [sign up here](https://www.visualstudio.com/team-services/).
+**VSTS account** - If you don't have an account, you can [sign up here](https://visualstudio.microsoft.com/team-services).
 
 **Git** - We will use Git to push our code to our VSTS project. Install Git from [git-scm.com](https://git-scm.com/downloads)
 
