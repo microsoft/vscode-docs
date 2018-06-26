@@ -30,16 +30,10 @@ Next, scaffold a new React app called `my-react-app` by running:
 create-react-app my-react-app
 ```
 
-Install all of the application's dependencies by switching to the new folder and running `npm install`.
+And build the application by switching to the new folder and running `npm run build`.
 
 ```bash
 cd my-react-app
-npm install
-```
-
-And build the application with `npm run build`.
-
-```bash
 npm run build
 ```
 
