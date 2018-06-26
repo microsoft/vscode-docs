@@ -7,39 +7,66 @@ PageTitle: Creating Language Servers for Visual Studio Code
 DateApproved: 6/6/2018
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
+
 # Example - Language Server
 
-Language servers allow you to add your own validation logic to files open in VS Code. Typically, you just validate programming languages. However, validating other file types is useful as well. A language server could, for example, check files for inappropriate language.
+## A Brief Overview of Language Server and Language Server Protocol
 
-In general, validating a programming language can be expensive. Especially when validation requires parsing multiple files and building up abstract syntax trees. To avoid that performance cost, language servers in VS Code are executed in a separate process. This architecture also makes it possible that language servers can be written in other languages besides TypeScript/JavaScript and that they can support expensive additional language features like code completion or `Find All References`.
+Language Server is a special kind of extension that powers the editing experience for many programming languages in VS Code. With Language Servers, you can implement autocomplete, error-checking(diagnostics), jump-to-definition and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
 
-![VS Code extensibility architecture](images/example-language-server/extensibility-architecture.png)
+Historically, it's a lot of work to bring such language features to multiple code editors. From language tooling's perspective, they need to adapt to editors with different APIs. From editors' perspective, they cannot expect any uniform API from language toolings. This makes implementing language support for M languages in N editors the work of MxN. To solve the problem, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) to standardize the communication between language tooling and editor. This way, language toolings can be reused in multiple editors and editor can easily pickup multiple language toolings.
 
-The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview.md) for VS Code.
+![LSP Languages and Editors](images/example-language-server/lsp-languages-editors.png)
 
-## Implement your own Language Server
+In this guide, we will:
+- Explain how to build a Language Server extension in VS Code using the provided [Node SDK](https://github.com/Microsoft/vscode-languageserver-node)
+- Explain how to run, debug, log and test the Language Server extension
+- Point you to some advanced topics on Language Servers.
 
-Language servers can be implemented in any language and follow the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol). However, right now VS Code only provides libraries for Node.js. Additional libraries will follow in the future. A good starting point for a language server implementation in Node.js is the example repository [VS Code extension samples](https://github.com/Microsoft/vscode-extension-samples). This repository contains 3 different Language Server samples:
+## Implementing a Language Server
 
-- **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Demos how to write a basic language server.
-- **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: Demos how to write a language server that start a different server instance per workspace folder.
+### Overview
 
-The reminder of the document explains the code in the lsp-sample. The other  example adds additional aspects using the same code base as explained in this example.
+In VS Code, a language server has two parts:
 
-Clone the [repository](https://github.com/Microsoft/vscode-extension-samples) and then do:
+- Language Client: A normal VS Code extension written in JavaScript / TypeScript. This extension has access to all [VS Code Namespace API](https://code.visualstudio.com/docs/extensionAPI/vscode-api).
+- Language Server: A language analysis tool running in a separate process.
+
+There are two benefits of running the Language Server in a separate process:
+
+- The analysis tool can be implemented in any languages, as long as it can communicate with the Language Client following the Language Server Protocol.
+- As language analysis tools are often heavy on CPU and Memory usage, running them in separate process avoids performance cost.
+
+Here is an illustration of VS Code running two Language Server extensions. The HTML Language Client and PHP Language Client are normal VS Code extensions. Each of them instantiates a corresponding Language Server and communiates with them through LSP.
+
+![LSP Illustration](images/example-language-server/lsp-illustration.png)
+
+This guide will teach you how to build a Language Client / Server using our [Node SDK](https://github.com/Microsoft/vscode-languageserver-node). The remaining document assumes that you are familiar with normal [extension development](/docs/extensions/overview.md) for VS Code.
+
+### LSP Sample — A simple Language Server for plain text files
+
+Let's build a simple Language Server extension that implements autocomplete and diagnostics for plain text files. We will also cover the syncing of configurations between Client / Server.
+
+If you prefer to jump right into the code:
+
+- **[lsp-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-sample)**: Heavily documented source code for this guide.
+- **[lsp-multi-server-sample](https://github.com/Microsoft/vscode-extension-samples/tree/master/lsp-multi-server-sample)**: A heavily documented, advanced version of **lsp-sample** that starts a different server instance per workspace folder to support the [multi-root workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces) feature in VS Code.
+
+Clone the repository [Microsoft/vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples) and open the sample:
 
 ```bash
-> cd lsp-sample
+> git clone https://github.com/Microsoft/vscode-extension-samples.git
+> cd vscode-extension-samples/lsp-sample
 > npm install
-> nom run compile
+> npm run compile
 > code .
 ```
 
-The above installs all dependencies and opens one VS Code instances containing both the client and server code.
+The above installs all dependencies and opens the **lsp-sample** workspace containing both the client and server code.
 
-## Explaining the 'Client'
+### Explaining the 'Language Client'
 
-The client is actually a normal VS Code extension. Since the workspace contains the client and server part the interesting `package.json` for the extension is in the root of the `lsp-sample` folder. There are three interesting sections of that file.
+Let's first take a look at `/package.json`, which describes the capabilities of the Language Client. There are three interesting sections:
 
 First look the `activationEvents`:
 
@@ -69,7 +96,7 @@ Next look at the `configuration` section:
 
 This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings.
 
-The actual client code and the corresponding `package.json` is in the `client` folder. The interesting part in the `package.json` adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
+The actual Language Client code and the corresponding `package.json` is in the `/client` folder. The interesting part in the `package.json` file is that it adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
 
 ```json
 "dependencies": {
@@ -78,17 +105,11 @@ The actual client code and the corresponding `package.json` is in the `client` f
 }
 ```
 
-As mentioned, the client is implemented as a normal VS Code extension.
+As mentioned, the client is implemented as a normal VS Code extension, and it has access to all VS Code namespace API.
 
 Below is the content of the corresponding extension.ts file:
 
 ```typescript
-/* --------------------------------------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- * ------------------------------------------------------------------------------------------ */
-'use strict';
-
 import * as path from 'path';
 
 import { workspace, ExtensionContext } from 'vscode';
@@ -138,13 +159,13 @@ export function deactivate(): Thenable<void> {
 }
 ```
 
-## Explaining the 'Server'
+### Explaining the 'Language Server'
 
 >**Note:** The 'Server' implementation cloned from the GitHub repository has the final walkthrough implementation. To follow the walkthrough, you can create a new `server.ts` or modify the contents of the cloned version.
 
 In the example, the server is also implemented in TypeScript and executed using Node.js. Since VS Code already ships with a Node.js runtime, there is no need to provide your own, unless you have very specific requirements for the runtime.
 
-The interesting section in the server's `package.json` file is:
+The source code for the Language Server is at `/server`. The interesting section in the server's `package.json` file is:
 
 ```json
 "dependencies": {
@@ -157,12 +178,6 @@ This pulls in the vscode-languageserver library.
 Below is a server implementation that uses the provided simple text document manager which synchronizes text documents by always sending the file's full content from VS Code to the server.
 
 ```typescript
-/* --------------------------------------------------------------------------------------------
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License. See License.txt in the project root for license information.
- * ------------------------------------------------------------------------------------------ */
-'use strict';
-
 import {
 	createConnection, TextDocuments, TextDocument, Diagnostic, DiagnosticSeverity,
 	ProposedFeatures, InitializeParams, DidChangeConfigurationNotification, CompletionItem,
@@ -372,7 +387,7 @@ documents.listen(connection);
 connection.listen();
 ```
 
-## Adding a Simple Validation
+### Adding a Simple Validation
 
 To add document validation to the server, we add a listener to the text document manager that gets called whenever the content of a text document changes. It is then up to the server to decide when the best time is to validate a document. In the example implementation, the server validates the plain text document and flags all occurrences of words that use ALL CAPS. The corresponding code snippet looks like this:
 
@@ -432,7 +447,7 @@ documents.onDidChangeContent(async (change) => {
 * If the start and end positions are the same, VS Code will squiggle the word at that position.
 * If you want to squiggle until the end of the line, then set the character of the end position to Number.MAX_VALUE.
 
-To test the language server, do the following:
+To run the Language Server, do the following:
 
 * press `kb(workbench.action.tasks.build)` to start the build task. The task compiles both the client and the server.
 * open the debug viewlet, select the `Launch Client` launch configuration and press the `Start Debugging` button to launch an additional `Extension Development Host` instance of VS Code that executes the extension code.
@@ -448,7 +463,7 @@ The `Extension Development Host` instance will then look like this:
 
 ![Validating a text file](images/example-language-server/validation.png)
 
-## Debugging both Client and Server
+### Debugging both Client and Server
 
 Debugging the client code is as easy as debugging a normal extension. Set a breakpoint in the client code and debug the extension by pressing `kb(workbench.action.debug.start)`. For a detailed description about launching and debugging an extension see [Developing Extensions](/docs/extensions/developing-extensions.md).
 
@@ -458,7 +473,19 @@ Since the server is started by the `LanguageClient` running in the extension (cl
 
 ![Debugging the server](images/example-language-server/debugging-server.png)
 
-## Using Configuration Settings in the Server
+### Logging Support for Language Server
+
+If you are using `vscode-languageclient` to implement the client, you can specify a setting `[langId].trace.server` that instructs the Client to log communications between language client and server to the channel `[Language] Language Server`.
+
+For **lsp-sample**, you can set this setting: `"languageServerExample.trace.server": "verbose"`. Now head to the channel "Language Server Example", and you should see the logs:
+
+![LSP Log](images/example-language-server/lsp-log.png).
+
+As LSP communications can be chatty (5 seconds of usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. Save all the logs into a log file, and load the file from the visualizer at https://microsoft.github.io/language-server-protocol/inspector.
+
+![LSP Log](images/example-language-server/lsp-inspector.png).
+
+### Using Configuration Settings in the Server
 
 When writing the client part of the extension, we already defined a setting to control the maximum numbers of problems reported. We also wrote code on the server side to read these settings from the client:
 
@@ -547,7 +574,7 @@ Starting the client again and changing the setting to maximum report 1 problem r
 
 ![Maximum One Problem](images/example-language-server/validationOneProblem.png)
 
-## Adding additional Language Features
+### Adding additional Language Features
 
 The first interesting feature a language server usually implements is validation of documents. In that sense, even a linter counts as a language server and in VS Code linters are usually implemented as language servers (see [eslint](https://github.com/Microsoft/vscode-eslint) and [jshint](https://github.com/Microsoft/vscode-jshint) for examples). But there is more to language servers. They can provide code completion, Find All References or Go To Definition. The example code below adds code completion to the server. It proposes the two words 'TypeScript' and 'JavaScript'.
 
@@ -608,7 +635,132 @@ The screen shot below shows the completed code running on a plain text file:
 
 ![Code Complete](images/example-language-server/codeComplete.png)
 
-## Additional Language Server features
+### Testing The Language Server
+
+To create a high-quality Language Server, we need to build a good test suite covering its functionalities. There are two common ways of testing Language Servers:
+
+- Unit Test: This is useful if you want to test specific functionalities in Language Servers by mocking up all the information being sent to it. VS Code's [HTML](https://github.com/Microsoft/vscode-html-languageservice) / [CSS](https://github.com/Microsoft/vscode-css-languageservice) / [JSON](https://github.com/Microsoft/vscode-json-languageservice) Language Servers take this approach to testing.
+- End-to-End Test: This is similar to [VS Code extension test](https://code.visualstudio.com/docs/extensions/testing-extensions). The benefit of this approach is that it runs the test by instantiating a VS Code instance with a workspace, opening the file, activating the Language Client / Server and running [VS Code commands](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands). This approach is superior if you have files, settings or dependencies (such as `node_modules`) which are hard or impossible to mock. The popular [Python](https://github.com/Microsoft/vscode-python) extension takes this approach.
+
+It is possible to do Unit Test in any testing framework of your choice. Here we describe how to do End-to-End testing for Language Server Extension.
+
+Open `.vscode/launch.json`, and you can find a `E2E` test target:
+
+```json
+{
+	"name": "Language Server E2E Test",
+	"type": "extensionHost",
+	"request": "launch",
+	"runtimeExecutable": "${execPath}",
+	"args": [
+		"--extensionDevelopmentPath=${workspaceRoot}",
+		"--extensionTestsPath=${workspaceRoot}/client/out/test",
+		"${workspaceRoot}/client/testFixture"
+	],
+	"stopOnEntry": false,
+	"sourceMaps": true,
+	"outFiles": ["${workspaceRoot}/client/out/test/**/*.js"]
+}
+```
+
+If you run this debug target, it will launch a VS Code with `client/testFixture` set as the active workspace. VS Code will then proceed to execute all tests in `client/src/test`. As a debugging tip, you can set breakpoints in TypeScript files in `client/src/test` and they will be hit.
+
+Let's take a look at the `completion.test.ts` file:
+
+```ts
+import * as vscode from 'vscode'
+import * as assert from 'assert'
+import { getDocUri, activate } from './helper'
+
+describe('Should do completion', () => {
+  const docUri = getDocUri('completion.txt')
+
+  it('Completes JS/TS in txt file', async () => {
+    await testCompletion(docUri, new vscode.Position(0, 0), {
+      items: [
+        { label: 'JavaScript', kind: vscode.CompletionItemKind.Text },
+        { label: 'TypeScript', kind: vscode.CompletionItemKind.Text }
+      ]
+    })
+  })
+})
+
+async function testCompletion(docUri: vscode.Uri, position: vscode.Position, expectedCompletionList: vscode.CompletionList) {
+  await activate(docUri)
+
+  // Executing the command `vscode.executeCompletionItemProvider` to simulate triggering completion
+  const actualCompletionList = (await vscode.commands.executeCommand(
+    'vscode.executeCompletionItemProvider',
+    docUri,
+    position
+  )) as vscode.CompletionList
+
+  assert.equal(actualCompletionList.items.length, expectedCompletionList.items.length);
+  expectedCompletionList.items.forEach((expectedItem, i) => {
+    const actualItem = actualCompletionList.items[i]
+    assert.equal(actualItem.label, expectedItem.label)
+    assert.equal(actualItem.kind, expectedItem.kind)
+  })
+}
+```
+
+In this test, we:
+- Activate the extension
+- Run the command `vscode.executeCompletionItemProvider` with a URI and a position to simulate completion trigger
+- Assert the returned completion items against our expected completion items
+
+Let's dive a bit deeper into the `activate(docURI)` function. It is defined in `client/src/test/helper.ts`:
+
+```ts
+import * as vscode from 'vscode'
+import * as path from 'path'
+
+export let doc: vscode.TextDocument
+export let editor: vscode.TextEditor
+export let documentEol: string
+export let platformEol: string
+
+/**
+ * Activates the vscode.lsp-sample extension
+ */
+export async function activate(docUri: vscode.Uri) {
+	// The extensionId is `publisher.name` from package.json
+  const ext = vscode.extensions.getExtension('vscode.lsp-sample')
+  await ext.activate();
+  try {
+    doc = await vscode.workspace.openTextDocument(docUri)
+    editor = await vscode.window.showTextDocument(doc)
+    await sleep(2000) // Wait for server activation
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+async function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+```
+
+In the activation part, we:
+- Get the extension using the `publisher.name` `extensionId`, as defined in `package.json`
+- Open the specified document, and show it in the active text editor
+- Sleep for 2 seconds, so we are sure the Language Server is instantiated.
+
+After the preparation, we can run the [VS Code Commands](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands) corresponding to each language feature, and assert against the returned result.
+
+There is one more test that covers the diagnostics feature that we just implemented. Check it out at `client/src/test/diagnostics.test.ts`.
+
+## Advanced Topics
+
+So far, this guide covers:
+
+- A brief overview of Language Server and Language Server Protocol.
+- Architecture of a Language Server extension in VS Code
+- The **lsp-sample** extension, and how to develop/debug/inspect/test it.
+
+There are some more advanced topics we could not fit in to this guide. We will include links to these resources for further studying of Language Server development.
+
+### Additional Language Server features
 
 The following language features are currently supported in a language server along with code completions:
 
@@ -627,7 +779,7 @@ The following language features are currently supported in a language server alo
 
 The [Language Extension Guidelines](/docs/extensionAPI/language-support.md) topic describes each of the language features above and provides guidance on how to implement them either through the language server protocol or by using the extensibility API directly from your extension.
 
-## Incremental Text Document Synchronization
+### Incremental Text Document Synchronization
 
 The example uses the simple text document manager provided by the `vscode-languageserver` module to synchronize documents between VS Code and the language server.
 
@@ -676,13 +828,11 @@ connection.onDidCloseTextDocument((params) => {
 });
 ```
 
-## Next Steps
+### Using VS Code API directly to implement Language Features
 
-To learn more about VS Code's extensibility model, try these topics:
+It is also possible to use VS Code's extension API to implement Language Features. Here is a [`completions-sample`](https://github.com/Microsoft/vscode-extension-samples/tree/master/completions-sample) that uses `vscode.languages.registerCompletionItemProvider` API to provide autocompletion feature for plain text files.
 
-* [vscode API Reference](/docs/extensionAPI/vscode-api.md) - Learn about deep language integration with VS Code language services.
-* [Language Extension Guideline](/docs/extensionAPI/language-support.md) - A guide to implementing VS Code's rich language features.
-* [Additional Extension Examples](/docs/extensions/samples.md) - Take a look at our list of example extension projects.
+More samples illustrating the usage of VS Code API can be found at https://github.com/Microsoft/vscode-extension-samples.
 
 ## Common Questions
 
