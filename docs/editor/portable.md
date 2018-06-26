@@ -38,7 +38,7 @@ On **macOS**, you need to place that folder as a sibling of the app itself:
 
 ## TMP Directory
 
-By default, the default TMP directory is still the system-wide one even Portable Mode, since no state is kept there. If you wish to also have your TMP directory within your portable directory, simply create an empty `tmp` directory inside `code-portable-data`. As long as a `tmp` directory exists, it will be used for TMP data.
+By default, the default TMP directory is still the system-wide one even in Portable Mode, since no state is kept there. If you wish to also have your TMP directory within your portable directory, simply create an empty `tmp` directory inside `code-portable-data`. As long as a `tmp` directory exists, it will be used for TMP data.
 
 ## VS Code Insiders
 
