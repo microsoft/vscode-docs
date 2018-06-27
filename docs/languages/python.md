@@ -119,8 +119,7 @@ The extensions shown above are dynamically queried. Click on an extension tile a
 
 ## Next steps
 
-<a class="tutorial-next-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
-
+- [Python Hello World tutorial](/docs/python/python-tutorial.md) - Get started with Python in VS Code.
 - [Editing Python](/docs/python/editing.md) - Learn about auto-completion, formatting, and refactoring for Python.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.
