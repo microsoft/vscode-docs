@@ -14,7 +14,11 @@ MetaDescription: Learn how to create Language Servers for Visual Studio Code.  T
 
 Language Server is a special kind of extension that powers the editing experience for many programming languages in VS Code. With Language Servers, you can implement autocomplete, error-checking(diagnostics), jump-to-definition and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
 
-Historically, it's a lot of work to bring such language features to multiple code editors. From language tooling's perspective, they need to adapt to editors with different APIs. From editors' perspective, they cannot expect any uniform API from language toolings. This makes implementing language support for M languages in N editors the work of MxN. To solve the problem, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) to standardize the communication between language tooling and editor. This way, language toolings can be reused in multiple editors and editor can easily pickup multiple language toolings.
+In general, validating a programming language can be expensive. Especially when validation requires parsing multiple files and building up abstract syntax trees. To avoid that performance cost, language servers in VS Code are executed in a separate process. This architecture also makes it possible that language servers can be written in other languages besides TypeScript/JavaScript and that they can support expensive additional language features like code completion or `Find All References`.
+
+Additionally, it's a lot of work to bring such language features to multiple code editors. From language tooling's perspective, they need to adapt to editors with different APIs. From editors' perspective, they cannot expect any uniform API from language toolings. This makes implementing language support for M languages in N editors the work of MxN.
+
+To solve boths problem, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) to standardize the communication between language tooling and editor. This way, language toolings can be reused in multiple editors, editor can easily pickup multiple language toolings, and the language server can be implemented in the programming language of choice.
 
 ![LSP Languages and Editors](images/example-language-server/lsp-languages-editors.png)
 
@@ -32,7 +36,7 @@ In VS Code, a language server has two parts:
 - Language Client: A normal VS Code extension written in JavaScript / TypeScript. This extension has access to all [VS Code Namespace API](https://code.visualstudio.com/docs/extensionAPI/vscode-api).
 - Language Server: A language analysis tool running in a separate process.
 
-There are two benefits of running the Language Server in a separate process:
+As briefly stated above there are two benefits of running the Language Server in a separate process:
 
 - The analysis tool can be implemented in any languages, as long as it can communicate with the Language Client following the Language Server Protocol.
 - As language analysis tools are often heavy on CPU and Memory usage, running them in separate process avoids performance cost.
@@ -639,7 +643,7 @@ The screen shot below shows the completed code running on a plain text file:
 
 To create a high-quality Language Server, we need to build a good test suite covering its functionalities. There are two common ways of testing Language Servers:
 
-- Unit Test: This is useful if you want to test specific functionalities in Language Servers by mocking up all the information being sent to it. VS Code's [HTML](https://github.com/Microsoft/vscode-html-languageservice) / [CSS](https://github.com/Microsoft/vscode-css-languageservice) / [JSON](https://github.com/Microsoft/vscode-json-languageservice) Language Servers take this approach to testing.
+- Unit Test: This is useful if you want to test specific functionalities in Language Servers by mocking up all the information being sent to it. VS Code's [HTML](https://github.com/Microsoft/vscode-html-languageservice) / [CSS](https://github.com/Microsoft/vscode-css-languageservice) / [JSON](https://github.com/Microsoft/vscode-json-languageservice) Language Servers take this approach to testing. The LSP npm modules itself use the approach. See [here](https://github.com/Microsoft/vscode-languageserver-node/blob/master/protocol/src/test/connection.test.ts) for some unit test written using the npm protocol module.
 - End-to-End Test: This is similar to [VS Code extension test](https://code.visualstudio.com/docs/extensions/testing-extensions). The benefit of this approach is that it runs the test by instantiating a VS Code instance with a workspace, opening the file, activating the Language Client / Server and running [VS Code commands](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands). This approach is superior if you have files, settings or dependencies (such as `node_modules`) which are hard or impossible to mock. The popular [Python](https://github.com/Microsoft/vscode-python) extension takes this approach.
 
 It is possible to do Unit Test in any testing framework of your choice. Here we describe how to do End-to-End testing for Language Server Extension.
