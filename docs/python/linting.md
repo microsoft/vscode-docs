@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Linting
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Linting Python in Visual Studio Code
-DateApproved: 05/21/2018
+DateApproved: 06/18/2018
 MetaDescription: Linting Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -44,7 +44,7 @@ The following table provides a summary of available Python linters and their bas
 | [Pylint](#pylint) (default) | [pylint](https://pypi.org/project/pylint/) | Enabled | pylintEnabled | pylintArgs | pylintPath |
 | [Flake8](#flake8) | [flake8](https://pypi.org/project/flake8/) | Disabled | flake8Enabled | flake8Args | flake8Path |
 | [mypy](#mypy) | [mypy](https://pypi.org/project/mypy/) | Disabled | mypyEnabled | mypyArgs | mypyPath |
-| pydocstyle | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
+| [pydocstyle](#pydocstyle) | [pydocstyle](https://pypi.org/project/pydocstyle/) | Disabled | pydocstyleEnabled | pydocstyleArgs | pydocstylePath |
 | [Pep8 (pycodestyle)](#pep8-pycodestyle) | [pep8](https://pypi.org/project/pep8/) | Disabled | pep8Enabled | pep8Args | pep8Path |
 | prospector | [prospector](https://pypi.org/project/prospector/) | Disabled | prospectorEnabled | prospectorArgs | prospectorPath |
 | pylama | [pylama](https://pypi.org/project/pylama/) | Disabled | pylamaEnabled | pylamaArgs | pylamaPath |
@@ -131,6 +131,39 @@ pylint --generate-rcfile > .pylintrc
 
 The generated file contains sections for all the Pylint options, along with documentation in the comments.
 
+## pydocstyle
+
+### Command-line arguments and configuration files
+
+See [pycodestyle Command Line Interface](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage) for general options. For example, to ignore error D400 (first line should end with a period), add the following line to your `settings.json` file:
+
+```json
+"python.linting.pydocstyleArgs": ["--ignore=D400"]
+```
+
+A code prefix also instructs pydocstyle to ignore specific categories of errors. For example, to ignore all Docstring Content issues (D4XXX errors), add the following line to `settings.json`:
+
+```json
+"python.linting.pydocstyleArgs": ["--ignore=D4"]
+```
+
+More details can be found in the [pydocstyle documentation](http://www.pydocstyle.org/en/2.1.1/usage.html#cli-usage).
+
+Options can also be read from a `[pydocstyle]` section of any of the following configuration files:
+
+- `setup.cfg`
+- `tox.ini`
+- `.pydocstyle`
+- `.pydocstyle.ini`
+- `.pydocstylerc`
+- `.pydocstylerc.ini`
+
+For more information, see [Configuration Files](http://www.pydocstyle.org/en/2.1.1/usage.html#configuration-files).
+
+### Message category mapping
+
+The Python extension maps all pydocstyle errors to the Convention (C) category.
+
 ## Pep8 (pycodestyle)
 
 ### Command-line arguments and configuration files
@@ -164,9 +197,9 @@ See [Invoking Flake8](http://flake8.pycqa.org/en/latest/user/invocation.html) fo
 
 By default, Flake8 ignores E121, E123, E126, E226, E24, and E704.
 
-Flake8 user options are read from the `.flake8` (Windows) or `~/.config/flake8` (macOS/Linux) file.
+Flake8 user options are read from the `C:\Users\<username>\.flake8` (Windows) or `~/.config/flake8` (macOS/Linux) file.
 
-At the project level, options are read from the `[flake8]` section of a `tox.ini` or `setup.cfg` file. Only the first file is considered.
+At the project level, options are read from the `[flake8]` section of a `tox.ini`, `setup.cfg` or `.flake8` file.
 
 For details, see [Flake8 configuration](http://flake8.pycqa.org/en/latest/user/configuration.html).
 

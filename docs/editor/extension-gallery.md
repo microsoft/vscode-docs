@@ -212,7 +212,7 @@ An example `extensions.json` could be:
 
 which recommends two linter extensions, TSLint and ESLint, as well as the Chrome debugger extension.
 
-An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page.
+An extension is identified using its publisher name and extension identifier `publisher.extension`. You can see the name on the extension's detail page. VS Code will provide you auto-completion for installed extensions inside these files.
 
 ![Extension identifier](images/extension-gallery/extension-identifier.png).
 

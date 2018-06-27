@@ -14,7 +14,7 @@ C/C++ support for Visual Studio Code is provided by a [Microsoft C/C++ extension
 
 ![cpp hero](images/cpp/cpp-hero.png)
 
-If you just want a lightweight tool to edit your C++ files, Visual Studio Code is a great choice but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of the Visual Studio IDE such as [Visual Studio Community](https://www.visualstudio.com/vs/community).
+If you just want a lightweight tool to edit your C++ files, Visual Studio Code is a great choice but if you want the best possible experience for your existing Visual C++ projects or debugging on Windows, we recommend you use a version of the Visual Studio IDE such as [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
 
 If you run into any issues or have suggestions for the Microsoft C/C++ extension, please file [issues and suggestions on GitHub](https://github.com/Microsoft/vscode-cpptools/issues). If you haven't already provided feedback, please take this [quick survey](https://www.research.net/r/VBVV6C6) to help shape this extension for your needs.
 

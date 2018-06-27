@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 5
 Area: staticsite
 TOCTitle: Make a code change
 PageTitle: Make a code change
-MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 4/6/2018
+MetaDescription: Website deployment to Azure Storage with Visual Studio Code
+DateApproved: 6/27/2018
 ---
 # Making a code change
 
@@ -20,17 +20,13 @@ Open `App.js` and change **line 11** to the following:
 
 ## Redeploy your app
 
-Depending on which method you chose previously, redeploy your app to Azure Storage.
+Run `npm run build` locally then right-click your updated `build` directory and choose **Deploy to Static Website**. Choose your Storage Account and confirm that you want to deploy your changes.
 
-**Manually with Storage Explorer** - Run `npm run build` locally and then drag and drop the `dist` folder into the blob container in  Azure Storage Explorer.
+> **Tip**: Your compiled application code will have a different filename on each build to prevent caching. Because of this, the extension will automatically delete the old files before deploying changes.
 
-**Azure CLI** - Run `npm run deploy` to kick off your Azure CLI script (that [we previously defined](/tutorials/static-website/deploy-cli.md#make-a-reusable-deploy-script)).
+## Test your changes
 
-**VSTS build/deploy pipeline** - Commit your change and push to your Visual Studio Team Services (VSTS) repository.
-
-## Test your app
-
-Once your deployment is complete, revisit your storage endpoint (`https://<storage-account-name>.blob.core.windows.net/<container-name>/`) and you should see the following!
+Once your deployment is complete, revisit your storage endpoint (`https://<storage-account-name>.z4.web.core.windows.net/`) and you should see the following!
 
 ![Import build](images/static-website/updated-azure-app.png)
 

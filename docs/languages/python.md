@@ -4,14 +4,16 @@ Area: languages
 TOCTitle: Python
 ContentId: c2cb770d-571d-4edf-9eb9-b5b8977c21a0
 PageTitle: Python in Visual Studio Code
-DateApproved: 05/21/2018
-MetaDescription: Learn about Visual Studio Code features (code completion, debugging, snippets, linting) for Python.
+DateApproved: 06/20/2018
+MetaDescription: Learn about Visual Studio Code as a Python IDE (code completion, debugging, snippets, linting).
 ---
 # Python in Visual Studio Code
 
-Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension works on any operating system with a variety of Python interpreters, including. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
+Working with Python in Visual Studio Code, using the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python), is simple, fun, and productive. The extension makes VS Code an excellent IDE, and works on any operating system with a variety of Python interpreters. It leverages all of VS Code's power to provide auto complete and IntelliSense, linting, debugging, and unit testing, along with the ability to easily switch between Python environments, including virtual and conda environments.
 
-> **Important**: This article provides only an overview of the different capabilities of the Python extension for VS Code. For a basic walkthrough of editing, running, and debugging code, see the [tutorial](/docs/python/python-tutorial.md) instead.
+This article provides only an overview of the different capabilities of the Python extension for VS Code. For a walkthrough of editing, running, and debugging code, use the button below.
+
+<a class="tutorial-next-btn" href="/docs/python/python-tutorial">Python Hello World Tutorial</a>
 
 ## Install Python and the Python extension
 
@@ -40,7 +42,7 @@ For a more specific walkthrough on running code, see the [tutorial](/docs/python
 
 ## Autocomplete and IntelliSense
 
-The Python extension supports code completion and Intellisense. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
+The Python extension supports code completion and Intellisense using the currently selected interpreter. [Intellisense](/docs/editor/intellisense.md) is a general term for a number of features, including intelligent code completion (in-context method and variable suggestions) across all your files and for built-in and third-party modules.
 
 IntelliSense quickly shows methods, class members, and documentation as you type, and you can trigger completions at any time with `kb(editor.action.triggerSuggest)`.
 
@@ -90,7 +92,7 @@ VS Code prompts you with a list of detected environments as well as any you've a
 
 ### Installing packages
 
-Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name)` (macOS/Linux). VS Code installs that package into your project along with its dependencies.
+Packages are installed using the **Terminal** panel and commands like `pip install <package_name>` (Windows) and `pip3 install <package_name>` (macOS/Linux). VS Code installs that package into your project along with its dependencies.
 
 ## Unit testing
 
@@ -117,7 +119,7 @@ The extensions shown above are dynamically queried. Click on an extension tile a
 
 ## Next steps
 
-- [Python tutorial](/docs/python/python-tutorial.md) - Walk through the core features of Python in VS Code.
+- [Python Hello World tutorial](/docs/python/python-tutorial.md) - Get started with Python in VS Code.
 - [Editing Python](/docs/python/editing.md) - Learn about auto-completion, formatting, and refactoring for Python.
 - [Basic Editing](/docs/editor/codebasics.md) - Learn about the powerful VS Code editor.
 - [Code Navigation](/docs/editor/editingevolved.md) - Move quickly through your source code.

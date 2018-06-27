@@ -71,15 +71,15 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 
 ## Run Selection/Line in Terminal (REPL)
 
-The **Python: Run Selection/Line in Terminal** command is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Integrated Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
-
-The command opens the Integrated Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
-
-> **Note**: At present, **Python: Run Selection/Line in Terminal** using keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
+The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Ctrl+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
 
 Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
 
-When working in the editor, you can send the current line to the REPL using **Python: Run Selection/Line in Terminal**. The command starts the REPL if it's not already running, but note that initial startup might take a few moments especially if the first statement you run is an `import`.
+The command opens the Python Terminal if necessary; you can also open the interactive REPL environment directly using the **Python: Start REPL** command. Note that initial startup might take a few moments especially if the first statement you run is an `import`.
+
+On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again the REPL has finished loading.
+
+> **Note**: At present, using `kbstyle(Ctrl+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
 ## Formatting
 
@@ -89,7 +89,7 @@ The Python extension supports source code formatting using either autopep8 (the 
 
 | Setting<br/>(python.formatting.) | Default value | Description |
 | --- | --- | --- |
-| provider | `"autopep8"` | Specifies the formatter to use, either "autopep8" or "yapf". |
+| provider | `"autopep8"` | Specifies the formatter to use, either "autopep8", "yapf", or "black". |
 
 ### Formatter-specific settings
 
