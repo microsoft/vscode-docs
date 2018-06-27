@@ -4,11 +4,13 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 06/04/2018
+DateApproved: 06/26/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Configuring Python environments
+
+*If you're looking to get started with Python in VS Code, refer to the [Tutorial](python-tutorial.md). This present article is focused only on aspects of setting up a Python interpreter/environment.*
 
 The Python extension relies on a Python environment (an interpreter and installed packages) for IntelliSense, auto-completions, linting, formatting, and any other language-related features other than debugging. The selected environment is also automatically activated when using the **Python: Run Python File in Terminal** and **Python: Create Terminal** commands.
 
