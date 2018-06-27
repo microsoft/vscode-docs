@@ -19,9 +19,9 @@ When you are building a static website, your production website is a collection 
 In this tutorial, we will deploy your static site to Azure Storage by doing the following:
 
 1. Get the required accounts and dependencies.
-2. Create or prepare an application for deployment.
-3. Choose your preferred deployment method.
-4. Deploy!
+1. Create or prepare an application for deployment.
+1. Create and configure Azure Storage for hosting.
+1. Deploy to Azure Storage using VS Code!
 
 ## Prerequisites
 
@@ -30,6 +30,24 @@ In this tutorial, we will deploy your static site to Azure Storage by doing the 
 **Node.js** - Download [Node.js and npm](https://nodejs.org/en/download), we recommend the LTS (long term support) version.
 
 > **Note**: If you already have application code, you don't need to install Node.js as this tutorial only uses it to generate a sample project.
+
+## Install the extension
+
+The Azure Storage extension is used to deploy your website to Azure.
+
+> <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurestorage">Install the Azure Storage extension</a>
+
+Once installed, open your settings (`CTRL/CMD+,`) and enable static website hosting for the extension by adding the following to `settings.json`.
+
+```json
+"azureStorage.preview.staticWebsites": true
+```
+
+## Sign in
+
+Once the extension is installed, log into your Azure account - in the Actvity Bar, click on the Azure logo to show the **AZURE STORAGE** explorer. Click **Sign in to Azure...** and follow the instructions.
+
+![sign in to Azure](images/static-website/sign-in.png)
 
 ## Prerequisite check
 
