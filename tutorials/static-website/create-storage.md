@@ -10,6 +10,8 @@ DateApproved: 6/27/2018
 
 Now that you have a static website, let's deploy it to the cloud using Azure Storage. Azure Storage is simple file store/CDN with a built-in web server which makes it great for hosting static sites extremely fast.
 
+## Create your account
+
 In this section, we will setup our Azure Storage account and blob container.
 
 1. Login to [Azure Portal](https://portal.azure.com)
@@ -32,11 +34,13 @@ In this section, we will setup our Azure Storage account and blob container.
 
    ![Add name and Resource Group](images/static-website/storage/3-portal-config-storage.png)
 
-5. When account creation is complete, you will get a notification (the bell icon in the top menu bar).
+## Create your storage
+
+1. When account creation is complete, you will get a notification (the bell icon in the top menu bar).
 
    Click **Go to resource**.
 
-6. Select **Static Website (preview)** from the left side menu bar and enable static site hosting.
+2. Select **Static Website (preview)** from the left side menu bar and enable static site hosting.
 
   > **Note**: Be sure to include the name of your index document.
 

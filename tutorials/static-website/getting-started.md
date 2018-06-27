@@ -33,7 +33,7 @@ In this tutorial, we will deploy your static site to Azure Storage by doing the 
 
 ## Install the extension
 
-The Azure Storage extension is used to deploy your website to Azure.
+The [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) extension is used to deploy your website to Azure.
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurestorage">Install the Azure Storage extension</a>
 

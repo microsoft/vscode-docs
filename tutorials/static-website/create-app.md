@@ -12,7 +12,7 @@ In this section, you will create a simple static website that can be deployed to
 
 > **Tip:** If you already have your own application ready to deploy, you can skip ahead to [Deploy the Website](/tutorials/static-website/choose-deployment.md).
 
-## Install the create-react-app npm package
+## Install create-react-app tool
 
 [React](https://reactjs.org/) is a popular framework for building web applications, so we will use it as an example. You can scaffold (create) a new React application using the [create-react-app](https://github.com/facebook/create-react-app) tool. The `create-react-app` tool is shipped as an npm module and can be installed by using `npm`.
 
@@ -22,7 +22,7 @@ npm install -g create-react-app
 
 The `-g` switch installs the `create-react-app` globally on your machine so you can run it from anywhere.
 
-## Scaffold and build a new application
+## Create a new application
 
 Next, scaffold a new React app called `my-react-app` by running:
 
