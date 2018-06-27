@@ -2,9 +2,9 @@
 Order: 1
 Area: staticsite
 TOCTitle: Getting started
-PageTitle: Website Deployment with Azure Storage
+PageTitle: Website deployment with Azure Storage
 MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 4/6/2018
+DateApproved: 6/27/2018
 ---
 # Deploy a static website to Azure
 
@@ -37,7 +37,7 @@ The Azure Storage extension is used to deploy your website to Azure.
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurestorage">Install the Azure Storage extension</a>
 
-Once installed, open your settings (`CTRL/CMD+,`) and enable static website hosting for the extension by adding the following to `settings.json`.
+Once installed, open your [settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`) and enable static website hosting for the extension by adding the following to `settings.json`.
 
 ```json
 "azureStorage.preview.staticWebsites": true
@@ -45,7 +45,7 @@ Once installed, open your settings (`CTRL/CMD+,`) and enable static website host
 
 ## Sign in
 
-Once the extension is installed, log into your Azure account - in the Actvity Bar, click on the Azure logo to show the **AZURE STORAGE** explorer. Click **Sign in to Azure...** and follow the instructions.
+Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE STORAGE** explorer. Click **Sign in to Azure...** and follow the instructions.
 
 ![sign in to Azure](images/static-website/sign-in.png)
 

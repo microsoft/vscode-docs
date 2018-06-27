@@ -1,14 +1,14 @@
 ---
 Order: 4
 Area: staticsite
-TOCTitle: "Deploy the Website"
-PageTitle: Deploy the Website
-MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 4/6/2018
+TOCTitle: Deploy the website
+PageTitle: Deploy the website to Azure Storage
+MetaDescription: Website deployment to Azure Storage with Visual Studio Code
+DateApproved: 6/27/2018
 ---
-# Deploy using Azure Storage Extension for VS Code
+# Deploy to Azure Storage
 
-In the **AZURE STORAGE** explorer, expand your subscription and find the Azure Storage account that you just created and expand the **Blob Containers** node. Notice the `$web` container, this was created when you enabled static website hosting and this is where your application code will be dpeloyed.
+In the **AZURE STORAGE** explorer, expand your subscription and find the Azure Storage account that you just created and expand the **Blob Containers** node. Notice the `$web` container, this was created when you enabled static website hosting and this is where your application code will be deployed.
 
 1. Open your application code in VS Code, right-click on your **build** directory, and choose **Deploy to Static Website**.
 

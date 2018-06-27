@@ -3,8 +3,8 @@ Order: 2
 Area: staticsite
 TOCTitle: Create the application
 PageTitle: Create the application
-MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 4/6/2018
+MetaDescription: Website deployment to Azure Storage with Visual Studio Code
+DateApproved: 6/27/2018
 ---
 # Create your Node.js application
 

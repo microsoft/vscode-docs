@@ -3,8 +3,8 @@ Order: 5
 Area: staticsite
 TOCTitle: Make a code change
 PageTitle: Make a code change
-MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 4/6/2018
+MetaDescription: Website deployment to Azure Storage with Visual Studio Code
+DateApproved: 6/27/2018
 ---
 # Making a code change
 

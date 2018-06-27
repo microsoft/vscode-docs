@@ -2,11 +2,11 @@
 Order: 3
 Area: staticsite
 TOCTitle: Create storage account
-PageTitle: Create storage account
-MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 4/6/2018
+PageTitle: Create an Azure Storage account
+MetaDescription: Website deployment to Azure Storage with Visual Studio Code
+DateApproved: 6/27/2018
 ---
-# Create Azure Storage account
+# Create an Azure Storage account
 
 Now that you have a static website, let's deploy it to the cloud using Azure Storage. Azure Storage is simple file store/CDN with a built-in web server which makes it great for hosting static sites extremely fast.
 
@@ -42,10 +42,9 @@ In this section, we will setup our Azure Storage account and blob container.
 
    ![Confirm container](images/static-website/storage/8-portal-config-static-site.png)
 
-
 ## Your site URL
 
-Within the **Static Website (preview)** configuration options, copy the URL for your website. This will be the primay endpoint for your app.
+Within the **Static Website (preview)** configuration options, copy the URL for your website. This will be the primary endpoint for your app.
 
 `https://<storage-account-name>.z4.web.core.windows.net/`
 
