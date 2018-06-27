@@ -1,5 +1,5 @@
 ---
-Order: 14
+Order:
 Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
@@ -43,7 +43,3 @@ By default, the default TMP directory is still the system-wide one even in Porta
 ## VS Code Insiders
 
 VS Code Insiders requires the folder to be named differently: `code-insiders-portable-data`.
-
-## Next Steps
-
-- ???
