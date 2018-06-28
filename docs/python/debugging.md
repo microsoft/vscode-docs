@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 06/21/2018
+DateApproved: 06/28/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -183,6 +183,10 @@ Sets optional environment variables for the debugger process beyond system envir
 
 Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file).
 
+### `gevent`
+
+If set to `true`, enables debugging of [gevent monkey-patched code](http://www.gevent.org/intro.html).
+
 ## Remote debugging
 
 Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer.
@@ -297,6 +301,7 @@ The configuration drop-down provides a variety of different options for general 
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Scrapy | Specifies `"program": "~/.virtualenvs/scrapy/bin/scrapy"`, adds the `"console": "integratedTerminal"` option, and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Attach (Remote Debug) | See [Remote debugging](#remote-debugging) in the previous section. |
+| Gevent (Python Experimental only) | Sets `gevent` top `true` and `type` to `pythonExperimental`. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
