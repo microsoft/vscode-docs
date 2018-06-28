@@ -2,7 +2,7 @@
 Order: 3
 Area: docker
 TOCTitle: Create the image
-PageTitle: Create the Docket image
+PageTitle: Create the Docker image
 MetaDescription: Create the Docker image to deploy to Azure App Services with Visual Studio Code
 DateApproved: 06/19/2018
 ---
