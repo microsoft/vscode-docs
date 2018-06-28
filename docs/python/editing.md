@@ -156,10 +156,11 @@ Invoked by:
 - Right-click in editor and select **Sort Imports** (no selection is required)
 - Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Sort Imports**
 - Assign a keyboard shortcut to the `python.sortImports` command
+- Saving a file when [sort on save](#sort-imports-on-save) is enabled.
 
 ![Sorting import statements](images/editing/sortImports.gif)
 
-Custom arguments to isort can be specified in the `python.sortImports.args` setting, with each argument as a separate item in the array:
+Custom arguments to isort are specified in the `python.sortImports.args` setting, with each argument as a separate item in the array:
 
 ```json
 "python.sortImports.args": ["-rc", "--atomic"],
@@ -168,6 +169,18 @@ Custom arguments to isort can be specified in the `python.sortImports.args` sett
 To use a custom isort script, use the `python.sortImports.path` setting to specify the path:
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
+
+#### Sort imports on save
+
+To automatically sort imports whenever you save a file, add the following entry to your user or workspace settings:
+
+```json
+"[python]": {
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    }
+}
+```
 
 ## Next steps
 
