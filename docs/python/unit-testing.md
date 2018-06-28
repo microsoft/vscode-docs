@@ -39,7 +39,7 @@ Each framework also has specific configuration settings as described in the foll
 | Setting<br/>(python.unitTest.) | Default | Description |
 | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether UnitTest is enabled for unit testing. |
-| unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, with each argument specified as an item in the array. See below for a description of the defaults. |
+| unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each element that's separated by a space is a separate item in the list. See below for a description of the defaults. |
 | cwd | null | Specifies an optional working directory for unit tests. |
 | outputWindow | `"Python Test Log"` | The window to use for unit test output. |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
@@ -62,7 +62,7 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 | --- | --- | --- |
 | pyTestEnabled | `false` | Specifies whether PyTest is enabled for unit testing. |
 | pyTestPath | `"py.test"` | Path to PyTest. Use a full path if PyTest is located outside the current environment. |
-| pyTestArgs | `[]` | Arguments to pass to PyTest, with each argument specified as an item in the array. See [PyTest command line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
+| pyTestArgs | `[]` | Arguments to pass to PyTest, where each element that's separated by a space is a separate item in the list. See [PyTest command line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
 
 You can also configure pytest using a `pytest.ini` file as described on [PyTest Configuration](https://docs.pytest.org/en/latest/customize.html).
 
@@ -75,7 +75,7 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 | --- | --- | --- |
 | nosetestsEnabled | `false` | Specifies whether Nose  is enabled for unit testing. |
 | nosetestPath | `"nosetests"` | Path to Nose. Use a full path if Nose is located outside the current environment. |
-| nosetestArgs | `[]` | Arguments to pass to Nose, with each argument specified as an item in the array. See [Nose usage options](https://nose.readthedocs.io/en/latest/usage.html#options). |
+| nosetestArgs | `[]` | Arguments to pass to Nose, where each element that's separated by a space is a separate item in the list. See [Nose usage options](https://nose.readthedocs.io/en/latest/usage.html#options). |
 
 You can also configure nose with a `.noserc` or `nose.cfg` file as described on [Nose configuration](https://nose.readthedocs.io/en/latest/usage.html#configuration).
 
