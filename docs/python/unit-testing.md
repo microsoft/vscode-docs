@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 06/04/2018
+DateApproved: 06/28/2018
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/) and [Nose](https://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
 
-Use the **Python: Discover Unit Tests** to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discover](#test-discovery). Once discovered, VS Code provides a variety of means to run tests (see [Running tests](#running-tests)).
+Use the **Python: Discover Unit Tests** to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discovery](#test-discovery). Once discovered, VS Code provides a variety of means to run tests (see [Running tests](#running-tests)).
 
 Unit test output is displayed in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
@@ -44,6 +44,7 @@ Each framework also has specific configuration settings as described in the foll
 | outputWindow | `"Python Test Log"` | The window to use for unit test output. |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
 | debugPort | `3000` | Port number used for debugging of UnitTest tests. |
+  autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
 
 The default arguments for UnitTest are as follows:
 
@@ -80,7 +81,8 @@ You can also configure nose with a `.noserc` or `nose.cfg` file as described on 
 
 ## Test discovery
 
-VS Code uses the currently enabled unit testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Unit Tests** command.
+VS Code uses the currently enabled unit testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Unit Tests** command. With Unittest, you can set the
+`python.unittest.autoTestDiscoverOnSaveEnabled` setting to `true` to run test discovery whenever you save a test file.
 
 Test discovery applies the discovery patterns specified in the arguments option for the current test framework. For example, the default arguments for unittest include `-s . -p *test*.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the `*test*.py` pattern (`-p *test*.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
 
