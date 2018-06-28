@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 06/04/2018
+DateApproved: 06/28/2018
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -118,6 +118,16 @@ If formatting fails, check the following possible causes:
 | The formatter is not installed in the current environment | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
 | Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains an array of individual argument items such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
+
+When using the black formatter, VS Code issues a the following warning when pasting code into the editor: **Black does not support the "Format Select" command.**
+
+To prevent this warning, add the following entry to your user or workspace settings to disable format on paste for Python files:
+
+```json
+"[python]": {
+    "editor.formatOnPaste": false
+}
+```
 
 ## Refactoring
 
