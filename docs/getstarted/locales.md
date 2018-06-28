@@ -13,6 +13,34 @@ Visual Studio Code ships with 10 available display languages (locales): English 
 
 By default, VS Code picks up the operating system's display language, falling back to English (US) if the locale is not supported.
 
+## Changing the Display Language
+
+The **Configure Display Language** command creates a `locale.json` file in your user VS Code folder. Set the `locale` attribute to your preferred locale.
+
+Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "display" to filter and display the **Configure Display Language** command.
+
+![configure display language command ](images/locales/configure-language-command.png)
+
+Press `kbstyle(Enter)` and a `locale.json` file is created with the default value set to your operating system language. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to select a different supported language locale.
+
+![locale IntelliSense](images/locales/locale-intellisense.png)
+
+Save `locale.json` and restart VS Code to use the new display language.
+
+The example below sets VS Code to display Simplified Chinese `zh-CN`:
+
+```json
+{
+    // Defines VS Code's display language.
+    "locale":"zh-CN"
+}
+```
+
+You can rerun the **Configure Display Language** command to review and change your `locale.json` file.
+
+>**Note:** Changing the `locale` value requires a restart of VS Code.
+
+
 ## Available locales
 
 Display Language | Locale
@@ -62,30 +90,3 @@ Below is an example of using the `--locale` command line switch to set the VS Co
 ```bash
 code . --locale=fr
 ```
-
-## Configure Display Language command
-
-The **Configure Display Language** command creates a `locale.json` file in your user VS Code folder.  Set the `locale` attribute to your preferred locale.
-
-Press `kb(workbench.action.showCommands)` to bring up the **Command Palette** then start typing "display" to filter and display the **Configure Display Language** command.
-
-![configure display language command ](images/locales/configure-language-command.png)
-
-Press `kbstyle(Enter)` and a `locale.json` file is created with the default value set to your operating system language. You can use IntelliSense (`kb(editor.action.triggerSuggest)`) to select a different supported language locale.
-
-![locale IntelliSense](images/locales/locale-intellisense.png)
-
-Save `locale.json` and restart VS Code to use the new display language.
-
-The example below sets VS Code to display Simplified Chinese `zh-CN`:
-
-```json
-{
-    // Defines VS Code's display language.
-    "locale":"zh-CN"
-}
-```
-
-You can rerun the **Configure Display Language** command to review and change your `locale.json` file.
-
->**Note:** Changing the `locale` value requires a restart of VS Code.

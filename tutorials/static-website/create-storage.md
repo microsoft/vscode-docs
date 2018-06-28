@@ -2,13 +2,15 @@
 Order: 3
 Area: staticsite
 TOCTitle: Create storage account
-PageTitle: Create storage account
-MetaDescription: Website Deployment to Azure Storage with Visual Studio Code
-DateApproved: 4/6/2018
+PageTitle: Create an Azure Storage account
+MetaDescription: Website deployment to Azure Storage with Visual Studio Code
+DateApproved: 6/27/2018
 ---
-# Create Azure Storage account
+# Create an Azure Storage account
 
 Now that you have a static website, let's deploy it to the cloud using Azure Storage. Azure Storage is simple file store/CDN with a built-in web server which makes it great for hosting static sites extremely fast.
+
+## Create your account
 
 In this section, we will setup our Azure Storage account and blob container.
 
@@ -32,37 +34,27 @@ In this section, we will setup our Azure Storage account and blob container.
 
    ![Add name and Resource Group](images/static-website/storage/3-portal-config-storage.png)
 
-5. When account creation is complete, you will get a notification (the bell icon in the top menu bar).
+## Create your storage
+
+1. When account creation is complete, you will get a notification (the bell icon in the top menu bar).
 
    Click **Go to resource**.
 
-6. Click **Blobs** in the **Services** section
+2. Select **Static Website (preview)** from the left side menu bar and enable static site hosting.
 
-   ![Navigate to blobs](images/static-website/storage/4-portal-select-blobs.png)
+  > **Note**: Be sure to include the name of your index document.
 
-7. Click the **"+ Container"**, name your container, and set the access level to **Blob**.
+   ![Confirm container](images/static-website/storage/8-portal-config-static-site.png)
 
-   ![Create container](images/static-website/storage/6-portal-create-container.png)
+## Your site URL
 
-   If everything was creating successfully, you should see your container and storage account information in the Blob service blade. Keep this window open, you'll need this information later.
+Within the **Static Website (preview)** configuration options, copy the URL for your website. This will be the primary endpoint for your app.
 
-   ![Confirm container](images/static-website/storage/7-portal-confirm-container.png)
+`https://<storage-account-name>.z4.web.core.windows.net/`
 
-## Setting relative paths
-
-By default `create-react-app` assumes that your app will live in the server's root directory, however our app will be in a container which adds an extra folder level to every path.
-
-`https://mystorageaccount12312.blob.core.windows.net/**my-container**`
-
-Luckily, there is an easy fix for this. Add the following to `package.json` with your own values in place of `storage-account-name` and `container-name`:
-
-```json
-"homepage": "https://<storage-account-name>.blob.core.windows.net/<container-name>/"
-```
-
-This setting will make sure that all URLs generated during `npm build` contain the correct relative path that we need to serve the app. You can read more about relative paths in `create-react-app` on their [GitHub README](https://github.com/facebook/create-react-app/tree/master/packages/react-scripts/template#building-for-relative-paths).
+With Static Website hosting enabled, your configured index document will be served by default along with all of your static assets.
 
 ----
 
-<a class="tutorial-next-btn" href="/tutorials/static-website/choose-deployment">I created a storage container</a>
+<a class="tutorial-next-btn" href="/tutorials/static-website/deploy-website">I created a storage container</a>
 <a class="tutorial-feedback-btn" onclick="reportIssue('node-deployment-staticwebsite', 'create-storage')" href="javascript:void(0)">I ran into an issue</a>

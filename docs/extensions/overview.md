@@ -42,7 +42,7 @@ Also helpful is [Extensibility Principles and Patterns](/docs/extensionAPI/patte
 
 ## Language Servers
 
-Language servers let you create a dedicated process for your extension.  This is a useful design choice for your extension when your extension runs high cost CPU or IO intensive tasks which could slow other extensions.  This is common for tasks that work across all files in a workspace e.g. linters or static analysis suites.
+Language servers let you create a dedicated process for your extension and communicate with VS Code through the [Language Server Protocol](https://github.com/Microsoft/language-server-protocol).  This is a useful design choice for your extension when your extension runs high cost CPU or IO intensive tasks which could slow other extensions.  This is common for tasks that work across all files in a workspace, for example, linters or static analysis suites.
 
 Find out more about [language servers](/docs/extensions/example-language-server.md).
 
