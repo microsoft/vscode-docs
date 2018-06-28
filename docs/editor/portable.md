@@ -10,36 +10,38 @@ MetaDescription: Visual Studio Code supports a Portable Mode.
 
 # Portable Mode
 
-Visual Studio Code supports [Portable Mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be placed in a USB drive to code on the go.
+Visual Studio Code supports [Portable Mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments.
 
-Portable Mode is supported on the ZIP download for Windows and Linux, as well as the regular App download for macOS.
+Portable Mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS.
 
 ## Enable Portable Mode
 
-Enabling Portable Mode is as simple as creating a folder in which all the portable data will be placed. By default, the folder name is `code-portable-data` and it should be placed next to VS Code itself.
+### Windows, Linux
 
-On **Windows** and **Linux**, after unzipping the VS Code download, you'll end up with a folder name similar to `VSCode-win32-x64-1.25.0-insider`, in which `Code.exe` or the `code` executable is inside. Simply create a sibling `code-portable-data` empty folder:
+After unzipping the VS Code download, simply create a `data` folder within Code's folder:
 
 ```
 |- VSCode-win32-x64-1.25.0-insider
 |   |- Code.exe (or code executable)
+|   |- data
 |   |- ...
-|- code-portable-data
 ```
 
 From then on, that folder will be used to contain all Code data, including session state, preferences, extensions, etc.
 
-On **macOS**, you need to place that folder as a sibling of the app itself:
+### macOS
+
+On **macOS**, you need to place the data folder as a sibling of the application itself. Since the folder will be alongside the application, you need to name it specifically so that Code can find it. The default folder name is `code-portable-data`:
+
 
 ```
 |- Visual Studio Code.app
 |- code-portable-data
 ```
 
+**Note:** On Insiders, the folder should be named `code-insiders-portable-data`.
+
 ## TMP Directory
 
-By default, the default TMP directory is still the system-wide one even in Portable Mode, since no state is kept there. If you wish to also have your TMP directory within your portable directory, simply create an empty `tmp` directory inside `code-portable-data`. As long as a `tmp` directory exists, it will be used for TMP data.
+By default, the default `TMP` directory is still the system one even in Portable Mode, since no state is kept there. If you wish to also have your TMP directory within your portable directory, simply create an empty `tmp` directory inside the `data` folder. As long as a `tmp` directory exists, it will be used for TMP data.
 
-## VS Code Insiders
-
-VS Code Insiders requires the folder to be named differently: `code-insiders-portable-data`.
