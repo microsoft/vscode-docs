@@ -98,6 +98,14 @@ You can also [manually specify an interpreter](#manually-specifying-an-interpret
 
 The extension also loads an [environment variable definitions file](#environment-variable-definitions-file) identified by the `python.envFile` setting. The default value of this setting is `${workspaceFolder}/.env`.
 
+## Use of the PYTHONPATH variable
+
+The PYTHONPATH environment variable, which can be included in a [Environment variable definitions file](#environment-variable-definitions-file), specifies where Python should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/MacOS). Invalid paths are ignored.
+
+In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have code in a `src` folder and tests in the `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
+
+For more information, including referring to ZIP files, see [PYTHONPATH](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) (docs.python.org).
+
 ## Manually specify an interpreter
 
 If VS Code does not automatically locate an interpreter you want to use, you can set the path to it manually in your User Settings `settings.json` file:
