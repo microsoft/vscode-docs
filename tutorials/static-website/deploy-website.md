@@ -12,7 +12,7 @@ In the **AZURE STORAGE** explorer, expand your subscription and find the Azure S
 
 ## Deploy your website
 
-1. Open your application code in VS Code, right-click on your **build** directory, and choose **Deploy to Static Website**.
+1. Open your application code in VS Code, right-click on your **build** directory, and choose **Deploy to Static Website...**.
 
     ![Deploy to Static Website](images/static-website/deploy-build.png)
 
