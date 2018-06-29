@@ -140,7 +140,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "editor.fontSize": 14,
 
   // Controls the font family.
-  "editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'",
+  "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
   // The number of spaces a tab is equal to. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
   "editor.tabSize": 4,
@@ -248,7 +248,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   "editor.foldingStrategy": "auto",
 
   // Controls the font family.
-  "editor.fontFamily": "Consolas, 'Courier New', monospace, 'Segoe UI Emoji'",
+  "editor.fontFamily": "Consolas, 'Courier New', monospace",
 
   // Enables font ligatures
   "editor.fontLigatures": false,
@@ -276,6 +276,18 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls if the cursor should be hidden in the overview ruler.
   "editor.hideCursorInOverviewRuler": false,
+
+  // Controls whether the editor should highlight the active indent guide
+  "editor.highlightActiveIndentGuide": true,
+
+  // Controls the delay after which to show the hover
+  "editor.hover.delay": 300,
+
+  // Controls if the hover is shown
+  "editor.hover.enabled": true,
+
+  // Controls if the hover should remain visible when mouse is moved over it
+  "editor.hover.sticky": true,
 
   // Insert spaces when pressing Tab. This setting is overridden based on the file contents when `editor.detectIndentation` is on.
   "editor.insertSpaces": true,
@@ -377,6 +389,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether the fold controls on the gutter are automatically hidden.
   "editor.showFoldingControls": "mouseover",
 
+  // Controls fading out of unused code.
+  "editor.showUnused": true,
+
   // Controls if the editor will scroll using an animation
   "editor.smoothScrolling": false,
 
@@ -460,6 +475,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls if the last typed input to the command palette should be restored when opening it the next time.
   "workbench.commandPalette.preserveInput": false,
 
+  // Controls the behavior of empty editor groups when the last tab in the group is closed. When enabled, empty groups will automatically close. When disabled, empty groups will remain part of the grid.
+  "workbench.editor.closeEmptyGroups": true,
+
   // Controls if editors showing a file should close automatically when the file is deleted or renamed by some other process. Disabling this will keep the editor open as dirty on such an event. Note that deleting from within the application will always close the editor and that dirty files will never close to preserve your data.
   "workbench.editor.closeOnFileDelete": true,
 
@@ -478,6 +496,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls where editors open. Select 'left' or 'right' to open editors to the left or right of the currently active one. Select 'first' or 'last' to open editors independently from the currently active one.
   "workbench.editor.openPositioning": "right",
+
+  // Controls the default direction of editors that are opened side by side (e.g. from the explorer). By default, editors will open on the right hand side of the currently active one. If changed to open down, the editors will open below the currently active one.
+  "workbench.editor.openSideBySideDirection": "right",
 
   // Controls if an editor is revealed in any of the visible groups if opened. If disabled, an editor will prefer to open in the currently active editor group. If enabled, an already opened editor will be revealed instead of opened again in the currently active editor group. Note that there are some cases where this setting is ignored, e.g. when forcing an editor to open in a specific group or to the side of the currently active group.
   "workbench.editor.revealIfOpen": false,
@@ -513,7 +534,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls how to open items in trees and lists using the mouse (if supported). Set to `singleClick` to open items with a single mouse click and `doubleClick` to only open via mouse double click. For parents with children in trees, this setting will control if a single click expands the parent or a double click. Note that some trees and lists might choose to ignore this setting if it is not applicable.
   "workbench.list.openMode": "singleClick",
 
-  // Controls the default location of the panel. It can either show at the bottom or on the right of the workbench.
+  // Controls the default location of the panel (terminal, debug console, output, problems). It can either show at the bottom or on the right of the workbench.
   "workbench.panel.defaultLocation": "bottom",
 
   // Controls if Quick Open should close automatically once it loses focus.
@@ -652,7 +673,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // When enabled, insert a final new line at the end of the file when saving it.
   "files.insertFinalNewline": false,
 
-  // Controls the memory available to VS Code after restart when trying to open large files. Same affect as specifying --max-memory=NEWSIZE on the command line.
+  // Controls the memory available to VS Code after restart when trying to open large files. Same effect as specifying --max-memory=NEWSIZE on the command line.
   "files.maxMemoryForLargeFilesMB": 4096,
 
   // When enabled, will trim all new lines after the final new line at the end of the file when saving it.
@@ -769,6 +790,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Enables Windows background updates.
   "update.enableWindowsBackgroundUpdates": true,
+
+  // Show Release Notes after an update.
+  "update.showReleaseNotes": true,
 
 // Debug
 
@@ -929,7 +953,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after a comma delimiter.
   "javascript.format.insertSpaceAfterCommaDelimiter": true,
 
-  // Defines space handling after the constructor keyword. Requires TypeScript >= 2.3.0.
+  // Defines space handling after the constructor keyword. Requires using TypeScript 2.3.0 or newer in the workspace.
   "javascript.format.insertSpaceAfterConstructor": false,
 
   // Defines space handling after function keyword for anonymous functions.
@@ -938,10 +962,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after keywords in a control flow statement.
   "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
-  // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
+  // Defines space handling after opening and before closing JSX expression braces.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-  // Defines space handling after opening and before closing non-empty braces. Requires TypeScript >= 2.3.0.
+  // Defines space handling after opening and before closing non-empty braces. Requires using TypeScript 2.3.0 or newer in the workspace.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
   // Defines space handling after opening and before closing non-empty brackets.
@@ -950,7 +974,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after opening and before closing non-empty parenthesis.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
-  // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
+  // Defines space handling after opening and before closing template string braces.
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
 
   //  Defines space handling after a semicolon in a for statement.
@@ -959,7 +983,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after a binary operator.
   "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
 
-  // Defines space handling before function argument parentheses. Requires TypeScript >= 2.1.5.
+  // Defines space handling before function argument parentheses.
   "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
 
   // Defines whether an open brace is put onto a new line for control blocks or not.
@@ -968,10 +992,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines whether an open brace is put onto a new line for functions or not.
   "javascript.format.placeOpenBraceOnNewLineForFunctions": false,
 
-  // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >= 2.3.1.
+  // Enable/disable semantic checking of JavaScript files. Existing jsconfig.json or tsconfig.json files override this setting. Requires using TypeScript 2.3.1 or newer in the workspace.
   "javascript.implicitProjectConfig.checkJs": false,
 
-  // Enable/disable 'experimentalDecorators' for JavaScript files that are not part of a project. Existing jsconfig.json or tsconfig.json files override this setting. Requires TypeScript >= 2.3.1.
+  // Enable/disable 'experimentalDecorators' for JavaScript files that are not part of a project. Existing jsconfig.json or tsconfig.json files override this setting. Requires using TypeScript 2.3.1 or newer in the workspace.
   "javascript.implicitProjectConfig.experimentalDecorators": false,
 
   // Enable/disable including unique names from the file in JavaScript suggestion lists.
@@ -981,22 +1005,22 @@ Below are the Visual Studio Code default settings and their values. You can also
   // - "relative" to the file location.
   // - "non-relative" based on the 'baseUrl' configured in your 'jsconfig.json' / 'tsconfig.json'.
   // - "auto" infer the shortest path type.
-  // Requires TypeScript >= 2.9
+  // Requires using TypeScript 2.9 or newer in the workspace.
   "javascript.preferences.importModuleSpecifier": "auto",
 
-  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires TypeScript >= 2.9
+  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires using TypeScript 2.9 or newer in the workspace.
   "javascript.preferences.quoteStyle": "auto",
 
   // Enable/disable references CodeLens in JavaScript files.
   "javascript.referencesCodeLens.enabled": false,
 
-  // Enable/disable highlighting of unused variables in code. Requires TypeScript >= 2.9
+  // Enable/disable highlighting of unused variables in code. Requires using TypeScript 2.9 or newer in the workspace.
   "javascript.showUnused": true,
 
-  // Enable/disable suggestion diagnostics for JavaScript files in the editor. Requires TypeScript >= 2.8
+  // Enable/disable suggestion diagnostics for JavaScript files in the editor. Requires using TypeScript 2.8 or newer in the workspace.
   "javascript.suggestionActions.enabled": true,
 
-  // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Possible values are: 'prompt' on each rename, 'always' update paths automatically, and 'never' rename paths and don't prompt me. Requires TypeScript >= 2.9
+  // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Possible values are: 'prompt' on each rename, 'always' update paths automatically, and 'never' rename paths and don't prompt me. Requires using TypeScript 2.9 or newer in the workspace.
   "javascript.updateImportsOnFileMove.enabled": "prompt",
 
   // Enable/disable JavaScript validation.
@@ -1005,13 +1029,13 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable/disable auto JSDoc comments
   "jsDocCompletion.enabled": true,
 
-  // Enable/disable auto import suggestions. Requires TypeScript >= 2.6.1
+  // Enable/disable auto import suggestions. Requires using TypeScript 2.6.1 or newer in the workspace.
   "typescript.autoImportSuggestions.enabled": true,
 
   // Check if NPM is installed for Automatic Type Acquisition.
   "typescript.check.npmIsInstalled": true,
 
-  // Disables automatic type acquisition. Requires TypeScript >= 2.0.6.
+  // Disables automatic type acquisition.
   "typescript.disableAutomaticTypeAcquisition": false,
 
   // Enable/disable default TypeScript formatter.
@@ -1020,7 +1044,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after a comma delimiter.
   "typescript.format.insertSpaceAfterCommaDelimiter": true,
 
-  // Defines space handling after the constructor keyword. Requires TypeScript >= 2.3.0.
+  // Defines space handling after the constructor keyword. Requires using TypeScript 2.3.0 or newer in the workspace.
   "typescript.format.insertSpaceAfterConstructor": false,
 
   // Defines space handling after function keyword for anonymous functions.
@@ -1029,10 +1053,10 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after keywords in a control flow statement.
   "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": true,
 
-  // Defines space handling after opening and before closing JSX expression braces. Requires TypeScript >= 2.0.6.
+  // Defines space handling after opening and before closing JSX expression braces.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 
-  // Defines space handling after opening and before closing non-empty braces. Requires TypeScript >= 2.3.0.
+  // Defines space handling after opening and before closing non-empty braces. Requires using TypeScript 2.3.0 or newer in the workspace.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
 
   // Defines space handling after opening and before closing non-empty brackets.
@@ -1041,19 +1065,19 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines space handling after opening and before closing non-empty parenthesis.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
 
-  // Defines space handling after opening and before closing template string braces. Requires TypeScript >= 2.0.6.
+  // Defines space handling after opening and before closing template string braces.
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
 
   //  Defines space handling after a semicolon in a for statement.
   "typescript.format.insertSpaceAfterSemicolonInForStatements": true,
 
-  // Defines space handling after type assertions in TypeScript. Requires TypeScript >= 2.4.
+  // Defines space handling after type assertions in TypeScript. Requires using TypeScript 2.4 or newer in the workspace.
   "typescript.format.insertSpaceAfterTypeAssertion": false,
 
   // Defines space handling after a binary operator.
   "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": true,
 
-  // Defines space handling before function argument parentheses. Requires TypeScript >= 2.1.5.
+  // Defines space handling before function argument parentheses.
   "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
 
   // Defines whether an open brace is put onto a new line for control blocks or not.
@@ -1062,38 +1086,38 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Defines whether an open brace is put onto a new line for functions or not.
   "typescript.format.placeOpenBraceOnNewLineForFunctions": false,
 
-  // Enable/disable implementations CodeLens. Requires TypeScript >= 2.2.0.
+  // Enable/disable implementations CodeLens.
   "typescript.implementationsCodeLens.enabled": false,
 
-  // Sets the locale used to report JavaScript and TypeScript errors. Requires TypeScript >= 2.6.0. Default of 'null' uses VS Code's locale.
+  // Sets the locale used to report JavaScript and TypeScript errors. Requires using TypeScript 2.6.0 or newer in the workspace. Default of 'null' uses VS Code's locale.
   "typescript.locale": null,
 
-  // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires TypeScript >= 2.3.4.
+// Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires using TypeScript 2.3.4 or newer in the workspace.
   "typescript.npm": null,
 
   // Preferred path style for auto imports:
   // - "relative" to the file location.
   // - "non-relative" based on the 'baseUrl' configured in your 'jsconfig.json' / 'tsconfig.json'.
   // - "auto" infer the shortest path type.
-  // Requires TypeScript >= 2.9
+  // Requires using TypeScript 2.9 or newer in the workspace.
   "typescript.preferences.importModuleSpecifier": "auto",
 
-  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires TypeScript >= 2.9
+  // Preferred quote style to use for quick fixes: 'single' quotes, 'double' quotes, or 'auto' infer quote type from existing imports. Requires using TypeScript 2.9 or newer in the workspace.
   "typescript.preferences.quoteStyle": "auto",
 
   // Enable/disable quick suggestions when typing out an import path.
   "typescript.quickSuggestionsForPaths": true,
 
-  // Enable/disable references CodeLens in TypeScript files. Requires TypeScript >= 2.0.6.
+  // Enable/disable references CodeLens in TypeScript files.
   "typescript.referencesCodeLens.enabled": false,
 
   // Report style checks as warnings
   "typescript.reportStyleChecksAsWarnings": true,
 
-  // Enable/disable highlighting of unused variables in code. Requires TypeScript >= 2.9
+  // Enable/disable highlighting of unused variables in code. Requires using TypeScript 2.9 or newer in the workspace.
   "typescript.showUnused": true,
 
-  // Enable/disable suggestion diagnostics for TypeScript files in the editor. Requires TypeScript >= 2.8
+  // Enable/disable suggestion diagnostics for TypeScript files in the editor. Requires using TypeScript 2.8 or newer in the workspace.
   "typescript.suggestionActions.enabled": true,
 
   // Controls auto detection of tsc tasks. 'off' disables this feature. 'build' only creates single run compile tasks. 'watch' only creates compile and watch tasks. 'on' creates both build and watch tasks. Default is 'on'.
@@ -1105,13 +1129,13 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enables logging of the TS server to a file. This log can be used to diagnose TS Server issues. The log may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.log": "off",
 
-  // Additional paths to discover Typescript Language Service plugins. Requires TypeScript >= 2.3.0.
+  // Additional paths to discover Typescript Language Service plugins. Requires using TypeScript 2.3.0 or newer in the workspace.
   "typescript.tsserver.pluginPaths": [],
 
-  // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
+// Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.trace": "off",
 
-  // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Possible values are: 'prompt' on each rename, 'always' update paths automatically, and 'never' rename paths and don't prompt me. Requires TypeScript >= 2.9
+  // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Possible values are: 'prompt' on each rename, 'always' update paths automatically, and 'never' rename paths and don't prompt me. Requires using TypeScript 2.9 or newer in the workspace.
   "typescript.updateImportsOnFileMove.enabled": "prompt",
 
   // Complete functions with their parameter signature.
@@ -1163,6 +1187,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // The universal selector (*) is known to be slow
   "css.lint.universalSelector": "ignore",
+
+  // Unknown at-rule.
+  "css.lint.unknownAtRules": "warning",
 
   // Unknown property.
   "css.lint.unknownProperties": "warning",
@@ -1305,6 +1332,9 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Automatically update extensions
   "extensions.autoUpdate": true,
 
+  // If set to true, editors with extension details will be automatically closed upon navigating away from the Extensions View.
+  "extensions.closeExtensionDetailsOnViewChange": false,
+
   // If set to true, the notifications for extension recommendations will stop showing up.
   "extensions.ignoreRecommendations": false,
 
@@ -1349,6 +1379,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // An explicit start path where the terminal will be launched, this is used as the current working directory (cwd) for the shell process. This may be particularly useful in workspace settings if the root directory is not a convenient cwd.
   "terminal.integrated.cwd": "",
+
+  // When set, bold text in the terminal will always use the "bright" ANSI color variant.
+  "terminal.integrated.drawBoldTextInBrightColors": true,
 
   // Whether the terminal bell is enabled or not.
   "terminal.integrated.enableBell": false,
@@ -1435,44 +1468,19 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Enable usage data and errors to be sent to Microsoft.
   "telemetry.enableTelemetry": true,
 
-// Default Configuration Overrides
+// Outline
 
-  // Configure editor settings to be overridden for [git-commit] language.
-  "[git-commit]":  {
-    "editor.rulers": [
-        72
-    ]
-  },
+  // Render Outline Elements with Icons.
+  "outline.icons": true,
 
-  // Configure editor settings to be overridden for [go] language.
-  "[go]":  {
-    "editor.insertSpaces": false
-  },
+  // Use badges for Errors & Warnings.
+  "outline.problems.badges": true,
 
-  // Configure editor settings to be overridden for [json] language.
-  "[json]":  {
-    "editor.quickSuggestions": {
-        "strings": true
-    }
-  },
+  // Use colors for Errors & Warnings.
+  "outline.problems.colors": true,
 
-  // Configure editor settings to be overridden for [makefile] language.
-  "[makefile]":  {
-    "editor.insertSpaces": false
-  },
-
-  // Configure editor settings to be overridden for [markdown] language.
-  "[markdown]":  {
-    "editor.wordWrap": "on",
-    "editor.quickSuggestions": false
-  },
-
-  // Configure editor settings to be overridden for [yaml] language.
-  "[yaml]":  {
-    "editor.insertSpaces": true,
-    "editor.tabSize": 2,
-    "editor.autoIndent": false
-  },
+  // Show Errors & Warnings on Outline Elements.
+  "outline.problems.enabled": true,
 
 // Git
 
@@ -1536,43 +1544,45 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Controls whether to show an inline Open File action in the Git changes view.
   "git.showInlineOpenFileAction": true,
 
-// Grunt
 
-  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
-  "grunt.autoDetect": "on",
+// Default Configuration Overrides
 
-// Npm
+  // Configure editor settings to be overridden for [git-commit] language.
+  "[git-commit]":  {
+    "editor.rulers": [
+        72
+    ]
+  },
 
-  // Controls whether auto detection of npm scripts is on or off. Default is on.
-  "npm.autoDetect": "on",
+  // Configure editor settings to be overridden for [go] language.
+  "[go]":  {
+    "editor.insertSpaces": false
+  },
 
-  // Enable an explorer view for npm scripts.
-  "npm.enableScriptExplorer": false,
+  // Configure editor settings to be overridden for [json] language.
+  "[json]":  {
+    "editor.quickSuggestions": {
+        "strings": true
+    }
+  },
 
-  // Configure glob patterns for folders that should be excluded from automatic script detection.
-  "npm.exclude": "",
+  // Configure editor settings to be overridden for [makefile] language.
+  "[makefile]":  {
+    "editor.insertSpaces": false
+  },
 
-  // The package manager used to run scripts.
-  "npm.packageManager": "npm",
+  // Configure editor settings to be overridden for [markdown] language.
+  "[markdown]":  {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": false
+  },
 
-  // Run npm commands with the `--silent` option.
-  "npm.runSilent": false,
-
-  // The default click action used in the scripts explorer: 'open' or 'run', the default is 'open'.
-  "npm.scriptExplorerAction": "open",
-
-// Merge Conflict
-
-  // Enable/disable merge conflict block CodeLens within editor
-  "merge-conflict.codeLens.enabled": true,
-
-  // Enable/disable merge conflict decorators within editor
-  "merge-conflict.decorators.enabled": true,
-
-// Gulp
-
-  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
-  "gulp.autoDetect": "on",
+  // Configure editor settings to be overridden for [yaml] language.
+  "[yaml]":  {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": false
+  },
 
 // Emmet
 
@@ -1614,7 +1624,43 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Variables to be used in Emmet snippets
   "emmet.variables": {},
 
+// Grunt
 
+  // Controls whether auto detection of Grunt tasks is on or off. Default is on.
+  "grunt.autoDetect": "on",
+
+// Npm
+
+  // Controls whether auto detection of npm scripts is on or off. Default is on.
+  "npm.autoDetect": "on",
+
+  // Enable an explorer view for npm scripts.
+  "npm.enableScriptExplorer": false,
+
+  // Configure glob patterns for folders that should be excluded from automatic script detection.
+  "npm.exclude": "",
+
+  // The package manager used to run scripts.
+  "npm.packageManager": "npm",
+
+  // Run npm commands with the `--silent` option.
+  "npm.runSilent": false,
+
+  // The default click action used in the scripts explorer: 'open' or 'run', the default is 'open'.
+  "npm.scriptExplorerAction": "open",
+
+// Merge Conflict
+
+  // Enable/disable merge conflict block CodeLens within editor
+  "merge-conflict.codeLens.enabled": true,
+
+  // Enable/disable merge conflict decorators within editor
+  "merge-conflict.decorators.enabled": true,
+
+// Gulp
+
+  // Controls whether auto detection of Gulp tasks is on or off. Default is on.
+  "gulp.autoDetect": "on"
 }
 ```
 
