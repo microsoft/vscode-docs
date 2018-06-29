@@ -157,7 +157,7 @@ The Side Bar contains views like the Explorer and Search.
 
 ## Editor Groups & Tabs
 
-Editor Groups are the containers of editors. There can be up to three editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
+Editor Groups are the containers of editors. There can be many editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
 
 - `editorGroup.border`: Color to separate multiple editor groups from each other.
 
