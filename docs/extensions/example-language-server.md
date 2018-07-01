@@ -16,13 +16,13 @@ Language Server is a special kind of extension that powers the editing experienc
 
 However, while implementing support for language features in VS Code, we found three common problems:
 
-First, Language Servers are usually implemented in the programming languages that they support, and that presents a challenge in integrating them with Node.js so that they can be reused in VS Code.
+First, Language Servers are usually implemented in ther native programming languages, and that presents a challenge in integrating them with VS Code which has a Node.js runtime.
 
 Additionally, language features can be resource intensive. For example, to correctly validate a file, Language Server needs to parse a large amount of files, build up Abstract Syntax Trees for them and perform static program analysis. Those operations could incur significant CPU and memory usage and we need to ensure that VS Code's performance remains unaffected.
 
 Finally, integrating multiple language toolings with multiple code editors could involve significant effort. From language toolings' perspective, they need to adapt to code editors with different APIs. From code editors' perspective, they cannot expect any uniform API from language toolings. This makes implementing language support for `M` languages in `N` code editors the work of `M * N`.
 
-To solve those problems, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) to standardize the communication between language tooling and code editor. This way, Language Servers can be implemented in any language and run in its own process to avoid performance cost, as they communicate with the code editor through the Language Server Protocol. Furthermore, any LSP-compliant language toolings can integrate with multiple LSP-compliant code editors, and any LSP-compliant code editors can easily pickup multiple LSP-compliant language toolings. LSP is a win for both language tooling providers and code editor vendors!
+To solve those problems, Microsoft specified [Language Server Protocol](https://microsoft.github.io/language-server-protocol) which standardizes the communication between language tooling and code editor. This way, Language Servers can be implemented in any language and run in its own process to avoid performance cost, as they communicate with the code editor through the Language Server Protocol. Furthermore, any LSP-compliant language toolings can integrate with multiple LSP-compliant code editors, and any LSP-compliant code editors can easily pickup multiple LSP-compliant language toolings. LSP is a win for both language tooling providers and code editor vendors!
 
 ![LSP Languages and Editors](images/example-language-server/lsp-languages-editors.png)
 
@@ -405,20 +405,21 @@ connection.onCompletion(
 	}
 );
 
-// This handler resolve additional information for the item selected in
+// This handler resolves additional information for the item selected in
 // the completion list.
 connection.onCompletionResolve(
 	(item: CompletionItem): CompletionItem => {
-	if (item.data === 1) {
-			(item.detail = 'TypeScript details'),
-				(item.documentation = 'TypeScript documentation');
-	} else if (item.data === 2) {
-			(item.detail = 'JavaScript details'),
-				(item.documentation = 'JavaScript documentation');
-	}
-	return item;
+		if (item.data === 1) {
+			item.detail = 'TypeScript details';
+			item.documentation = 'TypeScript documentation';
+		} else if (item.data === 2) {
+			item.detail = 'JavaScript details';
+			item.documentation = 'JavaScript documentation';
+		}
+		return item;
 	}
 );
+
 
 /*
 connection.onDidOpenTextDocument((params) => {
