@@ -71,7 +71,7 @@ If autocomplete and IntelliSense are not working for a custom module, check the 
 
 ## Run Selection/Line in Terminal (REPL)
 
-The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Ctrl+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
+The **Python: Run Selection/Line in Python Terminal** command (`kbstyle(Shift+Enter)`) is a simple way to take whatever code is selected, or the code on the current line if there is no selection, and run it in the Python Terminal. An identical **Run Selection/Line in Python Terminal** command is also available on the context menu for a selection in the editor.
 
 Source code that runs in the terminal/REPL is cumulative until the current instance of the terminal is closed.
 
@@ -79,7 +79,7 @@ The command opens the Python Terminal if necessary; you can also open the intera
 
 On first use of the **Python: Run Selection/Line in Python Terminal** command, VS Code may send the text to the REPL before that environment is ready, in which case the selection or line is not run. If you encounter this behavior, try the command again the REPL has finished loading.
 
-> **Note**: At present, using `kbstyle(Ctrl+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
+> **Note**: At present, using `kbstyle(Shift+Enter)` keeps the editor on the same line of source code. [Issue 480](https://github.com/Microsoft/vscode-python/issues/480) discusses automatically moving to the next line.
 
 ## Formatting
 
