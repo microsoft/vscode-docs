@@ -29,6 +29,8 @@ After unzipping the VS Code download, simply create a `data` folder within Code'
 
 From then on, that folder will be used to contain all Code data, including session state, preferences, extensions, etc.
 
+The `data` folder can be moved to other VS Code installations. This is useful for updating your portable Code version: simply move the `data` folder to a newer extracted version of VS Code.
+
 ### macOS
 
 On **macOS**, you need to place the data folder as a sibling of the application itself. Since the folder will be alongside the application, you need to name it specifically so that Code can find it. The default folder name is `code-portable-data`:
