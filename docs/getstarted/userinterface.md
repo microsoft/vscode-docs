@@ -235,7 +235,7 @@ You can Drag and Drop editor groups on the workbench, move individual Tabs betwe
 
 >**Note:** VS Code uses editor groups whether or not you have enabled Tabs.  Without Tabs, editor groups are a stack of your open items with the most recently selected item visible in the editor pane.
 
-## Editor grid layout
+## Grid editor layout
 
 By default, editor groups are laid out in vertical columns (e.g. when you split an editor to open it to the side). You can easily arrange editor groups in any layout you like, both vertically and horizontally:
 
