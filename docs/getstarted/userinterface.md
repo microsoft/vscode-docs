@@ -72,7 +72,7 @@ After opening a folder in VS Code, the contents of the folder are shown in the E
 * Move files and folders with drag and drop.
 * Use the context menu to explore all options.
 
->**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them.
+>**Tip:** You can drag and drop files into the Explorer from outside VS Code to copy them (if the explorer is empty VS Code will open them instead)
 
 ![Explorer Menu](images/userinterface/explorer_menu.png)
 
@@ -84,7 +84,7 @@ You can also navigate to the location of a file or folder in the native Explorer
 
 By default, VS Code excludes some folders from the Explorer (for example. `.git`). Use the `files.exclude` [setting](/docs/getstarted/settings.md) to configure rules for hiding files and folders from the Explorer.
 
-**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
+>**Tip:** This is really useful to hide derived resources files, like `\*.meta` in Unity, or `\*.js` in a TypeScript project. For Unity to exclude the `\*.cs.meta` files, the pattern to choose would be: `"**/*.cs.meta": true`. For TypeScript, you can exclude generated JavaScript for TypeScript files with: `"**/*.js": {"when": "$(basename).ts"}`.
 
 ### Multi-selection
 
