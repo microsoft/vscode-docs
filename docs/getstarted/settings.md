@@ -1092,7 +1092,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Sets the locale used to report JavaScript and TypeScript errors. Requires using TypeScript 2.6.0 or newer in the workspace. Default of 'null' uses VS Code's locale.
   "typescript.locale": null,
 
-// Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires using TypeScript 2.3.4 or newer in the workspace.
+  // Specifies the path to the NPM executable used for Automatic Type Acquisition. Requires using TypeScript 2.3.4 or newer in the workspace.
   "typescript.npm": null,
 
   // Preferred path style for auto imports:
@@ -1132,7 +1132,7 @@ Below are the Visual Studio Code default settings and their values. You can also
   // Additional paths to discover Typescript Language Service plugins. Requires using TypeScript 2.3.0 or newer in the workspace.
   "typescript.tsserver.pluginPaths": [],
 
-// Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
+  // Enables tracing of messages sent to the TS server. This trace can be used to diagnose TS Server issues. The trace may contain file paths, source code, and other potentially sensitive information from your project.
   "typescript.tsserver.trace": "off",
 
   // Enable/disable automatic updating of import paths when you rename or move a file in VS Code. Possible values are: 'prompt' on each rename, 'always' update paths automatically, and 'never' rename paths and don't prompt me. Requires using TypeScript 2.9 or newer in the workspace.
@@ -1543,7 +1543,6 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls whether to show an inline Open File action in the Git changes view.
   "git.showInlineOpenFileAction": true,
-
 
 // Default Configuration Overrides
 
