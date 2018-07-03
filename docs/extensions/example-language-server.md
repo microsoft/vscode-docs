@@ -78,7 +78,7 @@ The above installs all dependencies and opens the **lsp-sample** workspace conta
 │   ├── src
 │   │   ├── test // End to End tests for Language Client / Server
 │   │   └── extension.ts // Language Client entry point
-├── package.json // The extension manifest.
+├── package.json // The extension manifest
 └── server // Language Server
     └── src
         └── server.ts // Language Server entry point
@@ -160,7 +160,7 @@ export function activate(context: ExtensionContext) {
 			module: serverModule,
 			transport: TransportKind.ipc,
 			options: debugOptions
-	}
+		}
 	};
 
 	// Options to control the language client
