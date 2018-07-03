@@ -127,7 +127,7 @@ Once a debug session starts, the **Debug toolbar** will appear on the top of the
 * Restart `kb(workbench.action.debug.restart)`
 * Stop `kb(workbench.action.debug.stop)`
 
->**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can either be the default `floating`, `docked` to the debug viewlet or `hidden`.
+>**Tip**: Use the setting `debug.toolBarLocation` to control the location of the debug toolbar. It can either be the default `floating`, `docked` to the debug viewlet or `hidden`. A `floating` debug toolbar can be dragged horizontally and also down to the editor area.
 
 ### Run mode
 
