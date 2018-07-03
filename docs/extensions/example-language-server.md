@@ -915,6 +915,12 @@ Here is a [`completions-sample`](https://github.com/Microsoft/vscode-extension-s
 
 More samples illustrating the usage of VS Code API can be found at https://github.com/Microsoft/vscode-extension-samples.
 
+### Error Tolerant Parser for Language Server
+
+Most of the time, the code in the editor is incomplete and syntactically incorrect, but developers would still expect autocomplete and other language features to work. Therefore, an error tolerant parser is necessary for a Language Server: The parser generates meangingful AST from partially complete code, and the Language Server provides language features based on the AST.
+
+When we were improving PHP support in VS Code, we realized the official PHP parser is not error tolerant and cannot be reused directly in the Language Server. Therefore, we worked on [Microsoft/tolerant-php-parser](https://github.com/Microsoft/tolerant-php-parser) and left detailed [notes](https://github.com/Microsoft/tolerant-php-parser/blob/master/docs/HowItWorks.md) that might help Language Server authors who need to implement an error tolerant parser.
+
 ## Common Questions
 
 **Q: When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?**
