@@ -33,7 +33,7 @@ Enter a connection string to the database, the default is your local MongoDB ser
 
 Once attached, you can work with the MongoDB server, managing MongoDB Databases, Collections and Documents.
 
-![attached MongoDB database](images/mongodb/attached-mongodb-database.png)
+d![attached MongoDB database](images/mongodb/attached-mongodb-database.png)
 
 You can **Open Collection** to see the raw JSON Collection or click on individual MongoDB Documents to see just their JSON.
 
@@ -43,7 +43,7 @@ Changes to the Document JSON in the editor will update the Document stored in th
 
 ## MongoDB Commands
 
-There are MongoDB specific commands available in the VS Code **Command Palette** (`kb(workbench.action.showCommands)`) as well as through Explorer context menus.
+dThere are MongoDB specific commands available in the VS Code **Command Palette** (`kb(workbench.action.showCommands)`) as well as through Explorer context menus.
 
 ![mongodb commands](images/mongodb/mongodb-commands.png)
 
@@ -81,7 +81,7 @@ To create Cosmos DB assets on Azure, you need a Cosmos DB account. Create a Cosm
 
 ![create CosmosDB account](images/mongodb/create-cosmosdb-account.png)
 
-Follow the prompts to select an Azure Subscription, enter a Cosmos DB account name, choose the API to use (MongoDB), create or reuse an Azure Resource Group, and pick a geographical location. Once the Cosmos DB account is create (it may take several minutes), you will see the Cosmos DB asset in the Explorer. Right click to see the context menu where you can start creating MongoDB databases, open the Azure portal, or copy the connection string for later to use as an environment variable with your application.
+Follow the prompts to select an Azure Subscription, enter a Cosmos DB account name, choose the API to use (MongoDB), create or reuse an Azure Resource Group, and pick a geographical location. Once the Cosmos DB account is created (it may take several minutes), you will see the Cosmos DB asset in the Explorer. Right click to see the context menu where you can start creating MongoDB databases, open the Azure portal, or copy the connection string for later to use as an environment variable with your application.
 
 ![Cosmos DB content menu](images/mongodb/cosmosdb-context-menu.png)
 
