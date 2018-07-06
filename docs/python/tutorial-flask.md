@@ -623,7 +623,7 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
         return app.send_static_file('data.json')
     ```
 
-1. Create a file `__init.py__` with the following contents, also cut from `app.py`:
+1. Create a file `__init__.py` with the following contents, also cut from `app.py`:
 
     ```python
     from flask import Flask
