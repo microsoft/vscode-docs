@@ -5,7 +5,7 @@ TOCTitle: MongoDB
 PageTitle: Working with MongoDB in Visual Studio Code
 ContentId: d1187f99-354f-4798-9c19-e432e4ae8572
 MetaDescription: Working with MongoDB in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 ---
 # Working with MongoDB
 
@@ -81,7 +81,7 @@ To create Cosmos DB assets on Azure, you need a Cosmos DB account. Create a Cosm
 
 ![create CosmosDB account](images/mongodb/create-cosmosdb-account.png)
 
-Follow the prompts to select an Azure Subscription, enter a Cosmos DB account name, choose the API to use (MongoDB), create or reuse an Azure Resource Group, and pick a geographical location. Once the Cosmos DB account is create (it may take several minutes), you will see the Cosmos DB asset in the Explorer. Right click to see the context menu where you can start creating MongoDB databases, open the Azure portal, or copy the connection string for later to use as an environment variable with your application.
+Follow the prompts to select an Azure Subscription, enter a Cosmos DB account name, choose the API to use (MongoDB), create or reuse an Azure Resource Group, and pick a geographical location. Once the Cosmos DB account is created (it may take several minutes), you will see the Cosmos DB asset in the Explorer. Right click to see the context menu where you can start creating MongoDB databases, open the Azure portal, or copy the connection string for later to use as an environment variable with your application.
 
 ![Cosmos DB content menu](images/mongodb/cosmosdb-context-menu.png)
 
