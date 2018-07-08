@@ -8,19 +8,21 @@ Date: 2018-07-11
 ShortDescription: Introducing Logpoints and auto-attach to make debugging easier and simpler to use
 Author: Kenneth Auchenberg
 ---
-# Introducing Logpoints and auto-attach to make debugging easier and simpler to use
+# Introducing Logpoints and auto-attach
+
+July 11, 2018 Kenneth Auchenberg, [@auchenberg](https://twitter.com/auchenberg)
 
 In this post I'm going to talk about the way we think about debugging, the feedback we hear from our users and how we are making debugging easier and simpler to use in VS Code.
 
 Since the early days of VS Code we have shipped an integrated debugging experience in VS Code, as we believe debugging should be an integrated part of the place where you write and edit your code - your editor.
 
-![](debugger.png)
+![VS Code debugger](debugger.png)
 
 Below the surface our debugging experience is powered by a generic debugger UI that communicates through the Debug Adaptor Protocol (DAP) with a specific type of VS Code extensions that we call for Debug Adaptor's (DA). The DA talks to a real debugger and translates between the DAP and the runtime specific debug protocol or API of the debugger.
 
 This means that the core of VS Code is fully decoupled from the specific debuggers, and this architecture allows VS Code to debug anything, as long as there's a Debug Adapter available.
 
-![](debug-extension-api.png)
+![Debug extension API](debug-extension-api.png)
 
 ## Observations and pain points in our debugging experience
 
@@ -34,7 +36,7 @@ This is our observations:
 
 Because VS Code is a general editor with a generic debugger, and not a specialized tool for a particular stack or runtime, we can't provide an opinionated default debug configuration that will work for everyone.
 
-This means that VS Code requires you to have a set of debug configurations that tells us what debugger to use, and how to start your runtime with the right parameters, etc. 
+This means that VS Code requires you to have a set of debug configurations that tells us what debugger to use, and how to start your runtime with the right parameters, etc.
 
 We recognize that this can be hard to get right, but we don't see a way to completely eliminate debug configuration for everyone. That being said we believe that debug configuration can be simplified and sometimes in the right context be reduced to a minimum.
 
@@ -44,14 +46,13 @@ In VS Code we have two core concept for debugging: Launch and attach, which cate
 
 If you come from a browser DevTools background you aren't used to the concept of "launching from your tool", as your browser instance already is open, and when opening DevTools you simply attach DevTools to your browser tab. On the other hand, if you come from a Java background it's quite normal to have your editor launch your Java process for you, and have your editor attaching it's debugger to the newly launched process.
 
-In general we recommend using launch configurations if you have an application that requires somesort of build step before it can be launched, as it allows you offload some of the cognitive overhead of building and running your app to your editor.
+In general we recommend using launch configurations if you have an application that requires some sort of build step before it can be launched, as it allows you offload some of the cognitive overhead of building and running your app to your editor.
 
 But as we talked to developers about launching their applications we recognized a pattern and made one important observation:
 
 **Observation**: Many developers who are using VS Code really loves the integrated terminal and relies on command line tools to launch their applications. For many it's a more natural workflow to run a command in the terminal followed by attaching the debugger from the editor. Much like opening DevTools after the browser has been launched.
 
 This observation is key, and we acknowledge that many don't want a full "magical" launch experience in their editor, but want to keep their editor place to edit code and debug, while using the terminal to launch apps, run build scripts, etc.
-
 
 ### Many developers don't use breakpoints because their debugging workflow is focused at a different purpose
 
@@ -63,7 +64,7 @@ Using logging for debugging isn't new concept, and has been around for many deca
 
 <a href="https://mobile.twitter.com/drosenwasser/status/1009850470221791232">
 
-![](tweet.png)
+![Tweet about debuggers](tweet.png)
 
 </a>
 
@@ -73,7 +74,7 @@ This observation is especially relevant for JavaScript developers who mostly are
 
 Based on this learning we believe there's an opportunity to combine the debugging experience with the purpose of state inspection, so in [our March iteration](https://code.visualstudio.com/updates/v1_22#_logpoints) of VS Code we released the first iteration of a debugging concept that we call Logpoints. Logpoints are a new kind breakpoint variant that does not "break" into the debugger but instead logs a message to the console.
 
-![](logpoints.gif)
+![Logpoints](logpoints.gif)
 
 The concept for Logpoints isn't new, and over the past many years we have seen multiple flavors of this concept in tools like [Visual Studio](https://codewala.net/2018/01/25/tracepoint-an-awsome-feature-of-visual-studio/), [Edge DevTools](https://docs.microsoft.com/en-us/microsoft-edge/devtools-guide/debugger) and [GDB](https://sourceware.org/gdb/onlinedocs/gdb/Tracepoints.html) under several names such as [Tracepoints](https://blogs.msdn.microsoft.com/devops/2013/10/10/tracepoints/) and [Logpoints](https://blogs.msdn.microsoft.com/visualstudio/2017/09/13/debug-live-apps-in-azure-with-the-snappoints-and-logpoints-preview/).
 
@@ -92,6 +93,7 @@ Logpoints are particular useful in cloud contexts (or any remote context really)
 You can read more about how to use [Logpoints for Node.js on Azure here](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0).
 
 ### Supported languages
+
 Since our first release of Logpoints in VS Code we have seen growing adoption of Logpoints in our VS Code Debug Adapters, and today we have support for the following languages:
 
 - [Node.js debugger](https://github.com/Microsoft/vscode-node-debug2/)
@@ -114,9 +116,9 @@ When reflecting on the learning of how some developers are using the integrated 
 
 So in [our March iteration](https://code.visualstudio.com/updates/v1_22#_node-debugging) of VS Code, we released a new feature that called Auto Attach for Node, that enables the Node debugger to automatically attach to Node.js processes that have been launched in debug mode from VS Code's Integrated Terminal.
 
-You enable auto attach by running `Debug: Toggle Auto Attach` command from the Command Palette, and once activated you can toggle auto attached from the Status bar too.
+You enable auto attach by running **Debug: Toggle Auto Attach** command from the Command Palette, and once activated you can toggle auto attached from the Status bar too.
 
-![](auto-attach.gif)
+![Auto attach](auto-attach.gif)
 
 This feature completely eliminates any debug configuration, as we interpret any Node process started with `node -inspect` as an intent to debug, and when combining this with our integrated terminal, we can provide a much simpler debugging experience that allows developers to launch their app in their own way, while eliminating debug configuration at the same time! 🎉
 
@@ -126,12 +128,10 @@ In [our April 2018 iteration](https://code.visualstudio.com/updates/v1_23#_npm-s
 
 If you have a `npm script` that includes an debugging argument like `--inspect` we'll automatically detect this and provide a debug action that launches the debugger, as seen here:
 
-![](npm_scripts.png)
+![NPM scripts](npm_scripts.png)
 
 I hope you'll find these new debugging features useful, and as always please share your thoughts and feedback on how we can make debugging easier, more productive and more fun on [GitHub](https://github.com/Microsoft/vscode), and [@code on Twitter](https://twitter.com/code)
 
-
 On behalf of the VS Code team, Happy Coding!
-
 
 /Kenneth Auchenberg - [@auchenberg on Twitter](https://twitter.com/auchenberg)
