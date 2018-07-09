@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -263,6 +263,7 @@ The `configuration` property specifies a path to the language configuration file
 * `folding` - Defines when and how code should be folded in the editor
   * `offSide` - Empty lines trailing a code section belong to the next folding section (used for indentation based languages such as Python or F#)
   * `markers` - Regex for identifying markers for custom folding regions in the code
+* `wordPattern` - Regex which defines what is considered to be a word in the programming language.
 
 If your language configuration file name is or ends with `language-configuration.json`, you will get validation and editing support in VS Code.
 
@@ -315,7 +316,8 @@ language-configuration.json
             "start": "^\\s*//#region",
             "end": "^\\s*//#endregion"
         }
-    }
+    },
+    "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
 }
 ```
 

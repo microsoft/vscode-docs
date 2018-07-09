@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Complex Commands
 ContentId: A010AEDF-EF37-406E-96F5-E129408FFDE1
 PageTitle: Visual Studio Code Complex Commands Reference
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) complex commands Reference.
 ---
 # Complex Commands
@@ -195,6 +195,12 @@ Can be a text or binary file, or a http(s) url. If you need more control over th
 * _path_ Path to remove from recently opened.
 
 
+`vscode.setEditorLayout` - Sets the editor layout.
+
+* _layout_ The editor layout to set.
+
+The layout is described as object with an initial (optional) orientation (0 = horizontal, 1 = vertical) and an array of editor groups within. Each editor group can have a size and another array of editor groups that will be laid out orthogonal to the orientation. If editor group sizes are provided, their sum must be 1 to be applied per row or column. Example for a 2x2 grid: `{ orientation: 0, groups: [{ groups: [{}, {}], size: 0.5 }, { groups: [{}, {}], size: 0.5 }] }`
+
 `cursorMove` - Move cursor to a logical position in the view
 
 * _Cursor move argument object_
@@ -283,7 +289,7 @@ Can be a text or binary file, or a http(s) url. If you need more control over th
   Argument Properties:
 
   * 'to': String value providing where to move.
-  * 'by': String value providing the unit for move. By tab or by group.
+  * 'by': String value providing the unit for move (by tab or by group).
   * 'value': Number value providing how many positions or an absolute position to move.
 
 ## Working With the HTML Preview

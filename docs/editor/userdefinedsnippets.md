@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Creating snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own snippets in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own snippets
@@ -157,18 +157,28 @@ ${TM_FILENAME/(.*)\\..+$/$1/}
   |-> resolves to the filename
 ```
 
+### Placeholder-Transform
+
+Like a Variable-Transform, a transformation of a placeholder allows changing the inserted text for the placeholder when moving to the next tab stop.
+The inserted text is matched with the regular expression and the match or matches - depending on the options - are replaced with the specified replacement format text.
+Every occurrence of a placeholder can define its own transformation independently using the value of the first placeholder.
+The format for Placeholder-Transforms is the same as for Variable-Transforms.
+
 ### Grammar
 
 Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form)) for snippets. With `\` (backslash), you can escape `$`, `}` and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
 
 ```
 any         ::= tabstop | placeholder | choice | variable | text
-tabstop     ::= '$' int | '${' int '}'
+tabstop     ::= '$' int
+                | '${' int '}'
+                | '${' int  transform '}'
 placeholder ::= '${' int ':' any '}'
 choice      ::= '${' int '|' text (',' text)* '|}'
 variable    ::= '$' var | '${' var }'
                 | '${' var ':' any '}'
-                | '${' var '/' regex '/' (format | text)+ '/' options '}'
+                | '${' var transform '}'
+transform   ::= '/' regex '/' (format | text)+ '/' options
 format      ::= '$' int | '${' int '}'
                 | '${' int ':' '/upcase' | '/downcase' | '/capitalize' '}'
                 | '${' int ':+' if '}'

@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -157,11 +157,7 @@ The Side Bar contains views like the Explorer and Search.
 
 ## Editor Groups & Tabs
 
-Editor Groups are the containers of editors. There can be up to three editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
-
-- `editorGroup.background`: Background color of an editor group. The background color shows up when dragging editor groups around.
-
-    ![editorGroup.background](images/theme-color-reference/editorGroup-background.gif)
+Editor Groups are the containers of editors. There can be many editor groups. A Tab is the container of an editor. Multiple Tabs can be opened in one editor group.
 
 - `editorGroup.border`: Color to separate multiple editor groups from each other.
 
@@ -183,6 +179,8 @@ Editor Groups are the containers of editors. There can be up to three editor gro
 
     ![editorGroupHeader.tabsBorder](images/theme-color-reference/editorgroupheader-tabsborder.gif)
 
+- `editorGroup.emptyBackground`: Background color of an empty editor group.
+- `editorGroup.focusedEmptyBorder`: Border color of an empty editor group that is focused.
 - `tab.activeBackground`: Active Tab background color.
 - `tab.activeForeground`: Active Tab foreground color in an active group.
 - `tab.border`: Border to separate Tabs from each other.

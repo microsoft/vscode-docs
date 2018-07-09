@@ -1,10 +1,10 @@
 ---
-Order: 14
+Order: 15
 Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code Command Line Options
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Visual Studio Code command line options (switches).
 ---
 # Command Line Interface (CLI)
@@ -149,3 +149,7 @@ On macOS, you need to manually run the **Shell Command: Install 'code' command i
 **Q: How do I get access to a command line (terminal) from within VS Code?**
 
 **A:** VS Code has an [Integrated Terminal](/docs/editor/integrated-terminal.md) where you can run command line tools from within VS Code.
+
+**Q: Can I specify the settings location for VS Code in order to have a portable version?**
+
+**A:** Not directly through the command line, but VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.

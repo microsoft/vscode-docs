@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 # Visual Studio Code FAQ
@@ -50,6 +50,10 @@ To modify the update channel, go to **File** > **Preferences** > **Settings** (m
 You can install a previous release of VS Code by uninstalling your current version and then installing the download provided at the top of a specific release page under [Updates](/updates).
 
 >**Note:** On Linux: If the VS Code repository was installed correctly then your system package manager should handle auto-updating in the same way as other packages on the system. See [Installing VS Code on Linux](/docs/setup/linux.md#updates).
+
+## Can I run a portable version of VS Code?
+
+Yes, VS Code has a [Portable Mode](/docs/editor/portable.md) which lets you keep settings and data in the same location as your installation, for example, on a USB drive.
 
 ## Licensing
 

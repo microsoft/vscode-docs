@@ -248,7 +248,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 During your work with Flask or any other library, you may want to examine the code in those libraries themselves. VS Code provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
 
-- **Go to Definition** jumps from your code into the code that defines an object. For example, in `views.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition** (or use `kb(editor.action.goToDeclaration)`), which navigates to the class definition in the Flask library.
+- **Go to Definition** jumps from your code into the code that defines an object. For example, in `app.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition** (or use `kb(editor.action.goToDeclaration)`), which navigates to the class definition in the Flask library.
 
 - **Peek Definition** (`kb(editor.action.previewDeclaration)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor. Press `kbstyle(Escape)` to close the Peek window.
 
@@ -548,11 +548,11 @@ With the code snippet in place, you can quickly create templates for the Home, A
     # New functions
     @app.route('/about')
     def about():
-            return render_template("about.html", title = "About us")
+        return render_template("about.html", title = "About us")
 
     @app.route('/contact')
     def contact():
-            return render_template("contact.html", title = "Contact us")
+        return render_template("contact.html", title = "Contact us")
     ```
 
 ### Run the app
@@ -600,11 +600,11 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
 
     @app.route('/about')
     def about():
-            return render_template("about.html", title = "About us")
+        return render_template("about.html", title = "About us")
 
     @app.route('/contact')
     def contact():
-            return render_template("contact.html", title = "Contact us")
+        return render_template("contact.html", title = "Contact us")
 
     @app.route('/hello/<name>')
     def hello_there(name):
@@ -623,7 +623,7 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
         return app.send_static_file('data.json')
     ```
 
-1. Create a file `__init.py__` with the following contents, also cut from `app.py`:
+1. Create a file `__init__.py` with the following contents, also cut from `app.py`:
 
     ```python
     from flask import Flask

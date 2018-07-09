@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Webview API
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
 PageTitle: Using the Visual Studio Webview API
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Using the Webview Api to create fully customizable views within Visual Studio Code
 ---
 # VS Code Webview API
@@ -706,6 +706,71 @@ Never rely on sanitization alone for security. Make sure to follow the other sec
 In the standard webview [lifecycle](#lifecycle), webviews are created by `createWebviewPanel` and destroyed when the user closes them or when `.dispose()` is called. The contents of webviews however are created when the webview becomes visible and destroyed when the webview is moved into the background. Any state inside the webview will be lost when the webview is moved to a background tab.
 
 The best way to solve this is to make your webview stateless. Use [message passing](#passing-messages-from-a-webview-to-an-extension) to save off the webview's state and then restore the state when the webview becomes visible again.
+
+### getState and setState
+
+Scripts running inside a webview can use the `getState` and `setState` methods to save off and restore a JSON serializable state object. This state is persisted even the webview content itself is destroyed when a webview panel becomes hidden. The state is destroyed when the webview panel is destroyed.
+
+```js
+// Inside  a webview script
+const vscode = acquireVsCodeApi();
+
+const counter = document.getElementById('lines-of-code-counter');
+
+// Check if we have an old state to restore from
+const previousState = vscode.getState();
+let count = previousState ? previousState.count : 0;
+counter.textContent = count;
+
+setInterval(() => {
+    counter.textContent = count++;
+    // Update the saved state
+    vscode.setState({ count })
+}, 100);
+```
+
+`getState` and `setState` are the preferred way to persist state, as they have much lower performance overhead than `retainContextWhenHidden`.
+
+### Serialization
+
+By implementing a `WebviewPanelSerializer`, your webviews can be automatically restored when VS Code restarts. Serialization builds on `getState` and `setState`, and is only enabled if your extension registers a `WebviewPanelSerializer` for your webviews.
+
+To make our coding cats persist across VS Code restarts, first add a `onWebviewPanel` activation event to the extension's `package.json`:
+
+```json
+"activationEvents": [
+    ...,
+    "onWebviewPanel:catCoding"
+]
+```
+
+This activation event ensures that our extension will be activated whenever VS Code needs to restore a webview with the viewType: `catCoding`.
+
+Then, in our extension's `activate` method, call `registerWebviewPanelSerializer` to register a new `WebviewPanelSerializer`. The `WebviewPanelSerializer` is responsible for restoring the contents of the webview from its persisted state. This state is the JSON blob that the webview contents set using `setState`.
+
+```ts
+export function activate(context: vscode.ExtensionContext) {
+    // Normal setup...
+
+    // And make sure we register a serializer for our webview type
+    vscode.window.registerWebviewPanelSerializer('catCoding', new CatCodingSerializer());
+}
+
+class CatCodingSerializer implements vscode.WebviewPanelSerializer {
+    async deserializeWebviewPanel(webviewPanel: vscode.WebviewPanel, state: any) {
+        // `state` is the state persisted using `setState` inside the webview
+        console.log(`Got state: ${state}`);
+
+        // Restore the content of our webview.
+        //
+        // Make sure we hold on to the `webviewPanel` passed in here and
+        // also restore any event listeners we need on it.
+        webviewPanel.webview.html = getWebviewContent();
+    }
+}
+```
+
+Now if you restart VS Code with a cat coding panel open, the panel will be automatically restored in the same editor position.
 
 ### retainContextWhenHidden
 
