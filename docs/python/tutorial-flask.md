@@ -548,11 +548,11 @@ With the code snippet in place, you can quickly create templates for the Home, A
     # New functions
     @app.route('/about')
     def about():
-            return render_template("about.html", title = "About us")
+        return render_template("about.html", title = "About us")
 
     @app.route('/contact')
     def contact():
-            return render_template("contact.html", title = "Contact us")
+        return render_template("contact.html", title = "Contact us")
     ```
 
 ### Run the app
@@ -600,11 +600,11 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
 
     @app.route('/about')
     def about():
-            return render_template("about.html", title = "About us")
+        return render_template("about.html", title = "About us")
 
     @app.route('/contact')
     def contact():
-            return render_template("contact.html", title = "Contact us")
+        return render_template("contact.html", title = "Contact us")
 
     @app.route('/hello/<name>')
     def hello_there(name):
