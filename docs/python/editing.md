@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 06/04/2018
+DateApproved: 06/28/2018
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -101,11 +101,12 @@ The following settings apply to the individual formatters. The Python extension 
 | black | pip install black | blackArgs | blackPath |
 | yapf | pip install yapf | yapfArgs | yapfPath |
 
-Example custom arguments:
+When using custom arguments, each element of an argument string that's separated by space on the command line must be a separate item in the args list. For example:
 
 ```json
 "python.formatting.autopep8Args": ["--max-line-length", "120", "--experimental"],
 "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]
+"python.formatting.blackArgs": ["--line-length", "100"]
 ```
 
 ### Troubleshooting
@@ -117,7 +118,17 @@ If formatting fails, check the following possible causes:
 | The path to the python interpreter is incorrect | Check the `pythonPath` setting. |
 | The formatter is not installed in the current environment | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
-| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains an array of individual argument items such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
+| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains an list of individual argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
+
+When using the black formatter, VS Code issues a the following warning when pasting code into the editor: **Black does not support the "Format Select" command.**
+
+To prevent this warning, add the following entry to your user or workspace settings to disable format on paste for Python files:
+
+```json
+"[python]": {
+    "editor.formatOnPaste": false
+}
+```
 
 ## Refactoring
 
@@ -156,10 +167,11 @@ Invoked by:
 - Right-click in editor and select **Sort Imports** (no selection is required)
 - Command Palette (`kb(workbench.action.showCommands)`), then **Python Refactor: Sort Imports**
 - Assign a keyboard shortcut to the `python.sortImports` command
+- Saving a file when [sort on save](#sort-imports-on-save) is enabled.
 
 ![Sorting import statements](images/editing/sortImports.gif)
 
-Custom arguments to isort can be specified in the `python.sortImports.args` setting, with each argument as a separate item in the array:
+Custom arguments to isort are specified in the `python.sortImports.args` setting, with each argument as a separate item in the array:
 
 ```json
 "python.sortImports.args": ["-rc", "--atomic"],
@@ -168,6 +180,18 @@ Custom arguments to isort can be specified in the `python.sortImports.args` sett
 To use a custom isort script, use the `python.sortImports.path` setting to specify the path:
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
+
+#### Sort imports on save
+
+To automatically sort imports whenever you save a file, add the following entry to your user or workspace settings:
+
+```json
+"[python]": {
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    }
+}
+```
 
 ## Next steps
 
