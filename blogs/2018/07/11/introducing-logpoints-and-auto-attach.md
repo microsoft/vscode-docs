@@ -1,5 +1,5 @@
 ---
-Order: 
+Order:
 TOCTitle: Logpoints and auto-attach
 PageTitle: Introducing Logpoints and auto-attach to make debugging easier and simpler to use
 MetaDescription: Introducing Logpoints and auto-attach to make debugging easier and simpler to use in Visual Studio Code
@@ -22,7 +22,7 @@ Below the surface, our debugging experience is powered by a generic debugger UI 
 
 This means that the core of VS Code is fully decoupled from the specific debuggers, and this architecture allows VS Code to debug anything, as long as there's a Debug Adapter available.
 
-![Debug extension API](debug-extension-api.png)
+![](debugging_architecture.png)
 
 ## Observations and pain points
 
