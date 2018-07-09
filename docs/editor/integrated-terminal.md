@@ -224,6 +224,15 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 "terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
 ```
 
+**Q: Can I use Cygwin's shell with the terminal on Windows?**
+
+**A:** Yes, to use the Cygwin shell you will first need to install the chere package and then add the following settings to your `settings.json` file:
+
+```json
+"terminal.integrated.shell.windows": "C:\\Cygwin\\bin\\bash.exe",
+"terminal.integrated.shellArgs.windows": ["/bin/xhere", "/bin/bash"]
+```
+
 **Q: Powershell on macOS is complaining about a "-l" argument, how do I fix it?**
 
 **A:** When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
