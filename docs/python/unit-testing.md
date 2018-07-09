@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Unit Testing
 ContentId: 9480bef3-4dfc-4671-a454-b9252567bc60
 PageTitle: Unit Testing Python in Visual Studio Code
-DateApproved: 06/04/2018
+DateApproved: 06/28/2018
 MetaDescription: Unit Testing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension supports unit testing with Python's built-in [unittest](https://docs.python.org/3/library/unittest.html) framework as well as [pytest](https://docs.pytest.org/en/latest/) and [Nose](https://nose.readthedocs.io/en/latest/). To use either pytest and Nose, they must be installed into the current Python environment (that is, the one identified in the `pythonPath` setting, see [Environments](/docs/python/environments.md)).
 
-Use the **Python: Discover Unit Tests** to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discover](#test-discovery). Once discovered, VS Code provides a variety of means to run tests (see [Running tests](#running-tests)).
+Use the **Python: Discover Unit Tests** to scan the project for tests according to the discovery patterns of the currently selected test framework (see [Test discovery](#test-discovery). Once discovered, VS Code provides a variety of means to run tests (see [Running tests](#running-tests)).
 
 Unit test output is displayed in the **Python Test Log** panel, including errors caused when a test framework is not installed.
 
@@ -39,11 +39,12 @@ Each framework also has specific configuration settings as described in the foll
 | Setting<br/>(python.unitTest.) | Default | Description |
 | --- | --- | --- |
 | unittestEnabled | `false` | Specifies whether UnitTest is enabled for unit testing. |
-| unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, with each argument specified as an item in the array. See below for a description of the defaults. |
+| unittestArgs | `["-v", "-s", ".", "-p", "*test*.py"]` | Arguments to pass to unittest, where each element that's separated by a space is a separate item in the list. See below for a description of the defaults. |
 | cwd | null | Specifies an optional working directory for unit tests. |
 | outputWindow | `"Python Test Log"` | The window to use for unit test output. |
 | promptToConfigure | `true` | Specifies whether VS Code prompts to configure a test framework if potential tests are discovered. |
 | debugPort | `3000` | Port number used for debugging of UnitTest tests. |
+  autoTestDiscoverOnSaveEnabled | `true` | Specifies whether to enable or disable auto run test discovery when saving a unit test file. |
 
 The default arguments for UnitTest are as follows:
 
@@ -61,7 +62,7 @@ See [unittest command-line interface](https://docs.python.org/3/library/unittest
 | --- | --- | --- |
 | pyTestEnabled | `false` | Specifies whether PyTest is enabled for unit testing. |
 | pyTestPath | `"py.test"` | Path to PyTest. Use a full path if PyTest is located outside the current environment. |
-| pyTestArgs | `[]` | Arguments to pass to PyTest, with each argument specified as an item in the array. See [PyTest command line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
+| pyTestArgs | `[]` | Arguments to pass to PyTest, where each element that's separated by a space is a separate item in the list. See [PyTest command line options](https://docs.pytest.org/en/latest/customize.html#command-line-options-and-configuration-file-settings). |
 
 You can also configure pytest using a `pytest.ini` file as described on [PyTest Configuration](https://docs.pytest.org/en/latest/customize.html).
 
@@ -74,13 +75,14 @@ You can also configure pytest using a `pytest.ini` file as described on [PyTest 
 | --- | --- | --- |
 | nosetestsEnabled | `false` | Specifies whether Nose  is enabled for unit testing. |
 | nosetestPath | `"nosetests"` | Path to Nose. Use a full path if Nose is located outside the current environment. |
-| nosetestArgs | `[]` | Arguments to pass to Nose, with each argument specified as an item in the array. See [Nose usage options](https://nose.readthedocs.io/en/latest/usage.html#options). |
+| nosetestArgs | `[]` | Arguments to pass to Nose, where each element that's separated by a space is a separate item in the list. See [Nose usage options](https://nose.readthedocs.io/en/latest/usage.html#options). |
 
 You can also configure nose with a `.noserc` or `nose.cfg` file as described on [Nose configuration](https://nose.readthedocs.io/en/latest/usage.html#configuration).
 
 ## Test discovery
 
-VS Code uses the currently enabled unit testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Unit Tests** command.
+VS Code uses the currently enabled unit testing framework to discover tests. You can trigger test discovery at any time using the **Python: Discover Unit Tests** command. With Unittest, you can set the
+`python.unittest.autoTestDiscoverOnSaveEnabled` setting to `true` to run test discovery whenever you save a test file.
 
 Test discovery applies the discovery patterns specified in the arguments option for the current test framework. For example, the default arguments for unittest include `-s . -p *test*.py`, meaning that unittest looks recursively, starting with the project folder (`-s .`), for all files with names matching the `*test*.py` pattern (`-p *test*.py`). You can specify a different starting folder after `-s`, and/or a different pattern after `-p`.
 

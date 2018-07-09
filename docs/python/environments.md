@@ -4,11 +4,13 @@ Area: python
 TOCTitle: Environments
 ContentId: 8fe4ca8b-fc70-4216-86c7-2c11b6c14cc6
 PageTitle: Configuring Python Environments in Visual Studio Code
-DateApproved: 06/04/2018
+DateApproved: 06/26/2018
 MetaDescription: Configuring Python Environments in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
 # Configuring Python environments
+
+*If you're looking to get started with Python in VS Code, refer to the [Tutorial](python-tutorial.md). This present article is focused only on aspects of setting up a Python interpreter/environment.*
 
 The Python extension relies on a Python environment (an interpreter and installed packages) for IntelliSense, auto-completions, linting, formatting, and any other language-related features other than debugging. The selected environment is also automatically activated when using the **Python: Run Python File in Terminal** and **Python: Create Terminal** commands.
 
@@ -95,6 +97,14 @@ You can also [manually specify an interpreter](#manually-specifying-an-interpret
 > **Tip:** If you create a new conda environment while VS Code is running, use the **Reload Window** command to refresh the environment list.
 
 The extension also loads an [environment variable definitions file](#environment-variable-definitions-file) identified by the `python.envFile` setting. The default value of this setting is `${workspaceFolder}/.env`.
+
+## Use of the PYTHONPATH variable
+
+The PYTHONPATH environment variable, which can be included in a [Environment variable definitions file](#environment-variable-definitions-file), specifies where Python should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/MacOS). Invalid paths are ignored.
+
+In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have code in a `src` folder and tests in the `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
+
+For more information, including referring to ZIP files, see [PYTHONPATH](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) (docs.python.org).
 
 ## Manually specify an interpreter
 

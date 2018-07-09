@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 06/21/2018
+DateApproved: 06/28/2018
 MetaDescription: Debugging Python with Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -183,6 +183,10 @@ Sets optional environment variables for the debugger process beyond system envir
 
 Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file).
 
+### `gevent`
+
+If set to `true`, enables debugging of [gevent monkey-patched code](http://www.gevent.org/intro.html).
+
 ## Remote debugging
 
 Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer.
@@ -261,21 +265,23 @@ In some cases you may want or need to use a secure connection to the remote comp
 
 On the remote computer:
 
-1. Enable port forwarding by opening the `sshd_config` config file (found under `/etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) and modifying the following setting:
+1. Enable port forwarding by opening the `sshd_config` config file (found under `/etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) and adding or modifying the following setting:
 
     ```
     AllowTcpForwarding yes
     ```
 
-1. Start the program and let it wait at the `ptvsd.wait_for_attach()` call as described in the previous section.
+1. Restart the ssh server. On Linux/MacOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
+
+1. Start the Python program and let it wait at the `ptvsd.wait_for_attach()` call as described in the previous section.
 
 On the local computer:
 
-1. Run `ssh -L sourceport:localhost:destinationport user@remoteaddress` using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`. For example, to use port 3000 on IP address 1.2.3.4, the command would be `ssh -L 3000:localhost:3000 user@1.2.3.4`.
+1. Create an SSH tunnel by running `ssh -L sourceport:localhost:destinationport user@remoteaddress`, using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`. For example, to use port 3000 on IP address 1.2.3.4, the command would be `ssh -L 3000:localhost:3000 user@1.2.3.4`.
 
 1. Verify that you can see a prompt in the SSH session.
 
-1. In VS Code, set the port in the debug configuration of `launch.json` to match the port used in the `ssh` command.
+1. In VS Code, set the port in the debug configuration of `launch.json` to match the port used in the `ssh` command and set the host to `localhost`. You use `localhost` here because you've set up the SSH tunnel.
 
 1. Launch the program and attach the debugger as described in the previous section.
 
@@ -295,6 +301,7 @@ The configuration drop-down provides a variety of different options for general 
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Scrapy | Specifies `"program": "~/.virtualenvs/scrapy/bin/scrapy"`, adds the `"console": "integratedTerminal"` option, and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Attach (Remote Debug) | See [Remote debugging](#remote-debugging) in the previous section. |
+| Gevent (Python Experimental only) | Sets `gevent` top `true` and `type` to `pythonExperimental`. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
