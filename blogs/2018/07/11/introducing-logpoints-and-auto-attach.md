@@ -10,9 +10,7 @@ Author: Kenneth Auchenberg
 ---
 # Introducing Logpoints and auto-attach
 
-July 11, 2018 Kenneth Auchenberg, [@auchenberg](https://twitter.com/auchenberg)
-
-In this post, I'm going to talk about the way we think about debugging, the feedback we hear from our users, and how we are making debugging easier and simpler to use in Visual Studio Code.
+Over the past months we have been busy improving the debugging experience in VS Code. In this post, I'm going to talk about the way we think about debugging, the feedback we hear from our users, and how we are making debugging easier and simpler to use in Visual Studio Code.
 
 Since the early days of VS Code, we have shipped an integrated debugging experience in VS Code, as we believe debugging should be an integral part of where you write and edit your code - your editor.
 
@@ -20,7 +18,7 @@ Since the early days of VS Code, we have shipped an integrated debugging experie
 
 Below the surface, our debugging experience is powered by a generic debugger UI that communicates through the Debug Adaptor Protocol (DAP) with a specific type of VS Code extensions that we call for Debug Adaptor's (DA). The DA talks to a real debugger and translates between the DAP and the runtime specific debug protocol or API of the debugger.
 
-This means that the core of VS Code is fully decoupled from the specific debuggers, and this architecture allows VS Code to debug anything, as long as there's a Debug Adapter available.
+This means that the core of VS Code is fully decoupled from the specific debuggers, and this architecture allows VS Code to debug anything, as long as there's a Debug Adapter available, as illustrated here:
 
 ![](debugging_architecture.png)
 
@@ -28,7 +26,7 @@ This means that the core of VS Code is fully decoupled from the specific debugge
 
 Today we already have a large happy group of developers who are debugging in VS Code on a regular basis, but as a part of our mission we want to make debugging better and more available to developers.
 
-So over the past months we engaged in conversations to better understand the pain points of debugging in VS Code, and why some developers don't use a debugger at all.
+So a couple of months ago we began to engage in conversations to better understand the pain points of debugging in VS Code, and why some developers don't use a debugger at all.
 
 This is our observations:
 
@@ -42,17 +40,17 @@ We recognize that this can be hard to get right, but we don't see a way to compl
 
 I'll get back to this later.
 
-In VS Code we have two core concept for debugging: Launch and attach, which caters to two different segments of developers. Depending on which segment you belong to, it can be confusing to determine what kind of debug configuration you need for your project.
+In VS Code we have two core concept for debugging: *Launch* and *attach*, which caters to two different workflows and segments of developers. Depending on which segment you belong to, it can be confusing to determine what kind of debug configuration you need for your project.
 
 If you come from a browser DevTools background you aren't used to the concept of "launching from your tool", as your browser instance already is open, and when opening DevTools you simply attach DevTools to your browser tab. On the other hand, if you come from a Java background it's quite normal to have your editor launch your Java process for you, and have your editor attaching it's debugger to the newly launched process.
 
-In general we recommend using launch configurations if you have an application that requires some sort of build step before it can be launched, as it allows you offload some of the cognitive overhead of building and running your app to your editor.
+In general we recommend using launch configurations if you have an application that requires somesort of build step or task before it can be launched, as it allows you *offload* some of the *cognitive overhead* of building and running your app to your editor.
 
-But as we talked to developers about launching their applications we recognized a pattern and made one important observation:
+But as we talked to developers about how they were launching their applications we recognized a pattern and made one important observation:
 
 **Observation**: Many developers who are using VS Code really loves the integrated terminal and relies on command line tools to launch their applications. For many it's a more natural workflow to run a command in the terminal followed by attaching the debugger from the editor. Much like opening DevTools after the browser has been launched.
 
-This observation is key, and we acknowledge that many don't want a full "magical" launch experience in their editor, but want to keep their editor place to edit code and debug, while using the terminal to launch apps, run build scripts, etc.
+This observation is key, and we acknowledge that many don't want a full "magical" launch experience in their editor, but want to keep their editor place to edit code and debug, while using the terminal to launch apps, run build scripts, etc. That's one of the reasons for why we have an integrated terminal experience inside VS Code, as we believe a good functional UI should *co-exist* and integrate well with the terminal.
 
 ### Many developers don't use breakpoints because their debugging workflow is focused at a different purpose
 
@@ -60,7 +58,7 @@ When looking at how developers are debugging their applications we also recogniz
 
 Using logging for debugging isn't new concept, and has been around for many decades now, and the observation here is key:
 
-**Observation**: When looking at the debugging workflows it's important to recognize, that traditional debugging experiences have been focused around slowing down execution to allow a specific set of logic to be inspected, while logging workflows usually are focused around inspecting state and how it changes throughout the execution workflow of an application. The fundamental  observation here is that debugging purpose between the workflows are vastly different.
+**Observation**: When looking at the debugging workflows it's important to recognize, that traditional debugging experiences have been focused around slowing down execution to allow a specific set of logic to be inspected, while logging workflows usually are focused around inspecting state and how it changes throughout the execution workflow of an application. The fundamental observation here is that debugging purpose between the debugging workflows are vastly different.
 
 <a href="https://mobile.twitter.com/drosenwasser/status/1009850470221791232">
 
@@ -70,9 +68,29 @@ Using logging for debugging isn't new concept, and has been around for many deca
 
 This observation is especially relevant for JavaScript developers who mostly are dealing with the complexity of managing state, and this might explain why [most JavaScript developers still prefers to add console.log's](https://christianheilmann.com/2017/07/08/debugging-javascript-console-loggerheads/) to their code instead of using a script debugger.
 
+## Auto-attaching to Node processes
+
+When reflecting on the learning of how some developers are using the Integrated Terminal, we saw a unique opportunity emerge. By  leveraging the contextual information we have inside VS Code from your editor and integrated terminal,  we had a way to detect your context and reason about your intent to debug, and this could provide a much simpler debugging experience for Node.js developers.
+
+So in [our March iteration](https://code.visualstudio.com/updates/v1_22#_node-debugging) of VS Code, we released a new feature that called Auto Attach for Node, that enables the Node debugger to automatically attach to Node.js processes that have been launched in debug mode from VS Code's Integrated Terminal.
+
+You enable auto attach by running **Debug: Toggle Auto Attach** command from the Command Palette, and once activated you can toggle auto attached from the Status bar too.
+
+![Auto attach](auto-attach.gif)
+
+This feature completely eliminates any debug configuration, as we interpret any Node process started with `node -inspect` as an intent to debug, and when combining this with our integrated terminal, we can provide a much simpler debugging experience that allows developers to launch their app in their own way, while eliminating debug configuration at the same time! 🎉
+
+## Debugging NPM scripts
+
+In [our April 2018 iteration](https://code.visualstudio.com/updates/v1_23#_npm-script-running), we added a new NPM scripts explorer that allows you to browse and run your NPM scripts directly from the UI. As a part of our journey of simplifying debug configuration, we also made it possible to start Node debugging directly from the explorer, without having to create debug configuration.
+
+If you have a `npm script` that includes an debugging argument like `--inspect` we'll automatically detect this and provide a debug action that launches the debugger, as seen here:
+
+![NPM scripts](npm_scripts.png)
+
 ## Introducing Logpoints
 
-Based on this learning, we believe there's an opportunity to combine the debugging experience with the purpose of state inspection, so in [our March iteration](https://code.visualstudio.com/updates/v1_22#_logpoints) of VS Code we released the first iteration of a debugging concept that we call Logpoints. Logpoints are a new kind breakpoint variant that does not "break" into the debugger but instead logs a message to the console.
+Based on the learning of a different debugging purpose we saw an opportunity to combine the debugging experience with the purpose of state inspection, so in [our March iteration](https://code.visualstudio.com/updates/v1_22#_logpoints) of VS Code we released the first iteration of a debugging concept that we call Logpoints. Logpoints are a new kind breakpoint variant that does not "break" into the debugger but instead logs a message to the console.
 
 ![Logpoints](logpoints.gif)
 
@@ -110,27 +128,12 @@ Since our first release of Logpoints in VS Code we have seen growing adoption of
 
 If you are interested in adding Logpoints support in your Debug Adapter for VS Code, please take a look at [these changes](https://github.com/Microsoft/vscode-debugadapter-node/commit/aeda2ba8ae526906585a5ccb7d8346a71b83ed10) in the protocol, and you can look at the above debug adapters for inspiration on how each runtime have chosen to implement Logpoints.
 
-## Auto-attaching to Node processes
 
-When reflecting on the learning of how some developers are using the Integrated Terminal, we saw a unique opportunity emerge. By  leveraging the contextual information we have inside VS Code from your editor and integrated terminal,  we had a way to detect your context and reason about your intent to debug, and this could provide a much simpler debugging experience for Node.js developers.
+## Next steps
 
-So in [our March iteration](https://code.visualstudio.com/updates/v1_22#_node-debugging) of VS Code, we released a new feature that called Auto Attach for Node, that enables the Node debugger to automatically attach to Node.js processes that have been launched in debug mode from VS Code's Integrated Terminal.
+That's it for now, but we aren't finished. In our [July iteration](https://github.com/Microsoft/vscode/issues/53850) we are making the first improvements to auto-attach in order to improve discoverbility ([#53640](https://github.com/Microsoft/vscode/issues/53640)).
 
-You enable auto attach by running **Debug: Toggle Auto Attach** command from the Command Palette, and once activated you can toggle auto attached from the Status bar too.
-
-![Auto attach](auto-attach.gif)
-
-This feature completely eliminates any debug configuration, as we interpret any Node process started with `node -inspect` as an intent to debug, and when combining this with our integrated terminal, we can provide a much simpler debugging experience that allows developers to launch their app in their own way, while eliminating debug configuration at the same time! 🎉
-
-## Debugging NPM scripts
-
-In [our April 2018 iteration](https://code.visualstudio.com/updates/v1_23#_npm-script-running), we added a new NPM scripts explorer that allows you to browse and run your NPM scripts directly from the UI. As a part of our journey of simplifying debug configuration, we also made it possible to start Node debugging directly from the explorer, without having to create debug configuration.
-
-If you have a `npm script` that includes an debugging argument like `--inspect` we'll automatically detect this and provide a debug action that launches the debugger, as seen here:
-
-![NPM scripts](npm_scripts.png)
-
-I hope you'll find these new debugging features useful, and as always please share your thoughts and feedback on how we can make debugging easier, more productive and more fun on [GitHub](https://github.com/Microsoft/vscode), and [@code on Twitter](https://twitter.com/code)
+We hope the introduction of auto-attach, NPM scripts explorer, and LogPoints are going to simplfy your debugging experience in VS Code, and you'll find them useful. We can't wait to hear your thoughts and feedback on how we can make debugging easier, more productive and more fun on [GitHub](https://github.com/Microsoft/vscode), and [@code on Twitter](https://twitter.com/code).
 
 On behalf of the VS Code team, Happy Coding!
 
