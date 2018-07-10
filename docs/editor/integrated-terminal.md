@@ -226,7 +226,7 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 
 **Q: Can I use Cygwin's shell with the terminal on Windows?**
 
-**A:** Yes, to use the Cygwin shell you will first need to install the chere package and then add the following settings to your `settings.json` file:
+**A:** Yes, to use the [Cygwin](http://cygwin.com/) shell, you will first need to install the chere package and then add the following settings to your `settings.json` file:
 
 ```json
 "terminal.integrated.shell.windows": "C:\\Cygwin\\bin\\bash.exe",

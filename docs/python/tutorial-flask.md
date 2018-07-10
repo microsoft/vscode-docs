@@ -20,7 +20,7 @@ The completed code project from this tutorial can be found on GitHub: [python-sa
 
 ## Prerequisites
 
-To successfully complete this tutorial, you must do the following (which are the same steps as in the [general Python tutorial](python-tutorial.md)):
+To successfully complete this tutorial, you must do the following (which are the same steps as in the [general Python tutorial](/docs/python/python-tutorial.md)):
 
 1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 

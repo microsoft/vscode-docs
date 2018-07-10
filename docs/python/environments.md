@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Configuring Python environments
 
-*If you're looking to get started with Python in VS Code, refer to the [Tutorial](python-tutorial.md). This present article is focused only on aspects of setting up a Python interpreter/environment.*
+**Note**: If you're looking to get started with Python in Visual Studio Code, refer to the [Tutorial](/docs/python/python-tutorial.md). This present article is focused only on aspects of setting up a Python interpreter/environment.
 
 The Python extension relies on a Python environment (an interpreter and installed packages) for IntelliSense, auto-completions, linting, formatting, and any other language-related features other than debugging. The selected environment is also automatically activated when using the **Python: Run Python File in Terminal** and **Python: Create Terminal** commands.
 
@@ -68,7 +68,7 @@ For example, the following command creates a conda environment *without* an inte
 conda create --name env-00
 ```
 
-In contrast, the following command creates a conda environment with a the Python 3.4 interpreter and several libraries. Because the environment contains an interpreter (which you can see in the Anaconda `envs/env-01` folder created by this command), VS Code includes it in its list:
+In contrast, the following command creates a conda environment with the Python 3.4 interpreter and several libraries. Because the environment contains an interpreter (which you can see in the Anaconda `envs/env-01` folder created by this command), VS Code includes it in its list:
 
 ```
 conda create -n env-01 python=3.4 scipy=0.15.0 astroid babel
@@ -102,7 +102,7 @@ The extension also loads an [environment variable definitions file](#environment
 
 The PYTHONPATH environment variable, which can be included in a [Environment variable definitions file](#environment-variable-definitions-file), specifies where Python should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/MacOS). Invalid paths are ignored.
 
-In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have code in a `src` folder and tests in the `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
+In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
 
 For more information, including referring to ZIP files, see [PYTHONPATH](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) (docs.python.org).
 
