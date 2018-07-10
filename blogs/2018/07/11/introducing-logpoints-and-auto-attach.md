@@ -10,9 +10,9 @@ Author: Kenneth Auchenberg
 ---
 # Introducing Logpoints and auto-attach
 
-Over the past months we have been busy improving the debugging experience in VS Code. In this post I'm going to talk about the way we think about debugging, the feedback we hear from our users, and how we are making debugging easier and simpler to use in Visual Studio Code.
+Over the past months we have been busy improving the debugging experience in VS Code, and in this post I'm going to talk about the way we think about debugging, the feedback we hear from our users, and how we are making debugging easier and simpler to use in Visual Studio Code.
 
-Since the early days of VS Code, we have shipped an integrated debugging experience in VS Code, as we believe debugging should be an integral part of where you write and edit your code - your editor.
+Since the early days of VS Code, we have shipped an integrated debugging experience in VS Code, as we believe debugging should be an integral part of where you write and edit your code  ––  your editor.
 
 ![VS Code debugger](debugger.png)
 
@@ -20,13 +20,17 @@ Below the surface, our debugging experience is powered by a generic debugger UI 
 
 This means that the core of VS Code is fully decoupled from the specific debuggers, and this architecture allows VS Code to debug anything, as long as there's a Debug Adapter available, as illustrated here:
 
+<br />
+
 ![](debugging_architecture.png)
+
+<br />
 
 ## Observations and pain points
 
 Today we already have a large happy group of developers who are debugging in VS Code on a regular basis, but as a part of our mission we want to make debugging better and more available to developers.
 
-So a couple of months ago we began to engage in conversations to better understand the pain points of debugging in VS Code, and why some developers don't use our debugger at all.
+So a few months back ago we began to engage in conversations to better understand the pain points of debugging in VS Code, and why some developers don't use our debugger at all.
 
 This is our observations:
 
@@ -40,13 +44,13 @@ We recognize that this can be hard to get right, but we don't see a way to compl
 
 I'll get back to this later.
 
-### When to use launch instead of attach isn't always clear
+### The difference betwen launch and attach configs isn't always clear
 
-In VS Code we have two core concept for debugging: *Launch* and *attach*, which caters to two different workflows and segments of developers. Depending on which segment you belong to, it can be confusing to determine what kind of debug configuration you need for your project.
+In VS Code we have two core concept for debugging: *Launch* and *attach*-configurations, which caters to two different workflows and segments of developers. Depending on which segment you belong to, it can be confusing to determine what kind of debug configuration you need for your project.
 
 If you come from a browser DevTools background you aren't used to the concept of "launching from your tool", as your browser instance already is open, and when opening DevTools you simply attach DevTools to your browser tab. On the other hand, if you come from a Java background it's quite normal to have your editor launch your Java process for you, and have your editor attaching it's debugger to the newly launched process.
 
-In general we recommend using launch configurations if you have an application that requires *somesort of build step or task before* it can be launched, as it allows you *offload* some of the *cognitive overhead* of building and running your app to your editor.
+Our general recommendation is to [launch configurations](/docs/editor/debugging#_launch-configurations) if you have an application that requires *somesort of build step or task before* it can be launched, as it allows you *offload* some of the *cognitive overhead* of building and running your app to your editor.
 
 But as we talked to developers about how they were launching their applications we recognized a pattern and made one important observation:
 
@@ -64,11 +68,7 @@ Using logging for debugging isn't new concept, and has been around for many deca
 
 This observation is especially relevant for JavaScript developers who mostly are dealing with the complexity of managing state, and this might explain why [most JavaScript developers still prefers to add console.log's](https://christianheilmann.com/2017/07/08/debugging-javascript-console-loggerheads/) to their code instead of using a script debugger.
 
-<a href="https://mobile.twitter.com/drosenwasser/status/1009850470221791232">
-
-![Tweet about debuggers](tweet.png)
-
-</a>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Debuggers don&#39;t actually remove bugs, they just run your code as slow as you can think.</p>&mdash; Daniel Rosenwasser (@drosenwasser) <a href="https://twitter.com/drosenwasser/status/1009850470221791232?ref_src=twsrc%5Etfw">June 21, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Auto-attaching to Node processes
 
