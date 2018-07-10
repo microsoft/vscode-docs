@@ -64,7 +64,7 @@ When looking at how developers are debugging their applications we also recogniz
 
 Using logging for debugging isn't new concept, and has been around for many decades now, and the observation here is key:
 
-**Observation**: When looking at the debugging workflows it's important to recognize, that traditional debugging experiences have been focused around slowing down execution to allow a specific set of logic to be inspected, while logging workflows usually are focused around inspecting state and how it changes throughout the execution workflow of an application. The fundamental observation here is that debugging purpose between the debugging workflows are vastly different.
+**Observation**: Traditional debugging workflows are most focused around slowing down execution to allow a specific set of logic to be inspected, while logging workflows usually are focused around inspecting state and how it changes throughout the execution workflow of an application. The fundamental observation here is the two workflows are focused at different debugging purposes.
 
 This observation is especially relevant for JavaScript developers who mostly are dealing with the complexity of managing state, and this might explain why [most JavaScript developers still prefers to add console.log's](https://christianheilmann.com/2017/07/08/debugging-javascript-console-loggerheads/) to their code instead of using a script debugger.
 
@@ -72,7 +72,7 @@ This observation is especially relevant for JavaScript developers who mostly are
 
 ## Auto-attaching to Node processes
 
-When reflecting on how some developers are using the Integrated Terminal, we saw a unique opportunity emerge. By  leveraging the contextual information we have inside VS Code from your editor and integrated terminal, we had a way to detect your context and reason about your intent to debug, and this could provide a much simpler debugging experience for Node.js developers.
+When reflecting on how some developers are using the Integrated Terminal to launch, we saw a unique opportunity emerge. By leveraging the contextual information we have inside VS Code from your editor and integrated terminal, we had a way to detect your context and reason about your intent to debug, and this could provide a much simpler debugging experience for Node.js developers.
 
 So in [our March iteration](https://code.visualstudio.com/updates/v1_22#_node-debugging) of VS Code, we released a new feature that called Auto Attach for Node, that enables the Node debugger to automatically attach to Node.js processes that have been launched in debug mode from VS Code's Integrated Terminal.
 
