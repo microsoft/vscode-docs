@@ -16,7 +16,7 @@ Since the early days of VS Code, we have shipped an integrated debugging experie
 
 ![VS Code debugger](debugger.png)
 
-Below the surface, our debugging experience is powered by a generic debugger UI that communicates through the Debug Adaptor Protocol (DAP) with a specific type of VS Code extensions that we call for Debug Adaptor's (DA). The DA talks to a real debugger and translates between the DAP and the runtime specific debug protocol or API of the debugger.
+Below the surface, our debugging experience is powered by a generic debugger UI that communicates through the Debug Adapter Protocol (DAP) with a specific type of VS Code extensions that we call Debug Adapter (DA). The DA talks to a real debugger and translates between the DAP and the runtime specific debug protocol or API of the debugger.
 
 This means that the core of VS Code is fully decoupled from the specific debuggers, and this architecture allows VS Code to debug anything, as long as there's a Debug Adapter available, as illustrated here:
 
@@ -30,15 +30,15 @@ This means that the core of VS Code is fully decoupled from the specific debugge
 
 Today we already have a large happy group of developers who are debugging in VS Code on a regular basis, but as a part of our mission we want to make debugging better and more available to developers.
 
-So a few months back ago we began to engage in conversations to better understand the pain points of debugging in VS Code, and why some developers don't use our debugger at all.
+So a few months ago we began to engage in conversations to better understand the pain points of debugging in VS Code, and why some developers don't use our debugger at all.
 
-This is our observations:
+These are our observations:
 
 ### Debug configuration is hard to get right
 
 Because VS Code is a general editor with a generic debugger, and not a specialized tool for a particular stack or runtime, we can't provide an opinionated default debug configuration that will work for everyone.
 
-This means that VS Code requires you to have a set of debug configurations that tells us what debugger to use, and how to start your runtime with the right parameters, etc.
+This means that VS Code requires you to have a set of debug configurations that tells it what debugger to use, and how to start your runtime with the right parameters, etc.
 
 We recognize that this can be hard to get right, but we don't see a way to completely eliminate debug configuration for everyone. That being said we believe that debug configuration can be simplified and sometimes in the right context be reduced to a minimum.
 
@@ -48,9 +48,9 @@ I'll get back to this later.
 
 In VS Code we have two core concept for debugging: *Launch* and *attach*-configurations, which caters to two different workflows and segments of developers. Depending on which segment you belong to, it can be confusing to determine what kind of debug configuration you need for your project.
 
-If you come from a browser DevTools background you aren't used to the concept of "launching from your tool", as your browser instance already is open, and when opening DevTools you simply attach DevTools to your browser tab. On the other hand, if you come from a Java background it's quite normal to have your editor launch your Java process for you, and have your editor attaching it's debugger to the newly launched process.
+If you come from a browser DevTools background you aren't used to the concept of "launching from your tool", as your browser instance already is open, and when opening DevTools you simply attach DevTools to your browser tab. On the other hand, if you come from a Java background it's quite normal to have your editor launch your Java process for you, and have your editor attaching its debugger to the newly launched process.
 
-Our general recommendation is to [launch configurations](/docs/editor/debugging#_launch-configurations) if you have an application that requires *somesort of build step or task before* it can be launched, as it allows you *offload* some of the *cognitive overhead* of building and running your app to your editor.
+Our general recommendation is to use [launch configurations](/docs/editor/debugging#_launch-configurations) if you have an application that requires *some sort of build step or task before* it can be launched, as it allows you to *offload* some of the *cognitive overhead* of building and running your app to your editor. 
 
 But as we talked to developers about how they were launching their applications we recognized a pattern and made one important observation:
 
@@ -62,9 +62,9 @@ This observation is key, and we acknowledge that many don't want a full "magical
 
 When looking at how developers are debugging their applications we also recognized another interesting pattern: The usage of logging instead of breakpoints.
 
-Using logging for debugging isn't new concept, and has been around for many decades now, and the observation here is key:
+Using logging for debugging isn't a new concept, and has been around for many decades now, and the observation here is key:
 
-**Observation**: Traditional debugging workflows are most focused around slowing down execution to allow a specific set of logic to be inspected, while logging workflows usually are focused around inspecting state and how it changes throughout the execution workflow of an application. The fundamental observation here is the two workflows are focused at different debugging purposes.
+**Observation**: Traditional debugging workflows are most focused around slowing down execution to allow a specific set of logic to be inspected, while logging workflows usually are focused around inspecting state and how it changes throughout the execution workflow of an application. The fundamental observation here is the two workflows are focusing at different debugging purposes.
 
 This observation is especially relevant for JavaScript developers who mostly are dealing with the complexity of managing state, and this might explain why [most JavaScript developers still prefers to add console.log's](https://christianheilmann.com/2017/07/08/debugging-javascript-console-loggerheads/) to their code instead of using a script debugger.
 
@@ -104,7 +104,7 @@ If you have a `npm script` that includes an debugging argument like `--inspect` 
 
 Based on the learning of a different debugging purpose we saw an opportunity to combine our existing debugging experience with the purpose of state inspection, so in [our March iteration](https://code.visualstudio.com/updates/v1_22#_logpoints) of VS Code we released the first iteration of a debugging concept that we call Logpoints.
 
-Logpoints are a new kind breakpoint variant that does not "break" into the debugger but instead logs a message to the console.
+Logpoints are a breakpoint variant that does not "break" into the debugger but instead logs a message to the console.
 
 ![Logpoints](logpoints.gif)
 
@@ -116,17 +116,17 @@ Logpoints are based on the observation that in many cases you don't want to stop
 
 Logpoints allows you to "inject" on-demand logging statements into your application logic, just like if you had added logging statements into your application before starting it. Because Logpoints are injected at execution time, and not persisted in the source code, this means that you don't have to think ahead of time, but can inject Logpoints as you need them, and a nice benefit is that you don't have to worry about cleaning up after you are finished debugging.
 
-For JavaScript developers this means that you don't have to worry about leaving `console.log's` behind anymore  ––  just use Logpoints! Even better, you can combine with `console.log` and Logpoints, so this means that if you insert a Logpoint into block of code that already have `console.log's` you'll see both logging statements inside the Debug Console.
+For JavaScript developers this means that you don't have to worry about leaving `console.log's` behind anymore  ––  just use Logpoints! Even better, you can combine `console.log` and Logpoints, so this means that if you insert a Logpoint into a block of code that already have `console.log`s you'll see both logging statements inside the Debug Console.
 
 ### Logpoints in cloud contexts
 
-Logpoints are particular useful in cloud contexts (or any remote context really), as they enable you to inject logging into remote environments without having to redeploy your applications, and because you don't halt script execution, your users aren't affected, like they would have been if you were using regular breakpoints.
+Logpoints are particular useful in cloud contexts (or any remote context really), as they enable you to inject logging into remote environments without having to redeploy your applications, and because you don't halt script execution, your users aren't affected, unlike they would have been if you were using regular breakpoints.
 
 You can read more about how to use [Logpoints for Node.js on Azure here](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0).
 
 ### Supported languages
 
-Since our first release of Logpoints in VS Code we have seen growing adoption of Logpoints in our VS Code Debug Adapters, and today we have support for the following languages:
+Since our first release of Logpoints in VS Code we have seen a growing adoption of Logpoints in our VS Code Debug Adapters, and today we have support for the following languages:
 
 - [Node.js debugger](https://github.com/Microsoft/vscode-node-debug2/)
 - [Chrome debugger](https://github.com/Microsoft/vscode-chrome-debug/)
@@ -144,7 +144,7 @@ If you are interested in adding Logpoints support in your Debug Adapter for VS C
 
 ## Next steps
 
-That's it for now, but we aren't finished. In our [July iteration](https://github.com/Microsoft/vscode/issues/53850) we are making the first improvements to auto-attach in order to improve discoverbility ([#53640](https://github.com/Microsoft/vscode/issues/53640)), based on the feedback we already have heard from you.
+That's it for now, but we aren't finished. In our [July iteration](https://github.com/Microsoft/vscode/issues/53850) we are making the first improvements to auto-attach in order to improve discoverability ([#53640](https://github.com/Microsoft/vscode/issues/53640)), based on the feedback we already have heard from you.
 
 We hope the introduction of auto-attach, NPM scripts explorer, and Logpoints are going to simplfy your debugging experience in VS Code, and as always we are eager to hear your feedback, so reach out to us at [GitHub](https://github.com/Microsoft/vscode) or [@code on Twitter](https://twitter.com/code).
 
