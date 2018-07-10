@@ -58,7 +58,7 @@ But as we talked to developers about how they were launching their applications 
 
 This observation is key, and we acknowledge that many don't want a full "magical" launch experience in their editor, but want to keep their editor place to edit code and debug, while using the terminal to launch apps, run build scripts, etc. This is one of the reasons for *why* we have an integrated terminal experience inside VS Code, as we believe a good functional UI should *co-exist* and integrate well with the terminal.
 
-### Many developers don't use breakpoints because their purpose is different
+### Many developers don't use breakpoints because their are inspecting state changes
 
 When looking at how developers are debugging their applications we also recognized another interesting pattern: The usage of logging instead of breakpoints.
 
@@ -144,9 +144,9 @@ If you are interested in adding Logpoints support in your Debug Adapter for VS C
 
 ## Next steps
 
-That's it for now, but we aren't finished. In our [July iteration](https://github.com/Microsoft/vscode/issues/53850) we are making the first improvements to auto-attach in order to improve discoverbility ([#53640](https://github.com/Microsoft/vscode/issues/53640)), based on the feedback we already have received.
+That's it for now, but we aren't finished. In our [July iteration](https://github.com/Microsoft/vscode/issues/53850) we are making the first improvements to auto-attach in order to improve discoverbility ([#53640](https://github.com/Microsoft/vscode/issues/53640)), based on the feedback we already have heard from you.
 
-We hope the introduction of auto-attach, NPM scripts explorer, and LogPoints are going to simplfy your debugging experience in VS Code, and you'll find them useful. We can't wait to hear your thoughts and feedback these new features, and in general your thoughts on debugging in VS Code. As always reach us at [GitHub](https://github.com/Microsoft/vscode) or [@code on Twitter](https://twitter.com/code).
+We hope the introduction of auto-attach, NPM scripts explorer, and Logpoints are going to simplfy your debugging experience in VS Code, and as always we are eager to hear your feedback, so reach out to us at [GitHub](https://github.com/Microsoft/vscode) or [@code on Twitter](https://twitter.com/code).
 
 On behalf of the VS Code team: Happy Coding!
 
