@@ -50,7 +50,9 @@ In VS Code we have two core concept for debugging: *Launch* and *attach*-configu
 
 If you come from a browser DevTools background you aren't used to the concept of "launching from your tool", as your browser instance already is open, and when opening DevTools you simply attach DevTools to your browser tab. On the other hand, if you come from a Java background it's quite normal to have your editor launch your Java process for you, and have your editor attaching its debugger to the newly launched process.
 
-Our general recommendation is to use [launch configurations](/docs/editor/debugging#_launch-configurations) if you have an application that requires *some sort of build step or task before* it can be launched, as it allows you to *offload* some of the *cognitive overhead* of building and running your app to your editor. 
+The best way to explain the difference between *launch* and *attach* is think about [launch configurations](/docs/editor/debugging#_launch-configurations) as a recipe for how to start your app in debug mode *before* the VS Code attaches to it, while an [attach config](/docs/editor/debugging#_launchjson-attributes) is a recipe for how to connect VS Code's debugger's to an app or process that's *already* running.
+
+The value of [launch configurations](/docs/editor/debugging#_launch-configurations) is to give you a way to *offload* some of the *cognitive overhead* of launching your app with the right debugging paramaters by creating a configuration that's easy *repeatable* and *sharable* with your project and team.
 
 But as we talked to developers about how they were launching their applications we recognized a pattern and made one important observation:
 
