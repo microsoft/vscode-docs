@@ -31,6 +31,15 @@ From then on, that folder will be used to contain all Code data, including sessi
 
 The `data` folder can be moved to other VS Code installations. This is useful for updating your portable Code version: simply move the `data` folder to a newer extracted version of VS Code.
 
+#### Merging your existing preferences and extensions to portable
+
+If you have an existing - non portable - installation of VS Code and you want to get your preferences and extensions portable:
+* create data folder (see above) 
+* start code --> at first start subdirectories "extensions" and "user-data" are created under data
+* copy your "old" extensions from "<userHome>\.vscode\extensions\" to "data\extensions"
+* copy your user data from "<userHome>\AppData\Roaming\Code\" to "data\user-data"
+
+
 ### macOS
 
 On **macOS**, you need to place the data folder as a sibling of the application itself. Since the folder will be alongside the application, you need to name it specifically so that Code can find it. The default folder name is `code-portable-data`:
