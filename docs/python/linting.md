@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in VS Code
 
-Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using Pylint. If PyLint is not already installed in your selected Python environment, VS Code prompts you to install the necessary packages. (You can also manually run `pip install pylint` at a command prompt for that same environment.)
+Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using Pylint. If PyLint is not already installed in your selected Python environment, VS Code prompts you to install the necessary packages. (You can also manually run `pip install pylint` (Windows) or `pip3 install pylint` (Mac/Linux) at a command prompt for that same environment.)
 
 Linting runs automatically when you save a file, and you can run manually using the **Python: Run Linting** command. Issues are shown in the **Problems** panel and as underlines in the code editor. Hovering over an underlined issue displays the details:
 
