@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Flask Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
 PageTitle: Python and Flask Tutorial in VS Code
-DateApproved: 06/04/2018
+DateApproved: 07/11/2018
 MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -71,7 +71,17 @@ In this section you create a virtual environment in which Flask is installed. Us
 
     ![Selected environment showing in the VS Code status bar](images/flask/environment-in-status-bar.png)
 
-1. Install Flask in the virtual environment by running `pip3 install flask` (MacOS/Linux) or `pip install flask` (Windows). You now have an self-contained environment ready for writing Flask code.
+1. Install Flask in the virtual environment by running one of the following commands:
+
+    ```bash
+    # Mac/Linux
+    pip3 install flask
+
+    # Windows
+    pip install flask
+    ```
+
+You now have an self-contained environment ready for writing Flask code.
 
 ## Create and run a minimal Flask app
 
@@ -131,28 +141,46 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](/docs/python/debugging.md). Running the debugger also automatically saves any modified files before the debugging session begins.
 
-1. Add a second route and function to `app.py` that contains some rather superfluous code that you can step through in the debugger:
+**Before you begin**: Make sure that you stopped the running app at the end of the last section by using `kbstyle(Ctrl+C)` in the terminal. If you leave the app running in one terminal, it continues to own the port. As a result, when you run the app in the debugger using the same port, the original running app handles all the requests and you won't see any activity in the app being debugged and the program won't stop at breakpoints. In other words, if the debugger doesn't seem to be working, make sure that no other instance of the app is still running.
+
+1. Replace the contents of `app.py` with the following code, which adds a second route and function that you can step through in the debugger:
 
     ```python
+    from flask import Flask
+    from datetime import datetime
+    from re import match
+
+    app = Flask(__name__)
+
+    @app.route('/')
+    def home():
+        return 'Hello, Flask!'
+
     @app.route('/hello/<name>')
     def hello_there(name):
-        from datetime import datetime
         now = datetime.now()
         formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
-        # You normally use templates instead of inline HTML, as discussed later in the tutorial
-        html_content = "<html><head><title>Hello, Flask</title></head><body>"
-        html_content += "<strong>Hello there, " + name + "!</strong>. It's " + formatted_now
-        html_content += "</body></html>"
+        # Filter the name argument to letters only using regular expressions. URL arguments
+        # can contain arbitrary text, so we restrict to safe characters only.
+        match_object = match("[a-zA-Z]+", name)
 
-        return html_content
+        if match_object:
+            clean_name = match_object.group(0)
+        else:
+            clean_name = "Friend"
+
+        content = "Hello there, " + clean_name + "! It's " + formatted_now
+        return content
     ```
 
-    The URL route decorator used here, `/hello/<name>`, defines an endpoint /hello/ that can accept any additional value. The identifier inside `<` and `>` define a variable that is passed to the function and can be used in your code.
+    The decorator used for the new URL route, `/hello/<name>`, defines an endpoint /hello/ that can accept any additional value. The identifier inside `<` and `>` in the route defines a variable that is passed to the function and can be used in your code.
 
     URL routes are case-sensitive. For example, the route `/hello/<name>` is distinct from `/Hello/<name>`. If you want the same function to handle both, use decorators for each variant.
 
-1. Set a breakpoint at the first line of code in the function (`from datetime import datetime`) by doing any one of the following:
+    As described in the code comments, always filter arbitrary user-provided information to avoid various attacks on your app. In this case, the code filters the name argument to contain only letters, which avoids injection of control characters, HTML, and so forth.
+
+1. Set a breakpoint at the first line of code in the `hello_there` function (`now = datetime.now()`) by doing any one of the following:
     - With the cursor on that line, press `kb(editor.debug.action.toggleBreakpoint)`, or,
     - With the cursor on that line, select the **Debug** > **Toggle Breakpoint** menu command, or,
     - Click directly in the margin to the left of the line number (a faded red dot appears when hovering there).
@@ -208,7 +236,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ![VS Code paused at a breakpoint](images/flask/debug-program-paused.png)
 
-1. Use Step Over to run the `from...import` statement and the `now = datetime.now()` statement.
+1. Use Step Over to run the `now = datetime.now()` statement.
 
 1. On the left side of the VS Code window you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes to correct values when the code didn't produce the right value to begin with.
 
@@ -242,7 +270,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Debug** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
-> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:5000/hello/VSCode`, just output that URL using a `print` statement. The URL appears in the terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
+> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:5000/hello/VSCode`, output that URL using a `print` statement. The URL appears in the terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
 
 ## Go to Definition and Peek Definition commands
 
@@ -250,13 +278,13 @@ During your work with Flask or any other library, you may want to examine the co
 
 - **Go to Definition** jumps from your code into the code that defines an object. For example, in `app.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition** (or use `kb(editor.action.goToDeclaration)`), which navigates to the class definition in the Flask library.
 
-- **Peek Definition** (`kb(editor.action.previewDeclaration)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor. Press `kbstyle(Escape)` to close the Peek window.
+- **Peek Definition** (`kb(editor.action.previewDeclaration)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `kbstyle(Escape)` to close the Peek window.
 
     ![Peek definition showing the Flask class inline](images/flask/peek-definition.png)
 
 ## Use a template to render a page
 
-The app you've created so far in this tutorial contains embedded HTML directly within Python code. Developers typically separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
+The app you've created so far in this tutorial generates only plain text web pages directly within Python code. Although it's possible to generate HTML directly in code, developers typically avoid such a practice because it's vulnerable to cross-site scripting (XSS) attacks. Instead, developers separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
 
 - A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
 - The default templating engine for Flask is Jinja, which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
@@ -286,23 +314,37 @@ In this section you create a single page using a template. In the sections that 
     from flask import render_template
     ```
 
-    Then modify the `hello_there` function to use `render_template` to load a template and apply the named values. `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
+1. Also in `app.py`, factor the code to clean the `name` argument (for simplicity), then modify the `hello_there` function to use `render_template` to load a template and apply the named values. `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
 
     ```python
     @app.route('/hello/<name>')
     def hello_there(name):
-        from datetime import datetime
         now = datetime.now()
-        content = "<strong>Hello there, " + name + "!</strong> It's " + now.strftime("%A, %d %B, %Y at %X")
+        formatted_now = now.strftime("%A, %d %B, %Y at %X")
+
+        # Bad code: don't use inline HTML like this for reasons explained shortly.
+        content = "<strong>Hello there, " + clean_name(name) + "!</strong> It's " + formatted_now
 
         return render_template(
             "hello_there.html",
             title ='Hello, Flask',
             content = content
         )
+
+    def clean_name(name):
+         # Filter the name argument to letters only using regular expressions. URL arguments
+        # can contain arbitrary text, so we restrict to safe characters only.
+        match_object = match("[a-zA-Z]+", name)
+
+        if match_object:
+            clean_name = match_object.group(0)
+        else:
+            clean_name = "Friend"
+
+        return clean_name
     ```
 
-1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.continue)` or `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results. Notice that the inline HTML does **not** get rendered as HTML because the templating engine automatically escapes values used in placeholders. Automatic escaping prevent accidental vulnerabilities to injection attacks: developers often gather input from one page, or the URL, and use it as a value in another page through a template placeholder. Escaping also serves as a reminder that it's again best to keep HTML out of the code.
+1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.continue)` or `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results. Notice that the inline HTML, if you happen to write bad code like this, does **not** get rendered as HTML because the templating engine automatically escapes values used in placeholders. Automatic escaping prevent accidental vulnerabilities to injection attacks: developers often gather input from one page, or the URL, and use it as a value in another page through a template placeholder. Escaping also serves as a reminder that it's again best to keep HTML out of the code.
 
     For this reason, modify the template and view function as follows to make each piece of content more specific:
 
@@ -337,7 +379,7 @@ In this section you create a single page using a template. In the sections that 
         )
     ```
 
-1. Run the app again and navigate to a /hello/name URL to observe the expected result, and stop the app when you're done.
+1. Run the app again and navigate to a /hello/name URL to observe the expected result, then stop the app when you're done.
 
 ## Serve static files
 
@@ -360,13 +402,15 @@ The following sections demonstrate both types of static files.
     }
     ```
 
-1. In `templates/hello_there.html`, add the following line before the `</head>` tag:
+1. In `templates/hello_there.html`, add the following line before the `</head>` tag, which creates a reference to the stylesheet.
 
     ```html
-    <link rel="stylesheet" type="text/css" href="/static/site.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
     ```
 
-    And replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
+    Flask's [`url_for` tag](http://flask.pocoo.org/docs/0.12/api/#flask.url_for) that's used here creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
+
+1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
     <span class="message">\{{ message }}</span>. It's \{{ date }}.
@@ -391,7 +435,7 @@ The following sections demonstrate both types of static files.
     ```python
     @app.route('/api/data')
     def get_data():
-      return app.send_static_file('data.json')
+        return app.send_static_file('data.json')
     ```
 
 1. Run the app and navigate to the /api/data endpoint to see that the static file is returned. Stop the app when you're done.
@@ -410,7 +454,7 @@ A base page template in Flask contains all the shared parts of a set of pages, i
 
 The following steps demonstrate creating a base template.
 
-1. In the `templates` folder, create a file named `layout.html` with the contents below, which contains a block named "content". As you can see, the markup defines a simple nav bar structure with links to the Home, About, and Contact pages, which you create in a later section. Each link uses Flask's `url_for` tag to generate a link at runtime for the matching route.
+1. In the `templates` folder, create a file named `layout.html` with the contents below, which contains a block named "content". As you can see, the markup defines a simple nav bar structure with links to the Home, About, and Contact pages, which you create in a later section. Each link again uses Flask's `url_for` tag to generate a link at runtime for the matching route.
 
     ```html
     <!DOCTYPE html>
@@ -418,7 +462,7 @@ The following steps demonstrate creating a base template.
         <head>
             <meta charset="utf-8" />
             <title>\{{ title }}</title>
-            <link rel="stylesheet" type="text/css" href="/static/site.css" />
+            <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
         </head>
 
         <body>
@@ -543,16 +587,16 @@ With the code snippet in place, you can quickly create templates for the Home, A
     # Replace the existing home function with the one below
     @app.route('/')
     def home():
-        return render_template("home.html", title = "Home")
+        return render_template("home.html", title="Home")
 
     # New functions
     @app.route('/about')
     def about():
-        return render_template("about.html", title = "About us")
+        return render_template("about.html", title="About us")
 
     @app.route('/contact')
     def contact():
-        return render_template("contact.html", title = "Contact us")
+        return render_template("contact.html", title="Contact us")
     ```
 
 ### Run the app
@@ -592,35 +636,53 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
     ```python
     from flask import Flask
     from flask import render_template
-    from HelloApp import app
+    from datetime import datetime
+    from re import match
+
+    app = Flask(__name__)
 
     @app.route('/')
     def home():
-        return render_template("home.html", title = "Home")
-
-    @app.route('/about')
-    def about():
-        return render_template("about.html", title = "About us")
-
-    @app.route('/contact')
-    def contact():
-        return render_template("contact.html", title = "Contact us")
+        return 'Hello, Flask!'
 
     @app.route('/hello/<name>')
     def hello_there(name):
-        from datetime import datetime
         now = datetime.now()
+        formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
         return render_template(
             "hello_there.html",
             title ='Hello, Flask',
-            message = "Hello there, " + name + "!",
+            message = "Hello there, " + clean_name(name) + "!",
             date = now.strftime("%A, %d %B, %Y at %X")
         )
 
     @app.route('/api/data')
     def get_data():
         return app.send_static_file('data.json')
+
+    def clean_name(name):
+         # Filter the name argument to letters only using regular expressions. URL arguments
+        # can contain arbitrary text, so we restrict to safe characters only.
+        match_object = match("[a-zA-Z]+", name)
+
+        if match_object:
+            clean_name = match_object.group(0)
+        else:
+            clean_name = "Friend"
+
+        return clean_name
+    ```
+
+1. Optional: Right-click in the editor and select the **Sort Imports** command, which consolidates imports from identical modules, removes unused imports, and sorts your import statements. FOr example, using the command on the code above in `views.py` changes the imports as follows:
+
+    ```python
+    from datetime import datetime
+    from re import match
+
+    from flask import Flask, render_template
+
+    from HelloFlask import app
     ```
 
 1. Create a file `__init__.py` with the following contents, also cut from `app.py`:
