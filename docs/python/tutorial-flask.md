@@ -391,7 +391,7 @@ The following sections demonstrate both types of static files.
 1. In `templates/hello_there.html`, add the following line before the `</head>` tag, which creates a reference to the stylesheet.
 
     ```html
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='site.css')}}" />
+    <link rel="stylesheet" type="text/css" href="\{{ url_for('static', filename='site.css')}}" />
     ```
 
     Flask's [`url_for` tag](http://flask.pocoo.org/docs/0.12/api/#flask.url_for) that's used here creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
