@@ -94,13 +94,13 @@ You enable auto attach by running **Debug: Toggle Auto Attach** command from the
 
 This feature completely eliminates any debug configuration, as we interpret any Node.js process started with `node --inspect` as an intent to debug. When combined with the Integrated Terminal, it is a much simpler debugging experience that allows developers to launch their app in their own way, while eliminating debug configuration at the same time! 🎉
 
-## Debugging NPM scripts with ease
+## NPM scripts and debugging
 
-Many Node.js developers relies on `npm scripts` to get their work done, and we have some great news on that front too: Auto-attach also works with `npm scripts`, so if you run `npm run debug"` and the `"debug"` script is  `"node --inspect"` or any other command that includes `--inspect`, then auto attach will detect that and attach the debugger 🎉
+Many Node.js developers relies on [npm scripts](https://docs.npmjs.com/misc/scripts) to launch applications or start debugging sessions, and we have some great news on that front too: Auto-attach also works with npm scripts. If you run `npm run debug"` and the `"debug"` script is `"node --inspect"` or any other command that includes `--inspect`, then auto attach will detect that and attach the debugger 🎉
 
-We also recognize that some developers want a more visual way to explore and debug their `npm scripts`, so in [our April 2018 iteration](https://code.visualstudio.com/updates/v1_23#_npm-script-running), we added a new NPM scripts explorer that allows you to browse and run your NPM scripts directly from the UI. As a part of our journey of simplifying debug configuration, we also made it possible to start Node.js debugging directly from the explorer, without having to create a debug configuration.
+We also recognized that some developers wanted a more visual way to find and run their npm scripts, so in [our April 2018 iteration](https://code.visualstudio.com/updates/v1_23#_npm-script-running), we added a new NPM scripts explorer that allows you to browse and run your NPM scripts directly from the UI. As a part of our work to simplify debug configuration, we also made it possible to start Node.js debugging directly from the explorer, without having to create a debug configuration.
 
-If you have a `npm script` that includes an debugging argument like `--inspect`, we'll automatically detect this and provide a debug action that launches the debugger, as seen here:
+If you have a npm script that includes an debugging argument like `--inspect`, we'll automatically detect this and provide a debug action that launches the debugger, as seen here:
 
 ![NPM scripts](npm_scripts.png)
 
