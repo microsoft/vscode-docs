@@ -22,7 +22,7 @@ This means that the core of VS Code is fully decoupled from the specific debugge
 
 <br />
 
-![](debugging_architecture.png)
+![VS Code debugging architecture](debugging_architecture.png)
 
 <br />
 
