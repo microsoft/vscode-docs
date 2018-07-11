@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Configuring Python environments
 
-*If you're looking to get started with Python in VS Code, refer to the [Tutorial](python-tutorial.md). This present article is focused only on aspects of setting up a Python interpreter/environment.*
+**Note**: If you're looking to get started with Python in Visual Studio Code, refer to the [Tutorial](/docs/python/python-tutorial.md). This present article is focused only on aspects of setting up a Python interpreter/environment.
 
 An "environment" in Python is the context in which a Python program runs. An environment consists of an interpreter and any number of installed packages. Because many programs are written specifically for a certain Python interpreter and makes use of a set of libraries, developers often create and manage an environment for individual programs.
 
@@ -105,7 +105,7 @@ The extension also loads an [environment variable definitions file](#environment
 
 The PYTHONPATH environment variable, which can be included in a [Environment variable definitions file](#environment-variable-definitions-file), specifies where Python should look for modules. The value of PYTHONPATH can contain multiple path values separated by `os.pathsep` (semicolons on Windows, colons on Linux/MacOS). Invalid paths are ignored.
 
-In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have code in a `src` folder and tests in the `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
+In VS Code, PYTHONPATH affects debugging, linting, IntelliSense, unit testing, and any other operation that depends on Python resolving modules. For example, suppose you have source code in a `src` folder and tests in a `tests` folder. When running tests, however, they can't normally access modules in `src` unless you hard-code relative paths. To solve this, add the path to `src` to PYTHONPATH.
 
 For more information, including referring to ZIP files, see [PYTHONPATH](https://docs.python.org/3.7/using/cmdline.html#envvar-PYTHONPATH) (docs.python.org).
 

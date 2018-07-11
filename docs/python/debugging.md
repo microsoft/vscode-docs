@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Debugging Python with VS Code
 
-The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](python-tutorial.md#configure-and-run-the-debugger).
+The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger).
 
 To familiarize yourself with VS Code's general debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, and more, review [VS Code debugging](/docs/editor/debugging.md). This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging configurations.
 
@@ -301,7 +301,7 @@ The configuration drop-down provides a variety of different options for general 
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Scrapy | Specifies `"program": "~/.virtualenvs/scrapy/bin/scrapy"`, adds the `"console": "integratedTerminal"` option, and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Attach (Remote Debug) | See [Remote debugging](#remote-debugging) in the previous section. |
-| Gevent (Python Experimental only) | Sets `gevent` top `true` and `type` to `pythonExperimental`. |
+| Gevent (Python Experimental only) | Sets `gevent` to `true` and `type` to `pythonExperimental`. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 

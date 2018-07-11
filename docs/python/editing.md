@@ -118,9 +118,9 @@ If formatting fails, check the following possible causes:
 | The path to the python interpreter is incorrect | Check the `pythonPath` setting. |
 | The formatter is not installed in the current environment | Open a command prompt, navigate to the location specified in the `pythonPath` setting, and run `pip install` for the formatter.
 | The path to the formatter is incorrect. | Check the value of the appropriate `python.formatting.<formatter>Path` setting. |
-| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains an list of individual argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
+| Custom arguments for the formatter are incorrect. | Check that the appropriate `python.formatting.<formatter>Path` setting does not contain arguments, and that `python.formatting.<formatter>Args` contains a list of individual argument elements such as `"python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 20}"]`.
 
-When using the black formatter, VS Code issues a the following warning when pasting code into the editor: **Black does not support the "Format Select" command.**
+When using the black formatter, VS Code issues the following warning when pasting source code into the editor: **Black does not support the "Format Select" command.**
 
 To prevent this warning, add the following entry to your user or workspace settings to disable format on paste for Python files:
 
