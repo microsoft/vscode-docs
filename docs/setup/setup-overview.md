@@ -83,3 +83,10 @@ If you'd like to get something running quickly, try the [Node.js tutorial](/docs
 **Q: Why is VS Code saying my installation is corrupt?**
 
 **A:** VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt) for more details.
+
+**Q: What command line arguments are supported by the Windows Setup?**
+
+**A:** VS Code uses [Inno Setup](http://www.jrsoftware.org/isinfo.php) to create its setup package
+for Windows. Thus, all the [Inno Setup command line switches](http://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
+
+Additionally, you can prevent the Setup from launching VS Code after completion with `/mergetasks=!runcode`.
