@@ -433,9 +433,9 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 
-## Title Bar Colors (macOS)
+## Title Bar Colors (macOS and Linux)
 
-**Note:** These colors are currently only supported on macOS.
+**Note:** These colors are currently only supported on macOS, and on Linux if `window.titleBarStyle` is set to "custom".
 
 - `titleBar.activeBackground`: Title Bar background when the window is active.
 - `titleBar.activeForeground`: Title Bar foreground when the window is active.
