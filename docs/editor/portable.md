@@ -49,7 +49,34 @@ xattr -d com.apple.quarantine Visual\ Studio\ Code.app
 
 **Note:** On Insiders, the folder should be named `code-insiders-portable-data`.
 
+## Migrate to Portable Mode
+
+You can also migrate an existing installation to Portable mode:
+
+1. Download the VS Code ZIP distribution for your platform.
+2. Create the `data` or `code-portable-data` folder as above.
+3. Copy the user data directory to `data` and rename it to `user-data`:
+    * **Windows** `%APPDATA%\Code`
+    * **macOS** `$HOME/Library/Application Support/Code`
+    * **Linux** `$HOME/.config/Code`
+4. Copy the extensions directory to `data`:
+    * **Windows** `%USERPROFILE%\.vscode\extensions`
+    * **macOS** `~/.vscode/extensions`
+    * **Linux** `~/.vscode/extensions`
+
+Here's the desired outcome on **Windows**:
+
+```
+|- VSCode-win32-x64-1.25.0-insider
+|   |- Code.exe (or code executable)
+|   |- data
+|   |   |- user-data
+|   |   |   |- ...
+|   |   |- extensions
+|   |   |   |- ...
+|   |- ...
+```
+
 ## TMP Directory
 
 By default, the default `TMP` directory is still the system one even in Portable Mode, since no state is kept there. If you wish to also have your TMP directory within your portable directory, simply create an empty `tmp` directory inside the `data` folder. As long as a `tmp` directory exists, it will be used for TMP data.
-
