@@ -14,7 +14,7 @@ In this step, you deploy your Node.js website using VS Code and the Azure App Se
 
 In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy your app to Azure.
 
-![Deploy to Web App](images/app-service-extension/deploy.png)
+![Deploy to Web App](../images/app-service-extension/deploy.png)
 
 > **Tip:** You can also deploy from the **Command Palette** (`kb(workbench.action.showCommands)`) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
 
@@ -42,7 +42,7 @@ The Output panel shows the Azure resources that were created in your subscriptio
 
 > **Tip:** Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
 
-![Deploy to App Service](images/app-service-extension/create-output.png)
+![Deploy to App Service](../images/app-service-extension/create-output.png)
 
 ## Browse the website
 
