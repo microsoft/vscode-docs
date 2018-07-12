@@ -48,7 +48,7 @@ I'll get back to this later.
 
 ### Confusion between launch and attach configs
 
-In VS Code, we have two core concepts for debugging: **Launch** and **Attach**, which handle to two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
+In VS Code, we have two core concepts for debugging: **Launch** and **Attach**, which handle two different workflows and segments of developers. Depending on your workflow, it can be confusing to know what type of configuration is appropriate for your project.
 
 If you come from a browser DevTools background, you aren't used to the concept of "launching from your tool" since your browser instance is already open. When you open DevTools, you are simply **attaching** DevTools to your open browser tab. On the other hand, if you come from a Java background, it's quite normal to have your editor **launch** your Java process for you, and your editor automatically attaches its debugger to the newly launched process.
 
@@ -68,7 +68,7 @@ When looking at how developers debug their applications, we also saw another int
 
 Logging for debugging isn't a new concept but the observation was important:
 
-**Observation**: Traditional debugging workflows are most focused around slowing down execution to allow a specific set of logic to be inspected, while logging workflows are usually focused around inspecting state and how it changes throughout the normal execution of an application. The fundamental observation here is that the two techniques used for different debugging purposes.
+**Observation**: Traditional debugging workflows are most focused around slowing down execution to inspect program logic, while logging workflows usually involve inspecting program state and how it changes during the normal execution of an application. The fundamental observation here is that the two techniques are used for different debugging purposes.
 
 This observation is especially relevant for JavaScript developers, who mostly deal with the complexity of managing state, and this might explain why [most JavaScript developers still prefers to add console.log's](https://christianheilmann.com/2017/07/08/debugging-javascript-console-loggerheads/) to their source code instead of using a script debugger.
 
@@ -96,7 +96,7 @@ This feature completely eliminates any debug configuration, as we interpret any 
 
 ## NPM scripts and debugging
 
-Many Node.js developers relies on [npm scripts](https://docs.npmjs.com/misc/scripts) to launch applications or start debugging sessions, and we have some great news on that front too: Auto-attach also works with npm scripts. If you run `npm run debug"` and the `"debug"` script is `"node --inspect"` or any other command that includes `--inspect`, then auto attach will detect that and attach the debugger 🎉
+Many Node.js developers rely on [npm scripts](https://docs.npmjs.com/misc/scripts) to launch applications or start debugging sessions, and we have some great news on that front too: Auto-attach also works with npm scripts. If you run `npm run debug"` and the `"debug"` script is `"node --inspect"` or any other command that includes `--inspect`, then auto attach will detect that and attach the debugger 🎉
 
 We also recognized that some developers wanted a more visual way to find and run their npm scripts, so in [our April 2018 iteration](https://code.visualstudio.com/updates/v1_23#_npm-script-running), we added a new NPM scripts explorer that allows you to browse and run your NPM scripts directly from the UI. As a part of our work to simplify debug configuration, we also made it possible to start Node.js debugging directly from the explorer, without having to create a debug configuration.
 
@@ -108,7 +108,7 @@ If you have a npm script that includes an debugging argument like `--inspect`, w
 
 Based on the learning that logging is an important debugging technique, we saw an opportunity to add state inspection to our existing debugging experience. In [the March iteration](https://code.visualstudio.com/updates/v1_22#_logpoints) of VS Code, we released the first implementation of a debugging feature that we call Logpoints.
 
-Logpoints are a breakpoint variant that does not "break" into the debugger but instead logs a message to the console.
+A Logpoint is a breakpoint variant that does not "break" into the debugger but instead logs a message to the console.
 
 ![Logpoints](logpoints.gif)
 
@@ -120,7 +120,7 @@ Logpoints are based on the observation that in many cases, you don't want to sto
 
 Logpoints allows you to "inject" on-demand logging statements into your application logic, just like if you had added logging statements into your application before starting it. Logpoints are injected at execution time and not persisted in the source code, so you don't have to plan ahead but can inject Logpoints as you need them. Another nice benefit is that you don't have to worry about cleaning up your source code after you are finished debugging.
 
-For JavaScript developers, this means that you don't have to worry about leaving `console.log's` behind anymore  ––  just use Logpoints! Even better, you can combine `console.log` and Logpoints. If you insert a Logpoint into a block of source code that already has `console.log`s, you'll see both types of logging statements inside the Debug Console.
+For JavaScript developers, this means that you don't have to worry about leaving `console.log`s behind anymore  ––  just use Logpoints! Even better, you can combine `console.log` and Logpoints. If you insert a Logpoint into a block of source code that already has `console.log`s, you'll see both types of logging statements inside the Debug Console.
 
 ### Logpoints in cloud contexts
 
