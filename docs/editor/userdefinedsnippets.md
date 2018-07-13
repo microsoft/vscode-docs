@@ -175,7 +175,7 @@ tabstop     ::= '$' int
                 | '${' int  transform '}'
 placeholder ::= '${' int ':' any '}'
 choice      ::= '${' int '|' text (',' text)* '|}'
-variable    ::= '$' var | '${' var }'
+variable    ::= '$' var | '${' var '}'
                 | '${' var ':' any '}'
                 | '${' var transform '}'
 transform   ::= '/' regex '/' (format | text)+ '/' options
