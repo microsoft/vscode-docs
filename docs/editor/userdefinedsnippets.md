@@ -145,8 +145,8 @@ The following example inserts the name of the current file without its ending, s
 
 ```
 ${TM_FILENAME/(.*)\\..+$/$1/}
-  |           |         | |
-  |           |         | |-> no options
+  |           |         |  |
+  |           |         |  |-> no options
   |           |         |
   |           |         |-> references the contents of the first
   |           |             capture group
