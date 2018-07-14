@@ -281,6 +281,31 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
 
+### Active view or panel 'when' clause context
+
+You can have a keybinding that is enabled only when a specific view or panel is visible.
+
+Context name | True when
+------------ | ------------
+activeViewlet | True when view is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
+activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
+
+View Identifiers:
+
+* workbench.view.explorer - File Explorer
+* workbench.view.search - Search
+* workbench.view.scm - Source Control
+* workbench.view.debug - Debug
+* workbench.view.extensions - Extensions
+
+Panel Identifiers:
+
+* workbench.panel.match - Problems
+* workbench.panel.output - Output
+* workbench.panel.repl - Debug Console
+* workbench.panel.terminal - Integrated Terminal
+* workbench.panel.comments - Comments
+
 ## Custom Keybindings for Refactorings
 
 The `editor.action.codeAction` command lets you configure keybindings for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keybinding below triggers the **Extract function** refactoring Code Actions:
