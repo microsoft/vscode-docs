@@ -490,6 +490,45 @@ When defining a new language identifier, use the following guidelines:
 
 You can find a list of known language identifiers in the [language identifier reference](/docs/languages/identifiers.md).
 
+## Embedded languages
+
+Languages can embed other languages in order to provide syntax highlighting and features of those languages. A common example of this is Markdown, it can have YAML front matter, fenced code blocks etc.
+
+An implementation of CSS code blocks in our `.tmLanguage.json` file might look like this:
+
+```json
+"patterns": [
+    {
+        "begin": "^```css$",
+        "end": "^```$",
+        "contentName": "meta.embedded.block.css",
+        "patterns": [
+            { "include": "source.css" }
+        ]
+    }
+]
+```
+
+`source.css` is the scope name used by CSS language, it will provide proper syntax highlighting for the code between the lines matched by `begin` and `end`.
+
+In order to inherit other CSS features we marked the block by using `contentName`, that way we can map its value in `contributes.grammars.embeddedLanguages` in `package.json`:
+
+```json
+"contributes": {
+    "grammars": [{
+        "language": "markdown",
+        "scopeName": "text.html.markdown",
+        "path": "./syntaxes/markdown.tmLanguage.json",
+        "embeddedLanguages": {
+            "meta.embedded.block.css": "css",
+            ...
+        }
+    }]
+}
+```
+
+We mapped it to the ID of the language that we want to inherit features from. For example, now if we press `kbstyle(ctrl/)` inside a CSS code block, VS Code will use CSS comments instead of Markdown!
+
 ## Next Steps
 
 If you'd like to learn more about VS Code extensibility, try these topics:
