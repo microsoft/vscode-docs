@@ -36,7 +36,7 @@ Language supports are added using the language identifier:
     "grammars": [{
         "language": "groovy",
         "scopeName": "source.groovy",
-        "path": "./syntaxes/Groovy.tmLanguage"
+        "path": "./syntaxes/Groovy.tmLanguage.json"
     }],
     "snippets": [{
         "language": "groovy",

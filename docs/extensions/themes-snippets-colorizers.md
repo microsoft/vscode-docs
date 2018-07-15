@@ -431,7 +431,7 @@ When you're adding a new language to VS Code, it is also great to add language [
         "grammars": [{
             "language": "latex",
             "scopeName": "text.tex.latex",
-            "path": "./syntaxes/latex.tmLanguage"
+            "path": "./syntaxes/latex.tmLanguage.json"
         }],
         "snippets": [
             {
@@ -473,7 +473,7 @@ Language supports are added using the language identifier:
     "grammars": [{
         "language": "groovy",
         "scopeName": "source.groovy",
-        "path": "./syntaxes/Groovy.tmLanguage"
+        "path": "./syntaxes/Groovy.tmLanguage.json"
     }],
     "snippets": [{
         "language": "groovy",
@@ -573,7 +573,7 @@ To learn about what scopes are used where, check out the [TextMate documentation
         "grammars": [{
             "language": "asp",
             "scopeName": "source.asp",
-            "path": "./syntaxes/asp.tmLanguage"
+            "path": "./syntaxes/asp.tmLanguage.json"
         }]
     }
 }
@@ -610,7 +610,7 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
         "grammars": [{
             "language": "xml",
             "scopeName": "text.xml",
-            "path": "./syntaxes/BetterXML.tmLanguage"
+            "path": "./syntaxes/BetterXML.tmLanguage.json"
         }]
     }
 }

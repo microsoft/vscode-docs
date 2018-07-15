@@ -226,7 +226,7 @@ Below is an extension manifest which includes a LaTex language definition (langu
         "grammars": [{
             "language": "latex",
             "scopeName": "text.tex.latex",
-            "path": "./syntaxes/latex.tmLanguage"
+            "path": "./syntaxes/latex.tmLanguage.json"
         }],
         "snippets": [{
             "language": "latex",
