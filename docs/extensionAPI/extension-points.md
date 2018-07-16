@@ -423,9 +423,13 @@ Contribute a TextMate grammar to a language. You must provide the `language` thi
 ```json
 "contributes": {
     "grammars": [{
-        "language": "shellscript",
-        "scopeName": "source.shell",
-        "path": "./syntaxes/Shell-Unix-Bash.tmLanguage"
+        "language": "markdown",
+        "scopeName": "text.html.markdown",
+        "path": "./syntaxes/markdown.tmLanguage.json",
+        "embeddedLanguages": {
+            "meta.embedded.block.frontmatter": "yaml",
+            ...
+        }
     }]
 }
 ```
