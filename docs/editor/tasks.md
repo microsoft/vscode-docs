@@ -229,6 +229,39 @@ In addition to the global menu bar, task commands can be accessed using the **Co
 
 ![tasks in command palette](images/tasks/command-palette.png)
 
+### Compound tasks
+
+You can also compose tasks out of simpler tasks with the `dependsOn` property. For example, if you have a workspace with a client and server folder and both contain a build script, you can create a task that starts both build scripts in separate terminals.
+
+The `tasks.json` file looks like this:
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Client Build",
+            "command": "gulp",
+            "args": ["build"],
+            "options": {
+                "cwd": "${workspaceRoot}/client"
+            }
+        },
+        {
+            "label": "Server Build",
+            "command": "gulp",
+            "args": ["build"],
+            "options": {
+                "cwd": "${workspaceRoot}/server"
+            }
+        },
+        {
+            "label": "Build",
+            "dependsOn": ["Client Build", "Server Build"]
+        }
+    ]
+}
+
 ## Output behavior
 
 Sometimes you want to control how the Integrated Terminal panel behaves when running tasks. For instance, you may want to maximize editor space and only look at task output if you think there is a problem. The behavior of the terminal can be controlled using the `presentation` property of a task. It offers the following properties:
