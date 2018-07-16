@@ -51,13 +51,15 @@ The following table provides a summary of available Python linters and their bas
 
 To select a different linter, use the **Python: Select Linter** command. You can also edit your settings manually to enable multiple linters. Note, however, that using the **Select Linter** command overwrites those edits.
 
-Custom arguments are specified in the appropriate arguments setting for each linter. Each element of an argument string that's separated by space on the command line must be a separate item in the args list. For example:
+Custom arguments are specified in the appropriate arguments setting for each linter. Each top-level element of an argument string that's separated by a space on the command line must be a separate item in the args list. For example:
 
 ```json
 "python.linting.pylintArgs": ["--reports", "12", "--disable-msg", "I0011"],
 "python.linting.flake8Args": ["--ignore=E24,W504", "--verbose"]
 "python.linting.pydocstyleArgs": ["--ignore=D400", "--ignore=D4"]
 ```
+
+Note that if a top-level element is a single value, as delineated by quotation marks or braces, is still a single item in the list even if the value itself contains spaces.
 
 A custom path is generally unnecessary as the Python extension resolves the path to the linter based on the Python interpreter being used (see [Environments](/docs/python/environments.md)). To use a different version of a linter, specify its path in the appropriate custom path setting. For example, if your selected interpreter is a virtual environment but you want to use a linter that's installed in a global environment, then set the appropriate path setting to point to the global environment's linter.
 
