@@ -36,7 +36,7 @@ In this section, we will setup our Azure Storage account and blob container.
 
   Static website hosting is only available for accounts using GPv2.
 
-  When you're ready click **Create** and wait for the account to be created.
+  When you're ready, click **Create** and wait for the account to be created.
 
 ## Create your storage
 
