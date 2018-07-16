@@ -506,8 +506,8 @@ documents.onDidChangeContent(async (change) => {
 
 ### Diagnostics Tips and Tricks
 
-* If the start and end positions are the same, VS Code will squiggle the word at that position.
-* If you want to squiggle until the end of the line, then set the character of the end position to Number.MAX_VALUE.
+* If the start and end positions are the same, VS Code will underline with a squiggle the word at that position.
+* If you want to underline with a squiggle until the end of the line, then set the character of the end position to Number.MAX_VALUE.
 
 To run the Language Server, do the following:
 
