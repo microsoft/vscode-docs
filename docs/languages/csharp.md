@@ -133,3 +133,7 @@ Read on to find out about:
 
 **A:** VS Code supports tasks for build and natively understand the output of MSBuild, CSC, XBuild.  Find out more in the [Tasks](/docs/editor/tasks.md) documentation.
 
+**Q: I'm missing required assets to build and debug C# in VSCode. My debugger says "No Configuration."**
+
+**A:** The Visual Studio Code C# extension can generate assets to build and debug for you. If you missed the prompt when you first opened a new C# project, you can still run this command by opening the Command Palette (**View > Command Palette**) and typing ">.NET: Generate Assets for Build and Debug". Selecting this will generate the .vscode, launch.json, and tasks.json configuration files that you need.
+
