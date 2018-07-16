@@ -48,11 +48,13 @@ In order to support syntax highlighting, your extension needs to register a Text
         {
             "language": "markdown",
             "scopeName": "text.html.markdown",
-            "path": "./syntaxes/markdown.tmLanguage"
+            "path": "./syntaxes/markdown.tmLanguage.json"
         }
     ], ...
 }
 ```
+
+VS Code recognizes two formats for grammar files, Plist (`.tmLanguage`) and JSON (`.tmLanguage.json`). Plist files are really verbose, so people usually compile them from other languages like YAML. If you're creating a brand new grammar, we recommend using a JSON grammar to avoid a build step.
 
 >**Basic**
 >
