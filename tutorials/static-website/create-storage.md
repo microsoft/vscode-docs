@@ -28,11 +28,15 @@ In this section, we will setup our Azure Storage account and blob container.
 
 4. Fill in a **Name** for your storage account and the **Resource group**.
 
-   Note the storage account name must be globally unique, so just add some random numbers to the end if the name you want is taken. Everything else can be left at the default value.
-
-   When you're ready click **Create** and wait for the account to get created.
+   Note the storage account name must be globally unique, so just add some random numbers to the end if the name you want is taken.
 
    ![Add name and Resource Group](images/static-website/storage/3-portal-config-storage.png)
+
+5. Select **StorageV2 (general purpose v2)** for **Account kind**
+
+  Static website hosting is only available for accounts using GPv2.
+
+  When you're ready click **Create** and wait for the account to be created.
 
 ## Create your storage
 
