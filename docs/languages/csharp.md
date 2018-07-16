@@ -41,9 +41,9 @@ In addition to the [Microsoft C# extension](https://marketplace.visualstudio.com
 
 Visual Studio Code uses the power of [Roslyn](https://github.com/dotnet/roslyn) and [OmniSharp](https://www.omnisharp.net) to offer an enhanced C# experience.  We offer support for:
 
-- .NET Core projects
-- MSBuild projects
-- C# scripts (CSX)
+* .NET Core projects
+* MSBuild projects
+* C# scripts (CSX)
 
 On startup the best matching projects are loaded automatically but you can also choose your projects manually.  The status bar will show what projects have been loaded and also allows you to select a different set of projects. To do so, click on the status bar projects item and select *Change projects…*.  In the image below a single project has been picked up:
 
@@ -133,7 +133,6 @@ Read on to find out about:
 
 **A:** VS Code supports tasks for build and natively understand the output of MSBuild, CSC, XBuild.  Find out more in the [Tasks](/docs/editor/tasks.md) documentation.
 
-**Q: I'm missing required assets to build and debug C# in VSCode. My debugger says "No Configuration."**
+**Q: I'm missing required assets to build and debug C# in VS Code. My debugger says "No Configuration."**
 
-**A:** The Visual Studio Code C# extension can generate assets to build and debug for you. If you missed the prompt when you first opened a new C# project, you can still run this command by opening the Command Palette (**View > Command Palette**) and typing ">.NET: Generate Assets for Build and Debug". Selecting this will generate the .vscode, launch.json, and tasks.json configuration files that you need.
-
+**A:** The Visual Studio Code C# extension can generate the assets you need to build and debug. If you missed the prompt when you first opened a new C# project, you can still perform this operation through the Command Palette (**View > Command Palette**) by typing '.NET', and running **.NET: Generate Assets for Build and Debug**. This command will generate the necessary `launch.json` and `tasks.json` configuration files (under the `.vscode` folder).
