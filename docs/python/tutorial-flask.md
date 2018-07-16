@@ -97,7 +97,7 @@ You now have an self-contained environment ready for writing Flask code.
 1. Also in `app.py`, add a function that returns content, in this case a simple string, and use Flask's `app.route` decorator to map the URL route `/` to that function:
 
     ```python
-    @app.route('/')
+    @app.route("/")
     def home():
         return 'Hello, Flask!'
     ```
@@ -150,11 +150,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     app = Flask(__name__)
 
-    @app.route('/')
+    @app.route("/")
     def home():
         return 'Hello, Flask!'
 
-    @app.route('/hello/<name>')
+    @app.route("/hello/<name>")
     def hello_there(name):
         now = datetime.now()
         formatted_now = now.strftime("%A, %d %B, %Y at %X")
@@ -315,7 +315,7 @@ In this section you create a single page using a template. In the sections that 
 1. Also in `app.py`, modify the `hello_there` function to use `render_template` to load a template and apply the named values. `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
 
     ```python
-    @app.route('/hello/<name>')
+    @app.route("/hello/<name>")
     def hello_there(name):
         now = datetime.now()
         formatted_now = now.strftime("%A, %d %B, %Y at %X")
@@ -352,7 +352,7 @@ In this section you create a single page using a template. In the sections that 
     In `app.py`:
 
     ```python
-    @app.route('/hello/<name>')
+    @app.route("/hello/<name>")
     def hello_there(name):
         return render_template(
             "hello_there.html",
@@ -417,9 +417,9 @@ The following sections demonstrate both types of static files.
 1. In `app.py`, add a function with the route /api/data that returns the static data file using the `send_static_file` method:
 
     ```python
-    @app.route('/api/data')
+    @app.route("/api/data")
     def get_data():
-        return app.send_static_file('data.json')
+        return app.send_static_file("data.json")
     ```
 
 1. Run the app and navigate to the /api/data endpoint to see that the static file is returned. Stop the app when you're done.
@@ -558,16 +558,16 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
     ```python
     # Replace the existing home function with the one below
-    @app.route('/')
+    @app.route("/")
     def home():
         return render_template("home.html")
 
     # New functions
-    @app.route('/about')
+    @app.route("/about")
     def about():
         return render_template("about.html")
 
-    @app.route('/contact')
+    @app.route("/contact")
     def contact():
         return render_template("contact.html")
     ```
@@ -598,33 +598,33 @@ Anyone (or any build server) that receives a copy of the project needs only to r
 
 ### Refactor the project to support further development
 
-Throughout this tutorial, all the app code is contained in a single `app.py` file. To allow for further and to separate concerns, it's helpful to refactor the project a bit.
+Throughout this tutorial, all the app code is contained in a single `app.py` file. To allow for further development and to separate concerns, it's helpful to refactor the pieces of `app.py` into separate files.
 
-1. In your project folder, create an folder for the app, such as `hello_app`, to separate its files from other files in the project like `requirements.txt` that aren't part of the app, including the `.vscode` folder where VS Code stores its settings and debug configuration files.
+1. In your project folder, create an folder for the app, such as `hello_app`, to separate its files from other project-level files like `requirements.txt` and the `.vscode` folder where VS Code stores settings and debug configuration files.
 
-1. Move the `static` and `templates` folders into `hello_app`.
-1. Move `app.py` into the `hello_app` folder.
-1. In the `hello_app` folder, create a file named `views.py` with the following contents (which you can cut from `app.py`, modifying the `hello_flask` name to `hello_app`):
+1. Move the `static` and `templates` folders into `hello_app`, because these folders certainly contain app code.
+
+1. In the `hello_app` folder, create a file named `views.py` that contains the routings and the view functions:
 
     ```python
     from flask import Flask
     from flask import render_template
     from datetime import datetime
-    from hello_app import app
+    from . import app
 
-    @app.route('/')
+    @app.route("/")
     def home():
         return render_template("home.html")
 
-    @app.route('/about')
+    @app.route("/about")
     def about():
         return render_template("about.html")
 
-    @app.route('/contact')
+    @app.route("/contact")
     def contact():
         return render_template("contact.html")
 
-    @app.route('/hello/<name>')
+    @app.route("/hello/<name>")
     def hello_there(name):
         return render_template(
             "hello_there.html",
@@ -632,43 +632,47 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
             date=datetime.now()
         )
 
-    @app.route('/api/data')
+    @app.route("/api/data")
     def get_data():
-        return app.send_static_file('data.json')
+        return app.send_static_file("data.json")
     ```
 
-1. Optional: Right-click in the editor and select the **Sort Imports** command, which consolidates imports from identical modules, removes unused imports, and sorts your import statements. For example, using the command on the code above in `views.py` changes the imports as follows:
+1. Optional: Right-click in the editor and select the **Sort Imports** command, which consolidates imports from identical modules, removes unused imports, and sorts your import statements. Using the command on the code above in `views.py` changes the imports as follows (you can remove the extra lines, of course):
 
     ```python
     from datetime import datetime
 
     from flask import Flask, render_template
 
-    from hello_app import app
+    from . import app
     ```
 
-1. Create a file `__init__.py` with the following contents, also cut from `app.py`:
+1. In the `hello_app` folder, create a file `__init__.py` with the following contents:
 
     ```python
-    from flask import Flask
-    app = Flask(__name__)
+    import flask
+    app = flask.Flask(__name__)
     ```
 
-1. Modify `app.py` so it contains only import statements to load app and the views. `app.py` essentially becomes the startup file:
+1. In the `hello_app` folder, create a file `webapp.py` with the following contents:
 
     ```python
-    from hello_app import app
-    from hello_app import views
+    """Entry point for the application."""
+    from . import app    # For application discovery by the 'flask' command.
+    from . import views  # For import side-effects of setting up routes.
     ```
 
-1. Because you moved `app.py`, open the debug configuration file `launch.json` and update the `env` property as follows:
+1. Open the debug configuration file `launch.json` and update the `env` property as follows to point to the startup object:
 
     ```json
     "env": {
-        "FLASK_APP": "hello_app/app.py"
+        "FLASK_APP": "hello_app.webapp"
     },
     ```
-1. Your project's structure should look like the following:
+
+1. Delete the original `app.py` file in the project root, as its contents have been moved into other app files.
+
+1. Your project's structure should now be similar to the following:
 
     ![Modified project structure with separate files and folders for parts of the app](images/flask/project-structure.png)
 
