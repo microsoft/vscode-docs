@@ -279,9 +279,9 @@ Windows:
                                      "when": "terminalFocus" },
 ```
 
-### Why is nvm complaining about a prefix option when the Integrated Terminal is launched
+**Q: Why is nvm complaining about a prefix option when the Integrated Terminal is launched?**
 
-nvm (Node Version Manager) users often see this error for the first time inside VS Code's Integrated Terminal:
+**A:** nvm (Node Version Manager) users often see this error for the first time inside VS Code's Integrated Terminal:
 
 ```bash
 nvm is not compatible with the npm config "prefix" option: currently set to "/usr/local"
@@ -312,3 +312,13 @@ From there, removing the files and relaunching VS Code should fix the issue:
 ```bash
 rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 ```
+
+**Q: Can I use Powerline fonts in the Integrated Terminal?**
+
+**A:** Yes, you can specify [Powerline](https://powerline.readthedocs.io) fonts with the `terminal.integrated.fontFamily` [setting](/docs/getstarted/settings.md).
+
+```json
+"terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
+```
+
+Note that you want to specify the font family, not an individual font like `Meslo LG M DZ Regular for Powerline` where `Regular` is the specific font name.
