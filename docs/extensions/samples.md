@@ -30,11 +30,11 @@ Sample|Description|Type|In Marketplace
 **[Go Language Support](https://github.com/microsoft/vscode-go)**|Rich language support for [Go Lang](https://golang.org/) - IntelliSense, Debug, Peek, Rename, Syntax, ...|[Extension](/docs/extensionAPI/vscode-api.md#languages)|Y
 **[Tree Data Provider](https://github.com/Microsoft/vscode-extension-samples/tree/master/tree-view-sample)**|Shows how to use `TreeDataProvider` API and contribute a custom view to VS Code|[Extension](https://code.visualstudio.com/docs/extensionAPI/vscode-api#TreeDataProvider)|N
 
-## VS Code extension samples repository
+## Samples repository
 
 There are many more VS Code extension examples in the [VS Code Extension Samples](https://github.com/Microsoft/vscode-extension-samples) repository. You'll find examples showing best practices and working extensions using the latest APIs.
 
-## Extensibility documentation
+## Documentation
 
 To orient yourself to the VS Code extensibility model, see the following topics:
 

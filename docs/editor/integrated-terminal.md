@@ -321,4 +321,4 @@ rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
 ```
 
-Note that you want to specify the font family, not an individual font like `Meslo LG M DZ Regular for Powerline` where `Regular` is the specific font name.
+Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.

@@ -261,6 +261,7 @@ The `tasks.json` file looks like this:
         }
     ]
 }
+```
 
 ## Output behavior
 
