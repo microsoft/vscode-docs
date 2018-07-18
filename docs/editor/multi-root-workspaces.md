@@ -198,7 +198,7 @@ Unsupported editor-wide folder settings will show as grayed out in your folder s
 
 ## Debugging
 
-With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionaly VS Code will also display launch configurations defined in the workspace configuration file.
+With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionally VS Code will also display launch configurations defined in the workspace configuration file.
 
 ![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
