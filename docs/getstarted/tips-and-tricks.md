@@ -809,7 +809,7 @@ Inspect variables in the **Debug** panels and in the console.
 
 ### Inline values
 
-You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature is experimental and disabled by default.
+You can set `"debug.inlineValues": true` to see variable values inline in the debugger. This feature can be expensive and may slow down stepping, so it is disabled by default.
 
 ## Task Runner
 
