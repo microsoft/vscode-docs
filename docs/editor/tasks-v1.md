@@ -375,7 +375,7 @@ A matcher that captures the above warning (and errors) looks like:
     "fileLocation": ["relative", "${workspaceFolder}"],
     // The actual pattern to match problems in the output.
     "pattern": {
-        // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’ [-Wimplicit-function-declaration]
+        // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
         "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
         // The first match group matches the file name which is relative.
         "file": 1,

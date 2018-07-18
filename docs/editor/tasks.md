@@ -180,7 +180,7 @@ To see the full set of task properties and values, you can review the [tasks.jso
 
 Shell commands need special treatment when it comes to commands and arguments that contains spaces or other special characters like `$`. By default the task system support the following behaviour:
 
-* if a single command is provided the task system passes the command as is to the underlying shell. If the command needs quoting or escaping to function properly the command need to contain the proper quotes or excape characters. For example to list the directory of a folder containing spaces in its name the command executed in bash should look like this: `ls 'folder with spaces'`.
+* if a single command is provided the task system passes the command as is to the underlying shell. If the command needs quoting or escaping to function properly the command need to contain the proper quotes or escape characters. For example to list the directory of a folder containing spaces in its name the command executed in bash should look like this: `ls 'folder with spaces'`.
 ```json
 {
   "label": "dir",
@@ -574,7 +574,7 @@ A matcher that captures the above warning (and errors) looks like this:
     "fileLocation": ["relative", "${workspaceFolder}"],
     // The actual pattern to match problems in the output.
     "pattern": {
-        // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘prinft’ [-Wimplicit-function-declaration]
+        // The regular expression. Example to match: helloWorld.c:5:3: warning: implicit declaration of function ‘printf’ [-Wimplicit-function-declaration]
         "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
         // The first match group matches the file name which is relative.
         "file": 1,
