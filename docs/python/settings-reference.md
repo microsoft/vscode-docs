@@ -26,7 +26,7 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 | python.terminal.launchArgs | `[]` | Launch arguments given the Python interpreter when running a file where each top-level element that's separated by a space is a separate item in the list. |
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | python.terminal.activateEnvironment | `true` | Indicates whether a selected virtual or conda environments is activated when using the **Python: Create Terminal** command or any other operation involving the terminal, such as the **Send Python File to Terminal** menu command. If `false`, skips activating virtual and conda environments before running the commands. |
-| python.jediEnabled | 'false' | Indicates whether to enable Jedi as the IntelliSense engine instead of the default Microsoft Python Analysis Engine. |
+| python.jediEnabled | 'true' | Indicates whether to use Jedi as the IntelliSense engine (true) or the [Microsoft Python Language Server](http://blogs.msdn.microsoft.com/pythonengineering/2018/07/18/introducing-the-python-language-server/) (false). |
 | python.jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
 | python.jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024MB. -1 disables the memory limit check. |
 
