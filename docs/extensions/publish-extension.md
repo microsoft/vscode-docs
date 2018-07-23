@@ -221,14 +221,14 @@ This will always invoke the [TypeScript](https://www.typescriptlang.org/) compil
 
 ## Common Questions
 
-### **I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?**
+### I get 403 Forbidden (or 401 Unauthorized) error when I try to publish my extension?
 
 One easy mistake to make when creating the PAT (Personal Access Token) is to not select `all accessible accounts` in the Accounts field drop-down (instead selecting a specific account). You should also set the Authorized Scopes to `All scopes` for the publish to work.
 
-### **I can't unpublish my extension through the `vsce` tool?**
+### I can't unpublish my extension through the `vsce` tool?
 
 You may have changed your extension ID or publisher name. You can also manage your extensions directly on the Marketplace by going to the [manage page](https://marketplace.visualstudio.com/manage).  You can update or unpublish your extension from your publisher manage page.
 
-### **Why does vsce not preserve file attributes?**
+### Why does vsce not preserve file attributes?
 
 Please note that when building and publishing your extension from Windows, all the files included in the extension package will lack POSIX file attributes, namely the executable bit. Some `node_modules` dependencies rely on those attributes to properly function. Publishing from Linux and macOS works as expected.

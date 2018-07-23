@@ -118,7 +118,7 @@ If you want to load your extension each time VS Code runs, copy your project ('s
 
 ## Common Questions
 
-### **The `yo code` generator doesn't respond to arrow keys on Windows 10.**
+### The `yo code` generator doesn't respond to arrow keys on Windows 10
 
 Try starting the Yeoman generator with just `yo` and then select the `Code` generator.
 

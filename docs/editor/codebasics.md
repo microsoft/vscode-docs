@@ -289,13 +289,13 @@ You've covered the basic user interface - there is a lot more to VS Code.  Read 
 
 ## Common Questions
 
-### **Is it possible to globally search and replace?**
+### Is it possible to globally search and replace?
 
 Yes, expand the Search view text box to include a replace text field. You can search and replace across all the files in your workspace. Note that if you did not open VS Code on a folder, the search will only run on the currently open files.
 
 ![global search and replace](images/codebasics/global-search-replace.png)
 
-### **How do I turn on word wrap?**
+### How do I turn on word wrap?
 
 You can control word wrap through the `editor.wordWrap` [setting](/docs/getstarted/settings.md). By default, `editor.wordWrap` is `off` but if you set to it to `on`, text will wrap on the editor's viewport width.
 

@@ -387,11 +387,11 @@ Read on to find out about:
 
 ## Common Questions
 
-### **My project won't load.**
+### My project won't load
 
 VS Code doesn't currently support C++ project files, instead it considers a directory of your choosing to be the workspace of your project. Source code files inside that directory and its sub-directories are part of the workspace.
 
-### **How do I build/run my project?**
+### How do I build/run my project?
 
 VS Code supports tasks that you can configure to build your application, and natively understands the output of MSBuild, CSC, and XBuild. For more information, see the [Tasks](/docs/editor/tasks.md) documentation.
 

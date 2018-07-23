@@ -467,13 +467,13 @@ Watch these introductory videos:
 
 ## Common questions
 
-### **Does VS Code support JSX and React Native?**
+### Does VS Code support JSX and React Native?
 
 VS Code supports **JSX** and **React Native**. You will get IntelliSense for **React/JSX** and **React Native** from automatically downloaded type declaration (typings) files from the [npmjs](https://www.npmjs.com) type declaration file repository. Additionally, you can install the popular [React Native extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native) from  the Marketplace.
 
 To enable ES6 import statements for **React Native**, you need to set the `allowSyntheticDefaultImports` compiler option to `true`. This tells the compiler to create synthetic default members and you get IntelliSense. **React Native** uses **Babel** behind the scenes to create the proper run-time code with default members. If you also want to do debugging of **React Native** code then you can install the [React Native Extension](https://marketplace.visualstudio.com/items?itemName=vsmobile.vscode-react-native).
 
-### **IntelliSense is not working for external libraries.**
+### IntelliSense is not working for external libraries
 
 `Automatic Type Acquisition` works for dependencies downloaded by npm (specified in `package.json`), Bower (specified in `bower.json`), and for many of the most common libraries listed in your folder structure (i.e. `jquery-3.1.1.min.js`).
 
@@ -496,11 +496,11 @@ When you want to use ES6 style imports but some type declaration (typings) files
 }
 ```
 
-### **Can I debug minified/uglified JavaScript?**
+### Can I debug minified/uglified JavaScript?
 
 Yes, you can. You can see this working using JavaScript source maps in the [Node.js Debugging](/docs/nodejs/nodejs-debugging.md) topic.
 
-### **How do I disable Syntax Validation when using non ES6 constructs?**
+### How do I disable Syntax Validation when using non ES6 constructs?
 
 Some users want to use syntax constructs like the proposed pipeline (`|>`) operator. However, these are currently not supported by VS Code's JavaScript language service and are flagged as errors. For users who still want to use these future features, we provide the `javascript.validate.enable` [setting](/docs/getstarted/settings.md).
 

@@ -558,13 +558,13 @@ Now that you know about our Key binding support, what's next...
 
 ## Common Questions
 
-### **How can I find out what command is bound to a specific key?**
+### How can I find out what command is bound to a specific key?
 
 In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
 
 ![Key bindings quick outline](images/keybinding/outline.png)
 
-### **How to add a key binding to an action? For example add Ctrl+D to Delete Lines**
+### How to add a key binding to an action? For example, add Ctrl+D to Delete Lines
 
 Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
@@ -577,7 +577,7 @@ Find a rule that triggers the action in the **Default Keyboard Shortcuts** and w
                                      "when": "editorTextFocus" },
 ```
 
-### **How can I add a key binding for only certain file types?**
+### How can I add a key binding for only certain file types?
 
 Use the `editorLangId` context key in your `when` clause:
 
@@ -586,6 +586,6 @@ Use the `editorLangId` context key in your `when` clause:
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-### **I have modified my key bindings in `keybindings.json`, why don't they work?**
+### I have modified my key bindings in `keybindings.json`, why don't they work?
 
 The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.

@@ -84,15 +84,15 @@ Now you know that VS Code has support for the languages you care about. Read on.
 
 ## Common Questions
 
-### **Can I contribute my own language service?**
+### Can I contribute my own language service?
 
 Yes you can! Check out the [example language server](/docs/extensions/example-language-server.md) in the [VS Code Extension Authoring](/docs/extensions/overview.md) documentation.
 
-### **What if I don't want to create a full language service, can I reuse existing TextMate bundles?**
+### What if I don't want to create a full language service, can I reuse existing TextMate bundles?
 
 Yes, you can also add support for your favorite language through TextMate colorizers. See [Themes, Snippets, and Colorizers](/docs/extensions/themes-snippets-colorizers.md) topic in the Extension Authoring section to learn how to integrate TextMate `.tmLanguage` syntax files into VS Code.
 
-### **Can I map additional file extensions to a language?**
+### Can I map additional file extensions to a language?
 
 Yes, with the `files.associations` [setting](/docs/getstarted/settings.md) you can map file extensions to an existing language either globally or per workspace.
 

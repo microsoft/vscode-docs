@@ -264,7 +264,7 @@ If you're curious about TypeScript and React, you can also create a TypeScript v
 
 ## Common Questions
 
-### **Can I get IntelliSense within declarative JSX?**
+### Can I get IntelliSense within declarative JSX?
 
 Yes. For example, if you open the `create-react-app` project's `App.js` file, you can see IntelliSense within the React JSX in the `render()` method.
 

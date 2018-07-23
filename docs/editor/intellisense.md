@@ -163,13 +163,13 @@ IntelliSense is just one of VS Code's powerful features. Read on to learn more:
 
 ## Common Questions
 
-### **Why am I not getting any suggestions?**
+### Why am I not getting any suggestions?
 
 ![image of IntelliSense not working](images/intellisense/intellisense_error.png)
 
 This can be caused by a variety of reasons. First, try restarting VS Code. If the problem persists, consult the language extension's documentation. For JavaScript specific troubleshooting, please see the [JavaScript language topic](/docs/languages/javascript.md#intellisense).
 
-### **Why am I not seeing method and variable suggestions?**
+### Why am I not seeing method and variable suggestions?
 
 ![image of IntelliSense showing no useful suggestions](images/intellisense/missing_typings.png)
 

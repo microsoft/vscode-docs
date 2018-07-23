@@ -609,7 +609,7 @@ To write your own debugger extension, visit:
 
 ## Common Questions
 
-### **Can I debug if I'm using symlinks?**
+### Can I debug if I'm using symlinks?
 
 Yes, if you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` [switch](https://nodejs.org/api/cli.html#cli_preserve_symlinks) in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
 

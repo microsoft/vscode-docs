@@ -364,7 +364,7 @@ Emmet is just one of the great web developer features in VS Code.  Read on to fi
 
 ## Common Questions
 
-### **Custom tags do not get expanded in the suggestion list**
+### Custom tags do not get expanded in the suggestion list
 
 Custom tags when used in an expression like `MyTag>YourTag` or `MyTag.someclass` do show up in the suggestion list. But when these are used on their own like `MyTag`, they do not appear in the suggestion list. This is designed so to avoid noise in the suggestion list as every word is a potential custom tag.
 
@@ -374,15 +374,15 @@ Add the following setting to enable expanding of Emmet abbreviations using tab w
 "emmet.triggerExpansionOnTab": true
 ```
 
-### **My HTML snippets ending with `+` does not work?**
+### My HTML snippets ending with `+` does not work?
 
 HTML snippets ending with `+` like `select+` and `ul+` from the [Emmet cheatsheet](https://docs.emmet.io/cheat-sheet/) are not supported. This is a known issue in Emmet 2.0 [Issue: emmetio/html-matcher#1](https://github.com/emmetio/html-matcher/issues/1). Workaround is to create your own [custom Emmet snippets](/docs/editor/emmet.md#using-custom-emmet-snippets) for such scenarios.
 
-### **Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)**
+### Where can I set all the preferences as documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/)
 
 You can set the preferences using the setting `emmet.preferences`. Only a subset of the preferences that are documented in [Emmet preferences](https://docs.emmet.io/customization/preferences/) can be customized. Please read the preferences section under [Emmet configuration](/docs/editor/emmet.md#emmet-configuration).
 
-### **Any tips and tricks?**
+### Any tips and tricks?
 
 Of course!
 

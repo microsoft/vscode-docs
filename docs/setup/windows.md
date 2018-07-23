@@ -39,24 +39,24 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ## Common Questions
 
-### **What command line arguments are supported by the Windows Setup?**
+### What command line arguments are supported by the Windows Setup?
 
 VS Code uses [Inno Setup](http://www.jrsoftware.org/isinfo.php) to create its setup package
 for Windows. Thus, all the [Inno Setup command line switches](http://www.jrsoftware.org/ishelp/index.php?topic=setupcmdline) are available for use.
 
 Additionally, you can prevent the Setup from launching VS Code after completion with `/mergetasks=!runcode`.
 
-### **Scrolling is laggy and not smooth**
+### Scrolling is laggy and not smooth
 
 On certain devices, editor scrolling is not smooth but laggy for an unpleasant experience. If you notice this issue, you can configure the setting `window.smoothScrollingWorkaround: true` as a workaround.
 
-### **I'm having trouble with the installer**
+### I'm having trouble with the installer
 
 Try using the [zip file](/docs/?dv=winzip) instead of the installer.  To use this, unzip VS Code in your **Program Files** folder.
 
 >**Note:** When VS Code is installed via a Zip file, you will need to manually update it for each [release](/updates).
 
-### **Icons are missing**
+### Icons are missing
 
 I installed Visual Studio Code on my Windows 7 or 8 machine. Why are some icons not appearing in the workbench and editor?
 

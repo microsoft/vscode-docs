@@ -319,10 +319,10 @@ Read on to find out about:
 
 ## Common Questions
 
-### **Does VS Code provide a color picker?**
+### Does VS Code provide a color picker?
 
 Yes, color picker has been added in version 1.15.
 
-### **Is there support for the indentation based Sass syntax (.sass)?**
+### Is there support for the indentation based Sass syntax (.sass)?
 
 No, but there are several extensions in the Marketplace supporting the indented flavor of Sass.

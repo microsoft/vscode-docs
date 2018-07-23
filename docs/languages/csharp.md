@@ -121,18 +121,18 @@ Read on to find out about:
 
 ## Common Questions
 
-### **My Project won't load.**
+### My Project won't load
 
 VS Code only supports a limited set of project types (primarily .NET Core).  For full .NET project support, we suggest you use [Visual Studio Community](https://visualstudio.microsoft.com/vs/community).
 
-### **IntelliSense is not working.**
+### IntelliSense is not working
 
 This is typically as a result of the current project type not being supported.  You can see an indication in the OmniSharp flame in the bottom left hand side of the status bar.
 
-### **How do I build/run my project?**
+### How do I build/run my project?
 
 VS Code supports tasks for build and natively understand the output of MSBuild, CSC, XBuild.  Find out more in the [Tasks](/docs/editor/tasks.md) documentation.
 
-### **I'm missing required assets to build and debug C# in VS Code. My debugger says "No Configuration."**
+### I'm missing required assets to build and debug C# in VS Code. My debugger says "No Configuration"
 
 The Visual Studio Code C# extension can generate the assets you need to build and debug. If you missed the prompt when you first opened a new C# project, you can still perform this operation through the Command Palette (**View > Command Palette**) by typing '.NET', and running **.NET: Generate Assets for Build and Debug**. This command will generate the necessary `launch.json` and `tasks.json` configuration files (under the `.vscode` folder).

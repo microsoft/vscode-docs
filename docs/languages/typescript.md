@@ -310,16 +310,16 @@ OK, read on to find out about:
 
 ## Common Questions
 
-### **How do I resolve a TypeScript "Cannot compile external module" error?**
+### How do I resolve a TypeScript "Cannot compile external module" error?
 
 If you get that error, resolve it by creating a `tsconfig.json` file in the root folder of your project. The tsconfig.json file lets you control how Visual Studio Code compiles your TypeScript code. For more information, see the [tsconfig.json overview](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
 Due to a current limitation, you must restart VS Code after adding the `tsconfig.json` file.
 
-### **Why do I get different errors and warnings with VS Code than when I compile my TypeScript project?**
+### Why do I get different errors and warnings with VS Code than when I compile my TypeScript project?
 
 VS Code ships with a recent stable version of the TypeScript language service and it may not match the version of TypeScript installed globally on your computer or locally in your workspace. For that reason, you may see differences between your compiler output and errors detected by the active TypeScript language service. See [Using newer TypeScript versions](/docs/languages/typescript.md#using-newer-typescript-versions) for details on installing a matching TypeScript version.
 
-### **Can I use the version of TypeScript that ships with VS 2015?**
+### Can I use the version of TypeScript that ships with VS 2015?
 
 No, the TypeScript language service which ships with Visual Studio 2015 and 2017 isn't compatible with VS Code. You will need to install a separate version of TypeScript from [npm](https://www.npmjs.com/package/typescript).

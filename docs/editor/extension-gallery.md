@@ -232,7 +232,7 @@ Here are a few topics you may find interesting...
 
 ## Common questions
 
-### **Where are extensions installed?**
+### Where are extensions installed?
 
 Extensions are installed in a per user extensions folder. Depending on your platform, the location is in the following folder:
 
@@ -242,11 +242,11 @@ Extensions are installed in a per user extensions folder. Depending on your plat
 
 You can change the location by launching VS Code with the `--extensions-dir <dir>` command line [option](/docs/editor/command-line.md).
 
-### **Whenever I try to install any extension, I get a connect ETIMEDOUT error.**
+### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 
 You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in SETUP topic for details.
 
-### **Can I download an extension directly from the Marketplace?**
+### Can I download an extension directly from the Marketplace?
 
 Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
@@ -254,7 +254,7 @@ To download an extension, navigate to the details page for the specific extensio
 
 Once downloaded, you can then install the extension via the **Install from VSIX...** command in the Extensions view command drop-down.
 
-### **Can I stop VS Code from providing extension recommendations?**
+### Can I stop VS Code from providing extension recommendations?
 
 Yes, if you would prefer to not have VS Code display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
 
