@@ -895,9 +895,9 @@ That was tasks - let's keep going...
 
 ## Common Questions
 
-**Q: Can a task use a different shell than the one specified for the Integrated Terminal?**
+### **Can a task use a different shell than the one specified for the Integrated Terminal?**
 
-**A:** You can override a task's shell with the `options.shell` property. You can set this per task, globally, or per platform. For example, to use cmd.exe on Windows, your `tasks.json` would include:
+You can override a task's shell with the `options.shell` property. You can set this per task, globally, or per platform. For example, to use cmd.exe on Windows, your `tasks.json` would include:
 
 ```json
 {

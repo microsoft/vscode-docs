@@ -923,10 +923,10 @@ When we were improving PHP support in VS Code, we realized the official PHP pars
 
 ## Common Questions
 
-**Q: When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?**
+### **When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?**
 
-**A:** You will see this timeout error if the server isn't running when you try to attach the debugger.  The client starts the language server so make sure you have started the client in order to have a running server. You may also need to disable your client breakpoints if they are interfering with starting the server.
+You will see this timeout error if the server isn't running when you try to attach the debugger.  The client starts the language server so make sure you have started the client in order to have a running server. You may also need to disable your client breakpoints if they are interfering with starting the server.
 
-**Q: I have read through this guide and the [LSP Specification](https://microsoft.github.io/language-server-protocol/), but I still have unresolved questions. Where can I get help?**
+### **I have read through this guide and the [LSP Specification](https://microsoft.github.io/language-server-protocol/), but I still have unresolved questions. Where can I get help?**
 
-**A:** Please open an issue at https://github.com/Microsoft/language-server-protocol.
+Please open an issue at https://github.com/Microsoft/language-server-protocol.

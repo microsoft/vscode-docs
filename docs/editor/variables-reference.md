@@ -61,9 +61,9 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 ## Common Questions
 
-**Q: Is variable substitution supported in User and Workspace settings?**
+### **Is variable substitution supported in User and Workspace settings?**
 
-**A:** No, the predefined variables are not supported in strings in `settings.json` files. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
+No, the predefined variables are not supported in strings in `settings.json` files. Some [settings](/docs/getstarted/settings.md) like `window.title` have their own variables:
 
 ```json
   "window.title": "${dirty}${activeEditorShort}${separator}${rootName}${separator}${appName}"
@@ -71,6 +71,6 @@ For example, in a multi root workspace with folders `Server` and `Client`, a `${
 
 Refer to the comments in the Settings editor (`kb(workbench.action.openSettings)`) to learn about setting specific variables.
 
-**Q: Why isn't ${workspaceRoot} documented?**
+### **Why isn't ${workspaceRoot} documented?**
 
-**A:** The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.
+The variable `${workspaceRoot}` was deprecated in favor of `${workspaceFolder}` to better align with [Multi-root Workspace](/docs/editor/multi-root-workspaces.md) support.

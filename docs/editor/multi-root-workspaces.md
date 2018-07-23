@@ -328,10 +328,10 @@ VS Code supports folder level extension recommendations through the `extensions.
 
 ## Common Questions
 
-**Q: How can I go back to working with a single project folder?**
+### **How can I go back to working with a single project folder?**
 
 You can either close the Workspace and open the folder directly or remove the folder from Workspace.
 
-**Q: As an extension author what do I need to do?**
+### **As an extension author what do I need to do?**
 
 See our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Extension-Authoring:-Adopting-Multi-Root-Workspace-APIs) guide. Most extensions can easily support multi-root workspaces.

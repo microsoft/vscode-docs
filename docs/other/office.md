@@ -110,10 +110,10 @@ Check out the other pages on the VS Code site to find out how you can leverage m
 
 ## Common Questions
 
-**Q: Can I create an Office Add-in with the generator and use VS Code regardless of the language or client-side framework?**
+### **Can I create an Office Add-in with the generator and use VS Code regardless of the language or client-side framework?**
 
-**A:** Yes, you can. You can use pure HTML, Angular, Ember, React, Aurelia... anything you like!
+Yes, you can. You can use pure HTML, Angular, Ember, React, Aurelia... anything you like!
 
-**Q: Can I use TypeScript to create my Office Add-in?**
+### **Can I use TypeScript to create my Office Add-in?**
 
-**A:** Absolutely, VS Code has great support for [TypeScript](/docs/languages/typescript.md)!
+Absolutely, VS Code has great support for [TypeScript](/docs/languages/typescript.md)!

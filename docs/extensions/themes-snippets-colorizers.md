@@ -538,23 +538,23 @@ If you'd like to learn more about VS Code extensibility, try these topics:
 
 ## Common Questions
 
-**Q: What parts of VS code can I theme with a custom color theme?**
+### **What parts of VS code can I theme with a custom color theme?**
 
 The VS Code color themes affect the editor input area (text foreground, background, selection, lineHighlight, caret, and the syntax tokens) as well as some of the custom UI (see the list in [Creating a Theme](/docs/extensions/themes-snippets-colorizers.md#creating-a-custom-theme)). When contributing a theme, you also specify a base theme: light (`vs`), dark (`vs-dark`) and high contrast (`hc-black`). The base theme is used for all other areas in the workbench such as the File Explorer. Base themes are not customizable or contributable by extensions.
 
-**Q: Is there a list of scopes that I can use in my custom color theme?**
+### **Is there a list of scopes that I can use in my custom color theme?**
 
 VS Code themes are standard TextMate themes and the tokenizers used in VS code are well established TextMate tokenizers, mostly maintained by the community and in use in other products.
 
 To learn about what scopes are used where, check out the [TextMate documentation](https://manual.macromates.com/en/themes) and this useful [blog post](https://www.apeth.com/nonblog/stories/textmatebundle.html).  A great place to examine themes is [here](https://tmtheme-editor.herokuapp.com/).
 
-**Q: I created a snippets extension but they aren't showing up in the VS Code editor?**
+### **I created a snippets extension but they aren't showing up in the VS Code editor?**
 
-**A:** Be sure you have correctly specified the `language` identifier for your snippet (e.g. `markdown` for Markdown .md files, `plaintext` for Plain Text .txt files).  Also verify that the relative path to the snippets json file is correct.
+Be sure you have correctly specified the `language` identifier for your snippet (e.g. `markdown` for Markdown .md files, `plaintext` for Plain Text .txt files).  Also verify that the relative path to the snippets json file is correct.
 
-**Q: Can I add more file extensions to my colorizer?**
+### **Can I add more file extensions to my colorizer?**
 
-**A:** Yes, the `yo code` generator provides the default file extensions from the .tmLanguage file but you can easily add more file extensions to a `languages` contribution `extensions` array.  In the example below, the `.asp` file extension has been added to the default `.asa` file extension.
+Yes, the `yo code` generator provides the default file extensions from the .tmLanguage file but you can easily add more file extensions to a `languages` contribution `extensions` array.  In the example below, the `.asp` file extension has been added to the default `.asa` file extension.
 
 ```json
 {
@@ -579,9 +579,9 @@ To learn about what scopes are used where, check out the [TextMate documentation
 }
 ```
 
-**Q: Can I add more file extensions to an existing colorizer?**
+### **Can I add more file extensions to an existing colorizer?**
 
-**A:** Yes. To extend an existing colorizer, you can associate a file extension to an existing language identifier with the `files.associations` [setting](/docs/getstarted/settings.md).  IntelliSense will show you the list of currently available language ids.
+Yes. To extend an existing colorizer, you can associate a file extension to an existing language identifier with the `files.associations` [setting](/docs/getstarted/settings.md).  IntelliSense will show you the list of currently available language ids.
 
 For example, the setting below adds the `.mmd` file extension to the `markdown` colorizer:
 
@@ -591,9 +591,9 @@ For example, the setting below adds the `.mmd` file extension to the `markdown` 
     }
 ```
 
-**Q: What if I want to completely override an existing colorizer?**
+### **What if I want to completely override an existing colorizer?**
 
-**A:** Yes. You override the colorizer by providing a new `grammars` element for an existing language id. Also, add a `extensionDependencies` attribute that contains the name of the extension that defines the grammar that you want to replace.
+Yes. You override the colorizer by providing a new `grammars` element for an existing language id. Also, add a `extensionDependencies` attribute that contains the name of the extension that defines the grammar that you want to replace.
 
 ```json
 {

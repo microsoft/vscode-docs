@@ -122,9 +122,9 @@ You can create a `.vscodeignore` file to exclude some files from being included 
 
 ## Common Questions
 
-**Q: Can I use native Node.js modules with my extension?**
+### **Can I use native Node.js modules with my extension?**
 
-**A:** A Visual Studio Code extension package contains all of its dependencies. This means that if you develop your extension on Windows and depend on a native Node.js module when you publish that extension, the Windows compiled native dependency will be contained in your extension. Users on macOS or Linux won't be able to use the extension.
+A Visual Studio Code extension package contains all of its dependencies. This means that if you develop your extension on Windows and depend on a native Node.js module when you publish that extension, the Windows compiled native dependency will be contained in your extension. Users on macOS or Linux won't be able to use the extension.
 
 The only way to make this work for now is to include binaries for all four platforms of VS Code (Windows x86 and x64, Linux, macOS) in your extension and have code that dynamically loads the right one.
 

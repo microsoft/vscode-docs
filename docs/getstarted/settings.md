@@ -1665,14 +1665,14 @@ Below are the Visual Studio Code default settings and their values. You can also
 
 ## Common Questions
 
-**Q: VS Code says "Unable to write settings."**
+### **VS Code says "Unable to write settings."**
 
-**A:** If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS) (`kb(workbench.action.openSettings)`) and you should see the error highlighted with red squiggles.
+If you try to change a setting (for example turning on Auto Save or selecting a new Color Theme) and you see "Unable to write settings. Please open User Settings to correct errors/warnings in the file and try again.", it means your `settings.json` file is ill-formed or has errors. The errors can be as simple as a missing comma or setting value. Open the Settings editor **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS) (`kb(workbench.action.openSettings)`) and you should see the error highlighted with red squiggles.
 
-**Q: How can I reset my user settings?**
+### **How can I reset my user settings?**
 
-**A:** The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file contents in the Settings editor. Delete everything between the two curly braces, save the file, and VS Code will go back to using the default values.
+The easiest way to reset VS Code back to the default settings is to clear your user `settings.json` file contents in the Settings editor. Delete everything between the two curly braces, save the file, and VS Code will go back to using the default values.
 
-**Q: When does it make sense to use workspace settings?**
+### **When does it make sense to use workspace settings?**
 
-**A:** If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.
+If you're using a workspace that needs custom settings but you don't want to apply them to your other VS Code projects. A good example is language-specific linting rules.

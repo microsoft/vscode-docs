@@ -304,14 +304,14 @@ Read on to find out about:
 
 ## Common Questions
 
-**Q: Is there spell checking?**
+### **Is there spell checking?**
 
-**A:** Not installed with VS Code but there are spell checking extensions. Check the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
+Not installed with VS Code but there are spell checking extensions. Check the [VS Code Marketplace](https://marketplace.visualstudio.com/vscode) to look for useful extensions to help with your workflow.
 
-**Q: Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
+### **Does VS Code support [GitHub Flavored Markdown](https://help.github.com/articles/github-flavored-markdown/)?**
 
-**A:** No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification which you can read about in this [update](https://githubengineering.com/a-formal-spec-for-github-markdown).
+No, VS Code targets the [CommonMark](http://commonmark.org) Markdown specification using the [markdown-it](https://github.com/markdown-it/markdown-it) library. GitHub is moving toward the CommonMark specification which you can read about in this [update](https://githubengineering.com/a-formal-spec-for-github-markdown).
 
-**Q: In the walkthrough above, I didn't find the Configure Task command in the Command Palette?**
+### **In the walkthrough above, I didn't find the Configure Task command in the Command Palette?**
 
-**A:** You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing 'code .' at the command line.
+You may have opened a file in VS Code rather than a folder.  You can open a folder by either selecting the folder with **File** > **Open Folder...** or navigating to the folder and typing 'code .' at the command line.

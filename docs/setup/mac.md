@@ -62,9 +62,9 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ## Common Questions
 
-**Q. Mono and El Capitan:** Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
+### Mono and El Capitan:** Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
 
-**A:** Run these commands:
+Run these commands:
 
 ```bash
 brew update

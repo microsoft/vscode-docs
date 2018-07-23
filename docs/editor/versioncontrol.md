@@ -181,41 +181,41 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 ## Common Questions
 
-**Q: Hey, I initialized my repo but the actions in the `...` menu are all grayed out. What gives?**
+### **I initialized my repo but the actions in the `...` menu are all grayed out.**
 
-**A:** To **push, pull and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
+To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
 
 ```bash
 > git remote add origin https://<AccountName>.visualstudio.com/DefaultCollection/_git/<RepoName>
 > git push -u origin master
 ```
 
-**Q: My team is using Team Foundation version control (TFVC) instead of Git. What should I do?**
+### **My team is using Team Foundation version control (TFVC) instead of Git. What should I do?**
 
-**A:** Use the [Visual Studio Team Services Extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) and this will light up TFVC support.
+Use the [Visual Studio Team Services Extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) and this will light up TFVC support.
 
-**Q: Why do the Pull, Push and Sync actions never finish?**
+### **Why do the Pull, Push and Sync actions never finish?**
 
 This usually means there is no credential management configured in Git and you're not getting credential prompts for some reason.
 
 You can always set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
 
-**Q: How can I sign into Git with my Team Services account which requires multi-factor authentication?**
+### **How can I sign into Git with my Team Services account which requires multi-factor authentication?**
 
-**A:** There are now [Git credential helpers](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
+There are now [Git credential helpers](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
 
-**Q: I have GitHub Desktop installed on my computer but VS Code ignores it.**
+### **I have GitHub Desktop installed on my computer but VS Code ignores it.**
 
-**A:** VS Code only supports the [official Git distribution](https://git-scm.com/) for its Git integration.
+VS Code only supports the [official Git distribution](https://git-scm.com/) for its Git integration.
 
-**Q: I keep getting Git authentication dialogs whenever VS Code is running.**
+### **I keep getting Git authentication dialogs whenever VS Code is running.**
 
-**A:** VS Code automatically fetches changes from the server in order to present you with a summary of incoming changes. The Git authentication dialog is independent from VS Code itself and is a part of your current Git credential helper.
+VS Code automatically fetches changes from the server in order to present you with a summary of incoming changes. The Git authentication dialog is independent from VS Code itself and is a part of your current Git credential helper.
 
 One way to avoid these prompts is to set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) which remembers your credentials.
 
 Another option is to disable the auto fetch feature by changing the following setting: `"git.autofetch": false`.
 
-**Q: Can I use SSH Git authentication with VS Code?**
+### **Can I use SSH Git authentication with VS Code?**
 
-**A:** Yes, though VS Code works most easily with SSH keys without a passphrase. If you have a SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.
+Yes, though VS Code works most easily with SSH keys without a passphrase. If you have a SSH key with a passphrase, you'll need to launch VS Code from a Git Bash prompt to inherit its SSH environment.

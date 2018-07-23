@@ -177,10 +177,9 @@ You can also click the extension name in the upper banner and you'll go to the e
 
 ## Common Questions
 
-**Q: How can I use API from my extension that was introduced in a newer release of VS Code?**
+### **How can I use an API in my extension that was introduced in a newer release of VS Code?**
 
-**A:** If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the
-`engines` field of the `package.json` file of the extension.
+If your extension is using an API that was introduced in a newer release of VS Code, you have to declare this dependency in the `engines` field of the `package.json` file of the extension.
 
 Here are the steps:
 

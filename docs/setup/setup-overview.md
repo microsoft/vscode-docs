@@ -64,22 +64,22 @@ If you'd like to get something running quickly, try the [Node.js tutorial](/docs
 
 ## Common Questions
 
-**Q: What are the system requirements for VS Code?**
+### **What are the system requirements for VS Code?**
 
-**A:** We have a list of [System Requirements](/docs/supporting/requirements.md).
+We have a list of [System Requirements](/docs/supporting/requirements.md).
 
-**Q: How big is VS Code?**
+### **How big is VS Code?**
 
-**A:** VS Code is a small download (< 100 MB) and has a disk footprint of less than 200 MB, so you can quickly install VS Code and try it out.
+VS Code is a small download (< 100 MB) and has a disk footprint of less than 200 MB, so you can quickly install VS Code and try it out.
 
-**Q: How do I create and run a new project?**
+### **How do I create and run a new project?**
 
-**A:** VS Code doesn't include a traditional **File** > **New Project** dialog or pre-installed project templates. You'll need to add [additional components](/docs/setup/additional-components.md) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
+VS Code doesn't include a traditional **File** > **New Project** dialog or pre-installed project templates. You'll need to add [additional components](/docs/setup/additional-components.md) and scaffolders depending on your development interests. With scaffolding tools like [Yeoman](http://yeoman.io/) and the multitude of modules available through the [NPM](https://www.npmjs.com/) package manager, you're sure to find appropriate templates and tools to create your projects.
 
-**Q: How do I know which version I'm running?**
+### **How do I know which version I'm running?**
 
-**A:** On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**.
+On Linux and Windows, choose **Help** > **About**. On macOS, use **Code** > **About Visual Studio Code**.
 
-**Q: Why is VS Code saying my installation is corrupt?**
+### **Why is VS Code saying my installation is corrupt?**
 
-**A:** VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt) for more details.
+VS Code has detected that some installation files have been modified, perhaps by an extension. Reinstalling VS Code will replace the affected files. See our [FAQ topic](/docs/supporting/faq.md#installation-appears-to-be-corrupt) for more details.

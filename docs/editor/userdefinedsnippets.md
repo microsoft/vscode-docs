@@ -234,6 +234,6 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 
 ## Common Questions
 
-**Q: What if I want to use existing TextMate snippets from a .tmSnippet file?**
+### **What if I want to use existing TextMate snippets from a .tmSnippet file?**
 
-**A:** You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) in our Extension Authoring documentation.
+You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) in our Extension Authoring documentation.

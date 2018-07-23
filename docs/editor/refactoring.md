@@ -100,6 +100,6 @@ You can find extensions that support refactoring by looking in the VS Code [Mark
 
 ## Common Questions
 
-**Q. Why don't I see any lightbulbs when there are errors in my code?**
+### Why don't I see any lightbulbs when there are errors in my code?**
 
-**A:** Lightbulbs (Code Actions) are only shown when your cursor is on the text showing the error. Hover can show the error description but you need to move the cursor or select text to see lightbulbs for Quick Fixes and refactorings.
+Lightbulbs (Code Actions) are only shown when your cursor is on the text showing the error. Hover can show the error description but you need to move the cursor or select text to see lightbulbs for Quick Fixes and refactorings.
