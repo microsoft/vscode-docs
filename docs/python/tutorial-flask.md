@@ -397,7 +397,7 @@ The following sections demonstrate both types of static files.
 1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
-    <span class="message">\{{ message }}</span>. It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+    <span class="message">\{{ name }}</span>. It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
     ```
 
 1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.
