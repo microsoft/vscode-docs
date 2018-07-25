@@ -19,8 +19,7 @@ To get started in this walkthrough, [install Node.js for your platform](https://
 >**Linux**: There are specific Node.js packages available for the various flavors of Linux. See [Installing Node.js via package manager](https://nodejs.org/en/download/package-manager) to find the Node.js package and installation instructions tailored to your version of Linux.
 
 >**Tip:** To test that you've got Node.js correctly installed on your computer, open a new terminal and type `node --help` and you should see the usage documentation.
-
-http://youngistian.com
+Hello g
 
 ## Hello World
 
