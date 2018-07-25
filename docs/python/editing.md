@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Editing Code
 ContentId: 0ccb0e35-c4b2-4001-91bf-79ff1618f601
 PageTitle: Editing Python Code in Visual Studio Code
-DateApproved: 06/28/2018
+DateApproved: 07/25/2018
 MetaDescription: Editing Python in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension provides many features for editing Python source code in Visual Studio Code:
 
-- [Autocomplete and Intellisense](#autocomplete-and-intellisense)
+- [Autocomplete and IntelliSense](#autocomplete-and-intellisense)
 - [Run Selection/Line in Terminal (REPL)](#run-selectionline-in-terminal-repl)
 - [Formatting](#formatting)
 - [Refactoring](#refactoring)
@@ -24,6 +24,10 @@ Also see [Linting](/docs/python/linting.md).
 Autocomplete and IntelliSense are provided for all files within the current working folder and for Python packages that are installed in standard locations.
 
 <video id="python-code-completion-video" src="https://az754404.vo.msecnd.net/public/python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
+
+> **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context.
+
+### Enable IntelliSense for custom package locations
 
 To enable IntelliSense for packages that are installed in other, non-standard locations, add those locations to the `python.autoComplete.extraPaths` collection in the settings file (the default collection is empty). For example, you might have installed Google App Engine installed in custom locations, in which case you'd specify those locations as follows:
 
