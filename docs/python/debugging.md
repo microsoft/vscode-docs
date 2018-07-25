@@ -28,7 +28,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. In the list of debuggers that appears, select **Python**. (You can also use **Python Experimental** if you'd like, which is work in progress. See [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub).)
+1. In the list of debuggers that appears, select **Python**. (You can also use **Python Experimental** if you'd like, which is work in progress. See [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub). The experimental debugger is faster and also supports [Logpoints](/docs/editor/debugging.md#_logpoints).)
 
 1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations.
 
