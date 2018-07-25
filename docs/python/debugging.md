@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Python debugging configurations in VS Code
 
-The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
+The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
 To familiarize yourself further with VS Code's general debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, and more, review [VS Code debugging](/docs/editor/debugging.md).
 
