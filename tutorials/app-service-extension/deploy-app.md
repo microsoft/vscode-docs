@@ -18,35 +18,31 @@ In the **AZURE APP SERVICE** explorer, click the blue up arrow icon to deploy yo
 
 > **Tip:** You can also deploy from the **Command Palette** (`kb(workbench.action.showCommands)`) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
 
-From here follow the prompts. Choose the directory that you currently have open, `myExpressApp`, select your active Azure subscription, and then choose **Create New Web App**.
+1. Choose **Create New Web App**.
 
-1. Type a globally unique name for your Web App and press `kbstyle(Enter)`. Valid characters for an app name are 'a-z', '0-9', and '-'.
+2. Type a globally unique name for your Web App and press `kbstyle(Enter)`. Valid characters for an app name are 'a-z', '0-9', and '-'.
 
-2. Choose **Create New Resource Group**, use the suggested name or type a Resource Group name, like 'myResourceGroup' and press `kbstyle(Enter)`.
+3. Choose a location in a [region](https://azure.microsoft.com/en-us/regions/) near you or near other services you may need to access.
 
-A **Resource Group** is essentially a named collection of all our application's resources in Azure. For example, a Resource Group can contain a reference to a website, a database, and an Azure Function.
+4. Choose your **Node.js version**, LTS is recommended.
 
-3. Choose **Linux** for the OS.
+  The notification channel shows the Azure resources that are being created for your app.
 
-4. Choose **Create New App Service Plan**, use the suggested name or type a plan name, like 'myPlan' and press `kbstyle(Enter)`.
+5. Choose the directory that you currently have open, `myExpressApp`.
 
-An **App Service Plan** defines the physical resources that will be used to host our website. In this walkthrough, we will use a **Basic** hosting plan on **Linux** infrastructure, which means the site will be hosted on a Linux machine alongside other websites. You can scale up and be the only site running on a machine later in the Azure Portal.
+  Click **Yes** when prompted to updated your configuration to run `npm install` on the target server. Your app is then deployed.
 
-5. Choose **B1 Basic** as the pricing tier.
+  ![Configured deployment](images/app-service-extension/server-build.png)
 
-6. Choose a location in a [region](https://azure.microsoft.com/en-us/regions/) near you or near other services you may need to access.
+Once the deployment starts, you're prompted to updated your workspace so that all subsequent deploys automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
 
-7. Choose your **Node.js version**, LTS is recommended.
-
-The Output panel shows the Azure resources that were created in your subscription followed by the detailed output from Azure for the deployment to the Web App.
+![Configured deployment](images/app-service-extension/save-configuration.png)
 
 > **Tip:** Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
 
-![Deploy to App Service](images/app-service-extension/create-output.png)
-
 ## Browse the website
 
-The output window will open during deployment to indicate the status of the operation. Once completed, find the app that you just created in the **AZURE APP SERVICE** explorer, right-click, and choose **Browse Website** to open the site in your browser.
+Once the deployment completes, click **Browse Website** in the prompt to view your freshly deployed website.
 
 ## Troubleshooting
 
