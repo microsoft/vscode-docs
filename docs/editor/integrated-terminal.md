@@ -187,6 +187,8 @@ By default, the integrated terminal will render using multiple `<canvas>` elemen
 }
 ```
 
+Something else that might improve performance is to ignore Chromium's GPU blacklist by launching VS Code with `code --ignore-gpu-blacklist`.
+
 ## Next Steps
 
 The basics of the terminal have been covered in this document, read on to find out more about:
