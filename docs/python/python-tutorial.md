@@ -122,7 +122,7 @@ The command opens a menu of available debuggers, which shows **Python** and **Py
 
 **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
-These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python: Current File", which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
+These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select "Python: Current File", which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
 To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
 
@@ -166,7 +166,9 @@ If you restart the debugger, remember that you set `stopOnEntry` in the configur
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
-For full details, see [Debugging](/docs/python/debugging.md), which includes details on how to use a use a specific Python interpreter for debugging.
+For full details, see [Debugging configurations](/docs/python/debugging.md), which includes details on how to use a use a specific Python interpreter for debugging.
+
+> **Tip: Use Logpoints instead of print statements**: Developers often litter code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In VS Code, you can instead use *Logpoints* if you choose the **Python Experimental** debugger. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/editor/debugging.md#_logpoints) in the main VS Code debugging article.
 
 ### Troubleshooting
 
