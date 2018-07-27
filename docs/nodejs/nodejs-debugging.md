@@ -255,7 +255,7 @@ In addition to Node.js processes, the picker also shows other programs that were
 
 ### Setting up an "Attach" configuration
 
-This option requires more work but in contrast to the previous two options it allows you to configure various debug configuration options explicitely.
+This option requires more work but in contrast to the previous two options it allows you to configure various debug configuration options explicitly.
 
 The simplest "attach" configuration looks like this:
 
