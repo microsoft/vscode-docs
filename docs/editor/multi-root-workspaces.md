@@ -277,7 +277,7 @@ Similar to how VS Code searches for debugging configurations, VS Code will also 
 
 ![tasks dropdown](images/multi-root-workspaces/tasks-dropdown.png)
 
-From the TSList extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslist-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
+From the TSLint extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslint-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
 
 ## Source Control
 
