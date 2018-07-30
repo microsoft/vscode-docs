@@ -164,6 +164,17 @@ The inserted text is matched with the regular expression and the match or matche
 Every occurrence of a placeholder can define its own transformation independently using the value of the first placeholder.
 The format for Placeholder-Transforms is the same as for Variable-Transforms.
 
+### Transform Examples
+
+The examples are shown within double quotes, as they would appear inside a snippet body, to illustrate the need to double escape certain characters. Sample transformations and the resulting output for the filename `example-123.456-TEST.js`.
+
+Example | Output | Explanation
+-------------|--------|------------
+`"${TM_FILENAME/[\\.]/_/}"` | `example-123_456-TEST.js` | Replace the first `.` with `_`
+`"${TM_FILENAME/[\\.-]/_/g}"` | `example_123_456_TEST_js` | Replace each `.` or `-` with `_`
+`"${TM_FILENAME/(.*)/${1:/upcase}/}"` | `EXAMPLE-123.456-TEST.JS` | Change to all upperacse
+`"${TM_FILENAME/[^0-9^a-z]//gi}"` | `example123456TESTjs` | Remove non-alphanumeric characters
+
 ### Grammar
 
 Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form)) for snippets. With `\` (backslash), you can escape `$`, `}` and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
