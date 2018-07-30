@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Python debugging configurations in Visual Studio Code
-DateApproved: 07/11/2018
+DateApproved: 07/30/2018
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -12,7 +12,7 @@ MetaSocialImage: images/tutorial/social.png
 
 The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
-To familiarize yourself further with VS Code's general debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, and more, review [VS Code debugging](/docs/editor/debugging.md).
+To familiarize yourself with VS Code's *general* debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, loading symbols, and more, review [VS Code debugging](/docs/editor/debugging.md).
 
 This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*. A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
 

@@ -1,14 +1,14 @@
 ---
 Order: 1
 Area: python
-TOCTitle: Python Tutorial
+TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
-PageTitle: Get Started Tutorial with Python in Visual Studio Code
-DateApproved: 07/23/2018
+PageTitle: Get Started Tutorial for Python in Visual Studio Code
+DateApproved: 07/30/2018
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
-# Getting Started with Python
+# Getting Started with Python in VS Code
 
 In this tutorial you use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
 
@@ -227,25 +227,27 @@ plt.show()                   # Display the plot
 
 Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section. (If you still have `"stopOnEntry": true` in that configuration, you need to select the run command again to continue.)
 
-Unless you're using an Anaconda distribution or have previously installed the matplotlib package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'".
+Unless you're using an Anaconda distribution or have previously installed the matplotlib package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
-To install that packages (which also installed numpy), switch to the **Terminal** that is already open (the terminal type should be "Python Debug Console" indicating that it has the selected interpreter activated). Then enter the following commands as appropriate for your operating system:
+To install the matplotlib package (which also installs numpy), stop the debugger and run **Python: Create Terminal** from the Command Palette, which opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system:
 
 ```bash
+# Mac
+pip3 install matplotlib
+
 # Windows
 pip install matplotlib
-
-# MacOS
-pip3 install matplotlib
 
 # Linux
 sudo apt-get install python3-tk
 pip3 install matplotlib
 ```
 
-Rerun the program now and after a few moments a plot window appears with the output:
+Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
 ![matplotlib output](images/tutorial/plot-output.png)
+
+> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ## Next steps
 
