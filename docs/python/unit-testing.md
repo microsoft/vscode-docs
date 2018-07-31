@@ -111,8 +111,8 @@ To enable Nose:
 
 ```json
 "python.unitTest.unittestEnabled": false,
-"python.unitTest.pyTestEnabled": true,
-"python.unitTest.nosetestsEnabled": false,
+"python.unitTest.pyTestEnabled": false,
+"python.unitTest.nosetestsEnabled": true,
 ```
 
 ## Test discovery
