@@ -16,22 +16,12 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 
 <ul class="video-list">
 	<li class="video">
-		<a href="/docs/introvideos/quicktour">
-			<img src="https://img.youtube.com/vi/pI1skOo2yjk/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
-			<div class="info">
-				<h2 class="title faux-h3">Quick Tour using JavaScript</h2>
-				<p class="description">Check out the key features of VS Code in a quick overview.</p>
-				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
-			</div>
-		</a>
-	</li>
-	<li class="video">
 		<a href="/docs/introvideos/basics">
-			<img src="https://img.youtube.com/vi/SYRwSyjD8oI/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/Sdg0ef2PpBw/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
-				<h2 class="title faux-h3">Setup and Basics</h2>
-				<p class="description">Install and learn the basics of your new editor.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<h2 class="title faux-h3">Getting started</h2>
+				<p class="description">Install and learn the basics of getting started with Visual Studio Code.</p>
+				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -77,10 +67,10 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 	</li>
 	<li class="video">
 		<a href="/docs/introvideos/debugging">
-			<img src="https://img.youtube.com/vi/6cOsxaNC06c/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
+			<img src="https://img.youtube.com/vi/2oFKNL7vYV8/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Debugging</h2>
-				<p class="description">Debug a simple Node.js application.</p>
+				<p class="description">Getting started with Node.js debugging in VS Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
