@@ -4,8 +4,8 @@ Area: getstarted
 TOCTitle: Intro Videos
 ContentId: f29747b9-0f4f-4f62-b0a7-037ffc49d972
 PageTitle: Intro Videos Overview
-DateApproved: 7/5/2018
-MetaDescription: Overview of VS Code's Introductory Videos.
+DateApproved: 7/30/2018
+MetaDescription: Overview of VS Code's introductory videos.
 MetaSocialImage: images/introvideos/opengraph_introvideos.png
 ---
 # Introductory Videos
@@ -20,7 +20,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<img src="https://img.youtube.com/vi/Sdg0ef2PpBw/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Getting started</h2>
-				<p class="description">Install and learn the basics of getting started with Visual Studio Code.</p>
+				<p class="description">Install and learn the basics of Visual Studio Code.</p>
 				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
@@ -88,5 +88,3 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 </ul>
 
 > Note: If you would like us to cover other topics, please leave [feedback here](https://www.surveymonkey.com/r/H9W7K8J).
-
-

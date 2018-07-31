@@ -461,7 +461,6 @@ Read on to find out about:
 
 Watch these introductory videos:
 
-* [Quick Tour using JavaScript](/docs/introvideos/quicktour.md) - See a three-minute overview of using JavaScript in VS Code.
 * [IntelliSense](/docs/introvideos/intellisense.md) - Tutorial on IntelliSense with JavaScript.
 * [Debugging](/docs/introvideos/debugging.md) - Learn how to debug a Node.js application.
 
