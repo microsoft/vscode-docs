@@ -52,7 +52,7 @@ Before we continue, ensure that you have all the prerequisites installed and con
 
 In VS Code, you should see your Azure email address in the Status Bar and your subscription in the **AZURE FUNCTIONS** explorer.
 
-Verify that you have the Azure Functions tools installed by opening a terminal and running `$ func`.
+Verify that you have the Azure Functions tools installed by opening a terminal (or PowerShell/Command Prompt) and running `func`.
 
 ```bash
 $ func
