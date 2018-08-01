@@ -30,7 +30,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 * _uri_ - Uri of a text document
 * _position_ - Position of a symbol
-* _(returns)_ - A promise that resolves to an array of Location-instances.
+* _(returns)_ - A promise that resolves to an array of Location instances.
 
 
 `vscode.executeTypeDefinitionProvider` - Execute all type definition providers.
@@ -44,28 +44,28 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 
 * _uri_ - Uri of a text document
 * _position_ - Position of a symbol
-* _(returns)_ - A promise that resolves to an array of Location-instance.
+* _(returns)_ - A promise that resolves to an array of Location instances.
 
 
 `vscode.executeHoverProvider` - Execute all hover provider.
 
 * _uri_ - Uri of a text document
 * _position_ - Position of a symbol
-* _(returns)_ - A promise that resolves to an array of Hover-instances.
+* _(returns)_ - A promise that resolves to an array of Hover instances.
 
 
 `vscode.executeDocumentHighlights` - Execute document highlight provider.
 
 * _uri_ - Uri of a text document
 * _position_ - Position in a text document
-* _(returns)_ - A promise that resolves to an array of DocumentHighlight-instances.
+* _(returns)_ - A promise that resolves to an array of DocumentHighlight instances.
 
 
 `vscode.executeReferenceProvider` - Execute reference provider.
 
 * _uri_ - Uri of a text document
 * _position_ - Position in a text document
-* _(returns)_ - A promise that resolves to an array of Location-instances.
+* _(returns)_ - A promise that resolves to an array of Location instances.
 
 
 `vscode.executeDocumentRenameProvider` - Execute rename provider.
@@ -87,7 +87,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 `vscode.executeDocumentSymbolProvider` - Execute document symbol provider.
 
 * _uri_ - Uri of a text document
-* _(returns)_ - A promise that resolves to an array of SymbolInformation-instances.
+* _(returns)_ - A promise that resolves to an array of SymbolInformation instances.
 
 
 `vscode.executeCompletionItemProvider` - Execute completion item provider.
@@ -96,21 +96,21 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 * _position_ - Position in a text document
 * _triggerCharacter_ - (optional) Trigger completion when the user types the character, like `,` or `(`
 * _itemResolveCount_ - (optional) Number of completions to resolve (too large numbers slow down completions)
-* _(returns)_ - A promise that resolves to a CompletionList-instance.
+* _(returns)_ - A promise that resolves to a CompletionList instance.
 
 
 `vscode.executeCodeActionProvider` - Execute code action provider.
 
 * _uri_ - Uri of a text document
 * _range_ - Range in a text document
-* _(returns)_ - A promise that resolves to an array of Command-instances.
+* _(returns)_ - A promise that resolves to an array of Command instances.
 
 
 `vscode.executeCodeLensProvider` - Execute CodeLens provider.
 
 * _uri_ - Uri of a text document
 * _itemResolveCount_ - (optional) Number of lenses that should be resolved and returned. Will only retrun resolved lenses, will impact performance)
-* _(returns)_ - A promise that resolves to an array of CodeLens-instances.
+* _(returns)_ - A promise that resolves to an array of CodeLens instances.
 
 
 `vscode.executeFormatDocumentProvider` - Execute document format provider.
@@ -140,7 +140,7 @@ let success = await commands.executeCommand('vscode.previewHtml', uri);
 `vscode.executeLinkProvider` - Execute document link provider.
 
 * _uri_ - Uri of a text document
-* _(returns)_ - A promise that resolves to an array of DocumentLink-instances.
+* _(returns)_ - A promise that resolves to an array of DocumentLink instances.
 
 
 `vscode.executeDocumentColorProvider` - Execute document color provider.
