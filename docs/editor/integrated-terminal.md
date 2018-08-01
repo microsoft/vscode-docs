@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -187,6 +187,8 @@ By default, the integrated terminal will render using multiple `<canvas>` elemen
 }
 ```
 
+Something else that might improve performance is to ignore Chromium's GPU blacklist by launching VS Code with `code --ignore-gpu-blacklist`.
+
 ## Next Steps
 
 The basics of the terminal have been covered in this document, read on to find out more about:
@@ -197,17 +199,17 @@ The basics of the terminal have been covered in this document, read on to find o
 
 ## Common Questions
 
-**Q. Why is VS Code shortcut X not working when the terminal has focus?**
+### Why is VS Code shortcut X not working when the terminal has focus?
 
-**A:** Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
+Currently the terminal consumes many key bindings, preventing Visual Studio Code from reacting to them. Some examples are `kbstyle(F1)` to open the **Command Palette** and `kbstyle(Ctrl+P)` for **Quick Open** on Linux and Windows. This is necessary as various terminal programs and/or shells may respond to these key bindings themselves. There are plans to explore a blacklist that would prevent certain key bindings from being handled by the terminal (see [#7269](https://github.com/Microsoft/vscode/issues/7269)).
 
-**Q: Integrated terminal exited with code 1 on Windows 10.**
+### Integrated terminal exited with code 1 on Windows 10
 
-**A:** This can happen if you run VS Code in compatibility mode which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
+This can happen if you run VS Code in compatibility mode which may be turned on automatically if you have upgraded Windows. You can change this by right-clicking the executable and selecting properties, then uncheck "Run this program in compatibility mode" in the compatibility tab.
 
-**Q: Can I use Cmder's shell with the terminal on Windows?**
+### Can I use Cmder's shell with the terminal on Windows?
 
-**A:** Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents (edit the cmder path if necessary):
+Yes, to use the [Cmder](http://cmder.net/) shell in VS Code, you need to create a `vscode.bat` file in your cmder path with the following contents (edit the cmder path if necessary):
 
 ```bat
 @echo off
@@ -224,17 +226,26 @@ then in your VS Code user settings, add the following to your `settings.json` fi
 "terminal.integrated.shellArgs.windows": ["/K", "C:\\cmder\\vscode.bat"]
 ```
 
-**Q: Powershell on macOS is complaining about a "-l" argument, how do I fix it?**
+### Can I use Cygwin's shell with the terminal on Windows?
 
-**A:** When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
+Yes, to use the [Cygwin](http://cygwin.com/) shell, you will first need to install the chere package and then add the following settings to your `settings.json` file:
+
+```json
+"terminal.integrated.shell.windows": "C:\\Cygwin\\bin\\bash.exe",
+"terminal.integrated.shellArgs.windows": ["/bin/xhere", "/bin/bash"]
+```
+
+### Powershell on macOS is complaining about a "-l" argument, how do I fix it?
+
+When configuring the integrated terminal to use Powershell on macOS you may hit [this error](https://github.com/Microsoft/vscode/issues/33022) complaining about a `"-l"` argument. To fix this you will need to override the shell args setting as it defaults to `["-l"]` to run login shells by default (for bash/zsh/etc.).
 
 ```js
 "terminal.integrated.shellArgs.osx": []
 ```
 
-**Q: How can I change my default Windows terminal back to PowerShell?**
+### How can I change my default Windows terminal back to PowerShell?
 
-**A:** If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), you can remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`).
+If you want to put the default Integrated Terminal shell back to the default (PowerShell on Windows), you can remove the shell override from your User [Settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`).
 
 For example, if you have set your default terminal to bash, you will find `terminal.integrated.shell.windows` in your `settings.json` pointing to your bash location.
 
@@ -244,7 +255,7 @@ For example, if you have set your default terminal to bash, you will find `termi
 
 Remove the entry to use the built-in VS Code default or set it to another shell executable path.
 
-**Q: Why is the terminal not working when running the 32-bit Windows client on 64-bit Windows?**
+### Why is the terminal not working when running the 32-bit Windows client on 64-bit Windows?
 
 The easy fix for this is to use the 64-bit version. If you must use the 32-bit version you need to use the `sysnative` path when configuring your paths instead of `System32`:
 
@@ -252,9 +263,9 @@ The easy fix for this is to use the 64-bit version. If you must use the 32-bit v
 "terminal.integrated.shell.windows": "C:\\WINDOWS\\sysnative\\cmd.exe",
 ```
 
-**Q: Why is Cmd+k/Ctrl+k not clearing the terminal?**
+### Why is Cmd+k/Ctrl+k not clearing the terminal?
 
-**A:** Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` keybindings rely on the VS Code keybinding priority system which defines which keybinding is active at any given time (user > extension > default). In order to fix this, you need to redefine your user keybinding which will have priority, preferably at the bottom of your user `keybindings.json` file:
+Normally `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` clears the terminal on macOS/Windows, but this can stop working when chord keybindings are added either by the user or extensions. The `kbstyle(Cmd+k)`/`kbstyle(Ctrl+k)` keybindings rely on the VS Code keybinding priority system which defines which keybinding is active at any given time (user > extension > default). In order to fix this, you need to redefine your user keybinding which will have priority, preferably at the bottom of your user `keybindings.json` file:
 
 macOS:
 
@@ -270,7 +281,7 @@ Windows:
                                      "when": "terminalFocus" },
 ```
 
-### Why is nvm complaining about a prefix option when the Integrated Terminal is launched
+### Why is nvm complaining about a prefix option when the Integrated Terminal is launched?
 
 nvm (Node Version Manager) users often see this error for the first time inside VS Code's Integrated Terminal:
 
@@ -303,3 +314,13 @@ From there, removing the files and relaunching VS Code should fix the issue:
 ```bash
 rm -R /usr/local/bin/npm /usr/local/lib/node_modules/npm/bin/npm-cli.js
 ```
+
+### Can I use Powerline fonts in the Integrated Terminal?
+
+Yes, you can specify [Powerline](https://powerline.readthedocs.io) fonts with the `terminal.integrated.fontFamily` [setting](/docs/getstarted/settings.md).
+
+```json
+"terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline"
+```
+
+Note that you want to specify the font family, not an individual font like **Meslo LG M DZ Regular for Powerline** where **Regular** is the specific font name.

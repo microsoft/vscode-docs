@@ -3,20 +3,18 @@ Order: 4
 Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
-PageTitle: Debugging Python with Visual Studio Code
-DateApproved: 06/21/2018
-MetaDescription: Debugging Python with Visual Studio Code
+PageTitle: Python debugging configurations in Visual Studio Code
+DateApproved: 07/30/2018
+MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
-# Debugging Python with VS Code
+# Python debugging configurations in VS Code
 
-The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](python-tutorial.md#configure-and-run-the-debugger).
+The Python extension supports debugging of a number of types of Python applications. For a short walkthrough of basic debugging, see [Tutorial - Configure and run the debugger](/docs/python/python-tutorial.md#configure-and-run-the-debugger). Also see the [Flask tutorial](/docs/python/tutorial-flask.md). Both tutorials demonstrate core skills like setting breakpoints and stepping through code.
 
-To familiarize yourself with VS Code's general debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, and more, review [VS Code debugging](/docs/editor/debugging.md). This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging configurations.
+To familiarize yourself with VS Code's *general* debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, loading symbols, and more, review [VS Code debugging](/docs/editor/debugging.md).
 
-## Initializing Python debugging configurations
-
-The behavior of the VS Code debugger when working with Python is driven by a *configuration*. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
+This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*. A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
 
 To initialize debug configurations, first select the Debug View in the sidebar:
 
@@ -30,7 +28,7 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. In the list of debuggers that appears, select **Python**. (You can also use **Python Experimental** if you'd like, which is work in progress. See [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub).)
+1. In the list of debuggers that appears, select **Python**. (You can also use **Python Experimental** if you'd like, which is work in progress. See [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub). The experimental debugger is faster and also supports [Logpoints](/docs/editor/debugging.md#logpoints).)
 
 1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations.
 
@@ -57,7 +55,7 @@ While debugging, the Status Bar shows the current configuration on the lower lef
 
 ![Debugging Status Bar](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
+By default, the debugger uses the same `python.pythonPath` Workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
 
 > **Note**: The debugger settings don't support relative paths, including when relying on the main `python.pythonPath` setting. To work around this, use an environment variable, or create a variable such as `${workspaceFolder}` that resolves to your project folder, then use that variable in the path, as in `"python.pythonPath": "${workspaceFolder}/venv/bin/python"`.
 
@@ -183,6 +181,10 @@ Sets optional environment variables for the debugger process beyond system envir
 
 Optional path to a file that contains environment variable definitions. See [Configuring Python environments - environment variable definitions file](/docs/python/environments.md#environment-variable-definitions-file).
 
+### `gevent`
+
+If set to `true`, enables debugging of [gevent monkey-patched code](http://www.gevent.org/intro.html).
+
 ## Remote debugging
 
 Remote debugging allows you to step through a program locally within VS Code while it runs on a remote computer. It is not necessary to install VS Code on the remote computer.
@@ -261,21 +263,23 @@ In some cases you may want or need to use a secure connection to the remote comp
 
 On the remote computer:
 
-1. Enable port forwarding by opening the `sshd_config` config file (found under `/etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) and modifying the following setting:
+1. Enable port forwarding by opening the `sshd_config` config file (found under `/etc/ssh/` on Linux and under `%programfiles(x86)%/openssh/etc` on Windows) and adding or modifying the following setting:
 
     ```
     AllowTcpForwarding yes
     ```
 
-1. Start the program and let it wait at the `ptvsd.wait_for_attach()` call as described in the previous section.
+1. Restart the ssh server. On Linux/MacOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
+
+1. Start the Python program and let it wait at the `ptvsd.wait_for_attach()` call as described in the previous section.
 
 On the local computer:
 
-1. Run `ssh -L sourceport:localhost:destinationport user@remoteaddress` using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`. For example, to use port 3000 on IP address 1.2.3.4, the command would be `ssh -L 3000:localhost:3000 user@1.2.3.4`.
+1. Create an SSH tunnel by running `ssh -L sourceport:localhost:destinationport user@remoteaddress`, using a selected port for `destinationport` and the appropriate username and the remote computer's IP address in `user@remoteaddress`. For example, to use port 3000 on IP address 1.2.3.4, the command would be `ssh -L 3000:localhost:3000 user@1.2.3.4`.
 
 1. Verify that you can see a prompt in the SSH session.
 
-1. In VS Code, set the port in the debug configuration of `launch.json` to match the port used in the `ssh` command.
+1. In VS Code, set the port in the debug configuration of `launch.json` to match the port used in the `ssh` command and set the host to `localhost`. You use `localhost` here because you've set up the SSH tunnel.
 
 1. Launch the program and attach the debugger as described in the previous section.
 
@@ -295,6 +299,7 @@ The configuration drop-down provides a variety of different options for general 
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
 | Scrapy | Specifies `"program": "~/.virtualenvs/scrapy/bin/scrapy"`, adds the `"console": "integratedTerminal"` option, and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Attach (Remote Debug) | See [Remote debugging](#remote-debugging) in the previous section. |
+| Gevent (Python Experimental only) | Sets `gevent` to `true` and `type` to `pythonExperimental`. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 

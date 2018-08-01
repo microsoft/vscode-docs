@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Multi-root Workspaces
 ContentId: 8d55f6b8-977f-4c26-a888-f3d8d982dd2d
 PageTitle: Multi-root Workspaces in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: You can open and work on multiple project folders in Visual Studio Code with multi-root workspaces.
 ---
 # Multi-root Workspaces
@@ -198,7 +198,7 @@ Unsupported editor-wide folder settings will show as grayed out in your folder s
 
 ## Debugging
 
-With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionaly VS Code will also display launch configurations defined in the workspace configuration file.
+With multi-root workspaces, VS Code searches across all folders for `launch.json` debug configuration files and displays them with the folder name as a suffix. Additionally VS Code will also display launch configurations defined in the workspace configuration file.
 
 ![debugging dropdown](images/multi-root-workspaces/debugging-dropdown.png)
 
@@ -277,7 +277,7 @@ Similar to how VS Code searches for debugging configurations, VS Code will also 
 
 ![tasks dropdown](images/multi-root-workspaces/tasks-dropdown.png)
 
-From the TSList extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslist-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
+From the TSLint extension [Workspace](https://github.com/Microsoft/vscode-tslint/blob/master/vscode-tslint.code-workspace) example above, you can see that there are two **configured tasks** from `tasks.json` files in the `tslint` and `tslint-tests` folders and numerous autodetected npm and TypeScript compiler **detected tasks**.
 
 ## Source Control
 
@@ -328,10 +328,10 @@ VS Code supports folder level extension recommendations through the `extensions.
 
 ## Common Questions
 
-**Q: How can I go back to working with a single project folder?**
+### How can I go back to working with a single project folder?
 
 You can either close the Workspace and open the folder directly or remove the folder from Workspace.
 
-**Q: As an extension author what do I need to do?**
+### As an extension author what do I need to do?
 
 See our [Adopting Multi Root Workspace APIs](https://github.com/Microsoft/vscode/wiki/Extension-Authoring:-Adopting-Multi-Root-Workspace-APIs) guide. Most extensions can easily support multi-root workspaces.

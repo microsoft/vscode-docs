@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -66,15 +66,15 @@ A set of colors for button widgets such as **Open Folder** button in the Explore
 
 ## Dropdown Control
 
-A set of colors for all dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
-dropdown control is not used on macOS currently.
+A set of colors for all Dropdown widgets such as in the Integrated Terminal or the Output panel. Note that the
+Dropdown control is not used on macOS currently.
 
-![drop down control](images/theme-color-reference/dropdown.png)
+![drop down control](images/theme-color-reference/Dropdown.png)
 
-- `dropdown.background`: Dropdown background.
-- `dropdown.listBackground`: Dropdown list background.
-- `dropdown.border`: Dropdown border.
-- `dropdown.foreground`: Dropdown foreground.
+- `Dropdown.background`: Dropdown background.
+- `Dropdown.listBackground`: Dropdown list background.
+- `Dropdown.border`: Dropdown border.
+- `Dropdown.foreground`: Dropdown foreground.
 
 ## Input Control
 
@@ -533,3 +533,23 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `gitDecoration.ignoredResourceForeground`: Color for ignored Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.conflictingResourceForeground`: Color for conflicting Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.submoduleResourceForeground`: Color for submodule resources.
+
+## Settings Editor Colors
+
+**Note:** These colors are for the GUI settings editor which can be opened with the `Preferences: Open Settings (Preview)` command.
+
+- `settings.headerForeground`: The foreground color for a section header or active title.
+- `settings.modifiedItemForeground`: The foreground color for a the modified setting indicator.
+- `settings.inactiveSelectedItemBorder`: The color of the selected setting row border, when the settings list does not have focus.
+- `settings.dropdownBackground`: Dropdown background.
+- `settings.dropdownForeground`: Dropdown foreground.
+- `settings.dropdownBorder`: Dropdown border.
+- `settings.checkboxBackground`: Checkbox background.
+- `settings.checkboxForeground`: Checkbox foreground.
+- `settings.checkboxBorder`: Checkbox border.
+- `settings.textInputBackground`: Text input box background.
+- `settings.textInputForeground`: Text input box foreground.
+- `settings.textInputBorder`: Text input box border.
+- `settings.numberInputBackground`: Number input box background.
+- `settings.numberInputForeground`: Number input box foreground.
+- `settings.numberInputBorder`: Number input box border.

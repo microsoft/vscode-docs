@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: React Tutorial
 ContentId: 2dd2eeff-2eb3-4a0c-a59d-ea9a0b10c468
 PageTitle: React JavaScript Tutorial in VS Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: React JavaScript tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: /assets/images/nodejs_javascript_vscode.png
 ---
@@ -264,8 +264,8 @@ If you're curious about TypeScript and React, you can also create a TypeScript v
 
 ## Common Questions
 
-**Q: Can I get IntelliSense within declarative JSX?**
+### Can I get IntelliSense within declarative JSX?
 
-**A:** Yes. For example, if you open the `create-react-app` project's `App.js` file, you can see IntelliSense within the React JSX in the `render()` method.
+Yes. For example, if you open the `create-react-app` project's `App.js` file, you can see IntelliSense within the React JSX in the `render()` method.
 
 ![JSX IntelliSense](images/reactjs/jsx-intellisense.png)

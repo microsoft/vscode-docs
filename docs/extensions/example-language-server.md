@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Example-Language Server
 ContentId: A8CBE8D6-1FEE-47BF-B81E-D79FA0DB5D03
 PageTitle: Creating Language Servers for Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Learn how to create Language Servers for Visual Studio Code.  These can be used to easily integrate existing Linters into VS Code.
 ---
 
@@ -16,7 +16,7 @@ Language Server is a special kind of extension that powers the editing experienc
 
 However, while implementing support for language features in VS Code, we found three common problems:
 
-First, Language Servers are usually implemented in ther native programming languages, and that presents a challenge in integrating them with VS Code which has a Node.js runtime.
+First, Language Servers are usually implemented in their native programming languages, and that presents a challenge in integrating them with VS Code which has a Node.js runtime.
 
 Additionally, language features can be resource intensive. For example, to correctly validate a file, Language Server needs to parse a large amount of files, build up Abstract Syntax Trees for them and perform static program analysis. Those operations could incur significant CPU and memory usage and we need to ensure that VS Code's performance remains unaffected.
 
@@ -506,8 +506,8 @@ documents.onDidChangeContent(async (change) => {
 
 ### Diagnostics Tips and Tricks
 
-* If the start and end positions are the same, VS Code will squiggle the word at that position.
-* If you want to squiggle until the end of the line, then set the character of the end position to Number.MAX_VALUE.
+* If the start and end positions are the same, VS Code will underline with a squiggle the word at that position.
+* If you want to underline with a squiggle until the end of the line, then set the character of the end position to Number.MAX_VALUE.
 
 To run the Language Server, do the following:
 
@@ -923,10 +923,10 @@ When we were improving PHP support in VS Code, we realized the official PHP pars
 
 ## Common Questions
 
-**Q: When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?**
+### When I try to attach to the server, I get "cannot connect to runtime process (timeout after 5000ms)"?
 
-**A:** You will see this timeout error if the server isn't running when you try to attach the debugger.  The client starts the language server so make sure you have started the client in order to have a running server. You may also need to disable your client breakpoints if they are interfering with starting the server.
+You will see this timeout error if the server isn't running when you try to attach the debugger.  The client starts the language server so make sure you have started the client in order to have a running server. You may also need to disable your client breakpoints if they are interfering with starting the server.
 
-**Q: I have read through this guide and the [LSP Specification](https://microsoft.github.io/language-server-protocol/), but I still have unresolved questions. Where can I get help?**
+### I have read through this guide and the [LSP Specification](https://microsoft.github.io/language-server-protocol/), but I still have unresolved questions. Where can I get help?
 
-**A:** Please open an issue at https://github.com/Microsoft/language-server-protocol.
+Please open an issue at https://github.com/Microsoft/language-server-protocol.

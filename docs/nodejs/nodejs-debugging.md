@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -255,7 +255,7 @@ In addition to Node.js processes, the picker also shows other programs that were
 
 ### Setting up an "Attach" configuration
 
-This option requires more work but in contrast to the previous two options it allows you to configure various debug configuration options explicitely.
+This option requires more work but in contrast to the previous two options it allows you to configure various debug configuration options explicitly.
 
 The simplest "attach" configuration looks like this:
 
@@ -609,9 +609,9 @@ To write your own debugger extension, visit:
 
 ## Common Questions
 
-**Q: Can I debug if I'm using symlinks?**
+### Can I debug if I'm using symlinks?
 
-**A:** Yes, if you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` [switch](https://nodejs.org/api/cli.html#cli_preserve_symlinks) in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
+Yes, if you've created symlinks with `npm link`, you can debug symlink sources by telling the Node.js runtime to honor those symlinks. Use the node.exe `--preserve-symlinks` [switch](https://nodejs.org/api/cli.html#cli_preserve_symlinks) in your launch configuration `runtimeArgs` attribute. `runtimeArgs`, an array of strings, are passed to the debugging session runtime executable, which defaults to node.exe.
 
 ```json
 {

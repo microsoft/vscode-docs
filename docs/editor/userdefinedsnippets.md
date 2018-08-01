@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Creating snippets
 ContentId: 79CD9B45-97FF-48B1-8DD5-2555F56206A6
 PageTitle: Creating your own snippets in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: It is easy to add code snippets to Visual Studio Code both for your own use or to share with others on the public Extension Marketplace. TextMate .tmSnippets files are supported.
 ---
 # Creating your own snippets
@@ -145,8 +145,8 @@ The following example inserts the name of the current file without its ending, s
 
 ```
 ${TM_FILENAME/(.*)\\..+$/$1/}
-  |           |         | |
-  |           |         | |-> no options
+  |           |         |  |
+  |           |         |  |-> no options
   |           |         |
   |           |         |-> references the contents of the first
   |           |             capture group
@@ -164,6 +164,17 @@ The inserted text is matched with the regular expression and the match or matche
 Every occurrence of a placeholder can define its own transformation independently using the value of the first placeholder.
 The format for Placeholder-Transforms is the same as for Variable-Transforms.
 
+### Transform Examples
+
+The examples are shown within double quotes, as they would appear inside a snippet body, to illustrate the need to double escape certain characters. Sample transformations and the resulting output for the filename `example-123.456-TEST.js`.
+
+Example | Output | Explanation
+-------------|--------|------------
+`"${TM_FILENAME/[\\.]/_/}"` | `example-123_456-TEST.js` | Replace the first `.` with `_`
+`"${TM_FILENAME/[\\.-]/_/g}"` | `example_123_456_TEST_js` | Replace each `.` or `-` with `_`
+`"${TM_FILENAME/(.*)/${1:/upcase}/}"` | `EXAMPLE-123.456-TEST.JS` | Change to all upperacse
+`"${TM_FILENAME/[^0-9^a-z]//gi}"` | `example123456TESTjs` | Remove non-alphanumeric characters
+
 ### Grammar
 
 Below is the EBNF ([extended Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus-Naur_form)) for snippets. With `\` (backslash), you can escape `$`, `}` and `\`. Within choice elements, the backslash also escapes comma and pipe characters.
@@ -175,7 +186,7 @@ tabstop     ::= '$' int
                 | '${' int  transform '}'
 placeholder ::= '${' int ':' any '}'
 choice      ::= '${' int '|' text (',' text)* '|}'
-variable    ::= '$' var | '${' var }'
+variable    ::= '$' var | '${' var '}'
                 | '${' var ':' any '}'
                 | '${' var transform '}'
 transform   ::= '/' regex '/' (format | text)+ '/' options
@@ -234,6 +245,6 @@ Also, instead of using the `snippet` argument value to define your snippet inlin
 
 ## Common Questions
 
-**Q: What if I want to use existing TextMate snippets from a .tmSnippet file?**
+### What if I want to use existing TextMate snippets from a .tmSnippet file?
 
-**A:** You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) in our Extension Authoring documentation.
+You can easily package TextMate snippets files for use in VS Code. See [Using TextMate Snippets](/docs/extensions/themes-snippets-colorizers.md#using-textmate-snippets) in our Extension Authoring documentation.

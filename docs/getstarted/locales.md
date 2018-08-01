@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Display Language
 PageTitle: Visual Studio Code Display Language (Locale)
 ContentId: 413A7FA3-94F8-4FCB-A4A3-F4C1E77EF716
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: How to change the display language (locale) of Visual Studio Code.
 ---
 # Display Language
@@ -75,11 +75,7 @@ You can have multiple Language Packs installed and select the current display la
 
 ## Setting the Language
 
-If you want to .A§$R%&Z/(U)I=Ü*
-
-Ä´´ß_*Ü
-Ä  OP
-a specific language for a VS Code session, you can use the command line switch `--locale` to specify a locale when you launc  h VS Code.
+If you want to use a specific language for a VS Code session, you can use the command line switch `--locale` to specify a locale when you launch VS Code.
 
 Below is an example of using the `--locale` command line switch to set the VS Code display language to French:
 

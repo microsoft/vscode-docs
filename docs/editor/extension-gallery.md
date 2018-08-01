@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Extension Marketplace
 ContentId: 319916C4-93F2-471F-B448-FD416736C40C
 PageTitle: Managing Extensions in Visual Studio Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
 # VS Code Extension Marketplace
@@ -232,9 +232,9 @@ Here are a few topics you may find interesting...
 
 ## Common questions
 
-**Q: Where are extensions installed?**
+### Where are extensions installed?
 
-**A**: Extensions are installed in a per user extensions folder. Depending on your platform, the location is in the following folder:
+Extensions are installed in a per user extensions folder. Depending on your platform, the location is in the following folder:
 
 * **Windows** `%USERPROFILE%\.vscode\extensions`
 * **macOS** `~/.vscode/extensions`
@@ -242,21 +242,21 @@ Here are a few topics you may find interesting...
 
 You can change the location by launching VS Code with the `--extensions-dir <dir>` command line [option](/docs/editor/command-line.md).
 
-**Q: Whenever I try to install any extension, I get a connect ETIMEDOUT error.**
+### Whenever I try to install any extension, I get a connect ETIMEDOUT error
 
-**A:** You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in SETUP topic for details.
+You may see this error if your machine is going through a proxy server to access the Internet.  See the [Proxy server support](/docs/setup/network.md#proxy-server-support) section in SETUP topic for details.
 
-**Q: Can I download an extension directly from the Marketplace?**
+### Can I download an extension directly from the Marketplace?
 
-**A:** Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
+Some users prefer to download an extension once from the Marketplace and then install it multiple times from a local share. This is useful when there are connectivity concerns or if your development team wants to use a fixed set of extensions.
 
 To download an extension, navigate to the details page for the specific extension within the [Marketplace](https://marketplace.visualstudio.com/vscode). On that page, there is a **Download Extension** link in the **Resources** section which is located on the right hand side of the page.
 
 Once downloaded, you can then install the extension via the **Install from VSIX...** command in the Extensions view command drop-down.
 
-**Q: Can I stop VS Code from providing extension recommendations?**
+### Can I stop VS Code from providing extension recommendations?
 
-**A:** Yes, if you would prefer to not have VS Code display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
+Yes, if you would prefer to not have VS Code display extension recommendations in the Extensions view or through notifications, you can modify the following settings:
 
 * `extensions.showRecommendationsOnlyOnDemand` - Set to true to remove the **RECOMMENDED** section.
 * `extensions.ignoreRecommendations` - Set to true to silence extension recommendation notifications.

@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, Sass and Less support in VS Code
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
 # CSS, Sass and Less
@@ -319,10 +319,10 @@ Read on to find out about:
 
 ## Common Questions
 
-**Q: Do you provide a color picker?**
+### Does VS Code provide a color picker?
 
-**A:** Yes, color picker has been added in version 1.15.
+Yes, color picker has been added in version 1.15.
 
-**Q: Do you support the indentation based Sass syntax (.sass) ?**
+### Is there support for the indentation based Sass syntax (.sass)?
 
-**A:** No, but there are several extensions in the Marketplace supporting the indented flavor of Sass.
+No, but there are several extensions in the Marketplace supporting the indented flavor of Sass.

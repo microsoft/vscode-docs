@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 6/6/2018
+DateApproved: 7/5/2018
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -281,6 +281,31 @@ config.editor.minimap.enabled | True when the setting `editor.minimap.enabled` i
 
 The list above isn't exhaustive and you may see some `when` contexts for specific VS Code UI in the **Default Keyboard Shortcuts**.
 
+### Active view or panel 'when' clause context
+
+You can have a keybinding that is enabled only when a specific view or panel is visible.
+
+Context name | True when
+------------ | ------------
+activeViewlet | True when view is visible. Example: `"activeViewlet == 'workbench.view.explorer'"`
+activePanel | True when panel is visible. Example: `"activePanel == 'workbench.panel.output'"`
+
+View Identifiers:
+
+* workbench.view.explorer - File Explorer
+* workbench.view.search - Search
+* workbench.view.scm - Source Control
+* workbench.view.debug - Debug
+* workbench.view.extensions - Extensions
+
+Panel Identifiers:
+
+* workbench.panel.match - Problems
+* workbench.panel.output - Output
+* workbench.panel.repl - Debug Console
+* workbench.panel.terminal - Integrated Terminal
+* workbench.panel.comments - Comments
+
 ## Custom Keybindings for Refactorings
 
 The `editor.action.codeAction` command lets you configure keybindings for specific [Refactorings](/docs/editor/refactoring.md) (Code Actions). For example, the keybinding below triggers the **Extract function** refactoring Code Actions:
@@ -533,15 +558,15 @@ Now that you know about our Key binding support, what's next...
 
 ## Common Questions
 
-**Q: How to find out what command is bound to a specific key?**
+### How can I find out what command is bound to a specific key?
 
-**A:** In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
+In the **Default Keyboard Shortcuts**, open `Quick Outline` by pressing `kb(workbench.action.gotoSymbol)`
 
 ![Key bindings quick outline](images/keybinding/outline.png)
 
-**Q: How to add a key binding to an action? For example add Ctrl+D to Delete Lines**
+### How to add a key binding to an action? For example, add Ctrl+D to Delete Lines
 
-**A:** Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
+Find a rule that triggers the action in the **Default Keyboard Shortcuts** and write a modified version of it in your `keybindings.json` file:
 
 ```json
 // Original, in Default Keyboard Shortcuts
@@ -552,15 +577,15 @@ Now that you know about our Key binding support, what's next...
                                      "when": "editorTextFocus" },
 ```
 
-**Q: How can I add a key binding for only certain file types?**
+### How can I add a key binding for only certain file types?
 
-**A:** Use the `editorLangId` context key in your `when` clause:
+Use the `editorLangId` context key in your `when` clause:
 
 ```json
 { "key": "shift+alt+a",           "command": "editor.action.blockComment",
                                      "when": "editorTextFocus && editorLangId == csharp" },
 ```
 
-**Q: I have modified my key bindings in `keybindings.json`, why don't they work?**
+### I have modified my key bindings in `keybindings.json`, why don't they work?
 
-**A:** The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.
+The most common problem is a syntax error in the file. Otherwise, try removing the `when` clause or picking a different `key`. Unfortunately, at this point, it is a trial and error process.

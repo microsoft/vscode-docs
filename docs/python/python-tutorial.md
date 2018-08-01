@@ -1,14 +1,14 @@
 ---
 Order: 1
 Area: python
-TOCTitle: Python Tutorial
+TOCTitle: Tutorial
 ContentId: 77828f36-ae45-4887-b25c-34545edd52d3
-PageTitle: Get Started Tutorial with Python in Visual Studio Code
-DateApproved: 06/20/2018
+PageTitle: Get Started Tutorial for Python in Visual Studio Code
+DateApproved: 07/30/2018
 MetaDescription: A Python hello world tutorial using the Python extension in Visual Studio Code (a great Python IDE like PyCharm, if not the best Python IDE)
 MetaSocialImage: images/tutorial/social.png
 ---
-# Getting Started with Python
+# Getting Started with Python in VS Code
 
 In this tutorial you use Python 3 to create the simplest Python "Hello World" application in Visual Studio Code. By using the Python extension, you make VS Code into a great lightweight Python IDE (which you may find a productive alternative to PyCharm).
 
@@ -97,7 +97,7 @@ The command opens a terminal panel in which your Python interpreter is automatic
 
 There are two other ways you can run Python within VS Code:
 
-- Select one or more lines, then press `kbstyle(Ctrl+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is very convenient for testing just a part of a file.
+- Select one or more lines, then press `kbstyle(Shift+Enter)` or right-click and select **Run Selection/Line in Python Terminal**. This command is very convenient for testing just a part of a file.
 - Use the **Python: Start REPL** command to opens a REPL terminal for the currently selected Python interpreter. In the REPL you can then enter and run lines of code one at a time.
 
 ## Configure and run the debugger
@@ -122,7 +122,7 @@ The command opens a menu of available debuggers, which shows **Python** and **Py
 
 **Note**: VS Code uses JSON files for all of its various configurations; `launch.json` is the standard name for a file containing debugging configurations.
 
-These different configurations are fully explained in [Debugging](/docs/python/debugging.md); for now, just select "Python: Current File", which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
+These different configurations are fully explained in [Debugging configurations](/docs/python/debugging.md); for now, just select "Python: Current File", which is the configuration that runs the current file shown in the editor using the currently selected Python interpreter.
 
 To automatically stop the debugger on the first line when the program starts, add a `"stopOnEntry": true` setting to the "Python: Current File" configuration in `launch.json`, so that the whole configuration appears as follows:
 
@@ -166,7 +166,9 @@ If you restart the debugger, remember that you set `stopOnEntry` in the configur
 
 To stop running a program before it's complete, use the red square stop button on the debug toolbar (`kb(workbench.action.debug.stop)`), or use the **Debug > Stop debugging** menu command.
 
-For full details, see [Debugging](/docs/python/debugging.md), which includes details on how to use a use a specific Python interpreter for debugging.
+For full details, see [Debugging configurations](/docs/python/debugging.md), which includes details on how to use a use a specific Python interpreter for debugging.
+
+> **Tip: Use Logpoints instead of print statements**: Developers often litter source code with `print` statements to quickly inspect variables without necessarily stepping through each line of code in a debugger. In VS Code, you can instead use **Logpoints** if you choose the **Python Experimental** debugger. A Logpoint is like a breakpoint except that it logs a message to the console and doesn't stop the program. For more information, see [Logpoints](/docs/editor/debugging.md#logpoints) in the main VS Code debugging article.
 
 ### Troubleshooting
 
@@ -225,25 +227,27 @@ plt.show()                   # Display the plot
 
 Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section. (If you still have `"stopOnEntry": true` in that configuration, you need to select the run command again to continue.)
 
-Unless you're using an Anaconda distribution or have previously installed the matplotlib package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'".
+Unless you're using an Anaconda distribution or have previously installed the matplotlib package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
-To install that packages (which also installed numpy), switch to the **Terminal** that is already open (the terminal type should be "Python Debug Console" indicating that it has the selected interpreter activated). Then enter the following commands as appropriate for your operating system:
+To install the matplotlib package (which also installs numpy), stop the debugger and run **Python: Create Terminal** from the Command Palette, which opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system:
 
 ```bash
+# Mac
+pip3 install matplotlib
+
 # Windows
 pip install matplotlib
-
-# MacOS
-pip3 install matplotlib
 
 # Linux
 sudo apt-get install python3-tk
 pip3 install matplotlib
 ```
 
-Rerun the program now and after a few moments a plot window appears with the output:
+Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
 ![matplotlib output](images/tutorial/plot-output.png)
+
+> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ## Next steps
 

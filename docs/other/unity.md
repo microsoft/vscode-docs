@@ -77,9 +77,9 @@ Read on to learn more about:
 
 ## Common Questions
 
-**Q: I don't have IntelliSense.**
+### I don't have IntelliSense
 
-**A:** You need to ensure that your solution is open in VS Code (not just a single file).  Open the folder with your solution and you usually will not need to do anything else.  If for some reason VS Code has not selected the right solution context, you can change the selected project by clicking on the OmniSharp flame icon on the status bar.
+You need to ensure that your solution is open in VS Code (not just a single file).  Open the folder with your solution and you usually will not need to do anything else.  If for some reason VS Code has not selected the right solution context, you can change the selected project by clicking on the OmniSharp flame icon on the status bar.
 
 ![OmniSharp Flame on the Status Bar](images/unity/omnisharp.png)
 
@@ -87,9 +87,9 @@ Choose the `-CSharp` version of the solution file and VS Code will light up.
 
 ![Choose Solution](images/unity/selectsln.png)
 
-**Q: How can I change the file exclusions?**
+### How can I change the file exclusions?
 
-**A:** Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
+Unity creates a number of additional files that can clutter your workspace in VS Code.  You can easily hide these so that you can focus on the files you actually want to edit.
 
 To do this, add the following JSON to your [workspace settings](/docs/getstarted/settings.md).
 
@@ -120,6 +120,6 @@ Before|After
 ------|-----
 ![Unfiltered files](images/unity/unfilteredfiles.png)|![filtered files](images/unity/filteredfiles.png)
 
-**Q: How can I debug Unity?**
+### How can I debug Unity?
 
-**A:** Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension.
+Install the [Debugger for Unity](https://marketplace.visualstudio.com/items/Unity.unity-debug) extension.
