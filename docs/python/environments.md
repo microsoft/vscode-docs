@@ -32,14 +32,14 @@ For this reason, developers often create a *virtual environment* for any given p
 
 To create a virtual environment, use the following command, where "env" is the name of the environment folder:
 
-    ```bash
-    # Mac/Linux
-    # You may need to run sudo apt-get install python3-venv first
-    python3 -m venv env
+```bash
+# Mac/Linux
+# You may need to run sudo apt-get install python3-venv first
+python3 -m venv env
 
-    # Windows
-    py -3 -m venv env
-    ```
+# Windows
+py -3 -m venv env
+```
 
 The next section describes how to select an environment, include virtual environments. For an example of using a virtual environment in a project, see the [Flask tutorial](/docs/python/tutorial-flask.md).
 
