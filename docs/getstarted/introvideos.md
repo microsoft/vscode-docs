@@ -16,7 +16,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 
 <ul class="video-list">
 	<li class="video">
-		<a href="/docs/introvideos/basics">
+		<a href="/docs/introvideos/basics.md">
 			<img src="https://img.youtube.com/vi/Sdg0ef2PpBw/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Getting started</h2>
@@ -26,7 +26,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/configure">
+		<a href="/docs/introvideos/configure.md">
 			<img src="https://img.youtube.com/vi/4wVF4w_53hs/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Customize</h2>
@@ -36,7 +36,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/extend">
+		<a href="/docs/introvideos/extend.md">
 			<img src="https://img.youtube.com/vi/Fed01v3yYNE/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Extensions</h2>
@@ -46,7 +46,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/codeediting">
+		<a href="/docs/introvideos/codeediting.md">
 			<img src="https://img.youtube.com/vi/rsatrlBEFFA/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Code Editing</h2>
@@ -56,7 +56,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/intellisense">
+		<a href="/docs/introvideos/intellisense.md">
 			<img src="https://img.youtube.com/vi/lSPHucggmLo/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">IntelliSense</h2>
@@ -66,7 +66,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/debugging">
+		<a href="/docs/introvideos/debugging.md">
 			<img src="https://img.youtube.com/vi/2oFKNL7vYV8/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Debugging</h2>
@@ -76,7 +76,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 		</a>
 	</li>
 	<li class="video">
-		<a href="/docs/introvideos/versioncontrol">
+		<a href="/docs/introvideos/versioncontrol.md">
 			<img src="https://img.youtube.com/vi/AKNYgP0yEOY/mqdefault.jpg" alt aria-hidden="true" class="thumb"/>
 			<div class="info">
 				<h2 class="title faux-h3">Version Control</h2>
