@@ -37,12 +37,6 @@ The [Azure Storage](https://marketplace.visualstudio.com/items?itemName=ms-azure
 
 > <a class="tutorial-install-extension-btn" href="vscode:extension/ms-azuretools.vscode-azurestorage">Install the Azure Storage extension</a>
 
-Once installed, open your [settings](/docs/getstarted/settings.md) (`kb(workbench.action.openSettings)`) and enable static website hosting for the extension by adding the following to `settings.json`.
-
-```json
-"azureStorage.preview.staticWebsites": true
-```
-
 ## Sign in
 
 Once the extension is installed, log into your Azure account - in the Activity Bar, click on the Azure logo to show the **AZURE STORAGE** explorer. Click **Sign in to Azure...** and follow the instructions.
@@ -58,10 +52,10 @@ Before we continue, ensure that you have all the prerequisites installed and con
 
 ```bash
 node -v
-v8.7.0
+v8.11.3
 
 npm -v
-5.4.2
+6.3.0
 ```
 
 to ensure that both Node.js and npm are installed.
