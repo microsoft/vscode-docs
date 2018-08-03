@@ -49,6 +49,12 @@ xattr -dr com.apple.quarantine Visual\ Studio\ Code.app
 
 **Note:** On Insiders, the folder should be named `code-insiders-portable-data`.
 
+## Update Portable VS Code
+
+On **Windows** and **Linux**, you can update VS Code by copying the `data` folder over to a more recent version of VS Code.
+
+On **macOS**, automatic updates should work as always, no extra work needed.
+
 ## Migrate to Portable Mode
 
 You can also migrate an existing installation to Portable mode:
