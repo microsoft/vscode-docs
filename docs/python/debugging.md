@@ -191,7 +191,7 @@ An array of additional options that may contain the following:
 | `"DebugStdLib"` | Enabled debugging of standard library functions. |
 | `"Django"` | Activates debugging features specific to the Django web framework. |
 | `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
-| `"Pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary pserve command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+| `"Pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
 
 ### `env`
 
@@ -243,7 +243,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Local computer: switch to Debug View in VS Code, select the **Python: Attach** configuration, then select the settings (gear) icon to open `launch.json` to that configuration.
 
-1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host`, `port`, and `secret` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration that include the IP address. For example:
+1. Local computer: Modify the configuration so that `remoteRoot` provides the location of the program on the remote computer's file system. Also modify `host`, `port`, and `secret` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration and the IP address. For example:
 
     ```js
     {
@@ -313,7 +313,7 @@ The configuration drop-down provides a variety of different options for general 
 | Django | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver", "--noreload", "--nothreading"]`, and `"console": "integratedTerminal"`. Also adds `"django": true` to enable debugging of Django HTML templates. Note that automatic reloading of Django apps is not possible while debugging. |
 | Flask | See [Flask debugging](#flask-debugging) below. |
 | Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
-| Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary pserve command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+| Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
 | PySpark | Runs the program using PySpark instead of the default interpreter, using platform-specific values for `pythonPath` as shown earlier under the [pythonPath option](#pythonpath). |
 | Scrapy | Specifies `"module": "scrapy"`  and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
