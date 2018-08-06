@@ -294,6 +294,20 @@ By using the `PickProcess` variable the launch configuration looks like this:
 }
 ```
 
+## Stop debugging
+
+Using the **Debug: Stop** action (available in the debug toolbar or via F1) stops the debug session.
+
+If the debug session has been started in "attach" mode (and the red terminate button in the debug toolbar shows an superimposed "plug"), pressing "Stop" disconnects the Node.js debugger from the debuggee which then continues execution.
+
+If the debug session is in "launch" mode, pressing "Stop" does the following:
+
+When pressing "Stop" for the first time, the debuggee is requested to shutdown itself gracefully by sending a `SIGINT` signal. The debuggee is free to intercept this signal, e.g. to clean up everything as necessary and then shutdown itself. If there are no breakpoints (or problems) in that shutdown code, the debuggee and the debug session will terminate.
+
+But if the debugger hits a breakpoint in the shutdown code or if the debuggee does not terminate properly by itself, then the debug session will not end. In this case pressing the "Stop" again will use a forcible way of terminate the debuggee and its child processes (`SIGKILL`). So if you see that a debug session doesn't end when you press the red "Stop" button, then press the button again to force a shutdown of the debuggee.
+
+Please note that on Windows pressing "Stop" always kills the debuggee and its child processes forcible.
+
 ## Source maps
 
 The Node.js debugger of VS Code supports JavaScript source maps which help debugging of transpiled languages, for example, TypeScript or minified/uglified JavaScript. With source maps, it is possible to single step through or set breakpoints in the original source. If no source map exists for the original source or if the source map is broken and cannot successfully map between the source and the generated JavaScript, then breakpoints show up as unverified (gray hollow circles).
