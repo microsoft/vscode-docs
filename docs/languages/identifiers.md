@@ -82,6 +82,7 @@ Ini | `ini`
 Java | `java`
 JavaScript | `javascript`
 JSON | `json`
+JSON with Comments | `jsonc`
 LaTeX | `latex`
 Less | `less`
 Lua | `lua`
