@@ -231,6 +231,8 @@ Unless you're using an Anaconda distribution or have previously installed the ma
 
 To install the matplotlib package (which also installs numpy), stop the debugger and run **Python: Create Terminal** from the Command Palette, which opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
 
+> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
+
 ```bash
 # pip[3] install commands may require elevation
 
@@ -248,8 +250,6 @@ pip3 install matplotlib
 Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
 ![matplotlib output](images/tutorial/plot-output.png)
-
-> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ## Next steps
 
