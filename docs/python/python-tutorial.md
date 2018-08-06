@@ -50,7 +50,7 @@ From within VS Code, select a Python 3 interpreter by opening the **Command Pale
 
 The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
-Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings**, then select the **Workspace Settings** tab.
+Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS), then select the **Workspace Settings** tab.
 
 > **Note**: If you select an interpreter without a workspace folder open, VS Code sets `python.pythonPath` in your user settings instead, which sets the default interpreter for VS Code in general. The user setting makes sure you always have a default interpreter for Python projects. The workspace settings lets you override the user setting.
 
@@ -91,7 +91,7 @@ It's simple to run `hello.py` with Python. Right-click in the editor and select 
 
 ![Run Python File in Terminal command in the Python editor](images/tutorial/run-python-file-in-terminal.png)
 
-The command opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (Mac/Linux) or `python hello.py` (Windows):
+The command opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
@@ -236,7 +236,7 @@ To install the matplotlib package (which also installs numpy), stop the debugger
 ```bash
 # pip[3] install commands may require elevation
 
-# Mac
+# macOS
 pip3 install matplotlib
 
 # Windows

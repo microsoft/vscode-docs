@@ -41,7 +41,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `env` based on your current interpreter:
 
     ```bash
-    # Mac/Linux
+    # macOS/Linux
     # You may need to run sudo apt-get install python3-venv first
     python3 -m venv env
 
@@ -72,7 +72,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 1. Install Flask in the virtual environment by running one of the following commands:
 
     ```bash
-    # Mac/Linux
+    # macOS/Linux
     pip3 install flask
 
     # Windows
@@ -506,7 +506,7 @@ You can run the app at this point, but because you haven't made use of the base 
 
 Because the three pages you create in the next section extend `layout.html`, it saves time to create a **code snippet** to initialize a new template file with the appropriate reference to the base template. A code snippet provides a consistent piece of code from a single source, which avoids errors that can creep in when using copy-paste from existing code.
 
-1. In VS Code, select the **File** (Windows/Linux) or **Code** (Mac), menu, then select **Preferences** > **User snippets**.
+1. In VS Code, select the **File** (Windows/Linux) or **Code** (macOS), menu, then select **Preferences** > **User snippets**.
 
 1. In the list that appears, select **html**. (The option may appear as "html.json" in the **Existing Snippets** section of the list if you've created snippets previously.)
 
