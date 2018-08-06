@@ -18,7 +18,7 @@ In this tutorial you use Python 3 to create the simplest Python "Hello World" ap
 
 To successfully complete this tutorial, you must do the following:
 
-1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
    - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.6.5** button that appears first on the page (or whatever is the latest version).
@@ -30,7 +30,7 @@ To successfully complete this tutorial, you must do the following:
 
 ## Start VS Code in a project (workspace) folder
 
-Create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`):
+At a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```
 mkdir hello
