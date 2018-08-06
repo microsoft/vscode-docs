@@ -18,7 +18,7 @@ In this tutorial you use Python 3 to create the simplest Python "Hello World" ap
 
 To successfully complete this tutorial, you must do the following:
 
-1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
    - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.6.5** button that appears first on the page (or whatever is the latest version).
@@ -30,7 +30,7 @@ To successfully complete this tutorial, you must do the following:
 
 ## Start VS Code in a project (workspace) folder
 
-Create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`):
+At a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```
 mkdir hello
@@ -229,9 +229,13 @@ Next, try running the file in the debugger using the "Python: Current file" conf
 
 Unless you're using an Anaconda distribution or have previously installed the matplotlib package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
-To install the matplotlib package (which also installs numpy), stop the debugger and run **Python: Create Terminal** from the Command Palette, which opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system:
+To install the matplotlib package (which also installs numpy), stop the debugger and run **Python: Create Terminal** from the Command Palette, which opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
+
+> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
+# pip[3] install commands may require elevation
+
 # Mac
 pip3 install matplotlib
 
@@ -246,8 +250,6 @@ pip3 install matplotlib
 Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
 ![matplotlib output](images/tutorial/plot-output.png)
-
-> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ## Next steps
 
