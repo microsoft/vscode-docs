@@ -17,6 +17,7 @@ Extensions are activated lazily in VS Code.  As a result, you need to provide VS
 * [`workspaceContains:${toplevelfilename}`](/docs/extensionAPI/activation-events.md#activationeventsworkspacecontains)
 * [`onFileSystem:${scheme}`](/docs/extensionAPI/activation-events.md#activationeventsonfilesystem)
 * [`onView:${viewId}`](/docs/extensionAPI/activation-events.md#activationeventsonview)
+* [`onUri`](/docs/extensionAPI/activation-events.md#activationeventsonuri)
 * [`*`](/docs/extensionAPI/activation-events.md#activationevents)
 
 We also provide an overview of the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md) and the minimum required fields.
@@ -114,6 +115,24 @@ This activation event is emitted and interested extensions will be activated whe
 ]
 ...
 ```
+
+## activationEvents.onUri
+
+This activation event is emitted and interested extensions will be activated whenever a system-wide Uri for that extension is opened. The Uri scheme is fixed to either `vscode` or `vscode-insiders`. The Uri authority must be the extension's identifier. The rest of the Uri is arbitrary.
+
+```json
+...
+"activationEvents": [
+    "onUri"
+]
+...
+```
+
+If the `vscode.git` extension defines `onUri` as an activation event, it will be activated in any of the following Uris are open:
+
+- `vscode://vscode.git/init`
+- `vscode://vscode.git/clone?url=https%3A%2F%2Fgithub.com%2FMicrosoft%2Fvscode-vsce.git`
+- `vscode-insiders://vscode.git/init` (for VS Code Insiders)
 
 ## activationEvents.*
 
