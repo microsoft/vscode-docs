@@ -112,9 +112,9 @@ The [old location](https://github.com/Microsoft/vscode-debugadapter-node) will c
 Since the Debug Adapter Protocol has already been available for quite some time, the move to a new web site is not really an inception, but just a move to a new home...
 
 We'd like to invite all existing and future users of the DAP to visit our new home and continue the collaboration there. For example, you can help to keep the list of supporting tools and implementations up to date by submitting pull request in GitHub against these markdown files:
-[Debug Adapters](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/),
-[Tools](https://microsoft.github.io/debug-adapter-protocol/implementors/tools/), and
-[SDKs](https://microsoft.github.io/debug-adapter-protocol/implementors/sdks/).
+[Debug Adapters](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/adapters.md),
+[Tools](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/tools.md), and
+[SDKs](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/sdks.md).
 
 On behalf of the VS Code team: Happy Coding!
 
