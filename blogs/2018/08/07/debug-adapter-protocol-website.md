@@ -91,18 +91,18 @@ These characteristics are similar to those of the **Language Server Protocol** p
 
 ## A new home for the DAP
 
-Now we have followed suit for the Debug Adapter Protocol by moving the DAP specification from its [old location](https://github.com/Microsoft/vscode-debugadapter-node) to a new web site [https://microsoft.github.io/debug-adapter-protocol](http://weinand.ch:4000/debug-adapter-protocol/) and a corresponding repository [https://github.com/Microsoft/debug-adapter-protocol](https://github.com/Microsoft/debug-adapter-protocol).
+Now we have followed suit for the Debug Adapter Protocol by moving the DAP specification from its [old location](https://github.com/Microsoft/vscode-debugadapter-node) to a new web site [https://microsoft.github.io/debug-adapter-protocol](https://microsoft.github.io/debug-adapter-protocol/) and a corresponding repository [https://github.com/Microsoft/debug-adapter-protocol](https://github.com/Microsoft/debug-adapter-protocol).
 
 This move should emphasize that the Debug Adapter Protocol in not specific to Visual Studio Code. For example, Visual Studio is now also [supporting this protocol](https://blogs.msdn.microsoft.com/visualstudio/2018/03/26/adding-support-for-debug-adapters-to-visual-studio-ide/).
 
 In the new location we provide:
 
-- An [overview and introduction](./overview) to the protocol
-- The [protocol specification](./debugAdapterProtocol.json) as a machine-processable [JSON-schema](http://json-schema.org)
-- A [detailed documentation](./specification) automatically generated from the protocol specification
-- [Debug Adapters](./implementors/adapters/) implementing the protocol
-- [Development tools](./implementors/tools/) hosting the protocol
-- [SDKs](./implementors/sdks/) supporting the protocol.
+- An [overview and introduction](https://microsoft.github.io/debug-adapter-protocol/overview) to the protocol
+- The [protocol specification](https://microsoft.github.io/debug-adapter-protocol/debugAdapterProtocol.json) as a machine-processable [JSON-schema](http://json-schema.org)
+- A [detailed documentation](https://microsoft.github.io/debug-adapter-protocol/specification) automatically generated from the protocol specification
+- [Debug Adapters](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/) implementing the protocol
+- [Development tools](https://microsoft.github.io/debug-adapter-protocol/implementors/tools/) hosting the protocol
+- [SDKs](https://microsoft.github.io/debug-adapter-protocol/implementors/sdks/) supporting the protocol.
 - Bugs, feature requests, and pull requests can be created under the ["issues"](https://github.com/Microsoft/debug-adapter-protocol/issues) section of the new repository.
 
 The [old location](https://github.com/Microsoft/vscode-debugadapter-node) will continue to host the source for the three npm modules for DAP: ([vscode-debugprotocol](https://www.npmjs.com/package/vscode-debugprotocol), [vscode-debugadapter](https://www.npmjs.com/package/vscode-debugadapter), [vscode-debugadapter-testsupport](https://www.npmjs.com/package/vscode-debugadapter-testsupport)).
@@ -112,9 +112,9 @@ The [old location](https://github.com/Microsoft/vscode-debugadapter-node) will c
 Since the Debug Adapter Protocol has already been available for quite some time, the move to a new web site is not really an inception, but just a move to a new home...
 
 We'd like to invite all existing and future users of the DAP to visit our new home and continue the collaboration there. For example, you can help to keep the list of supporting tools and implementations up to date by submitting pull request in GitHub against these markdown files:
-[Debug Adapters](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/adapters.md),
-[Tools](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/tools.md), and
-[SDKs](https://github.com/Microsoft/debug-adapter-protocol/blob/gh-pages/_implementors/sdks.md).
+[Debug Adapters](https://microsoft.github.io/debug-adapter-protocol/implementors/adapters/),
+[Tools](https://microsoft.github.io/debug-adapter-protocol/implementors/tools/), and
+[SDKs](https://microsoft.github.io/debug-adapter-protocol/implementors/sdks/).
 
 On behalf of the VS Code team: Happy Coding!
 
