@@ -27,6 +27,7 @@ To solve those problems, Microsoft specified [Language Server Protocol](https://
 ![LSP Languages and Editors](images/example-language-server/lsp-languages-editors.png)
 
 In this guide, we will:
+
 - Explain how to build a Language Server extension in VS Code using the provided [Node SDK](https://github.com/Microsoft/vscode-languageserver-node).
 - Explain how to run, debug, log and test the Language Server extension.
 - Point you to some advanced topics on Language Servers.
@@ -45,7 +46,7 @@ As briefly stated above there are two benefits of running the Language Server in
 - The analysis tool can be implemented in any languages, as long as it can communicate with the Language Client following the Language Server Protocol.
 - As language analysis tools are often heavy on CPU and Memory usage, running them in separate process avoids performance cost.
 
-Here is an illustration of VS Code running two Language Server extensions. The HTML Language Client and PHP Language Client are normal VS Code extensions written in TypeScript. Each of them instantiates a corresponding Language Server and communiates with them through LSP. Although the PHP Language Server is written in PHP, it can still communicate with the PHP Language Client through LSP.
+Here is an illustration of VS Code running two Language Server extensions. The HTML Language Client and PHP Language Client are normal VS Code extensions written in TypeScript. Each of them instantiates a corresponding Language Server and communicates with them through LSP. Although the PHP Language Server is written in PHP, it can still communicate with the PHP Language Client through LSP.
 
 ![LSP Illustration](images/example-language-server/lsp-illustration.png)
 
@@ -105,8 +106,8 @@ Next look at the [`configuration`](https://code.visualstudio.com/docs/extensionA
     "type": "object",
     "title": "Example configuration",
     "properties": {
-		"languageServerExample.maxNumberOfProblems": {
-			"scope": "resource",
+        "languageServerExample.maxNumberOfProblems": {
+            "scope": "resource",
             "type": "number",
             "default": 100,
             "description": "Controls the maximum number of problems produced by the server."
@@ -345,7 +346,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 	let diagnostics: Diagnostic[] = [];
 	while ((m = pattern.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
-		let diagnosic: Diagnostic = {
+		let diagnostic: Diagnostic = {
 			severity: DiagnosticSeverity.Warning,
 			range: {
 				start: textDocument.positionAt(m.index),
@@ -355,24 +356,24 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 			source: 'ex'
 		};
 		if (hasDiagnosticRelatedInformationCapability) {
-			diagnosic.relatedInformation = [
+			diagnostic.relatedInformation = [
 				{
 					location: {
 						uri: textDocument.uri,
-						range: Object.assign({}, diagnosic.range)
+						range: Object.assign({}, diagnostic.range)
 					},
 					message: 'Spelling matters'
 				},
 				{
 					location: {
 						uri: textDocument.uri,
-						range: Object.assign({}, diagnosic.range)
+						range: Object.assign({}, diagnostic.range)
 					},
 					message: 'Particularly for names'
 				}
 			];
 		}
-		diagnostics.push(diagnosic);
+		diagnostics.push(diagnostic);
 	}
 
 	// Send the computed diagnostics to VSCode.
@@ -469,7 +470,7 @@ documents.onDidChangeContent(async (change) => {
 	let diagnostics: Diagnostic[] = [];
 	while ((m = pattern.exec(text))) {
 		problems++;
-		let diagnosic: Diagnostic = {
+		let diagnostic: Diagnostic = {
 			severity: DiagnosticSeverity.Warning,
 			range: {
 				start: textDocument.positionAt(m.index),
@@ -479,24 +480,24 @@ documents.onDidChangeContent(async (change) => {
 			source: 'ex'
 		};
 		if (hasDiagnosticRelatedInformationCapability) {
-			diagnosic.relatedInformation = [
+			diagnostic.relatedInformation = [
 				{
 					location: {
 						uri: textDocument.uri,
-						range: Object.assign({}, diagnosic.range)
+						range: Object.assign({}, diagnostic.range)
 					},
 					message: 'Spelling matters'
 				},
 				{
 					location: {
 						uri: textDocument.uri,
-						range: Object.assign({}, diagnosic.range)
+						range: Object.assign({}, diagnostic.range)
 					},
 					message: 'Particularly for names'
 				}
 			];
 		}
-		diagnostics.push(diagnosic);
+		diagnostics.push(diagnostic);
 	}
 
 	// Send the computed diagnostics to VSCode.
@@ -543,7 +544,7 @@ For **lsp-sample**, you can set this setting: `"languageServerExample.trace.serv
 
 ![LSP Log](images/example-language-server/lsp-log.png)
 
-As Language Servers can be chatty (5 seconds of real-world usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. You can save all logs from the channel into a file, and load that file from the [Language Server Protocol Inspector](https://github.com/Microsoft/language-server-protocol-inspector) at https://microsoft.github.io/language-server-protocol/inspector.
+As Language Servers can be chatty (5 seconds of real-world usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. You can save all logs from the channel into a file, and load that file with the Language Server Protocol Inspector](https://github.com/Microsoft/language-server-protocol-inspector) at https://microsoft.github.io/language-server-protocol/inspector.
 
 ![LSP Inspector](images/example-language-server/lsp-inspector.png)
 
@@ -584,7 +585,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 	let diagnostics: Diagnostic[] = [];
 	while ((m = pattern.exec(text)) && problems < settings.maxNumberOfProblems) {
 		problems++;
-		let diagnosic: Diagnostic = {
+		let diagnostic: Diagnostic = {
 			severity: DiagnosticSeverity.Warning,
 			range: {
 				start: textDocument.positionAt(m.index),
@@ -594,24 +595,24 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 			source: 'ex'
 		};
 		if (hasDiagnosticRelatedInformationCapability) {
-			diagnosic.relatedInformation = [
+			diagnostic.relatedInformation = [
 				{
 					location: {
 						uri: textDocument.uri,
-						range: Object.assign({}, diagnosic.range)
+						range: Object.assign({}, diagnostic.range)
 					},
 					message: 'Spelling matters'
 				},
 				{
 					location: {
 						uri: textDocument.uri,
-						range: Object.assign({}, diagnosic.range)
+						range: Object.assign({}, diagnostic.range)
 					},
 					message: 'Particularly for names'
 				}
 			];
 		}
-		diagnostics.push(diagnosic);
+		diagnostics.push(diagnostic);
 	}
 
 	// Send the computed diagnostics to VSCode.
@@ -780,9 +781,10 @@ async function testCompletion(
 ```
 
 In this test, we:
-- Activate the extension
-- Run the command `vscode.executeCompletionItemProvider` with a URI and a position to simulate completion trigger
-- Assert the returned completion items against our expected completion items
+
+- Activate the extension.
+- Run the command `vscode.executeCompletionItemProvider` with a URI and a position to simulate completion trigger.
+- Assert the returned completion items against our expected completion items.
 
 Let's dive a bit deeper into the `activate(docURI)` function. It is defined in `client/src/test/helper.ts`:
 
@@ -818,8 +820,9 @@ async function sleep(ms: number) {
 ```
 
 In the activation part, we:
-- Get the extension using the `publisher.name` `extensionId`, as defined in `package.json`
-- Open the specified document, and show it in the active text editor
+
+- Get the extension using the `{publisher.name}.{extensionId}`, as defined in `package.json`.
+- Open the specified document, and show it in the active text editor.
 - Sleep for 2 seconds, so we are sure the Language Server is instantiated.
 
 After the preparation, we can run the [VS Code Commands](https://code.visualstudio.com/docs/extensionAPI/vscode-api-commands) corresponding to each language feature, and assert against the returned result.
@@ -849,7 +852,7 @@ The following language features are currently supported in a language server alo
 * _Find References_: finds all project-wide references for a symbol selected in a text document.
 * _List Document Symbols_: lists all symbols defined in a text document.
 * _List Workspace Symbols_: lists all project-wide symbols.
-* _Code Actions_: compute commands to run (typicall beautify/refactor) for a given text document and range.
+* _Code Actions_: compute commands to run (typically beautify/refactor) for a given text document and range.
 * _CodeLens_: compute CodeLens statistics for a given text document.
 * _Document Formatting_: this includes formatting of whole documents, document ranges and formatting on type.
 * _Rename_: project-wide rename of a symbol.
@@ -913,11 +916,11 @@ While Language Servers have many benefits, they are not the only option for exte
 
 Here is a [`completions-sample`](https://github.com/Microsoft/vscode-extension-samples/tree/master/completions-sample) using `vscode.languages.registerCompletionItemProvider` to add a few snippets as completions for plain text files.
 
-More samples illustrating the usage of VS Code API can be found at https://github.com/Microsoft/vscode-extension-samples.
+More samples illustrating the usage of VS Code API can be found at [https://github.com/Microsoft/vscode-extension-samples](https://github.com/Microsoft/vscode-extension-samples).
 
 ### Error Tolerant Parser for Language Server
 
-Most of the time, the code in the editor is incomplete and syntactically incorrect, but developers would still expect autocomplete and other language features to work. Therefore, an error tolerant parser is necessary for a Language Server: The parser generates meangingful AST from partially complete code, and the Language Server provides language features based on the AST.
+Most of the time, the code in the editor is incomplete and syntactically incorrect, but developers would still expect autocomplete and other language features to work. Therefore, an error tolerant parser is necessary for a Language Server: The parser generates meaningful AST from partially complete code, and the Language Server provides language features based on the AST.
 
 When we were improving PHP support in VS Code, we realized the official PHP parser is not error tolerant and cannot be reused directly in the Language Server. Therefore, we worked on [Microsoft/tolerant-php-parser](https://github.com/Microsoft/tolerant-php-parser) and left detailed [notes](https://github.com/Microsoft/tolerant-php-parser/blob/master/docs/HowItWorks.md) that might help Language Server authors who need to implement an error tolerant parser.
 
