@@ -179,9 +179,9 @@ Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (
 
 ## Open at a specific folder
 
-By default the terminal will open at the folder that is opened in the explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
+By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
 
-```js
+```json
 {
     "terminal.integrated.cwd": "/home/user"
 }
