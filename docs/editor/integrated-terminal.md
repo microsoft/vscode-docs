@@ -177,6 +177,18 @@ If no text is selected in the active editor, the line that the cursor is on is r
 
 Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection drop-down.
 
+## Open at a specific folder
+
+By default the terminal will open at the folder that is opened in the explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
+
+```js
+{
+    "terminal.integrated.cwd": "/home/user"
+}
+```
+
+There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
+
 ## Changing how the terminal is rendered
 
 By default, the integrated terminal will render using multiple `<canvas>` elements which is better tuned than the DOM for rendering interactive text that changes often. However, Electron/Chromium are slower rendering to canvas on some environment and so VS Code also provides a fallback DOM-renderer experience. VS Code will try to detect slow performance and give you the option to change via a notification. You can also change the rendering directly by setting `terminal.integrated.rendererType` in your user or workspace [settings](/docs/getstarted/settings.md).
