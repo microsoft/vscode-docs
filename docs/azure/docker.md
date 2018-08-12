@@ -105,7 +105,7 @@ The Docker extension language service analyzes your Docker files and provides yo
 
 ![docker warnings](images/docker/linting.png)
 
-You can control specific linting rules to either be a warning, error, or ignored through the `docker.languageservice.diagnostics` [settings](/docs/getstarted/settings.md)
+You can control specific linting rules to either be a warning, error, or ignored through the `docker.languageserver.diagnostics` [settings](/docs/getstarted/settings.md)
 
 ## Deploying images to Azure App Service
 
