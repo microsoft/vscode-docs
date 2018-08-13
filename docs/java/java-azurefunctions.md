@@ -3,15 +3,15 @@ Order: 6
 Area: java
 TOCTitle: Azure Functions in Java
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
-PageTitle: Building Azure Functions in Java with VS Code
+PageTitle: Building Azure Functions in Java with Visual Studio Code
 DateApproved: 5/30/2018
-MetaDescription: Using VS Code for developing, debugging and deploying your Java Azure Functions application.
+MetaDescription: Using Visual Studio Code for developing, debugging and deploying your Java Azure Functions application.
 ---
-# Building Azure Functions in Java with VS Code
+# Azure Functions in Java with VS Code
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/en-us/overview/serverless-computing/) environment without having to first create a VM or publish a web application
+Azure Functions let you execute your source code in a [serverless](https://azure.microsoft.com/en-us/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
-This tutorial walks you through creating and deploying a Java Azure Functions application using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You'll be able to test the function locally and then deploy it to Azure. When you're done, you'll have a HTTP-triggered function app running in Azure.
+This tutorial walks you through creating and deploying a Java Azure Functions application using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension in Visual Studio Code. You'll be able to test the function locally and then deploy it to Azure. When you're done, you'll have a HTTP-triggered function app running in Azure.
 
 ## Prerequisites
 
