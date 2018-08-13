@@ -553,3 +553,12 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `settings.numberInputBackground`: Number input box background.
 - `settings.numberInputForeground`: Number input box foreground.
 - `settings.numberInputBorder`: Number input box border.
+
+## Breadcrumbs
+
+The theme colors for breadcrumbs navigation:
+
+- `breadcrumb.foreground`: Color of breadcrumb items.
+- `breadcrumb.focusForeground`: Color of focused breadcrumb items.
+- `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
+- `breadcrumbPicker.background`: Background color of breadcrumb item picker.
