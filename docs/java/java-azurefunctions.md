@@ -4,7 +4,7 @@ Area: java
 TOCTitle: Azure Functions in Java
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
 PageTitle: Building Azure Functions in Java with Visual Studio Code
-DateApproved: 5/30/2018
+DateApproved: 8/13/2018
 MetaDescription: Using Visual Studio Code for developing, debugging and deploying your Java Azure Functions application.
 ---
 # Azure Functions in Java with VS Code
