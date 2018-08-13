@@ -27,6 +27,26 @@ The following predefined variables are supported:
 - **${lineNumber}** - the current selected line number in the active file
 - **${selectedText}** - the current selected text in the active file
 
+### Predefined variables examples
+
+Supposing that you have the following requirements:
+
+1. A file located at `/home/your-username/your-project/folder/file.ext` opened in your editor;
+2. The directory `/home/your-username/your-project` opened as your root workspace.
+
+So you will have the following values for each variable:
+
+- **${workspaceFolder}** - `/home/your-username/your-project`
+- **${workspaceFolderBasename}** - `your-project`
+- **${file}** - `/home/your-username/your-project/folder/file.ext`
+- **${relativeFile}** - `folder/file.ext`
+- **${fileBasename}** - `file.ext`
+- **${fileBasenameNoExtension}** - `file`
+- **${fileDirname}** - `/home/your-username/your-project/folder`
+- **${fileExtname}** - `.ext`
+- **${lineNumber}** - `5`
+- **${selectedText}** - `Text selected in your code editor`
+
 >**Tip**: Use IntelliSense inside string values for `tasks.json` and `launch.json` to get a full list of predefined variables.
 
 ## Environment variables

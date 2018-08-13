@@ -1,17 +1,17 @@
 ---
 Order: 6
 Area: java
-TOCTitle: Java Serverless
+TOCTitle: Azure Functions in Java
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
-PageTitle: Writing serverless Java Application with VS Code
+PageTitle: Building Azure Functions in Java with VS Code
 DateApproved: 5/30/2018
-MetaDescription: Using VS Code for developing, debugging and deploying your serverless application.
+MetaDescription: Using VS Code for developing, debugging and deploying your Java Azure Functions application.
 ---
-# Serverless Java Apps with VS Code
+# Building Azure Functions in Java with VS Code
 
-Serverless, as indicated by its name, allows you to execute your code in an environment without having to first create a VM or publish a web application.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/en-us/overview/serverless-computing/) environment without having to first create a VM or publish a web application
 
-This tutorial guides you through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project and deploying to [Azure](https://azure.microsoft.com) with Visual Studio Code and the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You'll be able to test the function locally and then deploy it to [Azure Functions](https://azure.microsoft.com/services/functions). When you're done, you'll have a HTTP-triggered function app running in Azure.
+This tutorial walks you through creating and deploying a Java Azure Functions application using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You'll be able to test the function locally and then deploy it to Azure. When you're done, you'll have a HTTP-triggered function app running in Azure.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ To develop Azure Functions with Java, you'll need the following tools installed:
 
 ## Install the Azure Functions extension
 
-The [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension provides an easy way for you to manage your serverless functions with Azure. It supports both Java and JavaScript Functions with features including:
+The [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension is used to create, manage, and deploy Functions Apps on Azure. It supports both Java and JavaScript Functions with features including:
 
 - Create new project.
 - Create new Function from template.
@@ -33,7 +33,7 @@ The [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azu
 - Create, delete, start, stop and restart Azure Function Apps.
 - JSON Intellisense for `function.json`, `host.json` and `proxies.json` files.
 
-In this tutorial, we will leverage this extension to create the serverless function. For a more command line Maven-centric experience, you can also check out the [Maven Functions Tutorial](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-create-first-java-maven). The Java support of this extension leverages a lot from the [Maven Plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-functions-maven-plugin).
+In this tutorial, we will leverage this extension to create a Java Azure Functions App. For a more command line Maven-centric experience, you can also check out the [Maven Functions Tutorial](https://docs.microsoft.com/en-gb/azure/azure-functions/functions-create-first-java-maven). The Java support of this extension leverages a lot from the [Maven Plugin for Azure Functions](https://github.com/Microsoft/azure-maven-plugins/tree/master/azure-functions-maven-plugin).
 
 To install the Azure Functions extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure functions` to filter the results. Select the Microsoft [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension.
 
@@ -57,7 +57,7 @@ Within the created project, there's a simple HTTP triggered 'Hello World' Functi
  * Azure Functions with HTTP Trigger.
  */
 public class Function {
-    @FunctionName("hello")
+    @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage<String> httpHandler(
             @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context
@@ -134,7 +134,7 @@ You can learn more by reading the [Code and test Azure Functions locally](https:
 Once the function is created, press `kb(workbench.action.debug.start)` to start the function. Behind the scene, we've configured the `launch.json` debugger configuration file (created under the project `.vscode` folder) to build the functions project and then start the local runtime provided by [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools).  If you would like to debug your function, set a break point (`kb(editor.debug.action.toggleBreakpoint)`) and then send a request to trigger the HTTP function.
 
 ```bash
-curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
+curl -w '\n' -d LocalFunction http://localhost:7071/api/httptrigger-java
 ```
 
 You should see:
