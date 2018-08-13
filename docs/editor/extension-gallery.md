@@ -41,7 +41,7 @@ On the extension details page, you can read the extension's README as well as re
 
 ![extension contributions](images/extension-gallery/extension-contributions.png)
 
-[Extension Packs](/docs/extensionAPI/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time. If an extension is an Extension Pack, the **Dependencies** and **Extension Pack** sections will display which extensions will be installed when you install the pack.
+If an extension is an Extension Pack, the **Dependencies** section will display which extensions will be installed when you install the pack. [Extension Packs](/docs/extensionAPI/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
 
 ![extension dependencies](images/extension-gallery/extension-dependencies.png)
 ![extension pack](images/extension-gallery/extension-pack.png)
@@ -80,7 +80,7 @@ VS Code makes it very easy to manage your extensions. You can install, disable, 
 
 ### List installed extensions
 
-By default, the Extensions view will show the extensions you currently have enabled. You can also use the **Show Installed Extensions** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or the **More** (`...`) dropdown, to clear any text in the search box and show the list of installed extensions, including those that have been disabled.
+By default, the Extensions view will show the extensions you currently have enabled, all extensions that are recommended for you, and a collapsed view of all extensions you have disabled. You can use the **Show Installed Extensions** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or the **More** (`...`) dropdown, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
 
 ### Uninstall an extension
 
@@ -90,7 +90,7 @@ To uninstall an extension, click the gear button at the right of an extension en
 
 ### Disable an extension
 
-If you don't want to permanently remove an extension, you can instead temporarily disable an extension by clicking the gear button at the right of an extension entry. You can disable an extension globally or just for your current Workspace. You will be prompted to reload VS Code after you disable an extension.
+If you don't want to permanently remove an extension, you can instead temporarily disable the extension by clicking the gear button at the right of an extension entry. You can disable an extension globally or just for your current Workspace. You will be prompted to reload VS Code after you disable an extension.
 
 If you want to quickly disable all installed extensions, there is a **Disable All Installed Extensions** command in the **Command Palette** and **More** (`...`) dropdown.
 
@@ -110,7 +110,7 @@ VS Code checks for extension updates and installs them automatically. After an u
 
 ### Update an extension manually
 
-If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the `@outdated` filter. This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command. If you also have automatic checking for updates disabled, you can use the `**Check for Updates** command to check which of your extensions can be updated.
+If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the `@outdated` filter. This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command. If you also have automatic checking for updates disabled, you can use the `**Check for Updates**` command to check which of your extensions can be updated.
 
 ## Recommended extensions
 
