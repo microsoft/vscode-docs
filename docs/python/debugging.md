@@ -193,13 +193,13 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Remote computer: open the port you wish to use for debugging in the appropriate firewall or other networking configuration.
 
-1. Remote computer: in the source code, add the following lines, replacing *my_secret* with a passphrase that you'll use to authenticate remote debugging, and replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
+1. Remote computer: in the source code, add the following lines, replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
 
     ```python
     import ptvsd
 
-    # Allow other computers to attach to ptvsd at this IP address and port, using the secret
-    ptvsd.enable_attach("my_secret", address = ('1.2.3.4', 3000))
+    # Allow other computers to attach to ptvsd at this IP address and port.
+    ptvsd.enable_attach(address=('1.2.3.4', 3000), redirect_output=True)
 
     # Pause the program until a remote debugger is attached
     ptvsd.wait_for_attach()
@@ -212,8 +212,8 @@ Remote debugging allows you to step through a program locally within VS Code whi
     ```python
     #import ptvsd
 
-    # Allow other computers to attach to ptvsd at this IP address and port, using the secret
-    #ptvsd.enable_attach("my_secret", address = ('1.2.3.4', 3000))
+    # Allow other computers to attach to ptvsd at this IP address and port.
+    #ptvsd.enable_attach(address=('1.2.3.4', 3000), redirect_output=True)
 
     # Pause the program until a remote debugger is attached
     #ptvsd.wait_for_attach()
@@ -221,7 +221,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Local computer: switch to Debug View in VS Code, select the **Python: Attach** configuration, then select the settings (gear) icon to open `launch.json` to that configuration.
 
-1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host`, `port`, and `secret` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration. For example:
+1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host` and `port` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration. For example:
 
     ```js
     {
@@ -235,7 +235,6 @@ Remote debugging allows you to step through a program locally within VS Code whi
             }
         ],
         "port": 3000,                   // Set to the remote port.
-        "secret": "my_secret",          // Set to your specific secret.
         "host": "1.2.3.4"               // Set to your remote host's public IP address.
     }
     ```
@@ -386,14 +385,14 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     sys.path.append(os.getcwd())
 
     import ptvsd
-    # Modify the secret and port number as desired; you're debugging locally so the values don't matter.
+    # Modify the port number as desired; you're debugging locally so the values don't matter.
     # However, be sure the port is not blocked on your computer.
-    ptvsd.enable_attach(secret = 'gae', address = ('0.0.0.0', 3000))
+    ptvsd.enable_attach(address=('0.0.0.0', 3000), redirect_output=True)
 
     #The debug server has started and you can now use VS Code to attach to the application for debugging
     print("Google App Engine has started, ready to attach the debugger")
     ```
-1. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the secret and port values match what's in the source code above.
+1. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the port value match what's in the source code above.
 1. Add `"preLaunchTask": "python"` to `launch.json`.
 1. From the Command Palette, run the **Run Build Task** command. This opens the Tasks output window where you see various messages.
 1. Once you see the message "Google App Engine has started, ready to attach the debugger", start the VS Code debugger using the remote debugging configuration.
