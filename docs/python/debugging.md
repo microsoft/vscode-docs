@@ -57,8 +57,6 @@ While debugging, the Status Bar shows the current configuration on the lower lef
 
 By default, the debugger uses the same `python.pythonPath` Workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
 
-> **Note**: The debugger settings don't support relative paths, including when relying on the main `python.pythonPath` setting. To work around this, use an environment variable, or create a variable such as `${workspaceFolder}` that resolves to your project folder, then use that variable in the path, as in `"python.pythonPath": "${workspaceFolder}/venv/bin/python"`.
-
 ## Standard configuration and options
 
 Standard configuration for `launch.json`:
