@@ -228,7 +228,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
         "name": "Python Attach (Remote Debug 1.2.3.4)",
         "type": "python",
         "request": "attach",
-        "pathMappings: [
+        "pathMappings": [
             {
                 "localRoot": "${workspaceFolder}",
                 "remoteRoot": "~/hello" // Linux example; adjust as necessary for your OS and situation.
