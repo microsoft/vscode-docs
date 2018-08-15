@@ -156,7 +156,7 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 | cwd | Relative path to data file |
 | --- | --- |
 | Omitted or `${workspaceFolder}` | `data/salaries.csv` |
-| `${workspaceFolder}/py_code`) | `../data/salaries.csv` |
+| `${workspaceFolder}/py_code` | `../data/salaries.csv` |
 | `${workspaceFolder}/data` | `salaries.csv` |
 
 ### `debugOptions`
