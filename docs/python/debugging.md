@@ -228,12 +228,15 @@ Remote debugging allows you to step through a program locally within VS Code whi
         "name": "Python Attach (Remote Debug 1.2.3.4)",
         "type": "python",
         "request": "attach",
-        "localRoot": "${workspaceFolder}",
-        "remoteRoot": "c:\\py\\hello",  // Set to the program location on the remote computer.
-        //"remoteRoot": "~/hello",      // Linux example
-        "port": 3000,                   // Set to the remote port
-        "secret": "my_secret",          // Set to your specific secret
-        "host": "1.2.3.4"               // Set to your remote host's public IP address
+        "pathMappings: [
+            {
+                "localRoot": "${workspaceFolder}",
+                "remoteRoot": "~/hello" // Linux example; adjust as necessary for your OS and situation.
+            }
+        ],
+        "port": 3000,                   // Set to the remote port.
+        "secret": "my_secret",          // Set to your specific secret.
+        "host": "1.2.3.4"               // Set to your remote host's public IP address.
     }
     ```
 
