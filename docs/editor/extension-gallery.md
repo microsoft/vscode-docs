@@ -44,7 +44,6 @@ On the extension details page, you can read the extension's README as well as re
 If an extension is an Extension Pack, the **Dependencies** section will display which extensions will be installed when you install the pack. [Extension Packs](/docs/extensionAPI/extension-manifest.md#extension-packs) bundle separate extensions together so they can be easily installed at one time.
 
 ![extension dependencies](images/extension-gallery/extension-dependencies.png)
-![extension pack](images/extension-gallery/extension-pack.png)
 
 ### Extensions view commands
 
@@ -72,7 +71,7 @@ For example, typing 'python' will bring up a list of Python language extensions:
 
 ![python extensions](images/extension-gallery/extensions-python.png)
 
-If you already know the exact identifier for an extension you're looking for, you can use the `@id:` prefix, like `@id:octref.vetur`. Additionally, to filter or sort results, you can use [filter](#extensions-view-filters) and [sort](#sorting) commands, detailed below.
+If you know the exact identifier for an extension you're looking for, you can use the `@id:` prefix, for example `@id:octref.vetur`. Additionally, to filter or sort results, you can use the [filter](#extensions-view-filters) and [sort](#sorting) commands, detailed below.
 
 ## Manage extensions
 
@@ -80,7 +79,7 @@ VS Code makes it very easy to manage your extensions. You can install, disable, 
 
 ### List installed extensions
 
-By default, the Extensions view will show the extensions you currently have enabled, all extensions that are recommended for you, and a collapsed view of all extensions you have disabled. You can use the **Show Installed Extensions** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or the **More** (`...`) dropdown, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
+By default, the Extensions view will show the extensions you currently have enabled, all extensions that are recommended for you, and a collapsed view of all extensions you have disabled. You can use the **Show Installed Extensions** command, available in the **Command Palette** (`kb(workbench.action.showCommands)`) or the **More Actions** (`...`) dropdown, to clear any text in the search box and show the list of all installed extensions, which includes those that have been disabled.
 
 ### Uninstall an extension
 
@@ -92,7 +91,7 @@ To uninstall an extension, click the gear button at the right of an extension en
 
 If you don't want to permanently remove an extension, you can instead temporarily disable the extension by clicking the gear button at the right of an extension entry. You can disable an extension globally or just for your current Workspace. You will be prompted to reload VS Code after you disable an extension.
 
-If you want to quickly disable all installed extensions, there is a **Disable All Installed Extensions** command in the **Command Palette** and **More** (`...`) dropdown.
+If you want to quickly disable all installed extensions, there is a **Disable All Installed Extensions** command in the **Command Palette** and **More Actions** (`...`) dropdown.
 
 Extensions remain disabled for all VS Code sessions until you re-enable them.
 
@@ -102,7 +101,7 @@ Similarly if you have disabled an extension (it will be in the **Disabled** sect
 
 ![enable extension](images/extension-gallery/enable-extension.png)
 
-There is also an **Enable All Extensions** command in the **More** (`...`) dropdown.
+There is also an **Enable All Extensions** command in the **More Actions** (`...`) dropdown.
 
 ### Extension auto-update
 
@@ -110,7 +109,7 @@ VS Code checks for extension updates and installs them automatically. After an u
 
 ### Update an extension manually
 
-If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the `@outdated` filter. This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command. If you also have automatic checking for updates disabled, you can use the `**Check for Updates**` command to check which of your extensions can be updated.
+If you have extensions auto-update disabled, you can quickly look for extension updates by using the **Show Outdated Extensions** command which uses the `@outdated` filter. This will display any available updates for your currently installed extensions. Click the **Update** button for the outdated extension and the update will be installed and you'll be prompted to reload VS Code. You can also update all your outdated extensions at one time with the **Update All Extensions** command. If you also have automatic checking for updates disabled, you can use the **Check for Extension Updates** command to check which of your extensions can be updated.
 
 ## Recommended extensions
 
@@ -123,7 +122,7 @@ See the section below to learn how to [contribute](#workspace-recommended-extens
 
 ## Configuring extensions
 
-VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/getstarted/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command line tools. Consult the extension's README (visible in the Extensions view Details window) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the Details window). Many extensions are open source and have a link to their repository on their Marketplace page.
+VS Code extensions may have very different configurations and requirements. Some extensions contribute [settings](/docs/getstarted/settings.md) to VS Code, which can be modified in the Settings editor. Other extensions may have their own configuration files. Extensions may also require installation and setup of additional components like compilers, debuggers, and command line tools. Consult the extension's README (visible in the Extensions view details page) or go to the extension page on the [VS Code Marketplace](https://marketplace.visualstudio.com/VSCode) (click on the extension name in the details page). Many extensions are open source and have a link to their repository on their Marketplace page.
 
 ## Command line extension management
 
@@ -146,7 +145,7 @@ code --enable-proposed-api (<extension-id>)
     Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.
 ```
 
-You can see the extension id on the extension details window next to the extension name.
+You can see the extension id on the extension details page next to the extension name.
 
 ![extension identifier](images/extension-gallery/extension-identifier.png)
 

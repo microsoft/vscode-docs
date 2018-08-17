@@ -21,7 +21,7 @@ VS Code has support for handling multiple Source Control providers simultaneousl
 
 ![source control providers](images/versioncontrol/scm.png)
 
-If you would like to install an additional SCM provider, the **Install Additional SCM Providers...** command in the **Source Control** view **More** (...) dropdown will show a list of available SCM provider extensions.
+If you would like to install an additional SCM provider, the **Install Additional SCM Providers...** command in the **Source Control** view **More Actions** (...) dropdown will show a list of available SCM provider extensions.
 
 ![install additional scm providers](images/versioncontrol/additional-scm-providers.png)
 

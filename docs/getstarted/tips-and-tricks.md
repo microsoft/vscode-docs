@@ -333,13 +333,13 @@ Keyboard Shortcut: `kb(workbench.view.extensions)`
 
 ### Install extensions
 
-In the **Extensions** view, you can search via the search bar or click the **More** (...) button to filter and sort by install count.
+In the **Extensions** view, you can search via the search bar or click the **More Actions** (...) button to filter and sort by install count.
 
 ![install extensions](images/tips-and-tricks/InstallExtensions.gif)
 
 ### Extension recommendations
 
-In the **Extensions** view, click **Show Recommended Extensions** in the **More** (...) button menu.
+In the **Extensions** view, click **Show Recommended Extensions** in the **More Actions** (...) button menu.
 
 ![show recommended extensions](images/tips-and-tricks/ShowRecommendedExtensions.gif)
 
@@ -726,7 +726,7 @@ Default is side by side diff.
 
 **Inline view**
 
-Toggle inline view by clicking the **More** (...) button in the top right and selecting **Switch to Inline View**.
+Toggle inline view by clicking the **More Actions** (...) button in the top right and selecting **Switch to Inline View**.
 
 ![git inline](images/tips-and-tricks/git_inline.png)
 
