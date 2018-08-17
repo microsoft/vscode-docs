@@ -71,10 +71,10 @@ Dropdown control is not used on macOS currently.
 
 ![drop down control](images/theme-color-reference/Dropdown.png)
 
-- `Dropdown.background`: Dropdown background.
-- `Dropdown.listBackground`: Dropdown list background.
-- `Dropdown.border`: Dropdown border.
-- `Dropdown.foreground`: Dropdown foreground.
+- `dropdown.background`: Dropdown background.
+- `dropdown.listBackground`: Dropdown list background.
+- `dropdown.border`: Dropdown border.
+- `dropdown.foreground`: Dropdown foreground.
 
 ## Input Control
 
