@@ -185,6 +185,7 @@ Extensions can set **Categories** and **Tags** describing their features.
 You can filter on category and tag by using `category:` and `tag:`.
 
 Supported categories are: `[Programming Languages, Snippets, Linters, Themes, Debuggers, Formatters, Keymaps, SCM Providers, Other, Extension Packs, Language Packs]`. They can be accessed through IntelliSense in the extensions search box:
+
 ![categories debuggers](images/extension-gallery/extension-search-categories.png)
 
 Note that you must surround the category name in quotes if it is more than one word (for example, `category:"SCM Providers"`).
