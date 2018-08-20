@@ -613,6 +613,7 @@ Contributes named problem patterns that can be used in problem matchers (see abo
 Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
 
 ```json
+"contributes": {
   "colors": [{
       "id": "superstatus.error",
       "description": "Color for error message in the status bar.",
@@ -622,10 +623,10 @@ Contributes new themable colors. These colors can be used by the extension in ed
           "highContrast": "#010203"
       }
   }]
+}
+```
 
 Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/docs/getstarted/theme-color-reference.md#colorformats).
-
-```
 
 ## contributes.typescriptServerPlugins
 
