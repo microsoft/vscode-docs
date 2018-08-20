@@ -562,3 +562,8 @@ The theme colors for breadcrumbs navigation:
 - `breadcrumb.focusForeground`: Color of focused breadcrumb items.
 - `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
 - `breadcrumbPicker.background`: Background color of breadcrumb item picker.
+
+## Extension Colors
+
+Color ids can also be contributed by extensions through the [color contribution point](/docs/extensionAPI/extension-points.md#contributescolors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery.md#extensiondetails) tab.
+

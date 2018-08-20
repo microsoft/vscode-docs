@@ -25,6 +25,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
 * [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
 * [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
+* [`colors`](/docs/extensionAPI/extension-points.md#contributescolors)
 
 ## contributes.configuration
 
@@ -606,6 +607,22 @@ Also see: [Defining a Problem Matcher](/docs/editor/tasks.md#defining-a-problem-
 ## contributes.problemPatterns
 
 Contributes named problem patterns that can be used in problem matchers (see above).
+
+## contributes.colors
+
+Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
+
+```json
+  "colors": [{
+      "id": "superstatus.error",
+      "description": "Color for error message in the status bar.",
+      "defaults": {
+          "dark": "errorForeground",
+          "light": "errorForeground",
+          "highContrast": "errorForeground"
+      }
+  }]
+```
 
 ## contributes.typescriptServerPlugins
 
