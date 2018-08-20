@@ -73,10 +73,10 @@ Dropdown control is not used on macOS currently.
 
 ![drop down control](images/theme-color-reference/Dropdown.png)
 
-- `Dropdown.background`: Dropdown background.
-- `Dropdown.listBackground`: Dropdown list background.
-- `Dropdown.border`: Dropdown border.
-- `Dropdown.foreground`: Dropdown foreground.
+- `dropdown.background`: Dropdown background.
+- `dropdown.listBackground`: Dropdown list background.
+- `dropdown.border`: Dropdown border.
+- `dropdown.foreground`: Dropdown foreground.
 
 ## Input Control
 
@@ -338,6 +338,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.insertedTextBorder`: Outline color for the text that got inserted.
 - `diffEditor.removedTextBackground`: Background color for text that got removed. The color must not be opaque to not hide underlying decorations.
 - `diffEditor.removedTextBorder`: Outline color for text that got removed.
+- `diffEditor.border`: Border color between the two text editors.
 
 ## Editor Widget Colors
 
@@ -529,6 +530,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 ## Git Colors
 
+- `gitDecoration.addedResourceForeground`: Color for added Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.modifiedResourceForeground`: Color for modified Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.deletedResourceForeground`: Color for deleted Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.untrackedResourceForeground`: Color for untracked Git resources. Used for file labels and the SCM viewlet.
