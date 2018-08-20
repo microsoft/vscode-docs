@@ -619,9 +619,12 @@ Contributes new themable colors. These colors can be used by the extension in ed
       "defaults": {
           "dark": "errorForeground",
           "light": "errorForeground",
-          "highContrast": "errorForeground"
+          "highContrast": "#010203"
       }
   }]
+
+Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/docs/getstarted/theme-color-reference.md#colorformats).
+
 ```
 
 ## contributes.typescriptServerPlugins
