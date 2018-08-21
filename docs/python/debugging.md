@@ -189,7 +189,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Both computers: make sure that identical source code is available.
 
-1. Both computers: install [ptvsd](https://pypi.org/project/ptvsd/) using `python -m pip install --upgrade ptvsd` into your environment (while using a form of virtual environment is not required, it is strongly recommended).
+1. Both computers: install [ptvsd](https://pypi.org/project/ptvsd/) using `python -m pip install --upgrade --pre ptvsd` into your environment (while using a form of virtual environment is not required, it is strongly recommended).
 
 1. Remote computer: open the port you wish to use for debugging in the appropriate firewall or other networking configuration.
 
