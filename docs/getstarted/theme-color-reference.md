@@ -433,15 +433,24 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 
-## Title Bar Colors (macOS)
-
-**Note:** These colors are currently only supported on macOS.
+## Title Bar Colors
 
 - `titleBar.activeBackground`: Title Bar background when the window is active.
 - `titleBar.activeForeground`: Title Bar foreground when the window is active.
 - `titleBar.inactiveBackground`: Title Bar background when the window is inactive.
 - `titleBar.inactiveForeground`: Title Bar foreground when the window is inactive.
 - `titleBar.border`: Title bar border color.
+
+## Menu Bar Colors
+
+- `menubar.selectionForeground`: Foreground color of the selected menu item in the menubar.
+- `menubar.selectionBackground`: Background color of the selected menu item in the menubar.
+- `menubar.selectionBorder`: Border color of the selected menu item in the menubar.
+- `menu.foreground`: Foreground color of menu items.
+- `menu.background`: Background color of menu items.
+- `menu.selectionForeground`: Foreground color of the selected menu item in menus.
+- `menu.selectionBackground`: Background color of the selected menu item in menus.
+- `menu.selectionBorder`: Border color of the selected menu item in menus.
 
 ## Notification Colors
 
