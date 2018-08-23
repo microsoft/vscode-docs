@@ -203,7 +203,7 @@ Select `hello.py` and try again. Alternately, create a debug configuration speci
             "name": "Python: hello.py",
             "type": "python",
             "request": "launch",
-            "program": "hello.py"
+            "program": "${workspaceFolder}/hello.py"
         },
 ```
 
