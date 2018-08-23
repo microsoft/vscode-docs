@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Linux
 ContentId: 7FDF94DB-3527-4296-BE1C-493495B89408
 PageTitle: Running Visual Studio Code on Linux
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
 # Running VS Code on Linux
@@ -33,6 +33,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 Then update the package cache and install the package using:
 
 ```bash
+sudo apt-get install apt-transport-https
 sudo apt-get update
 sudo apt-get install code # or code-insiders
 ```

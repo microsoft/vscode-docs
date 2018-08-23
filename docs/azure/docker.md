@@ -4,7 +4,7 @@ Area: azure
 TOCTitle: Docker
 ContentId: 42F8B9F8-BD03-4159-9479-17C5BDE30531
 PageTitle: Working with Docker in Visual Studio Code
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Working with Docker containers in Visual Studio Code.
 ---
 # Working with Docker
@@ -105,7 +105,7 @@ The Docker extension language service analyzes your Docker files and provides yo
 
 ![docker warnings](images/docker/linting.png)
 
-You can control specific linting rules to either be a warning, error, or ignored through the `docker.languageservice.diagnostics` [settings](/docs/getstarted/settings.md)
+You can control specific linting rules to either be a warning, error, or ignored through the `docker.languageserver.diagnostics` [settings](/docs/getstarted/settings.md)
 
 ## Deploying images to Azure App Service
 

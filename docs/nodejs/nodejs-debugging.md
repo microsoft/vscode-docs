@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -296,17 +296,19 @@ By using the `PickProcess` variable the launch configuration looks like this:
 
 ## Stop debugging
 
-Using the **Debug: Stop** action (available in the debug toolbar or via F1) stops the debug session.
+Using the **Debug: Stop** action (available in the Debug toolbar or via the **Command Palette**) stops the debug session.
 
-If the debug session has been started in "attach" mode (and the red terminate button in the debug toolbar shows an superimposed "plug"), pressing "Stop" disconnects the Node.js debugger from the debuggee which then continues execution.
+If the debug session was started in "attach" mode (and the red terminate button in the Debug toolbar shows an superimposed "plug"), pressing **Stop** disconnects the Node.js debugger from the debuggee which then continues execution.
 
-If the debug session is in "launch" mode, pressing "Stop" does the following:
+If the debug session is in "launch" mode, pressing **Stop** does the following:
 
-When pressing "Stop" for the first time, the debuggee is requested to shutdown itself gracefully by sending a `SIGINT` signal. The debuggee is free to intercept this signal, e.g. to clean up everything as necessary and then shutdown itself. If there are no breakpoints (or problems) in that shutdown code, the debuggee and the debug session will terminate.
+1. When pressing **Stop** for the first time, the debuggee is requested to shutdown gracefully by sending a `SIGINT` signal. The debuggee is free to intercept this signal and clean up anything as necessary and then shut down. If there are no breakpoints (or problems) in that shutdown code, the debuggee and the debug session will terminate.
 
-But if the debugger hits a breakpoint in the shutdown code or if the debuggee does not terminate properly by itself, then the debug session will not end. In this case pressing the "Stop" again will use a forcible way of terminate the debuggee and its child processes (`SIGKILL`). So if you see that a debug session doesn't end when you press the red "Stop" button, then press the button again to force a shutdown of the debuggee.
+2. However if the debugger hits a breakpoint in the shutdown code or if the debuggee does not terminate properly by itself, then the debug session will not end. In this case, pressing **Stop** again will force terminate the debuggee and its child processes (`SIGKILL`).
 
-Please note that on Windows pressing "Stop" always kills the debuggee and its child processes forcible.
+So if you see that a debug session doesn't end when you press the red **Stop** button, then press the button again to force a shutdown of the debuggee.
+
+Note that on the Windows operating system, pressing **Stop** always forcibly kills the debuggee and its child processes.
 
 ## Source maps
 
@@ -478,7 +480,6 @@ Alternatively you can start your program `server.js` via **nodemon** directly wi
 >**Tip:** Pressing the **Stop** button stops the debug session and disconnects from Node.js, but **nodemon** (and Node.js) will continue to run. To stop **nodemon**, you will have to kill it from the command line (which is easily possible if you use the `integratedTerminal` as shown above).
 
 >**Tip:** In case of syntax errors, **nodemon** will not be able to start Node.js successfully until the error has been fixed. In this case, VS Code will continue trying to attach to Node.js but eventually give up (after 10 seconds). To avoid this, you can increase the timeout by adding a `timeout` attribute with a larger value (in milliseconds).
-
 
 ## Automatically attach debugger to Node.js subprocesses
 

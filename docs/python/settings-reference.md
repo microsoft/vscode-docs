@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Settings Reference
 ContentId: d256dc5c-95e9-4c02-a82f-947bf34a3517
 PageTitle: Settings Reference for Python
-DateApproved: 06/28/2018
+DateApproved: 08/06/2018
 MetaDescription: Settings Reference for the Python extension in Visual Studio Code
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -23,10 +23,10 @@ Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our
 | python.venvPath | `""` | Path to a folder containing virtual environments, in which the extension looks for virtual environments in the first-level subfolders. Example values: `${workspaceFolder}/.pyenv`, `${workspaceFolder}\\venv`, `.\envs`, `~/.virtualenvs`, and so on, in which case that folder might have immediate subfolders such as `env`, `env2`, `ds_analysis_env`, and so on which are themselves virtual environments. |
 | python.envFile | `"${workspaceFolder}/.env"` | Absolute path to a file containing environment variable definitions. See [Configuring Python environments - environment variable definitions file](environments.md#environment-variable-definitions-file). |
 | python.globalModuleInstallation | `false` | Specifies whether to install packages for the current user only using the `--user` command-line argument (the default), or to install for all users in the global environment (when set to `true`). Ignored when using a virtual environment. For more information on the `--user`argument, see [pip - User Installs](https://pip.pypa.io/en/stable/user_guide/#user-installs). |
-| python.terminal.launchArgs | `[]` | Launch arguments given the Python interpreter when running a file where each top-level element that's separated by a space is a separate item in the list. |
+| python.terminal.launchArgs | `[]` | Launch arguments given the Python interpreter when running a file. Each top-level argument that's separated by a space is specified as a separate item in the list; spaces within those elements are not separated as items. For example, if the arguments are of the form "--a --b --c {"value1" : 1, "value2" : 2}", the list value for this setting would be `["--a", "--b", "--c", "{"value1" : 1, "value2" : 2}""]`. |
 | python.terminal.executeInFileDir | `false` | Indicates whether to run a file in the file's directory instead of the current folder. |
 | python.terminal.activateEnvironment | `true` | Indicates whether a selected virtual or conda environments is activated when using the **Python: Create Terminal** command or any other operation involving the terminal, such as the **Send Python File to Terminal** menu command. If `false`, skips activating virtual and conda environments before running the commands. |
-| python.jediEnabled | 'true' | Indicates whether to use Jedi as the IntelliSense engine (true) or the [Microsoft Python Language Server](http://blogs.msdn.microsoft.com/pythonengineering/2018/07/18/introducing-the-python-language-server/) (false). |
+| python.jediEnabled | 'true' | Indicates whether to use Jedi as the IntelliSense engine (true) or the [Microsoft Python Language Server](http://blogs.msdn.microsoft.com/pythonengineering/2018/07/18/introducing-the-python-language-server/) (false). Note that the language server requires a platform that [supports .NET 2.1 or newer](https://docs.microsoft.com/en-us/dotnet/core/rid-catalog). |
 | python.jediPath | `""` | Path to folder containing the Jedi library (folder should contain a `jedi` subfolder). |
 | python.jediMemoryLimit | 0 | Memory limit for the Jedi completion engine in megabytes. Zero (the default) means 1024MB. -1 disables the memory limit check. |
 

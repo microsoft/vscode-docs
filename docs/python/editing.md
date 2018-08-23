@@ -25,7 +25,7 @@ Autocomplete and IntelliSense are provided for all files within the current work
 
 <video id="python-code-completion-video" src="https://az754404.vo.msecnd.net/public/python-intellisense.mp4" poster="/images/python_python-intellisense-placeholder.png" autoplay loop controls muted></video>
 
-> **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context.
+> **Tip**: Check out the [IntelliCode extension for VS Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant auto-completions based on the current code context. For more information, see the [IntelliCode for VS Code FAQ](https://docs.microsoft.com/visualstudio/intellicode/intellicode-visual-studio-code).
 
 ### Enable IntelliSense for custom package locations
 
@@ -97,7 +97,7 @@ The Python extension supports source code formatting using either autopep8 (the 
 
 ### Formatter-specific settings
 
-The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting.
+The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting. The `pip install` commands may require elevation.
 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
@@ -187,7 +187,7 @@ To use a custom isort script, use the `python.sortImports.path` setting to speci
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
 
-#### Sort imports on save
+### Sort imports on save
 
 To automatically sort imports whenever you save a file, add the following entry to your user or workspace settings:
 

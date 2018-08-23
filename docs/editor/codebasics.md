@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Basic Editing
 ContentId: DE4EAE2F-4542-4363-BB74-BE47D64141E6
 PageTitle: Basic Editing in Visual Studio Code
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Learn about the basic editing features of Visual Studio Code. Search, multiple selection, code formatting.
 MetaSocialImage: codebasics_CodeBasics.png
 ---
@@ -141,7 +141,7 @@ When you type text into the Replace text box, you will see a diff display of the
 
 ![search and replace diff view](images/codebasics/search-replace-example.png)
 
->**Tip:** You can quickly reuse a previous search term by using `kb(search.history.showNext)` and `kb(search.history.showPrevious)` to navigate through your search term history.
+>**Tip:** You can quickly reuse a previous search term by using `kb(history.showNext)` and `kb(history.showPrevious)` to navigate through your search term history.
 
 ## IntelliSense
 

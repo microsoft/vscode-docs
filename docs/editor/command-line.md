@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Command Line
 ContentId: 8faef870-7a5f-4070-ad17-8ba791006912
 PageTitle: The Visual Studio Code Command Line Options
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Visual Studio Code command line options (switches).
 ---
 # Command Line Interface (CLI)
@@ -23,7 +23,7 @@ You can launch VS Code from the command line to quickly open a file, folder, or 
 
 **Note:** Users on macOS must first run a command (**Shell Command: Install 'code' command in PATH**) to add VS Code executable to the `PATH` environment variable. Read the [macOS setup guide](/docs/setup/mac.md) for help.
 
-Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, VS Code is installed under `Program Files\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
+Windows and Linux installations should add the VS Code binaries location to your system path. If this isn't the case, you can manually add the location to the `Path` environment variable (`$PATH` on Linux). For example, on Windows, VS Code is installed under `AppData\Local\Programs\Microsoft VS Code\bin`. To review platform specific setup instructions, see [Setup](/docs/setup/setup-overview.md).
 
 > **Insiders:** If you are using the VS Code [Insiders](/insiders) preview, you launch your Insiders build with `code-insiders`.
 

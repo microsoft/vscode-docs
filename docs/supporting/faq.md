@@ -2,7 +2,7 @@
 TOCTitle: FAQ
 ContentId: E02F97FD-842B-4D27-B461-37DD18B2582E
 PageTitle: Visual Studio Code Frequently Asked Questions
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Our docs contain a Common Questions section. Here are items that don't fit in the other topics.
 ---
 # Visual Studio Code FAQ
@@ -109,7 +109,7 @@ In short, we have worked hard to do the right thing, for all users, as these pra
 
 One question we expect people to ask is to see the data we collect. However, we don't have a reliable way to do this as VS Code does not have is a 'sign-in' experience that would uniquely identify a user.  We do send information which helps us approximate a single user for diagnostic purposes (this is based on a hash of the network adapter NIC) but this is not guaranteed to be unique. For example, VM's often rotate NIC ID's or allocate from a pool.  This technique is sufficient to help us when working through problems, but it is not reliable enough for us to 'provide your data'.
 
-In conclusion, we expect our approach to evolve as we learn more about GDPR and the expectations of our users.  We greatly appreciate the data users do sent to us, as it is very valuable, VS Code is a better product for everyone because it.  And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
+In conclusion, we expect our approach to evolve as we learn more about GDPR and the expectations of our users.  We greatly appreciate the data users do send to us, as it is very valuable, VS Code is a better product for everyone because it.  And again, if you are worried about privacy, we offer the ability to disable sending telemetry as described [here](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting).
 
 You can find more information about how the Visual Studio family approaches GDPR at [Visual Studio Family Data Subject Requests for the GDPR](https://docs.microsoft.com/en-us/microsoft-365/compliance/gdpr-dsr-visual-studio-family).
 

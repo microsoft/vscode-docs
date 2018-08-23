@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Integrated Terminal
 ContentId: 7B4DC928-2414-4FC7-9C76-E4A13D6675FE
 PageTitle: Integrated Terminal in Visual Studio Code
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Visual Studio Code has an integrated terminal so you can work in the shell of your choice without leaving the editor.
 ---
 # Integrated Terminal
@@ -176,6 +176,18 @@ If no text is selected in the active editor, the line that the cursor is on is r
 ## Rename terminal sessions
 
 Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection drop-down.
+
+## Open at a specific folder
+
+By default, the terminal will open at the folder that is opened in the Explorer. The `terminal.integrated.cwd` setting allows specifying a custom path to open instead:
+
+```json
+{
+    "terminal.integrated.cwd": "/home/user"
+}
+```
+
+There are also extensions available that give more options such as [Terminal Here](https://marketplace.visualstudio.com/items?itemName=Tyriar.vscode-terminal-here).
 
 ## Changing how the terminal is rendered
 

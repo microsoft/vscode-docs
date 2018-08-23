@@ -22,7 +22,7 @@ The selected environment is also automatically activated when using the **Python
 
 ## Global and virtual environments
 
-By default, any Python interpreter that you've installed run in its own "global" environment, which is not specific to any one program. For example, if you just run `python` (Windows) or `python3` (Mac/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
+By default, any Python interpreter that you've installed run in its own "global" environment, which is not specific to any one program. For example, if you just run `python` (Windows) or `python3` (macOS/Linux) at a new command prompt, you're running in that interpreter's global environment. Accordingly, any packages that you install or uninstall affect the global environment and all programs that you run within that context.
 
 Although working in the global environment is an easy way to get started, that environment will, over time, become cluttered with many different packages that you've installed for different projects. Such clutter makes it difficult to thoroughly test an application against a specific set of packages with known versions, which is exactly the kind of environment you'd set up on a build server or web server.
 
@@ -32,18 +32,18 @@ For this reason, developers often create a *virtual environment* for any given p
 
 To create a virtual environment, use the following command, where "env" is the name of the environment folder:
 
-    ```bash
-    # Mac/Linux
-    # You may need to run sudo apt-get install python3-venv first
-    python3 -m venv env
+```bash
+# macOS/Linux
+# You may need to run sudo apt-get install python3-venv first
+python3 -m venv env
 
-    # Windows
-    py -3 -m venv env
-    ```
+# Windows
+py -3 -m venv env
+```
 
 The next section describes how to select an environment, include virtual environments. For an example of using a virtual environment in a project, see the [Flask tutorial](/docs/python/tutorial-flask.md).
 
-> **Tip**: When you're ready to deploy the application to other computers, you can create a `requirements.txt` file with the command `pip freeze > requirements.txt` (`pip3` on Mac/Linux). The requirements file describes the packages you've installed in your virtual environment. With only this file, you or other developers can restore those packages using `pip install -r requirements.txt` (or, again, `pip3` on Mac/Linux). By using a requirements file, you need not commit the virtual environment itself to source control.
+> **Tip**: When you're ready to deploy the application to other computers, you can create a `requirements.txt` file with the command `pip freeze > requirements.txt` (`pip3` on macOS/Linux). The requirements file describes the packages you've installed in your virtual environment. With only this file, you or other developers can restore those packages using `pip install -r requirements.txt` (or, again, `pip3` on macOS/Linux). By using a requirements file, you need not commit the virtual environment itself to source control.
 
 ## Select an environment
 

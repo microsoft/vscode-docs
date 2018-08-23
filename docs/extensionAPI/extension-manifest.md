@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Extension Manifest
 ContentId: C4F184A5-A804-4B0B-9EBA-AFE83B88EE49
 PageTitle: Visual Studio Code Extension Manifest File - package.json
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: At the core of Visual Studio Code's extensibility model is an extension (plug-in) manifest file where your extension declares its extension type(s), activation rules and runtime resources.
 ---
 # Extension Manifest File - package.json
@@ -281,7 +281,7 @@ There are several Node.js modules available on npmjs to help with writing VSCode
 * [jsonc-parser](https://www.npmjs.com/package/jsonc-parser) - A scanner and fault tolerant parser to process JSON with or without comments.
 * [request-light](https://www.npmjs.com/package/request-light) - A light weight Node.js request library with proxy support
 * [vscode-extension-telemetry](https://www.npmjs.com/package/vscode-extension-telemetry) - Consistent telemetry reporting for VS Code extensions.
-* [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://github.com/Microsoft/language-server-protocol).
+* [vscode-languageclient](https://www.npmjs.com/package/vscode-languageclient) - Easily integrate language servers adhering to the [language server protocol](https://microsoft.github.io/language-server-protocol).
 
 ## Next Steps
 
