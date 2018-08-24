@@ -21,10 +21,6 @@ VS Code has support for handling multiple Source Control providers simultaneousl
 
 ![source control providers](images/versioncontrol/scm.png)
 
-If you would like to install an additional SCM provider, the **Install Additional SCM Providers...** command in the **Source Control** view **More Actions** (...) dropdown will show a list of available SCM provider extensions.
-
-![install additional scm providers](images/versioncontrol/additional-scm-providers.png)
-
 ## Git support
 
 VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
