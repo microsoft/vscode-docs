@@ -21,6 +21,12 @@ VS Code has support for handling multiple Source Control providers simultaneousl
 
 ![source control providers](images/versioncontrol/scm.png)
 
+### SCM Provider extensions
+
+If you would like to install an additional SCM provider, you can search on the **scm providers** extension category in the Extensions view (`kb(workbench.view.extensions)`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
+
+![scm provider category](images/versioncontrol/scm-provider-category.png)
+
 ## Git support
 
 VS Code ships with a Git source control manager (SCM) extension. Most of the source control UI and work flows are common across other SCM extensions so reading about the Git support will help you understand how to use another provider.
@@ -179,10 +185,10 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 ### I initialized my repo but the actions in the `...` menu are all grayed out
 
-To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
+To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example:
 
 ```bash
-> git remote add origin https://<AccountName>.visualstudio.com/DefaultCollection/_git/<RepoName>
+> git remote add origin https://github.com/<repo owner>/<repo name>.git
 > git push -u origin master
 ```
 
