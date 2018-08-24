@@ -534,9 +534,9 @@ Below are the Visual Studio Code default settings and their values. You can also
 
   // Controls the format of the label for an editor.
   //  - default: Show the name of the file. When tabs are enabled and two files have the same name in one group the distinguinshing sections of each file's path are added. When tabs are disabled, the path relative to the workspace folder is shown if the editor is active.
-  //  - short: Show the name of the file followed by it's directory name.
-  //  - medium: Show the name of the file followed by it's path relative to the workspace folder.
-  //  - long: Show the name of the file followed by it's absolute path.
+  //  - short: Show the name of the file followed by its directory name.
+  //  - medium: Show the name of the file followed by its path relative to the workspace folder.
+  //  - long: Show the name of the file followed by its absolute path.
   "workbench.editor.labelFormat": "default",
 
   // Controls where editors open. Select `left` or `right` to open editors to the left or right of the currently active one. Select `first` or `last` to open editors independently from the currently active one.
