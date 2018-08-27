@@ -105,7 +105,7 @@ There is also an **Enable All Extensions** command in the **More Actions** (`...
 
 ### Extension auto-update
 
-VS Code checks for extension updates and installs them automatically. After an update, you will be prompted to reload VS Code. If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Updating Extensions** command which sets the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md)  to `false`. If you don't want VS Code to even check for updates, you can set the `extensions.autoCheckUpdate` setting to false.
+VS Code checks for extension updates and installs them automatically. After an update, you will be prompted to reload VS Code. If you'd rather update your extensions manually, you can disable auto-update with the **Disable Auto Updating Extensions** command which sets the `extensions.autoUpdate` [setting](/docs/getstarted/settings.md)  to `false`. If you don't want VS Code to even check for updates, you can set the `extensions.autoCheckUpdates` setting to false.
 
 ### Update an extension manually
 
