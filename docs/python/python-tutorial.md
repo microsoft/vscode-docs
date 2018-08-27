@@ -140,13 +140,13 @@ Save `launch.json`, switch to `hello.py` in the editor, then run the debugger by
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
-A debug toolbar appears along the top with the following commands from left to right: run (`kb(workbench.action.debug.start)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
+A debug toolbar appears along the top with the following commands from left to right: continue (`kb(workbench.action.debug.start)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
 
 ![Debugging toolbar](images/tutorial/debug-toolbar.png)
 
 The Status Bar also changes color (orange in many themes) to indicate debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run along with program output.
 
-To continue running the program, select the run command on the debug toolbar (`kb(workbench.action.debug.start)`) or the green arrow in the Debug view. The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane
+To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
