@@ -544,7 +544,7 @@ For **lsp-sample**, you can set this setting: `"languageServerExample.trace.serv
 
 ![LSP Log](images/example-language-server/lsp-log.png)
 
-As Language Servers can be chatty (5 seconds of real-world usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. You can save all logs from the channel into a file, and load that file with the Language Server Protocol Inspector](https://github.com/Microsoft/language-server-protocol-inspector) at https://microsoft.github.io/language-server-protocol/inspector.
+As Language Servers can be chatty (5 seconds of real-world usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. You can save all logs from the channel into a file, and load that file with the [Language Server Protocol Inspector](https://github.com/Microsoft/language-server-protocol-inspector) at https://microsoft.github.io/language-server-protocol/inspector.
 
 ![LSP Inspector](images/example-language-server/lsp-inspector.png)
 
