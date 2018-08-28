@@ -21,8 +21,8 @@ To successfully complete this tutorial, you must do the following:
 1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
-   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.6.5** button that appears first on the page (or whatever is the latest version).
-   - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must run `sudo apt install python3-pip` in the terminal.
+   - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.7.0** button that appears first on the page (or whatever is the latest version).
+   - (Linux) The built-in Python 3 installation works well, but to install other Python packages you must install `pip` with [`get-pip.py`](https://pip.pypa.io/en/stable/installing/#installing-with-get-pip-py).
    - (MacOS) An installation through [Homebrew](https://brew.sh/) on macOS using `brew install python3` (the system install of Python on macOS is not supported).
    - (All operating systems) A download from [Anaconda](https://www.anaconda.com/download/) (for data science purposes).
 
@@ -38,7 +38,7 @@ cd hello
 code .
 ```
 
-By starting VS Code in a folder, that folder becomes you "workspace". VS Code stores settings that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
+By starting VS Code in a folder, that folder becomes your "workspace". VS Code stores settings that are specific to that workspace in `.vscode/settings.json`, which are separate from user settings that are stored globally.
 
 ## Select a Python interpreter
 
@@ -172,7 +172,7 @@ For full details, see [Debugging configurations](/docs/python/debugging.md), whi
 
 ### Troubleshooting
 
-If for some reason VS Code doesn't generate `launch.json` for you, create a file by that name within the folder named `.vscode` folder (creating it if you need to), then paste the following contents into `launch.json`:
+If for some reason VS Code doesn't generate `launch.json` for you, create the `.vscode/launch.json` file within the project folder (creating the `.vscode` folder if you need to), then paste the following contents into `launch.json`:
 
 ```json
 {
@@ -209,7 +209,7 @@ Select `hello.py` and try again. Alternately, create a debug configuration speci
 
 ## Install and use packages
 
-Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPi](https://pypi.org/). For this example you use the matplotlib and numpy packages to create a graphical plot as commonly done with data science.
+Let's now run an example that's a little more interesting. In Python, packages are how you obtain any number of useful code libraries, typically from [PyPI](https://pypi.org/). For this example you use the `matplotlib` and `numpy` packages to create a graphical plot as commonly done with data science.
 
 Return to the **Explorer** view (the top-most icon on the left side, which shows files), create a new file called `standardplot.py`, and paste in the following source code:
 
@@ -227,24 +227,24 @@ plt.show()                   # Display the plot
 
 Next, try running the file in the debugger using the "Python: Current file" configuration as described in the last section. (If you still have `"stopOnEntry": true` in that configuration, you need to select the run command again to continue.)
 
-Unless you're using an Anaconda distribution or have previously installed the matplotlib package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
+Unless you're using an Anaconda distribution or have previously installed the `matplotlib` package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
-To install the matplotlib package (which also installs numpy), stop the debugger and run **Python: Create Terminal** from the Command Palette, which opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
+To install the `matplotlib` package (which also installs `numpy` as a dependency), stop the debugger and run **Python: Create Terminal** from the Command Palette. This will open a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
 
 > **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
-# pip[3] install commands may require elevation
+# pip install commands may require elevation
 
 # macOS
-pip3 install matplotlib
+python -m pip install matplotlib
 
 # Windows
-pip install matplotlib
+py -m pip install matplotlib
 
-# Linux
+# Linux (Debian)
 sudo apt-get install python3-tk
-pip3 install matplotlib
+python -m pip install matplotlib
 ```
 
 Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
