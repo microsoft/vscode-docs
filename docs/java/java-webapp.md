@@ -13,7 +13,7 @@ In our [first tutorial](/docs/java/java-tutorial.md), we built a Java web applic
 
 ## Prerequisites
 
-To develop Azure Functions with Java, you'll need the following tools installed:
+To develop to Azure Web App with Java, you'll need the following tools installed:
 
 - [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 1.8.
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
@@ -75,6 +75,8 @@ After building the project, open the `target` directory in VS Code Explorer. Rig
 ![Deploy to Web App button](images/java-webapp/deployment-button.png)
 
 Open the **Output** window in VS Code to view the deployment logs. Once the deployment is completed, it will print out the URL for your Web App. By pasting the URL into a web browser, you can see the web app running on Azure! 
+
+![Greeting from Spring Boot](images/java-webapp/greeting.png)
 
 > **Note:** For more advanced features of App Service, you can check out the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
