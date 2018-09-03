@@ -79,7 +79,7 @@ The sample below is the `For Loop` again but this time it is scoped to JavaScrip
           "}"
         ],
         "description": "For Loop"
-    },
+    }
 }
 ```
 
