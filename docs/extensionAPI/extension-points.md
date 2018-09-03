@@ -25,6 +25,7 @@ This document covers the various contribution points that are defined in the [`p
 * [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
 * [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
 * [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
+* [`taskDefinitions`](/docs/extensionAPI/extension-points.md#contributestaskDefinitions)
 * [`colors`](/docs/extensionAPI/extension-points.md#contributescolors)
 
 ## contributes.configuration
@@ -607,6 +608,44 @@ Also see: [Defining a Problem Matcher](/docs/editor/tasks.md#defining-a-problem-
 ## contributes.problemPatterns
 
 Contributes named problem patterns that can be used in problem matchers (see above).
+
+## contributes.taskDefinitions
+
+Contributes and defines an object literal structures that allows to uniquely identifiy a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional propertiies. For example a task definition for a task representing a script in a package.json file looks like this:
+
+```json
+"taskDefinitions": [
+    {
+        "type": "npm",
+        "required": [
+            "script"
+        ],
+        "properties": {
+            "script": {
+                "type": "string",
+                "description": "The script to execute"
+            },
+            "path": {
+                "type": "string",
+                "description": "The path to the package.json file. If omitted the package.json in the root of the workspace folder is used."
+            }
+        }
+    }
+]
+```
+
+The task definition is defined using JSON schema syntax for the `required` and `properties` property. The `type` property definies the task type. If the above example:
+
+* `"type": "npm"` associates the task definition with the npm tasks
+* `"required": [ "script" ]` defines that `script` attributes as mandatory. The `path` property is optional.
+* `"properties"` : { ... }` defines the additional properties and their types.
+
+When the extension actual creates a Task it needs to pass a `TaskDefinition` that conforms to the task definition contributed in the package.json file. For the `npm` example a task creation for the test script inside a package.json file looks like this:
+
+```ts
+let task = new vscode.Task({ type: 'npm', script: 'test' }, ....);
+```
+
 
 ## contributes.colors
 
