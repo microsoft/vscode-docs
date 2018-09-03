@@ -11,83 +11,72 @@ MetaDescription: Java web app tutorial showing how to deploy a Java web app to A
 
 In our [first tutorial](/docs/java/java-tutorial.md), we built a Java web application and ran it locally. In this tutorial, you will learn how to deploy and run it on [Azure](https://azure.microsoft.com) in the cloud.
 
-## Prepare your Azure account
+## Prerequisites
 
-Before running this sample application on [Azure](https://azure.microsoft.com), you need to have an Azure subscription and the Azure command line tools.
+To develop Azure Functions with Java, you'll need the following tools installed:
 
-If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/):
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 1.8.
+- [Apache Maven](https://maven.apache.org), version 3.0 or above.
+
+>**Important**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
+
+
+## Install the Azure App Service extension
+
+The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension is used to create, manage, and deploy to Azure App Service with key features including:
+
+- Create new Azure Web App/deployment slot
+- Deploy to Azure Web App/deployment slot
+- Start, stop, and restart the Azure Web App/deployment slot
+- View a Web App's log files
+- Swap deployment slots
+
+To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command line Maven-centric experience, you can also check out the [Maven plugin for Azure Web App tutorial](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable). 
+
+## Create a new Web App 
+
+Once the extension is installed, you can take the following steps to create a new Web App. 
+
+1. Click **Create New Project** button on the **APP SERVICE** Explorer view.
+2. Select a subscription. 
+3. Enter an unique name for the new Web App. 
+4. Select a location for the new Web App. 
+5. Select the OS as `Linux`. 
+6. Select the runtime of the Web App, for example`Tomcat 8.5`. 
+
+> **Note:** The runtimes are in preview status for `Tomcat 8.5 (JRE8)`, `Tomcat 9.0 (JRE8)` and `Java SE (JRE8)`. 
+
+![Create a Web App button](images/java-webapp/create-webapp.png)
+
+## Build and deploy to a Web App 
+
+If you don't have an Azure subscription, you can sign up for a [free Azure account](https://azure.microsoft.com/pricing/free-trial/
+).
 
 <a class="tutorial-next-btn" href="https://azure.microsoft.com/pricing/free-trial/" target="_blank" style="background-color:#68217A">Create your free Azure account</a>
 
-The [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/overview):
+The deploy process leverages the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension (installed along with the Azure Functions extension as an dependency) and you need to sign in with your Azure subscription. If you do not have an Azure subscription, [sign up today](https://azure.microsoft.com//free/?b=16.48) for a free 30 day account and get $200 in Azure Credits to try out any combination of Azure services.
 
-<a class="tutorial-next-btn" href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank" style="background-color:#68217A">Install Azure CLI 2.0</a>
+To log into Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
 
-## Login with Azure CLI
+![Azure sign in code](images/java-webapp/devicelogin.png)
 
-To run the Azure CLI, we'll use the [Integrated Terminal](/docs/editor/integrated-terminal.md) in VS Code. To open the terminal, you can either:
+Paste in the access code and continue the sign in process.
 
-* Use the `kb(workbench.action.terminal.toggleTerminal)` keyboard shortcut with the backtick character.
-* Use the **View** | **Integrated Terminal** menu command.
-* From the **Command Palette** (`kb(workbench.action.showCommands)`), use the **View: Toggle Integrated Terminal** command.
+![Azure Device Login](images/java-webapp/devicelogin2.png)
 
-> **Note:** You can also open an external shell with the Explorer **Open in Command Prompt** command (**Open in Terminal** on macOS or Linux) if you prefer to work outside VS Code.
-
-Sign into your Azure account by using the Azure CLI:
-
-```bash
-az login
-```
-
-Follow the instructions to complete the sign-in process.
-
-## Update your project to use Azure CLI for authentication
-
-Open the `pom.xml` file in your project folder (`complete`). Find and remove the snippet below in the azure-webapp-maven-plugin `configuration` section so that you will authenticate with Azure using the Azure CLI, which you did in the previous step.
-
-![Remove Authentication](images/java-webapp/remove-auth.png)
-
->**Note**: This specific configuration will now use Azure Service Principal for authentication. More details could be found at [Configure Maven to use your Azure Service Principal](https://docs.microsoft.com/azure/app-service/app-service-web-deploy-spring-boot-app-with-maven-plugin#configure-maven-to-use-your-azure-service-principal)
-
-## Build and deploy your web app to Azure
-
-From the command prompt or terminal window you were using earlier, rebuild the JAR file using Maven if you made any changes to the `pom.xml` file. For example:
+Once you have signed in, you can open the command prompt or terminal window and build the project using Maven commands. This will generate a new `name.war` or `name.jar` file in the `target` directory. 
 
 ```bash
 mvn clean package
 ```
+After building the project, open the `target` directory in VS Code Explorer. Right-click on the `name.war` or `name.jar` file and choose **Deploy to Web App** button, and follow the prompts to choose the Web App for your deployment.
 
-> **Note:** You need to be in the `complete` directory when running commands in the terminal.
+![Deploy to Web App button](images/java-webapp/deployment-button.png)
 
-Deploy your web app to Azure by using Maven:
+Open the **Output** window in VS Code to view the deployment logs. Once the deployment is completed, it will print out the URL for your Web App. By pasting the URL into a web browser, you can see the web app running on Azure! 
 
-```bash
-mvn azure-webapp:deploy
-```
-
-Maven will deploy your web app to Azure. If the web app does not already exist, it will be created.
-
-When your web app has been deployed, you will see a success message on the command line:
-
-![Deploy Success](images/java-webapp/deploy-success.png)
-
-By pasting the URL into a web browser, you can see the sample web app running on Azure!
-
-![Greeting cloud](images/java-webapp/greeting-cloud.png)
-
-You will also be able to manage it using the [Azure portal](https://portal.azure.com/).
-
-Your web app will be listed under **App Services**:
-
-![App Service View](images/java-webapp/app-service-view.png)
-
-The URL for your web app will be listed in the **Overview** for your web app:
-
-![Overview](images/java-webapp/overview.png)
-
-You have successfully deployed a Java web application to the cloud!
-
-![Greeting cloud](images/java-webapp/greeting-cloud.png)
+> **Note:** For more advanced features of App Service, you can check out the [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension.
 
 ## Next steps
 
