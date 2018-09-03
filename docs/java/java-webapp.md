@@ -72,7 +72,7 @@ mvn clean package
 ```
 After building the project, open the `target` directory in VS Code Explorer. Right-click on the `name.war` or `name.jar` file and choose **Deploy to Web App** button, and follow the prompts to choose the Web App for your deployment.
 
-![Deploy to Web App button](images/java-webapp/deployment-button.png)
+![Deploy to Web App button](images/java-webapp/deploy-webapp.png)
 
 Open the **Output** window in VS Code to view the deployment logs. Once the deployment is completed, it will print out the URL for your Web App. By pasting the URL into a web browser, you can see the web app running on Azure! 
 
