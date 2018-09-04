@@ -1,5 +1,5 @@
 ---
-Order: 7
+Order: 8
 Area: extensions
 TOCTitle: Themes, Snippets and Colorizers
 ContentId: 448E9027-3AD0-420D-9A58-D428D1B1067D

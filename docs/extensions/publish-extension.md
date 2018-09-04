@@ -1,5 +1,5 @@
 ---
-Order: 11
+Order: 12
 Area: extensions
 TOCTitle: Publishing Extensions
 ContentId: 7EA90618-43A3-4873-A9B5-61CC131CE4EE
