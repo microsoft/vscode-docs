@@ -231,6 +231,10 @@ editorHasMultipleSelections | Multiple regions of text are selected (multiple cu
 editorReadOnly | The editor is read only.
 editorLangId | True when the editor's associated [language Id](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
 isInDiffEditor | The active editor is a difference editor.
+**Operating system contexts** |
+isLinux | True when the OS is Linux
+isMac | True when the OS is macOS
+isWindows | True when the OS is Windows
 **Mode contexts** |
 inDebugMode | A debug session is running.
 inSnippetMode | The editor is in snippet mode.
