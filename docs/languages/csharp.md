@@ -69,7 +69,7 @@ Here are a few highlights...
 
 ## IntelliSense
 
-IntelliSense just works hit `kb(editor.action.triggerSuggest)` at any time to get context specific suggestions.
+IntelliSense just works: hit `kb(editor.action.triggerSuggest)` at any time to get context specific suggestions.
 
 ![IntelliSense](images/csharp/intellisense.png)
 

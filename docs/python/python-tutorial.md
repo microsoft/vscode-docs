@@ -18,7 +18,7 @@ In this tutorial you use Python 3 to create the simplest Python "Hello World" ap
 
 To successfully complete this tutorial, you must do the following:
 
-1. Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+1. Install the [Python extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 1. Install a version of Python 3 (for which this tutorial is written). Options include:
    - (All operating systems) A download from [python.org](https://www.python.org/downloads/); typically use the **Download Python 3.6.5** button that appears first on the page (or whatever is the latest version).
@@ -30,7 +30,7 @@ To successfully complete this tutorial, you must do the following:
 
 ## Start VS Code in a project (workspace) folder
 
-Create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`):
+At a command prompt or terminal, create an empty folder called "hello", navigate into it, and open VS Code (`code`) in that folder (`.`) by entering the following commands:
 
 ```
 mkdir hello
@@ -50,7 +50,7 @@ From within VS Code, select a Python 3 interpreter by opening the **Command Pale
 
 The command presents a list of available interpreters that VS Code can find automatically. If you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md).
 
-Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings**, then select the **Workspace Settings** tab.
+Selecting an interpreter sets the `python.pythonPath` value in your workspace settings to the path of the interpreter. To see the setting, select **File** > **Preferences** > **Settings** (**Code** > **Preferences** > **Settings** on macOS), then select the **Workspace Settings** tab.
 
 > **Note**: If you select an interpreter without a workspace folder open, VS Code sets `python.pythonPath` in your user settings instead, which sets the default interpreter for VS Code in general. The user setting makes sure you always have a default interpreter for Python projects. The workspace settings lets you override the user setting.
 
@@ -91,7 +91,7 @@ It's simple to run `hello.py` with Python. Right-click in the editor and select 
 
 ![Run Python File in Terminal command in the Python editor](images/tutorial/run-python-file-in-terminal.png)
 
-The command opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (Mac/Linux) or `python hello.py` (Windows):
+The command opens a terminal panel in which your Python interpreter is automatically activated, then runs `python3 hello.py` (macOS/Linux) or `python hello.py` (Windows):
 
 ![Program output in a Python terminal](images/tutorial/output-in-terminal.png)
 
@@ -140,13 +140,13 @@ Save `launch.json`, switch to `hello.py` in the editor, then run the debugger by
 
 ![Debugging step 1 - stop on entry](images/tutorial/debug-step-01.png)
 
-A debug toolbar appears along the top with the following commands from left to right: run (`kb(workbench.action.debug.start)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
+A debug toolbar appears along the top with the following commands from left to right: continue (`kb(workbench.action.debug.start)`), step over (`kb(workbench.action.debug.stepOver)`), step into (`kb(workbench.action.debug.stepInto)`), step out (`kb(workbench.action.debug.stepOut)`), restart (`kb(workbench.action.debug.restart)`), and stop (`kb(workbench.action.debug.stop)`).
 
 ![Debugging toolbar](images/tutorial/debug-toolbar.png)
 
 The Status Bar also changes color (orange in many themes) to indicate debug mode. The **Python Debug Console** also appears automatically in the lower right panel to show the commands being run along with program output.
 
-To continue running the program, select the run command on the debug toolbar (`kb(workbench.action.debug.start)`) or the green arrow in the Debug view. The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane
+To continue running the program, select the continue command on the debug toolbar (`kb(workbench.action.debug.start)`). The debugger runs the program to the next breakpoint. The now-defined `msg` variable appears in the **Local** pane
 
 ![Debugging step 2 - variable defined](images/tutorial/debug-step-02.png)
 
@@ -203,7 +203,7 @@ Select `hello.py` and try again. Alternately, create a debug configuration speci
             "name": "Python: hello.py",
             "type": "python",
             "request": "launch",
-            "program": "hello.py"
+            "program": "${workspaceFolder}/hello.py"
         },
 ```
 
@@ -229,10 +229,14 @@ Next, try running the file in the debugger using the "Python: Current file" conf
 
 Unless you're using an Anaconda distribution or have previously installed the matplotlib package, you should see the message, "ModuleNotFoundError: No module named 'matplotlib'". Such a message indicates that the required package isn't available in your system.
 
-To install the matplotlib package (which also installs numpy), stop the debugger and run **Python: Create Terminal** from the Command Palette, which opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system:
+To install the matplotlib package (which also installs numpy), stop the debugger and run **Python: Create Terminal** from the Command Palette, which opens a command prompt for your selected interpreter. Then enter the following commands as appropriate for your operating system (commands may require elevation if the Python interpreter is installed in a protected area of the file system):
+
+> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ```bash
-# Mac
+# pip[3] install commands may require elevation
+
+# macOS
 pip3 install matplotlib
 
 # Windows
@@ -246,8 +250,6 @@ pip3 install matplotlib
 Rerun the program now (with or without the debugger) and after a few moments a plot window appears with the output:
 
 ![matplotlib output](images/tutorial/plot-output.png)
-
-> **Note**: If you are unable to install the package, please [file an issue on GitHub](https://github.com/Microsoft/vscode-docs/issues) so we can help you investigate.
 
 ## Next steps
 

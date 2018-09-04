@@ -97,7 +97,7 @@ The Python extension supports source code formatting using either autopep8 (the 
 
 ### Formatter-specific settings
 
-The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting.
+The following settings apply to the individual formatters. The Python extension looks in the current `pythonPath` for the formatter. To use a formatter in another location, specify that location in the appropriate custom path setting. The `pip install` commands may require elevation.
 
 | Formatter | Install steps | Arguments setting<br/>(python.formatting.) | Custom path setting<br/>(python.formatting.) |
 | --- | --- | --- | --- |
@@ -187,7 +187,7 @@ To use a custom isort script, use the `python.sortImports.path` setting to speci
 
 Further configurations can be stored in an `.isort.cfg` file as documented on [Configuring isort](https://github.com/timothycrosley/isort#configuring-isort).
 
-#### Sort imports on save
+### Sort imports on save
 
 To automatically sort imports whenever you save a file, add the following entry to your user or workspace settings:
 

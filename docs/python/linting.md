@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Linting Python in VS Code
 
-Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using Pylint. If PyLint is not already installed in your selected Python environment, VS Code prompts you to install the necessary packages. (You can also manually run the Python package manager to install PyLint at a command prompt for the same environment: `pip install pylint` (Windows) or `pip3 install pylint` (Mac/Linux).)
+Linting highlights syntactical and stylistic errors in your Python source code. By default, linting for Python is enabled in Visual Studio Code using Pylint. If PyLint is not already installed in your selected Python environment, VS Code prompts you to install the necessary packages. (You can also manually run the Python package manager to install PyLint at a command prompt for the same environment: `pip3 install pylint` (macOS/Linux) or `pip install pylint` (Windows; may require elevation).)
 
 Linting runs automatically when you save a file, and you can run manually using the **Python: Run Linting** command. Issues are shown in the **Problems** panel and as underlines in the code editor. Hovering over an underlined issue displays the details:
 
@@ -18,7 +18,7 @@ Linting runs automatically when you save a file, and you can run manually using 
 
 To enable other linters, use the **Python: Select Linter** command, which again prompts you to install required packages in your selected environment for the linter in question.
 
-The remainder of this article described settings for linting in general as well as specific linters. You add any of the settings to your user `settings.json` file (opened with the **File** > **Preferences** > **Settings** menu command). Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our more about working with settings in VS Code generally.
+The remainder of this article described settings for linting in general as well as specific linters. You add any of the settings to your user `settings.json` file (opened with the **File** > **Preferences** > **Settings** command `kb(workbench.action.openSettings)`). Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our more about working with settings in VS Code generally.
 
 ## General linting settings
 

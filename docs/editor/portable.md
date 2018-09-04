@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Portable Mode
 ContentId: A5C839C4-67E9-449C-94B8-4B310FCAAB1B
 PageTitle: Portable Mode in Visual Studio Code
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
 
@@ -48,6 +48,12 @@ xattr -dr com.apple.quarantine Visual\ Studio\ Code.app
 ```
 
 **Note:** On Insiders, the folder should be named `code-insiders-portable-data`.
+
+## Update Portable VS Code
+
+On **Windows** and **Linux**, you can update VS Code by copying the `data` folder over to a more recent version of VS Code.
+
+On **macOS**, automatic updates should work as always, no extra work needed.
 
 ## Migrate to Portable Mode
 

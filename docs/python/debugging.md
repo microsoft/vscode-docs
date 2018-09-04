@@ -211,7 +211,7 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Both computers: make sure that identical source code is available.
 
-1. Both computers: install [ptvsd 3.0.0](https://pypi.org/project/ptvsd/3.0.0/) using `pip3 install ptvsd==3.0.0` (Mac/Linux) or `pip install ptvsd==3.0.0` (Windows). Version 3.0.0 is specifically required; later versions are not yet supported.
+1. Both computers: install [ptvsd 3.0.0](https://pypi.org/project/ptvsd/3.0.0/) using `pip3 install ptvsd==3.0.0` (macOS/Linux) or `pip install ptvsd==3.0.0` (Windows; may require elevation). Version 3.0.0 is specifically required; later versions are not yet supported.
 
 1. Remote computer: open the port you wish to use for debugging in the appropriate firewall or other networking configuration.
 

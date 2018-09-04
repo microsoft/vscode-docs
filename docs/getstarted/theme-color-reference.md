@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -19,10 +19,11 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 }
 ```
 
-Color values can be defined in the RGB color model with an alpha channel for transparency. As format, the following hexadecimal notations are supported: `#RGB`, `#RGBA`, `#RRGGBB` and `#RRGGBBAA`.
-R (red), G (green), B (blue), and A (alpha) are hexadecimal characters (0-9, a-f or A-F). The three-digit notation (`#RGB`) is a shorter version of the six-digit form (`#RRGGBB`) and the four-digit RGB notation (`#RGBA`) is a shorter version of the eight-digit form (`#RRGGBBAA`). For example `#e35f` is the same color as `#ee3355ff`.
+**Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes.md) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
 
-If no alpha value is defined, it defaults to `f` resp `ff` (opaque, no transparency). If alpha is set to `0` resp `00`, the color is fully transparent.
+Color values can be defined in the RGB color model with an alpha channel for transparency. As format, the following hexadecimal notations are supported: `#RGB`, `#RGBA`, `#RRGGBB` and `#RRGGBBAA`. R (red), G (green), B (blue), and A (alpha) are hexadecimal characters (0-9, a-f or A-F). The three-digit notation (`#RGB`) is a shorter version of the six-digit form (`#RRGGBB`) and the four-digit RGB notation (`#RGBA`) is a shorter version of the eight-digit form (`#RRGGBBAA`). For example `#e35f` is the same color as `#ee3355ff`.
+
+If no alpha value is defined, it defaults to `ff` (opaque, no transparency). If alpha is set to `00`, the color is fully transparent.
 
 Some colors should not be opaque in order to not cover other annotations. Check the color descriptions to see to which colors this applies.
 
@@ -71,10 +72,10 @@ Dropdown control is not used on macOS currently.
 
 ![drop down control](images/theme-color-reference/Dropdown.png)
 
-- `Dropdown.background`: Dropdown background.
-- `Dropdown.listBackground`: Dropdown list background.
-- `Dropdown.border`: Dropdown border.
-- `Dropdown.foreground`: Dropdown foreground.
+- `dropdown.background`: Dropdown background.
+- `dropdown.listBackground`: Dropdown list background.
+- `dropdown.border`: Dropdown border.
+- `dropdown.foreground`: Dropdown foreground.
 
 ## Input Control
 
@@ -321,6 +322,11 @@ Errors and warnings:
 - `editorHint.foreground`: Foreground color of hints in the editor.
 - `editorHint.border`: Border color of hints in the editor.
 
+Unused source code:
+
+- `editorUnnecessaryCode.border`: Border of unnecessary (unused) source code in the editor.
+- `editorUnnecessaryCode.opacity`: Opacity of unnecessary (unused) source code in the editor.
+
 The gutter contains the glyph margins and the line numbers:
 
 - `editorGutter.background`: Background color of the editor gutter. The gutter contains the glyph margins and the line numbers.
@@ -433,15 +439,24 @@ The Status Bar is shown in the bottom of the workbench.
 - `statusBarItem.prominentBackground`: Status Bar prominent items background color. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 - `statusBarItem.prominentHoverBackground`: Status Bar prominent items background color when hovering. Prominent items stand out from other Status Bar entries to indicate importance. Change mode `Toggle Tab Key Moves Focus` from command palette to see an example.
 
-## Title Bar Colors (macOS)
-
-**Note:** These colors are currently only supported on macOS.
+## Title Bar Colors
 
 - `titleBar.activeBackground`: Title Bar background when the window is active.
 - `titleBar.activeForeground`: Title Bar foreground when the window is active.
 - `titleBar.inactiveBackground`: Title Bar background when the window is inactive.
 - `titleBar.inactiveForeground`: Title Bar foreground when the window is inactive.
 - `titleBar.border`: Title bar border color.
+
+## Menu Bar Colors
+
+- `menubar.selectionForeground`: Foreground color of the selected menu item in the menubar.
+- `menubar.selectionBackground`: Background color of the selected menu item in the menubar.
+- `menubar.selectionBorder`: Border color of the selected menu item in the menubar.
+- `menu.foreground`: Foreground color of menu items.
+- `menu.background`: Background color of menu items.
+- `menu.selectionForeground`: Foreground color of the selected menu item in menus.
+- `menu.selectionBackground`: Background color of the selected menu item in menus.
+- `menu.selectionBorder`: Border color of the selected menu item in menus.
 
 ## Notification Colors
 
@@ -553,3 +568,12 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 - `settings.numberInputBackground`: Number input box background.
 - `settings.numberInputForeground`: Number input box foreground.
 - `settings.numberInputBorder`: Number input box border.
+
+## Breadcrumbs
+
+The theme colors for breadcrumbs navigation:
+
+- `breadcrumb.foreground`: Color of breadcrumb items.
+- `breadcrumb.focusForeground`: Color of focused breadcrumb items.
+- `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
+- `breadcrumbPicker.background`: Background color of breadcrumb item picker.

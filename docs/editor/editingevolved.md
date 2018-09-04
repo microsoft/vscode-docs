@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Code Navigation
 ContentId: 8966BBFD-C66D-4283-9DCA-8CAC0179886E
 PageTitle: Code Navigation in Visual Studio Code
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Visual Studio Code is a first class editor - but it's also so much more with features such as IntelliSense and smart code navigation.
 ---
 # Code Navigation
@@ -43,13 +43,13 @@ Some [languages](/docs/languages/overview.md) also support jumping to the type d
 
 ## Go to Symbol
 
-You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. By typing `kbstyle(:)` the symbols will be grouped by category. Just press `kbstyle(Up)` or `kbstyle(Down)` and navigate to the place you want.
+You can navigate symbols inside a file with `kb(workbench.action.gotoSymbol)`. By typing `kbstyle(:)` the symbols will be grouped by category. Press `kbstyle(Up)` or `kbstyle(Down)` and navigate to the place you want.
 
 ![Go to Symbol](images/editingevolved/gotosymbol.png)
 
 ## Open symbol by name
 
-Some languages support jumping to a symbol across files with `kb(workbench.action.showAllSymbols)`. Just type the first letter of a type you want to navigate to, regardless of which file contains it, and press `kbstyle(Enter)`.
+Some languages support jumping to a symbol across files with `kb(workbench.action.showAllSymbols)`. Type the first letter of a type you want to navigate to, regardless of which file contains it, and press `kbstyle(Enter)`.
 
 ![Open symbol by name](images/editingevolved/symbol.png)
 
@@ -113,4 +113,3 @@ Now that you know how the editor works, time to try a few other things...
 * [User Interface](/docs/getstarted/userinterface.md) - In case you missed a basic orientation around VS Code.
 * [Key Bindings](/docs/getstarted/keybindings.md) - Learn how to modify key bindings to your preference.
 * [Debugging](/docs/editor/debugging.md) - This is where VS Code really shines.
-

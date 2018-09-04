@@ -4,7 +4,7 @@ Area: extensions
 TOCTitle: Webview API
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
 PageTitle: Using the Visual Studio Webview API
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Using the Webview Api to create fully customizable views within Visual Studio Code
 ---
 # VS Code Webview API
@@ -335,7 +335,7 @@ The **Developer: Open Webview Developer Tools** VS Code command lets you debug w
 
 The contents of the webview are within an iframe inside the webview document. You can use Developer Tools to inspect and modify the webview's DOM, and debug scripts running within the webview itself.
 
-If you use use the webview Developer Tools console, make sure to select the **active frame** environment from the dropdown in the top left corner of the Console panel:
+If you use the webview Developer Tools console, make sure to select the **active frame** environment from the dropdown in the top left corner of the Console panel:
 
 ![Selecting the active frame](images/webview/debug-active-frame.png)
 

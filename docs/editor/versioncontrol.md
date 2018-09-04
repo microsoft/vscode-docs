@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Version Control
 ContentId: 7E22CCC0-2AB8-4729-A4C9-BE2B16853820
 PageTitle: Version Control in VS Code
-DateApproved: 7/5/2018
+DateApproved: 8/12/2018
 MetaDescription: Visual Studio Code source code support with integrated Git support.
 ---
 # Using Version Control in VS Code
@@ -21,9 +21,11 @@ VS Code has support for handling multiple Source Control providers simultaneousl
 
 ![source control providers](images/versioncontrol/scm.png)
 
-If you would like to install an additional SCM provider, the **Install Additional SCM Providers...** command in the **Source Control** view **More** (...) dropdown will show a list of available SCM provider extensions.
+### SCM Provider extensions
 
-![install additional scm providers](images/versioncontrol/additional-scm-providers.png)
+If you would like to install an additional SCM provider, you can search on the **scm providers** extension category in the Extensions view (`kb(workbench.view.extensions)`). Start typing '@ca' and you will see suggestions for extension categories like debuggers and linters. Select `@category:"scm providers"` to see available SCM providers.
+
+![scm provider category](images/versioncontrol/scm-provider-category.png)
 
 ## Git support
 
@@ -31,7 +33,7 @@ VS Code ships with a Git source control manager (SCM) extension. Most of the sou
 
 >**Note:** If you are new to Git, the [git-scm](https://git-scm.com/documentation) website is a good place to start with a popular online [book](https://git-scm.com/book), Getting Started [videos](https://git-scm.com/video/what-is-git) and [cheat sheets](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf). The VS Code documentation assumes you are already familiar with Git.
 
-![git overview](images/versioncontrol/overview.png)
+![Git overview](images/versioncontrol/overview.png)
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
@@ -45,29 +47,31 @@ You can also find indicators of the **status of your repository** in the bottom 
 
 > **Tip:** You can open VS Code in a sub-directory of a Git repository. VS Code's Git services will still work as usual, showing all changes within the repository, but file changes outside of the scoped directory are shaded with a tool tip indicating they are located outside the current workspace.
 
-## Git Status Bar actions
-
-There is a **Synchronize Changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured. **Synchronize Changes** will pull remote changes down to your local repository and then push local commits to the upstream branch.
-
-![git status bar sync](images/versioncontrol/git-status-bar-sync.png)
-
-If there is no upstream branch configured and the Git repository has remotes set up, the **Publish** action is enabled. This will let you publish the current branch to a remote.
-
-![git status bar publish](images/versioncontrol/git-status-bar-publish.png)
-
 ## Commit
 
-**Staging** and **unstaging** can be done via contextual actions in the files or by drag-and-drop.
+**Staging** (git add) and **unstaging** (git reset) can be done via contextual actions in the files or by drag-and-drop.
+
+![stage changes button](images/versioncontrol/stage-changes.png)
 
 You can type a commit message above the changes and press `kbstyle(Ctrl+Enter)` (macOS: `kbstyle(⌘+Enter)`) to commit them. If there are any staged changes, only those will be committed, otherwise all changes will be committed.
 
-We've found this to be a great workflow. For example, in the previous screenshot, only the `config.js` file will be included in the commit. A consecutive commit action would commit both `vinyl-zip.js` and `tests.js` in a separate commit.
+We've found this to be a great workflow. For example, in the earlier screenshot, only the staged changes to `gulpfile.js` will be included in the commit. A consecutive commit action could commit later changes to `gulpfile.js`, the deletion of `yarn.lock`,  and changes to `tests.js` in a separate commit.
 
-More specific **commit actions** can be found in the `...` menu on the top of the Git view.
+More specific **Commit** actions can be found in the **More Actions** `...` menu on the top of the Git view.
+
+![more actions button](images/versioncontrol/scm-more-actions.png)
 
 ## Cloning a repository
 
-You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). You will be asked for the URL of the remote repository and the parent directory under which to put the local repository.
+You can clone a Git repository with the **Git: Clone** command in the **Command Palette** (`kb(workbench.action.showCommands)`). You will be asked for the URL of the remote repository (for example on [GitHub](https://github.com/)) and the parent directory under which to put the local repository.
+
+For a GitHub repository, you would find the URL from the GitHub **Clone or download** dialog.
+
+![clone repository dialog](images/versioncontrol/GitHub-clone-dialog.png)
+
+You would then paste that URL into the **Git: Clone** prompt.
+
+![set repository URL](images/versioncontrol/set-repo-URL.png)
 
 ## Branches and Tags
 
@@ -81,11 +85,21 @@ The **Git: Create Branch...** command lets you quickly create a new branch.  Jus
 
 ## Remotes
 
-Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull** and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the `...` menu.
+Given that your repository is connected to some remote and that your checked out branch has an [upstream link](https://git-scm.com/book/ch3-5.html) to a branch in that remote, VS Code offers you useful actions to **push**, **pull** and **sync** that branch (the latter will run a **pull** command followed by a **push** command). You can find these actions in the **More Actions** `...` menu.
 
 VS Code is able to periodically fetch changes from your remotes. This enables VS Code to show how many changes your local repository is ahead or behind the remote. Starting with VS Code 1.19, this feature is disabled by default and you use the `git.autofetch` [setting](/docs/getstarted/settings.md) to enable it.
 
 >**Tip:** You should [set up a credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) to avoid getting asked for credentials every time VS Code talks to your Git remotes.  If you don't do this, you may want to consider disabling automatic fetching via the `git.autofetch` [setting](/docs/getstarted/settings.md) to reduce the number of prompts you get.
+
+## Git Status Bar actions
+
+There is a **Synchronize Changes** action in the Status Bar, next to the branch indicator, when the current checked out branch has an upstream branch configured. **Synchronize Changes** will pull remote changes down to your local repository and then push local commits to the upstream branch.
+
+![git status bar sync](images/versioncontrol/git-status-bar-sync.png)
+
+If there is no upstream branch configured and the Git repository has remotes set up, the **Publish** action is enabled. This will let you publish the current branch to a remote.
+
+![git status bar publish](images/versioncontrol/git-status-bar-publish.png)
 
 ## Gutter indicators
 
@@ -183,10 +197,10 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 ### I initialized my repo but the actions in the `...` menu are all grayed out
 
-To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example, for Visual Studio Team Services:
+To **push, pull, and sync** you need to have a Git origin set up.  You can get the required URL from the repo host.  Once you have that URL, you need to add it to the Git settings by running a couple of command line actions. For example:
 
 ```bash
-> git remote add origin https://<AccountName>.visualstudio.com/DefaultCollection/_git/<RepoName>
+> git remote add origin https://github.com/<repo owner>/<repo name>.git
 > git push -u origin master
 ```
 
