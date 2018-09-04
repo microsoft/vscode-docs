@@ -193,9 +193,9 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Remote computer: open the port you wish to use for debugging in the appropriate firewall or other networking configuration.
 
-1. Remote computer: there are two ways to specify how to attach to the remote process. Due note that you may need to specify the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address".
+1. Remote computer: there are two ways to specify how to attach to the remote process. Do note that you may need to specify the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address".
 
-   1. in the source code, add the following lines, replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
+   1. In the source code, add the following lines, replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
 
         ```python
         import ptvsd
@@ -209,15 +209,15 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
         The IP address used in `enable_attach` should be the remote computer's private IP address. You can then launch the program normally, causing it to pause until the debugger attaches.
 
-    1. Launch the remote process _through_ ptvsd, e.g.
+    1. Launch the remote process _through_ ptvsd, for example:
 
        ```
        python3 -m ptvsd --host 1.2.3.4 --port 3000 -m myproject
        ```
 
-       This will start the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `3000` (you can also start the remote Python process specifying a file path instead of using `-m`).
+       This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `3000` (you can also start the remote Python process specifying a file path instead of using `-m`).
 
-1. Local computer: **Only If you modified the source code on the remote computer as outlined above**, then in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
+1. Local computer: **Only if you modified the source code on the remote computer as outlined above**, then in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
 
     ```python
     #import ptvsd
