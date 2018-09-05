@@ -4,7 +4,7 @@ Area: languages
 TOCTitle: CSS, Sass and Less
 ContentId: 039882CB-B5C4-46BD-A8D5-DB24A5E82706
 PageTitle: CSS, Sass and Less support in VS Code
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Find out how Visual Studio Code can support your CSS, Sass and Less development.
 ---
 # CSS, Sass and Less
