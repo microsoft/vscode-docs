@@ -24,13 +24,14 @@ Up until very recently, we relied on the OSS community's default choices for pub
 
 Earlier this year, we were reached out by the Azure Pipelines (then Visual Studio Team Services) team to try out something new. This was the outcome:
 
-TODO IMPROVE IMAGE
+<br />
 
-![Announcement Tweet](tweet.png)
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">🎉 Hey, did you know <a href="https://twitter.com/code?ref_src=twsrc%5Etfw">@code</a> now uses shiny new <a href="https://twitter.com/VSTS?ref_src=twsrc%5Etfw">@vsts</a> Public Projects and YAML builds to keep its quality up across all 3 platforms simultaneously?! 🤯 Check out the builds at <a href="https://t.co/Q8kYAB1lKG">https://t.co/Q8kYAB1lKG</a>. More about Public Projects at <a href="https://t.co/o0WoNKA4g1">https://t.co/o0WoNKA4g1</a> cc <a href="https://twitter.com/chrisrpatterson?ref_src=twsrc%5Etfw">@chrisrpatterson</a> <a href="https://t.co/Yyhwg19d9z">pic.twitter.com/Yyhwg19d9z</a></p>&mdash; João Moreno (@joaomoreno) <a href="https://twitter.com/joaomoreno/status/991958010661670912?ref_src=twsrc%5Etfw">May 3, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<br />
 
 This announcement marks our move to a more streamlined continuous integration solution. Our builds now run simultaneously across all platforms, [check it out](https://aka.ms/vscode-builds):
-
-TODO IMPROVE IMAGE
 
 ![VS Code Build Page](build.png)
 
@@ -47,13 +48,9 @@ Putting all of this together, we're finally able to focus on a single CI solutio
 
 Azure Pipelines also provides GitHub integration which gives us build result indicators across our GitHub project page, namely in pull requests.
 
-TODO IMPROVE IMAGE
-
 ![Pull Request Integration](pr.png)
 
 We've also built a chat bot which hooks up to [VSTS Build REST API (TODO from PJ: @Dmitry: Does this accure to Azure DevOps or Azure Pipelines?)](https://docs.microsoft.com/en-us/rest/api/vsts/build/?view=vsts-rest-4.1) and provides notifications for when builds break on our internal chat.
-
-TODO IMPROVE IMAGE
 
 ![Chat Bot Automation](slack.png)
 
