@@ -13,9 +13,7 @@ In our [first tutorial](/docs/java/java-tutorial.md), we built a Java web applic
 
 ## Prerequisites
 
-To develop to Azure Web App with Java, you'll need the following tools installed:
-
-- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 1.8.
+- [Java Developer Kit](https://www.azul.com/downloads/zulu/) (JDK), version 1.8 or above.
 - [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
 >**Important**: The `JAVA_HOME` environment variable must be set to the install location of the JDK to complete this tutorial.
@@ -25,11 +23,11 @@ To develop to Azure Web App with Java, you'll need the following tools installed
 
 The [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension is used to create, manage, and deploy to Azure App Service with key features including:
 
-- Create new Azure Web App/deployment slot
-- Deploy to Azure Web App/deployment slot
-- Start, stop, and restart the Azure Web App/deployment slot
+- Create new Azure Web App/Deployment Slot
+- Deploy to Azure Web App/Deployment Slot
+- Start, stop, and restart the Azure Web App/Deployment Slot
 - View a Web App's log files
-- Swap deployment slots
+- Swap Deployment Slots
 
 To install the Azure App Service extension, open the Extensions view (`kb(workbench.view.extensions)`) and search for `azure app service` to filter the results. Select the Microsoft [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) extension. For a more command line Maven-centric experience, you can also check out the [Maven plugin for Azure Web App tutorial](https://docs.microsoft.com/en-us/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable). 
 
@@ -42,11 +40,11 @@ Once the extension is installed, you can take the following steps to create a ne
 3. Enter an unique name for the new Web App. 
 4. Select a location for the new Web App. 
 5. Select the OS as `Linux`. 
-6. Select the runtime of the Web App, for example`Tomcat 8.5`. 
+6. Select the runtime of the Web App, e.g.`Tomcat 8.5 (JRE8)`. 
 
-> **Note:** The runtimes are in preview status for `Tomcat 8.5 (JRE8)`, `Tomcat 9.0 (JRE8)` and `Java SE (JRE8)`. 
+> **Note:** All Java runtimes `Tomcat 8.5 (JRE8)`, `Tomcat 9.0 (JRE8)` and `Java SE (JRE8)` are now in preview status. 
 
-![Create a Web App button](images/java-webapp/create-webapp.png)
+![Create a Web App](images/java-webapp/create-webapp.png)
 
 ## Build and deploy to a Web App 
 
@@ -70,11 +68,11 @@ Once you have signed in, you can open the command prompt or terminal window and 
 ```bash
 mvn clean package
 ```
-After building the project, open the `target` directory in VS Code Explorer. Right-click on the `name.war` or `name.jar` file and choose **Deploy to Web App** button, and follow the prompts to choose the Web App for your deployment.
+After building the project, open the `target` directory in VS Code Explorer. Right-click on the `name.war` or `name.jar` file and choose **Deploy to Web App**, and follow the prompts to choose the Web App for your deployment.
 
-![Deploy to Web App button](images/java-webapp/deploy-webapp.png)
+![Deploy to Web App](images/java-webapp/deploy-webapp.png)
 
-Open the **Output** window in VS Code to view the deployment logs. Once the deployment is completed, it will print out the URL for your Web App. By pasting the URL into a web browser, you can see the web app running on Azure! 
+Open the **Output** window in VS Code to view the deployment logs. Once the deployment is completed, it will print out the URL for your Web App. Click the link to open it in a browser, you can see the web app running on Azure! 
 
 ![Greeting from Spring Boot](images/java-webapp/greeting.png)
 
