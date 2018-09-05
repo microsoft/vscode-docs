@@ -34,11 +34,11 @@ TODO IMPROVE IMAGE
 
 ![VS Code Build Page](build.png)
 
-There's a lot of cool stuff which needed to happen in order for us to make sure a move. Let's break it down:
+There's a lot of cool stuff which needed to happen in order for us to make sure a move. Let's break it down (TODO: Note for PJ to check on branding – if we should change all these to new naming or not.):
 
-1. [VSTS Public Projects](https://blogs.msdn.microsoft.com/devops/2018/04/27/vsts-public-projects-limited-preview/) enables us to run a [public-facing Visual Studio Code project](https://vscode.visualstudio.com/VSCode/_build?definitionId=1) in which all our continuous integration builds run;
-2. [VSTS Build Agents](https://docs.microsoft.com/en-us/vsts/pipelines/agents/agents?view=vsts) have long supported the Windows, macOS, & Linux platform matrix;
-3. [VSTS Microsoft-hosted agents](https://docs.microsoft.com/en-us/vsts/pipelines/agents/hosted?view=vsts) provide a great stack of software to build projects without worrying about build machine maintenance;
+1. [VSTS Public Projects (TODO: @Dmitry: Do public projects accrue to Azure Pipelines, Azure Repos, or Azure DevOps?)](https://blogs.msdn.microsoft.com/devops/2018/04/27/vsts-public-projects-limited-preview/) enables us to run a [public-facing Visual Studio Code project](https://vscode.visualstudio.com/VSCode/_build?definitionId=1) in which all our continuous integration builds run;
+2. [VSTS Build Agents (TODO: @Dmitry: Do agents accrue to Azure Pipelines, or Azure DevOps?)](https://docs.microsoft.com/en-us/vsts/pipelines/agents/agents?view=vsts) have long supported the Windows, macOS, & Linux platform matrix;
+3. [VSTS Microsoft-hosted agents (TODO: @Dmitry: Do agents accrue to Azure Pipelines, or Azure DevOps?)](https://docs.microsoft.com/en-us/vsts/pipelines/agents/hosted?view=vsts) provide a great stack of software to build projects without worrying about build machine maintenance;
 4. [YAML CI](https://docs.microsoft.com/en-us/vsts/pipelines/build/yaml?view=vsts) allows creating YAML definitions which are kept close to the project’s sources (for which Visual Studio Code provides [great extensions](https://marketplace.visualstudio.com/search?term=yaml&target=VSCode&category=All%20categories&sortBy=Relevance)).
 
 Putting all of this together, we're finally able to focus on a single CI solution. The [Visual Studio Code build on Azure Pipelines](https://vscode.visualstudio.com/VSCode/_build/results?buildId=5876&view=logs) runs our compilation, hygiene checks and test suites in a single build, automatically distributing the build across different platforms. Since we're using Microsoft-hosted build agents, we don't have to worry about maintaining those machines.
@@ -51,7 +51,7 @@ TODO IMPROVE IMAGE
 
 ![Pull Request Integration](pr.png)
 
-We've also built a chat bot which hooks up to [VSTS Build REST API](https://docs.microsoft.com/en-us/rest/api/vsts/build/?view=vsts-rest-4.1) and provides notifications for when builds break on our internal chat.
+We've also built a chat bot which hooks up to [VSTS Build REST API (TODO from PJ: @Dmitry: Does this accure to Azure DevOps or Azure Pipelines?)](https://docs.microsoft.com/en-us/rest/api/vsts/build/?view=vsts-rest-4.1) and provides notifications for when builds break on our internal chat.
 
 TODO IMPROVE IMAGE
 
