@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Theme Color Reference
 ContentId: 8e03996d-35e9-4e9f-a60e-50d0962231b8
 PageTitle: VS Code Theme Color Reference
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Reference for Visual Studio Code theme colors.
 ---
 # Theme Color Reference
@@ -20,6 +20,8 @@ You can customize your active Visual Studio Code [color theme](/docs/getstarted/
 ```
 
 **Note**: If you want to use an existing color theme, see [Color Themes](/docs/getstarted/themes.md) where you'll learn how to set the active color theme through the **Preferences: Color Theme** dropdown (`kb(workbench.action.selectTheme)`).
+
+## Color Formats
 
 Color values can be defined in the RGB color model with an alpha channel for transparency. As format, the following hexadecimal notations are supported: `#RGB`, `#RGBA`, `#RRGGBB` and `#RRGGBBAA`. R (red), G (green), B (blue), and A (alpha) are hexadecimal characters (0-9, a-f or A-F). The three-digit notation (`#RGB`) is a shorter version of the six-digit form (`#RRGGBB`) and the four-digit RGB notation (`#RGBA`) is a shorter version of the eight-digit form (`#RRGGBBAA`). For example `#e35f` is the same color as `#ee3355ff`.
 
@@ -342,6 +344,7 @@ For coloring inserted and removed text, use either a background or a border colo
 - `diffEditor.insertedTextBorder`: Outline color for the text that got inserted.
 - `diffEditor.removedTextBackground`: Background color for text that got removed. The color must not be opaque to not hide underlying decorations.
 - `diffEditor.removedTextBorder`: Outline color for text that got removed.
+- `diffEditor.border`: Border color between the two text editors.
 
 ## Editor Widget Colors
 
@@ -542,6 +545,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 ## Git Colors
 
+- `gitDecoration.addedResourceForeground`: Color for added Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.modifiedResourceForeground`: Color for modified Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.deletedResourceForeground`: Color for deleted Git resources. Used for file labels and the SCM viewlet.
 - `gitDecoration.untrackedResourceForeground`: Color for untracked Git resources. Used for file labels and the SCM viewlet.
@@ -554,11 +558,11 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 **Note:** These colors are for the GUI settings editor which can be opened with the `Preferences: Open Settings (Preview)` command.
 
 - `settings.headerForeground`: The foreground color for a section header or active title.
-- `settings.modifiedItemForeground`: The foreground color for a the modified setting indicator.
-- `settings.inactiveSelectedItemBorder`: The color of the selected setting row border, when the settings list does not have focus.
+- `settings.modifiedItemIndicator`: The line that indicates a modified setting.
 - `settings.dropdownBackground`: Dropdown background.
 - `settings.dropdownForeground`: Dropdown foreground.
 - `settings.dropdownBorder`: Dropdown border.
+* `settings.dropdownListBorder`: Dropdown list border.
 - `settings.checkboxBackground`: Checkbox background.
 - `settings.checkboxForeground`: Checkbox foreground.
 - `settings.checkboxBorder`: Checkbox border.
@@ -577,3 +581,8 @@ The theme colors for breadcrumbs navigation:
 - `breadcrumb.focusForeground`: Color of focused breadcrumb items.
 - `breadcrumb.activeSelectionForeground`: Color of selected breadcrumb items.
 - `breadcrumbPicker.background`: Background color of breadcrumb item picker.
+
+## Extension Colors
+
+Color ids can also be contributed by extensions through the [color contribution point](/docs/extensionAPI/extension-points.md#contributescolors). These colors also appear when using code complete in the `workbench.colorCustomizations` settings and the color theme definition file. Users can see what colors an extension defines in the [extension contributions](/docs/editor/extension-gallery.md#extensiondetails) tab.
+

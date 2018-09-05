@@ -1,10 +1,10 @@
 ---
-Order: 8
+Order: 9
 Area: extensions
 TOCTitle: Webview API
 ContentId: adddd33e-2de6-4146-853b-34d0d7e6c1f1
 PageTitle: Using the Visual Studio Webview API
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Using the Webview Api to create fully customizable views within Visual Studio Code
 ---
 # VS Code Webview API

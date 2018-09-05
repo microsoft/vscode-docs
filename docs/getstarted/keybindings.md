@@ -4,7 +4,7 @@ Area: getstarted
 TOCTitle: Key Bindings
 ContentId: 045980C1-62C7-4E8E-8CE4-BAD722FFE31E
 PageTitle: Visual Studio Code Key Bindings
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Here you will find the complete list of key bindings for Visual Studio Code and how to change them.
 MetaSocialImage: images/keybinding/customization_keybindings.png
 ---
@@ -231,6 +231,10 @@ editorHasMultipleSelections | Multiple regions of text are selected (multiple cu
 editorReadOnly | The editor is read only.
 editorLangId | True when the editor's associated [language Id](/docs/languages/identifiers.md) matches. Example: `"editorLangId == typescript"`.
 isInDiffEditor | The active editor is a difference editor.
+**Operating system contexts** |
+isLinux | True when the OS is Linux
+isMac | True when the OS is macOS
+isWindows | True when the OS is Windows
 **Mode contexts** |
 inDebugMode | A debug session is running.
 inSnippetMode | The editor is in snippet mode.
