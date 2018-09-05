@@ -4,7 +4,7 @@ Area: nodejs
 TOCTitle: Node.js Debugging
 ContentId: 3AC4DBB5-1469-47FD-9CC2-6C94684D4A9D
 PageTitle: Debug Node.js Apps using VS Code
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: The Visual Studio Code editor includes Node.js debugging support. Set breakpoints, step-in, inspect variables and more.
 MetaSocialImage: /assets/docs/editor/debugging/Debugging.png
 ---
@@ -229,7 +229,7 @@ Now you have three options for attaching the debugger to your program:
 
 Let's go through these options in detail:
 
-### **Auto Attach** Feature
+### Auto Attach Feature
 
 If the **Auto Attach** feature is enabled, the Node debugger automatically attaches to Node.js processes that have been launched in debug mode from VS Code's Integrated Terminal.
 
@@ -243,7 +243,7 @@ Whether or not a process is in "debug mode" is determined by analyzing the progr
 
 >**Note:** this feature does not (yet) work for terminal multiplexers like **tmux** (where launched processes are not children of VS Code's integrated terminal).
 
-### **Attach to Node Process** action
+### Attach to Node Process action
 
 The **Attach to Node Process** action opens a Quick Pick menu that lists all potential processes that are available to the Node.js debugger:
 

@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Debugging API
 ContentId: 9C4B10A2-44BE-4ABD-8FF4-F1A8683A90AD
 PageTitle: Visual Studio Code Debugging API
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code extensions (plug-ins) Debugging API.
 ---
 # The Debug API
@@ -72,7 +72,7 @@ Please note that accessing breakpoints initially returns an empty array but trig
 
 ## Debug Adapter Protocol (DAP)
 
-You can find the Debug Adapter Protocol specification expressed as a [JSON schema](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/debugProtocol.json) or as a (generated) [TypeScript definition](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/protocol/src/debugProtocol.ts) file in the
+You can find the [Debug Adapter Protocol](https://microsoft.github.io/debug-adapter-protocol) specification expressed as a [JSON schema](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/debugProtocol.json) or as a (generated) [TypeScript definition](https://github.com/Microsoft/vscode-debugadapter-node/blob/master/protocol/src/debugProtocol.ts) file in the
 [`vscode-debugadapter-node`](https://github.com/Microsoft/vscode-debugadapter-node) repository.
 Both files show the detailed structure of the individual protocol requests, responses and events.
 The protocol is also available as the NPM module [`vscode-debugprotocol`](https://www.npmjs.com/package/vscode-debugprotocol).

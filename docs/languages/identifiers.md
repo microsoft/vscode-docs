@@ -3,12 +3,12 @@ Area: languages
 TOCTitle: Language Identifiers
 ContentId: 3f773ade-7e71-4fb9-9bb9-d9e0b20fa799
 PageTitle: Visual Studio Code language identifiers
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code language mode identifiers
 ---
 # Language Identifiers
 
-In Visual Studio Code, each language mode has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
+In Visual Studio Code, each [language mode](/docs/languages/overview.md#changing-the-language-for-the-selected-file) has a unique specific language identifier. That identifier is rarely seen by the user except in the settings, for example, when associating file extensions to a language:
 
 ```json
     "files.associations": {

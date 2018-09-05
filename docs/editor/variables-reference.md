@@ -4,7 +4,7 @@ Area: editor
 TOCTitle: Variables reference
 ContentId: ff9cd4ea-e3f0-4170-9451-2f2ea2b909ea
 PageTitle: Variables Reference
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Variable substitution reference
 ---
 # Variables Reference
