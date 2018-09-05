@@ -12,7 +12,7 @@ MetaDescription: Learn how to create Language Servers for Visual Studio Code.  T
 
 ## A Brief Overview of Language Server and Language Server Protocol
 
-Language Server is a special kind of extension that powers the editing experience for many programming languages in VS Code. With Language Servers, you can implement autocomplete, error-checking(diagnostics), jump-to-definition and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
+Language Server is a special kind of extension that powers the editing experience for many programming languages in VS Code. With Language Servers, you can implement autocomplete, error-checking (diagnostics), jump-to-definition and many other [language features](https://code.visualstudio.com/docs/extensionAPI/language-support) supported in VS Code.
 
 However, while implementing support for language features in VS Code, we found three common problems:
 
@@ -118,7 +118,7 @@ Next look at the [`configuration`](https://code.visualstudio.com/docs/extensionA
 
 This section contributes `configuration` settings to VS Code. The example will explain how these settings are sent over to the language server on startup and on every change of the settings.
 
-The actual Language Client code and the corresponding `package.json` is in the `/client` folder. The interesting part in the `package.json` file is that it adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
+The actual Language Client code and the corresponding `package.json` is in the `/client` folder. The interesting part in the `/client/package.json` file is that it adds a dependency to the `vscode` extension host API and the `vscode-languageclient` library:
 
 ```json
 "dependencies": {
@@ -544,7 +544,7 @@ For **lsp-sample**, you can set this setting: `"languageServerExample.trace.serv
 
 ![LSP Log](images/example-language-server/lsp-log.png)
 
-As Language Servers can be chatty (5 seconds of real-world usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. You can save all logs from the channel into a file, and load that file with the Language Server Protocol Inspector](https://github.com/Microsoft/language-server-protocol-inspector) at https://microsoft.github.io/language-server-protocol/inspector.
+As Language Servers can be chatty (5 seconds of real-world usage can produce 5000 lines of log), we also provide a tool to visualize and filter the communication between Language Client / Server. You can save all logs from the channel into a file, and load that file with the [Language Server Protocol Inspector](https://github.com/Microsoft/language-server-protocol-inspector) at https://microsoft.github.io/language-server-protocol/inspector.
 
 ![LSP Inspector](images/example-language-server/lsp-inspector.png)
 

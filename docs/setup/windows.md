@@ -12,8 +12,8 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 ## Installation
 
 1. Download the [Visual Studio Code installer](https://go.microsoft.com/fwlink/?LinkID=534107) for Windows.
-2. Once it is downloaded, run the installer (VSCodeSetup-version.exe). This will only take a minute.
-3. By default, VS Code is installed under `C:\Program Files\Microsoft VS Code` for a 64-bit machine.
+2. Once it is downloaded, run the installer (VSCodeUserSetup-{version}.exe). This will only take a minute.
+3. By default, VS Code is installed under `C:\users\{username}\AppData\Local\Programs\Microsoft VS Code`.
 
 You can also find a Zip archive [here](/docs/?dv=winzip).
 
@@ -52,7 +52,7 @@ On certain devices, editor scrolling is not smooth but laggy for an unpleasant e
 
 ### I'm having trouble with the installer
 
-Try using the [zip file](/docs/?dv=winzip) instead of the installer.  To use this, unzip VS Code in your **Program Files** folder.
+Try using the [zip file](/docs/?dv=winzip) instead of the installer.  To use this, unzip VS Code in your `AppData\Local\Programs` folder.
 
 >**Note:** When VS Code is installed via a Zip file, you will need to manually update it for each [release](/updates).
 

@@ -136,7 +136,7 @@ For folks that have difficulty seeing the difference between Stable and Insiders
 
 ![Screen shot of Sim Daltonism app with the Deuteranomaly effect](colorrecognition.png)
 
-It is inevitable that we will have multiple products that share colors, so we are no longer concerned that VSTS and VS Code share the blue color.
+It is inevitable that we will have multiple products that share colors, so we are no longer concerned that VS Code shares the blue color.
 
 We are [exploring using a non-tilted icon for macOS]( https://github.com/Microsoft/vscode/issues/36692) based on @donysukardi's comment [here](https://github.com/Microsoft/vscode/issues/6607#issuecomment-335664326). We can't say yet that we'll do this, but we are going to explore it and either way, we'll post updates in that issue.
 

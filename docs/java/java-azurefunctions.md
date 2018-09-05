@@ -3,15 +3,15 @@ Order: 6
 Area: java
 TOCTitle: Azure Functions in Java
 ContentId: a3071f40-4987-4054-99cb-3d122d23bf47
-PageTitle: Building Azure Functions in Java with VS Code
-DateApproved: 5/30/2018
-MetaDescription: Using VS Code for developing, debugging and deploying your Java Azure Functions application.
+PageTitle: Building Azure Functions in Java with Visual Studio Code
+DateApproved: 8/13/2018
+MetaDescription: Using Visual Studio Code for developing, debugging and deploying your Java Azure Functions application.
 ---
-# Building Azure Functions in Java with VS Code
+# Azure Functions in Java with VS Code
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/en-us/overview/serverless-computing/) environment without having to first create a VM or publish a web application
+Azure Functions let you execute your source code in a [serverless](https://azure.microsoft.com/en-us/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
 
-This tutorial walks you through creating and deploying a Java Azure Functions application using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension. You'll be able to test the function locally and then deploy it to Azure. When you're done, you'll have a HTTP-triggered function app running in Azure.
+This tutorial walks you through creating and deploying a Java Azure Functions application using the [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) extension in Visual Studio Code. You'll be able to test the function locally and then deploy it to Azure. When you're done, you'll have a HTTP-triggered function app running in Azure.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ Once you've installed the Azure Functions extension, you can easily create a new
 
 The extension uses [Maven archetypes](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) to create the function project in the folder you specified.
 
-![Create Functions Project](images/java-serverless/create-functions.png)
+![Create Functions Project](images/java-azurefunctions/create-functions.png)
 
 Within the created project, there's a simple HTTP triggered 'Hello World' Function which reads the input from HTTP query string or body and returns it back immediately.
 
@@ -143,7 +143,7 @@ You should see:
 Hello LocalFunction!
 ```
 
-![Debug Functions Project](images/java-serverless/debug-functions.gif)
+![Debug Functions Project](images/java-azurefunctions/debug-functions.gif)
 
 Use `kbstyle(Ctrl+C)` in the terminal to stop the function code.
 
@@ -158,15 +158,15 @@ The deploy process leverages the [Azure Account](https://marketplace.visualstudi
 
 To log into Azure, run **Azure: Sign In** from the **Command Palette** (`kb(workbench.action.showCommands)`). You can then sign into your account using the **Device Login** flow. Click on **Copy & Open** to open your default browser.
 
-![Azure sign in code](images/java-serverless/devicelogin.png)
+![Azure sign in code](images/java-azurefunctions/devicelogin.png)
 
 Paste in the access code and continue the sign in process.
 
-![Azure Device Login](images/java-serverless/devicelogin2.png)
+![Azure Device Login](images/java-azurefunctions/devicelogin2.png)
 
 After signing in, click **Deploy to Function App** button, select the folder of the project you would like to deploy from, and follow the prompts to configure your function project.
 
-![Deploy Functions](images/java-serverless/deploy-functions.gif)
+![Deploy Functions](images/java-azurefunctions/deploy-functions.gif)
 
 Once the function is deployed, test the function app running on Azure using curl:
 
@@ -189,7 +189,7 @@ The extension also supports adding new functions to the existing project:
 3. Select function type.
 4. Fill in the parameters for this function type.
 
-![Add Functions](images/java-serverless/add-functions.gif)
+![Add Functions](images/java-azurefunctions/add-functions.gif)
 
 ## Remote debugging
 

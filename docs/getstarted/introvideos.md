@@ -71,7 +71,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<div class="info">
 				<h2 class="title faux-h3">Debugging</h2>
 				<p class="description">Getting started with Node.js debugging in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>5<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>8<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
@@ -81,7 +81,7 @@ Start your journey with Visual Studio Code with this set of introductory videos.
 			<div class="info">
 				<h2 class="title faux-h3">Version Control</h2>
 				<p class="description">Learn how to use Git version control in VS Code.</p>
-				<span class="duration"><span class="sr-only">Duration </span>4<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
+				<span class="duration"><span class="sr-only">Duration </span>3<span aria-hidden="true"> min</span><span class="sr-only"> minutes</span></span>
 			</div>
 		</a>
 	</li>
