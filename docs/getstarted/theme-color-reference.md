@@ -558,11 +558,11 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 **Note:** These colors are for the GUI settings editor which can be opened with the `Preferences: Open Settings (Preview)` command.
 
 - `settings.headerForeground`: The foreground color for a section header or active title.
-- `settings.modifiedItemForeground`: The foreground color for a the modified setting indicator.
-- `settings.inactiveSelectedItemBorder`: The color of the selected setting row border, when the settings list does not have focus.
+- `settings.modifiedItemIndicator`: The line that indicates a modified setting.
 - `settings.dropdownBackground`: Dropdown background.
 - `settings.dropdownForeground`: Dropdown foreground.
 - `settings.dropdownBorder`: Dropdown border.
+* `settings.dropdownListBorder`: Dropdown list border.
 - `settings.checkboxBackground`: Checkbox background.
 - `settings.checkboxForeground`: Checkbox foreground.
 - `settings.checkboxBorder`: Checkbox border.
