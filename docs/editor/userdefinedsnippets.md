@@ -45,7 +45,7 @@ Snippets are defined in a JSON format. The example below is a `For Loop` snippet
           "}"
         ],
         "description": "For Loop"
-    },
+    }
 }
 ```
 
