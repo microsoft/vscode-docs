@@ -56,3 +56,7 @@ To open or view the examples in Visual Studio Code run the following from your P
 ## Debugging
 
 ## Settings Reference
+
+## Pester
+
+## PSScriptAnalyzer
