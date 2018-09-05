@@ -4,7 +4,7 @@ Area: python
 TOCTitle: Debugging
 ContentId: 3d9e6bcf-eae8-4c94-b857-89225b5c4ab5
 PageTitle: Python debugging configurations in Visual Studio Code
-DateApproved: 07/30/2018
+DateApproved: 08/30/2018
 MetaDescription: Details on configuring the Visual Studio Code debugger for different Python applications.
 MetaSocialImage: images/tutorial/social.png
 ---
@@ -14,7 +14,11 @@ The Python extension supports debugging of a number of types of Python applicati
 
 To familiarize yourself with VS Code's *general* debugging capabilities, such as examining local variables, the watch window, arguments, breakpoints, loading symbols, and more, review [VS Code debugging](/docs/editor/debugging.md).
 
-This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*. A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
+This present article addresses only those considerations that are specific to Python, mainly Python-specific debugging *configurations*, including the necessary steps for specific app types and remote debugging.
+
+## Initialize configurations
+
+A configuration drives VS Code's behavior during a debugging session. Configurations are defined in a `launch.json` file that's stored in a `.vscode` folder in your workspace.
 
 To initialize debug configurations, first select the Debug View in the sidebar:
 
@@ -28,20 +32,9 @@ To generate a `launch.json` file with Python configurations, do the following st
 
 1. Select the settings button (circled in the image above) or use the **Debug** > **Open configurations** menu command.
 
-1. In the list of debuggers that appears, select **Python**. (You can also use **Python Experimental** if you'd like, which is work in progress. See [Issue 538](https://github.com/Microsoft/vscode-python/issues/538) (GitHub). The experimental debugger is faster and also supports [Logpoints](/docs/editor/debugging.md#logpoints).)
+1. In the list of debuggers that appears, select **Python**.
 
-1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations.
-
-You can always open `launch.json` from the Explorer, or use the Debug View settings icon. You're also free to add any other configurations you want. It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to always launch `startup.py` whenever you start the debugger, create a configuration entry as follows:
-
-```json
-{
-    "name": "Python: startup.py",
-    "type": "python",
-    "request": "launch",
-    "program": "${workspaceFolder}/startup.py",
-},
-```
+1. The Python extension then creates and opens a `launch.json` file that contains number of pre-defined configurations. You can add custom configurations as well.
 
 The details of configuration properties are covered later in this article under [Standard configuration and options](#standard-configuration-and-options). Additional configurations are also described in this article under [Debugging specific app types](#debugging-specific-app-types).
 
@@ -51,28 +44,53 @@ To select a debugging configuration, select the Debug View in the sidebar, then 
 
 ![Selecting a debug configuration](images/debugging/debug-configurations.png)
 
+> **Note**: Previous versions of the Python extension used slightly different names for the configurations as shown in the above graphic, but they generally work the same.
+
+By default, VS Code shows only the most common configurations provided by the Python extension. You can select other configurations to include in `launch.json` by using the **Add Configuration** command shown in the list and in the the`launch.json` editor. When you use the command, VS Code prompts you with a list of all available configurations (be sure to scroll down to see  all the Python options):
+
+![Adding a new Python debugging configurations](images/debugging/add-configuration.png)
+
+See [Debugging specific app types](#debugging-specific-app-types) for details on all of these configurations.
+
 While debugging, the Status Bar shows the current configuration on the lower left, with the current debugging interpreter to the right. Selecting the configuration brings up the list from which you can choose a different configuration:
 
 ![Debugging Status Bar](images/debugging/debug-status-bar.png)
 
-By default, the debugger uses the same `python.pythonPath` Workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
-
-> **Note**: The debugger settings don't support relative paths, including when relying on the main `python.pythonPath` setting. To work around this, use an environment variable, or create a variable such as `${workspaceFolder}` that resolves to your project folder, then use that variable in the path, as in `"python.pythonPath": "${workspaceFolder}/venv/bin/python"`.
+By default, the debugger uses the same `python.pythonPath` workspace setting as for other features of VS Code. To use a different interpreter for debugging specifically, set the value for `pythonPath` in the applicable debugger configuration. Alternately, select the named interpreter on the Status Bar to select a different one.
 
 ## Standard configuration and options
 
-Standard configuration for `launch.json`:
+There are two standard configurations in `launch.json` that run the active file in the editor in either the integrated terminal (inside VS Code) or the external terminal (outside of VS Code):
 
 ```json
 {
-    "name": "Python: Current File",
+    "name": "Python: Current File (Integrated Terminal)",
     "type": "python",
     "request": "launch",
     "program": "${file}",
+    "console": "integratedTerminal"
+},
+{
+    "name": "Python: Current File (External Terminal)",
+    "type": "python",
+    "request": "launch",
+    "program": "${file}",
+    "console": "externalTerminal"
 }
 ```
 
-Custom configurations for various settings are described in the following sections.
+The specific settings are described in the following sections.
+
+> **Tip**: It's often helpful in a project to create a configuration that runs a specific startup file. For example, if you always want to always launch `startup.py` whenever you start the debugger, create a configuration entry as follows:
+>
+> ```json
+> {
+>     "name": "Python: startup.py",
+>     "type": "python",
+>     "request": "launch",
+>     "program": "${workspaceFolder}/startup.py",
+> },
+> ```
 
 ### `name`
 
@@ -158,7 +176,7 @@ As an example, say `${workspaceFolder}` contains a `py_code` folder containing `
 | cwd | Relative path to data file |
 | --- | --- |
 | Omitted or `${workspaceFolder}` | `data/salaries.csv` |
-| `${workspaceFolder}/py_code`) | `../data/salaries.csv` |
+| `${workspaceFolder}/py_code` | `../data/salaries.csv` |
 | `${workspaceFolder}/data` | `salaries.csv` |
 
 ### `debugOptions`
@@ -171,7 +189,7 @@ An array of additional options that may contain the following:
 | `"DebugStdLib"` | Enabled debugging of standard library functions. |
 | `"Django"` | Activates debugging features specific to the Django web framework. |
 | `"Sudo"` | When used with `"console": "externalTerminal"`, allows for debugging apps that require elevation. Using an external console is necessary to capture the password. |
-| `"Pyramid"` | Used when debugging a Pyramid application. |
+| `"Pyramid"` | When set to true, ensures that a Pyramid app is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
 
 ### `env`
 
@@ -191,31 +209,41 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Both computers: make sure that identical source code is available.
 
-1. Both computers: install [ptvsd 3.0.0](https://pypi.org/project/ptvsd/3.0.0/) using `pip3 install ptvsd==3.0.0` (macOS/Linux) or `pip install ptvsd==3.0.0` (Windows; may require elevation). Version 3.0.0 is specifically required; later versions are not yet supported.
+1. Both computers: install [ptvsd](https://pypi.org/project/ptvsd/) using `python -m pip install --upgrade ptvsd` into your environment (while using a form of virtual environment is not required, it is strongly recommended).
 
 1. Remote computer: open the port you wish to use for debugging in the appropriate firewall or other networking configuration.
 
-1. Remote computer: in the source code, add the following lines, replacing *my_secret* with a passphrase that you'll use to authenticate remote debugging, and replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
+1. Remote computer: there are two ways to specify how to attach to the remote process. Do note that you may need to specify the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address".
 
-    ```python
-    import ptvsd
+   1. In the source code, add the following lines, replacing *address* with the remote computer's IP address and port number (IP address 1.2.3.4 is shown here for illustration only).
 
-    # Allow other computers to attach to ptvsd at this IP address and port, using the secret
-    ptvsd.enable_attach("my_secret", address = ('1.2.3.4', 3000))
+        ```python
+        import ptvsd
 
-    # Pause the program until a remote debugger is attached
-    ptvsd.wait_for_attach()
-    ```
+        # Allow other computers to attach to ptvsd at this IP address and port.
+        ptvsd.enable_attach(address=('1.2.3.4', 3000), redirect_output=True)
 
-    The IP address used in `enable_attach` should be the remote computer's private IP address, if applicable (Linux VMs on Azure, for example, have both a public and private address). If you use the public IP address, you might see the error "Cannot assign requested address".
+        # Pause the program until a remote debugger is attached
+        ptvsd.wait_for_attach()
+        ```
 
-1. Local computer: in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
+        The IP address used in `enable_attach` should be the remote computer's private IP address. You can then launch the program normally, causing it to pause until the debugger attaches.
+
+    1. Launch the remote process _through_ ptvsd, for example:
+
+       ```
+       python3 -m ptvsd --host 1.2.3.4 --port 3000 -m myproject
+       ```
+
+       This starts the package `myproject` using `python3`, with the remote computer's private IP address of `1.2.3.4` and listening on port `3000` (you can also start the remote Python process specifying a file path instead of using `-m`).
+
+1. Local computer: **Only if you modified the source code on the remote computer as outlined above**, then in the source code, add a commented-out copy of the same code added on the remote computer. Adding these lines makes sure that the source code on both computers matches line by line.
 
     ```python
     #import ptvsd
 
-    # Allow other computers to attach to ptvsd at this IP address and port, using the secret
-    #ptvsd.enable_attach("my_secret", address = ('1.2.3.4', 3000))
+    # Allow other computers to attach to ptvsd at this IP address and port.
+    #ptvsd.enable_attach(address=('1.2.3.4', 3000), redirect_output=True)
 
     # Pause the program until a remote debugger is attached
     #ptvsd.wait_for_attach()
@@ -223,25 +251,23 @@ Remote debugging allows you to step through a program locally within VS Code whi
 
 1. Local computer: switch to Debug View in VS Code, select the **Python: Attach** configuration, then select the settings (gear) icon to open `launch.json` to that configuration.
 
-1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host`, `port`, and `secret` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration. For example:
+1. Local computer: Modify the configuration so that `remoteRoot` provide the location of the program on the remote computer's file system. Also modify `host` and `port` to match the values in the `ptvsd.enable_attach` call added to the source code, except that you need to use the remote computer's public IP address for `host`. You might also change `name` to specifically identify the configuration. For example:
 
     ```js
     {
-        "name": "Python Attach (Remote Debug 1.2.3.4)",
+        "name": "Python Attach (Remote Debug 192.168.34.156)",
         "type": "python",
         "request": "attach",
-        "localRoot": "${workspaceFolder}",
-        "remoteRoot": "c:\\py\\hello",  // Set to the program location on the remote computer.
-        //"remoteRoot": "~/hello",      // Linux example
-        "port": 3000,                   // Set to the remote port
-        "secret": "my_secret",          // Set to your specific secret
-        "host": "1.2.3.4"               // Set to your remote host's public IP address
+        "pathMappings": [
+            {
+                "localRoot": "${workspaceFolder}",  // You may also manually specify the directory containing your source code.
+                "remoteRoot": "~/hello" // Linux example; adjust as necessary for your OS and situation.
+            }
+        ],
+        "port": 3000,                   // Set to the remote port.
+        "host": "1.2.3.4"               // Set to your remote host's public IP address.
     }
     ```
-
-    > **Tip*: If the `remoteRoot` path is the same as the local computer, you can use `${workspaceFolder}` as the value for `remoteRoot`.
-
-1. Remote computer: start the program from the command line, which should pause on the `ptvsd.wait_for_attach()` call. Note that you **don't** run the program inside a debugger like VS Code. The ptvsd library is providing the remote debugging capabilities directly.
 
 1. Local computer: set a breakpoint in the code where you want to start debugging.
 
@@ -271,7 +297,7 @@ On the remote computer:
 
 1. Restart the ssh server. On Linux/MacOS, run `sudo service ssh restart`; on Windows, run `services.msc`, locate and select OpenSSH in the list of services, then select **Restart**.
 
-1. Start the Python program and let it wait at the `ptvsd.wait_for_attach()` call as described in the previous section.
+1. Start the Python program and let it wait for the debugger to attach as described in the previous section.
 
 On the local computer:
 
@@ -289,17 +315,14 @@ The configuration drop-down provides a variety of different options for general 
 
 | Configuration | Description |
 | --- | --- | --- |
-| PySpark | Runs the program using PySpark instead of the default interpreter, using platform-specific values for `pythonPath` as shown earlier under the [pythonPath option](#pythonpath). |
-| Python Module | Replaces `program` with the setting `"module": "module.name"` to debug a specific module. When using this configuration, replace the value with the desired module name. |
-| Integrated Terminal/Console | Adds the `"console": "integratedTerminal"` option to the standard configuration. |
-| External Terminal/Console | Adds the `"console": "externalTerminal"` option to the standard configuration. |
-| Django | Specifies `"program": "${workspaceFolder}/manage.py"` and `"args": ["runserver", "--noreload", "--nothreading"]`, and adds "Django" and "RedirectOutput" to `debugOptions`. Note that automatic reloading of Django apps is not possible while debugging. To debug Django HTML templates, add breakpoints to `templates`. |
+| Attach | See [Remote debugging](#remote-debugging) in the previous section. |
+| Django | Specifies `"program": "${workspaceFolder}/manage.py"`, `"args": ["runserver", "--noreload", "--nothreading"]`, and `"console": "integratedTerminal"`. Also adds `"django": true` to enable debugging of Django HTML templates. Note that automatic reloading of Django apps is not possible while debugging. |
 | Flask | See [Flask debugging](#flask-debugging) below. |
-| Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, and adds "Pyramid" and "RedirectOutput" to `debugOptions`. |
+| Gevent | Adds `"gevent": true` to the standard integrated terminal configuration. |
+| Pyramid | Removes `program`, adds `"args": ["${workspaceFolder}/development.ini"]`, adds `"jinja": true` for enabling template debugging, and adds `"pyramid": true` to ensure that the program is launched with [the necessary `pserve` command](https://docs.pylonsproject.org/projects/pyramid/en/latest/narr/startup.html?highlight=pserve). |
+| PySpark | Runs the program using PySpark instead of the default interpreter, using platform-specific values for `pythonPath` as shown earlier under the [pythonPath option](#pythonpath). |
+| Scrapy | Specifies `"module": "scrapy"`  and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
 | Watson | Specifies `"program": "${workspaceFolder}/console.py"` and `"args": ["dev", "runserver", "--noreload=True"]` |
-| Scrapy | Specifies `"program": "~/.virtualenvs/scrapy/bin/scrapy"`, adds the `"console": "integratedTerminal"` option, and adds `"args": ["crawl", "specs", "-o", "bikes.json"]`. |
-| Attach (Remote Debug) | See [Remote debugging](#remote-debugging) in the previous section. |
-| Gevent (Python Experimental only) | Sets `gevent` to `true` and `type` to `pythonExperimental`. |
 
 Specific steps are also needed for remote debugging and Google App Engine. For details on debugging unit tests (including nosetest), see [Unit testing](/docs/python/unit-testing.md).
 
@@ -309,7 +332,7 @@ To debug an app that requires administrator privileges, use `"console": "externa
 
 ```json
 {
-    "name": "Python: Flask (0.11.x or later)",
+    "name": "Python: Flask",
     "type": "python",
     "request": "launch",
     "module": "flask",
@@ -320,11 +343,14 @@ To debug an app that requires administrator privileges, use `"console": "externa
         "run",
         "--no-debugger",
         "--no-reload"
-    ]
+    ],
+    "jinja": true
 },
 ```
 
 As you can see, this configuration specifies `"env": {"FLASK_APP": "app.py"}` and `"args": ["run", "--no-debugger","--no-reload"]`. The `"module": "flask"` property is used instead of `program`. (You may see `"FLASK_APP": "${workspaceFolder}/app.py"` in the `env` property, in which case modify the configuration to refer to only the filename. Otherwise you may see "Cannot import module C" errors where C is a drive letter.)
+
+The `"jinja": true` setting also enables debugging for Flask's default Jinja templating engine.
 
 If you want to run Flask's development server in development mode, use the following configuration:
 
@@ -340,7 +366,8 @@ If you want to run Flask's development server in development mode, use the follo
     },
     "args": [
         "run"
-    ]
+    ],
+    "jinja": true
 },
 ```
 
@@ -385,14 +412,14 @@ Google App Engine launches an app by itself, so launching it in the VS Code debu
     sys.path.append(os.getcwd())
 
     import ptvsd
-    # Modify the secret and port number as desired; you're debugging locally so the values don't matter.
+    # Modify the port number as desired; you're debugging locally so the values don't matter.
     # However, be sure the port is not blocked on your computer.
-    ptvsd.enable_attach(secret = 'gae', address = ('0.0.0.0', 3000))
+    ptvsd.enable_attach(address=('0.0.0.0', 3000), redirect_output=True)
 
     #The debug server has started and you can now use VS Code to attach to the application for debugging
     print("Google App Engine has started, ready to attach the debugger")
     ```
-1. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the secret and port values match what's in the source code above.
+1. Create a `launch.json` configuring using the **Attach (Remote Debug)** configuration as a template. Make sure the port value match what's in the source code above.
 1. Add `"preLaunchTask": "python"` to `launch.json`.
 1. From the Command Palette, run the **Run Build Task** command. This opens the Tasks output window where you see various messages.
 1. Once you see the message "Google App Engine has started, ready to attach the debugger", start the VS Code debugger using the remote debugging configuration.
