@@ -23,7 +23,7 @@ You can also find a Zip archive [here](/docs/?dv=winzip).
 
 ## 32 bit versions
 
-If you need to run a 32 bit version of VS Code, both an 32 bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
+If you need to run a 32 bit version of VS Code, both a 32 bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
 
 ## Updates
 
