@@ -60,7 +60,7 @@ The language server settings apply when `python.jediEnabled` is `false`.
 | errors | `[]` | List of diagnostics messages to show as errors. |
 | information | `[]` | List of diagnostics messages to show as information. |
 | warnings | `[]` | List of diagnostics messages to show as warnings. |
-| logLevel | `"Error"` | Defines the types of log messages that language server writes into the output window. Can be one of "Error", "Warning", "Information", and "Trace". The "Warning" level implicitly includes "Error"; "Inforamation" implicitly includes "Warning" and "Error"; "Trace" includes all messages. |
+| logLevel | `"Error"` | Defines the types of log messages that language server writes into the output window, one of "Error", "Warning", "Information", and "Trace". The "Warning" level implicitly includes "Error"; "Information" implicitly includes "Warning" and "Error"; "Trace" includes all messages. |
 | openFilesOnly | `true` | When true, shows only errors and warnings for open files rather than for the entire workspace. |
 | symbolsHierarchyDepthLimit | `10` | Limits the depth of the symbol tree in the document outline. |
 | typeshedPaths | `[]` | Paths to look for [typeshed modules](https://github.com/python/typeshed/) (github.com). |
