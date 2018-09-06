@@ -1,22 +1,20 @@
 ---
 Order: 6
 Area: python
-TOCTitle: Flask Tutorial
+TOCTitle: Django Tutorial
 ContentId: 593d2dd6-20f0-4ad3-8ecd-067cc47ee217
 PageTitle: Python and Flask Tutorial in VS Code
-DateApproved: 07/11/2018
-MetaDescription: Python Flask tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
+DateApproved: 09/11/2018
+MetaDescription: Python Django tutorial showing IntelliSense, debugging, and code navigation support in the Visual Studio Code editor.
 MetaSocialImage: images/tutorial/social.png
 ---
-# Use Flask in Visual Studio Code
+# Use Django in Visual Studio Code
 
-[Flask](http://flask.pocoo.org/) is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering.
+[Django](https://www.djangoproject.com/) is a high-level Python framework designed for rapid, secure, and scalable web development. Django includes rich support for URL routing, page templates, and working with data.
 
-Flask is called a "micro" framework because it doesn't directly provide features like form validation, database abstraction, authentication, and so on. Such features are instead provided by special Python packages called Flask *extensions*. The extensions integrate seamlessly with Flask so that they appear as if they were part of Flask itself. For example, Flask doesn't provide a page template engine, but installing Flask includes the Jinja templating engine by default. For convenience, we typically speak of these defaults as part of Flask.
+In this tutorial you create a simple Django app with three pages that use a common base template. You create this app in the context of Visual Studio Code in order to understand how to work with Django in the VS Code terminal, editor, and debugger. Thus tutorial does not explore various details about Django itself, such as working with data models and  creating an administrative interface. For guidance on those aspects, refer to the [Django documentation](https://docs.djangoproject.com/en/2.1/intro/tutorial01/).
 
-In this tutorial you create a simple Flask app with three pages that use a common base template. Along the way you experience a number of features of VS Code including using the terminal, the editor, the debugger, code snippets, and more.
-
-The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
+The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
 
 ## Prerequisites
 
@@ -32,11 +30,11 @@ To successfully complete this tutorial, you must do the following (which are the
 
 1. On Windows, make sure the location of your Python interpreter is included in your PATH environment variable. You can check this by running `path` at the command prompt. If the Python interpreter's folder isn't included, open Windows Settings, search for "environment", select **Edit environment variables for your account**, then edit the **Path** variable to include that folder.
 
-## Create a project environment for Flask
+## Create a project environment for Django
 
-In this section you create a virtual environment in which Flask is installed. Using a virtual environment avoids installing Flask into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirements-txt-file-for-the-environment).
+In this section you create a virtual environment in which Django is installed. Using a virtual environment avoids installing Django into a global Python environment and gives you exact control over the libraries used in an application. A virtual environment also makes it easy to [Create a requirements.txt file for the environment](#create-a-requirements-txt-file-for-the-environment).
 
-1. On your file system, create a project folder for this tutorial, such as `hello_flask`.
+1. On your file system, create a project folder for this tutorial, such as `hello_django`.
 
 1. In that folder, use the following command (as appropriate to your computer) to create a virtual environment named `env` based on your current interpreter:
 
@@ -55,85 +53,146 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 1. In VS Code, open the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)). Then select the **Python: Select Interpreter** command:
 
-    ![Opening the Command Palette in VS Code](images/flask/command-palette.png)
+    ![Opening the Command Palette in VS Code](images/django/command-palette.png)
 
 1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select your virtual environment:
 
-    ![Selecting the virtual environment for Python](images/flask/select-virtual-environment.png)
+    ![Selecting the virtual environment for Python](images/django/select-virtual-environment.png)
 
-1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activate script.
+1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activate script (`env/scripts/activate`).
 
     > **Note**: on Windows, if your default terminal type is PowerShell, you may see an error that it cannot run activate.ps1 because running scripts is disabled on the system. The error provides a link for information on how to allow scripts. Otherwise, use **Terminal: Select Default Shell** to set "Command Prompt" or "Git Bash" as your default instead.
 
 1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
 
-    ![Selected environment showing in the VS Code status bar](images/flask/environment-in-status-bar.png)
+    ![Selected environment showing in the VS Code status bar](images/django/environment-in-status-bar.png)
 
-1. Install Flask in the virtual environment by running one of the following commands in the VS Code Terminal:
+1. Install Django in the virtual environment by running one of the following commands in the VS Code Terminal:
 
     ```bash
     # macOS/Linux
-    pip3 install flask
+    python -m pip install django
 
     # Windows
-    pip install flask
+    py -m pip install django
     ```
 
-You now have an self-contained environment ready for writing Flask code.
+You now have an self-contained environment ready for writing Django code.
 
-## Create and run a minimal Flask app
+## Create and run a minimal Django app
 
-1. In VS Code, create a new file in your project folder named `app.py` using either **File** > **New** from the menu, pressing `kbstyle(Ctrl+N)`, or using the new file icon in the Explorer View (shown below).
+In Django terminology, a "Django project" is composed of several site-level configuration files along with one or more "apps" that you deploy to a web host to create a full web application. A Django project can contain multiple apps, and the same app can be in multiple Django projects. An app, for its part, is just a Python package that follows certain conventions that Django expects.
 
-    ![New file icon in Explorer View](images/flask/new-file-icon.png)
+To create a minimal Django app, then, it's necessary to first create the Django project to serve as the container for the app, then create the app itself. For both purposes you use the Django administrative utility, `django-admin`, which is installed when you install the Django package.
 
-1. In `app.py`, add code to import Flask and create an instance of the Flask object. If you type the code below (instead of using copy-paste), you can observe VS Code's [IntelliSense and auto-completions](/docs/python/editing.md#autocomplete-and-intellisense):
-
-    ```python
-    from flask import Flask
-    app = Flask(__name__)
-    ```
-
-1. Also in `app.py`, add a function that returns content, in this case a simple string, and use Flask's `app.route` decorator to map the URL route `/` to that function:
-
-    ```python
-    @app.route("/")
-    def home():
-        return 'Hello, Flask!'
-    ```
-
-    > **Tip**: you can use multiple decorators on the same function, one per line, depending on how many different routes you want to map to the same function.
-
-1. Save the `app.py` file (`kb(workbench.action.files.save)`).
-
-1. In the terminal, run the app by entering `python3 -m flask run` (MacOS/Linux) or `python -m flask run` (Windows), which runs the Flask development server. The development server looks for `app.py` by default. When you run Flask, you should see output similar to the following:
+1. In the VS Code Terminal where your virtual environment is activated, run the following command:
 
     ```bash
-    (env) D:\py\\hello_flask>python -m flask run
-     * Environment: production
-       WARNING: Do not use the development server in a production environment.
-       Use a production WSGI server instead.
-     * Debug mode: off
-     * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+    django-admin startproject django_project
     ```
 
-    If you see an error that the Flask module cannot be found, make sure you've run `pip3 install flask` (MacOS/Linux) or `pip install flask` (Windows) in your virtual environment as described at the end of the previous section.
+1. The `startproject` command creates a folder with the specified name, in this case "django_project", with the following contents:
 
-    Also, if you want to run the development server on a different IP address or port, use the host and port command line arguments, as with `--host=0.0.0.0 --port=80`.
+    - `manage.py`: The Django command-line administrative utility for the project. You run administrative commands for the project using `python3 manage.py <command> [options]` (Linux/MacOS) or `python manage.py <command> [options]` (Windows).
+    - A folder with the same name as the project, which contains the following files:
+        - *__init.py*: an empty file that tells Python that this folder is a Python package.
+        - *wsgi.py*: an entry point for WSGI-compatible web servers to serve your project. You typically leave this file as-is as it provides the hooks for production web servers.
+        - *settings.py*: contains settings for Django project, which you modify in the course of developing a web app.
+        - *urls.py*: contains a table of contents for the Django project, which you also modify in the course of development.
 
-1. To open your default browser to the rendered page, `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` URL in the terminal.
+1. To verify the Django project, run it using the command `python manage.py runserver <port>` (`python3` as necessary on Linux/MacOS), where `<port>` is any port number you want to use, such as 5000. The command starts Django's built-in development server, and you see output like the following in the Output window:
 
-    ![The running app in a browser](images/flask/app-in-browser-01.png)
+    ```output
+    Performing system checks...
 
-1. Observe that when you visit a URL like /, a message appears in the debug terminal showing the HTTP request:
+    System check identified no issues (0 silenced).
+
+    September 05, 2018 - 14:33:31
+    Django version 2.1.1, using settings 'django_project.settings'
+    Starting development server at http://127.0.0.1:5000/
+    Quit the server with CTRL-BREAK.
+    ```
+
+    To be clear, Django's built-in web server is intended only for local development purposes. When you deploy to a web host, however, Django uses the host's web server instead. The *wsgi.py* module in the Django project takes care of hooking into the production servers.
+
+1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` URL in the Output window to open your default browser to that address. If Django is installed correctly and the project is valid, you see a default page as shown below. You also see server messages in the VS Code Output window.
+
+    ![Default view of empty Django project](images/django/django-empty-project-success.png)
+
+1. When you're done, close the browser window and stop the server in VS Code using `kbstyle(Ctrl+C)` as indicated in the Output window.
+
+1. To add a Django app to the project, first navigate into the `django_project` folder that contains `manage.py`. Then run the administrative utility's `startapp` command in the VS Code Terminal:
 
     ```bash
-    127.0.0.1 - - [11/Jul/2018 08:40:15] "GET / HTTP/1.1" 200 -
+    # Linux/MacOS
+    python3 manage.py startapp hello
+
+    # Windows
+    python manage.py startapp hello
     ```
 
-1. Stop the app by using `kbstyle(Ctrl+C)` in the terminal.
+1. The command creates a default SQLite database file, `db.sqlite3` and folder called `hello` with the following contents:
 
-> **Tip**: If you want to use a different filename than `app.py`, such as `program.py`, define an environment variable named FLASK_APP and set its value to your chosen file. Flask's development server then uses the value of FLASK_APP instead of the default file `app.py`. For more information, see [Flask command line interface](http://flask.pocoo.org/docs/1.0/cli/).
+    TODO: May not talk to all of this.
+
+    | Item | Description |
+    | --- | --- |
+    | `__init__.py` | The file that identifies the app as a package. |
+    | `migrations` | A folder in which Django stores scripts that update the database to align with changes to the models. Django's migration tools then apply the necessary changes to any previous version of the database so that it matches the current models. Using migrations, you keep your focus on your models and let Django handle the underlying database schema. Migrations are discussed in TODO; for now, the folder simply contains an `__init__.py` file (indicating that the folder defines its own Python package). |
+    | `admin.py` | The Python file in which you extend the app's administrative interface (see TODO), which is used to seed and edit data in a database. Initially, this file contains only the statement, `from django.contrib import admin`. By default, Django includes a standard administrative interface through entries in the Django project's `settings.py` file, which you can turn on by uncommenting existing entries in `urls.py`. |
+    | `apps.py` | A Python file that defines a configuration class for the app. |
+    | `models.py` | Models are data objects, identified by functions, through which views interact with the app's underlying database. Django provides the database connection layer so that apps don't need to concern themselves with those details. The `models.py` file is a default place in which to create your models, and initially contains only the statement, `from django.db import models`. |
+    | `tests.py` | A Python file that contains the basic structure of unit tests. |
+    | `views.py` | Views are what you typically think of as web pages, which take an HTTP request and return an HTTP response. Views typically render as HTML that web browsers know how to display, but a view doesn't necessarily have to be visible (like an intermediate form). A view is defined by a Python function whose responsibility is to render the HTML to send to the browser. The `views.py` file is a default place in which to create views, and initially contains only the statement, `from django.shortcuts import render`. |
+
+1. Modify `hello/views.py` to match the following code, which creates a single view for the app's home page:
+
+    ```python
+    from django.shortcuts import render
+    from django.http import HttpResponse
+
+    def index(request):
+        return HttpResponse("Hello, Django!")
+    ```
+
+1. Create a file, `hello/urls.py`, in which you specify URL patterns to route to specific pages in the app. Make the contents of the file match the following code, which maps the root of the app to the `view.index` function of `hello/views.py`:
+
+    ```python
+    from django.urls import path
+    from . import views
+
+    urlpatterns = [
+        path('', views.index, name="index")
+    ```
+
+1. To tell the Django project about the app's URLs, modify `django_project/urls.py` to match the following code (you can retain the instructive comments if you like). Here you use the `django.urls.include` function to load `hello/urls.py` into the project:
+
+    ```python
+    from django.contrib import admin
+    from django.urls import path
+    from django.urls import include
+
+    urlpatterns = [
+        path('', include('hello.urls')),
+    ]
+    ```
+
+1. Save all modified files with `kb(workbench.action.files.saveAll)`.
+
+1. Run the development server again with `python manage.py runserver 5000` and open a browser to `http://localhost:5000` to see a page that renders "Hello, Django".
+
+Now, you may think this two-level URL routing scheme is somewhat tedious, but the mechanism allows you to have multiple apps within the same Django project. For example, say you have apps named "storefront", "research", and "api" in the same project, which are each self-contained. Each app would have its own `urls.py` for routing within the app. In the project's `urls.py`, then, you'd route different subfolders off the base URL to each app:
+
+    ```python
+    urlpatterns = [
+        path('', include('storefront.urls')),          # Default path is to the storefront
+        path('store/', include('storefront.urls')),    # Also allow <base_url>/store to reach the storefront
+        path('research/', include('storefront.urls')), # <base_url>/research goes to the research app
+        path('api/', include('storefront.urls')),      # <base_url>/api goes to the api app
+        ]
+    ```
+
+The benefit of this scheme is, again, that each app can be self-contained but then easily incorporated into the overall project (or site, if you will). Without this scheme, it becomes too easy for the different apps to become intertwined, thereby increasing the complexity of your code and the possibility of errors.
 
 ## Run the app in the debugger
 
@@ -185,11 +244,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     The breakpoint appears as a red dot in the left margin:
 
-    ![A breakpoint set on the first line of the hello_there function](images/flask/debug-breakpoint-set.png)
+    ![A breakpoint set on the first line of the hello_there function](images/django/debug-breakpoint-set.png)
 
 1. Switch to **Debug** view in VS Code (using the left-side activity bar). Along the top of the Debug view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
 
-    ![Initial view of the debug panel](images/flask/debug-panel-initial-view.png)
+    ![Initial view of the debug panel](images/django/debug-panel-initial-view.png)
 
 1. Select the gear icon and select **Python** from the list that appears. VS Code creates and opens a `launch.json` file. This JSON file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
@@ -216,29 +275,29 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Flask (0.11.x or later)** configuration .
 
-    ![Selecting the Flask debugging configuration](images/flask/debug-select-configuration.png)
+    ![Selecting the Flask debugging configuration](images/django/debug-select-configuration.png)
 
 1. Start the debugger by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
-    ![Start debugging/continue arrow on the debug toolbar](images/flask/debug-continue-arrow.png)
+    ![Start debugging/continue arrow on the debug toolbar](images/django/debug-continue-arrow.png)
 
     Observe that the status bar changes color to indicate debugging:
 
-    ![Appearance of the debugging status bar](images/flask/debug-status-bar.png)
+    ![Appearance of the debugging status bar](images/django/debug-status-bar.png)
 
     A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
-    ![The VS Code debug toolbar](images/flask/debug-toolbar.png)
+    ![The VS Code debug toolbar](images/django/debug-toolbar.png)
 
 1. Output appears in a "Python Debug Console" terminal. `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` link in that terminal to open a browser to that URL. In the browser's address bar, navigate to `http://127.0.0.1:5000/hello/VSCode`. Before the page renders, VS Code pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
 
-    ![VS Code paused at a breakpoint](images/flask/debug-program-paused.png)
+    ![VS Code paused at a breakpoint](images/django/debug-program-paused.png)
 
 1. Use Step Over to run the `now = datetime.now()` statement.
 
 1. On the left side of the VS Code window you see a **Variables** pane that shows local variables, such as `now`, as well as arguments, such as `name`. Below that are panes for **Watch**, **Call Stack**, and **Breakpoints** (see [VS Code debugging](/docs/editor/debugging.md) for details). In the **Locals** section, try expanding different values. You can also double-click values (or use `kb(debug.setVariable)`) to modify them. Changing variables such as `now`, however, can break the program. Developers typically make changes to correct values when the code didn't produce the right value to begin with.
 
-    ![Local variables and arguments in VS Code during debugging](images/flask/debug-local-variables.png)
+    ![Local variables and arguments in VS Code during debugging](images/django/debug-local-variables.png)
 
 1. When a program is paused, the **Debug Console** panel (which is different from the "Python Debug Console" in the Terminal panel) lets you experiment with expressions and try out bits of code using the current state of the program. For example, once you've stepped over the line `now = datetime.now()`, you might experiment with different date/time formats. In the editor, select the code that reads `now.strftime("%A, %d %B, %Y at %X")`, then right-click and select **Debug: Evaluate** to send that code to the debug console, where it runs:
 
@@ -264,7 +323,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Step through a few more lines of code, if you'd like, then select Continue (`kb(workbench.action.debug.continue)`) to let the program run. The browser window shows the result:
 
-    ![Result of the modified program](images/flask/debug-run-result.png)
+    ![Result of the modified program](images/django/debug-run-result.png)
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Debug** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
@@ -278,7 +337,7 @@ During your work with Flask or any other library, you may want to examine the co
 
 - **Peek Definition** (`kb(editor.action.previewDeclaration)`, also on the right-click context menu), is similar, but displays the class definition directly in the editor (making space in the editor window to avoid obscuring any code). Press `kbstyle(Escape)` to close the Peek window.
 
-    ![Peek definition showing the Flask class inline](images/flask/peek-definition.png)
+    ![Peek definition showing the Flask class inline](images/django/peek-definition.png)
 
 ## Use a template to render a page
 
@@ -542,11 +601,11 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
 1. In the `templates` folder, create a new file named `home.html`, Then start typing `flext` to see the snippet appear as a completion:
 
-    ![Autocompletion for the flextlayout code snippet](images/flask/autocomplete-for-code-snippet.png)
+    ![Autocompletion for the flextlayout code snippet](images/django/autocomplete-for-code-snippet.png)
 
     When you select the completion, the snippet's code appears with the cursor on the snippet's insertion point:
 
-    ![Insertion of the flextlayout code snippet](images/flask/code-snippet-inserted.png)
+    ![Insertion of the flextlayout code snippet](images/django/code-snippet-inserted.png)
 
 1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the Visual Studio Code Flask tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
 
@@ -576,7 +635,7 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
 With all the page templates in place, save `app.py` and run the app to see the results. Navigate between the pages to verify that the page template are properly extending the base template.
 
-![Flask app rendering a common nav bar from the base template](images/flask/full-app.png)
+![Flask app rendering a common nav bar from the base template](images/django/full-app.png)
 
 ## Optional activities
 
@@ -674,7 +733,7 @@ Throughout this tutorial, all the app code is contained in a single `app.py` fil
 
 1. Your project's structure should now be similar to the following:
 
-    ![Modified project structure with separate files and folders for parts of the app](images/flask/project-structure.png)
+    ![Modified project structure with separate files and folders for parts of the app](images/django/project-structure.png)
 
 1. Run the app in the debugger again to make sure everything works. To run the app outside of the VS Code debugger, use the following steps:
     a. Set an environment variable for `FLASK_APP`. On Linux and MacOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
