@@ -555,7 +555,7 @@ If you target VS Code versions before the 1.21 (February 2018) release, these ar
 
 ## Settings Editor Colors
 
-**Note:** These colors are for the GUI settings editor which can be opened with the `Preferences: Open Settings (Preview)` command.
+**Note:** These colors are for the GUI settings editor which can be opened with the `Preferences: Open Settings (UI)` command.
 
 - `settings.headerForeground`: The foreground color for a section header or active title.
 - `settings.modifiedItemIndicator`: The line that indicates a modified setting.
