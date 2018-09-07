@@ -44,7 +44,7 @@ TBD video
 
 ## New open extension APIs
 
-Our new pull requests experience is powered by a new set of extension APIs that allow Visual Studio Code extension authors to write extensions that enable the concept of pull requests and their related metadata. This open extension model enables pull request providers to work just like our existing source control providers. This enables anyone to write an extension for Visual Studio Code that provides in-editor commenting and capabilities to review code hosted in their platform. You can see these new APIs in action in the [source code](https://github.com/Microsoft/vscode-pull-request-github/tree/master/src) for the GitHub Pull Requests extension.
+Our new pull requests experience is powered by a new set of extension APIs that allow Visual Studio Code extension authors to write extensions that enable the concept of pull requests and their related metadata. This open extension model enables pull request providers to work just like our existing source control providers. This enables anyone to write an extension for Visual Studio Code that provides in-editor commenting and capabilities to review code hosted in their platform. You can read more about these new APIs in our [August 2018 release notes](https://code.visualstudio.com/updates/v1_27#_comment-providers).
 
 If you are interested, you can read more about how we are introducing new APIs, and the details for our [extension API process here](https://github.com/Microsoft/vscode/wiki/Extension-API-process).
 
