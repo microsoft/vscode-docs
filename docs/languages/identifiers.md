@@ -105,6 +105,7 @@ Shell Script (Bash) | `shellscript`
 SQL | `sql`
 Swift | `swift`
 TypeScript | `typescript`
+TypeScript (React) | `typescriptreact`
 TeX | `tex`
 Visual Basic | `vb`
 XML | `xml`
