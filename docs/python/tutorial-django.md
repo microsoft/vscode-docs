@@ -53,11 +53,11 @@ In this section you create a virtual environment in which Django is installed. U
 
 1. In VS Code, open the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)). Then select the **Python: Select Interpreter** command:
 
-    ![Opening the Command Palette in VS Code](images/django/command-palette.png)
+    ![Opening the Command Palette in VS Code](images/shared/command-palette.png)
 
 1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select your virtual environment:
 
-    ![Selecting the virtual environment for Python](images/django/select-virtual-environment.png)
+    ![Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
 1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activate script (`env/scripts/activate`).
 
@@ -65,7 +65,7 @@ In this section you create a virtual environment in which Django is installed. U
 
 1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
 
-    ![Selected environment showing in the VS Code status bar](images/django/environment-in-status-bar.png)
+    ![Selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
 1. Install Django in the virtual environment by running one of the following commands in the VS Code Terminal:
 
@@ -100,7 +100,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
         - *settings.py*: contains settings for Django project, which you modify in the course of developing a web app.
         - *urls.py*: contains a table of contents for the Django project, which you also modify in the course of development.
 
-1. To verify the Django project, run it using the command `python manage.py runserver <port>` (`python3` as necessary on Linux/MacOS), where `<port>` is any port number you want to use, such as 5000. The command starts Django's built-in development server, and you see output like the following in the Output window:
+1. To verify the Django project, run it using the command `python manage.py runserver` (`python3` as necessary on Linux/MacOS). The command starts Django's built-in development server on the default port 8000, and you see output like the following in the Output window:
 
     ```output
     Performing system checks...
@@ -109,13 +109,15 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
     September 05, 2018 - 14:33:31
     Django version 2.1.1, using settings 'django_project.settings'
-    Starting development server at http://127.0.0.1:5000/
+    Starting development server at http://127.0.0.1:8000/
     Quit the server with CTRL-BREAK.
     ```
 
     To be clear, Django's built-in web server is intended only for local development purposes. When you deploy to a web host, however, Django uses the host's web server instead. The *wsgi.py* module in the Django project takes care of hooking into the production servers.
 
-1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` URL in the Output window to open your default browser to that address. If Django is installed correctly and the project is valid, you see a default page as shown below. You also see server messages in the VS Code Output window.
+    If you want to use a different port than the default 8000, simply specify the port number on the command line, such as `python manage.py runserver 5050`.
+
+1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:8000/` URL in the Output window to open your default browser to that address. If Django is installed correctly and the project is valid, you see a default page as shown below. You also see server messages in the VS Code Output window.
 
     ![Default view of empty Django project](images/django/django-empty-project-success.png)
 
@@ -179,11 +181,14 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 
 1. Save all modified files with `kb(workbench.action.files.saveAll)`.
 
-1. Run the development server again with `python manage.py runserver 5000` and open a browser to `http://localhost:5000` to see a page that renders "Hello, Django".
+1. Run the development server again with `python manage.py runserver` and open a browser to  `http://127.0.0.1:8000/` to see a page that renders "Hello, Django".
 
-Now, you may think this two-level URL routing scheme is somewhat tedious, but the mechanism allows you to have multiple apps within the same Django project. For example, say you have apps named "storefront", "research", and "api" in the same project, which are each self-contained. Each app would have its own `urls.py` for routing within the app. In the project's `urls.py`, then, you'd route different subfolders off the base URL to each app:
+    ![The basic Django app running in a browser](images/django/app-in-brwoser-01.png)
+
+Although you may think this two-level URL routing scheme is somewhat tedious, the mechanism allows you to have multiple apps within the same Django project. For example, say you have apps named "storefront", "research", and "api" in the same project, which are each self-contained. Each app would have its own `urls.py` for routing within the app. In the project's `urls.py`, then, you'd route different subfolders off the base URL to each app:
 
     ```python
+    # This is an example - not used in the tutorial project
     urlpatterns = [
         path('', include('storefront.urls')),          # Default path is to the storefront
         path('store/', include('storefront.urls')),    # Also allow <base_url>/store to reach the storefront
@@ -194,27 +199,75 @@ Now, you may think this two-level URL routing scheme is somewhat tedious, but th
 
 The benefit of this scheme is, again, that each app can be self-contained but then easily incorporated into the overall project (or site, if you will). Without this scheme, it becomes too easy for the different apps to become intertwined, thereby increasing the complexity of your code and the possibility of errors.
 
-## Run the app in the debugger
+## Create a debugger launch profile
+
+You may already be tiring of running `python manage.py runserver` every time you want to test the app. Fortunately, you can create a customized launch profile in VS Code, which is also used for what will likely become a common exercise: debugging.
+
+1. Switch to **Debug** view in VS Code (using the left-side activity bar). Along the top of the Debug view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
+
+    ![Initial view of the debug panel](images/shared/debug-panel-initial-view.png)
+
+1. Select the gear icon and wait for a few seconds for VS Code to create and open a `launch.json` file. (If you're using an older version of VS Code, you may be prompted with a list of debugger targets, in which case select **Python** from the list.) The `launch.json` file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
+
+1. Scroll down to and examine the configuration with the name "Python: Django", and modify the `"program"` entry to include the project folder:
+
+    ```json
+    {
+        "name": "Python: Django",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/django_project/manage.py",
+        "console": "integratedTerminal",
+        "args": [
+            "runserver",
+            "--noreload",
+            "--nothreading"
+        ],
+        "django": true
+    },
+    ```
+
+    As you can see, the configuration contains `"program": "${workspaceFolder}/django_project/manage.py"` along with an `args` list that includes `runserver` and is where you can add an item for a port number, if desired. These together provide the equivalent of the command line you've been using. The `"console": "integratedTerminal"` tells VS Code to show debugging output in the Terminal. Then `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you'll see later in this tutorial.
+
+1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Django** configuration .
+
+    ![Selecting the Django debugging configuration](images/django/debug-select-configuration.png)
+
+1. Test the configuration by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
+
+    ![Start debugging/continue arrow on the debug toolbar](images/django/debug-continue-arrow.png)
+
+1. `kbstyle(Ctrl+click)` the `http://127.0.0.1:8000/` URL in the Output window to open the browser and see that the app is running properly.
+
+1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Debug** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
+
+## Explore the debugger
 
 Debugging gives you the opportunity to pause a running program on a particular line of code. When a program is paused, you can examine variables, run code in the Debug Console panel, and otherwise take advantage of the features described on [Debugging](/docs/python/debugging.md). Running the debugger also automatically saves any modified files before the debugging session begins.
 
 **Before you begin**: Make sure that you stopped the running app at the end of the last section by using `kbstyle(Ctrl+C)` in the terminal. If you leave the app running in one terminal, it continues to own the port. As a result, when you run the app in the debugger using the same port, the original running app handles all the requests and you won't see any activity in the app being debugged and the program won't stop at breakpoints. In other words, if the debugger doesn't seem to be working, make sure that no other instance of the app is still running.
 
-1. Replace the contents of `app.py` with the following code, which adds a second route and function that you can step through in the debugger:
+1. In `hello/urls.py`, add a route to the `urlpatterns` list:
 
     ```python
-    from flask import Flask
+    path('hello/<name>', views.hello_there, name="hello_there"),
+    ```
+
+    The first argument to `path` defines a route "hello/" that accepts a variable string called *name*. The string is passed as an argument to the `views.hello_there` function.
+
+    URL routes are case-sensitive. For example, the route `/hello/<name>` is distinct from `/Hello/<name>`. If you want the same function to handle both, define paths for each variant.
+
+1. Replace the contents of `views.py` with the following code to define the `hello_there` function that you can step through in the debugger:
+
+    ```python
+    from django.http import HttpResponse
     from datetime import datetime
     import re
 
-    app = Flask(__name__)
+    def index(request):
+        return HttpResponse("Hello, Django!")
 
-    @app.route("/")
-    def home():
-        return 'Hello, Flask!'
-
-    @app.route("/hello/<name>")
-    def hello_there(name):
+    def hello_there(request, name):
         now = datetime.now()
         formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
@@ -228,14 +281,10 @@ Debugging gives you the opportunity to pause a running program on a particular l
             clean_name = "Friend"
 
         content = "Hello there, " + clean_name + "! It's " + formatted_now
-        return content
+        return HttpResponse(content)
     ```
 
-    The decorator used for the new URL route, `/hello/<name>`, defines an endpoint /hello/ that can accept any additional value. The identifier inside `<` and `>` in the route defines a variable that is passed to the function and can be used in your code.
-
-    URL routes are case-sensitive. For example, the route `/hello/<name>` is distinct from `/Hello/<name>`. If you want the same function to handle both, use decorators for each variant.
-
-    As described in the code comments, always filter arbitrary user-provided information to avoid various attacks on your app. In this case, the code filters the name argument to contain only letters, which avoids injection of control characters, HTML, and so forth. (When you use templates in the next section, Flask does automatic filtering and you won't need this code.)
+    The `name` variable defined in the URL route appears as an argument to the `hello_there` function. As described in the code comments, always filter arbitrary user-provided information to avoid various attacks on your app. In this case, the code filters the name argument to contain only letters, which avoids injection of control characters, HTML, and so forth. (When you use templates in the next section, Django does automatic filtering and you won't need this code.)
 
 1. Set a breakpoint at the first line of code in the `hello_there` function (`now = datetime.now()`) by doing any one of the following:
     - With the cursor on that line, press `kb(editor.debug.action.toggleBreakpoint)`, or,
@@ -245,37 +294,6 @@ Debugging gives you the opportunity to pause a running program on a particular l
     The breakpoint appears as a red dot in the left margin:
 
     ![A breakpoint set on the first line of the hello_there function](images/django/debug-breakpoint-set.png)
-
-1. Switch to **Debug** view in VS Code (using the left-side activity bar). Along the top of the Debug view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
-
-    ![Initial view of the debug panel](images/django/debug-panel-initial-view.png)
-
-1. Select the gear icon and select **Python** from the list that appears. VS Code creates and opens a `launch.json` file. This JSON file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
-
-1. Scroll down to and examine the configuration with the name "Python: Flask (0.11.x or later)". This configuration contains `"module": "flask",`, which tells VS Code to run `python -m flask` when it starts the debugger. It also defines the FLASK_APP environment variable in the `env` property to identify the startup file, which is `app.py` by default, but allows you to easily specify a different file. If you want to change the host and/or port, you can use the `args` array.
-
-    ```json
-    {
-        "name": "Python: Flask (0.11.x or later)",
-        "type": "python",
-        "request": "launch",
-        "module": "flask",
-        "env": {
-            "FLASK_APP": "app.py"
-        },
-        "args": [
-            "run",
-            "--no-debugger",
-            "--no-reload"
-        ]
-    },
-    ```
-
-    > **Note**: If the `env` entry in your configuration contains `"FLASK_APP": "${workspaceFolder}/app.py"`, change it to `"FLASK_APP": "app.py"` as shown above. Otherwise you may encounter error messages like "Cannot import module C" where C is the drive letter where your project folder resides.
-
-1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Flask (0.11.x or later)** configuration .
-
-    ![Selecting the Flask debugging configuration](images/django/debug-select-configuration.png)
 
 1. Start the debugger by selecting the **Debug** > **Start Debugging** menu command, or selecting the green **Start Debugging** arrow next to the list (`kb(workbench.action.debug.continue)`):
 
@@ -287,9 +305,9 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     A debugging toolbar (shown below) also appears in VS Code containing commands in the following order: Pause (or Continue, `kb(workbench.action.debug.continue)`), Step Over (`kb(workbench.action.debug.stepOver)`), Step Into (`kb(workbench.action.debug.stepInto)`), Step Out (`kb(workbench.action.debug.stepOut)`), Restart (`kb(workbench.action.debug.restart)`), and Stop (`kb(workbench.action.debug.stop)`). See [VS Code debugging](/docs/editor/debugging.md) for a description of each command.
 
-    ![The VS Code debug toolbar](images/django/debug-toolbar.png)
+    ![The VS Code debug toolbar](images/shared/debug-toolbar.png)
 
-1. Output appears in a "Python Debug Console" terminal. `kbstyle(Ctrl+click)` the `http://127.0.0.1:5000/` link in that terminal to open a browser to that URL. In the browser's address bar, navigate to `http://127.0.0.1:5000/hello/VSCode`. Before the page renders, VS Code pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
+1. Output appears in a "Python Debug Console" terminal. `kbstyle(Ctrl+click)` the `http://127.0.0.1:8000/` link in that terminal to open a browser to that URL. In the browser's address bar, navigate to `http://127.0.0.1:8000/hello/VSCode`. Before the page renders, VS Code pauses the program at the breakpoint you set. The small yellow arrow on the breakpoint indicates that it's the next line of code to run.
 
     ![VS Code paused at a breakpoint](images/django/debug-program-paused.png)
 
@@ -303,7 +321,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```bash
     now.strftime("%A, %d %B, %Y at %X")
-    'Thursday, 24 May, 2018 at 14:35:27'
+    'Friday, 07 September, 2018 at 07:46:32'
     ```
 
     > **Tip**: The **Debug Console** also shows exceptions from within the app that may not appear in the terminal. For example, if you see a "Paused on exception" message in the **Call Stack** area of Debug View, switch to the **Debug Console** to see the exception message.
@@ -312,11 +330,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
     ```bash
     now.strftime("%a, %d %B, %Y at %X")
-    'Thu, 24 May, 2018 at 14:35:27'
+    'Fri, 07 September, 2018 at 07:46:32'
     now.strftime("%a, %d %b, %Y at %X")
-    'Thu, 24 May, 2018 at 14:35:27'
+    'Fri, 07 Sep, 2018 at 07:46:32'
     now.strftime("%a, %d %b, %y at %X")
-    'Thu, 24 May, 18 at 14:35:27'
+    'Fri, 07 Sep, 18 at 07:46:32'
     ```
 
     > **Note**: if you see a change you like, you can copy and paste it into the editor during a debugging session. However, those changes aren't applied until you restart the debugger.
@@ -327,11 +345,11 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Close the browser and stop the debugger when you're finished. To stop the debugger, use the Stop toolbar button (the red square) or the **Debug** > **Stop Debugging** command (`kb(workbench.action.debug.stop)`).
 
-> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:5000/hello/VSCode`, output that URL using a `print` statement. The URL appears in the terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
+> **Tip**: To make it easier to repeatedly navigate to a specific URL like `http://127.0.0.1:8000/hello/VSCode`, output that URL using a `print` statement. The URL appears in the terminal where you can use `kbstyle(Ctrl+click)` to open it in a browser.
 
 ## Go to Definition and Peek Definition commands
 
-During your work with Flask or any other library, you may want to examine the code in those libraries themselves. VS Code provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
+During your work with Django or any other library, you may want to examine the code in those libraries themselves. VS Code provides two convenient commands that navigate directly to the definitions of classes and other objects in any code:
 
 - **Go to Definition** jumps from your code into the code that defines an object. For example, in `app.py`, right-click on the `Flask` class (in the line `app = Flask(__name__)`) and select **Go to Definition** (or use `kb(editor.action.goToDeclaration)`), which navigates to the class definition in the Flask library.
 
@@ -343,14 +361,15 @@ During your work with Flask or any other library, you may want to examine the co
 
 The app you've created so far in this tutorial generates only plain text web pages directly within Python code. Although it's possible to generate HTML directly in code, developers typically avoid such a practice because it's vulnerable to cross-site scripting (XSS) attacks. Instead, developers separate HTML markup from the code-generated data that gets inserted into that markup. **Templates** are a common approach to achieve this separation.
 
-- A template is an HTML file that contains placeholders for values that the code provides at run time. The templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup.
-- The default templating engine for Flask is Jinja, which is installed automatically when you install Flask. This engine provides flexible options including template inheritance. With inheritance, you can define a base page with common markup and then build upon that base with page-specific additions.
+A template is an HTML file that contains placeholders for values that the code provides at run time. The Django templating engine takes care of making the substitutions when rendering the page. The code, therefore, concerns itself only with data values and the template concerns itself only with markup. Django templates provide flexible options such as template inheritance, which allows you to define a base page with common markup and then build upon that base with page-specific additions.
 
 In this section you create a single page using a template. In the sections that follow, you configure the app to serve static files, and then create multiple pages to the app that each contain a nav bar from a base template.
 
-1. Inside the `hello_flask` folder, create a folder named `templates`, which is where Flask looks for templates by default.
+TODO: Include hello in settings.py.
 
-1. In the `templates` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders named "title" and "content", which are delineated by pairs of curly braces, `\{{` and `}}`.
+1. Inside the `hello` folder, create a folder named `templates`, and then another subfolder named `hello` to match the app name. By default, Django looks for an app's template in the `templates/<app_name>` folder.
+
+1. In the `templates/hello` folder, create a file named `hello_there.html` with the contents below. This template contains two placeholders named "title" and "content", which are delineated by pairs of curly braces, `\{{` and `}}`.
 
     ```html
     <!DOCTYPE html>
@@ -365,42 +384,44 @@ In this section you create a single page using a template. In the sections that 
     </html>
     ```
 
-1. In `app.py`, import Flask's `render_template` function near the top of the file:
+1. At the top of `views.py`, add the following import statement:
 
     ```python
-    from flask import render_template
+    from django.shortcuts import render
     ```
 
-1. Also in `app.py`, modify the `hello_there` function to use `render_template` to load a template and apply the named values. `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
+1. Also in `views.py`, modify the `hello_there` function to use `django.shortcuts.render` method to load a template and apply the named values (the ). `render_template` assumes that the first argument is relative to the `templates` folder. Typically, developers name the templates the same as the functions that use them, but matching names are not required because you always refer to the exact filename in your code.
 
     ```python
-    @app.route("/hello/<name>")
-    def hello_there(name):
+    def hello_there(request, name):
         now = datetime.now()
         formatted_now = now.strftime("%A, %d %B, %Y at %X")
 
         # BAD CODE! Avoid inline HTML for security reason, plus templates automatically escape HTML content.
         content = "<strong>Hello there, " + name + "!</strong> It's " + formatted_now
 
-        return render_template(
-            "hello_there.html",
-            title='Hello, Flask',
-            content=content
+        return render(
+            request,
+            'hello/hello_there.html',
+            {
+                'title': 'Hello, Django',
+                'content': content,
+            }
         )
     ```
 
 1. Start the program (inside or outside of the debugger, using `kb(workbench.action.debug.continue)` or `kb(workbench.action.debug.run)`), navigate to a /hello/name URL, and observe the results. Notice that the inline HTML, if you happen to write bad code like this, doesn't get rendered as HTML because the templating engine automatically escapes values used in placeholders. Automatic escaping prevent accidental vulnerabilities to injection attacks: developers often gather input from one page, or the URL, and use it as a value in another page through a template placeholder. Escaping also serves as a reminder that it's again best to keep HTML out of the code entirely.
 
-    For this reason, modify the template and view function as follows to make each piece of content more specifically. While you're at it, also move more of the text (including the title) and formatting concerns into the template:
+    For this reason, modify the template and view function as follows to make each piece of content more specifically. While you're at it, also move more of the text (including the title):
 
-    In `templates/hello_there.html`:
+    In `templates/hello/hello_there.html`:
 
     ```html
     <!DOCTYPE html>
     <html>
         <head>
             <meta charset="utf-8" />
-            <title>Hello, Flask</title>
+            <title>Hello, Django</title>
         </head>
         <body>
             <strong>Hello there, \{{ name }}!</strong> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
@@ -408,19 +429,19 @@ In this section you create a single page using a template. In the sections that 
     </html>
     ```
 
-    In `app.py`:
+    In `views.py`:
 
     ```python
-    @app.route("/hello/<name>")
-    def hello_there(name):
-        return render_template(
-            "hello_there.html",
-            name=name,
-            date=datetime.now()
-        )
+    def hello_there(request, name):
+    return render(
+        request,
+        'hello/hello_there.html',
+        {
+            'name': name,
+            'date': datetime.now().strftime('%A, %d %B, %Y at %X'),
+        }
+    )
     ```
-
-    > **Tip**: Flask developers often use the [flask-babel](https://pythonhosted.org/Flask-Babel/) extension for date formatting, rather than `strftime`, as flask-babel takes locales and timezones into consideration.
 
 1. Run the app again and navigate to a /hello/name URL to observe the expected result, then stop the app when you're done.
 
@@ -434,7 +455,7 @@ The following sections demonstrate both types of static files.
 
 ### Refer to static files in a template
 
-1. In the `hello_flask` folder, create a folder named `static`.
+1. In the `hello` folder, create a folder named `static`.
 
 1. Within the `static` folder, create a file named `site.css` with the following contents. After entering this code, also observe the syntax highlighting that VS Code provide for CSS files, including a color preview:
 
@@ -445,7 +466,7 @@ The following sections demonstrate both types of static files.
     }
     ```
 
-1. In `templates/hello_there.html`, add the following line before the `</head>` tag, which creates a reference to the stylesheet.
+1. In `templates/hello/hello_there.html`, add the following line before the `</head>` tag, which creates a reference to the stylesheet.
 
     ```html
     <link rel="stylesheet" type="text/css" href="\{{ url_for('static', filename='site.css')}}" />

@@ -55,11 +55,11 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 1. In VS Code, open the Command Palette (**View** > **Command Palette** or (`kb(workbench.action.showCommands)`)). Then select the **Python: Select Interpreter** command:
 
-    ![Opening the Command Palette in VS Code](images/flask/command-palette.png)
+    ![Opening the Command Palette in VS Code](images/shared/command-palette.png)
 
 1. The command presents a list of available interpreters that VS Code can locate automatically (your list will vary; if you don't see the desired interpreter, see [Configuring Python environments](/docs/python/environments.md)). From the list, select your virtual environment:
 
-    ![Selecting the virtual environment for Python](images/flask/select-virtual-environment.png)
+    ![Selecting the virtual environment for Python](images/shared/select-virtual-environment.png)
 
 1. Run **Python: Create Terminal** from the command palette, which creates a terminal and automatically activates the virtual environment by running its activate script.
 
@@ -67,7 +67,7 @@ In this section you create a virtual environment in which Flask is installed. Us
 
 1. The selected environment appears on the left side of the VS Code status bar, and notice the "(venv)" indicator that tells you that you're using a virtual environment:
 
-    ![Selected environment showing in the VS Code status bar](images/flask/environment-in-status-bar.png)
+    ![Selected environment showing in the VS Code status bar](images/shared/environment-in-status-bar.png)
 
 1. Install Flask in the virtual environment by running one of the following commands in the VS Code Terminal:
 
@@ -189,7 +189,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
 
 1. Switch to **Debug** view in VS Code (using the left-side activity bar). Along the top of the Debug view, you may see "No Configurations" and a warning dot on the gear icon. Both indicators mean that you don't yet have a `launch.json` file containing debug configurations:
 
-    ![Initial view of the debug panel](images/flask/debug-panel-initial-view.png)
+    ![Initial view of the debug panel](images/shared/debug-panel-initial-view.png)
 
 1. Select the gear icon and select **Python** from the list that appears. VS Code creates and opens a `launch.json` file. This JSON file contains a number of debugging configurations, each of which is a separate JSON object within the `configuration` array.
 
