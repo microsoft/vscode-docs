@@ -72,9 +72,9 @@ You can customize VSCode settings from the file menu by selecting preferences th
 
 This will launch the settings.json file, in VSCode versions prior to 1.27.1. , where the VSCode team has introduced a settings GUI, which will be the new default interface for customizing settings.
 
-### VScode Settings GUI
+### VSCode Settings GUI
 
-![VSCode Setting GUI](./images/powershell/codeSettingsGUI.png)
+![VSCode Setting GUI](./images/powershell/vscodeSettingsGui.png)
 
 ### PowerShell Extension Settings
 
