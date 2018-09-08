@@ -102,7 +102,7 @@ You can still launch the JSON settings file by using the command __Open Settings
 ## Pester
 
 [Pester](https://github.com/pester/Pester/wiki/Pester)
- is a Behavior-Driven Development (BDD) based test runner for PowerShell.
+ is a Behavior-Driven Development (BDD) based unit test runner for PowerShell.
 Pester provides a framework for running Unit Tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by pester at test time and a simple set of functions that expose a Testing DSL for isolating, running, evaluating and reporting the results of PowerShell commands.
 
 Pester 3.40 comes installed with Windows 10 and Server 2016, to update to the latest version follow these instructions from the Pester Github Readme [Pester updated installation instructions](https://github.com/pester/Pester#installation)
