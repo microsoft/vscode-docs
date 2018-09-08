@@ -72,6 +72,20 @@ You can set the file or folder that the test instance should open by inserting t
 
 This way you can run your tests with predictable content and folder structure.
 
+## Disabling other Extensions
+
+By default, the debug instance of VS Code will load any extension you've previously installed alongside the one you are developing. If you want to disable those extensions, add `"--disable-extensions"` to the argument list in the launch configuration.
+
+```json
+"args": [
+    "--disable-extensions",
+    "--extensionDevelopmentPath=${workspaceFolder}",
+    "--extensionTestsPath=${workspaceFolder}/out/test"
+]
+```
+
+This will give large benefits to performance when running tests
+
 ## Excluding test files from your extension package
 
 If you decide to share your extension, you may not want to include the tests in your extension package.  The [`.vscodeignore`](/docs/extensions/publish-extension.md#advance-usage) file lets you exclude test files when you package and publish your extension with the [`vsce` publishing tool](/docs/extensions/publish-extension.md).  By default, the `yo code` generated extension project excludes the `test` and `out/test` folders.
