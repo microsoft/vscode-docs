@@ -21,7 +21,7 @@ browsing
 
 ![Extension Browser](images/powershell/extensionBrowser.png)
 
- for extensions `(ctl+Shift+x)`  and searching for PowerShell. Select the PowerShell extension for details  
+ for extensions `(ctl+Shift+x)`  and searching for PowerShell. Select the PowerShell extension for details
 
  ![PowerShell Extension Details](images/powershell/PowerShellExtension.png)
 
@@ -67,6 +67,20 @@ Written by [@keithHill](https://twitter.com/r_keith_hill)
 ](https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/13/debugging-powershell-script-in-visual-studio-code-part-2/)
 
 ## Settings Reference
+
+You can customize VSCode settings from the file menu by selecting preferences then clicking settings. You can also click the gear Icon ![codeGear](./images/powershell/codegear.png) located in the lower left corner of the activity bar.
+
+This will launch the settings.json file, in VSCode versions prior to 1.27.1. , where the VSCode team has introduced a settings GUI, which will be the new default interface for customizing settings.
+
+### VScode Settings GUI
+
+![VSCode Setting GUI](./images/powershell/codeSettingsGUI.png)
+
+### PowerShell Extension Settings
+
+![PowerShell Extension VSCode Settings](./images/powershell/pwshCodeSettings.png)
+
+[Using a specific version of powershell with VSCode](https://docs.microsoft.com/en-us/powershell/scripting/core-powershell/vscode/using-vscode?view=powershell-6#using-a-specific-installed-version-of-powershell)
 
 ## Pester
 
