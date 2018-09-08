@@ -173,6 +173,20 @@ The terminal will attempt to run the selected text.
 
 If no text is selected in the active editor, the line that the cursor is on is run in the terminal.
 
+## Send text from a keybinding
+
+The `workbench.action.terminal.sendSequence` command can be used to send an specific sequence of text to the terminal, including escape sequences. This enables things like sending arrow keys, enter, cursor moves, etc. The below gives an example of the sort of things you can achieve with this feature, it jumps over the word to the left of the cursor (ctrl+left arrow) and presses backspace:
+
+```json
+{
+  "key": "ctrl+u",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": { "text": "\u001b[1;5D\u007f" }
+}
+```
+
+Note that only works with the `\u0000` format for using characters via their character code (not `\x00`).
+
 ## Rename terminal sessions
 
 Integrated Terminal sessions can now be renamed using the **Terminal: Rename** (`workbench.action.terminal.rename`) command. The new name will be displayed in the terminal selection drop-down.
