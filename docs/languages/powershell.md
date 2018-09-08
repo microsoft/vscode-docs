@@ -73,7 +73,7 @@ You can customize VSCode settings from the file menu by selecting preferences th
 
 This will launch the settings.json file, in VSCode versions prior to 1.27.1. , where the VSCode team has introduced a settings GUI, which will be the new default interface for customizing settings.
 
-You can still launch the JSON settings file by using the command __Open Settings (JSON)__ or by changing the default settings editor with the ``` "workbench.settings.editor" ```
+You can still launch the JSON settings file by using the command __Open Settings (JSON)__ or by changing the default settings editor with the ```"workbench.settings.editor"```
 
 ### VSCode Settings GUI
 
@@ -84,6 +84,20 @@ You can still launch the JSON settings file by using the command __Open Settings
 ![PowerShell Extension VSCode Settings](./images/powershell/pwshCodeSettings.png)
 
 [Using a specific version of powershell with VSCode](https://docs.microsoft.com/en-us/powershell/scripting/core-powershell/vscode/using-vscode?view=powershell-6#using-a-specific-installed-version-of-powershell)
+
+### PowerShell Extension Settings Categories
+
+* Project bug reporting settings
+* Code Folding
+* Code Formatting
+* Code Debugging
+* Developer
+* Integrated Console
+* Enable Profile Loading
+* Help Completion
+* PowerShell .exe specific settings
+* Extension auto start
+* Script analysis
 
 ## Pester
 
