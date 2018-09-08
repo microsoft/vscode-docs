@@ -56,7 +56,10 @@ To open or view the examples in Visual Studio Code run the following from your P
  [Cmdlet Documentation](https://github.com/PowerShell/Plaster/blob/master/docs/en-US/Plaster.md)
 
 ## Debugging
-Check out the ![](./images/powershell/HSGAvatar.jpg) Hey, Scripting Guy blog Posts two part series on debugging Written by @keithHill
+Check out the ![](./images/powershell/HSGAvatar.jpg) Hey, Scripting Guy blog Posts two part series on debugging 
+
+Written by [@keithHill](https://twitter.com/r_keith_hill)
+
 [Debugging PowerShell script in Visual Studio Code – Part 1](https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/06/debugging-powershell-script-in-visual-studio-code-part-1/)
 
 [Debugging PowerShell script in Visual Studio Code – Part 2
