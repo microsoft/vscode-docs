@@ -56,10 +56,16 @@ To open or view the examples in Visual Studio Code run the following from your P
  [Cmdlet Documentation](https://github.com/PowerShell/Plaster/blob/master/docs/en-US/Plaster.md)
 
 ## Debugging
+Check out the ![](./images/powershell/HSGAvatar.jpg) Hey, Scripting Guy blog Posts two part series on debugging Written by @keithHill
+[Debugging PowerShell script in Visual Studio Code – Part 1](https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/06/debugging-powershell-script-in-visual-studio-code-part-1/)
+
+[Debugging PowerShell script in Visual Studio Code – Part 2
+](https://blogs.technet.microsoft.com/heyscriptingguy/2017/02/13/debugging-powershell-script-in-visual-studio-code-part-2/)
 
 ## Settings Reference
 
 ## Pester
+
 [Pester](https://github.com/pester/Pester/wiki/Pester)
  is a Behavior-Driven Development (BDD) based test runner for PowerShell.
 Pester provides a framework for running Unit Tests to execute and validate PowerShell commands. Pester follows a file naming convention for naming tests to be discovered by pester at test time and a simple set of functions that expose a Testing DSL for isolating, running, evaluating and reporting the results of PowerShell commands.
@@ -67,3 +73,11 @@ Pester provides a framework for running Unit Tests to execute and validate Power
 Pester 3.40 comes installed with Windows 10 and Server 2016, to update to latest version follow these instructions form the Pester Github Readme [Pester updated installation instructions](https://github.com/pester/Pester#installation)
 
 ## PSScriptAnalyzer
+
+[PSScriptAnalyzer](https://github.com/PowerShell/PSScriptAnalyzer#introduction) is a static code checker for Windows PowerShell modules and scripts. PSScriptAnalyzer checks the quality of Windows PowerShell code by running a set of rules. The rules are based on PowerShell best practices identified by PowerShell Team and the community. It generates DiagnosticResults (errors and warnings) to inform users about potential code defects and suggests possible solutions for improvements.
+
+PSScriptAnalyzer is shipped with a collection of built-in rules that checks various aspects of PowerShell code such as presence of uninitialized variables, usage of PSCredential Type, usage of Invoke-Expression etc. Additional functionalities such as exclude/include specific rules are also supported.
+
+## [Extension FAQ Page](https://github.com/PowerShell/vscode-powershell/wiki/FAQ)
+
+Here are answers to some of the common asked questions about the PowerShell extension for Visual Studio Code:
