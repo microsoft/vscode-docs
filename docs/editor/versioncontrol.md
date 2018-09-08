@@ -184,6 +184,14 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 * `git add -p` followed by `kbstyle(e)` for interactive add
 * `git difftool <commit>^ <commit>` use VS Code as the diff editor for changes
 
+### Pull Requests Providers
+
+Visual Studio Code also supports pull request workflows through pull request providrs which are available through [extensions](/docs/editor/extension-gallery.md) on the VS Code Marketplace.
+
+<div class="marketplace-extensions-scm-pull-request"></div>
+
+> **Tip:** Click on an extension tile to read the description and reviews in the Marketplace.
+
 ## Next Steps
 
 * [Intro Video - Git Version Control](/docs/introvideos/versioncontrol.md) - An introductory video providing an overview of VS Code Git support.
