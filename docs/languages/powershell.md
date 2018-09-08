@@ -68,7 +68,8 @@ Written by [@keithHill](https://twitter.com/r_keith_hill)
 
 ## Settings Reference
 
-You can customize VSCode settings from the file menu by selecting preferences then clicking settings. You can also click the gear Icon ![codeGear](./images/powershell/codegear.png) located in the lower left corner of the activity bar.
+You can customize VSCode settings from the file menu by selecting preferences then clicking settings. You can also click the gear Icon
+![codeGear](./images/powershell/codegear.png) located in the lower left corner of the activity bar.
 
 This will launch the settings.json file, in VSCode versions prior to 1.27.1. , where the VSCode team has introduced a settings GUI, which will be the new default interface for customizing settings.
 
