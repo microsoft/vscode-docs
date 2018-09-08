@@ -57,7 +57,7 @@ To open or view the examples in Visual Studio Code run the following from your P
 
 ## Debugging
 
-Check out the ![HSG](./images/powershell/HSGavatar.jpg) Hey, Scripting Guy blog Posts two part series on debugging
+Check out the ![HSG](./images/powershell/HSGavatar.png) Hey, Scripting Guy blog Posts two part series on debugging
 
 Written by [@keithHill](https://twitter.com/r_keith_hill)
 
