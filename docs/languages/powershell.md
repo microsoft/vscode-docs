@@ -56,7 +56,8 @@ To open or view the examples in Visual Studio Code run the following from your P
  [Cmdlet Documentation](https://github.com/PowerShell/Plaster/blob/master/docs/en-US/Plaster.md)
 
 ## Debugging
-Check out the ![](./images/powershell/HSGAvatar.jpg) Hey, Scripting Guy blog Posts two part series on debugging 
+
+Check out the ![HSGAvatar](./images/powershell/HSGAvatar.jpg) Hey, Scripting Guy blog Posts two part series on debugging
 
 Written by [@keithHill](https://twitter.com/r_keith_hill)
 
@@ -83,4 +84,4 @@ PSScriptAnalyzer is shipped with a collection of built-in rules that checks vari
 
 ## [Extension FAQ Page](https://github.com/PowerShell/vscode-powershell/wiki/FAQ)
 
-Here are answers to some of the common asked questions about the PowerShell extension for Visual Studio Code:
+Here are answers to some of the commonly asked questions about the PowerShell extension for Visual Studio Code:
