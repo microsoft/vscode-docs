@@ -186,7 +186,7 @@ To summarize, here are some examples of where you can use VS Code as the editor:
 
 ## Working with Pull Requests
 
-Visual Studio Code also supports pull request workflows through [extensions](/docs/editor/extension-gallery.md) available on the VS Code Marketplace.
+Visual Studio Code also supports pull request workflows through [extensions](/docs/editor/extension-gallery.md) available on the VS Code Marketplace. Pull request extensions let you review, comment, and verify source code contributions directly within VS Code.
 
 <div class="marketplace-extensions-scm-pull-request"></div>
 
