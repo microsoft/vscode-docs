@@ -7,9 +7,6 @@ The PowerShell extension provides rich [PowerShell Language Support](https://git
 
 ## Install the PowerShell extension on Visual Studio Code
 
-    Install-Script Install-VSCode -Scope CurrentUser: Install-VSCode.ps1
-You will need to accept the prompts that appear if this is your first time running the ```Install-Script``` command
-
 ### Installing the Extension
 
 The official extension can be installed by following the steps in the
@@ -25,6 +22,11 @@ browsing
 
  ![PowerShell Extension Details](images/powershell/PowerShellExtension.png)
 
+ Alternatively you can install from PowerShell command line
+ this works on all platforms
+
+    code --install-extension ms-vscode.powershell
+
 ## Example Scripts
 
 Example scripts are included with the extension and can be found at the following Path.
@@ -35,18 +37,26 @@ To open or view the examples in Visual Studio Code run the following from your P
 
     code (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
 
+If using the Insiders edition
+
+    code-insiders (Get-ChildItem $Home\.vscode\extensions\ms-vscode.PowerShell-*\examples)[-1]
+
+You can also Open them with ctl/cmd+shift+p and typing __PowerShell: Open Examples Folder__.
+
+![Open PowerShell Examples](./images/powershell/pwshExamples.png)
+
 ## Major Features
 
-    * Syntax Highlighting
-    * Code Snippets
-    * Intellisense for cmdlets and more
-    * Rule-Based analysis provided by PowerShell Script Analyzer
-    * Go to definition of cmdlets and variables
-    * Find references of cmdlets and variables
-    * Document and Workspace symbol discovery
-    * Run slected selection of PowerShell code using F8
-    * Launch online help for the symbol under the cursor using ctl+F1
-    * Local script debugging and basic interactive console support
+* Syntax Highlighting
+* Code Snippets
+* Intellisense for cmdlets and more
+* Rule-Based analysis provided by PowerShell Script Analyzer
+* Go to definition of cmdlets and variables
+* Find references of cmdlets and variables
+* Document and Workspace symbol discovery
+* Run slected selection of PowerShell code using F8
+* Launch online help for the symbol under the cursor using ctl+F1
+* Local script debugging and basic interactive console support
 
 ## Plaster
 
