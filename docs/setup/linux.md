@@ -141,6 +141,12 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ## Common Questions
 
+### When I type `code` into my terminal, the app doesn't launch.
+
+This often happens when using a remote desktop to connect to your Ubuntu VM or Ubuntu Server. To resolve the issue, type this into your command prompt and click enter:
+
+`sudo sed -i 's/BIG-REQUESTS/_IG-REQUESTS/' /usr/lib/x86_64-linux-gnu/libxcb.so.1`
+
 ### Azure VM Issues
 
 I'm getting a "Running without the SUID sandbox" error?
