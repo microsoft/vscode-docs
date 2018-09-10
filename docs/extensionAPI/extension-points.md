@@ -36,7 +36,7 @@ When contributing configuration keys, a JSON schema describing these keys is act
 
 You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
 
->**Note:** If you use `markdownDescription` instead of `description`, your setting description will be rendered as markdown in the settings UI.
+>**Note:** If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
 
 ### Example
 
