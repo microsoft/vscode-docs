@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 42
 TOCTitle: GitHub Pull Requests
 PageTitle: Introducing GitHub Pull Requests for Visual Studio Code
 MetaDescription: Introducing GitHub Pull Requests for Visual Studio Code
@@ -10,7 +10,7 @@ Author: Kenneth Auchenberg
 ---
 # GitHub Pull Requests in Visual Studio Code
 
-September 5, 2018 Kenneth Auchenberg, [@auchenberg](https://twitter.com/auchenberg)
+September 10, 2018 Kenneth Auchenberg, [@auchenberg](https://twitter.com/auchenberg)
 
 Like many other open source projects, the [Visual Studio Code community collaborates](https://github.com/Microsoft/vscode) through [pull requests](https://github.com/Microsoft/vscode/pulls) to land fixes and new features. Starting this past spring, our team has been working to bring you a new integrated pull request experience so that you can collaborate, comment, review, and validate GitHub pull requests directly from within Visual Studio Code.
 
