@@ -14,6 +14,8 @@ Visual Studio Code supports [Portable Mode](https://en.wikipedia.org/wiki/Portab
 
 Portable Mode is supported on the ZIP download for Windows and Linux, as well as the regular Application download for macOS.
 
+> **Note:** Do not attempt to configure portable mode on a **Windows installation**. Portable mode is only supported on the ZIP archive.
+
 ## Enable Portable Mode
 
 ### Windows, Linux
