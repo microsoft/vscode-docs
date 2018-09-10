@@ -40,8 +40,6 @@ Today when reviewing source code, many of us are forced to leave our editors to 
 
 The new pull request extension changes this with a new **Pull Requests** explorer inside the Source Control view in Visual Studio Code, where you can browse and interact with pull requests.
 
-TBD video
-
 ## New open extension APIs
 
 Our new pull requests experience is powered by a set of extension APIs that allow Visual Studio Code extension authors to create extensions that manage pull requests and their related metadata. This open extension model means that pull request providers work just like our existing source control providers and anyone can write an extension for Visual Studio Code that provides in-editor commenting and capabilities to review source code hosted on their platform. You can read more about the new APIs in our [August 2018 release notes](https://code.visualstudio.com/updates/v1_27#_comment-providers).
