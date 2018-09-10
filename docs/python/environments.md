@@ -81,7 +81,13 @@ To avoid activating virtual and conda environments when using these terminal com
 
 ### Choose a debugging environment
 
-Although selecting a different environment changes the `python.pythonPath` value in your Workspace `settings.json` file, it doesn't affect the *User* `settings.json` file, which is used by default for debugging. You can also specify an interpreter for debugging using the `pythonPath` in a debugger configuration in the `launch.json` file. See [Debugging](/docs/python/debugging.md).
+Debugging uses the the value from `python.pythonPath`in selecting what Python interpreter to use in the following order of precedence:
+
+1. `launch.json`
+1. Workspace `settings.json`
+1. User `settings.json`
+
+See [Debugging](/docs/python/debugging.md) for more details.
 
 ## Where the extension looks for environments
 

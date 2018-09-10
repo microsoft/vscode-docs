@@ -7,7 +7,7 @@ PageTitle: Testing Visual Studio Code Extensions
 DateApproved: 9/5/2018
 MetaDescription: It is easy to write tests for your Visual Studio Code extension (plug-in).  The Yo Code extension generator scaffolds the necessary settings to run and debug your extension tests directly in Visual Studio Code.
 ---
-# Testing Your Extension
+# Testing your extension
 
 VS Code supports running and debugging tests for your extension that require the VS Code API. These tests will run inside a special instance of VS Code, the `Extension Development Host`, and have access to the full APIs. We refer to these tests as integration tests, because they go beyond unit tests that can run in isolation from a VS Code window. This documentation focuses on VS Code integration tests. For unit testing, you can use any popular testing framework, like [Mocha](https://mochajs.org/) or [Jasmine](https://jasmine.github.io/).
 
@@ -58,7 +58,7 @@ The `Extension Tests` configuration is defined in the project's `.vscode\launch.
 }
 ```
 
-## Passing Arguments to the Extension Development Host
+## Passing arguments to the Extension Development Host
 
 You can set the file or folder that the test instance should open by inserting the path at the front of the argument list for the launch configuration.
 
@@ -71,6 +71,20 @@ You can set the file or folder that the test instance should open by inserting t
 ```
 
 This way you can run your tests with predictable content and folder structure.
+
+## Disabling other extensions
+
+By default, the debug instance of VS Code will load any extension you've previously installed alongside the one you are developing. If you want to disable those extensions, add `"--disable-extensions"` to the argument list in the launch configuration.
+
+```json
+"args": [
+    "--disable-extensions",
+    "--extensionDevelopmentPath=${workspaceFolder}",
+    "--extensionTestsPath=${workspaceFolder}/out/test"
+]
+```
+
+This will give large benefits to performance when running tests
 
 ## Excluding test files from your extension package
 
