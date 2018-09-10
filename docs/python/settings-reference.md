@@ -56,14 +56,21 @@ The language server settings apply when `python.jediEnabled` is `false`.
 | Setting<br/>(python.analysis.) | Default | Description |
 | --- | --- | --- | --- |
 | diagnosticPublishDelay | `1000` | The number of milliseconds to wait before transferring diagnostic messages to the problems list. |
-| disabled | `[]` | List of suppressed diagnostic messages. |
-| errors | `[]` | List of diagnostics messages to show as errors. |
-| information | `[]` | List of diagnostics messages to show as information. |
-| warnings | `[]` | List of diagnostics messages to show as warnings. |
-| logLevel | `"Error"` | Defines the types of log messages that language server writes into the output window, one of "Error", "Warning", "Information", and "Trace". The "Warning" level implicitly includes "Error"; "Information" implicitly includes "Warning" and "Error"; "Trace" includes all messages. |
+| disabled<br/>errors<br/>warnings<br/>information | `[]` | List of diagnostics messages to suppress or show as errors, warnings, or information. See below for applicable values. The classification of messages affects both what's shown in the Problems window and in the editor (such as the color of the underlining). |
+| logLevel | `"Error"` | Defines the types of log messages that language server writes into the Problems window, one of "Error", "Warning", "Information", and "Trace". The "Warning" level implicitly includes "Error"; "Information" implicitly includes "Warning" and "Error"; "Trace" includes all messages. |
 | openFilesOnly | `true` | When true, shows only errors and warnings for open files rather than for the entire workspace. |
 | symbolsHierarchyDepthLimit | `10` | Limits the depth of the symbol tree in the document outline. |
 | typeshedPaths | `[]` | Paths to look for [typeshed modules](https://github.com/python/typeshed/) (github.com). |
+
+The `disabled`, `errors`, `warnings`, and `information` settings can contain the following values:
+
+| Value | Default type | Message text |
+| --- | --- |
+| "not-callable" | Warning | (object may not be callable) |
+| "used-before-assignment" | Warning | (unknown variable '{0}') |
+| "unresolved-import" | Warning | "Unable to resolve 'module_name'. IntelliSense may be missing for this module." |
+
+To suppress the "used-before-assignment" messages, for example, use the setting `"python.analysis.disabled": ["used-before-assignment"]`.
 
 ## AutoComplete settings
 
