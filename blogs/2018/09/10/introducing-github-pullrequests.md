@@ -40,6 +40,8 @@ Today when reviewing source code, many of us are forced to leave our editors to 
 
 The new pull request extension changes this with a new **Pull Requests** explorer inside the Source Control view in Visual Studio Code, where you can browse and interact with pull requests.
 
+<iframe src="https://channel9.msdn.com/Events/Microsoft-Azure/Azure-DevOps-Launch-2018/A107/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
 ## New open extension APIs
 
 Our new pull requests experience is powered by a set of extension APIs that allow Visual Studio Code extension authors to create extensions that manage pull requests and their related metadata. This open extension model means that pull request providers work just like our existing source control providers and anyone can write an extension for Visual Studio Code that provides in-editor commenting and capabilities to review source code hosted on their platform. You can read more about the new APIs in our [August 2018 release notes](https://code.visualstudio.com/updates/v1_27#_comment-providers).
@@ -51,6 +53,8 @@ If you are interested, you can read more about how we are introducing new APIs, 
 We are excited about bringing pull requests into Visual Studio Code, as we believe it will simplify the way you review source code. Our GitHub extension is just the first example of integrating source control platform providers for code reviews in Visual Studio Code.
 
 Please try out the public preview of [GitHub Pull Requests for Visual Studio Code](https://aka.ms/vscodepr-download), and as always, we are eager to hear your feedback, so don’t hesitate in reaching to us on [GitHub](https://github.com/Microsoft/vscode-pull-request-github) or [@code on Twitter](https://twitter.com/code).
+
+One more thing, today we are also releasing Azure DevOps, and the new Azure Pipelines extension for the GitHub CI marketplace, visit for more information, https://aka.ms/azurecicd
 
 [Kenneth Auchenberg (Microsoft)](https://twitter.com/auchenberg), Rachel Macfarlane (Microsoft), [Kai Maetzel (Microsoft)](https://twitter.com/kaimaetzel), [Peng Lyu (Microsoft)](https://twitter.com/njukidreborn)
 , [Sarah Guthals (GitHub)](https://twitter.com/sarahguthals) and [Andreia Gaita (GitHub)](https://twitter.com/shana)
