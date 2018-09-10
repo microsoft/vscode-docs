@@ -48,13 +48,13 @@ The publishing tool checks the following constraints:
 
 ---
 
-Visual Studio Code leverages [Azure DevOps Services](https://azure.com/devops) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
+Visual Studio Code leverages [Azure DevOps Services](https://azure.microsoft.com/services/devops/) for its Marketplace services. This means that authentication, hosting, and management of extensions are provided through Azure DevOps.
 
 `vsce` can only publish extensions using [Personal Access Tokens](https://docs.microsoft.com/azure/devops/integrate/get-started/authentication/pats). You need to create at least one in order to publish an extension.
 
 ### Get a Personal Access Token
 
-First, make sure you have a [Azure DevOps Service](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) organization.
+First, make sure you have a Azure DevOps Services [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
 In the following examples, the organization's name is `monacotools`. From your organization's home page (for example: `https://dev.azure.com/monacotools`), go to the **Security** page:
 

@@ -54,7 +54,7 @@ We are excited about bringing pull requests into Visual Studio Code, as we belie
 
 Please try out the public preview of [GitHub Pull Requests for Visual Studio Code](https://aka.ms/vscodepr-download), and as always, we are eager to hear your feedback, so don’t hesitate in reaching to us on [GitHub](https://github.com/Microsoft/vscode-pull-request-github) or [@code on Twitter](https://twitter.com/code).
 
-One more thing, today we are also releasing Azure DevOps, and the new [Azure Pipelines](https://github.com/marketplace/azure-pipelines) extension on the GitHub Marketplace. For more information, visit [https://aka.ms/azurecicd](https://aka.ms/azurecicd)
+One more thing, today we are also releasing [Azure DevOps](https://azure.microsoft.com/services/devops), and the new [Azure Pipelines](https://github.com/marketplace/azure-pipelines) extension on the GitHub Marketplace. For more information, visit [https://aka.ms/azurecicd](https://aka.ms/azurecicd)
 
 [Kenneth Auchenberg (Microsoft)](https://twitter.com/auchenberg), Rachel Macfarlane (Microsoft), [Kai Maetzel (Microsoft)](https://twitter.com/kaimaetzel), [Peng Lyu (Microsoft)](https://twitter.com/njukidreborn)
 , [Sarah Guthals (GitHub)](https://twitter.com/sarahguthals) and [Andreia Gaita (GitHub)](https://twitter.com/shana)
