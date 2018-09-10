@@ -10,7 +10,7 @@ MetaSocialImage: images/tutorial/social.png
 ---
 # Python settings reference
 
-The Python Extension for VS Code is highly configurable. This page describes the key settings you can work with.
+The Python Extension for Visual Studio Code is highly configurable. This page describes the key settings you can work with.
 
 Refer to [User and workspace settings](/docs/getstarted/settings.md) to find our more about working with settings in VS Code generally.
 
