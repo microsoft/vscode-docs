@@ -14,7 +14,7 @@ September 5, 2018 Kenneth Auchenberg, [@auchenberg](https://twitter.com/auchenbe
 
 Like many other open source projects, the [Visual Studio Code community collaborates](https://github.com/Microsoft/vscode) through [pull requests](https://github.com/Microsoft/vscode/pulls) to land fixes and new features. Starting this past spring, our team has been working to bring you a new integrated pull request experience so that you can collaborate, comment, review, and validate GitHub pull requests directly from within Visual Studio Code.
 
-Today, we are announcing the public preview of [GitHub Pull Requests for Visual Studio Code](https://github.com/Microsoft/vscode-pull-request-github/), closing a gap in the workflow that we and millions of engineers experience every day: The ability to review source code where it was written – inside the editor.
+Today, we are announcing the public preview of [GitHub Pull Requests for Visual Studio Code](https://aka.ms/vscode-github-pr), closing a gap in the workflow that we and millions of engineers experience every day: The ability to review source code where it was written – inside the editor.
 
 ![hero](github_pr_hero.png)
 
@@ -50,7 +50,7 @@ If you are interested, you can read more about how we are introducing new APIs, 
 
 We are excited about bringing pull requests into Visual Studio Code, as we believe it will simplify the way you review source code. Our GitHub extension is just the first example of integrating source control platform providers for code reviews in Visual Studio Code.
 
-Please try out the public preview of [GitHub Pull Requests for Visual Studio Code](https://github.com/Microsoft/vscode-pull-request-github), and as always, we are eager to hear your feedback, so don’t hesitate in reaching to us on [GitHub](https://github.com/Microsoft/vscode-pull-request-github) or [@code on Twitter](https://twitter.com/code).
+Please try out the public preview of [GitHub Pull Requests for Visual Studio Code](https://aka.ms/vscode-github-pr), and as always, we are eager to hear your feedback, so don’t hesitate in reaching to us on [GitHub](https://github.com/Microsoft/vscode-pull-request-github) or [@code on Twitter](https://twitter.com/code).
 
 [Kenneth Auchenberg (Microsoft)](https://twitter.com/auchenberg), Rachel Macfarlane (Microsoft), [Kai Maetzel (Microsoft)](https://twitter.com/kaimaetzel), [Peng Lyu (Microsoft)](https://twitter.com/njukidreborn)
 , [Sarah Guthals (GitHub)](https://twitter.com/sarahguthals) and [Andreia Gaita (GitHub)](https://twitter.com/shana)
