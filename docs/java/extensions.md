@@ -52,7 +52,7 @@ Here's a list of Azure extensions supporting Java:
 
 ### Micro-Services
 
-* The [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension makes it easy to develop and deploy containerized micro-service based applications using Docker containers. Use [Visual Studio Team Services](https://docs.microsoft.com/vsts) to create a CI/CD pipeline to build your containerized applications, deploy them to the [Azure Container Registry](https://docs.microsoft.com//azure/container-registry/), run web sites directly in [Azure App Services](https://docs.microsoft.com//azure/app-service/), and run multi-container systems at scale using the [Azure Container Service](https://docs.microsoft.com//azure/container-service/).
+* The [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) extension makes it easy to develop and deploy containerized micro-service based applications using Docker containers. Use [Azure DevOps](https://docs.microsoft.com/azure/devops) to create a CI/CD pipeline to build your containerized applications, deploy them to the [Azure Container Registry](https://docs.microsoft.com//azure/container-registry/), run web sites directly in [Azure App Services](https://docs.microsoft.com//azure/app-service/), and run multi-container systems at scale using the [Azure Container Service](https://docs.microsoft.com//azure/container-service/).
 
 ### Storage
 
@@ -66,7 +66,7 @@ Here's a list of Azure extensions supporting Java:
 
 ### Team development
 
-* The [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Team Services and Team Foundation Servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
+* The [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension makes it easy to connect to your Azure DevOps servers, allowing you to easily monitory builds, pull requests, and work items for your TFVC or Git source repositories.
 
 ### Internet of Things
 

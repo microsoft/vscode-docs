@@ -37,7 +37,7 @@ VS Code ships with a Git source control manager (SCM) extension. Most of the sou
 
 >**Note:** VS Code will leverage your machine's Git installation, so you need to [install Git](https://git-scm.com/download) first before you get these features. Make sure you install at least version `2.0.0`.
 
->**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
+>**Tip:** VS Code will work with any Git repository.  If you don't already have a private hosted Git provider, [Azure DevOps Services](https://www.azure.com/devops) is a great free option. [Click here to sign-up](https://go.microsoft.com/fwlink/?LinkID=307137&campaign=o~msft~code~vc).
 
 The Source Control icon on the left will always indicate an **overview of how many changes** you currently have in your repository. Clicking it will show you the details of your current repository changes: **CHANGES**, **STAGED CHANGES** and **MERGE CHANGES**.
 
@@ -212,9 +212,9 @@ To **push, pull, and sync** you need to have a Git origin set up.  You can get t
 > git push -u origin master
 ```
 
-### My team is using Team Foundation version control (TFVC) instead of Git. What should I do?
+### My team is using Team Foundation Version Control (TFVC) instead of Git. What should I do?
 
-Use the [Visual Studio Team Services Extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) and this will light up TFVC support.
+Use the [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team) extension and this will light up TFVC support.
 
 ### Why do the Pull, Push and Sync actions never finish?
 
@@ -222,7 +222,7 @@ This usually means there is no credential management configured in Git and you'r
 
 You can always set up a [credential helper](https://help.github.com/articles/caching-your-github-password-in-git/) in order to pull and push from a remote server without having VS Code prompt for your credentials each time.
 
-### How can I sign into Git with my Team Services account which requires multi-factor authentication?
+### How can I sign into Git with my Azure DevOps Services organization which requires multi-factor authentication?
 
 There are now [Git credential helpers](https://blogs.msdn.com/b/visualstudioalm/archive/2015/11/18/visual-studio-team-services-git-credential-manager-for-mac-and-linux.aspx) that assist with multi-factor authentication. You can download these from [Git Credential Manager for Mac and Linux](https://github.com/Microsoft/Git-Credential-Manager-for-Mac-and-Linux) and [Git Credential Manager for Windows](https://github.com/Microsoft/Git-Credential-Manager-for-Windows).
 
