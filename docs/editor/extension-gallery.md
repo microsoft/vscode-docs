@@ -7,7 +7,7 @@ PageTitle: Managing Extensions in Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Discover, add, update, disable and uninstall Visual Studio Code extensions (plug-ins) through the Extension Marketplace.
 ---
-# VS Code Extension Marketplace
+# Visual Studio Code Extension Marketplace
 
 **Increase the power of Visual Studio Code through Extensions**
 

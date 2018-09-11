@@ -7,7 +7,7 @@ PageTitle: Running Visual Studio Code on Windows
 DateApproved: 9/5/2018
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
-# Running Visual Studio Code on Windows
+# Visual Studio Code on Windows
 
 ## Installation
 

@@ -7,7 +7,7 @@ PageTitle: HTML Programming with Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Get the best out of Visual Studio Code for HTML development
 ---
-# HTML programming in VS Code
+# HTML in Visual Studio Code
 
 Visual Studio Code provides basic support for HTML programming out of the box. There is syntax highlighting, smart completions with IntelliSense, and customizable formatting. VS Code also includes great Emmet support.
 
