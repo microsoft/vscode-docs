@@ -37,12 +37,12 @@ This announcement marks our move to a more streamlined continuous integration so
 
 There's a lot of cool stuff which needed to happen in order for us to make sure a move. Let's break it down (TODO@PJ: Note for PJ to check on branding – if we should change all these to new naming or not.):
 
-1. [VSTS Public Projects (TODO@PJ: @Dmitry: Do public projects accrue to Azure Pipelines, Azure Repos, or Azure DevOps?)](https://blogs.msdn.microsoft.com/devops/2018/04/27/vsts-public-projects-limited-preview/) enable us to run a [public-facing Visual Studio Code project](https://vscode.visualstudio.com/VSCode/_build?definitionId=1) in which all our continuous integration builds run;
-2. [VSTS Build Agents (TODO@PJ: @Dmitry: Do agents accrue to Azure Pipelines, or Azure DevOps?)](https://docs.microsoft.com/en-us/vsts/pipelines/agents/agents?view=vsts) have long supported the Windows, macOS, & Linux platform matrix;
-3. [VSTS Microsoft-hosted agents (TODO@PJ: @Dmitry: Do agents accrue to Azure Pipelines, or Azure DevOps?)](https://docs.microsoft.com/en-us/vsts/pipelines/agents/hosted?view=vsts) provide a great stack of software to build projects without worrying about build machine maintenance;
-4. [YAML CI](https://docs.microsoft.com/en-us/vsts/pipelines/build/yaml?view=vsts) allows creating YAML definitions which are kept close to the project’s sources (for which Visual Studio Code provides [great extensions](https://marketplace.visualstudio.com/search?term=yaml&target=VSCode&category=All%20categories&sortBy=Relevance)).
+1. [VSTS Public Projects (TODO@PJ: @Dmitry: Do public projects accrue to Azure Pipelines, Azure Repos, or Azure DevOps?)](https://docs.microsoft.com/azure/devops/organizations/public) enable us to run a [public-facing Visual Studio Code project](https://dev.azure.com/vscode/VSCode/_build?definitionId=1) in which all our continuous integration builds run;
+2. [VSTS Build Agents (TODO@PJ: @Dmitry: Do agents accrue to Azure Pipelines, or Azure DevOps?)](https://docs.microsoft.com/azure/devops/pipelines/agents/agents) have long supported the Windows, macOS, & Linux platform matrix;
+3. [VSTS Microsoft-hosted agents (TODO@PJ: @Dmitry: Do agents accrue to Azure Pipelines, or Azure DevOps?)](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted) provide a great stack of software to build projects without worrying about build machine maintenance;
+4. [YAML CI](https://docs.microsoft.com/azure/devops/pipelines/get-started-yaml) allows creating YAML definitions which are kept close to the project’s sources (for which Visual Studio Code provides [great extensions](https://marketplace.visualstudio.com/search?term=yaml&target=VSCode&category=All%20categories&sortBy=Relevance)).
 
-Putting all of this together, we're finally able to focus on a single CI solution. The [Visual Studio Code build on Azure Pipelines](https://vscode.visualstudio.com/VSCode/_build/results?buildId=5876&view=logs) runs our compilation, hygiene checks and test suites in a single build, automatically distributing the build across different platforms. Since we're using Microsoft-hosted build agents, we don't have to worry about maintaining those machines.
+Putting all of this together, we're finally able to focus on a single CI solution. The [Visual Studio Code build on Azure Pipelines](https://dev.azure.com/vscode/VSCode/_build/results?buildId=5876&view=logs) runs our compilation, hygiene checks and test suites in a single build, automatically distributing the build across different platforms. Since we're using Microsoft-hosted build agents, we don't have to worry about maintaining those machines.
 
 ## Third Party Integrations
 
@@ -56,7 +56,7 @@ We've also built a chat bot which hooks up to [VSTS Build REST API (TODO@PJ: @Dm
 
 ## Going forward
 
-My next task will be to take advantage of [code coverage reports](https://docs.microsoft.com/en-us/vsts/pipelines/tasks/test/publish-code-coverage-results?view=vsts) in order to get a better end-to-end CI flow than we had with the previous tool mix.
+My next task will be to take advantage of [code coverage reports](https://docs.microsoft.com/azure/devops/pipelines/tasks/test/publish-code-coverage-results) in order to get a better end-to-end CI flow than we had with the previous tool mix.
 
 Having made the jump to Azure Pipelines has proved to be a big success for us. Overall code quality is easier to reason about now since builds aren’t scattered all around. We have also consolidated the number and format of our [build definition files](https://github.com/Microsoft/vscode/blob/master/build/tfs/product-build.yml). We’re very happy with the change and excited about what the future holds for Azure Pipelines.
 
