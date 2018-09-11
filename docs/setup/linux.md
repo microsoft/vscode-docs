@@ -7,13 +7,13 @@ PageTitle: Running Visual Studio Code on Linux
 DateApproved: 9/5/2018
 MetaDescription: Get Visual Studio Code up and running on Linux.
 ---
-# Running VS Code on Linux
+# Running Visual Studio Code on Linux
 
 ## Installation
 
 ### Debian and Ubuntu based distributions
 
-The easiest way to install for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
+The easiest way to install Visual Studio Code for Debian/Ubuntu based distributions is to download and install the [.deb package (64-bit)](https://go.microsoft.com/fwlink/?LinkID=760868) either through the graphical software center if it's available or through the command line with:
 
 ```bash
 sudo dpkg -i <file>.deb

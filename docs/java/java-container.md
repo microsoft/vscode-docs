@@ -5,7 +5,7 @@ TOCTitle: Java with Container
 ContentId: 4fee9404-306a-4d60-8a7e-94f7d59c2fc3
 PageTitle: Java with Docker in Visual Studio Code
 DateApproved: 5/30/2018
-MetaDescription:
+MetaDescription: Java with Docker in Visual Studio Code
 ---
 # Java with Docker in VS Code
 

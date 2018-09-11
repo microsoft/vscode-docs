@@ -3,9 +3,9 @@ Order: 5
 Area: java
 TOCTitle: Java with Kubernetes
 ContentId: d0ece2e4-8dd2-4c0d-a773-604542651c9e
-PageTitle: Java with Kubernetes in VS Code
+PageTitle: Java with Kubernetes in Visual Studio Code
 DateApproved: 5/30/2018
-MetaDescription:
+MetaDescription: Java with Kubernetes in Visual Studio Code
 ---
 # Java with Kubernetes in VS Code
 

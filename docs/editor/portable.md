@@ -7,7 +7,6 @@ PageTitle: Portable Mode in Visual Studio Code
 DateApproved: 9/5/2018
 MetaDescription: Visual Studio Code supports a Portable Mode.
 ---
-
 # Portable Mode
 
 Visual Studio Code supports [Portable Mode](https://en.wikipedia.org/wiki/Portable_application). This mode enables all data created and maintained by VS Code to live near itself, so it can be moved around across environments.

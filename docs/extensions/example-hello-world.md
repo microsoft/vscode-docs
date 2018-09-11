@@ -11,7 +11,7 @@ MetaDescription: Create your first Visual Studio extension (plug-in) with a simp
 
 ## Your first extension
 
-This document will guide you through creating your first VS Code extension ("Hello World") and explain the basic VS Code extensibility concepts.
+This document will guide you through creating your first Visual Studio Code extension ("Hello World") and explain the basic VS Code extensibility concepts.
 
 In this walkthrough, you'll add a new command to VS Code which will display a simple "Hello World" message.  Later in the walkthrough, you'll interact with the VS Code editor and query for the user's currently selected text.
 

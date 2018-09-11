@@ -3,11 +3,11 @@ Order: 8
 Area: java
 TOCTitle: Extensions
 ContentId: 6076911c-276b-41a3-8510-0022c03c0ef6
-PageTitle: Java Extensions for VS Code
+PageTitle: Java Extensions for Visual Studio Code
 DateApproved: 5/30/2018
-MetaDescription: Popular Java Extensions for VS Code
+MetaDescription: Popular Java Extensions for Visual Studio Code
 ---
-# Java Extensions for VS Code
+# Java Extensions for Visual Studio Code
 
 Visual Studio Code provides many features as a Java language editor. You can also install VS Code extensions to add more features for Java development.
 

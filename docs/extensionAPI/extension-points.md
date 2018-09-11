@@ -9,7 +9,7 @@ MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares
 ---
 # Contribution Points - package.json
 
-This document covers the various contribution points that are defined in the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md).
+This document covers the various Visual Studio Code contribution points that are defined in the [`package.json` extension manifest](/docs/extensionAPI/extension-manifest.md).
 
 * [`configuration`](/docs/extensionAPI/extension-points.md#contributesconfiguration)
 * [`commands`](/docs/extensionAPI/extension-points.md#contributescommands)

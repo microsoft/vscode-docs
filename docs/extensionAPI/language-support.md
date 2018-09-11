@@ -9,8 +9,7 @@ MetaDescription: Visual Studio Code language extensions contribute new programmi
 ---
 # Language Extension Guidelines
 
-When you hear about a language being supported in VS Code, you usually think first of syntax highlighting, code completion, and if applicable,
-debugging support. This is a good start, but language extensions can do a lot more.
+When you hear about a language being supported in Visual Studio Code, you usually think first of syntax highlighting, code completion, and if applicable, debugging support. This is a good start, but language extensions can do a lot more.
 
 With just configuration files, an extension can support syntax highlighting, snippets, and smart bracket matching. For more advanced language features, you need to extend VS Code through its extensibility [API](/docs/extensionAPI/vscode-api.md) or by providing a [language server](/docs/extensions/example-language-server).
 
