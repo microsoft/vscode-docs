@@ -37,7 +37,7 @@ It was only a few short years ago that we kicked off what we then called the "Mo
 
 So we set out to answer the question, "Can we build a browser-based code editor that feels native?" Not just an experience for text editing, but source code editing.  Suggestion lists, error and warning squiggles, Go to Definition, and more.
 
-Today, we believe the answer was a resounding "Yes". The editor we built can now be found on some of the most demanding global websites – OneDrive, Visual Studio Team Services, Bing Code Search, Azure – sites used by millions of people every day. It even ships to 100s of millions of Windows desktops with the F12 tools in Internet Explorer.  And that same editor is at the heart of VS Code.
+Today, we believe the answer was a resounding "Yes". The editor we built can now be found on some of the most demanding global websites – OneDrive, Bing Code Search, Azure – sites used by millions of people every day. It even ships to 100s of millions of Windows desktops with the F12 tools in Internet Explorer.  And that same editor is at the heart of VS Code.
 
 Of course, to build the editor we needed a development tool. Developers know that one of the best ways to evolve your code quickly is to "dogfood" it: use it the same way your customers will.  It therefore made sense that we would create a local Node.js based service to serve up files and the editor in a lightweight development tool. This tool eventually made its way to the cloud as a part of Azure Websites.
 

@@ -4,7 +4,7 @@ Area: extensionapi
 TOCTitle: Contribution Points
 ContentId: 2F27A240-8E36-4CC2-973C-9A1D8069F83F
 PageTitle: Visual Studio Code Extension Contribution Points - package.json
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: To extend Visual Studio Code, your extension (plug-in) declares which of the various contribution points it is using in its package.json extension manifest file.
 ---
 # Contribution Points - package.json
@@ -25,6 +25,8 @@ This document covers the various contribution points that are defined in the [`p
 * [`views`](/docs/extensionAPI/extension-points.md#contributesviews)
 * [`problemMatchers`](/docs/extensionAPI/extension-points.md#contributesproblemmatchers)
 * [`problemPatterns`](/docs/extensionAPI/extension-points.md#contributesproblempatterns)
+* [`taskDefinitions`](/docs/extensionAPI/extension-points.md#contributestaskDefinitions)
+* [`colors`](/docs/extensionAPI/extension-points.md#contributescolors)
 
 ## contributes.configuration
 
@@ -33,6 +35,8 @@ Contribute configuration keys that will be exposed to the user. The user will be
 When contributing configuration keys, a JSON schema describing these keys is actually contributed. This ensures the user gets great tooling support when authoring VS Code settings files.
 
 You can read these values from your extension using `vscode.workspace.getConfiguration('myExtension')`.
+
+>**Note:** If you use `markdownDescription` instead of `description`, your setting description will be rendered as Markdown in the settings UI.
 
 ### Example
 
@@ -606,6 +610,64 @@ Also see: [Defining a Problem Matcher](/docs/editor/tasks.md#defining-a-problem-
 ## contributes.problemPatterns
 
 Contributes named problem patterns that can be used in problem matchers (see above).
+
+## contributes.taskDefinitions
+
+Contributes and defines an object literal structures that allows to uniquely identifiy a contributed task in the system. A task definition has at minimum a `type` property but it usually defines additional propertiies. For example a task definition for a task representing a script in a package.json file looks like this:
+
+```json
+"taskDefinitions": [
+    {
+        "type": "npm",
+        "required": [
+            "script"
+        ],
+        "properties": {
+            "script": {
+                "type": "string",
+                "description": "The script to execute"
+            },
+            "path": {
+                "type": "string",
+                "description": "The path to the package.json file. If omitted the package.json in the root of the workspace folder is used."
+            }
+        }
+    }
+]
+```
+
+The task definition is defined using JSON schema syntax for the `required` and `properties` property. The `type` property definies the task type. If the above example:
+
+* `"type": "npm"` associates the task definition with the npm tasks
+* `"required": [ "script" ]` defines that `script` attributes as mandatory. The `path` property is optional.
+* `"properties"` : { ... }` defines the additional properties and their types.
+
+When the extension actual creates a Task it needs to pass a `TaskDefinition` that conforms to the task definition contributed in the package.json file. For the `npm` example a task creation for the test script inside a package.json file looks like this:
+
+```ts
+let task = new vscode.Task({ type: 'npm', script: 'test' }, ....);
+```
+
+
+## contributes.colors
+
+Contributes new themable colors. These colors can be used by the extension in editor decorators and in the status bar. Once defined, users can customize the color in the `workspace.colorCustomization` setting and user themes can set the color value.
+
+```json
+"contributes": {
+  "colors": [{
+      "id": "superstatus.error",
+      "description": "Color for error message in the status bar.",
+      "defaults": {
+          "dark": "errorForeground",
+          "light": "errorForeground",
+          "highContrast": "#010203"
+      }
+  }]
+}
+```
+
+Color default values can be defined for light, dark and high contrast theme and can either be a reference to an existing color or a [Color Hex Value](/docs/getstarted/theme-color-reference.md#colorformats).
 
 ## contributes.typescriptServerPlugins
 

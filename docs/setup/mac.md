@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: macOS
 ContentId: EEADB50A-F5E3-41E9-89DA-35F165196691
 PageTitle: Running Visual Studio Code on macOS
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
 # Running VS Code on macOS
@@ -62,7 +62,9 @@ Once you have installed VS Code, these topics will help you learn more about VS 
 
 ## Common Questions
 
-### Mono and El Capitan:** Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
+### Mono stopped working after installing El Capitan
+
+Mono stopped working in Visual Studio Code after I installed OS X 10.11 El Capitan Public Beta. What do I do?
 
 Run these commands:
 

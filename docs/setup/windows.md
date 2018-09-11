@@ -4,7 +4,7 @@ Area: setup
 TOCTitle: Windows
 ContentId: 4670C281-5761-46E6-8C46-10D523946FFB
 PageTitle: Running Visual Studio Code on Windows
-DateApproved: 8/12/2018
+DateApproved: 9/5/2018
 MetaDescription: Get Visual Studio Code up and running on Windows
 ---
 # Running VS Code on Windows
@@ -15,7 +15,7 @@ MetaDescription: Get Visual Studio Code up and running on Windows
 2. Once it is downloaded, run the installer (VSCodeUserSetup-{version}.exe). This will only take a minute.
 3. By default, VS Code is installed under `C:\users\{username}\AppData\Local\Programs\Microsoft VS Code`.
 
-You can also find a Zip archive [here](/docs/?dv=winzip).
+Altenatively, you can also download a [Zip archive](/docs/?dv=winzip), extract it and run Code from there.
 
 >**Note:** .NET Framework 4.5.2 or higher is required for VS Code.  If you are using Windows 7, make sure you have at least [.NET Framework 4.5.2](https://www.microsoft.com/download/details.aspx?id=42643) installed.
 
@@ -23,7 +23,7 @@ You can also find a Zip archive [here](/docs/?dv=winzip).
 
 ## 32 bit versions
 
-If you need to run a 32 bit version of VS Code, both an 32 bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
+If you need to run a 32 bit version of VS Code, both a 32 bit [Installer](https://go.microsoft.com/fwlink/?LinkId=723965) and [Zip archive](https://go.microsoft.com/fwlink/?LinkID=733265) are available.
 
 ## Updates
 
