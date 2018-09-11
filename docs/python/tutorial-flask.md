@@ -367,7 +367,7 @@ In this section you create a single page using a template. In the sections that 
 
 ## Serve static files
 
-Static files are of two types. First are those files like stylesheets to which a page template can just refer to directly. Such files can live in any folder in the app, but are commonly placed within a `static` folder.
+Static files are of two types. First are those files like stylesheets to which a page template can just refer directly. Such files can live in any folder in the app, but are commonly placed within a `static` folder.
 
 The second type are those that you want to address in code, such as when you want to implement an API endpoint that returns a static file. For this purpose, the Flask object contains a built-in method, `send_static_file`, which generates a response with a static file contained within the app's `static` folder.
 
@@ -397,7 +397,7 @@ The following sections demonstrate both types of static files.
 1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
-    <span class="message">\{{ name }}</span>. It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+    <span class="message">Hello, there \{{ name }}!</span>. It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
     ```
 
 1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.
@@ -409,7 +409,7 @@ The following sections demonstrate both types of static files.
     ```json
     {
         "01": {
-            "note" : "Data is very simple because we're demonstrating only the mechanism."
+            "note" : "This data is very simple because we're demonstrating only the mechanism."
         }
     }
     ```
@@ -438,7 +438,7 @@ A base page template in Flask contains all the shared parts of a set of pages, i
 
 The following steps demonstrate creating a base template.
 
-1. In the `templates` folder, create a file named `layout.html` with the contents below, which contains blocks named "title" and "content". As you can see, the markup defines a simple nav bar structure with links to the Home, About, and Contact pages, which you create in a later section. Each link again uses Flask's `url_for` tag to generate a link at runtime for the matching route.
+1. In the `templates` folder, create a file named `layout.html` with the contents below, which contains blocks named "title" and "content". As you can see, the markup defines a simple nav bar structure with links to Home, About, and Contact pages, which you create in a later section. Each link again uses Flask's `url_for` tag to generate a link at runtime for the matching route.
 
     ```html
     <!DOCTYPE html>
@@ -574,7 +574,7 @@ With the code snippet in place, you can quickly create templates for the Home, A
 
 ### Run the app
 
-With all the page templates in place, save `app.py` and run the app to see the results. Navigate between the pages to verify that the page template are properly extending the base template.
+With all the page templates in place, save `app.py`, run the app, and open a browser to see the results. Navigate between the pages to verify that the page template are properly extending the base template.
 
 ![Flask app rendering a common nav bar from the base template](images/flask/full-app.png)
 

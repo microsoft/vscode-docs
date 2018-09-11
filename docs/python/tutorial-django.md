@@ -153,18 +153,18 @@ To create a minimal Django app, then, it's necessary to first create the Django 
     from django.shortcuts import render
     from django.http import HttpResponse
 
-    def index(request):
+    def home(request):
         return HttpResponse("Hello, Django!")
     ```
 
-1. Create a file, `hello/urls.py`, in which you specify URL patterns to route to specific pages in the app. Make the contents of the file match the following code, which maps the root of the app to the `view.index` function of `hello/views.py`:
+1. Create a file, `hello/urls.py`, in which you specify URL patterns to route to specific pages in the app. Make the contents of the file match the following code, which maps the root of the app to the `view.home` function of `hello/views.py`:
 
     ```python
     from django.urls import path
     from . import views
 
     urlpatterns = [
-        path('', views.index, name="index")
+        path('', views.home, name="home")
     ```
 
 1. To tell the Django project about the app's URLs, modify `django_project/urls.py` to match the following code (you can retain the instructive comments if you like). Here you use the `django.urls.include` function to load `hello/urls.py` into the project:
@@ -188,7 +188,7 @@ To create a minimal Django app, then, it's necessary to first create the Django 
 Although you may think this two-level URL routing scheme is somewhat tedious, the mechanism allows you to have multiple apps within the same Django project. For example, say you have apps named "storefront", "research", and "api" in the same project, which are each self-contained. Each app would have its own `urls.py` for routing within the app. In the project's `urls.py`, then, you'd route different subfolders off the base URL to each app:
 
     ```python
-    # This is an example - not used in the tutorial project
+    # EXAMPLES ONLY - not used in the tutorial project
     urlpatterns = [
         path('', include('storefront.urls')),          # Default path is to the storefront
         path('store/', include('storefront.urls')),    # Also allow <base_url>/store to reach the storefront
@@ -227,7 +227,7 @@ You may already be tiring of running `python manage.py runserver` every time you
     },
     ```
 
-    As you can see, the configuration contains `"program": "${workspaceFolder}/django_project/manage.py"` along with an `args` list that includes `runserver` and is where you can add an item for a port number, if desired. These together provide the equivalent of the command line you've been using. The `"console": "integratedTerminal"` tells VS Code to show debugging output in the Terminal. Then `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you'll see later in this tutorial.
+    As you can see, the configuration contains `"program": "${workspaceFolder}/django_project/manage.py"` along with an `args` list that includes `runserver` and is where you can add an item for a port number such as `"5000"`, if desired. These arguments together provide the equivalent of the command line you've been using. The `"console": "integratedTerminal"` tells VS Code to show debugging output in the Terminal. Then `"django": true` entry also tells VS Code to enable debugging of Django page templates, which you'll see later in this tutorial.
 
 1. Save `launch.json` (`kb(workbench.action.files.save)`). In the debug configuration drop-down list (which reads **Python: Current File**) select the **Python: Django** configuration .
 
@@ -264,7 +264,7 @@ Debugging gives you the opportunity to pause a running program on a particular l
     from datetime import datetime
     import re
 
-    def index(request):
+    def home(request):
         return HttpResponse("Hello, Django!")
 
     def hello_there(request, name):
@@ -424,7 +424,7 @@ TODO: Include hello in settings.py.
             <title>Hello, Django</title>
         </head>
         <body>
-            <strong>Hello there, \{{ name }}!</strong> It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+            <strong>Hello there, \{{ name }}!</strong> It's \{{ date }}.
         </body>
     </html>
     ```
@@ -447,11 +447,11 @@ TODO: Include hello in settings.py.
 
 ## Serve static files
 
-Static files are of two types. First are those files like stylesheets to which a page template can just refer to directly. Such files can live in any folder in the app, but are commonly placed within a `static` folder.
+Static files are pieces of content that your web app returns as-is for certain requests, such as CSS files. Serving static files requires that the `INSTALLED_APPS` list in `settings.py` contains `django.contrib.staticfiles`, which is included by default.
 
-The second type are those that you want to address in code, such as when you want to implement an API endpoint that returns a static file. For this purpose, the Flask object contains a built-in method, `send_static_file`, which generates a response with a static file contained within the app's `static` folder.
+Static files are of two types. First are those files like stylesheets to which a page template can just refer directly, which is demonstrated in the next section. Such files are placed by default in a `static` folder within the app, the name of which is defined by the `STATIC_URL` variable found in the project's `settings.py` file. You can also define a `STATICFILES_DIRS` list in `settings.py` to define additional static folders. For example, the equivalent entry in `STATICFILES_DIRS` for the default `static` folder is `os.path.join(BASE_DIR, "static")`.
 
-The following sections demonstrate both types of static files.
+The second type are those files that you want to address in code, such as when you want to implement an API endpoint that returns a static file. The considerations for serving such files in Django production environments is beyond the scope of this tutorial. For more information, see [Managing static files](https://docs.djangoproject.com/en/2.1/howto/static-files/) in the Django documentation.
 
 ### Refer to static files in a template
 
@@ -466,43 +466,20 @@ The following sections demonstrate both types of static files.
     }
     ```
 
-1. In `templates/hello/hello_there.html`, add the following line before the `</head>` tag, which creates a reference to the stylesheet.
+1. In `templates/hello/hello_there.html`, add the following lines before the `</head>` tag. The `{% load staticfiles %}` tag is a custom Django template tag set, which allows you to use `{% static %}` to refer to a file like the stylesheet.
 
     ```html
-    <link rel="stylesheet" type="text/css" href="\{{ url_for('static', filename='site.css')}}" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
     ```
-
-    Flask's [`url_for` tag](http://flask.pocoo.org/docs/0.12/api/#flask.url_for) that's used here creates the appropriate path to the file. Because it can accept variables as arguments, `url_for` allows you to programmatically control the generated path, if desired.
 
 1. Also in `templates/hello_there.html`, replace the contents `<body>` element with the following markup that uses the `message` style instead of a `<strong>` tag:
 
     ```html
-    <span class="message">\{{ name }}</span>. It's \{{ date.strftime("%A, %d %B, %Y at %X") }}.
+    <span class="message">Hello, there \{{ name }}!</span> It's \{{ date }}.
     ```
 
 1. Run the app, navigate to a /hello/name URL, and observe that the message renders in blue. Stop the app when you're done.
-
-### Serve a static file from code
-
-1. In the `static` folder, create a JSON data file named `data.json` with the following contents (which are just meaningless sample data):
-
-    ```json
-    {
-        "01": {
-            "note" : "Data is very simple because we're demonstrating only the mechanism."
-        }
-    }
-    ```
-
-1. In `app.py`, add a function with the route /api/data that returns the static data file using the `send_static_file` method:
-
-    ```python
-    @app.route("/api/data")
-    def get_data():
-        return app.send_static_file("data.json")
-    ```
-
-1. Run the app and navigate to the /api/data endpoint to see that the static file is returned. Stop the app when you're done.
 
 ## Create multiple templates that extend a base template
 
@@ -514,11 +491,11 @@ The following sections walk through different parts of this process.
 
 ### Create a base page template and styles
 
-A base page template in Flask contains all the shared parts of a set of pages, including references to CSS files, script files, and so forth. Base templates also define one or more **block** tags that other templates that extend the base are expected to override. A block tag is delineated by `{% block <name> %}` and `{% endblock %}` in both the base template and extended templates.
+A base page template in Django contains all the shared parts of a set of pages, including references to CSS files, script files, and so forth. Base templates also define one or more **block** tags that other templates that extend the base are expected to override. A block tag is delineated by `{% block <name> %}` and `{% endblock %}` in both the base template and extended templates.
 
 The following steps demonstrate creating a base template.
 
-1. In the `templates` folder, create a file named `layout.html` with the contents below, which contains blocks named "title" and "content". As you can see, the markup defines a simple nav bar structure with links to the Home, About, and Contact pages, which you create in a later section. Each link again uses Flask's `url_for` tag to generate a link at runtime for the matching route.
+1. In the `templates/hello` folder, create a file named `layout.html` with the contents below, which contains blocks named "title" and "content". As you can see, the markup defines a simple nav bar structure with links to Home, About, and Contact pages, which you create in a later section. Notice the use of Django's `{% url %}` tag to refer to other pages through the names of the corresponding URL patterns rather than by relative path.
 
     ```html
     <!DOCTYPE html>
@@ -526,14 +503,15 @@ The following steps demonstrate creating a base template.
         <head>
             <meta charset="utf-8" />
             <title>{% block title %}{% endblock %}</title>
-            <link rel="stylesheet" type="text/css" href="\{{ url_for('static', filename='site.css')}}" />
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
         </head>
 
         <body>
             <div class="navbar">
-                <a href="\{{ url_for('home') }}" class="navbar-brand">Home</a>
-                <a href="\{{ url_for('about') }}" class="navbar-item">About</a>
-                <a href="\{{ url_for('contact') }}" class="navbar-item">Contact</a>
+                <a href="{% url 'home' %}" class="navbar-brand">Home</a>
+                <a href="{% url 'about' %}" class="navbar-item">About</a>
+                <a href="{% url 'contact' %}" class="navbar-item">Contact</a>
             </div>
 
             <div class="body-content">
@@ -594,8 +572,8 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
     ```json
     {
-        "Flask App: template extending layout.html": {
-            "prefix": "flextlayout",
+        "Django App: template extending layout.html": {
+            "prefix": "djextlayout",
             "body": [
                 "{% extends \"layout.html\" %}",
                 "{% block title %}",
@@ -612,7 +590,7 @@ Because the three pages you create in the next section extend `layout.html`, it 
 
 1. Save the `html.json` file (`kb(workbench.action.files.save)`).
 
-1. Now, whenever you start typing the snippet's prefix, such as `flext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
+1. Now, whenever you start typing the snippet's prefix, such as `djext`, VS Code provides the snippet as an autocomplete option, as shown in the next section. You can also use the **Insert Snippet** command to choose a snippet from a menu.
 
 For more information on code snippets in general, refer to [Creating snippets](/docs/editor/userdefinedsnippets.md).
 
@@ -620,43 +598,258 @@ For more information on code snippets in general, refer to [Creating snippets](/
 
 With the code snippet in place, you can quickly create templates for the Home, About, and Contact pages.
 
-1. In the `templates` folder, create a new file named `home.html`, Then start typing `flext` to see the snippet appear as a completion:
+1. In the `templates/app` folder, create a new file named `home.html`, Then start typing `djext` to see the snippet appear as a completion:
 
-    ![Autocompletion for the flextlayout code snippet](images/django/autocomplete-for-code-snippet.png)
+    ![Autocompletion for the djextlayout code snippet](images/django/autocomplete-for-code-snippet.png)
 
     When you select the completion, the snippet's code appears with the cursor on the snippet's insertion point:
 
-    ![Insertion of the flextlayout code snippet](images/django/code-snippet-inserted.png)
+    ![Insertion of the djextlayout code snippet](images/django/code-snippet-inserted.png)
 
-1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the Visual Studio Code Flask tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
+1. At the insertion point in the "title" block, write `Home`, and in the "content" block, write `<p>Home page for the Visual Studio Code Django tutorial.</p>`, then save the file. These lines are the only unique parts of the extended page template:
 
-1. In the `templates` folder, create `about.html`, use the snippet to insert the boilerplate markup, insert `About us` and `<p>About page for the Visual Studio Code Flask tutorial.</p>` in the "title" and "content" blocks, respectively, then save the file.
+1. In the `templates` folder, create `about.html`, use the snippet to insert the boilerplate markup, insert `About us` and `<p>About page for the Visual Studio Code Django tutorial.</p>` in the "title" and "content" blocks, respectively, then save the file.
 
-1. Repeat the previous step to create `templates/contact.html` using `Contact us` and `<p>Contact page for the Visual Studio Code Flask tutorial.</p>` in the two content blocks.
+1. Repeat the previous step to create `templates/contact.html` using `Contact us` and `<p>Contact page for the Visual Studio Code Django tutorial.</p>` in the two content blocks.
 
-1. In `app.py`, add functions for the /about and /contact routes that refer to their respective page templates. Also modify the `home` function to use the `home.html` template.
+1. in `urls.py`, add routes for the /about and /contact pages. Be mindful that the `name` argument to the `path` function defines the name with which you refer to the page in the `{% url %}` tags in the templates.
+
+    ```python
+    path('about/', views.about, name="about"),
+    path('contact/', views.contact, name="contact"),
+    ```
+
+1. In `views.py`, add functions for the /about and /contact routes that refer to their respective page templates. Also modify the `home` function to use the `home.html` template.
 
     ```python
     # Replace the existing home function with the one below
-    @app.route("/")
-    def home():
-        return render_template("home.html")
+    def home(request):
+        return render(request, 'app/home.html')
 
-    # New functions
-    @app.route("/about")
-    def about():
-        return render_template("about.html")
+    def about(request):
+        return render(request, 'app/about.html')
 
-    @app.route("/contact")
-    def contact():
-        return render_template("contact.html")
+    def contact(request):
+        return render(request, 'app/contact.html')
     ```
 
 ### Run the app
 
-With all the page templates in place, save `app.py` and run the app to see the results. Navigate between the pages to verify that the page template are properly extending the base template.
+With all the page templates in place, save `views.py`, run the app, and open a browser to the home page to see the results. Navigate between the pages to verify that the page template are properly extending the base template.
 
-![Flask app rendering a common nav bar from the base template](images/django/full-app.png)
+![Django app rendering a common nav bar from the base template](images/django/full-app.png)
+
+## Work with data, data models, and migrations
+
+Many web apps work with information stored in a database, and Django makes it easy to represent the objects in that database using *models*. In Django, a model is a Python class, derived from `django.db.models.Model`, that represents a specific database object, typically a table.
+
+By default, Django includes a `db.sqlite3` file for an app's database that's suitable for development work. As described on [When to use SQLite](https://www.sqlite.org/whentouse.html) (sqlite.org), SQLite works fine for low to medium traffic sites with fewer than 100K hits/day, but is not recommended for higher production volumes. It's also limited to a single computer, so it cannot be used in any multi-server scenario such as load-balancing and geo-replication. For these reasons, consider using a production-level data store such as PostgreSQL, MySQL, and SQL Server. For information on Django's support for other databases, see [Database setup](https://docs.djangoproject.com/en/2.1/intro/tutorial02/#database-setup). You can also use the [Azure SDK for Python](azure-sdk-for-python.md) to work with Azure storage services like tables and blobs.
+
+With Django, your work with your database almost exclusively through the models you define in code. Django's "migrations" then handle all the details of the underlying database automatically as you evolve the models over time. The only exception is that you might seed or initialize your database using the Django administrative utility [loaddata command](https://docs.djangoproject.com/en/2.1/ref/django-admin/#loaddata). When using the `db.sqlite3` file, you can also confirm exactly what's stored in the database using a tool like the [SQLite browser](http://sqlitebrowser.org/), but avoid making changes to the database using such a tool as those changes won't align with the state of your models.
+
+### Define models
+
+A Django model is again a Python class derived from `django.db.model.Models`, which you place in the app's `models.py` file. Each model is automatically given a unique ID field in the database named `id`. All other fields are defined as properties of the class using types from `django.db.models` such as `CharField` (limited text), `TextField` (unlimited text), `EmailField`, `URLField`, `IntegerField`, `DecimalField`, `BooleanField`. `DateTimeField`, `ForeignKey`, and `ManyToMany`, among others. (See the [Model field reference](https://docs.djangoproject.com/en/2.1/ref/models/fields/) in the Django documentation for details.)
+
+Each field takes some attributes, like `max_length`. The `blank=True` attribute means the field is optional; `null=true` means that a value is optional. There is also a `choices` attribute that limits values to values in an array of data value/display value tuples.
+
+For example, the following class in `models.py`, then, defines a data model to represent dated entries in a simple message log:
+
+```python
+from django.db import models
+
+class LogMessage(models.Model):
+    message = models.CharField(max_length=300)
+    log_date = models.DateTimeField('date logged')
+
+    def __unicode__(self):
+        """Returns a string representation of a message."""
+        return "'" + self.text + "' logged on " + log_date.strftime('%A, %d %B, %Y at %X')
+```
+
+A model class can include methods that return values computed from other class properties. Models typically include a `__unicode__` method that returns a string representation of the instance.
+
+## Initialize and migrate the database
+
+Now that you have your first model, make sure you have an Terminal with your virtual environment activated (use the **Python: Create Terminal** command in VS Code), then navigate into the project folder and run the following commands:
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+These commands first generate "migration" scripts (`makemigrations`) in your `migrations` folder, then run those scripts to apply the changes (`migrate`). The migration scripts record all the changes you make to your data models over time, which makes it easy to keep your any underlying database up to date with your models. The general workflow is as follows:
+
+1. Make changes to the models in your *models.py* file.
+1. Run `python manage.py makemigrations` to generates scripts that to migrate the database from its current state to the new state.
+1. Run `python manage.py migrate` to apply the scripts to the actual database.
+
+Because Django creates migrations scripts for each change, it can apply those scripts to any previous version of the database, including a new, uninitialized one. You use migrations to update a previously deployed database with your latest changes, as well as any time you or another developer need to initialize a new database from scratch. Simply said, Django takes care of the details: all you need to do is express your data models in `models.py`!
+
+### Use the database through the models
+
+With the database ready to receive and manage data, you can write code that saves and retrieves data using only your models. In this section, you add a simple form to the app to log a message, then display the logged messages on the home page. The process involves adding a new page, modifying the home page template, and updating various code files, so be mindful of the details.
+
+1. In the `hello` folder (where you have `views.py`), create a new file named `forms.py` with the following code, which defines a Django form that contains field drawn from the data model, `LogMessage`:
+
+    ```python
+    from django import forms
+    from .models import LogMessage
+
+    class LogMessageForm(forms.ModelForm):
+        class Meta:
+            model = LogMessage
+            fields = ('message',)   # NOTE: the trailing comma is required
+    ```
+
+1. In the `templates/hello` folder, create a new template named `log_message.html` with the following contents, which assumes that the template is given a variable named `form` to define the body of the form. It then adds a submit button with the label "Log":
+
+    ```html
+    {% extends "hello/layout.html" %}
+    {% block title %}
+    Log a message
+    {% endblock %}
+    {% block content %}
+    <form method="POST" class="log-form">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Log</button>
+        </form>
+    {% endblock %}
+    ```
+
+1. In the app's `static/site.css` file, add a rule to make the input form wider:
+
+    ```css
+    input[name=message] {
+        width: 80%;
+    }
+    ```
+
+1. In the app's `urls.py` file, add a route for the new page:
+
+    ```python
+    path('log/', views.log_message, name="log"),
+    ```
+
+1. In `views.py`, define the view named `log_message` (as referred to by the URL route). This view handles both HTTP GET and POST cases. In the GET case (the `else:` section), it just displays the form that you defined in the previous steps. In the POST case, it retrieves the data from the form into a data object (`message`), sets the timestamp, then saves that object at which point it's written to the database:
+
+    ```python
+    # At the top of the file:
+    from .forms import LogMessageForm
+    from .models import LogMessage
+
+    # Elsewhere in the file:
+    def log_message(request):
+        if request.method == "POST":
+            form = LogMessageForm(request.POST)
+
+            if form.is_valid():
+                message = form.save(commit=False)
+                message.log_date = datetime.now()
+                message.save()
+                return redirect('home')
+        else:
+            form = LogMessageForm()
+            return render(request, 'hello/log_message.html', {'form': form})
+    ```
+
+1. One more step, then you can run the code! In `templates/hello/layout.html`, add a link in the "navbar" div for the message logging page:
+
+    ```html
+    <!-- Insert below the link to Home -->
+    <a href="{% url 'log' %}" class="navbar-item">Log Message</a>
+    ```
+
+1. Run the app and open a browser to the home page. Select the **Log Message** link on the nav bar, which should display the message logging page:
+
+    ![The message logging page added to the app](images/django/message-logging-page.png)
+
+1. Enter a message, select **Log**, and you should be taken back to the home page. The home page doesn't yet show any of the logged messages yet (which you remedy in a moment). Feel free to log a few more messages as well. If you want, you can also take a peek in the database using a tool like SQLite Browser to see that a record has been created in the database. Just be sure to close the database in that tool before using the app, otherwise the app will fail because the database is locked.
+
+1. In the next series of changes, you modify the home page to display the logged messages. First, replace the contents of app's `templates/hello/home.html` file with the following markup. This template expects a context variable names `message_list`. If it receives one (checked with the `{% if message_list %}` tag), then it iterates over that list (the `{% for message in messsage_list %}` tag) to generate table rows for each message. Otherwise the page indicates that no messages have yet been logged.
+
+    ```html
+    {% extends "hello/layout.html" %}
+    {% block title %}
+    Home
+    {% endblock %}
+    {% block content %}
+    <h2>Logged messages</h2>
+
+    {% if message_list %}
+    <table class="message_list">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for message in message_list %}
+            <tr>
+                <td>{{ message.log_date | date:'d M Y' }}</td>
+                <td>{{ message.log_date | date:'H:i:s' }}</td>
+                <td>
+                    {{ message.message }}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No messages have been logged. Use the <a href="{% url 'log' %}">Log Message form</a>.</p>
+    {% endif %}
+    {% endblock %}
+    ```
+
+1. In `static/site.css`, add a rule to format the table a little:
+
+    ```css
+    .message_list th,td {
+        text-align: left;
+        padding-right: 15px;
+    }
+    ```
+
+1. In `views.py`, import Django's generic `ListView` class, which we'll use to implement the home page:
+
+    ```python
+    from django.views.generic import ListView
+    ```
+
+1. Also in `views.py`, replace the `home` function iwith a *class* named `HomeListView`, derived from `ListView`, which ties itself to the `LogMessage` model and implements a function `get_context_data` to generate the context for the template.
+
+    ```python
+    class HomeListView(ListView):
+        """Renders the home page, with a list of all polls."""
+        model = LogMessage
+
+        def get_context_data(self, **kwargs):
+            context = super(HomeListView, self).get_context_data(**kwargs)
+            return context
+    ```
+
+1. In `urls.py`, import the data model:
+
+    ```python
+    from .models import LogMessage
+    ```
+
+1. Then replace the path for the home page with the following code, which retrieves the five most recent `LogMessage` objects  in descending order (meaning that it queries the database), and then identifies the variable name for the data in the template context along with the template path:
+
+    ```python
+        path('',
+            views.HomeListView.as_view(
+                queryset=LogMessage.objects.order_by('-log_date')[:5],  # :5 limits the results to the five most recent
+                context_object_name='message_list',
+                template_name='hello/home.html',),
+            name="home"),
+    ```
+
+1. Start the app and open a browser to the home page, which should now display messages:
+
+    ![App home page displaying message from the database](images/django/app-with-message-list.png)
 
 ## Optional activities
 
@@ -676,99 +869,15 @@ Although you can create the file by hand, you can also use the `pip freeze` comm
 
 Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to recreate the environment.
 
-### Refactor the project to support further development
-
-Throughout this tutorial, all the app code is contained in a single `app.py` file. To allow for further development and to separate concerns, it's helpful to refactor the pieces of `app.py` into separate files.
-
-1. In your project folder, create an folder for the app, such as `hello_app`, to separate its files from other project-level files like `requirements.txt` and the `.vscode` folder where VS Code stores settings and debug configuration files.
-
-1. Move the `static` and `templates` folders into `hello_app`, because these folders certainly contain app code.
-
-1. In the `hello_app` folder, create a file named `views.py` that contains the routings and the view functions:
-
-    ```python
-    from flask import Flask
-    from flask import render_template
-    from datetime import datetime
-    from . import app
-
-    @app.route("/")
-    def home():
-        return render_template("home.html")
-
-    @app.route("/about")
-    def about():
-        return render_template("about.html")
-
-    @app.route("/contact")
-    def contact():
-        return render_template("contact.html")
-
-    @app.route("/hello/<name>")
-    def hello_there(name):
-        return render_template(
-            "hello_there.html",
-            name=name,
-            date=datetime.now()
-        )
-
-    @app.route("/api/data")
-    def get_data():
-        return app.send_static_file("data.json")
-    ```
-
-1. Optional: Right-click in the editor and select the **Sort Imports** command, which consolidates imports from identical modules, removes unused imports, and sorts your import statements. Using the command on the code above in `views.py` changes the imports as follows (you can remove the extra lines, of course):
-
-    ```python
-    from datetime import datetime
-
-    from flask import Flask, render_template
-
-    from . import app
-    ```
-
-1. In the `hello_app` folder, create a file `__init__.py` with the following contents:
-
-    ```python
-    import flask
-    app = flask.Flask(__name__)
-    ```
-
-1. In the `hello_app` folder, create a file `webapp.py` with the following contents:
-
-    ```python
-    """Entry point for the application."""
-    from . import app    # For application discovery by the 'flask' command.
-    from . import views  # For import side-effects of setting up routes.
-    ```
-
-1. Open the debug configuration file `launch.json` and update the `env` property as follows to point to the startup object:
-
-    ```json
-    "env": {
-        "FLASK_APP": "hello_app.webapp"
-    },
-    ```
-
-1. Delete the original `app.py` file in the project root, as its contents have been moved into other app files.
-
-1. Your project's structure should now be similar to the following:
-
-    ![Modified project structure with separate files and folders for parts of the app](images/django/project-structure.png)
-
-1. Run the app in the debugger again to make sure everything works. To run the app outside of the VS Code debugger, use the following steps:
-    a. Set an environment variable for `FLASK_APP`. On Linux and MacOS, use `export set FLASK_APP=webapp`; on Windows use `set FLASK_APP=webapp`.
-    b. In the `hello_app` folder, launch the program using `python3 -m flask run` (Linux/MacOS) or `python -m flask run` (Windows).
-
-If you have any problems, feel free to file an issue for thus tutorial in the [VS Code docs repo](https://github.com/Microsoft/vscode-docs/issues).
+### Create an administrative interface
 
 ## Next steps
 
 Congratulations on completing this walkthrough of working with Flask in Visual Studio code!
 
-The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-flask-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
+The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial).
 
-Because this tutorial has only scratched the surface of page templates, refer to the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/) for more information about templates. The [Template Designer Documentation](http://jinja.pocoo.org/docs/2.10/templates/#synopsis) contains all the details on the template language.
+TODO: Django links
 
 You may also want to review the following articles in the VS Code docs that are relevant to Python:
 
