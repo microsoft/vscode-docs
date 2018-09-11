@@ -14,7 +14,7 @@ MetaSocialImage: images/tutorial/social.png
 
 In this tutorial you create a simple Django app with three pages that use a common base template. You create this app in the context of Visual Studio Code in order to understand how to work with Django in the VS Code terminal, editor, and debugger. Thus tutorial does not explore various details about Django itself, such as working with data models and  creating an administrative interface. For guidance on those aspects, refer to the [Django documentation](https://docs.djangoproject.com/en/2.1/intro/tutorial01/).
 
-The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-flask-tutorial).
+The completed code project from this tutorial can be found on GitHub: [python-sample-vscode-django-tutorial](https://github.com/Microsoft/python-sample-vscode-django-tutorial).
 
 ## Prerequisites
 
@@ -867,7 +867,7 @@ Although you can create the file by hand, you can also use the `pip freeze` comm
 
 1. In the terminal, run `pip freeze > requirements.txt` to create the `requirements.txt` file in your project folder.
 
-Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to recreate the environment.
+Anyone (or any build server) that receives a copy of the project needs only to run the `pip install -r requirements.txt` command to reinstall the packages in the original the environment. (The recipient still needs to create their own virtual environment, however.)
 
 ### Create a super user and enable the administrative interface
 
