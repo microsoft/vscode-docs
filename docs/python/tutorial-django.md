@@ -347,8 +347,6 @@ A template is an HTML file that contains placeholders for values that the code p
 
 In this section you create a single page using a template. In the sections that follow, you configure the app to serve static files, and then create multiple pages to the app that each contain a nav bar from a base template.
 
-TODO: Include hello in settings.py.
-
 1. In the project's `web_project/settings.py` file, locate the `INSTALLED_APPS` list and add the following entry, which makes sure the project knows about the app so it can handle templating:
 
     ```python
