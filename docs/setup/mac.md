@@ -7,7 +7,7 @@ PageTitle: Running Visual Studio Code on macOS
 DateApproved: 9/5/2018
 MetaDescription: Get Visual Studio Code up and running on Mac (macOS).
 ---
-# Running Visual Studio Code on macOS
+# Visual Studio Code on macOS
 
 ## Installation
 
