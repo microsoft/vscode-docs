@@ -300,7 +300,7 @@ The **gulp: default** task runs in the background and watches for file changes t
 
 Read on to find out about:
 
-* [CSS, Less and Sass](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, Less and Sass editing.
+* [CSS, SCSS, and Less](/docs/languages/css.md) - Want to edit your CSS? VS Code has great support for CSS, SCSS, and Less editing.
 
 ## Common Questions
 

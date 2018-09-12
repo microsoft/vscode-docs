@@ -152,7 +152,7 @@ Install an extension to add more functionality. Go to the **Extensions** view (`
 
 Read on to find out about:
 
-* [CSS, Less and Sass](/docs/languages/css.md) - VS Code has first class support for CSS including Less and Sass.
+* [CSS, SCSS, and Less](/docs/languages/css.md) - VS Code has first class support for CSS including Less and SCSS.
 * [Emmet](/docs/editor/emmet.md) - Learn about VS Code's powerful built-in Emmet support.
 
 ## Common Questions

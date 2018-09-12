@@ -35,7 +35,7 @@ Customize every feature to your liking and install any number of third-party ext
 
 ## Built with love for the Web
 
-VS Code includes enriched built-in support for Node.js development with JavaScript and TypeScript, powered by the same underlying technologies that drive Visual Studio. VS Code also includes great tooling for web technologies such as JSX/React, HTML, CSS, Less, Sass, and JSON.
+VS Code includes enriched built-in support for Node.js development with JavaScript and TypeScript, powered by the same underlying technologies that drive Visual Studio. VS Code also includes great tooling for web technologies such as JSX/React, HTML, CSS, SCSS, Less, and JSON.
 
 ## Robust and extensible architecture
 

@@ -360,7 +360,7 @@ Below are Emmet [settings](/docs/getstarted/settings.md) that you can use to cus
 Emmet is just one of the great web developer features in VS Code.  Read on to find out about:
 
 * [HTML](/docs/languages/html.md) - VS Code supports HTML with IntelliSense, closing tags, and formatting.
-* [CSS](/docs/languages/css.md) - We offer rich support for CSS, Sass and Less.
+* [CSS](/docs/languages/css.md) - We offer rich support for CSS, SCSS and Less.
 
 ## Common Questions
 
