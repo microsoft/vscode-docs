@@ -325,4 +325,4 @@ Yes, color picker has been added in version 1.15.
 
 ### Is there support for the indentation based Sass syntax (.sass)?
 
-No, but there are several extensions in the Marketplace supporting the indented flavor of Sass.
+No, but there are several extensions in the Marketplace supporting the indented flavor of Sass, for example, the [sass-indented](https://marketplace.visualstudio.com/items?itemName=robinbentley.sass-indented) extension by Robin Bentley.
