@@ -1,5 +1,5 @@
 ---
-Order:
+Order: 43
 TOCTitle: Using Azure Pipelines
 PageTitle: Improved Engineering with Azure Pipelines
 MetaDescription: Improved Engineering with Azure Pipelines
