@@ -3,7 +3,7 @@ Order: 43
 TOCTitle: Using Azure Pipelines
 PageTitle: Improved Engineering with Azure Pipelines
 MetaDescription: Improved Engineering with Azure Pipelines
-MetaSocialImage: /assets/blogs/2018/09/12/github_pr_hero.png
+MetaSocialImage: /assets/blogs/2018/09/12/social_pipelines.png
 Date: 2018-09-12
 ShortDescription: Improved Engineering with Azure Pipelines
 Author: João Moreno
