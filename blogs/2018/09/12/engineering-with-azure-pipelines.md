@@ -1,14 +1,14 @@
 ---
 Order: 43
 TOCTitle: Using Azure Pipelines
-PageTitle: Improved Engineering with Azure Pipelines
-MetaDescription: Improved Engineering with Azure Pipelines
+PageTitle: Visual Studio Code using Azure Pipelines
+MetaDescription: Visual Studio Code using Azure Pipelines
 MetaSocialImage: /assets/blogs/2018/09/12/social_pipelines.png
 Date: 2018-09-12
 ShortDescription: Improved Engineering with Azure Pipelines
 Author: João Moreno
 ---
-# Improved Engineering with Azure Pipelines
+# Visual Studio Code using Azure Pipelines
 
 September 12, 2018 João Moreno, [@joaomoreno](https://twitter.com/joaomoreno)
 
