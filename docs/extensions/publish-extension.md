@@ -54,7 +54,7 @@ Visual Studio Code leverages [Azure DevOps Services](https://azure.microsoft.com
 
 ### Get a Personal Access Token
 
-First, make sure you have a Azure DevOps Services [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
+First, make sure you have an Azure DevOps Services [organization](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student).
 
 In the following examples, the organization's name is `monacotools`. From your organization's home page (for example: `https://dev.azure.com/monacotools`), go to the **Security** page:
 
